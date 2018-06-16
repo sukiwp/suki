@@ -1,0 +1,84 @@
+@import "../variables";
+@import "../mixins";
+
+// -------------------------------------------------------------
+// Infinite scroll
+// -------------------------------------------------------------
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+#infinite-handle {
+	width: 100%;
+	text-align: center;
+
+	span {
+		display: inline-block;
+		width: 100%;
+		padding: 0.8em 1.2em;
+		background-color: transparent;
+		color: inherit;
+
+		button {
+			font-size: inherit;
+			font-style: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+			letter-spacing: inherit;
+			text-transform: inherit;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Jetpack widgets
+// -------------------------------------------------------------
+
+.widget_authors {
+	img {
+		border-radius: 50%;
+		margin-right: 0.5em;
+		margin-bottom: 0;
+	}
+
+	ul {
+		position: relative;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	> ul > li > a {
+		display: inline-block;
+		margin-bottom: 0.5em;
+	}
+
+	ul li li {
+		position: relative;
+		margin-top: 0.25em;
+	}
+}
+
+.widget-gallery {
+	.tiled-gallery {
+		margin-bottom: 0;
+	}
+
+	.slideshow-window {
+		border: none;
+		background-color: transparent;
+		margin-bottom: 0;
+	}
+
+	.slideshow-controls {
+		bottom: 0;
+	}
+}

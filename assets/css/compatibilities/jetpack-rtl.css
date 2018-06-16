@@ -1,0 +1,72 @@
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+#infinite-handle {
+	width: 100%;
+	text-align: center;
+}
+
+#infinite-handle span {
+	display: inline-block;
+	width: 100%;
+	padding: 0.8em 1.2em;
+	background-color: transparent;
+	color: inherit;
+}
+
+#infinite-handle span button {
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+}
+
+.widget_authors img {
+	border-radius: 50%;
+	margin-left: 0.5em;
+	margin-bottom: 0;
+}
+
+.widget_authors ul {
+	position: relative;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.widget_authors > ul > li > a {
+	display: inline-block;
+	margin-bottom: 0.5em;
+}
+
+.widget_authors ul li li {
+	position: relative;
+	margin-top: 0.25em;
+}
+
+.widget-gallery .tiled-gallery {
+	margin-bottom: 0;
+}
+
+.widget-gallery .slideshow-window {
+	border: none;
+	background-color: transparent;
+	margin-bottom: 0;
+}
+
+.widget-gallery .slideshow-controls {
+	bottom: 0;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBhdGliaWxpdGllcy9qZXRwYWNrLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSw0RUFBNEU7QUFDNUU7O0NBRUMsMENBQTBDO0NBQzFDLGNBQWM7Q0FDZDs7QUFFRCx5SEFBeUg7QUFDekg7Q0FDQyxlQUFlO0NBQ2Y7O0FBRUQ7Q0FDQyxZQUFZO0NBQ1osbUJBQW1CO0NBQ25COztBQUVEO0NBQ0Msc0JBQXNCO0NBQ3RCLFlBQVk7Q0FDWixxQkFBcUI7Q0FDckIsOEJBQThCO0NBQzlCLGVBQWU7Q0FDZjs7QUFFRDtDQUNDLG1CQUFtQjtDQUNuQixvQkFBb0I7Q0FDcEIscUJBQXFCO0NBQ3JCLHFCQUFxQjtDQUNyQix3QkFBd0I7Q0FDeEIsd0JBQXdCO0NBQ3hCOztBQUVEO0NBQ0MsbUJBQW1CO0NBQ25CLG1CQUFvQjtDQUNwQixpQkFBaUI7Q0FDakI7O0FBRUQ7Q0FDQyxtQkFBbUI7Q0FDbkIsaUJBQWlCO0NBQ2pCLFdBQVc7Q0FDWCxVQUFVO0NBQ1Y7O0FBRUQ7Q0FDQyxzQkFBc0I7Q0FDdEIscUJBQXFCO0NBQ3JCOztBQUVEO0NBQ0MsbUJBQW1CO0NBQ25CLG1CQUFtQjtDQUNuQjs7QUFFRDtDQUNDLGlCQUFpQjtDQUNqQjs7QUFFRDtDQUNDLGFBQWE7Q0FDYiw4QkFBOEI7Q0FDOUIsaUJBQWlCO0NBQ2pCOztBQUVEO0NBQ0MsVUFBVTtDQUNWIiwiZmlsZSI6InRvLmNzcyJ9 */

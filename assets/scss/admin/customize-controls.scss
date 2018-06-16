@@ -1,0 +1,926 @@
+@import "../variables";
+@import "../mixins";
+
+// -------------------------------------------------------------
+// Basic customize control
+// -------------------------------------------------------------
+
+.customize-control {
+	position: relative;
+
+	select {
+		margin: 0;
+		line-height: 18px;
+	}
+}
+
+.description .dashicons {
+	width: auto;
+	height: auto;
+	font-size: 1em;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.button {
+	font-style: normal;
+
+	.dashicons {
+		width: auto;
+		height: auto;
+		margin-top: -0.1em;
+		font-size: 1.2em;
+		line-height: 1;
+		vertical-align: middle;
+	}
+}
+
+#customize-theme-controls .accordion-section-title,
+#customize-outer-theme-controls .accordion-section-title {
+	border-top: 1px solid #ddd;
+	margin-top: -1px;
+}
+
+#customize-controls .customize-control-notifications-container:empty {
+	display: none;
+}
+
+#customize-preview {
+	margin-top: 0;
+}
+
+// -------------------------------------------------------------
+// Common classes
+// -------------------------------------------------------------
+
+.suki-row {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.suki-row-item {
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.suki-small-label {
+	font-size: 9px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1;
+	text-transform: uppercase;
+	opacity: 0.75;
+}
+
+.suki-unit {
+	appearance: none;
+	padding: 0;
+	text-align: center;
+	text-align-last: center;
+}
+
+.suki-pro-link {
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	display: inline-block;
+	padding: 0 4px;
+	margin-top: -9px;
+	color: #fff;
+	background-color: #d54e21;
+	font-size: 10px;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+.suki-heading {
+	position: relative;
+	margin: 0 -12px;
+	padding: 10px 12px;
+	background-color: rgba(0,0,0,0.1);
+	color: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
+	outline: 0;
+	@include transition();
+}
+
+// -------------------------------------------------------------
+// Responsive Control Handler
+// -------------------------------------------------------------
+
+.suki-responsive-title {
+	.suki-responsive-switcher {
+		margin-left: 0.5em;
+
+		.suki-responsive-switcher-button {
+			cursor: pointer;
+			outline: 0;
+			opacity: 0.6;
+			display: none;
+
+			&.active {
+				display: inline-block;
+			}
+
+			.dashicons {
+				font-size: 14px;
+				width: auto;
+				height: auto;
+				line-height: 1;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+.suki-responsive-fieldset {
+	display: none;
+
+	&.active {
+		display: block;
+
+		&.suki-row {
+			display: table;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Spacer Section
+// -------------------------------------------------------------
+
+.control-section-suki-section-spacer {
+	margin-top: 15px;
+}
+
+// -------------------------------------------------------------
+// Pro Section
+// -------------------------------------------------------------
+
+.control-section-suki-section-pro {
+	a {
+		position: relative;
+		display: block;
+		text-decoration: none;
+		outline: 0;
+		box-shadow: none !important;
+		opacity: 0.5;
+		@include transition( opacity );
+
+		.accordion-section-title {
+			padding-right: 50px;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Pro Control
+// -------------------------------------------------------------
+
+.customize-control-suki-pro {
+	margin: 20px 0 12px;
+
+	a {
+		position: relative;
+		display: block;
+		text-decoration: none;
+		outline: 0;
+		box-shadow: none !important;
+		opacity: 0.5;
+		@include transition( opacity );
+		color: inherit;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+
+	.description {
+		margin-top: 12px;
+	}
+
+	& + .customize-control-suki-pro {
+		margin-top: 0;
+	}
+}
+
+// -------------------------------------------------------------
+// Heading Control
+// -------------------------------------------------------------
+
+.customize-control-suki-heading {
+	margin: 20px 0 12px;
+
+	.description {
+		margin-top: 12px;
+	}
+
+	.tabindex:focus + h4 {
+		background-color: #0073aa;
+		color: #fff;
+	}
+
+	.customize-section-description-container + & {
+		margin-top: 0;
+	}
+}
+
+// -------------------------------------------------------------
+// Toggle Control
+// -------------------------------------------------------------
+
+.customize-control-suki-toggle {
+	.customize-control-title {
+		padding-right: 40px;
+	}
+
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	.suki-toggle-ui {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: inline-block;
+		width: 35px;
+		height: 20px;
+		margin: 2px 0 0;
+		border-radius: 10px;
+		background-color: #ccc;
+
+		.suki-toggle-ui-handle {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 2px;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			border-radius: 8px;
+			background-color: #fff;
+			@include transition();
+		}
+	}
+
+	input[type="checkbox"]:checked ~ .suki-toggle-ui {
+		background-color: #0073aa;
+
+		.suki-toggle-ui-handle {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Color Control
+// -------------------------------------------------------------
+
+.customize-control-suki-color {
+	.customize-control-title {
+		padding-right: 40px;
+	}
+
+	.wp-picker-container {
+		display: table;
+		margin-left: auto;
+
+		.wp-color-result.button {
+			position: absolute !important;
+			top: 0;
+			right: 0;
+			margin: 0;
+			width: 30px;
+			height: 24px;
+			border: none;
+			border-radius: 0 !important;
+			box-shadow: none;
+		}
+
+		.color-alpha {
+			border-radius: 0 !important;
+			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+		}
+
+		.wp-color-result-text {
+			display: none;
+		}
+
+		.wp-picker-input-wrap {
+			position: relative;
+			padding-right: 60px;
+			margin-top: 6px;
+
+			label, .wp-color-picker {
+				width: 100% !important;
+			}
+
+			.button {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 56px;
+			}
+		}
+
+		.wp-picker-open + .wp-picker-input-wrap {
+			display: block;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Shadow Control
+// -------------------------------------------------------------
+
+.customize-control-suki-shadow {
+	.customize-control-content {
+		position: relative;
+	}
+
+	.wp-picker-container {
+		display: table;
+		margin-left: auto;
+		
+		.wp-color-result.button {
+			position: absolute !important;
+			top: 20px;
+			right: 0;
+			margin: 0;
+			width: 30px;
+			height: 24px;
+			border: none;
+			border-radius: 0 !important;
+			box-shadow: none;
+		}
+
+		.color-alpha {
+			border-radius: 0 !important;
+			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+		}
+
+		.wp-color-result-text {
+			display: none;
+		}
+
+		.wp-picker-input-wrap {
+			position: relative;
+			padding-right: 60px;
+			margin-top: 6px;
+
+			label, .wp-color-picker {
+				width: 100% !important;
+			}
+
+			.button {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 56px;
+			}
+		}
+
+		.wp-picker-open + .wp-picker-input-wrap {
+			display: block;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Slider Control
+// -------------------------------------------------------------
+
+.customize-control-suki-slider {
+	.customize-control-content {
+		* {
+			text-align: center;
+		}
+	}
+
+	.suki-slider-reset {
+		font-size: 1em;
+		line-height: 1em;
+		width: auto;
+		height: auto;
+		vertical-align: middle;
+		cursor: pointer;
+		outline: 0;
+		opacity: 0.5;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+	.suki-slider-input {
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+		}
+	}
+
+	.suki-slider-ui {
+		position: relative;
+		display: block;
+		height: 6px;
+		margin: 10px 12px 10px 7px;
+		border-radius: 3px;
+		background: #ccc;
+
+		.ui-slider-handle {
+			position: absolute;
+			display: inline-block;
+			height: 12px;
+			width: 12px;
+			margin: -4px 0 0 -7px;
+			border-radius: 3px;
+			background: #fff;
+			border: 1px solid #ccc;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Dimensions Control
+// -------------------------------------------------------------
+
+.customize-control-suki-dimensions {
+	.customize-control-content {
+		padding: 0.25em 0.5em 0.5em;
+		border: 1px solid #ddd;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+		background-color: #fff;
+
+		* {
+			text-align: center;
+		}
+	}
+
+	.suki-dimensions-unlink,
+	.suki-dimensions-link {
+		padding: 0;
+		display: none;
+		width: 100%;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	[data-linked="true"] .suki-dimensions-unlink,
+	[data-linked="false"] .suki-dimensions-link {
+		display: block;
+	}
+}
+
+// -------------------------------------------------------------
+// Typography Control
+// -------------------------------------------------------------
+
+.customize-control-suki-typography {
+	.customize-control-content {
+		padding: 8px 6px;
+		border: 1px solid #ddd;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+		background-color: #fff;
+
+		.suki-row {
+			&:first-child{
+				margin-top: -4px;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.suki-typography-fieldset {
+		margin: 8px 0 0;
+
+		> * {
+			padding: 0 2px;
+		}
+	}
+
+	.suki-typography-size-input {
+		text-align: center;
+	}
+}
+
+// -------------------------------------------------------------
+// Builder Control
+// -------------------------------------------------------------
+
+.customize-control-suki-builder {
+	.suki-builder {
+		overflow: hidden;
+
+		.suki-builder-location {
+			position: relative;
+			margin: 4px 0;
+			border: 1px solid #ddd;
+			box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+			background-color: #fff;
+
+			&.disabled {
+				opacity: 0.5;
+
+				.ui-sortable-placeholder {
+					display: none;
+				}
+			}
+		}
+
+		.suki-small-label {
+			margin: 0;
+			padding: 5px 8px;
+			border-bottom: 1px solid #ddd;
+			background-color: #f7f7f7;
+			opacity: 1;
+		}
+
+		.suki-builder-sortable-panel {
+			@include flex();
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			min-height: 28px;
+			margin: 0;
+			padding: 6px 8px 8px;
+		}
+
+		.suki-builder-element {
+			position: relative;
+			display: inline-block;
+			white-space: nowrap;
+			padding: 0;
+
+			> span {
+				display: inline-block;
+				padding: 0 8px;
+			}
+		}
+
+		.suki-builder-element-add {
+			position: absolute;
+			bottom: 0;
+			display: inline-block;
+			vertical-align: middle;
+			outline: 0 !important;
+			opacity: 0.5;
+			cursor: pointer;
+
+			&:hover, &:focus {
+				opacity: 1;
+			}
+
+			.dashicons {
+				width: auto;
+				height: auto;
+				font-size: 18px;
+			}
+		}
+
+		.suki-builder-element-delete {
+			display: inline-block;
+			text-align: center;
+			color: inherit !important;
+			margin: 0 4px 0 -4px;
+
+			.dashicons {
+				width: auto;
+				height: auto;
+				font-size: 1.25em;
+				line-height: inherit;
+				text-decoration: none;
+				opacity: 0.5;
+				margin: 0;
+			}
+		}
+
+		.suki-builder-inactive {
+			display: none;
+			margin: 4px 0;
+			border: 1px solid #ddd;
+
+			.suki-builder-sortable-panel {
+				background-color: #f7f7f7;
+			}
+
+			.suki-builder-element-delete,
+			.suki-builder-element-disabled {
+				display: none;
+			}
+
+			.suki-small-label {
+				display: none;
+			}
+
+			&.show {
+				display: block;
+			}
+		}
+
+		.ui-sortable-placeholder {
+			visibility: visible !important;
+			background-color: rgba(0,0,0,0.1) !important;
+			border-color: transparent !important;
+			box-shadow: none !important;
+		}
+	}
+
+	.suki-builder-layout-inline {
+		.suki-builder-sortable-panel {
+			padding-right: 28px;
+		}
+
+		.suki-builder-element-add {
+			right: 0;
+			margin: 0 6px 11px 0;
+		}
+
+		.suki-builder-element {
+			margin: 2px !important;
+		}
+	}
+
+	.suki-builder-layout-block {
+		.suki-builder-sortable-panel {
+			padding-bottom: 28px;
+		}
+
+		.suki-builder-element-add {
+			left: 50%;
+			margin: 0 0 5px -9px;
+		}
+
+		.suki-builder-element {
+			width: 100%;
+			margin: 2px 0 !important;
+			display: inline-flex;
+
+			> span {
+				width: 100%;
+			}
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Header Builder
+// -------------------------------------------------------------
+
+#customize-preview {
+	// @include transition();
+
+	.suki-has-builder-active .preview-desktop &,
+	.suki-has-builder-active .preview-tablet & {
+		height: auto;
+	}
+}
+
+#customize-theme-controls {
+	#customize-control-header_builder_actions,
+	#customize-control-footer_builder_actions {
+		display: none !important;
+	}
+
+	#customize-control-footer_elements {
+		.suki-builder-location {
+			.suki-builder-sortable-panel {
+				flex-direction: column;
+			}
+		}
+
+		.suki-builder-location-bottom_left {
+			.suki-builder-sortable-panel {
+				align-items: flex-start;
+			}
+		}
+
+		.suki-builder-location-bottom_right {
+			.suki-builder-sortable-panel {
+				align-items: flex-end;
+			}
+		}
+	}
+
+	@media screen and ( min-width: 1324px ) {
+		// Hide section accordion menu
+		#accordion-section-suki_section_header_builder,
+		#accordion-section-suki_section_footer_builder {
+			display: none !important;
+		}
+
+		// Section pane
+		#sub-accordion-section-suki_section_header_builder,
+		#sub-accordion-section-suki_section_footer_builder {
+			position: fixed !important;
+			top: auto;
+			bottom: 0;
+			left: 300px;
+			right: 0;
+			width: auto;
+			height: auto;
+			padding: 20px;
+			max-height: 60%;
+			margin: 0 0 0 -1px;
+			overflow: auto;
+			background-color: #eee;
+			border-top: 1px solid #ddd;
+			border-left: 1px solid #ddd;
+			transform: translateY(100%);
+			@include transition( all 0.2s );
+
+			.suki-has-builder-active .wp-full-overlay.expanded & {
+				&.suki-builder-active {
+					visibility: visible;
+					transform: translateY(0);
+				}
+
+				&.suki-hide {
+					transform: translateY(100%) !important;
+					overflow: visible;
+
+					#customize-control-header_builder_actions,
+					#customize-control-footer_builder_actions {
+						.suki-builder-show {
+							visibility: visible;
+							opacity: 1;
+							@include transition( opacity 0.2s 0.2s );
+						}
+					}
+				}
+			}
+
+			.customize-control-suki-pro {
+				margin: 0 0 12px;
+
+				.suki-heading {
+					margin: 0;
+				}
+			}
+
+			#customize-control-header_builder_actions,
+			#customize-control-footer_builder_actions {
+				display: block !important;
+				z-index: 10;
+				margin-top: -20px;
+
+				.description {
+					font-style: normal;
+				}
+
+				.suki-responsive-switcher {
+					margin: 0 -20px;
+					padding: 9px 20px 0;
+					border-color: #ddd;
+
+					.nav-tab {
+						background-color: #eee;
+						border-color: #ddd;
+						outline: 0;
+						box-shadow: none;
+						opacity: 0.7;
+
+						&:hover, &:focus {
+							background-color: #eee;
+							opacity: 1;
+						}
+
+						&.nav-tab-active {
+							background-color: #eee;
+							border-bottom-color: #eee;
+							opacity: 1;
+						}
+					}
+				}
+
+				.suki-responsive-switcher-button:first-child {
+					margin-left: 0;
+				}
+
+				.suki-builder-toggle {
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+
+				.suki-builder-hide {
+					margin-top: 8px;
+				}
+
+				.suki-builder-show {
+					top: auto;
+					bottom: 100%;
+					margin-bottom: 20px;
+					visibility: hidden;
+					opacity: 0;
+					transition: none;
+				}
+			}
+
+			.customize-section-description-container {
+				display: none !important;
+			}
+
+			.suki-builder-sortable-panel {
+				padding: 8px !important;
+			}
+
+			.suki-builder-location {
+				position: relative;
+				box-sizing: border-box;
+				margin: 2px 0;
+
+				&[data-location*="left"] {
+					.suki-small-label {
+						text-align: left;
+					}
+
+					.suki-builder-sortable-panel {
+						justify-content: flex-start;
+					}
+				}
+
+				&[data-location*="vertical"],
+				&[data-location*="center"] {
+					.suki-small-label {
+						text-align: center;
+					}
+
+					.suki-builder-sortable-panel {
+						justify-content: center;
+					}
+				}
+
+				&[data-location*="right"] {
+					.suki-small-label {
+						text-align: right;
+					}
+
+					.suki-builder-sortable-panel {
+						justify-content: flex-end;
+					}
+				}
+			}
+
+			.suki-builder-element-add {
+				display: none;
+			}
+
+			.suki-builder-inactive {
+				display: block !important;
+			}
+
+			.suki-builder-groups {
+				@include flex( flex-start );
+				margin: 0 -10px;
+
+				.suki-builder-group {
+					padding: 0 10px;
+				}
+
+				.suki-builder-group-horizontal {
+					@include flex( stretch );
+					flex-wrap: wrap;
+					width: 100%;
+
+					.suki-builder-location {
+						width: 33.33%;
+					}
+				}
+
+				.suki-builder-group-vertical {
+					width: 25%;
+				}
+			}
+		}
+	}
+
+	@media screen and ( min-width: 1667px ) {
+		#sub-accordion-section-suki_section_header_builder,
+		#sub-accordion-section-suki_section_footer_builder {
+			left: 18%;
+		}
+	}
+
+	@media screen and ( min-width: 3333px ) {
+		#sub-accordion-section-suki_section_header_builder,
+		#sub-accordion-section-suki_section_footer_builder {
+			left: 600px;
+		}
+	}
+}

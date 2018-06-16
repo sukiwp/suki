@@ -1,0 +1,207 @@
+// -------------------------------------------------------------
+// Standard widgets
+// -------------------------------------------------------------
+
+.widget {
+	position: relative;
+	margin-top: 40px; // default
+
+	&:first-child {
+		margin-top: 0 !important;
+	}
+
+	select {
+		width: 100%;
+	}
+
+	.post-date, .rss-date {
+		display: block;
+		margin-top: 0.25em;
+
+		@extend %meta;
+	}
+}
+
+// Widget title
+.widget-title {
+	margin: 0 0 1.25rem;
+
+	:empty {
+		display: none;
+	}
+
+	&.suki-widget-title-decoration-box {
+		@include border();
+		padding: 0.5em 1em;
+	}
+
+	&.suki-widget-title-decoration-border-bottom {
+		@include border( bottom );
+		padding-bottom: 0.5em;
+	}
+}
+
+.widget_text {
+	.textwidget {
+		& > *:first-child {
+			margin-top: 0;
+		}
+
+		& > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// List widgets
+.widget_nav_menu,
+.widget_categories,
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_archive,
+.widget_meta,
+.widget_pages,
+.widget_rss {
+	ul {
+		position: relative;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		ul {
+			margin-left: 1.25em;
+		}
+
+		li {
+			position: relative;
+			// margin-top: 0.25em;
+		}
+	}
+}
+
+.widget_rss {
+	.rssSummary {
+		font-size: 10px;
+		margin: 0.5em 0;
+	}
+
+	cite {
+		display: block;
+		color: #ccc;
+		font-size: 11px;
+
+		&:before {
+			content: "-";
+			margin-right: 0.5em;
+		}
+	}
+
+	.rsswidget img {
+		display: inline-block;
+		margin-right: 0.5em;
+	}
+}
+
+// Calendar widget
+.widget_calendar {
+	table {
+		position: relative;
+		table-layout: fixed;
+		width: 100%;
+		max-width: 100%;
+
+		th, td {
+			text-align: center;
+			padding: 0.2em;
+		}
+
+		tfoot {
+			position: absolute;
+			width: 100%;
+			top: 0;
+
+			#prev, #next {
+				position: absolute;
+				top: 0;
+				padding: 0.15em;
+				width: 2em;
+				border: none;
+			}
+
+			.pad {
+				border: none;
+			}
+
+			#prev {
+				left: 0;
+
+				&:before {
+					content: "\00ab";
+				}
+			}
+
+			#next {
+				right: 0;
+
+				&:before {
+					content: "\00bb";
+				}
+			}
+
+			td a {
+				display: block;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				text-indent: -999999px;
+			}
+		}
+
+		tbody a {
+			font-weight: bold;
+		}
+
+		caption {
+			padding: 0.2em 2em;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Suki custom widgets
+// -------------------------------------------------------------
+
+.suki_widget_social {
+	.suki-social-links {
+		font-size: 1.25rem;
+	}
+}
+
+.suki_widget_posts {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	li {
+		border-bottom-width: 1px; 
+		border-bottom-style: solid;
+		padding-bottom: 0.75em;
+		margin-top: 0.75em;
+		
+		@extend %float-container;
+
+		*:last-child {
+			border-bottom: none;
+		}
+	}
+
+	img {
+		float: right;
+		width: 40px;
+		height: auto;
+		margin-left: 0.5em;
+		border-radius: 20px;
+	}
+}

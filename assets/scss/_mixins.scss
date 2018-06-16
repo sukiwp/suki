@@ -1,0 +1,56 @@
+// -------------------------------------------------------------
+// Transitions
+// -------------------------------------------------------------
+
+@mixin transition( $transitions... ) {
+	$completeTransitions: ();
+	$defaults: ( all, 0.25s, null, null );
+
+	@if 0 == length( $transitions ) {
+		$transitions: all;
+	}
+	
+	@each $transition in $transitions {
+		$currentTransition: ();
+
+		@for $i from 1 through length( $defaults ) {
+			$p: null;
+			@if $i <= length( $transition ) {
+				$p: nth( $transition, $i )
+			} @else {
+				$p: nth( $defaults, $i )
+			}
+			$currentTransition: append( $currentTransition, $p );
+		}
+
+		$completeTransitions: append( $completeTransitions, $currentTransition, comma );
+	}
+
+	transition: $completeTransitions;
+	backface-visibility: hidden;
+}
+
+// -------------------------------------------------------------
+// Flex
+// -------------------------------------------------------------
+
+@mixin flex( $align_items: center ) {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: $align_items;
+}
+
+// -------------------------------------------------------------
+// Border
+// -------------------------------------------------------------
+
+@mixin border( $direction: null, $width: 1px, $style: solid ) {
+	@if $direction != null {
+		$direction: $direction + "-";
+	}
+
+	border-#{$direction}width: $width;
+	border-#{$direction}style: $style;
+}

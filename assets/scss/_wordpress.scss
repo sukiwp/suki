@@ -1,0 +1,127 @@
+// -------------------------------------------------------------
+// Sizes
+// -------------------------------------------------------------
+
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+// -------------------------------------------------------------
+// Alignment
+// -------------------------------------------------------------
+
+.alignnone {
+	// display: inline-block;
+	margin: 0.5em;
+}
+
+.alignleft {
+	// display: inline-block;
+	float: left;
+	margin: 0.5em 1.5em 0.5em 0;
+}
+
+.alignright {
+	// display: inline-block;
+	float: right;
+	margin: 0.5em 0 0.5em 1.5em;
+}
+
+.aligncenter {
+	// display: block;
+	clear: both;
+	margin: 0.5em auto;
+}
+
+// -------------------------------------------------------------
+// Caption
+// -------------------------------------------------------------
+
+.wp-caption {
+	margin-bottom: 1em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-caption-text {
+		margin: 0.5em 0;
+		font-size: 0.85em;
+		font-style: italic;
+		text-align: center;
+	}
+}
+
+// -------------------------------------------------------------
+// Gallery
+// -------------------------------------------------------------
+
+.gallery {
+	margin: 1.25rem -5px;
+
+	img {
+		display: block;
+	}
+}
+
+.gallery-item {
+	display: inline-block;
+	padding: 5px;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+
+	.gallery-columns-2 & {
+		max-width: 50%;
+	}
+
+	.gallery-columns-3 & {
+		max-width: 33.33%;
+	}
+
+	.gallery-columns-4 & {
+		max-width: 25%;
+	}
+
+	.gallery-columns-5 & {
+		max-width: 20%;
+	}
+
+	.gallery-columns-6 & {
+		max-width: 16.66%;
+	}
+
+	.gallery-columns-7 & {
+		max-width: 14.28%;
+	}
+
+	.gallery-columns-8 & {
+		max-width: 12.5%;
+	}
+
+	.gallery-columns-9 & {
+		max-width: 11.11%;
+	}
+}
+
+.gallery-caption {
+	display: block;
+}
+
+// -------------------------------------------------------------
+// Media Element
+// -------------------------------------------------------------
+
+.mejs-button > button {
+	// reset
+	background-color: transparent !important;
+	color: inherit !important;
+}

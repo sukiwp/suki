@@ -1,0 +1,463 @@
+// -------------------------------------------------------------
+// Post entry
+// -------------------------------------------------------------
+
+// Loop
+.suki-loop-default {
+	.entry {
+		margin-top: 6rem;
+	}
+
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// Loop grid
+.suki-loop-grid {
+	margin-left: -15px;
+	margin-right: -15px;
+
+	.entry {
+		width: 100%;
+		padding: 0 15px;
+		border: none;
+		margin-bottom: 4rem;
+		float: left;
+
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			width: 100% !important;
+		}
+	}
+
+	&.suki-loop-grid-2-columns .entry {
+		width: 50%;
+
+		&:nth-child(2n+1) {
+			clear: left;
+		}
+	}
+
+	&.suki-loop-grid-3-columns .entry {
+		width: 33.33%;
+
+		&:nth-child(3n+1) {
+			clear: left;
+		}
+	}
+
+	&.suki-loop-grid-4-columns .entry {
+		width: 25%;
+
+		&:nth-child(4n+1) {
+			clear: left;
+		}
+
+		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			width: 50%;
+		}
+	}
+}
+
+// Entry wrapper
+.entry-wrapper {
+	> *:first-child {
+		margin-top: 0 !important;
+	}
+
+	> *:last-child {
+		margin-bottom: 0 !important;
+	}
+}
+
+// Entry header
+.entry-header {
+	> *:first-child {
+		margin-top: 0 !important;
+	}
+
+	> *:last-child {
+		margin-bottom: 0 !important;
+	}
+}
+
+// Entry footer
+.entry-footer {
+	padding-top: 1rem;
+	@include border( top );
+
+	> *:first-child {
+		margin-top: 0 !important;
+	}
+
+	> *:last-child {
+		margin-bottom: 0 !important;
+	}
+}
+
+// Title
+.entry-title {
+	margin: 0;
+
+	@extend %h1; // default
+}
+
+.entry-small-title {
+	margin: 0;
+
+	@extend %h3; // default
+}
+
+// Meta
+.entry-meta {
+	margin: 0.25em 0;
+
+	@extend %meta;
+
+	> * {
+		&:before {
+			content: "\2022";
+			margin: 0 0.5em;
+		}
+
+		&:first-child:before {
+			display: none;
+		}
+	}
+
+	.avatar {
+		display: inline-block;
+		width: 1.75em;
+		height: 1.75em;
+		vertical-align: middle;
+		margin-right: 0.75em;
+		border-radius: 50%;
+	}
+}
+
+// Basic image thumbnail
+.entry-thumbnail {
+	display: block;
+	margin: 2em 0;
+	text-align: center;
+
+	> * {
+		display: block;
+		width: 100%;
+	}
+
+	.entry-small & {
+		margin: 1em 0;
+	}
+}
+
+// Image thumbnail with link
+a.entry-thumbnail {
+	&:hover, &:focus {
+		opacity: 0.9;
+	}
+}
+
+// Content
+.entry-content {
+	margin: 2rem 0;
+
+	blockquote {
+		padding: 0.5rem 2rem;
+		@include border( left, 0.25rem, solid );
+
+		&[style*="center"] {
+			border-left: none;
+		}
+
+		&[style*="right"] {
+			border-left: none;
+			@include border( right, 0.25rem, solid );
+		}
+	}
+}
+
+// Excerpt
+.entry-excerpt {
+	margin: 1rem 0;
+
+	p {
+		margin: 0;
+	}
+}
+
+// Read more link
+a.more-link {
+	white-space: nowrap;
+}
+
+// Tags
+.entry-tags {
+	margin: 1.5rem 0;
+}
+
+// Author box
+.entry-author {
+	margin-top: 4rem;
+	padding: 1.75rem;
+	@include border();
+}
+
+.entry-author-body {
+	position: relative;
+	min-height: 80px;
+
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		text-align: center;
+	}
+
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 100px;
+	}
+}
+
+.entry-author-name {
+	font-size: 1.1rem;
+	margin: 0 0 0.5rem;
+
+	.avatar {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		margin-bottom: 0.75rem;
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.fn {
+		font-weight: 600;
+		display: block;
+	}
+}
+
+.entry-author-content {
+	p {
+		margin: 0.5rem 0;
+	}
+}
+
+.entry-author-links {
+	font-size: 1.1rem;
+}
+
+// -------------------------------------------------------------
+// Navigation & pagination
+// -------------------------------------------------------------
+
+.navigation {
+	margin: 2rem 0;
+
+	.nav-links {
+		text-align: center;
+		@extend %float-container;
+
+		.page-numbers {
+			display: inline-block;
+			margin: 0 0.5em;
+		}
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			> div {
+				width: 50%;
+			}
+
+			.nav-previous {
+				float: right;
+				text-align: right;
+				padding-left: 20px;
+			}
+
+			.nav-next {
+				float: left;
+				text-align: left;
+				padding-right: 20px;
+			}
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Navigation & pagination
+// -------------------------------------------------------------
+
+.comments-area {
+	margin-top: 4rem;
+}
+
+.comments-title {
+	position: relative;
+	margin-top: 2rem;
+
+	@extend %h3; // default
+}
+
+.comment-reply-title {
+	@extend %h3; // default
+
+	small {
+		margin-left: 1em;
+		font-size: 12px;
+	}
+}
+
+.comment-list {
+	&, ul, ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		@include border( top );
+	}
+
+	> li:first-child {
+		border-top: none;
+	}
+
+	ul, ol {
+		padding-left: 65px;
+
+		li {
+			@include border( top );
+		}
+
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			padding-left: 1.25rem;
+		}
+	}
+}
+
+.comment-body {
+	position: relative;
+	padding: 2em 0 2em 65px;
+
+	.reply {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 2em 0 0 0;
+
+		a {
+			font-size: 90%;
+		}
+	}
+
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		padding: 1.25rem 0;
+	}
+}
+
+.comment-content {
+	> * {
+		margin: 1em 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.comment-meta {
+	padding-right: 50px;
+	margin-bottom: 1em;
+	min-height: 50px;
+}
+
+.comment-author {
+	.avatar {
+		position: absolute;
+		top: 2em;
+		left: 0;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			display: none;
+		}
+	}
+
+	.fn {
+		font-weight: 500;
+	}
+
+	.says {
+		display: none;
+	}
+}
+
+.comment-metadata {
+	margin: 0.25em 0;
+	overflow: hidden;
+
+	@extend %meta;
+
+	> * {
+		position: relative;
+		display: inline-block;
+
+		&:before {
+			content: "\2022";
+			margin: 0 0.5em;
+		}
+
+		&:first-child:before {
+			display: none;
+		}
+	}
+}
+
+.comment-respond {
+	padding-top: 2em;
+	border-top-width: 1px;
+	border-top-style: solid;
+
+	&:only-child {
+		border-top: none;
+	}
+
+	label {
+		display: inline-block;
+		width: 120px;
+
+		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			display: block;
+		}
+	}
+
+	.comment-form-cookies-consent {
+		label {
+			width: auto;
+			margin-left: 0.5em;
+		}
+	}
+
+	.comment-list & {
+		padding-bottom: 2em;
+	}
+}
+
+.comment-form {
+	#comment {
+		height: 6em;
+		width: 100%;
+	}
+
+	p.form-submit {
+		margin-bottom: 0;
+	}
+}

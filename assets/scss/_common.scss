@@ -1,0 +1,246 @@
+// -------------------------------------------------------------
+// Required classes
+// -------------------------------------------------------------
+
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+.sticky {
+	visibility: visible; // random CSS just so it's processed by SASS
+}
+
+.bypostauthor {
+	visibility: visible; // random CSS just so it's processed by SASS	
+}
+
+// -------------------------------------------------------------
+// Alignment Classes
+// -------------------------------------------------------------
+
+.suki-text-align-left {
+	text-align: left;
+}
+
+.suki-text-align-center {
+	text-align: center;
+}
+
+.suki-text-align-right {
+	text-align: right;
+}
+
+// -------------------------------------------------------------
+// Flexbox Classes
+// -------------------------------------------------------------
+
+.suki-flex-align-left {
+	justify-content: flex-start !important;
+}
+
+.suki-flex-align-center {
+	justify-content: center !important;
+}
+
+.suki-flex-align-right {
+	justify-content: flex-end !important;		
+}
+
+.suki-flex-align-justified {
+	justify-content: space-between !important;		
+}
+
+// -------------------------------------------------------------
+// Device Visibility Classes
+// -------------------------------------------------------------
+
+.suki-hide-on-desktop {
+	@media screen and ( min-width: $breakpoint_1024 + 1px ) {
+		display: none !important;
+	}
+}
+
+.suki-hide-on-tablet {
+	@media screen and ( min-width: $breakpoint_500 + 1px ) and ( max-width: $breakpoint_1024 ) {
+		display: none !important;
+	}
+}
+
+.suki-hide-on-mobile {
+	@media screen and ( max-width: $breakpoint_500 ) {
+		display: none !important;
+	}
+}
+
+// -------------------------------------------------------------
+// Other Common Classes
+// -------------------------------------------------------------
+
+.screen-reader-text {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: none;
+
+	&:focus {
+		left: 5px;
+		top: 5px;
+		clip: auto !important;
+		clip-path: none;
+		display: block;
+		padding: 10px 18px;
+		height: auto;
+		width: auto;
+		background-color: rgba(0,0,0,0.8);
+		color: #fff;
+		outline: 0;
+		z-index: 100000; /* Above WP toolbar. */
+	}
+}
+
+%meta {
+	font-size: 0.8em; // default
+	font-weight: 400; // default
+	font-style: normal; // default
+	line-height: 1.8; // default
+	letter-spacing: 0; // default
+	text-transform: none; // default
+}
+
+.suki-float-container,
+%float-container {
+	&:before, &:after {
+		content: "";
+		display: table;	
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+.page-header {
+	padding: 0 0 2rem;
+	@include border( bottom );
+	margin: 0 0 4rem;
+
+	> *:last-child {
+		margin-bottom: 0 !important;
+	}
+
+	h1 {
+		font-size: 1.1rem;
+		font-style: inherit;
+		font-weight: 600;
+		line-height: inherit;
+		letter-spacing: inherit;
+		text-transform: inherit;
+	}
+}
+
+// Search widget
+.search-form,
+%search-form {
+	display: block;
+	position: relative;
+
+	.suki-search-icon {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin: -0.5em 0 0 0.75em;
+	}
+
+	.search-field {
+		width: 100%;
+		padding-left: 2.5em;
+	}
+
+	input[type="submit"] {
+		display: none;
+	}
+}
+
+.tagcloud {
+	@extend %float-container;
+	
+	a {
+		float: left;
+		padding: 0.5em 0.5em;
+		margin: 0 0.5em 0.5em 0;
+		font-size: 0.9rem !important;
+		line-height: normal;
+	}
+}
+
+.suki-social-links {
+	letter-spacing: 0;
+
+	a {
+		margin-left: 0.75em;
+		display: inline-block;
+
+		&:first-child {
+			margin-left: 0 !important;
+		}
+	}
+}
+
+.suki-oembed-video {
+	position: relative;
+	padding-top: 56.25%; // overrided by inline style
+
+	> * {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.suki-menu-icon {
+	font-size: 1.2em;
+}
+
+.menu, .sub-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.suki-icon {
+	display: inline-block;
+	line-height: 1;
+	text-align: center;
+
+	svg {
+		display: inline-block;
+		width: auto;
+		height: 1em;
+		vertical-align: top;
+
+		&:not([stroke-width]) {
+			stroke-width: 0;
+		}
+
+		&:not([stroke]) {
+			stroke: currentColor;
+		}
+
+		&:not([fill]) {
+			fill: currentColor;
+		}
+	}
+}

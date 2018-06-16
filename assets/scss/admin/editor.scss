@@ -1,0 +1,42 @@
+@import "../variables";
+@import "../mixins";
+
+// Base Elements
+@import "../normalize";
+@import "../base";
+
+// Common Elements
+@import "../wordpress";
+
+html {
+	padding: 1rem;
+	min-height: auto; // reset
+}
+
+body {
+	position: relative;
+	max-width: 100%; // default
+	min-height: auto; // reset
+
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+blockquote {
+	padding: 0.5rem 2rem;
+	@include border( left, 0.25rem, solid );
+
+	&[style*="center"] {
+		border-left: none;
+	}
+
+	&[style*="right"] {
+		border-left: none;
+		@include border( right, 0.25rem, solid );
+	}
+}
