@@ -18,6 +18,9 @@ class Suki_Customize_Control_Blank extends WP_Customize_Control {
 	 */
 	public $type = 'suki-blank';
 
+	/**
+	 * Render control's content
+	 */
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
 			<span class="customize-control-title"><?php echo $this->label; // WPCS: XSS OK ?></span>

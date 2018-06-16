@@ -222,26 +222,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['button_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, button',
+		'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, button, .wp-block-button .wp-block-button__link',
 		'property' => 'padding',
 	),
 );
 $add['button_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, button',
+		'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, button, .wp-block-button .wp-block-button__link',
 		'property' => 'border-width',
 	),
 );
 $add['button_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, button',
+		'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, button, .wp-block-button .wp-block-button__link',
 		'property' => 'border-radius',
 	),
 );
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'letter_spacing' ) as $prop ) {
-	$element = 'input[type="button"], input[type="reset"], input[type="submit"], .button, button';
+	$element = 'input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, button, .wp-block-button .wp-block-button__link';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['button_' . $prop ] = array(
@@ -256,7 +256,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, button, .wp-block-button .wp-block-button__link',
+			'element'  => 'input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, button, .wp-block-button .wp-block-button__link',
 			'property' => $prop,
 		),
 	);
@@ -265,7 +265,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_hover_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, button:hover, button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus',
+			'element'  => 'input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, button:hover, button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus',
 			'property' => $prop,
 		),
 	);
@@ -746,14 +746,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_link_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button)',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $type . '_link_hover_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:hover, .suki-header-' . $bar . ' a:focus',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus',
 			'property' => 'color',
 		),
 	);
@@ -818,14 +818,14 @@ $add['header_mobile_main_bar_section_border_color'] = array(
 $add['header_mobile_main_bar_menu_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar a',
+		'element'  => '.suki-header-mobile-main-bar a:not(.button)',
 		'property' => 'color',
 	),
 );
 $add['header_mobile_main_bar_menu_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar a:hover, .suki-header-mobile-main-bar a:focus',
+		'element'  => '.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus',
 		'property' => 'color',
 	),
 );
@@ -895,14 +895,14 @@ $add['header_mobile_vertical_bar_text_color'] = array(
 $add['header_mobile_vertical_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar a',
+		'element'  => '.suki-header-mobile-vertical-bar a:not(.button)',
 		'property' => 'color',
 	),
 );
 $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar a:hover, .suki-header-mobile-vertical-bar a:focus',
+		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus',
 		'property' => 'color',
 	),
 );
@@ -1173,14 +1173,14 @@ $add['footer_widgets_bar_text_color'] = array(
 $add['footer_widgets_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar a',
+		'element'  => '.suki-footer-widgets-bar a:not(.button)',
 		'property' => 'color',
 	),
 );
 $add['footer_widgets_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar a:hover, .suki-footer-widgets-bar a:focus',
+		'element'  => '.suki-footer-widgets-bar a:not(.button):hover, .suki-footer-widgets-bar a:not(.button):focus',
 		'property' => 'color',
 	),
 );
@@ -1253,14 +1253,14 @@ $add['footer_bottom_bar_text_color'] = array(
 $add['footer_bottom_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-bottom-bar a',
+		'element'  => '.suki-footer-bottom-bar a:not(.button)',
 		'property' => 'color',
 	),
 );
 $add['footer_bottom_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-bottom-bar a:hover, .suki-footer-bottom-bar a:focus',
+		'element'  => '.suki-footer-bottom-bar a:not(.button):hover, .suki-footer-bottom-bar a:not(.button):focus',
 		'property' => 'color',
 	),
 );

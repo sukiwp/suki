@@ -22,7 +22,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:175, inc/customizer/custom-controls/class-suki-customize-control-color.php:52, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:80
+#: inc/admin/class-suki-admin-fields.php:175, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
 msgid "Hex / RGBA"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Page Settings (Suki)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:188, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:174
+#: inc/admin/class-suki-admin-metabox-page-settings.php:188, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:170
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -399,11 +399,11 @@ msgstr ""
 msgid "%s - Google"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:87
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:83
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:89
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:85
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
@@ -681,139 +681,139 @@ msgstr ""
 msgid "You can override these settings for each individual %s."
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-builder.php:83
+#: inc/customizer/custom-controls/class-suki-customize-control-builder.php:86
 msgid "Add element"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:100
+#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:103
 msgid "Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:101, inc/customizer/options/blog--entry-default.php:80, inc/customizer/options/blog--entry-grid.php:117, inc/customizer/options/footer--builder.php:99, inc/customizer/options/header--builder.php:150, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
+#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:104, inc/customizer/options/blog--entry-default.php:80, inc/customizer/options/blog--entry-grid.php:117, inc/customizer/options/footer--builder.php:99, inc/customizer/options/header--builder.php:150, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
 msgid "Right"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:102
+#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:105
 msgid "Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:103, inc/customizer/options/blog--entry-default.php:78, inc/customizer/options/blog--entry-grid.php:115, inc/customizer/options/footer--builder.php:97, inc/customizer/options/header--builder.php:148, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
+#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:106, inc/customizer/options/blog--entry-default.php:78, inc/customizer/options/blog--entry-grid.php:115, inc/customizer/options/footer--builder.php:97, inc/customizer/options/header--builder.php:148, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-pro.php:31
+#: inc/customizer/custom-controls/class-suki-customize-control-pro.php:34
 msgid "Pro"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:53
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:59
 msgid "H-Offset"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:54
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:60
 msgid "V-Offset"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:55
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:61
 msgid "Blur"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:56
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:62
 msgid "Spread"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:76
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:82
 msgid "Color"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:46
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:49
 msgid "Thin"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:47
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:50
 msgid "Extra Light"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:48
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:51
 msgid "Light"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:49
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:52
 msgid "Regular"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:50
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:53
 msgid "Medium"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:51
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:54
 msgid "Semi Bold"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:52
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:55
 msgid "Bold"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:53
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:56
 msgid "Extra Bold"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:54
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:57
 msgid "Black"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:57
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:60
 msgid "Normal"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:58
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:61
 msgid "Italic"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:61
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:64
 msgid "None"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:62
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:65
 msgid "Uppercase"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:63
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:66
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:64
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:67
 msgid "Capitalize"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:181
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:190
 msgid "Font"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:184, inc/customizer/custom-controls/class-suki-customize-control-typography.php:203, inc/customizer/custom-controls/class-suki-customize-control-typography.php:215, inc/customizer/custom-controls/class-suki-customize-control-typography.php:227
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:193, inc/customizer/custom-controls/class-suki-customize-control-typography.php:212, inc/customizer/custom-controls/class-suki-customize-control-typography.php:224, inc/customizer/custom-controls/class-suki-customize-control-typography.php:236
 msgid "Inherit"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:200
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
 msgid "Weight"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:212
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:221
 msgid "Style"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:224
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:233
 msgid "Transform"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:242
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:251
 msgid "Size"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:261
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:270
 msgid "Line"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:280
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:289
 msgid "Spacing"
 msgstr ""
 

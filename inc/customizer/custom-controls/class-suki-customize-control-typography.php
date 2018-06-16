@@ -28,6 +28,9 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	 */
 	public $choices = array();
 
+	/**
+	 * Constructor
+	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
 
@@ -105,6 +108,9 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 		);
 	}
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -157,7 +163,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 		$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
 	}
 
-	public function content_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">

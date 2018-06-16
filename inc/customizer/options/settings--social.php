@@ -24,8 +24,7 @@ foreach ( $links as $slug => $label ) {
 	$id = 'social_' . $slug;
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+		'sanitize_callback' => 'esc_url_raw',
 	) );
 	$wp_customize->add_control( $id, array(
 		'section'     => $section,

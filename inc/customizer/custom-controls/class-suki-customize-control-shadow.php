@@ -23,6 +23,9 @@ class Suki_Customize_Control_Shadow extends WP_Customize_Control {
 	 */
 	public $exclude = array();
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -48,7 +51,10 @@ class Suki_Customize_Control_Shadow extends WP_Customize_Control {
 		$this->json['__link'] = $this->get_link();
 	}
 
-	public function content_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		$numbers = array(
 			'h_offset' => esc_html__( 'H-Offset', 'suki' ),
 			'v_offset' => esc_html__( 'V-Offset', 'suki' ),

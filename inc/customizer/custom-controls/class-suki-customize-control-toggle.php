@@ -18,6 +18,9 @@ class Suki_Customize_Control_Toggle extends WP_Customize_Control {
 	 */
 	public $type = 'suki-toggle';
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -27,7 +30,10 @@ class Suki_Customize_Control_Toggle extends WP_Customize_Control {
 		$this->json['__link'] = $this->get_link();
 	}
 
-	public function content_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{{ data.label }}}</span>

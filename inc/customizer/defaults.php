@@ -291,7 +291,7 @@ $add['header_social_links_target'] = 'self';
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '36px';
 $add['header_top_bar_padding'] = '0 0 0 0';
-$add['header_top_bar_border'] = '0 0 0 0';
+$add['header_top_bar_border'] = '0 0 1px 0';
 $add['header_top_bar_items_gap'] = '10px';
 
 $add['header_top_bar_section_bg_color'] = $colors['subtle'];
@@ -346,7 +346,7 @@ $add['header_main_bar_link_hover_text_color'] = $colors['text'];
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '50px';
 $add['header_bottom_bar_padding'] = '0 0 0 0';
-$add['header_bottom_bar_border'] = '0 0 0 0';
+$add['header_bottom_bar_border'] = '0 0 1px 0';
 
 $add['header_bottom_bar_items_gap'] = '10px';
 

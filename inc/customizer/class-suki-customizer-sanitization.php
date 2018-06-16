@@ -58,7 +58,7 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	public static function color( $value, $setting ) {
-		return self::validate_color( $value ) ? $value : '';
+		return self::validate_color( $value );
 	}
 
 	/**
@@ -261,6 +261,17 @@ class Suki_Customizer_Sanitization {
 	}
 
 	/**
+	 * Sanitize HTML value.
+	 *
+	 * @param string $value
+	 * @param WP_Customize_Setting $setting
+	 * @return string
+	 */
+	public static function html( $value, $setting ) {
+		return wp_kses_post( $value );
+	}
+
+	/**
 	 * Sanitize Builder value.
 	 *
 	 * @param array $value
@@ -304,9 +315,9 @@ class Suki_Customizer_Sanitization {
 	 * @param string $color
 	 * @return string
 	 */
-	private function validate_color( $color ) {
-		if ( preg_match( '/#([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?\b/', $value ) || preg_match( '/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/', $value ) ) {
-			return $value;
+	private static function validate_color( $color ) {
+		if ( preg_match( '/#([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?\b/', $color ) || preg_match( '/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/', $color ) ) {
+			return $color;
 		} else {
 			return '';
 		}
@@ -319,7 +330,7 @@ class Suki_Customizer_Sanitization {
 	 * @param array $range
 	 * @return string
 	 */
-	private function validate_number( $number, $range ) {
+	private static function validate_number( $number, $range ) {
 		if ( ! is_numeric( $number ) ) {
 			return '';
 		}
@@ -359,7 +370,7 @@ class Suki_Customizer_Sanitization {
 	 * @param array $available_units
 	 * @return string
 	 */
-	private function validate_dimension( $dimension, $available_units ) {
+	private static function validate_dimension( $dimension, $available_units ) {
 		// Explode value to number and unit.
 		$dimension_number = floatval( $dimension );
 		$dimension_unit = str_replace( $dimension_number, '', $dimension );

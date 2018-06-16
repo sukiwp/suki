@@ -23,6 +23,9 @@ class Suki_Customize_Control_Color extends WP_Customize_Control {
 	 */
 	public $palette = array();
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -33,6 +36,9 @@ class Suki_Customize_Control_Color extends WP_Customize_Control {
 		$this->json['__link'] = $this->get_link();
 	}
 
+	/**
+	 * Enqueue additional control's CSS or JS scripts.
+	 */
 	public function enqueue() {
 		// Color picker alpha
 		// https://github.com/23r9i0/wp-color-picker-alpha
@@ -40,7 +46,10 @@ class Suki_Customize_Control_Color extends WP_Customize_Control {
 		wp_enqueue_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/admin/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '1.2.2', true );
 	}
 
-	public function content_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{{ data.label }}}</span>

@@ -35,6 +35,9 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 	 */
 	public $labels = array();
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -84,11 +87,17 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 		) );
 	}
 
+	/**
+	 * Enqueue additional control's CSS or JS scripts.
+	 */
 	public function enqueue() {
 		wp_enqueue_style( 'jquery-ui-sortable' );
 	}
-
-	public function content_template() {
+	
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{{ data.label }}}</span>
@@ -96,7 +105,7 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 		<# if ( data.description ) { #>
 			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
-		<div class="customize-control-content suki-builder suki-builder-layout-{{ data.layout }} {{ data.responsive ? 'suki-customize-responsive-control' : '' }}">
+		<div class="customize-control-content suki-builder suki-builder-layout-{{ data.layout }} {{ data.responsive ? 'suki-customize-responsive-control' : '' }}" data-name="{{ data.name }}">
 			<div class="suki-builder-locations">
 				<# _.each( data.settings, function( setting_id, setting_key ) { #>
 					<div class="suki-builder-location suki-builder-location-{{ setting_key }}" data-location="{{ setting_key }}">

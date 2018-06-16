@@ -23,6 +23,9 @@ class Suki_Customize_Section_Pro extends WP_Customize_Section {
 	 */
 	public $url = '#';
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function json() {
 		$json = parent::json();
 		$json['url'] = $this->url;
@@ -30,7 +33,10 @@ class Suki_Customize_Section_Pro extends WP_Customize_Section {
 		return $json;
 	}
 
-	public function render_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function render_template() {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 			<a href="{{ data.url }}" target="_blank" rel="noopener">

@@ -18,7 +18,10 @@ class Suki_Customize_Section_Spacer extends WP_Customize_Section {
 	 */
 	public $type = 'suki-section-spacer';
 
-	public function render_template() {
+	/**
+	 * Render Underscore JS template for this section.
+	 */
+	protected function render_template() {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}"></li>
 		<?php

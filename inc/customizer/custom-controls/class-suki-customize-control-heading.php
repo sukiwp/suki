@@ -18,6 +18,9 @@ class Suki_Customize_Control_Heading extends WP_Customize_Control {
 	 */
 	public $type = 'suki-heading';
 
+	/**
+	 * Render control's content
+	 */
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
 			<span class="tabindex" tabindex="0"></span>

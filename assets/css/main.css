@@ -1276,7 +1276,7 @@ body.suki-has-popup-active .suki-popup-background {
 	color: inherit;
 }
 
-.suki-header-social-links li {
+.suki-header-social-links li.menu-item {
 	margin: 0 0.5em;
 }
 
@@ -1692,7 +1692,7 @@ body.suki-has-popup-active .suki-popup-background {
 	width: 50%;
 }
 
-.suki-footer-social-links li {
+.suki-footer-social-links li.menu-item {
 	display: inline-block;
 	margin: 0 0.5em;
 }

@@ -18,6 +18,9 @@ class Suki_Customize_Control_HR extends WP_Customize_Control {
 	 */
 	public $type = 'suki-hr';
 
+	/**
+	 * Render control's content
+	 */
 	protected function render_content() {
 		?><hr><?php
 	}

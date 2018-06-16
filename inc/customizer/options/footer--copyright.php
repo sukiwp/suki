@@ -21,7 +21,7 @@ $id = 'footer_copyright_content';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'textarea' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'html' ),
 ) );
 $wp_customize->add_control( $id, array(
 	'type'        => 'textarea',

@@ -23,6 +23,9 @@ class Suki_Customize_Control_Pro extends WP_Customize_Control {
 	 */
 	public $url = '#';
 
+	/**
+	 * Render control's content
+	 */
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
 			<a href="<?php echo esc_url( $this->url ); ?>">

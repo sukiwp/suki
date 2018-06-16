@@ -42,10 +42,6 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
-		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
-		add_filter( 'woocommerce_review_gravatar_size', array( $this, 'set_review_gravatar_size' ) );
-		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'update_header_cart' ) );
-
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
 		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
@@ -60,7 +56,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_customizer' ) );
 		
 		// Page settings
-		add_action( 'suki_post_ids_without_page_settings', array( $this, 'make_shop_page_ignore_page_settings' ), 10, 2 );
+		add_action( 'suki_post_ids_without_page_settings', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
 	}
 	
 	/**
@@ -169,7 +165,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param array $post
 	 * @return array
 	 */
-	public function make_shop_page_ignore_page_settings( $ignored_ids, $post ) {
+	public function exclude_shop_page_from_page_settings( $ignored_ids, $post ) {
 		if ( $post->ID === wc_get_page_id( 'shop' ) ) {
 			$ignored_ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_product_archive_page', 'url' => get_permalink( wc_get_page_id( 'shop' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
 		}
@@ -185,10 +181,9 @@ class Suki_Compatibility_WooCommerce {
 		 * Global template hooks
 		 */
 
+		// Change main content wrapper.
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 		add_action( 'woocommerce_before_main_content', array( $this, 'render_output_content_wrapper' ) );
-
-		// Change main content wrapper - close.
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 		add_action( 'woocommerce_after_main_content', array( $this, 'render_output_content_wrapper_end' ) );
 
@@ -201,6 +196,15 @@ class Suki_Compatibility_WooCommerce {
 		// Demo Store notice.
 		remove_action( 'wp_footer', 'woocommerce_demo_store' );
 		add_action( 'suki_before_header', 'woocommerce_demo_store' );
+
+		// Change mobile devices breakpoint.
+		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
+
+		// Change gravatar size on reviews.
+		add_filter( 'woocommerce_review_gravatar_size', array( $this, 'set_review_gravatar_size' ) );
+
+		// Add cart fragments.
+		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'update_header_cart' ) );
 
 		/**
 		 * Shop page's template hooks

@@ -32,6 +32,9 @@ class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
 	 */
 	public $units = array( '' );
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -104,7 +107,10 @@ class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
 		);
 	}
 
-	public function content_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">

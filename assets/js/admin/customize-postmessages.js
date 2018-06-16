@@ -40,8 +40,6 @@
 				$style.appendTo( $( 'head' ) );
 			}
 
-			console.log( $style );
-			
 			_.each( rules, function( rule ) {
 				var value = newValue,
 				    formattedValue;

@@ -25,6 +25,9 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 	 */
 	public $units = array( '' );
 
+	/**
+	 * Constructor
+	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
 
@@ -44,6 +47,9 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		}
 	}
 
+	/**
+	 * Setup parameters for content rendering by Underscore JS template.
+	 */
 	public function to_json() {
 		parent::to_json();
 
@@ -102,13 +108,16 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 	}
 
 	/**
-	 * Enqueue scripts/styles for the color picker. 
+	 * Enqueue additional control's CSS or JS scripts.
 	 */
 	public function enqueue() {
 		wp_enqueue_style( 'jquery-ui-slider' );
 	}
 
-	public function content_template() {
+	/**
+	 * Render Underscore JS template for this control's content.
+	 */
+	protected function content_template() {
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">
