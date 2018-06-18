@@ -55,7 +55,6 @@ const gulp          = require( 'gulp' );
 const sass          = require( 'gulp-sass' );
 const autoprefixer  = require( 'gulp-autoprefixer' );
 const uglifycss     = require( 'gulp-uglifycss' );
-const sourcemaps    = require( 'gulp-sourcemaps' );
 const mmq           = require( 'gulp-merge-media-queries' );
 const rtlcss        = require( 'gulp-rtlcss' );
 
@@ -66,15 +65,12 @@ const uglify        = require( 'gulp-uglify' );
 const wpPot         = require( 'gulp-wp-pot' );
 
 // Others
-const request       = require( 'request' );
 const fs            = require( 'fs' );
 const del           = require( 'del' );
-const sort          = require( 'gulp-sort' );
 const rename        = require( 'gulp-rename' );
 const replace       = require( 'gulp-replace' );
 const watch         = require( 'gulp-watch' );
 const zip           = require( 'gulp-zip' );
-const sequence      = require( 'gulp-sequence' );
 
 /**
  * Task: Change theme info (style.css file header) based on package.json values.
@@ -200,14 +196,13 @@ gulp.task( 'vendors', function( done ) {
  */
 gulp.task( 'css_sass', function() {
 	return gulp.src( config.src.scss )
-		.pipe( sourcemaps.init() )
 		.pipe( sass( {
 			outputStyle: 'expanded',
 			indentType: 'tab',
 			indentWidth: 1,
-		} ).on( 'error', sass.logError ) )
+		} )
+		.on( 'error', sass.logError ) )
 		.pipe( autoprefixer( { cascade: false } ) )
-		.pipe( sourcemaps.write( { includeContent: false } ) )
 		.pipe( gulp.dest( config.dest.css ) );
 } );
 
@@ -262,7 +257,6 @@ gulp.task( 'pot', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
 	return gulp.src( config.src.pot )
-		.pipe( sort() )
 		.pipe( wpPot( {
 			domain: info.name,
 			package: info.title,
