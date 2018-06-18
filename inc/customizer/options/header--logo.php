@@ -114,7 +114,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 }
 
 // Max width
-$id = 'header_mobile_logo/_width';
+$id = 'header_mobile_logo_width';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',

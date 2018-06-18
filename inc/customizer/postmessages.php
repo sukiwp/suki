@@ -604,6 +604,27 @@ foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachme
 
 /**
  * ====================================================
+ * Header > Logo
+ * ====================================================
+ */
+
+$add['header_logo_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-logo .site-title > img, .suki-header-logo .site-title > svg',
+		'property' => 'width',
+	),
+);
+$add['header_mobile_logo_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-logo .site-title > img, .suki-header-mobile-logo .site-title > svg',
+		'property' => 'width',
+	),
+);
+
+/**
+ * ====================================================
  * Header > Search
  * ====================================================
  */
@@ -1277,6 +1298,20 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 }
+
+/**
+ * ====================================================
+ * Footer > Logo
+ * ====================================================
+ */
+
+$add['footer_logo_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-logo .site-title > img, .suki-footer-logo .site-title > svg',
+		'property' => 'width',
+	),
+);
 
 /**
  * ====================================================

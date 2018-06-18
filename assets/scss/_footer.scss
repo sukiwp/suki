@@ -1,4 +1,27 @@
 // -------------------------------------------------------------
+// Footer Elements
+// -------------------------------------------------------------
+
+// Logo
+.suki-footer-logo {
+	.site-title {
+		margin: 0;
+
+		> * {
+			display: block;
+		}
+	}
+}
+
+// Social
+.suki-footer-social-links {
+	li.menu-item {
+		display: inline-block;
+		margin: 0 0.5em;
+	}
+}
+
+// -------------------------------------------------------------
 // Footer Widgets
 // -------------------------------------------------------------
 
@@ -49,12 +72,4 @@
 .suki-footer-bottom-bar-left,
 .suki-footer-bottom-bar-right {
 	width: 50%;
-}
-
-// Social
-.suki-footer-social-links {
-	li.menu-item {
-		display: inline-block;
-		margin: 0 0.5em;
-	}
 }

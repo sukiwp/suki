@@ -170,6 +170,13 @@
 	}
 }
 
+.site-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: normal;
+	text-transform: uppercase;
+}
+
 .tagcloud {
 	@extend %float-container;
 	

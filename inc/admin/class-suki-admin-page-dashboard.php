@@ -184,12 +184,6 @@ class Suki_Admin_Page_Dashboard {
 				'label' => esc_html__( 'Other Modules', 'suki' ),
 				'modules' => array(
 					array(
-						'id'    => 'scripts-optimization',
-						'label' => esc_html__( 'Scripts Optimization', 'suki' ),
-						'url'   => 'https://sukiwp.com/pro/modules/scripts-optimization/',
-						'coming_soon' => true,
-					),
-					array(
 						'id'    => 'white-label',
 						'label' => esc_html__( 'White Label', 'suki' ),
 						'url'   => 'https://sukiwp.com/pro/modules/white-label/',

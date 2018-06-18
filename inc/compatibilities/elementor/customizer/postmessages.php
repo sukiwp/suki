@@ -56,7 +56,7 @@ $add['title_text_color'] = array(
 $add['title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-size-suki-title',
+		'element'  => '.elementor-size-suki-title a:hover, .elementor-size-suki-title a:focus',
 		'property' => 'color',
 	),
 );

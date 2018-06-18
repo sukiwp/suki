@@ -175,22 +175,18 @@ msgid "Other Modules"
 msgstr ""
 
 #: inc/admin/class-suki-admin-page-dashboard.php:188
-msgid "Scripts Optimization"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:194
 msgid "White Label"
 msgstr ""
 
-#: inc/admin/class-suki-admin-page-dashboard.php:219
+#: inc/admin/class-suki-admin-page-dashboard.php:213
 msgid "Coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin-page-dashboard.php:222
+#: inc/admin/class-suki-admin-page-dashboard.php:216
 msgid "Deactivate"
 msgstr ""
 
-#: inc/admin/class-suki-admin-page-dashboard.php:224
+#: inc/admin/class-suki-admin-page-dashboard.php:218
 msgid "Learn more &raquo;"
 msgstr ""
 

@@ -326,8 +326,8 @@ function suki_header_element( $element ) {
 			}
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-element">
-				<div class="suki-header-element-inner site-title">
-					<a href="<?php echo esc_url( $logo_url ); ?>" rel="home">
+				<div class="suki-header-element-inner">
+					<a href="<?php echo esc_url( $logo_url ); ?>" rel="home" class="site-title">
 						<?php echo $logo_html; // WPCS: XSS OK ?>
 					</a>
 				</div>
@@ -588,8 +588,8 @@ function suki_footer_element( $element ) {
 			}
 			?>
 			<div class="suki-footer-logo suki-footer-element">
-				<div class="suki-footer-element-inner site-title">
-					<a href="<?php echo esc_url( $logo_url ); ?>" rel="home">
+				<div class="suki-footer-element-inner">
+					<a href="<?php echo esc_url( $logo_url ); ?>" rel="home" class="site-title">
 						<?php echo $logo_html; // WPCS: XSS OK ?>
 					</a>
 				</div>
