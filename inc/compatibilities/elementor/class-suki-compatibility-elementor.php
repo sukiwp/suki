@@ -41,28 +41,28 @@ class Suki_Compatibility_Elementor {
 	protected function __construct() {
 		define( 'ELEMENTOR_PARTNER_ID', 1845 );
 
-		// Add editor preview CSS.
+		// Customizer settings & values
+		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
+
+		// Editor preview CSS
 		add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_preview_css' ) );
 
-		// Add notice for section padding.
+		// Add Section padding notice.
 		add_action( 'elementor/element/section/section_advanced/after_section_start', array( $this, 'add_section_padding_notice' ), 10, 2 );
 
-		// Add new options in Heading widget 'Size' setting.
+		// Add Heading widget "Size" options.
 		add_action( 'elementor/element/heading/section_title/before_section_end', array( $this, 'add_heading_size_options' ), 10, 2 );
 
-		// Add new options in Button widget 'Type' setting.
+		// Add Button widget "Type" options.
 		add_action( 'elementor/element/button/section_button/before_section_end', array( $this, 'add_button_type_options' ), 10, 2 );
 
-		// Modify fonts list with theme defined fonts.
+		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/groups', array( $this, 'modify_font_control__add_groups' ) );
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'modify_font_control__add_fonts' ) );
 
 		// Modify Elementor page template.
 		add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'add_page_template_canvas_wrapper' ) );
 		add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'add_page_template_canvas_wrapper_end' ) );
-		
-		// Add postmessages for Customizer settings.
-		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 	}
 	
 	/**

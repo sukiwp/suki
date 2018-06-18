@@ -75,7 +75,7 @@ class Suki_Customize_Control_Shadow extends WP_Customize_Control {
 					<# var isExcluded = -1 < data.exclude.indexOf( '<?php echo esc_attr( $prop ); ?>' ) ? 'style="display: none;"' : ''; #>
 					<label class="suki-row-item suki-shadow-<?php echo esc_attr( $prop ); ?>" {{{ isExcluded }}}>
 						<span class="suki-small-label"><?php echo esc_attr( $label ); ?></span>
-						<input type="number" value="{{ '' === isExcluded ? '' : data.value[ '<?php echo esc_attr( $prop ); ?>' ] }}" class="suki-shadow-input" step="1">
+						<input type="number" value="{{ '' !== isExcluded ? '' : data.value[ '<?php echo esc_attr( $prop ); ?>' ] }}" class="suki-shadow-input" step="1">
 					</label>
 				<?php endforeach; ?>
 				<label class="suki-row-item" style="width: 30px; vertical-align: top;">

@@ -68,8 +68,8 @@ class Suki_Admin_Page_Dashboard {
 				</h2>
 				<p class="about-description">
 					<?php
-					/* translators: %1$s: theme name */
-					printf( esc_html__( 'First time using %1$s and don\'t know where to start? Our documentation pages have detailed info about how to get started.', 'suki' ), suki_get_theme_info( 'name' ) ); // WPCS: XSS OK
+					/* translators: %s: theme name */
+					printf( esc_html__( 'You can start customizing the site by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page.', 'suki' ), suki_get_theme_info( 'name' ) );
 					?>
 				</p>
 			</div>

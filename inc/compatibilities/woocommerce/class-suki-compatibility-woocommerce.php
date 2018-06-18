@@ -39,12 +39,15 @@ class Suki_Compatibility_WooCommerce {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		// Theme supports
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
+		// Compatibility CSS
+		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 		add_filter( 'suki_customizer_setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
 		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 
