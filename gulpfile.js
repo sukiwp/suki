@@ -9,7 +9,7 @@ const config = {
 		scss: [ './assets/scss/**/*.scss' ],
 		css: [ './assets/css/**/*.css', '!./assets/css/vendors/*' ],
 		js: [ './assets/js/**/*.js', '!./assets/js/vendors/*' ],
-		php: [ './**/*.php', '!./__build/**/*.php' ],
+		pot: [ './**/*.php', './style.css', '!./__build/**/*.php' ],
 		build: [
 			'./*',
 			'./assets/css/**/*',
@@ -261,14 +261,14 @@ gulp.task( 'js', function() {
 gulp.task( 'pot', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
-	return gulp.src( config.src.php )
+	return gulp.src( config.src.pot )
 		.pipe( sort() )
 		.pipe( wpPot( {
 			domain: info.name,
-			destFile: 'suki.pot',
 			package: info.title,
+			metadataFile: 'style.css',
 		} ) )
-		.pipe( gulp.dest( config.dest.pot ) );
+		.pipe( gulp.dest( config.dest.pot + '/' + info.name + '.pot' ) );
 } );
 
 /**
@@ -279,7 +279,7 @@ gulp.task( 'watch', function() {
 		gulp.task( 'info' )();
 	} );
 
-	watch( config.src.php, function() {
+	watch( config.src.pot, function() {
 		gulp.task( 'pot' )();
 	} );
 
