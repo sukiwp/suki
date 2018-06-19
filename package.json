@@ -5,7 +5,7 @@
 	"uri": "https://sukiwp.com/",
 	"author": {
 		"name": "SukiWP",
-		"url": "https://sukiwp.com/about-us/"
+		"url": "https://sukiwp.com/about/"
 	},
 	"version": "0.0.1",
 	"license": "GPL-2.0-or-later",
@@ -34,6 +34,16 @@
 		"type": "git",
 		"url": "https://github.com/sukiwp/suki.git"
 	},
+	"contributors": [
+		{
+			"name": "sukiwp",
+			"url": "https://profiles.wordpress.org/sukiwp"
+		},
+		{
+			"name": "daviedr",
+			"url": "https://profiles.wordpress.org/daviedr"
+		}
+	],
 	"devDependencies": {
 		"del": "^3.0.0",
 		"eligrey-classlist-js-polyfill": "^1.2.20180112",

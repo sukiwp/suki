@@ -88,8 +88,11 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	public static function slider( $value, $setting ) {
+		// Get control ID, support for reponsive control.
+		$control_id = preg_replace( '/__(tablet|mobile)/', '', $setting->id );
+
 		// Get the control object associated with the setting.
-		$control = $setting->manager->get_control( $setting->id );
+		$control = $setting->manager->get_control( $control_id );
 
 		// Validate value.
 		$value = self::validate_dimension( $value, $control->units );

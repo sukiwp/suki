@@ -34,7 +34,7 @@ msgid "SukiWP"
 msgstr ""
 
 #: style.css:5
-msgid "https://sukiwp.com/about-us/"
+msgid "https://sukiwp.com/about/"
 msgstr ""
 
 #: style.css:6

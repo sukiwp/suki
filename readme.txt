@@ -1,5 +1,5 @@
 === Suki ===
-Contributors: sukiwp
+Contributors: sukiwp, daviedr
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, accessibility-ready, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce
 Requires at least: 4.5
 Tested up to: 4.9

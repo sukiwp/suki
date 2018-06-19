@@ -75,7 +75,7 @@ const zip           = require( 'gulp-zip' );
 /**
  * Task: Change theme info (style.css file header) based on package.json values.
  */
-gulp.task( 'style_css', function() {
+gulp.task( 'theme_info', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
 	// Change theme version on style.css
@@ -97,11 +97,15 @@ gulp.task( 'style_css', function() {
 gulp.task( 'readme_txt', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
+	var contributors = info.contributors.map(function( contributor ) {
+		return contributor.name;
+	});
+
 	// Change theme version on eadme.txt
 	return gulp.src( [ './readme.txt' ] )
 		.pipe( replace( /(===)[.\s]*(===)/, '$1 ' + info.title + ' $2' ) )
 
-		.pipe( replace( /(Contributors: ).*/, '$1' + info.author.name.toLowerCase() ) )
+		.pipe( replace( /(Contributors: ).*/, '$1' + contributors.join( ', ' ) ) )
 		.pipe( replace( /(Tags: ).*/, '$1' + info.keywords.join( ', ' ) ) )
 
 		.pipe( replace( /(Stable tag: ).*/, '$1' + info.version ) )
@@ -114,7 +118,7 @@ gulp.task( 'readme_txt', function() {
 /**
  * Wrapper Task: Set theme info files.
  */
-gulp.task( 'info', gulp.series( 'style_css', 'readme_txt' ) );
+gulp.task( 'info', gulp.series( 'theme_info', 'readme_txt' ) );
 
 /**
  * Task: Copy vendor assets.

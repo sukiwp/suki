@@ -1,3 +1,3 @@
 # Suki WordPress Theme
 
-by [SingleStroke](https://singlestroke.io/)
+by [SukiWP](https://sukiwp.com/)
