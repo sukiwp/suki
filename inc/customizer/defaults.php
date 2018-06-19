@@ -210,7 +210,7 @@ foreach ( suki_get_social_media_types() as $slug => $label ) {
 
 $add['page_layout'] = 'full-width';
 $add['boxed_page_width'] = '1400px';
-$add['boxed_page_shadow'] = '0 0 30px 0 rgba(0,0,0,0.05)';
+$add['boxed_page_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0.05)';
 $add['container_width'] = '1140px';
 
 $add['edge_padding'] = '25px';
@@ -290,8 +290,8 @@ $add['header_social_links_target'] = 'self';
 
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '36px';
-$add['header_top_bar_padding'] = '0 0 0 0';
-$add['header_top_bar_border'] = '0 0 1px 0';
+$add['header_top_bar_padding'] = '0px 0px 0px';
+$add['header_top_bar_border'] = '0px 0px 1px 0px';
 $add['header_top_bar_items_gap'] = '10px';
 
 $add['header_top_bar_section_bg_color'] = $colors['subtle'];
@@ -317,8 +317,8 @@ $add['header_top_bar_link_hover_text_color'] = $colors['text'];
 
 $add['header_main_bar_container'] = 'default';
 $add['header_main_bar_height'] = '80px';
-$add['header_main_bar_padding'] = '0 0 0 0';
-$add['header_main_bar_border'] = '0 0 1px 0';
+$add['header_main_bar_padding'] = '0px 0px 0px';
+$add['header_main_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_main_bar_items_gap'] = '14px';
 
@@ -345,8 +345,8 @@ $add['header_main_bar_link_hover_text_color'] = $colors['text'];
 
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '50px';
-$add['header_bottom_bar_padding'] = '0 0 0 0';
-$add['header_bottom_bar_border'] = '0 0 1px 0';
+$add['header_bottom_bar_padding'] = '0px 0px 0px';
+$add['header_bottom_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_bottom_bar_items_gap'] = '10px';
 
@@ -372,7 +372,7 @@ $add['header_bottom_bar_link_hover_text_color'] = $colors['text'];
  */
 
 $add['header_mobile_main_bar_height'] = '60px';
-$add['header_mobile_main_bar_border'] = '0 0 1px 0';
+$add['header_mobile_main_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_mobile_main_bar_items_gap'] = '12px';
 
@@ -425,7 +425,7 @@ $add['header_sticky_colors'] = 'alt';
  * ====================================================
  */
 
-$add['content_section_padding'] = '80px 0 80px 0';
+$add['content_section_padding'] = '80px 0px 80px 0px';
 
 /**
  * ====================================================
@@ -433,8 +433,8 @@ $add['content_section_padding'] = '80px 0 80px 0';
  * ====================================================
  */
 
-$add['content_padding'] = '0 0 0 0';
-$add['content_border'] = '0 0 0 0';
+$add['content_padding'] = '0px 0px 0px';
+$add['content_border'] = '0px 0px 0px';
 
 $add['narrow_content_width'] = '80%';
 
@@ -451,8 +451,8 @@ $add['sidebar_width'] = '300px';
 $add['sidebar_gap'] = '50px';
 $add['sidebar_widgets_mode'] = 'separated';
 $add['sidebar_widgets_gap'] = '40px';
-$add['sidebar_padding'] = '0 0 0 0';
-$add['sidebar_border'] = '0 0 0 0';
+$add['sidebar_padding'] = '0px 0px 0px';
+$add['sidebar_border'] = '0px 0px 0px';
 
 $add['sidebar_bg_color'] = '';
 $add['sidebar_border_color'] = $colors['border'];
@@ -477,8 +477,8 @@ $add['footer_elements_bottom_right'] = array();
  */
 
 $add['footer_widgets_bar_container'] = 'default';
-$add['footer_widgets_bar_padding'] = '60px 0 60px 0';
-$add['footer_widgets_bar_border'] = '1px 0 0 0';
+$add['footer_widgets_bar_padding'] = '60px 0px 60px 0px';
+$add['footer_widgets_bar_border'] = '1px 0px 0px 0px';
 
 $add['footer_widgets_bar_section_bg_color'] = $colors['subtle'];
 $add['footer_widgets_bar_section_border_color'] = $colors['border'];
@@ -494,8 +494,8 @@ $add['footer_widgets_bar_widget_title_text_color'] = $colors['heading'];
  */
 
 $add['footer_bottom_bar_container'] = 'default';
-$add['footer_bottom_bar_padding'] = '25px 0 25px 0';
-$add['footer_bottom_bar_border'] = '1px 0 0 0';
+$add['footer_bottom_bar_padding'] = '25px 0px 25px 0px';
+$add['footer_bottom_bar_border'] = '1px 0px 0px 0px';
 
 $add['footer_bottom_bar_section_bg_color'] = $colors['subtle'];
 $add['footer_bottom_bar_section_border_color'] = $colors['border'];

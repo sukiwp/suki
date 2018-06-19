@@ -395,7 +395,7 @@ class Suki_Customizer_Sanitization {
 		$dimension_number = self::validate_number( $dimension_number, $selected_unit );
 
 		// Check if number is invalid, then return empty string (without unit).
-		if ( empty( $dimension_number ) ) {
+		if ( '' === $dimension_number ) {
 			return '';
 		}
 

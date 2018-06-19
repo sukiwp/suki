@@ -737,7 +737,7 @@ msgstr ""
 
 #. translators: %1$s: desktop edge padding value from Customizer, %2$s: tablet edge padding value from Customizer, %3$s: mobile edge padding value from Customizer.
 #: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:147
-msgid "You might need to set the LEFT & RIGHT PADDING according to your \"Edge tolerance padding\" value like specified on Customizer.<br><br>Your current edge padding values are:<br>Desktop: %1$spx<br>Tablet: %2$spx<br>Mobile: %3$spx"
+msgid "You might need to set the LEFT & RIGHT PADDING according to your \"Edge tolerance padding\" value like specified on Customizer.<br><br>Your current edge padding values are:<br>Desktop: %1$s<br>Tablet: %2$s<br>Mobile: %3$s"
 msgstr ""
 
 #: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:168

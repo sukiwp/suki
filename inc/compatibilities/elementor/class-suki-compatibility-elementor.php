@@ -144,7 +144,7 @@ class Suki_Compatibility_Elementor {
 			array(
 				'type' => \Elementor\Controls_Manager::RAW_HTML,
 				/* translators: %1$s: desktop edge padding value from Customizer, %2$s: tablet edge padding value from Customizer, %3$s: mobile edge padding value from Customizer. */
-				'raw' => wp_kses_post( sprintf( __( 'You might need to set the LEFT & RIGHT PADDING according to your "Edge tolerance padding" value like specified on Customizer.<br><br>Your current edge padding values are:<br>Desktop: %1$spx<br>Tablet: %2$spx<br>Mobile: %3$spx', 'suki' ), suki_get_theme_mod( 'edge_padding' ), suki_get_theme_mod( 'edge_padding__tablet' ), suki_get_theme_mod( 'edge_padding__mobile' ) ) ),
+				'raw' => wp_kses_post( sprintf( __( 'You might need to set the LEFT & RIGHT PADDING according to your "Edge tolerance padding" value like specified on Customizer.<br><br>Your current edge padding values are:<br>Desktop: %1$s<br>Tablet: %2$s<br>Mobile: %3$s', 'suki' ), suki_get_theme_mod( 'edge_padding' ), suki_get_theme_mod( 'edge_padding__tablet' ), suki_get_theme_mod( 'edge_padding__mobile' ) ) ),
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 				'hide_in_inner' => true,
 				'condition' => array(

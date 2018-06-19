@@ -130,7 +130,7 @@
 
 			$inputs.on( 'change', function( i, el ) {
 				$values = $inputs.map( function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( ( '' == this.value || 0 == this.value ) ? 0 : this.value.toString() + 'px' );
+					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '' : this.value.toString() + 'px' );
 				}).get();
 
 				value = $values.join( ' ' );
@@ -193,7 +193,7 @@
 				$input.on( 'change', function( e ) {
 					$slider.slider( 'value', this.value );
 
-					var value = ( '' == this.value || 0 == this.value ) ? 0 : this.value.toString() + $unit.val();
+					var value = '' === this.value ? '' : this.value.toString() + $unit.val();
 					$value.val( value ).trigger( 'change' );
 				});
 			});
@@ -244,7 +244,7 @@
 
 				$inputs.on( 'change', function( e ) {
 					var values = $inputs.map( function() {
-						return ( '' == this.value || 0 == this.value ) ? 0 : this.value.toString() + $unit.val();
+						return '' === this.value ? '' : this.value.toString() + $unit.val();
 					}).get();
 
 					value = values.join( ' ' );
