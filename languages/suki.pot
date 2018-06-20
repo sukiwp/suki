@@ -735,32 +735,6 @@ msgstr ""
 msgid "Open links on new tab"
 msgstr ""
 
-#. translators: %1$s: desktop edge padding value from Customizer, %2$s: tablet edge padding value from Customizer, %3$s: mobile edge padding value from Customizer.
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:147
-msgid "You might need to set the LEFT & RIGHT PADDING according to your \"Edge tolerance padding\" value like specified on Customizer.<br><br>Your current edge padding values are:<br>Desktop: %1$s<br>Tablet: %2$s<br>Mobile: %3$s"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:168
-msgid "Suki - Title"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:169
-msgid "Suki - Small Title"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:170
-msgid "Suki - Meta"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:187
-msgid "Suki Button"
-msgstr ""
-
-#. translators: %s: theme name.
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:202
-msgid "%s - Google"
-msgstr ""
-
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:86
 msgid "Sidebar Shop"
 msgstr ""
