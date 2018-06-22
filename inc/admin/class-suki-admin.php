@@ -125,24 +125,12 @@ class Suki_Admin {
 	 * @param string $hook
 	 */
 	public function admin_enqueue_scripts( $hook ) {
-		// Fetched version from package.json
-		$ver = array();
-		$ver['jquery.repeater'] = '1.2.1';
-		$ver['select2'] = '4.0.5';
-
 		// Register JS files
 		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '2.1.3', true );
-		wp_register_script( 'jquery-repeater', SUKI_JS_URL . '/vendors/jquery.repeater.min.js', array( 'jquery' ), $ver['jquery.repeater'], true );
-		wp_register_script( 'select2', SUKI_JS_URL . '/vendors/select2.min.js', array( 'jquery' ), $ver['select2'], true );
-
 		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin.js', array( 'jquery' ), SUKI_VERSION, true );
 
 		// Register CSS files
-		wp_enqueue_style( 'select2', SUKI_CSS_URL . '/vendors/select2.min.css', array(), $ver['select2'] );
-		
-		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(
-			'select2',
-		), SUKI_VERSION );
+		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
 	}
 
