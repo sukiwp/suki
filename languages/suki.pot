@@ -41,26 +41,26 @@ msgstr ""
 msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 15KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
 msgstr ""
 
-#: inc/class-suki.php:212
+#: inc/class-suki.php:208
 msgid "Header Menu 1"
 msgstr ""
 
-#: inc/class-suki.php:213, inc/customizer/options/header--menu.php:40
+#: inc/class-suki.php:209, inc/customizer/options/header--menu.php:40
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:214, inc/customizer/options/footer--builder.php:93, inc/customizer/options/footer--menu.php:23
+#: inc/class-suki.php:210, inc/customizer/options/footer--builder.php:93, inc/customizer/options/footer--menu.php:23
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:241, inc/customizer/options/_sections.php:244
+#: inc/class-suki.php:237, inc/customizer/options/_sections.php:244
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
 #. translators: %d: footer widgets column number.
 #. translators: %d: column number.
-#: inc/class-suki.php:252, inc/template-tags.php:498, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:248, inc/template-tags.php:498, inc/customizer/options/footer--widgets-column.php:25
 msgid "Footer Widgets Column %d"
 msgstr ""
 
@@ -292,382 +292,298 @@ msgstr ""
 msgid "Hex / RGBA"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:240
+#: inc/admin/class-suki-admin-fields.php:217
 msgid "Upload & choose file"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:241
+#: inc/admin/class-suki-admin-fields.php:218
 msgid "Choose"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:266
-msgid "Add New"
-msgstr ""
-
-#: inc/admin/class-suki-admin-metabox-page-settings.php:96, inc/admin/class-suki-admin-metabox-page-settings.php:297, inc/admin/class-suki-admin-metabox-page-settings.php:358
+#: inc/admin/class-suki-admin-metabox-page-settings.php:79, inc/admin/class-suki-admin-metabox-page-settings.php:302, inc/admin/class-suki-admin-metabox-page-settings.php:363
 msgid "Page Settings (Suki)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:188, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:173
+#: inc/admin/class-suki-admin-metabox-page-settings.php:193, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:173
 msgid "Edit Page settings here"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:226
+#: inc/admin/class-suki-admin-metabox-page-settings.php:231
 msgid "Content Container"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:235, inc/admin/class-suki-admin-metabox-page-settings.php:256, inc/admin/class-suki-admin-metabox-page-settings.php:334, inc/admin/class-suki-admin-metabox-page-settings.php:396
+#: inc/admin/class-suki-admin-metabox-page-settings.php:240, inc/admin/class-suki-admin-metabox-page-settings.php:261, inc/admin/class-suki-admin-metabox-page-settings.php:339, inc/admin/class-suki-admin-metabox-page-settings.php:401
 msgid "-- Use Customizer value --"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:236, inc/customizer/options/footer--bottom-bar.php:31, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:36, inc/customizer/options/page-settings.php:39
+#: inc/admin/class-suki-admin-metabox-page-settings.php:241, inc/customizer/options/footer--bottom-bar.php:31, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:36, inc/customizer/options/page-settings.php:39
 msgid "Fixed width container"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:237, inc/customizer/options/footer--bottom-bar.php:32, inc/customizer/options/footer--widgets-bar.php:32, inc/customizer/options/header--top-main-bottom-bar.php:37, inc/customizer/options/page-settings.php:40
+#: inc/admin/class-suki-admin-metabox-page-settings.php:242, inc/customizer/options/footer--bottom-bar.php:32, inc/customizer/options/footer--widgets-bar.php:32, inc/customizer/options/header--top-main-bottom-bar.php:37, inc/customizer/options/page-settings.php:40
 msgid "Full container"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:238, inc/customizer/options/footer--bottom-bar.php:33, inc/customizer/options/footer--widgets-bar.php:33, inc/customizer/options/header--top-main-bottom-bar.php:38, inc/customizer/options/page-settings.php:41
+#: inc/admin/class-suki-admin-metabox-page-settings.php:243, inc/customizer/options/footer--bottom-bar.php:33, inc/customizer/options/footer--widgets-bar.php:33, inc/customizer/options/header--top-main-bottom-bar.php:38, inc/customizer/options/page-settings.php:41
 msgid "Full container with edge tolerance padding"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:247, inc/admin/class-suki-admin-metabox-page-settings.php:326, inc/admin/class-suki-admin-metabox-page-settings.php:387
+#: inc/admin/class-suki-admin-metabox-page-settings.php:252, inc/admin/class-suki-admin-metabox-page-settings.php:331, inc/admin/class-suki-admin-metabox-page-settings.php:392
 msgid "Content Layout"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:257, inc/admin/class-suki-admin-metabox-page-settings.php:336, inc/admin/class-suki-admin-metabox-page-settings.php:398
+#: inc/admin/class-suki-admin-metabox-page-settings.php:262, inc/admin/class-suki-admin-metabox-page-settings.php:341, inc/admin/class-suki-admin-metabox-page-settings.php:403
 msgid "Wide content"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:258, inc/admin/class-suki-admin-metabox-page-settings.php:337, inc/admin/class-suki-admin-metabox-page-settings.php:399
+#: inc/admin/class-suki-admin-metabox-page-settings.php:263, inc/admin/class-suki-admin-metabox-page-settings.php:342, inc/admin/class-suki-admin-metabox-page-settings.php:404
 msgid "Narrow content"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:259, inc/admin/class-suki-admin-metabox-page-settings.php:338, inc/admin/class-suki-admin-metabox-page-settings.php:400, inc/customizer/options/page-settings.php:60
+#: inc/admin/class-suki-admin-metabox-page-settings.php:264, inc/admin/class-suki-admin-metabox-page-settings.php:343, inc/admin/class-suki-admin-metabox-page-settings.php:405, inc/customizer/options/page-settings.php:60
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:260, inc/admin/class-suki-admin-metabox-page-settings.php:339, inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/customizer/options/page-settings.php:61
+#: inc/admin/class-suki-admin-metabox-page-settings.php:265, inc/admin/class-suki-admin-metabox-page-settings.php:344, inc/admin/class-suki-admin-metabox-page-settings.php:406, inc/customizer/options/page-settings.php:61
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:335, inc/admin/class-suki-admin-metabox-page-settings.php:397
+#: inc/admin/class-suki-admin-metabox-page-settings.php:340, inc/admin/class-suki-admin-metabox-page-settings.php:402
 msgid "Full width content"
 msgstr ""
 
+#: inc/admin/class-suki-admin.php:108
+msgid "Fell in love with this screenshot? Learn how to replicate same design as the screenscrot."
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:174
+msgid "Facebook"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:175
+msgid "Instagram"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:176
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:177
+msgid "Twitter"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:178
+msgid "Google Plus"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:182
+msgid " URL"
+msgstr ""
+
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin-page-dashboard.php:66
+#: inc/admin/class-suki-admin.php:348
 msgid "Welcome to %s"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin-page-dashboard.php:72
-msgid "You can start customizing the site by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page."
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:82
-msgid "Premium Modules in Suki Pro:"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:85
-msgid "Layout Modules"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:89
-msgid "Header (Advanced)"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:95
-msgid "Sticky Header"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:101
-msgid "Transparent Header"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:107
-msgid "Footer (Advanced)"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:113
-msgid "Disable Elements"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:119
-msgid "Preloader Screen"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:126
-msgid "Content Modules"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:130
-msgid "Portable Content Blocks"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:136
-msgid "Blog (Advanced)"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:142
-msgid "WooCommerce (Advanced)"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:149
-msgid "Design Modules"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:153
-msgid "Alternative Header Colors"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:159
-msgid "Typography (Advanced)"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:165
-msgid "Custom Fonts"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:171
-msgid "Custom Icons"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:177
-msgid "Color Palette"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:184
-msgid "Other Modules"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:188
-msgid "White Label"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:213
-msgid "Coming soon"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:216
-msgid "Deactivate"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-dashboard.php:218
-msgid "Learn more &raquo;"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:79
-msgid "Regenerate Customizer CSS"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:86
-msgid "Regenerate CSS"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:88
-msgid "Generating new CSS file &hellip;"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:89, inc/admin/class-suki-admin-page-tools.php:113, inc/admin/class-suki-admin-page-tools.php:161
-msgid "Successful!"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:91
-msgid "Use this button to manually recreate the CSS file according to the latest Customizer settings. If you are using any caching / minifier plugin, you might need to flush the cache."
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:103
-msgid "Reset Customizer settings"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:108
-msgid "Are you sure to reset all Customizer settings?"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:110
-msgid "Reset Customizer"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:112
-msgid "Resetting Customizer settings &hellip;"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:115
-msgid "All current Customizer settings would be deleted. Make sure you already backup (export) your current settings first, if you need to revert in the future!"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:127
-msgid "Export Customizer settings"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:134
-msgid "Export Customizer"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:137
-msgid "Export your current Customizer settings to a .txt file for backup."
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:149
-msgid "Import Customizer settings"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:154
-msgid "Paste the code from your .txt backup file here."
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:155
-msgid "Empty code! Please paste the code into the textarea and then click Import button."
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:157
-msgid "Import Customizer"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:159
-msgid "Importing Customizer settings &hellip;"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:160
-msgid "Failed! Invalid code"
-msgstr ""
-
-#: inc/admin/class-suki-admin-page-tools.php:163
-msgid "All current Customizer settings will be replaced with the imported settings. Please backup (export) first!"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:143
-msgid "Fell in love with this screenshot? Learn how to replicate same design as the screenscrot."
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:209
-msgid "Facebook"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:210
-msgid "Instagram"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:211
-msgid "LinkedIn"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:212
-msgid "Twitter"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:213
-msgid "Google Plus"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:217
-msgid " URL"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:330
-msgctxt "Suki Pro teaser"
-msgid "Upgrade to Suki Pro"
+#: inc/admin/class-suki-admin.php:354
+msgid "You can start customizing by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page."
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:368
-msgid "Go to Customizer"
+msgid "Premium Modules in Suki Pro"
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:372
+msgid "Layout Modules"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:376
+msgid "Header (Advanced)"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:382
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:388
+msgid "Transparent Header"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:394
+msgid "Footer (Advanced)"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:400
+msgid "Disable Elements"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:406
+msgid "Preloader Screen"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:413
+msgid "Content Modules"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:417
+msgid "Portable Content Blocks"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:423
+msgid "Blog (Advanced)"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:429
+msgid "WooCommerce (Advanced)"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:436
+msgid "Design Modules"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:440
+msgid "Alternative Header Colors"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:446
+msgid "Typography (Advanced)"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:452
+msgid "Custom Fonts"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:458
+msgid "Custom Icons"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:464
+msgid "Color Palette"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:471
+msgid "Other Modules"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:475
+msgid "White Label"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:500
+msgid "Coming soon"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:503
+msgid "Deactivate"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:505
+msgid "Learn more &raquo;"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:526
+msgid "Go to Customizer"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:538
+msgid "Suki Pro"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:540
+msgid "Make your site even better with our premium modules, available in a very affordable price."
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:544
+msgctxt "Suki Pro teaser"
+msgid "More about Suki Pro"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:558
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:374
+#: inc/admin/class-suki-admin.php:560
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:378
+#: inc/admin/class-suki-admin.php:564
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:384
-msgid "Join the community!"
+#: inc/admin/class-suki-admin.php:578
+msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:386
+#: inc/admin/class-suki-admin.php:580
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:390
+#: inc/admin/class-suki-admin.php:584
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:397
+#: inc/admin/class-suki-admin.php:599
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:399
+#: inc/admin/class-suki-admin.php:601
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:403
+#: inc/admin/class-suki-admin.php:605
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:425
-msgid "Dashboard"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:426
-msgid "Tools"
-msgstr ""
-
-#: inc/customizer/class-suki-customizer.php:171
+#: inc/customizer/class-suki-customizer.php:147
 msgid "Static Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:172
+#: inc/customizer/class-suki-customizer.php:148
 msgid "You can override these settings for each individual page."
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:175
+#: inc/customizer/class-suki-customizer.php:151
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:178
+#: inc/customizer/class-suki-customizer.php:154
 msgid "404 Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:181
+#: inc/customizer/class-suki-customizer.php:157
 msgid "Posts Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:184
+#: inc/customizer/class-suki-customizer.php:160
 msgid "Single Post Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:185
+#: inc/customizer/class-suki-customizer.php:161
 msgid "You can override these settings for each individual post."
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:199
+#: inc/customizer/class-suki-customizer.php:175
 msgid "%s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:203
+#: inc/customizer/class-suki-customizer.php:179
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:205
+#: inc/customizer/class-suki-customizer.php:181
 msgid "You can override these settings for each individual %s."
 msgstr ""
 
-#: inc/customizer/defaults.php:265
+#: inc/customizer/defaults.php:249
 msgid "Insert HTML text here"
 msgstr ""
 
 #. translators: %s: anchor tag to theme author site.
-#: inc/customizer/defaults.php:529
+#: inc/customizer/defaults.php:513
 msgid "Copyright &copy; {{current_year}}, designed by %s"
 msgstr ""
 
@@ -1297,7 +1213,7 @@ msgstr ""
 msgid "Supports JPG, PNG, or SVG format"
 msgstr ""
 
-#: inc/customizer/options/footer--logo.php:63, inc/customizer/options/header--logo.php:63, inc/customizer/options/header--logo.php:125
+#: inc/customizer/options/footer--logo.php:61, inc/customizer/options/header--logo.php:61, inc/customizer/options/header--logo.php:121
 msgid "Max width"
 msgstr ""
 
@@ -1317,15 +1233,15 @@ msgstr ""
 msgid "Active links"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:71, inc/customizer/options/header--social.php:70
+#: inc/customizer/options/footer--social.php:69, inc/customizer/options/header--social.php:68
 msgid "Open links in"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:73, inc/customizer/options/header--social.php:72
+#: inc/customizer/options/footer--social.php:71, inc/customizer/options/header--social.php:70
 msgid "Same tab"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:74, inc/customizer/options/header--social.php:73
+#: inc/customizer/options/footer--social.php:72, inc/customizer/options/header--social.php:71
 msgid "New tab"
 msgstr ""
 
@@ -1439,7 +1355,7 @@ msgstr ""
 msgid "Mobile Header"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:131, inc/customizer/options/header--logo.php:84
+#: inc/customizer/options/header--builder.php:131, inc/customizer/options/header--logo.php:82
 msgid "Mobile Logo"
 msgstr ""
 
@@ -1468,21 +1384,21 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
-#: inc/customizer/options/header--html.php:64
+#: inc/customizer/options/header--html.php:62
 msgctxt "Suki Pro teaser"
 msgid "HTML 2"
 msgstr ""
 
-#: inc/customizer/options/header--html.php:72
+#: inc/customizer/options/header--html.php:70
 msgctxt "Suki Pro teaser"
 msgid "HTML 3"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:97
+#: inc/customizer/options/header--logo.php:95
 msgid "Mobile Logo image"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:98
+#: inc/customizer/options/header--logo.php:96
 msgid "Supports .JPG, .PNG, or .SVG format"
 msgstr ""
 
@@ -1754,18 +1670,6 @@ msgstr ""
 
 #: inc/customizer/options/settings--google-fonts.php:28
 msgid "\"Latin\" character subset is included by default."
-msgstr ""
-
-#: inc/customizer/options/settings--scripts.php:27
-msgid "Use static CSS file"
-msgstr ""
-
-#: inc/customizer/options/settings--scripts.php:28
-msgid "If enabled, Customizer CSS would be served via static CSS file that is generated by theme and saved on <code>wp-content/uploads</code> folder (recommended for caching)."
-msgstr ""
-
-#: inc/customizer/options/settings--scripts.php:28
-msgid "If disabled, Customizer CSS would be served via inline CSS on the <code>&lt;head&gt;</code> tag of the page."
 msgstr ""
 
 #: inc/customizer/options/_sections.php:31

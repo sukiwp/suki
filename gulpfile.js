@@ -103,14 +103,14 @@ gulp.task( 'readme_txt', function() {
 
 	// Change theme version on eadme.txt
 	return gulp.src( [ './readme.txt' ] )
-		.pipe( replace( /(===)[.\s]*(===)/, '$1 ' + info.title + ' $2' ) )
-
+		.pipe( replace( /(===).*(===)/, '$1 ' + info.title + ' $2' ) )
 		.pipe( replace( /(Contributors: ).*/, '$1' + contributors.join( ', ' ) ) )
 		.pipe( replace( /(Tags: ).*/, '$1' + info.keywords.join( ', ' ) ) )
-
 		.pipe( replace( /(Stable tag: ).*/, '$1' + info.version ) )
 
-		.pipe( replace( /(== Description ==)[.\s]*(==)/, '$1\n\n' + info.description + '\n\n$2' ) )
+		.pipe( replace( /(\s\s).*(\s\s== Description ==)/, '$1' + info.description + '$2' ) )
+
+		.pipe( replace( /(== Description ==\s\s).*(\s\s)/, '$1' + info.description + '$2' ) )
 
 		.pipe( gulp.dest( './' ) );
 } );
@@ -138,32 +138,12 @@ gulp.task( 'vendors', function( done ) {
 		.pipe( gulp.dest( config.dest.scss ) );
 
 	// classList Polyfill
-	gulp.src( './node_modules/eligrey-classlist-js-polyfill/classList.min.js' )
-		.pipe( gulp.dest( config.dest.js + '/vendor' ) );
+	gulp.src( './node_modules/eligrey-classlist-js-polyfill/classList?(.min).js' )
+		.pipe( gulp.dest( config.dest.js + '/vendors' ) );
 
 	// Change version
 	gulp.src( './inc/class-suki.php', { base: './' } )
 		.pipe( replace( /(\$ver\['classlist-polyfill'\])(?:.*)/, '$1 = \'' + info.devDependencies['eligrey-classlist-js-polyfill'].replace( '^', '' ) + '\';' ) )
-		.pipe( gulp.dest( './' ) );
-
-	/**
-	 * Admin page scripts
-	 */
-
-	// jQuery repeater
-	gulp.src( './node_modules/jquery.repeater/jquery.repeater.min.js' )
-		.pipe( gulp.dest( config.dest.js + '/vendor' ) );
-
-	// Select2
-	gulp.src( './node_modules/select2/dist/css/select2.min.css' )
-		.pipe( gulp.dest( config.dest.css + '/vendor' ) );
-	gulp.src( './node_modules/select2/dist/js/select2.min.js' )
-		.pipe( gulp.dest( config.dest.js + '/vendor' ) );
-
-	// Change version
-	gulp.src( './inc/admin/class-suki-admin.php', { base: './' } )
-		.pipe( replace( /(\$ver\['jquery.repeater'\])(?:.*)/, '$1 = \'' + info.devDependencies['jquery.repeater'].replace( '^', '' ) + '\';' ) )
-		.pipe( replace( /(\$ver\['select2'\])(?:.*)/, '$1 = \'' + info.devDependencies['select2'].replace( '^', '' ) + '\';' ) )
 		.pipe( gulp.dest( './' ) );
 
 	/**

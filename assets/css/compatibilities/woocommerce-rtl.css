@@ -252,56 +252,56 @@ p.demo_store {
 	}
 }
 
-.woocommerce.columns-1 ul.products li.product {
+.woocommerce ul.products.columns-1 li.product {
 	width: 100%;
 }
 
-.woocommerce.columns-2 ul.products li.product {
+.woocommerce ul.products.columns-2 li.product {
 	width: 50%;
 }
 
-.woocommerce.columns-3 ul.products li.product {
+.woocommerce ul.products.columns-3 li.product {
 	width: 33.33%;
 }
 
 @media screen and (max-width: 767px) {
-	.woocommerce.columns-3 ul.products li.product {
+	.woocommerce ul.products.columns-3 li.product {
 		width: 50%;
 	}
 }
 
-.woocommerce.columns-4 ul.products li.product {
+.woocommerce ul.products.columns-4 li.product {
 	width: 25%;
 }
 
 @media screen and (max-width: 1023px) {
-	.woocommerce.columns-4 ul.products li.product {
+	.woocommerce ul.products.columns-4 li.product {
 		width: 50%;
 	}
 }
 
-.woocommerce.columns-5 ul.products li.product {
+.woocommerce ul.products.columns-5 li.product {
 	width: 20%;
 }
 
 @media screen and (max-width: 1023px) {
-	.woocommerce.columns-5 ul.products li.product {
+	.woocommerce ul.products.columns-5 li.product {
 		width: 50%;
 	}
 }
 
-.woocommerce.columns-6 ul.products li.product {
+.woocommerce ul.products.columns-6 li.product {
 	width: 16.667%;
 }
 
 @media screen and (max-width: 1023px) {
-	.woocommerce.columns-6 ul.products li.product {
+	.woocommerce ul.products.columns-6 li.product {
 		width: 33.33%;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.woocommerce.columns-6 ul.products li.product {
+	.woocommerce ul.products.columns-6 li.product {
 		width: 50%;
 	}
 }

@@ -50,9 +50,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $id, array(
 		'selector'            => '.suki-header-social-links',
 		'container_inclusive' => true,
-		'render_callback'     => function() {
-			suki_header_element( 'social' );
-		},
+		'render_callback'     => call_user_func( 'suki_header_element', 'social' ),
 		'fallback_refresh'    => false,
 	) );
 }

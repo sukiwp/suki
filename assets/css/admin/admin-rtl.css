@@ -353,10 +353,6 @@ input, select, textarea {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-.suki-admin-wrap .suki-admin-logo {
-	float: right;
-}
-
 .suki-admin-wrap .suki-admin-logo img {
 	vertical-align: middle;
 }
@@ -370,10 +366,6 @@ input, select, textarea {
 	line-height: 1;
 	vertical-align: middle;
 	background-color: rgba(0, 0, 0, 0.1);
-}
-
-.suki-admin-wrap .suki-admin-header-menu {
-	float: left;
 }
 
 .suki-admin-wrap .wp-badge {
@@ -429,6 +421,10 @@ input, select, textarea {
 	}
 }
 
+.suki-admin-wrap .suki-admin-primary > * {
+	margin: 0 0 20px;
+}
+
 .suki-admin-wrap .suki-admin-secondary {
 	min-width: 255px;
 	width: 255px;
@@ -443,7 +439,7 @@ input, select, textarea {
 }
 
 .suki-admin-wrap .suki-admin-secondary > * {
-	margin-bottom: 20px;
+	margin: 0 0 20px;
 }
 
 .suki-admin-wrap .suki-admin-secondary .postbox .hndle {
@@ -460,35 +456,8 @@ input, select, textarea {
 	text-align: center;
 }
 
-.suki-admin-wrap .suki-admin-tab-panel {
-	padding: 20px;
-}
-
-.suki-admin-wrap .suki-admin-nav-tab {
-	padding: 9px 9px 0;
-	border-bottom-color: #e5e5e5 !important;
-}
-
-.suki-admin-wrap .suki-admin-nav-tab .nav-tab {
-	border-color: #e5e5e5;
-	background-color: #fff;
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-	opacity: 0.75;
-}
-
-.suki-admin-wrap .suki-admin-nav-tab .nav-tab:first-child {
-	margin-right: 0;
-}
-
-.suki-admin-wrap .suki-admin-nav-tab .nav-tab.nav-tab-active {
-	border-bottom-color: #fff;
-	opacity: 1;
-}
-
 .suki-admin-welcome-panel {
 	padding: 0;
-	margin: 0 0 40px;
 }
 
 .suki-admin-welcome-panel .welcome-panel-content {
@@ -496,71 +465,41 @@ input, select, textarea {
 }
 
 .suki-admin-welcome-panel h2 {
-	margin: 0.5em 0;
+	margin-bottom: 0.5em;
+}
+
+.suki-admin-pro-modules .inside {
+	margin: 0;
 	padding: 0;
 }
 
-.suki-admin-pro-table {
-	margin-bottom: 10px;
+.suki-admin-pro-modules table {
+	border: none;
 }
 
-.suki-admin-pro-table .inactive th, .suki-admin-pro-table .inactive td, .suki-admin-pro-table .active th, .suki-admin-pro-table .active td {
-	padding: 6px 10px;
+.suki-admin-pro-modules .inactive th, .suki-admin-pro-modules .inactive td, .suki-admin-pro-modules .active th, .suki-admin-pro-modules .active td {
+	color: #555;
+	padding: 8px 12px;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-bottom: 1px solid #e5e5e5;
 }
 
-.suki-admin-pro-table .suki-admin-pro-table-group-heading {
+.suki-admin-pro-modules .suki-admin-pro-table-group-heading {
 	font-weight: 500 !important;
 	background-color: #f9f9f9;
 }
 
-.suki-admin-pro-table .suki-admin-pro-table-item-name {
+.suki-admin-pro-modules .suki-admin-pro-table-item-name {
 	white-space: nowrap;
 	padding-right: 14px !important;
 }
 
-.suki-admin-pro-table .suki-admin-pro-table-item-actions {
+.suki-admin-pro-modules .suki-admin-pro-table-item-actions {
 	width: 100%;
 	text-align: left;
 }
 
-.suki-admin-pro-table .suki-admin-pro-table-item-coming-soon {
+.suki-admin-pro-modules .suki-admin-pro-table-item-coming-soon {
 	color: #888;
-}
-
-.suki-admin-settings-tabs {
-	padding-bottom: 15px;
-	border-bottom: 1px solid #e5e5e5;
-	margin: 0 0 30px;
-	float: none;
-}
-
-.suki-admin-settings-tabs li {
-	float: right;
-}
-
-.suki-admin-settings-tabs li > span {
-	line-height: 2;
-	padding: 0.2em;
-}
-
-.suki-admin-settings-tabs li:before {
-	content: "|";
-	margin: 0 0.25em;
-}
-
-.suki-admin-settings-tabs li:first-child:before {
-	display: none;
-}
-
-/**
- * ======================================
- * Suki > Tools
- * ======================================
- */
-.suki-admin-tools-action .suki-status {
-	display: none;
-	margin-right: 10px;
 }

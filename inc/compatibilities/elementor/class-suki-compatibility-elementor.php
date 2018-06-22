@@ -85,12 +85,15 @@ class Suki_Compatibility_Elementor {
 	public function modify_font_control__add_fonts( $fonts ) {
 		$fonts = array();
 
-		foreach( suki_get_web_safe_fonts() as $font => $stack ) {
-			$fonts[ $font ] = \Elementor\Fonts::SYSTEM;
-		}
+		$class = '\Elementor\Fonts';
+		if ( class_exists( $class ) ) {
+			foreach( suki_get_web_safe_fonts() as $font => $stack ) {
+				$fonts[ $font ] = $class::SYSTEM;
+			}
 
-		foreach( suki_get_google_fonts() as $font => $stack ) {
-			$fonts[ $font ] = \Elementor\Fonts::GOOGLE;
+			foreach( suki_get_google_fonts() as $font => $stack ) {
+				$fonts[ $font ] = $class::GOOGLE;
+			}
 		}
 
 		return $fonts;

@@ -43,24 +43,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		add_action( 'save_post', array( $this, 'save_post_meta_box' ) );
 
 		// Term meta box
-		add_action( 'wp_loaded', function() {
-			$taxonomies = array_merge(
-				array( 'category', 'post_tag' ),
-				get_taxonomies( array(
-					'public'             => true,
-					'publicly_queryable' => true,
-					'_builtin'           => false,
-				), 'names' )
-			);
-
-			foreach ( $taxonomies as $taxonomy ) {
-				add_action( $taxonomy . '_add_form_fields', array( $this, 'render_add_term_meta_box' ) );
-				add_action( $taxonomy . '_edit_form_fields', array( $this, 'render_edit_term_meta_box' ) );
-
-				add_action( 'create_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
-				add_action( 'edit_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
-			}
-		});
+		add_action( 'wp_loaded', array( $this, 'init_all_taxonomies_meta_box' ) );
 
 		// Render actions
 		add_action( 'suki_post_page_settings_fields', array( $this, 'post_meta_box_fields' ) );
@@ -136,6 +119,28 @@ class Suki_Admin_Metabox_Page_Settings {
 
 		// Update the meta field in the database.
 		update_post_meta( $post_id, '_suki_page_settings', $sanitized );
+	}
+
+	/**
+	 * Initialize meta box on all public taxonomies.
+	 */
+	public function init_all_taxonomies_meta_box() {
+		$taxonomies = array_merge(
+			array( 'category', 'post_tag' ),
+			get_taxonomies( array(
+				'public'             => true,
+				'publicly_queryable' => true,
+				'_builtin'           => false,
+			), 'names' )
+		);
+
+		foreach ( $taxonomies as $taxonomy ) {
+			add_action( $taxonomy . '_add_form_fields', array( $this, 'render_add_term_meta_box' ) );
+			add_action( $taxonomy . '_edit_form_fields', array( $this, 'render_edit_term_meta_box' ) );
+
+			add_action( 'create_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
+			add_action( 'edit_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
+		}
 	}
 
 	/**

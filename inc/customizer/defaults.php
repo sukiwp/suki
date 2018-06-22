@@ -14,22 +14,6 @@ $add = array();
 
 /**
  * ====================================================
- * Global Settings > Customizer CSS
- * ====================================================
- */
-
-$add['customizer_css_static_file'] = 0;
-
-/**
- * ====================================================
- * Global Settings > Google Fonts
- * ====================================================
- */
-
-$add['google_fonts_subsets'] = array();
-
-/**
- * ====================================================
  * General Elements > Body (Base)
  * ====================================================
  */
@@ -584,5 +568,13 @@ $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = array( 'date' );
 $add['entry_grid_footer_meta'] = array( 'categories', 'comments' );
 $add['entry_grid_excerpt_length'] = 30;
+
+/**
+ * ====================================================
+ * Global Settings > Google Fonts
+ * ====================================================
+ */
+
+$add['google_fonts_subsets'] = array();
 
 $defaults = array_merge_recursive( $defaults, $add );

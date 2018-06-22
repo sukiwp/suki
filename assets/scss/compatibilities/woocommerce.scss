@@ -283,49 +283,49 @@ p.demo_store {
 			width: 100% !important;
 		}
 	}
-}
 
-.woocommerce.columns-1 ul.products li.product {
-	width: 100%;
-}
+	&.columns-1 li.product {
+		width: 100%;
+	}
 
-.woocommerce.columns-2 ul.products li.product {
-	width: 50%;
-}
-
-.woocommerce.columns-3 ul.products li.product {
-	width: 33.33%;
-	
-	@media screen and ( max-width: $breakpoint_768 - 1px ) {
+	&.columns-2 li.product {
 		width: 50%;
 	}
-}
 
-.woocommerce.columns-4 ul.products li.product {
-	width: 25%;
-	
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		width: 50%;
-	}
-}
-
-.woocommerce.columns-5 ul.products li.product {
-	width: 20%;
-	
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		width: 50%;
-	}
-}
-
-.woocommerce.columns-6 ul.products li.product {
-	width: 16.667%;
-	
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	&.columns-3 li.product {
 		width: 33.33%;
+		
+		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			width: 50%;
+		}
 	}
-	
-	@media screen and ( max-width: $breakpoint_768 - 1px ) {
-		width: 50%;
+
+	&.columns-4 li.product {
+		width: 25%;
+		
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			width: 50%;
+		}
+	}
+
+	&.columns-5 li.product {
+		width: 20%;
+		
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			width: 50%;
+		}
+	}
+
+	&.columns-6 li.product {
+		width: 16.667%;
+		
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			width: 33.33%;
+		}
+		
+		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			width: 50%;
+		}
 	}
 }
 

@@ -383,8 +383,6 @@ input, select, textarea {
 	}
 
 	.suki-admin-logo {
-		float: left;
-
 		img {
 			vertical-align: middle;
 		}
@@ -399,10 +397,6 @@ input, select, textarea {
 			vertical-align: middle;
 			background-color: rgba(0,0,0,0.1);
 		}
-	}
-
-	.suki-admin-header-menu {
-		float: right;
 	}
 
 	.wp-badge {
@@ -439,6 +433,10 @@ input, select, textarea {
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 			width: auto;
 		}
+
+		> * {
+			margin: 0 0 20px;
+		}
 	}
 
 	.suki-admin-secondary {
@@ -452,7 +450,7 @@ input, select, textarea {
 		}
 
 		> * {
-			margin-bottom: 20px;
+			margin: 0 0 20px;
 		}
 
 		.postbox {
@@ -471,31 +469,6 @@ input, select, textarea {
 		width: 100%;
 		text-align: center;
 	}
-
-	.suki-admin-tab-panel {
-		padding: 20px;
-	}
-
-	.suki-admin-nav-tab {
-		padding: 9px 9px 0;
-		border-bottom-color: #e5e5e5 !important;
-
-		.nav-tab {
-			border-color: #e5e5e5;
-			background-color: #fff;
-			box-shadow: none !important;
-			opacity: 0.75;
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&.nav-tab-active {
-				border-bottom-color: #fff;
-				opacity: 1;
-			}
-		}
-	}
 }
 
 // -------------------------------------------------------------
@@ -504,24 +477,30 @@ input, select, textarea {
 
 .suki-admin-welcome-panel {
 	padding: 0;
-	margin: 0 0 40px;
 
 	.welcome-panel-content {
 		margin: 20px;
 	}
 
 	h2 {
-		margin: 0.5em 0;
-		padding: 0;
+		margin-bottom: 0.5em;
 	}
 }
 
-.suki-admin-pro-table {
-	margin-bottom: 10px;
+.suki-admin-pro-modules {
+	.inside {
+		margin: 0;
+		padding: 0;
+	}
 
+	table {
+		border: none;
+	}
+		
 	.inactive, .active {
 		th, td {
-			padding: 6px 10px;
+			color: #555;
+			padding: 8px 12px;
 			box-shadow: none;
 			border-bottom: 1px solid #e5e5e5;
 		}
@@ -539,52 +518,10 @@ input, select, textarea {
 	
 	.suki-admin-pro-table-item-actions {
 		width: 100%;
-		text-align: right
+		text-align: right;
 	}
 
 	.suki-admin-pro-table-item-coming-soon {
 		color: #888;
-	}
-}
-
-// -------------------------------------------------------------
-// Suki > Settings
-// -------------------------------------------------------------
-
-.suki-admin-settings-tabs {
-	padding-bottom: 15px;
-	border-bottom: 1px solid #e5e5e5;
-	margin: 0 0 30px;
-	float: none;
-
-	li {
-		float: left;
-
-		> span {
-			line-height: 2;
-			padding: 0.2em;
-		}
-
-		&:before {
-			content: "|";
-			margin: 0 0.25em;
-		}
-
-		&:first-child:before {
-			display: none;
-		}
-	}
-}
-
-/**
- * ======================================
- * Suki > Tools
- * ======================================
- */
-
-.suki-admin-tools-action {
-	.suki-status {
-		display: none;
-		margin-left: 10px;
 	}
 }

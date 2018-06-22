@@ -62,7 +62,7 @@ class Suki {
 	}
 
 	/**
-	 * Include additional files including plugin compatibilities and admin functions.
+	 * Include additional files.
 	 */
 	private function _includes() {
 		// Helper functions
@@ -92,14 +92,10 @@ class Suki {
 		/**
 		 * Plugins compatibility files
 		 */
-
-		$active_plugins = get_option( 'active_plugins', array() );
-
-		foreach ( $this->get_compatible_plugins() as $slug => $plugin ) {
-			// Check if plugin is active.
-			if ( isset( $plugin['path'] ) && in_array( $plugin['path'], $active_plugins ) ) {
-				// Only include plugin's compatibility class if the plugin is active.
-				require_once( SUKI_INCLUDES_PATH . '/compatibilities/' . $slug . '/class-suki-compatibility-' . $slug . '.php' );
+		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
+			// Only include plugin's compatibility class if the plugin is active.
+			if ( class_exists( $plugin_class ) ) {
+				require_once( SUKI_INCLUDES_PATH . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php' );
 			}
 		}
 	}
@@ -278,20 +274,11 @@ class Suki {
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 
-		// Customizer generated CSS
-		$wp_upload_dir = wp_upload_dir( null, false );
-		$css_path = $wp_upload_dir['basedir'] . '/suki/custom.css';
-		$css_url = $wp_upload_dir['baseurl'] . '/suki/custom.css';
-		if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ! suki_get_theme_mod( 'customizer_css_static_file', 0 ) || is_customize_preview() || ! file_exists( $css_path ) ) {
-			// Print CSS to inline <style> tag
-			wp_add_inline_style( 'suki', Suki_Customizer::instance()->generate_css() );
-		} else {
-			// Enqueue static CSS
-			wp_enqueue_style( 'suki-custom', $css_url, array( 'suki' ), SUKI_VERSION );
-		}
-
 		// Hook: Styles to included after main CSS
 		do_action( 'suki_after_enqueue_main_css', $hook );
+
+		// Customizer generated CSS
+		wp_add_inline_style( 'suki', Suki_Customizer::instance()->generate_css() );
 	}
 
 	/**
@@ -306,7 +293,7 @@ class Suki {
 
 		// classList Polyfill
 		if ( function_exists( 'wp_script_add_data' ) ) {
-			wp_enqueue_script( 'classlist-polyfill', SUKI_JS_URL . '/superfish.min.js', array(), $ver['classlist-polyfill'], true );
+			wp_enqueue_script( 'classlist-polyfill', SUKI_JS_URL . '/classList' . SUKI_ASSETS_SUFFIX . '.js', array(), $ver['classlist-polyfill'], true );
 			wp_script_add_data( 'classlist-polyfill', 'conditional', 'lte IE 11' );
 		}
 
@@ -370,35 +357,11 @@ class Suki {
 	 * @return array
 	 */
 	public function get_compatible_plugins() {
-		$raw_compatible_plugins = apply_filters( 'suki_compatible_plugins', array(
-			'jetpack' => array(
-				'path' => 'jetpack/jetpack.php',
-			),
-			'woocommerce' => array(
-				'path' => 'woocommerce/woocommerce.php',
-				'rebuild_customizer_css' => true,
-			),
-			'elementor' => array(
-				'path' => 'elementor/elementor.php',
-			),
-		) );
-
-		// Sanitize the array data.
-		$compatible_plugins = array();
-		foreach ( $raw_compatible_plugins as $slug => $data ) {
-			// Skip item with non-slug key.
-			if ( is_numeric( $slug ) ) {
-				continue;
-			}
-
-			// Add to array and define fallback values.
-			$compatible_plugins[ $slug ] = wp_parse_args( $data, array(
-				'path' => $slug . '/' . $slug . '.php',
-				'rebuild_customizer_css' => false,
-			) );
-		}
-
-		return $compatible_plugins;
+		return array(
+			'jetpack' => 'Jetpack',
+			'woocommerce' => 'WooCommerce',
+			'elementor' => '\Elementor\Plugin',
+		);
 	}
 }
 

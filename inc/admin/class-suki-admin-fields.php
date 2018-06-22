@@ -199,29 +199,6 @@ class Suki_Admin_Fields {
 	}
 
 	/**
-	 * Multiselect control
-	 *
-	 * @param array $args
-	 */
-	private static function render_multiselect( $args ) {
-		if ( ! isset( $args['name'] ) ) return;
-
-		wp_enqueue_script( 'select2' );
-
-		$args = wp_parse_args( $args, array(
-			'value'       => array(),
-			'placeholder' => '',
-			'choices'     => array(),
-			'class'       => 'widefat',
-		) );
-		?>
-		<select id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['id'] ); ?>[]" multiple class="suki-admin-multiselect-control <?php echo esc_attr( $args['class'] ); ?>" data-placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>">
-			<?php self::select_options_markup( $args['choices'], $args['value'] ); ?>
-		</select>
-		<?php
-	}
-
-	/**
 	 * Upload control
 	 *
 	 * @param array $args
@@ -249,102 +226,14 @@ class Suki_Admin_Fields {
 	}
 
 	/**
-	 * Repeater control
-	 *
-	 * @param array $args
-	 */
-	private static function render_repeater( $args ) {
-		if ( ! isset( $args['name'] ) ) return;
-		if ( 0 === count( $args['fields'] ) ) return;
-
-		wp_enqueue_script( 'jquery-repeater' );
-
-		$args = wp_parse_args( $args, array(
-			'value'       => array(),
-			'fields'      => array(),
-			'class'       => '',
-			'button_text' => esc_html__( 'Add New', 'suki' ),
-			'start_empty' => true,
-		) );
-
-		foreach ( $args['fields'] as $id => $field ) {
-			$args['fields'][ $id ] = wp_parse_args( $field, array(
-				'type'        => 'text',
-				'label'       => '',
-				'placeholder' => '',
-			) );
-		}
-		?>
-		<div id="<?php echo esc_attr( $args['id'] ); ?>" class="suki-admin-repeater-control <?php echo esc_attr( $args['class'] ); ?>">
-			<ul data-repeater-list="<?php echo esc_attr( $args['id'] ); ?>" class="suki-admin-repeater-control-list">
-				<?php if ( 0 < count( $args['value'] ) ) : ?>
-					<?php foreach ( $args['value'] as $i => $item ) : ?>
-						<li data-repeater-item class="suki-admin-repeater-control-item postbox">
-							<div class="suki-admin-form">
-								<?php foreach ( $args['fields'] as $id => $field ) : ?>
-									<div class="suki-admin-form-row">
-										<?php if ( '' !== $field['label'] ) : ?>
-											<label class="suki-admin-form-label"><?php echo ( $field['label'] ); // WPCS: XSS OK ?></label>
-										<?php endif; ?>
-										<div class="suki-admin-form-field">
-											<?php
-											$field['id'] = $id;
-											$field['value'] = suki_array_value( $item, $id );
-
-											self::render_field( $field );
-											?>
-										</div>
-									</div>
-								<?php endforeach; ?>
-							</div>
-							
-							<a href="javascript:;" data-repeater-delete type="button" class="suki-admin-repeater-control-delete button button-small"><span class="dashicons dashicons-no-alt"></span></a>
-						</li>
-					<?php endforeach; ?>
-				<?php else: ?>
-					<li data-repeater-item class="suki-admin-repeater-control-item postbox" <?php echo $args['start_empty'] ? 'style="display: none;"' : ''; ?>>
-						<div class="suki-admin-form">
-							<?php foreach ( $args['fields'] as $id => $field ) : ?>
-								<div class="suki-admin-form-row">
-									<?php if ( '' !== $field['label'] ) : ?>
-										<label class="suki-admin-form-label"><?php echo ( $field['label'] ); // WPCS: XSS OK ?></label>
-									<?php endif; ?>
-									<div class="suki-admin-form-field">
-										<?php
-										$field['id'] = $id;
-
-										switch ( $field['type'] ) {
-											case 'select':
-												$field['value'] = '';
-												break;
-											
-											default:
-												$field['value'] = '';
-												break;
-										}
-
-										self::render_field( $field );
-										?>
-									</div>
-								</div>
-							<?php endforeach; ?>
-						</div>
-
-						<a href="javascript:;" data-repeater-delete type="button" class="suki-admin-repeater-control-delete button button-small"><span class="dashicons dashicons-no-alt"></span></a>
-					</li>
-				<?php endif; ?>
-			</ul>
-			<input data-repeater-create type="button" class="suki-admin-repeater-control-add button" value="<?php echo esc_attr( $args['button_text'] ); ?>">
-		</div>
-		<?php
-	}
-
-	/**
 	 * ====================================================
 	 * Private functions
 	 * ====================================================
 	 */
 
+	/**
+	 * Render <option> tags for <select> input using the given choices array.
+	 */
 	private static function select_options_markup( $array, $value = '', $echo = true ) {
 		$output = '';
 
@@ -378,7 +267,10 @@ class Suki_Admin_Fields {
 		}
 	}
 
-	public static function convert_array_to_associative( $array ) {
+	/**
+	 * Convert any array type to be associative array.
+	 */
+	private static function convert_array_to_associative( $array ) {
 		$assoc = array();
 
 		foreach ( $array as $key => $value ) {
@@ -386,41 +278,5 @@ class Suki_Admin_Fields {
 		}
 
 		return $assoc;
-	}
-
-	/**
-	 * ====================================================
-	 * Sanitization functions
-	 * ====================================================
-	 */
-	
-	/**
-	 * Sanitize checkbox.
-	 * 
-	 * @param boolean $value
-	 * @return boolean
-	 */
-	public function sanitize_checkbox( $value ) {
-		return 1 == $value ? 1 : 0;
-	}
-	
-	/**
-	 * Sanitize color picker palette entry.
-	 * 
-	 * @param array $values
-	 * @return array
-	 */
-	public function sanitize_color( $values ) {
-		$sanitized = array();
-		
-		foreach ( $values as $value ) {
-			if ( preg_match( '/#([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?\b/', $value ) || preg_match( '/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/', $value ) ) {
-				$sanitized[] = $value;
-			} else {
-				$sanitized[] = '';
-			}
-		}
-
-		return $sanitized;
 	}
 }

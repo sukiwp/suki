@@ -44,9 +44,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $id, array(
 		'selector'            => '.suki-header-logo',
 		'container_inclusive' => true,
-		'render_callback'     => function() {
-			suki_header_element( 'logo' );
-		},
+		'render_callback'     => call_user_func( 'suki_header_element', 'logo' ),
 		'fallback_refresh'    => false,
 	) );
 }
@@ -106,9 +104,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $id, array(
 		'selector'            => '.suki-header-mobile-logo',
 		'container_inclusive' => true,
-		'render_callback'     => function() {
-			suki_header_element( 'mobile-logo' );
-		},
+		'render_callback'     => call_user_func( 'suki_header_element', 'mobile-logo' ),
 		'fallback_refresh'    => false,
 	) );
 }

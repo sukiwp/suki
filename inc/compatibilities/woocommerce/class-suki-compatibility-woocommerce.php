@@ -225,10 +225,6 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 1 );
 		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
 
-		// Products grid wrapper
-		add_filter( 'woocommerce_before_template_part', array( $this, 'render_loop_wrapper' ), 10, 4 );
-		add_filter( 'woocommerce_after_template_part', array( $this, 'render_loop_wrapper_end' ), 10, 4 );
-
 		// Add wrapper to products grid item.
 		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
 		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
@@ -353,16 +349,6 @@ class Suki_Compatibility_WooCommerce {
 			if ( ! suki_get_theme_mod( 'woocommerce_single_related' ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
-
-			// Gallery display: stacked.
-			if ( 'stacked' == suki_get_theme_mod( 'woocommerce_single_gallery_display' ) ) {
-				remove_theme_support( 'wc-product-gallery-zoom' );
-				remove_theme_support( 'wc-product-gallery-slider' );
-
-				add_filter( 'woocommerce_gallery_thumbnail_size', function() {
-					return 'woocommerce_single';
-				});
-			}
 		}
 	}
 	
@@ -390,37 +376,6 @@ class Suki_Compatibility_WooCommerce {
 			</main>
 		</div>
 		<?php
-	}
-
-	/**
-	 * Add opening wrapper tag before loop start.
-	 * 
-	 * @param string $template_name
-	 * @param string $template_path
-	 * @param string $located
-	 * @param array $args
-	 * @return string
-	 */
-	public function render_loop_wrapper( $template_name, $template_path, $located, $args ) {
-		if ( 'loop/loop-start.php' !== $template_name ) return;
-
-		$columns = isset( $GLOBALS['woocommerce_loop']['columns'] ) ? sanitize_text_field( wp_unslash( $GLOBALS['woocommerce_loop']['columns'] ) ) : suki_get_theme_mod( 'woocommerce_index_grid_columns' );
-		echo '<div class="woocommerce columns-' . $columns . '">'; // WPCS: XSS OK
-	}
-
-	/**
-	 * Add closing wrapper tag before loop end.
-	 * 
-	 * @param string $template_name
-	 * @param string $template_path
-	 * @param string $located
-	 * @param array $args
-	 * @return string
-	 */
-	public function render_loop_wrapper_end( $template_name, $template_path, $located, $args ) {
-		if ( 'loop/loop-end.php' !== $template_name ) return;
-
-		echo '</div>';
 	}
 
 	/**

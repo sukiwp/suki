@@ -47,29 +47,33 @@ class Suki_Admin {
 	protected function __construct() {
 		$this->_includes();
 
-		// Hooks on every admin pages
+		// General admin hooks on every admin pages
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
-		add_action( 'admin_init', array( $this, 'check_compatible_plugins_active_status' ) );
-		// add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_filter( 'upload_mimes', array( $this, 'upload_mimes' ) );
 		add_filter( 'user_contactmethods', array( $this, 'add_user_contactmethods' ) );
+		// add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
 
-		// Hooks on classic editor pages
+		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
 		add_action( 'tiny_mce_before_init', array( $this, 'modify_tiny_mce_config' ) );
+
+		// Suki admin page hooks
+		add_action( 'suki_admin_page_content', array( $this, 'render_content__welcome_panel' ), 1 );
+		add_action( 'suki_admin_page_content', array( $this, 'render_content__pro_modules_table' ), 20 );
+		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
+		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__pro' ), 20 );
+		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
+		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__community' ), 40 );
+		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
 	}
 
+	/**
+	 * Include additional files.
+	 */
 	private function _includes() {
-		// Admin form fields
 		require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-fields.php' );
-
-		// Metabox
 		require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-metabox-page-settings.php' );
-
-		// Admin pages
-		require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-page-dashboard.php' );
-		require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-page-tools.php' );
 	}
 
 	/**
@@ -89,45 +93,6 @@ class Suki_Admin {
 			'suki',
 			array( $this, 'admin_page' )
 		);
-	}
-
-	/**
-	 * Check compatible plugins status and record to DB.
-	 */
-	public function check_compatible_plugins_active_status() {
-		$active_plugins = get_option( 'active_plugins', array() );
-		$active_compatible_plugins = get_option( 'suki_active_compatible_plugins', array() );
-
-		$compatible_plugins_data = Suki::instance()->get_compatible_plugins();
-
-		foreach ( $compatible_plugins_data as $slug => $data ) {
-			// Check if plugin is just activated.
-			if ( ! in_array( $data['path'], $active_compatible_plugins ) && in_array( $data['path'], $active_plugins ) ) {
-				/**
-				 * Hook: suki_compatible_plugin_activated
-				 */
-				do_action( 'suki_compatible_plugin_activated', $data );
-
-				// Update option.
-				$active_compatible_plugins[] = $data['path'];
-				update_option( 'suki_active_compatible_plugins', $active_compatible_plugins );
-			}
-			// Check if plugin is just deactivated.
-			elseif ( in_array( $data['path'], $active_compatible_plugins ) && ! in_array( $data['path'], $active_plugins ) ) {
-				/**
-				 * Hook: suki_compatible_plugin_deactivated
-				 */
-				do_action( 'suki_compatible_plugin_deactivated', $data );
-
-				// Update option.
-				$i = array_search( $data['path'], $active_compatible_plugins );
-				if ( false !== $i ) {
-					unset( $active_compatible_plugins[ $i ] );
-					$active_compatible_plugins = array_values( $active_compatible_plugins );
-					update_option( 'suki_active_compatible_plugins', $active_compatible_plugins );
-				}
-			}
-		}
 	}
 
 	/**
@@ -324,12 +289,6 @@ class Suki_Admin {
 						<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ); ?>" height="30" alt="<?php echo esc_attr( get_admin_page_title() ); ?>">
 						<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // WPCS: XSS OK ?></span>
 					</div>
-					<div class="suki-admin-header-menu">
-						<a href="https://sukiwp.com/pro/" class="button button-large button-default" target="_blank" rel="noopener">
-							<span class="dashicons dashicons-awards"></span>
-							<?php echo esc_html_x( 'Upgrade to Suki Pro', 'Suki Pro teaser', 'suki' ); ?>
-						</a>
-					</div>
 				</div>
 			</div>
 
@@ -344,68 +303,30 @@ class Suki_Admin {
 			<div class="suki-admin-content metabox-holder">
 				<div class="suki-admin-wrapper">
 					<div class="suki-admin-content-row">
-						<div class="suki-admin-primary postbox">
+						<div class="suki-admin-primary">
 							<?php
-							$tabs = $this->get_tabs();
-							$tab = $this->get_current_tab();
+							/**
+							 * Hook: suki_admin_page_content
+							 *
+							 * @hooked Suki_Admin::render_content__welcome_panel - 1
+							 * @hooked Suki_Admin::render_content__pro_modules_table - 10
+							 */
+							do_action( 'suki_admin_page_content' );
 							?>
-							<div class="suki-admin-nav-tab nav-tab-wrapper">
-								<?php foreach ( $tabs as $key => $label ) : ?>
-									<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'suki', 'tab' => $key ), admin_url( 'themes.php' ) ) ); ?>" class="nav-tab <?php echo esc_attr( $key == $tab ? 'nav-tab-active' : '' ); ?>"><?php echo $label; // WPCS: XSS OK ?></a>
-								<?php endforeach; ?>
-							</div>
-
-							<div class="suki-admin-tab-panel">
-								<?php
-								$class = 'Suki_Admin_Page_' . str_replace( ' ', '_', ucwords( $tabs[ $tab ] ) );
-								$class::instance()->render_page();
-								?>
-							</div>
 						</div>
 						<div class="suki-admin-secondary">
-							<div class="suki-admin-secondary-customize">
-								<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="suki-admin-customize-button button button-hero button-primary">
-									<?php esc_html_e( 'Go to Customizer', 'suki' ); ?>
-								</a>
-							</div>
-							<div class="suki-admin-secondary-docs postbox">
-								<h2 class="hndle"><?php esc_html_e( 'Documentation', 'suki' ); ?></h2>
-								<div class="inside">
-									<p><?php esc_html_e( 'Not sure how something works? Our documentation might help you figure out the solution.', 'suki' ); ?></p>
-									<p>
-										<a href="https://sukiwp.com/documentation/" class="button button-default" target="_blank" rel="noopener">
-											<span class="dashicons dashicons-lightbulb"></span>
-											<?php esc_html_e( 'Go to our Documentation', 'suki' ); ?>
-										</a>
-									</p>
-								</div>
-							</div>
-							<div class="suki-admin-secondary-fb-group postbox">
-								<h2 class="hndle"><?php esc_html_e( 'Join the community!', 'suki' ); ?></h2>
-								<div class="inside">
-									<p><?php esc_html_e( 'Join our Facebook group for latest updates info and discussions with other Suki users.', 'suki' ); ?></p>
-									<p>
-										<a href="https://facebook.com/groups/sukiwp/" class="button button-default" target="_blank" rel="noopener">
-											<span class="dashicons dashicons-facebook"></span>
-											<?php esc_html_e( 'Join our Facebook Group', 'suki' ); ?>
-										</a>
-									</p>
-								</div>
-							</div>
-							<?php if ( false ) : ?>
-								<div class="suki-admin-secondary-rate postbox">
-									<h2 class="hndle"><?php esc_html_e( 'Enjoy Suki?', 'suki' ); ?></h2>
-									<div class="inside">
-										<p><?php esc_html_e( 'Please take a minute to leave a review on Suki, we would really appreciate it!', 'suki' ); ?></p>
-										<p>
-											<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-default" target="_blank" rel="noopener">
-												<span class="dashicons dashicons-thumbs-up"></span>
-												<?php esc_html_e( 'Rate us &#9733;&#9733;&#9733;&#9733;&#9733;', 'suki' ); ?>
-											</a>
-										</p>
-									</div>
-								</div>
-							<?php endif; ?>
+							<?php
+							/**
+							 * Hook: suki_admin_page_sidebar
+							 *
+							 * @hooked Suki_Admin::render_sidebar__customizer - 10
+							 * @hooked Suki_Admin::render_sidebar__pro - 20
+							 * @hooked Suki_Admin::render_sidebar__documentation - 30
+							 * @hooked Suki_Admin::render_sidebar__community - 40
+							 * @hooked Suki_Admin::render_sidebar__feedback - 50
+							 */
+							do_action( 'suki_admin_page_sidebar' );
+							?>
 						</div>
 					</div>
 				</div>
@@ -415,36 +336,279 @@ class Suki_Admin {
 	}
 
 	/**
-	 * ====================================================
-	 * Public functions
-	 * ====================================================
+	 * Render welcome panel on Suki admin page content.
 	 */
-
-	public function get_tabs() {
-		return apply_filters( 'suki_admin_tabs', array(
-			'dashboard' => esc_html__( 'Dashboard', 'suki' ),
-			'tools' => esc_html__( 'Tools', 'suki' ),
-		) );
+	public function render_content__welcome_panel() {
+		?>
+		<div class="suki-admin-welcome-panel welcome-panel">
+			<div class="welcome-panel-content">
+				<h2>
+					<?php
+					/* translators: %s: theme name */
+					printf( esc_html__( 'Welcome to %s', 'suki' ), suki_get_theme_info( 'name' ) ); // WPCS: XSS OK
+					?>
+				</h2>
+				<p class="about-description">
+					<?php
+					/* translators: %s: theme name */
+					printf( esc_html__( 'You can start customizing by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page.', 'suki' ), suki_get_theme_info( 'name' ) ); // WPCS: XSS OK
+					?>
+				</p>
+			</div>
+		</div>
+		<?php
 	}
 
-	public function get_current_tab() {
-		$section = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : key( $this->get_tabs() );
-
-		if ( $this->is_admin_page() ) {
-			return $section;
-		} else {
-			return false;
-		}
+	/**
+	 * Render pro modules table on Suki admin page content.
+	 */
+	public function render_content__pro_modules_table() {
+		?>
+		<div class="suki-admin-pro-modules postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Premium Modules in Suki Pro', 'suki' ); ?></h2>
+			<div class="inside">
+				<?php $modules = array(
+					'layout' => array(
+						'label' => esc_html__( 'Layout Modules', 'suki' ),
+						'modules' => array(
+							array(
+								'id'    => 'header',
+								'label' => esc_html__( 'Header (Advanced)', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/header/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'sticky-header',
+								'label' => esc_html__( 'Sticky Header', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/sticky-header/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'transparent-header',
+								'label' => esc_html__( 'Transparent Header', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/transparent-header/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'footer',
+								'label' => esc_html__( 'Footer (Advanced)', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/footer/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'disable-elements',
+								'label' => esc_html__( 'Disable Elements', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/disable-elements/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'preloader',
+								'label' => esc_html__( 'Preloader Screen', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/preloader/',
+								'coming_soon' => true,
+							),
+						),
+					),
+					'content' => array(
+						'label' => esc_html__( 'Content Modules', 'suki' ),
+						'modules' => array(
+							array(
+								'id'    => 'blocks',
+								'label' => esc_html__( 'Portable Content Blocks', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/blocks/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'blog',
+								'label' => esc_html__( 'Blog (Advanced)', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/blog/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'woocommerce',
+								'label' => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/woocommerce/',
+								'coming_soon' => true,
+							),
+						),
+					),
+					'design' => array(
+						'label' => esc_html__( 'Design Modules', 'suki' ),
+						'modules' => array(
+							array(
+								'id'    => 'alternative-header-colors',
+								'label' => esc_html__( 'Alternative Header Colors', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/alternative-header-colors/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'typography',
+								'label' => esc_html__( 'Typography (Advanced)', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/typography/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'custom-fonts',
+								'label' => esc_html__( 'Custom Fonts', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/custom-fonts/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'custom-icons',
+								'label' => esc_html__( 'Custom Icons', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/custom-icons/',
+								'coming_soon' => true,
+							),
+							array(
+								'id'    => 'color-palette',
+								'label' => esc_html__( 'Color Palette', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/color-palette/',
+								'coming_soon' => true,
+							),
+						),
+					),
+					'others' => array(
+						'label' => esc_html__( 'Other Modules', 'suki' ),
+						'modules' => array(
+							array(
+								'id'    => 'white-label',
+								'label' => esc_html__( 'White Label', 'suki' ),
+								'url'   => 'https://sukiwp.com/pro/modules/white-label/',
+								'coming_soon' => true,
+							),
+						),
+					),
+				); ?>
+				<table class="widefat plugins">
+					<tbody>
+						<?php foreach( $modules as $group_modules ) : ?>
+							<tr class="suki-admin-pro-table-group inactive">
+								<td colspan="3" class="suki-admin-pro-table-group-heading inactive"><?php echo $group_modules['label']; // WPCS: XSS OK ?></td>
+							</tr>
+							<?php foreach( $group_modules['modules'] as $module ) : ?>
+								<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && in_array( $module['id'], get_option( 'suki_active_pro_modules', array() ) ) ? 'active' : 'inactive' ); ?>">
+									<th class="check-column"></th>
+									<td class="suki-admin-pro-table-item-name plugin-title column-primary">
+										<?php if ( isset( $module['coming_soon'] ) && $module['coming_soon'] ) : ?>
+											<span class="suki-admin-pro-table-item-coming-soon"><?php echo $module['label']; // WPCS: XSS OK ?></span>
+										<?php else: ?>
+											<a href="<?php echo esc_url( $module['url'] ); ?>" target="_blank" rel="noopener"><?php echo $module['label']; // WPCS: XSS OK ?></a>
+										<?php endif; ?>
+									</td>
+									<td class="suki-admin-pro-table-item-actions column-description desc">
+										<?php if ( isset( $module['coming_soon'] ) && $module['coming_soon'] ) : ?>
+											<span class="suki-admin-pro-table-item-coming-soon"><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
+										<?php else : ?>
+											<?php if ( suki_is_pro() ) : ?>
+												<a href="<?php echo esc_url( $module['url'] ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Deactivate', 'suki' ); ?></a>
+											<?php else : ?>
+												<a href="<?php echo esc_url( $module['url'] ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more &raquo;', 'suki' ); ?></a>
+											<?php endif; ?>
+										<?php endif; ?>
+									</td>
+								</tr>
+							<?php endforeach; ?>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<?php
 	}
 
-	public function is_admin_page() {
-		global $hook_suffix;
+	/**
+	 * Render "Go to Customizer" button on Suki admin page sidebar.
+	 */
+	public function render_sidebar__customizer() {
+		?>
+		<div class="suki-admin-secondary-customize">
+			<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="suki-admin-customize-button button button-hero button-primary">
+				<?php esc_html_e( 'Go to Customizer', 'suki' ); ?>
+			</a>
+		</div>
+		<?php
+	}
 
-		if ( 'appearance_page_suki' === $hook_suffix ) {
-			return true;
-		} else {
-			return false;
-		}
+	/**
+	 * Render "Suki Pro" info box on Suki admin page sidebar.
+	 */
+	public function render_sidebar__pro() {
+		?>
+		<div class="suki-admin-secondary-pro postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
+			<div class="inside">
+				<p><?php esc_html_e( 'Make your site even better with our premium modules, available in a very affordable price.', 'suki' ); ?></p>
+				<p>
+					<a href="https://sukiwp.com/pro/" class="button button-large button-default" target="_blank" rel="noopener">
+						<span class="dashicons dashicons-awards"></span>
+						<?php echo esc_html_x( 'More about Suki Pro', 'Suki Pro teaser', 'suki' ); ?>
+					</a>
+				</p>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render "Documentation" info box on Suki admin page sidebar.
+	 */
+	public function render_sidebar__documentation() {
+		?>
+		<div class="suki-admin-secondary-docs postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Documentation', 'suki' ); ?></h2>
+			<div class="inside">
+				<p><?php esc_html_e( 'Not sure how something works? Our documentation might help you figure out the solution.', 'suki' ); ?></p>
+				<p>
+					<a href="https://sukiwp.com/documentation/" class="button button-default" target="_blank" rel="noopener">
+						<span class="dashicons dashicons-lightbulb"></span>
+						<?php esc_html_e( 'Go to our Documentation', 'suki' ); ?>
+					</a>
+				</p>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render "Community" info box on Suki admin page sidebar.
+	 */
+	public function render_sidebar__community() {
+		?>
+		<div class="suki-admin-secondary-fb-group postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Community', 'suki' ); ?></h2>
+			<div class="inside">
+				<p><?php esc_html_e( 'Join our Facebook group for latest updates info and discussions with other Suki users.', 'suki' ); ?></p>
+				<p>
+					<a href="https://facebook.com/groups/sukiwp/" class="button button-default" target="_blank" rel="noopener">
+						<span class="dashicons dashicons-facebook"></span>
+						<?php esc_html_e( 'Join our Facebook Group', 'suki' ); ?>
+					</a>
+				</p>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render "Feedback" info box on Suki admin page sidebar.
+	 */
+	public function render_sidebar__feedback() {
+		?>
+		<?php if ( false ) : ?>
+			<div class="suki-admin-secondary-rate postbox">
+				<h2 class="hndle"><?php esc_html_e( 'Enjoy Suki?', 'suki' ); ?></h2>
+				<div class="inside">
+					<p><?php esc_html_e( 'Please take a minute to leave a review on Suki, we would really appreciate it!', 'suki' ); ?></p>
+					<p>
+						<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-default" target="_blank" rel="noopener">
+							<span class="dashicons dashicons-thumbs-up"></span>
+							<?php esc_html_e( 'Rate us &#9733;&#9733;&#9733;&#9733;&#9733;', 'suki' ); ?>
+						</a>
+					</p>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php
 	}
 }
 

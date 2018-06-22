@@ -24,19 +24,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				/**
 				 * Hook: suki_before_footer
 				 */
-				do_action( 'suki_before_footer', 'suki' );
+				do_action( 'suki_before_footer' );
 
 				/**
 				 * Hook: suki_footer
 				 * 
 				 * @hooked suki_footer - 10
 				 */
-				do_action( 'suki_footer', 'suki' );
+				do_action( 'suki_footer' );
 				
 				/**
 				 * Hook: suki_after_footer
 				 */
-				do_action( 'suki_after_footer', 'suki' );
+				do_action( 'suki_after_footer' );
 				?>
 				
 			</div>
