@@ -36,7 +36,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $id, array(
 		'selector'            => '.suki-footer-copyright',
 		'container_inclusive' => true,
-		'render_callback'     => call_user_func( 'suki_footer_element', 'copyright' ),
+		'render_callback'     => 'suki_footer_element__copyright',
 		'fallback_refresh'    => false,
 	) );
 }

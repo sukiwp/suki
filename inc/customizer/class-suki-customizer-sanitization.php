@@ -1,6 +1,6 @@
 <?php
 /**
- * Static Fonts class
+ * Customizer Sanitization class
  *
  * @package Suki
  */

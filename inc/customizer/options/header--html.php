@@ -44,7 +44,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $id, array(
 		'selector'            => '.suki-header-html-1',
 		'container_inclusive' => true,
-		'render_callback'     => call_user_func( 'suki_header_element', 'html-1' ),
+		'render_callback'     => 'suki_header_element__html_1',
 		'fallback_refresh'    => false,
 	) );
 }
