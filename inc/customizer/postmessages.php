@@ -538,13 +538,8 @@ $add['container_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-section.suki-section-default .menu .sub-menu',
+		'element'  => '.suki-section-default .menu .sub-menu',
 		'property' => 'max-width',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-header-section .suki-mega-menu > .sub-menu',
-		'property' => 'width',
 	),
 	array(
 		'type'     => 'css',
@@ -562,13 +557,6 @@ foreach ( $responsive as $suffix => $media ) {
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-section-contained, .suki-section-default .suki-section-inner, .suki-section-full-width-padding .suki-section-inner',
-			'property' => 'padding',
-			'pattern'  => '0 $',
-			'media'    => $media,
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-section.suki-section-full-width-padding .menu .sub-menu',
 			'property' => 'padding',
 			'pattern'  => '0 $',
 			'media'    => $media,
