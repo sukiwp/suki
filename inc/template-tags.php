@@ -341,7 +341,7 @@ function suki_header_element( $element ) {
 				'fallback_cb'    => 'suki_unassigned_menu',
 				'menu_class'     => 'suki-header-menu suki-header-' . $element . ' suki-header-element menu suki-hover-menu',
 				'container'      => false,
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope>%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">%3$s</ul>',
 			) );
 			break;
 
@@ -351,7 +351,7 @@ function suki_header_element( $element ) {
 				'fallback_cb'    => 'suki_unassigned_menu',
 				'menu_class'     => 'suki-header-menu suki-header-' . $element . ' suki-header-element menu suki-toggle-menu',
 				'container'      => false,
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope>%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">%3$s</ul>',
 			) );
 			break;
 
@@ -377,7 +377,10 @@ function suki_header_element( $element ) {
 			?>
 			<div class="suki-header-search suki-header-search-dropdown suki-header-element menu suki-toggle-menu">
 				<div class="suki-header-element-inner menu-item">
-					<a href="#" class="suki-sub-menu-toggle"><?php suki_icon( 'search', array( 'class' => 'suki-menu-icon' ) ); ?></a>
+					<button class="suki-sub-menu-toggle suki-toggle-button">
+						<?php suki_icon( 'search', array( 'class' => 'suki-menu-icon' ) ); ?>
+						<span class="screen-reader-text"><?php esc_html_e( 'Search', 'suki' ); ?></span>
+					</button>
 					<div class="sub-menu"><?php get_search_form(); ?></div>
 				</div>
 			</div>
@@ -415,10 +418,10 @@ function suki_header_element( $element ) {
 			?>
 			<div class="suki-header-mobile-vertical-bar-toggle suki-header-element menu">
 				<div class="suki-header-element-inner menu-item">
-					<a href="#mobile-vertical-header" class="suki-popup-toggle">
+					<button class="suki-popup-toggle suki-toggle-button" data-target="mobile-vertical-header">
 						<?php suki_icon( 'menu', array( 'class' => 'suki-menu-icon' ) ); ?>
-						<span class="screen-reader-text"><?php suki_string( 'header_mobile_vertical_bar_toggle', true ); ?></span>
-					</a>
+						<span class="screen-reader-text"><?php esc_html_e( 'Mobile Menu', 'suki' ); ?></span>
+					</button>
 				</div>
 			</div>
 			<?php
@@ -558,12 +561,18 @@ if ( ! function_exists( 'suki_footer_element' ) ) :
  * @param string $element
  */
 function suki_footer_element( $element ) {
-	if ( empty( $element ) ) return;
+	if ( empty( $element ) ) {
+		return;
+	}
 
+	// Classify element into its type.
+	$type = preg_replace( '/-\d$/', '', $element );
+
+	// Convert element slug into key format.
 	$key = str_replace( '-', '_', $element );
 
 	ob_start();
-	switch ( $element ) {
+	switch ( $type ) {
 		case 'logo':
 			$logo_url = apply_filters( 'suki_logo_url', home_url( '/' ) );
 			$logo_html = '<span>' . get_bloginfo( 'name', 'display' ) . '</span>';
@@ -598,13 +607,12 @@ function suki_footer_element( $element ) {
 			break;
 
 		case 'menu':
-		case 'menu-1':
 			wp_nav_menu( array(
 				'theme_location' => 'footer-' . $element,
 				'fallback_cb'    => 'suki_unassigned_menu',
 				'menu_class'     => 'suki-footer-menu suki-footer-' . $element . ' suki-footer-element menu',
 				'container'      => false,
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope>%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" role="navigation">%3$s</ul>',
 				// 'item_spacing'   => 'discard',
 				'depth'          => -1,
 			) );

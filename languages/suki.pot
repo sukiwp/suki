@@ -60,7 +60,7 @@ msgstr ""
 #. translators: %d: number of footer widgets column.
 #. translators: %d: footer widgets column number.
 #. translators: %d: column number.
-#: inc/class-suki.php:248, inc/template-tags.php:498, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:248, inc/template-tags.php:501, inc/customizer/options/footer--widgets-column.php:25
 msgid "Footer Widgets Column %d"
 msgstr ""
 
@@ -96,120 +96,116 @@ msgctxt "entry meta tags separator"
 msgid ", "
 msgstr ""
 
-#: inc/helpers.php:172
-msgid "Open Vertical Header"
-msgstr ""
-
-#: inc/helpers.php:173
-msgid "Open Mobile Menu"
-msgstr ""
-
-#: inc/helpers.php:408
+#: inc/helpers.php:428
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/helpers.php:409
+#: inc/helpers.php:429
 msgid "Arabic"
 msgstr ""
 
-#: inc/helpers.php:410
+#: inc/helpers.php:430
 msgid "Bengali"
 msgstr ""
 
-#: inc/helpers.php:411
+#: inc/helpers.php:431
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/helpers.php:412
+#: inc/helpers.php:432
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/helpers.php:413
+#: inc/helpers.php:433
 msgid "Devaganari"
 msgstr ""
 
-#: inc/helpers.php:414
+#: inc/helpers.php:434
 msgid "Greek"
 msgstr ""
 
-#: inc/helpers.php:415
+#: inc/helpers.php:435
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/helpers.php:416
+#: inc/helpers.php:436
 msgid "Gujarati"
 msgstr ""
 
-#: inc/helpers.php:417
+#: inc/helpers.php:437
 msgid "Gurmukhi"
 msgstr ""
 
-#: inc/helpers.php:418
+#: inc/helpers.php:438
 msgid "Hebrew"
 msgstr ""
 
-#: inc/helpers.php:419
+#: inc/helpers.php:439
 msgid "Kannada"
 msgstr ""
 
-#: inc/helpers.php:420
+#: inc/helpers.php:440
 msgid "Khmer"
 msgstr ""
 
-#: inc/helpers.php:421
+#: inc/helpers.php:441
 msgid "Malayalam"
 msgstr ""
 
-#: inc/helpers.php:422
+#: inc/helpers.php:442
 msgid "Myanmar"
 msgstr ""
 
-#: inc/helpers.php:423
+#: inc/helpers.php:443
 msgid "Oriya"
 msgstr ""
 
-#: inc/helpers.php:424
+#: inc/helpers.php:444
 msgid "Sinhala"
 msgstr ""
 
-#: inc/helpers.php:425
+#: inc/helpers.php:445
 msgid "Tamil"
 msgstr ""
 
-#: inc/helpers.php:426
+#: inc/helpers.php:446
 msgid "Telugu"
 msgstr ""
 
-#: inc/helpers.php:427
+#: inc/helpers.php:447
 msgid "Thai"
 msgstr ""
 
-#: inc/helpers.php:428
+#: inc/helpers.php:448
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/helpers.php:466
+#: inc/helpers.php:486
 msgid "[Date]"
 msgstr ""
 
-#: inc/helpers.php:467
+#: inc/helpers.php:487
 msgid "[Author]"
 msgstr ""
 
-#: inc/helpers.php:468
+#: inc/helpers.php:488
 msgid "[Photo][Author]"
 msgstr ""
 
-#: inc/helpers.php:469
+#: inc/helpers.php:489
 msgid "[Categories]"
 msgstr ""
 
-#: inc/helpers.php:470
+#: inc/helpers.php:490
 msgid "[Tags]"
 msgstr ""
 
-#: inc/helpers.php:471
+#: inc/helpers.php:491
 msgid "[Comments]"
+msgstr ""
+
+#: inc/template-filters.php:167
+msgid "Expand / Collapse"
 msgstr ""
 
 #. translators: %s: menu location name.
@@ -217,33 +213,41 @@ msgstr ""
 msgid "Assign your menu to %s"
 msgstr ""
 
-#: inc/template-tags.php:502
+#: inc/template-tags.php:382
+msgid "Search"
+msgstr ""
+
+#: inc/template-tags.php:423, inc/customizer/options/header--builder.php:132
+msgid "Mobile Menu"
+msgstr ""
+
+#: inc/template-tags.php:505
 msgid "Add widget(s) to this column"
 msgstr ""
 
-#: inc/template-tags.php:940
+#: inc/template-tags.php:948
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:941
+#: inc/template-tags.php:949
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:998
+#: inc/template-tags.php:1006
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:999
+#: inc/template-tags.php:1007
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1016
+#: inc/template-tags.php:1024
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1022
+#: inc/template-tags.php:1030
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
@@ -251,11 +255,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:1070
+#: inc/template-tags.php:1078
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:1085
+#: inc/template-tags.php:1093
 msgid "Oops! That page can not be found."
 msgstr ""
 
@@ -657,6 +661,10 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:88
 msgid "Sidebar used in WooCommerce pages"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:458, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+msgid "Shopping Cart"
 msgstr ""
 
 #: inc/customizer/custom-controls/class-suki-customize-control-builder.php:86
@@ -1359,10 +1367,6 @@ msgstr ""
 msgid "Mobile Logo"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:132
-msgid "Mobile Menu"
-msgstr ""
-
 #: inc/customizer/options/header--builder.php:135
 msgid "Search Icon"
 msgstr ""
@@ -2046,10 +2050,6 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:26
 msgid "Single Product"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/_sections.php:33
-msgid "Shopping Cart"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:52

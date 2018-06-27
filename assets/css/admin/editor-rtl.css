@@ -169,7 +169,9 @@ template {
 }
 
 *:focus {
-	outline: 0;
+	outline-width: thin;
+	outline-style: dotted;
+	outline-color: invert;
 }
 
 html, body {
@@ -336,6 +338,10 @@ a:hover, a:focus {
 	color: #551a8b;
 }
 
+a:hover {
+	outline: 0;
+}
+
 figure {
 	margin: 0;
 }
@@ -413,7 +419,7 @@ fieldset {
 	border-style: solid;
 }
 
-button,
+button:not(.suki-toggle-button),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -438,7 +444,7 @@ a.button {
 	backface-visibility: hidden;
 }
 
-button:hover, button:focus,
+button:not(.suki-toggle-button):hover, button:not(.suki-toggle-button):focus,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="reset"]:hover,
@@ -453,7 +459,7 @@ a.button:focus {
 	border-color: #551a8b;
 }
 
-button:hover, button:focus, button:active,
+button:not(.suki-toggle-button):hover, button:not(.suki-toggle-button):focus, button:not(.suki-toggle-button):active,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="button"]:active,

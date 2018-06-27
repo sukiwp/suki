@@ -12,7 +12,9 @@
 	}
 
 	&:focus {
-		outline: 0;
+		outline-width: thin;
+		outline-style: dotted;
+		outline-color: invert;
 	}
 }
 
@@ -182,6 +184,10 @@ a {
 	&:hover, &:focus {
 		color: #551a8b; // default
 	}
+	
+	&:hover {
+		outline: 0;
+	}
 }
 
 figure {
@@ -249,7 +255,7 @@ fieldset {
 // Button
 // -------------------------------------------------------------
 
-button,
+button:not(.suki-toggle-button),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],

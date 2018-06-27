@@ -298,7 +298,7 @@
 				$toggles[i].addEventListener( 'click', function( e ) {
 					e.preventDefault();
 				    
-				    var $target = document.querySelector( this.getAttribute( 'href' ) );
+				    var $target = document.querySelector( '#' + this.getAttribute( 'data-target' ) );
 
 				    // Abort if no popup target found.
 				    if ( ! $target ) return;

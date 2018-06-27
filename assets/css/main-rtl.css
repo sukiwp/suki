@@ -169,7 +169,9 @@ template {
 }
 
 *:focus {
-	outline: 0;
+	outline-width: thin;
+	outline-style: dotted;
+	outline-color: invert;
 }
 
 html, body {
@@ -336,6 +338,10 @@ a:hover, a:focus {
 	color: #551a8b;
 }
 
+a:hover {
+	outline: 0;
+}
+
 figure {
 	margin: 0;
 }
@@ -413,7 +419,7 @@ fieldset {
 	border-style: solid;
 }
 
-button,
+button:not(.suki-toggle-button),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -439,7 +445,7 @@ a.button,
 	backface-visibility: hidden;
 }
 
-button:hover, button:focus,
+button:not(.suki-toggle-button):hover, button:not(.suki-toggle-button):focus,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="reset"]:hover,
@@ -456,7 +462,7 @@ a.button:focus,
 	border-color: #551a8b;
 }
 
-button:hover, button:focus, button:active,
+button:not(.suki-toggle-button):hover, button:not(.suki-toggle-button):focus, button:not(.suki-toggle-button):active,
 input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="button"]:active,
@@ -809,6 +815,25 @@ select[multiple] {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.suki-toggle-button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+.suki-toggle-button:hover {
+	outline: 0;
 }
 
 .suki-menu-icon {
@@ -2166,7 +2191,6 @@ a.more-link {
 
 .comment-metadata {
 	margin: 0.25em 0;
-	overflow: hidden;
 }
 
 .comment-metadata > * {

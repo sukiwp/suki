@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout-default' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout-default' ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**

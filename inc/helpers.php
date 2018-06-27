@@ -169,8 +169,6 @@ function suki_string( $key, $echo = false ) {
 		/* translators: %s: tag links. */
 		'entry_meta_tags' => esc_html_x( 'Tagged in %s', 'entry meta tags format', 'suki' ),
 		'entry_meta_tags_separator' => esc_html_x( ', ', 'entry meta tags separator', 'suki' ),
-		'header_vertical_bar_toggle' => esc_html__( 'Open Vertical Header', 'suki' ),
-		'header_mobile_vertical_bar_toggle' => esc_html__( 'Open Mobile Menu', 'suki' ),
 	);
 	$string = apply_filters( "suki_string__{$key}", suki_array_value( $strings, $key, '' ) );
 
@@ -180,6 +178,22 @@ function suki_string( $key, $echo = false ) {
 	else {
 		return $string;
 	}
+}
+
+/**
+ * Minify CSS string.
+ *
+ * @param array $css_string
+ * @return string
+ */
+function suki_minify_css_string( $css_string ) {
+	$css_string = str_replace( '( ', '(', $css_string );
+	$css_string = str_replace( ' )', ')', $css_string );
+	$css_string = str_replace( ', ', ',', $css_string );
+	$css_string = preg_replace( '/(\D)0(\.\d)/', '$1$2', $css_string );
+	$css_string = preg_replace( '/\s*([~+>])\s*/', '$1', $css_string );
+
+	return $css_string;
 }
 
 /**
@@ -200,9 +214,15 @@ function suki_convert_css_array_to_string( $css_array ) {
 		// Iterate properties.
 		foreach ( $selectors as $selector => $properties ) {
 			$final_css .= $selector . '{';
+
 			foreach ( $properties as $property => $value ) {
-				$final_css .= $property . ':' . $value . ';';
+				$final_css .= $property . ':' . $value;
+
+				if ( $value !== end( $properties ) ) {
+					$final_css .= ';';
+				}
 			}
+
 			$final_css .= '}';
 		}
 

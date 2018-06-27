@@ -503,6 +503,7 @@ class Suki_Customizer {
 	 */
 	public function generate_css() {
 		$all_postmessages = $this->get_setting_postmessages();
+		$default_values = $this->get_setting_defaults();
 
 		// Temporary CSS array to organize output.
 		$css_array = array();
@@ -523,14 +524,14 @@ class Suki_Customizer {
 				// Skip rule if no element selector is defined.
 				if ( ! isset( $rule['element'] ) ) continue;
 
-				// Get setting value.
-				$setting_value = $this->get_setting_value( $key );
+				// Get value (fallback to default value).
+				$setting_value = $this->get_setting_value( $key, null );
 
-				// Skip rule if setting value is not valid.
+				// Skip rule if value is not valid or not existed.
 				if ( is_null( $setting_value ) || '' === $setting_value ) continue;
 
 				// Minify element selector.
-				$rule['element'] = str_replace( ', ', ',', $rule['element'] );
+				$rule['element'] = suki_minify_css_string( $rule['element'] );
 
 				// Detect if postmessage type is "CSS".
 				if ( 'css' === $rule['type'] ) {
@@ -609,6 +610,12 @@ class Suki_Customizer {
 						$value = str_replace( '$', $value, $rule['pattern'] );
 					}
 
+					// Minify value.
+					$value = suki_minify_css_string( $value );
+
+					// Minify media.
+					$rule['media'] = suki_minify_css_string( $rule['media'] );
+
 					// Add to CSS array.
 					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $value;
 				}
@@ -629,6 +636,9 @@ class Suki_Customizer {
 							$value = $setting_value;
 						}
 					}
+
+					// Minify value.
+					$value = suki_minify_css_string( $value );
 
 					// Add to CSS array.
 					$css_array['global'][ $rule['element'] ]['font-family'] = $value;

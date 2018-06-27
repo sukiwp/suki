@@ -217,6 +217,26 @@
 	}
 }
 
+.suki-toggle-button {
+	// reset button appearance
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	cursor: pointer;
+	-webkit-appearance: none;
+
+	&:hover {
+		outline: 0;
+	}
+}
+
 .suki-menu-icon {
 	font-size: 1.2em;
 }
