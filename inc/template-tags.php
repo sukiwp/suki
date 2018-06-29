@@ -527,28 +527,12 @@ function suki_footer_widgets_bar() {
 		<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki_footer_widgets_bar_classes', array() ) ) ); ?>">
 			<div class="suki-footer-widgets-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
-					<div class="suki-footer-widgets-bar-row">
+					<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
 						<?php for ( $i = 1; $i <= suki_get_theme_mod( 'footer_widgets_bar' ); $i++ ) : ?>
 							<div class="suki-footer-widgets-bar-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column <?php echo esc_attr( is_active_sidebar( 'footer-widgets-' . $i ) ? '' : 'suki-empty' ); ?>">
-								<?php
-								if ( is_active_sidebar( 'footer-widgets-' . $i ) ) :
+								<?php if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
 									dynamic_sidebar( 'footer-widgets-' . $i );
-								else :
-									?>
-									<div class="widget suki-inactive-widgets-area">
-										<h4 class="widget-title">
-											<?php
-											/* translators: %d: footer widgets column number. */
-											printf( esc_html__( 'Footer Widgets Column %d', 'suki' ), $i ); // WPCS: XSS OK.
-											?>
-										</h4>
-										<p>
-											<a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Add widget(s) to this column', 'suki' ); ?></a>
-										</p>
-									</div>
-									<?php
-								endif;
-								?>
+								} ?>
 							</div>
 						<?php endfor; ?>
 					</div>

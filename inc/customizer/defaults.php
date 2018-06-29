@@ -439,7 +439,6 @@ $add['sidebar_border_color'] = $colors['border'];
  */
 
 $add['footer_widgets_bar'] = 0;
-$add['footer_widgets_bar_columns_gap'] = '15px';
 
 $add['footer_elements_bottom_left'] = array();
 $add['footer_elements_bottom_center'] = array( 'copyright' );
@@ -454,6 +453,9 @@ $add['footer_elements_bottom_right'] = array();
 $add['footer_widgets_bar_container'] = 'default';
 $add['footer_widgets_bar_padding'] = '60px 0px 60px 0px';
 $add['footer_widgets_bar_border'] = '1px 0px 0px 0px';
+
+$add['footer_widgets_bar_columns_gap'] = '15px';
+$add['footer_widgets_bar_widgets_gap'] = '40px';
 
 $add['footer_widgets_bar_section_bg_color'] = $colors['subtle'];
 $add['footer_widgets_bar_section_border_color'] = $colors['border'];

@@ -22,6 +22,12 @@
 	}
 }
 
+.suki-inactive-widgets-area {
+	a {
+		text-decoration: none;
+	}
+}
+
 // Widget title
 .widget-title {
 	@extend %h4;

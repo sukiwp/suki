@@ -58,9 +58,8 @@ msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
-#. translators: %d: footer widgets column number.
 #. translators: %d: column number.
-#: inc/class-suki.php:244, inc/template-tags.php:542, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:244, inc/customizer/options/footer--widgets-column.php:25
 msgid "Footer Widgets Column %d"
 msgstr ""
 
@@ -230,33 +229,29 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:546
-msgid "Add widget(s) to this column"
-msgstr ""
-
-#: inc/template-tags.php:934
+#: inc/template-tags.php:918
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:935
+#: inc/template-tags.php:919
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:992
+#: inc/template-tags.php:976
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:993
+#: inc/template-tags.php:977
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1010
+#: inc/template-tags.php:994
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1016
+#: inc/template-tags.php:1000
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
@@ -264,11 +259,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:1095
+#: inc/template-tags.php:1079
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:1112
+#: inc/template-tags.php:1096
 msgid "Oops! That page can not be found."
 msgstr ""
 
@@ -580,7 +575,7 @@ msgstr ""
 msgid "Insert HTML text here"
 msgstr ""
 
-#: inc/customizer/defaults.php:495
+#: inc/customizer/defaults.php:497
 msgid "Copyright &copy; {{current_year}}, {{homepage_link}} &mdash; designed by {{author_link}}"
 msgstr ""
 
@@ -757,7 +752,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:65, inc/customizer/options/content--sidebar.php:228, inc/customizer/options/footer--bottom-bar.php:132, inc/customizer/options/footer--widgets-bar.php:152, inc/customizer/options/footer--widgets-column.php:42, inc/customizer/options/header--html.php:62, inc/customizer/options/header--menu.php:55, inc/customizer/options/header--top-main-bottom-bar.php:207, inc/customizer/options/page-settings.php:76, inc/customizer/options/_sections.php:198, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:152, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:324
+#: inc/customizer/options/blog--archive.php:65, inc/customizer/options/content--sidebar.php:228, inc/customizer/options/footer--bottom-bar.php:132, inc/customizer/options/footer--widgets-bar.php:172, inc/customizer/options/footer--widgets-column.php:42, inc/customizer/options/header--html.php:62, inc/customizer/options/header--menu.php:55, inc/customizer/options/header--top-main-bottom-bar.php:207, inc/customizer/options/page-settings.php:76, inc/customizer/options/_sections.php:198, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:152, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:324
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -877,7 +872,7 @@ msgstr ""
 msgid "General Elements"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:133, inc/customizer/options/content--sidebar.php:196, inc/customizer/options/footer--bottom-bar.php:97, inc/customizer/options/footer--widgets-bar.php:116, inc/customizer/options/header--mobile-main-bar.php:103, inc/customizer/options/header--mobile-vertical-bar.php:144, inc/customizer/options/header--top-main-bottom-bar.php:172
+#: inc/customizer/options/content--main.php:133, inc/customizer/options/content--sidebar.php:196, inc/customizer/options/footer--bottom-bar.php:97, inc/customizer/options/footer--widgets-bar.php:136, inc/customizer/options/header--mobile-main-bar.php:103, inc/customizer/options/header--mobile-vertical-bar.php:144, inc/customizer/options/header--top-main-bottom-bar.php:172
 msgid "Colors"
 msgstr ""
 
@@ -886,11 +881,11 @@ msgstr ""
 msgid "Other colors are inherited from %s."
 msgstr ""
 
-#: inc/customizer/options/content--main.php:144, inc/customizer/options/content--sidebar.php:202, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:102, inc/customizer/options/footer--bottom-bar.php:103, inc/customizer/options/footer--widgets-bar.php:122, inc/customizer/options/header--mobile-main-bar.php:109, inc/customizer/options/header--mobile-vertical-bar.php:150, inc/customizer/options/header--top-main-bottom-bar.php:178, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:30
+#: inc/customizer/options/content--main.php:144, inc/customizer/options/content--sidebar.php:202, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:102, inc/customizer/options/footer--bottom-bar.php:103, inc/customizer/options/footer--widgets-bar.php:142, inc/customizer/options/header--mobile-main-bar.php:109, inc/customizer/options/header--mobile-vertical-bar.php:150, inc/customizer/options/header--top-main-bottom-bar.php:178, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:30
 msgid "Background color"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:145, inc/customizer/options/content--sidebar.php:203, inc/customizer/options/elements--buttons.php:113, inc/customizer/options/elements--form-inputs.php:103, inc/customizer/options/footer--bottom-bar.php:104, inc/customizer/options/footer--widgets-bar.php:123, inc/customizer/options/header--mobile-main-bar.php:110, inc/customizer/options/header--mobile-vertical-bar.php:151, inc/customizer/options/header--top-main-bottom-bar.php:179, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:92
+#: inc/customizer/options/content--main.php:145, inc/customizer/options/content--sidebar.php:203, inc/customizer/options/elements--buttons.php:113, inc/customizer/options/elements--form-inputs.php:103, inc/customizer/options/footer--bottom-bar.php:104, inc/customizer/options/footer--widgets-bar.php:143, inc/customizer/options/header--mobile-main-bar.php:110, inc/customizer/options/header--mobile-vertical-bar.php:151, inc/customizer/options/header--top-main-bottom-bar.php:179, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:92
 msgid "Border color"
 msgstr ""
 
@@ -939,16 +934,16 @@ msgstr ""
 msgid "Separate boxes"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:120
+#: inc/customizer/options/content--sidebar.php:120, inc/customizer/options/footer--widgets-bar.php:115
 msgid "Gap between widgets"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:231, inc/customizer/options/footer--bottom-bar.php:135, inc/customizer/options/footer--widgets-bar.php:155, inc/customizer/options/header--top-main-bottom-bar.php:210, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:155, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:327
+#: inc/customizer/options/content--sidebar.php:231, inc/customizer/options/footer--bottom-bar.php:135, inc/customizer/options/footer--widgets-bar.php:175, inc/customizer/options/header--top-main-bottom-bar.php:210, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:155, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:327
 msgctxt "Suki Pro upsell"
 msgid "More typography options"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:232, inc/customizer/options/footer--widgets-bar.php:156
+#: inc/customizer/options/content--sidebar.php:232, inc/customizer/options/footer--widgets-bar.php:176
 msgctxt "Suki Pro upsell"
 msgid "More widget title styles"
 msgstr ""
@@ -961,11 +956,11 @@ msgstr ""
 msgid "Body (base) text typography"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:55, inc/customizer/options/elements--buttons.php:114, inc/customizer/options/elements--form-inputs.php:104, inc/customizer/options/footer--bottom-bar.php:105, inc/customizer/options/footer--widgets-bar.php:124, inc/customizer/options/header--mobile-vertical-bar.php:152, inc/customizer/options/header--top-main-bottom-bar.php:180, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:93, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:31
+#: inc/customizer/options/elements--body.php:55, inc/customizer/options/elements--buttons.php:114, inc/customizer/options/elements--form-inputs.php:104, inc/customizer/options/footer--bottom-bar.php:105, inc/customizer/options/footer--widgets-bar.php:144, inc/customizer/options/header--mobile-vertical-bar.php:152, inc/customizer/options/header--top-main-bottom-bar.php:180, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:93, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:31
 msgid "Text color"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:106, inc/customizer/options/footer--widgets-bar.php:125
+#: inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:106, inc/customizer/options/footer--widgets-bar.php:145
 msgid "Link text color"
 msgstr ""
 
@@ -1070,7 +1065,7 @@ msgstr ""
 msgid "Contained section"
 msgstr ""
 
-#: inc/customizer/options/footer--bottom-bar.php:107, inc/customizer/options/footer--widgets-bar.php:126
+#: inc/customizer/options/footer--bottom-bar.php:107, inc/customizer/options/footer--widgets-bar.php:146
 msgid "Link hover text color"
 msgstr ""
 
@@ -1162,7 +1157,7 @@ msgstr ""
 msgid "New tab"
 msgstr ""
 
-#: inc/customizer/options/footer--widgets-bar.php:127
+#: inc/customizer/options/footer--widgets-bar.php:147
 msgid "Widget Title text color"
 msgstr ""
 

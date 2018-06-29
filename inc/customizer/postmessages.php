@@ -1120,20 +1120,6 @@ $add['sidebar_border_color'] = array(
  * ====================================================
  */
 
-$add['footer_widgets_bar_columns_gap'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar-column',
-		'property' => 'padding',
-		'pattern'  => '0 $',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar-row',
-		'property' => 'margin',
-		'pattern'  => '0 -$',
-	),
-);
 $add['footer_widgets_bar_container'] = array(
 	array(
 		'type'     => 'class',
@@ -1161,6 +1147,33 @@ $add['footer_widgets_bar_border'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-widgets-bar-inner',
 		'property' => 'border-width',
+	),
+);
+$add['footer_widgets_bar_columns_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar-column',
+		'property' => 'padding',
+		'pattern'  => '0 $',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar-row',
+		'property' => 'margin',
+		'pattern'  => '0 -$',
+	),
+);
+$add['footer_widgets_bar_widgets_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar .widget',
+		'property' => 'margin-top',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar-columns-2 .suki-footer-widgets-bar-column:nth-child(n+3), .suki-footer-widgets-bar-columns-4 .suki-footer-widgets-bar-column:nth-child(n+3), .suki-footer-widgets-bar-columns-6 .suki-footer-widgets-bar-column:nth-child(n+3), .suki-footer-widgets-bar-columns-3 .suki-footer-widgets-bar-column:nth-child(n+4), .suki-footer-widgets-bar-columns-5 .suki-footer-widgets-bar-column:nth-child(n+4)',
+		'property' => 'margin-top',
+		'media'    => '@media screen and (max-width: 1023px)',
 	),
 );
 $add['footer_widgets_bar_section_bg_color'] = array(

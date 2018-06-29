@@ -29,23 +29,71 @@
 // -------------------------------------------------------------
 
 .suki-footer-widgets-bar-row {
-	display: block;
+	@include flex( flex-start );
 	padding: 60px 0; // default
 	margin: 0 -15px; // default
 
-	@media screen and ( min-width: $breakpoint_1024 ) {
-		@include flex( flex-start );
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		flex-wrap: wrap;
 	}
 }
 
 .suki-footer-widgets-bar-column {
 	width: 100%; // default
 	padding: 0 15px; // default
-	margin-top: 2em;
 
-	&:first-child,
 	&.suki-empty {
-		margin-top: 0;
+		margin: 0 !important;
+	}
+		
+	.suki-footer-widgets-bar-columns-2 & {
+		width: 50%; // default
+	}
+
+	.suki-footer-widgets-bar-columns-3 & {
+		width: 33.33%; // default
+	}
+
+	.suki-footer-widgets-bar-columns-4 & {
+		width: 25%; // default
+	}
+
+	.suki-footer-widgets-bar-columns-5 & {
+		width: 20%; // default
+	}
+
+	.suki-footer-widgets-bar-columns-6 & {
+		width: 16.67%; // default
+	}
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		.suki-footer-widgets-bar-columns-2 &,
+		.suki-footer-widgets-bar-columns-4 &,
+		.suki-footer-widgets-bar-columns-6 & {
+			width: 50%; // default
+
+			&:nth-child(n+3) {
+				margin-top: 40px; // default
+			}
+		}
+
+		.suki-footer-widgets-bar-columns-3 &,
+		.suki-footer-widgets-bar-columns-5 & {
+			width: 33.33%; // default
+
+			&:nth-child(n+4) {
+				margin-top: 40px; // default
+			}
+		}
+	}
+
+	@media screen and ( max-width: $breakpoint_768 - 1px ) {
+		width: 100% !important;
+		margin-top: 40px; // default
+
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 
