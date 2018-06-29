@@ -233,15 +233,6 @@ $add['header_mobile_elements_vertical_top'] = array( 'search-bar', 'mobile-menu'
 
 /**
  * ====================================================
- * Header > Logo
- * ====================================================
- */
-
-$add['header_logo_image'] = '';
-$add['header_mobile_logo_image'] = '';
-
-/**
- * ====================================================
  * Header > HTML
  * ====================================================
  */
@@ -497,20 +488,11 @@ $add['footer_bottom_bar_letter_spacing'] = '0';
 
 /**
  * ====================================================
- * Footer > Logo
- * ====================================================
- */
-
-$add['footer_logo_image'] = '';
-
-/**
- * ====================================================
  * Footer > Copyright
  * ====================================================
  */
 
-/* translators: %s: anchor tag to theme author site. */
-$add['footer_copyright_content'] = sprintf( esc_html__( 'Copyright &copy; {{current_year}}, designed by %s', 'suki' ), '<a href="' . suki_get_theme_info( 'author_url' ) . '" target="_blank" rel="noopener">' . suki_get_theme_info( 'author' ) . '</a>' );
+$add['footer_copyright_content'] = esc_html__( 'Copyright &copy; {{current_year}}, {{homepage_link}} &mdash; designed by {{author_link}}', 'suki' );
 
 /**
  * ====================================================

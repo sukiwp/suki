@@ -27,7 +27,8 @@
 		"threaded-comments",
 		"translation-ready",
 		"blog",
-		"e-commerce"
+		"e-commerce",
+		"portfolio"
 	],
 	"private": true,
 	"repository": {

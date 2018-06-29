@@ -51,7 +51,13 @@
 
 			<?php
 			// Print the content.
-			the_content( esc_html__( 'Read more', 'suki' ) );
+			the_content(
+				sprintf(
+					/* translators: %s: current post title. */
+					esc_html__( 'Continue Reading %s', 'suki' ),
+					the_title( '<span class="screen-reader-text">', '</span>', false )
+				)
+			);
 
 			// Print content pagination, if exists.
 			wp_link_pages( array(

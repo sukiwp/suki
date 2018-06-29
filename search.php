@@ -18,24 +18,11 @@ get_header();
 
 		<?php
 		if ( have_posts() ) :
-
-			if ( has_action( 'suki_page_header' ) ) :
-			?>
-				<header class="page-header">
-					<?php
-					/**
-					 * Hook: suki_page_header
-					 * 
-					 * @hooked suki_page_title - 10
-					 */
-					do_action( 'suki_page_header' );
-					?>
-				</header>
-			<?php
-			endif;
 			
 			/**
 			 * Hook: suki_before_main
+			 * 
+			 * @hooked suki_search_page_header - 10
 			 */
 			do_action( 'suki_before_main' );
 			?>

@@ -2,22 +2,25 @@
 // Footer Elements
 // -------------------------------------------------------------
 
-// Logo
-.suki-footer-logo {
-	.site-title {
-		margin: 0;
-
-		> * {
-			display: block;
-		}
-	}
-}
-
 // Social
-.suki-footer-social-links {
+.suki-footer-social {
 	li.menu-item {
 		display: inline-block;
 		margin: 0 0.5em;
+	}
+}
+
+// Copyright
+.suki-footer-copyright {
+	a {
+		text-decoration: none;
+	}
+}
+
+// Menu
+.suki-footer-menu {
+	a {
+		text-decoration: none;
 	}
 }
 

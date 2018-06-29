@@ -51,24 +51,20 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 
 /**
  * ====================================================
- * Suki Pro Teaser
+ * Suki Pro Upsell
  * ====================================================
  */
 
 if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_html_2', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_html', array(
 		'section'     => $section,
 		'settings'    => array(),
-		'label'       => esc_html_x( 'HTML 2', 'Suki Pro teaser', 'suki' ),
-		'url'         => 'https://sukiwp.com/pro/modules/header/',
-		'priority'    => 90,
-	) ) );
-
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_html_3', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'HTML 3', 'Suki Pro teaser', 'suki' ),
-		'url'         => 'https://sukiwp.com/pro/modules/header/',
+		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'HTML 2', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'HTML 3', 'Suki Pro upsell', 'suki' ),
+		),
 		'priority'    => 90,
 	) ) );
 }

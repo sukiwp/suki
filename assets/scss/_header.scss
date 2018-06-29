@@ -9,7 +9,7 @@
 .suki-header {
 	// Base "menu"
 	.menu {
-		> *,
+		> div,
 		li {
 			position: relative;
 		}
@@ -21,14 +21,19 @@
 }
 
 // Logo
-.suki-header-logo,
-.suki-header-mobile-logo {
-	.site-title {
-		margin: 0;
+.site-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: normal;
+	text-transform: uppercase;
+	margin: 0;
 
-		> * {
-			display: block;
-		}
+	a {
+		text-decoration: none;
+	}
+
+	img, svg {
+		display: block;
 	}
 }
 
@@ -41,54 +46,37 @@
 	}
 }
 
-// Separator
-.suki-header-separator {
-	padding: 0 !important;
-}
-
-// Search
-.suki-header-search {
-	&.suki-header-search-dropdown {
-		.sub-menu {
-			padding: 0 !important;
-		}
-
-		.search-field {
-			padding: 1em 1em 1em 2.5em;
-			background-color: transparent;
-			color: inherit !important;
-			border-width: 0;
-		}
+// Search Dropdown
+.suki-header-search-dropdown {
+	.sub-menu {
+		padding: 0 !important;
 	}
 
-	&.suki-header-search-bar {
-		.search-field {
-			background-color: transparent;
-			color: inherit;
-		}
+	.search-field {
+		padding: 1em 1em 1em 2.5em;
+		background-color: transparent;
+		color: inherit !important;
+		border-width: 0;
+	}
+}
+
+// Search Bar
+.suki-header-search-bar {
+	.search-field {
+		background-color: transparent;
+		color: inherit;
 	}
 }
 
 // Social
-.suki-header-social-links {
+.suki-header-social {
 	li.menu-item {
 		margin: 0 0.5em;
 	}
 }
 
-// BR
-.suki-header-br {
-	.suki-header-section & {
-		height: 100% !important;
-	}
-
-	.suki-header-vertical & {
-		width: 100% !important;
-	}
-}
-
 // -------------------------------------------------------------
-// Header Sections
+// Header Horizontal
 // -------------------------------------------------------------
 
 .suki-main-header {
@@ -130,22 +118,6 @@
 		@include flex();
 		height: 100%;
 	}
-
-	> * > * {
-		@include flex();
-		height: 100%;
-
-		&.customize-partial-edit-shortcut + *,
-		&:first-child {
-			margin-left: 0 !important;
-			padding-left: 0 !important;
-		}
-
-		&:last-child {
-			margin-right: 0 !important;
-			padding-right: 0 !important;
-		}
-	}
 }
 
 .suki-header-top-bar-inner {
@@ -171,6 +143,27 @@
 
 .suki-header-section {
 	.menu {
+		@include flex();
+		height: 100%;
+
+		> div,
+		> li {
+			@include flex();
+			height: 100%;
+
+			&:first-child,
+			&:first-of-type {
+				margin-left: 0 !important;
+				padding-left: 0 !important;
+			}
+
+			&:last-child,
+			&:last-of-type {
+				margin-right: 0 !important;
+				padding-right: 0 !important;
+			}
+		}
+
 		.sub-menu {
 			position: absolute;
 			z-index: 4;
@@ -389,7 +382,7 @@
 }
 
 .suki-header-vertical {
-	.suki-header-social-links {
+	.suki-header-social {
 		li {
 			display: inline-block;
 

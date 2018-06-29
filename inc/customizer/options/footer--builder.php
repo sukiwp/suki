@@ -17,8 +17,8 @@ $section = 'suki_section_footer_builder';
  */
 
 ob_start(); ?>
-<span class="button button-default suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
-<span class="button button-default suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Footer Builder', 'suki' ); ?></span>
+<span class="button button-secondary suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
+<span class="button button-secondary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Footer Builder', 'suki' ); ?></span>
 <?php $switcher = ob_get_clean();
 
 // --- Blank: Footer Builder Switcher
@@ -88,7 +88,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
 	'choices'     => apply_filters( 'suki_customizer_footer_elements', array(
-		'logo'      => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
 		'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
 		'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Footer Menu', 'suki' ),
 		'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),

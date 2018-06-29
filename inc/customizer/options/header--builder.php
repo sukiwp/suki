@@ -27,8 +27,8 @@ ob_start(); ?>
 		<span><?php esc_html_e( 'Tablet / Mobile', 'suki' ); ?></span>
 	</a>
 </div>
-<span class="button button-default suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
-<span class="button button-default suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Header Builder', 'suki' ); ?></span>
+<span class="button button-secondary suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
+<span class="button button-secondary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Header Builder', 'suki' ); ?></span>
 <?php $switcher = ob_get_clean();
 
 // --- Blank: Header Builder Switcher

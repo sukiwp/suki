@@ -24,23 +24,27 @@ for ( $i = 1; $i <= 6; $i++ ) {
 		/* translators: %d: column number. */
 		'label'       => sprintf( esc_html__( 'Footer Widgets Column %d', 'suki' ), $i ),
 		/* translators: %d: column number. */
-		'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-footer-widgets-' . $i ) ) . '" class="suki-customize-goto-control button button-default">' . sprintf( esc_html__( 'Edit Widgets on Column %d', 'suki' ), $i ) . '</a>',
+		'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-footer-widgets-' . $i ) ) . '" class="suki-customize-goto-control button button-secondary">' . sprintf( esc_html__( 'Edit Widgets on Column %d', 'suki' ), $i ) . '</a>',
 		'priority'    => 10 * $i,
 	) ) );
 }
 
 /**
  * ====================================================
- * Suki Pro Teaser
+ * Suki Pro Upsell
  * ====================================================
  */
 
 if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_footer_widgets_columns_width', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_footer_widgets_column', array(
 		'section'     => $section,
 		'settings'    => array(),
-		'label'       => esc_html_x( 'Columns Width (Responsive)', 'Suki Pro teaser', 'suki' ),
-		'url'         => 'https://sukiwp.com/pro/modules/footer/',
+		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'Columns Width', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Empty Column', 'Suki Pro upsell', 'suki' ),
+		),
 		'priority'    => 90,
 	) ) );
 }

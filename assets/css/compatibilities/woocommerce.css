@@ -1,3 +1,32 @@
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+	position: relative;
+	display: inline-block;
+	border-width: 1px;
+	border-style: solid;
+	line-height: normal;
+	text-align: center;
+	cursor: pointer;
+	font-size: 1rem;
+	padding: 10px 20px;
+	border-radius: 3px;
+	color: white;
+	background-color: #0000ee;
+	border-color: #0000ee;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus {
+	background-color: #551a8b;
+	border-color: #551a8b;
+}
+
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, .woocommerce #respond input#submit:active, .woocommerce a.button:active, .woocommerce button.button:active, .woocommerce input.button:active {
+	text-decoration: none;
+}
+
 .woocommerce form .form-row,
 .woocommerce-page form .form-row {
 	padding: 0;
@@ -37,30 +66,6 @@
 	margin: 1.25rem 0;
 }
 
-.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
-	position: relative;
-	display: inline-block;
-	padding: 0.75em 1em;
-	border-width: 1px;
-	border-style: solid;
-	line-height: normal;
-	text-align: center;
-	cursor: pointer;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.woocommerce #respond input#submit::-moz-focus-inner, .woocommerce a.button::-moz-focus-inner, .woocommerce button.button::-moz-focus-inner, .woocommerce input.button::-moz-focus-inner {
-	border-style: none;
-}
-
-.woocommerce #respond input#submit:hover, .woocommerce #respond input#submit:focus, .woocommerce #respond input#submit:active, .woocommerce a.button:hover, .woocommerce a.button:focus, .woocommerce a.button:active, .woocommerce button.button:hover, .woocommerce button.button:focus, .woocommerce button.button:active, .woocommerce input.button:hover, .woocommerce input.button:focus, .woocommerce input.button:active {
-	outline: 0;
-	text-decoration: none;
-}
-
 .woocommerce #respond input#submit:after, .woocommerce a.button:after, .woocommerce button.button:after, .woocommerce input.button:after {
 	vertical-align: middle;
 }
@@ -86,6 +91,10 @@ p.demo_store {
 
 .woocommerce .woocommerce-breadcrumb {
 	font-size: 0.9em;
+}
+
+.woocommerce .woocommerce-breadcrumb a {
+	text-decoration: none;
 }
 
 .woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter {
@@ -161,14 +170,6 @@ p.demo_store {
 
 .suki-header-shopping-cart .shopping-cart-count[data-count="0"] {
 	display: none;
-}
-
-.suki-header-shopping-cart .shopping-cart-amount {
-	margin-left: 0.75em;
-}
-
-.suki-header-shopping-cart .shopping-cart-count[data-count="0"] ~ .shopping-cart-amount {
-	margin-left: 0.25em;
 }
 
 .suki-header-shopping-cart .sub-menu {
@@ -576,6 +577,20 @@ p.demo_store {
 	margin: 2rem 0;
 }
 
+.woocommerce div.product form.cart a {
+	text-decoration: none;
+}
+
+.woocommerce div.product form.cart table {
+	margin: -0.75rem 0 1.25rem;
+	border-bottom: none;
+}
+
+.woocommerce div.product form.cart table th, .woocommerce div.product form.cart table td {
+	vertical-align: middle !important;
+	line-height: inherit !important;
+}
+
 .woocommerce div.product form.cart div.quantity {
 	margin-right: 0.5em;
 }
@@ -695,6 +710,10 @@ p.demo_store {
 	border-top: none;
 }
 
+.woocommerce table.shop_table a {
+	text-decoration: none;
+}
+
 .woocommerce table.cart td.actions .coupon .input-text {
 	min-width: 8.25rem;
 	margin-right: 0.5rem;
@@ -804,6 +823,13 @@ p.demo_store {
 	border-color: inherit;
 }
 
+#add_payment_method #payment ul.payment_methods li,
+.woocommerce-cart #payment ul.payment_methods li,
+.woocommerce-checkout #payment ul.payment_methods li {
+	line-height: inherit;
+	margin: 0 0 0.5em;
+}
+
 #add_payment_method #payment div.form-row,
 .woocommerce-cart #payment div.form-row,
 .woocommerce-checkout #payment div.form-row {
@@ -814,6 +840,9 @@ p.demo_store {
 .woocommerce-cart #payment .payment_method_paypal .about_paypal,
 .woocommerce-checkout #payment .payment_method_paypal .about_paypal {
 	line-height: inherit;
+	font-size: 0.85em;
+	margin-top: 0.15em;
+	text-decoration: none;
 }
 
 #add_payment_method #payment .payment_method_paypal img,
@@ -825,7 +854,7 @@ p.demo_store {
 #add_payment_method #payment div.payment_box,
 .woocommerce-cart #payment div.payment_box,
 .woocommerce-checkout #payment div.payment_box {
-	margin: 0.5em 0 1em;
+	margin: 0.5em 0;
 	color: inherit;
 	background-color: inherit;
 	padding: 0;

@@ -16,9 +16,7 @@ get_header();
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
 
-		<?php
-		while ( have_posts() ) : the_post();
-
+		<?php while ( have_posts() ) : the_post();
 			/**
 			 * Hook: suki_before_main
 			 */
@@ -36,8 +34,7 @@ get_header();
 			 */
 			do_action( 'suki_after_main' );
 
-		endwhile; // End of the loop
-		?>
+		endwhile; ?>
 
 	</main>
 </div>

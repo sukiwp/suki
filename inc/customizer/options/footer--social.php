@@ -21,7 +21,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Social Links', 'suki' ),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_social' ) ) . '" class="suki-customize-goto-control button button-default">' . esc_html__( 'Edit Social Media URLs', 'suki' ) . '</a>',
+	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_social' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Social Media URLs', 'suki' ) . '</a>',
 	'priority'    => 10,
 ) ) );
 
@@ -49,7 +49,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 // Selective Refresh
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( 'footer_social_links', array(
-		'selector'            => '.suki-footer-social-links',
+		'selector'            => '.suki-footer-social',
 		'container_inclusive' => true,
 		'render_callback'     => 'suki_footer_element__social',
 		'fallback_refresh'    => false,

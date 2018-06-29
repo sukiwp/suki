@@ -245,6 +245,8 @@ gulp.task( 'pot', function() {
 			domain: info.name,
 			package: info.title,
 			metadataFile: 'style.css',
+		} ).on( 'error', function( u ) {
+			console.log( u );
 		} ) )
 		.pipe( gulp.dest( config.dest.pot + '/' + info.name + '.pot' ) );
 } );

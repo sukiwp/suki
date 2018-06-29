@@ -22,8 +22,11 @@ get_header();
 	<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) :
+
 			/**
 			 * Hook: suki_before_main
+			 *
+			 * @hooked suki_home_page_header - 10
 			 */
 			do_action( 'suki_before_main' );
 			?>
@@ -34,7 +37,7 @@ get_header();
 				while ( have_posts() ) : the_post();
 
 					// Render post content using selected layout on Customizer.
-					get_template_part( 'template-parts/content' );
+					get_template_part( 'template-parts/content', suki_get_theme_mod( 'blog_index_loop_mode' ) );
 
 				endwhile;
 				?>

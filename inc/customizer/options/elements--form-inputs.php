@@ -85,7 +85,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'in
 	'description' => sprintf(
 		/* translators: %s: link to "Body (Base)" section. */
 		esc_html__( 'Inherited from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_body' ) ) . '" class="suki-customize-goto-control button button-default">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
+		'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_body' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
 	),
 	'priority'    => 10,
 ) ) );

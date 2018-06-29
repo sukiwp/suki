@@ -1,6 +1,6 @@
 === Suki ===
 Contributors: sukiwp, daviedr
-Tags: two-columns, left-sidebar, right-sidebar, grid-layout, accessibility-ready, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce
+Tags: two-columns, left-sidebar, right-sidebar, grid-layout, accessibility-ready, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 4.5
 Tested up to: 4.9
 Stable tag: 0.0.1
@@ -23,10 +23,36 @@ Suki is a multi-purpose WordPress theme suitable for blog, business websites, po
 
 Changelog are available on changelog.txt
 
-== Credits ==
+== License ==
 
-* Based on [Underscores](https://underscores.me/) by Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* [Normalize.css](https://necolas.github.io/normalize.css/) by Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
-* [classList](https://github.com/eligrey/classList.js) javascript polyfill by Eli Grey, [Unlicense](http://unlicense.org/)
-* [WP Color Picker Alpha](https://github.com/kallookoo/wp-color-picker-alpha) javascript by Sergio (kallookoo), [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* Social icons by [Simple Icons](https://github.com/simple-icons/simple-icons) by Simple Icons Collaborators, [CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/)
+Suki is licensed under the [GNU General Public License v2 or later](http://www.gnu.org/licenses/gpl-2.0.html).
+
+== Screenshots Licenses ==
+
+
+
+== Copyright ==
+
+Suki is built based on:
+
+Underscores
+License: GPLv2 or later
+Source: https://underscores.me
+
+Suki bundles the following third-party resources:
+
+normalize.css, by Nicolas Gallagher and Jonathan Neal
+License: MIT
+Source: https://necolas.github.io/normalize.css
+
+classList, by Eli Grey
+License: Unlicense
+Source: https://github.com/eligrey/classList.js
+
+WP Color Picker Alpha, by Sergio (kallookoo)
+License: GPLv2 or later
+Source: https://github.com/kallookoo/wp-color-picker-alpha
+
+Simple Icons
+License: CC0 1.0 Universal
+Source: https://github.com/simple-icons/simple-icons

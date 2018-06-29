@@ -1,12 +1,13 @@
-@import "../variables";
-@import "../mixins";
+@import "../__variables";
+@import "../__mixins";
+@import "../__extends";
 
 // Base Elements
-@import "../normalize";
-@import "../base";
+@import "../_normalize";
+@import "../_base";
 
 // Common Elements
-@import "../wordpress";
+@import "../_wordpress";
 
 html {
 	padding: 1rem;

@@ -24,19 +24,28 @@ class Suki_Customize_Control_Pro extends WP_Customize_Control {
 	public $url = '#';
 
 	/**
+	 * @var array
+	 */
+	public $features = array();
+
+	/**
 	 * Render control's content
 	 */
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
-			<a href="<?php echo esc_url( $this->url ); ?>">
-				<h4 class="suki-heading">
-					<?php echo $this->label; // WPCS: XSS OK ?>
-					<span class="suki-pro-link"><?php esc_html_e( 'Pro', 'suki' ); ?></span>
-				</h4>
-				<?php if ( ! empty( $this->description ) ) : ?>
-					<p class="description customize-control-description"><?php echo $this->description; // WPCS: XSS OK ?></p>
+			<h3>
+				<div class="wp-clearfix">
+					<span><?php echo $this->label; // WPCS: XSS OK ?></span>
+					<a href="<?php echo esc_url( $this->url ); ?>" class="button button-small button-secondary alignright" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a>
+				</div>
+				<?php if ( ! empty( $this->features ) ) : ?>
+					<ul class="menu-in-location">
+						<?php foreach ( $this->features as $feature ) : ?>
+							<li><?php echo $feature; // WPCS: XSS OK ?></li>
+						<?php endforeach; ?>
+					</ul>
 				<?php endif; ?>
-			</a>
+			</h3>
 		<?php endif;
 	}
 }

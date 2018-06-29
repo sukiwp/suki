@@ -32,8 +32,7 @@ define( 'SUKI_VERSION', wp_get_theme( get_template() )->get( 'Version' ) );
 
 define( 'SUKI_ASSETS_SUFFIX', SCRIPT_DEBUG ? '' : '.min' );
 
-// define( 'SUKI_API_URL', 'https://api.singlestroke.io/suki/wp-json/singlestroke/v1' );
-define( 'SUKI_API_URL', 'http://testing.local/wp-json/singlestroke/v1' );
+define( 'SUKI_PRO_URL', esc_url( 'https://sukiwp.com/pro/' ) );
 
 /**
  * ====================================================

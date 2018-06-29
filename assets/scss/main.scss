@@ -1,26 +1,28 @@
-@import "variables";
-@import "mixins";
+@import "__variables";
+@import "__mixins";
+@import "__extends";
 
 // Base Elements
-@import "normalize";
-@import "base";
+@import "_normalize";
+@import "_base";
 
 // Common Elements
-@import "common";
-@import "wordpress";
-@import "gutenberg";
+@import "_accessibility";
+@import "_common";
+@import "_wordpress";
+@import "_gutenberg";
 
 // Page Container
-@import "container";
+@import "_container";
 
 // Header
-@import "header";
+@import "_header";
 
 // Footer
-@import "footer";
+@import "_footer";
 
 // Entry
-@import "entry";
+@import "_entry";
 
 // Widgets
-@import "widgets";
+@import "_widgets";

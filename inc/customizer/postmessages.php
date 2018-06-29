@@ -99,7 +99,12 @@ $add['body_text_color'] = array(
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'a, .nav-links a:hover, .nav-links a:focus, #infinite-handle span button:hover, #infinite-handle span button:focus, .tagcloud a:hover, .tagcloud a:focus',
+		'element'  => 'a, .suki-toggle',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.nav-links a:hover, .nav-links a:focus, #infinite-handle span button:hover, #infinite-handle span button:focus, .tagcloud a:hover, .tagcloud a:focus',
 		'property' => 'color',
 	),
 	array(
@@ -111,7 +116,7 @@ $add['link_text_color'] = array(
 $add['link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'a:hover, a:focus',
+		'element'  => 'a:hover, a:focus, .suki-toggle:hover, .suki-toggle:focus',
 		'property' => 'color',
 	),
 );
@@ -222,26 +227,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['button_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button:not(.suki-toggle-button), input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
 		'property' => 'padding',
 	),
 );
 $add['button_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button:not(.suki-toggle-button), input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
 		'property' => 'border-width',
 	),
 );
 $add['button_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button:not(.suki-toggle-button), input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
 		'property' => 'border-radius',
 	),
 );
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'letter_spacing' ) as $prop ) {
-	$element = 'button:not(.suki-toggle-button), input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link';
+	$element = 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['button_' . $prop ] = array(
@@ -256,7 +261,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button:not(.suki-toggle-button), input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+			'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
 			'property' => $prop,
 		),
 	);
@@ -265,7 +270,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_hover_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button:not(.suki-toggle-button):hover, button:not(.suki-toggle-button):focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus',
+			'element'  => 'button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus',
 			'property' => $prop,
 		),
 	);
@@ -599,14 +604,14 @@ foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachme
 $add['header_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-logo .site-title > img, .suki-header-logo .site-title > svg',
+		'element'  => '.suki-header-logo .site-title > a > img, .suki-header-logo .site-title > a > svg',
 		'property' => 'width',
 	),
 );
 $add['header_mobile_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-logo .site-title > img, .suki-header-mobile-logo .site-title > svg',
+		'element'  => '.suki-header-mobile-logo .site-title > a > img, .suki-header-mobile-logo .site-title > a > svg',
 		'property' => 'width',
 	),
 );
@@ -707,7 +712,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .menu-item',
+			'element'  => '.suki-header-' . $bar . ' .suki-header-menu .menu-item',
 			'property' => 'margin',
 			'pattern'  => '0 $',
 		),
@@ -755,14 +760,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_link_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:not(.button), .suki-header-' . $bar . ' .suki-toggle-button',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button), .suki-header-' . $bar . ' .suki-toggle',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $type . '_link_hover_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus, .suki-header-' . $bar . ' .suki-toggle-button:hover, .suki-header-' . $bar . ' .suki-toggle-button:focus',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus, .suki-header-' . $bar . ' .suki-toggle:hover, .suki-header-' . $bar . ' .suki-toggle:focus',
 			'property' => 'color',
 		),
 	);
@@ -827,14 +832,14 @@ $add['header_mobile_main_bar_section_border_color'] = array(
 $add['header_mobile_main_bar_menu_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle-button',
+		'element'  => '.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle',
 		'property' => 'color',
 	),
 );
 $add['header_mobile_main_bar_menu_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle-button:hover, .suki-header-mobile-main-bar .suki-toggle-button:focus',
+		'element'  => '.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus',
 		'property' => 'color',
 	),
 );
@@ -904,14 +909,14 @@ $add['header_mobile_vertical_bar_text_color'] = array(
 $add['header_mobile_vertical_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle-button',
+		'element'  => '.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle',
 		'property' => 'color',
 	),
 );
 $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle-button:hover, .suki-header-mobile-vertical-bar .suki-toggle-button:focus',
+		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus',
 		'property' => 'color',
 	),
 );
@@ -1286,20 +1291,6 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 }
-
-/**
- * ====================================================
- * Footer > Logo
- * ====================================================
- */
-
-$add['footer_logo_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-logo .site-title > img, .suki-footer-logo .site-title > svg',
-		'property' => 'width',
-	),
-);
 
 /**
  * ====================================================

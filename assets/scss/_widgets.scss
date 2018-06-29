@@ -24,6 +24,7 @@
 
 // Widget title
 .widget-title {
+	@extend %h4;
 	margin: 0 0 1.25rem;
 
 	:empty {
@@ -76,6 +77,10 @@
 			position: relative;
 			// margin-top: 0.25em;
 		}
+	}
+
+	a {
+		text-decoration: none;
 	}
 }
 
@@ -165,43 +170,8 @@
 			padding: 0.2em 2em;
 		}
 	}
-}
 
-// -------------------------------------------------------------
-// Suki custom widgets
-// -------------------------------------------------------------
-
-.suki_widget_social {
-	.suki-social-links {
-		font-size: 1.25rem;
-	}
-}
-
-.suki_widget_posts {
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	li {
-		border-bottom-width: 1px; 
-		border-bottom-style: solid;
-		padding-bottom: 0.75em;
-		margin-top: 0.75em;
-		
-		@extend %float-container;
-
-		*:last-child {
-			border-bottom: none;
-		}
-	}
-
-	img {
-		float: right;
-		width: 40px;
-		height: auto;
-		margin-left: 0.5em;
-		border-radius: 20px;
+	a {
+		text-decoration: none;
 	}
 }

@@ -24,7 +24,7 @@ class Suki_Customize_Control_Heading extends WP_Customize_Control {
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
 			<span class="tabindex" tabindex="0"></span>
-			<h4 class="suki-heading"><?php echo $this->label; // WPCS: XSS OK ?></h4>
+			<h4 class="suki-heading"><span><?php echo $this->label; // WPCS: XSS OK ?></span></h4>
 			<?php if ( ! empty( $this->description ) ) : ?>
 				<p class="description customize-control-description"><?php echo $this->description; // WPCS: XSS OK ?></p>
 			<?php endif; ?>

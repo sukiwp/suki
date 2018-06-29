@@ -73,25 +73,15 @@ class Suki {
 		require_once( SUKI_INCLUDES_PATH . '/template-hooks.php' );
 		require_once( SUKI_INCLUDES_PATH . '/template-filters.php' );
 
-		// Customizer
+		// Customizer functions
 		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer.php' );
 
-		/**
-		 * Widget files
-		 */
-		include_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
-		include_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-social.php' );
-
-		/**
-		 * Admin files
-		 */
+		// Admin page functions
 		if ( is_admin() ) {
 			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin.php' );
 		}
 
-		/**
-		 * Plugins compatibility files
-		 */
+		// Plugins compatibility functions
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.
 			if ( class_exists( $plugin_class ) ) {
@@ -219,6 +209,12 @@ class Suki {
 			'caption',
 		) );
 
+		// Enable custom logo
+		add_theme_support( 'custom-logo', array(
+			'flex-height' => true,
+			'flex-width'  => true,
+		) );
+
 		// Add theme support for selective refresh for widgets
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -238,8 +234,8 @@ class Suki {
 			'id'            => 'sidebar',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h4 class="widget-title">',
-			'after_title'   => '</h4>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
 		) );
 
 		for ( $i = 1; $i <= ( is_customize_preview() ? 6 : suki_get_theme_mod( 'footer_widgets_bar' ) ); $i++ ) {
@@ -249,8 +245,8 @@ class Suki {
 				'id'            => 'footer-widgets-' . $i,
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="widget-title">',
-				'after_title'   => '</h4>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
 			) );
 		}
 	}

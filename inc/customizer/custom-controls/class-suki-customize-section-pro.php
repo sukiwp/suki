@@ -24,11 +24,17 @@ class Suki_Customize_Section_Pro extends WP_Customize_Section {
 	public $url = '#';
 
 	/**
+	 * @var array
+	 */
+	public $features = array();
+
+	/**
 	 * Setup parameters for content rendering by Underscore JS template.
 	 */
 	public function json() {
 		$json = parent::json();
 		$json['url'] = $this->url;
+		$json['features'] = $this->features;
 
 		return $json;
 	}
@@ -39,12 +45,19 @@ class Suki_Customize_Section_Pro extends WP_Customize_Section {
 	protected function render_template() {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
-			<a href="{{ data.url }}" target="_blank" rel="noopener">
-				<h3 class="accordion-section-title">
-					{{ data.title }}
-					<span class="suki-pro-link">Pro</span>
-				</h3>
-			</a>
+			<h3 class="accordion-section-title">
+				<div class="wp-clearfix">
+					<span>{{ data.title }}</span>
+					<a href="{{ data.url }}" class="button button-small button-secondary alignright" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a>
+				</div>
+				<# if ( 0 < data.features.length ) { #>
+					<ul class="menu-in-location">
+						<# _.each( data.features, function( feature, i ) { #>
+							<li>{{ feature }}</li>
+						<# }); #>
+					</ul>
+				<# } #>
+			</h3>
 		</li>
 		<?php
 	}

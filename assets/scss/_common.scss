@@ -81,51 +81,8 @@
 // Other Common Classes
 // -------------------------------------------------------------
 
-.screen-reader-text {
-	position: absolute !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	white-space: nowrap;
-	transition: none;
-
-	&:focus {
-		left: 5px;
-		top: 5px;
-		clip: auto !important;
-		clip-path: none;
-		display: block;
-		padding: 10px 18px;
-		height: auto;
-		width: auto;
-		background-color: rgba(0,0,0,0.8);
-		color: #fff;
-		outline: 0;
-		z-index: 100000; /* Above WP toolbar. */
-	}
-}
-
-%meta {
-	font-size: 0.8em; // default
-	font-weight: 400; // default
-	font-style: normal; // default
-	line-height: 1.8; // default
-	letter-spacing: 0; // default
-	text-transform: none; // default
-}
-
-.suki-float-container,
-%float-container {
-	&:before, &:after {
-		content: "";
-		display: table;	
-	}
-
-	&:after {
-		clear: both;
-	}
+.suki-float-container {
+	@extend %float-container;
 }
 
 .page-header {
@@ -170,11 +127,10 @@
 	}
 }
 
-.site-title {
-	font-size: 1.5rem;
-	font-weight: bold;
-	line-height: normal;
-	text-transform: uppercase;
+.menu {
+	a {
+		text-decoration: none;
+	}
 }
 
 .tagcloud {
@@ -186,6 +142,7 @@
 		margin: 0 0.5em 0.5em 0;
 		font-size: 0.9rem !important;
 		line-height: normal;
+		text-decoration: none;
 	}
 }
 
@@ -195,6 +152,7 @@
 	a {
 		margin-left: 0.75em;
 		display: inline-block;
+		text-decoration: none;
 
 		&:first-child {
 			margin-left: 0 !important;
@@ -217,7 +175,7 @@
 	}
 }
 
-.suki-toggle-button {
+.suki-toggle {
 	// reset button appearance
 	border: none;
 	margin: 0;
@@ -234,6 +192,11 @@
 
 	&:hover {
 		outline: 0;
+	}
+
+	&:hover, &:focus {
+		background: inherit;
+		color: inherit;
 	}
 }
 

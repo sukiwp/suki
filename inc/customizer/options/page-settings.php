@@ -8,9 +8,9 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-foreach ( $page_sections as $key => $title ) {
-	$section = 'suki_section_' . $key . '_page';
-	$option_key = 'suki_' . $key . '_page_settings';
+foreach ( $page_sections as $type => $title ) {
+	$section = 'suki_section_' . $type . '_page';
+	$option_key = 'page_settings_' . $type;
 
 	// Get default value (array) of the option key.
 	$default = suki_array_value( $defaults, $option_key, array() );
@@ -65,32 +65,21 @@ foreach ( $page_sections as $key => $title ) {
 
 	/**
 	 * ====================================================
-	 * Suki Pro Teaser
+	 * Suki Pro Upsell
 	 * ====================================================
 	 */
 
 	if ( suki_show_pro_teaser() ) {
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_' . $key . '_page_settings_header_overlay', array(
+		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_page_settings_' . $type, array(
 			'section'     => $section,
 			'settings'    => array(),
-			'label'       => esc_html_x( 'Activate Transparent Header', 'Suki Pro teaser', 'suki' ),
-			'url'         => 'https://sukiwp.com/pro/modules/transparent-header/',
-			'priority'    => 90,
-		) ) );
-
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_' . $key . '_page_settings_header_alt_colors', array(
-			'section'     => $section,
-			'settings'    => array(),
-			'label'       => esc_html_x( 'Activate Alternative Header Colors', 'Suki Pro teaser', 'suki' ),
-			'url'         => 'https://sukiwp.com/pro/modules/alternative-header-colors/',
-			'priority'    => 90,
-		) ) );
-
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_' . $key . '_page_settings_disable_elements', array(
-			'section'     => $section,
-			'settings'    => array(),
-			'label'       => esc_html_x( 'Disable Elements', 'Suki Pro teaser', 'suki' ),
-			'url'         => 'https://sukiwp.com/pro/modules/disable-elements/',
+			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+			'url'         => SUKI_PRO_URL,
+			'features'    => array(
+				esc_html_x( 'Activate Transparent Header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate Alternative Header Colors', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Disable Elements', 'Suki Pro upsell', 'suki' ),
+			),
 			'priority'    => 90,
 		) ) );
 	}

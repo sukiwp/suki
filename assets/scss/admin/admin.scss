@@ -1,5 +1,6 @@
-@import "../variables";
-@import "../mixins";
+@import "../__variables";
+@import "../__mixins";
+@import "../__extends";
 
 input, select, textarea {
 	max-width: 100%;

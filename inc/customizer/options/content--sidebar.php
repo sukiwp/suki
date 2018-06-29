@@ -86,7 +86,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'si
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Add / remove widgets', 'suki' ),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-sidebar' ) ) . '" class="suki-customize-goto-control button button-default">' . esc_html__( 'Edit Widgets on Sidebar', 'suki' ) . '</a>',
+	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-sidebar' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Widgets on Sidebar', 'suki' ) . '</a>',
 	'priority'    => 10,
 ) ) );
 
@@ -217,24 +217,20 @@ foreach ( $colors as $id => $label ) {
 
 /**
  * ====================================================
- * Suki Pro Teaser
+ * Suki Pro Upsell
  * ====================================================
  */
 
 if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_sidebar_widget', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_sidebar', array(
 		'section'     => $section,
 		'settings'    => array(),
-		'label'       => esc_html_x( 'Widget Typography', 'Suki Pro teaser', 'suki' ),
-		'url'         => 'https://sukiwp.com/pro/modules/typography/',
-		'priority'    => 90,
-	) ) );
-
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_sidebar_widget_title', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'Widget Title Typography', 'Suki Pro teaser', 'suki' ),
-		'url'         => 'https://sukiwp.com/pro/modules/typography/',
+		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'Widget Text Typography', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Widget Title Typography', 'Suki Pro upsell', 'suki' ),
+		),
 		'priority'    => 90,
 	) ) );
 }

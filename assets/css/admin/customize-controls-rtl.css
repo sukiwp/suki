@@ -92,14 +92,17 @@
 	padding: 10px 12px;
 	background-color: rgba(0, 0, 0, 0.1);
 	color: inherit;
-	font-size: 13px;
-	font-weight: 600;
-	text-transform: uppercase;
 	outline: 0;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.suki-heading span {
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
 }
 
 .suki-responsive-title .suki-responsive-switcher {
@@ -141,61 +144,54 @@
 	margin-top: 15px;
 }
 
-.control-section-suki-section-pro a {
-	position: relative;
-	display: block;
-	text-decoration: none;
-	outline: 0;
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-	opacity: 0.5;
-	-webkit-transition: opacity 0.25s;
-	transition: opacity 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+#customize-theme-controls .control-section-suki-section-pro .accordion-section-title {
+	padding: 10px 18px 11px 10px !important;
+	background-color: #fff8e5;
+	border-right: none;
+	cursor: default;
 }
 
-.control-section-suki-section-pro a .accordion-section-title {
-	padding-left: 50px;
-}
-
-.control-section-suki-section-pro a .accordion-section-title:after {
+#customize-theme-controls .control-section-suki-section-pro .accordion-section-title:after {
 	display: none;
 }
 
-.control-section-suki-section-pro a:hover, .control-section-suki-section-pro a:focus {
-	opacity: 1;
+#customize-theme-controls .control-section-suki-section-pro .accordion-section-title:hover, #customize-theme-controls .control-section-suki-section-pro .accordion-section-title:focus {
+	background-color: #fff8e5;
+	color: #555d66;
+}
+
+#customize-theme-controls .control-section-suki-section-pro .accordion-section-title .button {
+	margin: -1px 8px 0 0;
+	font-weight: normal;
+}
+
+#customize-theme-controls .control-section-suki-section-pro .accordion-section-title ul.menu-in-location {
+	line-height: normal;
+	margin: 8px 0 0;
 }
 
 .customize-control-suki-pro {
 	margin: 20px 0 12px;
 }
 
-.customize-control-suki-pro a {
-	position: relative;
-	display: block;
-	text-decoration: none;
-	outline: 0;
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-	opacity: 0.5;
-	-webkit-transition: opacity 0.25s;
-	transition: opacity 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+.customize-control-suki-pro h3 {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin: 0 -12px;
+	padding: 10px 18px 11px 10px;
+	background-color: #fff8e5;
 	color: inherit;
+	line-height: 21px;
 }
 
-.customize-control-suki-pro a:hover, .customize-control-suki-pro a:focus {
-	opacity: 1;
+.customize-control-suki-pro .button {
+	margin: -1px 8px 0 0;
+	font-weight: normal;
 }
 
-.customize-control-suki-pro .description {
-	margin-top: 12px;
-}
-
-.customize-control-suki-pro + .customize-control-suki-pro {
-	margin-top: 0;
+.customize-control-suki-pro ul.menu-in-location {
+	line-height: normal;
+	margin: 8px 0 0;
 }
 
 .customize-control-suki-heading {
@@ -206,7 +202,7 @@
 	margin-top: 12px;
 }
 
-.customize-control-suki-heading .tabindex:focus + h4 {
+.customize-control-suki-heading .tabindex:focus + .suki-heading {
 	background-color: #0073aa;
 	color: #fff;
 }

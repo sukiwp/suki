@@ -96,7 +96,7 @@ function suki_get_current_page_setting( $key ) {
 	// Static page
 	elseif ( is_page() ) {
 		$obj = get_queried_object();
-		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_static_page', array() ) );
+		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_static', array() ) );
 	}
 	// Single post page (any post type)
 	elseif ( is_singular() ) {

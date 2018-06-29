@@ -1,5 +1,6 @@
-@import "../variables";
-@import "../mixins";
+@import "../__variables";
+@import "../__mixins";
+@import "../__extends";
 
 // -------------------------------------------------------------
 // Form Row
@@ -46,25 +47,7 @@
 
 .woocommerce {
 	#respond input#submit, a.button, button.button, input.button {
-		position: relative;
-		display: inline-block;
-		padding: 0.75em 1em;
-		@include border();
-		line-height: normal;
-		text-align: center;
-		cursor: pointer;
-		@include transition();
-
-		// Remove outline on Firefox
-		&::-moz-focus-inner {
-			border-style: none;
-		}
-
-		// Hover, focus, active state
-		&:hover, &:focus, &:active {
-			outline: 0;
-			text-decoration: none;
-		}
+		@extend %button;
 
 		&:after {
 			vertical-align: middle;
@@ -101,6 +84,10 @@ p.demo_store {
 
 .woocommerce .woocommerce-breadcrumb {
 	font-size: 0.9em;
+
+	a {
+		text-decoration: none;
+	}
 
 	.suki-woocommerce-breadcrumb-delimiter {
 		margin: 0 0.5em;
@@ -192,14 +179,6 @@ p.demo_store {
 		&[data-count="0"] {
 			display: none;
 		}
-	}
-
-	.shopping-cart-amount {
-		margin-left: 0.75em;
-	}
-
-	.shopping-cart-count[data-count="0"] ~ .shopping-cart-amount {
-		margin-left: 0.25em;
 	}
 
 	.sub-menu {
@@ -559,6 +538,20 @@ p.demo_store {
 	form.cart {
 		margin: 2rem 0;
 
+		a {
+			text-decoration: none;
+		}
+
+		table {
+			margin: -0.75rem 0 1.25rem;
+			border-bottom: none;
+
+			th, td {
+				vertical-align: middle !important;
+				line-height: inherit !important;
+			}
+		}
+
 		div.quantity {
 			margin-right: 0.5em;
 		}
@@ -684,6 +677,10 @@ p.demo_store {
 		padding: 0.6rem 0.8rem;
 		border-top: none;
 	}
+
+	a {
+		text-decoration: none;
+	}
 }
 
 // Cart items
@@ -797,6 +794,11 @@ p.demo_store {
 		ul.payment_methods {
 			padding: 1em;
 			border-color: inherit;
+
+			li {
+				line-height: inherit;
+				margin: 0 0 0.5em;
+			}
 		}
 
 		div.form-row {
@@ -806,6 +808,9 @@ p.demo_store {
 		.payment_method_paypal {
 			.about_paypal {
 				line-height: inherit;
+				font-size: 0.85em;
+				margin-top: 0.15em;
+				text-decoration: none;
 			}
 
 			img {
@@ -814,7 +819,7 @@ p.demo_store {
 		}
 
 		div.payment_box {
-			margin: 0.5em 0 1em;
+			margin: 0.5em 0;
 			color: inherit;
 			background-color: inherit;
 			padding: 0;

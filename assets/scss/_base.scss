@@ -18,12 +18,6 @@
 	}
 }
 
-%base {
-	font-family: sans-serif; // default
-	font-size: 15px; // default
-	line-height: 1.7; // default
-}
-
 html {
 	font-family: sans-serif;
 	font-size: 15px;
@@ -61,28 +55,20 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-h1, %h1 {
-	font-size: 32px; // default
-	font-weight: 600; // default
-	line-height: 1.4; // default
+h1 {
+	@extend %h1;
 }
 
-h2, %h2 {
-	font-size: 27px; // default
-	font-weight: 600; // default
-	line-height: 1.5; // default
+h2 {
+	@extend %h2;
 }
 
-h3, %h3 {
-	font-size: 22px; // default
-	font-weight: 600; // default
-	line-height: 1.6; // default
+h3 {
+	@extend %h3;
 }
 
-h4, %h4 {
-	font-size: 17px; // default
-	font-weight: 600; // default
-	line-height: 1.7; // default
+h4 {
+	@extend %h4;
 }
 
 h5, h6 {
@@ -176,8 +162,8 @@ code {
 
 a {
 	background-color: transparent;
-	text-decoration: none;
 	color: #0000ee; // default
+	// text-decoration: none;
 
 	@include transition();
 
@@ -255,43 +241,14 @@ fieldset {
 // Button
 // -------------------------------------------------------------
 
-button:not(.suki-toggle-button),
+button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button,
-a.button,
-%button {
-	position: relative;
-	display: inline-block;
-	@include border();
-	line-height: normal;
-	text-align: center;
-	cursor: pointer;
-
-	font-size: 1rem; // default
-	padding: 10px 20px; // default
-	border-radius: 3px; // default
-	color: white; // default
-	background-color: #0000ee; // default
-	border-color: #0000ee; // default
-
-	@include transition();
-
-	// Remove outline on Firefox
-	&::-moz-focus-inner {
-		// border-style: none;
-	}
-
-	&:hover, &:focus {
-		background-color: #551a8b; // default
-		border-color: #551a8b; // default
-	}
-
-	// Hover, focus, active state
-	&:hover, &:focus, &:active {
-		text-decoration: none;
-	}
+a.button {
+	@extend %button;
+	text-decoration: none;
 }
 
 // -------------------------------------------------------------
@@ -311,36 +268,16 @@ input[type="tel"],
 input[type="time"],
 input[type="url"],
 input[type="week"],
-.input,
-%input {
-	display: inline-block;
-	max-width: 100%;
-	color: inherit;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	appearance: none;
-	@include transition();
-
-	font-size: 1rem; // default
-	padding: 10px 12px; // default
-	@include border(); // default
-	border-radius: 3px; // default
-	background-color: #fff; // default
-	color: inherit; // default
+.input {
+	@extend %input;
 }
 
 textarea {
 	@extend %input;
 }
 
-select, %select {
-	@extend %input;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
-	background-position: center right;
-	background-repeat: no-repeat;
-	background-size: 1.8em 1.2em;
-	padding-right: 1.8em;
+select {
+	@extend %select;
 }
 
 select[multiple] {

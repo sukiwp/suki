@@ -101,22 +101,31 @@
 
 // Title
 .entry-title {
+	@extend %h1; // default
 	margin: 0;
 
-	@extend %h1; // default
+	a {
+		text-decoration: none;
+	}
 }
 
 .entry-small-title {
+	@extend %h3; // default
 	margin: 0;
 
-	@extend %h3; // default
+	a {
+		text-decoration: none;
+	}
 }
 
 // Meta
 .entry-meta {
+	@extend %meta;
 	margin: 0.25em 0;
 
-	@extend %meta;
+	a {
+		text-decoration: none;
+	}
 
 	> * {
 		&:before {
@@ -224,6 +233,10 @@ a.more-link {
 	font-size: 1.1rem;
 	margin: 0 0 0.5rem;
 
+	a {
+		text-decoration: none;
+	}
+
 	.avatar {
 		width: 80px;
 		height: 80px;
@@ -264,6 +277,10 @@ a.more-link {
 		text-align: center;
 		@extend %float-container;
 
+		a {
+			text-decoration: none;
+		}
+
 		.page-numbers {
 			display: inline-block;
 			margin: 0 0.5em;
@@ -300,7 +317,6 @@ a.more-link {
 .comments-title {
 	position: relative;
 	margin-top: 2rem;
-
 	@extend %h3; // default
 }
 
@@ -353,6 +369,7 @@ a.more-link {
 
 		a {
 			font-size: 90%;
+			text-decoration: none;
 		}
 	}
 
@@ -363,8 +380,6 @@ a.more-link {
 
 .comment-content {
 	> * {
-		margin: 1em 0;
-
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -375,6 +390,10 @@ a.more-link {
 	padding-right: 50px;
 	margin-bottom: 1em;
 	min-height: 50px;
+
+	a {
+		text-decoration: none;
+	}
 }
 
 .comment-author {
@@ -424,6 +443,10 @@ a.more-link {
 	padding-top: 2em;
 	border-top-width: 1px;
 	border-top-style: solid;
+
+	a {
+		text-decoration: none;
+	}
 
 	&:only-child {
 		border-top: none;

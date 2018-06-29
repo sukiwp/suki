@@ -203,11 +203,9 @@ function suki_template_hooks() {
 		/**
 		 * suki_before_main hook
 		 * 
-		 * @see suki_archive_title()
-		 * @see suki_archive_description()
+		 * @see suki_archive_page_header()
 		 */
-		add_action( 'suki_page_header', 'suki_archive_title', 10 );
-		add_action( 'suki_page_header', 'suki_archive_description', 20 );
+		add_action( 'suki_before_main', 'suki_archive_page_header', 10 );
 
 		/**
 		 * suki_after_main hook
@@ -230,6 +228,15 @@ function suki_template_hooks() {
 		 * @see suki_loop_navigation()
 		 */
 		add_action( 'suki_after_main', 'suki_loop_navigation', 10 );
+	}
+
+	if ( is_home() && ! is_front_page() ) {
+		/**
+		 * suki_before_main hook
+		 * 
+		 * @see suki_home_page_header()
+		 */
+		add_action( 'suki_before_main', 'suki_home_page_header', 10 );
 	}
 
 	/**
@@ -288,11 +295,11 @@ function suki_template_hooks() {
 
 	if ( is_search() ) {
 		/**
-		 * suki_page_header hook
+		 * suki_before_main hook
 		 * 
-		 * @see suki_search_title()
+		 * @see suki_search_page_header()
 		 */
-		add_action( 'suki_page_header', 'suki_search_title', 10 );
+		add_action( 'suki_before_main', 'suki_search_page_header', 10 );
 
 		/**
 		 * suki_after_main hook
@@ -310,11 +317,11 @@ function suki_template_hooks() {
 
 	if ( is_404() ) {
 		/**
-		 * suki_page_header hook
+		 * suki_before_main hook
 		 * 
-		 * @see suki_404_title()
+		 * @see suki_404_page_header()
 		 */
-		add_action( 'suki_page_header', 'suki_404_title', 10 );
+		add_action( 'suki_before_main', 'suki_404_page_header', 10 );
 	}
 }
 add_action( 'template_redirect', 'suki_template_hooks' );

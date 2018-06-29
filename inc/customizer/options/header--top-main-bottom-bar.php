@@ -196,32 +196,21 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 
 	/**
 	 * ====================================================
-	 * Suki Pro Teaser
+	 * Suki Pro Upsell
 	 * ====================================================
 	 */
 
 	if ( suki_show_pro_teaser() ) {
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_' . $type . '_menu_typography', array(
+		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_' . $type, array(
 			'section'     => $section,
 			'settings'    => array(),
-			'label'       => esc_html_x( 'Menu & Submenu Typography', 'Suki Pro teaser', 'suki' ),
-			'url'         => 'https://sukiwp.com/pro/modules/typography/',
-			'priority'    => 90,
-		) ) );
-
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_' . $type . '_menu_highlight', array(
-			'section'     => $section,
-			'settings'    => array(),
-			'label'       => esc_html_x( 'Menu Highlight Effects', 'Suki Pro teaser', 'suki' ),
-			'url'         => 'https://sukiwp.com/pro/modules/typography/',
-			'priority'    => 90,
-		) ) );
-
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_' . $type . '_icon_typography', array(
-			'section'     => $section,
-			'settings'    => array(),
-			'label'       => esc_html_x( 'Icon Size', 'Suki Pro teaser', 'suki' ),
-			'url'         => 'https://sukiwp.com/pro/modules/typography/',
+			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+			'url'         => SUKI_PRO_URL,
+			'features'    => array(
+				esc_html_x( 'Menu & Submenu Typography', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Menu Highlight Effects', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Icon Size', 'Suki Pro upsell', 'suki' ),
+			),
 			'priority'    => 90,
 		) ) );
 	}

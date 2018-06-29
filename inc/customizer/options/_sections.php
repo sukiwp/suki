@@ -118,10 +118,17 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
+	// Vertical Bar
+	$wp_customize->add_section( 'suki_section_header_vertical_bar', array(
+		'title'       => esc_html__( 'Vertical Bar', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_mobile_bars', array(
 		'panel'       => $panel,
-		'priority'    => 30,
+		'priority'    => 20,
 	) ) );
 
 	// Mobile Main Bar
@@ -180,43 +187,23 @@ $wp_customize->add_panel( $panel, array(
 	) );
 
 	if ( suki_show_pro_teaser() ) {
-
-		// Vertical Bar
-		$wp_customize->add_section( new Suki_Customize_Section_Pro( $wp_customize, 'suki_section_header_vertical_bar', array(
-			'title'       => esc_html_x( 'Vertical Bar', 'Suki Pro teaser', 'suki' ),
-			'panel'       => $panel,
-			'url'         => 'https://sukiwp.com/pro/modules/header/',
-			'priority'    => 20,
-		) ) );
-
 		// ------
 		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_advanced', array(
 			'panel'       => $panel,
-			'priority'    => 30,
+			'priority'    => 90,
 		) ) );
 
-		// Transparent Header
-		$wp_customize->add_section( new Suki_Customize_Section_Pro( $wp_customize, 'suki_section_header_transparent', array(
-			'title'       => esc_html_x( 'Transparent Header', 'Suki Pro teaser', 'suki' ),
-			'panel'       => $panel,
-			'url'         => 'https://sukiwp.com/pro/modules/transparent-header/',
-			'priority'    => 30,
-		) ) );
-
-		// Sticky Header
-		$wp_customize->add_section( new Suki_Customize_Section_Pro( $wp_customize, 'suki_section_header_sticky', array(
-			'title'       => esc_html_x( 'Sticky Header', 'Suki Pro teaser', 'suki' ),
-			'panel'       => $panel,
-			'url'         => 'https://sukiwp.com/pro/modules/sticky-header/',
-			'priority'    => 30,
-		) ) );
-
-		// Alternative Header Colors
+		// More Options Available on Suki Pro
 		$wp_customize->add_section( new Suki_Customize_Section_Pro( $wp_customize, 'suki_section_header_alt_colors', array(
-			'title'       => esc_html_x( 'Alternative Header Colors', 'Suki Pro teaser', 'suki' ),
+			'title'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'panel'       => $panel,
-			'url'         => 'https://sukiwp.com/pro/modules/alternative-header-colors/',
-			'priority'    => 30,
+			'url'         => SUKI_PRO_URL,
+			'features'    => array(
+				esc_html_x( 'Transparent Header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Sticky Header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Alternative Header Colors', 'Suki Pro upsell', 'suki' ),
+			),
+			'priority'    => 90,
 		) ) );
 	}
 
@@ -293,13 +280,6 @@ $wp_customize->add_panel( $panel, array(
 	// Widgets
 	$wp_customize->add_section( 'suki_section_footer_widgets_column', array(
 		'title'       => esc_html__( 'Element: Widgets Column(s)', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 30,
-	) );
-
-	// Logo
-	$wp_customize->add_section( 'suki_section_footer_logo', array(
-		'title'       => esc_html__( 'Element: Logo', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 30,
 	) );

@@ -143,7 +143,7 @@ class Suki_Customizer {
 
 		// Define sections with default page types.
 		$page_sections = array(
-			'global' => array(
+			'static' => array(
 				'title' => esc_html__( 'Static Page', 'suki' ),
 				'description' => esc_html__( 'You can override these settings for each individual page.', 'suki' ),
 			),
@@ -216,7 +216,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--builder.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--bottom-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--logo.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--copyright.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-column.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--menu.php' );
@@ -268,6 +267,14 @@ class Suki_Customizer {
 	public function print_preview_styles() {
 		?>
 		<style id="suki-preview-css" type="text/css">
+			.customize-partial-edit-shortcut {
+				height: 0 !important;
+				width: 0 !important;
+				margin: -2px 0 0 -2px !important;
+			}
+			.customize-partial-edit-shortcut button {
+				top: auto !important;
+			}
 			.customize-partial-edit-shortcut button:hover, .customize-partial-edit-shortcut button:focus {
 				border-color: #fff;
 			}

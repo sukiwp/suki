@@ -214,6 +214,14 @@
 					}
 
 					$menuItem.classList.add( 'focus' );
+
+					// Move focus to search bar (if exists).
+					var $searchBar = $menuItem.querySelector( '.search-field' );
+					if ( $searchBar ) {
+						setTimeout(function() {
+							$searchBar.focus();
+						}, 300 );
+					}
 				}
 			}
 

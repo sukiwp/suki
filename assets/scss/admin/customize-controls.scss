@@ -1,5 +1,6 @@
-@import "../variables";
-@import "../mixins";
+@import "../__variables";
+@import "../__mixins";
+@import "../__extends";
 
 // -------------------------------------------------------------
 // Basic customize control
@@ -35,10 +36,12 @@
 	}
 }
 
-#customize-theme-controls .accordion-section-title,
-#customize-outer-theme-controls .accordion-section-title {
-	border-top: 1px solid #ddd;
-	margin-top: -1px;
+#customize-theme-controls,
+#customize-outer-theme-controls {
+	.accordion-section-title {
+		border-top: 1px solid #ddd;
+		margin-top: -1px;
+	}
 }
 
 #customize-controls .customize-control-notifications-container:empty {
@@ -101,11 +104,14 @@
 	padding: 10px 12px;
 	background-color: rgba(0,0,0,0.1);
 	color: inherit;
-	font-size: 13px;
-	font-weight: 600;
-	text-transform: uppercase;
 	outline: 0;
 	@include transition();
+
+	span {
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
 }
 
 // -------------------------------------------------------------
@@ -162,25 +168,29 @@
 // -------------------------------------------------------------
 
 .control-section-suki-section-pro {
-	a {
-		position: relative;
-		display: block;
-		text-decoration: none;
-		outline: 0;
-		box-shadow: none !important;
-		opacity: 0.5;
-		@include transition( opacity );
+	#customize-theme-controls & .accordion-section-title {
+		padding: 10px 10px 11px 18px !important;
+		background-color: #fff8e5;
+		border-left: none;
+		cursor: default;
 
-		.accordion-section-title {
-			padding-right: 50px;
-
-			&:after {
-				display: none;
-			}
+		&:after {
+			display: none;
 		}
 
 		&:hover, &:focus {
-			opacity: 1;
+			background-color: #fff8e5;
+			color: #555d66;
+		}
+
+		.button {
+			margin: -1px 0 0 8px;
+			font-weight: normal;
+		}
+
+		ul.menu-in-location {
+			line-height: normal;
+			margin: 8px 0 0;
 		}
 	}
 }
@@ -192,27 +202,24 @@
 .customize-control-suki-pro {
 	margin: 20px 0 12px;
 
-	a {
-		position: relative;
-		display: block;
-		text-decoration: none;
-		outline: 0;
-		box-shadow: none !important;
-		opacity: 0.5;
-		@include transition( opacity );
+	h3 {
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+		margin: 0 -12px;
+		padding: 10px 10px 11px 18px;
+		background-color: #fff8e5;
 		color: inherit;
-
-		&:hover, &:focus {
-			opacity: 1;
-		}
+		line-height: 21px;
 	}
 
-	.description {
-		margin-top: 12px;
+	.button {
+		margin: -1px 0 0 8px;
+		font-weight: normal;
 	}
 
-	& + .customize-control-suki-pro {
-		margin-top: 0;
+	ul.menu-in-location {
+		line-height: normal;
+		margin: 8px 0 0;
 	}
 }
 
@@ -227,7 +234,7 @@
 		margin-top: 12px;
 	}
 
-	.tabindex:focus + h4 {
+	.tabindex:focus + .suki-heading {
 		background-color: #0073aa;
 		color: #fff;
 	}
