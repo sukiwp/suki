@@ -207,9 +207,9 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
-				esc_html_x( 'Menu & Submenu Typography', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Menu Highlight Effects', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Icon Size', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Menu highlight effects', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Icon size', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

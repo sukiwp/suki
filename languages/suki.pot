@@ -762,6 +762,11 @@ msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
 
+#: inc/customizer/options/blog--archive.php:68
+msgctxt "Suki Pro upsell"
+msgid "More blog layouts"
+msgstr ""
+
 #: inc/customizer/options/blog--entry-default.php:28, inc/customizer/options/blog--entry-grid.php:77
 msgid "Featured media position"
 msgstr ""
@@ -938,14 +943,14 @@ msgstr ""
 msgid "Gap between widgets"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:231, inc/customizer/options/footer--widgets-bar.php:155
+#: inc/customizer/options/content--sidebar.php:231, inc/customizer/options/footer--bottom-bar.php:135, inc/customizer/options/footer--widgets-bar.php:155, inc/customizer/options/header--top-main-bottom-bar.php:210, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:155, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:327
 msgctxt "Suki Pro upsell"
-msgid "Widget Text Typography"
+msgid "More typography options"
 msgstr ""
 
 #: inc/customizer/options/content--sidebar.php:232, inc/customizer/options/footer--widgets-bar.php:156
 msgctxt "Suki Pro upsell"
-msgid "Widget Title Typography"
+msgid "More widget title styles"
 msgstr ""
 
 #: inc/customizer/options/elements--blockquote.php:41
@@ -1069,21 +1074,6 @@ msgstr ""
 msgid "Link hover text color"
 msgstr ""
 
-#: inc/customizer/options/footer--bottom-bar.php:135
-msgctxt "Suki Pro upsell"
-msgid "Footer Text Typography"
-msgstr ""
-
-#: inc/customizer/options/footer--bottom-bar.php:136
-msgctxt "Suki Pro upsell"
-msgid "Footer Menu Typography"
-msgstr ""
-
-#: inc/customizer/options/footer--bottom-bar.php:137
-msgctxt "Suki Pro upsell"
-msgid "Social Icon Size"
-msgstr ""
-
 #: inc/customizer/options/footer--builder.php:20, inc/customizer/options/header--builder.php:30
 msgid "Hide"
 msgstr ""
@@ -1183,12 +1173,7 @@ msgstr ""
 
 #: inc/customizer/options/footer--widgets-column.php:45
 msgctxt "Suki Pro upsell"
-msgid "Columns Width"
-msgstr ""
-
-#: inc/customizer/options/footer--widgets-column.php:46
-msgctxt "Suki Pro upsell"
-msgid "Empty Column"
+msgid "Responsive dynamic columns width"
 msgstr ""
 
 #: inc/customizer/options/header--builder.php:23
@@ -1318,12 +1303,12 @@ msgstr ""
 
 #: inc/customizer/options/header--html.php:65
 msgctxt "Suki Pro upsell"
-msgid "HTML 2"
+msgid "Additional \"HTML 2\" element on Header Builder"
 msgstr ""
 
 #: inc/customizer/options/header--html.php:66
 msgctxt "Suki Pro upsell"
-msgid "HTML 3"
+msgid "Additional \"HTML 3\" element on Header Builder"
 msgstr ""
 
 #: inc/customizer/options/header--logo.php:36
@@ -1362,12 +1347,12 @@ msgstr ""
 
 #: inc/customizer/options/header--menu.php:58
 msgctxt "Suki Pro upsell"
-msgid "Menu 2"
+msgid "Additional \"Menu 2\" element on Header Builder"
 msgstr ""
 
 #: inc/customizer/options/header--menu.php:59
 msgctxt "Suki Pro upsell"
-msgid "Menu 3"
+msgid "Additional \"Menu 3\" element on Header Builder"
 msgstr ""
 
 #: inc/customizer/options/header--mobile-main-bar.php:28, inc/customizer/options/header--top-main-bottom-bar.php:53
@@ -1414,19 +1399,14 @@ msgstr ""
 msgid "Dropdown width"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:210
-msgctxt "Suki Pro upsell"
-msgid "Menu & Submenu Typography"
-msgstr ""
-
 #: inc/customizer/options/header--top-main-bottom-bar.php:211
 msgctxt "Suki Pro upsell"
-msgid "Menu Highlight Effects"
+msgid "Menu highlight effects"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:212
 msgctxt "Suki Pro upsell"
-msgid "Icon Size"
+msgid "Icon size"
 msgstr ""
 
 #: inc/customizer/options/page-container.php:29
@@ -1595,17 +1575,17 @@ msgstr ""
 
 #: inc/customizer/options/page-settings.php:79
 msgctxt "Suki Pro upsell"
-msgid "Activate Transparent Header"
+msgid "Activate transparent header on this page"
 msgstr ""
 
 #: inc/customizer/options/page-settings.php:80
 msgctxt "Suki Pro upsell"
-msgid "Activate Alternative Header Colors"
+msgid "Activate alternative header colors on this page"
 msgstr ""
 
 #: inc/customizer/options/page-settings.php:81
 msgctxt "Suki Pro upsell"
-msgid "Disable Elements"
+msgid "Disable some elements on this page"
 msgstr ""
 
 #: inc/customizer/options/settings--google-fonts.php:27
@@ -1706,17 +1686,17 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:202
 msgctxt "Suki Pro upsell"
-msgid "Transparent Header"
+msgid "Transparent header"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:203
 msgctxt "Suki Pro upsell"
-msgid "Sticky Header"
+msgid "Sticky header"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:204
 msgctxt "Suki Pro upsell"
-msgid "Alternative Header Colors"
+msgid "Alternative header colors"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:213
@@ -1897,14 +1877,9 @@ msgstr ""
 msgid "Show \"add to cart\" on each product"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:155
-msgctxt "Suki Pro upsell"
-msgid "Product Title Typography"
-msgstr ""
-
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:156
 msgctxt "Suki Pro upsell"
-msgid "Products Grid Item Styles"
+msgid "More products grid item styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:43
@@ -1971,24 +1946,19 @@ msgstr ""
 msgid "0 = disabled; -1 = Show all."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:327
-msgctxt "Suki Pro upsell"
-msgid "Price Typography"
-msgstr ""
-
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:328
 msgctxt "Suki Pro upsell"
-msgid "Add to Cart Styles"
+msgid "More \"add to cart\" styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:329
 msgctxt "Suki Pro upsell"
-msgid "Gallery Styles"
+msgid "More gallery styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:330
 msgctxt "Suki Pro upsell"
-msgid "Tabs Models"
+msgid "More info tabs styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:26

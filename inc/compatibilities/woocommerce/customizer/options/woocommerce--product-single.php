@@ -324,10 +324,10 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
-			esc_html_x( 'Price Typography', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Add to Cart Styles', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Gallery Styles', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Tabs Models', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More "add to cart" styles', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More gallery styles', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More info tabs styles', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

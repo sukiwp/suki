@@ -76,9 +76,9 @@ foreach ( $page_sections as $type => $title ) {
 			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
-				esc_html_x( 'Activate Transparent Header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Activate Alternative Header Colors', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Disable Elements', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate transparent header on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate alternative header colors on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Disable some elements on this page', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

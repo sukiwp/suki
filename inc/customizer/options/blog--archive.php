@@ -64,6 +64,9 @@ if ( suki_show_pro_teaser() ) {
 		'settings'    => array(),
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'More blog layouts', 'Suki Pro upsell', 'suki' ),
+		),
 		'priority'    => 90,
 	) ) );
 }

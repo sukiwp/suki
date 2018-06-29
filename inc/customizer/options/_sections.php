@@ -199,9 +199,9 @@ $wp_customize->add_panel( $panel, array(
 			'panel'       => $panel,
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
-				esc_html_x( 'Transparent Header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Sticky Header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Alternative Header Colors', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Transparent header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Sticky header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Alternative header colors', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

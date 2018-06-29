@@ -62,8 +62,8 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
-			esc_html_x( 'HTML 2', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'HTML 3', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Additional "HTML 2" element on Header Builder', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Additional "HTML 3" element on Header Builder', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );
