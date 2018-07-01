@@ -238,7 +238,14 @@ $add['header_mobile_elements_vertical_top'] = array( 'search-bar', 'mobile-menu'
  * ====================================================
  */
 
-$add['header_html_1_content'] = 'Insert HTML text here';
+/**
+ * ====================================================
+ * Header > Logo
+ * ====================================================
+ */
+
+$add['header_logo_width'] = '100px';
+$add['header_mobile_logo_width'] = '100px';
 
 /**
  * ====================================================

@@ -25,7 +25,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Logo
-$id = 'custom_logo';
+$id = 'header_logo_image';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
@@ -84,7 +84,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Mobile Logo
-$id = 'custom_logo_mobile';
+$id = 'header_mobile_logo_image';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',

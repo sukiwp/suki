@@ -349,7 +349,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
 				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title">
-					<a href="<?php echo esc_url( apply_filters( 'suki_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'custom_' . $key ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
 				</<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?>>
 			</div>
 			<?php
@@ -359,7 +359,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
 				<div class="site-title">
-					<a href="<?php echo esc_url( apply_filters( 'suki_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'custom_' . $key ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
 				</div>
 			</div>
 			<?php

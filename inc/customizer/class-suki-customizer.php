@@ -189,6 +189,9 @@ class Suki_Customizer {
 		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
+		// Remove "custom_logo".
+		$wp_customize->remove_control( 'custom_logo' );
+
 		// General Elements
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--body.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--headings.php' );
