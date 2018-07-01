@@ -20,7 +20,6 @@ $section = 'suki_section_blog_index';
 $id = 'blog_index_loop_mode';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'refresh',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
 $wp_customize->add_control( $id, array(
@@ -38,7 +37,6 @@ $wp_customize->add_control( $id, array(
 $id = 'blog_index_navigation_mode';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'refresh',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
 $wp_customize->add_control( $id, array(

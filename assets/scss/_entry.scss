@@ -127,17 +127,6 @@
 		text-decoration: none;
 	}
 
-	> * {
-		&:before {
-			content: "\2022";
-			margin: 0 0.5em;
-		}
-
-		&:first-child:before {
-			display: none;
-		}
-	}
-
 	.avatar {
 		display: inline-block;
 		width: 1.75em;

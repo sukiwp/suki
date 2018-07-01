@@ -198,6 +198,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--title.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--small-title.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--meta.php' );
+		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--gutenberg.php' );
 
 		// Layout
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-container.php' );

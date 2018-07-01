@@ -86,7 +86,6 @@ $wp_customize->add_control( $id, array(
 $id = 'entry_grid_header';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'refresh',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
@@ -119,39 +118,36 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 10,
 ) );
 
-// Post header meta elements
+// Post header meta
 $id = 'entry_grid_header_meta';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'refresh',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Header meta elements', 'suki' ),
-	'choices'     => suki_get_entry_meta_elements(),
+	'label'       => esc_html__( 'Header meta', 'suki' ),
+	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
 	'priority'    => 10,
-) ) );
+) );
 
-// Post footer meta elements
+// Post footer meta
 $id = 'entry_grid_footer_meta';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'refresh',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Footer meta elements', 'suki' ),
-	'choices'     => suki_get_entry_meta_elements(),
+	'label'       => esc_html__( 'Footer meta', 'suki' ),
+	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
 	'priority'    => 10,
-) ) );
+) );
 
 // Entry grid excerpt length
 $id = 'entry_grid_excerpt_length';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'refresh',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(

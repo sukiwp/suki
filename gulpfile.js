@@ -227,8 +227,9 @@ gulp.task( 'js', function() {
 	var src = config.src.js.concat( [ '!./assets/js/**/*.min.js' ] );
 
 	return gulp.src( src )
-		.pipe( uglify().on( 'error', function( u ) {
-			console.log( u );
+		.pipe( uglify().on( 'error', function( error ) {
+			console.error( error ); 
+			this.emit( 'end' ); 
 		} ) )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( gulp.dest( config.dest.js ) );
@@ -245,8 +246,9 @@ gulp.task( 'pot', function() {
 			domain: info.name,
 			package: info.title,
 			metadataFile: 'style.css',
-		} ).on( 'error', function( u ) {
-			console.log( u );
+		} ).on( 'error', function( error ) {
+			console.error( error ); 
+			this.emit( 'end' ); 
 		} ) )
 		.pipe( gulp.dest( config.dest.pot + '/' + info.name + '.pot' ) );
 } );

@@ -120,6 +120,13 @@ $add['link_hover_text_color'] = array(
 		'property' => 'color',
 	),
 );
+$add['link_text_decoration'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'a',
+		'property' => 'text-decoration',
+	),
+);
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
@@ -494,6 +501,27 @@ $add['meta_link_hover_text_color'] = array(
 		'type'     => 'css',
 		'element'  => '.entry-meta a:hover, .entry-meta a:focus, .comment-metadata a:hover, .comment-metadata a:focus, .widget .post-date a:hover, .widget .post-date a:focus, .widget_rss .rss-date a:hover, .widget_rss .rss-date a:focus, .reply a:hover, .reply a:focus, .entry-author-links a:hover, .entry-author-links a:focus',
 		'property' => 'color',
+	),
+);
+
+/**
+ * ====================================================
+ * General Elements > Additional Styles for Gutenber
+ * ====================================================
+ */
+
+$add['alignwide_negative_margin'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.alignwide',
+		'property' => 'width',
+		'pattern'  => 'calc( 100% + ( 2 * $ ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.wp-block-gallery.alignwide',
+		'property' => 'width',
+		'pattern'  => 'calc( 100% + ( 2 * $ ) + ( 2 * 8px ) )',
 	),
 );
 
@@ -967,7 +995,7 @@ foreach ( $responsive as $suffix => $media ) {
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding, .alignwide',
+			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
 			'property' => 'margin-right',
 			'pattern'  => '-$ !important',
 			'media'    => $media,
@@ -978,7 +1006,7 @@ foreach ( $responsive as $suffix => $media ) {
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding, .alignwide',
+			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
 			'property' => 'margin-left',
 			'pattern'  => '-$ !important',
 			'media'    => $media,
@@ -1000,8 +1028,7 @@ $add['narrow_content_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-content-layout-narrow .site-main',
-		'property' => 'width',
-		'media'    => '@media screen and (min-width: 1024px)',
+		'property' => 'max-width',
 	),
 );
 

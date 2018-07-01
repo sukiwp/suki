@@ -28,6 +28,13 @@ h4 {
 	line-height: 1.7;
 }
 
+blockquote {
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.6;
+}
+
 select, .select2-container .select2-selection, input[type="text"],
 input[type="password"],
 input[type="color"],
@@ -349,10 +356,6 @@ hr {
 
 blockquote {
 	margin: 1.25rem 0;
-	font-size: 20px;
-	font-style: italic;
-	font-weight: 300;
-	line-height: 1.6;
 }
 
 blockquote > *:first-child {
@@ -606,10 +609,6 @@ select[multiple] {
 .size-thumbnail {
 	max-width: 100%;
 	height: auto;
-}
-
-.alignnone {
-	margin: 0.5em;
 }
 
 .alignleft {

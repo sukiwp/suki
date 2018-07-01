@@ -46,9 +46,8 @@ if ( ! function_exists( 'suki_logo' ) ) :
  * Print / return HTML markup for specified site logo.
  *
  * @param integer $logo_image_id
- * @param boolean $echo
  */
-function suki_logo( $logo_image_id = null, $echo = true ) {
+function suki_logo( $logo_image_id = null ) {
 	// Default to site name.
 	$html = get_bloginfo( 'name', 'display' );
 
@@ -82,11 +81,7 @@ function suki_logo( $logo_image_id = null, $echo = true ) {
 		}
 	}
 
-	if ( $echo ) {
-		echo $html; // WPCS: XSS OK
-	} else {
-		return $html;
-	}
+	echo $html; // WPCS: XSS OK
 }
 endif;
 
@@ -614,9 +609,9 @@ function suki_footer_element( $element ) {
 
 		case 'copyright':
 			$copyright = suki_get_theme_mod( 'footer_' . $key . '_content' );
-			$copyright = str_replace( '{{current_year}}', date( 'Y' ), $copyright );
-			$copyright = str_replace( '{{homepage_link}}', '<a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{author_link}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
+			$copyright = str_replace( '{{year}}', date( 'Y' ), $copyright );
+			$copyright = str_replace( '{{sitename}}', '<a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
+			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
 			?>
 			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
 				<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>
@@ -692,39 +687,25 @@ function suki_entry_meta_element( $element ) {
 
 		case 'author':
 			if ( 'post' === get_post_type() ) {
-				// Use global $post variable to access author data, as currently none of author functions are working on Customizer's partial refresh.
-				global $post;
-				printf( // WPCS: XSS OK
-					'<span class="entry-meta-author byline">' . suki_string( 'entry_meta_author' ) . '</span>',
-					'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) . '</a></span>'
-				);
+				echo '<span class="entry-meta-author author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a></span>'; // WPCS: XSS OK
 			}
 			break;
 
-		case 'author-photo':
+		case 'avatar':
 			if ( 'post' === get_post_type() ) {
-				// Use global $post variable to access author data, as currently none of author functions are working on Customizer's partial refresh.
-				global $post;
-				echo '<span class="entry-meta-author byline">' . get_avatar( get_the_author_meta( 'ID' ), 24 ) . '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) . '</a></span></span>'; // WPCS: XSS OK
+				echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 24 ) . '</span>'; // WPCS: XSS OK
 			}
 			break;
 
 		case 'categories':
 			if ( 'post' === get_post_type() ) {
-				$categories_list = get_the_category_list( suki_string( 'entry_meta_categories_separator' ) );
-				if ( ! empty( $categories_list ) ) {
-					echo '<span class="entry-meta-categories cat-links">' . sprintf( suki_string( 'entry_meta_categories' ), $categories_list ) . '</span>'; // WPCS: XSS OK
-				}
+				echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( ', ' ) . '</span>'; // WPCS: XSS OK
 			}
 			break;
 
 		case 'tags':
 			if ( 'post' === get_post_type() ) {
-				/* translators: used between list items, there is a space after the comma. */
-				$tags_list = get_the_tag_list( '', suki_string( 'entry_meta_tags_separator' ) );
-				if ( $tags_list ) {
-					echo ( '<span class="entry-meta-tags tags-links">' . sprintf( suki_string( 'entry_meta_tags' ), $tags_list ) . '</span>' ); // WPCS: XSS OK
-				}
+				echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', ', ' ) . '</span>' ); // WPCS: XSS OK
 			}
 			break;
 
@@ -803,16 +784,42 @@ endif;
 
 if ( ! function_exists( 'suki_entry_header_meta' ) ) :
 /**
+ * Print entry meta.
+ *
+ * @param string $format
+ */
+function suki_entry_meta( $format ) {
+	$format = trim( $format );
+	$html = $format;
+
+	if ( ! empty( $format ) ) : ?>
+		<div class="entry-meta">
+			<?php
+			preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
+			
+			foreach ( $matches as $match ) {
+				ob_start();
+				suki_entry_meta_element( $match[1] );
+				$meta = ob_get_clean();
+
+				if ( ! empty( $meta ) ) {
+					$html = str_replace( $match[0], $meta, $html );
+				}
+			}
+
+			echo $html; // WPCS: XSS OK
+			?>
+		</div>
+	<?php endif;
+}
+endif;
+
+if ( ! function_exists( 'suki_entry_header_meta' ) ) :
+/**
  * Print entry header meta.
  */
 function suki_entry_header_meta() {
-	$elements = suki_get_theme_mod( 'entry_header_meta', array( 'date' ) );
-
-	if ( count( $elements ) > 0 ) : ?>
-		<div class="entry-meta">
-			<?php foreach ( $elements as $element ) suki_entry_meta_element( $element ); ?>
-		</div>
-	<?php endif;
+	suki_entry_meta( suki_get_theme_mod( 'entry_header_meta' ) );
 }
 endif;
 
@@ -821,13 +828,7 @@ if ( ! function_exists( 'suki_entry_footer_meta' ) ) :
  * Print entry footer meta.
  */
 function suki_entry_footer_meta() {
-	$elements = suki_get_theme_mod( 'entry_footer_meta', array( 'author', 'categories', 'comments' ) );
-
-	if ( count( $elements ) > 0 ) : ?>
-		<div class="entry-meta">
-			<?php foreach ( $elements as $element ) suki_entry_meta_element( $element ); ?>
-		</div>
-	<?php endif;
+	suki_entry_meta( suki_get_theme_mod( 'entry_footer_meta' ) );
 }
 endif;
 
@@ -865,13 +866,7 @@ if ( ! function_exists( 'suki_entry_grid_header_meta' ) ) :
  * Print entry grid header meta.
  */
 function suki_entry_grid_header_meta() {
-	$elements = suki_get_theme_mod( 'entry_grid_header_meta', array( 'date' ) );
-
-	if ( count( $elements ) > 0 ) : ?>
-		<div class="entry-meta">
-			<?php foreach ( $elements as $element ) suki_entry_meta_element( $element ); ?>
-		</div>
-	<?php endif;
+	suki_entry_meta( suki_get_theme_mod( 'entry_grid_header_meta' ) );
 }
 endif;
 
@@ -880,13 +875,7 @@ if ( ! function_exists( 'suki_entry_grid_footer_meta' ) ) :
  * Print entry grid footer meta.
  */
 function suki_entry_grid_footer_meta() {
-	$elements = suki_get_theme_mod( 'entry_grid_footer_meta', array( 'categories', 'comments' ) );
-
-	if ( count( $elements ) > 0 ) : ?>
-		<div class="entry-meta">
-			<?php foreach ( $elements as $element ) suki_entry_meta_element( $element ); ?>
-		</div>
-	<?php endif;
+	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta' ) );
 }
 endif;
 
@@ -1024,7 +1013,7 @@ if ( ! function_exists( 'suki_comments_closed' ) ) :
 function suki_comments_closed() {
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() ) : ?>
-		<p class="no-comments"><?php echo suki_string( 'comments_closed' ); // WPCS: XSS OK ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'suki' ); ?></p>
 	<?php endif;
 }
 endif;

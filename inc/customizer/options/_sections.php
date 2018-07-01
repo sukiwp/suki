@@ -24,30 +24,35 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->add_section( 'suki_section_body', array(
 		'title'       => esc_html__( 'Body (Base)', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Headings (H1 - H4)
 	$wp_customize->add_section( 'suki_section_headings', array(
 		'title'       => esc_html__( 'Headings (H1 - H4)', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Blockquote
 	$wp_customize->add_section( 'suki_section_blockquote', array(
 		'title'       => esc_html__( 'Blockquote', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Form Inputs
 	$wp_customize->add_section( 'suki_section_form_inputs', array(
 		'title'       => esc_html__( 'Form Inputs', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Buttons
 	$wp_customize->add_section( 'suki_section_buttons', array(
 		'title'       => esc_html__( 'Buttons', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Title
@@ -55,6 +60,7 @@ $wp_customize->add_panel( $panel, array(
 		'title'       => esc_html__( 'Title', 'suki' ),
 		'description' => esc_html__( 'Used on Default Post title and Single Page title.', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Small Title
@@ -62,6 +68,7 @@ $wp_customize->add_panel( $panel, array(
 		'title'       => esc_html__( 'Small Title', 'suki' ),
 		'description' => esc_html__( 'Used on Grid Post title, and other subsidiary headings like "Leave a Reply", "2 Comments", etc.', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Meta Info
@@ -69,6 +76,25 @@ $wp_customize->add_panel( $panel, array(
 		'title'       => esc_html__( 'Meta Info', 'suki' ),
 		'description' => esc_html__( 'Used on Post meta, Widget meta, Comments meta, and other small info text.', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_gutenberg', array(
+		'panel'       => $panel,
+		'priority'    => 20,
+	) ) );
+
+	// Additional Styles for Gutenberg
+	$wp_customize->add_section( 'suki_section_gutenberg', array(
+		'title'       => esc_html__( 'Additional Styles for Gutenberg', 'suki' ),
+		'description' => sprintf(
+			/* translators: %s: link to "Page Settings" section. */
+			esc_html__( 'Best content layout for Gutenberg is "Narrow Content". You can activate it via %s.', 'suki' ),
+			'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
+		),
+		'panel'       => $panel,
+		'priority'    => 20,
 	) );
 
 // Page Container

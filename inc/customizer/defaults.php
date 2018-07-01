@@ -27,8 +27,11 @@ $add['body_line_height'] = '1.7';
 $add['body_letter_spacing'] = '0';
 
 $add['body_text_color'] = $colors['text'];
+
 $add['link_text_color'] = $colors['accent'];
 $add['link_hover_text_color'] = $colors['accent_2'];
+$add['link_text_decoration'] = 'underline';
+
 $add['subtle_color'] = $colors['subtle'];
 
 /**
@@ -178,13 +181,11 @@ $add['meta_link_hover_text_color'] = $colors['accent'];
 
 /**
  * ====================================================
- * General Elements > Social Media Links
+ * General Elements > Additional Styles for Gutenber
  * ====================================================
  */
 
-foreach ( suki_get_social_media_types() as $slug => $label ) {
-	$add['social_' . $slug ] = '';
-}
+$add['alignwide_negative_margin'] = '100px';
 
 /**
  * ====================================================
@@ -237,7 +238,7 @@ $add['header_mobile_elements_vertical_top'] = array( 'search-bar', 'mobile-menu'
  * ====================================================
  */
 
-$add['header_html_1_content'] = esc_html__( 'Insert HTML text here', 'suki' );
+$add['header_html_1_content'] = 'Insert HTML text here';
 
 /**
  * ====================================================
@@ -265,7 +266,7 @@ $add['header_social_links_target'] = 'self';
 
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '36px';
-$add['header_top_bar_padding'] = '0px 0px 0px';
+$add['header_top_bar_padding'] = '0px 0px 0px 0px';
 $add['header_top_bar_border'] = '0px 0px 1px 0px';
 $add['header_top_bar_items_gap'] = '10px';
 
@@ -292,7 +293,7 @@ $add['header_top_bar_link_hover_text_color'] = $colors['text'];
 
 $add['header_main_bar_container'] = 'default';
 $add['header_main_bar_height'] = '80px';
-$add['header_main_bar_padding'] = '0px 0px 0px';
+$add['header_main_bar_padding'] = '0px 0px 0px 0px';
 $add['header_main_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_main_bar_items_gap'] = '14px';
@@ -320,7 +321,7 @@ $add['header_main_bar_link_hover_text_color'] = $colors['text'];
 
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '50px';
-$add['header_bottom_bar_padding'] = '0px 0px 0px';
+$add['header_bottom_bar_padding'] = '0px 0px 0px 0px';
 $add['header_bottom_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_bottom_bar_items_gap'] = '10px';
@@ -408,10 +409,10 @@ $add['content_section_padding'] = '80px 0px 80px 0px';
  * ====================================================
  */
 
-$add['content_padding'] = '0px 0px 0px';
-$add['content_border'] = '0px 0px 0px';
+$add['content_padding'] = '0px 0px 0px 0px';
+$add['content_border'] = '0px 0px 0px 0px';
 
-$add['narrow_content_width'] = '80%';
+$add['narrow_content_width'] = '720px';
 
 $add['content_bg_color'] = '';
 $add['content_border_color'] = $colors['border'];
@@ -426,8 +427,8 @@ $add['sidebar_width'] = '300px';
 $add['sidebar_gap'] = '50px';
 $add['sidebar_widgets_mode'] = 'separated';
 $add['sidebar_widgets_gap'] = '40px';
-$add['sidebar_padding'] = '0px 0px 0px';
-$add['sidebar_border'] = '0px 0px 0px';
+$add['sidebar_padding'] = '0px 0px 0px 0px';
+$add['sidebar_border'] = '0px 0px 0px 0px';
 
 $add['sidebar_bg_color'] = '';
 $add['sidebar_border_color'] = $colors['border'];
@@ -452,7 +453,7 @@ $add['footer_elements_bottom_right'] = array();
 
 $add['footer_widgets_bar_container'] = 'default';
 $add['footer_widgets_bar_padding'] = '60px 0px 60px 0px';
-$add['footer_widgets_bar_border'] = '1px 0px 0px 0px';
+$add['footer_widgets_bar_border'] = '1px 0px 0px 0px 0px';
 
 $add['footer_widgets_bar_columns_gap'] = '15px';
 $add['footer_widgets_bar_widgets_gap'] = '40px';
@@ -472,7 +473,7 @@ $add['footer_widgets_bar_widget_title_text_color'] = $colors['heading'];
 
 $add['footer_bottom_bar_container'] = 'default';
 $add['footer_bottom_bar_padding'] = '25px 0px 25px 0px';
-$add['footer_bottom_bar_border'] = '1px 0px 0px 0px';
+$add['footer_bottom_bar_border'] = '1px 0px 0px 0px 0px';
 
 $add['footer_bottom_bar_section_bg_color'] = $colors['subtle'];
 $add['footer_bottom_bar_section_border_color'] = $colors['border'];
@@ -494,7 +495,7 @@ $add['footer_bottom_bar_letter_spacing'] = '0';
  * ====================================================
  */
 
-$add['footer_copyright_content'] = esc_html__( 'Copyright &copy; {{current_year}}, {{homepage_link}} &mdash; designed by {{author_link}}', 'suki' );
+$add['footer_copyright_content'] = 'Copyright &copy; {{current_year}}, {{homepage_link}} &mdash; designed by {{author_link}}';
 
 /**
  * ====================================================
@@ -533,8 +534,8 @@ $add['entry_featured_media_position'] = 'before-entry-header';
 $add['entry_featured_media_ignore_padding'] = 0;
 $add['entry_header'] = array( 'header-meta', 'title' );
 $add['entry_header_alignment'] = 'left';
-$add['entry_header_meta'] = array( 'date' );
-$add['entry_footer_meta'] = array( 'categories', 'comments' );
+$add['entry_header_meta'] = '{{date}}';
+$add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
 
 /**
  * ====================================================
@@ -549,8 +550,8 @@ $add['entry_grid_padding'] = '15px 15px 15px 15px';
 $add['entry_grid_featured_media_position'] = 'before-entry-header';
 $add['entry_grid_header'] = array( 'header-meta', 'title' );
 $add['entry_grid_header_alignment'] = 'left';
-$add['entry_grid_header_meta'] = array( 'date' );
-$add['entry_grid_footer_meta'] = array( 'categories', 'comments' );
+$add['entry_grid_header_meta'] = '{{date}}';
+$add['entry_grid_footer_meta'] = 'Posted in {{categories}}  &bull;  {{comments}}';
 $add['entry_grid_excerpt_length'] = 30;
 
 /**

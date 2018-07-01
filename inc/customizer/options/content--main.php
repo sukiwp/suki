@@ -88,13 +88,12 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Narrow Content width', 'suki' ),
-	'description' => esc_html__( 'Percentage of "Container width". Only applied on pages with "Narrow Width" content layout.', 'suki' ),
+	'label'       => esc_html__( 'Narrow Content max width', 'suki' ),
 	'units'       => array(
-		'%' => array(
-			'min'  => 60,
-			'max'  => 90,
-			'step' => 0.05,
+		'px' => array(
+			'min'  => 600,
+			'max'  => 1000,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,

@@ -152,35 +152,6 @@ function suki_get_theme_mod( $key, $default = null ) {
 }
 
 /**
- * Wrapper function to get string translation.
- *
- * @param string $key
- * @param boolean $echo
- * @return string
- */
-function suki_string( $key, $echo = false ) {
-	$strings = array(
-		'comments_closed' => esc_html__( 'Comments are closed.', 'suki' ),
-		/* translators: %s: author link. */
-		'entry_meta_author' => esc_html_x( 'by %s', 'post author', 'suki' ),
-		/* translators: %s: categories links. */
-		'entry_meta_categories' => esc_html_x( 'Posted in %s', 'entry meta categories format', 'suki' ),
-		'entry_meta_categories_separator' => esc_html_x( ', ', 'entry meta categories separator', 'suki' ),
-		/* translators: %s: tag links. */
-		'entry_meta_tags' => esc_html_x( 'Tagged in %s', 'entry meta tags format', 'suki' ),
-		'entry_meta_tags_separator' => esc_html_x( ', ', 'entry meta tags separator', 'suki' ),
-	);
-	$string = apply_filters( "suki_string__{$key}", suki_array_value( $strings, $key, '' ) );
-
-	if ( $echo ) {
-		echo $string; // WPCS: XSS OK
-	}
-	else {
-		return $string;
-	}
-}
-
-/**
  * Minify CSS string.
  *
  * @param array $css_string
@@ -191,7 +162,6 @@ function suki_minify_css_string( $css_string ) {
 	$css_string = str_replace( ' )', ')', $css_string );
 	$css_string = str_replace( ', ', ',', $css_string );
 	$css_string = preg_replace( '/(\D)0(\.\d)/', '$1$2', $css_string );
-	$css_string = preg_replace( '/\s*([~+>])\s*/', '$1', $css_string );
 
 	return $css_string;
 }
@@ -215,12 +185,15 @@ function suki_convert_css_array_to_string( $css_array ) {
 		foreach ( $selectors as $selector => $properties ) {
 			$final_css .= $selector . '{';
 
+			$i = 1;
 			foreach ( $properties as $property => $value ) {
 				$final_css .= $property . ':' . $value;
 
-				if ( $value !== end( $properties ) ) {
+				if ( $i !== count( $properties ) ) {
 					$final_css .= ';';
 				}
+
+				$i++;
 			}
 
 			$final_css .= '}';
@@ -319,8 +292,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// Modify content width based on current page content layout.
 	switch ( $content_layout ) {
 	 	case 'narrow':
-			$narrow_width = suki_get_theme_mod( 'narrow_content_width' );
-	 		$content_width = $content_width * floatval( $narrow_width ) / 100;
+			$content_width = suki_get_theme_mod( 'narrow_content_width' );
 	 		break;
 	 	
 	 	case 'left-sidebar':
@@ -473,22 +445,6 @@ function suki_get_web_safe_fonts() {
 		// Monospace
 		'Courier New'     => '"Courier New", "Courier", monospace',
 		'Lucida Console'  => '"Lucida Console", "Monaco", monospace',
-	) );
-}
-
-/**
- * Return array of entry meta elements.
- * 
- * @return array
- */
-function suki_get_entry_meta_elements() {
-	return apply_filters( 'suki_entry_meta_elements', array(
-		'date'         => esc_html__( '[Date]', 'suki' ),
-		'author'       => sprintf( suki_string( 'entry_meta_author' ), esc_html__( '[Author]', 'suki' ) ), // WPCS: XSS OK
-		'author-photo' => esc_html__( '[Photo][Author]', 'suki' ),
-		'categories'   => sprintf( suki_string( 'entry_meta_categories' ), esc_html__( '[Categories]', 'suki' ) ), // WPCS: XSS OK
-		'tags'         => sprintf( suki_string( 'entry_meta_tags' ), esc_html__( '[Tags]', 'suki' ) ), // WPCS: XSS OK
-		'comments'     => esc_html__( '[Comments]', 'suki' ),
 	) );
 }
 

@@ -149,11 +149,9 @@
 	}
 
 	.suki-content-layout-narrow & {
-		@media screen and ( min-width: $breakpoint_1024 ) {
-			width: 80%; // default
-			margin-left: auto;
-			margin-right: auto;
-		}
+		max-width: 720px; // default
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 

@@ -3,8 +3,19 @@
 // -------------------------------------------------------------
 
 .alignwide {
-	display: block;
-	width: auto;
+	position: relative;
+	left: 50%;
+	max-width: 100vw;
+	width: calc( 100% + ( 2 * 100px ) ); // default
+	transform: translate( -50%, 0 );
+
+	.suki-content-layout-wide &,
+	.suki-content-layout-left-sidebar &,
+	.suki-content-layout-right-sidebar & {
+		width: 100% !important;
+		transform: none;
+		left: 0;
+	}
 
 	img {
 		width: 100%;
@@ -14,10 +25,8 @@
 .alignfull {
 	position: relative;
 	left: 50%;
-	display: block;
 	max-width: 100vw;
 	width: 100vw;
-	margin: 1.5em 0;
 	transform: translate( -50%, 0 );
 
 	.suki-content-layout-left-sidebar &,
@@ -33,12 +42,12 @@
 }
 
 // -------------------------------------------------------------
-// Global Block
+// Global block
 // -------------------------------------------------------------
 
-[class*="wp-block-"] {
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+[class*="wp-block"] {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 
 // -------------------------------------------------------------
@@ -67,7 +76,7 @@ p.has-drop-cap:not(:focus):first-letter {
 
 	cite {
 		font-size: 1rem;
-		line-height: 1;
+		font-style: normal;
 	}
 
 	&.is-large {
@@ -87,11 +96,54 @@ p.has-drop-cap:not(:focus):first-letter {
 }
 
 // -------------------------------------------------------------
+// Pull Quote
+// -------------------------------------------------------------
+
+.wp-block-pullquote {
+	border-left: none !important;
+	padding: 1.2em 0 !important;
+	margin-top: 2rem !important;
+	margin-bottom: 2rem !important;
+	border-top: 2px solid;
+	border-top-color: inherit;
+	border-bottom: 2px solid;
+	border-bottom-color: inherit;
+	color: inherit;
+
+	p {
+		font: inherit;
+		font-size: 1.2em;
+		color: inherit;
+	}
+
+	cite {
+		font-size: 1rem;
+		color: inherit;
+		text-transform: none;
+		font-style: normal;
+	}
+}
+
+// -------------------------------------------------------------
 // Subhead
 // -------------------------------------------------------------
 
 p.wp-block-subhead {
 	font-size: 1.2rem;
+}
+
+// -------------------------------------------------------------
+// Cover Image
+// -------------------------------------------------------------
+
+.wp-block-cover-image {
+	.wp-block-cover-image-text,
+	h2 {
+		max-width: 70%;
+		margin: 0;
+		padding: 0.5em;
+		@extend %h2;
+	}
 }
 
 // -------------------------------------------------------------
@@ -109,6 +161,18 @@ p.wp-block-subhead {
 		font-size: 0.85em;
 		font-style: italic;
 		text-align: center;
+	}
+}
+
+// -------------------------------------------------------------
+// Gallery
+// -------------------------------------------------------------
+
+.wp-block-gallery {
+	margin: 0;
+	
+	&.alignwide {
+		width: calc( 100% + ( 2 * 100px ) + ( 2 * 8px ) ); // default
 	}
 }
 
@@ -137,7 +201,7 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-separator {
-	margin: 2.5em 0;
+	margin: 2.5rem 0;
 	max-width: none;
 	border-bottom: none; // reset
 	@include border( top );

@@ -10,7 +10,8 @@ h1, .entry-title {
 	line-height: 1.4;
 }
 
-h2 {
+h2, .wp-block-cover-image .wp-block-cover-image-text,
+.wp-block-cover-image h2 {
 	font-size: 27px;
 	font-weight: 600;
 	line-height: 1.5;
@@ -26,6 +27,13 @@ h4, .widget-title {
 	font-size: 17px;
 	font-weight: 600;
 	line-height: 1.7;
+}
+
+blockquote {
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.6;
 }
 
 select, .select2-container .select2-selection, input[type="text"],
@@ -367,10 +375,6 @@ hr {
 
 blockquote {
 	margin: 1.25rem 0;
-	font-size: 20px;
-	font-style: italic;
-	font-weight: 300;
-	line-height: 1.6;
 }
 
 blockquote > *:first-child {
@@ -877,10 +881,6 @@ select[multiple] {
 	height: auto;
 }
 
-.alignnone {
-	margin: 0.5em;
-}
-
 .alignleft {
 	float: left;
 	margin: 0.5em 1.5em 0.5em 0;
@@ -972,8 +972,21 @@ select[multiple] {
 }
 
 .alignwide {
-	display: block;
-	width: auto;
+	position: relative;
+	left: 50%;
+	max-width: 100vw;
+	width: calc( 100% + ( 2 * 100px ));
+	-webkit-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+
+.suki-content-layout-wide .alignwide,
+.suki-content-layout-left-sidebar .alignwide,
+.suki-content-layout-right-sidebar .alignwide {
+	width: 100% !important;
+	-webkit-transform: none;
+	transform: none;
+	left: 0;
 }
 
 .alignwide img {
@@ -983,10 +996,8 @@ select[multiple] {
 .alignfull {
 	position: relative;
 	left: 50%;
-	display: block;
 	max-width: 100vw;
 	width: 100vw;
-	margin: 1.5em 0;
 	-webkit-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
 }
@@ -1003,9 +1014,9 @@ select[multiple] {
 	width: 100%;
 }
 
-[class*="wp-block-"] {
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+[class*="wp-block"] {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 
 p.has-drop-cap:not(:focus):first-letter {
@@ -1025,7 +1036,7 @@ p.has-drop-cap:not(:focus):first-letter {
 
 .wp-block-quote cite {
 	font-size: 1rem;
-	line-height: 1;
+	font-style: normal;
 }
 
 .wp-block-quote.is-large {
@@ -1043,8 +1054,40 @@ p.has-drop-cap:not(:focus):first-letter {
 	text-align: inherit;
 }
 
+.wp-block-pullquote {
+	border-left: none !important;
+	padding: 1.2em 0 !important;
+	margin-top: 2rem !important;
+	margin-bottom: 2rem !important;
+	border-top: 2px solid;
+	border-top-color: inherit;
+	border-bottom: 2px solid;
+	border-bottom-color: inherit;
+	color: inherit;
+}
+
+.wp-block-pullquote p {
+	font: inherit;
+	font-size: 1.2em;
+	color: inherit;
+}
+
+.wp-block-pullquote cite {
+	font-size: 1rem;
+	color: inherit;
+	text-transform: none;
+	font-style: normal;
+}
+
 p.wp-block-subhead {
 	font-size: 1.2rem;
+}
+
+.wp-block-cover-image .wp-block-cover-image-text,
+.wp-block-cover-image h2 {
+	max-width: 70%;
+	margin: 0;
+	padding: 0.5em;
 }
 
 .wp-block-image img {
@@ -1059,6 +1102,14 @@ p.wp-block-subhead {
 	text-align: center;
 }
 
+.wp-block-gallery {
+	margin: 0;
+}
+
+.wp-block-gallery.alignwide {
+	width: calc( 100% + ( 2 * 100px ) + ( 2 * 8px ));
+}
+
 .wp-block-audio audio {
 	width: 100%;
 }
@@ -1068,7 +1119,7 @@ p.wp-block-subhead {
 }
 
 .wp-block-separator {
-	margin: 2.5em 0;
+	margin: 2.5rem 0;
 	max-width: none;
 	border-bottom: none;
 	border-top-width: 1px;
@@ -1264,12 +1315,10 @@ body.suki-has-popup-active .suki-popup-background {
 	margin-bottom: 0;
 }
 
-@media screen and (min-width: 1024px) {
-	.suki-content-layout-narrow .site-main {
-		width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+.suki-content-layout-narrow .site-main {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sidebar {
@@ -2003,15 +2052,6 @@ body.suki-has-popup-active .suki-popup-background {
 
 .entry-meta a {
 	text-decoration: none;
-}
-
-.entry-meta > *:before {
-	content: "\2022";
-	margin: 0 0.5em;
-}
-
-.entry-meta > *:first-child:before {
-	display: none;
 }
 
 .entry-meta .avatar {
