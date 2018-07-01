@@ -504,7 +504,7 @@ $add['footer_bottom_bar_letter_spacing'] = '0';
  * ====================================================
  */
 
-$add['footer_copyright_content'] = 'Copyright &copy; {{current_year}}, {{homepage_link}} &mdash; designed by {{author_link}}';
+$add['footer_copyright_content'] = 'Copyright &copy; {{year}}, {{sitename}} &mdash; designed by {{themeauthor}}';
 
 /**
  * ====================================================
