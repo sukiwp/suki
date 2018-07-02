@@ -111,31 +111,6 @@
 			});
 		});
 		$( '.suki-admin-dependent-field' ).trigger( 'change' );
-
-		/**
-		 * Edit page
-		 */
-		
-		// Post Formats info
-		$( '#formatdiv' ).on( 'change', 'input[name="post_format"]', function( e ) {
-			$( '.suki-post-formats-info > li' ).removeClass( 'active' ).filter( '[data-format="' + this.value + '"]' ).addClass( 'active' );
-		});
-
-		// Metabox tabs
-		$body.on( 'click', '.suki-metabox-tabs a', function( e ) {
-			e.preventDefault();
-
-			var $a = $( this ),
-			    $target = $( $a.attr( 'href' ) );
-
-			if ( ! $a.hasClass( 'nav-tab-active' ) ) {
-				$a.siblings( 'a' ).removeClass( 'nav-tab-active' );
-				$target.siblings( '.suki-metabox-panel' ).removeClass( 'active' );
-
-				$a.addClass( 'nav-tab-active' );
-				$target.addClass( 'active' );
-			}
-		});
 	});
 	
 })( jQuery );

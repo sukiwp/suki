@@ -225,7 +225,8 @@ class Suki_Admin {
 		}
 
 		// Container width for content layout with sidebar
-		$css_array['global']['body']['max-width'] = suki_get_content_width_by_layout() . 'px';
+		$css_array['global']['body.suki-editor-left-sidebar']['max-width'] =
+		$css_array['global']['body.suki-editor-right-sidebar']['max-width'] = suki_get_content_width_by_layout() . 'px';
 
 		// Container width for narrow content layout
 		$css_array['global']['body.suki-editor-narrow']['max-width'] = suki_get_content_width_by_layout( 'narrow' ) . 'px';

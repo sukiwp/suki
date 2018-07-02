@@ -315,6 +315,7 @@ template {
 	border-style: solid;
 	border-width: 0;
 	border-color: #e5e5e5;
+	min-width: 0;
 }
 
 *, *:before, *:after {
@@ -971,43 +972,28 @@ select[multiple] {
 	color: inherit !important;
 }
 
-.alignwide {
+.suki-content-layout-narrow .alignwide,
+.suki-content-layout-wide .alignwide {
 	position: relative;
 	left: 50%;
-	max-width: 100vw;
-	width: calc( 100% + ( 2 * 100px ));
 	-webkit-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
-}
-
-.suki-content-layout-wide .alignwide,
-.suki-content-layout-left-sidebar .alignwide,
-.suki-content-layout-right-sidebar .alignwide {
-	width: 100% !important;
-	-webkit-transform: none;
-	transform: none;
-	left: 0;
+	max-width: 100vw;
+	width: calc( 100% + ( 2 * 100px ));
 }
 
 .alignwide img {
 	width: 100%;
 }
 
-.alignfull {
+.suki-content-layout-narrow .alignfull,
+.suki-content-layout-wide .alignfull {
 	position: relative;
 	left: 50%;
-	max-width: 100vw;
-	width: 100vw;
 	-webkit-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
-}
-
-.suki-content-layout-left-sidebar .alignfull,
-.suki-content-layout-right-sidebar .alignfull {
-	width: 100% !important;
-	-webkit-transform: none;
-	transform: none;
-	left: 0;
+	width: 100vw;
+	max-width: 100vw;
 }
 
 .alignfull img {
@@ -1017,6 +1003,14 @@ select[multiple] {
 [class*="wp-block"] {
 	margin-top: 1.25rem;
 	margin-bottom: 1.25rem;
+}
+
+.wp-block-column > *:first-child {
+	margin-top: 0;
+}
+
+.wp-block-column > *:last-child {
+	margin-bottom: 0;
 }
 
 p.has-drop-cap:not(:focus):first-letter {
@@ -1102,11 +1096,13 @@ p.wp-block-subhead {
 	text-align: center;
 }
 
-.wp-block-gallery {
-	margin: 0;
+.wp-block-gallery.alignwide, .wp-block-gallery.alignfull {
+	margin-left: 0;
+	margin-right: 0;
 }
 
-.wp-block-gallery.alignwide {
+.suki-content-layout-narrow .wp-block-gallery.alignwide,
+.suki-content-layout-wide .wp-block-gallery.alignwide {
 	width: calc( 100% + ( 2 * 100px ) + ( 2 * 8px ));
 }
 
@@ -1351,7 +1347,7 @@ body.suki-has-popup-active .suki-popup-background {
 	position: relative;
 }
 
-.suki-header .menu .suki-icon {
+.suki-menu-icon {
 	vertical-align: middle;
 }
 
@@ -1374,7 +1370,6 @@ body.suki-has-popup-active .suki-popup-background {
 .suki-header-menu a {
 	position: relative;
 	display: block;
-	white-space: nowrap;
 }
 
 .suki-header-search-dropdown .sub-menu {

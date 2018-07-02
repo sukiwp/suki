@@ -276,8 +276,6 @@ class Suki_Admin_Metabox_Page_Settings {
 					    inheritValue = '<?php echo suki_get_page_setting_by_post_id( 'content_layout', $post ); // WPCS: XSS OK ?>',
 					    value = '' === this.value ? inheritValue : this.value;
 
-					console.log( $body );
-
 					$body.removeClass( 'suki-editor-wide suki-editor-narrow suki-editor-right-sidebar suki-editor-left-sidebar' );
 					$body.addClass( 'suki-editor-' + value );
 				});

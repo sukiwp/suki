@@ -549,12 +549,6 @@ class Suki_Customizer {
 					// Skip rule if no property is defined.
 					if ( ! isset( $rule['property'] ) || empty( $rule['property'] ) ) continue;
 
-					// If "media" attribute is not specified, set it to "global".
-					if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
-
-					// If "pattern" attribute is not specified, set it to "$".
-					if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) $rule['pattern'] = '$';
-
 					// Check if there is function attached.
 					if ( isset( $rule['function'] ) && isset( $rule['function']['name'] ) ) {
 
@@ -605,6 +599,12 @@ class Suki_Customizer {
 					// Assign setting value to property value.
 					$value = $setting_value;
 
+					// If "media" attribute is not specified, set it to "global".
+					if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
+
+					// If "pattern" attribute is not specified, set it to "$".
+					if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) $rule['pattern'] = '$';
+
 					// Check if "key" attribute is defined and value is an assosiative array.
 					if ( is_array( $setting_value ) ) {
 						if ( isset( $rule['key'] ) && in_array( $rule['key'], array_keys( $setting_value ) ) ) {
@@ -613,13 +613,18 @@ class Suki_Customizer {
 						} else {
 							$concat_value = array();
 							foreach ( $setting_value as $key => $value ) {
+								// Replace any $ found in the pattern to value.
 								$concat_value[] = str_replace( '$', $value, $rule['pattern'] );
 							}
 							$value = implode( ' ', $concat_value );
 						}
 					} else {
+						// Replace any $ found in the pattern to value.
 						$value = str_replace( '$', $value, $rule['pattern'] );
 					}
+
+					// Replace any $ found in the media screen to value.
+					$rule['media'] = str_replace( '$', $value, $rule['media'] );
 
 					// Minify value.
 					$value = suki_minify_css_string( $value );

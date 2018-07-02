@@ -13,11 +13,11 @@
 		li {
 			position: relative;
 		}
-
-		.suki-icon {
-			vertical-align: middle;
-		}
 	}
+}
+
+.suki-menu-icon {
+	vertical-align: middle;
 }
 
 // Logo
@@ -42,7 +42,7 @@
 	a {
 		position: relative;
 		display: block;
-		white-space: nowrap;
+		// white-space: nowrap;
 	}
 }
 

@@ -6,6 +6,10 @@
 	border-style: solid;
 	border-width: 0;
 	border-color: #e5e5e5; // default
+	
+	// fix <pre> width on flex element
+	// ref: https://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
+	min-width: 0;
 
 	&, &:before, &:after {
 		box-sizing: border-box;

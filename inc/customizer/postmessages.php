@@ -513,15 +513,15 @@ $add['meta_link_hover_text_color'] = array(
 $add['alignwide_negative_margin'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.alignwide',
+		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
 		'property' => 'width',
 		'pattern'  => 'calc( 100% + ( 2 * $ ) )',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.wp-block-gallery.alignwide',
+		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide, .suki-content-layout-wide .wp-block-gallery.alignwide',
 		'property' => 'width',
-		'pattern'  => 'calc( 100% + ( 2 * $ ) + ( 2 * 8px ) )',
+		'pattern'  => 'calc( 100% + ( 2 * $ ) + ( 2 + 8px ) )',
 	),
 );
 
@@ -553,7 +553,14 @@ $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body.suki-page-layout-boxed #canvas .alignfull',
-		'property' => 'width',
+		'property' => 'max-width',
+	),
+	// .alignwide
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed #canvas .alignwide',
+		'property' => 'max-width',
+		'media'    => '@media screen and (min-width: $)',
 	),
 );
 $add['boxed_page_shadow'] = array(
@@ -589,7 +596,7 @@ foreach ( $responsive as $suffix => $media ) {
 	$add['edge_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-section-contained, .suki-section-default .suki-section-inner, .suki-section-full-width-padding .suki-section-inner',
+			'element'  => '.suki-section-contained, .suki-section-default .suki-section-inner, .suki-section-full-width-padding .suki-section-inner, .suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
 			'property' => 'padding',
 			'pattern'  => '0 $',
 			'media'    => $media,
