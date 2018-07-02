@@ -1,27 +1,3 @@
-.elementor-editor-active > * {
-	pointer-events: none;
-}
-
-.elementor-editor-active .elementor-edit-mode {
-	pointer-events: auto;
-}
-
-.elementor-editor-active .elementor-edit-mode .elementor-inner {
-	margin-top: 0 !important;
-}
-
-.elementor-editor-active .elementor-edit-mode #elementor-add-new-section {
-	margin: 0;
-	max-width: none;
-}
-
-.elementor-editor-active .elementor-edit-mode .elementor-section-wrap > .elementor-section:first-child > .elementor-element-overlay > .elementor-editor-section-settings {
-	top: 0;
-	border-radius: 0 0 3px 3px;
-	-webkit-transform: translateX(50%);
-	transform: translateX(50%);
-}
-
 .elementor-text-editor > *:first-child {
 	margin-top: 0;
 }

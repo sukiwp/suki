@@ -3,36 +3,7 @@
 @import "../__extends";
 
 // -------------------------------------------------------------
-// Editor preview
-// -------------------------------------------------------------
-
-.elementor-editor-active {
-	> * {
-		pointer-events: none;
-	}
-
-	.elementor-edit-mode {
-		pointer-events: auto;
-
-		.elementor-inner {
-			margin-top: 0 !important;
-		}
-
-		#elementor-add-new-section {
-			margin: 0;
-			max-width: none;
-		}
-
-		.elementor-section-wrap > .elementor-section:first-child > .elementor-element-overlay > .elementor-editor-section-settings {
-			top: 0;
-			border-radius: 0 0 3px 3px;
-			transform: translateX( -50% );
-		}
-	}
-}
-
-// -------------------------------------------------------------
-// Editor preview
+// Common Styles
 // -------------------------------------------------------------
 
 .elementor-text-editor {
