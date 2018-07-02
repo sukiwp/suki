@@ -10,14 +10,16 @@
 @import "../_wordpress";
 
 html {
-	padding: 1rem;
+	background-color: #fcfcfc;
 	min-height: auto; // reset
 }
 
-body {
+body.mce-content-body {
 	position: relative;
 	max-width: 100%; // default
 	min-height: auto; // reset
+	padding: 1rem !important;
+	background-color: #fff;
 
 	> *:first-child {
 		margin-top: 0;

@@ -679,25 +679,27 @@ select[multiple] {
 }
 
 html {
-	padding: 1rem;
+	background-color: #fcfcfc;
 	min-height: auto;
 }
 
-body {
+body.mce-content-body {
 	position: relative;
 	max-width: 100%;
 	min-height: auto;
+	padding: 1rem !important;
+	background-color: #fff;
 }
 
-body > *:first-child {
+body.mce-content-body > *:first-child {
 	margin-top: 0;
 }
 
-body > *:last-child {
+body.mce-content-body > *:last-child {
 	margin-bottom: 0;
 }
 
-body:focus {
+body.mce-content-body:focus {
 	outline: 0;
 }
 
