@@ -95,26 +95,10 @@ a.button {
 	font-size: 1rem;
 	padding: 10px 20px;
 	border-radius: 3px;
-	color: white;
-	background-color: #0000ee;
-	border-color: #0000ee;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-}
-
-button:hover,
-input:hover[type="button"],
-input:hover[type="reset"],
-input:hover[type="submit"],
-.button:hover, button:focus,
-input:focus[type="button"],
-input:focus[type="reset"],
-input:focus[type="submit"],
-.button:focus {
-	background-color: #551a8b;
-	border-color: #551a8b;
 }
 
 button:hover,
@@ -296,7 +280,6 @@ template {
 	border-style: solid;
 	border-width: 0;
 	border-color: #e5e5e5;
-	min-width: 0;
 }
 
 *, *:before, *:after {
@@ -305,9 +288,7 @@ template {
 }
 
 *:focus {
-	outline-width: thin;
-	outline-style: dotted;
-	outline-color: invert;
+	outline: thin dotted;
 }
 
 html {
@@ -428,15 +409,10 @@ pre {
 
 a {
 	background-color: transparent;
-	color: #0000ee;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-}
-
-a:hover, a:focus {
-	color: #551a8b;
 }
 
 a:hover {
@@ -484,12 +460,12 @@ img {
 }
 
 ::-moz-selection {
-	background-color: #0000ee;
+	background-color: #666;
 	color: #fff;
 }
 
 ::selection {
-	background-color: #0000ee;
+	background-color: #666;
 	color: #fff;
 }
 
@@ -719,6 +695,10 @@ body > *:first-child {
 
 body > *:last-child {
 	margin-bottom: 0;
+}
+
+body:focus {
+	outline: 0;
 }
 
 blockquote {

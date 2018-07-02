@@ -292,7 +292,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// Modify content width based on current page content layout.
 	switch ( $content_layout ) {
 	 	case 'narrow':
-			$content_width = suki_get_theme_mod( 'narrow_content_width' );
+			$content_width = floatval( suki_get_theme_mod( 'narrow_content_width' ) );
 	 		break;
 	 	
 	 	case 'left-sidebar':

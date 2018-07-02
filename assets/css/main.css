@@ -96,26 +96,10 @@ a.button, .wp-block-button .wp-block-button__link {
 	font-size: 1rem;
 	padding: 10px 20px;
 	border-radius: 3px;
-	color: white;
-	background-color: #0000ee;
-	border-color: #0000ee;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-}
-
-button:hover,
-input:hover[type="button"],
-input:hover[type="reset"],
-input:hover[type="submit"],
-.button:hover, .wp-block-button .wp-block-button__link:hover, button:focus,
-input:focus[type="button"],
-input:focus[type="reset"],
-input:focus[type="submit"],
-.button:focus, .wp-block-button .wp-block-button__link:focus {
-	background-color: #551a8b;
-	border-color: #551a8b;
 }
 
 button:hover,
@@ -315,7 +299,6 @@ template {
 	border-style: solid;
 	border-width: 0;
 	border-color: #e5e5e5;
-	min-width: 0;
 }
 
 *, *:before, *:after {
@@ -324,9 +307,7 @@ template {
 }
 
 *:focus {
-	outline-width: thin;
-	outline-style: dotted;
-	outline-color: invert;
+	outline: thin dotted;
 }
 
 html {
@@ -447,15 +428,10 @@ pre {
 
 a {
 	background-color: transparent;
-	color: #0000ee;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-}
-
-a:hover, a:focus {
-	color: #551a8b;
 }
 
 a:hover {
@@ -503,12 +479,12 @@ img {
 }
 
 ::-moz-selection {
-	background-color: #0000ee;
+	background-color: #666;
 	color: #fff;
 }
 
 ::selection {
-	background-color: #0000ee;
+	background-color: #666;
 	color: #fff;
 }
 
@@ -1096,7 +1072,9 @@ p.wp-block-subhead {
 	text-align: center;
 }
 
-.wp-block-gallery.alignwide, .wp-block-gallery.alignfull {
+.suki-content-layout-narrow .wp-block-gallery.alignwide, .suki-content-layout-narrow .wp-block-gallery.alignfull,
+.suki-content-layout-wide .wp-block-gallery.alignwide,
+.suki-content-layout-wide .wp-block-gallery.alignfull {
 	margin-left: 0;
 	margin-right: 0;
 }
@@ -1294,6 +1272,7 @@ body.suki-has-popup-active .suki-popup-background {
 
 .content-area {
 	width: 100%;
+	min-width: 0;
 }
 
 @media screen and (max-width: 1023px) {

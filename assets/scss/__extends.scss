@@ -73,9 +73,9 @@
 	font-size: 1rem; // default
 	padding: 10px 20px; // default
 	border-radius: 3px; // default
-	color: white; // default
-	background-color: #0000ee; // default
-	border-color: #0000ee; // default
+	// color: white; // default
+	// background-color: #0000ee; // default
+	// border-color: #0000ee; // default
 
 	@include transition();
 
@@ -85,8 +85,8 @@
 	}
 
 	&:hover, &:focus {
-		background-color: #551a8b; // default
-		border-color: #551a8b; // default
+		// background-color: #551a8b; // default
+		// border-color: #551a8b; // default
 	}
 
 	// Hover, focus, active state

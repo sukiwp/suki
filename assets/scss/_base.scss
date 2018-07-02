@@ -6,19 +6,13 @@
 	border-style: solid;
 	border-width: 0;
 	border-color: #e5e5e5; // default
-	
-	// fix <pre> width on flex element
-	// ref: https://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
-	min-width: 0;
 
 	&, &:before, &:after {
 		box-sizing: border-box;
 	}
 
 	&:focus {
-		outline-width: thin;
-		outline-style: dotted;
-		outline-color: invert;
+		outline: thin dotted;
 	}
 }
 
@@ -163,13 +157,13 @@ code {
 
 a {
 	background-color: transparent;
-	color: #0000ee; // default
+	// color: #0000ee; // default
 	// text-decoration: none;
 
 	@include transition();
 
 	&:hover, &:focus {
-		color: #551a8b; // default
+		// color: #551a8b; // default
 	}
 	
 	&:hover {
@@ -219,7 +213,7 @@ img {
 }
 
 ::selection {
-	background-color: #0000ee;
+	background-color: #666;
 	color: #fff;
 }
 

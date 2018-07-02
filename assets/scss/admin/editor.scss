@@ -26,6 +26,10 @@ body {
 	> *:last-child {
 		margin-bottom: 0;
 	}
+
+	&:focus {
+		outline: 0;
+	}
 }
 
 blockquote {

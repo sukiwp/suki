@@ -174,14 +174,14 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-gallery {
-	&.alignwide,
-	&.alignfull {
-		margin-left: 0;
-		margin-right: 0;
-	}
-
 	.suki-content-layout-narrow &,
 	.suki-content-layout-wide & {
+		&.alignwide,
+		&.alignfull {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
 		&.alignwide {
 			width: calc( 100% + ( 2 * 100px ) + ( 2 * 8px ) ); // default
 		}
