@@ -90,6 +90,21 @@
 	}
 }
 
+// Posts widgets
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_rss {
+	li {
+		@include border( bottom );
+		padding-bottom: 0.75em;
+		margin-top: 0.75em;
+
+		*:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
 .widget_rss {
 	.rssSummary {
 		font-size: 10px;
@@ -179,5 +194,41 @@
 
 	a {
 		text-decoration: none;
+	}
+}
+
+// -------------------------------------------------------------
+// Custom widgets
+// -------------------------------------------------------------
+
+.suki_widget_posts {
+	a {
+		text-decoration: none;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	li {
+		@include border( bottom );
+		padding-bottom: 0.75em;
+		margin-top: 0.75em;
+		
+		@extend %float-container;
+
+		*:last-child {
+			border-bottom: none;
+		}
+	}
+
+	img {
+		float: right;
+		width: 40px;
+		height: auto;
+		margin-left: 0.5em;
+		border-radius: 20px;
 	}
 }

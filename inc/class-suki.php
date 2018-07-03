@@ -54,6 +54,8 @@ class Suki {
 
 		add_action( 'wp', array( $this, 'setup_accurate_content_width' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+
 		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
@@ -75,6 +77,9 @@ class Suki {
 
 		// Customizer functions
 		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer.php' );
+
+		// Widgets
+		require_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
 
 		// Admin page functions
 		if ( is_admin() ) {
@@ -224,7 +229,6 @@ class Suki {
 		// Gutenberg "align-wide" compatibility
 		add_theme_support( 'align-wide' );
 	}
-
 	/**
 	 * Register theme sidebars (widget area).
 	 */
@@ -249,6 +253,13 @@ class Suki {
 				'after_title'   => '</h2>',
 			) );
 		}
+	}
+
+	/**
+	 * Register custom widgets.
+	 */
+	public function register_widgets() {
+		register_widget( 'Suki_Widget_Posts' );
 	}
 
 	/**

@@ -41,25 +41,25 @@ msgstr ""
 msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 15KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
 msgstr ""
 
-#: inc/class-suki.php:198
+#: inc/class-suki.php:203
 msgid "Header Menu 1"
 msgstr ""
 
-#: inc/class-suki.php:199, inc/customizer/options/header--menu.php:40
+#: inc/class-suki.php:204, inc/customizer/options/header--menu.php:40
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:200, inc/customizer/options/footer--builder.php:81, inc/customizer/options/footer--menu.php:23
+#: inc/class-suki.php:205, inc/customizer/options/footer--builder.php:81, inc/customizer/options/footer--menu.php:23
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:233, inc/customizer/options/_sections.php:257
+#: inc/class-suki.php:237, inc/customizer/options/_sections.php:257
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
 #. translators: %d: column number.
-#: inc/class-suki.php:244, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:248, inc/customizer/options/footer--widgets-column.php:25
 msgid "Footer Widgets Column %d"
 msgstr ""
 
@@ -517,6 +517,54 @@ msgstr ""
 #. translators: %s: post type's singular name.
 #: inc/customizer/class-suki-customizer.php:181
 msgid "You can override these settings for each individual %s."
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:13
+msgid "Suki - Posts with Featured Image"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:16
+msgid "Posts list with thumbnail images"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:61
+msgid "(no title)"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:95
+msgid "Recent Published"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:96
+msgid "Random"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:110
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:115
+msgid "Layout:"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:124
+msgid "Number of posts to show:"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:128
+msgid "Sort By:"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:138
+msgid "Query from All Categories?"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:142
+msgid "or Choose Specific Categories:"
+msgstr ""
+
+#: inc/widgets/class-suki-widget-posts.php:152
+msgid "Display post date?"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:86
