@@ -4,26 +4,26 @@ html, body {
 	line-height: 1.7;
 }
 
-h1, .entry-title {
+h1, .h1, .entry-title {
 	font-size: 32px;
 	font-weight: 600;
 	line-height: 1.4;
 }
 
-h2, .wp-block-cover-image .wp-block-cover-image-text,
+h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
 .wp-block-cover-image h2 {
 	font-size: 27px;
 	font-weight: 600;
 	line-height: 1.5;
 }
 
-h3, .entry-small-title, .comments-title, .comment-reply-title {
+h3, .h3, .entry-small-title, .comments-title, .comment-reply-title {
 	font-size: 22px;
 	font-weight: 600;
 	line-height: 1.6;
 }
 
-h4, .widget-title {
+h4, .h4 {
 	font-size: 17px;
 	font-weight: 600;
 	line-height: 1.7;

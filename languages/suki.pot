@@ -38,7 +38,7 @@ msgid "https://sukiwp.com/about/"
 msgstr ""
 
 #: style.css:6
-msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 15KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
+msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
 msgstr ""
 
 #: inc/class-suki.php:203

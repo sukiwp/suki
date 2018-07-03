@@ -143,7 +143,7 @@ $add['subtle_color'] = array(
 
 for ( $i = 1; $i <= 4; $i++ ) {
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = 'h' . $i;
+		$element = 'h' . $i . ', .h' . $i;
 		$property = str_replace( '_', '-', $prop );
 
 		$add['h' . $i . '_' . $prop ] = array(
