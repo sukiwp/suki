@@ -385,6 +385,7 @@ ol {
 
 li > ul, li >
 ol {
+	margin-top: 0;
 	margin-bottom: 0;
 }
 
@@ -2074,6 +2075,11 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 	border-right: none;
 	border-left-width: 0.25rem;
 	border-left-style: solid;
+}
+
+.entry-content table th, .entry-content table td {
+	border-width: 1px;
+	border-style: solid;
 }
 
 .entry-excerpt {
