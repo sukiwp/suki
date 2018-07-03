@@ -316,11 +316,9 @@ class Suki_Customizer {
 				document.addEventListener( 'DOMContentLoaded', function() {
 					if ( 'undefined' !== typeof wp && wp.customize && wp.customize.selectiveRefresh && wp.customize.widgetsPreview && wp.customize.widgetsPreview.WidgetPartial ) {
 						wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
-							switch( placement.partial.id ) {
-								// Main Header
-								case 'main_header':
-									window.suki.initAll();
-									break;
+							// Main Header
+							if ( 'main_header' === placement.partial.id || placement.partial.id.indexOf( 'nav_menu_instance' ) ) {
+								window.suki.initAll();
 							}
 						} );
 					}
