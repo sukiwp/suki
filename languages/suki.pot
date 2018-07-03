@@ -63,87 +63,87 @@ msgstr ""
 msgid "Footer Widgets Column %d"
 msgstr ""
 
-#: inc/helpers.php:400
+#: inc/helpers.php:413
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/helpers.php:401
+#: inc/helpers.php:414
 msgid "Arabic"
 msgstr ""
 
-#: inc/helpers.php:402
+#: inc/helpers.php:415
 msgid "Bengali"
 msgstr ""
 
-#: inc/helpers.php:403
+#: inc/helpers.php:416
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/helpers.php:404
+#: inc/helpers.php:417
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/helpers.php:405
+#: inc/helpers.php:418
 msgid "Devaganari"
 msgstr ""
 
-#: inc/helpers.php:406
+#: inc/helpers.php:419
 msgid "Greek"
 msgstr ""
 
-#: inc/helpers.php:407
+#: inc/helpers.php:420
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/helpers.php:408
+#: inc/helpers.php:421
 msgid "Gujarati"
 msgstr ""
 
-#: inc/helpers.php:409
+#: inc/helpers.php:422
 msgid "Gurmukhi"
 msgstr ""
 
-#: inc/helpers.php:410
+#: inc/helpers.php:423
 msgid "Hebrew"
 msgstr ""
 
-#: inc/helpers.php:411
+#: inc/helpers.php:424
 msgid "Kannada"
 msgstr ""
 
-#: inc/helpers.php:412
+#: inc/helpers.php:425
 msgid "Khmer"
 msgstr ""
 
-#: inc/helpers.php:413
+#: inc/helpers.php:426
 msgid "Malayalam"
 msgstr ""
 
-#: inc/helpers.php:414
+#: inc/helpers.php:427
 msgid "Myanmar"
 msgstr ""
 
-#: inc/helpers.php:415
+#: inc/helpers.php:428
 msgid "Oriya"
 msgstr ""
 
-#: inc/helpers.php:416
+#: inc/helpers.php:429
 msgid "Sinhala"
 msgstr ""
 
-#: inc/helpers.php:417
+#: inc/helpers.php:430
 msgid "Tamil"
 msgstr ""
 
-#: inc/helpers.php:418
+#: inc/helpers.php:431
 msgid "Telugu"
 msgstr ""
 
-#: inc/helpers.php:419
+#: inc/helpers.php:432
 msgid "Thai"
 msgstr ""
 
-#: inc/helpers.php:420
+#: inc/helpers.php:433
 msgid "Vietnamese"
 msgstr ""
 
