@@ -403,13 +403,15 @@ class Suki_Compatibility_WooCommerce {
 	public function add_count_to_cart_menu_item( $title, $item, $args, $depth ) {
 		// Add items count to "Cart" menu.
 		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) && class_exists( 'WooCommerce' ) ) {
-			$cart = WC()->cart;
-			if ( ! empty( $cart ) ) {
-				$count = $cart->cart_contents_count;
-			} else {
-				$count = 0;
+			if ( strpos( $title, '{{count}}' ) ) {
+				$cart = WC()->cart;
+				if ( ! empty( $cart ) ) {
+					$count = $cart->cart_contents_count;
+				} else {
+					$count = 0;
+				}
+				$title = str_replace( '{{count}}', '(<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>)', $title );
 			}
-			$title .= ' (<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>)';
 		}
 
 		return $title;
