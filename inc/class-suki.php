@@ -46,8 +46,6 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		$this->_includes();
-
 		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ) );
@@ -59,6 +57,8 @@ class Suki {
 		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
+
+		$this->_includes();
 	}
 
 	/**
@@ -238,7 +238,7 @@ class Suki {
 			'after_title'   => '</h2>',
 		) );
 
-		for ( $i = 1; $i <= ( is_customize_preview() ? 6 : suki_get_theme_mod( 'footer_widgets_bar' ) ); $i++ ) {
+		for ( $i = 1; $i <= 6; $i++ ) {
 			register_sidebar( array(
 				/* translators: %d: number of footer widgets column. */
 				'name'          => sprintf( esc_html__( 'Footer Widgets Column %d', 'suki' ), $i ),

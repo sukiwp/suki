@@ -43,6 +43,7 @@ if ( suki_show_pro_teaser() ) {
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
 			esc_html_x( 'Responsive dynamic columns width', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Text alignment for each column', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

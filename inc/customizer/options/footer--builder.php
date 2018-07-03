@@ -33,7 +33,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'fo
 $id = 'footer_widgets_bar';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
 $wp_customize->add_control( $id, array(
@@ -51,16 +50,6 @@ $wp_customize->add_control( $id, array(
 	),
 	'priority'    => 10,
 ) );
-
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial( $id, array(
-		'selector'            => '#suki-footer-widgets-bar',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_footer_widgets_bar',
-		'fallback_refresh'    => false,
-	) );
-}
 
 // ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_footer_builder', array(

@@ -49,7 +49,7 @@ msgstr ""
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:200, inc/customizer/options/footer--builder.php:92, inc/customizer/options/footer--menu.php:23
+#: inc/class-suki.php:200, inc/customizer/options/footer--builder.php:81, inc/customizer/options/footer--menu.php:23
 msgid "Footer Menu"
 msgstr ""
 
@@ -539,7 +539,7 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:104, inc/customizer/options/blog--entry-default.php:79, inc/customizer/options/blog--entry-grid.php:116, inc/customizer/options/footer--builder.php:98, inc/customizer/options/header--builder.php:150, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
+#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:104, inc/customizer/options/blog--entry-default.php:79, inc/customizer/options/blog--entry-grid.php:116, inc/customizer/options/footer--builder.php:87, inc/customizer/options/header--builder.php:150, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
 msgid "Right"
 msgstr ""
 
@@ -547,7 +547,7 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:106, inc/customizer/options/blog--entry-default.php:77, inc/customizer/options/blog--entry-grid.php:114, inc/customizer/options/footer--builder.php:96, inc/customizer/options/header--builder.php:148, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
+#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:106, inc/customizer/options/blog--entry-default.php:77, inc/customizer/options/blog--entry-grid.php:114, inc/customizer/options/footer--builder.php:85, inc/customizer/options/header--builder.php:148, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
 msgid "Left"
 msgstr ""
 
@@ -734,15 +734,15 @@ msgstr ""
 msgid "Post header alignment"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:77, inc/customizer/options/blog--entry-grid.php:114, inc/customizer/options/footer--builder.php:96, inc/customizer/options/header--builder.php:148, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
+#: inc/customizer/options/blog--entry-default.php:77, inc/customizer/options/blog--entry-grid.php:114, inc/customizer/options/footer--builder.php:85, inc/customizer/options/header--builder.php:148, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
 msgid "Right - RTL"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:78, inc/customizer/options/blog--entry-grid.php:115, inc/customizer/options/footer--builder.php:97, inc/customizer/options/header--builder.php:149, inc/customizer/options/header--mobile-vertical-bar.php:50
+#: inc/customizer/options/blog--entry-default.php:78, inc/customizer/options/blog--entry-grid.php:115, inc/customizer/options/footer--builder.php:86, inc/customizer/options/header--builder.php:149, inc/customizer/options/header--mobile-vertical-bar.php:50
 msgid "Center"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:79, inc/customizer/options/blog--entry-grid.php:116, inc/customizer/options/footer--builder.php:98, inc/customizer/options/header--builder.php:150, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
+#: inc/customizer/options/blog--entry-default.php:79, inc/customizer/options/blog--entry-grid.php:116, inc/customizer/options/footer--builder.php:87, inc/customizer/options/header--builder.php:150, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
 msgid "Left - RTL"
 msgstr ""
 
@@ -1045,47 +1045,47 @@ msgstr ""
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:42
+#: inc/customizer/options/footer--builder.php:41
 msgid "Widgets columns"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:44
+#: inc/customizer/options/footer--builder.php:43
 msgid "-- Disabled --"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:45
+#: inc/customizer/options/footer--builder.php:44
 msgid "1 column"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:46
+#: inc/customizer/options/footer--builder.php:45
 msgid "2 columns"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:47
+#: inc/customizer/options/footer--builder.php:46
 msgid "3 columns"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:48
+#: inc/customizer/options/footer--builder.php:47
 msgid "4 columns"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:49
+#: inc/customizer/options/footer--builder.php:48
 msgid "5 columns"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:50
+#: inc/customizer/options/footer--builder.php:49
 msgid "6 columns"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:89
+#: inc/customizer/options/footer--builder.php:78
 msgid "Bottom bar elements"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:91
+#: inc/customizer/options/footer--builder.php:80
 msgid "Copyright"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:93, inc/customizer/options/header--builder.php:71, inc/customizer/options/header--builder.php:136
+#: inc/customizer/options/footer--builder.php:82, inc/customizer/options/header--builder.php:71, inc/customizer/options/header--builder.php:136
 msgid "Social"
 msgstr ""
 
@@ -1137,6 +1137,11 @@ msgstr ""
 #: inc/customizer/options/footer--widgets-column.php:45
 msgctxt "Suki Pro upsell"
 msgid "Responsive dynamic columns width"
+msgstr ""
+
+#: inc/customizer/options/footer--widgets-column.php:46
+msgctxt "Suki Pro upsell"
+msgid "Text alignment for each column"
 msgstr ""
 
 #: inc/customizer/options/header--builder.php:23
