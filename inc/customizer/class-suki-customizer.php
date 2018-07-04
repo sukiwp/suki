@@ -185,10 +185,6 @@ class Suki_Customizer {
 		// Sections and Panels
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/_sections.php' );
 
-		// Change some default WordPress settings to use "postMessage" transport.
-		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
 		// Remove "custom_logo".
 		$wp_customize->remove_control( 'custom_logo' );
 
