@@ -51,6 +51,10 @@
 	border-radius: 3px; // default
 	background-color: #fff; // default
 	color: inherit; // default
+
+	&:hover {
+		outline: 0;
+	}
 }
 
 %select {

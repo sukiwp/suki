@@ -55,18 +55,23 @@
 	.search-field {
 		padding: 1em 1em 1em 2.5em;
 		background-color: transparent;
-		color: inherit !important;
+		color: inherit;
 		border-width: 0;
+
+		&:focus {
+			background-color: transparent;
+			color: inherit;
+		}
 	}
 }
 
 // Search Bar
-.suki-header-search-bar {
-	.search-field {
-		background-color: transparent;
-		color: inherit;
-	}
-}
+// .suki-header-search-bar {
+// 	.search-field {
+// 		background-color: transparent;
+// 		color: inherit;
+// 	}
+// }
 
 // Social
 .suki-header-social {
@@ -108,6 +113,7 @@
 .suki-header-column {
 	@include flex();
 	height: 100%;
+	max-width: 100%;
 
 	&:empty {
 		margin: 0 !important;
@@ -117,6 +123,7 @@
 	> * {
 		@include flex();
 		height: 100%;
+		max-width: 100%;
 	}
 }
 

@@ -71,6 +71,23 @@ input[type="week"],
 	color: inherit;
 }
 
+select:hover, .select2-container .select2-selection:hover, input:hover[type="text"],
+input:hover[type="password"],
+input:hover[type="color"],
+input:hover[type="date"],
+input:hover[type="datetime-local"],
+input:hover[type="email"],
+input:hover[type="month"],
+input:hover[type="number"],
+input:hover[type="search"],
+input:hover[type="tel"],
+input:hover[type="time"],
+input:hover[type="url"],
+input:hover[type="week"],
+.input:hover, textarea:hover {
+	outline: 0;
+}
+
 select, .select2-container .select2-selection {
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center right;

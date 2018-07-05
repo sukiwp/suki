@@ -54,7 +54,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'units'       => array(
 			'px' => array(
 				'min'   => 20,
-				'max'   => 120,
+				'max'   => 200,
 				'step'  => 1,
 			),
 		),
