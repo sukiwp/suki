@@ -47,9 +47,7 @@
 			 * Hook: suki_before_entry_content
 			 */
 			do_action( 'suki_before_entry_content' );
-			?>
-
-			<?php
+			
 			// Print the content.
 			the_content(
 				sprintf(
@@ -64,9 +62,7 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'suki' ),
 				'after'  => '</div>',
 			) );
-			?>
-
-			<?php
+			
 			/**
 			 * Hook: suki_after_entry_content
 			 */

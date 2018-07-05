@@ -121,6 +121,19 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
+	 * Content search hooks
+	 * ====================================================
+	 */
+
+	/**
+	 * suki_before_entry_search_header hook
+	 * 
+	 * @see suki_entry_small_title()
+	 */
+	add_action( 'suki_entry_search_header', 'suki_entry_small_title', 10 );
+
+	/**
+	 * ====================================================
 	 * Content grid hooks
 	 * ====================================================
 	 */

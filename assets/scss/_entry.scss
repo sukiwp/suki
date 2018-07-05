@@ -63,6 +63,21 @@
 	}
 }
 
+// Loop search
+.suki-loop-search {
+	.entry {
+		margin-top: 4rem;
+	}
+
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
 // Entry wrapper
 .entry-wrapper {
 	> *:first-child {
@@ -187,7 +202,7 @@ a.entry-thumbnail {
 
 // Excerpt
 .entry-excerpt {
-	margin: 1rem 0;
+	margin: 0.75rem 0;
 
 	p {
 		margin: 0;

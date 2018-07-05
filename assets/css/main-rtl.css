@@ -1997,6 +1997,18 @@ body.suki-has-popup-active .suki-popup-background {
 	}
 }
 
+.suki-loop-search .entry {
+	margin-top: 4rem;
+}
+
+.suki-loop-search > *:first-child {
+	margin-top: 0;
+}
+
+.suki-loop-search > *:last-child {
+	margin-bottom: 0;
+}
+
 .entry-wrapper > *:first-child {
 	margin-top: 0 !important;
 }
@@ -2105,7 +2117,7 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 }
 
 .entry-excerpt {
-	margin: 1rem 0;
+	margin: 0.75rem 0;
 }
 
 .entry-excerpt p {

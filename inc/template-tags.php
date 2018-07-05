@@ -667,46 +667,38 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) :
  * Print entry meta element.
  */
 function suki_entry_meta_element( $element ) {
+	global $post;
+
 	switch ( $element ) {
 		case 'date':
-			if ( 'post' === get_post_type() ) {
-				$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-					$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated screen-reader-text" datetime="%3$s">%4$s</time>';
-				}
-				$time_string = sprintf( $time_string,
-					esc_attr( get_the_date( 'c' ) ),
-					esc_html( get_the_date() ),
-					esc_attr( get_the_modified_date( 'c' ) ),
-					esc_html( get_the_modified_date() )
-				);
-
-				echo '<span class="entry-meta-date"><a href="' . get_permalink() . '" class="posted-on">' . $time_string . '</a></span>'; // WPCS: XSS OK
+			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated screen-reader-text" datetime="%3$s">%4$s</time>';
 			}
+			$time_string = sprintf( $time_string,
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() ),
+				esc_attr( get_the_modified_date( 'c' ) ),
+				esc_html( get_the_modified_date() )
+			);
+
+			echo '<span class="entry-meta-date"><a href="' . get_permalink() . '" class="posted-on">' . $time_string . '</a></span>'; // WPCS: XSS OK
 			break;
 
 		case 'author':
-			if ( 'post' === get_post_type() ) {
-				echo '<span class="entry-meta-author author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a></span>'; // WPCS: XSS OK
-			}
+			echo '<span class="entry-meta-author author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a></span>'; // WPCS: XSS OK
 			break;
 
 		case 'avatar':
-			if ( 'post' === get_post_type() ) {
-				echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 24 ) . '</span>'; // WPCS: XSS OK
-			}
+			echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 24 ) . '</span>'; // WPCS: XSS OK
 			break;
 
 		case 'categories':
-			if ( 'post' === get_post_type() ) {
-				echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( ', ' ) . '</span>'; // WPCS: XSS OK
-			}
+			echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( ', ' ) . '</span>'; // WPCS: XSS OK
 			break;
 
 		case 'tags':
-			if ( 'post' === get_post_type() ) {
-				echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', ', ' ) . '</span>' ); // WPCS: XSS OK
-			}
+			echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', ', ' ) . '</span>' ); // WPCS: XSS OK
 			break;
 
 		case 'comments':
@@ -828,11 +820,11 @@ function suki_entry_footer_meta() {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_grid_title' ) ) :
+if ( ! function_exists( 'suki_entry_small_title' ) ) :
 /**
- * Print entry grid title.
+ * Print entry small title.
  */
-function suki_entry_grid_title() {
+function suki_entry_small_title() {
 	suki_entry_title( 'small' );
 }
 endif;
@@ -842,18 +834,20 @@ if ( ! function_exists( 'suki_entry_grid_featured_media' ) ) :
  * Print entry grid featured media.
  */
 function suki_entry_grid_featured_media() {
-	if ( has_post_thumbnail() ) {
-		global $content_width;
-
-		$width = ceil( floatval( $content_width ) / suki_get_theme_mod( 'blog_index_grid_columns' ) );
-
-		printf( // WPCS: XSS OK
-			'<%s class="entry-thumbnail">%s</%s>',
-			is_singular() ? 'div' : 'a href="' . get_the_permalink() . '"',
-			get_the_post_thumbnail( get_the_ID(), array( $width, 0 ) ),
-			is_singular() ? 'div' : 'a'
-		);
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
 	}
+
+	global $content_width;
+
+	$width = ceil( floatval( $content_width ) / suki_get_theme_mod( 'blog_index_grid_columns' ) );
+
+	printf( // WPCS: XSS OK
+		'<%s class="entry-thumbnail">%s</%s>',
+		is_singular() ? 'div' : 'a href="' . get_the_permalink() . '"',
+		get_the_post_thumbnail( get_the_ID(), array( $width, 0 ) ),
+		is_singular() ? 'div' : 'a'
+	);
 }
 endif;
 

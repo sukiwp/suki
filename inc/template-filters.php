@@ -121,16 +121,12 @@ add_filter( 'the_content_more_link', 'suki_read_more' );
  * @return integer
  */
 function suki_excerpt_length( $length ) {
-	if ( 'post' == get_post_type() ) {
-		switch ( suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
-			case 'grid':
-				return suki_get_theme_mod( 'entry_grid_excerpt_length' );
-				break;
-			
-			default:
-				return $length;
-				break;
-		}
+	if ( is_search() ) {
+		return 30;
+	}
+
+	if ( 'grid' === suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
+		return suki_get_theme_mod( 'entry_grid_excerpt_length' );
 	} else {
 		return $length;
 	}

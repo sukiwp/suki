@@ -27,7 +27,7 @@ get_header();
 			do_action( 'suki_before_main' );
 			?>
 
-			<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki_search_loop_classes', array() ) ) ); ?>">
+			<div id="loop" class="suki-loop suki-loop-search">
 				<?php
 				// Start the loop.
 				while ( have_posts() ) : the_post();

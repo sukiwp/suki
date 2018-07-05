@@ -147,7 +147,7 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/template-filters.php:167
+#: inc/template-filters.php:163
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -173,45 +173,45 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:903
+#: inc/template-tags.php:897
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:904
+#: inc/template-tags.php:898
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:961
+#: inc/template-tags.php:955
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:962
+#: inc/template-tags.php:956
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:979
+#: inc/template-tags.php:973
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:985
+#: inc/template-tags.php:979
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1012
+#: inc/template-tags.php:1006
 msgid "Comments are closed."
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:1064
+#: inc/template-tags.php:1058
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:1081
+#: inc/template-tags.php:1075
 msgid "Oops! That page can not be found."
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Page Builder"
 msgstr ""
 
-#: template-parts/content-grid.php:56, template-parts/content-page.php:55, template-parts/content.php:64
+#: template-parts/content-grid.php:56, template-parts/content-page.php:55, template-parts/content-search.php:53, template-parts/content.php:62
 msgid "Pages:"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searc
 msgstr ""
 
 #. translators: %s: current post title.
-#: template-parts/content.php:57
+#: template-parts/content.php:55
 msgid "Continue Reading %s"
 msgstr ""
 
