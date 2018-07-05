@@ -792,25 +792,21 @@ function suki_entry_meta( $format ) {
 	$format = trim( $format );
 	$html = $format;
 
-	if ( ! empty( $format ) ) : ?>
-		<div class="entry-meta">
-			<?php
-			preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
+	if ( ! empty( $format ) ) {
+		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
 			
-			foreach ( $matches as $match ) {
-				ob_start();
-				suki_entry_meta_element( $match[1] );
-				$meta = ob_get_clean();
+		foreach ( $matches as $match ) {
+			ob_start();
+			suki_entry_meta_element( $match[1] );
+			$meta = ob_get_clean();
 
-				if ( ! empty( $meta ) ) {
-					$html = str_replace( $match[0], $meta, $html );
-				}
-			}
+			$html = str_replace( $match[0], $meta, $html );
+		}
 
-			echo $html; // WPCS: XSS OK
-			?>
-		</div>
-	<?php endif;
+		if ( '' !== trim( $html ) ) {
+			echo '<div class="entry-meta">' . $html . '</div>';
+		}
+	}
 }
 endif;
 

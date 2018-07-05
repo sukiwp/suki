@@ -173,45 +173,45 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:907
+#: inc/template-tags.php:903
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:908
+#: inc/template-tags.php:904
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:965
+#: inc/template-tags.php:961
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:966
+#: inc/template-tags.php:962
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:983
+#: inc/template-tags.php:979
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:989
+#: inc/template-tags.php:985
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1016
+#: inc/template-tags.php:1012
 msgid "Comments are closed."
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:1068
+#: inc/template-tags.php:1064
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:1085
+#: inc/template-tags.php:1081
 msgid "Oops! That page can not be found."
 msgstr ""
 
