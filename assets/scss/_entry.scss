@@ -66,7 +66,9 @@
 // Loop search
 .suki-loop-search {
 	.entry {
-		margin-top: 4rem;
+		margin-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		@include border( bottom );
 	}
 
 	> *:first-child {

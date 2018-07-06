@@ -763,7 +763,7 @@ select[multiple] {
 	padding-left: 2.5em;
 }
 
-.search-form input[type="submit"] {
+.search-form > label + input[type="submit"] {
 	display: none;
 }
 
@@ -1998,7 +1998,10 @@ body.suki-has-popup-active .suki-popup-background {
 }
 
 .suki-loop-search .entry {
-	margin-top: 4rem;
+	margin-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 }
 
 .suki-loop-search > *:first-child {
