@@ -56,7 +56,7 @@ class Suki_Compatibility_WooCommerce {
 
 		// Template hooks
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
-		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_customizer' ) );
+		add_action( 'template_redirect', array( $this, 'modify_template_hooks_based_on_customizer' ) );
 		
 		// Page settings
 		add_action( 'suki_post_ids_without_page_settings', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
@@ -300,11 +300,12 @@ class Suki_Compatibility_WooCommerce {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
+		}
 
-			// Keep / remove add to cart button on products grid item.
-			if ( ! suki_get_theme_mod( 'woocommerce_index_item_add_to_cart' ) ) {
-				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-			}
+		// Keep / remove add to cart button on products grid item.
+		// Keep this outside the is_shop and is_product_taxonomy check, for shortcode usage.
+		if ( ! suki_get_theme_mod( 'woocommerce_index_item_add_to_cart' ) ) {
+			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 
 		/**
