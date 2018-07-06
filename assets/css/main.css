@@ -10,7 +10,7 @@ h1, .h1, .entry-title {
 	line-height: 1.4;
 }
 
-h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
+h2, .h2, .site-title, .wp-block-cover-image .wp-block-cover-image-text,
 .wp-block-cover-image h2 {
 	font-size: 27px;
 	font-weight: 600;
@@ -794,6 +794,19 @@ select[multiple] {
 	margin-left: 0 !important;
 }
 
+.site-title {
+	line-height: normal;
+	margin: 0;
+}
+
+.site-title a {
+	text-decoration: none;
+}
+
+.site-title img, .site-title svg {
+	display: block;
+}
+
 .suki-oembed-video {
 	position: relative;
 	padding-top: 56.25%;
@@ -1347,22 +1360,6 @@ body.suki-has-popup-active .suki-popup-background {
 
 .suki-menu-icon {
 	vertical-align: middle;
-}
-
-.site-title {
-	font-size: 1.5rem;
-	font-weight: bold;
-	line-height: normal;
-	text-transform: uppercase;
-	margin: 0;
-}
-
-.site-title a {
-	text-decoration: none;
-}
-
-.site-title img, .site-title svg {
-	display: block;
 }
 
 .suki-header-menu a {
