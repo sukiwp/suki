@@ -867,7 +867,7 @@ p.demo_store {
 
 	ul.order_details {
 		padding: 0;
-		
+
 		li {
 			strong {
 				margin-top: 0.5em;
@@ -969,6 +969,10 @@ p.demo_store {
 			margin-top: 0.25em;
 		}
 	}
+
+	a {
+		text-decoration: none;
+	}
 }
 
 // List
@@ -986,12 +990,19 @@ p.demo_store {
 		.count {
 			opacity: 0.5;
 		}
+	}
 
+	a {
+		text-decoration: none;
 	}
 }
 
 // Cart
 .woocommerce.widget_shopping_cart {
+	a {
+		text-decoration: none;
+	}
+	
 	.cart_list li {
 		padding-left: 1.5em;
 
@@ -1051,6 +1062,7 @@ p.demo_store {
 
 		a {
 			font-weight: inherit;
+			text-decoration: none;
 		}
 
 		img {
