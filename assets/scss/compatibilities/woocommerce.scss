@@ -856,6 +856,26 @@ p.demo_store {
 	}
 }
 
+.woocommerce {
+	.woocommerce-customer-details {
+		address {
+			@include border();
+			border-radius: 0;
+			padding: 1.25rem;
+		}
+	}
+
+	ul.order_details {
+		padding: 0;
+		
+		li {
+			strong {
+				margin-top: 0.5em;
+			}
+		}
+	}
+}
+
 // -------------------------------------------------------------
 // My Account
 // -------------------------------------------------------------
@@ -885,6 +905,7 @@ p.demo_store {
 					padding: 0.8rem 1.2rem;
 					@include border( bottom, 3px );
 					border-color: transparent;
+					text-decoration: none;
 				}
 			}
 		}
@@ -905,6 +926,14 @@ p.demo_store {
 
 	table.my_account_orders {
 		font-size: inherit;
+	}
+
+	.addresses {
+		.title {
+			.edit {
+				text-decoration: none;
+			}
+		}
 	}
 }
 

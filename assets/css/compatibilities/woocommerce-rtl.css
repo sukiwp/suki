@@ -884,6 +884,21 @@ p.demo_store {
 	width: 100%;
 }
 
+.woocommerce .woocommerce-customer-details address {
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 0;
+	padding: 1.25rem;
+}
+
+.woocommerce ul.order_details {
+	padding: 0;
+}
+
+.woocommerce ul.order_details li strong {
+	margin-top: 0.5em;
+}
+
 .woocommerce-account .woocommerce-MyAccount-navigation {
 	float: none;
 	width: auto;
@@ -913,6 +928,7 @@ p.demo_store {
 	border-bottom-width: 3px;
 	border-bottom-style: solid;
 	border-color: transparent;
+	text-decoration: none;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation > .panel {
@@ -930,6 +946,10 @@ p.demo_store {
 
 .woocommerce-account table.my_account_orders {
 	font-size: inherit;
+}
+
+.woocommerce-account .addresses .title .edit {
+	text-decoration: none;
 }
 
 .woocommerce.widget_price_filter .ui-slider .ui-slider-range {
