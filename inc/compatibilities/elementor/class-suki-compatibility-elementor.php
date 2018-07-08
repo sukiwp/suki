@@ -57,19 +57,6 @@ class Suki_Compatibility_Elementor {
 	 */
 
 	/**
-	 * Add postmessage rules for some Customizer settings.
-	 * Triggered via filter to allow modification by users.
-	 *
-	 * @param array $postmessages
-	 * @return array
-	 */
-	public function add_customizer_setting_postmessages( $postmessages = array() ) {
-		include( SUKI_INCLUDES_PATH . '/compatibilities/elementor/customizer/postmessages.php' );
-
-		return $postmessages;
-	}
-
-	/**
 	 * Enqueue compatibility CSS.
 	 */
 	public function enqueue_css() {

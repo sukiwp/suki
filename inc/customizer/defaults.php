@@ -286,9 +286,11 @@ $add['header_top_bar_font_family'] = 'inherit';
 $add['header_top_bar_font_weight'] = 400;
 $add['header_top_bar_font_style'] = 'normal';
 $add['header_top_bar_text_transform'] = 'none';
-$add['header_top_bar_font_size'] = '13px';
+$add['header_top_bar_font_size'] = '14px';
 $add['header_top_bar_line_height'] = '1.7';
 $add['header_top_bar_letter_spacing'] = '0';
+
+$add['header_top_bar_icon_size'] = '16px';
 
 $add['header_top_bar_text_color'] = $colors['text'];
 $add['header_top_bar_link_text_color'] = $colors['heading'];
@@ -318,6 +320,8 @@ $add['header_main_bar_font_size'] = '15px';
 $add['header_main_bar_line_height'] = '1.7';
 $add['header_main_bar_letter_spacing'] = '0';
 
+$add['header_main_bar_icon_size'] = '18px';
+
 $add['header_main_bar_text_color'] = $colors['text'];
 $add['header_main_bar_link_text_color'] = $colors['heading'];
 $add['header_main_bar_link_hover_text_color'] = $colors['text'];
@@ -342,9 +346,11 @@ $add['header_bottom_bar_font_family'] = 'inherit';
 $add['header_bottom_bar_font_weight'] = 400;
 $add['header_bottom_bar_font_style'] = 'normal';
 $add['header_bottom_bar_text_transform'] = 'none';
-$add['header_bottom_bar_font_size'] = '13px';
+$add['header_bottom_bar_font_size'] = '14px';
 $add['header_bottom_bar_line_height'] = '1.7';
 $add['header_bottom_bar_letter_spacing'] = '0';
+
+$add['header_bottom_bar_icon_size'] = '16px';
 
 $add['header_bottom_bar_text_color'] = $colors['text'];
 $add['header_bottom_bar_link_text_color'] = $colors['heading'];
@@ -360,6 +366,8 @@ $add['header_mobile_main_bar_height'] = '60px';
 $add['header_mobile_main_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_mobile_main_bar_items_gap'] = '12px';
+
+$add['header_mobile_main_bar_icon_size'] = '18px';
 
 $add['header_mobile_main_bar_section_bg_color'] = $colors['bg'];
 $add['header_mobile_main_bar_section_border_color'] = $colors['border'];
@@ -378,9 +386,6 @@ $add['header_mobile_vertical_bar_width'] = '300px';
 
 $add['header_mobile_vertical_bar_items_gap'] = '12px';
 
-$add['header_mobile_vertical_bar_section_bg_color'] = $colors['bg'];
-$add['header_mobile_vertical_bar_section_border_color'] = $colors['border'];
-
 $add['header_mobile_vertical_bar_font_family'] = 'inherit';
 $add['header_mobile_vertical_bar_font_weight'] = 400;
 $add['header_mobile_vertical_bar_font_style'] = 'normal';
@@ -389,6 +394,10 @@ $add['header_mobile_vertical_bar_font_size'] = '14px';
 $add['header_mobile_vertical_bar_line_height'] = '1.6';
 $add['header_mobile_vertical_bar_letter_spacing'] = '0';
 
+$add['header_mobile_vertical_bar_icon_size'] = '18px';
+
+$add['header_mobile_vertical_bar_section_bg_color'] = $colors['bg'];
+$add['header_mobile_vertical_bar_section_border_color'] = $colors['border'];
 $add['header_mobile_vertical_bar_text_color'] = $colors['text'];
 $add['header_mobile_vertical_bar_link_text_color'] = $colors['heading'];
 $add['header_mobile_vertical_bar_link_hover_text_color'] = $colors['text'];
@@ -497,6 +506,8 @@ $add['footer_bottom_bar_text_transform'] = 'none';
 $add['footer_bottom_bar_font_size'] = '14px';
 $add['footer_bottom_bar_line_height'] = '1.7';
 $add['footer_bottom_bar_letter_spacing'] = '0';
+
+$add['footer_bottom_bar_icon_size'] = '16px';
 
 /**
  * ====================================================

@@ -131,6 +131,25 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'priority'    => 20,
 ) ) );
 
+// Icon size
+$id = 'header_mobile_vertical_bar_icon_size';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Icon size', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 60,
+			'step' => 1,
+		),
+	),
+	'priority'    => 25,
+) ) );
+
 /**
  * ====================================================
  * Colors

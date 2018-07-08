@@ -751,6 +751,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		);
 	}
 
+	$add['header_' . $type . '_icon_size'] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-header-' . $bar . ' .suki-menu-icon',
+			'property' => 'font-size',
+		),
+	);
+
 	$add['header_' . $type . '_section_bg_color'] = array(
 		array(
 			'type'     => 'css',
@@ -830,6 +838,14 @@ $add['header_mobile_main_bar_items_gap'] = array(
 	),
 );
 
+$add['header_mobile_main_bar_icon_size'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-main-bar .suki-menu-icon',
+		'property' => 'font-size',
+	),
+);
+
 $add['header_mobile_main_bar_section_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -903,7 +919,6 @@ $add['header_mobile_vertical_bar_section_border_color'] = array(
 	),
 );
 
-// Text
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$add['header_mobile_vertical_bar_' . $prop ] = array(
 		array(
@@ -914,6 +929,15 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 }
+
+$add['header_mobile_vertical_bar_icon_size'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical-bar .suki-menu-icon',
+		'property' => 'font-size',
+	),
+);
+
 $add['header_mobile_vertical_bar_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -1318,6 +1342,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 }
+
+$add['footer_bottom_bar_icon_size'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-bottom-bar .suki-menu-icon',
+		'property' => 'font-size',
+	),
+);
 
 /**
  * ====================================================

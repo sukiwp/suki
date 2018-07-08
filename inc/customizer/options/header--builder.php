@@ -54,7 +54,6 @@ $settings = array(
 foreach ( $settings as $id ) {
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
-		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
@@ -87,28 +86,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'priority'    => 10,
 ) ) );
 
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	// Header elements
-	$wp_customize->selective_refresh->add_partial( 'main_header', array(
-		'settings'            => array(
-			'header_elements_top_left',
-			'header_elements_top_center',
-			'header_elements_top_right',
-			'header_elements_main_left',
-			'header_elements_main_center',
-			'header_elements_main_right',
-			'header_elements_bottom_left',
-			'header_elements_bottom_center',
-			'header_elements_bottom_right',
-		),
-		'selector'            => '#header',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_main_header',
-		'fallback_refresh'    => false,
-	) );
-}
-
 // Mobile Header
 $settings = array(
 	'mobile_main_left'    => 'header_mobile_elements_main_left',
@@ -119,7 +96,6 @@ $settings = array(
 foreach ( $settings as $id ) {
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
-		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
@@ -152,31 +128,3 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	),
 	'priority'    => 10,
 ) ) );
-
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	// Mobile Header elements
-	$wp_customize->selective_refresh->add_partial( 'mobile_header', array(
-		'settings'            => array(
-			// Builder
-			'header_mobile_elements_main_left',
-			'header_mobile_elements_main_center',
-			'header_mobile_elements_main_right',
-		),
-		'selector'            => '#mobile-header',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_mobile_header',
-		'fallback_refresh'    => false,
-	) );
-
-	// Mobile Vertical Header elements
-	$wp_customize->selective_refresh->add_partial( 'mobile_vertical_header', array(
-		'settings'            => array(
-			'header_mobile_elements_vertical_top',
-		),
-		'selector'            => '#mobile-vertical-header',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_mobile_vertical_header',
-		'fallback_refresh'    => false,
-	) );
-}

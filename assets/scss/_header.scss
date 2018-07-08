@@ -59,7 +59,11 @@
 // Social
 .suki-header-social {
 	li.menu-item {
-		margin: 0 0.5em;
+		margin: 0 0.5em 0 0;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
 	}
 }
 

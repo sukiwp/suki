@@ -68,7 +68,6 @@ $settings = array(
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
 		'default'     => suki_array_value( $defaults, $setting ),
-		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
@@ -88,18 +87,3 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	),
 	'priority'    => 10,
 ) ) );
-
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial( $id, array(
-		'settings'            => array(
-			'footer_elements_bottom_left',
-			'footer_elements_bottom_center',
-			'footer_elements_bottom_right',
-		),
-		'selector'            => '#suki-footer-bottom-bar',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_footer_bottom_bar',
-		'fallback_refresh'    => false,
-	) );
-}

@@ -355,7 +355,7 @@ $wp_customize->add_panel( $panel, array(
 		'description' => sprintf(
 			/* translators: %s: link to "Page Settings" section. */
 			esc_html__( '"Default" post layout is used as the main post layout. You can configure it on %s', 'suki' ),
-			'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_section_entry_default' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
+			'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
 		),
 		'panel'       => $panel,
 	) );

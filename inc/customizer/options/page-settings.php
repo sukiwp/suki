@@ -20,9 +20,17 @@ foreach ( $page_sections as $type => $title ) {
 
 	/**
 	 * ====================================================
-	 * Content Layout
+	 * Content
 	 * ====================================================
 	 */
+
+	// Heading: Content
+	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $type . '_content', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'label'       => esc_html__( 'Content', 'suki' ),
+		'priority'    => 10,
+	) ) );
 
 	// Section container
 	$key = 'content_container';
@@ -34,7 +42,7 @@ foreach ( $page_sections as $type => $title ) {
 	$wp_customize->add_control( $id, array(
 		'type'        => 'select',
 		'section'     => $section,
-		'label'       => esc_html__( 'Content section container', 'suki' ),
+		'label'       => esc_html__( 'Section container', 'suki' ),
 		'choices'     => array(
 			'default'            => esc_html__( 'Fixed width container', 'suki' ),
 			'full-width'         => esc_html__( 'Full container', 'suki' ),
@@ -78,7 +86,7 @@ foreach ( $page_sections as $type => $title ) {
 			'features'    => array(
 				esc_html_x( 'Activate transparent header on this page', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Activate alternative header colors on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Disable some elements on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Hide some elements on this page', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

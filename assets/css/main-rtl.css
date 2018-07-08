@@ -847,7 +847,7 @@ select[multiple] {
 }
 
 .suki-menu-icon {
-	font-size: 1.2em;
+	font-size: 1.25em;
 }
 
 .menu, .sub-menu {
@@ -1384,7 +1384,11 @@ body.suki-has-popup-active .suki-popup-background {
 }
 
 .suki-header-social li.menu-item {
-	margin: 0 0.5em;
+	margin: 0 0 0 0.5em;
+}
+
+.suki-header-social li.menu-item:last-of-type {
+	margin-left: 0;
 }
 
 .suki-main-header {
