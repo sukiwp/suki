@@ -11,35 +11,32 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 get_header();
+
+suki_main_content_open();
+
+/**
+ * Hook: suki_before_main
+ * 
+ * @hooked suki_404_page_header - 10
+ */
+do_action( 'suki_before_main' );
 ?>
 
-<div id="primary" class="content-area narrow">
-	<main id="main" class="site-main" role="main">
-		<?php
-		/**
-		 * Hook: suki_before_main
-		 * 
-		 * @hooked suki_404_page_header - 10
-		 */
-		do_action( 'suki_before_main' );
-		?>
-
-		<section class="error-404 not-found">
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'suki' ); ?></p>
-				<?php get_search_form(); ?>
-			</div>
-		</section>
-
-		<?php
-		/**
-		 * Hook: suki_after_main
-		 */
-		do_action( 'suki_after_main' );
-		?>
-
-	</main>
-</div>
+<section class="error-404 not-found">
+	<div class="page-content">
+		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'suki' ); ?></p>
+		<?php get_search_form(); ?>
+	</div>
+</section>
 
 <?php
+/**
+ * Hook: suki_after_main
+ */
+do_action( 'suki_after_main' );
+
+suki_main_content_close();
+
+get_sidebar();
+
 get_footer();

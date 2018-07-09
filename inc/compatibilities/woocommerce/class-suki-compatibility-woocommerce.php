@@ -184,12 +184,6 @@ class Suki_Compatibility_WooCommerce {
 		 * Global template hooks
 		 */
 
-		// Change main content wrapper.
-		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-		add_action( 'woocommerce_before_main_content', array( $this, 'render_output_content_wrapper' ) );
-		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-		add_action( 'woocommerce_after_main_content', array( $this, 'render_output_content_wrapper_end' ) );
-
 		// Add count to Cart menu item.
 		add_filter( 'nav_menu_item_title', array( $this, 'add_count_to_cart_menu_item' ), 10, 4 );
 
@@ -358,26 +352,6 @@ class Suki_Compatibility_WooCommerce {
 	 * Global Page Hook functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Before main container.
-	 */
-	public function render_output_content_wrapper() {
-		?>
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
-		<?php
-	}
-
-	/**
-	 * After main container.
-	 */
-	public function render_output_content_wrapper_end() {
-		?>
-			</main>
-		</div>
-		<?php
-	}
 
 	/**
 	 * Add opening product wrapper tag to products loop item.

@@ -13,12 +13,8 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:29
+#: 404.php:27
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
-msgstr ""
-
-#: header.php:27
-msgid "Skip to content"
 msgstr ""
 
 #: style.css:2
@@ -156,62 +152,66 @@ msgstr ""
 msgid "Assign your menu to %s"
 msgstr ""
 
+#: inc/template-tags.php:178
+msgid "Skip to content"
+msgstr ""
+
 #. translators: %s: header menu number.
-#: inc/template-tags.php:370
+#: inc/template-tags.php:381
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/template-tags.php:384
+#: inc/template-tags.php:395
 msgid "Header Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:420
+#: inc/template-tags.php:431
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:460, inc/customizer/options/header--builder.php:108
+#: inc/template-tags.php:471, inc/customizer/options/header--builder.php:108
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:897
+#: inc/template-tags.php:938
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:898
+#: inc/template-tags.php:939
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:955
+#: inc/template-tags.php:996
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:956
+#: inc/template-tags.php:997
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:973
+#: inc/template-tags.php:1014
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:979
+#: inc/template-tags.php:1020
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1006
+#: inc/template-tags.php:1047
 msgid "Comments are closed."
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:1058
+#: inc/template-tags.php:1099
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:1075
+#: inc/template-tags.php:1116
 msgid "Oops! That page can not be found."
 msgstr ""
 
@@ -575,7 +575,7 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:461, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:435, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 

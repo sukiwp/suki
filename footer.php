@@ -12,15 +12,14 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-?>
-				<?php if ( apply_filters( 'suki_print_content_wrapper', true ) ) : ?>
+
+				if ( apply_filters( 'suki_print_content_wrapper', true ) ) : ?>
 								</div>
 							</div>
 						</div>
 					</div>
-				<?php endif; ?>
+				<?php endif;
 
-				<?php
 				/**
 				 * Hook: suki_before_footer
 				 */
@@ -41,6 +40,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				
 			</div>
 		</div>
+
+		<?php
+		/**
+		 * Hook: suki_after_canvas
+		 */
+		do_action( 'suki_after_canvas' );
+		?>
 
 		<?php wp_footer(); ?>
 	</body>

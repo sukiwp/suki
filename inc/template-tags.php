@@ -169,6 +169,17 @@ endif;
  * ====================================================
  */
 
+if ( ! function_exists( 'suki_skip_to_content_link' ) ) :
+/**
+ * Render skip to content link.
+ */
+function suki_skip_to_content_link() {
+	?>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'suki' ); ?></a>
+	<?php
+}
+endif;
+
 if ( ! function_exists( 'suki_popup_background' ) ) :
 /**
  * Render popup background overlay.
@@ -475,6 +486,36 @@ function suki_header_element( $element ) {
 	$html = apply_filters( "suki_header_element__{$element}", $html );
 
 	echo $html; // WPCS: XSS OK
+}
+endif;
+
+/**
+ * ====================================================
+ * Content section template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_main_content_open' ) ) :
+/**
+ * Render main content opening tags.
+ */
+function suki_main_content_open() {
+	?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_main_content_close' ) ) :
+/**
+ * Render main content closing tags.
+ */
+function suki_main_content_close() {
+	?>
+		</main>
+	</div>
+	<?php
 }
 endif;
 

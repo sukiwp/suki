@@ -24,13 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	</head>
 
 	<body <?php body_class(); ?>>
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'suki' ); ?></a>
-
 		<?php
 		/**
-		 * Hook: suki_before_header
+		 * Hook: suki_before_canvas
 		 *
-		 * @hooked suki_skip_link - 1
+		 * @hooked suki_skip_to_content_link - 1
 		 * @hooked suki_mobile_vertical_header - 10
 		 * @hooked suki_popup_background - 99
 		 */
@@ -57,11 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				 * Hook: suki_after_header
 				 */
 				do_action( 'suki_after_header' );
-				?>
-
-				<?php if ( apply_filters( 'suki_print_content_wrapper', true ) ) : ?>
+				
+				if ( apply_filters( 'suki_print_content_wrapper', true ) ) : ?>
 					<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki_content_classes', array() ) ) ); ?>">
 						<div class="suki-section-inner">
 							<div class="suki-wrapper">
 								<div class="suki-content-row">
-				<?php endif; ?>
+				<?php endif;

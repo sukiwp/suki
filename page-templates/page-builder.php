@@ -18,15 +18,21 @@ get_header();
 ?>
 
 <div id="content" class="site-content">
-	<?php
-	while ( have_posts() ) :
-		the_post();
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
+		<div class="entry-wrapper">
 
-		// Print the content.
-		the_content();
-	endwhile;
-	?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+
+				// Print the content.
+				the_content();
+			endwhile;
+			?>
+
+		</div>
+	</article>
 </div>
-	
+
 <?php
 get_footer();

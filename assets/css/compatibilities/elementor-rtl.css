@@ -1,3 +1,8 @@
+.elementor {
+	width: 100%;
+	min-width: 0;
+}
+
 .elementor-text-editor > *:first-child {
 	margin-top: 0;
 }
