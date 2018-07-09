@@ -63,30 +63,12 @@ input[type="week"],
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-	font-size: 1rem;
 	padding: 10px 12px;
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 3px;
 	background-color: #fff;
 	color: inherit;
-}
-
-select:hover, .select2-container .select2-selection:hover, input:hover[type="text"],
-input:hover[type="password"],
-input:hover[type="color"],
-input:hover[type="date"],
-input:hover[type="datetime-local"],
-input:hover[type="email"],
-input:hover[type="month"],
-input:hover[type="number"],
-input:hover[type="search"],
-input:hover[type="tel"],
-input:hover[type="time"],
-input:hover[type="url"],
-input:hover[type="week"],
-.input:hover, textarea:hover {
-	outline: 0;
 }
 
 select, .select2-container .select2-selection {
@@ -324,6 +306,10 @@ template {
 }
 
 *:focus {
+	outline: 0;
+}
+
+body.using-keyboard *:focus {
 	outline: thin dotted;
 }
 
@@ -416,8 +402,8 @@ table {
 
 table th, table td {
 	padding: 0.75rem 1rem;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	border-width: 1px;
+	border-style: solid;
 }
 
 table th {
@@ -450,10 +436,6 @@ a {
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-}
-
-a:hover {
-	outline: 0;
 }
 
 figure {
@@ -847,7 +829,7 @@ select[multiple] {
 }
 
 .suki-menu-icon {
-	font-size: 1.25em;
+	font-size: 16px;
 }
 
 .menu, .sub-menu {
@@ -2113,11 +2095,6 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 	border-left: none;
 	border-right-width: 0.25rem;
 	border-right-style: solid;
-}
-
-.entry-content table th, .entry-content table td {
-	border-width: 1px;
-	border-style: solid;
 }
 
 .entry-excerpt {

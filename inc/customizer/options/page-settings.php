@@ -46,7 +46,7 @@ foreach ( $page_sections as $type => $title ) {
 		'choices'     => array(
 			'default'            => esc_html__( 'Fixed width container', 'suki' ),
 			'full-width'         => esc_html__( 'Full container', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full container with edge tolerance padding', 'suki' ),
+			'full-width-padding' => esc_html__( 'Full container with side padding', 'suki' ),
 		),
 		'priority'    => 10,
 	) );

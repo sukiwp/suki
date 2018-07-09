@@ -35,7 +35,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'choices'     => array(
 			'default'            => esc_html__( 'Fixed width container', 'suki' ),
 			'full-width'         => esc_html__( 'Full container', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full container with edge tolerance padding', 'suki' ),
+			'full-width-padding' => esc_html__( 'Full container with side padding', 'suki' ),
 			'contained'          => esc_html__( 'Contained section', 'suki' ),
 		),
 		'priority'    => 10,
@@ -158,7 +158,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'label'       => esc_html__( 'Text typography', 'suki' ),
 		'priority'    => 20,
 	) ) );
-	
+
+	// ------
+	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_' . $type . '_icon_size', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'priority'    => 25,
+	) ) );
+
 	// Icon size
 	$id = 'header_' . $type . '_icon_size';
 	$wp_customize->add_setting( $id, array(

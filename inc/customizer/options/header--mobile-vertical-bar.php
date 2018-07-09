@@ -131,6 +131,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'priority'    => 20,
 ) ) );
 
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_mobile_vertical_bar_icon_size', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 25,
+) ) );
+
 // Icon size
 $id = 'header_mobile_vertical_bar_icon_size';
 $wp_customize->add_setting( $id, array(

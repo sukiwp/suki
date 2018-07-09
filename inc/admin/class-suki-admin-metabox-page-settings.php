@@ -240,7 +240,7 @@ class Suki_Admin_Metabox_Page_Settings {
 						''                   => esc_html__( '-- Use Customizer value --', 'suki' ),
 						'default'            => esc_html__( 'Fixed width container', 'suki' ),
 						'full-width'         => esc_html__( 'Full container', 'suki' ),
-						'full-width-padding' => esc_html__( 'Full container with edge tolerance padding', 'suki' ),
+						'full-width-padding' => esc_html__( 'Full container with side padding', 'suki' ),
 					),
 					'value'   => suki_array_value( $values, $key ),
 				) );

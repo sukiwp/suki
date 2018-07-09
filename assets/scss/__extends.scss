@@ -45,16 +45,11 @@
 	appearance: none;
 	@include transition();
 
-	font-size: 1rem; // default
 	padding: 10px 12px; // default
 	@include border(); // default
 	border-radius: 3px; // default
 	background-color: #fff; // default
 	color: inherit; // default
-
-	&:hover {
-		outline: 0;
-	}
 }
 
 %select {

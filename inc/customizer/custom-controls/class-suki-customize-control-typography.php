@@ -189,8 +189,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 					<label class="suki-row-item">
 						<span class="suki-small-label"><?php esc_html_e( 'Font', 'suki' ); ?></span>
 						<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
-							<option value=""></option>
-							<option value="inherit"><?php esc_html_e( 'Inherit', 'suki' ); ?></option>
+							<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 							<?php foreach ( suki_array_value( $this->choices, 'font_family', array() ) as $provider => $fonts ) : ?>
 								<optgroup label="<?php echo esc_attr( ucwords( str_replace( '_', ' ', $provider ) ) ); ?>">
 									<?php foreach ( $fonts as $value => $label ) : ?>
@@ -208,8 +207,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Weight', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.font_weight.__link }}}>
-								<option value=""></option>
-								<option value="inherit"><?php esc_html_e( 'Inherit', 'suki' ); ?></option>
+								<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 								<?php foreach ( suki_array_value( $this->choices, 'font_weight', array() ) as $value => $label ) : ?>
 									<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
 								<?php endforeach; ?>
@@ -220,8 +218,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Style', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.font_style.__link }}}>
-								<option value=""></option>
-								<option value="inherit"><?php esc_html_e( 'Inherit', 'suki' ); ?></option>
+								<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 								<?php foreach ( suki_array_value( $this->choices, 'font_style', array() ) as $value => $label ) : ?>
 									<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
 								<?php endforeach; ?>
@@ -232,8 +229,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Transform', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.text_transform.__link }}}>
-								<option value=""></option>
-								<option value="inherit"><?php esc_html_e( 'Inherit', 'suki' ); ?></option>
+								<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 								<?php foreach ( suki_array_value( $this->choices, 'text_transform', array() ) as $value => $label ) : ?>
 									<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
 								<?php endforeach; ?>
@@ -251,7 +247,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Size', 'suki' ); ?></span>
 							<span class="suki-typography-size suki-row">
 								<span class="suki-row-item">
-									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="">
+									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
@@ -270,7 +266,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Line', 'suki' ); ?></span>
 							<span class="suki-typography-size suki-row">
 								<span class="suki-row-item">
-									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="">
+									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
@@ -289,7 +285,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Spacing', 'suki' ); ?></span>
 							<span class="suki-typography-size suki-row">
 								<span class="suki-row-item">
-									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="">
+									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">

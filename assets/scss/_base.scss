@@ -12,7 +12,11 @@
 	}
 
 	&:focus {
-		outline: thin dotted;
+		outline: 0;
+
+		body.using-keyboard & {
+			outline: thin dotted;
+		}
 	}
 }
 
@@ -125,7 +129,7 @@ table {
 
 	th, td {
 		padding: 0.75rem 1rem;
-		@include border( bottom );
+		@include border();
 	}
 
 	th {
@@ -158,18 +162,7 @@ code {
 
 a {
 	background-color: transparent;
-	// color: #0000ee; // default
-	// text-decoration: none;
-
 	@include transition();
-
-	&:hover, &:focus {
-		// color: #551a8b; // default
-	}
-	
-	&:hover {
-		outline: 0;
-	}
 }
 
 figure {

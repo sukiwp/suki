@@ -82,7 +82,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
-// Edge tolerance padding
+// Container side padding
 $id = 'edge_padding';
 $settings = array(
 	$id,
@@ -99,8 +99,8 @@ foreach ( $settings as $setting ) {
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'settings'    => $settings,
 	'section'     => $section,
-	'label'       => esc_html__( 'Edge tolerance padding', 'suki' ),
-	'description' => esc_html__( 'This prevents your content to directly in touch with viewport window (to improve readibility).', 'suki' ),
+	'label'       => esc_html__( 'Container side padding', 'suki' ),
+	'description' => esc_html__( 'Padding on left & right side of each section to prevent collision between content and edges.', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,

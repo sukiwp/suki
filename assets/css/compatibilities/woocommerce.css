@@ -600,6 +600,10 @@ p.demo_store {
 	display: block;
 }
 
+.woocommerce div.product .product_meta a {
+	text-decoration: none;
+}
+
 .woocommerce div.product #reviews #comments ol.commentlist {
 	list-style: none;
 	margin: 0;
@@ -702,6 +706,8 @@ p.demo_store {
 .woocommerce table.shop_table th, .woocommerce table.shop_table td {
 	padding: 0.6rem 0.8rem;
 	border-top: none;
+	border-left: none;
+	border-right: none;
 }
 
 .woocommerce table.shop_table a {

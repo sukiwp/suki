@@ -567,6 +567,10 @@ p.demo_store {
 		> * {
 			display: block;
 		}
+
+		a {
+			text-decoration: none;
+		}
 	}
 
 	#reviews {
@@ -678,6 +682,8 @@ p.demo_store {
 	th, td {
 		padding: 0.6rem 0.8rem;
 		border-top: none;
+		border-left: none;
+		border-right: none;
 	}
 
 	a {

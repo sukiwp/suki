@@ -38,6 +38,19 @@
 		},
 
 		/**
+		 * Function to init different style of focused element on keyboard users and mouse users.
+		 */
+		initKeyboardAndMouseFocus: function() {
+			document.body.addEventListener( 'keydown', function( e ) {
+				document.body.classList.add( 'using-keyboard' );
+			});
+
+			document.body.addEventListener( 'mousedown', function( e ) {
+				document.body.classList.remove( 'using-keyboard' );
+			});
+		},
+
+		/**
 		 * Function to init edge sub menu detection script.
 		 */
 		initSubMenuEdgeDetection: function() {
@@ -351,6 +364,7 @@
 		 * Function that calls all init functions.
 		 */
 		initAll: function() {
+			window.suki.initKeyboardAndMouseFocus();
 			window.suki.initSubMenuEdgeDetection();
 			window.suki.initHoverMenu();
 			window.suki.initToggleMenu();

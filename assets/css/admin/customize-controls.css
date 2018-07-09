@@ -383,6 +383,7 @@
 
 .customize-control-suki-slider .suki-slider-input::-webkit-inner-spin-button, .customize-control-suki-slider .suki-slider-input::-webkit-outer-spin-button {
 	-webkit-appearance: none;
+	appearance: none;
 }
 
 .customize-control-suki-slider .suki-slider-ui {

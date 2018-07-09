@@ -194,12 +194,6 @@ a.entry-thumbnail {
 			@include border( right, 0.25rem, solid );
 		}
 	}
-
-	table {
-		th, td {
-			@include border();
-		}
-	}
 }
 
 // Excerpt
