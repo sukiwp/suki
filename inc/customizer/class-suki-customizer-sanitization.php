@@ -124,7 +124,7 @@ class Suki_Customizer_Sanitization {
 		$control = $setting->manager->get_control( $setting->id );
 
 		// Validate each property.
-		for ( $i = 0; $i < count( $props ); $i++ ) {
+		for ( $i = 0; $i < 4; $i++ ) {
 			$props[ $i ] = self::validate_dimension( $props[ $i ], $control->units );
 		}
 
