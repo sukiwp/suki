@@ -139,19 +139,14 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Colors
-$colors = array(
-	'content_bg_color'     => esc_html__( 'Background color', 'suki' ),
-	'content_border_color' => esc_html__( 'Border color', 'suki' ),
-);
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
-		'section'     => $section,
-		'label'       => $label,
-		'priority'    => 30,
-	) ) );
-}
+$id = 'content_bg_color';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Background color', 'suki' ),
+	'priority'    => 30,
+) ) );

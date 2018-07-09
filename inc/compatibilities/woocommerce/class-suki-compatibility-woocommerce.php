@@ -430,11 +430,11 @@ class Suki_Compatibility_WooCommerce {
 					?>
 					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu suki-toggle-menu">
 						<div class="menu-item">
-							<a href="#" class="shopping-cart-link suki-sub-menu-toggle">
+							<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
-							</a>
+							</button>
 							<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
 							<div class="sub-menu">
 								<?php the_widget( 'WC_Widget_Cart', array(

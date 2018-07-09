@@ -55,7 +55,8 @@
 		margin: 1.25rem;
 		font-size: 1.5rem;
 		line-height: 1;
-		color: #fff;
+		background-color: transparent !important;
+		color: #fff !important;
 		opacity: 1;
 
 		&:hover, &:focus {

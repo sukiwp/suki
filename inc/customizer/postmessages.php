@@ -134,6 +134,13 @@ $add['subtle_color'] = array(
 		'property' => 'background-color',
 	),
 );
+$add['border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '*',
+		'property' => 'border-color',
+	),
+);
 
 /**
  * ====================================================
@@ -1048,13 +1055,6 @@ $add['content_bg_color'] = array(
 		'type'     => 'css',
 		'element'  => '.content-area .site-main',
 		'property' => 'background-color',
-	),
-);
-$add['content_border_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.content-area .site-main',
-		'property' => 'border-color',
 	),
 );
 

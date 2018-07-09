@@ -678,12 +678,14 @@ p.demo_store {
 .woocommerce table.shop_table {
 	border-radius: 0;
 	border-collapse: collapse !important;
+	border-color: inherit;
 
 	th, td {
 		padding: 0.6rem 0.8rem;
 		border-top: none;
 		border-left: none;
 		border-right: none;
+		border-color: inherit;
 	}
 
 	a {
@@ -949,12 +951,14 @@ p.demo_store {
 
 // Price
 .woocommerce.widget_price_filter {
-	.ui-slider .ui-slider-range {
-		opacity: 0.5;
-	}
+	.ui-slider {
+		.ui-slider-range {
+			// opacity: 0.5;
+		}
 
-	.ui-slider .ui-slider-handle {
-		top: -0.25em;
+		.ui-slider-handle {
+			top: -0.3em;
+		}
 	}
 }
 
@@ -1091,6 +1095,7 @@ p.demo_store {
 	}
 }
 
+// Product search
 .woocommerce.widget_product_search {
 	.woocommerce-product-search {
 		display: block;
@@ -1108,7 +1113,7 @@ p.demo_store {
 			padding-left: 2.5em;
 		}
 
-		input[type="submit"] {
+		button[type="submit"] {
 			display: none;
 		}
 	}

@@ -33,6 +33,7 @@ $add['link_hover_text_color'] = $colors['accent_2'];
 $add['link_text_decoration'] = 'underline';
 
 $add['subtle_color'] = $colors['subtle'];
+$add['border_color'] = $colors['border'];
 
 /**
  * ====================================================
@@ -423,7 +424,6 @@ $add['content_border'] = '0px 0px 0px 0px';
 $add['narrow_content_width'] = '720px';
 
 $add['content_bg_color'] = '';
-$add['content_border_color'] = $colors['border'];
 
 /**
  * ====================================================

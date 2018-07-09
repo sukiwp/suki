@@ -124,9 +124,8 @@
 	}
 }
 
-// Search widget
-.search-form,
-%search-form {
+// Search form
+.search-form {
 	display: block;
 	position: relative;
 	max-width: 100%;
@@ -236,7 +235,8 @@
 }
 
 .suki-menu-icon {
-	font-size: 16px;
+	font-size: 16px; // default
+	vertical-align: middle;
 }
 
 .menu, .sub-menu {

@@ -160,7 +160,7 @@ function suki_walker_nav_menu_start_el( $item_output, $item, $depth, $args ) {
 	if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
 		// Only add to toggle menu.
 		if ( is_integer( strpos( $args->menu_class, 'suki-toggle-menu' ) ) ) {
-			$sign = '<a href="#" class="suki-sub-menu-toggle">' . suki_icon( 'submenu-down', array( 'class' => 'suki-dropdown-sign' ), false ) . '<span class="screen-reader-text">' . esc_html__( 'Expand / Collapse', 'suki' ) . '</span></a>';
+			$sign = '<button class="suki-sub-menu-toggle suki-toggle">' . suki_icon( 'submenu-down', array( 'class' => 'suki-dropdown-sign' ), false ) . '<span class="screen-reader-text">' . esc_html__( 'Expand / Collapse', 'suki' ) . '</span></button>';
 		}
 	}
 

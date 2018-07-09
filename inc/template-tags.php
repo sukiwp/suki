@@ -187,7 +187,7 @@ if ( ! function_exists( 'suki_popup_background' ) ) :
 function suki_popup_background() {
 	?>
 	<div id="suki-popup-background" class="suki-popup-background suki-popup-close">
-		<a href="#" class="suki-popup-close"><?php suki_icon( 'close' ); ?></a>
+		<button class="suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
 	</div>
 	<?php
 }
@@ -409,7 +409,7 @@ function suki_header_element( $element ) {
 		case 'html':
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
-				<?php echo do_shortcode( suki_get_theme_mod( 'header_' . $key . '_content' ) ); ?>
+				<div><?php echo do_shortcode( suki_get_theme_mod( 'header_' . $key . '_content' ) ); ?></div>
 			</div>
 			<?php
 			break;
@@ -466,10 +466,10 @@ function suki_header_element( $element ) {
 		case 'mobile-vertical-toggle':
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
-				<a href="#" class="suki-popup-toggle" data-target="mobile-vertical-header">
+				<button class="suki-popup-toggle suki-toggle" data-target="mobile-vertical-header">
 					<?php suki_icon( 'menu', array( 'class' => 'suki-menu-icon' ) ); ?>
 					<span class="screen-reader-text"><?php esc_html_e( 'Mobile Menu', 'suki' ); ?></span>
-				</a>
+				</button>
 			</div>
 			<?php
 			break;

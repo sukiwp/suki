@@ -36,7 +36,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle',
+		'element'  => '.woocommerce.widget_price_filter .ui-slider .ui-slider-range, .woocommerce.widget_price_filter .ui-slider .ui-slider-handle',
 		'property' => 'background-color',
 	),
 	array(
@@ -48,7 +48,7 @@ $add['link_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment',
+		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce.widget_price_filter .price_slider_wrapper .ui-widget-content, #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment',
 		'property' => 'background-color',
 	),
 );
@@ -300,7 +300,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.woocommerce .widget_shopping_cart .buttons a, .woocommerce.widget_shopping_cart .buttons a',
+			'element'  => '.woocommerce.widget_shopping_cart .buttons a',
 			'property' => $prop,
 		),
 	);
@@ -319,30 +319,11 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.woocommerce .widget_shopping_cart .buttons a:hover, .woocommerce .widget_shopping_cart .buttons a:focus, .woocommerce.widget_shopping_cart .buttons a:hover, .woocommerce.widget_shopping_cart .buttons a:focus',
+			'element'  => '.woocommerce.widget_shopping_cart .buttons a:hover, .woocommerce.widget_shopping_cart .buttons a:focus',
 			'property' => $prop,
 		),
 	);
 }
-
-/**
- * ====================================================
- * Content & Sidebar > Main Content
- * ====================================================
- */
-
-$add['content_bg_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content',
-		'property' => 'background-color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce table.shop_table, #add_payment_method #payment ul.payment_methods, .woocommerce-cart #payment ul.payment_methods, .woocommerce-checkout #payment ul.payment_methods',
-		'property' => 'border-color',
-	),
-);
 
 /**
  * ====================================================

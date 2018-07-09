@@ -869,12 +869,8 @@ msgstr ""
 msgid "Other colors are inherited from %s."
 msgstr ""
 
-#: inc/customizer/options/content--main.php:143, inc/customizer/options/content--sidebar.php:202, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:102, inc/customizer/options/footer--bottom-bar.php:167, inc/customizer/options/footer--widgets-bar.php:180, inc/customizer/options/header--mobile-main-bar.php:128, inc/customizer/options/header--mobile-vertical-bar.php:176, inc/customizer/options/header--top-main-bottom-bar.php:204, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:30
+#: inc/customizer/options/content--main.php:150, inc/customizer/options/content--sidebar.php:202, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:102, inc/customizer/options/footer--bottom-bar.php:167, inc/customizer/options/footer--widgets-bar.php:180, inc/customizer/options/header--mobile-main-bar.php:128, inc/customizer/options/header--mobile-vertical-bar.php:176, inc/customizer/options/header--top-main-bottom-bar.php:204, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:30
 msgid "Background color"
-msgstr ""
-
-#: inc/customizer/options/content--main.php:144, inc/customizer/options/content--sidebar.php:203, inc/customizer/options/elements--buttons.php:113, inc/customizer/options/elements--form-inputs.php:103, inc/customizer/options/footer--bottom-bar.php:168, inc/customizer/options/footer--widgets-bar.php:181, inc/customizer/options/header--mobile-main-bar.php:129, inc/customizer/options/header--mobile-vertical-bar.php:177, inc/customizer/options/header--top-main-bottom-bar.php:205, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:92
-msgid "Border color"
 msgstr ""
 
 #: inc/customizer/options/content--section.php:23, inc/customizer/options/footer--bottom-bar.php:29, inc/customizer/options/footer--widgets-bar.php:29, inc/customizer/options/header--top-main-bottom-bar.php:34, inc/customizer/options/page-settings.php:45
@@ -926,6 +922,10 @@ msgstr ""
 msgid "Gap between widgets"
 msgstr ""
 
+#: inc/customizer/options/content--sidebar.php:203, inc/customizer/options/elements--buttons.php:113, inc/customizer/options/elements--form-inputs.php:103, inc/customizer/options/footer--bottom-bar.php:168, inc/customizer/options/footer--widgets-bar.php:181, inc/customizer/options/header--mobile-main-bar.php:129, inc/customizer/options/header--mobile-vertical-bar.php:177, inc/customizer/options/header--top-main-bottom-bar.php:205, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:92
+msgid "Border color"
+msgstr ""
+
 #: inc/customizer/options/content--sidebar.php:231, inc/customizer/options/footer--bottom-bar.php:199, inc/customizer/options/footer--widgets-bar.php:213, inc/customizer/options/header--top-main-bottom-bar.php:236, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:155, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:327
 msgctxt "Suki Pro upsell"
 msgid "More typography options"
@@ -969,10 +969,18 @@ msgid "Link text color :hover"
 msgstr ""
 
 #: inc/customizer/options/elements--body.php:118
-msgid "Subtle color"
+msgid "Line / border color"
 msgstr ""
 
 #: inc/customizer/options/elements--body.php:119
+msgid "Used in horizontal line, blockquote left border, and other global elements."
+msgstr ""
+
+#: inc/customizer/options/elements--body.php:131
+msgid "Subtle color"
+msgstr ""
+
+#: inc/customizer/options/elements--body.php:132
 msgid "Background color that slightly different from page background color. Used in elements like &lt;pre&gt;, tagcloud links, etc."
 msgstr ""
 

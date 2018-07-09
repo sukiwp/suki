@@ -830,6 +830,7 @@ select[multiple] {
 
 .suki-menu-icon {
 	font-size: 16px;
+	vertical-align: middle;
 }
 
 .menu, .sub-menu {
@@ -1200,7 +1201,8 @@ body.suki-has-popup-active .suki-popup-background {
 	margin: 1.25rem;
 	font-size: 1.5rem;
 	line-height: 1;
-	color: #fff;
+	background-color: transparent !important;
+	color: #fff !important;
 	opacity: 1;
 }
 
@@ -1338,10 +1340,6 @@ body.suki-has-popup-active .suki-popup-background {
 .suki-header .menu > div,
 .suki-header .menu li {
 	position: relative;
-}
-
-.suki-menu-icon {
-	vertical-align: middle;
 }
 
 .suki-header-menu a {

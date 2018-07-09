@@ -107,6 +107,19 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_bo
 	'priority'    => 10,
 ) ) );
 
+$id = 'border_color';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Line / border color', 'suki' ),
+	'description' => esc_html__( 'Used in horizontal line, blockquote left border, and other global elements.', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 $id = 'subtle_color';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
