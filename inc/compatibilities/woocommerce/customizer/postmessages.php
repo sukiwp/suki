@@ -74,10 +74,9 @@ $add['heading_hover_text_color'] = array(
 	),
 );
 
-
 /**
  * ====================================================
- * General Elements > Titles & Meta
+ * General Elements > Title
  * ====================================================
  */
 
@@ -104,6 +103,13 @@ $add['title_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
+/**
+ * ====================================================
+ * General Elements > Small Title
+ * ====================================================
+ */
+
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$add['small_title_' . $prop ] = array(
 		array(
@@ -120,6 +126,13 @@ $add['small_title_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
+/**
+ * ====================================================
+ * General Elements > Meta Info
+ * ====================================================
+ */
+
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$add['meta_' . $prop ] = array(
 		array(
@@ -132,11 +145,18 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .woocommerce-breadcrumb, .woocommerce .woocommerce-breadcrumb a, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .woocommerce-product-rating .woocommerce-review-link, .woocommerce div.product .product_meta, .woocommerce div.product .product_meta a, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date',
+		'element'  => '.woocommerce .woocommerce-breadcrumb, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .product_meta, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date',
 		'property' => 'color',
 	),
 );
-$add['meta_hover_text_color'] = array(
+$add['meta_link_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce .woocommerce-breadcrumb a, .woocommerce div.product .woocommerce-product-rating .woocommerce-review-link, .woocommerce div.product .product_meta a',
+		'property' => 'color',
+	),
+);
+$add['meta_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce div.product .woocommerce-product-rating .woocommerce-review-link:hover, .woocommerce div.product .woocommerce-product-rating .woocommerce-review-link:focus, .woocommerce div.product .product_meta a:hover, .woocommerce div.product .product_meta a:focus',

@@ -433,7 +433,7 @@ $add['small_title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Meta
+ * General Elements > Meta Info
  * ====================================================
  */
 

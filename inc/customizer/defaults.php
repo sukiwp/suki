@@ -164,7 +164,7 @@ $add['small_title_hover_text_color'] = $colors['accent'];
 
 /**
  * ====================================================
- * General Elements > Meta
+ * General Elements > Meta Info
  * ====================================================
  */
 
@@ -176,8 +176,8 @@ $add['meta_font_size'] = '0.8em';
 $add['meta_line_height'] = '1.7';
 $add['meta_letter_spacing'] = '0';
 $add['meta_text_color'] = $colors['meta'];
-$add['meta_link_text_color'] = $colors['text'];
-$add['meta_link_hover_text_color'] = $colors['accent'];
+$add['meta_link_text_color'] = $colors['meta'];
+$add['meta_link_hover_text_color'] = $colors['text'];
 
 /**
  * ====================================================
