@@ -958,14 +958,28 @@ p.demo_store {
 // Price
 .woocommerce.widget_price_filter {
 	.price_slider {
+		position: relative;
 		height: 0.5em;
 		display: block !important;
+		background-color: transparent !important;
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 0.25em;
+			background-color: currentColor;
+			opacity: 0.25;
+		}
 
 		.ui-slider-range {
+			background-color: currentColor;
 			opacity: 0.5;
 		}
 
 		.ui-slider-handle {
+			background-color: currentColor;
 			top: -0.25em;
 		}
 	}

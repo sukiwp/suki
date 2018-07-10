@@ -36,11 +36,6 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce.widget_price_filter .ui-slider .ui-slider-range, .woocommerce.widget_price_filter .ui-slider .ui-slider-handle',
-		'property' => 'background-color',
-	),
-	array(
-		'type'     => 'css',
 		'element'  => '.suki-header-shopping-cart .shopping-cart-count',
 		'property' => 'background-color',
 	),
@@ -48,7 +43,7 @@ $add['link_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce.widget_price_filter .price_slider_wrapper .ui-widget-content, #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment',
+		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment',
 		'property' => 'background-color',
 	),
 );
@@ -336,6 +331,14 @@ $add['sidebar_gap'] = array(
 		'element'  => '.rtl .suki-woocommerce-checkout-2-columns .suki-woocommerce-checkout-col-2',
 		'property' => 'margin-right',
 		'media'    => '@media screen and (min-width: 1024px)',
+	),
+);
+
+$add['sidebar_link_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce.widget_price_filter .price_slider',
+		'property' => 'color',
 	),
 );
 
