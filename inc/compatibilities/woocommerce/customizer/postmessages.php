@@ -31,11 +31,6 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a',
-		'property' => 'border-color',
-	),
-	array(
-		'type'     => 'css',
 		'element'  => '.suki-header-shopping-cart .shopping-cart-count',
 		'property' => 'background-color',
 	),

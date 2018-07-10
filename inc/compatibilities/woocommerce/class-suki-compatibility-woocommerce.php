@@ -385,7 +385,7 @@ class Suki_Compatibility_WooCommerce {
 				} else {
 					$count = 0;
 				}
-				$title = str_replace( '{{count}}', '(<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>)', $title );
+				$title = str_replace( '{{count}}', '(<span class="shopping-cart-count suki-menu-icon" data-count="' . $count . '"><strong>' . $count . '</strong></span>)', $title );
 			}
 		}
 
@@ -433,7 +433,7 @@ class Suki_Compatibility_WooCommerce {
 							<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
+								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
 							</button>
 							<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
 							<div class="sub-menu">
@@ -461,7 +461,7 @@ class Suki_Compatibility_WooCommerce {
 						<div class="menu-item">
 							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
+								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
 							</a>
 						</div>
 					</div>
@@ -673,7 +673,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function update_header_cart( $fragments ) {
 		$count = WC()->cart->get_cart_contents_count();
-		$fragments['.shopping-cart-count'] = '<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>';
+		$fragments['.shopping-cart-count'] = '<span class="shopping-cart-count suki-menu-icon" data-count="' . $count . '"><strong>' . $count . '</strong></span>';
 		
 		return $fragments;
 	}
