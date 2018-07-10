@@ -182,9 +182,10 @@ p.demo_store {
 		animation: suki-pulse 0.5s 1;
 
 		strong {
+			display: inline-block;
 			font-size: 0.5em;
-			vertical-align: middle;
 			line-height: 2;
+			vertical-align: top;
 		}
 
 		&[data-count="0"] {

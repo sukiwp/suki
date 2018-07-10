@@ -168,9 +168,10 @@ p.demo_store {
 }
 
 .suki-header-shopping-cart .shopping-cart-count strong {
+	display: inline-block;
 	font-size: 0.5em;
-	vertical-align: middle;
 	line-height: 2;
+	vertical-align: top;
 }
 
 .suki-header-shopping-cart .shopping-cart-count[data-count="0"] {
