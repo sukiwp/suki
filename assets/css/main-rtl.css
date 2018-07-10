@@ -117,7 +117,7 @@ input:active[type="submit"],
 	text-decoration: none;
 }
 
-.entry-meta, .comment-metadata, .widget .post-date, .widget .rss-date {
+.entry-meta, .comment-metadata {
 	font-size: 0.8em;
 	font-weight: 400;
 	font-style: normal;
@@ -1277,6 +1277,9 @@ body.suki-has-popup-active .suki-popup-background {
 		-webkit-box-align: start;
 		-ms-flex-align: start;
 		align-items: flex-start;
+		-webkit-box-align: stretch;
+		-ms-flex-align: stretch;
+		align-items: stretch;
 	}
 	.suki-content-layout-left-sidebar .suki-content-row {
 		-webkit-box-orient: horizontal;
@@ -1313,16 +1316,24 @@ body.suki-has-popup-active .suki-popup-background {
 }
 
 .sidebar {
-	width: 300px;
-	min-width: 300px;
+	width: 250px;
+	min-width: 250px;
 }
 
 .suki-content-layout-right-sidebar .sidebar {
-	margin-right: 50px;
+	margin-right: 60px;
+}
+
+.rtl .suki-content-layout-right-sidebar .sidebar {
+	margin-left: 60px;
 }
 
 .suki-content-layout-left-sidebar .sidebar {
-	margin-left: 50px;
+	margin-left: 60px;
+}
+
+.rtl .suki-content-layout-left-sidebar .sidebar {
+	margin-right: 60px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -2386,6 +2397,7 @@ a.more-link {
 .widget .post-date, .widget .rss-date {
 	display: block;
 	margin-top: 0.25em;
+	font-size: 0.9em;
 }
 
 .suki-inactive-widgets-area a {

@@ -423,7 +423,7 @@ $add['content_border'] = '0px 0px 0px 0px';
 
 $add['narrow_content_width'] = '720px';
 
-$add['content_bg_color'] = '';
+$add['content_bg_color'] = 'rgba(0,0,0,0)';
 
 /**
  * ====================================================
@@ -431,15 +431,21 @@ $add['content_bg_color'] = '';
  * ====================================================
  */
 
-$add['sidebar_width'] = '300px';
-$add['sidebar_gap'] = '50px';
-$add['sidebar_widgets_mode'] = 'separated';
-$add['sidebar_widgets_gap'] = '40px';
-$add['sidebar_padding'] = '0px 0px 0px 0px';
-$add['sidebar_border'] = '0px 0px 0px 0px';
+$add['sidebar_width'] = '250px';
+$add['sidebar_gap'] = '30px';
 
-$add['sidebar_bg_color'] = '';
+$add['sidebar_widgets_mode'] = 'separated';
+$add['sidebar_widgets_gap'] = '30px';
+$add['sidebar_padding'] = '20px 20px 20px 20px';
+$add['sidebar_border'] = '1px 1px 1px 1px';
+
+$add['sidebar_bg_color'] = 'rgba(0,0,0,0)';
 $add['sidebar_border_color'] = $colors['border'];
+$add['sidebar_text_color'] = $colors['text'];
+$add['sidebar_border_color'] = $colors['border'];
+$add['sidebar_link_text_color'] = $colors['heading'];
+$add['sidebar_link_hover_text_color'] = $colors['text'];
+$add['sidebar_widget_title_text_color'] = $colors['heading'];
 
 /**
  * ====================================================

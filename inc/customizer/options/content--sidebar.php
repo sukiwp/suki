@@ -10,6 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'suki_section_sidebar';
 
+// Widgets
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'sidebar_widgets', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Add / remove widgets', 'suki' ),
+	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-sidebar' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Widgets on Sidebar', 'suki' ) . '</a>',
+	'priority'    => 0,
+) ) );
+
 /**
  * ====================================================
  * Layout
@@ -17,7 +26,7 @@ $section = 'suki_section_sidebar';
  */
 
 // Heading: Layout
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_sidebar_layout', array(
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_sidebar_layout', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Layout', 'suki' ),
@@ -37,12 +46,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'units'       => array(
 		'%' => array(
 			'min'  => 15,
-			'max'  => 45,
+			'max'  => 40,
 			'step' => 0.05,
 		),
 		'px' => array(
-			'min'  => 100,
-			'max'  => 500,
+			'min'  => 150,
+			'max'  => 400,
 			'step' => 1,
 		),
 	),
@@ -74,19 +83,36 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_sidebar_widgets', array(
+// Separator border
+$id = 'sidebar_separator_border';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
-	'settings'    => array(),
+	'label'       => esc_html__( 'Separator border', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 8,
+			'step' => 1,
+		),
+	),
 	'priority'    => 10,
 ) ) );
 
-// Widgets
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'sidebar_widgets', array(
+/**
+ * ====================================================
+ * Widgets
+ * ====================================================
+ */
+
+// Heading: Widgets
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_sidebar_widgets', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Add / remove widgets', 'suki' ),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-sidebar' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Widgets on Sidebar', 'suki' ) . '</a>',
+	'label'       => esc_html__( 'Widgets', 'suki' ),
 	'priority'    => 10,
 ) ) );
 
@@ -190,7 +216,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
  */
 
 // Heading: Colors
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_sidebar_colors', array(
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_sidebar_colors', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Colors', 'suki' ),
@@ -199,8 +225,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 
 // Colors
 $colors = array(
-	'sidebar_bg_color'     => esc_html__( 'Background color', 'suki' ),
-	'sidebar_border_color' => esc_html__( 'Border color', 'suki' ),
+	'sidebar_bg_color'                  => esc_html__( 'Background color', 'suki' ),
+	'sidebar_border_color'              => esc_html__( 'Border color', 'suki' ),
+	'sidebar_text_color'                => esc_html__( 'Text color', 'suki' ),
+	'sidebar_link_text_color'           => esc_html__( 'Link text color', 'suki' ),
+	'sidebar_link_hover_text_color'     => esc_html__( 'Link text color :hover', 'suki' ),
+	'sidebar_widget_title_text_color'   => esc_html__( 'Widget title text color', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(

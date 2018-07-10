@@ -17,8 +17,7 @@
 	.post-date, .rss-date {
 		display: block;
 		margin-top: 0.25em;
-
-		@extend %meta;
+		font-size: 0.9em;
 	}
 }
 
@@ -80,7 +79,6 @@
 
 		li {
 			position: relative;
-			// margin-top: 0.25em;
 		}
 	}
 

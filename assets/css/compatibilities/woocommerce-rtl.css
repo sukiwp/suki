@@ -74,6 +74,14 @@
 	color: inherit;
 }
 
+.woocommerce .woocommerce-error .button,
+.woocommerce .woocommerce-info .button,
+.woocommerce .woocommerce-message .button {
+	font-size: inherit;
+	line-height: inherit;
+	padding: 0 0.5em;
+}
+
 .woocommerce-store-notice,
 p.demo_store {
 	position: relative;
@@ -960,8 +968,27 @@ p.demo_store {
 	text-decoration: none;
 }
 
-.woocommerce.widget_price_filter .ui-slider .ui-slider-handle {
-	top: -0.3em;
+.woocommerce.widget_price_filter .price_slider {
+	height: 0.5em;
+	display: block !important;
+}
+
+.woocommerce.widget_price_filter .price_slider .ui-slider-range {
+	opacity: 0.5;
+}
+
+.woocommerce.widget_price_filter .price_slider .ui-slider-handle {
+	top: -0.25em;
+}
+
+.woocommerce.widget_price_filter .price_slider_amount input {
+	display: none;
+}
+
+.woocommerce.widget_price_filter .price_slider_amount .button {
+	font-size: inherit;
+	line-height: inherit;
+	padding: 0 0.5em;
 }
 
 .woocommerce.widget_product_categories ul {
@@ -978,10 +1005,6 @@ p.demo_store {
 .woocommerce.widget_product_categories ul li {
 	position: relative;
 	margin-top: 0.25em;
-}
-
-.woocommerce.widget_product_categories a {
-	text-decoration: none;
 }
 
 .woocommerce.widget_layered_nav ul,

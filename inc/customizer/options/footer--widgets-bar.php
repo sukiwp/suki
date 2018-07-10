@@ -181,8 +181,8 @@ $colors = array(
 	'footer_widgets_bar_section_border_color'    => esc_html__( 'Border color', 'suki' ),
 	'footer_widgets_bar_text_color'              => esc_html__( 'Text color', 'suki' ),
 	'footer_widgets_bar_link_text_color'         => esc_html__( 'Link text color', 'suki' ),
-	'footer_widgets_bar_link_hover_text_color'   => esc_html__( 'Link hover text color', 'suki' ),
-	'footer_widgets_bar_widget_title_text_color' => esc_html__( 'Widget Title text color', 'suki' ),
+	'footer_widgets_bar_link_hover_text_color'   => esc_html__( 'Link text color :hover', 'suki' ),
+	'footer_widgets_bar_widget_title_text_color' => esc_html__( 'Widget title text color', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(

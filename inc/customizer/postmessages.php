@@ -445,7 +445,7 @@ $add['small_title_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-meta, .comment-metadata, .widget .post-date, .widget .rss-date';
+	$element = '.entry-meta, .comment-metadata';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['meta_' . $prop ] = array(
@@ -740,7 +740,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . ' .suki-header-menu .menu-item',
-			'property' => 'margin',
+			'property' => 'padding',
 			'pattern'  => '0 $',
 		),
 	);
@@ -1079,22 +1079,22 @@ $add['sidebar_width'] = array(
 $add['sidebar_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.ltr #content.suki-content-layout-right-sidebar .sidebar',
+		'element'  => '.ltr .suki-content-layout-right-sidebar .sidebar',
 		'property' => 'margin-left',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.rtl #content.suki-content-layout-right-sidebar .sidebar',
+		'element'  => '.rtl .suki-content-layout-right-sidebar .sidebar',
 		'property' => 'margin-right',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.ltr #content.suki-content-layout-left-sidebar .sidebar',
+		'element'  => '.ltr .suki-content-layout-left-sidebar .sidebar',
 		'property' => 'margin-right',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.rtl #content.suki-content-layout-left-sidebar .sidebar',
+		'element'  => '.rtl .suki-content-layout-left-sidebar .sidebar',
 		'property' => 'margin-right',
 	),
 );
@@ -1147,8 +1147,36 @@ $add['sidebar_bg_color'] = array(
 $add['sidebar_border_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar.suki-sidebar-widgets-mode-merged .sidebar-inner, .sidebar.suki-sidebar-widgets-mode-separated .widget',
+		'element'  => '.sidebar *',
 		'property' => 'border-color',
+	),
+);
+$add['sidebar_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.sidebar',
+		'property' => 'color',
+	),
+);
+$add['sidebar_link_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.sidebar a',
+		'property' => 'color',
+	),
+);
+$add['sidebar_link_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.sidebar a:hover, .sidebar a:focus',
+		'property' => 'color',
+	),
+);
+$add['sidebar_widget_title_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.sidebar .widget-title',
+		'property' => 'color',
 	),
 );
 

@@ -80,13 +80,6 @@ $add['heading_hover_text_color'] = array(
  * ====================================================
  */
 
-$add['entry_title_meta_alignment'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce div.product .products > h2, .woocommerce .cart-collaterals h2',
-		'property' => 'text-align',
-	),
-);
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$add['title_' . $prop ] = array(
 		array(

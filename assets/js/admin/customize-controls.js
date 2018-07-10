@@ -125,18 +125,31 @@
 					updating = true;
 					$color.val( '' ).trigger( 'change' );
 					updating = false;
-				}
+				},
 			});
 
 			$inputs.on( 'change', function( i, el ) {
-				$values = $inputs.map( function() {
+				var values = $inputs.map( function() {
 					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '' : this.value.toString() + 'px' );
 				}).get();
 
-				value = $values.join( ' ' );
-
-				$value.val( value ).trigger( 'change' );
+				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			});
+
+			// Collapse color picker when hitting Esc instead of collapsing the current section.
+			control.container.on( 'keydown', function( e ) {
+				if ( 27 !== e.which ) { // Esc.
+					return;
+				}
+
+				var $pickerContainer = control.container.find( '.wp-picker-container' );
+
+				if ( $pickerContainer.hasClass( 'wp-picker-active' ) ) {
+					picker.wpColorPicker( 'close' );
+					control.container.find( '.wp-color-result' ).focus();
+					e.stopPropagation(); // Prevent section from being collapsed.
+				}
+			} );
 		}
 	});
 
