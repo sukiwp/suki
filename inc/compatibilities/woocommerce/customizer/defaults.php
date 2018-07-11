@@ -14,26 +14,6 @@ $add = array();
 
 /**
  * ====================================================
- * Page Settings > Products Index Page
- * ====================================================
- */
-
-$add['page_settings_product_archive'] = array(
-	'content_layout' => 'wide',
-);
-
-/**
- * ====================================================
- * Page Settings > Single Product Page
- * ====================================================
- */
-
-$add['page_settings_product_singular'] = array(
-	'content_layout' => 'wide',
-);
-
-/**
- * ====================================================
  * WooCommerce > Store Notice
  * ====================================================
  */
