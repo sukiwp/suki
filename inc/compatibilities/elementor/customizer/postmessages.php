@@ -172,12 +172,12 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['button_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button, .elementor-button.elementor-size-sm',
+		'element'  => '.elementor-element .elementor-button, .elementor-element .elementor-button.elementor-size-sm',
 		'property' => 'padding',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-xs',
+		'element'  => '.elementor-element .elementor-button.elementor-size-xs',
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -186,7 +186,7 @@ $add['button_padding'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-md',
+		'element'  => '.elementor-element .elementor-button.elementor-size-md',
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -195,7 +195,7 @@ $add['button_padding'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-lg',
+		'element'  => '.elementor-element .elementor-button.elementor-size-lg',
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -204,7 +204,7 @@ $add['button_padding'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-xl',
+		'element'  => '.elementor-element .elementor-button.elementor-size-xl',
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -216,7 +216,7 @@ $add['button_padding'] = array(
 $add['button_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button',
+		'element'  => '.elementor-element .elementor-button',
 		'property' => 'border-width',
 	),
 );
@@ -224,12 +224,12 @@ $add['button_border'] = array(
 $add['button_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button, .elementor-button.elementor-size-sm',
+		'element'  => '.elementor-element .elementor-button, .elementor-element .elementor-button.elementor-size-sm',
 		'property' => 'border-radius',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-xs',
+		'element'  => '.elementor-element .elementor-button.elementor-size-xs',
 		'property' => 'border-radius',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -238,7 +238,7 @@ $add['button_border_radius'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-md',
+		'element'  => '.elementor-element .elementor-button.elementor-size-md',
 		'property' => 'border-radius',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -247,7 +247,7 @@ $add['button_border_radius'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-lg',
+		'element'  => '.elementor-element .elementor-button.elementor-size-lg',
 		'property' => 'border-radius',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -256,7 +256,7 @@ $add['button_border_radius'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.elementor-button.elementor-size-xl',
+		'element'  => '.elementor-element .elementor-button.elementor-size-xl',
 		'property' => 'border-radius',
 		'function' => array(
 			'name' => 'scale_dimensions',
@@ -270,7 +270,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 	$array[] = array(
 		'type'     => 'font_family' === $prop ? 'font' : 'css',
-		'element'  => '.elementor-button, .elementor-button.elementor-size-sm',
+		'element'  => '.elementor-element .elementor-button, .elementor-element .elementor-button.elementor-size-sm',
 		'property' => $property,
 	);
 
@@ -278,7 +278,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	if ( in_array( $prop, array( 'font_size', 'letter_spacing' ) ) ) {
 		$array[] = array(
 			'type'     => 'css',
-			'element'  => '.elementor-button.elementor-size-xs',
+			'element'  => '.elementor-element .elementor-button.elementor-size-xs',
 			'property' => $property,
 			'function' => array(
 				'name' => 'scale_dimensions',
@@ -287,7 +287,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 		$array[] = array(
 			'type'     => 'css',
-			'element'  => '.elementor-button.elementor-size-md',
+			'element'  => '.elementor-element .elementor-button.elementor-size-md',
 			'property' => $property,
 			'function' => array(
 				'name' => 'scale_dimensions',
@@ -296,7 +296,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 		$array[] = array(
 			'type'     => 'css',
-			'element'  => '.elementor-button.elementor-size-lg',
+			'element'  => '.elementor-element .elementor-button.elementor-size-lg',
 			'property' => $property,
 			'function' => array(
 				'name' => 'scale_dimensions',
@@ -305,7 +305,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 		$array[] = array(
 			'type'     => 'css',
-			'element'  => '.elementor-button.elementor-size-xl',
+			'element'  => '.elementor-element .elementor-button.elementor-size-xl',
 			'property' => $property,
 			'function' => array(
 				'name' => 'scale_dimensions',
@@ -321,7 +321,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.elementor-element.elementor-button-suki .elementor-button',
+			'element'  => '.elementor-element .elementor-button-suki .elementor-button',
 			'property' => $prop,
 		),
 	);
@@ -330,7 +330,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_hover_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.elementor-element.elementor-button-suki .elementor-button:hover, .elementor-element.elementor-button-suki .elementor-button:focus',
+			'element'  => '.elementor-element .elementor-button-suki .elementor-button:hover, .elementor-element .elementor-button-suki .elementor-button:focus',
 			'property' => $prop,
 		),
 	);

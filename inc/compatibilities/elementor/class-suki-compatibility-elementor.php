@@ -49,10 +49,10 @@ class Suki_Compatibility_Elementor {
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'modify_font_control__add_fonts' ) );
 
 		// Add new options in Heading widget 'Size' setting.
-		add_action( 'elementor/element/heading/section_title/before_section_end', array( $this, 'add_heading_size_options' ), 10, 2 );
+		add_action( 'elementor/element/heading/section_style/before_section_end', array( $this, 'add_heading_size_options' ), 10, 2 );
 
 		// Add new options in Button widget 'Type' setting.
-		add_action( 'elementor/element/button/section_button/before_section_end', array( $this, 'add_button_type_options' ), 10, 2 );
+		add_action( 'elementor/element/button/section_style/before_section_end', array( $this, 'add_button_type_options' ), 10, 2 );
 
 		// Modify Elementor page template.
 		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 99999 );
@@ -119,6 +119,13 @@ class Suki_Compatibility_Elementor {
 					'suki' => esc_html__( 'Suki - Button', 'suki' ),
 				) ),
 				'default' => 'suki',
+			)
+		);
+
+		$element->update_control(
+			'border_border',
+			array(
+				'default' => 'solid',
 			)
 		);
 	}
