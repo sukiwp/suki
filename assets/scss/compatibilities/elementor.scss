@@ -6,19 +6,6 @@
 // Common Styles
 // -------------------------------------------------------------
 
-.page-template-elementor_header_footer {
-	
-}
-
-.elementor {
-	// Make elementor container always takes 100% width.
-	width: 100%;
-
-	// fix <pre> width on flex element
-	// ref: https://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
-	min-width: 0;
-}
-
 .elementor-text-editor {
 	> *:first-child {
 		margin-top: 0;
@@ -27,4 +14,9 @@
 	> *:last-child {
 		margin-bottom: 0;
 	}
+}
+
+.elementor-button {
+	border-color: transparent; // default
+	line-height: normal;
 }

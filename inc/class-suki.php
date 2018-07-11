@@ -57,7 +57,7 @@ class Suki {
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
 		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ), 11 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
 
 		$this->_includes();

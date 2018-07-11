@@ -452,7 +452,7 @@ function suki_header_element( $element ) {
 					);
 				}
 				?>
-				<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu">
+				<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu suki-menu-icon">
 					<?php suki_social_links( $links, array(
 						'before_link' => '<li class="menu-item">',
 						'after_link'  => '</li>',
