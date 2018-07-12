@@ -567,19 +567,19 @@ msgstr ""
 msgid "Display post date?"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:101
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:102
 msgid "Suki - Title"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:102
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:103
 msgid "Suki - Small Title"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:103
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:104
 msgid "Suki - Meta Info"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:119
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:120
 msgid "Suki - Button"
 msgstr ""
 
