@@ -90,7 +90,11 @@ class Suki {
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.
 			if ( class_exists( $plugin_class ) ) {
-				require_once( SUKI_INCLUDES_PATH . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php' );
+				$compatibility_file = SUKI_INCLUDES_PATH . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php';
+
+				if ( file_exists( $compatibility_file ) ) {
+					require_once( $compatibility_file );
+				}
 			}
 		}
 	}
@@ -368,6 +372,7 @@ class Suki {
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
 			'elementor' => '\Elementor\Plugin',
+			'contact-form-7' => 'WPCF7',
 		);
 	}
 }

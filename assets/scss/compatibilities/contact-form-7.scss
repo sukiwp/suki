@@ -1,0 +1,15 @@
+@import "../__variables";
+@import "../__mixins";
+@import "../__extends";
+
+// -------------------------------------------------------------
+// Common Styles
+// -------------------------------------------------------------
+
+.wpcf7 {
+	input:not( [type="submit"] ),
+	textarea,
+	select {
+		width: 100%;
+	}
+}
