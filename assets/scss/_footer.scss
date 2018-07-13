@@ -102,11 +102,17 @@
 // -------------------------------------------------------------
 
 .suki-footer-row {
-	@include flex();
-	white-space: nowrap;
+	margin: -1.25em 0;
+
+	@media screen and ( min-width: $breakpoint_1024 ) {
+		@include flex();
+		white-space: nowrap;
+	}
 }
 
 .suki-footer-column {
+	margin: 1.25em 0;
+	
 	> * {
 		margin: 1.25em 0;
 
@@ -118,9 +124,15 @@
 			margin-bottom: 0;
 		}
 	}
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		text-align: center;
+	}
 }
 
 .suki-footer-bottom-bar-left,
 .suki-footer-bottom-bar-right {
-	width: 50%;
+	@media screen and ( min-width: $breakpoint_1024 ) {
+		width: 50%;
+	}
 }
