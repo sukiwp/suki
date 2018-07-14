@@ -37,25 +37,25 @@ msgstr ""
 msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
 msgstr ""
 
-#: inc/class-suki.php:203
+#: inc/class-suki.php:207
 msgid "Header Menu 1"
 msgstr ""
 
-#: inc/class-suki.php:204, inc/customizer/options/header--menu.php:40
+#: inc/class-suki.php:208, inc/customizer/options/header--menu.php:40
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:205, inc/customizer/options/footer--builder.php:80, inc/customizer/options/footer--menu.php:23
+#: inc/class-suki.php:209, inc/customizer/options/footer--builder.php:80, inc/customizer/options/footer--menu.php:23
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:237, inc/customizer/options/_sections.php:257
+#: inc/class-suki.php:241, inc/customizer/options/_sections.php:257
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
 #. translators: %d: column number.
-#: inc/class-suki.php:248, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:252, inc/customizer/options/footer--widgets-column.php:25
 msgid "Footer Widgets Column %d"
 msgstr ""
 
