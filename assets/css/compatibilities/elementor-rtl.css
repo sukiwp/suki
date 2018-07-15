@@ -5,8 +5,3 @@
 .elementor-text-editor > *:last-child {
 	margin-bottom: 0;
 }
-
-.elementor-button {
-	border-color: transparent;
-	line-height: normal;
-}

@@ -56,9 +56,10 @@ class Suki {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
-		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
+
+		// Declare 'wp_enqueue_scripts' action on 'init' hook to make sure all plugins' scripts has been enqueued before theme scripts.
+		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
+		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
 		$this->_includes();
 	}
@@ -267,6 +268,18 @@ class Suki {
 	}
 
 	/**
+	 * Enqueue frontend scripts.
+	 *
+	 * @param string $hook
+	 */
+	public function handle_frontend_scripts( $hook ) {
+		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
+	}
+
+	/**
 	 * Enqueue frontend styles.
 	 *
 	 * @param string $hook
@@ -297,7 +310,7 @@ class Suki {
 	 *
 	 * @param string $hook
 	 */
-	public function enqueue_frontend_scripts( $hook ) {
+	public function enqueue_frontend_javascripts( $hook ) {
 		// Fetched version from package.json
 		$ver = array();
 		$ver['classlist-polyfill'] = '1.2.20180112';
