@@ -46,20 +46,20 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
-// $add['title_text_color'] = array(
-// 	array(
-// 		'type'     => 'css',
-// 		'element'  => '.elementor-size-suki-title',
-// 		'property' => 'color',
-// 	),
-// );
-// $add['title_hover_text_color'] = array(
-// 	array(
-// 		'type'     => 'css',
-// 		'element'  => '.elementor-size-suki-title a:hover, .elementor-size-suki-title a:focus',
-// 		'property' => 'color',
-// 	),
-// );
+$add['title_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.elementor-size-suki-title',
+		'property' => 'color',
+	),
+);
+$add['title_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.elementor-size-suki-title a:hover, .elementor-size-suki-title a:focus',
+		'property' => 'color',
+	),
+);
 
 /**
  * ====================================================
@@ -97,20 +97,20 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
-// $add['small_title_text_color'] = array(
-// 	array(
-// 		'type'     => 'css',
-// 		'element'  => '.elementor-size-suki-small-title, .elementor-size-suki-small-title a',
-// 		'property' => 'color',
-// 	),
-// );
-// $add['small_title_hover_text_color'] = array(
-// 	array(
-// 		'type'     => 'css',
-// 		'element'  => '.elementor-size-suki-small-title a:hover, .elementor-size-suki-small-title a:focus',
-// 		'property' => 'color',
-// 	),
-// );
+$add['small_title_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.elementor-size-suki-small-title, .elementor-size-suki-small-title a',
+		'property' => 'color',
+	),
+);
+$add['small_title_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.elementor-size-suki-small-title a:hover, .elementor-size-suki-small-title a:focus',
+		'property' => 'color',
+	),
+);
 
 /**
  * ====================================================
@@ -148,20 +148,20 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
-// $add['meta_text_color'] = array(
-// 	array(
-// 		'type'     => 'css',
-// 		'element'  => '.elementor-size-suki-meta, .elementor-size-suki-meta a',
-// 		'property' => 'color',
-// 	),
-// );
-// $add['meta_hover_text_color'] = array(
-// 	array(
-// 		'type'     => 'css',
-// 		'element'  => '.elementor-size-suki-meta a:hover, .elementor-size-suki-meta a:focus',
-// 		'property' => 'color',
-// 	),
-// );
+$add['meta_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.elementor-size-suki-meta, .elementor-size-suki-meta a',
+		'property' => 'color',
+	),
+);
+$add['meta_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.elementor-size-suki-meta a:hover, .elementor-size-suki-meta a:focus',
+		'property' => 'color',
+	),
+);
 
 /**
  * ====================================================
@@ -181,7 +181,7 @@ $add['button_padding'] = array(
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 0.9 ),
+			'args' => array( 0.85 ),
 		),
 	),
 	array(
@@ -190,7 +190,7 @@ $add['button_padding'] = array(
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 1.1 ),
+			'args' => array( 1.15 ),
 		),
 	),
 	array(
@@ -199,7 +199,7 @@ $add['button_padding'] = array(
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 1.2 ),
+			'args' => array( 1.3 ),
 		),
 	),
 	array(
@@ -208,7 +208,7 @@ $add['button_padding'] = array(
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 1.3 ),
+			'args' => array( 1.45 ),
 		),
 	),
 );
