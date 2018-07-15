@@ -37,25 +37,25 @@ msgstr ""
 msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
 msgstr ""
 
-#: inc/class-suki.php:207
+#: inc/class-suki.php:208
 msgid "Header Menu 1"
 msgstr ""
 
-#: inc/class-suki.php:208, inc/customizer/options/header--menu.php:40
+#: inc/class-suki.php:209, inc/customizer/options/header--menu.php:40
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:209, inc/customizer/options/footer--builder.php:80, inc/customizer/options/footer--menu.php:23
+#: inc/class-suki.php:210, inc/customizer/options/footer--builder.php:80, inc/customizer/options/footer--menu.php:23
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:241, inc/customizer/options/_sections.php:257
+#: inc/class-suki.php:242, inc/customizer/options/_sections.php:257
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
 #. translators: %d: column number.
-#: inc/class-suki.php:252, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:253, inc/customizer/options/footer--widgets-column.php:25
 msgid "Footer Widgets Column %d"
 msgstr ""
 
@@ -152,66 +152,66 @@ msgstr ""
 msgid "Assign your menu to %s"
 msgstr ""
 
-#: inc/template-tags.php:178
+#: inc/template-tags.php:186
 msgid "Skip to content"
 msgstr ""
 
 #. translators: %s: header menu number.
-#: inc/template-tags.php:381
+#: inc/template-tags.php:389
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/template-tags.php:395
+#: inc/template-tags.php:403
 msgid "Header Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:431
+#: inc/template-tags.php:439
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:471, inc/customizer/options/header--builder.php:108
+#: inc/template-tags.php:479, inc/customizer/options/header--builder.php:108
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:938
+#: inc/template-tags.php:946
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:939
+#: inc/template-tags.php:947
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:996
+#: inc/template-tags.php:1004
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:997
+#: inc/template-tags.php:1005
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1014
+#: inc/template-tags.php:1022
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1020
+#: inc/template-tags.php:1028
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1047
+#: inc/template-tags.php:1055
 msgid "Comments are closed."
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:1099
+#: inc/template-tags.php:1107
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:1116
+#: inc/template-tags.php:1124
 msgid "Oops! That page can not be found."
 msgstr ""
 
@@ -565,22 +565,6 @@ msgstr ""
 
 #: inc/widgets/class-suki-widget-posts.php:152
 msgid "Display post date?"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:102
-msgid "Suki - Title"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:103
-msgid "Suki - Small Title"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:104
-msgid "Suki - Meta Info"
-msgstr ""
-
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:120
-msgid "Suki - Button"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:86

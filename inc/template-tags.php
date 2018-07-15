@@ -65,6 +65,14 @@ function suki_logo( $logo_image_id = null ) {
 				}
 				$logo_image = ob_get_clean();
 
+				// Add width attribute if not found in the SVG markup.
+				// Width value is extracted from viewBox attribute.
+				if ( ! preg_match( '/<svg.*?width.*?>/', $logo_image ) ) {
+					if ( preg_match( '/<svg.*?viewBox="0 0 ([0-9.]+) ([0-9.]+)".*?>/', $logo_image, $matches ) ) {
+						$logo_image = preg_replace( '/<svg (.*?)>/', '<svg $1 width="' . $matches[1] . '" height="' . $matches[2] . '">', $logo_image );
+					}
+				}
+
 				// Remove <title> from SVG markup.
 				// Site name would be added as a screen reader text to represent the logo.
 				$logo_image = preg_replace( '/<title>.*?<\/title>/', '', $logo_image );

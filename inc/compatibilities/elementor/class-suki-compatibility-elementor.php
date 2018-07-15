@@ -42,18 +42,8 @@ class Suki_Compatibility_Elementor {
 		// Compatibility CSS
 		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 
-		// Customizer settings & values
-		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
-
 		// Add theme defined fonts to all typography settings.
-		add_action( 'elementor/fonts/additional_fonts', array( $this, 'modify_font_control__add_fonts' ) );
-
-		// Add new options in Heading widget 'Size' setting.
-		add_action( 'elementor/element/heading/section_title/before_section_end', array( $this, 'add_heading_size_options' ), 10, 2 );
-
-		// Add new options in Button widget 'Type' setting.
-		add_action( 'elementor/element/button/section_button/before_section_end', array( $this, 'add_button_type_options' ), 10, 2 );
-		add_action( 'elementor/element/button/section_style/before_section_end', array( $this, 'set_border_type_default_to_solid' ), 10, 2 );
+		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
 		// Modify Elementor page template.
 		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 99999 );
@@ -78,73 +68,12 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
-	 * Add postmessage rules for some Customizer settings.
-	 *
-	 * @param array $postmessages
-	 * @return array
-	 */
-	public function add_customizer_setting_postmessages( $postmessages = array() ) {
-		include( SUKI_INCLUDES_PATH . '/compatibilities/elementor/customizer/postmessages.php' );
-
-		return $postmessages;
-	}
-
-	/**
-	 * Add heading size options.
-	 *
-	 * @param \Elementor\Elements_Base $element
-	 */
-	public function add_heading_size_options( $element, $args ) {
-		$element->update_control(
-			'size',
-			array(
-				'options' => array_merge( suki_array_value( $element->get_controls( 'size' ), 'options', array() ), array(
-					'suki-title'       => esc_html__( 'Suki - Title', 'suki' ),
-					'suki-small-title' => esc_html__( 'Suki - Small Title', 'suki' ),
-					'suki-meta'        => esc_html__( 'Suki - Meta Info', 'suki' ),
-				) ),
-			)
-		);
-	}
-
-	/**
-	 * Add button type options.
-	 *
-	 * @param \Elementor\Elements_Base $element
-	 */
-	public function add_button_type_options( $element, $args ) {
-		$element->update_control(
-			'button_type',
-			array(
-				'options' => array_merge( suki_array_value( $element->get_controls( 'button_type' ), 'options', array() ), array(
-					'suki' => esc_html__( 'Suki - Button', 'suki' ),
-				) ),
-				'default' => 'suki',
-			)
-		);
-	}
-
-	/**
-	 * Set button border type default value to "solid".
-	 *
-	 * @param \Elementor\Elements_Base $element
-	 */
-	public function set_border_type_default_to_solid( $element, $args ) {
-		$element->update_control(
-			'border_border',
-			array(
-				'default' => 'solid',
-			)
-		);
-	}
-
-	/**
 	 * Modify Icon control: add fonts.
 	 *
 	 * @param array $fonts
 	 * @return array
 	 */
-	public function modify_font_control__add_fonts( $fonts ) {
+	public function add_theme_fonts_as_options_on_font_control( $fonts ) {
 		$fonts = array();
 
 		$class = '\Elementor\Fonts';
