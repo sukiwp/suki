@@ -93,6 +93,10 @@ a.button, .wp-block-button .wp-block-button__link {
 	text-align: center;
 	cursor: pointer;
 	font-size: 1rem;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 0;
+	text-transform: 0;
 	padding: 10px 20px;
 	border-radius: 3px;
 	-webkit-transition: all 0.25s;
@@ -1304,8 +1308,8 @@ body.suki-has-popup-active .suki-popup-background {
 }
 
 .sidebar {
-	width: 250px;
-	min-width: 250px;
+	width: 25%;
+	min-width: 25%;
 }
 
 .suki-content-layout-right-sidebar .sidebar {
@@ -1935,11 +1939,11 @@ body.suki-has-popup-active .suki-popup-background {
 	margin-top: 6rem;
 }
 
-.suki-loop-default .entry > *:first-child {
+.suki-loop-default .entry:first-child {
 	margin-top: 0;
 }
 
-.suki-loop-default .entry > *:last-child {
+.suki-loop-default .entry:last-child {
 	margin-bottom: 0;
 }
 
@@ -1994,11 +1998,11 @@ body.suki-has-popup-active .suki-popup-background {
 	border-bottom-style: solid;
 }
 
-.suki-loop-search .entry > *:first-child {
+.suki-loop-search .entry:first-child {
 	margin-top: 0;
 }
 
-.suki-loop-search .entry > *:last-child {
+.suki-loop-search .entry:last-child {
 	margin-bottom: 0;
 }
 

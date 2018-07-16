@@ -7,6 +7,10 @@
 	text-align: center;
 	cursor: pointer;
 	font-size: 1rem;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 0;
+	text-transform: 0;
 	padding: 10px 20px;
 	border-radius: 3px;
 	-webkit-transition: all 0.25s;

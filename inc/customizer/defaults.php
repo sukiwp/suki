@@ -20,11 +20,11 @@ $add = array();
 
 $add['body_font_family'] = 'web_safe_fonts|System';
 $add['body_font_weight'] = 400;
-$add['body_font_style'] = 'normal';
+$add['body_font_style'] = '';
 $add['body_text_transform'] = 'none';
 $add['body_font_size'] = '15px';
 $add['body_line_height'] = '1.7';
-$add['body_letter_spacing'] = '0';
+$add['body_letter_spacing'] = '';
 
 $add['body_text_color'] = $colors['text'];
 
@@ -40,37 +40,37 @@ $add['border_color'] = $colors['border'];
  * ====================================================
  */
 
-$add['h1_font_family'] = 'inherit';
+$add['h1_font_family'] = '';
 $add['h1_font_weight'] = 600;
-$add['h1_font_style'] = 'normal';
-$add['h1_text_transform'] = 'none';
+$add['h1_font_style'] = '';
+$add['h1_text_transform'] = '';
 $add['h1_font_size'] = '32px';
 $add['h1_line_height'] = '1.4';
-$add['h1_letter_spacing'] = '0';
+$add['h1_letter_spacing'] = '';
 
-$add['h2_font_family'] = 'inherit';
+$add['h2_font_family'] = '';
 $add['h2_font_weight'] = 600;
-$add['h2_font_style'] = 'normal';
-$add['h2_text_transform'] = 'none';
+$add['h2_font_style'] = '';
+$add['h2_text_transform'] = '';
 $add['h2_font_size'] = '27px';
 $add['h2_line_height'] = '1.5';
-$add['h2_letter_spacing'] = '0';
+$add['h2_letter_spacing'] = '';
 
-$add['h3_font_family'] = 'inherit';
+$add['h3_font_family'] = '';
 $add['h3_font_weight'] = 600;
-$add['h3_font_style'] = 'normal';
-$add['h3_text_transform'] = 'none';
+$add['h3_font_style'] = '';
+$add['h3_text_transform'] = '';
 $add['h3_font_size'] = '22px';
 $add['h3_line_height'] = '1.6';
-$add['h3_letter_spacing'] = '0';
+$add['h3_letter_spacing'] = '';
 
-$add['h4_font_family'] = 'inherit';
+$add['h4_font_family'] = '';
 $add['h4_font_weight'] = 600;
-$add['h4_font_style'] = 'normal';
-$add['h4_text_transform'] = 'none';
+$add['h4_font_style'] = '';
+$add['h4_text_transform'] = '';
 $add['h4_font_size'] = '17px';
 $add['h4_line_height'] = '1.7';
-$add['h4_letter_spacing'] = '0';
+$add['h4_letter_spacing'] = '';
 
 $add['heading_text_color'] = $colors['heading'];
 $add['heading_hover_text_color'] = $colors['accent'];
@@ -81,13 +81,13 @@ $add['heading_hover_text_color'] = $colors['accent'];
  * ====================================================
  */
 
-$add['blockquote_font_family'] = 'inherit';
+$add['blockquote_font_family'] = '';
 $add['blockquote_font_weight'] = 300;
-$add['blockquote_text_transform'] = 'none';
+$add['blockquote_text_transform'] = '';
 $add['blockquote_font_style'] = 'italic';
 $add['blockquote_font_size'] = '20px';
 $add['blockquote_line_height'] = '1.6';
-$add['blockquote_letter_spacing'] = '0';
+$add['blockquote_letter_spacing'] = '';
 
 /**
  * ====================================================
@@ -116,12 +116,12 @@ $add['button_padding'] = '10px 20px 10px 20px';
 $add['button_border'] = '1px 1px 1px 1px';
 $add['button_border_radius'] = '3px';
 
-$add['button_font_family'] = 'inherit';
-$add['button_font_weight'] = 400;
-$add['button_font_style'] = 'normal';
-$add['button_text_transform'] = 'none';
-$add['button_font_size'] = '15px';
-$add['button_letter_spacing'] = '0';
+$add['button_font_family'] = '';
+$add['button_font_weight'] = '';
+$add['button_font_style'] = '';
+$add['button_text_transform'] = '';
+$add['button_font_size'] = '';
+$add['button_letter_spacing'] = '';
 
 $add['button_bg_color'] = $colors['accent'];
 $add['button_border_color'] = $colors['accent'];
@@ -136,13 +136,13 @@ $add['button_hover_text_color'] = $colors['white'];
  * ====================================================
  */
 
-$add['title_font_family'] = 'inherit';
+$add['title_font_family'] = '';
 $add['title_font_weight'] = 600;
-$add['title_font_style'] = 'normal';
-$add['title_text_transform'] = 'none';
+$add['title_font_style'] = '';
+$add['title_text_transform'] = '';
 $add['title_font_size'] = '32px';
 $add['title_line_height'] = '1.4';
-$add['title_letter_spacing'] = '0';
+$add['title_letter_spacing'] = '';
 $add['title_text_color'] = $colors['heading'];
 $add['title_hover_text_color'] = $colors['accent'];
 
@@ -152,13 +152,13 @@ $add['title_hover_text_color'] = $colors['accent'];
  * ====================================================
  */
 
-$add['small_title_font_family'] = 'inherit';
+$add['small_title_font_family'] = '';
 $add['small_title_font_weight'] = 600;
-$add['small_title_font_style'] = 'normal';
-$add['small_title_text_transform'] = 'none';
+$add['small_title_font_style'] = '';
+$add['small_title_text_transform'] = '';
 $add['small_title_font_size'] = '22px';
 $add['small_title_line_height'] = '1.6';
-$add['small_title_letter_spacing'] = '0';
+$add['small_title_letter_spacing'] = '';
 $add['small_title_text_color'] = $colors['heading'];
 $add['small_title_hover_text_color'] = $colors['accent'];
 
@@ -168,13 +168,13 @@ $add['small_title_hover_text_color'] = $colors['accent'];
  * ====================================================
  */
 
-$add['meta_font_family'] = 'inherit';
-$add['meta_font_weight'] = 400;
-$add['meta_font_style'] = 'normal';
-$add['meta_text_transform'] = 'none';
+$add['meta_font_family'] = '';
+$add['meta_font_weight'] = '';
+$add['meta_font_style'] = '';
+$add['meta_text_transform'] = '';
 $add['meta_font_size'] = '0.8em';
 $add['meta_line_height'] = '1.7';
-$add['meta_letter_spacing'] = '0';
+$add['meta_letter_spacing'] = '';
 $add['meta_text_color'] = $colors['meta'];
 $add['meta_link_text_color'] = $colors['meta'];
 $add['meta_link_hover_text_color'] = $colors['text'];

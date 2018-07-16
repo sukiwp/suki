@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Get current page content layout, skip sidebar if not needed in the layout.
 if ( ! in_array( suki_get_current_page_setting( 'content_layout' ), array( 'left-sidebar', 'right-sidebar' ) ) ) return;
 ?>
-<div class="sidebar-separator"></div>
 <aside id="secondary" class="widget-area sidebar <?php echo esc_attr( implode( ' ', apply_filters( 'suki_sidebar_classes', array() ) ) ); ?>" role="complementary" itemtype="https://schema.org/WPSideBar" itemscope>
 	<?php if ( is_active_sidebar( 'sidebar-shop' ) ) : ?>
 		<div class="sidebar-inner">

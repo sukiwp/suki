@@ -235,7 +235,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'features'    => array(
 				esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Menu highlight effects', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Icon size', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );
