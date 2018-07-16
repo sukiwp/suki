@@ -147,12 +147,6 @@
 	}
 }
 
-.menu {
-	a {
-		text-decoration: none;
-	}
-}
-
 .tagcloud {
 	@extend %float-container;
 	
@@ -162,7 +156,6 @@
 		margin: 0 0.5em 0.5em 0;
 		font-size: 0.9rem !important;
 		line-height: normal;
-		text-decoration: none;
 	}
 }
 
@@ -172,7 +165,6 @@
 	a {
 		margin-left: 0.75em;
 		display: inline-block;
-		text-decoration: none;
 
 		&:first-child {
 			margin-left: 0 !important;
@@ -184,10 +176,6 @@
 	@extend %h2;
 	line-height: normal;
 	margin: 0;
-
-	a {
-		text-decoration: none;
-	}
 
 	img, svg {
 		display: block;

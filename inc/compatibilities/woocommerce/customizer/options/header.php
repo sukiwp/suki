@@ -8,8 +8,6 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$defaults = Suki_Customizer::instance()->get_setting_defaults();
-
 $section = 'suki_section_header_shopping_cart';
 
 /**

@@ -63,25 +63,6 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_bo
 	'priority'    => 10,
 ) ) );
 
-// Link text decoration
-$id = 'link_text_decoration';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $id, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Link text decoration', 'suki' ),
-	'description' => esc_html__( 'Underline is recommended for "accessibility".', 'suki' ),
-	'choices'     => array(
-		'none'      => esc_html__( 'None', 'suki' ),
-		'underline' => esc_html__( 'Underline (default)', 'suki' ),
-	),
-	'priority'    => 10,
-) );
-
 // Colors
 $colors = array(
 	'link_text_color'       => esc_html__( 'Link text color', 'suki' ),

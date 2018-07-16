@@ -38,7 +38,7 @@
 		do_action( 'suki_after_entry_search_header' );
 		?>
 
-		<div class="entry-excerpt">
+		<div class="entry-content entry-excerpt">
 			<?php
 			/**
 			 * Hook: suki_before_entry_search_content

@@ -1,3 +1,7 @@
+// -------------------------------------------------------------
+// Screen reader text
+// -------------------------------------------------------------
+
 // ref: https://make.wordpress.org/accessibility/2015/02/09/hiding-text-for-screen-readers-with-wordpress-core/
 .screen-reader-text {
 	border: 0;
@@ -34,4 +38,16 @@
 // Do not show the outline on the skip link target.
 #content[tabindex="-1"]:focus {
 	outline: 0;
+}
+
+// -------------------------------------------------------------
+// Large block content
+// -------------------------------------------------------------
+
+.entry-content,
+.entry-author-content,
+.comment-content {
+	a {
+		text-decoration: underline;
+	}
 }

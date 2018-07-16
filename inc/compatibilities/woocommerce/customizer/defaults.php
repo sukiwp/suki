@@ -29,12 +29,12 @@ $add['woocommerce_demo_store_notice_text_color'] = $colors['white'];
 
 $add['woocommerce_index_posts_per_page'] = 12;
 $add['woocommerce_index_grid_columns'] = 4;
-$add['woocommerce_index_grid_columns_gap'] = '15px';
+$add['woocommerce_products_grid_columns_gap'] = '15px';
 
 $add['woocommerce_index_page_title'] = 1;
 $add['woocommerce_index_breadcrumb'] = 1;
 $add['woocommerce_index_filter'] = 1;
-$add['woocommerce_index_item_add_to_cart'] = 0;
+$add['woocommerce_products_item_add_to_cart'] = 0;
 
 /**
  * ====================================================

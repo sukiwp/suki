@@ -8,8 +8,6 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$defaults = Suki_Customizer::instance()->get_setting_defaults();
-
 $section = 'woocommerce_product_single'; // Assumed
 
 /**

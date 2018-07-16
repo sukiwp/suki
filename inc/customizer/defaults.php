@@ -30,7 +30,6 @@ $add['body_text_color'] = $colors['text'];
 
 $add['link_text_color'] = $colors['accent'];
 $add['link_hover_text_color'] = $colors['accent_2'];
-$add['link_text_decoration'] = 'underline';
 
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];
@@ -431,8 +430,8 @@ $add['content_bg_color'] = 'rgba(0,0,0,0)';
  * ====================================================
  */
 
-$add['sidebar_width'] = '250px';
-$add['sidebar_gap'] = '30px';
+$add['sidebar_width'] = '25%';
+$add['sidebar_gap'] = '60px';
 
 $add['sidebar_widgets_mode'] = 'separated';
 $add['sidebar_widgets_gap'] = '30px';

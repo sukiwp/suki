@@ -364,7 +364,7 @@ $add['woocommerce_demo_store_notice_text_color'] = array(
  * ====================================================
  */
 
-$add['woocommerce_index_grid_columns_gap'] = array(
+$add['woocommerce_products_grid_columns_gap'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products li.product, .woocommerce-page ul.products li.product',

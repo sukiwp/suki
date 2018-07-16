@@ -120,13 +120,6 @@ $add['link_hover_text_color'] = array(
 		'property' => 'color',
 	),
 );
-$add['link_text_decoration'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'a',
-		'property' => 'text-decoration',
-	),
-);
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
