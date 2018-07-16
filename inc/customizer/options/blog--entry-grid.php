@@ -37,8 +37,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
-// Gap between columns
-$id = 'blog_index_grid_columns_gap';
+// Columns gutter
+$id = 'blog_index_grid_columns_gutter';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
@@ -46,7 +46,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Gap between columns', 'suki' ),
+	'label'       => esc_html__( 'Columns gutter', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,

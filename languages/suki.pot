@@ -261,7 +261,7 @@ msgstr ""
 msgid "Page Settings (Suki)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:193, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:175
+#: inc/admin/class-suki-admin-metabox-page-settings.php:193, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:176
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -575,7 +575,7 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:440, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:441, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
@@ -740,7 +740,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/content--sidebar.php:258, inc/customizer/options/footer--bottom-bar.php:196, inc/customizer/options/footer--widgets-bar.php:210, inc/customizer/options/footer--widgets-column.php:42, inc/customizer/options/header--html.php:62, inc/customizer/options/header--menu.php:55, inc/customizer/options/header--top-main-bottom-bar.php:233, inc/customizer/options/page-settings.php:84, inc/customizer/options/_sections.php:224, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:118, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:322
+#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/content--sidebar.php:258, inc/customizer/options/footer--bottom-bar.php:196, inc/customizer/options/footer--widgets-bar.php:210, inc/customizer/options/footer--widgets-column.php:42, inc/customizer/options/header--html.php:62, inc/customizer/options/header--menu.php:55, inc/customizer/options/header--top-main-bottom-bar.php:233, inc/customizer/options/page-settings.php:84, inc/customizer/options/_sections.php:224, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -806,12 +806,12 @@ msgstr ""
 msgid "Footer meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:28, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:194, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
+#: inc/customizer/options/blog--entry-grid.php:28, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:194, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:260
 msgid "Columns"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:49, inc/customizer/options/footer--widgets-bar.php:95, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:215, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:301, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:28
-msgid "Gap between columns"
+#: inc/customizer/options/blog--entry-grid.php:49, inc/customizer/options/footer--widgets-bar.php:95
+msgid "Columns gutter"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-grid.php:64
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Widget title text color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:261, inc/customizer/options/footer--bottom-bar.php:199, inc/customizer/options/footer--widgets-bar.php:213, inc/customizer/options/header--top-main-bottom-bar.php:236, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:121, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:325
+#: inc/customizer/options/content--sidebar.php:261, inc/customizer/options/footer--bottom-bar.php:199, inc/customizer/options/footer--widgets-bar.php:213, inc/customizer/options/header--top-main-bottom-bar.php:236, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:285, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
 msgctxt "Suki Pro upsell"
 msgid "More typography options"
 msgstr ""
@@ -1388,7 +1388,7 @@ msgid "Height"
 msgstr ""
 
 #: inc/customizer/options/header--mobile-main-bar.php:68, inc/customizer/options/header--mobile-vertical-bar.php:85, inc/customizer/options/header--top-main-bottom-bar.php:113
-msgid "Gap between elements"
+msgid "Elements gutter"
 msgstr ""
 
 #: inc/customizer/options/header--mobile-main-bar.php:130
@@ -1906,11 +1906,6 @@ msgstr ""
 msgid "Show products filter"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:122
-msgctxt "Suki Pro upsell"
-msgid "More products grid item styles"
-msgstr ""
-
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:41
 msgid "Gallery"
 msgstr ""
@@ -1955,43 +1950,52 @@ msgstr ""
 msgid "Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:236
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:216
 msgid "Related Products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:248
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:228
 msgid "Show related products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:249
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:229
 msgid "Display linked products and similar products within same categories or tags. Products that have been displayed on \"Up-sells\" section will not be included."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:262
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:242
 msgid "Max products shown"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:263
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:243
 msgid "0 = disabled; -1 = Show all."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:326
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:286
 msgctxt "Suki Pro upsell"
 msgid "More \"add to cart\" styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:327
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:287
 msgctxt "Suki Pro upsell"
 msgid "More gallery styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:328
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:288
 msgctxt "Suki Pro upsell"
 msgid "More info tabs styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:47
-msgid "Show \"add to cart\" on each product"
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:28
+msgid "Grid columns gutter"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:54
+msgid "Show \"add to cart\""
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+msgctxt "Suki Pro upsell"
+msgid "More products grid item styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:26
@@ -1999,5 +2003,13 @@ msgid "Single Product"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:52
+msgid "Products Grid"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:53
+msgid "Global styles for products grid as used in main product catalog page, related products, up-sells, cross-sells, and products shortcodes."
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:60
 msgid "Other Elements"
 msgstr ""

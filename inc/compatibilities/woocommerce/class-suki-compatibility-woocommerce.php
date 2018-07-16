@@ -108,6 +108,7 @@ class Suki_Compatibility_WooCommerce {
 		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php' );
 		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--cart.php' );
 		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php' );
+		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php' );
 		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php' );
 	}
 
@@ -281,7 +282,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Keep / remove "add to cart" button on products grid.
-		if ( ! suki_get_theme_mod( 'woocommerce_products_item_add_to_cart' ) ) {
+		if ( ! suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) {
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 

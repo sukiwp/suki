@@ -104,23 +104,3 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'label'       => esc_html__( 'Show products filter', 'suki' ),
 	'priority'    => 20,
 ) ) );
-
-/**
- * ====================================================
- * Suki Pro Upsell
- * ====================================================
- */
-
-if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_woocommerce_index', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-		'url'         => SUKI_PRO_URL,
-		'features'    => array(
-			esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More products grid item styles', 'Suki Pro upsell', 'suki' ),
-		),
-		'priority'    => 90,
-	) ) );
-}

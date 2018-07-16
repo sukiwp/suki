@@ -203,26 +203,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 40,
 ) ) );
 
-// Up-sells columns gap
-$id = 'woocommerce_single_up_sells_grid_columns_gap';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Gap between columns', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'max'  => 40,
-			'step' => 1,
-		),
-	),
-	'priority'    => 40,
-) ) );
-
 /**
  * ====================================================
  * Related
@@ -284,26 +264,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'max'  => 6,
 			'step' => 1,
 			'label' => 'col',
-		),
-	),
-	'priority'    => 50,
-) ) );
-
-// Related products columns gap
-$id = 'woocommerce_single_related_grid_columns_gap';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Gap between columns', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'max'  => 40,
-			'step' => 1,
 		),
 	),
 	'priority'    => 50,
