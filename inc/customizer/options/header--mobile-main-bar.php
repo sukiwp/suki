@@ -57,7 +57,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Items gap
-$id = 'header_mobile_main_bar_items_gap';
+$id = 'header_mobile_main_bar_items_gutter';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
@@ -65,7 +65,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Gap between elements', 'suki' ),
+	'label'       => esc_html__( 'Elements gutter', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'   => 0,

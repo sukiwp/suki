@@ -30,7 +30,6 @@ $add['body_text_color'] = $colors['text'];
 
 $add['link_text_color'] = $colors['accent'];
 $add['link_hover_text_color'] = $colors['accent_2'];
-$add['link_text_decoration'] = 'underline';
 
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];
@@ -279,7 +278,7 @@ $add['header_top_bar_height'] = '40px';
 $add['header_top_bar_padding'] = '0px 0px 0px 0px';
 $add['header_top_bar_border'] = '0px 0px 1px 0px';
 
-$add['header_top_bar_items_gap'] = '14px';
+$add['header_top_bar_items_gutter'] = '14px';
 
 $add['header_top_bar_section_bg_color'] = $colors['subtle'];
 $add['header_top_bar_section_border_color'] = $colors['border'];
@@ -309,7 +308,7 @@ $add['header_main_bar_height'] = '80px';
 $add['header_main_bar_padding'] = '0px 0px 0px 0px';
 $add['header_main_bar_border'] = '0px 0px 1px 0px';
 
-$add['header_main_bar_items_gap'] = '14px';
+$add['header_main_bar_items_gutter'] = '14px';
 
 $add['header_main_bar_section_bg_color'] = $colors['bg'];
 $add['header_main_bar_section_border_color'] = $colors['border'];
@@ -339,7 +338,7 @@ $add['header_bottom_bar_height'] = '40px';
 $add['header_bottom_bar_padding'] = '0px 0px 0px 0px';
 $add['header_bottom_bar_border'] = '0px 0px 1px 0px';
 
-$add['header_bottom_bar_items_gap'] = '14px';
+$add['header_bottom_bar_items_gutter'] = '14px';
 
 $add['header_bottom_bar_section_bg_color'] = $colors['bg'];
 $add['header_bottom_bar_section_border_color'] = $colors['border'];
@@ -367,7 +366,7 @@ $add['header_bottom_bar_link_hover_text_color'] = $colors['text'];
 $add['header_mobile_main_bar_height'] = '60px';
 $add['header_mobile_main_bar_border'] = '0px 0px 1px 0px';
 
-$add['header_mobile_main_bar_items_gap'] = '12px';
+$add['header_mobile_main_bar_items_gutter'] = '12px';
 
 $add['header_mobile_main_bar_icon_size'] = '18px';
 
@@ -386,7 +385,7 @@ $add['header_mobile_vertical_bar_position'] = 'left';
 $add['header_mobile_vertical_bar_alignment'] = 'left';
 $add['header_mobile_vertical_bar_width'] = '300px';
 
-$add['header_mobile_vertical_bar_items_gap'] = '12px';
+$add['header_mobile_vertical_bar_items_gutter'] = '12px';
 
 $add['header_mobile_vertical_bar_font_family'] = '';
 $add['header_mobile_vertical_bar_font_weight'] = '';
@@ -431,8 +430,8 @@ $add['content_bg_color'] = 'rgba(0,0,0,0)';
  * ====================================================
  */
 
-$add['sidebar_width'] = '250px';
-$add['sidebar_gap'] = '30px';
+$add['sidebar_width'] = '25%';
+$add['sidebar_gap'] = '60px';
 
 $add['sidebar_widgets_mode'] = 'separated';
 $add['sidebar_widgets_gap'] = '30px';
@@ -469,7 +468,7 @@ $add['footer_widgets_bar_container'] = 'default';
 $add['footer_widgets_bar_padding'] = '60px 0px 60px 0px';
 $add['footer_widgets_bar_border'] = '1px 0px 0px 0px 0px';
 
-$add['footer_widgets_bar_columns_gap'] = '15px';
+$add['footer_widgets_bar_columns_gutter'] = '15px';
 $add['footer_widgets_bar_widgets_gap'] = '40px';
 
 $add['footer_widgets_bar_font_family'] = '';
@@ -568,7 +567,7 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
  */
 
 $add['blog_index_grid_columns'] = 2;
-$add['blog_index_grid_columns_gap'] = '15px';
+$add['blog_index_grid_columns_gutter'] = '15px';
 $add['entry_grid_padding'] = '15px 15px 15px 15px';
 
 $add['entry_grid_featured_media_position'] = 'before-entry-header';

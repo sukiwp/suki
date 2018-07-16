@@ -432,6 +432,7 @@ pre {
 
 a {
 	background-color: transparent;
+	text-decoration: none;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -513,15 +514,6 @@ fieldset {
 	margin: 1em 0;
 	border-width: 1px;
 	border-style: solid;
-}
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.button,
-a.button {
-	text-decoration: none;
 }
 
 select[multiple] {
@@ -634,6 +626,12 @@ select[multiple] {
 
 #content[tabindex="-1"]:focus {
 	outline: 0;
+}
+
+.entry-content a,
+.entry-author-content a,
+.comment-content a {
+	text-decoration: underline;
 }
 
 .page-content .wp-smiley,
@@ -749,17 +747,12 @@ select[multiple] {
 	display: none;
 }
 
-.menu a {
-	text-decoration: none;
-}
-
 .tagcloud a {
 	float: right;
 	padding: 0.5em 0.5em;
 	margin: 0 0 0.5em 0.5em;
 	font-size: 0.9rem !important;
 	line-height: normal;
-	text-decoration: none;
 }
 
 .suki-social-links {
@@ -769,7 +762,6 @@ select[multiple] {
 .suki-social-links a {
 	margin-right: 0.75em;
 	display: inline-block;
-	text-decoration: none;
 }
 
 .suki-social-links a:first-child {
@@ -779,10 +771,6 @@ select[multiple] {
 .site-title {
 	line-height: normal;
 	margin: 0;
-}
-
-.site-title a {
-	text-decoration: none;
 }
 
 .site-title img, .site-title svg {
@@ -1797,14 +1785,6 @@ body.suki-has-popup-active .suki-popup-background {
 	margin: 0 0.5em;
 }
 
-.suki-footer-copyright a {
-	text-decoration: none;
-}
-
-.suki-footer-menu a {
-	text-decoration: none;
-}
-
 .suki-footer-widgets-bar-row {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1946,21 +1926,21 @@ body.suki-has-popup-active .suki-popup-background {
 	}
 }
 
+.suki-loop-grid {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
 .suki-loop-default .entry {
 	margin-top: 6rem;
 }
 
-.suki-loop-default > *:first-child {
+.suki-loop-default .entry > *:first-child {
 	margin-top: 0;
 }
 
-.suki-loop-default > *:last-child {
+.suki-loop-default .entry > *:last-child {
 	margin-bottom: 0;
-}
-
-.suki-loop-grid {
-	margin-right: -15px;
-	margin-left: -15px;
 }
 
 .suki-loop-grid .entry {
@@ -2014,11 +1994,11 @@ body.suki-has-popup-active .suki-popup-background {
 	border-bottom-style: solid;
 }
 
-.suki-loop-search > *:first-child {
+.suki-loop-search .entry > *:first-child {
 	margin-top: 0;
 }
 
-.suki-loop-search > *:last-child {
+.suki-loop-search .entry > *:last-child {
 	margin-bottom: 0;
 }
 
@@ -2056,24 +2036,12 @@ body.suki-has-popup-active .suki-popup-background {
 	margin: 0;
 }
 
-.entry-title a {
-	text-decoration: none;
-}
-
 .entry-small-title {
 	margin: 0;
 }
 
-.entry-small-title a {
-	text-decoration: none;
-}
-
 .entry-meta {
 	margin: 0.25em 0;
-}
-
-.entry-meta a {
-	text-decoration: none;
 }
 
 .entry-meta .avatar {
@@ -2169,10 +2137,6 @@ a.more-link {
 	margin: 0 0 0.5rem;
 }
 
-.entry-author-name a {
-	text-decoration: none;
-}
-
 .entry-author-name .avatar {
 	width: 80px;
 	height: 80px;
@@ -2207,10 +2171,6 @@ a.more-link {
 
 .navigation .nav-links {
 	text-align: center;
-}
-
-.navigation .nav-links a {
-	text-decoration: none;
 }
 
 .navigation .nav-links .page-numbers {
@@ -2292,7 +2252,6 @@ a.more-link {
 
 .comment-body .reply a {
 	font-size: 90%;
-	text-decoration: none;
 }
 
 @media screen and (max-width: 499px) {
@@ -2309,10 +2268,6 @@ a.more-link {
 	padding-left: 50px;
 	margin-bottom: 1em;
 	min-height: 50px;
-}
-
-.comment-meta a {
-	text-decoration: none;
 }
 
 .comment-author .avatar {
@@ -2360,10 +2315,6 @@ a.more-link {
 	padding-top: 2em;
 	border-top-width: 1px;
 	border-top-style: solid;
-}
-
-.comment-respond a {
-	text-decoration: none;
 }
 
 .comment-respond:only-child {
@@ -2416,10 +2367,6 @@ a.more-link {
 	display: block;
 	margin-top: 0.25em;
 	font-size: 0.9em;
-}
-
-.suki-inactive-widgets-area a {
-	text-decoration: none;
 }
 
 .widget-title {
@@ -2484,17 +2431,6 @@ a.more-link {
 .widget_pages ul li,
 .widget_rss ul li {
 	position: relative;
-}
-
-.widget_nav_menu a,
-.widget_categories a,
-.widget_recent_entries a,
-.widget_recent_comments a,
-.widget_archive a,
-.widget_meta a,
-.widget_pages a,
-.widget_rss a {
-	text-decoration: none;
 }
 
 .widget_recent_entries li,
@@ -2593,14 +2529,6 @@ a.more-link {
 
 .widget_calendar table caption {
 	padding: 0.2em 2em;
-}
-
-.widget_calendar a {
-	text-decoration: none;
-}
-
-.suki_widget_posts a {
-	text-decoration: none;
 }
 
 .suki_widget_posts ul {

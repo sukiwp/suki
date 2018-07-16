@@ -41,7 +41,7 @@
 		do_action( 'suki_after_entry_grid_header' );
 		?>
 
-		<div class="entry-excerpt">
+		<div class="entry-content entry-excerpt">
 			<?php
 			/**
 			 * Hook: suki_before_entry_grid_content

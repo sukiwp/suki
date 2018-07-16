@@ -364,16 +364,16 @@ $add['woocommerce_demo_store_notice_text_color'] = array(
  * ====================================================
  */
 
-$add['woocommerce_index_grid_columns_gap'] = array(
+$add['woocommerce_products_grid_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce ul.products li.product, .woocommerce-page ul.products li.product',
+		'element'  => '.woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce div.product .up_sells.products ul.products li.product, .woocommerce div.product .related.products ul.products li.product, .woocommerce .cart-collaterals .cross-sells ul.products li.product, .woocommerce-page .cart-collaterals .cross-sells ul.products li.product',
 		'property' => 'padding',
 		'pattern'  => '0 $',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .products ul, .woocommerce ul.products',
+		'element'  => '.woocommerce .products ul, .woocommerce ul.products, .woocommerce div.product .up_sells.products ul.products, .woocommerce div.product .related.products ul.products, .woocommerce .cart-collaterals .cross-sells ul.products, .woocommerce-page .cart-collaterals .cross-sells ul.products',
 		'property' => 'margin',
 		'pattern'  => '0 -$',
 	),
@@ -403,57 +403,6 @@ $add['woocommerce_single_gallery_gap'] = array(
 		'type'     => 'css',
 		'element'  => '.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images',
 		'property' => 'margin-right',
-	),
-);
-
-$add['woocommerce_single_up_sells_grid_columns_gap'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce div.product .up_sells.products ul.products li.product',
-		'property' => 'padding',
-		'pattern'  => '0 $',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce div.product .up_sells.products ul.products',
-		'property' => 'margin',
-		'pattern'  => '0 -$',
-	),
-);
-
-$add['woocommerce_single_related_grid_columns_gap'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce div.product .related.products ul.products li.product',
-		'property' => 'padding',
-		'pattern'  => '0 $',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce div.product .related.products ul.products',
-		'property' => 'margin',
-		'pattern'  => '0 -$',
-	),
-);
-
-/**
- * ====================================================
- * WooCommerce > Cart
- * ====================================================
- */
-
-$add['woocommerce_cart_cross_sells_grid_columns_gap'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce .cart-collaterals .cross-sells ul.products li.product, .woocommerce-page .cart-collaterals .cross-sells ul.products li.product',
-		'property' => 'padding',
-		'pattern'  => '0 $',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce .cart-collaterals .cross-sells ul.products, .woocommerce-page .cart-collaterals .cross-sells ul.products',
-		'property' => 'margin',
-		'pattern'  => '0 -$',
 	),
 );
 

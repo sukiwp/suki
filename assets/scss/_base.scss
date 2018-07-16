@@ -162,6 +162,7 @@ code {
 
 a {
 	background-color: transparent;
+	text-decoration: none;
 	@include transition();
 }
 
@@ -237,7 +238,6 @@ input[type="submit"],
 .button,
 a.button {
 	@extend %button;
-	text-decoration: none;
 }
 
 // -------------------------------------------------------------

@@ -2,27 +2,26 @@
 // Post entry
 // -------------------------------------------------------------
 
-// Loop
-.suki-loop-default {
-	.entry {
-		margin-top: 6rem;
-	}
-
-	> *:first-child {
-		margin-top: 0;
-	}
-
-	> *:last-child {
-		margin-bottom: 0;
-	}
-}
-
-// Loop grid
 .suki-loop-grid {
 	margin-left: -15px;
 	margin-right: -15px;
+}
 
-	.entry {
+// Entry
+.entry {
+	.suki-loop-default & {
+		margin-top: 6rem;
+
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.suki-loop-grid & {
 		width: 100%;
 		padding: 0 15px;
 		border: none;
@@ -34,7 +33,7 @@
 		}
 	}
 
-	&.suki-loop-grid-2-columns .entry {
+	.suki-loop-grid.suki-loop-grid-2-columns & {
 		width: 50%;
 
 		&:nth-child(2n+1) {
@@ -42,7 +41,7 @@
 		}
 	}
 
-	&.suki-loop-grid-3-columns .entry {
+	.suki-loop-grid.suki-loop-grid-3-columns & {
 		width: 33.33%;
 
 		&:nth-child(3n+1) {
@@ -50,7 +49,7 @@
 		}
 	}
 
-	&.suki-loop-grid-4-columns .entry {
+	.suki-loop-grid.suki-loop-grid-4-columns & {
 		width: 25%;
 
 		&:nth-child(4n+1) {
@@ -61,22 +60,19 @@
 			width: 50%;
 		}
 	}
-}
 
-// Loop search
-.suki-loop-search {
-	.entry {
+	.suki-loop-search & {
 		margin-top: 2rem;
 		padding-bottom: 2rem;
 		@include border( bottom );
-	}
 
-	> *:first-child {
-		margin-top: 0;
-	}
+		> *:first-child {
+			margin-top: 0;
+		}
 
-	> *:last-child {
-		margin-bottom: 0;
+		> *:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -120,29 +116,17 @@
 .entry-title {
 	@extend %h1; // default
 	margin: 0;
-
-	a {
-		text-decoration: none;
-	}
 }
 
 .entry-small-title {
 	@extend %h3; // default
 	margin: 0;
-
-	a {
-		text-decoration: none;
-	}
 }
 
 // Meta
 .entry-meta {
 	@extend %meta;
 	margin: 0.25em 0;
-
-	a {
-		text-decoration: none;
-	}
 
 	.avatar {
 		display: inline-block;
@@ -239,10 +223,6 @@ a.more-link {
 	font-size: 1.1rem;
 	margin: 0 0 0.5rem;
 
-	a {
-		text-decoration: none;
-	}
-
 	.avatar {
 		width: 80px;
 		height: 80px;
@@ -282,10 +262,6 @@ a.more-link {
 	.nav-links {
 		text-align: center;
 		@extend %float-container;
-
-		a {
-			text-decoration: none;
-		}
 
 		.page-numbers {
 			display: inline-block;
@@ -375,7 +351,6 @@ a.more-link {
 
 		a {
 			font-size: 90%;
-			text-decoration: none;
 		}
 	}
 
@@ -396,10 +371,6 @@ a.more-link {
 	padding-right: 50px;
 	margin-bottom: 1em;
 	min-height: 50px;
-
-	a {
-		text-decoration: none;
-	}
 }
 
 .comment-author {
@@ -449,10 +420,6 @@ a.more-link {
 	padding-top: 2em;
 	border-top-width: 1px;
 	border-top-style: solid;
-
-	a {
-		text-decoration: none;
-	}
 
 	&:only-child {
 		border-top: none;

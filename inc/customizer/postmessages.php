@@ -120,13 +120,6 @@ $add['link_hover_text_color'] = array(
 		'property' => 'color',
 	),
 );
-$add['link_text_decoration'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'a',
-		'property' => 'text-decoration',
-	),
-);
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
@@ -724,7 +717,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'property' => 'border-width',
 		),
 	);
-	$add['header_' . $type . '_items_gap'] = array(
+	$add['header_' . $type . '_items_gutter'] = array(
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . ' .suki-header-column > *',
@@ -824,7 +817,7 @@ $add['header_mobile_main_bar_border'] = array(
 		'property' => 'border-width',
 	),
 );
-$add['header_mobile_main_bar_items_gap'] = array(
+$add['header_mobile_main_bar_items_gutter'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-main-bar .suki-header-column > *, .suki-header-mobile-main-bar .suki-header-menu > li > a',
@@ -903,7 +896,7 @@ $add['header_mobile_vertical_bar_alignment'] = array(
 	),
 );
 
-$add['header_mobile_vertical_bar_items_gap'] = array(
+$add['header_mobile_vertical_bar_items_gutter'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar .suki-header-vertical-row, .suki-header-mobile-vertical-bar .suki-header-vertical-row > *',
@@ -1215,7 +1208,7 @@ $add['footer_widgets_bar_border'] = array(
 		'property' => 'border-width',
 	),
 );
-$add['footer_widgets_bar_columns_gap'] = array(
+$add['footer_widgets_bar_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-widgets-bar-column',
@@ -1408,7 +1401,7 @@ $add['blog_index_grid_columns'] = array(
 		'pattern'  => 'suki-loop-grid-$-columns',
 	),
 );
-$add['blog_index_grid_columns_gap'] = array(
+$add['blog_index_grid_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-grid > .entry, #infinite-handle',
