@@ -83,25 +83,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
-// Separator border
-$id = 'sidebar_separator_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Separator border', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'max'  => 8,
-			'step' => 1,
-		),
-	),
-	'priority'    => 10,
-) ) );
-
 /**
  * ====================================================
  * Widgets
