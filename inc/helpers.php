@@ -115,7 +115,7 @@ function suki_get_current_page_setting( $key ) {
 	elseif ( is_archive() ) {
 		$obj = get_queried_object();
 		$post_type = 'post';
-		
+
 		global $wp_taxonomies;
 		if ( isset( $wp_taxonomies[ $obj->taxonomy ] ) ) {
 			$post_types = $wp_taxonomies[ $obj->taxonomy ]->object_type;
@@ -126,7 +126,7 @@ function suki_get_current_page_setting( $key ) {
 		if ( '' === $term_meta_settings ) {
 			$term_meta_settings = array();
 		}
-		
+
 		$settings = wp_parse_args( $term_meta_settings, $post_type_archive_settings );
 	}
 	// Search page
@@ -307,7 +307,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	 	case 'narrow':
 			$content_width = floatval( suki_get_theme_mod( 'narrow_content_width' ) );
 	 		break;
-	 	
+
 	 	case 'left-sidebar':
 	 	case 'right-sidebar':
 	 		// Sidebar width
@@ -365,7 +365,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 
 /**
  * Return fallback values of page settings.
- * 
+ *
  * @param string $key
  * @return array
  */
@@ -380,7 +380,7 @@ function suki_get_fallback_page_setting( $key ) {
 
 /**
  * Return all available fonts.
- * 
+ *
  * @return array
  */
 function suki_get_all_fonts() {
@@ -393,7 +393,7 @@ function suki_get_all_fonts() {
 /**
  * Return array of selected Google Fonts list.
  * Selected fonts are configurable from Appearance > Suki > Settings > Fonts page.
- * 
+ *
  * @return array
  */
 function suki_get_google_fonts() {
@@ -404,7 +404,7 @@ function suki_get_google_fonts() {
 
 /**
  * Return array of Google Fonts subsets.
- * 
+ *
  * @return array
  */
 function suki_get_google_fonts_subsets() {
@@ -436,7 +436,7 @@ function suki_get_google_fonts_subsets() {
 
 /**
  * Return array of Web Safe Fonts choices.
- * 
+ *
  * @return array
  */
 function suki_get_web_safe_fonts() {
@@ -463,7 +463,7 @@ function suki_get_web_safe_fonts() {
 
 /**
  * Return array of social media types (based on Simple Icons).
- * 
+ *
  * @return array
  */
 function suki_get_social_media_types() {
@@ -482,5 +482,17 @@ function suki_get_social_media_types() {
 		'vimeo' => 'Vimeo',
 		'youtube' => 'Youtube',
 		'rss' => 'RSS',
+	) );
+}
+
+/**
+ * Return array of contact details.
+ *
+ * @return array
+ */
+function suki_get_contact_details() {
+	return apply_filters( 'suki_contact_details', array(
+		'phone' => 'Phone',
+		'email' => 'E-mail',
 	) );
 }

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! function_exists( 'suki_unassigned_menu' ) ) :
 /**
  * Fallback HTML if there is no nav menu assigned to a navigation location.
- * 
+ *
  * @param array $args
  */
 function suki_unassigned_menu( $args ) {
@@ -77,7 +77,7 @@ function suki_logo( $logo_image_id = null ) {
 				// Site name would be added as a screen reader text to represent the logo.
 				$logo_image = preg_replace( '/<title>.*?<\/title>/', '', $logo_image );
 				break;
-			
+
 			default:
 				$logo_image = wp_get_attachment_image( $logo_image_id , 'full', 0, array() );
 				break;
@@ -118,7 +118,7 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 		include( get_template_directory() . '/assets/icons/_fallback.svg' ); // fallback
 	}
 	$svg = ob_get_clean();
-	
+
 	// Filters to modify SVG icon.
 	$svg = apply_filters( 'suki_icon', $svg, $key );
 	$svg = apply_filters( "suki_icon__{$key}", $svg );
@@ -157,6 +157,43 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 
 		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
+		</a><?php
+
+		echo ( $args['after_link'] ); // WPCS: XSS OK
+	endforeach;
+	$html = ob_get_clean();
+
+	if ( $echo ) {
+		echo $html; // WPCS: XSS OK
+	} else {
+		return $html;
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_contact_details_links' ) ) :
+/**
+ * Print / return HTML markup for specified set of social media links.
+ *
+ * @param array $links
+ * @param array $args
+ * @param boolean $echo
+ */
+function suki_contact_details_links( $links = array(), $args = array(), $echo = true ) {
+	$labels = suki_get_contact_details();
+
+	$args = wp_parse_args( $args, array(
+		'before_link' => '',
+		'after_link'  => '',
+		'link_class'  => '',
+	) );
+
+	ob_start();
+	foreach ( $links as $link ) :
+		echo ( $args['before_link'] ); // WPCS: XSS OK
+
+		?><a href="tel:<?php echo esc_html_e( $link['url'] ); ?>" class="suki-social-link" <?php '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; ?>>
+			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?> <?php echo esc_html_e( $link['url'] ); ?>
 		</a><?php
 
 		echo ( $args['after_link'] ); // WPCS: XSS OK
@@ -348,7 +385,7 @@ endif;
 if ( ! function_exists( 'suki_header_element' ) ) :
 /**
  * Wrapper function to print HTML markup for all header element.
- * 
+ *
  * @param string $element
  */
 function suki_header_element( $element ) {
@@ -396,7 +433,7 @@ function suki_header_element( $element ) {
 					'container'      => false,
 				) ); ?>
 			</nav>
-			<?php 
+			<?php
 			break;
 
 		case 'mobile-menu':
@@ -626,7 +663,7 @@ endif;
 if ( ! function_exists( 'suki_footer_element' ) ) :
 /**
  * Render each footer element.
- * 
+ *
  * @param string $element
  */
 function suki_footer_element( $element ) {
@@ -835,7 +872,7 @@ function suki_entry_meta( $format ) {
 
 	if ( ! empty( $format ) ) {
 		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
-			
+
 		foreach ( $matches as $match ) {
 			ob_start();
 			suki_entry_meta_element( $match[1] );
@@ -930,7 +967,7 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) :
  */
 function suki_loop_navigation() {
 	if ( ! is_archive() && ! is_home() ) return;
-	
+
 	// Render posts navigation.
 	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {
 		case 'pagination':
@@ -940,7 +977,7 @@ function suki_loop_navigation() {
 				'next_text' => '&raquo;',
 			) );
 			break;
-		
+
 		default:
 			the_posts_navigation( array(
 				'prev_text' => esc_html__( 'Older Posts', 'suki' ) . ' &raquo;',
