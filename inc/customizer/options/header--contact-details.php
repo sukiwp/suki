@@ -42,7 +42,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Active links', 'suki' ),
-	'choices'    => suki_get_contact_details_details(),
+	'choices'    => suki_get_contact_details(),
 	'priority'    => 10,
 ) ) );
 // Selective Refresh

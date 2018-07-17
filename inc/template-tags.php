@@ -173,7 +173,7 @@ endif;
 
 if ( ! function_exists( 'suki_contact_details_links' ) ) :
 /**
- * Print / return HTML markup for specified set of social media links.
+ * Print / return HTML markup for specified set of contact details.
  *
  * @param array $links
  * @param array $args

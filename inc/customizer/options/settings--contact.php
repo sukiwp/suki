@@ -16,7 +16,7 @@ $section = 'suki_section_contact_details';
  * ====================================================
  */
 
-$links = suki_get_contact_details_details();
+$links = suki_get_contact_details();
 ksort( $links );
 
 foreach ( $links as $slug => $label ) {
