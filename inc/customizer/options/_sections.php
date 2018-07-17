@@ -214,7 +214,7 @@ $wp_customize->add_panel( $panel, array(
 
 	// Contact Details
 	$wp_customize->add_section( 'suki_section_header_contact_details', array(
-		'title'       => esc_html__( 'Element: Contact Information', 'suki' ),
+		'title'       => esc_html__( 'Element: Contact Details', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 40,
 	) );
