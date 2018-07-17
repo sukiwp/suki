@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Settings > Contact Information
+ * Customizer settings: Global Settings > Contact Details
  *
  * @package Suki
  **/
@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$section = 'suki_section_contact_info';
+$section = 'suki_section_contact_details';
 
 /**
  * ====================================================
@@ -16,12 +16,12 @@ $section = 'suki_section_contact_info';
  * ====================================================
  */
 
-$links = suki_get_contact_info_details();
+$links = suki_get_contact_details_details();
 ksort( $links );
 
 foreach ( $links as $slug => $label ) {
 	// Social media link
-	$id = 'contact_info_' . $slug;
+	$id = 'contact_details_' . $slug;
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
 	//	'sanitize_callback' =>  array( 'Suki_Customizer_Sanitization', 'number' ),
