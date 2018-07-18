@@ -212,6 +212,13 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 40,
 	) );
 
+	// Contact Details
+	$wp_customize->add_section( 'suki_section_header_contact_details', array(
+		'title'       => esc_html__( 'Element: Contact Details', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 40,
+	) );
+
 	if ( suki_show_pro_teaser() ) {
 		// ------
 		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_advanced', array(
@@ -405,6 +412,13 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->add_section( 'suki_section_social', array(
 		'title'       => esc_html__( 'Social Media Links', 'suki' ),
 		'description' => esc_html__( 'Please use full URL format with http:// or https://', 'suki' ),
+		'panel'       => $panel,
+	) );
+
+	// Contact Details
+	$wp_customize->add_section( 'suki_section_contact_details', array(
+		'title'       => esc_html__( 'Contact Details', 'suki' ),
+		'description' => esc_html__( 'Email and phone', 'suki' ),
 		'panel'       => $panel,
 	) );
 

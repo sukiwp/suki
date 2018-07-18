@@ -1,7 +1,7 @@
 <?php
 /**
  * Contains methods for customizing the theme customization screen.
- * 
+ *
  * @link http://codex.wordpress.org/Theme_Customization_API
  */
 
@@ -210,6 +210,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--html.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--social.php' );
+		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--contact-details.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--section.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--main.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--sidebar.php' );
@@ -224,7 +225,8 @@ class Suki_Customizer {
 		// Global Settings
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--google-fonts.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--social.php' );
-
+		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--contact.php' );
+		
 		// Page Settings
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-settings.php' );
 
@@ -241,7 +243,7 @@ class Suki_Customizer {
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'suki-customize-controls', SUKI_CSS_URL . '/admin/customize-controls.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-customize-controls', 'rtl', 'replace' );
-		
+
 		wp_enqueue_script( 'suki-customize-controls', SUKI_JS_URL . '/admin/customize-controls.js', array( 'customize-controls' ), SUKI_VERSION, true );
 
 		wp_localize_script( 'suki-customize-controls', 'sukiCustomizerControlsData', array(
@@ -254,7 +256,7 @@ class Suki_Customizer {
 	 */
 	public function enqueue_preview_scripts() {
 		wp_enqueue_script( 'suki-customize-postmessages', SUKI_JS_URL . '/admin/customize-postmessages.js', array( 'customize-preview' ), SUKI_VERSION, true );
-		
+
 		wp_localize_script( 'suki-customize-postmessages', 'sukiCustomizerPreviewData', array(
 			'postMessages' => $this->get_setting_postmessages(),
 			'fonts'        => suki_get_all_fonts(),
@@ -332,7 +334,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer default preset value.
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_default_colors() {
@@ -361,7 +363,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting postmessages.
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_setting_postmessages() {
@@ -370,7 +372,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting .
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_control_contexts() {
@@ -379,7 +381,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting defaults.
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_setting_defaults() {
@@ -388,7 +390,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return single customizer setting value.
-	 * 
+	 *
 	 * @param string $key
 	 * @param mixed $default
 	 * @return mixed
@@ -411,7 +413,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting keys that contains font_family.
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_font_family_setting_keys() {
@@ -425,10 +427,10 @@ class Suki_Customizer {
 		}
 		return $keys;
 	}
-	
+
 	/**
 	 * Return all listed fonts divided into each provider.
-	 * 
+	 *
 	 * @param string $group
 	 * @return array
 	 */
@@ -449,10 +451,10 @@ class Suki_Customizer {
 			return suki_array_value( $fonts, $group, array() );
 		}
 	}
-	
+
 	/**
 	 * Return all active fonts divided into each provider.
-	 * 
+	 *
 	 * @param string $group
 	 * @return array
 	 */
@@ -487,7 +489,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return Google Fonts embed link from Customizer typography options.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function generate_google_fonts_embed_url() {
@@ -503,7 +505,7 @@ class Suki_Customizer {
 
 	/**
 	 * Generate CSS string from customizer values.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function generate_css() {
@@ -629,7 +631,7 @@ class Suki_Customizer {
 					// Add to CSS array.
 					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $value;
 				}
-				
+
 				// Detect if postmessage type is "font".
 				elseif ( 'font' === $rule['type'] ) {
 					// Skip rule if it has an array value.
