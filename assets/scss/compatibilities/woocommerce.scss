@@ -898,53 +898,74 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .woocommerce-account {
-	.woocommerce-MyAccount-navigation {
-		float: none;
-		width: auto;
 
-		ul {
-			margin: 0 0 2rem;
-			padding: 0;
-			@include border( bottom );
-			list-style: none;
-			overflow: visible;
-			
-			li {
-				display: inline-block;
-				margin: 0 0 -1px;
-				padding: 0;
-				border: none;
-				background-color: transparent;
+	.suki-woocommerce-MyAccount {
+		@include flex( stretch );
+	}
 
-				a {
-					position: relative;
-					display: inline-block;
-					padding: 0.8rem 1.2rem;
-					@include border( bottom, 3px );
-					border-color: transparent;
-					text-decoration: none;
-				}
+	.suki-woocommerce-MyAccount-sidebar {
+		width: 20%;
+		min-width: 20%;
+		max-width: 200px;
+		@include border( right );
 
-				&.is-active {
-					a {
-						border-color: currentColor;
-					}
-				}
-			}
+		a {
+			text-decoration: none;
+		}
+	}
+
+	.suki-woocommerce-MyAccount-user {
+		@include flex();
+		margin-bottom: 2rem;
+		padding-right: 1.25rem;
+
+		.avatar {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-right: 15px;
 		}
 
-		> .panel {
-			display: none;
+		.info {
+			width: 100%;
 
-			&:first-of-type {
+			.name {
 				display: block;
+				font-weight: 600;
+			}
+
+			.logout {
+				font-size: 0.85em;
+			}
+		}
+	}
+
+	.woocommerce-MyAccount-navigation {
+		float: none; // reset
+		width: auto; // reset
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				@include border( right, 3px );
+				padding: 0.25em 1.25rem 0.25em 0;
+				border-color: transparent;
+
+				&.is-active {
+					font-weight: 600;
+					border-color: currentColor;
+				}
 			}
 		}
 	}
 
 	.woocommerce-MyAccount-content {
-		float: none;
-		width: auto;
+		float: none; // reset
+		width: 100%;
+		padding-left: 30px;
 	}
 
 	table.my_account_orders {

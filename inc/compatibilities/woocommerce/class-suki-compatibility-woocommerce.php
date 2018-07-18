@@ -258,6 +258,7 @@ class Suki_Compatibility_WooCommerce {
 		 * Checkout page's template hooks
 		 */
 
+		// Split into 2 columns.
 		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper' ), 1 );
 		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper_column_1' ), 1 );
 		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_1_end' ), 999 );
@@ -271,6 +272,15 @@ class Suki_Compatibility_WooCommerce {
 
 		// Cross sells columns
 		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
+
+		/**
+		 * My Account page's template hooks
+		 */
+
+		// Add account avatar and name into side navigation.
+		add_filter( 'woocommerce_before_account_navigation', array( $this, 'render_account_wrapper' ), 1 );
+		add_filter( 'woocommerce_before_account_navigation', array( $this, 'render_account_sidebar_wrapper' ) );
+		add_filter( 'woocommerce_after_account_navigation', array( $this, 'render_account_sidebar_wrapper_end' ) );
 	}
 
 	/**
@@ -667,6 +677,57 @@ class Suki_Compatibility_WooCommerce {
 	public function set_cart_page_cross_sells_columns( $columns ) {
 		return suki_get_theme_mod( 'woocommerce_cart_cross_sells_grid_columns' );
 	}
+
+	/**
+	 * ====================================================
+	 * My Account Page Hook functions
+	 * ====================================================
+	 */
+
+	/**
+	 * Add opening wrapper tag to wrap my account page.
+	 */
+	public function render_account_wrapper() {
+		?>
+		<div class="suki-woocommerce-MyAccount">
+		<?php
+	}
+
+	/**
+	 * Add opening wrapper tag to wrap account sidebar.
+	 */
+	public function render_account_sidebar_wrapper() {
+		?>
+		<div class="suki-woocommerce-MyAccount-sidebar">
+			<?php $user = wp_get_current_user(); ?>
+			<div class="suki-woocommerce-MyAccount-user">
+				<?php echo get_avatar( $user->user_ID, 60 ); ?>
+				<div class="info">
+					<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
+					<a href="<?php echo esc_url( wp_logout_url() ); ?>" class="logout"><?php esc_html_e( 'Logout', 'suki' ); ?></a>
+				</div>
+			</div>
+		<?php
+	}
+
+	/**
+	 * Add closing wrapper tag to wrap account sidebar.
+	 */
+	public function render_account_sidebar_wrapper_end() {
+		?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Add closing wrapper tag to wrap my account page.
+	 */
+	public function render_account_wrapper_end() {
+		?>
+		</div>
+		<?php
+	}
+
 
 	/**
 	 * ====================================================

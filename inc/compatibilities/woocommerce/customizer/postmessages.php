@@ -19,7 +19,7 @@ $add = array();
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce nav.woocommerce-pagination ul li a, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce-account .woocommerce-MyAccount-navigation a',
+		'element'  => '.woocommerce nav.woocommerce-pagination ul li a, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a',
 		'property' => 'color',
 	),
 );
@@ -52,7 +52,7 @@ $add['subtle_color'] = array(
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author a, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a, .woocommerce-account .woocommerce-MyAccount-navigation a:hover, .woocommerce-account .woocommerce-MyAccount-navigation a:focus',
+		'element'  => '.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author a, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
 		'property' => 'color',
 	),
 );

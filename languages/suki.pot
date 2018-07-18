@@ -575,8 +575,12 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:441, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:451, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:707
+msgid "Logout"
 msgstr ""
 
 #: inc/customizer/custom-controls/class-suki-customize-control-builder.php:86

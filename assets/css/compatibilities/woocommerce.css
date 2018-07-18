@@ -919,53 +919,103 @@ p.demo_store {
 	margin-top: 0.5em;
 }
 
+.woocommerce-account .suki-woocommerce-MyAccount {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-sidebar {
+	width: 20%;
+	min-width: 20%;
+	max-width: 200px;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-sidebar a {
+	text-decoration: none;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-user {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 2rem;
+	padding-right: 1.25rem;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-user .avatar {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-user .info {
+	width: 100%;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-user .info .name {
+	display: block;
+	font-weight: 600;
+}
+
+.woocommerce-account .suki-woocommerce-MyAccount-user .info .logout {
+	font-size: 0.85em;
+}
+
 .woocommerce-account .woocommerce-MyAccount-navigation {
 	float: none;
 	width: auto;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul {
-	margin: 0 0 2rem;
+	margin: 0;
 	padding: 0;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
 	list-style: none;
-	overflow: visible;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul li {
-	display: inline-block;
-	margin: 0 0 -1px;
-	padding: 0;
-	border: none;
-	background-color: transparent;
-}
-
-.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
-	position: relative;
-	display: inline-block;
-	padding: 0.8rem 1.2rem;
-	border-bottom-width: 3px;
-	border-bottom-style: solid;
+	border-right-width: 3px;
+	border-right-style: solid;
+	padding: 0.25em 1.25rem 0.25em 0;
 	border-color: transparent;
-	text-decoration: none;
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a {
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active {
+	font-weight: 600;
 	border-color: currentColor;
-}
-
-.woocommerce-account .woocommerce-MyAccount-navigation > .panel {
-	display: none;
-}
-
-.woocommerce-account .woocommerce-MyAccount-navigation > .panel:first-of-type {
-	display: block;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content {
 	float: none;
-	width: auto;
+	width: 100%;
+	padding-left: 30px;
 }
 
 .woocommerce-account table.my_account_orders {
