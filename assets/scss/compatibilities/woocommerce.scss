@@ -203,12 +203,10 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .woocommerce ul.products {
-	padding: 1.25rem 0;
 	margin: 0 -15px; // default
-	margin-bottom: -3rem; /* white space fix */
 
 	li.product {
-		margin: 0 0 3rem;
+		margin: 1.25rem 0;
 		padding: 0 15px; // default
 
 		.count {
@@ -336,6 +334,7 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .woocommerce nav.woocommerce-pagination {
+	margin: 2rem 0;
 	clear: both;
 
 	ul {
