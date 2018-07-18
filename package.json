@@ -1,71 +1,70 @@
 {
-	"name": "suki",
-	"title": "Suki",
-	"description": "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/",
-	"uri": "https://sukiwp.com/",
-	"author": {
-		"name": "SukiWP",
-		"url": "https://sukiwp.com/about/"
-	},
-	"version": "0.2.0",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"two-columns",
-		"left-sidebar",
-		"right-sidebar",
-		"grid-layout",
-		"accessibility-ready",
-		"custom-colors",
-		"custom-menu",
-		"editor-style",
-		"featured-images",
-		"footer-widgets",
-		"full-width-template",
-		"microformats",
-		"rtl-language-support",
-		"theme-options",
-		"threaded-comments",
-		"translation-ready",
-		"blog",
-		"e-commerce",
-		"portfolio"
-	],
-	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/sukiwp/suki.git"
-	},
-	"contributors": [
-		{
-			"name": "sukiwp",
-			"url": "https://profiles.wordpress.org/sukiwp"
-		},
-		{
-			"name": "daviedr",
-			"url": "https://profiles.wordpress.org/daviedr"
-		}
-	],
-	"devDependencies": {
-		"del": "^3.0.0",
-		"eligrey-classlist-js-polyfill": "^1.2.20180112",
-		"google-fonts-complete": "^1.2.2",
-		"gulp": "^4.0.0",
-		"gulp-autoprefixer": "^5.0.0",
-		"gulp-merge-media-queries": "^0.2.1",
-		"gulp-rename": "^1.3.0",
-		"gulp-replace": "^1.0.0",
-		"gulp-rtlcss": "^1.2.0",
-		"gulp-sass": "^4.0.1",
-		"gulp-uglify": "^3.0.0",
-		"gulp-uglifycss": "^1.1.0",
-		"gulp-watch": "^5.0.0",
-		"gulp-wp-pot": "^2.3.1",
-		"gulp-zip": "^4.1.0",
-		"normalize.css": "^8.0.0"
-	},
-	"browserslist": [
-		"last 2 versions",
-		"ie >= 10"
-	],
-	"dependencies": {}
+  "name": "suki",
+  "title": "Suki",
+  "description": "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/",
+  "uri": "https://sukiwp.com/",
+  "author": "SukiWP (https://sukiwp.com/about/)",
+  "version": "0.2.0",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "two-columns",
+    "left-sidebar",
+    "right-sidebar",
+    "grid-layout",
+    "accessibility-ready",
+    "custom-colors",
+    "custom-menu",
+    "editor-style",
+    "featured-images",
+    "footer-widgets",
+    "full-width-template",
+    "microformats",
+    "rtl-language-support",
+    "theme-options",
+    "threaded-comments",
+    "translation-ready",
+    "blog",
+    "e-commerce",
+    "portfolio"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukiwp/suki.git"
+  },
+  "contributors": [
+    "sukiwp (https://profiles.wordpress.org/sukiwp)",
+    "daviedr (https://profiles.wordpress.org/daviedr)"
+  ],
+  "devDependencies": {
+    "del": "^3.0.0",
+    "eligrey-classlist-js-polyfill": "^1.2.20180112",
+    "google-fonts-complete": "^1.2.2",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-rtlcss": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.1.0",
+    "gulp-watch": "^5.0.0",
+    "gulp-wp-pot": "^2.3.1",
+    "gulp-zip": "^4.1.0",
+    "normalize.css": "^8.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 10"
+  ],
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/sukiwp/suki/issues"
+  },
+  "homepage": "https://github.com/sukiwp/suki#readme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

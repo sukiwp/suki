@@ -508,6 +508,34 @@ function suki_header_element( $element ) {
 			}
 			break;
 
+			case 'contact-details':
+			$types = suki_get_theme_mod( 'header_contact_details_links' );
+
+			if ( ! empty( $types ) ) {
+					$target = '_blank';
+					$links = array();
+
+					foreach ( $types as $type ) {
+						$url = suki_get_theme_mod( 'contact_details_' . $type );
+						$links[] = array(
+							'type'   => $type,
+							'url'    => ! empty( $url ) ? $url : '#',
+							'target' => $target,
+						);
+					}
+					?>
+					<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu suki-menu-icon">
+						<?php suki_contact_details_links( $links, array(
+							'before_link' => '<li class="menu-item">',
+							'after_link'  => '</li>',
+							'link_class'  => 'suki-menu-icon',
+						) ); ?>
+
+					</ul>
+					<?php
+				}
+				break;
+
 		case 'mobile-vertical-toggle':
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
@@ -1181,6 +1209,9 @@ function suki_header_element__html_1() {
 }
 function suki_header_element__social() {
 	suki_header_element( 'social' );
+}
+function suki_header_element__contact_details() {
+	suki_header_element( 'contact-details' );
 }
 
 function suki_footer_element__logo() {

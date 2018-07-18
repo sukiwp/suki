@@ -1366,12 +1366,16 @@ body.suki-has-popup-active .suki-popup-background {
 	color: inherit;
 }
 
-.suki-header-social li.menu-item {
+.suki-header-social li.menu-item, .suki-header-contact-details li.menu-item {
 	margin: 0 0 0 0.75em;
 }
 
-.suki-header-social li.menu-item:last-of-type {
+.suki-header-social li.menu-item:last-of-type, .suki-header-contact-details li.menu-item:last-of-type {
 	margin-left: 0;
+}
+
+.suki-header-social li.menu-item .suki-menu-icon, .suki-header-contact-details li.menu-item .suki-menu-icon {
+	vertical-align: initial;
 }
 
 .suki-main-header {
