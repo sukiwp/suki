@@ -91,7 +91,7 @@ class Suki_Admin {
 			suki_get_theme_info( 'name' ),
 			'edit_theme_options',
 			'suki',
-			array( $this, 'admin_page' )
+			array( $this, 'render_admin_page' )
 		);
 	}
 
@@ -269,7 +269,10 @@ class Suki_Admin {
 	 * ====================================================
 	 */
 
-	public function admin_page() {
+	/**
+	 * Render admin page.
+	 */
+	public function render_admin_page() {
 		?>
 		<div class="wrap suki-admin-wrap">
 			<div class="suki-admin-header">
