@@ -19,9 +19,9 @@ $add = array();
  */
 
 $add['body_font_family'] = 'web_safe_fonts|System';
-$add['body_font_weight'] = 400;
+$add['body_font_weight'] = '';
 $add['body_font_style'] = '';
-$add['body_text_transform'] = 'none';
+$add['body_text_transform'] = '';
 $add['body_font_size'] = '15px';
 $add['body_line_height'] = '1.7';
 $add['body_letter_spacing'] = '';
@@ -83,8 +83,8 @@ $add['heading_hover_text_color'] = $colors['accent'];
 
 $add['blockquote_font_family'] = '';
 $add['blockquote_font_weight'] = 300;
-$add['blockquote_text_transform'] = '';
 $add['blockquote_font_style'] = 'italic';
+$add['blockquote_text_transform'] = '';
 $add['blockquote_font_size'] = '20px';
 $add['blockquote_line_height'] = '1.6';
 $add['blockquote_letter_spacing'] = '';
