@@ -900,14 +900,19 @@ p.demo_store {
 .woocommerce-account {
 
 	.suki-woocommerce-MyAccount {
-		@include flex( stretch );
+		@media screen and ( min-width: $breakpoint_768 ) {
+			@include flex( stretch );
+		}
 	}
 
 	.suki-woocommerce-MyAccount-sidebar {
-		width: 20%;
-		min-width: 20%;
-		max-width: 200px;
-		@include border( right );
+		margin: 0 0 1.25rem;
+
+		@media screen and ( min-width: $breakpoint_768 ) {
+			width: 20%;
+			min-width: 20%;
+			max-width: 200px;
+		}
 
 		a {
 			text-decoration: none;
@@ -916,8 +921,11 @@ p.demo_store {
 
 	.suki-woocommerce-MyAccount-user {
 		@include flex();
-		margin-bottom: 2rem;
-		padding-right: 1.25rem;
+		margin-bottom: 1.25rem;
+
+		@media screen and ( min-width: $breakpoint_768 ) {
+			padding-right: 15px;
+		}
 
 		.avatar {
 			width: 60px;
@@ -948,15 +956,18 @@ p.demo_store {
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			@include border( top );
 
 			li {
-				@include border( right, 3px );
-				padding: 0.25em 1.25rem 0.25em 0;
-				border-color: transparent;
+				@include border( bottom );
+				padding: 0.5em 0;
+
+				@media screen and ( min-width: $breakpoint_768 ) {
+					padding-right: 15px;
+				}
 
 				&.is-active {
 					font-weight: 600;
-					border-color: currentColor;
 				}
 			}
 		}
@@ -965,7 +976,10 @@ p.demo_store {
 	.woocommerce-MyAccount-content {
 		float: none; // reset
 		width: 100%;
-		padding-left: 30px;
+
+		@media screen and ( min-width: $breakpoint_768 ) {
+			padding-left: 60px;
+		}
 	}
 
 	table.my_account_orders {

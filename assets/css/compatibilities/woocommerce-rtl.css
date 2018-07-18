@@ -919,30 +919,36 @@ p.demo_store {
 	margin-top: 0.5em;
 }
 
-.woocommerce-account .suki-woocommerce-MyAccount {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: stretch;
-	-ms-flex-align: stretch;
-	align-items: stretch;
+@media screen and (min-width: 768px) {
+	.woocommerce-account .suki-woocommerce-MyAccount {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: stretch;
+		-ms-flex-align: stretch;
+		align-items: stretch;
+	}
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar {
-	width: 20%;
-	min-width: 20%;
-	max-width: 200px;
-	border-left-width: 1px;
-	border-left-style: solid;
+	margin: 0 0 1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+	.woocommerce-account .suki-woocommerce-MyAccount-sidebar {
+		width: 20%;
+		min-width: 20%;
+		max-width: 200px;
+	}
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar a {
@@ -965,8 +971,13 @@ p.demo_store {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	margin-bottom: 2rem;
-	padding-left: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+	.woocommerce-account .suki-woocommerce-MyAccount-user {
+		padding-left: 15px;
+	}
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-user .avatar {
@@ -998,24 +1009,35 @@ p.demo_store {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	border-top-width: 1px;
+	border-top-style: solid;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul li {
-	border-left-width: 3px;
-	border-left-style: solid;
-	padding: 0.25em 0 0.25em 1.25rem;
-	border-color: transparent;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding: 0.5em 0;
+}
+
+@media screen and (min-width: 768px) {
+	.woocommerce-account .woocommerce-MyAccount-navigation ul li {
+		padding-left: 15px;
+	}
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active {
 	font-weight: 600;
-	border-color: currentColor;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content {
 	float: none;
 	width: 100%;
-	padding-right: 30px;
+}
+
+@media screen and (min-width: 768px) {
+	.woocommerce-account .woocommerce-MyAccount-content {
+		padding-right: 60px;
+	}
 }
 
 .woocommerce-account table.my_account_orders {
