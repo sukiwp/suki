@@ -44,13 +44,17 @@
 	}
 }
 
-// Social
-.suki-header-social {
+// Social and Contact Details
+.suki-header-social, .suki-header-contact-details {
 	li.menu-item {
 		margin: 0 0.75em 0 0;
 
 		&:last-of-type {
 			margin-right: 0;
+		}
+
+		.suki-menu-icon {
+			vertical-align: initial;
 		}
 	}
 }
@@ -240,7 +244,7 @@
 
 	.admin-bar & {
 		top: 32px;
-		
+
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 			top: 46px;
 		}
@@ -256,7 +260,7 @@
 	right: 0;
 	transform: translate( 100%, 0 );
 }
-	
+
 .suki-header-vertical-display-permanent,
 .suki-header-vertical.suki-popup-active {
 	transform: translate( 0, 0 ) !important;
