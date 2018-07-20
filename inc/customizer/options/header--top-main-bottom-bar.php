@@ -159,18 +159,12 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'priority'    => 20,
 	) ) );
 
-	// ------
-	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_' . $type . '_icon_size', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'priority'    => 25,
-	) ) );
-
 	// Icon size
 	$id = 'header_' . $type . '_icon_size';
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
 		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 		'section'     => $section,

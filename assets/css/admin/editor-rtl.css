@@ -6,25 +6,25 @@ html, body {
 
 h1 {
 	font-size: 32px;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: 1.4;
 }
 
 h2 {
 	font-size: 27px;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: 1.5;
 }
 
 h3 {
 	font-size: 22px;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: 1.6;
 }
 
 h4 {
 	font-size: 17px;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: 1.7;
 }
 
@@ -322,10 +322,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 1.25rem;
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-	margin-top: 0;
-}
-
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	color: inherit;
 }
@@ -345,10 +341,6 @@ hr {
 
 blockquote {
 	margin: 0 0 1.25rem;
-}
-
-blockquote > *:first-child {
-	margin-top: 0;
 }
 
 blockquote > *:last-child {

@@ -141,47 +141,6 @@ class Suki_Customizer {
 		 */
 		$defaults = $this->get_setting_defaults();
 
-		// Define sections with default page types.
-		$page_sections = array(
-			'static' => array(
-				'title' => esc_html__( 'Static Page', 'suki' ),
-				'description' => esc_html__( 'You can override these settings for each individual page.', 'suki' ),
-			),
-			'search' => array(
-				'title' => esc_html__( 'Search Results Page', 'suki' ),
-			),
-			'404' => array(
-				'title' => esc_html__( '404 Page', 'suki' ),
-			),
-			'post_archive' => array(
-				'title' => esc_html__( 'Posts Page', 'suki' ),
-			),
-			'post_singular' => array(
-				'title' => esc_html__( 'Single Post Page', 'suki' ),
-				'description' => esc_html__( 'You can override these settings for each individual post.', 'suki' ),
-			),
-		);
-
-		// Add custom post types to sections.
-		$post_types = get_post_types( array(
-			'public'             => true,
-			'publicly_queryable' => true,
-			'rewrite'            => true,
-			'_builtin'           => false,
-		), 'objects' );
-		foreach ( $post_types as $post_type ) {
-			$page_sections[ $post_type->name . '_archive' ] = array(
-				/* translators: %s: post type's plural name. */
-				'title' => sprintf( esc_html__( '%s Page', 'suki' ), $post_type->labels->name ),
-			);
-			$page_sections[ $post_type->name . '_singular' ] = array(
-				/* translators: %s: post type's singular name. */
-				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type->labels->singular_name ),
-				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'You can override these settings for each individual %s.', 'suki' ), $post_type->labels->singular_name ),
-			);
-		}
-
 		// Sections and Panels
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/_sections.php' );
 
@@ -206,10 +165,10 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--mobile-main-bar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--mobile-vertical-bar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--logo.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--menu.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--html.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--social.php' );
+		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-header.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--section.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--main.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--sidebar.php' );
@@ -217,8 +176,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--bottom-bar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--copyright.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-column.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--menu.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--social.php' );
 
 		// Global Settings
@@ -267,34 +224,8 @@ class Suki_Customizer {
 	public function print_preview_styles() {
 		?>
 		<style id="suki-preview-css" type="text/css">
-			.customize-partial-edit-shortcut {
-				height: 0 !important;
-				width: 0 !important;
-				margin: -2px 0 0 -2px !important;
-			}
-			.customize-partial-edit-shortcut button {
-				top: auto !important;
-			}
 			.customize-partial-edit-shortcut button:hover, .customize-partial-edit-shortcut button:focus {
-				border-color: #fff;
-			}
-			.suki-customizer-placeholder.customize-partial-refreshing {
-				min-height: 20px;
-				background-image: linear-gradient(-45deg, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0) 75%, rgba(0,0,0,0));
-				background-repeat: repeat-x;
-				background-size: 30px 30px;
-				-webkit-animation: candystripe 1s linear infinite;
-				-moz-animation: candystripe 1s linear infinite;
-				animation: candystripe 1s linear infinite;
-			}
-			@-webkit-keyframes candystripe {
-				to { background-position: 30px 0; }
-			}
-			@-moz-keyframes candystripe {
-				to { background-position: 30px 0; }
-			}
-			@keyframes candystripe {
-				to { background-position: 30px 0; }
+				border-color: currentColor;
 			}
 		</style>
 		<?php
@@ -312,8 +243,8 @@ class Suki_Customizer {
 				document.addEventListener( 'DOMContentLoaded', function() {
 					if ( 'undefined' !== typeof wp && wp.customize && wp.customize.selectiveRefresh && wp.customize.widgetsPreview && wp.customize.widgetsPreview.WidgetPartial ) {
 						wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
-							// Main Header
-							if ( 'main_header' === placement.partial.id || placement.partial.id.indexOf( 'nav_menu_instance' ) ) {
+							// Nav Menu
+							if ( placement.partial.id.indexOf( 'nav_menu_instance' ) ) {
 								window.suki.initAll();
 							}
 						} );
@@ -410,44 +341,52 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Return all customizer setting keys that contains font_family.
+	 * Return all page types for page settings.
 	 * 
 	 * @return array
 	 */
-	public function get_font_family_setting_keys() {
-		$keys = array();
-
-		foreach ( $this->get_setting_defaults() as $key => $default ) {
-			// Collect all "font family" options.
-			if ( false !== strpos( $key, '_font_family' ) ) {
-				$keys[] = $key;
-			}
-		}
-		return $keys;
-	}
-	
-	/**
-	 * Return all listed fonts divided into each provider.
-	 * 
-	 * @param string $group
-	 * @return array
-	 */
-	public function get_all_listed_fonts( $group = null ) {
-		$fonts = array(
-			'web_safe_fonts' => array(),
-			'google_fonts' => array(),
-			'custom_fonts' => array(),
+	public function get_all_page_settings_types() {
+		// Define sections with default page types.
+		$page_sections = array(
+			'static' => array(
+				'title' => esc_html__( 'Static Page', 'suki' ),
+				'description' => esc_html__( 'This is global default value. You can override these settings on each individual page editor.', 'suki' ),
+			),
+			'search' => array(
+				'title' => esc_html__( 'Search Results Page', 'suki' ),
+			),
+			'404' => array(
+				'title' => esc_html__( '404 Page', 'suki' ),
+			),
+			'post_archive' => array(
+				'title' => esc_html__( 'Posts Page', 'suki' ),
+			),
+			'post_singular' => array(
+				'title' => esc_html__( 'Single Post Page', 'suki' ),
+				'description' => esc_html__( 'This is global default value. You can override these settings on each individual post editor.', 'suki' ),
+			),
 		);
 
-		foreach ( suki_get_all_fonts() as $key => $list ) {
-			$fonts[ $key ] = array_keys( $list );
+		// Add custom post types to sections.
+		$post_types = get_post_types( array(
+			'public'             => true,
+			'publicly_queryable' => true,
+			'_builtin'           => false,
+		), 'objects' );
+		foreach ( $post_types as $post_type ) {
+			$page_sections[ $post_type->name . '_archive' ] = array(
+				/* translators: %s: post type's plural name. */
+				'title' => sprintf( esc_html__( '%s Page', 'suki' ), $post_type->labels->name ),
+			);
+			$page_sections[ $post_type->name . '_singular' ] = array(
+				/* translators: %s: post type's singular name. */
+				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type->labels->singular_name ),
+				/* translators: %s: post type's singular name. */
+				'description' => sprintf( esc_html__( 'This is global default value. You can override these settings on each individual %s editor.', 'suki' ), $post_type->labels->singular_name ),
+			);
 		}
 
-		if ( is_null( $group ) ) {
-			return $fonts;
-		} else {
-			return suki_array_value( $fonts, $group, array() );
-		}
+		return $page_sections;
 	}
 	
 	/**
@@ -456,28 +395,44 @@ class Suki_Customizer {
 	 * @param string $group
 	 * @return array
 	 */
-	public function get_all_selected_fonts( $group = null ) {
+	public function get_active_fonts( $group = null ) {
 		$fonts = array(
 			'web_safe_fonts' => array(),
 			'google_fonts' => array(),
 			'custom_fonts' => array(),
 		);
 
-		foreach ( $this->get_font_family_setting_keys() as $key ) {
-			$value = $this->get_setting_value( $key );
+		$count = 0;
+
+		// Iterate through the saved customizer settings, to find all font family settings.
+		foreach ( get_theme_mods() as $key => $value ) {
+			// Check if this setting is not a font family, then skip this setting.
+			if ( false === strpos( $key, '_font_family' ) ) {
+				continue;
+			}
 
 			// Split value format to [font provider, font name].
 			$args = explode( '|', $value );
 
+			// Only add if value format is valid.
 			if ( 2 === count( $args ) ) {
 				// Add to active fonts list.
-				// Check if the font family has not been added before.
+				// Make sure it is has not been added before.
 				if ( ! in_array( $args[1], $fonts[ $args[0] ] ) ) {
 					$fonts[ $args[0] ][] = $args[1];
 				}
+
+				// Increment counter.
+				$count += 1;
 			}
 		}
 
+		// Check using the counter, if there is no saved settings about font family, add the default system font as active.
+		if ( 0 === $count ) {
+			$fonts['web_safe_fonts'][] = 'Default System Font';
+		}
+
+		// Return values.
 		if ( is_null( $group ) ) {
 			return $fonts;
 		} else {
@@ -490,15 +445,8 @@ class Suki_Customizer {
 	 * 
 	 * @return string
 	 */
-	public function generate_google_fonts_embed_url() {
-		$google_fonts = $this->get_all_selected_fonts( 'google_fonts' );
-
-		// Check if there is no active Google Fonts, then abort.
-		if ( empty( $google_fonts ) ) {
-			return;
-		}
-
-		return suki_generate_google_fonts_embed_url( $google_fonts );
+	public function generate_active_google_fonts_embed_url() {
+		return suki_build_google_fonts_embed_url( $this->get_active_fonts( 'google_fonts' ) );
 	}
 
 	/**
@@ -508,12 +456,11 @@ class Suki_Customizer {
 	 */
 	public function generate_css() {
 		$all_postmessages = $this->get_setting_postmessages();
-		$default_values = $this->get_setting_defaults();
 
 		// Temporary CSS array to organize output.
 		$css_array = array();
 
-		// Get all available fonts.
+		// Load fonts dictionary.
 		$fonts = suki_get_all_fonts();
 
 		// Loop through each setting.

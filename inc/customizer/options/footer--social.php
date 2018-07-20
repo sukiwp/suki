@@ -25,13 +25,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_footer_social', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
 // Social links
 $id = 'footer_social_links';
 $wp_customize->add_setting( $id, array(

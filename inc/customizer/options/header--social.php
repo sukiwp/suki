@@ -25,13 +25,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_social', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
 // Social links
 $id = 'header_social_links';
 $wp_customize->add_setting( $id, array(
@@ -45,6 +38,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'choices'    => suki_get_social_media_types(),
 	'priority'    => 10,
 ) ) );
+
 // Selective Refresh
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $id, array(

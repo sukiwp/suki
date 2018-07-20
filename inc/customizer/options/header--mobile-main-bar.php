@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Header > Mobile Top Bar
+ * Customizer settings: Header > Mobile Main Bar
  *
  * @package Suki
  **/
@@ -31,6 +31,26 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'min'   => 20,
 			'max'   => 120,
 			'step'  => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
+// Padding
+$id = 'header_mobile_main_bar_padding';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Padding', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 120,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,
@@ -95,6 +115,7 @@ $id = 'header_mobile_main_bar_icon_size';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,

@@ -198,7 +198,7 @@
 
 			var fontSource = chunks[0],
 			    fontName = chunks[1],
-			    fontStack = sukiCustomizerPreviewData.fonts[ fontSource ][ fontName ] || 'inherit';
+			    fontStack = sukiCustomizerPreviewData.fonts[ fontSource ][ fontName ] || '';
 
 			// Change CSS value.
 			sukiCustomizer.postMessage_css( key, rules, fontStack );

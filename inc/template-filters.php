@@ -332,18 +332,18 @@ function suki_header_bottom_bar_classes( $classes ) {
 add_filter( 'suki_header_bottom_bar_classes', 'suki_header_bottom_bar_classes' );
 
 /**
- * Add custom classes to the array of page title section classes.
+ * Add custom classes to the array of page header section classes.
  *
  * @param array $classes
  * @return array
  */
-function suki_page_title_classes( $classes ) {
-	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'page_title_container' ) );
-	$classes['alignment'] = esc_attr( 'suki-page-title-align-' . suki_get_theme_mod( 'page_title_alignment' ) );
+function suki_page_header_classes( $classes ) {
+	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'page_header_container' ) );
+	$classes['layout'] = esc_attr( 'suki-page-header-layout-' . suki_get_theme_mod( 'page_header_layout' ) );
 
 	return $classes;
 }
-add_filter( 'suki_page_title_classes', 'suki_page_title_classes' );
+add_filter( 'suki_page_header_classes', 'suki_page_header_classes' );
 
 /**
  * Add custom classes to the array of content section classes.

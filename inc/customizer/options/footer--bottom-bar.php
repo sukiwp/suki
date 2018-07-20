@@ -122,18 +122,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'priority'    => 20,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_footer_bottom_bar_icon_size', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 25,
-) ) );
-
 // Icon size
 $id = 'footer_bottom_bar_icon_size';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
@@ -168,7 +162,7 @@ $colors = array(
 	'footer_bottom_bar_section_border_color'    => esc_html__( 'Border color', 'suki' ),
 	'footer_bottom_bar_text_color'              => esc_html__( 'Text color', 'suki' ),
 	'footer_bottom_bar_link_text_color'         => esc_html__( 'Link text color', 'suki' ),
-	'footer_bottom_bar_link_hover_text_color'   => esc_html__( 'Link hover text color', 'suki' ),
+	'footer_bottom_bar_link_hover_text_color'   => esc_html__( 'Link text color :hover', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(

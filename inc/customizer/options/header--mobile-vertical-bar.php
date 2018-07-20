@@ -28,8 +28,8 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Position', 'suki' ),
 	'choices'     => array(
-		'left'  => is_rtl() ? esc_html__( 'Right - RTL', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'right' => is_rtl() ? esc_html__( 'Left - RTL', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'left'  => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'right' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
 	'priority'    => 10,
 ) );
@@ -46,9 +46,9 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Elements alignment', 'suki' ),
 	'choices'     => array(
-		'left'   => is_rtl() ? esc_html__( 'Right - RTL', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'center' => esc_html__( 'Center', 'suki' ),
-		'right'  => is_rtl() ? esc_html__( 'Left - RTL', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
 	'priority'    => 10,
 ) );
@@ -68,6 +68,26 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'min'   => 120,
 			'max'   => 400,
 			'step'  => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
+// Padding
+$id = 'header_mobile_vertical_bar_padding';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Padding', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 120,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,
@@ -131,18 +151,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'priority'    => 20,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_mobile_vertical_bar_icon_size', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 25,
-) ) );
-
 // Icon size
 $id = 'header_mobile_vertical_bar_icon_size';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,

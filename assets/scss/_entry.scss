@@ -10,22 +10,14 @@
 // Entry
 .entry {
 	.suki-loop-default & {
-		margin-top: 6rem;
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
+		margin-bottom: 6em;
 	}
 
 	.suki-loop-grid & {
 		width: 100%;
 		padding: 0 15px;
+		margin-bottom: 3em;
 		border: none;
-		margin-bottom: 4rem;
 		float: left;
 
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
@@ -62,71 +54,49 @@
 	}
 
 	.suki-loop-search & {
-		margin-top: 2rem;
-		padding-bottom: 2rem;
+		margin-bottom: 2em;
+		padding-bottom: 2em;
 		@include border( bottom );
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 }
 
 // Entry wrapper
 .entry-wrapper {
-	> *:first-child {
-		margin-top: 0 !important;
-	}
-
 	> *:last-child {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 }
 
 // Entry header
 .entry-header {
-	> *:first-child {
-		margin-top: 0 !important;
-	}
+	margin: 0 0 2rem;
 
-	> *:last-child {
-		margin-bottom: 0 !important;
+	.entry-small & {
+		margin: 0 0 1em;
 	}
 }
 
 // Entry footer
 .entry-footer {
-	padding-top: 1rem;
+	padding-top: 1em;
 	@include border( top );
-
-	> *:first-child {
-		margin-top: 0 !important;
-	}
-
-	> *:last-child {
-		margin-bottom: 0 !important;
-	}
 }
 
 // Title
 .entry-title {
 	@extend %h1; // default
-	margin: 0;
+	margin: 0 0 0.5rem;
 }
 
 .entry-small-title {
 	@extend %h3; // default
-	margin: 0;
+	margin: 0 0 0.25rem;
 }
 
 // Meta
 .entry-meta {
 	@extend %meta;
-	margin: 0.25em 0;
+	margin: 0 0 0.25em;
 
 	.avatar {
 		display: inline-block;
@@ -141,7 +111,7 @@
 // Basic image thumbnail
 .entry-thumbnail {
 	display: block;
-	margin: 2em 0;
+	margin: 0 0 2rem;
 	text-align: center;
 
 	> * {
@@ -150,7 +120,7 @@
 	}
 
 	.entry-small & {
-		margin: 1em 0;
+		margin: 0 0 1rem;
 	}
 }
 
@@ -163,11 +133,19 @@ a.entry-thumbnail {
 
 // Content
 .entry-content {
-	margin: 2rem 0;
+	margin: 0 0 2rem;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 2rem;
+	}
 
 	blockquote {
-		padding: 0.5rem 2rem;
-		@include border( left, 0.25rem, solid );
+		padding: 0.5em 2em;
+		@include border( left, 0.25em, solid );
 
 		&[style*="center"] {
 			border-left: none;
@@ -175,14 +153,14 @@ a.entry-thumbnail {
 
 		&[style*="right"] {
 			border-left: none;
-			@include border( right, 0.25rem, solid );
+			@include border( right, 0.25em, solid );
 		}
 	}
 }
 
 // Excerpt
 .entry-excerpt {
-	margin: 0.75rem 0;
+	margin: 0 0 0.75em;
 
 	p {
 		margin: 0;
@@ -196,13 +174,13 @@ a.more-link {
 
 // Tags
 .entry-tags {
-	margin: 1.5rem 0;
+	margin: 1.5em 0;
 }
 
 // Author box
 .entry-author {
-	margin-top: 4rem;
-	padding: 1.75rem;
+	margin-top: 4em;
+	padding: 1.75em;
 	@include border();
 }
 
@@ -220,14 +198,14 @@ a.more-link {
 }
 
 .entry-author-name {
-	font-size: 1.1rem;
-	margin: 0 0 0.5rem;
+	font-size: 1.1em;
+	margin: 0 0 0.5em;
 
 	.avatar {
 		width: 80px;
 		height: 80px;
 		border-radius: 50%;
-		margin-bottom: 0.75rem;
+		margin-bottom: 0.75em;
 
 		@media screen and ( min-width: $breakpoint_500 ) {
 			position: absolute;
@@ -237,19 +215,19 @@ a.more-link {
 	}
 
 	.fn {
-		font-weight: 600;
+		font-weight: 500;
 		display: block;
 	}
 }
 
 .entry-author-content {
 	p {
-		margin: 0.5rem 0;
+		margin: 0.5em 0;
 	}
 }
 
 .entry-author-links {
-	font-size: 1.1rem;
+	font-size: 1.1em;
 }
 
 // -------------------------------------------------------------
@@ -257,7 +235,7 @@ a.more-link {
 // -------------------------------------------------------------
 
 .navigation {
-	margin: 2rem 0;
+	margin: 2em 0;
 
 	.nav-links {
 		text-align: center;
@@ -293,12 +271,12 @@ a.more-link {
 // -------------------------------------------------------------
 
 .comments-area {
-	margin-top: 4rem;
+	margin-top: 4em;
 }
 
 .comments-title {
 	position: relative;
-	margin-top: 2rem;
+	margin-top: 2em;
 	@extend %h3; // default
 }
 
@@ -334,7 +312,7 @@ a.more-link {
 		}
 
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			padding-left: 1.25rem;
+			padding-left: 1.25em;
 		}
 	}
 }
@@ -355,7 +333,7 @@ a.more-link {
 	}
 
 	@media screen and ( max-width: $breakpoint_500 - 1px ) {
-		padding: 1.25rem 0;
+		padding: 1.25em 0;
 	}
 }
 

@@ -11,17 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $section = 'suki_section_headings';
 
 for ( $i = 1; $i <= 4; $i++ ) {
-	$p = $i * 10;
-
-	if ( 1 < $i ) {
-		// ------
-		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_h' . $i . '_typography', array(
-			'section'     => $section,
-			'settings'    => array(),
-			'priority'    => $p,
-		) ) );
-	}
-
 	// Heading %d typography
 	$settings = array(
 		'font_family'    => 'h' . $i . '_font_family',
@@ -52,7 +41,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		'section'     => $section,
 		/* translators: %1$d: heading level number. */
 		'label'       => sprintf( esc_html__( 'Heading %1$d (H%1$d) typography', 'suki' ), $i ),
-		'priority'    => $p,
+		'priority'    => 10,
 	) ) );
 }
 
@@ -60,7 +49,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_headings_colors', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'priority'    => $p,
+	'priority'    => 10,
 ) ) );
 
 // Colors
@@ -77,6 +66,6 @@ foreach ( $colors as $id => $label ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
 		'section'     => $section,
 		'label'       => $label,
-		'priority'    => $p,
+		'priority'    => 10,
 	) ) );
 }

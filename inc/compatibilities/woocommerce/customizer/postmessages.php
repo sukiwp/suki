@@ -38,7 +38,7 @@ $add['link_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment',
+		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, #add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li',
 		'property' => 'background-color',
 	),
 );
@@ -212,11 +212,11 @@ $add['button_padding'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button',
+		'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce #payment #place_order, .woocommerce-page #payment #place_order',
 		'property' => 'padding',
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 1.2 ),
+			'args' => array( 1.3 ),
 		),
 	),
 );
@@ -235,11 +235,11 @@ $add['button_border_radius'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button',
+		'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce #payment #place_order, .woocommerce-page #payment #place_order',
 		'property' => 'border-radius',
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 1.2 ),
+			'args' => array( 1.15 ),
 		),
 	),
 );
@@ -257,11 +257,11 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	if ( in_array( $prop, array( 'font_size', 'letter_spacing' ) ) ) {
 		$array[] = array(
 			'type'     => 'css',
-			'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button',
+			'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce #payment #place_order, .woocommerce-page #payment #place_order',
 			'property' => $property,
 			'function' => array(
 				'name' => 'scale_dimensions',
-				'args' => array( 1.2 ),
+				'args' => array( 1.15 ),
 			),
 		);
 	}

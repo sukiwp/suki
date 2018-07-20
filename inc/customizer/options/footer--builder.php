@@ -81,9 +81,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 	) ),
 	'labels'      => array(
-		'bottom_left'   => is_rtl() ? esc_html__( 'Right - RTL', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'bottom_center' => esc_html__( 'Center', 'suki' ),
-		'bottom_right'  => is_rtl() ? esc_html__( 'Left - RTL', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
 	'priority'    => 10,
 ) ) );

@@ -16,14 +16,6 @@ $section = 'suki_section_main';
  * ====================================================
  */
 
-// Heading: Layout
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Layout', 'suki' ),
-	'priority'    => 10,
-) ) );
-
 // Padding
 $id = 'content_padding';
 $settings = array(
@@ -101,42 +93,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 
 /**
  * ====================================================
- * Typography
- * ====================================================
- */
-
-// Heading: Typography
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_typography', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Typography', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: link to "General Elements" section. */
-		esc_html__( 'Inherited from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_global_elements' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'General Elements', 'suki' ) . '</a>'
-	),
-	'priority'    => 20,
-) ) );
-
-
-/**
- * ====================================================
  * Colors
  * ====================================================
  */
-
-// Heading: Colors
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_colors', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Colors', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: link to "General Elements" section. */
-		esc_html__( 'Other colors are inherited from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_global_elements' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'General Elements', 'suki' ) . '</a>'
-	),
-	'priority'    => 30,
-) ) );
 
 // Colors
 $id = 'content_bg_color';
@@ -147,6 +106,6 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Background color', 'suki' ),
+	'label'       => esc_html__( 'Content Box BG color', 'suki' ),
 	'priority'    => 30,
 ) ) );

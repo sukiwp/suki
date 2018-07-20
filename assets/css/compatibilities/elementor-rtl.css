@@ -1,7 +1,3 @@
-.elementor-text-editor > *:first-child {
-	margin-top: 0;
-}
-
 .elementor-text-editor > *:last-child {
 	margin-bottom: 0;
 }

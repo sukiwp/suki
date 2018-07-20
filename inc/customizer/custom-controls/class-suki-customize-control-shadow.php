@@ -55,13 +55,12 @@ class Suki_Customize_Control_Shadow extends WP_Customize_Control {
 	 * Render Underscore JS template for this control's content.
 	 */
 	protected function content_template() {
-		$numbers = array(
+		$labels = array(
 			'h_offset' => esc_html__( 'H-Offset', 'suki' ),
 			'v_offset' => esc_html__( 'V-Offset', 'suki' ),
-			'blur'     => esc_html__( 'Blur', 'suki' ),
-			'spread'   => esc_html__( 'Spread', 'suki' ),
+			'blur' => esc_html__( 'Blur', 'suki' ),
+			'spread' => esc_html__( 'Spread', 'suki' ),
 		);
-
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{{ data.label }}}</span>
@@ -71,13 +70,14 @@ class Suki_Customize_Control_Shadow extends WP_Customize_Control {
 		<# } #>
 		<div class="customize-control-content">
 			<div class="suki-row suki-shadow-row">
-				<?php foreach ( $numbers as $prop => $label ) : ?>
-					<# var isExcluded = -1 < data.exclude.indexOf( '<?php echo esc_attr( $prop ); ?>' ) ? 'style="display: none;"' : ''; #>
-					<label class="suki-row-item suki-shadow-<?php echo esc_attr( $prop ); ?>" {{{ isExcluded }}}>
-						<span class="suki-small-label"><?php echo esc_attr( $label ); ?></span>
-						<input type="number" value="{{ '' !== isExcluded ? '' : data.value[ '<?php echo esc_attr( $prop ); ?>' ] }}" class="suki-shadow-input" step="1">
+				<# var labels = <?php echo json_encode( $labels ); ?>; #>
+				<# _.each( labels, function( label, prop ) { #>
+					<# var isExcluded = -1 < data.exclude.indexOf( prop ) ? 'style="display: none;"' : ''; #>
+					<label class="suki-row-item suki-shadow-{{ prop }}" {{{ isExcluded }}}>
+						<span class="suki-small-label">{{{ label }}}</span>
+						<input type="number" value="{{ '' !== isExcluded ? '' : data.value[ prop ] }}" class="suki-shadow-input" step="1">
 					</label>
-				<?php endforeach; ?>
+				<# }); #>
 				<label class="suki-row-item" style="width: 30px; vertical-align: top;">
 					<span class="suki-small-label"><?php esc_html_e( 'Color', 'suki' ); ?></span>
 				</label>

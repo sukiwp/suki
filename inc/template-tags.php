@@ -171,6 +171,44 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 }
 endif;
 
+if ( ! function_exists( 'suki_title__search' ) ) :
+/**
+ * Print / return HTML markup for title text for search page.
+ *
+ * @param boolean $echo
+ */
+function suki_title__search( $echo = true ) {
+	$html = sprintf(
+		/* translators: %s: search query. */
+		esc_html__( 'Search Results for: %s', 'suki' ),
+		'<span>' . get_search_query() . '</span>'
+	); // WPCS: XSS OK
+
+	if ( $echo ) {
+		echo $html; // WPCS: XSS OK
+	} else {
+		return $html;
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_title__404' ) ) :
+/**
+ * Print / return HTML markup for title text for 404 page.
+ *
+ * @param boolean $echo
+ */
+function suki_title__404( $echo = true ) {
+	$html = esc_html__( 'Oops! That page can not be found.', 'suki' );
+
+	if ( $echo ) {
+		echo $html; // WPCS: XSS OK
+	} else {
+		return $html;
+	}
+}
+endif;
+
 /**
  * ====================================================
  * Header template functions
@@ -219,8 +257,6 @@ function suki_mobile_vertical_header() {
 				</div>
 			</div>
 		</div>
-	<?php elseif ( is_customize_preview() ) : ?>
-		<div id="mobile-vertical-header" class="suki-customizer-placeholder" itemtype="https://schema.org/WPHeader" itemscope></div>
 	<?php endif;
 }
 endif;
@@ -233,8 +269,21 @@ function suki_header() {
 	?>
 	<header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope>
 		<?php
+		/**
+		 * Hook: suki_header_start
+		 */
+		do_action( 'suki_header_start' );
+
+		// Main Header
 		suki_main_header();
+		
+		// Mobile Header
 		suki_mobile_header();
+
+		/**
+		 * Hook: suki_header_end
+		 */
+		do_action( 'suki_header_end' );
 		?>
 	</header>
 	<?php
@@ -246,16 +295,10 @@ if ( ! function_exists( 'suki_main_header' ) ) :
  * Render main header section.
  */
 function suki_main_header() {
+	if ( suki_get_current_page_setting( 'disable_header' ) ) return;
+
 	?>
 	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki_header_classes', array() ) ) ); ?>">
-
-		<?php
-		/**
-		 * Hook: suki_header_start
-		 */
-		do_action( 'suki_header_start' );
-		?>
-
 		<?php
 		foreach ( array( 'top', 'main', 'bottom' ) as $bar ) :
 			$elements = array();
@@ -296,13 +339,6 @@ function suki_main_header() {
 			</div>
 			<?php
 		endforeach; ?>
-
-		<?php
-		/**
-		 * Hook: suki_header_end
-		 */
-		do_action( 'suki_header_end' );
-		?>
 	</div>
 	<?php
 }
@@ -313,6 +349,8 @@ if ( ! function_exists( 'suki_mobile_header' ) ) :
  * Render mobile header section.
  */
 function suki_mobile_header() {
+	if ( suki_get_current_page_setting( 'disable_mobile_header' ) ) return;
+	
 	?>
 	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop">
 		<?php
@@ -499,6 +537,123 @@ endif;
 
 /**
  * ====================================================
+ * Page Header template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_page_header' ) ) :
+/**
+ * Render page header section.
+ */
+function suki_page_header() {
+	if ( suki_get_current_page_setting( 'disable_page_header' ) ) return;
+
+	if ( ! suki_get_theme_mod( 'page_header' ) ) return;
+	?>
+	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki_page_header_classes', array() ) ) ); ?>">
+		<div class="suki-page-header-inner suki-section-inner">
+			<div class="suki-wrapper">
+				<div class="suki-page-header-row">
+					<?php suki_page_title(); ?>
+
+					<?php suki_breadcrumb(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_page_title' ) ) :
+/**
+ * Render page title.
+ */
+function suki_page_title() {
+	if ( ! suki_get_theme_mod( 'page_header_title' ) ) return;
+	
+	echo '<' . ( is_front_page() && is_home() ? 'h2' : 'h1' ) . ' class="suki-page-header-title">';
+
+	$title = suki_get_current_page_setting( 'page_title' );
+
+	if ( empty( $title ) ) {
+		if ( is_home() && is_front_page() ) {
+			$title = get_bloginfo( 'description' );
+		}
+
+		elseif ( is_home() ) {
+			$title = get_the_title( get_option( 'page_for_posts' ) );
+		}
+
+		elseif ( is_post_type_archive() ) {
+			$obj = get_queried_object();
+			$title = $obj->labels->name;
+		}
+
+		elseif ( is_singular() ) {
+			$title = get_the_title();
+		}
+
+		elseif ( is_archive() ) {
+			$title = get_the_archive_title();
+		}
+
+		elseif ( is_search() ) {
+			$title = suki_title__search( false );
+		}
+
+		elseif ( is_404() ) {
+			$title = suki_title__404( false );
+		}
+
+		else {
+			$title = '<!-- No title format matched for this page -->';
+		}
+	}
+
+	echo $title; // WPCS: XSS OK
+
+	echo '</' . ( is_front_page() && is_home() ? 'h2' : 'h1' ) . '>';
+}
+endif;
+
+if ( ! function_exists( 'suki_breadcrumb' ) ) :
+/**
+ * Render breadcrumb via 3rd party plugin.
+ */
+function suki_breadcrumb() {
+	if ( ! suki_get_theme_mod( 'page_header_breadcrumb' ) ) return;
+
+	echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">';
+
+	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
+		case 'breadcrumb-trail':
+			if ( function_exists( 'breadcrumb_trail' ) ) {
+				breadcrumb_trail( array(
+					'show_browse' => false,
+				) );
+			}
+			break;
+
+		case 'breadcrumb-navxt':
+			if ( function_exists( 'bcn_display' ) ) {
+				bcn_display();
+			}
+			break;
+
+		case 'yoast-seo':
+			if ( function_exists( 'yoast_breadcrumb' ) ) {
+				yoast_breadcrumb();
+			}
+			break;
+	}
+	
+	echo '</div>';
+}
+endif;
+
+/**
+ * ====================================================
  * Content section template functions
  * ====================================================
  */
@@ -567,6 +722,8 @@ if ( ! function_exists( 'suki_footer_widgets_bar' ) ) :
  * Render footer widgets area.
  */
 function suki_footer_widgets_bar() {
+	if ( suki_get_current_page_setting( 'disable_footer_widgets' ) ) return;
+
 	if ( 0 < suki_get_theme_mod( 'footer_widgets_bar' ) ) : ?>
 		<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki_footer_widgets_bar_classes', array() ) ) ); ?>">
 			<div class="suki-footer-widgets-bar-inner suki-section-inner">
@@ -583,8 +740,6 @@ function suki_footer_widgets_bar() {
 				</div>
 			</div>
 		</div>
-	<?php elseif ( is_customize_preview() ) : ?>
-		<div id="suki-footer-widgets-bar" class="suki-customizer-placeholder"></div>
 	<?php endif;
 }
 endif;
@@ -594,6 +749,8 @@ if ( ! function_exists( 'suki_footer_bottom_bar' ) ) :
  * Render footer bottom bar.
  */
 function suki_footer_bottom_bar() {
+	if ( suki_get_current_page_setting( 'disable_footer_bottom' ) ) return;
+
 	$cols = array( 'left', 'center', 'right' );
 
 	$elements = array();
@@ -845,7 +1002,7 @@ function suki_entry_meta( $format ) {
 		}
 
 		if ( '' !== trim( $html ) ) {
-			echo '<div class="entry-meta">' . $html . '</div>';
+			echo '<div class="entry-meta">' . $html . '</div>'; // WPCS: XSS OK
 		}
 	}
 }
@@ -869,11 +1026,11 @@ function suki_entry_footer_meta() {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_small_title' ) ) :
+if ( ! function_exists( 'suki_entry_grid_title' ) ) :
 /**
- * Print entry small title.
+ * Print entry grid title.
  */
-function suki_entry_small_title() {
+function suki_entry_grid_title() {
 	suki_entry_title( 'small' );
 }
 endif;
@@ -918,11 +1075,64 @@ function suki_entry_grid_footer_meta() {
 }
 endif;
 
+if ( ! function_exists( 'suki_entry_small_title' ) ) :
+/**
+ * Print entry small title.
+ */
+function suki_entry_small_title() {
+	suki_entry_title( 'small' );
+}
+endif;
+
 /**
  * ====================================================
- * Posts archive template functions
+ * All index pages template functions
  * ====================================================
  */
+
+if ( ! function_exists( 'suki_content_header' ) ) :
+/**
+ * Render content header.
+ */
+function suki_content_header() {
+	if ( suki_get_current_page_setting( 'disable_content_header' ) ) return;
+
+	if ( is_home() && ! is_front_page() ) {
+		?>
+		<header class="page-header screen-reader-text">
+			<h1 class="page-title"><?php single_post_title(); ?></h1>
+		</header>
+		<?php
+	}
+
+	elseif ( is_archive() ) {
+		?>
+		<header class="page-header">
+			<?php
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="archive-description">', '</div>' );
+			?>
+		</header>
+		<?php
+	}
+
+	elseif ( is_search() ) {
+		?>
+		<header class="page-header">
+			<h1 class="page-title"><?php suki_title__search(); ?></h1>
+		</header>
+		<?php
+	}
+
+	elseif ( is_404() ) {
+		?>
+		<header class="page-header">
+			<h1 class="page-title"><?php suki_title__404(); ?></h1>
+		</header>
+		<?php
+	}
+}
+endif;
 
 if ( ! function_exists( 'suki_loop_navigation' ) ) :
 /**
@@ -1054,76 +1264,6 @@ function suki_comments_closed() {
 	if ( ! comments_open() ) : ?>
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'suki' ); ?></p>
 	<?php endif;
-}
-endif;
-
-/**
- * ====================================================
- * Other template functions:
- * ====================================================
- */
-
-
-if ( ! function_exists( 'suki_home_page_header' ) ) :
-/**
- * Render page header of blog posts home page.
- */
-function suki_home_page_header() {
-	?>
-	<header>
-		<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-	</header>
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'suki_archive_page_header' ) ) :
-/**
- * Render page header of search results page.
- */
-function suki_archive_page_header() {
-	?>
-	<header class="page-header">
-		<?php
-		the_archive_title( '<h1 class="page-title">', '</h1>' );
-		the_archive_description( '<div class="archive-description">', '</div>' );
-		?>
-	</header>
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'suki_search_page_header' ) ) :
-/**
- * Render page header of search results page.
- */
-function suki_search_page_header() {
-	?>
-	<header class="page-header">
-		<h1 class="page-title">
-			<?php
-			printf(
-				/* translators: %s: search query. */
-				esc_html__( 'Search Results for: %s', 'suki' ),
-				'<span>' . get_search_query() . '</span>'
-			); // WPCS: XSS OK
-			?>
-		</h1>
-	</header>
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'suki_404_page_header' ) ) :
-/**
- * Render page header of 404 page.
- */
-function suki_404_page_header() {
-	?>
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Oops! That page can not be found.', 'suki' ); ?></h1>
-	</header>
-	<?php
 }
 endif;
 

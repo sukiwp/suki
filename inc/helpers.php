@@ -227,7 +227,11 @@ function suki_convert_css_array_to_string( $css_array ) {
  * @param array $google_fonts
  * @return string
  */
-function suki_generate_google_fonts_embed_url( $google_fonts ) {
+function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
+	if ( empty( $google_fonts ) ) {
+		return '';
+	}
+
 	// Basic embed link.
 	$link = '//fonts.googleapis.com/css';
 	$args = array();
@@ -245,51 +249,6 @@ function suki_generate_google_fonts_embed_url( $google_fonts ) {
 	$args['subset'] = implode( ',', $subsets );
 
 	return esc_url( add_query_arg( $args, $link ) );
-}
-
-/**
- * Build Custom Font embedding CSS via @font-face
- *
- * @param array $font_data
- * @return string
- */
-function suki_generate_custom_font_css( $font_data ) {
-	// Skip if no name is specified for this custom font.
-	if ( empty( $font_data['name'] ) ) return;
-
-	$css = '';
-
-	foreach ( $font_data['variants'] as $variant ) {
-		// Font family
-		$css .= '@font-face{font-family:"' . $font_data['name'] . '";';
-
-		// Weight & Style
-		list( $weight, $style ) = explode( '|', $variant );
-		$css .= 'font-weight:' . $weight . ';font-style:' . $style . ';';
-
-		// Sources
-		$src = array();
-		$files = $font_data['files'][ $variant ];
-		if ( ! empty( $files['eot'] ) ) {
-			$css .= 'src:url("' . esc_url( $files['eot'] ) . '");';
-			$src[] = 'url("' . esc_url( $files['eot'] ) . '?iefix") format("embedded-opentype");';
-		}
-		if ( ! empty( $files['woff2'] ) ) {
-			$src[] = 'url("' . esc_url( $files['woff2'] ) . '") format("woff2")';
-		}
-		if ( ! empty( $files['woff'] ) ) {
-			$src[] = 'url("' . esc_url( $files['woff'] ) . '") format("woff")';
-		}
-		if ( ! empty( $files['ttf'] ) ) {
-			$src[] = 'url("' . esc_url( $files['ttf'] ) . '") format("truetype")';
-		}
-		if ( ! empty( $files['svg'] ) ) {
-			$src[] = 'url("' . esc_url( $files['svg'] ) . '") format("svg")';
-		}
-		$css .= 'src:' . implode( ',', $src ) . ';}';
-	}
-
-	return $css;
 }
 
 /**
@@ -442,22 +401,22 @@ function suki_get_google_fonts_subsets() {
 function suki_get_web_safe_fonts() {
 	return apply_filters( 'suki_web_safe_fonts', array(
 		// System
-		'System'          => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+		'Default System Font' => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 
 		// Sans Serif
-		'Arial'           => '"Arial", "Helvetica Neue", "Helvetica", sans-serif',
-		'Helvetica'       => '"Helvetica Neue", "Helvetica", "Arial", sans-serif',
-		'Tahoma'          => '"Tahoma", "Geneva", sans-serif',
-		'Trebuchet MS'    => '"Trebuchet MS", "Helvetica", sans-serif',
-		'Verdana'         => '"Verdana", "Geneva", sans-serif',
+		'Arial' => 'Arial, "Helvetica Neue", Helvetica, sans-serif',
+		'Helvetica' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		'Tahoma' => 'Tahoma, Geneva, sans-serif',
+		'Trebuchet MS' => '"Trebuchet MS", Helvetica, sans-serif',
+		'Verdana' => 'Verdana, Geneva, sans-serif',
 
 		// Serif
-		'Georgia'         => '"Georgia", serif',
-		'Times New Roman' => '"Times New Roman", "Times", serif',
+		'Georgia' => 'Georgia, serif',
+		'Times New Roman' => '"Times New Roman", Times, serif',
 
 		// Monospace
-		'Courier New'     => '"Courier New", "Courier", monospace',
-		'Lucida Console'  => '"Lucida Console", "Monaco", monospace',
+		'Courier New' => '"Courier New", Courier, monospace',
+		'Lucida Console' => '"Lucida Console", Monaco, monospace',
 	) );
 }
 

@@ -10,28 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'suki_section_sidebar';
 
-// Widgets
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'sidebar_widgets', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Add / remove widgets', 'suki' ),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'sidebar-widgets-sidebar' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Widgets on Sidebar', 'suki' ) . '</a>',
-	'priority'    => 0,
-) ) );
-
 /**
  * ====================================================
  * Layout
  * ====================================================
  */
-
-// Heading: Layout
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_sidebar_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Layout', 'suki' ),
-	'priority'    => 10,
-) ) );
 
 // Sidebar width
 $id = 'sidebar_width';
@@ -132,13 +115,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
-) ) );
-
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_sidebar_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
 	'priority'    => 10,
 ) ) );
 

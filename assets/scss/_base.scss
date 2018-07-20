@@ -48,10 +48,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: #333;
 	margin: 0 0 1.25rem;
 
-	&:first-child {
-		margin-top: 0;
-	}
-
 	a {
 		color: inherit;
 	}
@@ -89,10 +85,6 @@ blockquote {
 	margin: 0 0 1.25rem;
 
 	@extend %blockquote;
-
-	> *:first-child {
-		margin-top: 0;
-	}
 
 	> *:last-child {
 		margin-bottom: 0;

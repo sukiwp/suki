@@ -931,3 +931,38 @@
 		}
 	}
 }
+
+// -------------------------------------------------------------
+// Sections
+// -------------------------------------------------------------
+
+#sub-accordion-section-suki_section_title,
+#sub-accordion-section-suki_section_small_title,
+#sub-accordion-section-suki_section_meta,
+#sub-accordion-section-suki_section_gutenberg,
+#sub-accordion-section-suki_section_sidebar,
+#sub-accordion-section-suki_section_blog_single,
+[id^="sub-accordion-section-suki_section_page_settings_"] {
+	.customize-info {
+		.customize-section-description {
+			display: block;
+			margin-bottom: 0;
+		}
+
+		.customize-help-toggle {
+			display: none;
+		}
+	}
+}
+
+#sub-accordion-panel-suki_panel_page_settings {
+	.customize-info {
+		.customize-panel-description {
+			display: block;
+		}
+
+		.customize-help-toggle {
+			display: none;
+		}
+	}
+}

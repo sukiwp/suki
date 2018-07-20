@@ -99,25 +99,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'priority'    => 10,
 ) ) );
 
-// Post header alignment
-$id = 'entry_grid_header_alignment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $id, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Post header alignment', 'suki' ),
-	'choices'     => array(
-		'left'   => is_rtl() ? esc_html__( 'Right - RTL', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'center' => esc_html__( 'Center', 'suki' ),
-		'right'  => is_rtl() ? esc_html__( 'Left - RTL', 'suki' ) : esc_html__( 'Right', 'suki' ),
-	),
-	'priority'    => 10,
-) );
-
 // Post header meta
 $id = 'entry_grid_header_meta';
 $wp_customize->add_setting( $id, array(

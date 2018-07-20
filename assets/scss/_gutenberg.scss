@@ -37,7 +37,6 @@
 // -------------------------------------------------------------
 
 [class*="wp-block"] {
-	margin-top: 1.25rem;
 	margin-bottom: 1.25rem;
 }
 
@@ -46,10 +45,6 @@
 // -------------------------------------------------------------
 
 .wp-block-column {
-	> *:first-child {
-		margin-top: 0;
-	}
-
 	> *:last-child {
 		margin-bottom: 0;
 	}
@@ -64,7 +59,7 @@ p.has-drop-cap:not(:focus):first-letter {
 	line-height: 1;
 	font-family: inherit;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: 500;
 	margin: 0 0.25em 0 0;
 	text-transform: uppercase;
 	initial-letter: 2;

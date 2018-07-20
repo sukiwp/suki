@@ -10,6 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Suki_Customizer_Sanitization {
 	/**
+	 * Sanitize Text value
+	 *
+	 * @param string $value
+	 * @param WP_Customize_Setting $setting
+	 * @return string
+	 */
+	public static function text( $value, $setting ) {
+		return sanitize_text_field( $value );
+	}
+
+	/**
 	 * Sanitize Select value
 	 *
 	 * @param string $value
@@ -17,9 +28,6 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	public static function select( $value, $setting ) {
-		// Ensure input is a slug.
-		$value = sanitize_key( $value );
-		
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $setting->id );
 		
@@ -162,7 +170,7 @@ class Suki_Customizer_Sanitization {
 
 		switch ( $type ) {
 			case 'font_family':
-				$choices = isset( $control->choices[ $type ] ) ? $control->choices[ $type ] : array();
+				$choices = $control->get_choices( $type );
 
 				// Check if value format is invalid, then return empty string.
 				if ( false === strpos( $value, '|' ) ) {
@@ -177,7 +185,7 @@ class Suki_Customizer_Sanitization {
 				}
 
 				// Check if font family is invalid, then return empty string.
-				if ( ! array_key_exists( $value, $choices[ $chunks[0] ] ) ) {
+				if ( ! array_key_exists( $value, $choices[ $chunks[0] ]['fonts'] ) ) {
 					return '';
 				}
 				break;
@@ -185,7 +193,7 @@ class Suki_Customizer_Sanitization {
 			case 'font_weight':
 			case 'font_style':
 			case 'text_transform':
-				$choices = isset( $control->choices[ $type ] ) ? $control->choices[ $type ] : array();
+				$choices = $control->get_choices( $type );
 
 				// Make sure the selected value in one of the available choices.
 				if ( ! array_key_exists( $value, $choices ) ) {
@@ -196,10 +204,10 @@ class Suki_Customizer_Sanitization {
 			case 'font_size':
 			case 'line_height':
 			case 'letter_spacing':
-				$units_data = isset( $control->units[ $type ] ) ? $control->units[ $type ] : array();
+				$units = $this->get_units( $type );
 
 				// Validate dimension
-				$value = self::validate_dimension( $value, $units_data );
+				$value = self::validate_dimension( $value, $units );
 
 				break;
 		}

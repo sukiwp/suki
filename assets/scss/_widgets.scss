@@ -4,10 +4,10 @@
 
 .widget {
 	position: relative;
-	margin-top: 40px; // default
+	margin-bottom: 40px; // default
 
-	&:first-child {
-		margin-top: 0 !important;
+	&:last-child {
+		margin-bottom: 0;
 	}
 
 	select {
@@ -42,11 +42,7 @@
 
 .widget_text {
 	.textwidget {
-		& > *:first-child {
-			margin-top: 0;
-		}
-
-		& > *:last-child {
+		> *:last-child {
 			margin-bottom: 0;
 		}
 	}

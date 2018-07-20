@@ -178,7 +178,7 @@ class Suki_Admin {
 	 */
 	public function add_editor_css() {
 		add_editor_style( SUKI_CSS_URL . '/admin/editor' . SUKI_ASSETS_SUFFIX . '.css' );
-		add_editor_style( Suki_Customizer::instance()->generate_google_fonts_embed_url() );
+		add_editor_style( Suki_Customizer::instance()->generate_active_google_fonts_embed_url() );
 	}
 
 	/**
@@ -388,12 +388,6 @@ class Suki_Admin {
 						'id'    => 'footer-advanced',
 						'label' => esc_html__( 'Footer (Advanced)', 'suki' ),
 						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/footer-advanced/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'disable-elements',
-						'label' => esc_html__( 'Disable Elements', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/disable-elements/',
 						'coming_soon' => true,
 					),
 					array(

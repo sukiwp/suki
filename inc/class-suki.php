@@ -46,6 +46,8 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		$this->_includes();
+
 		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ) );
@@ -56,12 +58,9 @@ class Suki {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
-
 		// Declare 'wp_enqueue_scripts' action on 'init' hook to make sure all plugins' scripts has been enqueued before theme scripts.
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
-
-		$this->_includes();
 	}
 
 	/**
@@ -78,9 +77,6 @@ class Suki {
 
 		// Customizer functions
 		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer.php' );
-
-		// Widgets
-		require_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
 
 		// Admin page functions
 		if ( is_admin() ) {
@@ -264,6 +260,10 @@ class Suki {
 	 * Register custom widgets.
 	 */
 	public function register_widgets() {
+		// Include custom widgets.
+		require_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
+
+		// Register widgets.
 		register_widget( 'Suki_Widget_Posts' );
 	}
 
@@ -286,7 +286,7 @@ class Suki {
 	 */
 	public function enqueue_frontend_styles( $hook ) {
 		// Customizer Google Fonts
-		$google_fonts_url = Suki_Customizer::instance()->generate_google_fonts_embed_url();
+		$google_fonts_url = Suki_Customizer::instance()->generate_active_google_fonts_embed_url();
 		if ( ! empty( $google_fonts_url ) ) {
 			wp_enqueue_style( 'suki-google-fonts', $google_fonts_url, array(), SUKI_VERSION );
 		}

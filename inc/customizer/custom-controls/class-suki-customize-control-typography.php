@@ -29,86 +29,6 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	public $choices = array();
 
 	/**
-	 * Constructor
-	 */
-	public function __construct( $manager, $id, $args = array() ) {
-		parent::__construct( $manager, $id, $args );
-
-		$font_families = array();
-		foreach( suki_get_all_fonts() as $provider => $fonts ) {
-			$font_families[ $provider ] = array();
-
-			foreach ( $fonts as $name => $stack ) {
-				$font_families[ $provider ][ esc_attr( $provider . '|' . $name ) ] = esc_attr( $name );
-			}
-		}
-
-		$this->choices = array(
-			'font_family' => $font_families,
-			'font_weight' => array(
-				'100'     => esc_html__( 'Thin', 'suki' ),
-				'200'     => esc_html__( 'Extra Light', 'suki' ),
-				'300'     => esc_html__( 'Light', 'suki' ),
-				'400'     => esc_html__( 'Regular', 'suki' ),
-				'500'     => esc_html__( 'Medium', 'suki' ),
-				'600'     => esc_html__( 'Semi Bold', 'suki' ),
-				'700'     => esc_html__( 'Bold', 'suki' ),
-				'800'     => esc_html__( 'Extra Bold', 'suki' ),
-				'900'     => esc_html__( 'Black', 'suki' ),
-			),
-			'font_style'  => array(
-				'normal'  => esc_html__( 'Normal', 'suki' ),
-				'italic'  => esc_html__( 'Italic', 'suki' ),
-			),
-			'text_transform' => array(
-				'none'       => esc_html__( 'None', 'suki' ),
-				'uppercase'  => esc_html__( 'Uppercase', 'suki' ),
-				'lowercase'  => esc_html__( 'Lowercase', 'suki' ),
-				'capitalize' => esc_html__( 'Capitalize', 'suki' ),
-			),
-		);
-
-		$this->units = array(
-			'font_size' => array(
-				'px' => array(
-					'min' => 0,
-					'max' => 100,
-					'step' => 1,
-					'label' => 'px',
-				),
-				'em' => array(
-					'min' => 0,
-					'max' => 10,
-					'step' => 0.01,
-					'label' => 'em',
-				),
-			),
-			'line_height' => array(
-				'' => array(
-					'min' => 0,
-					'max' => 10,
-					'step' => 0.01,
-					'label' => 'em',
-				),
-			),
-			'letter_spacing' => array(
-				'px' => array(
-					'min' => -20,
-					'max' => 20,
-					'step' => 0.5,
-					'label' => 'px',
-				),
-				'em' => array(
-					'min' => -2,
-					'max' => 2,
-					'step' => 0.01,
-					'label' => 'em',
-				),
-			),
-		);
-	}
-
-	/**
 	 * Setup parameters for content rendering by Underscore JS template.
 	 */
 	public function to_json() {
@@ -167,6 +87,8 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	 * Render Underscore JS template for this control's content.
 	 */
 	protected function content_template() {
+		$choices = $this->get_choices();
+		$units = $this->get_units();
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">
@@ -190,13 +112,15 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 						<span class="suki-small-label"><?php esc_html_e( 'Font', 'suki' ); ?></span>
 						<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
 							<option value=""></option>
-							<?php foreach ( suki_array_value( $this->choices, 'font_family', array() ) as $provider => $fonts ) : ?>
-								<optgroup label="<?php echo esc_attr( ucwords( str_replace( '_', ' ', $provider ) ) ); ?>">
-									<?php foreach ( $fonts as $value => $label ) : ?>
-										<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
-									<?php endforeach; ?>
+							<# var choices = <?php echo json_encode( suki_array_value( $choices, 'font_family', array() ) ); ?>; #>
+							<# _.each( choices, function( provider_data, provider ) { #>
+								<# if ( 0 == provider_data.fonts.length ) return; #>
+								<optgroup label="{{ provider_data.label }}">
+									<# _.each( provider_data.fonts, function( label, value ) { #>
+										<option value="{{ value }}">{{{ label }}}</option>
+									<# }); #>
 								</optgroup>
-							<?php endforeach; ?>
+							<# }); #>
 						</select>
 					</label>
 				</p>
@@ -208,9 +132,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Weight', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.font_weight.__link }}}>
 								<option value=""></option>
-								<?php foreach ( suki_array_value( $this->choices, 'font_weight', array() ) as $value => $label ) : ?>
-									<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
-								<?php endforeach; ?>
+								<# var choices = <?php echo json_encode( suki_array_value( $choices, 'font_weight', array() ) ); ?>; #>
+								<# _.each( choices, function( label, value ) { #>
+									<option value="{{ value }}">{{{ label }}}</option>
+								<# }); #>
 							</select>
 						</label>
 					<# } #>
@@ -219,9 +144,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Style', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.font_style.__link }}}>
 								<option value=""></option>
-								<?php foreach ( suki_array_value( $this->choices, 'font_style', array() ) as $value => $label ) : ?>
-									<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
-								<?php endforeach; ?>
+								<# var choices = <?php echo json_encode( suki_array_value( $choices, 'font_style', array() ) ); ?>; #>
+								<# _.each( choices, function( label, value ) { #>
+									<option value="{{ value }}">{{{ label }}}</option>
+								<# }); #>
 							</select>
 						</label>
 					<# } #>
@@ -230,9 +156,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Transform', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.text_transform.__link }}}>
 								<option value=""></option>
-								<?php foreach ( suki_array_value( $this->choices, 'text_transform', array() ) as $value => $label ) : ?>
-									<option value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $label ); ?></option>
-								<?php endforeach; ?>
+								<# var choices = <?php echo json_encode( suki_array_value( $choices, 'text_transform', array() ) ); ?>; #>
+								<# _.each( choices, function( label, value ) { #>
+									<option value="{{ value }}">{{{ label }}}</option>
+								<# }); #>
 							</select>
 						</label>
 					<# } #>
@@ -251,9 +178,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
-										<?php foreach ( suki_array_value( $this->units, 'font_size', array() ) as $unit => $data ) : ?>
-											<option value="<?php echo esc_attr( $unit ); ?>" data-min="<?php echo esc_attr( suki_array_value( $data, 'min' ) ); ?>" data-max="<?php echo esc_attr( suki_array_value( $data, 'max' ) ); ?>" data-step="<?php echo esc_attr( suki_array_value( $data, 'step' ) ); ?>"><?php echo esc_attr( suki_array_value( $data, 'label', $unit ) ); ?></option>
-										<?php endforeach; ?>
+										<# var units = <?php echo json_encode( suki_array_value( $units, 'font_size', array() ) ); ?>; #>
+										<# _.each( units, function( data, unit ) { #>
+											<option value="{{ unit }}" data-min="{{ data.min }}" data-max="{{ data.max }}" data-step="{{ data.step }}">{{{ data.label }}}</option>
+										<# }); #>
 									</select>
 								</span>
 								<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
@@ -270,9 +198,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
-										<?php foreach ( suki_array_value( $this->units, 'line_height', array() ) as $unit => $data ) : ?>
-											<option value="<?php echo esc_attr( $unit ); ?>" data-min="<?php echo esc_attr( suki_array_value( $data, 'min' ) ); ?>" data-max="<?php echo esc_attr( suki_array_value( $data, 'max' ) ); ?>" data-step="<?php echo esc_attr( suki_array_value( $data, 'step' ) ); ?>"><?php echo esc_attr( suki_array_value( $data, 'label', $unit ) ); ?></option>
-										<?php endforeach; ?>
+										<# var units = <?php echo json_encode( suki_array_value( $units, 'line_height', array() ) ); ?>; #>
+										<# _.each( units, function( data, unit ) { #>
+											<option value="{{ unit }}" data-min="{{ data.min }}" data-max="{{ data.max }}" data-step="{{ data.step }}">{{{ data.label }}}</option>
+										<# }); #>
 									</select>
 								</span>
 								<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
@@ -289,9 +218,10 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
-										<?php foreach ( suki_array_value( $this->units, 'letter_spacing', array() ) as $unit => $data ) : ?>
-											<option value="<?php echo esc_attr( $unit ); ?>" data-min="<?php echo esc_attr( suki_array_value( $data, 'min' ) ); ?>" data-max="<?php echo esc_attr( suki_array_value( $data, 'max' ) ); ?>" data-step="<?php echo esc_attr( suki_array_value( $data, 'step' ) ); ?>"><?php echo esc_attr( suki_array_value( $data, 'label', $unit ) ); ?></option>
-										<?php endforeach; ?>
+										<# var units = <?php echo json_encode( suki_array_value( $units, 'letter_spacing', array() ) ); ?>; #>
+										<# _.each( units, function( data, unit ) { #>
+											<option value="{{ unit }}" data-min="{{ data.min }}" data-max="{{ data.max }}" data-step="{{ data.step }}">{{{ data.label }}}</option>
+										<# }); #>
 									</select>
 								</span>
 								<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
@@ -303,6 +233,109 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 			<# }) #>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Return available choices for this control inputs.
+	 *
+	 * @param string $key
+	 * @return array
+	 */
+	public function get_choices( $key = null ) {
+		$font_families = array();
+
+		foreach( suki_get_all_fonts() as $provider => $fonts ) {
+			$font_families[ $provider ]['label'] = ucwords( str_replace( '_', ' ', $provider ) );
+			$font_families[ $provider ]['fonts'] = array();
+
+			foreach ( $fonts as $name => $stack ) {
+				$font_families[ $provider ]['fonts'][ esc_attr( $provider . '|' . $name ) ] = esc_attr( $name );
+			}
+		}
+
+		$choices = array(
+			'font_family' => $font_families,
+			'font_weight' => array(
+				'100' => esc_html__( 'Thin', 'suki' ),
+				'200' => esc_html__( 'Extra Light', 'suki' ),
+				'300' => esc_html__( 'Light', 'suki' ),
+				'400' => esc_html__( 'Regular', 'suki' ),
+				'500' => esc_html__( 'Medium', 'suki' ),
+				'600' => esc_html__( 'Semi Bold', 'suki' ),
+				'700' => esc_html__( 'Bold', 'suki' ),
+				'800' => esc_html__( 'Extra Bold', 'suki' ),
+				'900' => esc_html__( 'Black', 'suki' ),
+			),
+			'font_style' => array(
+				'normal' => esc_html__( 'Normal', 'suki' ),
+				'italic' => esc_html__( 'Italic', 'suki' ),
+			),
+			'text_transform' => array(
+				'none'       => esc_html__( 'None', 'suki' ),
+				'uppercase'  => esc_html__( 'Uppercase', 'suki' ),
+				'lowercase'  => esc_html__( 'Lowercase', 'suki' ),
+				'capitalize' => esc_html__( 'Capitalize', 'suki' ),
+			),
+		);
+
+		if ( ! empty( $key ) ) {
+			return suki_array_value( $choices, $key, array() );
+		} else {
+			return $choices;
+		}
+	}
+
+	/**
+	 * Return available units for this control inputs.
+	 *
+	 * @param string $key
+	 * @return array
+	 */
+	public function get_units( $key = null ) {
+		$units = array(
+			'font_size' => array(
+				'px' => array(
+					'min' => 0,
+					'max' => 100,
+					'step' => 1,
+					'label' => 'px',
+				),
+				'em' => array(
+					'min' => 0,
+					'max' => 10,
+					'step' => 0.01,
+					'label' => 'em',
+				),
+			),
+			'line_height' => array(
+				'' => array(
+					'min' => 0,
+					'max' => 10,
+					'step' => 0.01,
+					'label' => 'em',
+				),
+			),
+			'letter_spacing' => array(
+				'px' => array(
+					'min' => -20,
+					'max' => 20,
+					'step' => 0.5,
+					'label' => 'px',
+				),
+				'em' => array(
+					'min' => -2,
+					'max' => 2,
+					'step' => 0.01,
+					'label' => 'em',
+				),
+			),
+		);
+
+		if ( ! empty( $key ) ) {
+			return suki_array_value( $units, $key, array() );
+		} else {
+			return $units;
+		}
 	}
 }
 

@@ -924,3 +924,32 @@
 		left: 600px;
 	}
 }
+
+#sub-accordion-section-suki_section_title .customize-info .customize-section-description,
+#sub-accordion-section-suki_section_small_title .customize-info .customize-section-description,
+#sub-accordion-section-suki_section_meta .customize-info .customize-section-description,
+#sub-accordion-section-suki_section_gutenberg .customize-info .customize-section-description,
+#sub-accordion-section-suki_section_sidebar .customize-info .customize-section-description,
+#sub-accordion-section-suki_section_blog_single .customize-info .customize-section-description,
+[id^="sub-accordion-section-suki_section_page_settings_"] .customize-info .customize-section-description {
+	display: block;
+	margin-bottom: 0;
+}
+
+#sub-accordion-section-suki_section_title .customize-info .customize-help-toggle,
+#sub-accordion-section-suki_section_small_title .customize-info .customize-help-toggle,
+#sub-accordion-section-suki_section_meta .customize-info .customize-help-toggle,
+#sub-accordion-section-suki_section_gutenberg .customize-info .customize-help-toggle,
+#sub-accordion-section-suki_section_sidebar .customize-info .customize-help-toggle,
+#sub-accordion-section-suki_section_blog_single .customize-info .customize-help-toggle,
+[id^="sub-accordion-section-suki_section_page_settings_"] .customize-info .customize-help-toggle {
+	display: none;
+}
+
+#sub-accordion-panel-suki_panel_page_settings .customize-info .customize-panel-description {
+	display: block;
+}
+
+#sub-accordion-panel-suki_panel_page_settings .customize-info .customize-help-toggle {
+	display: none;
+}

@@ -53,6 +53,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				/**
 				 * Hook: suki_after_header
+				 *
+				 * @hooked suki_page_title - 10
 				 */
 				do_action( 'suki_after_header' );
 				

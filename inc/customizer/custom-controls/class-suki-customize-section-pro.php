@@ -47,13 +47,13 @@ class Suki_Customize_Section_Pro extends WP_Customize_Section {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 			<h3 class="accordion-section-title">
 				<div class="wp-clearfix">
-					<span>{{ data.title }}</span>
+					<span>{{{ data.title }}}</span>
 					<a href="{{ data.url }}" class="button button-small button-secondary alignright" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a>
 				</div>
 				<# if ( 0 < data.features.length ) { #>
 					<ul class="menu-in-location">
 						<# _.each( data.features, function( feature, i ) { #>
-							<li>{{ feature }}</li>
+							<li>{{{ feature }}}</li>
 						<# }); #>
 					</ul>
 				<# } #>
