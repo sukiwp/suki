@@ -204,7 +204,7 @@ class Suki_Customizer_Sanitization {
 			case 'font_size':
 			case 'line_height':
 			case 'letter_spacing':
-				$units = $this->get_units( $type );
+				$units = $control->get_units( $type );
 
 				// Validate dimension
 				$value = self::validate_dimension( $value, $units );
