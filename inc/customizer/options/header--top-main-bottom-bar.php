@@ -159,6 +159,54 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'priority'    => 20,
 	) ) );
 
+	// Menu link typography
+	$settings = array(
+		'font_family'    => 'header_' . $type . '_menu_font_family',
+		'font_weight'    => 'header_' . $type . '_menu_font_weight',
+		'font_style'     => 'header_' . $type . '_menu_font_style',
+		'text_transform' => 'header_' . $type . '_menu_text_transform',
+		'font_size'      => 'header_' . $type . '_menu_font_size',
+		'line_height'    => 'header_' . $type . '_menu_line_height',
+		'letter_spacing' => 'header_' . $type . '_menu_letter_spacing',
+	);
+	foreach ( $settings as $id ) {
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+		) );
+	}
+	$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'header_' . $type . '_menu_typography', array(
+		'settings'    => $settings,
+		'section'     => $section,
+		'label'       => esc_html__( 'Menu link typography', 'suki' ),
+		'priority'    => 20,
+	) ) );
+
+	// Menu link hover highlight
+	$id = 'header_' . $type . '_menu_highlight';
+	$wp_customize->add_setting( $id, array(
+		'default'     => suki_array_value( $defaults, $id ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+	) );
+	$wp_customize->add_control( $id, array(
+		'type'        => 'select',
+		'section'     => $section,
+		'label'       => esc_html__( 'Menu link hover highlight', 'suki' ),
+		'choices'     => array(
+			'none'          => esc_html__( 'None', 'suki' ),
+			'background'    => esc_html__( 'Background', 'suki' ),
+			'underline'     => esc_html__( 'Underline', 'suki' ),
+			'border-top'    => esc_html__( 'Border top', 'suki' ),
+			'border-bottom' => esc_html__( 'Border bottom', 'suki' ),
+		),
+		'priority'    => 20,
+	) );
+
+	// Submenu link typography
+	$settings = array(
+		'font_family'    => 'header_' . $type . '_submenu_font_family',
 		'font_weight'    => 'header_' . $type . '_submenu_font_weight',
 		'font_style'     => 'header_' . $type . '_submenu_font_style',
 		'text_transform' => 'header_' . $type . '_submenu_text_transform',
@@ -167,6 +215,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'letter_spacing' => 'header_' . $type . '_submenu_letter_spacing',
 	);
 	foreach ( $settings as $id ) {
+		$wp_customize->add_setting( $id, array(
 			'default'     => suki_array_value( $defaults, $id ),
 			'transport'   => 'postMessage',
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
