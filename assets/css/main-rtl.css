@@ -839,7 +839,7 @@ select[multiple] {
 	fill: currentColor;
 }
 
-#wpadminbar {
+[id="wpadminbar"] {
 	position: fixed !important;
 }
 

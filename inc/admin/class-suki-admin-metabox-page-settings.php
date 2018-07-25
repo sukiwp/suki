@@ -248,7 +248,9 @@ class Suki_Admin_Metabox_Page_Settings {
 		<div id="suki-metabox-page-settings" class="suki-admin-metabox-page-settings suki-admin-metabox suki-admin-form">
 			<ul class="suki-admin-metabox-nav">
 				<?php foreach ( $tabs as $key => $label ) : ?>
-					<li class="suki-admin-metabox-nav-item <?php echo esc_attr( $key == $first_tab ? 'active' : '' ); ?>"><a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo ( $label ); ?></a></li>
+					<li class="suki-admin-metabox-nav-item <?php echo esc_attr( $key == $first_tab ? 'active' : '' ); ?>">
+						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo ( $label ); // WPCS: XSS OK ?></a>
+					</li>
 				<?php endforeach; ?>
 			</ul>
 

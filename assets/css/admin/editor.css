@@ -567,7 +567,7 @@ select[multiple] {
 	border-bottom-right-radius: 0 !important;
 }
 
-#wpadminbar {
+[id="wpadminbar"] {
 	position: fixed !important;
 }
 

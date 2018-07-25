@@ -92,7 +92,7 @@ $add['body_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a, #infinite-handle span button, .tagcloud a',
+		'element'  => '.nav-links a, .tagcloud a',
 		'property' => 'color',
 	),
 );
@@ -104,7 +104,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a:hover, .nav-links a:focus, #infinite-handle span button:hover, #infinite-handle span button:focus, .tagcloud a:hover, .tagcloud a:focus',
+		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus',
 		'property' => 'color',
 	),
 	array(
@@ -751,6 +751,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		);
 	}
 
+	$add['header_' . $type . '_menu_highlight'] = array(
+		array(
+			'type'     => 'class',
+			'element'  => '.suki-header-' . $bar,
+			'pattern'  => 'suki-header-menu-highlight-$',
+		),
+	);
+
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 		$element = '.suki-header-' . $bar . ' .menu-item > a';
 		$property = str_replace( '_', '-', $prop );
@@ -758,6 +766,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		$add['header_' . $type . '_menu_' . $prop ] = array(
 			array(
 				'type'     => 'font_family' === $prop ? 'font' : 'css',
+				'element'  => $element,
+				'property' => $property,
+			),
+		);
+	}
+
+	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+		$element = '.suki-header-' . $bar . ' .sub-menu .menu-item > a';
 		$property = str_replace( '_', '-', $prop );
 
 		$add['header_' . $type . '_submenu_' . $prop ] = array(
@@ -765,6 +781,10 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 				'type'     => 'font_family' === $prop ? 'font' : 'css',
 				'element'  => $element,
 				'property' => $property,
+			),
+		);
+	}
+
 	$add['header_' . $type . '_icon_size'] = array(
 		array(
 			'type'     => 'css',
@@ -806,6 +826,27 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus, .suki-header-' . $bar . ' .suki-toggle:hover, .suki-header-' . $bar . ' .suki-toggle:focus',
 			'property' => 'color',
+		),
+	);
+	$add['header_' . $type . '_menu_text_color'] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-header-' . $bar . ' .menu-item > a',
+			'property' => 'color',
+		),
+	);
+	$add['header_' . $type . '_menu_hover_text_color'] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-header-' . $bar . ' .menu-item > a:hover, .suki-header-' . $bar . ' .menu-item > a:focus',
+			'property' => 'color',
+		),
+	);
+	$add['header_' . $type . '_menu_highlight_color'] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-header-' . $bar . ' .suki-header-menu > ul > li > a:hover:after, .suki-header-' . $bar . ' .suki-header-menu > ul > li > a:focus:after',
+			'property' => 'background-color',
 		),
 	);
 }
@@ -1811,12 +1852,12 @@ $add['blog_index_grid_columns'] = array(
 $add['blog_index_grid_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry, #infinite-handle',
+		'element'  => '.suki-loop-grid > .entry',
 		'property' => 'padding-left',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry, #infinite-handle',
+		'element'  => '.suki-loop-grid > .entry',
 		'property' => 'padding-right',
 	),
 	array(

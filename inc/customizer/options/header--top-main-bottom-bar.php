@@ -159,6 +159,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'priority'    => 20,
 	) ) );
 
+		'font_weight'    => 'header_' . $type . '_submenu_font_weight',
 		'font_style'     => 'header_' . $type . '_submenu_font_style',
 		'text_transform' => 'header_' . $type . '_submenu_text_transform',
 		'font_size'      => 'header_' . $type . '_submenu_font_size',
@@ -166,6 +167,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'letter_spacing' => 'header_' . $type . '_submenu_letter_spacing',
 	);
 	foreach ( $settings as $id ) {
+			'default'     => suki_array_value( $defaults, $id ),
 			'transport'   => 'postMessage',
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 		) );
