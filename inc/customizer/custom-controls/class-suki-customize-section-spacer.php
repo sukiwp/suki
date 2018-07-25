@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_Section_Spacer' ) ) :
 /**
- * Custom section class for spacer.
+ * Spacer section class.
  */
 class Suki_Customize_Section_Spacer extends WP_Customize_Section {
 	/**

@@ -41,7 +41,7 @@ class Suki_Compatibility_Contact_Form_7 {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 	}
 	
 	/**

@@ -336,7 +336,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.page-title, .entry-title';
+	$element = '.entry-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['title_' . $prop ] = array(
@@ -368,14 +368,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.page-title, .page-title a, .entry-title, .entry-title a',
+		'element'  => '.entry-title, .entry-title a',
 		'property' => 'color',
 	),
 );
 $add['title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.page-title a:hover, .page-title a:focus, .entry-title a:hover, .entry-title a:focus',
+		'element'  => '.entry-title a:hover, .entry-title a:focus',
 		'property' => 'color',
 	),
 );
@@ -387,7 +387,7 @@ $add['title_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-small-title, .comments-title, .comment-reply-title, .page-header h1';
+	$element = '.entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['small_title_' . $prop ] = array(
@@ -419,7 +419,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['small_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header h1',
+		'element'  => '.entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
 		'property' => 'color',
 	),
 );
@@ -751,6 +751,20 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		);
 	}
 
+	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+		$element = '.suki-header-' . $bar . ' .menu-item > a';
+		$property = str_replace( '_', '-', $prop );
+
+		$add['header_' . $type . '_menu_' . $prop ] = array(
+			array(
+				'type'     => 'font_family' === $prop ? 'font' : 'css',
+		$property = str_replace( '_', '-', $prop );
+
+		$add['header_' . $type . '_submenu_' . $prop ] = array(
+			array(
+				'type'     => 'font_family' === $prop ? 'font' : 'css',
+				'element'  => $element,
+				'property' => $property,
 	$add['header_' . $type . '_icon_size'] = array(
 		array(
 			'type'     => 'css',
@@ -826,7 +840,7 @@ $add['header_mobile_main_bar_border'] = array(
 $add['header_mobile_main_bar_items_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar .suki-header-column > *, .suki-header-mobile-main-bar .suki-header-menu > li > a',
+		'element'  => '.suki-header-mobile-main-bar .suki-header-column > *, .suki-header-mobile-main-bar .suki-header-menu .menu-item',
 		'property' => 'padding',
 		'pattern'  => '0 $',
 	),
@@ -918,6 +932,45 @@ $add['header_mobile_vertical_bar_items_gutter'] = array(
 		'pattern'  => '$ 0',
 	),
 );
+
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$add['header_mobile_vertical_bar_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => '.suki-header-mobile-vertical-bar',
+			'property' => str_replace( '_', '-', $prop),
+		),
+	);
+}
+
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$add['header_mobile_vertical_bar_menu_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => '.suki-header-mobile-vertical-bar .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
+			'property' => str_replace( '_', '-', $prop),
+		),
+	);
+}
+
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$add['header_mobile_vertical_bar_submenu_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => '.suki-header-mobile-vertical-bar .sub-menu .menu-item > a, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
+			'property' => str_replace( '_', '-', $prop),
+		),
+	);
+}
+
+$add['header_mobile_vertical_bar_icon_size'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical-bar .suki-menu-icon',
+		'property' => 'font-size',
+	),
+);
+
 $add['header_mobile_vertical_bar_section_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -932,26 +985,6 @@ $add['header_mobile_vertical_bar_section_border_color'] = array(
 		'property' => 'border-color',
 	),
 );
-
-foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$add['header_mobile_vertical_bar_' . $prop ] = array(
-		array(
-			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => '.suki-header-mobile-vertical-bar',
-			'property' => str_replace( '_', '-', $prop),
-			'pattern'  => in_array( $prop, array( 'font_size', 'letter_spacing' ) ) ? '$px' : '$',
-		),
-	);
-}
-
-$add['header_mobile_vertical_bar_icon_size'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .suki-menu-icon',
-		'property' => 'font-size',
-	),
-);
-
 $add['header_mobile_vertical_bar_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -970,6 +1003,19 @@ $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus',
+		'property' => 'color',
+	),
+);$add['header_mobile_vertical_bar_menu_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical-bar .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
+		'property' => 'color',
+	),
+);
+$add['header_mobile_vertical_bar_menu_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical-bar .menu-item > a:hover, .suki-header-mobile-vertical-bar .menu-item > a:focus, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:hover, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:focus',
 		'property' => 'color',
 	),
 );
@@ -999,14 +1045,6 @@ $add['page_header_border'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-page-header-inner',
 		'property' => 'border-width',
-	),
-);
-
-$add['page_header_layout'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.suki-page-header',
-		'pattern'  => 'suki-page-header-layout-$',
 	),
 );
 
@@ -1071,6 +1109,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
+
+$add['page_header_layout'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-page-header',
+		'pattern'  => 'suki-page-header-layout-$',
+	),
+);
 
 $add['page_header_section_bg_color'] = array(
 	array(
@@ -1285,6 +1331,85 @@ $add['sidebar_border'] = array(
 	),
 );
 
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$element = '.sidebar';
+	$property = str_replace( '_', '-', $prop );
+
+	$add['sidebar_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => $element,
+			'property' => $property,
+		),
+	);
+	
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
+		$add['sidebar_' . $prop . '__tablet'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 767px)',
+			),
+		);
+		$add['sidebar_' . $prop . '__mobile'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 499px)',
+			),
+		);
+	}
+}
+
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$element = '.sidebar .widget-title';
+	$property = str_replace( '_', '-', $prop );
+
+	$add['sidebar_widget_title_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => $element,
+			'property' => $property,
+		),
+	);
+	
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
+		$add['sidebar_widget_title_' . $prop . '__tablet'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 767px)',
+			),
+		);
+		$add['sidebar_widget_title_' . $prop . '__mobile'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 499px)',
+			),
+		);
+	}
+}
+
+$add['sidebar_widget_title_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.sidebar',
+		'pattern'  => 'suki-widget-title-alignment-$',
+	),
+);
+$add['sidebar_widget_title_decoration'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.sidebar',
+		'pattern'  => 'suki-widget-title-decoration-$',
+	),
+);
+
 $add['sidebar_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -1325,6 +1450,20 @@ $add['sidebar_widget_title_text_color'] = array(
 		'type'     => 'css',
 		'element'  => '.sidebar .widget-title',
 		'property' => 'color',
+	),
+);
+$add['sidebar_widget_title_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.sidebar.suki-widget-title-decoration-box .widget-title',
+		'property' => 'background-color',
+	),
+);
+$add['sidebar_widget_title_border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.sidebar .widget-title',
+		'property' => 'border-color',
 	),
 );
 
@@ -1390,6 +1529,86 @@ $add['footer_widgets_bar_widgets_gap'] = array(
 		'property' => 'margin-bottom',
 	),
 );
+
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$element = '.suki-footer-widgets-bar';
+	$property = str_replace( '_', '-', $prop );
+
+	$add['footer_widgets_bar_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => $element,
+			'property' => $property,
+		),
+	);
+	
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
+		$add['footer_widgets_bar_' . $prop . '__tablet'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 767px)',
+			),
+		);
+		$add['footer_widgets_bar_' . $prop . '__mobile'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 499px)',
+			),
+		);
+	}
+}
+
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$element = '.suki-footer-widgets-bar .widget-title';
+	$property = str_replace( '_', '-', $prop );
+
+	$add['footer_widgets_bar_widget_title_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => $element,
+			'property' => $property,
+		),
+	);
+	
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
+		$add['footer_widgets_bar_widget_title_' . $prop . '__tablet'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 767px)',
+			),
+		);
+		$add['footer_widgets_bar_widget_title_' . $prop . '__mobile'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 499px)',
+			),
+		);
+	}
+}
+
+$add['footer_widgets_bar_widget_title_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-footer-widgets-bar',
+		'pattern'  => 'suki-widget-title-alignment-$',
+	),
+);
+$add['footer_widgets_bar_widget_title_decoration'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-footer-widgets-bar',
+		'pattern'  => 'suki-widget-title-decoration-$',
+	),
+);
+
 $add['footer_widgets_bar_section_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -1432,6 +1651,20 @@ $add['footer_widgets_bar_widget_title_text_color'] = array(
 		'property' => 'color',
 	),
 );
+$add['footer_widgets_bar_widget_title_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar.suki-widget-title-decoration-box .widget-title',
+		'property' => 'background-color',
+	),
+);
+$add['footer_widgets_bar_widget_title_border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar .widget-title',
+		'property' => 'border-color',
+	),
+);
 
 /**
  * ====================================================
@@ -1470,6 +1703,46 @@ $add['footer_bottom_bar_border'] = array(
 	),
 );
 
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$element = '.suki-footer-bottom-bar';
+	$property = str_replace( '_', '-', $prop );
+
+	$add['footer_bottom_bar_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => $element,
+			'property' => $property,
+		),
+	);
+
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
+		$add['footer_bottom_bar_' . $prop . '__tablet'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 767px)',
+			),
+		);
+		$add['footer_bottom_bar_' . $prop . '__mobile'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => $element,
+				'property' => $property,
+				'media'    => '@media screen and (max-width: 499px)',
+			),
+		);
+	}
+}
+
+$add['footer_bottom_bar_icon_size'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-bottom-bar .suki-menu-icon',
+		'property' => 'font-size',
+	),
+);
+
 $add['footer_bottom_bar_section_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -1503,27 +1776,6 @@ $add['footer_bottom_bar_link_hover_text_color'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-bottom-bar a:not(.button):hover, .suki-footer-bottom-bar a:not(.button):focus',
 		'property' => 'color',
-	),
-);
-
-foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.suki-footer-bottom-bar';
-	$property = str_replace( '_', '-', $prop );
-
-	$add['footer_bottom_bar_' . $prop ] = array(
-		array(
-			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => $element,
-			'property' => $property,
-		),
-	);
-}
-
-$add['footer_bottom_bar_icon_size'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-bottom-bar .suki-menu-icon',
-		'property' => 'font-size',
 	),
 );
 
@@ -1580,4 +1832,5 @@ $add['blog_index_grid_columns_gutter'] = array(
 		'pattern'  => '-$',
 	),
 );
+
 $postmessages = array_merge_recursive( $postmessages, $add );

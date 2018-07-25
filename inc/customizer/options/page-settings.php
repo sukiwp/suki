@@ -32,7 +32,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 		'priority'    => 10,
 	) ) );
 
-	// Disable header
+	// Disable main header
 	$key = 'disable_header';
 	$id = $option_key . '[' . $key . ']';
 	$wp_customize->add_setting( $id, array(
@@ -41,7 +41,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 		'section'     => $section,
-		'label'       => esc_html__( 'Disable header', 'suki' ),
+		'label'       => esc_html__( 'Disable main header', 'suki' ),
 		'priority'    => 10,
 	) ) );
 
@@ -239,7 +239,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	 */
 
 	if ( suki_show_pro_teaser() ) {
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_page_settings_' . $type, array(
+		$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_page_settings_' . $type, array(
 			'section'     => $section,
 			'settings'    => array(),
 			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),

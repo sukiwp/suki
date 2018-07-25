@@ -46,8 +46,6 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		$this->_includes();
-
 		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ) );
@@ -61,6 +59,8 @@ class Suki {
 		// Declare 'wp_enqueue_scripts' action on 'init' hook to make sure all plugins' scripts has been enqueued before theme scripts.
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
+
+		$this->_includes();
 	}
 
 	/**
@@ -124,9 +124,6 @@ class Suki {
 		// Add screenshot to theme data.
 		$info['screenshot'] = esc_url( get_template_directory_uri() . '/screenshot.png' );
 
-		// Filter to modify theme data.
-		$info = apply_filters( 'suki_theme_info', $info );
-
 		// Assign to class $_info property.
 		$this->_info = $info;
 	}
@@ -147,12 +144,12 @@ class Suki {
 
 		// If current version is larger than DB version, update DB version.
 		if ( $db_version < $current_version ) {
-			update_option( 'suki_theme_version', $current_version );
-
 			/**
-			 * Hook: suki_version_changed
+			 * Hook: suki/maintenance/version_changed
 			 */
-			do_action( 'suki_version_changed', $db_version, $current_version );
+			do_action( 'suki/maintenance/version_changed', $db_version, $current_version );
+
+			update_option( 'suki_theme_version', $current_version );
 		}
 	}
 
@@ -292,14 +289,14 @@ class Suki {
 		}
 
 		// Hook: Styles to be included before main CSS
-		do_action( 'suki_before_enqueue_main_css', $hook );
+		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
 		// Main CSS
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 
 		// Hook: Styles to included after main CSS
-		do_action( 'suki_after_enqueue_main_css', $hook );
+		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 
 		// Customizer generated CSS
 		wp_add_inline_style( 'suki', Suki_Customizer::instance()->generate_css() );
@@ -327,13 +324,13 @@ class Suki {
 		}
 
 		// Hook: Scripts to be included before main JS
-		do_action( 'suki_before_enqueue_main_js', $hook );
+		do_action( 'suki/frontend/before_enqueue_main_js', $hook );
 
 		// Main JS
 		wp_enqueue_script( 'suki', SUKI_JS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
 
 		// Hook: Scripts to be included after main JS
-		do_action( 'suki_after_enqueue_main_js', $hook );
+		do_action( 'suki/frontend/after_enqueue_main_js', $hook );
 	}
 
 	/**
@@ -344,7 +341,7 @@ class Suki {
 	 * @return string
 	 */
 	public function add_defer_attribute_to_scripts( $tag, $handle ) {
-		$scripts_to_defer = apply_filters( 'suki_defer_scripts', array() );
+		$scripts_to_defer = apply_filters( 'suki/frontend/defer_scripts', array() );
 
 		foreach ( $scripts_to_defer as $script ) {
 			if ( $script === $handle ) {

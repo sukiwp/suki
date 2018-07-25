@@ -59,13 +59,13 @@ class Suki_Admin {
 		add_action( 'tiny_mce_before_init', array( $this, 'modify_tiny_mce_config' ) );
 
 		// Suki admin page hooks
-		add_action( 'suki_admin_page_content', array( $this, 'render_content__welcome_panel' ), 1 );
-		add_action( 'suki_admin_page_content', array( $this, 'render_content__pro_modules_table' ), 20 );
-		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
-		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__pro' ), 20 );
-		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
-		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__community' ), 40 );
-		add_action( 'suki_admin_page_sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
+		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__welcome_panel' ), 1 );
+		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_modules_table' ), 20 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__pro' ), 20 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__community' ), 40 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
 	}
 
 	/**
@@ -158,7 +158,7 @@ class Suki_Admin {
 	 * @return array
 	 */
 	public function add_user_contactmethods( $contactmethods ) {
-		$contact_types = apply_filters( 'suki_user_contact_types', array(
+		$contact_types = apply_filters( 'suki/dataset/user_contact_types', array(
 			'facebook'    => esc_html__( 'Facebook', 'suki' ),
 			'instagram'   => esc_html__( 'Instagram', 'suki' ),
 			'linkedin'    => esc_html__( 'LinkedIn', 'suki' ),
@@ -251,7 +251,7 @@ class Suki_Admin {
 		
 		global $post;
 
-		$class = 'suki-editor-' . suki_get_page_setting_by_post_id( 'content_layout', $post );
+		$class = 'suki-editor-' . suki_get_page_setting_by_post_id( 'content_layout', $post->ID );
 
 		// Merge with existing classes or add new class.
 		if ( ! isset( $mceinit['body_class'] ) ) {
@@ -298,18 +298,18 @@ class Suki_Admin {
 						<div class="suki-admin-primary">
 							<?php
 							/**
-							 * Hook: suki_admin_page_content
+							 * Hook: suki/admin/dashboard/content
 							 *
 							 * @hooked Suki_Admin::render_content__welcome_panel - 1
 							 * @hooked Suki_Admin::render_content__pro_modules_table - 10
 							 */
-							do_action( 'suki_admin_page_content' );
+							do_action( 'suki/admin/dashboard/content' );
 							?>
 						</div>
 						<div class="suki-admin-secondary">
 							<?php
 							/**
-							 * Hook: suki_admin_page_sidebar
+							 * Hook: suki/admin/dashboard/sidebar
 							 *
 							 * @hooked Suki_Admin::render_sidebar__customizer - 10
 							 * @hooked Suki_Admin::render_sidebar__pro - 20
@@ -317,7 +317,7 @@ class Suki_Admin {
 							 * @hooked Suki_Admin::render_sidebar__community - 40
 							 * @hooked Suki_Admin::render_sidebar__feedback - 50
 							 */
-							do_action( 'suki_admin_page_sidebar' );
+							do_action( 'suki/admin/dashboard/sidebar' );
 							?>
 						</div>
 					</div>
@@ -412,12 +412,6 @@ class Suki_Admin {
 						'id'    => 'woocommerce-advanced',
 						'label' => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
 						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/woocommerce-advanced/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'typography-advanced',
-						'label' => esc_html__( 'Typography (Advanced)', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/typography-advanced/',
 						'coming_soon' => true,
 					),
 					array(

@@ -54,7 +54,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Post header elements', 'suki' ),
-	'choices'     => apply_filters( 'suki_customizer_entry_header_elements', array(
+	'choices'     => apply_filters( 'suki/customizer/entry_header_elements', array(
 		'header-meta'    => esc_html__( 'Header Meta', 'suki' ),
 		'title'          => esc_html__( 'Title', 'suki' ),
 	) ),

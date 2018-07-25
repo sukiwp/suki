@@ -44,22 +44,22 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Compatibility CSS
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
-		add_filter( 'suki_customizer_setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
-		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
+		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
+		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 
 		// Template tags
-		add_filter( 'suki_header_element', array( $this, 'header_element' ), 10, 2 );
+		add_filter( 'suki/frontend/header_element', array( $this, 'header_element' ), 10, 2 );
 
 		// Template hooks
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
 		add_action( 'template_redirect', array( $this, 'modify_template_hooks_based_on_customizer' ) );
 		
 		// Page settings
-		add_action( 'suki_post_ids_without_page_settings', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
+		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
 	}
 	
 	/**
@@ -167,16 +167,16 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Modify page settings metabox.
 	 *
-	 * @param array $ignored_ids
+	 * @param array $ids
 	 * @param array $post
 	 * @return array
 	 */
-	public function exclude_shop_page_from_page_settings( $ignored_ids, $post ) {
+	public function exclude_shop_page_from_page_settings( $ids, $post ) {
 		if ( $post->ID === wc_get_page_id( 'shop' ) ) {
-			$ignored_ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_product_archive_page', 'url' => get_permalink( wc_get_page_id( 'shop' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
+			$ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_product_archive', 'url' => get_permalink( wc_get_page_id( 'shop' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
 		}
 
-		return $ignored_ids;
+		return $ids;
 	}
 
 	/**
@@ -195,7 +195,7 @@ class Suki_Compatibility_WooCommerce {
 
 		// Demo Store notice.
 		remove_action( 'wp_footer', 'woocommerce_demo_store' );
-		add_action( 'suki_before_header', 'woocommerce_demo_store' );
+		add_action( 'suki/frontend/before_header', 'woocommerce_demo_store' );
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );

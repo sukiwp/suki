@@ -44,6 +44,13 @@
 	}
 }
 
+div.customize-section-description {
+	margin: 0 -12px;
+	padding: 12px 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
 #customize-controls .customize-control-notifications-container:empty {
 	display: none;
 }
@@ -82,20 +89,6 @@
 	padding: 0;
 	text-align: center;
 	text-align-last: center;
-}
-
-.suki-pro-link {
-	position: absolute;
-	top: 50%;
-	right: 12px;
-	display: inline-block;
-	padding: 0 4px;
-	margin-top: -9px;
-	color: #fff;
-	background-color: #d54e21;
-	font-size: 10px;
-	line-height: 18px;
-	text-transform: uppercase;
 }
 
 .suki-heading {
@@ -164,52 +157,60 @@
 }
 
 // -------------------------------------------------------------
-// Pro Section
+// Pro Teaser
 // -------------------------------------------------------------
 
-.control-section-suki-section-pro {
+.control-section-suki-section-pro-link {
 	#customize-theme-controls & .accordion-section-title {
-		padding: 10px 10px 11px 18px !important;
-		background-color: #fff8e5;
-		border-left: none;
-		cursor: default;
+		display: block;
+		background-color: #ee5253;
+		border-color: #ee5253;
+		color: #fff;
+		text-decoration: none;
+
+		h3 {
+			margin: 0;
+			color: inherit !important;
+		}
 
 		&:after {
-			display: none;
+			color: inherit !important;
 		}
 
 		&:hover, &:focus {
-			background-color: #fff8e5;
-			color: #555d66;
-		}
-
-		.button {
-			margin: -1px 0 0 8px;
-			font-weight: normal;
-		}
-
-		ul.menu-in-location {
-			line-height: normal;
-			margin: 8px 0 0;
+			background-color: #ec3b3c;
+			border-color: #ec3b3c;
+			border-left-color: #a61011;
+			color: #fff;
 		}
 	}
 }
 
-// -------------------------------------------------------------
-// Pro Control
-// -------------------------------------------------------------
-
-.customize-control-suki-pro {
+.customize-control-suki-pro-teaser {
 	margin: 20px 0 12px;
+}
+
+.suki-pro-teaser {
+	.customize-control > & {
+		margin: 0 -12px;
+		padding: 10px 12px 11px 12px;
+	}
+
+	.accordion-section > & {
+		padding: 10px 10px 11px 18px;
+	}
+
+	background-color: #fff8e5;
+	margin-top: -1px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	cursor: default;
+	color: inherit;
 
 	h3 {
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
-		margin: 0 -12px;
-		padding: 10px 10px 11px 18px;
-		background-color: #fff8e5;
+		display: inline-block;
 		color: inherit;
-		line-height: 21px;
+		margin: 0;
 	}
 
 	.button {
@@ -217,9 +218,12 @@
 		font-weight: normal;
 	}
 
-	ul.menu-in-location {
-		line-height: normal;
-		margin: 8px 0 0;
+	ul {
+		margin: 0.5em 0 0;
+
+		li {
+			margin: 0.25em 0;
+		}
 	}
 }
 
@@ -933,27 +937,8 @@
 }
 
 // -------------------------------------------------------------
-// Sections
+// Specific sections
 // -------------------------------------------------------------
-
-#sub-accordion-section-suki_section_title,
-#sub-accordion-section-suki_section_small_title,
-#sub-accordion-section-suki_section_meta,
-#sub-accordion-section-suki_section_gutenberg,
-#sub-accordion-section-suki_section_sidebar,
-#sub-accordion-section-suki_section_blog_single,
-[id^="sub-accordion-section-suki_section_page_settings_"] {
-	.customize-info {
-		.customize-section-description {
-			display: block;
-			margin-bottom: 0;
-		}
-
-		.customize-help-toggle {
-			display: none;
-		}
-	}
-}
 
 #sub-accordion-panel-suki_panel_page_settings {
 	.customize-info {

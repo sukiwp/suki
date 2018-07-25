@@ -120,8 +120,8 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	$svg = ob_get_clean();
 	
 	// Filters to modify SVG icon.
-	$svg = apply_filters( 'suki_icon', $svg, $key );
-	$svg = apply_filters( "suki_icon__{$key}", $svg );
+	$svg = apply_filters( 'suki/frontend/icon', $svg, $key );
+	$svg = apply_filters( "suki/frontend/icon/{$key}", $svg );
 
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
@@ -226,14 +226,25 @@ function suki_skip_to_content_link() {
 }
 endif;
 
-if ( ! function_exists( 'suki_popup_background' ) ) :
+if ( ! function_exists( 'suki_top_popups' ) ) :
 /**
- * Render popup background overlay.
+ * Render header popups group.
  */
-function suki_popup_background() {
+function suki_top_popups() {
 	?>
-	<div id="suki-popup-background" class="suki-popup-background suki-popup-close">
-		<button class="suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+	<div id="top-popups">
+		<?php
+		/*
+		 * Hook: suki/frontend/top_popups
+		 *
+		 * @hooked suki_mobile_vertical_header - 10
+		 */
+		do_action( 'suki/frontend/top_popups' );
+		?>
+		
+		<div class="suki-popup-background suki-popup-close">
+			<button class="suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+		</div>
 	</div>
 	<?php
 }
@@ -248,7 +259,7 @@ function suki_mobile_vertical_header() {
 	$count = count( $elements );
 
 	if ( 0 < $count ) : ?>
-		<div id="mobile-vertical-header" class="suki-header-mobile-vertical-bar suki-header suki-header-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki_header_mobile_vertical_bar_classes', array() ) ) ); ?> suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
+		<div id="mobile-vertical-header" class="suki-header-mobile-vertical-bar suki-header suki-header-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_bar_classes', array() ) ) ); ?> suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
 			<div class="suki-header-mobile-vertical-bar-inner suki-header-vertical-inner">
 				<div class="suki-header-vertical-column">
 					<div class="suki-header-mobile-vertical-bar-top suki-header-vertical-row suki-flex-align-left">
@@ -270,20 +281,12 @@ function suki_header() {
 	<header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope>
 		<?php
 		/**
-		 * Hook: suki_header_start
+		 * Hook: suki/frontend/header
+		 *
+		 * @hooked suki_main_header - 10
+		 * @hooked suki_mobile_header - 10
 		 */
-		do_action( 'suki_header_start' );
-
-		// Main Header
-		suki_main_header();
-		
-		// Mobile Header
-		suki_mobile_header();
-
-		/**
-		 * Hook: suki_header_end
-		 */
-		do_action( 'suki_header_end' );
+		do_action( 'suki/frontend/header' );
 		?>
 	</header>
 	<?php
@@ -298,7 +301,7 @@ function suki_main_header() {
 	if ( suki_get_current_page_setting( 'disable_header' ) ) return;
 
 	?>
-	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki_header_classes', array() ) ) ); ?>">
+	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
 		<?php
 		foreach ( array( 'top', 'main', 'bottom' ) as $bar ) :
 			$elements = array();
@@ -314,7 +317,7 @@ function suki_main_header() {
 
 			$height = floatval( suki_get_theme_mod( 'header_' . $bar . '_bar_height' ) );
 			?>
-			<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( "suki_header_{$bar}_bar_classes", array() ) ) ); ?>" data-height="<?php echo esc_attr( $height ); ?>"
+			<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( "suki/frontend/header_{$bar}_bar_classes", array() ) ) ); ?>" data-height="<?php echo esc_attr( $height ); ?>"
 				<?php if ( $bar === suki_get_theme_mod( 'header_sticky_bar' ) ) {
 					$sticky_height = floatval( suki_get_theme_mod( 'header_sticky_height' ) );
 					$sticky_colors = suki_get_theme_mod( 'header_sticky_colors' );
@@ -365,7 +368,7 @@ function suki_mobile_header() {
 
 		if ( 1 > $count ) return;
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki_header_mobile_main_bar_classes', array() ) ) ); ?>">
+		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>">
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
@@ -406,7 +409,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
 				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title">
-					<a href="<?php echo esc_url( apply_filters( 'suki_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
 				</<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?>>
 			</div>
 			<?php
@@ -416,7 +419,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
 				<div class="site-title">
-					<a href="<?php echo esc_url( apply_filters( 'suki_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
 				</div>
 			</div>
 			<?php
@@ -528,8 +531,8 @@ function suki_header_element( $element ) {
 	$html = ob_get_clean();
 
 	// Filters to modify the final HTML tag.
-	$html = apply_filters( 'suki_header_element', $html, $element );
-	$html = apply_filters( "suki_header_element__{$element}", $html );
+	$html = apply_filters( 'suki/frontend/header_element', $html, $element );
+	$html = apply_filters( "suki/frontend/header_element/{$element}", $html );
 
 	echo $html; // WPCS: XSS OK
 }
@@ -550,7 +553,7 @@ function suki_page_header() {
 
 	if ( ! suki_get_theme_mod( 'page_header' ) ) return;
 	?>
-	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki_page_header_classes', array() ) ) ); ?>">
+	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
 		<div class="suki-page-header-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-page-header-row">
@@ -572,10 +575,10 @@ if ( ! function_exists( 'suki_page_title' ) ) :
 function suki_page_title() {
 	if ( ! suki_get_theme_mod( 'page_header_title' ) ) return;
 	
-	echo '<' . ( is_front_page() && is_home() ? 'h2' : 'h1' ) . ' class="suki-page-header-title">';
+	// Get custom title from Page Settings.
+	$title = suki_get_current_page_setting( 'custom_page_title' );
 
-	$title = suki_get_current_page_setting( 'page_title' );
-
+	// If no custom title defined, use default title.
 	if ( empty( $title ) ) {
 		if ( is_home() && is_front_page() ) {
 			$title = get_bloginfo( 'description' );
@@ -611,9 +614,7 @@ function suki_page_title() {
 		}
 	}
 
-	echo $title; // WPCS: XSS OK
-
-	echo '</' . ( is_front_page() && is_home() ? 'h2' : 'h1' ) . '>';
+	echo '<h1 class="suki-page-header-title h2">' . $title . '</h1>'; // WPCS: XSS OK
 }
 endif;
 
@@ -697,35 +698,27 @@ function suki_footer() {
 	<footer id="colophon" class="site-footer suki-footer" role="contentinfo" itemtype="https://schema.org/WPFooter" itemscope>
 		<?php
 		/**
-		 * Hook: suki_footer_start
+		 * Hook: suki/frontend/footer
+		 *
+		 * @hooked suki_footer_widgets - 10
+		 * @hooked suki_footer_bottom - 10
 		 */
-		do_action( 'suki_footer_start' );
-
-		// Footer Widgets Bar
-		suki_footer_widgets_bar();
-
-		// Footer Bottom Bar (non-merged)
-		suki_footer_bottom_bar();
-
-		/**
-		 * Hook: suki_footer_end
-		 */
-		do_action( 'suki_footer_end' );
+		do_action( 'suki/frontend/footer' );
 		?>
 	</footer>
 	<?php
 }
 endif;
 
-if ( ! function_exists( 'suki_footer_widgets_bar' ) ) :
+if ( ! function_exists( 'suki_footer_widgets' ) ) :
 /**
  * Render footer widgets area.
  */
-function suki_footer_widgets_bar() {
+function suki_footer_widgets() {
 	if ( suki_get_current_page_setting( 'disable_footer_widgets' ) ) return;
 
 	if ( 0 < suki_get_theme_mod( 'footer_widgets_bar' ) ) : ?>
-		<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki_footer_widgets_bar_classes', array() ) ) ); ?>">
+		<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
 			<div class="suki-footer-widgets-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
@@ -744,11 +737,11 @@ function suki_footer_widgets_bar() {
 }
 endif;
 
-if ( ! function_exists( 'suki_footer_bottom_bar' ) ) :
+if ( ! function_exists( 'suki_footer_bottom' ) ) :
 /**
  * Render footer bottom bar.
  */
-function suki_footer_bottom_bar() {
+function suki_footer_bottom() {
 	if ( suki_get_current_page_setting( 'disable_footer_bottom' ) ) return;
 
 	$cols = array( 'left', 'center', 'right' );
@@ -763,7 +756,7 @@ function suki_footer_bottom_bar() {
 
 	if ( 1 > $count ) return;
 	?>
-	<div id="suki-footer-bottom-bar" class="suki-footer-bottom-bar site-info suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki_footer_bottom_bar_classes', array() ) ) ); ?>">
+	<div id="suki-footer-bottom-bar" class="suki-footer-bottom-bar site-info suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array() ) ) ); ?>">
 		<div class="suki-footer-bottom-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-footer-bottom-bar-row suki-footer-row">
@@ -855,8 +848,8 @@ function suki_footer_element( $element ) {
 	$html = ob_get_clean();
 
 	// Filters to modify the final HTML tag.
-	$html = apply_filters( 'suki_footer_element', $html, $element );
-	$html = apply_filters( "suki_footer_element__{$element}", $html );
+	$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
+	$html = apply_filters( "suki/frontend/footer_element/{$element}", $html );
 
 	echo $html; // WPCS: XSS OK
 }
@@ -950,7 +943,7 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
  * @param boolean $size
  */
 function suki_entry_title( $size = '' ) {
-	$class = 'small' === $size ? 'entry-small-title' : 'entry-title';
+	$class = 'small' === $size ? 'entry-small-title h3' : 'entry-title h1';
 
 	if ( is_singular() ) {
 		the_title( '<h1 class="' . $class . '">', '</h1>' );
@@ -1177,7 +1170,7 @@ function suki_single_post_author_bio() {
 	<div class="entry-author">
 		<div class="entry-author-body">
 			<div class="entry-author-name vcard">
-				<?php echo get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'suki_entry_author_bio_avatar_size', 80 ), '', get_the_author_meta( 'display_name' ) ); ?>
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'suki/frontend/entry_author_bio_avatar_size', 80 ), '', get_the_author_meta( 'display_name' ) ); ?>
 				<b class="fn"><?php the_author_posts_link(); ?></b>
 			</div>
 			<div class="entry-author-content">

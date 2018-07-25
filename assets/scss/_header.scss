@@ -19,9 +19,14 @@
 // Navigation Menu
 .suki-header-menu {
 	a {
-		position: relative;
+		// position: relative;
 		display: block;
 		// white-space: nowrap;
+	}
+
+	.suki-menu-item-title {
+		position: relative;
+		z-index: 1;
 	}
 }
 
@@ -134,18 +139,6 @@
 		> li {
 			@include flex();
 			height: 100%;
-
-			&:first-child,
-			&:first-of-type {
-				margin-left: 0 !important;
-				padding-left: 0 !important;
-			}
-
-			&:last-child,
-			&:last-of-type {
-				margin-right: 0 !important;
-				padding-right: 0 !important;
-			}
 		}
 
 		.sub-menu {
@@ -155,7 +148,7 @@
 			left: 0;
 			padding: 1em;
 			max-width: 100vw;
-			min-width: 10em;
+			min-width: 100%;
 			@include border();
 			box-shadow: 0 6px 12px rgba(0,0,0,0.05);
 			// hover menu hide
@@ -176,6 +169,8 @@
 
 .suki-header-section {
 	.suki-header-menu {
+		padding: 0 !important;
+
 		.suki-dropdown-sign {
 			margin-left: 0.3em;
 		}
@@ -273,12 +268,10 @@
 	&,
 	> * {
 		&:first-child {
-			margin-top: 0 !important;
 			padding-top: 0 !important;
 		}
 
 		&:last-child {
-			margin-bottom: 0 !important;
 			padding-bottom: 0 !important;
 		}
 	}
@@ -319,7 +312,7 @@
 			}
 
 			&.menu-item-has-children a {
-				margin-right: 1.5em;
+				margin-right: 2em;
 			}
 		}
 
@@ -327,7 +320,7 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 1.25em;
+			width: 1.5em;
 			margin: 0 !important;
 			padding: 0.5em 0 !important;
 			cursor: pointer;
@@ -383,5 +376,82 @@
 .suki-header-vertical {
 	.suki-header-button {
 		max-width: 100%;
+	}
+}
+
+// -------------------------------------------------------------
+// Header menu highlight
+// -------------------------------------------------------------
+
+.suki-header-menu {
+	> ul > li > a {
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: 0;
+			@include transition();
+		}
+	}
+}
+
+.suki-header-menu-highlight-underline {
+	.suki-header-menu > ul > li > a {
+		position: relative;
+
+		&:after {
+			top: 100%;
+			left: 0;
+			width: 100%;
+			height: 0.1em;
+			@include transition();
+		}
+	}
+}
+
+.suki-header-menu-highlight-background {
+	.suki-header-menu > ul > li > a {
+		@include flex();
+		height: 100%;
+
+		&:after {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.suki-header-menu-highlight-border-top {
+	.suki-header-menu > ul > li > a {
+		@include flex();
+		height: 100%;
+
+		&:after {
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 0.2em;
+			margin: 0 auto;
+			@include transition();
+		}
+	}
+}
+
+.suki-header-menu-highlight-border-bottom {
+	.suki-header-menu > ul > li > a {
+		@include flex();
+		height: 100%;
+
+		&:after {
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 0.2em;
+			margin: 0 auto;
+			@include transition();
+		}
 	}
 }

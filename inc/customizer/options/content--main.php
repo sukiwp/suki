@@ -97,6 +97,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
  * ====================================================
  */
 
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_content_colors', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 30,
+) ) );
+
 // Colors
 $id = 'content_bg_color';
 $wp_customize->add_setting( $id, array(

@@ -107,6 +107,14 @@ $settings = array(
 	'font_size'      => 'footer_bottom_bar_font_size',
 	'line_height'    => 'footer_bottom_bar_line_height',
 	'letter_spacing' => 'footer_bottom_bar_letter_spacing',
+
+	'font_size__tablet'      => 'footer_widgets_bar_font_size__tablet',
+	'line_height__tablet'    => 'footer_widgets_bar_line_height__tablet',
+	'letter_spacing__tablet' => 'footer_widgets_bar_letter_spacing__tablet',
+
+	'font_size__mobile'      => 'footer_widgets_bar_font_size__mobile',
+	'line_height__mobile'    => 'footer_widgets_bar_line_height__mobile',
+	'letter_spacing__mobile' => 'footer_widgets_bar_letter_spacing__mobile',
 );
 foreach ( $settings as $id ) {
 	$wp_customize->add_setting( $id, array(
@@ -120,26 +128,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'section'     => $section,
 	'label'       => esc_html__( 'Text typography', 'suki' ),
 	'priority'    => 20,
-) ) );
-
-// Icon size
-$id = 'footer_bottom_bar_icon_size';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Icon size', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'max'  => 60,
-			'step' => 1,
-		),
-	),
-	'priority'    => 25,
 ) ) );
 
 /**
@@ -174,24 +162,5 @@ foreach ( $colors as $id => $label ) {
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,
-	) ) );
-}
-
-/**
- * ====================================================
- * Suki Pro Upsell
- * ====================================================
- */
-
-if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_footer_bottom_bar', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-		'url'         => SUKI_PRO_URL,
-		'features'    => array(
-			esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
-		),
-		'priority'    => 90,
 	) ) );
 }

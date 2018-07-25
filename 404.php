@@ -15,11 +15,11 @@ get_header();
 suki_main_content_open();
 
 /**
- * Hook: suki_before_main
+ * Hook: suki/frontend/before_main
  * 
- * @hooked suki_404_page_header - 10
+ * @hooked suki_content_header - 10
  */
-do_action( 'suki_before_main' );
+do_action( 'suki/frontend/before_main' );
 ?>
 
 <section class="error-404 not-found">
@@ -31,9 +31,9 @@ do_action( 'suki_before_main' );
 
 <?php
 /**
- * Hook: suki_after_main
+ * Hook: suki/frontend/after_main
  */
-do_action( 'suki_after_main' );
+do_action( 'suki/frontend/after_main' );
 
 suki_main_content_close();
 

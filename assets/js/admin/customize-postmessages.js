@@ -13,15 +13,6 @@
 	var sukiCustomizer = {
 
 		/**
-		 * Helper function to create or select style tag based on the ID.
-		 */
-		getStyleTag : function( id ) {
-			
-
-			return tag;
-		},
-
-		/**
 		 * PostMessage: Output CSS.
 		 */
 		postMessage_css : function( key, rules, newValue ) {
@@ -185,20 +176,22 @@
 		 * PostMessage: Embed font to page and set font-family CSS.
 		 */
 		postMessage_font : function( key, rules, newValue ) {
-			// Abort if value has invalid format.
-			if ( -1 === newValue.indexOf( '|' ) ) {
-				return;
+			var fontSource = 'custom_fonts',
+			    fontName = newValue,
+			    fontStack = newValue;
+
+			// If value is not '' and has valid format, process it.
+			if ( -1 < newValue.indexOf( '|' ) ) {
+				// Try to convert value into "font provider" and "font name".
+				var chunks = newValue.split( '|' );
+
+				// If valid format, replace the variable values.
+				if ( 2 === chunks.length && undefined !== sukiCustomizerPreviewData.fonts[ chunks[0] ] ) {
+					fontSource = chunks[0],
+					fontName = chunks[1],
+					fontStack = sukiCustomizerPreviewData.fonts[ fontSource ][ fontName ] || '';
+				}
 			}
-
-			var chunks = newValue.split( '|' );
-
-			if ( undefined === sukiCustomizerPreviewData.fonts[ chunks[0] ] ) {
-				return;
-			}
-
-			var fontSource = chunks[0],
-			    fontName = chunks[1],
-			    fontStack = sukiCustomizerPreviewData.fonts[ fontSource ][ fontName ] || '';
 
 			// Change CSS value.
 			sukiCustomizer.postMessage_css( key, rules, fontStack );

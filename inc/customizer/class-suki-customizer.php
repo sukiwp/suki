@@ -40,9 +40,9 @@ class Suki_Customizer {
 	 */
 	protected function __construct() {
 		// Default values, postmessages, contexts
-		add_filter( 'suki_customizer_setting_defaults', array( $this, 'add_setting_defaults' ) );
-		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_setting_postmessages' ) );
-		add_filter( 'suki_customizer_control_contexts', array( $this, 'add_control_contexts' ) );
+		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
+		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_setting_postmessages' ) );
+		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
 
 		// Customizer page
 		add_action( 'customize_register', array( $this, 'register_custom_controls' ), 1 );
@@ -124,8 +124,9 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-builder.php' );
 
 		if ( suki_show_pro_teaser() ) {
-			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-section-pro.php' );
-			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-pro.php' );
+			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-section-pro-link.php' );
+			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-section-pro-teaser.php' );
+			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php' );
 		}
 	}
 
@@ -267,7 +268,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_default_colors() {
-		return apply_filters( 'suki_customizer_default_colors', array(
+		return apply_filters( 'suki/dataset/default_colors', array(
 			'transparent'       => 'rgba(0,0,0,0)',
 			'white'             => '#ffffff',
 			'black'             => '#000000',
@@ -296,7 +297,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_setting_postmessages() {
-		return apply_filters( 'suki_customizer_setting_postmessages', array() );
+		return apply_filters( 'suki/customizer/setting_postmessages', array() );
 	}
 
 	/**
@@ -305,7 +306,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_control_contexts() {
-		return apply_filters( 'suki_customizer_control_contexts', array() );
+		return apply_filters( 'suki/customizer/control_contexts', array() );
 	}
 
 	/**
@@ -314,7 +315,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_setting_defaults() {
-		return apply_filters( 'suki_customizer_setting_defaults', array() );
+		return apply_filters( 'suki/customizer/setting_defaults', array() );
 	}
 
 	/**
@@ -404,8 +405,13 @@ class Suki_Customizer {
 
 		$count = 0;
 
+		$saved_settings = get_theme_mods();
+		if ( empty( $saved_settings ) ) {
+			$saved_setting = array();
+		}
+
 		// Iterate through the saved customizer settings, to find all font family settings.
-		foreach ( get_theme_mods() as $key => $value ) {
+		foreach ( $saved_settings as $key => $value ) {
 			// Check if this setting is not a font family, then skip this setting.
 			if ( false === strpos( $key, '_font_family' ) ) {
 				continue;

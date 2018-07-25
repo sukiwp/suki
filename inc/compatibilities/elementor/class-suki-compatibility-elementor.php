@@ -40,7 +40,7 @@ class Suki_Compatibility_Elementor {
 	 */
 	protected function __construct() {
 		// Compatibility CSS
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
@@ -102,7 +102,7 @@ class Suki_Compatibility_Elementor {
 
 			// Remove content wrapper on Elementor's page templates.
 			if ( in_array( $page_template, array( 'elementor_header_footer', 'elementor_canvas' ) ) ) {
-				add_filter( 'suki_print_content_wrapper', '__return_false' );
+				add_filter( 'suki/frontend/is_using_content_wrapper', '__return_false' );
 			}
 		}
 
@@ -114,13 +114,13 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper() {
 		/**
-		 * Hook: suki_before_header
+		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
 		 * @hooked suki_mobile_vertical_header - 10
 		 * @hooked suki_popup_background - 99
 		 */
-		do_action( 'suki_before_canvas' );
+		do_action( 'suki/frontend/before_canvas' );
 		?>
 
 		<div id="canvas" class="suki-canvas">
@@ -146,9 +146,9 @@ class Suki_Compatibility_Elementor {
 		
 		<?php
 		/**
-		 * Hook: suki_after_canvas
+		 * Hook: suki/frontend/after_canvas
 		 */
-		do_action( 'suki_after_canvas' );
+		do_action( 'suki/frontend/after_canvas' );
 	}
 
 	/**

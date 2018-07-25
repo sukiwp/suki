@@ -16,21 +16,21 @@ suki_main_content_open();
 
 while ( have_posts() ) : the_post();
 	/**
-	 * Hook: suki_before_main
+	 * Hook: suki/frontend/before_main
 	 */
-	do_action( 'suki_before_main' );
+	do_action( 'suki/frontend/before_main' );
 
 	// Render post content in "default" layout.
 	get_template_part( 'template-parts/content' );
 
 	/**
-	 * Hook: suki_after_main
+	 * Hook: suki/frontend/after_main
 	 * 
 	 * @hooked suki_single_post_author_bio - 10
 	 * @hooked suki_single_post_navigation - 15
 	 * @hooked suki_entry_comments - 20
 	 */
-	do_action( 'suki_after_main' );
+	do_action( 'suki/frontend/after_main' );
 
 endwhile;
 

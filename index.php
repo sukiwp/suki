@@ -22,14 +22,14 @@ suki_main_content_open();
 if ( have_posts() ) :
 
 	/**
-	 * Hook: suki_before_main
+	 * Hook: suki/frontend/before_main
 	 *
 	 * @hooked suki_home_page_header - 10
 	 */
-	do_action( 'suki_before_main' );
+	do_action( 'suki/frontend/before_main' );
 	?>
 
-	<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki_loop_classes', array() ) ) ); ?>">
+	<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array() ) ) ); ?>">
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -43,11 +43,11 @@ if ( have_posts() ) :
 
 	<?php
 	/**
-	 * Hook: suki_after_main
+	 * Hook: suki/frontend/after_main
 	 * 
 	 * @hooked suki_loop_navigation - 10
 	 */
-	do_action( 'suki_after_main' );
+	do_action( 'suki/frontend/after_main' );
 
 else :
 

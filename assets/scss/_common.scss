@@ -60,19 +60,19 @@
 // -------------------------------------------------------------
 
 .suki-hide-on-desktop {
-	@media screen and ( min-width: $breakpoint_1024 + 1px ) {
+	@media screen and ( min-width: $breakpoint_1024 ) {
 		display: none !important;
 	}
 }
 
 .suki-hide-on-tablet {
-	@media screen and ( min-width: $breakpoint_500 + 1px ) and ( max-width: $breakpoint_1024 ) {
+	@media screen and ( min-width: $breakpoint_500 ) and ( max-width: $breakpoint_1024 - 1px ) {
 		display: none !important;
 	}
 }
 
 .suki-hide-on-mobile {
-	@media screen and ( max-width: $breakpoint_500 ) {
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
 		display: none !important;
 	}
 }

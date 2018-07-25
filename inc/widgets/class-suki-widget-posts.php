@@ -30,7 +30,6 @@ class Suki_Widget_Posts extends WP_Widget {
 
 		$title          = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		$layout         = isset( $instance['layout'] ) ? $instance['layout'] : 'default';
 		$number         = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 		$orderby        = isset( $instance['orderby'] ) ? $instance['orderby'] : 'post_date';
 		$all_categories = isset( $instance['all_categories'] ) ? (bool) $instance['all_categories'] : true;
@@ -54,17 +53,17 @@ class Suki_Widget_Posts extends WP_Widget {
 			echo ! empty( $title ) ? $args['before_title'] . $title . $args['after_title'] : ''; // WPCS: XSS OK
 
 			?>
-			<ul class="layout-<?php echo esc_attr( $layout ); ?>">
+			<ul>
 				<?php foreach ( $query->posts as $qpost ) : ?>
 					<?php
 					$post_title = get_the_title( $qpost->ID );
 					$title      = ( ! empty( $post_title ) ) ? $post_title : esc_html__( '(no title)', 'suki' );
 					?>
-					<li class="suki-widget-post-item">
+					<li>
 						<a href="<?php the_permalink( $qpost->ID ); ?>">
 							<?php
 							if ( has_post_thumbnail( $qpost->ID ) ) {
-								echo get_the_post_thumbnail( $qpost->ID, apply_filters( 'suki_widget_posts_thumbnail_size', 'thumbnail' ) );
+								echo get_the_post_thumbnail( $qpost->ID, apply_filters( 'suki/frontend/widget_posts_thumbnail_size', 'thumbnail' ) );
 							}
 
 							echo $title; // WPCS: XSS OK
@@ -86,19 +85,14 @@ class Suki_Widget_Posts extends WP_Widget {
 
 	public function form( $instance ) {
 		$cats = get_categories();
-		
-		$layouts = apply_filters( 'suki_widget_posts_layout', array(
-			// 'right-thumbnail' => esc_html__( 'Right thumbnail', 'suki' ),
-			// 'left-thumbnail'  => esc_html__( 'Left thumbnail', 'suki' ),
-		) );
-		$orders = apply_filters( 'suki_widget_posts_orderby', array(
+
+		$orders = array(
 			'post_date' => esc_html__( 'Recent Published', 'suki' ),
 			'rand'      => esc_html__( 'Random', 'suki' ),
-		) );
+		);
 
 		$title          = isset( $instance['title'] ) ? strip_tags( $instance['title'] ) : '';
-		
-		$layout         = isset( $instance['layout'] ) ? $instance['layout'] : 'default';
+
 		$number         = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 		$orderby        = isset( $instance['orderby'] ) ? $instance['orderby'] : 'post_date';
 		$all_categories = isset( $instance['all_categories'] ) ? (bool) $instance['all_categories'] : true;
@@ -110,16 +104,6 @@ class Suki_Widget_Posts extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'suki' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
-		<?php if ( 1 < count( $layouts ) ) : ?>
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'layout' ) ); ?>"><?php esc_html_e( 'Layout:', 'suki' ); ?></label>
-				<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'layout' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'layout' ) ); ?>">
-					<?php foreach ( $layouts as $key => $value ) : ?>
-						<option value="<?php echo esc_attr( $key ); ?>"<?php selected( $layout, $key ); ?>><?php echo esc_html( $value ); ?></option>
-					<?php endforeach; ?>
-				</select>
-			</p>
-		<?php endif; ?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'suki' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="text" value="<?php echo esc_attr( $number ); ?>">
@@ -158,7 +142,6 @@ class Suki_Widget_Posts extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance                   = $old_instance;
 		$instance['title']          = strip_tags( $new_instance['title'] );
-		$instance['layout']         = $new_instance['layout'];
 		$instance['number']         = (int) $new_instance['number'];
 		$instance['orderby']        = $new_instance['orderby'];
 		$instance['all_categories'] = (bool) $new_instance['all_categories'];

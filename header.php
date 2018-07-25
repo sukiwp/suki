@@ -26,13 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	<body <?php body_class(); ?>>
 		<?php
 		/**
-		 * Hook: suki_before_canvas
+		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
-		 * @hooked suki_mobile_vertical_header - 10
-		 * @hooked suki_popup_background - 99
+		 * @hooked suki_top_popups - 10
 		 */
-		do_action( 'suki_before_canvas' );
+		do_action( 'suki/frontend/before_canvas' );
 		?>
 
 		<div id="canvas" class="suki-canvas">
@@ -40,26 +39,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 				<?php
 				/**
-				 * Hook: suki_before_header
+				 * Hook: suki/frontend/before_header
 				 */
-				do_action( 'suki_before_header' );
+				do_action( 'suki/frontend/before_header' );
 
 				/**
-				 * Hook: suki_header
-				 *
-				 * @hooked suki_header - 10
+				 * Header
 				 */
-				do_action( 'suki_header' );
+				suki_header();
 
 				/**
-				 * Hook: suki_after_header
+				 * Hook: suki/frontend/after_header
 				 *
 				 * @hooked suki_page_title - 10
 				 */
-				do_action( 'suki_after_header' );
+				do_action( 'suki/frontend/after_header' );
 				
-				if ( apply_filters( 'suki_print_content_wrapper', true ) ) : ?>
-					<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki_content_classes', array() ) ) ); ?>">
+				if ( apply_filters( 'suki/frontend/is_using_content_wrapper', true ) ) : ?>
+					<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array() ) ) ); ?>">
 						<div class="suki-section-inner">
 							<div class="suki-wrapper">
 								<div class="suki-content-row">

@@ -30,6 +30,7 @@
 		var input = e.target;
 
 		if ( '' === input.value ) {
+			$( input ).trigger( 'change' );
 			return;
 		}
 
@@ -77,8 +78,10 @@
 	});
 
 	/**
-	 * Suki spacer section
+	 * Contentless sections like: suki-section-spacer, suki-section-pro-teaser, suki-section-pro-link
 	 */
+	wp.customize.sectionConstructor['suki-section-pro-teaser'] =
+	wp.customize.sectionConstructor['suki-section-pro-link'] =
 	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend( {
 		// No events for this type of section.
 		attachEvents: function () {},
@@ -87,11 +90,6 @@
 			return true;
 		}
 	} );
-
-	/**
-	 * Suki pro section
-	 */
-	wp.customize.sectionConstructor['suki-section-pro'] = wp.customize.sectionConstructor['suki-section-spacer'];
 
 	/**
 	 * Suki toggle control
@@ -256,11 +254,17 @@
 				});
 
 				$inputs.on( 'change', function( e ) {
-					var values = $inputs.map( function() {
-						return '' === this.value ? '' : this.value.toString() + $unit.val();
-					}).get();
+					var values = [];
 
-					value = values.join( ' ' );
+					$inputs.each(function() {
+						if ( '' === this.value ) {
+							values.push( '0' + $unit.val() );
+						} else {
+							values.push( this.value.toString() + $unit.val() );
+						}
+					});
+
+					var value = values.join( ' ' );
 
 					$value.val( value ).trigger( 'change' );
 				});
@@ -297,7 +301,9 @@
 				setNumberAttrs( $unit.val() );
 
 				$input.on( 'change', function( e ) {
-					$value.val( this.value.toString() + $unit.val().toString() ).trigger( 'change' );
+					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+
+					$value.val( value ).trigger( 'change' );
 				});
 			});
 		}
@@ -413,17 +419,17 @@
 				},
 
 				receive: function( e, ui ) {
-					var avoid = $( ui.item ).attr( 'data-avoid' ).split( ',' );
+					var limitations = $( ui.item ).attr( 'data-limitations' ).split( ',' );
 
-					if ( 0 <= avoid.indexOf( $( this ).parent().attr( 'data-location' ) ) ) {
+					if ( 0 <= limitations.indexOf( $( this ).parent().attr( 'data-location' ) ) ) {
 						$( ui.sender ).sortable( 'cancel' );
 					}
 				},
 				start: function( e, ui ) {
-					var avoid = $( ui.item ).attr( 'data-avoid' ).split( ',' );
+					var limitations = $( ui.item ).attr( 'data-limitations' ).split( ',' );
 
-					for ( var i = 0; i < avoid.length; ++i ) {
-						var $target = control.builderLocations.filter( '[data-location="' + avoid[ i ] + '"]' );
+					for ( var i = 0; i < limitations.length; ++i ) {
+						var $target = control.builderLocations.filter( '[data-location="' + limitations[ i ] + '"]' );
 						if ( undefined === $target ) continue;
 
 						$target.addClass( 'disabled' );

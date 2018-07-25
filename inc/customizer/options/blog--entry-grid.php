@@ -57,6 +57,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+/**
+ * ====================================================
+ * Grid Item
+ * ====================================================
+ */
+
 // Heading: Grid Item
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_item', array(
 	'section'     => $section,
@@ -91,7 +97,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Post header elements', 'suki' ),
-	'choices'     => apply_filters( 'suki_customizer_entry_grid_header_elements', array(
+	'choices'     => apply_filters( 'suki/customizer/entry_grid_header_elements', array(
 		'header-meta'    => esc_html__( 'Header Meta', 'suki' ),
 		'title'          => esc_html__( 'Title', 'suki' ),
 	) ),

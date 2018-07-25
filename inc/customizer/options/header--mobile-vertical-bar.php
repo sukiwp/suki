@@ -151,6 +151,54 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'priority'    => 20,
 ) ) );
 
+// Menu link typography
+$settings = array(
+	'font_family'    => 'header_mobile_vertical_bar_menu_font_family',
+	'font_weight'    => 'header_mobile_vertical_bar_menu_font_weight',
+	'font_style'     => 'header_mobile_vertical_bar_menu_font_style',
+	'text_transform' => 'header_mobile_vertical_bar_menu_text_transform',
+	'font_size'      => 'header_mobile_vertical_bar_menu_font_size',
+	'line_height'    => 'header_mobile_vertical_bar_menu_line_height',
+	'letter_spacing' => 'header_mobile_vertical_bar_menu_letter_spacing',
+);
+foreach ( $settings as $id ) {
+	$wp_customize->add_setting( $id, array(
+		'default'     => suki_array_value( $defaults, $id ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+	) );
+}
+$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'header_mobile_vertical_bar_menu_typography', array(
+	'settings'    => $settings,
+	'section'     => $section,
+	'label'       => esc_html__( 'Menu link typography', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+// Submenu link typography
+$settings = array(
+	'font_family'    => 'header_mobile_vertical_bar_submenu_font_family',
+	'font_weight'    => 'header_mobile_vertical_bar_submenu_font_weight',
+	'font_style'     => 'header_mobile_vertical_bar_submenu_font_style',
+	'text_transform' => 'header_mobile_vertical_bar_submenu_text_transform',
+	'font_size'      => 'header_mobile_vertical_bar_submenu_font_size',
+	'line_height'    => 'header_mobile_vertical_bar_submenu_line_height',
+	'letter_spacing' => 'header_mobile_vertical_bar_submenu_letter_spacing',
+);
+foreach ( $settings as $id ) {
+	$wp_customize->add_setting( $id, array(
+		'default'     => suki_array_value( $defaults, $id ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+	) );
+}
+$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'header_mobile_vertical_bar_submenu_typography', array(
+	'settings'    => $settings,
+	'section'     => $section,
+	'label'       => esc_html__( 'Submenu link typography', 'suki' ),
+	'priority'    => 20,
+) ) );
+
 // Icon size
 $id = 'header_mobile_vertical_bar_icon_size';
 $wp_customize->add_setting( $id, array(
@@ -168,7 +216,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'step' => 1,
 		),
 	),
-	'priority'    => 25,
+	'priority'    => 20,
 ) ) );
 
 /**
@@ -192,6 +240,8 @@ $colors = array(
 	'header_mobile_vertical_bar_text_color'            => esc_html__( 'Text color', 'suki' ),
 	'header_mobile_vertical_bar_link_text_color'       => esc_html__( 'Link color', 'suki' ),
 	'header_mobile_vertical_bar_link_hover_text_color' => esc_html__( 'Link color :hover', 'suki' ),
+	'header_mobile_vertical_bar_menu_text_color'       => esc_html__( 'Menu link text color', 'suki' ),
+	'header_mobile_vertical_bar_menu_hover_text_color' => esc_html__( 'Menu link text color :hover', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(

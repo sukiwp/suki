@@ -29,14 +29,26 @@
 		display: none;
 	}
 
-	&.suki-widget-title-decoration-box {
+	.suki-widget-title-decoration-box & {
 		@include border();
-		padding: 0.5em 1em;
+		padding: 0.25em 1em;
 	}
 
-	&.suki-widget-title-decoration-border-bottom {
+	.suki-widget-title-decoration-border-bottom & {
 		@include border( bottom );
-		padding-bottom: 0.5em;
+		padding-bottom: 0.25em;
+	}
+
+	.suki-widget-title-alignment-left & {
+		text-align: left;
+	}
+
+	.suki-widget-title-alignment-center & {
+		text-align: center;
+	}
+
+	.suki-widget-title-alignment-right & {
+		text-align: right;
 	}
 }
 

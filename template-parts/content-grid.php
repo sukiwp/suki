@@ -9,44 +9,44 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout-grid entry-small' ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout-grid entry-small entry-card' ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**
-		 * Hook: suki_before_entry_grid_header
+		 * Hook: suki/frontend/entry_grid/before_header
 		 *
 		 * @hooked suki_entry_grid_featured_media - 10
 		 */
-		do_action( 'suki_before_entry_grid_header' );
+		do_action( 'suki/frontend/entry_grid/before_header' );
 		
-		if ( has_action( 'suki_entry_grid_header' ) ) :
+		if ( has_action( 'suki/frontend/entry_grid/header' ) ) :
 		?>
 			<header class="entry-header">
 				<?php
 				/**
-				 * Hook: suki_entry_grid_header
+				 * Hook: suki/frontend/entry_grid/header
 				 *
 				 * @hooked suki_entry_grid_header_meta - 10
 				 * @hooked suki_entry_grid_title - 20
 				 */
-				do_action( 'suki_entry_grid_header' );
+				do_action( 'suki/frontend/entry_grid/header' );
 				?>
 			</header>
 		<?php
 		endif;
 
 		/**
-		 * Hook: suki_after_entry_grid_header
+		 * Hook: suki/frontend/entry_grid/after_header
 		 */
-		do_action( 'suki_after_entry_grid_header' );
+		do_action( 'suki/frontend/entry_grid/after_header' );
 		?>
 
 		<div class="entry-content entry-excerpt">
 			<?php
 			/**
-			 * Hook: suki_before_entry_grid_content
+			 * Hook: suki/frontend/entry_grid/before_content
 			 */
-			do_action( 'suki_before_entry_grid_content' );
+			do_action( 'suki/frontend/entry_grid/before_content' );
 
 			// Print the content.
 			the_excerpt();
@@ -58,37 +58,37 @@
 			) );
 
 			/**
-			 * Hook: suki_after_entry_grid_content
+			 * Hook: suki/frontend/entry_grid/after_content
 			 */
-			do_action( 'suki_after_entry_grid_content' );
+			do_action( 'suki/frontend/entry_grid/after_content' );
 			?>
 		</div>
 
 		<?php
 		/**
-		 * Hook: suki_before_entry_grid_footer
+		 * Hook: suki/frontend/entry_grid/before_footer
 		 */
-		do_action( 'suki_before_entry_grid_footer' );
+		do_action( 'suki/frontend/entry_grid/before_footer' );
 
-		if ( has_action( 'suki_entry_grid_footer' ) ) :
+		if ( has_action( 'suki/frontend/entry_grid/footer' ) ) :
 		?>
 			<footer class="entry-footer">
 				<?php
 				/**
-				 * Hook: suki_entry_grid_footer
+				 * Hook: suki/frontend/entry_grid/footer
 				 * 
 				 * @hooked suki_entry_grid_footer_meta - 10
 				 */
-				do_action( 'suki_entry_grid_footer' );
+				do_action( 'suki/frontend/entry_grid/footer' );
 				?>
 			</footer>
 		<?php
 		endif;
 
 		/**
-		 * Hook: suki_after_entry_grid_footer
+		 * Hook: suki/frontend/entry_grid/after_footer
 		 */
-		do_action( 'suki_after_entry_grid_footer' );
+		do_action( 'suki/frontend/entry_grid/after_footer' );
 		?>
 	</div>
 </article>

@@ -146,15 +146,15 @@ $wp_customize->add_control( new Suki_Customize_Control_Shadow( $wp_customize, $i
 
 /**
  * ====================================================
- * Outside
+ * Boxed Page Outside
  * ====================================================
  */
 
-// Heading: Outside
+// Heading: Boxed Page Outside
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_outside', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Outside', 'suki' ),
+	'label'       => esc_html__( 'Boxed Page Outside', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
@@ -167,7 +167,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Outside background color', 'suki' ),
+	'label'       => esc_html__( 'Background color', 'suki' ),
 	'priority'    => 20,
 ) ) );
 

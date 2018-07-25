@@ -98,13 +98,6 @@ class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
 		}
 
 		$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
-
-		$this->json['labels'] = array(
-			'top'    => esc_html__( 'Top', 'suki' ),
-			'right'  => esc_html__( 'Right', 'suki' ),
-			'bottom' => esc_html__( 'Bottom', 'suki' ),
-			'left'   => esc_html__( 'Left', 'suki' ),
-		);
 	}
 
 	/**
@@ -137,7 +130,7 @@ class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
 					</label>
 					<# _.each( [ 'top', 'right', 'bottom', 'left' ], function( prop, i ) { #>
 						<label class="suki-row-item">
-							<span class="suki-small-label">{{{ data.labels[ prop ] }}}</span>
+							<span class="suki-small-label">{{{ prop }}}</span>
 							<input class="suki-dimensions-input" type="number" value="{{ data.inputs[ setting_key ].numbers[ i ] }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 						</label>
 					<# }); #>

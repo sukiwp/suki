@@ -34,6 +34,13 @@
 	margin-top: -1px;
 }
 
+div.customize-section-description {
+	margin: 0 -12px;
+	padding: 12px 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
 #customize-controls .customize-control-notifications-container:empty {
 	display: none;
 }
@@ -70,20 +77,6 @@
 	padding: 0;
 	text-align: center;
 	text-align-last: center;
-}
-
-.suki-pro-link {
-	position: absolute;
-	top: 50%;
-	left: 12px;
-	display: inline-block;
-	padding: 0 4px;
-	margin-top: -9px;
-	color: #fff;
-	background-color: #d54e21;
-	font-size: 10px;
-	line-height: 18px;
-	text-transform: uppercase;
 }
 
 .suki-heading {
@@ -144,54 +137,69 @@
 	margin-top: 15px;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title {
-	padding: 10px 18px 11px 10px !important;
-	background-color: #fff8e5;
-	border-right: none;
-	cursor: default;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title {
+	display: block;
+	background-color: #ee5253;
+	border-color: #ee5253;
+	color: #fff;
+	text-decoration: none;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title:after {
-	display: none;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title h3 {
+	margin: 0;
+	color: inherit !important;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title:hover, #customize-theme-controls .control-section-suki-section-pro .accordion-section-title:focus {
-	background-color: #fff8e5;
-	color: #555d66;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title:after {
+	color: inherit !important;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title .button {
-	margin: -1px 8px 0 0;
-	font-weight: normal;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title:hover, #customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title:focus {
+	background-color: #ec3b3c;
+	border-color: #ec3b3c;
+	border-right-color: #a61011;
+	color: #fff;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title ul.menu-in-location {
-	line-height: normal;
-	margin: 8px 0 0;
-}
-
-.customize-control-suki-pro {
+.customize-control-suki-pro-teaser {
 	margin: 20px 0 12px;
 }
 
-.customize-control-suki-pro h3 {
+.suki-pro-teaser {
+	background-color: #fff8e5;
+	margin-top: -1px;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
-	margin: 0 -12px;
-	padding: 10px 18px 11px 10px;
-	background-color: #fff8e5;
+	cursor: default;
 	color: inherit;
-	line-height: 21px;
 }
 
-.customize-control-suki-pro .button {
+.customize-control > .suki-pro-teaser {
+	margin: 0 -12px;
+	padding: 10px 12px 11px 12px;
+}
+
+.accordion-section > .suki-pro-teaser {
+	padding: 10px 18px 11px 10px;
+}
+
+.suki-pro-teaser h3 {
+	display: inline-block;
+	color: inherit;
+	margin: 0;
+}
+
+.suki-pro-teaser .button {
 	margin: -1px 8px 0 0;
 	font-weight: normal;
 }
 
-.customize-control-suki-pro ul.menu-in-location {
-	line-height: normal;
-	margin: 8px 0 0;
+.suki-pro-teaser ul {
+	margin: 0.5em 0 0;
+}
+
+.suki-pro-teaser ul li {
+	margin: 0.25em 0;
 }
 
 .customize-control-suki-heading {
@@ -923,27 +931,6 @@
 	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder {
 		right: 600px;
 	}
-}
-
-#sub-accordion-section-suki_section_title .customize-info .customize-section-description,
-#sub-accordion-section-suki_section_small_title .customize-info .customize-section-description,
-#sub-accordion-section-suki_section_meta .customize-info .customize-section-description,
-#sub-accordion-section-suki_section_gutenberg .customize-info .customize-section-description,
-#sub-accordion-section-suki_section_sidebar .customize-info .customize-section-description,
-#sub-accordion-section-suki_section_blog_single .customize-info .customize-section-description,
-[id^="sub-accordion-section-suki_section_page_settings_"] .customize-info .customize-section-description {
-	display: block;
-	margin-bottom: 0;
-}
-
-#sub-accordion-section-suki_section_title .customize-info .customize-help-toggle,
-#sub-accordion-section-suki_section_small_title .customize-info .customize-help-toggle,
-#sub-accordion-section-suki_section_meta .customize-info .customize-help-toggle,
-#sub-accordion-section-suki_section_gutenberg .customize-info .customize-help-toggle,
-#sub-accordion-section-suki_section_sidebar .customize-info .customize-help-toggle,
-#sub-accordion-section-suki_section_blog_single .customize-info .customize-help-toggle,
-[id^="sub-accordion-section-suki_section_page_settings_"] .customize-info .customize-help-toggle {
-	display: none;
 }
 
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-panel-description {

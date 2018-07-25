@@ -120,7 +120,7 @@ $add['button_font_family'] = '';
 $add['button_font_weight'] = 500;
 $add['button_font_style'] = '';
 $add['button_text_transform'] = '';
-$add['button_font_size'] = '1em';
+$add['button_font_size'] = '1rem';
 $add['button_letter_spacing'] = '';
 
 $add['button_bg_color'] = $colors['accent'];
@@ -172,7 +172,7 @@ $add['meta_font_family'] = '';
 $add['meta_font_weight'] = '';
 $add['meta_font_style'] = '';
 $add['meta_text_transform'] = '';
-$add['meta_font_size'] = '0.8em';
+$add['meta_font_size'] = '0.8rem';
 $add['meta_line_height'] = '1.7';
 $add['meta_letter_spacing'] = '';
 $add['meta_text_color'] = $colors['meta'];
@@ -291,11 +291,32 @@ $add['header_top_bar_font_size'] = '';
 $add['header_top_bar_line_height'] = '';
 $add['header_top_bar_letter_spacing'] = '';
 
+$add['header_top_bar_menu_font_family'] = '';
+$add['header_top_bar_menu_font_weight'] = '';
+$add['header_top_bar_menu_font_style'] = '';
+$add['header_top_bar_menu_text_transform'] = '';
+$add['header_top_bar_menu_font_size'] = '';
+$add['header_top_bar_menu_line_height'] = '';
+$add['header_top_bar_menu_letter_spacing'] = '';
+
+$add['header_top_bar_menu_highlight'] = 'border-bottom';
+
+$add['header_top_bar_submenu_font_family'] = '';
+$add['header_top_bar_submenu_font_weight'] = '';
+$add['header_top_bar_submenu_font_style'] = '';
+$add['header_top_bar_submenu_text_transform'] = '';
+$add['header_top_bar_submenu_font_size'] = '';
+$add['header_top_bar_submenu_line_height'] = '';
+$add['header_top_bar_submenu_letter_spacing'] = '';
+
 $add['header_top_bar_icon_size'] = '18px';
 
 $add['header_top_bar_text_color'] = $colors['text'];
 $add['header_top_bar_link_text_color'] = $colors['heading'];
 $add['header_top_bar_link_hover_text_color'] = $colors['text'];
+$add['header_top_bar_menu_text_color'] = $colors['heading'];
+$add['header_top_bar_menu_hover_text_color'] = $colors['text'];
+$add['header_top_bar_menu_highlight_color'] = $colors['accent'];
 
 /**
  * ====================================================
@@ -321,11 +342,33 @@ $add['header_main_bar_font_size'] = '';
 $add['header_main_bar_line_height'] = '';
 $add['header_main_bar_letter_spacing'] = '';
 
+$add['header_main_bar_menu_font_family'] = '';
+$add['header_main_bar_menu_font_weight'] = '';
+$add['header_main_bar_menu_font_style'] = '';
+$add['header_main_bar_menu_text_transform'] = '';
+$add['header_main_bar_menu_font_size'] = '';
+$add['header_main_bar_menu_line_height'] = '';
+$add['header_main_bar_menu_letter_spacing'] = '';
+
+$add['header_main_bar_menu_highlight'] = 'border-bottom';
+
+$add['header_main_bar_submenu_font_family'] = '';
+$add['header_main_bar_submenu_font_weight'] = '';
+$add['header_main_bar_submenu_font_style'] = '';
+$add['header_main_bar_submenu_text_transform'] = '';
+$add['header_main_bar_submenu_font_size'] = '';
+$add['header_main_bar_submenu_line_height'] = '';
+$add['header_main_bar_submenu_letter_spacing'] = '';
+
 $add['header_main_bar_icon_size'] = '18px';
 
 $add['header_main_bar_text_color'] = $colors['text'];
 $add['header_main_bar_link_text_color'] = $colors['heading'];
 $add['header_main_bar_link_hover_text_color'] = $colors['text'];
+
+$add['header_main_bar_menu_text_color'] = $colors['heading'];
+$add['header_main_bar_menu_hover_text_color'] = $colors['text'];
+$add['header_main_bar_menu_highlight_color'] = $colors['accent'];
 
 /**
  * ====================================================
@@ -351,11 +394,32 @@ $add['header_bottom_bar_font_size'] = '';
 $add['header_bottom_bar_line_height'] = '';
 $add['header_bottom_bar_letter_spacing'] = '';
 
+$add['header_bottom_bar_menu_font_family'] = '';
+$add['header_bottom_bar_menu_font_weight'] = '';
+$add['header_bottom_bar_menu_font_style'] = '';
+$add['header_bottom_bar_menu_text_transform'] = '';
+$add['header_bottom_bar_menu_font_size'] = '';
+$add['header_bottom_bar_menu_line_height'] = '';
+$add['header_bottom_bar_menu_letter_spacing'] = '';
+
+$add['header_bottom_bar_menu_highlight'] = 'border-bottom';
+
+$add['header_bottom_bar_submenu_font_family'] = '';
+$add['header_bottom_bar_submenu_font_weight'] = '';
+$add['header_bottom_bar_submenu_font_style'] = '';
+$add['header_bottom_bar_submenu_text_transform'] = '';
+$add['header_bottom_bar_submenu_font_size'] = '';
+$add['header_bottom_bar_submenu_line_height'] = '';
+$add['header_bottom_bar_submenu_letter_spacing'] = '';
+
 $add['header_bottom_bar_icon_size'] = '18px';
 
 $add['header_bottom_bar_text_color'] = $colors['text'];
 $add['header_bottom_bar_link_text_color'] = $colors['heading'];
 $add['header_bottom_bar_link_hover_text_color'] = $colors['text'];
+$add['header_bottom_bar_menu_text_color'] = $colors['heading'];
+$add['header_bottom_bar_menu_hover_text_color'] = $colors['text'];
+$add['header_bottom_bar_menu_highlight_color'] = $colors['accent'];
 
 /**
  * ====================================================
@@ -397,6 +461,22 @@ $add['header_mobile_vertical_bar_font_size'] = '';
 $add['header_mobile_vertical_bar_line_height'] = '';
 $add['header_mobile_vertical_bar_letter_spacing'] = '';
 
+$add['header_mobile_vertical_bar_menu_font_family'] = '';
+$add['header_mobile_vertical_bar_menu_font_weight'] = '';
+$add['header_mobile_vertical_bar_menu_font_style'] = '';
+$add['header_mobile_vertical_bar_menu_text_transform'] = '';
+$add['header_mobile_vertical_bar_menu_font_size'] = '';
+$add['header_mobile_vertical_bar_menu_line_height'] = '';
+$add['header_mobile_vertical_bar_menu_letter_spacing'] = '';
+
+$add['header_mobile_vertical_bar_submenu_font_family'] = '';
+$add['header_mobile_vertical_bar_submenu_font_weight'] = '';
+$add['header_mobile_vertical_bar_submenu_font_style'] = '';
+$add['header_mobile_vertical_bar_submenu_text_transform'] = '';
+$add['header_mobile_vertical_bar_submenu_font_size'] = '';
+$add['header_mobile_vertical_bar_submenu_line_height'] = '';
+$add['header_mobile_vertical_bar_submenu_letter_spacing'] = '';
+
 $add['header_mobile_vertical_bar_icon_size'] = '18px';
 
 $add['header_mobile_vertical_bar_section_bg_color'] = $colors['bg'];
@@ -404,6 +484,9 @@ $add['header_mobile_vertical_bar_section_border_color'] = $colors['border'];
 $add['header_mobile_vertical_bar_text_color'] = $colors['text'];
 $add['header_mobile_vertical_bar_link_text_color'] = $colors['heading'];
 $add['header_mobile_vertical_bar_link_hover_text_color'] = $colors['text'];
+$add['header_mobile_vertical_bar_menu_text_color'] = $colors['heading'];
+$add['header_mobile_vertical_bar_menu_hover_text_color'] = $colors['text'];
+$add['header_mobile_vertical_bar_menu_highlight_color'] = $colors['accent'];
 
 /**
  * ====================================================
@@ -424,18 +507,18 @@ $add['page_header_breadcrumb'] = 1;
 $add['breadcrumb_plugin'] = 'breadcrumb-trail';
 
 $add['page_header_title_font_family'] = '';
-$add['page_header_title_font_weight'] = 500;
+$add['page_header_title_font_weight'] = '';
 $add['page_header_title_font_style'] = '';
 $add['page_header_title_text_transform'] = '';
-$add['page_header_title_font_size'] = '27px';
-$add['page_header_title_line_height'] = '1.5';
+$add['page_header_title_font_size'] = '';
+$add['page_header_title_line_height'] = '';
 $add['page_header_title_letter_spacing'] = '';
 
 $add['page_header_breadcrumb_font_family'] = '';
 $add['page_header_breadcrumb_font_weight'] = '';
 $add['page_header_breadcrumb_font_style'] = '';
 $add['page_header_breadcrumb_text_transform'] = '';
-$add['page_header_breadcrumb_font_size'] = '0.9em';
+$add['page_header_breadcrumb_font_size'] = '';
 $add['page_header_breadcrumb_line_height'] = '';
 $add['page_header_breadcrumb_letter_spacing'] = '';
 
@@ -465,7 +548,7 @@ $add['content_border'] = '0px 0px 0px 0px';
 
 $add['narrow_content_width'] = '720px';
 
-$add['content_bg_color'] = 'rgba(0,0,0,0)';
+$add['content_bg_color'] = '';
 
 /**
  * ====================================================
@@ -481,13 +564,34 @@ $add['sidebar_widgets_gap'] = '30px';
 $add['sidebar_padding'] = '20px 20px 20px 20px';
 $add['sidebar_border'] = '1px 1px 1px 1px';
 
-$add['sidebar_bg_color'] = 'rgba(0,0,0,0)';
+$add['sidebar_font_family'] = '';
+$add['sidebar_font_weight'] = '';
+$add['sidebar_font_style'] = '';
+$add['sidebar_text_transform'] = '';
+$add['sidebar_font_size'] = '';
+$add['sidebar_line_height'] = '';
+$add['sidebar_letter_spacing'] = '';
+
+$add['sidebar_widget_title_font_family'] = '';
+$add['sidebar_widget_title_font_weight'] = '';
+$add['sidebar_widget_title_font_style'] = '';
+$add['sidebar_widget_title_text_transform'] = '';
+$add['sidebar_widget_title_font_size'] = '';
+$add['sidebar_widget_title_line_height'] = '';
+$add['sidebar_widget_title_letter_spacing'] = '';
+
+$add['sidebar_widget_title_alignment'] = 'left';
+$add['sidebar_widget_title_decoration'] = 'border-bottom';
+
+$add['sidebar_bg_color'] = '';
 $add['sidebar_border_color'] = $colors['border'];
 $add['sidebar_text_color'] = $colors['text'];
 $add['sidebar_border_color'] = $colors['border'];
 $add['sidebar_link_text_color'] = $colors['heading'];
 $add['sidebar_link_hover_text_color'] = $colors['text'];
 $add['sidebar_widget_title_text_color'] = $colors['heading'];
+$add['sidebar_widget_title_bg_color'] = '';
+$add['sidebar_widget_title_border_color'] = $colors['border'];
 
 /**
  * ====================================================
@@ -522,12 +626,25 @@ $add['footer_widgets_bar_font_size'] = '';
 $add['footer_widgets_bar_line_height'] = '';
 $add['footer_widgets_bar_letter_spacing'] = '';
 
+$add['footer_widgets_bar_widget_title_font_family'] = '';
+$add['footer_widgets_bar_widget_title_font_weight'] = '';
+$add['footer_widgets_bar_widget_title_font_style'] = '';
+$add['footer_widgets_bar_widget_title_text_transform'] = '';
+$add['footer_widgets_bar_widget_title_font_size'] = '';
+$add['footer_widgets_bar_widget_title_line_height'] = '';
+$add['footer_widgets_bar_widget_title_letter_spacing'] = '';
+
+$add['footer_widgets_bar_widget_title_alignment'] = 'left';
+$add['footer_widgets_bar_widget_title_decoration'] = 'border-bottom';
+
 $add['footer_widgets_bar_section_bg_color'] = $colors['subtle'];
 $add['footer_widgets_bar_section_border_color'] = $colors['border'];
 $add['footer_widgets_bar_text_color'] = $colors['text'];
 $add['footer_widgets_bar_link_text_color'] = $colors['text'];
 $add['footer_widgets_bar_link_hover_text_color'] = $colors['heading'];
 $add['footer_widgets_bar_widget_title_text_color'] = $colors['heading'];
+$add['footer_widgets_bar_widget_title_bg_color'] = '';
+$add['footer_widgets_bar_widget_title_border_color'] = $colors['border'];
 
 /**
  * ====================================================
@@ -552,8 +669,6 @@ $add['footer_bottom_bar_text_transform'] = '';
 $add['footer_bottom_bar_font_size'] = '';
 $add['footer_bottom_bar_line_height'] = '';
 $add['footer_bottom_bar_letter_spacing'] = '';
-
-$add['footer_bottom_bar_icon_size'] = '16px';
 
 /**
  * ====================================================

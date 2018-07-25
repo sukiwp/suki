@@ -12,7 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Remove content wrapper via filter.
-add_filter( 'suki_print_content_wrapper', '__return_false' );
+add_filter( 'suki/frontend/is_using_content_wrapper', '__return_false' );
 
 get_header();
 ?>

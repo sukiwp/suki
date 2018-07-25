@@ -87,8 +87,6 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	 * Render Underscore JS template for this control's content.
 	 */
 	protected function content_template() {
-		$choices = $this->get_choices();
-		$units = $this->get_units();
 		?>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">
@@ -106,14 +104,18 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
 		<div class="customize-control-content {{ data.responsive ? 'suki-responsive' : '' }}">
+			<#
+			var choices = <?php echo json_encode( $this->get_choices() ); ?>,
+			    units = <?php echo json_encode( $this->get_units() ); ?>;
+			#>
+
 			<# if ( data.inputs.font_family ) { #>
 				<p class="suki-typography-fieldset suki-row">
 					<label class="suki-row-item">
 						<span class="suki-small-label"><?php esc_html_e( 'Font', 'suki' ); ?></span>
 						<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
 							<option value=""></option>
-							<# var choices = <?php echo json_encode( suki_array_value( $choices, 'font_family', array() ) ); ?>; #>
-							<# _.each( choices, function( provider_data, provider ) { #>
+							<# _.each( choices.font_family, function( provider_data, provider ) { #>
 								<# if ( 0 == provider_data.fonts.length ) return; #>
 								<optgroup label="{{ provider_data.label }}">
 									<# _.each( provider_data.fonts, function( label, value ) { #>
@@ -132,8 +134,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Weight', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.font_weight.__link }}}>
 								<option value=""></option>
-								<# var choices = <?php echo json_encode( suki_array_value( $choices, 'font_weight', array() ) ); ?>; #>
-								<# _.each( choices, function( label, value ) { #>
+								<# _.each( choices.font_weight, function( label, value ) { #>
 									<option value="{{ value }}">{{{ label }}}</option>
 								<# }); #>
 							</select>
@@ -144,8 +145,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Style', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.font_style.__link }}}>
 								<option value=""></option>
-								<# var choices = <?php echo json_encode( suki_array_value( $choices, 'font_style', array() ) ); ?>; #>
-								<# _.each( choices, function( label, value ) { #>
+								<# _.each( choices.font_style, function( label, value ) { #>
 									<option value="{{ value }}">{{{ label }}}</option>
 								<# }); #>
 							</select>
@@ -156,8 +156,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							<span class="suki-small-label"><?php esc_html_e( 'Transform', 'suki' ); ?></span>
 							<select class="suki-typography-input" {{{ data.inputs.text_transform.__link }}}>
 								<option value=""></option>
-								<# var choices = <?php echo json_encode( suki_array_value( $choices, 'text_transform', array() ) ); ?>; #>
-								<# _.each( choices, function( label, value ) { #>
+								<# _.each( choices.text_transform, function( label, value ) { #>
 									<option value="{{ value }}">{{{ label }}}</option>
 								<# }); #>
 							</select>
@@ -168,8 +167,9 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 			<# _.each( data.structures, function( setting_keys, device ) { #>
 				<# if ( setting_keys['font_size'] || setting_keys['line_height'] || setting_keys['letter_spacing'] ) { #>
 				<div class="suki-typography-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
-					<# if ( data.inputs[ setting_keys['font_size'] ] ) { #>
-						<# setting_key = setting_keys['font_size']; #>
+
+					<# var setting_key = setting_keys['font_size']; #>
+					<# if ( data.inputs[ setting_key ] ) { #>
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Size', 'suki' ); ?></span>
 							<span class="suki-typography-size suki-row">
@@ -178,9 +178,8 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
-										<# var units = <?php echo json_encode( suki_array_value( $units, 'font_size', array() ) ); ?>; #>
-										<# _.each( units, function( data, unit ) { #>
-											<option value="{{ unit }}" data-min="{{ data.min }}" data-max="{{ data.max }}" data-step="{{ data.step }}">{{{ data.label }}}</option>
+										<# _.each( units.font_size, function( unit_data, unit ) { #>
+											<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
 										<# }); #>
 									</select>
 								</span>
@@ -188,8 +187,8 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							</span>
 						</label>
 					<# } #>
-					<# if ( data.inputs[ setting_keys['line_height'] ] ) { #>
-						<# setting_key = setting_keys['line_height']; #>
+					<# var setting_key = setting_keys['line_height']; #>
+					<# if ( data.inputs[ setting_key ] ) { #>
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Line', 'suki' ); ?></span>
 							<span class="suki-typography-size suki-row">
@@ -198,9 +197,8 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
-										<# var units = <?php echo json_encode( suki_array_value( $units, 'line_height', array() ) ); ?>; #>
-										<# _.each( units, function( data, unit ) { #>
-											<option value="{{ unit }}" data-min="{{ data.min }}" data-max="{{ data.max }}" data-step="{{ data.step }}">{{{ data.label }}}</option>
+										<# _.each( units.line_height, function( unit_data, unit ) { #>
+											<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
 										<# }); #>
 									</select>
 								</span>
@@ -208,8 +206,8 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 							</span>
 						</label>
 					<# } #>
-					<# if ( data.inputs[ setting_keys['letter_spacing'] ] ) { #>
-						<# setting_key = setting_keys['letter_spacing']; #>
+					<# var setting_key = setting_keys['letter_spacing']; #>
+					<# if ( data.inputs[ setting_key ] ) { #>
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Spacing', 'suki' ); ?></span>
 							<span class="suki-typography-size suki-row">
@@ -218,9 +216,8 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 								</span>
 								<span class="suki-row-item" style="width: 30px;">
 									<select class="suki-typography-size-unit suki-unit">
-										<# var units = <?php echo json_encode( suki_array_value( $units, 'letter_spacing', array() ) ); ?>; #>
-										<# _.each( units, function( data, unit ) { #>
-											<option value="{{ unit }}" data-min="{{ data.min }}" data-max="{{ data.max }}" data-step="{{ data.step }}">{{{ data.label }}}</option>
+										<# _.each( units.letter_spacing, function( unit_data, unit ) { #>
+											<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
 										<# }); #>
 									</select>
 								</span>
@@ -300,11 +297,11 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 					'step' => 1,
 					'label' => 'px',
 				),
-				'em' => array(
+				'rem' => array(
 					'min' => 0,
 					'max' => 10,
 					'step' => 0.01,
-					'label' => 'em',
+					'label' => 'rem',
 				),
 			),
 			'line_height' => array(

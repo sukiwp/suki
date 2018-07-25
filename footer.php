@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
-				if ( apply_filters( 'suki_print_content_wrapper', true ) ) : ?>
+				if ( apply_filters( 'suki/frontend/is_using_content_wrapper', true ) ) : ?>
 								</div>
 							</div>
 						</div>
@@ -21,21 +21,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php endif;
 
 				/**
-				 * Hook: suki_before_footer
+				 * Hook: suki/frontend/before_footer
 				 */
-				do_action( 'suki_before_footer' );
+				do_action( 'suki/frontend/before_footer' );
 
 				/**
-				 * Hook: suki_footer
-				 * 
-				 * @hooked suki_footer - 10
+				 * Footer
 				 */
-				do_action( 'suki_footer' );
+				suki_footer();
 				
 				/**
-				 * Hook: suki_after_footer
+				 * Hook: suki/frontend/after_footer
 				 */
-				do_action( 'suki_after_footer' );
+				do_action( 'suki/frontend/after_footer' );
 				?>
 				
 			</div>
@@ -43,9 +41,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 		<?php
 		/**
-		 * Hook: suki_after_canvas
+		 * Hook: suki/frontend/after_canvas
 		 */
-		do_action( 'suki_after_canvas' );
+		do_action( 'suki/frontend/after_canvas' );
 		?>
 
 		<?php wp_footer(); ?>

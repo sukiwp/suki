@@ -56,7 +56,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
  */
 
 if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_html', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_header_html', array(
 		'section'     => $section,
 		'settings'    => array(),
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),

@@ -17,11 +17,11 @@ suki_main_content_open();
 if ( have_posts() ) :
 
 	/**
-	 * Hook: suki_before_main
+	 * Hook: suki/frontend/before_main
 	 * 
 	 * @hooked suki_search_page_header - 10
 	 */
-	do_action( 'suki_before_main' );
+	do_action( 'suki/frontend/before_main' );
 	?>
 
 	<div id="loop" class="suki-loop suki-loop-search">
@@ -38,11 +38,11 @@ if ( have_posts() ) :
 
 	<?php
 	/**
-	 * Hook: suki_after_main
+	 * Hook: suki/frontend/after_main
 	 * 
 	 * @hooked suki_loop_navigation - 10
 	 */
-	do_action( 'suki_after_main' );
+	do_action( 'suki/frontend/after_main' );
 
 else :
 

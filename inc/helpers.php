@@ -45,29 +45,36 @@ function suki_is_pro() {
  * @return boolean
  */
 function suki_show_pro_teaser() {
-	return apply_filters( 'suki_show_pro_teaser', ! suki_is_pro() );
+	return apply_filters( 'suki/pro/show_teaser', ! suki_is_pro() );
 }
 
 /**
  * Wrapper function to get page settings of the specified post ID.
  *
  * @param string $key
- * @param mixed $post
+ * @param integer $post_id
  * @return mixed
  */
-function suki_get_page_setting_by_post_id( $key, $post ) {
-	if ( is_int( $post ) ) {
-		$post = get_post( $post_id );
+function suki_get_page_setting_by_post_id( $key, $post_id ) {
+	if ( ! is_numeric( $post_id ) ) {
+		return;
 	}
+
+	$post = get_post( $post_id );
 
 	// Abort if no post found.
 	if ( empty( $post ) ) {
 		return null;
 	}
 
+	// Get individual settings merged with global customizer settings.
 	$settings = wp_parse_args( get_post_meta( $post->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $post->post_type . '_singular', array() ) );
 
-	$value = suki_array_value( $settings, $key, suki_get_fallback_page_setting( $key ) );
+	// Merge with fallback settings.
+	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
+
+	// Get value for specified key.
+	$value = suki_array_value( $settings, $key );
 
 	return $value;
 }
@@ -75,14 +82,10 @@ function suki_get_page_setting_by_post_id( $key, $post ) {
 /**
  * Wrapper function to get current page settings.
  *
- * @param string $key
- * @return mixed
+ * @return array
  */
-function suki_get_current_page_setting( $key ) {
-	$value = null;
+function suki_get_current_page_settings() {
 	$settings = array();
-
-	$option_key = '';
 
 	// Blog posts index page
 	if ( is_home() ) {
@@ -138,9 +141,26 @@ function suki_get_current_page_setting( $key ) {
 		$settings = suki_get_theme_mod( 'page_settings_404', array() );
 	}
 
-	$value = suki_array_value( $settings, $key, suki_get_fallback_page_setting( $key ) );
+	// Merge with fallback settings.
+	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
 
-	return apply_filters( "suki_current_page_setting__{$key}", $value );
+	return apply_filters( 'suki/frontend/current_page_settings', $settings );
+}
+
+/**
+ * Wrapper function to get current page setting of specified key.
+ *
+ * @param string $key
+ * @return array
+ */
+function suki_get_current_page_setting( $key ) {
+	$value = null;
+	
+	$settings = suki_get_current_page_settings();
+
+	$value = suki_array_value( $settings, $key );
+
+	return $value;
 }
 
 /**
@@ -325,16 +345,13 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 /**
  * Return fallback values of page settings.
  * 
- * @param string $key
  * @return array
  */
-function suki_get_fallback_page_setting( $key ) {
-	$fallback = apply_filters( 'suki_fallback_page_settings', array(
+function suki_get_fallback_page_settings() {
+	return apply_filters( 'suki/dataset/fallback_page_settings', array(
 		'content_container' => 'default',
 		'content_layout'    => 'right-sidebar',
 	) );
-
-	return suki_array_value( $fallback, $key );
 }
 
 /**
@@ -343,7 +360,7 @@ function suki_get_fallback_page_setting( $key ) {
  * @return array
  */
 function suki_get_all_fonts() {
-	return apply_filters( 'suki_fonts', array(
+	return apply_filters( 'suki/dataset/all_fonts', array(
 		'web_safe_fonts' => suki_get_web_safe_fonts(),
 		'google_fonts' => suki_get_google_fonts(),
 	) );
@@ -367,7 +384,7 @@ function suki_get_google_fonts() {
  * @return array
  */
 function suki_get_google_fonts_subsets() {
-	return apply_filters( 'suki_google_fonts_subsets', array(
+	return apply_filters( 'suki/dataset/google_fonts_subsets', array(
 		// 'latin'        => esc_html__( 'Latin (default)', 'suki' ), // always chosen by default
 		'latin-ext'    => esc_html__( 'Latin Extended', 'suki' ),
 		'arabic'       => esc_html__( 'Arabic', 'suki' ),
@@ -399,7 +416,7 @@ function suki_get_google_fonts_subsets() {
  * @return array
  */
 function suki_get_web_safe_fonts() {
-	return apply_filters( 'suki_web_safe_fonts', array(
+	return apply_filters( 'suki/dataset/web_safe_fonts', array(
 		// System
 		'Default System Font' => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 
@@ -426,7 +443,7 @@ function suki_get_web_safe_fonts() {
  * @return array
  */
 function suki_get_social_media_types() {
-	return apply_filters( 'suki_social_media_types', array(
+	return apply_filters( 'suki/dataset/social_media_types', array(
 		'facebook' => 'Facebook',
 		'instagram' => 'Instagram',
 		'google-plus' => 'Google Plus',

@@ -567,6 +567,10 @@ select[multiple] {
 	border-bottom-left-radius: 0 !important;
 }
 
+#wpadminbar {
+	position: fixed !important;
+}
+
 .size-auto,
 .size-full,
 .size-large,

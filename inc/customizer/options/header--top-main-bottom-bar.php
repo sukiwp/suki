@@ -159,6 +159,24 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'priority'    => 20,
 	) ) );
 
+		'font_style'     => 'header_' . $type . '_submenu_font_style',
+		'text_transform' => 'header_' . $type . '_submenu_text_transform',
+		'font_size'      => 'header_' . $type . '_submenu_font_size',
+		'line_height'    => 'header_' . $type . '_submenu_line_height',
+		'letter_spacing' => 'header_' . $type . '_submenu_letter_spacing',
+	);
+	foreach ( $settings as $id ) {
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+		) );
+	}
+	$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'header_' . $type . '_submenu_typography', array(
+		'settings'    => $settings,
+		'section'     => $section,
+		'label'       => esc_html__( 'Submenu link typography', 'suki' ),
+		'priority'    => 20,
+	) ) );
+
 	// Icon size
 	$id = 'header_' . $type . '_icon_size';
 	$wp_customize->add_setting( $id, array(
@@ -176,7 +194,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 				'step' => 1,
 			),
 		),
-		'priority'    => 25,
+		'priority'    => 20,
 	) ) );
 
 	/**
@@ -200,6 +218,9 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'header_' . $type . '_text_color'            => esc_html__( 'Text color', 'suki' ),
 		'header_' . $type . '_link_text_color'       => esc_html__( 'Link color', 'suki' ),
 		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link color :hover', 'suki' ),
+		'header_' . $type . '_menu_text_color'       => esc_html__( 'Menu link text color', 'suki' ),
+		'header_' . $type . '_menu_hover_text_color' => esc_html__( 'Menu link text color :hover', 'suki' ),
+		'header_' . $type . '_menu_highlight_color'  => esc_html__( 'Menu link highlight color', 'suki' ),
 	);
 	foreach ( $colors as $id => $label ) {
 		$wp_customize->add_setting( $id, array(
@@ -211,26 +232,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'section'     => $section,
 			'label'       => $label,
 			'priority'    => 30,
-		) ) );
-	}
-
-	/**
-	 * ====================================================
-	 * Suki Pro Upsell
-	 * ====================================================
-	 */
-
-	if ( suki_show_pro_teaser() ) {
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_' . $type, array(
-			'section'     => $section,
-			'settings'    => array(),
-			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-			'url'         => SUKI_PRO_URL,
-			'features'    => array(
-				esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Menu highlight effects', 'Suki Pro upsell', 'suki' ),
-			),
-			'priority'    => 90,
 		) ) );
 	}
 }
