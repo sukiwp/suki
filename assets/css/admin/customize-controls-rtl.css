@@ -286,7 +286,13 @@ div.customize-section-description {
 	box-shadow: none;
 }
 
-.customize-control-suki-color .wp-picker-container .wp-color-result.button:after {
+.customize-control-suki-color .wp-picker-container .color-alpha {
+	border-radius: 0 !important;
+	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.customize-control-suki-color .wp-picker-container .color-alpha:after {
 	content: "default";
 	position: absolute;
 	top: 50%;
@@ -303,14 +309,8 @@ div.customize-section-description {
 	color: #444;
 }
 
-.customize-control-suki-color .wp-picker-container .wp-color-result.button[style*="background-color"]:after {
+.customize-control-suki-color .wp-picker-container .color-alpha[style*="background:"]:after {
 	display: none;
-}
-
-.customize-control-suki-color .wp-picker-container .color-alpha {
-	border-radius: 0 !important;
-	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
-	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
 .customize-control-suki-color .wp-picker-container .wp-color-result-text {

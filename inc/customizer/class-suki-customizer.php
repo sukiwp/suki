@@ -43,7 +43,10 @@ class Suki_Customizer {
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_frontend_google_fonts_css' ) );
 
 		// Customizer CSS
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_inline_css' ), 0 );
+		if ( ! is_customize_preview() ) {
+			// Add inline CSS on frontend only.
+			add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_inline_css' ), 0 );
+		}
 
 		// Default values, postmessages, contexts
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
@@ -57,8 +60,8 @@ class Suki_Customizer {
 
 		if ( is_customize_preview() ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
-			add_action( 'wp_print_styles', array( $this, 'print_preview_styles' ) );
-			add_action( 'wp_print_footer_scripts', array( $this, 'print_preview_scripts' ) );
+			add_action( 'wp_head', array( $this, 'print_preview_styles' ), 999 );
+			add_action( 'wp_footer', array( $this, 'print_preview_scripts' ), 999 );
 		}
 	}
 
@@ -86,7 +89,12 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function add_frontend_inline_css( $inline_css ) {
-		$inline_css .= "\n/* Customizer CSS */\n" . $this->generate_css();
+		$customizer_css = $this->generate_frontend_css();
+
+		if ( '' !== trim( $customizer_css ) ) {
+			$inline_css .= "\n/* Customizer CSS */\n" . $customizer_css;
+
+		}
 
 		return $inline_css;
 	}
@@ -252,13 +260,48 @@ class Suki_Customizer {
 	 * Print <style> tags for preview frame.
 	 */
 	public function print_preview_styles() {
-		?>
-		<style id="suki-preview-css" type="text/css">
-			.customize-partial-edit-shortcut button:hover, .customize-partial-edit-shortcut button:focus {
-				border-color: currentColor;
+		// Print global preview CSS.
+		echo '<style id="suki-preview-css" type="text/css">.customize-partial-edit-shortcut button:hover,.customize-partial-edit-shortcut button:focus{border-color: currentColor}</style>' . "\n";
+
+		/**
+		 * Print saved theme_mods CSS.
+		 */
+
+		$postmessages = $this->get_setting_postmessages();
+		$default_values = $this->get_setting_defaults();
+
+		// Loop through each setting.
+		foreach ( $postmessages as $key => $rules ) {
+			// Get saved value.
+			$setting_value = get_theme_mod( $key );
+
+			// Skip this setting if value is not valid for CSS (only accept string format).
+			if ( ! is_string( $setting_value ) ) continue;
+
+			// Skip this setting if value is empty string.
+			if ( '' === $setting_value ) continue;
+
+			// Skip rule if value === default value.
+			if ( $setting_value === suki_array_value( $default_values, $key ) ) continue;
+
+			// Temporary CSS array to organize output.
+			$css_array = array();
+
+			foreach ( $rules as $rule ) {
+				// Check rule validity, and then skip if it's not valid.
+				if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
+					continue;
+				}
+
+				// Sanitize rule.
+				$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
+
+				// Add to CSS array.
+				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 			}
-		</style>
-		<?php
+
+			echo '<style id="suki-customize-preview-css-' . $key . '" type="text/css">' . suki_convert_css_array_to_string( $css_array ) . '</style>' . "\n";
+		}
 	}
 
 	/**
@@ -489,146 +532,152 @@ class Suki_Customizer {
 	 * 
 	 * @return string
 	 */
-	public function generate_css() {
+	public function generate_frontend_css() {
 		$postmessages = $this->get_setting_postmessages();
 		$default_values = $this->get_setting_defaults();
-		$fonts = suki_get_all_fonts();
 
 		// Temporary CSS array to organize output.
 		$css_array = array();
 
 		// Loop through each setting.
 		foreach ( $postmessages as $key => $rules ) {
-			// Get value (fallback to default value).
-			$value = get_theme_mod( $key, null );
+			// Get saved value.
+			$setting_value = get_theme_mod( $key, null );
 
-			// Skip rule if value is not valid or not existed.
-			if ( is_null( $value ) || '' === $value ) continue;
+			// Skip this setting if value is not valid for CSS (only accept string format).
+			if ( ! is_string( $setting_value ) ) continue;
+
+			// Skip this setting if value is empty string.
+			if ( '' === $setting_value ) continue;
+
+			// Skip rule if value === default value.
+			if ( $setting_value === suki_array_value( $default_values, $key ) ) continue;
 
 			// Loop through each rule.
 			foreach ( $rules as $rule ) {
-				// Skip rule if value === default value and no "autoload" attribute found in the rule.
-				if ( $value === suki_array_value( $default_values, $key ) && ! suki_array_value( $rule, 'autoload', false ) ) continue;
-
-				// Skip rule if there is no type defined.
-				if ( ! isset( $rule['type'] ) ) continue;
-
-				// Skup rule if it's not CSS related.
-				if ( ! in_array( $rule['type'], array( 'css', 'font' ) ) ) continue;
-
-				// Skip rule if no element selector is defined.
-				if ( ! isset( $rule['element'] ) ) continue;
-
-				// Detect if postmessage type is "CSS".
-				if ( 'css' === $rule['type'] ) {
-					// Skip rule if no property is defined.
-					if ( ! isset( $rule['property'] ) || empty( $rule['property'] ) ) continue;
-
-					// Check if there is function attached.
-					if ( isset( $rule['function'] ) && isset( $rule['function']['name'] ) ) {
-
-						switch ( $rule['function']['name'] ) {
-							/**
-							 * Explode raw value by space (' ') as the delimiter and then return value from the specified index.
-							 *
-							 * args[0] = index of exploded array to return
-							 */
-							case 'explode_value':
-								if ( ! isset( $rule['function']['args'][0] ) ) break;
-
-								$index = $rule['function']['args'][0];
-
-								if ( ! is_numeric( $index ) ) break;
-
-								$array = explode( ' ', $value );
-
-								$value = isset( $array[ $index ] ) ? $array[ $index ] : '';
-								break;
-
-							/**
-							 * Scale all dimensions found in the raw value according to the specified scale amount.
-							 *
-							 * args[0] = scale amount
-							 */
-							case 'scale_dimensions':
-								if ( ! isset( $rule['function']['args'][0] ) ) break;
-
-								$scale = $rule['function']['args'][0];
-
-								if ( ! is_numeric( $scale ) ) break;
-
-								$parts = explode( ' ', $value );
-								$new_parts = array();
-								foreach ( $parts as $i => $part ) {
-									$number = floatval( $part );
-									$unit = str_replace( $number, '', $part );
-
-									$new_parts[ $i ] = ( $number * $scale ) . $unit;
-								}
-
-								$value = implode( ' ', $new_parts );
-								break;
-						}
-					}
-
-					// If "media" attribute is not specified, set it to "global".
-					if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
-
-					// If "pattern" attribute is not specified, set it to "$".
-					if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) $rule['pattern'] = '$';
-
-					// Check if "key" attribute is defined and value is an assosiative array.
-					if ( is_array( $value ) ) {
-						if ( isset( $rule['key'] ) && in_array( $rule['key'], array_keys( $value ) ) ) {
-							// Fetch the property value using the key from setting value.
-							$value = str_replace( '$', $value[ $rule['key'] ], $rule['pattern'] );
-						} else {
-							$concat_value = array();
-							foreach ( $value as $key => $value ) {
-								// Replace any $ found in the pattern to value.
-								$concat_value[] = str_replace( '$', $value, $rule['pattern'] );
-							}
-							$value = implode( ' ', $concat_value );
-						}
-					} else {
-						// Replace any $ found in the pattern to value.
-						$value = str_replace( '$', $value, $rule['pattern'] );
-					}
-
-					// Replace any $ found in the media screen to value.
-					$rule['media'] = str_replace( '$', $value, $rule['media'] );
+				// Check rule validity, and then skip if it's not valid.
+				if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
+					continue;
 				}
-				
-				// Detect if postmessage type is "font".
-				elseif ( 'font' === $rule['type'] ) {
-					// Skip rule if it has an array value.
-					if ( is_array( $value ) ) continue;
 
-					// Split value to provider and font name.
-					if ( '' === $value || 'inherit' === $value ) {
-						$value = $value;
-					} else {
-						$chunks = explode( '|', $value );
-						if ( 2 === count( $chunks ) ) {
-							$value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
-						} else {
-							$value = $value;
-						}
-					}
-
-					// Minify value.
-					$value = suki_minify_css_string( $value );
-
-					// Assign media to global.
-					$rule['media'] = 'global';
-				}
+				// Sanitize rule.
+				$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
 
 				// Add to CSS array.
-				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $value;
+				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 			}
 		}
 
 		return suki_convert_css_array_to_string( $css_array );
+	}
+
+	/**
+	 * ====================================================
+	 * Private functions
+	 * ====================================================
+	 */
+
+	/**
+	 * Check a postmessage rule and return whether it's valid or not.
+	 *
+	 * @param array $rule
+	 * @return boolean
+	 */
+	private function _check_postmessage_rule_for_css( $rule ) {
+		// Check if there is no type defined, then return false.
+		if ( ! isset( $rule['type'] ) ) return false;
+
+		// Skup rule if it's not CSS related.
+		if ( ! in_array( $rule['type'], array( 'css', 'font' ) ) ) return false;
+
+		// Check if no element selector is defined, then return false.
+		if ( ! isset( $rule['element'] ) ) return false;
+
+		// Check if no property is defined, then return false.
+		if ( ! isset( $rule['property'] ) || empty( $rule['property'] ) ) return false;
+
+		// Passed all checks, return true.
+		return true;
+	}
+
+	/**
+	 * Sanitize a postmessage rule, run rule function, format original setting value and fill it into the rule.
+	 *
+	 * @param array $rule
+	 * @param mixed $setting_value
+	 * @return array
+	 */
+	private function _sanitize_postmessage_rule( $rule, $setting_value ) {
+		// If "media" attribute is not specified, set it to "global".
+		if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
+
+		// If "pattern" attribute is not specified, set it to "$".
+		if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) $rule['pattern'] = '$';
+
+		// Check if there is function attached.
+		if ( isset( $rule['function'] ) && isset( $rule['function']['name'] ) ) {
+			// Apply function to the original value.
+			switch ( $rule['function']['name'] ) {
+				/**
+				 * Explode raw value by space (' ') as the delimiter and then return value from the specified index.
+				 *
+				 * args[0] = index of exploded array to return
+				 */
+				case 'explode_value':
+					if ( ! isset( $rule['function']['args'][0] ) ) break;
+
+					$index = $rule['function']['args'][0];
+
+					if ( ! is_numeric( $index ) ) break;
+
+					$array = explode( ' ', $value );
+
+					$setting_value = isset( $array[ $index ] ) ? $array[ $index ] : '';
+					break;
+
+				/**
+				 * Scale all dimensions found in the raw value according to the specified scale amount.
+				 *
+				 * args[0] = scale amount
+				 */
+				case 'scale_dimensions':
+					if ( ! isset( $rule['function']['args'][0] ) ) break;
+
+					$scale = $rule['function']['args'][0];
+
+					if ( ! is_numeric( $scale ) ) break;
+
+					$parts = explode( ' ', $setting_value );
+					$new_parts = array();
+					foreach ( $parts as $i => $part ) {
+						$number = floatval( $part );
+						$unit = str_replace( $number, '', $part );
+
+						$new_parts[ $i ] = ( $number * $scale ) . $unit;
+					}
+
+					$setting_value = implode( ' ', $new_parts );
+					break;
+			}
+		}
+
+		// Parse value for "font" type.
+		if ( 'font' === $rule['type'] ) {
+			$chunks = explode( '|', $setting_value );
+
+			if ( 2 === count( $chunks ) ) {
+				$fonts = suki_get_all_fonts();
+				$setting_value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
+			}
+		}
+
+		// Replace any $ found in the pattern to value.
+		$rule['value'] = str_replace( '$', $setting_value, $rule['pattern'] );
+
+		// Replace any $ found in the media screen to value.
+		$rule['media'] = str_replace( '$', $setting_value, $rule['media'] );
+
+		return $rule;
 	}
 }
 
