@@ -43,7 +43,7 @@ class Suki_Customizer {
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_frontend_google_fonts_css' ) );
 
 		// Customizer CSS
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_inline_css' ) );
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_inline_css' ), 0 );
 
 		// Default values, postmessages, contexts
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
@@ -86,7 +86,7 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function add_frontend_inline_css( $inline_css ) {
-		// $inline_css .= $this->generate_css();
+		$inline_css .= "\n/* Customizer CSS */\n" . $this->generate_css();
 
 		return $inline_css;
 	}
