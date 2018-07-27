@@ -92,7 +92,7 @@ $add['body_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a, .tagcloud a',
+		'element'  => '.nav-links a, .tagcloud a, .reply, .entry-author-links a',
 		'property' => 'color',
 	),
 );
@@ -104,7 +104,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus',
+		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus, .entry-author-links a:hover, .entry-author-links a:focus',
 		'property' => 'color',
 	),
 	array(
@@ -176,14 +176,14 @@ for ( $i = 1; $i <= 4; $i++ ) {
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'h1, h2, h3, h4, h1 a, h2 a, h3 a, h4 a, .comment-author a, .entry-author-name, .entry-author-name a',
+		'element'  => 'h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .comment-author a, .entry-author-name, .entry-author-name a',
 		'property' => 'color',
 	),
 );
 $add['heading_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, .comment-author a:hover, .comment-author a:focus, .entry-author-name a:hover, .entry-author-name a:focus',
+		'element'  => 'h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus, .comment-author a:hover, .comment-author a:focus, .entry-author-name a:hover, .entry-author-name a:focus',
 		'property' => 'color',
 	),
 );
@@ -438,7 +438,7 @@ $add['small_title_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-meta, .comment-metadata';
+	$element = '.entry-meta, .comment-metadata, .widget .post-date, .widget_rss .rss-date';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['meta_' . $prop ] = array(
@@ -470,28 +470,28 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-meta, .comment-metadata, .tagcloud, .widget .post-date, .widget_rss .rss-date, .reply, .entry-author-links',
+		'element'  => '.entry-meta, .comment-metadata, .widget .post-date, .widget_rss .rss-date',
 		'property' => 'color',
 	),
 );
 $add['meta_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-meta a, .comment-metadata a, .widget .post-date a, .widget_rss .rss-date a, .reply a, .entry-author-links a',
+		'element'  => '.entry-meta a, .comment-metadata a, .widget .post-date a, .widget_rss .rss-date a',
 		'property' => 'color',
 	),
 );
 $add['meta_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-meta a:hover, .entry-meta a:focus, .comment-metadata a:hover, .comment-metadata a:focus, .widget .post-date a:hover, .widget .post-date a:focus, .widget_rss .rss-date a:hover, .widget_rss .rss-date a:focus, .reply a:hover, .reply a:focus, .entry-author-links a:hover, .entry-author-links a:focus',
+		'element'  => '.entry-meta a:hover, .entry-meta a:focus, .comment-metadata a:hover, .comment-metadata a:focus, .widget .post-date a:hover, .widget .post-date a:focus, .widget_rss .rss-date a:hover, .widget_rss .rss-date a:focus',
 		'property' => 'color',
 	),
 );
 
 /**
  * ====================================================
- * General Elements > Additional Styles for Gutenber
+ * General Elements > Additional Styles for Gutenberg
  * ====================================================
  */
 
@@ -529,11 +529,6 @@ $add['boxed_page_width'] = array(
 		'element'  => 'body.suki-page-layout-boxed #page',
 		'property' => 'width',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed .suki-header-sticky.sticky .suki-section-inner',
-		'property' => 'width',
-	),
 	// .alignfull
 	array(
 		'type'     => 'css',
@@ -563,13 +558,8 @@ $add['container_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-section-default .menu .sub-menu',
+		'element'  => '.suki-header-section.suki-section-default .menu .sub-menu',
 		'property' => 'max-width',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-section-contained.suki-header-sticky.sticky .suki-section-inner',
-		'property' => 'width',
 	),
 );
 $responsive = array(
@@ -645,14 +635,14 @@ $add['header_mobile_logo_width'] = array(
 $add['header_search_bar_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-search.suki-header-search-bar .search-form',
+		'element'  => '.suki-header-search-bar .search-form',
 		'property' => 'width',
 	),
 );
 $add['header_search_dropdown_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-search.suki-header-search-dropdown .sub-menu',
+		'element'  => '.suki-header-search-dropdown .sub-menu',
 		'property' => 'width',
 	),
 );
@@ -694,12 +684,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_height'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar,
-			'property' => 'height',
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . '-inner',
+			'element'  => '.suki-header-' . $bar . ', .suki-header-' . $bar . '-inner',
 			'property' => 'height',
 		),
 	);
@@ -1046,7 +1031,8 @@ $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus',
 		'property' => 'color',
 	),
-);$add['header_mobile_vertical_bar_menu_text_color'] = array(
+);
+$add['header_mobile_vertical_bar_menu_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
@@ -1183,21 +1169,21 @@ $add['page_header_title_text_color'] = array(
 $add['page_header_breadcrumb_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-header-breadcrumb',
+		'element'  => '.suki-page-header',
 		'property' => 'color',
 	),
 );
 $add['page_header_breadcrumb_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-header-breadcrumb a',
+		'element'  => '.suki-page-header a',
 		'property' => 'color',
 	),
 );
 $add['page_header_breadcrumb_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-header-breadcrumb a:hover, .suki-page-header-breadcrumb a:focus',
+		'element'  => '.suki-page-header a:hover, .suki-page-header a:focus',
 		'property' => 'color',
 	),
 );

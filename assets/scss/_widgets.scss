@@ -15,6 +15,7 @@
 	}
 
 	.post-date, .rss-date {
+		@extend %meta;
 		display: block;
 		margin-top: 0.25em;
 		font-size: 0.9em;
@@ -108,7 +109,7 @@
 
 	cite {
 		display: block;
-		color: #ccc;
+		color: $color_meta; // default
 		font-size: 11px;
 
 		&:before {
@@ -204,7 +205,7 @@
 		padding-bottom: 0.75em;
 		margin-top: 0.75em;
 		
-		@extend %float-container;
+		@include float-container();
 
 		*:last-child {
 			border-bottom: none;

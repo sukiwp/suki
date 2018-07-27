@@ -45,7 +45,7 @@ $add['woocommerce_single_breadcrumb'] = 1;
 
 $add['woocommerce_single_gallery'] = 1;
 $add['woocommerce_single_gallery_width'] = '60%';
-$add['woocommerce_single_gallery_gap'] = '50px';
+$add['woocommerce_single_gallery_gap'] = '40px';
 $add['woocommerce_single_gallery_zoom'] = 1;
 $add['woocommerce_single_gallery_lightbox'] = 1;
 

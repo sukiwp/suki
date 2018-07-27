@@ -186,17 +186,44 @@ function suki_get_theme_mod( $key, $default = null ) {
 
 /**
  * Minify CSS string.
+ * ref: https://github.com/GaryJones/Simple-PHP-CSS-Minification
  *
- * @param array $css_string
+ * @param array $css
  * @return string
  */
-function suki_minify_css_string( $css_string ) {
-	$css_string = str_replace( '( ', '(', $css_string );
-	$css_string = str_replace( ' )', ')', $css_string );
-	$css_string = str_replace( ', ', ',', $css_string );
-	$css_string = preg_replace( '/(\D)0(\.\d)/', '$1$2', $css_string );
+function suki_minify_css_string( $css ) {
+	// Normalize whitespace
+	$css = preg_replace( '/\s+/', ' ', $css );
 
-	return $css_string;
+	// Remove spaces before and after comment
+	$css = preg_replace( '/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css );
+
+	// Remove comment blocks, everything between /* and */, unless
+	// preserved with /*! ... */ or /** ... */
+	$css = preg_replace( '~/\*(?![\!|\*])(.*?)\*/~', '', $css );
+
+	// Remove ; before }
+	$css = preg_replace( '/;(?=\s*})/', '', $css );
+
+	// Remove space after , : ; { } */ >
+	$css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
+
+	// Remove space before , ; { } ( ) >
+	$css = preg_replace( '/ (,|;|\{|}|\(|\)|>)/', '$1', $css );
+
+	// Strips leading 0 on decimal values (converts 0.5px into .5px)
+	$css = preg_replace( '/(:| )0\.([0-9]+)(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
+
+	// Strips units if value is 0 (converts 0px to 0)
+	$css = preg_replace( '/(:| )(\.?)0(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
+
+	// Converts all zeros value into short-hand
+	$css = preg_replace( '/0 0 0 0/', '0', $css );
+
+	// Shortern 6-character hex color codes to 3-character where possible
+	$css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
+
+	return trim( $css );
 }
 
 /**
@@ -237,6 +264,9 @@ function suki_convert_css_array_to_string( $css_array ) {
 			$final_css .= '}';
 		}
 	}
+
+	// Minify CSS.
+	$final_css = suki_minify_css_string( $final_css );
 
 	return $final_css;
 }

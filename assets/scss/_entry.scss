@@ -5,6 +5,7 @@
 .suki-loop-grid {
 	margin-left: -15px;
 	margin-right: -15px;
+	margin-bottom: -2em;
 }
 
 // Entry
@@ -16,7 +17,7 @@
 	.suki-loop-grid & {
 		width: 100%;
 		padding: 0 15px;
-		margin-bottom: 3em;
+		margin-bottom: 2em;
 		border: none;
 		float: left;
 
@@ -89,12 +90,12 @@
 
 // Title
 .entry-title {
-	@extend %h1; // default
+	@extend %title; // default
 	margin: 0 0 0.5rem;
 }
 
 .entry-small-title {
-	@extend %h3; // default
+	@extend %small-title; // default
 	margin: 0 0 0.25rem;
 }
 
@@ -214,6 +215,7 @@ a.more-link {
 .entry-author-name {
 	font-size: 1.1em;
 	margin: 0 0 0.5em;
+	color: $color_heading; // default
 
 	.avatar {
 		width: 80px;
@@ -232,6 +234,14 @@ a.more-link {
 		font-weight: 500;
 		display: block;
 	}
+
+	a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
 }
 
 .entry-author-content {
@@ -242,6 +252,14 @@ a.more-link {
 
 .entry-author-links {
 	font-size: 1.1em;
+
+	a {
+		color: $color_meta; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
 }
 
 // -------------------------------------------------------------
@@ -253,7 +271,7 @@ a.more-link {
 
 	.nav-links {
 		text-align: center;
-		@extend %float-container;
+		@include float-container();
 
 		.page-numbers {
 			display: inline-block;
@@ -291,11 +309,11 @@ a.more-link {
 .comments-title {
 	position: relative;
 	margin-top: 2em;
-	@extend %h3; // default
+	@extend %small-title; // default
 }
 
 .comment-reply-title {
-	@extend %h3; // default
+	@extend %small-title; // default
 
 	small {
 		margin-left: 1em;
@@ -343,6 +361,11 @@ a.more-link {
 
 		a {
 			font-size: 90%;
+			color: $color_text; // default
+
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
 		}
 	}
 
@@ -385,6 +408,14 @@ a.more-link {
 
 	.says {
 		display: none;
+	}
+
+	a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
 	}
 }
 

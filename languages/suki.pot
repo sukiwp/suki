@@ -49,96 +49,96 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:235, inc/customizer/options/_sections.php:349
+#: inc/class-suki.php:247, inc/customizer/options/_sections.php:349
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
-#: inc/class-suki.php:246
+#: inc/class-suki.php:258
 msgid "Footer Widgets Column %d"
 msgstr ""
 
-#: inc/helpers.php:389
+#: inc/helpers.php:419
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/helpers.php:390
+#: inc/helpers.php:420
 msgid "Arabic"
 msgstr ""
 
-#: inc/helpers.php:391
+#: inc/helpers.php:421
 msgid "Bengali"
 msgstr ""
 
-#: inc/helpers.php:392
+#: inc/helpers.php:422
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/helpers.php:393
+#: inc/helpers.php:423
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/helpers.php:394
+#: inc/helpers.php:424
 msgid "Devaganari"
 msgstr ""
 
-#: inc/helpers.php:395
+#: inc/helpers.php:425
 msgid "Greek"
 msgstr ""
 
-#: inc/helpers.php:396
+#: inc/helpers.php:426
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/helpers.php:397
+#: inc/helpers.php:427
 msgid "Gujarati"
 msgstr ""
 
-#: inc/helpers.php:398
+#: inc/helpers.php:428
 msgid "Gurmukhi"
 msgstr ""
 
-#: inc/helpers.php:399
+#: inc/helpers.php:429
 msgid "Hebrew"
 msgstr ""
 
-#: inc/helpers.php:400
+#: inc/helpers.php:430
 msgid "Kannada"
 msgstr ""
 
-#: inc/helpers.php:401
+#: inc/helpers.php:431
 msgid "Khmer"
 msgstr ""
 
-#: inc/helpers.php:402
+#: inc/helpers.php:432
 msgid "Malayalam"
 msgstr ""
 
-#: inc/helpers.php:403
+#: inc/helpers.php:433
 msgid "Myanmar"
 msgstr ""
 
-#: inc/helpers.php:404
+#: inc/helpers.php:434
 msgid "Oriya"
 msgstr ""
 
-#: inc/helpers.php:405
+#: inc/helpers.php:435
 msgid "Sinhala"
 msgstr ""
 
-#: inc/helpers.php:406
+#: inc/helpers.php:436
 msgid "Tamil"
 msgstr ""
 
-#: inc/helpers.php:407
+#: inc/helpers.php:437
 msgid "Telugu"
 msgstr ""
 
-#: inc/helpers.php:408
+#: inc/helpers.php:438
 msgid "Thai"
 msgstr ""
 
-#: inc/helpers.php:409
+#: inc/helpers.php:439
 msgid "Vietnamese"
 msgstr ""
 
@@ -364,10 +364,6 @@ msgstr ""
 msgid "Disable footer bottom"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:108
-msgid "Fell in love with this screenshot? Learn how to replicate same design as the screenscrot."
-msgstr ""
-
 #: inc/admin/class-suki-admin.php:162
 msgid "Facebook"
 msgstr ""
@@ -523,46 +519,46 @@ msgstr ""
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:353
+#: inc/customizer/class-suki-customizer.php:382
 msgid "Static Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:354
+#: inc/customizer/class-suki-customizer.php:383
 msgid "This is global default value. You can override these settings on each individual page editor."
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:357
+#: inc/customizer/class-suki-customizer.php:386
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:360
+#: inc/customizer/class-suki-customizer.php:389
 msgid "404 Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:363
+#: inc/customizer/class-suki-customizer.php:392
 msgid "Posts Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:366
+#: inc/customizer/class-suki-customizer.php:395
 msgid "Single Post Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:367
+#: inc/customizer/class-suki-customizer.php:396
 msgid "This is global default value. You can override these settings on each individual post editor."
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:380
+#: inc/customizer/class-suki-customizer.php:409
 msgid "%s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:384
+#: inc/customizer/class-suki-customizer.php:413
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:386
+#: inc/customizer/class-suki-customizer.php:415
 msgid "This is global default value. You can override these settings on each individual %s editor."
 msgstr ""
 
@@ -618,11 +614,11 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:451, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:461, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:707
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:717
 msgid "Logout"
 msgstr ""
 
@@ -655,11 +651,11 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-slider.php:144
+#: inc/customizer/custom-controls/class-suki-customize-control-slider.php:144, inc/customizer/custom-controls/class-suki-customize-control-typography.php:118, inc/customizer/custom-controls/class-suki-customize-control-typography.php:136, inc/customizer/custom-controls/class-suki-customize-control-typography.php:153
 msgid "Default"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:115
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:116
 msgid "Font"
 msgstr ""
 
@@ -667,83 +663,67 @@ msgstr ""
 msgid "Weight"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:145
-msgid "Style"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:156
-msgid "Transform"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:174
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:150
 msgid "Size"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:193
-msgid "Line"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:212
-msgid "Spacing"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:256
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:194
 msgid "Thin"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:257
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:195
 msgid "Extra Light"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:258
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:196
 msgid "Light"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:259
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:197
 msgid "Regular"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:260
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:198
 msgid "Medium"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:261
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:199
 msgid "Semi Bold"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:262
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:200
 msgid "Bold"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:263
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:201
 msgid "Extra Bold"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:264
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:202
 msgid "Black"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:267
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:205
 msgid "Normal"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:268
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:206
 msgid "Italic"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:271, inc/customizer/options/content--sidebar.php:302, inc/customizer/options/footer--widgets-bar.php:259, inc/customizer/options/header--top-main-bottom-bar.php:198
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:209, inc/customizer/options/content--sidebar.php:302, inc/customizer/options/footer--widgets-bar.php:259, inc/customizer/options/header--top-main-bottom-bar.php:198
 msgid "None"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:272
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:210
 msgid "Uppercase"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:273
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:211
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:274
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:212
 msgid "Capitalize"
 msgstr ""
 
@@ -771,7 +751,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/content--sidebar.php:357, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:245, inc/customizer/options/_sections.php:308, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/content--sidebar.php:357, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:245, inc/customizer/options/_sections.php:308, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -821,7 +801,7 @@ msgstr ""
 msgid "Footer meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:28, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:194, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:260
+#: inc/customizer/options/blog--entry-grid.php:28, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:189, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:255
 msgid "Columns"
 msgstr ""
 
@@ -922,16 +902,16 @@ msgstr ""
 msgid "Widget title alignment"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
+#: inc/customizer/options/content--sidebar.php:283, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:283, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
 msgid "Left"
 msgstr ""
 
 #: inc/customizer/options/content--sidebar.php:284, inc/customizer/options/footer--builder.php:85, inc/customizer/options/footer--widgets-bar.php:241, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--mobile-vertical-bar.php:50
 msgid "Center"
-msgstr ""
-
-#: inc/customizer/options/content--sidebar.php:285, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
-msgid "Right"
 msgstr ""
 
 #: inc/customizer/options/content--sidebar.php:300, inc/customizer/options/footer--widgets-bar.php:257
@@ -982,7 +962,7 @@ msgstr ""
 msgid "Widget title border color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:360, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:285, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
+#: inc/customizer/options/content--sidebar.php:360, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
 msgctxt "Suki Pro upsell"
 msgid "More typography options"
 msgstr ""
@@ -1953,69 +1933,69 @@ msgstr ""
 msgid "Gallery column Width"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:91
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:86
 msgid "Gap with summary column"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:115
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:110
 msgid "Enable zoom"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:127
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:122
 msgid "Enable lightbox"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:142
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:137
 msgid "Tabs"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:154
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:149
 msgid "Show tabs"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:169
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:164
 msgid "Up-Sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:181
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:176
 msgid "Show up-sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:182
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:177
 msgid "Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:216
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:211
 msgid "Related Products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:228
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:223
 msgid "Show related products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:229
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:224
 msgid "Display linked products and similar products within same categories or tags. Products that have been displayed on \"Up-sells\" section will not be included."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:242
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:237
 msgid "Max products shown"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:243
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:238
 msgid "0 = disabled; -1 = Show all."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:286
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
 msgctxt "Suki Pro upsell"
 msgid "More \"add to cart\" styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:287
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282
 msgctxt "Suki Pro upsell"
 msgid "More gallery styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:288
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:283
 msgctxt "Suki Pro upsell"
 msgid "More info tabs styles"
 msgstr ""

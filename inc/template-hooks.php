@@ -123,7 +123,7 @@ function suki_template_hooks() {
 			}
 
 			// Increment priority number.
-			$priority = $priority + 5;
+			$priority = $priority + 10;
 		}
 	}
 
@@ -187,7 +187,7 @@ function suki_template_hooks() {
 		}
 
 		// Increment priority number.
-		$priority = $priority + 5;
+		$priority = $priority + 10;
 	}
 
 	/**

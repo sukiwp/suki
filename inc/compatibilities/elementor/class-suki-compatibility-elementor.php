@@ -39,8 +39,8 @@ class Suki_Compatibility_Elementor {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Compatibility CSS
-		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		// Compatibility CSS (via theme inline CSS)
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
 
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
@@ -60,11 +60,15 @@ class Suki_Compatibility_Elementor {
 	 */
 
 	/**
-	 * Enqueue compatibility CSS.
+	 * Add compatibility CSS via inline CSS.
+	 *
+	 * @param string $inline_css
+	 * @return string
 	 */
-	public function enqueue_css() {
-		wp_enqueue_style( 'suki-elementor', SUKI_CSS_URL . '/compatibilities/elementor' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-elementor', 'rtl', 'replace' );
+	public function add_compatibility_css( $inline_css ) {
+		$inline_css .= "\n/* Elementor compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' );
+
+		return $inline_css;
 	}
 
 	/**

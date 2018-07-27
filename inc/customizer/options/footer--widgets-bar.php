@@ -237,9 +237,9 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Widget title alignment', 'suki' ),
 	'choices'     => array(
-		'left'   => esc_html__( 'Left', 'suki' ),
+		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'center' => esc_html__( 'Center', 'suki' ),
-		'right'  => esc_html__( 'Right', 'suki' ),
+		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
 	'priority'    => 20,
 ) );

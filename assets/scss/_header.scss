@@ -16,6 +16,19 @@
 	}
 }
 
+// Logo
+.suki-header-logo,
+.suki-header-mobile-logo {
+	.site-title {
+		> a {
+			> svg,
+			> img {
+				width: 100px; // default
+			}
+		}
+	}
+}
+
 // Navigation Menu
 .suki-header-menu {
 	a {
@@ -31,9 +44,15 @@
 }
 
 // Search Dropdown
+.suki-header-search-bar {
+	.search-form {
+		width: 300px; // default
+	}
+}
 .suki-header-search-dropdown {
 	.sub-menu {
 		padding: 0 !important;
+		width: 300px; // default
 	}
 
 	.search-field {
@@ -88,6 +107,7 @@
 	@include flex();
 	white-space: nowrap;
 	height: 100%;
+	margin: 0 -12px; // default
 }
 
 .suki-header-column {
@@ -104,19 +124,8 @@
 		@include flex();
 		height: 100%;
 		max-width: 100%;
+		padding: 0 12px; // default
 	}
-}
-
-.suki-header-top-bar-inner {
-	z-index: 3;
-}
-
-.suki-header-main-bar-inner {
-	z-index: 2;
-}
-
-.suki-header-bottom-bar-inner {
-	z-index: 1;
 }
 
 .suki-header-top-bar-left,
@@ -165,11 +174,23 @@
 			@include transition( opacity, visibility 0s 0s );
 		}
 	}
+
+	&.suki-section-default {
+		.menu {
+			.sub-menu {
+				max-width: 1140px; // default
+			}
+		}
+	}
 }
 
 .suki-header-section {
 	.suki-header-menu {
 		padding: 0 !important;
+
+		.menu-item {
+			padding: 0 12px; // default
+		}
 
 		.suki-dropdown-sign {
 			margin-left: 0.3em;
@@ -208,6 +229,122 @@
 	}
 }
 
+.suki-header-top-bar {
+	height: 40px; // default
+
+	&-inner {
+		z-index: 3;
+		height: 40px; // default
+		background-color: $color_bg; // default
+		border-width: 0 0 1px 0; // default
+	}
+
+	a:not(.button), .suki-toggle, .menu-item > a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
+
+	.suki-header-menu > ul > li > a {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_accent; // default
+			}
+		}
+	}
+
+	.sub-menu {
+		background-color: $color_bg; // default
+	}
+}
+
+.suki-header-main-bar {
+	height: 80px; // default
+
+	&-inner {
+		z-index: 2;
+		height: 80px; // default
+		background-color: $color_bg; // default
+		border-width: 0 0 1px 0; // default
+	}
+
+	a:not(.button), .suki-toggle, .menu-item > a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
+
+	.suki-header-menu > ul > li > a {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_accent; // default
+			}
+		}
+	}
+
+	.sub-menu {
+		background-color: $color_bg; // default
+	}
+}
+
+.suki-header-bottom-bar {
+	height: 40px; // default
+
+	&-inner {
+		z-index: 1;
+		height: 40px; // default
+		background-color: $color_bg; // default
+		border-width: 0 0 1px 0; // default
+	}
+
+	a:not(.button), .suki-toggle, .menu-item > a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
+
+	.suki-header-menu > ul > li > a {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_accent; // default
+			}
+		}
+	}
+
+	.sub-menu {
+		background-color: $color_bg; // default
+	}
+}
+
+.suki-header-mobile-main-bar {
+	height: 60px; // default
+
+	&-inner {
+		z-index: 1;
+		height: 60px; // default
+		background-color: $color_bg; // default
+		border-width: 0 0 1px 0; // default
+	}
+
+	a:not(.button), .suki-toggle, .menu-item > a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
+
+	.sub-menu {
+		background-color: $color_bg; // default
+	}
+}
+
 // -------------------------------------------------------------
 // Vertical Header
 // -------------------------------------------------------------
@@ -219,12 +356,6 @@
 	bottom: 0;
 	max-width: calc(100% - 4rem);
 	@include transition( transform );
-
-	.suki-header-vertical-inner {
-		width: 100%;
-		height: 100%;
-		overflow-y: auto;
-	}
 
 	ul {
 		list-style: none;
@@ -239,6 +370,12 @@
 			top: 46px;
 		}
 	}
+}
+
+.suki-header-vertical-inner {
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
 }
 
 .suki-header-vertical-position-left {
@@ -376,6 +513,32 @@
 .suki-header-vertical {
 	.suki-header-button {
 		max-width: 100%;
+	}
+}
+
+.suki-header-mobile-vertical-bar {
+	width: 300px; // default
+
+	&-inner {
+		background-color: $color_bg; // default
+	}
+
+	.suki-header-vertical-column {
+		padding: 30px; // default
+	}
+
+	.suki-header-vertical-row {
+		&, > * {
+			padding: 12px 0; // default
+		}
+	}
+
+	a:not(.button), .suki-toggle, .menu-item > a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
 	}
 }
 

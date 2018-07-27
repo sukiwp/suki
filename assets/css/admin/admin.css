@@ -1,18 +1,3 @@
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:before,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:before,
-.post-php #side-sortables .suki-admin-metabox-nav:before, .edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
-.post-php #side-sortables .suki-admin-metabox-nav:after {
-	content: "";
-	display: table;
-}
-
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
-.post-php #side-sortables .suki-admin-metabox-nav:after {
-	clear: both;
-}
-
 input, select, textarea {
 	max-width: 100%;
 }
@@ -361,6 +346,21 @@ input, select, textarea {
 	border-bottom: 1px solid #eee;
 }
 
+.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:before, .edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
+.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:before,
+.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
+.post-php #side-sortables .suki-admin-metabox-nav:before,
+.post-php #side-sortables .suki-admin-metabox-nav:after {
+	content: "";
+	display: table;
+}
+
+.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
+.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
+.post-php #side-sortables .suki-admin-metabox-nav:after {
+	clear: both;
+}
+
 .edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav li,
 .term-php .suki-term-meta-box-container .suki-admin-metabox-nav li,
 .post-php #side-sortables .suki-admin-metabox-nav li {
@@ -451,6 +451,10 @@ input, select, textarea {
 	max-width: 1080px;
 	padding: 0 10px;
 	margin: 0 auto;
+}
+
+.suki-admin-wrap .suki-admin-wrapper .postbox .hndle {
+	cursor: default;
 }
 
 .suki-admin-wrap .suki-admin-header {

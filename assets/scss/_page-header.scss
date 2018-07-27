@@ -2,6 +2,25 @@
 // Page header
 // -------------------------------------------------------------
 
+.suki-page-header {
+	.suki-page-header-inner {
+		border-width: 0 0 1px 0; // default
+		background-color: $color_subtle; // default
+	}
+
+	.suki-page-header-row {
+		padding: 30px 0; // default
+	}
+
+	a {
+		color: $color_text; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+}
+
 .suki-page-header-layout-left-right {
 	text-align: left;
 

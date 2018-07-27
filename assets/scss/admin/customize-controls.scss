@@ -1,5 +1,6 @@
 @import "../__variables";
 @import "../__mixins";
+
 @import "../__extends";
 
 // -------------------------------------------------------------
@@ -319,6 +320,29 @@ div.customize-section-description {
 			border: none;
 			border-radius: 0 !important;
 			box-shadow: none;
+
+			&:after {
+				content: "default";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 40px;
+				margin: -5px 0 0 -5px;
+				border: none;
+				font-size: 8px;
+				font-weight: bold;
+				line-height: 10px;
+				text-align: center;
+				text-transform: uppercase;
+				background-color: #fff;
+				color: #444;
+			}
+
+			&[style*="background-color"] {
+				&:after {
+					display: none;
+				}
+			}
 		}
 
 		.color-alpha {

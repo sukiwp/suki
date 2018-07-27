@@ -1,7 +1,19 @@
 %base {
-	font-family: sans-serif; // default
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; // default
 	font-size: 15px; // default
 	line-height: 1.7; // default
+}
+
+%h1, %h2, %h3, %h4 {
+	color: $color_heading; // default
+
+	a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
 }
 
 %h1 {
@@ -38,7 +50,6 @@
 %input {
 	display: inline-block;
 	max-width: 100%;
-	color: inherit;
 	font: inherit;
 	line-height: normal;
 	vertical-align: middle;
@@ -48,8 +59,16 @@
 	padding: 10px 12px; // default
 	@include border(); // default
 	border-radius: 3px; // default
-	background-color: #fff; // default
-	color: inherit; // default
+
+	color: $color_text; // default
+	background-color: $color_bg; // default
+	border-color: $color_border; // default
+
+	&:hover, &:focus {	
+		color: $color_text; // default
+		background-color: $color_bg; // default
+		border-color: $color_meta; // default
+	}
 }
 
 %select {
@@ -64,32 +83,27 @@
 %button {
 	position: relative;
 	display: inline-block;
-	@include border();
 	line-height: normal;
 	text-align: center;
 	cursor: pointer;
 
 	font-size: 1rem; // default
-	font-weight: normal; // default
-	font-style: normal; // default
-	letter-spacing: 0; // default
-	text-transform: 0; // default
+	font-weight: 500; // default
+
 	padding: 10px 20px; // default
+	@include border(); // default
 	border-radius: 3px; // default
-	// color: white; // default
-	// background-color: #0000ee; // default
-	// border-color: #0000ee; // default
+
+	color: $color_white; // default
+	background-color: $color_accent; // default
+	border-color: $color_accent; // default
 
 	@include transition();
 
-	// Remove outline on Firefox
-	&::-moz-focus-inner {
-		// border-style: none;
-	}
-
 	&:hover, &:focus {
-		// background-color: #551a8b; // default
-		// border-color: #551a8b; // default
+		color: $color_white; // default
+		background-color: $color_accent_2; // default
+		border-color: $color_accent_2; // default
 	}
 
 	// Hover, focus, active state
@@ -98,22 +112,25 @@
 	}
 }
 
-%meta {
-	font-size: 0.8em; // default
-	font-weight: 400; // default
-	font-style: normal; // default
-	line-height: 1.8; // default
-	letter-spacing: 0; // default
-	text-transform: none; // default
+%title {
+	@extend %h1;
 }
 
-%float-container {
-	&:before, &:after {
-		content: "";
-		display: table;	
-	}
+%small-title {
+	@extend %h3;
+}
 
-	&:after {
-		clear: both;
+%meta {
+	font-size: 0.8em; // default
+	line-height: 1.7; // default
+
+	color: $color_meta; // default
+
+	a {
+		color: $color_meta; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
 	}
 }

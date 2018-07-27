@@ -57,11 +57,13 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 
 			// Add number and unit to font_size, line_height, letter_spacing setting type.
 			if ( in_array( $type, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
+				$units = $this->get_units( $type );
+
 				// Convert raw value string into number and unit.
 				$number = '' === $value ? '' : floatval( $value );
 				$unit = str_replace( $number, '', $value );
 				if ( '' === $unit ) {
-					$unit = key( $this->units[ $type ] );
+					$unit = key( $units );
 				}
 
 				$this->json['inputs'][ $setting_key ]['number'] = $number;
@@ -109,124 +111,60 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 			    units = <?php echo json_encode( $this->get_units() ); ?>;
 			#>
 
-			<# if ( data.inputs.font_family ) { #>
-				<p class="suki-typography-fieldset suki-row">
-					<label class="suki-row-item">
-						<span class="suki-small-label"><?php esc_html_e( 'Font', 'suki' ); ?></span>
-						<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
-							<option value=""></option>
-							<# _.each( choices.font_family, function( provider_data, provider ) { #>
-								<# if ( 0 == provider_data.fonts.length ) return; #>
-								<optgroup label="{{ provider_data.label }}">
-									<# _.each( provider_data.fonts, function( label, value ) { #>
-										<option value="{{ value }}">{{{ label }}}</option>
-									<# }); #>
-								</optgroup>
-							<# }); #>
-						</select>
-					</label>
-				</p>
-			<# } #>
-			<# if ( data.inputs.font_weight || data.inputs.font_style || data.inputs.text_transform ) { #>
-				<p class="suki-typography-fieldset suki-row">
-					<# if ( data.inputs.font_weight ) { #>
+			<p class="suki-typography-fieldset suki-row">
+				<label class="suki-row-item">
+					<span class="suki-small-label"><?php esc_html_e( 'Font', 'suki' ); ?></span>
+					<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
+						<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
+						<# _.each( choices.font_family, function( provider_data, provider ) { #>
+							<# if ( 0 == provider_data.fonts.length ) return; #>
+							<optgroup label="{{ provider_data.label }}">
+								<# _.each( provider_data.fonts, function( label, value ) { #>
+									<option value="{{ value }}">{{{ label }}}</option>
+								<# }); #>
+							</optgroup>
+						<# }); #>
+					</select>
+				</label>
+			</p>
+			<p class="suki-typography-fieldset suki-row">
+				<# _.each( [ 'font_weight', 'font_style', 'text_transform' ], function( type ) { #>
+					<# if ( data.inputs[ type ] ) { #>
 						<label class="suki-row-item">
 							<span class="suki-small-label"><?php esc_html_e( 'Weight', 'suki' ); ?></span>
-							<select class="suki-typography-input" {{{ data.inputs.font_weight.__link }}}>
-								<option value=""></option>
-								<# _.each( choices.font_weight, function( label, value ) { #>
+							<select class="suki-typography-input" {{{ data.inputs[ type ].__link }}}>
+								<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
+								<# _.each( choices[ type ], function( label, value ) { #>
 									<option value="{{ value }}">{{{ label }}}</option>
 								<# }); #>
 							</select>
 						</label>
 					<# } #>
-					<# if ( data.inputs.font_style ) { #>
-						<label class="suki-row-item">
-							<span class="suki-small-label"><?php esc_html_e( 'Style', 'suki' ); ?></span>
-							<select class="suki-typography-input" {{{ data.inputs.font_style.__link }}}>
-								<option value=""></option>
-								<# _.each( choices.font_style, function( label, value ) { #>
-									<option value="{{ value }}">{{{ label }}}</option>
-								<# }); #>
-							</select>
-						</label>
-					<# } #>
-					<# if ( data.inputs.text_transform ) { #>
-						<label class="suki-row-item">
-							<span class="suki-small-label"><?php esc_html_e( 'Transform', 'suki' ); ?></span>
-							<select class="suki-typography-input" {{{ data.inputs.text_transform.__link }}}>
-								<option value=""></option>
-								<# _.each( choices.text_transform, function( label, value ) { #>
-									<option value="{{ value }}">{{{ label }}}</option>
-								<# }); #>
-							</select>
-						</label>
-					<# } #>
-				</p>
-			<# } #>
+				<# }); #>
+			</p>
 			<# _.each( data.structures, function( setting_keys, device ) { #>
-				<# if ( setting_keys['font_size'] || setting_keys['line_height'] || setting_keys['letter_spacing'] ) { #>
 				<div class="suki-typography-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
-
-					<# var setting_key = setting_keys['font_size']; #>
-					<# if ( data.inputs[ setting_key ] ) { #>
-						<label class="suki-row-item">
-							<span class="suki-small-label"><?php esc_html_e( 'Size', 'suki' ); ?></span>
-							<span class="suki-typography-size suki-row">
-								<span class="suki-row-item">
-									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="">
+					<# _.each( setting_keys, function( setting_data, setting_key ) { #>
+						<# if ( data.inputs[ setting_key ] ) { #>
+							<label class="suki-row-item">
+								<span class="suki-small-label"><?php esc_html_e( 'Size', 'suki' ); ?></span>
+								<span class="suki-typography-size suki-row">
+									<span class="suki-row-item">
+										<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
+									</span>
+									<span class="suki-row-item" style="width: 30px;">
+										<select class="suki-typography-size-unit suki-unit">
+											<# _.each( units[ setting_key ], function( unit_data, unit ) { #>
+												<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
+											<# }); #>
+										</select>
+									</span>
+									<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
 								</span>
-								<span class="suki-row-item" style="width: 30px;">
-									<select class="suki-typography-size-unit suki-unit">
-										<# _.each( units.font_size, function( unit_data, unit ) { #>
-											<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
-										<# }); #>
-									</select>
-								</span>
-								<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
-							</span>
-						</label>
-					<# } #>
-					<# var setting_key = setting_keys['line_height']; #>
-					<# if ( data.inputs[ setting_key ] ) { #>
-						<label class="suki-row-item">
-							<span class="suki-small-label"><?php esc_html_e( 'Line', 'suki' ); ?></span>
-							<span class="suki-typography-size suki-row">
-								<span class="suki-row-item">
-									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="">
-								</span>
-								<span class="suki-row-item" style="width: 30px;">
-									<select class="suki-typography-size-unit suki-unit">
-										<# _.each( units.line_height, function( unit_data, unit ) { #>
-											<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
-										<# }); #>
-									</select>
-								</span>
-								<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
-							</span>
-						</label>
-					<# } #>
-					<# var setting_key = setting_keys['letter_spacing']; #>
-					<# if ( data.inputs[ setting_key ] ) { #>
-						<label class="suki-row-item">
-							<span class="suki-small-label"><?php esc_html_e( 'Spacing', 'suki' ); ?></span>
-							<span class="suki-typography-size suki-row">
-								<span class="suki-row-item">
-									<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="">
-								</span>
-								<span class="suki-row-item" style="width: 30px;">
-									<select class="suki-typography-size-unit suki-unit">
-										<# _.each( units.letter_spacing, function( unit_data, unit ) { #>
-											<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
-										<# }); #>
-									</select>
-								</span>
-								<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
-							</span>
-						</label>
-					<# } #>
+							</label>
+						<# } #>
+					<# }); #>
 				</div>
-				<# } #>
 			<# }) #>
 		</div>
 		<?php

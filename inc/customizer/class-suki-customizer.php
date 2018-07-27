@@ -39,6 +39,12 @@ class Suki_Customizer {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		// Google Fonts CSS
+		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_frontend_google_fonts_css' ) );
+
+		// Customizer CSS
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_inline_css' ) );
+
 		// Default values, postmessages, contexts
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_setting_postmessages' ) );
@@ -61,6 +67,29 @@ class Suki_Customizer {
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Enqueue Google Fonts CSS on frontend.
+	 */
+	public function enqueue_frontend_google_fonts_css() {
+		// Customizer Google Fonts
+		$google_fonts_url = $this->generate_active_google_fonts_embed_url();
+		if ( ! empty( $google_fonts_url ) ) {
+			wp_enqueue_style( 'suki-google-fonts', $google_fonts_url, array(), SUKI_VERSION );
+		}
+	}
+
+	/**
+	 * Add frontend CSS via inline CSS.
+	 *
+	 * @param string $inline_css
+	 * @return string
+	 */
+	public function add_frontend_inline_css( $inline_css ) {
+		$inline_css .= $this->generate_css();
+
+		return $inline_css;
+	}
 
 	/**
 	 * Add default values for all Customizer settings.
@@ -461,18 +490,26 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function generate_css() {
-		$all_postmessages = $this->get_setting_postmessages();
+		$postmessages = $this->get_setting_postmessages();
+		$default_values = $this->get_setting_defaults();
+		$fonts = suki_get_all_fonts();
 
 		// Temporary CSS array to organize output.
 		$css_array = array();
 
-		// Load fonts dictionary.
-		$fonts = suki_get_all_fonts();
-
 		// Loop through each setting.
-		foreach ( $all_postmessages as $key => $setting_postmessages ) {
+		foreach ( $postmessages as $key => $rules ) {
+			// Get value (fallback to default value).
+			$value = get_theme_mod( $key, null );
+
+			// Skip rule if value is not valid or not existed.
+			if ( is_null( $value ) || '' === $value ) continue;
+
 			// Loop through each rule.
-			foreach ( $setting_postmessages as $rule ) {
+			foreach ( $rules as $rule ) {
+				// Skip rule if value === default value and no "autoload" attribute found in the rule.
+				if ( $value === suki_array_value( $default_values, $key ) && ! suki_array_value( $rule, 'autoload', false ) ) continue;
+
 				// Skip rule if there is no type defined.
 				if ( ! isset( $rule['type'] ) ) continue;
 
@@ -481,15 +518,6 @@ class Suki_Customizer {
 
 				// Skip rule if no element selector is defined.
 				if ( ! isset( $rule['element'] ) ) continue;
-
-				// Get value (fallback to default value).
-				$setting_value = $this->get_setting_value( $key, null );
-
-				// Skip rule if value is not valid or not existed.
-				if ( is_null( $setting_value ) || '' === $setting_value ) continue;
-
-				// Minify element selector.
-				$rule['element'] = suki_minify_css_string( $rule['element'] );
 
 				// Detect if postmessage type is "CSS".
 				if ( 'css' === $rule['type'] ) {
@@ -512,9 +540,9 @@ class Suki_Customizer {
 
 								if ( ! is_numeric( $index ) ) break;
 
-								$array = explode( ' ', $setting_value );
+								$array = explode( ' ', $value );
 
-								$setting_value = isset( $array[ $index ] ) ? $array[ $index ] : '';
+								$value = isset( $array[ $index ] ) ? $array[ $index ] : '';
 								break;
 
 							/**
@@ -529,7 +557,7 @@ class Suki_Customizer {
 
 								if ( ! is_numeric( $scale ) ) break;
 
-								$parts = explode( ' ', $setting_value );
+								$parts = explode( ' ', $value );
 								$new_parts = array();
 								foreach ( $parts as $i => $part ) {
 									$number = floatval( $part );
@@ -538,13 +566,10 @@ class Suki_Customizer {
 									$new_parts[ $i ] = ( $number * $scale ) . $unit;
 								}
 
-								$setting_value = implode( ' ', $new_parts );
+								$value = implode( ' ', $new_parts );
 								break;
 						}
 					}
-
-					// Assign setting value to property value.
-					$value = $setting_value;
 
 					// If "media" attribute is not specified, set it to "global".
 					if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
@@ -553,13 +578,13 @@ class Suki_Customizer {
 					if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) $rule['pattern'] = '$';
 
 					// Check if "key" attribute is defined and value is an assosiative array.
-					if ( is_array( $setting_value ) ) {
-						if ( isset( $rule['key'] ) && in_array( $rule['key'], array_keys( $setting_value ) ) ) {
+					if ( is_array( $value ) ) {
+						if ( isset( $rule['key'] ) && in_array( $rule['key'], array_keys( $value ) ) ) {
 							// Fetch the property value using the key from setting value.
-							$value = str_replace( '$', $setting_value[ $rule['key'] ], $rule['pattern'] );
+							$value = str_replace( '$', $value[ $rule['key'] ], $rule['pattern'] );
 						} else {
 							$concat_value = array();
-							foreach ( $setting_value as $key => $value ) {
+							foreach ( $value as $key => $value ) {
 								// Replace any $ found in the pattern to value.
 								$concat_value[] = str_replace( '$', $value, $rule['pattern'] );
 							}
@@ -572,40 +597,34 @@ class Suki_Customizer {
 
 					// Replace any $ found in the media screen to value.
 					$rule['media'] = str_replace( '$', $value, $rule['media'] );
-
-					// Minify value.
-					$value = suki_minify_css_string( $value );
-
-					// Minify media.
-					$rule['media'] = suki_minify_css_string( $rule['media'] );
-
-					// Add to CSS array.
-					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $value;
 				}
 				
 				// Detect if postmessage type is "font".
 				elseif ( 'font' === $rule['type'] ) {
 					// Skip rule if it has an array value.
-					if ( is_array( $setting_value ) ) continue;
+					if ( is_array( $value ) ) continue;
 
 					// Split value to provider and font name.
-					if ( '' === $setting_value || 'inherit' === $setting_value ) {
-						$value = $setting_value;
+					if ( '' === $value || 'inherit' === $value ) {
+						$value = $value;
 					} else {
-						$chunks = explode( '|', $setting_value );
+						$chunks = explode( '|', $value );
 						if ( 2 === count( $chunks ) ) {
 							$value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
 						} else {
-							$value = $setting_value;
+							$value = $value;
 						}
 					}
 
 					// Minify value.
 					$value = suki_minify_css_string( $value );
 
-					// Add to CSS array.
-					$css_array['global'][ $rule['element'] ]['font-family'] = $value;
+					// Assign media to global.
+					$rule['media'] = 'global';
 				}
+
+				// Add to CSS array.
+				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $value;
 			}
 		}
 

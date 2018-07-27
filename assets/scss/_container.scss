@@ -20,7 +20,7 @@
 
 #page {
 	position: relative;
-	background-color: #fff; // default
+	background-color: $color_bg; // default
 	// overflow-x: hidden;
 	@include transition( transform );
 
@@ -28,6 +28,14 @@
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 100%;
+
+		width: 1400px; // default
+		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05); // default
+		background-color: $color_border; // default
+		background-position: center center; // default
+		background-size: cover; // default
+		background-repeat: no-repeat; // default
+		background-attachment: fixed; // default
 	}
 }
 
@@ -56,7 +64,7 @@
 		font-size: 1.5rem;
 		line-height: 1;
 		background-color: transparent !important;
-		color: #fff !important;
+		color: $color_white !important; // default
 		opacity: 1;
 
 		&:hover, &:focus {
@@ -105,9 +113,26 @@
 	}
 }
 
-.suki-section-contained > .suki-section-inner {
-	margin-left: auto;
-	margin-right: auto;
+.suki-section-contained {
+	> .suki-section-inner {
+		margin-left: auto;
+		margin-right: auto;
+		width: 1140px; // default
+	}
+}
+
+.suki-section-contained,
+.suki-section-default .suki-section-inner,
+.suki-section-full-width-padding .suki-section-inner {
+	padding: 0 25px; // default
+
+	@media screen and ( max-width: $breakpoint_768 - 1px ) {
+		padding: 0 20px; // default
+	}
+
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		padding: 0 15px; // default
+	}
 }
 
 // -------------------------------------------------------------
@@ -185,5 +210,9 @@
 		width: auto !important;
 		min-width: auto !important;
 		margin: 4em 0 0 0 !important;
+	}
+
+	.widget {
+		margin-bottom: 40px; // default
 	}
 }

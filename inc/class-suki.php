@@ -53,8 +53,8 @@ class Suki {
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
 		add_action( 'wp', array( $this, 'setup_accurate_content_width' ) );
-		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Declare 'wp_enqueue_scripts' action on 'init' hook to make sure all plugins' scripts has been enqueued before theme scripts.
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
@@ -227,6 +227,18 @@ class Suki {
 		// Gutenberg "align-wide" compatibility
 		add_theme_support( 'align-wide' );
 	}
+
+	/**
+	 * Register custom widgets.
+	 */
+	public function register_widgets() {
+		// Include custom widgets.
+		require_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
+
+		// Register widgets.
+		register_widget( 'Suki_Widget_Posts' );
+	}
+	
 	/**
 	 * Register theme sidebars (widget area).
 	 */
@@ -254,17 +266,6 @@ class Suki {
 	}
 
 	/**
-	 * Register custom widgets.
-	 */
-	public function register_widgets() {
-		// Include custom widgets.
-		require_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
-
-		// Register widgets.
-		register_widget( 'Suki_Widget_Posts' );
-	}
-
-	/**
 	 * Enqueue frontend scripts.
 	 *
 	 * @param string $hook
@@ -282,12 +283,6 @@ class Suki {
 	 * @param string $hook
 	 */
 	public function enqueue_frontend_styles( $hook ) {
-		// Customizer Google Fonts
-		$google_fonts_url = Suki_Customizer::instance()->generate_active_google_fonts_embed_url();
-		if ( ! empty( $google_fonts_url ) ) {
-			wp_enqueue_style( 'suki-google-fonts', $google_fonts_url, array(), SUKI_VERSION );
-		}
-
 		// Hook: Styles to be included before main CSS
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
@@ -299,7 +294,7 @@ class Suki {
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 
 		// Customizer generated CSS
-		wp_add_inline_style( 'suki', Suki_Customizer::instance()->generate_css() );
+		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/inline_css', '' ) ) );
 	}
 
 	/**

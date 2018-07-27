@@ -102,7 +102,7 @@
 // -------------------------------------------------------------
 
 .suki-float-container {
-	@extend %float-container;
+	@include float-container();
 }
 
 .page-header {
@@ -112,6 +112,10 @@
 
 	> *:last-child {
 		margin-bottom: 0 !important;
+	}
+
+	.page-title {
+		@extend %small-title; // default
 	}
 }
 
@@ -137,8 +141,18 @@
 	}
 }
 
+.nav-links {
+	a {
+		color: $color_text; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+}
+
 .tagcloud {
-	@extend %float-container;
+	@include float-container();
 	
 	a {
 		float: left;
@@ -146,6 +160,12 @@
 		margin: 0 0.5em 0.5em 0;
 		font-size: 0.9rem !important;
 		line-height: normal;
+		background-color: $color_subtle; // default	
+		color: $color_text; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
 	}
 }
 
@@ -195,12 +215,12 @@
 	width: auto;
 	overflow: visible;
 	background: transparent;
-	color: inherit;
 	font: inherit;
 	line-height: inherit;
 	text-align: inherit;
 	cursor: pointer;
 	-webkit-appearance: none;
+	color: $color_accent; // default
 
 	&:hover {
 		outline: 0;
@@ -208,12 +228,12 @@
 
 	&:hover, &:focus {
 		background: inherit;
-		color: inherit;
+		color: $color_accent_2; // default
 	}
 }
 
 .suki-menu-icon {
-	font-size: 16px; // default
+	font-size: 18px; // default
 	vertical-align: middle;
 }
 

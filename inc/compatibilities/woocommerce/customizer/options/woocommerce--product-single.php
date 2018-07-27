@@ -70,11 +70,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'max'  => 75,
 			'step' => 0.05,
 		),
-		'px' => array(
-			'min'  => 400,
-			'max'  => 800,
-			'step' => 1,
-		),
 	),
 	'priority'    => 20,
 ) ) );

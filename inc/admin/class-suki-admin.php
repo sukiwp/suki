@@ -105,7 +105,7 @@ class Suki_Admin {
 			<div class="suki-admin-theme-notice notice notice-info">
 				<div class="suki-admin-theme-notice-arrow"></div>
 				<p>
-					<?php esc_html_e( 'Fell in love with this screenshot? Learn how to replicate same design as the screenscrot.', 'suki' ); ?>&nbsp;
+					<?php // esc_html_e( 'Fell in love with this screenshot? Learn how to replicate the same design into your site.', 'suki' ); ?>&nbsp;
 					<a href=""></a>
 				</p>
 			</div>
@@ -301,7 +301,7 @@ class Suki_Admin {
 							 * Hook: suki/admin/dashboard/content
 							 *
 							 * @hooked Suki_Admin::render_content__welcome_panel - 1
-							 * @hooked Suki_Admin::render_content__pro_modules_table - 10
+							 * @hooked Suki_Admin::render_content__pro_modules_table - 20
 							 */
 							do_action( 'suki/admin/dashboard/content' );
 							?>

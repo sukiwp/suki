@@ -761,7 +761,7 @@ function suki_footer_bottom() {
 			<div class="suki-wrapper">
 				<div class="suki-footer-bottom-bar-row suki-footer-row">
 					<?php foreach ( $cols as $col ) : ?>
-						<div class="suki-footer-bottom-bar-<?php echo esc_attr( $col ); ?> suki-footer-column <?php echo esc_attr( 'suki-text-align-' . $col ); ?>">
+						<div class="suki-footer-bottom-bar-<?php echo esc_attr( $col ); ?> suki-footer-bottom-bar-column suki-footer-column <?php echo esc_attr( 'suki-text-align-' . $col ); ?>">
 							<?php foreach ( $elements[ $col ] as $element ) suki_footer_element( $element ); ?>
 						</div>
 					<?php endforeach; ?>

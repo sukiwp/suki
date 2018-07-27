@@ -210,6 +210,9 @@ class Suki_Compatibility_WooCommerce {
 		 * Shop page's template hooks
 		 */
 
+		// Add spacer before mail products loop.
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_before_shop_loop' ), 999 );
+
 		// Reposition sale badge on products grid item.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 1 );
@@ -368,6 +371,13 @@ class Suki_Compatibility_WooCommerce {
 	 * Global Page Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Add blank <div> to clear shop filters floating.
+	 */
+	public function render_before_shop_loop() {
+		?><div class="suki-before-shop-loop-clear"></div><?php
+	}
 
 	/**
 	 * Add opening product wrapper tag to products loop item.

@@ -19,7 +19,7 @@
 		 */
 		do_action( 'suki/frontend/entry/before_header' );
 		
-		if ( has_action( 'suki/frontend/entry/frontend/header' ) ) :
+		if ( has_action( 'suki/frontend/entry/header' ) ) :
 		?>
 			<header class="entry-header">
 				<?php
@@ -76,7 +76,7 @@
 		 */
 		do_action( 'suki/frontend/entry/before_footer' );
 		
-		if ( has_action( 'suki/frontend/entry/frontend/footer' ) ) :
+		if ( has_action( 'suki/frontend/entry/footer' ) ) :
 		?>
 			<footer class="entry-footer">
 				<?php

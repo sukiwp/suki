@@ -1,5 +1,6 @@
 @import "../__variables";
 @import "../__mixins";
+
 @import "../__extends";
 
 input, select, textarea {
@@ -352,7 +353,7 @@ input, select, textarea {
 		width: auto;
 		border-bottom: 1px solid #eee;
 
-		@extend %float-container;
+		@include float-container();
 
 		li {
 			float: left;
@@ -442,6 +443,10 @@ input, select, textarea {
 		max-width: 1080px;
 		padding: 0 10px;
 		margin: 0 auto;
+
+		.postbox .hndle {
+			cursor: default;
+		}
 	}
 
 	.suki-admin-header {

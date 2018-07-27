@@ -1,9 +1,10 @@
+@import "_normalize";
+
 @import "__variables";
 @import "__mixins";
-@import "__extends";
 
 // Base Elements
-@import "_normalize";
+@import "__extends";
 @import "_base";
 
 // Common Elements

@@ -5,7 +5,7 @@
 * {
 	border-style: solid;
 	border-width: 0;
-	border-color: #e5e5e5; // default
+	border-color: $color_border; // default
 
 	&, &:before, &:after {
 		box-sizing: border-box;
@@ -21,17 +21,15 @@
 }
 
 html {
-	font-family: sans-serif;
-	font-size: 15px;
-	line-height: 1.7;
 	min-height: 100vh;
+	color: $color_text; // default
 
 	@extend %base; // default
 }
 
 body {
-	background-color: #fff;
-	color: #666;
+	background-color: $color_bg; // default
+	color: $color_text; // default
 	min-height: 100vh;
 
 	@extend %base; // default
@@ -45,12 +43,8 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #333;
+	color: $color_heading; // default
 	margin: 0 0 1.25rem;
-
-	a {
-		color: inherit;
-	}
 }
 
 h1 {
@@ -70,6 +64,8 @@ h4 {
 }
 
 h5, h6 {
+	@extend %h4;
+
 	font-size: 1rem; // default
 	font-weight: 600; // default
 }
@@ -147,15 +143,22 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
+	background-color: $color_subtle; // default
 }
 
 code {
+	background-color: $color_subtle; // default
 }
 
 a {
 	background-color: transparent;
 	text-decoration: none;
+	color: $color_accent; // default
 	@include transition();
+
+	&:hover, &:focus {
+		color: $color_accent_2; // default
+	}
 }
 
 figure {
@@ -200,8 +203,8 @@ img {
 }
 
 ::selection {
-	background-color: #666;
-	color: #fff;
+	background-color: $color_accent; // default
+	color: $color_bg; // default
 }
 
 *::placeholder {
