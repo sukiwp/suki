@@ -751,7 +751,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/content--sidebar.php:357, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:245, inc/customizer/options/_sections.php:308, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:245, inc/customizer/options/_sections.php:308, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -960,16 +960,6 @@ msgstr ""
 
 #: inc/customizer/options/content--sidebar.php:332, inc/customizer/options/footer--widgets-bar.php:289
 msgid "Widget title border color"
-msgstr ""
-
-#: inc/customizer/options/content--sidebar.php:360, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
-msgctxt "Suki Pro upsell"
-msgid "More typography options"
-msgstr ""
-
-#: inc/customizer/options/content--sidebar.php:361
-msgctxt "Suki Pro upsell"
-msgid "More widget title styles"
 msgstr ""
 
 #: inc/customizer/options/elements--blockquote.php:41
@@ -1985,17 +1975,17 @@ msgstr ""
 msgid "0 = disabled; -1 = Show all."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
 msgctxt "Suki Pro upsell"
 msgid "More \"add to cart\" styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
 msgctxt "Suki Pro upsell"
 msgid "More gallery styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:283
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282
 msgctxt "Suki Pro upsell"
 msgid "More info tabs styles"
 msgstr ""
@@ -2008,7 +1998,7 @@ msgstr ""
 msgid "Show \"add to cart\""
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
 msgctxt "Suki Pro upsell"
 msgid "More products grid item styles"
 msgstr ""

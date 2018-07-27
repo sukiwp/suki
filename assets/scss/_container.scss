@@ -23,19 +23,22 @@
 	background-color: $color_bg; // default
 	// overflow-x: hidden;
 	@include transition( transform );
+}
 
-	body.suki-page-layout-boxed & {
+body.suki-page-layout-boxed {
+	background-color: $color_border; // default
+	background-position: center center; // default
+	background-size: cover; // default
+	background-repeat: no-repeat; // default
+	background-attachment: fixed; // default
+
+	#page {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 100%;
 
 		width: 1400px; // default
 		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05); // default
-		background-color: $color_border; // default
-		background-position: center center; // default
-		background-size: cover; // default
-		background-repeat: no-repeat; // default
-		background-attachment: fixed; // default
 	}
 }
 

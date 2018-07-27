@@ -1258,6 +1258,14 @@ p.wp-block-subhead {
 	backface-visibility: hidden;
 }
 
+body.suki-page-layout-boxed {
+	background-color: #e5e5e5;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
 body.suki-page-layout-boxed #page {
 	margin-right: auto;
 	margin-left: auto;
@@ -1265,11 +1273,6 @@ body.suki-page-layout-boxed #page {
 	width: 1400px;
 	-webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
 	box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
-	background-color: #e5e5e5;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 }
 
 .suki-popup-background {
