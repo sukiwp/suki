@@ -745,7 +745,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	);
 
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = '.suki-header-' . $bar . ' .menu-item > a';
+		$element = '.suki-header-' . $bar . ' .menu .menu-item > a';
 		$property = str_replace( '_', '-', $prop );
 
 		$add['header_' . $type . '_menu_' . $prop ] = array(
@@ -758,7 +758,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	}
 
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = '.suki-header-' . $bar . ' .sub-menu .menu-item > a';
+		$element = '.suki-header-' . $bar . ' .sub-menu .menu .menu-item > a';
 		$property = str_replace( '_', '-', $prop );
 
 		$add['header_' . $type . '_submenu_' . $prop ] = array(
@@ -802,28 +802,28 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_link_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:not(.button), .suki-header-' . $bar . ' .suki-toggle',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button)',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $type . '_link_hover_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus, .suki-header-' . $bar . ' .suki-toggle:hover, .suki-header-' . $bar . ' .suki-toggle:focus',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $type . '_menu_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .menu-item > a',
+			'element'  => '.suki-header-' . $bar . ' .menu .menu-item > a, .suki-header-' . $bar . ' .suki-toggle',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $type . '_menu_hover_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .menu-item > a:hover, .suki-header-' . $bar . ' .menu-item > a:focus',
+			'element'  => '.suki-header-' . $bar . ' .menu .menu-item > a:hover, .suki-header-' . $bar . ' .menu .menu-item > a:focus, .suki-header-' . $bar . ' .suki-toggle:hover, .suki-header-' . $bar . ' .suki-toggle:focus',
 			'property' => 'color',
 		),
 	);
@@ -973,7 +973,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add['header_mobile_vertical_bar_menu_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => '.suki-header-mobile-vertical-bar .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
+			'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
 			'property' => str_replace( '_', '-', $prop),
 		),
 	);
@@ -983,7 +983,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add['header_mobile_vertical_bar_submenu_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => '.suki-header-mobile-vertical-bar .sub-menu .menu-item > a, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
+			'element'  => '.suki-header-mobile-vertical-bar .sub-menu .menu .menu-item > a, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
 			'property' => str_replace( '_', '-', $prop),
 		),
 	);
@@ -1035,14 +1035,14 @@ $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 $add['header_mobile_vertical_bar_menu_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
+		'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
 		'property' => 'color',
 	),
 );
 $add['header_mobile_vertical_bar_menu_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .menu-item > a:hover, .suki-header-mobile-vertical-bar .menu-item > a:focus, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:hover, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:focus',
+		'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > a:hover, .suki-header-mobile-vertical-bar .menu .menu-item > a:focus, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:hover, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:focus',
 		'property' => 'color',
 	),
 );

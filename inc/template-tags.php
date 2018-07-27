@@ -407,8 +407,8 @@ function suki_header_element( $element ) {
 	switch ( $type ) {
 		case 'logo':
 			?>
-			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
-				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title">
+			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
+				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title menu-item">
 					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
 				</<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?>>
 			</div>
@@ -417,8 +417,8 @@ function suki_header_element( $element ) {
 
 		case 'mobile-logo':
 			?>
-			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
-				<div class="site-title">
+			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
+				<div class="site-title menu-item">
 					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
 				</div>
 			</div>

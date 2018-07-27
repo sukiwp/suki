@@ -239,7 +239,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu-item > a {
+	a:not(.button), .suki-toggle, .menu .menu-item > a {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -270,7 +270,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu-item > a {
+	a:not(.button), .suki-toggle, .menu .menu-item > a {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -301,7 +301,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu-item > a {
+	a:not(.button), .suki-toggle, .menu .menu-item > a {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -332,7 +332,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu-item > a {
+	a:not(.button), .suki-toggle, .menu .menu-item > a {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -533,7 +533,7 @@
 		}
 	}
 
-	a:not(.button), .suki-toggle, .menu-item > a {
+	a:not(.button), .suki-toggle, .menu .menu-item > a {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
