@@ -86,7 +86,7 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function add_frontend_inline_css( $inline_css ) {
-		$inline_css .= $this->generate_css();
+		// $inline_css .= $this->generate_css();
 
 		return $inline_css;
 	}
