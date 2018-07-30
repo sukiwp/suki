@@ -192,21 +192,21 @@ div.customize-section-description {
 }
 
 .suki-pro-teaser {
-	.customize-control > & {
-		margin: 0 -12px;
-		padding: 10px 12px 11px 12px;
-	}
-
-	.accordion-section > & {
-		padding: 10px 10px 11px 18px;
-	}
-
 	background-color: #fff8e5;
 	margin-top: -1px;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	cursor: default;
 	color: inherit;
+
+	.customize-control > & {
+		margin: 0 -12px;
+		padding: 12px 12px 12px 12px;
+	}
+
+	.accordion-section > & {
+		padding: 12px 10px 12px 18px;
+	}
 
 	h3 {
 		display: inline-block;
@@ -215,7 +215,7 @@ div.customize-section-description {
 	}
 
 	.button {
-		margin: -1px 0 0 8px;
+		margin: -3px 0 0 8px;
 		font-weight: normal;
 	}
 

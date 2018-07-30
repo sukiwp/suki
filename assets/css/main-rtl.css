@@ -1376,6 +1376,10 @@ body.suki-has-popup-active .suki-popup-background {
 	}
 }
 
+.suki-section-inner {
+	position: relative;
+}
+
 .site-content {
 	position: relative;
 	z-index: 1;
@@ -2165,13 +2169,28 @@ body.suki-has-popup-active .suki-popup-background {
 	backface-visibility: hidden;
 }
 
-.suki-page-header .suki-page-header-inner {
+.suki-page-header-inner {
 	border-width: 0 0 1px 0;
 	background-color: #f3f3f3;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
 }
 
-.suki-page-header .suki-page-header-row {
-	padding: 30px 0;
+.suki-page-header-inner:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: inherit;
+	opacity: 0;
+}
+
+.suki-page-header-row {
+	padding: 40px 0;
 }
 
 .suki-page-header a {

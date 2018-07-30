@@ -45,7 +45,7 @@ class Suki_Customizer {
 		// Customizer CSS
 		if ( ! is_customize_preview() ) {
 			// Add inline CSS on frontend only.
-			add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_inline_css' ), 0 );
+			add_action( 'suki/frontend/inline_css', array( $this, 'add_frontend_css' ), 20 );
 		}
 
 		// Default values, postmessages, contexts
@@ -60,8 +60,8 @@ class Suki_Customizer {
 
 		if ( is_customize_preview() ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
-			add_action( 'wp_head', array( $this, 'print_preview_styles' ), 999 );
-			add_action( 'wp_footer', array( $this, 'print_preview_scripts' ), 999 );
+			add_action( 'wp_head', array( $this, 'print_preview_styles' ), 20 );
+			add_action( 'wp_footer', array( $this, 'print_preview_scripts' ), 20 );
 		}
 	}
 
@@ -84,19 +84,9 @@ class Suki_Customizer {
 
 	/**
 	 * Add frontend CSS via inline CSS.
-	 *
-	 * @param string $inline_css
-	 * @return string
 	 */
-	public function add_frontend_inline_css( $inline_css ) {
-		$customizer_css = $this->generate_frontend_css();
-
-		if ( '' !== trim( $customizer_css ) ) {
-			$inline_css .= "\n/* Customizer CSS */\n" . $customizer_css;
-
-		}
-
-		return $inline_css;
+	public function add_frontend_css() {
+		echo "\n/* Customizer CSS */\n" . $this->generate_frontend_css(); // WPCS: XSS OK
 	}
 
 	/**
@@ -207,9 +197,8 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--social.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-header.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--section.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--main.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--sidebar.php' );
+		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content.php' );
+		require_once( SUKI_INCLUDES_PATH . '/customizer/options/sidebar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--builder.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--bottom-bar.php' );
@@ -275,8 +264,8 @@ class Suki_Customizer {
 			// Get saved value.
 			$setting_value = get_theme_mod( $key );
 
-			// Skip this setting if value is not valid for CSS (only accept string format).
-			if ( ! is_string( $setting_value ) ) continue;
+			// Skip this setting if value is not valid (only accepts string and number).
+			if ( ! is_numeric( $setting_value ) && ! is_string( $setting_value ) ) continue;
 
 			// Skip this setting if value is empty string.
 			if ( '' === $setting_value ) continue;
@@ -533,8 +522,12 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function generate_frontend_css() {
+		// Get all postmessage rules.
 		$postmessages = $this->get_setting_postmessages();
-		$default_values = $this->get_setting_defaults();
+
+		// Declare empty array to hold all default values.
+		// Will be populated later, only when needed.
+		$default_values = array();
 
 		// Temporary CSS array to organize output.
 		$css_array = array();
@@ -542,13 +535,18 @@ class Suki_Customizer {
 		// Loop through each setting.
 		foreach ( $postmessages as $key => $rules ) {
 			// Get saved value.
-			$setting_value = get_theme_mod( $key, null );
+			$setting_value = get_theme_mod( $key );
 
-			// Skip this setting if value is not valid for CSS (only accept string format).
-			if ( ! is_string( $setting_value ) ) continue;
+			// Skip this setting if value is not valid (only accepts string and number).
+			if ( ! is_numeric( $setting_value ) && ! is_string( $setting_value ) ) continue;
 
 			// Skip this setting if value is empty string.
 			if ( '' === $setting_value ) continue;
+
+			// Populate $default_values if haven't.
+			if ( empty( $default_values ) ) {
+				$default_values = $this->get_setting_defaults();
+			}
 
 			// Skip rule if value === default value.
 			if ( $setting_value === suki_array_value( $default_values, $key ) ) continue;
@@ -608,6 +606,10 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	private function _sanitize_postmessage_rule( $rule, $setting_value ) {
+		// Declare empty array to hold all available fonts.
+		// Will be populated later, only when needed.
+		$fonts = array();
+
 		// If "media" attribute is not specified, set it to "global".
 		if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
 
@@ -630,7 +632,7 @@ class Suki_Customizer {
 
 					if ( ! is_numeric( $index ) ) break;
 
-					$array = explode( ' ', $value );
+					$array = explode( ' ', $setting_value );
 
 					$setting_value = isset( $array[ $index ] ) ? $array[ $index ] : '';
 					break;
@@ -666,7 +668,10 @@ class Suki_Customizer {
 			$chunks = explode( '|', $setting_value );
 
 			if ( 2 === count( $chunks ) ) {
-				$fonts = suki_get_all_fonts();
+				// Populate $fonts array if haven't.
+				if ( empty( $fonts ) ) {
+					$fonts = suki_get_all_fonts();
+				}
 				$setting_value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
 			}
 		}

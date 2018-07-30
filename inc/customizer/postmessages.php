@@ -778,14 +778,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		),
 	);
 
-	$add['header_' . $type . '_section_bg_color'] = array(
+	$add['header_' . $type . '_bg_color'] = array(
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . '-inner, .suki-header-' . $bar . ' .sub-menu',
 			'property' => 'background-color',
 		),
 	);
-	$add['header_' . $type . '_section_border_color'] = array(
+	$add['header_' . $type . '_border_color'] = array(
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . ' *',
@@ -892,14 +892,14 @@ $add['header_mobile_main_bar_icon_size'] = array(
 	),
 );
 
-$add['header_mobile_main_bar_section_bg_color'] = array(
+$add['header_mobile_main_bar_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-main-bar-inner, .suki-header-mobile-main-bar .sub-menu',
 		'property' => 'background-color',
 	),
 );
-$add['header_mobile_main_bar_section_border_color'] = array(
+$add['header_mobile_main_bar_border_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-main-bar *',
@@ -997,14 +997,14 @@ $add['header_mobile_vertical_bar_icon_size'] = array(
 	),
 );
 
-$add['header_mobile_vertical_bar_section_bg_color'] = array(
+$add['header_mobile_vertical_bar_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar-inner',
 		'property' => 'background-color',
 	),
 );
-$add['header_mobile_vertical_bar_section_border_color'] = array(
+$add['header_mobile_vertical_bar_border_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar *',
@@ -1049,7 +1049,7 @@ $add['header_mobile_vertical_bar_menu_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Page Header
+ * Page Header (Title Bar)
  * ====================================================
  */
 
@@ -1145,14 +1145,14 @@ $add['page_header_layout'] = array(
 	),
 );
 
-$add['page_header_section_bg_color'] = array(
+$add['page_header_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-page-header-inner',
 		'property' => 'background-color',
 	),
 );
-$add['page_header_section_border_color'] = array(
+$add['page_header_border_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-page-header *',
@@ -1188,13 +1188,32 @@ $add['page_header_breadcrumb_link_hover_text_color'] = array(
 	),
 );
 
+foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachment' ) as $prop ) {
+	$add['page_header_' . $prop ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-page-header-inner',
+			'property' => str_replace( 'bg_', 'background-', $prop ),
+			'pattern'  => ( 'bg_image' == $prop ) ? 'url($)' : '$',
+		),
+	);
+}
+
+$add['page_header_bg_overlay_opacity'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-page-header-inner:before',
+		'property' => 'opacity',
+	),
+);
+
 /**
  * ====================================================
- * Content & Sidebar > Content Section
+ * Content
  * ====================================================
  */
 
-$add['content_section_padding'] = array(
+$add['content_padding'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-content-row',
@@ -1202,19 +1221,13 @@ $add['content_section_padding'] = array(
 	),
 );
 
-/**
- * ====================================================
- * Content & Sidebar > Main Content
- * ====================================================
- */
-
 $responsive = array(
 	'' => '',
 	'__tablet' => '@media screen and (max-width: 767px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
 foreach ( $responsive as $suffix => $media ) {
-	$add['content_padding' . $suffix ] = array(
+	$add['content_main_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
 			'element'  => '.content-area .site-main',
@@ -1256,14 +1269,14 @@ foreach ( $responsive as $suffix => $media ) {
 		),
 	);
 }
-$add['content_border'] = array(
+$add['content_main_border'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.content-area .site-main',
 		'property' => 'border-width',
 	),
 );
-$add['narrow_content_width'] = array(
+$add['content_narrow_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-content-layout-narrow .site-main',
@@ -1271,7 +1284,7 @@ $add['narrow_content_width'] = array(
 	),
 );
 
-$add['content_bg_color'] = array(
+$add['content_main_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.content-area .site-main',
@@ -1281,7 +1294,7 @@ $add['content_bg_color'] = array(
 
 /**
  * ====================================================
- * Content & Sidebar > Sidebar
+ * Sidebar
  * ====================================================
  */
 
@@ -1636,14 +1649,14 @@ $add['footer_widgets_bar_widget_title_decoration'] = array(
 	),
 );
 
-$add['footer_widgets_bar_section_bg_color'] = array(
+$add['footer_widgets_bar_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-widgets-bar-inner',
 		'property' => 'background-color',
 	),
 );
-$add['footer_widgets_bar_section_border_color'] = array(
+$add['footer_widgets_bar_border_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-widgets-bar *',
@@ -1770,14 +1783,14 @@ $add['footer_bottom_bar_icon_size'] = array(
 	),
 );
 
-$add['footer_bottom_bar_section_bg_color'] = array(
+$add['footer_bottom_bar_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-bottom-bar-inner',
 		'property' => 'background-color',
 	),
 );
-$add['footer_bottom_bar_section_border_color'] = array(
+$add['footer_bottom_bar_border_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-bottom-bar-inner',

@@ -576,7 +576,7 @@ function suki_page_title() {
 	if ( ! suki_get_theme_mod( 'page_header_title' ) ) return;
 	
 	// Get custom title from Page Settings.
-	$title = suki_get_current_page_setting( 'custom_page_title' );
+	$title = suki_get_current_page_setting( 'page_header_page_title' );
 
 	// If no custom title defined, use default title.
 	if ( empty( $title ) ) {

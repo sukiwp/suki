@@ -227,27 +227,29 @@
 
 	};
 	
-	if ( sukiCustomizerPreviewData ) {
-		_.each( sukiCustomizerPreviewData.postMessages, function( postMessages, key ) {
-			var sortedPostMessages = {};
+	if ( undefined !== sukiCustomizerPreviewData ) {
+		if ( undefined !== sukiCustomizerPreviewData.postMessages ) {
+			_.each( sukiCustomizerPreviewData.postMessages, function( postMessages, key ) {
+				var sortedPostMessages = {};
 
-			_.each( postMessages, function( rule ) {
-				var type = rule['type'];
+				_.each( postMessages, function( rule ) {
+					var type = rule['type'];
 
-				if ( undefined == sortedPostMessages[ type ] ) sortedPostMessages[ type ] = [];
+					if ( undefined == sortedPostMessages[ type ] ) sortedPostMessages[ type ] = [];
 
-				sortedPostMessages[ type ].push( rule );
-			});
+					sortedPostMessages[ type ].push( rule );
+				});
 
-			wp.customize( key, function( setting ) {
-				setting.bind(function( value ) {
-					_.each( sortedPostMessages, function( rule, type ) {
-						var functionName = 'postMessage_'.concat( type );
-						sukiCustomizer[ functionName ]( key, rule, value );
+				wp.customize( key, function( setting ) {
+					setting.bind(function( value ) {
+						_.each( sortedPostMessages, function( rule, type ) {
+							var functionName = 'postMessage_'.concat( type );
+							sukiCustomizer[ functionName ]( key, rule, value );
+						});
 					});
 				});
 			});
-		});
+		}
 	}
 
 })( jQuery );

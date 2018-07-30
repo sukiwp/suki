@@ -43,7 +43,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		add_action( 'save_post', array( $this, 'save_post_meta_box' ) );
 
 		// Term meta box
-		add_action( 'wp_loaded', array( $this, 'init_all_taxonomies_meta_box' ) );
+		add_action( 'init', array( $this, 'init_term_meta_boxes' ) );
 
 		// Render actions
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_meta_box_fields__standard' ), 10, 2 );
@@ -62,9 +62,9 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	private function get_tabs() {
 		return apply_filters( 'suki/admin/metabox/page_settings/tabs', array(
-			'header'      => esc_html__( 'Header', 'suki' ),
-			'page_header' => esc_html__( 'Page Header', 'suki' ),
 			'content'     => esc_html__( 'Content', 'suki' ),
+			'header'      => esc_html__( 'Header', 'suki' ),
+			'page_header' => esc_html__( 'Page Header (Title Bar)', 'suki' ),
 			'footer'      => esc_html__( 'Footer', 'suki' ),
 		) );
 	}
@@ -109,10 +109,10 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	public function save_post_meta_box( $post_id ) {
 		// Check if our nonce is set.
-		if ( ! isset( $_POST['suki_page_settings_nonce'] ) ) return;
+		if ( ! isset( $_POST['suki_post_page_settings_nonce'] ) ) return;
 		
 		// Verify that the nonce is valid.
-		check_admin_referer( 'suki_page_settings__' . $post_id, 'suki_page_settings_nonce' );
+		if ( ! wp_verify_nonce( $_POST['suki_post_page_settings_nonce'], 'suki_post_page_settings' ) ) return;
 
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
@@ -125,13 +125,13 @@ class Suki_Admin_Metabox_Page_Settings {
 
 		if ( isset( $_POST['suki_page_settings'] ) && is_array( $_POST['suki_page_settings'] ) ) {
 			$page_settings = array_map( 'sanitize_text_field', wp_unslash( $_POST['suki_page_settings'] ) );
-			
+
 			foreach ( $page_settings as $key => $value ) {
 				if ( '' === $value ) continue;
 
 				// If value is 0 or 1, cast to integer.
-				if ( 0 == $value || 1 == $value ) {
-					$value = floatval( $value );
+				if ( '0' === $value || '1' === $value ) {
+					$value = intval( $value );
 				}
 
 				$sanitized[ $key ] = $value;
@@ -145,7 +145,7 @@ class Suki_Admin_Metabox_Page_Settings {
 	/**
 	 * Initialize meta box on all public taxonomies.
 	 */
-	public function init_all_taxonomies_meta_box() {
+	public function init_term_meta_boxes() {
 		$taxonomies = array_merge(
 			array( 'category', 'post_tag' ),
 			get_taxonomies( array(
@@ -154,7 +154,6 @@ class Suki_Admin_Metabox_Page_Settings {
 				'_builtin'           => false,
 			), 'names' )
 		);
-
 		foreach ( $taxonomies as $taxonomy ) {
 			add_action( $taxonomy . '_add_form_fields', array( $this, 'render_meta_box__term_add' ) );
 			add_action( $taxonomy . '_edit_form_fields', array( $this, 'render_meta_box__term_edit' ) );
@@ -171,8 +170,11 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * @param integer $tt_id
 	 */
 	public function save_term_meta_box( $term_id, $tt_id ) {
+		// Check if our nonce is set.
+		if ( ! isset( $_POST['suki_term_page_settings_nonce'] ) ) return;
+
 		// Verify that the nonce is valid.
-		check_admin_referer( 'suki_term_settings', 'suki_term_settings_nonce' );
+		if ( ! wp_verify_nonce( $_POST['suki_term_page_settings_nonce'], 'suki_term_page_settings' ) ) return;;
 
 		// Sanitize values.
 		$sanitized = array();
@@ -183,8 +185,8 @@ class Suki_Admin_Metabox_Page_Settings {
 				if ( '' === $value ) continue;
 
 				// If value is 0 or 1, cast to integer.
-				if ( 0 == $value || 1 == $value ) {
-					$value = floatval( $value );
+				if ( '0' === $value || '1' === $value ) {
+					$value = intval( $value );
 				}
 				
 				$sanitized[ $key ] = $value;
@@ -230,10 +232,61 @@ class Suki_Admin_Metabox_Page_Settings {
 		}
 
 		// Add a nonce field so we can check for it later.
-		wp_nonce_field( 'suki_page_settings__' . $post->ID, 'suki_page_settings_nonce' );
+		wp_nonce_field( 'suki_post_page_settings', 'suki_post_page_settings_nonce' );
 
 		// Render meta box.
 		$this->render_meta_box_content( $post );
+	}
+
+	/**
+	 * Render page settings meta box on add term page.
+	 *
+	 * @param string $taxonomy
+	 * @return string
+	 */
+	public function render_meta_box__term_add( $term ) {
+		?>
+		<div class="form-field suki-add-term-page-settings" style="margin: 2em 0;">
+			<h2><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h2>
+			<?php
+			// Add a nonce field so we can check for it later.
+			wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
+
+			// Render meta box
+			echo '<div class="suki-term-meta-box-container">';
+			$this->render_meta_box_content( $term );
+			echo '</div>';
+			?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render page settings meta box on edit term page.
+	 *
+	 * @param string $taxonomy
+	 * @return string
+	 */
+	public function render_meta_box__term_edit( $term ) {
+		?>
+		<tr>
+			<th colspan="2" style="padding: 0;">
+				<h3><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h3>
+				<?php
+				// Add a nonce field so we can check for it later.
+				wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
+				
+				// Render meta box
+				echo '<div class="suki-term-meta-box-container">';
+				$this->render_meta_box_content( $term );
+				echo '</div>';
+				?>
+			</th>
+		</tr>
+		<tr>
+			
+		</tr>
+		<?php
 	}
 
 	/**
@@ -296,14 +349,14 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'disable_header';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -315,14 +368,14 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'disable_mobile_header';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -338,14 +391,14 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'disable_page_header';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -354,14 +407,15 @@ class Suki_Admin_Metabox_Page_Settings {
 				<hr>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Override default page title text', 'suki' ); ?></label>
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Override page title text', 'suki' ); ?></label>
 					<div class="suki-admin-form-field">
 						<?php
-						$key = 'custom_page_title';
+						$key = 'page_header_page_title';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'text',
-							'value'   => suki_array_value( $values, $key ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'text',
+							'placeholder' => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -373,15 +427,143 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'page_header_keep_content_header';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'description' => esc_html__( 'By default, when page header is active, the page title on content section would be hidden. Enabling this would make the page title on content section remains displayed.', 'suki' ),
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
+						<p class="description"><?php esc_html_e( 'By default, when page header is active, the page title on content section would be hidden. Enabling this would make the page title on content section remains displayed.', 'suki' ); ?></p>
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="suki-admin-form-row">
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Background image', 'suki' ); ?></label>
+					<div class="suki-admin-form-field">
+						<?php
+						$key = 'page_header_bg_image';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'upload',
+							'placeholder' => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+							'library'     => 'image',
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
+					</div>
+				</div>
+
+				<div class="suki-admin-form-row">
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Background position', 'suki' ); ?></label>
+					<div class="suki-admin-form-field">
+						<?php
+						$key = 'page_header_bg_position';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''              => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+								'left top'      => esc_html__( 'Left top', 'suki' ),
+								'left center'   => esc_html__( 'Left center', 'suki' ),
+								'left bottom'   => esc_html__( 'Left bottom', 'suki' ),
+								'center top'    => esc_html__( 'Center top', 'suki' ),
+								'center center' => esc_html__( 'Center center', 'suki' ),
+								'center bottom' => esc_html__( 'Center bottom', 'suki' ),
+								'right top'     => esc_html__( 'Right top', 'suki' ),
+								'right center'  => esc_html__( 'Right center', 'suki' ),
+								'right bottom'  => esc_html__( 'Right bottom', 'suki' ),
+							),
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
+					</div>
+				</div>
+
+				<div class="suki-admin-form-row">
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Background size', 'suki' ); ?></label>
+					<div class="suki-admin-form-field">
+						<?php
+						$key = 'page_header_bg_size';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''        => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+								'auto'    => esc_html__( 'Default', 'suki' ),
+								'cover'   => esc_html__( 'Cover', 'suki' ),
+								'contain' => esc_html__( 'Contain', 'suki' ),
+							),
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
+					</div>
+				</div>
+
+				<div class="suki-admin-form-row">
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Background repeat', 'suki' ); ?></label>
+					<div class="suki-admin-form-field">
+						<?php
+						$key = 'page_header_bg_repeat';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''          => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+								'no-repeat' => esc_html__( 'No repeat', 'suki' ),
+								'repeat-x'  => esc_html__( 'Repeat X (horizontally)', 'suki' ),
+								'repeat-y'  => esc_html__( 'Repeat Y (vertically)', 'suki' ),
+								'repeat'    => esc_html__( 'Repeat both axis', 'suki' ),
+							),
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
+					</div>
+				</div>
+
+				<div class="suki-admin-form-row">
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Background attachment', 'suki' ); ?></label>
+					<div class="suki-admin-form-field">
+						<?php
+						$key = 'page_header_bg_attachment';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''       => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+								'scroll' => esc_html__( 'Scroll', 'suki' ),
+								'fixed'  => esc_html__( 'Fixed', 'suki' ),
+							),
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
+					</div>
+				</div>
+
+				<div class="suki-admin-form-row">
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Background overlay opacity', 'suki' ); ?></label>
+					<div class="suki-admin-form-field">
+						<?php
+						$choices = array();
+						for ( $i = 0; $i <= 100; $i += 5 ) {
+							$choices[ (string)( $i / 100 ) ] = $i . '%';
+						}
+
+						$key = 'page_header_bg_overlay_opacity';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'placeholder' => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+							'choices'     => array_merge(
+								array( '' => esc_html__( '-- Inherit from Customizer --', 'suki' ) ),
+								$choices
+							),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -397,15 +579,15 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'content_container';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''                   => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''                   => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'default'            => esc_html__( 'Fixed width container', 'suki' ),
 								'full-width'         => esc_html__( 'Full container', 'suki' ),
 								'full-width-padding' => esc_html__( 'Full container with side padding', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -417,16 +599,16 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'content_layout';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''              => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''              => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'wide'          => esc_html__( 'Wide content', 'suki' ),
 								'narrow'        => esc_html__( 'Narrow content', 'suki' ),
 								'left-sidebar'  => esc_html__( 'Left Sidebar', 'suki' ),
 								'right-sidebar' => esc_html__( 'Right Sidebar', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -452,14 +634,14 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'disable_content_header';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -475,14 +657,14 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'disable_footer_widgets';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -494,14 +676,14 @@ class Suki_Admin_Metabox_Page_Settings {
 						<?php
 						$key = 'disable_footer_bottom';
 						Suki_Admin_Fields::render_field( array(
-							'name'    => $option_key . '[' . $key . ']',
-							'type'    => 'select',
-							'choices' => array(
-								''  => esc_html__( '-- Use Customizer value --', 'suki' ),
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'select',
+							'choices'     => array(
+								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'0' => esc_html__( 'No', 'suki' ),
 								'1' => esc_html__( 'Yes', 'suki' ),
 							),
-							'value'   => suki_array_value( $values, $key ),
+							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
 					</div>
@@ -513,57 +695,6 @@ class Suki_Admin_Metabox_Page_Settings {
 				# code...
 				break;
 		}
-	}
-
-	/**
-	 * Render page settings meta box on add term page.
-	 *
-	 * @param string $taxonomy
-	 * @return string
-	 */
-	public function render_meta_box__term_add( $term ) {
-		?>
-		<div class="form-field suki-add-term-page-settings" style="margin: 2em 0;">
-			<h2><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h2>
-			<?php
-			// Add a nonce field so we can check for it later.
-			wp_nonce_field( 'suki_term_settings', 'suki_term_settings_nonce' );
-
-			// Render meta box
-			echo '<div class="suki-term-meta-box-container">';
-			$this->render_meta_box_content( $term );
-			echo '</div>';
-			?>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Render page settings meta box on edit term page.
-	 *
-	 * @param string $taxonomy
-	 * @return string
-	 */
-	public function render_meta_box__term_edit( $term ) {
-		?>
-		<tr>
-			<th colspan="2" style="padding: 0;">
-				<h3><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h3>
-				<?php
-				// Add a nonce field so we can check for it later.
-				wp_nonce_field( 'suki_term_settings', 'suki_term_settings_nonce' );
-				
-				// Render meta box
-				echo '<div class="suki-term-meta-box-container">';
-				$this->render_meta_box_content( $term );
-				echo '</div>';
-				?>
-			</th>
-		</tr>
-		<tr>
-			
-		</tr>
-		<?php
 	}
 }
 

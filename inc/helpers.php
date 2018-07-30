@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom helper functions to process data.
+ * Custom helper functions that can be used globally.
  *
  * @package Suki
  */
@@ -154,11 +154,9 @@ function suki_get_current_page_settings() {
  * @return array
  */
 function suki_get_current_page_setting( $key ) {
-	$value = null;
-	
 	$settings = suki_get_current_page_settings();
 
-	$value = suki_array_value( $settings, $key );
+	$value = suki_array_value( $settings, $key, '' );
 
 	return $value;
 }
@@ -187,6 +185,10 @@ function suki_get_theme_mod( $key, $default = null ) {
 /**
  * Minify CSS string.
  * ref: https://github.com/GaryJones/Simple-PHP-CSS-Minification
+ * modified:
+ * - add: rem to units
+ * - add: remove space after (
+ * - remove: remove space before (
  *
  * @param array $css
  * @return string
@@ -205,11 +207,11 @@ function suki_minify_css_string( $css ) {
 	// Remove ; before }
 	$css = preg_replace( '/;(?=\s*})/', '', $css );
 
-	// Remove space after , : ; { } */ >
-	$css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
+	// Remove space after , : ; { } ( */ >
+	$css = preg_replace( '/(,|:|;|\{|}|\(|\*\/|>) /', '$1', $css );
 
-	// Remove space before , ; { } ( ) >
-	$css = preg_replace( '/ (,|;|\{|}|\(|\)|>)/', '$1', $css );
+	// Remove space before , ; { } ) >
+	$css = preg_replace( '/ (,|;|\{|}|\)|>)/', '$1', $css );
 
 	// Strips leading 0 on decimal values (converts 0.5px into .5px)
 	$css = preg_replace( '/(:| )0\.([0-9]+)(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
@@ -314,7 +316,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// Modify content width based on current page content layout.
 	switch ( $content_layout ) {
 	 	case 'narrow':
-			$content_width = floatval( suki_get_theme_mod( 'narrow_content_width' ) );
+			$content_width = floatval( suki_get_theme_mod( 'content_narrow_width' ) );
 	 		break;
 	 	
 	 	case 'left-sidebar':
@@ -344,7 +346,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	}
 
 	// // Modify content width based on its padding.
-	// $content_padding = suki_get_theme_mod( 'content_padding' );
+	// $content_padding = suki_get_theme_mod( 'content_main_padding' );
 	// $paddings = explode( ' ', $content_padding );
 	// if ( isset( $paddings[1] ) ) {
 	// 	$content_width -= floatval( $paddings[1] );
@@ -354,7 +356,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// }
 
 	// // Modify content width based on its border.
-	// $content_border = suki_get_theme_mod( 'content_border' );
+	// $content_border = suki_get_theme_mod( 'content_main_border' );
 	// $borders = explode( ' ', $content_border );
 	// if ( isset( $borders[1] ) ) {
 	// 	$content_width -= floatval( $borders[1] );
@@ -378,10 +380,10 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
  * @return array
  */
 function suki_get_fallback_page_settings() {
-	return apply_filters( 'suki/dataset/fallback_page_settings', array(
+	return array(
 		'content_container' => 'default',
 		'content_layout'    => 'right-sidebar',
-	) );
+	);
 }
 
 /**

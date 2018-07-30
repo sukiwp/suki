@@ -50,7 +50,7 @@
 
 			// Handle Choose button
 			frame.on( 'select', function() {
-				file = frame.state().get( 'selection' ).first().toJSON();
+				var file = frame.state().get( 'selection' ).first().toJSON();
 				$input.val( file.url );
 			});
 

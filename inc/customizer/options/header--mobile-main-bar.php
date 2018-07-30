@@ -146,8 +146,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 
 // Colors
 $colors = array(
-	'header_mobile_main_bar_section_bg_color'     => esc_html__( 'Background color', 'suki' ),
-	'header_mobile_main_bar_section_border_color' => esc_html__( 'Border color', 'suki' ),
+	'header_mobile_main_bar_bg_color'              => esc_html__( 'Background color', 'suki' ),
+	'header_mobile_main_bar_border_color'          => esc_html__( 'Border color', 'suki' ),
 	'header_mobile_main_bar_menu_text_color'       => esc_html__( 'Menu link text color', 'suki' ),
 	'header_mobile_main_bar_menu_hover_text_color' => esc_html__( 'Menu link text color :hover', 'suki' ),
 );

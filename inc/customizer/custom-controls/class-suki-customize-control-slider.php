@@ -26,6 +26,11 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 	public $units = array( '' );
 
 	/**
+	 * @var boolean
+	 */
+	public $hide_units = true;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
@@ -61,7 +66,7 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 
 		foreach ( $this->settings as $setting_key => $setting ) {
 			$value = $this->value( $setting_key );
-			if ( empty( $value ) ) {
+			if ( false === $value ) {
 				$value = '';
 			}
 
@@ -82,7 +87,7 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 			);
 
 			// Add reset value.
-			if ( $setting->default ) {
+			if ( isset( $setting->default ) ) {
 				$reset_number = '' === $value ? '' : floatval( $setting->default );
 				$reset_unit = str_replace( $reset_number, '', $setting->default );
 				
@@ -100,6 +105,8 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		}
 
 		$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
+
+		$this->json['hide_units'] = $this->hide_units;
 
 		$this->json['__input_attrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -143,7 +150,7 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 					<div class="suki-row-item" style="width: 50px;">
 						<input class="suki-slider-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 					</div>
-					<div class="suki-row-item" style="width: 30px;">
+					<div class="suki-row-item" style="width: 30px; {{ data.hide_units ? 'display: none;' : '' }}">
 						<select class="suki-slider-unit suki-unit">
 							<# _.each( data.units, function( unit_data, unit ) { #>
 								<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>

@@ -278,7 +278,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * Content & Sidebar > Sidebar
+ * Sidebar
  * ====================================================
  */
 

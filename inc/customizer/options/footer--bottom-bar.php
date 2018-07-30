@@ -146,11 +146,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 
 // Colors
 $colors = array(
-	'footer_bottom_bar_section_bg_color'        => esc_html__( 'Background color', 'suki' ),
-	'footer_bottom_bar_section_border_color'    => esc_html__( 'Border color', 'suki' ),
-	'footer_bottom_bar_text_color'              => esc_html__( 'Text color', 'suki' ),
-	'footer_bottom_bar_link_text_color'         => esc_html__( 'Link text color', 'suki' ),
-	'footer_bottom_bar_link_hover_text_color'   => esc_html__( 'Link text color :hover', 'suki' ),
+	'footer_bottom_bar_bg_color'              => esc_html__( 'Background color', 'suki' ),
+	'footer_bottom_bar_border_color'          => esc_html__( 'Border color', 'suki' ),
+	'footer_bottom_bar_text_color'            => esc_html__( 'Text color', 'suki' ),
+	'footer_bottom_bar_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
+	'footer_bottom_bar_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(

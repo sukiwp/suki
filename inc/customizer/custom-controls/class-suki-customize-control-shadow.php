@@ -32,7 +32,7 @@ class Suki_Customize_Control_Shadow extends WP_Customize_Control {
 		$this->json['name'] = $this->id;
 
 		$value = $this->value();
-		if ( empty( $value ) ) {
+		if ( false === $value ) {
 			$value = '    '; // 4 empty space for default value
 		}
 

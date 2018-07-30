@@ -72,8 +72,7 @@ class Suki {
 
 		// Template functions & hooks
 		require_once( SUKI_INCLUDES_PATH . '/template-tags.php' );
-		require_once( SUKI_INCLUDES_PATH . '/template-hooks.php' );
-		require_once( SUKI_INCLUDES_PATH . '/template-filters.php' );
+		require_once( SUKI_INCLUDES_PATH . '/template-functions.php' );
 
 		// Customizer functions
 		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer.php' );
@@ -275,6 +274,8 @@ class Suki {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
+
+		add_action( 'suki/frontend/inline_css', array( $this, 'add_page_settings_css' ), 999 );
 	}
 
 	/**
@@ -294,7 +295,19 @@ class Suki {
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 
 		// Customizer generated CSS
-		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/inline_css', '' ) ) );
+		// Use actions hook to allow priority in adding the CSS.
+		ob_start();
+
+		/**
+		 * Hook: suki/frontend/inline_css
+		 *
+		 * @hooked Suki_Customizer::add_frontend_css - 20
+		 */
+		do_action( 'suki/frontend/inline_css' );
+
+		$inline_css = ob_get_clean();
+
+		wp_add_inline_style( 'suki', trim( $inline_css ) );
 	}
 
 	/**
@@ -345,6 +358,45 @@ class Suki {
 		}
 
 		return $tag;
+	}
+
+	/**
+	 * Add current page settings CSS into the inline CSS.
+	 */ 
+	public function add_page_settings_css() {
+		$css_array = array();
+
+		$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
+		if ( '' !== $page_header_bg_image ) {
+			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
+		}
+
+		$page_header_bg_position = suki_get_current_page_setting( 'page_header_bg_position' );
+		if ( '' !== $page_header_bg_position ) {
+			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-position'] = $page_header_bg_position;
+		}
+
+		$page_header_bg_size = suki_get_current_page_setting( 'page_header_bg_size' );
+		if ( '' !== $page_header_bg_size ) {
+			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-size'] = $page_header_bg_size;
+		}
+
+		$page_header_bg_repeat = suki_get_current_page_setting( 'page_header_bg_repeat' );
+		if ( '' !== $page_header_bg_repeat ) {
+			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-repeat'] = $page_header_bg_repeat;
+		}
+
+		$page_header_bg_attachment = suki_get_current_page_setting( 'page_header_bg_attachment' );
+		if ( '' !== $page_header_bg_attachment ) {
+			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-attachment'] = $page_header_bg_attachment;
+		}
+
+		$page_header_bg_overlay_opacity = suki_get_current_page_setting( 'page_header_bg_overlay_opacity' );
+		if ( '' !== $page_header_bg_overlay_opacity ) {
+			$css_array['global']['.suki-page-header .suki-page-header-inner:before']['opacity'] = $page_header_bg_overlay_opacity;
+		}
+
+		echo "\n/* Current Page Settings CSS */\n" . suki_convert_css_array_to_string( $css_array ); // WPCS: XSS OK
 	}
 
 	/**

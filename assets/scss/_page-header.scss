@@ -2,16 +2,31 @@
 // Page header
 // -------------------------------------------------------------
 
+.suki-page-header-inner {
+	border-width: 0 0 1px 0; // default
+	background-color: $color_subtle; // default
+	background-position: center center; // default
+	background-size: cover; // default
+	background-repeat: no-repeat; // default
+	background-attachment: scroll; // default
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: inherit; // default
+		opacity: 0; // default
+	}
+}
+
+.suki-page-header-row {
+	padding: 40px 0; // default
+}
+
 .suki-page-header {
-	.suki-page-header-inner {
-		border-width: 0 0 1px 0; // default
-		background-color: $color_subtle; // default
-	}
-
-	.suki-page-header-row {
-		padding: 30px 0; // default
-	}
-
 	a {
 		color: $color_text; // default
 

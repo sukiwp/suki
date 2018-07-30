@@ -247,8 +247,8 @@ gulp.task( 'pot', function() {
 			package: info.title,
 			metadataFile: 'style.css',
 		} ).on( 'error', function( error ) {
-			console.error( error ); 
-			this.emit( 'end' ); 
+			console.error( error );
+			this.emit( 'end' );
 		} ) )
 		.pipe( gulp.dest( config.dest.pot + '/' + info.name + '.pot' ) );
 } );

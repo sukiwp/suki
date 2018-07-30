@@ -176,9 +176,9 @@ $id = 'outside_bg_image';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => 'absint',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
 ) );
-$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
+$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Background image', 'suki' ),
 	'mime_type'   => 'image',
@@ -222,9 +222,9 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Background size', 'suki' ),
 	'choices'     => array(
-		'auto'    => esc_html__( 'Default image size', 'suki' ),
-		'cover'   => esc_html__( 'Cover (fill element)', 'suki' ),
-		'contain' => esc_html__( 'Contain (touch element edges)', 'suki' ),
+		'auto'    => esc_html__( 'Default', 'suki' ),
+		'cover'   => esc_html__( 'Cover', 'suki' ),
+		'contain' => esc_html__( 'Contain', 'suki' ),
 	),
 	'priority'    => 20,
 ) );
@@ -262,7 +262,7 @@ $wp_customize->add_control( $id, array(
 	'label'       => esc_html__( 'Background attachment', 'suki' ),
 	'choices'     => array(
 		'scroll' => esc_html__( 'Scroll', 'suki' ),
-		'fixed'  => esc_html__( 'Fixed width', 'suki' ),
+		'fixed'  => esc_html__( 'Fixed', 'suki' ),
 	),
 	'priority'    => 20,
 ) );

@@ -92,11 +92,6 @@
 	} );
 
 	/**
-	 * Suki toggle control
-	 */
-	// Use default wp.customize.Control model, no need to override 
-
-	/**
 	 * Suki color control
 	 */
 	// Use native ColorControl for our custom color controls.
@@ -204,7 +199,7 @@
 				$input.on( 'change', function( e ) {
 					$slider.slider( 'value', this.value );
 
-					var value = '' === this.value ? '' : this.value.toString() + $unit.val();
+					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
 					$value.val( value ).trigger( 'change' );
 				});
 			});
@@ -258,9 +253,9 @@
 
 					$inputs.each(function() {
 						if ( '' === this.value ) {
-							values.push( '0' + $unit.val() );
+							values.push( '0' + $unit.val().toString() );
 						} else {
-							values.push( this.value.toString() + $unit.val() );
+							values.push( this.value.toString() + $unit.val().toString() );
 						}
 					});
 

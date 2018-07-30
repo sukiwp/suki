@@ -61,7 +61,7 @@ class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
 
 		foreach ( $this->settings as $setting_key => $setting ) {
 			$value = $this->value( $setting_key );
-			if ( empty( $value ) ) {
+			if ( false === $value ) {
 				$value = '   '; // 3 empty space for default value
 			}
 

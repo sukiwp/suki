@@ -89,6 +89,23 @@ class Suki_Customizer_Sanitization {
 	}
 
 	/**
+	 * Sanitize Image URL value
+	 *
+	 * @param string $value
+	 * @param WP_Customize_Setting $setting
+	 * @return string
+	 */
+	public static function image( $value, $setting ) {
+		$file = wp_check_filetype( $value );
+
+		if ( 0 !== strpos( $file['type'], 'image/' ) ) {
+			return '';
+		}
+
+		return $value;
+	}
+
+	/**
 	 * Sanitize Slider value
 	 *
 	 * @param string $value

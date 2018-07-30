@@ -45,8 +45,6 @@ class Suki_Admin {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		$this->_includes();
-
 		// General admin hooks on every admin pages
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -66,14 +64,21 @@ class Suki_Admin {
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__community' ), 40 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
+		
+		$this->_includes();
 	}
 
 	/**
 	 * Include additional files.
 	 */
 	private function _includes() {
-		require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-fields.php' );
-		require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-metabox-page-settings.php' );
+		global $pagenow;
+
+		// Only include metabox on post add/edit page and term add/edit page.
+		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
+			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-fields.php' );
+			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-metabox-page-settings.php' );
+		}
 	}
 
 	/**
@@ -145,8 +150,8 @@ class Suki_Admin {
 		$mimes['woff2'] = 'application/x-font-woff2';
 		$mimes['woff'] = 'application/x-font-woff';
 		$mimes['ttf'] = 'application/x-font-ttf';
-		$mimes['svg'] = 'image/svg+xml';
 		$mimes['eot'] = 'application/vnd.ms-fontobject';
+		$mimes['svg'] = 'image/svg+xml';
 
 		return $mimes;
 	}

@@ -264,8 +264,8 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 
 	// Colors
 	$colors = array(
-		'header_' . $type . '_section_bg_color'      => esc_html__( 'Background color', 'suki' ),
-		'header_' . $type . '_section_border_color'  => esc_html__( 'Border color', 'suki' ),
+		'header_' . $type . '_bg_color'              => esc_html__( 'Background color', 'suki' ),
+		'header_' . $type . 'border_color'           => esc_html__( 'Border color', 'suki' ),
 		'header_' . $type . '_text_color'            => esc_html__( 'Text color', 'suki' ),
 		'header_' . $type . '_link_text_color'       => esc_html__( 'Link color', 'suki' ),
 		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link color :hover', 'suki' ),

@@ -176,11 +176,11 @@ div.customize-section-description {
 
 .customize-control > .suki-pro-teaser {
 	margin: 0 -12px;
-	padding: 10px 12px 11px 12px;
+	padding: 12px 12px 12px 12px;
 }
 
 .accordion-section > .suki-pro-teaser {
-	padding: 10px 10px 11px 18px;
+	padding: 12px 10px 12px 18px;
 }
 
 .suki-pro-teaser h3 {
@@ -190,7 +190,7 @@ div.customize-section-description {
 }
 
 .suki-pro-teaser .button {
-	margin: -1px 0 0 8px;
+	margin: -3px 0 0 8px;
 	font-weight: normal;
 }
 
