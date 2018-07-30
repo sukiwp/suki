@@ -129,7 +129,7 @@ body.suki-page-layout-boxed {
 .suki-section-full-width-padding .suki-section-inner {
 	padding: 0 25px; // default
 
-	@media screen and ( max-width: $breakpoint_768 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		padding: 0 20px; // default
 	}
 

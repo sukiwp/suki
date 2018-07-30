@@ -58,7 +58,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['body_' . $prop . '__mobile'] = array(
@@ -159,7 +159,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 					'type'     => 'css',
 					'element'  => $element,
 					'property' => $property,
-					'media'    => '@media screen and (max-width: 767px)',
+					'media'    => '@media screen and (max-width: 1023px)',
 				),
 			);
 			$add['h' . $i . '_' . $prop . '__mobile'] = array(
@@ -211,7 +211,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['blockquote_' . $prop . '__mobile'] = array(
@@ -352,7 +352,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['title_' . $prop . '__mobile'] = array(
@@ -403,7 +403,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['small_title_' . $prop . '__mobile'] = array(
@@ -454,7 +454,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['meta_' . $prop . '__mobile'] = array(
@@ -564,7 +564,7 @@ $add['container_width'] = array(
 );
 $responsive = array(
 	'' => '',
-	'__tablet' => '@media screen and (max-width: 767px)',
+	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
 foreach ( $responsive as $suffix => $media ) {
@@ -1092,7 +1092,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['page_header_title_' . $prop . '__mobile'] = array(
@@ -1123,7 +1123,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['page_header_breadcrumb_' . $prop . '__mobile'] = array(
@@ -1223,7 +1223,7 @@ $add['content_padding'] = array(
 
 $responsive = array(
 	'' => '',
-	'__tablet' => '@media screen and (max-width: 767px)',
+	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
 foreach ( $responsive as $suffix => $media ) {
@@ -1350,7 +1350,7 @@ $add['sidebar_widgets_gap'] = array(
 
 $responsive = array(
 	'' => '',
-	'__tablet' => '@media screen and (max-width: 767px)',
+	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
 foreach ( $responsive as $suffix => $media ) {
@@ -1389,7 +1389,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['sidebar_' . $prop . '__mobile'] = array(
@@ -1421,7 +1421,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['sidebar_widget_title_' . $prop . '__mobile'] = array(
@@ -1522,7 +1522,7 @@ $add['footer_widgets_bar_container'] = array(
 );
 $responsive = array(
 	'' => '',
-	'__tablet' => '@media screen and (max-width: 767px)',
+	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
 foreach ( $responsive as $suffix => $media ) {
@@ -1588,7 +1588,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['footer_widgets_bar_' . $prop . '__mobile'] = array(
@@ -1620,7 +1620,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['footer_widgets_bar_widget_title_' . $prop . '__mobile'] = array(
@@ -1722,7 +1722,7 @@ $add['footer_bottom_bar_container'] = array(
 
 $responsive = array(
 	'' => '',
-	'__tablet' => '@media screen and (max-width: 767px)',
+	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
 foreach ( $responsive as $suffix => $media ) {
@@ -1761,7 +1761,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 767px)',
+				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
 		$add['footer_bottom_bar_' . $prop . '__mobile'] = array(
