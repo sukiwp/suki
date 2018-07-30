@@ -112,7 +112,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		if ( ! isset( $_POST['suki_post_page_settings_nonce'] ) ) return;
 		
 		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $_POST['suki_post_page_settings_nonce'], 'suki_post_page_settings' ) ) return;
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['suki_post_page_settings_nonce'] ), 'suki_post_page_settings' ) ) return;
 
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
@@ -174,7 +174,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		if ( ! isset( $_POST['suki_term_page_settings_nonce'] ) ) return;
 
 		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $_POST['suki_term_page_settings_nonce'], 'suki_term_page_settings' ) ) return;;
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['suki_term_page_settings_nonce'] ), 'suki_term_page_settings' ) ) return;;
 
 		// Sanitize values.
 		$sanitized = array();

@@ -1616,6 +1616,10 @@ msgstr ""
 msgid "By default, theme would use Google Fonts API to serve Google Fonts on frontend. There are chances that some data of you and your visitor might be collected by Google. If you do not accept this, you can use this plugin to self-host the fonts on your own server:"
 msgstr ""
 
+#: inc/customizer/options/settings--google-fonts.php:24
+msgid "Self-Hosted Google Fonts"
+msgstr ""
+
 #: inc/customizer/options/settings--google-fonts.php:36
 msgid "Additional character subsets"
 msgstr ""

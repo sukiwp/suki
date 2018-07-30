@@ -21,7 +21,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'co
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Google Fonts privacy policy', 'suki' ),
-	'description' => '<p>' . esc_html__( 'By default, theme would use Google Fonts API to serve Google Fonts on frontend. There are chances that some data of you and your visitor might be collected by Google. If you do not accept this, you can use this plugin to self-host the fonts on your own server:', 'suki' ) . '</p><p><a href="' . admin_url( 'plugin-install.php?s=selfhost-google-fonts&tab=search&type=term' ) . '">' . esc_html__( 'Self-Hosted Google Fonts' ) . '</a></p>',
+	'description' => '<p>' . esc_html__( 'By default, theme would use Google Fonts API to serve Google Fonts on frontend. There are chances that some data of you and your visitor might be collected by Google. If you do not accept this, you can use this plugin to self-host the fonts on your own server:', 'suki' ) . '</p><p><a href="' . admin_url( 'plugin-install.php?s=selfhost-google-fonts&tab=search&type=term' ) . '">' . esc_html__( 'Self-Hosted Google Fonts', 'suki' ) . '</a></p>',
 	'priority'    => 10,
 ) ) );
 
