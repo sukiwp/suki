@@ -46,7 +46,7 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
+		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 1 );
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
@@ -70,17 +70,12 @@ class Suki {
 		// Helper functions
 		require_once( SUKI_INCLUDES_PATH . '/helpers.php' );
 
-		// Template functions & hooks
-		require_once( SUKI_INCLUDES_PATH . '/template-tags.php' );
-		require_once( SUKI_INCLUDES_PATH . '/template-functions.php' );
-
 		// Customizer functions
 		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer.php' );
 
-		// Admin page functions
-		if ( is_admin() ) {
-			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin.php' );
-		}
+		// Template functions & hooks
+		require_once( SUKI_INCLUDES_PATH . '/template-tags.php' );
+		require_once( SUKI_INCLUDES_PATH . '/template-functions.php' );
 
 		// Plugins compatibility functions
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
@@ -92,6 +87,11 @@ class Suki {
 					require_once( $compatibility_file );
 				}
 			}
+		}
+
+		// Admin page functions
+		if ( is_admin() ) {
+			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin.php' );
 		}
 	}
 
@@ -275,7 +275,7 @@ class Suki {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
 
-		add_action( 'suki/frontend/inline_css', array( $this, 'add_page_settings_css' ), 999 );
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_page_settings_css' ), 25 );
 	}
 
 	/**
@@ -295,19 +295,8 @@ class Suki {
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 
 		// Customizer generated CSS
-		// Use actions hook to allow priority in adding the CSS.
-		ob_start();
-
-		/**
-		 * Hook: suki/frontend/inline_css
-		 *
-		 * @hooked Suki_Customizer::add_frontend_css - 20
-		 */
-		do_action( 'suki/frontend/inline_css' );
-
-		$inline_css = ob_get_clean();
-
-		wp_add_inline_style( 'suki', trim( $inline_css ) );
+		// Use hook to allow priority in adding the CSS.
+		wp_add_inline_style( 'suki', suki_minify_css_string( apply_filters( 'suki/frontend/inline_css', '' ) ) );
 	}
 
 	/**
@@ -362,8 +351,11 @@ class Suki {
 
 	/**
 	 * Add current page settings CSS into the inline CSS.
+	 *
+	 * @param string $inline_css
+	 * @return string
 	 */ 
-	public function add_page_settings_css() {
+	public function add_page_settings_css( $inline_css ) {
 		$css_array = array();
 
 		$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
@@ -396,7 +388,13 @@ class Suki {
 			$css_array['global']['.suki-page-header .suki-page-header-inner:before']['opacity'] = $page_header_bg_overlay_opacity;
 		}
 
-		echo "\n/* Current Page Settings CSS */\n" . suki_convert_css_array_to_string( $css_array ); // WPCS: XSS OK
+		$page_settings_css = suki_convert_css_array_to_string( $css_array );
+
+		if ( '' !== trim( $page_settings_css ) ) {
+			$inline_css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // WPCS: XSS OK
+		}
+
+		return $inline_css;
 	}
 
 	/**
@@ -429,6 +427,7 @@ class Suki {
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
 			'elementor' => '\Elementor\Plugin',
+			'elementor-pro' => '\ElementorPro\Plugin',
 			'contact-form-7' => 'WPCF7',
 		);
 	}

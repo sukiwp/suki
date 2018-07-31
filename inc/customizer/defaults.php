@@ -500,7 +500,7 @@ $add['header_mobile_vertical_bar_menu_highlight_color'] = $colors['accent'];
  * ====================================================
  */
 
-$add['page_header'] = 1;
+$add['page_header'] = 0;
 
 $add['page_header_container'] = 'default';
 $add['page_header_padding'] = '40px 0px 40px 0px';

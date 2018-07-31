@@ -12,14 +12,6 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-
-				if ( apply_filters( 'suki/frontend/is_using_content_wrapper', true ) ) : ?>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php endif;
-
 				/**
 				 * Hook: suki/frontend/before_footer
 				 */

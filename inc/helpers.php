@@ -267,9 +267,6 @@ function suki_convert_css_array_to_string( $css_array ) {
 		}
 	}
 
-	// Minify CSS.
-	$final_css = suki_minify_css_string( $final_css );
-
 	return $final_css;
 }
 
@@ -416,7 +413,7 @@ function suki_get_google_fonts() {
  * @return array
  */
 function suki_get_google_fonts_subsets() {
-	return apply_filters( 'suki/dataset/google_fonts_subsets', array(
+	return array(
 		// 'latin'        => esc_html__( 'Latin (default)', 'suki' ), // always chosen by default
 		'latin-ext'    => esc_html__( 'Latin Extended', 'suki' ),
 		'arabic'       => esc_html__( 'Arabic', 'suki' ),
@@ -439,7 +436,7 @@ function suki_get_google_fonts_subsets() {
 		'telugu'       => esc_html__( 'Telugu', 'suki' ),
 		'thai'         => esc_html__( 'Thai', 'suki' ),
 		'vietnamese'   => esc_html__( 'Vietnamese', 'suki' ),
-	) );
+	);
 }
 
 /**

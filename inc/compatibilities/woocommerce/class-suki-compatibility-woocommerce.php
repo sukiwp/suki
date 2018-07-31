@@ -56,7 +56,7 @@ class Suki_Compatibility_WooCommerce {
 
 		// Template hooks
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
-		add_action( 'template_redirect', array( $this, 'modify_template_hooks_based_on_customizer' ) );
+		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_customizer' ) );
 		
 		// Page settings
 		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
@@ -186,6 +186,16 @@ class Suki_Compatibility_WooCommerce {
 		/**
 		 * Global template hooks
 		 */
+
+		// Add content wrapper.
+		add_action( 'woocommerce_before_main_content', 'suki_content_open', 1 );
+		add_action( 'woocommerce_sidebar', 'suki_content_close', 999 );
+
+		// Change main content (primary) wrapper.
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+		add_action( 'woocommerce_before_main_content', 'suki_primary_open' );
+		add_action( 'woocommerce_after_main_content', 'suki_primary_close' );
 
 		// Add count to Cart menu item.
 		add_filter( 'nav_menu_item_title', array( $this, 'add_count_to_cart_menu_item' ), 10, 4 );

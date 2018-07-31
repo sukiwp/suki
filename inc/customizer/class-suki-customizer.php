@@ -45,7 +45,7 @@ class Suki_Customizer {
 		// Customizer CSS
 		if ( ! is_customize_preview() ) {
 			// Add inline CSS on frontend only.
-			add_action( 'suki/frontend/inline_css', array( $this, 'add_frontend_css' ), 20 );
+			add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_css' ), 20 );
 		}
 
 		// Default values, postmessages, contexts
@@ -84,9 +84,18 @@ class Suki_Customizer {
 
 	/**
 	 * Add frontend CSS via inline CSS.
+	 *
+	 * @param string $inline_css
+	 * @return string
 	 */
-	public function add_frontend_css() {
-		echo "\n/* Customizer CSS */\n" . $this->generate_frontend_css(); // WPCS: XSS OK
+	public function add_frontend_css( $inline_css ) {
+		$css = $this->generate_frontend_css();
+		
+		if ( '' !== trim( $css ) ) {
+			$inline_css .= "\n/* Customizer CSS */\n" . $css; // WPCS: XSS OK
+		}
+
+		return $inline_css;
 	}
 
 	/**
@@ -171,9 +180,6 @@ class Suki_Customizer {
 
 		// Sections and Panels
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/_sections.php' );
-
-		// Remove "custom_logo".
-		$wp_customize->remove_control( 'custom_logo' );
 
 		// General Elements
 		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--body.php' );

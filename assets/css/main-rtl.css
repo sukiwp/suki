@@ -2543,7 +2543,7 @@ body.suki-has-popup-active .suki-popup-background {
 	margin: 0 0 1em;
 }
 
-.entry-footer {
+.entry-footer > *:first-child {
 	padding-top: 1em;
 	border-top-width: 1px;
 	border-top-style: solid;

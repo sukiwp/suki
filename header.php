@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="profile" href="http://gmpg.org/xfn/11">
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 		<?php wp_head(); ?>
 	</head>
@@ -51,13 +50,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				/**
 				 * Hook: suki/frontend/after_header
 				 *
-				 * @hooked suki_page_title - 10
+				 * @hooked suki_page_header - 10
 				 */
 				do_action( 'suki/frontend/after_header' );
-				
-				if ( apply_filters( 'suki/frontend/is_using_content_wrapper', true ) ) : ?>
-					<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array() ) ) ); ?>">
-						<div class="suki-section-inner">
-							<div class="suki-wrapper">
-								<div class="suki-content-row">
-				<?php endif;

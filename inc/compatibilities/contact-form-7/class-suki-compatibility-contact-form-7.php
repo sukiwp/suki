@@ -42,7 +42,7 @@ class Suki_Compatibility_Contact_Form_7 {
 	 */
 	protected function __construct() {
 		// Compatibility CSS (via theme inline CSS)
-		add_action( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
 	}
 	
 	/**
@@ -58,7 +58,9 @@ class Suki_Compatibility_Contact_Form_7 {
 	 * @return string
 	 */
 	public function add_compatibility_css( $inline_css ) {
-		echo "\n/* Contact Form 7 compatibility CSS */\n" . suki_minify_css_string( '.wpcf7 input:not( [type="submit"] ), .wpcf7 textarea, .wpcf7 select { width: 100%; }' ); // WPCS: XSS OK
+		$inline_css .= "\n/* Contact Form 7 compatibility CSS */\n" . '.wpcf7 input:not( [type="submit"] ), .wpcf7 textarea, .wpcf7 select { width: 100%; }'; // WPCS: XSS OK
+
+		return $inline_css;
 	}
 }
 

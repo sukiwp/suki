@@ -91,6 +91,10 @@ class Suki_Admin_Metabox_Page_Settings {
 			), 'names' )
 		);
 
+		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
+
+		$post_types = array_diff( $post_types, $ignored_post_types );
+
 		add_meta_box(
 			'suki_page_settings',
 			esc_html__( 'Page Settings (Suki)', 'suki' ),

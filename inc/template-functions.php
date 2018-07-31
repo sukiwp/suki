@@ -74,7 +74,9 @@ function suki_template_hooks() {
 	 *
 	 * @see suki_mobile_vertical_header()
 	 */
-	add_action( 'suki/frontend/top_popups', 'suki_mobile_vertical_header', 10 );
+	if ( ! suki_get_current_page_setting( 'disable_mobile_header' ) ) {
+		add_action( 'suki/frontend/top_popups', 'suki_mobile_vertical_header', 10 );
+	}
 
 	/**
 	 * suki/frontend/header hook
@@ -82,15 +84,21 @@ function suki_template_hooks() {
 	 * @see suki_main_header()
 	 * @see suki_mobile_header()
 	 */
-	add_action( 'suki/frontend/header', 'suki_main_header', 10 );
-	add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
+	if ( ! suki_get_current_page_setting( 'disable_header' ) ) {
+		add_action( 'suki/frontend/header', 'suki_main_header', 10 );
+	}
+	if ( ! suki_get_current_page_setting( 'disable_mobile_header' ) ) {
+		add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
+	}
 
 	/**
 	 * suki/frontend/after_header hook
 	 *
 	 * @see suki_page_header()
 	 */
-	add_action( 'suki/frontend/after_header', 'suki_page_header', 10 );
+	if ( ! suki_get_current_page_setting( 'disable_page_header' ) ) {
+		add_action( 'suki/frontend/after_header', 'suki_page_header', 10 );
+	}
 
 	/**
 	 * suki/frontend/footer hook
@@ -98,8 +106,12 @@ function suki_template_hooks() {
 	 * @see suki_footer_widgets()
 	 * @see suki_footer_bottom()
 	 */
-	add_action( 'suki/frontend/footer', 'suki_footer_widgets', 10 );
-	add_action( 'suki/frontend/footer', 'suki_footer_bottom', 10 );
+	if ( ! suki_get_current_page_setting( 'disable_footer_widgets' ) ) {
+		add_action( 'suki/frontend/footer', 'suki_footer_widgets', 10 );
+	}
+	if ( ! suki_get_current_page_setting( 'disable_footer_bottom' ) ) {
+		add_action( 'suki/frontend/footer', 'suki_footer_bottom', 10 );
+	}
 
 	/**
 	 * ====================================================
@@ -281,7 +293,25 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	if ( is_home() || is_archive() || is_search() || is_404() ) {
+	if ( is_archive() || is_home() ) {
+		/**
+		 * suki/frontend/archive hook
+		 * 
+		 * @see suki_archive()
+		 */
+		add_action( 'suki/frontend/archive', 'suki_archive', 10 );
+	}
+
+	if ( is_search() ) {
+		/**
+		 * suki/frontend/archive hook
+		 * 
+		 * @see suki_search()
+		 */
+		add_action( 'suki/frontend/archive', 'suki_search', 10 );
+	}
+
+	if ( is_archive() || is_home() || is_search() ) {
 		if ( ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'page_header_keep_content_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
 			/**
 			 * suki/frontend/before_main hook
@@ -305,14 +335,21 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	if ( is_single() ) {
+	if ( is_single( 'post' ) ) {
+		/**
+		 * suki/frontend/single hook
+		 * 
+		 * @see suki_single()
+		 */
+		add_action( 'suki/frontend/single', 'suki_single', 10 );
+
 		/**
 		 * suki/frontend/entry/before_footer hook
 		 * 
 		 * @see suki_entry_tags()
 		 */
 		add_action( 'suki/frontend/entry/before_footer', 'suki_entry_tags', 10 );
-		
+
 		/**
 		 * suki/frontend/after_main hook
 		 * 
@@ -337,14 +374,37 @@ function suki_template_hooks() {
 
 	if ( is_page() ) {
 		/**
+		 * suki/frontend/single hook
+		 * 
+		 * @see suki_page()
+		 */
+		add_action( 'suki/frontend/single', 'suki_page', 10 );
+
+		/**
 		 * suki/frontend/after_main hook
 		 * 
 		 * @see suki_entry_comments()
 		 */
 		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
 	}
+
+	/**
+	 * ====================================================
+	 * 404 page hooks
+	 * ====================================================
+	 */
+
+	if ( is_404() ) {
+		/**
+		 * suki/frontend/single hook
+		 * 
+		 * @see suki_404()
+		 */
+		add_action( 'suki/frontend/single', 'suki_404', 10 );
+	}
+
 }
-add_action( 'template_redirect', 'suki_template_hooks' );
+add_action( 'wp', 'suki_template_hooks' );
 
 /**
  * ====================================================

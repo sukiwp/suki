@@ -298,8 +298,6 @@ if ( ! function_exists( 'suki_main_header' ) ) :
  * Render main header section.
  */
 function suki_main_header() {
-	if ( suki_get_current_page_setting( 'disable_header' ) ) return;
-
 	?>
 	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
 		<?php
@@ -352,8 +350,6 @@ if ( ! function_exists( 'suki_mobile_header' ) ) :
  * Render mobile header section.
  */
 function suki_mobile_header() {
-	if ( suki_get_current_page_setting( 'disable_mobile_header' ) ) return;
-	
 	?>
 	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop">
 		<?php
@@ -409,7 +405,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
 				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title menu-item">
-					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></a>
 				</<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?>>
 			</div>
 			<?php
@@ -419,7 +415,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
 				<div class="site-title menu-item">
-					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'header_' . $key . '_image' ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'custom_logo_mobile' ) ); ?></a>
 				</div>
 			</div>
 			<?php
@@ -549,8 +545,6 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  * Render page header section.
  */
 function suki_page_header() {
-	if ( suki_get_current_page_setting( 'disable_page_header' ) ) return;
-
 	if ( ! suki_get_theme_mod( 'page_header' ) ) return;
 	?>
 	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
@@ -659,11 +653,39 @@ endif;
  * ====================================================
  */
 
-if ( ! function_exists( 'suki_main_content_open' ) ) :
+if ( ! function_exists( 'suki_content_open' ) ) :
+/**
+ * Render content section opening tags.
+ */
+function suki_content_open() {
+	?>
+	<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array() ) ) ); ?>">
+		<div class="suki-section-inner">
+			<div class="suki-wrapper">
+				<div class="suki-content-row">
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_content_close' ) ) :
+/**
+ * Render content section closing tags.
+ */
+function suki_content_close() {
+	?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_primary_open' ) ) :
 /**
  * Render main content opening tags.
  */
-function suki_main_content_open() {
+function suki_primary_open() {
 	?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -671,11 +693,11 @@ function suki_main_content_open() {
 }
 endif;
 
-if ( ! function_exists( 'suki_main_content_close' ) ) :
+if ( ! function_exists( 'suki_primary_close' ) ) :
 /**
  * Render main content closing tags.
  */
-function suki_main_content_close() {
+function suki_primary_close() {
 	?>
 		</main>
 	</div>
@@ -715,25 +737,24 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) :
  * Render footer widgets area.
  */
 function suki_footer_widgets() {
-	if ( suki_get_current_page_setting( 'disable_footer_widgets' ) ) return;
-
-	if ( 0 < suki_get_theme_mod( 'footer_widgets_bar' ) ) : ?>
-		<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
-			<div class="suki-footer-widgets-bar-inner suki-section-inner">
-				<div class="suki-wrapper">
-					<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
-						<?php for ( $i = 1; $i <= suki_get_theme_mod( 'footer_widgets_bar' ); $i++ ) : ?>
-							<div class="suki-footer-widgets-bar-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column <?php echo esc_attr( is_active_sidebar( 'footer-widgets-' . $i ) ? '' : 'suki-empty' ); ?>">
-								<?php if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
-									dynamic_sidebar( 'footer-widgets-' . $i );
-								} ?>
-							</div>
-						<?php endfor; ?>
-					</div>
+	if ( 1 > suki_get_theme_mod( 'footer_widgets_bar' ) ) return;
+	?>
+	<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
+		<div class="suki-footer-widgets-bar-inner suki-section-inner">
+			<div class="suki-wrapper">
+				<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
+					<?php for ( $i = 1; $i <= suki_get_theme_mod( 'footer_widgets_bar' ); $i++ ) : ?>
+						<div class="suki-footer-widgets-bar-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column <?php echo esc_attr( is_active_sidebar( 'footer-widgets-' . $i ) ? '' : 'suki-empty' ); ?>">
+							<?php if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
+								dynamic_sidebar( 'footer-widgets-' . $i );
+							} ?>
+						</div>
+					<?php endfor; ?>
 				</div>
 			</div>
 		</div>
-	<?php endif;
+	</div>
+	<?php
 }
 endif;
 
@@ -742,8 +763,6 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) :
  * Render footer bottom bar.
  */
 function suki_footer_bottom() {
-	if ( suki_get_current_page_setting( 'disable_footer_bottom' ) ) return;
-
 	$cols = array( 'left', 'center', 'right' );
 
 	$elements = array();
@@ -980,6 +999,8 @@ if ( ! function_exists( 'suki_entry_header_meta' ) ) :
  * @param string $format
  */
 function suki_entry_meta( $format ) {
+	if ( 'post' !== get_post_type() ) return;
+
 	$format = trim( $format );
 	$html = $format;
 
@@ -1083,6 +1104,74 @@ endif;
  * ====================================================
  */
 
+if ( ! function_exists( 'suki_archive' ) ) :
+/**
+ * Render main content for archive.php.
+ */
+function suki_archive() {
+	/**
+	* Content - opening tag
+	*/
+	suki_content_open();
+
+	/**
+	 * Primary - opening tag
+	 */
+	suki_primary_open();
+
+	if ( have_posts() ) :
+
+		/**
+		 * Hook: suki/frontend/before_main
+		 *
+		 * @hooked suki_content_header - 10
+		 */
+		do_action( 'suki/frontend/before_main' );
+		
+		?>
+		<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array() ) ) ); ?>">
+			<?php
+			// Start the loop.
+			while ( have_posts() ) : the_post();
+
+				// Render post content using selected layout on Customizer.
+				get_template_part( 'template-parts/content', suki_get_theme_mod( 'blog_index_loop_mode' ) );
+
+			endwhile;
+			?>
+		</div>
+		<?php
+
+		/**
+		 * Hook: suki/frontend/after_main
+		 * 
+		 * @hooked suki_loop_navigation - 10
+		 */
+		do_action( 'suki/frontend/after_main' );
+
+	else :
+
+		get_template_part( 'template-parts/content', 'none' );
+
+	endif;
+
+	/**
+	 * Primary - closing tag
+	 */
+	suki_primary_close();
+
+	/**
+	 * Sidebar
+	 */
+	get_sidebar();
+
+	/**
+	 * Content - closing tag
+	 */
+	suki_content_close();
+}
+endif;
+
 if ( ! function_exists( 'suki_content_header' ) ) :
 /**
  * Render content header.
@@ -1160,12 +1249,64 @@ endif;
  * ====================================================
  */
 
+if ( ! function_exists( 'suki_single' ) ) :
+/**
+ * Render main content for single.php.
+ */
+function suki_single() {
+	/**
+	 * Content - opening tag
+	 */
+	suki_content_open();
+
+	/**
+	 * Primary - opening tag
+	 */
+	suki_primary_open();
+
+	while ( have_posts() ) : the_post();
+		/**
+		 * Hook: suki/frontend/before_main
+		 */
+		do_action( 'suki/frontend/before_main' );
+
+		// Render post content in "default" layout.
+		get_template_part( 'template-parts/content' );
+
+		/**
+		 * Hook: suki/frontend/after_main
+		 * 
+		 * @hooked suki_single_post_author_bio - 10
+		 * @hooked suki_single_post_navigation - 15
+		 * @hooked suki_entry_comments - 20
+		 */
+		do_action( 'suki/frontend/after_main' );
+
+	endwhile;
+
+	/**
+	 * Primary - closing tag
+	 */
+	suki_primary_close();
+
+	/**
+	 * Sidebar
+	 */
+	get_sidebar();
+
+	/**
+	 * Content - closing tag
+	 */
+	suki_content_close();
+}
+endif;
+
 if ( ! function_exists( 'suki_single_post_author_bio' ) ) :
 /**
  * Render author bio block in single post page.
  */
 function suki_single_post_author_bio() {
-	if ( ! is_single() ) return;
+	if ( ! is_single( 'post' ) ) return;
 	?>
 	<div class="entry-author">
 		<div class="entry-author-body">
@@ -1201,7 +1342,7 @@ if ( ! function_exists( 'suki_single_post_navigation' ) ) :
  * Render prev / next post navigation in single post page.
  */
 function suki_single_post_navigation() {
-	if ( ! is_single() ) return;
+	if ( ! is_single( 'post' ) ) return;
 
 	the_post_navigation( array(
 		'prev_text' => esc_html__( '%title &raquo;', 'suki' ),
@@ -1262,16 +1403,198 @@ endif;
 
 /**
  * ====================================================
+ * Static page template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_page' ) ) :
+/**
+ * Render main content for page.php.
+ */
+function suki_page() {
+	/**
+	 * Content - opening tag
+	 */
+	suki_content_open();
+
+	/**
+	 * Primary - opening tag
+	 */
+	suki_primary_open();
+
+	while ( have_posts() ) : the_post();
+		
+		/**
+		 * Hook: suki/frontend/before_main
+		 */
+		do_action( 'suki/frontend/before_main' );
+
+		get_template_part( 'template-parts/content', 'page' );
+
+		/**
+		 * Hook: suki/frontend/after_main
+		 * 
+		 * @hooked suki_entry_comments - 20
+		 */
+		do_action( 'suki/frontend/after_main' );
+
+	endwhile;
+
+	/**
+	 * Primary - closing tag
+	 */
+	suki_primary_close();
+
+	/**
+	 * Sidebar
+	 */
+	get_sidebar();
+
+	/**
+	 * Content - closing tag
+	 */
+	suki_content_close();
+}
+endif;
+/**
+ * ====================================================
+ * Search result page template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_search' ) ) :
+/**
+ * Render main content for search.php.
+ */
+function suki_search() {
+	/**
+	 * Content - opening tag
+	 */
+	suki_content_open();
+
+	/**
+	 * Primary - opening tag
+	 */
+	suki_primary_open();
+
+	if ( have_posts() ) :
+
+		/**
+		 * Hook: suki/frontend/before_main
+		 * 
+		 * @hooked suki_search_page_header - 10
+		 */
+		do_action( 'suki/frontend/before_main' );
+
+		?>
+		<div id="loop" class="suki-loop suki-loop-search">
+			<?php
+			// Start the loop.
+			while ( have_posts() ) : the_post();
+
+				// Render post content.
+				get_template_part( 'template-parts/content', 'search' );
+
+			endwhile;
+			?>
+		</div>
+		<?php
+
+		/**
+		 * Hook: suki/frontend/after_main
+		 * 
+		 * @hooked suki_loop_navigation - 10
+		 */
+		do_action( 'suki/frontend/after_main' );
+
+	else :
+
+		get_template_part( 'template-parts/content', 'none' );
+
+	endif;
+
+	/**
+	 * Primary - closing tag
+	 */
+	suki_primary_close();
+
+	/**
+	 * Sidebar
+	 */
+	get_sidebar();
+
+	/**
+	 * Content - closing tag
+	 */
+	suki_content_close();
+}
+endif;
+
+/**
+ * ====================================================
+ * 404 page template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_404' ) ) :
+/**
+ * Render main content for 404.php.
+ */
+function suki_404() {
+	/**
+	 * Content - opening tag
+	 */
+	suki_content_open();
+
+	/**
+	 * Primary - opening tag
+	 */
+	suki_primary_open();
+
+	/**
+	 * Hook: suki/frontend/before_main
+	 * 
+	 * @hooked suki_content_header - 10
+	 */
+	do_action( 'suki/frontend/before_main' );
+
+	?>
+	<section class="error-404 not-found">
+		<div class="page-content">
+			<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'suki' ); ?></p>
+			<?php get_search_form(); ?>
+		</div>
+	</section>
+	<?php
+
+	/**
+	 * Hook: suki/frontend/after_main
+	 */
+	do_action( 'suki/frontend/after_main' );
+
+	/**
+	 * Primary - closing tag
+	 */
+	suki_primary_close();
+
+	/**
+	 * Sidebar
+	 */
+	get_sidebar();
+
+	/**
+	 * Content - closing tag
+	 */
+	suki_content_close();
+}
+endif;
+
+/**
+ * ====================================================
  * Customizer's partial refresh callback aliases
  * ====================================================
  */
 
-function suki_header_element__logo() {
-	suki_header_element( 'logo' );
-}
-function suki_header_element__mobile_logo() {
-	suki_header_element( 'mobile-logo' );
-}
 function suki_header_element__html_1() {
 	suki_header_element( 'html-1' );
 }

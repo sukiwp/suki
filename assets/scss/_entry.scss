@@ -84,8 +84,10 @@
 
 // Entry footer
 .entry-footer {
-	padding-top: 1em;
-	@include border( top );
+	> *:first-child {
+		padding-top: 1em;
+		@include border( top );
+	}
 }
 
 // Title

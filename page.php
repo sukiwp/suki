@@ -15,30 +15,19 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * Header
+ */
 get_header();
 
-suki_main_content_open();
+/**
+ * Hook: suki/frontend/single
+ *
+ * @hooked suki_page - 10
+ */
+do_action( 'suki/frontend/single' );
 
-while ( have_posts() ) : the_post();
-	
-	/**
-	 * Hook: suki/frontend/before_main
-	 */
-	do_action( 'suki/frontend/before_main' );
-
-	get_template_part( 'template-parts/content', 'page' );
-
-	/**
-	 * Hook: suki/frontend/after_main
-	 * 
-	 * @hooked suki_entry_comments - 20
-	 */
-	do_action( 'suki/frontend/after_main' );
-
-endwhile; 
-
-suki_main_content_close();
-
-get_sidebar();
-
+/**
+ * Footer
+ */
 get_footer();
