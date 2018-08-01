@@ -433,10 +433,21 @@ p.demo_store a {
 	border: none;
 	margin: 0 0.5em;
 	padding: 0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current {
+	padding: 0;
+	background-color: transparent;
+	color: #bbbbbb;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a {
+	padding: 0;
+	background-color: transparent;
 	color: #666666;
 }
 
-.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current {
+.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
 	color: #5c6bc0;
 }

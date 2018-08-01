@@ -803,6 +803,10 @@ select[multiple] {
 	display: none;
 }
 
+.nav-links span.current {
+	color: #bbbbbb;
+}
+
 .nav-links a {
 	color: #666666;
 }
@@ -2718,7 +2722,7 @@ a.more-link {
 }
 
 .navigation {
-	margin: 2em 0;
+	margin: 2rem 0;
 }
 
 .navigation .nav-links {

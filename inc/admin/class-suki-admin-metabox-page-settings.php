@@ -87,6 +87,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			get_post_types( array(
 				'public'             => true,
 				'publicly_queryable' => true,
+				'rewrite'            => true,
 				'_builtin'           => false,
 			), 'names' )
 		);

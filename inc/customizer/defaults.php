@@ -700,7 +700,7 @@ $add['footer_social_links_target'] = 'self';
  */
 
 $add['blog_index_loop_mode'] = 'default';
-$add['blog_index_navigation_mode'] = 'prev-next';
+$add['blog_index_navigation_mode'] = 'pagination';
 
 /**
  * ====================================================

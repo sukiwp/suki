@@ -387,13 +387,24 @@ p.demo_store {
 			border: none;
 			margin: 0 0.5em;
 			padding: 0;
-			
-			color: $color_text; // default
 
-			a:focus, a:hover, span.current {
+			span.current {
+				padding: 0;
 				background-color: transparent;
-				color: $color_accent; // default
+				color: $color_meta; // default
 			}
+
+			a {
+				padding: 0;
+				background-color: transparent;
+				color: $color_text; // default
+
+				&:focus, &:hover {
+					background-color: transparent;
+					color: $color_accent; // default
+				}
+			}
+
 		}
 	}
 }

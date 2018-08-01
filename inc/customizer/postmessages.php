@@ -470,7 +470,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-meta, .comment-metadata, .widget .post-date, .widget_rss .rss-date',
+		'element'  => '.entry-meta, .comment-metadata, .widget .post-date, .widget_rss .rss-date, .nav-links span.current',
 		'property' => 'color',
 	),
 );

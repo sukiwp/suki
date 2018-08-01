@@ -143,6 +143,10 @@
 }
 
 .nav-links {
+	span.current {
+		color: $color_meta; // default
+	}
+	
 	a {
 		color: $color_text; // default
 

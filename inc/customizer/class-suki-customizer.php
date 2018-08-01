@@ -416,10 +416,6 @@ class Suki_Customizer {
 	public function get_all_page_settings_types() {
 		// Define sections with default page types.
 		$page_sections = array(
-			'static' => array(
-				'title' => esc_html__( 'Static Page', 'suki' ),
-				'description' => esc_html__( 'This is global default value. You can override these settings on each individual page editor.', 'suki' ),
-			),
 			'search' => array(
 				'title' => esc_html__( 'Search Results Page', 'suki' ),
 			),
@@ -439,18 +435,26 @@ class Suki_Customizer {
 		$post_types = get_post_types( array(
 			'public'             => true,
 			'publicly_queryable' => true,
+			'rewrite'            => true,
 			'_builtin'           => false,
-		), 'objects' );
+		), 'names' );
+
+		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
+
+		$post_types = array_diff( $post_types, $ignored_post_types );
+
 		foreach ( $post_types as $post_type ) {
-			$page_sections[ $post_type->name . '_archive' ] = array(
+			$post_type_object = get_post_type_object( $post_type );
+
+			$page_sections[ $post_type_object->name . '_archive' ] = array(
 				/* translators: %s: post type's plural name. */
-				'title' => sprintf( esc_html__( '%s Page', 'suki' ), $post_type->labels->name ),
+				'title' => sprintf( esc_html__( '%s Page', 'suki' ), $post_type_object->labels->name ),
 			);
-			$page_sections[ $post_type->name . '_singular' ] = array(
+			$page_sections[ $post_type_object->name . '_singular' ] = array(
 				/* translators: %s: post type's singular name. */
-				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type->labels->singular_name ),
+				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_object->labels->singular_name ),
 				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'This is global default value. You can override these settings on each individual %s editor.', 'suki' ), $post_type->labels->singular_name ),
+				'description' => sprintf( esc_html__( 'This is global default value. You can override these settings on each individual %s editor.', 'suki' ), $post_type_object->labels->singular_name ),
 			);
 		}
 
