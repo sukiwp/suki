@@ -115,7 +115,7 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * Static page hooks
+	 * Content page hooks
 	 * ====================================================
 	 */
 
@@ -150,7 +150,7 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * Content default hooks
+	 * Content default (blog post) hooks
 	 * ====================================================
 	 */
 
@@ -293,24 +293,6 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	if ( is_archive() || is_home() ) {
-		/**
-		 * suki/frontend/archive hook
-		 * 
-		 * @see suki_archive()
-		 */
-		add_action( 'suki/frontend/archive', 'suki_archive', 10 );
-	}
-
-	if ( is_search() ) {
-		/**
-		 * suki/frontend/archive hook
-		 * 
-		 * @see suki_search()
-		 */
-		add_action( 'suki/frontend/archive', 'suki_search', 10 );
-	}
-
 	if ( is_archive() || is_home() || is_search() ) {
 		if ( ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'page_header_keep_content_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
 			/**
@@ -331,18 +313,11 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * Single post hooks
+	 * All singular post hooks
 	 * ====================================================
 	 */
 
-	if ( is_single( 'post' ) ) {
-		/**
-		 * suki/frontend/single hook
-		 * 
-		 * @see suki_single()
-		 */
-		add_action( 'suki/frontend/single', 'suki_single', 10 );
-
+	if ( is_singular() ) {
 		/**
 		 * suki/frontend/entry/before_footer hook
 		 * 
@@ -365,44 +340,6 @@ function suki_template_hooks() {
 		}
 		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
 	}
-
-	/**
-	 * ====================================================
-	 * Single page hooks
-	 * ====================================================
-	 */
-
-	if ( is_page() ) {
-		/**
-		 * suki/frontend/single hook
-		 * 
-		 * @see suki_page()
-		 */
-		add_action( 'suki/frontend/single', 'suki_page', 10 );
-
-		/**
-		 * suki/frontend/after_main hook
-		 * 
-		 * @see suki_entry_comments()
-		 */
-		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
-	}
-
-	/**
-	 * ====================================================
-	 * 404 page hooks
-	 * ====================================================
-	 */
-
-	if ( is_404() ) {
-		/**
-		 * suki/frontend/single hook
-		 * 
-		 * @see suki_404()
-		 */
-		add_action( 'suki/frontend/single', 'suki_404', 10 );
-	}
-
 }
 add_action( 'wp', 'suki_template_hooks' );
 

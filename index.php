@@ -20,38 +20,47 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 get_header();
 
-if ( is_singular() ) {
-	/**
-	 * Hook: suki/frontend/single
-	 *
-	 * @hooked suki_single - 10
-	 */
-	do_action( 'suki/frontend/single' );
-}
-elseif ( is_archive() || is_home() ) {
-	/**
-	 * Hook: suki/frontend/archive
-	 *
-	 * @hooked suki_archive - 10
-	 */
-	do_action( 'suki/frontend/archive' );
-}
-elseif ( is_search() ) {
-	/**
-	 * Hook: suki/frontend/archive
-	 *
-	 * @hooked suki_search - 10
-	 */
-	do_action( 'suki/frontend/archive' );
-}
-else {
-	/**
-	 * Hook: suki/frontend/single
-	 *
-	 * @hooked suki_404 - 10
-	 */
-	do_action( 'suki/frontend/single' );
-}
+/**
+ * Content - opening tag
+ */
+suki_content_open();
+
+/**
+ * Primary - opening tag
+ */
+suki_primary_open();
+
+/**
+ * Hook: suki/frontend/before_main
+ */
+do_action( 'suki/frontend/before_main' );
+
+while ( have_posts() ) : the_post();
+
+	// Render post content using "content" layout.
+	get_template_part( 'template-parts/content' );
+
+endwhile;
+
+/**
+ * Hook: suki/frontend/after_main
+ */
+do_action( 'suki/frontend/after_main' );
+
+/**
+ * Primary - closing tag
+ */
+suki_primary_close();
+
+/**
+ * Sidebar
+ */
+get_sidebar();
+
+/**
+ * Content - closing tag
+ */
+suki_content_close();
 
 /**
  * Footer

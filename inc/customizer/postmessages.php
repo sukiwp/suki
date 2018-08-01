@@ -123,7 +123,7 @@ $add['link_hover_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'pre, code, .tagcloud a',
+		'element'  => 'pre, code, .page-header, .tagcloud a',
 		'property' => 'background-color',
 	),
 );

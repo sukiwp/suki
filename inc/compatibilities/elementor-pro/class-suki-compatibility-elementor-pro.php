@@ -87,40 +87,12 @@ class Suki_Compatibility_Elementor_Pro {
 				}
 			}
 
-			// Add additional "custom" content wrapper for page-level locations.
-			if ( $args['edit_in_content'] ) {
-				add_action( "elementor/theme/before_do_{$location}", array( $this, 'add_elementor_location_content_wrapper' ) );
-				add_action( "elementor/theme/after_do_{$location}", array( $this, 'add_elementor_location_content_wrapper_end' ) );
-			}
-
 			// Register location.
 			$elementor_theme_manager->register_core_location( $location, array(
 				'hook' => $hook,
 				'remove_hooks' => $remove_hooks,
 			) );
 		}
-	}
-
-	/**
-	 * Add opening content wrapper tag for page level location.
-	 *
-	 * @param ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $elementor_theme_manager
-	 */
-	public function add_elementor_location_content_wrapper( $elementor_theme_manager ) {
-		?>
-		<div id="content" class="site-content">
-		<?php
-	}
-
-	/**
-	 * Add closing content wrapper tag for page level location.
-	 *
-	 * @param ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $elementor_theme_manager
-	 */
-	public function add_elementor_location_content_wrapper_end( $elementor_theme_manager ) {
-		?>
-		</div>
-		<?php
 	}
 }
 

@@ -13,6 +13,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: 404.php:36
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:37
+msgid "It looks like nothing was found at this location. Maybe try searching?"
+msgstr ""
+
 #: style.css:2
 msgid "Suki"
 msgstr ""
@@ -138,7 +146,7 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/template-functions.php:524
+#: inc/template-functions.php:461
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -177,41 +185,37 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1238
+#: inc/template-tags.php:1163
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1239
+#: inc/template-tags.php:1164
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1348
+#: inc/template-tags.php:1221
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1349
+#: inc/template-tags.php:1222
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1366
+#: inc/template-tags.php:1239
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1372
+#: inc/template-tags.php:1245
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1399
+#: inc/template-tags.php:1272
 msgid "Comments are closed."
-msgstr ""
-
-#: inc/template-tags.php:1564
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
 #: page-templates/page-builder.php:3

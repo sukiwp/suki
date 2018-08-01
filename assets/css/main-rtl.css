@@ -163,16 +163,16 @@ html, body {
 	line-height: 1.7;
 }
 
-.entry-title, h1, .h1, h2, .h2, .site-title, .wp-block-cover-image .wp-block-cover-image-text,
-.wp-block-cover-image h2, .page-header .page-title, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3, h4, h5, h6, .h4 {
+.entry-title, h1, .h1, h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
+.wp-block-cover-image h2, .page-header .page-title, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3, .site-title, h4, h5, h6, .h4 {
 	color: #333333;
 }
 
-.entry-title a, h1 a, .h1 a, h2 a, .h2 a, .site-title a, .wp-block-cover-image .wp-block-cover-image-text a, .wp-block-cover-image h2 a, .page-header .page-title a, .entry-small-title a, .comments-title a, .comment-reply-title a, h3 a, .h3 a, h4 a, h5 a, h6 a, .h4 a {
+.entry-title a, h1 a, .h1 a, h2 a, .h2 a, .wp-block-cover-image .wp-block-cover-image-text a, .wp-block-cover-image h2 a, .page-header .page-title a, .entry-small-title a, .comments-title a, .comment-reply-title a, h3 a, .h3 a, .site-title a, h4 a, h5 a, h6 a, .h4 a {
 	color: #333333;
 }
 
-.entry-title a:hover, h1 a:hover, .h1 a:hover, .entry-title a:focus, h1 a:focus, .h1 a:focus, h2 a:hover, .h2 a:hover, .site-title a:hover, .wp-block-cover-image .wp-block-cover-image-text a:hover, h2 a:focus, .h2 a:focus, .site-title a:focus, .wp-block-cover-image .wp-block-cover-image-text a:focus, .page-header .page-title a:hover, .entry-small-title a:hover, .comments-title a:hover, .comment-reply-title a:hover, h3 a:hover, .h3 a:hover, .page-header .page-title a:focus, .entry-small-title a:focus, .comments-title a:focus, .comment-reply-title a:focus, h3 a:focus, .h3 a:focus, h4 a:hover, h5 a:hover, h6 a:hover, .h4 a:hover, h4 a:focus, h5 a:focus, h6 a:focus, .h4 a:focus {
+.entry-title a:hover, h1 a:hover, .h1 a:hover, .entry-title a:focus, h1 a:focus, .h1 a:focus, h2 a:hover, .h2 a:hover, .wp-block-cover-image .wp-block-cover-image-text a:hover, h2 a:focus, .h2 a:focus, .wp-block-cover-image .wp-block-cover-image-text a:focus, .page-header .page-title a:hover, .entry-small-title a:hover, .comments-title a:hover, .comment-reply-title a:hover, h3 a:hover, .h3 a:hover, .site-title a:hover, .page-header .page-title a:focus, .entry-small-title a:focus, .comments-title a:focus, .comment-reply-title a:focus, h3 a:focus, .h3 a:focus, .site-title a:focus, h4 a:hover, h5 a:hover, h6 a:hover, .h4 a:hover, h4 a:focus, h5 a:focus, h6 a:focus, .h4 a:focus {
 	color: #666666;
 }
 
@@ -182,14 +182,14 @@ html, body {
 	line-height: 1.4;
 }
 
-h2, .h2, .site-title, .wp-block-cover-image .wp-block-cover-image-text,
+h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
 .wp-block-cover-image h2 {
 	font-size: 27px;
 	font-weight: 500;
 	line-height: 1.5;
 }
 
-.page-header .page-title, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3 {
+.page-header .page-title, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3, .site-title {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
@@ -770,10 +770,11 @@ select[multiple] {
 }
 
 .page-header {
-	padding: 0 0 2rem;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	padding: 1.75rem;
 	margin: 0 0 4rem;
+	border-width: 1px;
+	border-style: solid;
+	background-color: #f3f3f3;
 }
 
 .page-header > *:last-child {
@@ -2190,7 +2191,7 @@ body.suki-has-popup-active .suki-popup-background {
 }
 
 .suki-page-header-row {
-	padding: 40px 0;
+	padding: 80px 0;
 }
 
 .suki-page-header a {

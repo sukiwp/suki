@@ -106,9 +106,10 @@
 }
 
 .page-header {
-	padding: 0 0 2rem;
-	@include border( bottom );
+	padding: 1.75rem;
 	margin: 0 0 4rem;
+	@include border();
+	background-color: $color_subtle; // default	
 
 	> *:last-child {
 		margin-bottom: 0 !important;
@@ -183,7 +184,7 @@
 }
 
 .site-title {
-	@extend %h2;
+	@extend %h3;
 	line-height: normal;
 	margin: 0;
 

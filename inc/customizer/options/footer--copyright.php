@@ -27,7 +27,7 @@ $wp_customize->add_control( $id, array(
 	'type'        => 'textarea',
 	'section'     => $section,
 	'label'       => esc_html__( 'Copyright Text', 'suki' ),
-	'description' => wp_kses_post( __( 'Available tags: {{year}}, {{sitename}}, {{themeauthor}}', 'suki' ) ),
+	'description' => esc_html__( 'Available tags: {{year}}, {{sitename}}, {{themeauthor}}', 'suki' ),
 	'priority'    => 10,
 ) );
 
