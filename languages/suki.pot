@@ -1307,7 +1307,7 @@ msgstr ""
 msgid "Mobile Header"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:107, inc/customizer/options/header--logo.php:72
+#: inc/customizer/options/header--builder.php:107, inc/customizer/options/header--logo.php:71
 msgid "Mobile Logo"
 msgstr ""
 
@@ -1342,23 +1342,23 @@ msgctxt "Suki Pro upsell"
 msgid "Additional \"HTML 3\" element on Header Builder"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:36
+#: inc/customizer/options/header--logo.php:35
 msgid "Logo image"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:37
+#: inc/customizer/options/header--logo.php:36
 msgid "Supports JPG, PNG, or SVG format"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:51, inc/customizer/options/header--logo.php:100
+#: inc/customizer/options/header--logo.php:50, inc/customizer/options/header--logo.php:98
 msgid "Max width"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:85
+#: inc/customizer/options/header--logo.php:83
 msgid "Mobile Logo image"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:86
+#: inc/customizer/options/header--logo.php:84
 msgid "Supports .JPG, .PNG, or .SVG format"
 msgstr ""
 
