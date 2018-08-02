@@ -949,11 +949,11 @@ msgstr ""
 msgid "Text color"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:152, inc/customizer/options/footer--widgets-bar.php:285, inc/customizer/options/sidebar.php:328
+#: inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:152, inc/customizer/options/footer--widgets-bar.php:285, inc/customizer/options/header--mobile-main-bar.php:151, inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:270, inc/customizer/options/sidebar.php:328
 msgid "Link text color"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:57, inc/customizer/options/footer--bottom-bar.php:153, inc/customizer/options/footer--widgets-bar.php:286, inc/customizer/options/sidebar.php:329
+#: inc/customizer/options/elements--body.php:57, inc/customizer/options/footer--bottom-bar.php:153, inc/customizer/options/footer--widgets-bar.php:286, inc/customizer/options/header--mobile-main-bar.php:152, inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:271, inc/customizer/options/sidebar.php:329
 msgid "Link text color :hover"
 msgstr ""
 
@@ -1366,14 +1366,6 @@ msgstr ""
 msgid "Icon size"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:151
-msgid "Menu link text color"
-msgstr ""
-
-#: inc/customizer/options/header--mobile-main-bar.php:152
-msgid "Menu link text color :hover"
-msgstr ""
-
 #: inc/customizer/options/header--mobile-vertical-bar.php:29
 msgid "Position"
 msgstr ""
@@ -1392,14 +1384,6 @@ msgstr ""
 
 #: inc/customizer/options/header--mobile-vertical-bar.php:198, inc/customizer/options/header--top-main-bottom-bar.php:227
 msgid "Submenu link typography"
-msgstr ""
-
-#: inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:270
-msgid "Link color"
-msgstr ""
-
-#: inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:271
-msgid "Link color :hover"
 msgstr ""
 
 #: inc/customizer/options/header--search.php:36

@@ -238,8 +238,8 @@ $colors = array(
 	'header_mobile_vertical_bar_bg_color'              => esc_html__( 'Background color', 'suki' ),
 	'header_mobile_vertical_bar_border_color'          => esc_html__( 'Border color', 'suki' ),
 	'header_mobile_vertical_bar_text_color'            => esc_html__( 'Text color', 'suki' ),
-	'header_mobile_vertical_bar_link_text_color'       => esc_html__( 'Link color', 'suki' ),
-	'header_mobile_vertical_bar_link_hover_text_color' => esc_html__( 'Link color :hover', 'suki' ),
+	'header_mobile_vertical_bar_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
+	'header_mobile_vertical_bar_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(
