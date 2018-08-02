@@ -7,7 +7,7 @@
 		"name": "SukiWP",
 		"url": "https://sukiwp.com/about/"
 	},
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"two-columns",
@@ -56,7 +56,7 @@
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-watch": "^5.0.1",
 		"gulp-wp-pot": "^2.3.2",
-		"gulp-zip": "^4.1.0",
+		"gulp-zip": "^4.2.0",
 		"normalize.css": "^8.0.0"
 	},
 	"browserslist": [
