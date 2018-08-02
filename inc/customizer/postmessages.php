@@ -12,31 +12,6 @@ $add = array();
 
 /**
  * ====================================================
- * WordPress default controls
- * ====================================================
- */
-
-// Add postmessage to some default WordPress settings.
-$add['blogname'] = array(
-	array(
-		'type'    => 'html',
-		'element' => '.site-title a span',
-	),
-	array(
-		'type'     => 'html',
-		'property' => 'alt',
-		'element'  => '.site-title a img',
-	),
-);
-$add['blogdescription'] = array(
-	array(
-		'type'    => 'html',
-		'element' => '.site-description',
-	),
-);
-
-/**
- * ====================================================
  * General Elements > Body (Base)
  * ====================================================
  */
@@ -802,28 +777,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_link_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:not(.button)',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button), .suki-header-' . $bar . ' .suki-toggle',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $type . '_link_hover_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus',
-			'property' => 'color',
-		),
-	);
-	$add['header_' . $type . '_menu_text_color'] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .menu .menu-item > a, .suki-header-' . $bar . ' .suki-toggle',
-			'property' => 'color',
-		),
-	);
-	$add['header_' . $type . '_menu_hover_text_color'] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .menu .menu-item > a:hover, .suki-header-' . $bar . ' .menu .menu-item > a:focus, .suki-header-' . $bar . ' .suki-toggle:hover, .suki-header-' . $bar . ' .suki-toggle:focus',
+			'element'  => '.suki-header-' . $bar . ' a:not(.button):hover, .suki-header-' . $bar . ' a:not(.button):focus, .suki-header-' . $bar . ' .suki-toggle:hover, .suki-header-' . $bar . ' .suki-toggle:focus',
 			'property' => 'color',
 		),
 	);
@@ -906,14 +867,14 @@ $add['header_mobile_main_bar_border_color'] = array(
 		'property' => 'border-color',
 	),
 );
-$add['header_mobile_main_bar_menu_text_color'] = array(
+$add['header_mobile_main_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle',
 		'property' => 'color',
 	),
 );
-$add['header_mobile_main_bar_menu_hover_text_color'] = array(
+$add['header_mobile_main_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus',
@@ -1029,20 +990,6 @@ $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus',
-		'property' => 'color',
-	),
-);
-$add['header_mobile_vertical_bar_menu_text_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
-		'property' => 'color',
-	),
-);
-$add['header_mobile_vertical_bar_menu_hover_text_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > a:hover, .suki-header-mobile-vertical-bar .menu .menu-item > a:focus, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:hover, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle:focus',
 		'property' => 'color',
 	),
 );

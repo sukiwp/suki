@@ -52,6 +52,7 @@
 			.suki-page-header-breadcrumb {
 				width: 50%;
 				text-align: right;
+				margin: 0;
 			}
 		}
 	}
@@ -74,6 +75,7 @@
 			.suki-page-header-breadcrumb {
 				width: 50%;
 				text-align: left;
+				margin: 0;
 			}
 		}
 	}
@@ -97,6 +99,7 @@
 
 .suki-page-header-breadcrumb {
 	font-size: 0.9em; // default
+	margin-top: 0.5em;
 
 	ul {
 		list-style: none;

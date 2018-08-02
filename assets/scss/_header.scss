@@ -20,9 +20,14 @@
 .suki-header-logo,
 .suki-header-mobile-logo {
 	.site-title {
+		margin: 0;
+
 		> a {
+			@extend %small-title;
+
 			> svg,
 			> img {
+				display: block;
 				width: 100px; // default
 			}
 		}
@@ -239,7 +244,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu .menu-item > a {
+	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -270,7 +275,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu .menu-item > a {
+	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -301,7 +306,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu .menu-item > a {
+	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -332,7 +337,7 @@
 		border-width: 0 0 1px 0; // default
 	}
 
-	a:not(.button), .suki-toggle, .menu .menu-item > a {
+	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
 		&:hover, &:focus {
@@ -533,7 +538,7 @@
 		}
 	}
 
-	a:not(.button), .suki-toggle, .menu .menu-item > a {
+	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
 		&:hover, &:focus {

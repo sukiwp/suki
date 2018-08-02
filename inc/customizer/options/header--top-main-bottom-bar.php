@@ -269,8 +269,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'header_' . $type . '_text_color'            => esc_html__( 'Text color', 'suki' ),
 		'header_' . $type . '_link_text_color'       => esc_html__( 'Link color', 'suki' ),
 		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link color :hover', 'suki' ),
-		'header_' . $type . '_menu_text_color'       => esc_html__( 'Menu link text color', 'suki' ),
-		'header_' . $type . '_menu_hover_text_color' => esc_html__( 'Menu link text color :hover', 'suki' ),
 		'header_' . $type . '_menu_highlight_color'  => esc_html__( 'Menu link highlight color', 'suki' ),
 	);
 	foreach ( $colors as $id => $label ) {

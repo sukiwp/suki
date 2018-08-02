@@ -111,6 +111,27 @@ input, select, textarea {
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
+.suki-admin-color-control .wp-picker-container .color-alpha:after {
+	content: "not set";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 40px;
+	margin: -5px -5px 0 0;
+	border: none;
+	font-size: 8px;
+	font-weight: bold;
+	line-height: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #fff;
+	color: #444;
+}
+
+.suki-admin-color-control .wp-picker-container .color-alpha[style*="background:"]:after {
+	display: none;
+}
+
 .suki-admin-color-control .wp-picker-container .wp-color-result-text {
 	display: none;
 }

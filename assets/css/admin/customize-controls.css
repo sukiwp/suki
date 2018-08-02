@@ -293,7 +293,7 @@ div.customize-section-description {
 }
 
 .customize-control-suki-color .wp-picker-container .color-alpha:after {
-	content: "default";
+	content: "not set";
 	position: absolute;
 	top: 50%;
 	left: 0;

@@ -1366,11 +1366,11 @@ msgstr ""
 msgid "Icon size"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:151, inc/customizer/options/header--mobile-vertical-bar.php:243, inc/customizer/options/header--top-main-bottom-bar.php:272
+#: inc/customizer/options/header--mobile-main-bar.php:151
 msgid "Menu link text color"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:152, inc/customizer/options/header--mobile-vertical-bar.php:244, inc/customizer/options/header--top-main-bottom-bar.php:273
+#: inc/customizer/options/header--mobile-main-bar.php:152
 msgid "Menu link text color :hover"
 msgstr ""
 
@@ -1426,7 +1426,7 @@ msgstr ""
 msgid "Border top"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:274
+#: inc/customizer/options/header--top-main-bottom-bar.php:272
 msgid "Menu link highlight color"
 msgstr ""
 

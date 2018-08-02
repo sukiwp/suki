@@ -164,15 +164,16 @@ html, body {
 }
 
 .entry-title, h1, .h1, h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
-.wp-block-cover-image h2, .page-header .page-title, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3, .site-title, h4, h5, h6, .h4 {
+.wp-block-cover-image h2, .page-header .page-title, .suki-header-logo .site-title > a,
+.suki-header-mobile-logo .site-title > a, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3, h4, h5, h6, .h4 {
 	color: #333333;
 }
 
-.entry-title a, h1 a, .h1 a, h2 a, .h2 a, .wp-block-cover-image .wp-block-cover-image-text a, .wp-block-cover-image h2 a, .page-header .page-title a, .entry-small-title a, .comments-title a, .comment-reply-title a, h3 a, .h3 a, .site-title a, h4 a, h5 a, h6 a, .h4 a {
+.entry-title a, h1 a, .h1 a, h2 a, .h2 a, .wp-block-cover-image .wp-block-cover-image-text a, .wp-block-cover-image h2 a, .page-header .page-title a, .suki-header-logo .site-title > a a, .suki-header-mobile-logo .site-title > a a, .entry-small-title a, .comments-title a, .comment-reply-title a, h3 a, .h3 a, h4 a, h5 a, h6 a, .h4 a {
 	color: #333333;
 }
 
-.entry-title a:hover, h1 a:hover, .h1 a:hover, .entry-title a:focus, h1 a:focus, .h1 a:focus, h2 a:hover, .h2 a:hover, .wp-block-cover-image .wp-block-cover-image-text a:hover, h2 a:focus, .h2 a:focus, .wp-block-cover-image .wp-block-cover-image-text a:focus, .page-header .page-title a:hover, .entry-small-title a:hover, .comments-title a:hover, .comment-reply-title a:hover, h3 a:hover, .h3 a:hover, .site-title a:hover, .page-header .page-title a:focus, .entry-small-title a:focus, .comments-title a:focus, .comment-reply-title a:focus, h3 a:focus, .h3 a:focus, .site-title a:focus, h4 a:hover, h5 a:hover, h6 a:hover, .h4 a:hover, h4 a:focus, h5 a:focus, h6 a:focus, .h4 a:focus {
+.entry-title a:hover, h1 a:hover, .h1 a:hover, .entry-title a:focus, h1 a:focus, .h1 a:focus, h2 a:hover, .h2 a:hover, .wp-block-cover-image .wp-block-cover-image-text a:hover, h2 a:focus, .h2 a:focus, .wp-block-cover-image .wp-block-cover-image-text a:focus, .page-header .page-title a:hover, .suki-header-logo .site-title > a a:hover, .suki-header-mobile-logo .site-title > a a:hover, .entry-small-title a:hover, .comments-title a:hover, .comment-reply-title a:hover, h3 a:hover, .h3 a:hover, .page-header .page-title a:focus, .suki-header-logo .site-title > a a:focus, .suki-header-mobile-logo .site-title > a a:focus, .entry-small-title a:focus, .comments-title a:focus, .comment-reply-title a:focus, h3 a:focus, .h3 a:focus, h4 a:hover, h5 a:hover, h6 a:hover, .h4 a:hover, h4 a:focus, h5 a:focus, h6 a:focus, .h4 a:focus {
 	color: #666666;
 }
 
@@ -189,7 +190,8 @@ h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
 	line-height: 1.5;
 }
 
-.page-header .page-title, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3, .site-title {
+.page-header .page-title, .suki-header-logo .site-title > a,
+.suki-header-mobile-logo .site-title > a, .entry-small-title, .comments-title, .comment-reply-title, h3, .h3 {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
@@ -851,15 +853,6 @@ select[multiple] {
 	margin-left: 0 !important;
 }
 
-.site-title {
-	line-height: normal;
-	margin: 0;
-}
-
-.site-title img, .site-title svg {
-	display: block;
-}
-
 .suki-oembed-video {
 	position: relative;
 	padding-top: 56.25%;
@@ -1491,10 +1484,16 @@ body.suki-has-popup-active .suki-popup-background {
 	position: relative;
 }
 
+.suki-header-logo .site-title,
+.suki-header-mobile-logo .site-title {
+	margin: 0;
+}
+
 .suki-header-logo .site-title > a > svg,
 .suki-header-logo .site-title > a > img,
 .suki-header-mobile-logo .site-title > a > svg,
 .suki-header-mobile-logo .site-title > a > img {
+	display: block;
 	width: 100px;
 }
 
@@ -1776,11 +1775,11 @@ body.suki-has-popup-active .suki-popup-background {
 	border-width: 0 0 1px 0;
 }
 
-.suki-header-top-bar a:not(.button), .suki-header-top-bar .suki-toggle, .suki-header-top-bar .menu .menu-item > a {
+.suki-header-top-bar a:not(.button), .suki-header-top-bar .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-top-bar a:not(.button):hover, .suki-header-top-bar a:not(.button):focus, .suki-header-top-bar .suki-toggle:hover, .suki-header-top-bar .suki-toggle:focus, .suki-header-top-bar .menu .menu-item > a:hover, .suki-header-top-bar .menu .menu-item > a:focus {
+.suki-header-top-bar a:not(.button):hover, .suki-header-top-bar a:not(.button):focus, .suki-header-top-bar .suki-toggle:hover, .suki-header-top-bar .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -1803,11 +1802,11 @@ body.suki-has-popup-active .suki-popup-background {
 	border-width: 0 0 1px 0;
 }
 
-.suki-header-main-bar a:not(.button), .suki-header-main-bar .suki-toggle, .suki-header-main-bar .menu .menu-item > a {
+.suki-header-main-bar a:not(.button), .suki-header-main-bar .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-main-bar a:not(.button):hover, .suki-header-main-bar a:not(.button):focus, .suki-header-main-bar .suki-toggle:hover, .suki-header-main-bar .suki-toggle:focus, .suki-header-main-bar .menu .menu-item > a:hover, .suki-header-main-bar .menu .menu-item > a:focus {
+.suki-header-main-bar a:not(.button):hover, .suki-header-main-bar a:not(.button):focus, .suki-header-main-bar .suki-toggle:hover, .suki-header-main-bar .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -1830,11 +1829,11 @@ body.suki-has-popup-active .suki-popup-background {
 	border-width: 0 0 1px 0;
 }
 
-.suki-header-bottom-bar a:not(.button), .suki-header-bottom-bar .suki-toggle, .suki-header-bottom-bar .menu .menu-item > a {
+.suki-header-bottom-bar a:not(.button), .suki-header-bottom-bar .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-bottom-bar a:not(.button):hover, .suki-header-bottom-bar a:not(.button):focus, .suki-header-bottom-bar .suki-toggle:hover, .suki-header-bottom-bar .suki-toggle:focus, .suki-header-bottom-bar .menu .menu-item > a:hover, .suki-header-bottom-bar .menu .menu-item > a:focus {
+.suki-header-bottom-bar a:not(.button):hover, .suki-header-bottom-bar a:not(.button):focus, .suki-header-bottom-bar .suki-toggle:hover, .suki-header-bottom-bar .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -1857,11 +1856,11 @@ body.suki-has-popup-active .suki-popup-background {
 	border-width: 0 0 1px 0;
 }
 
-.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle, .suki-header-mobile-main-bar .menu .menu-item > a {
+.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus, .suki-header-mobile-main-bar .menu .menu-item > a:hover, .suki-header-mobile-main-bar .menu .menu-item > a:focus {
+.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -2051,11 +2050,11 @@ body.suki-has-popup-active .suki-popup-background {
 	padding: 12px 0;
 }
 
-.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle, .suki-header-mobile-vertical-bar .menu .menu-item > a {
+.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus, .suki-header-mobile-vertical-bar .menu .menu-item > a:hover, .suki-header-mobile-vertical-bar .menu .menu-item > a:focus {
+.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -2238,6 +2237,7 @@ body.suki-has-popup-active .suki-popup-background {
 	.suki-page-header-layout-left-right .suki-page-header-row .suki-page-header-breadcrumb {
 		width: 50%;
 		text-align: right;
+		margin: 0;
 	}
 }
 
@@ -2275,6 +2275,7 @@ body.suki-has-popup-active .suki-popup-background {
 	.suki-page-header-layout-right-left .suki-page-header-row .suki-page-header-breadcrumb {
 		width: 50%;
 		text-align: left;
+		margin: 0;
 	}
 }
 
@@ -2296,6 +2297,7 @@ body.suki-has-popup-active .suki-popup-background {
 
 .suki-page-header-breadcrumb {
 	font-size: 0.9em;
+	margin-top: 0.5em;
 }
 
 .suki-page-header-breadcrumb ul {

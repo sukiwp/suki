@@ -133,6 +133,29 @@ input, select, textarea {
 		.color-alpha {
 			border-radius: 0 !important;
 			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+			
+			&:after {
+				content: "not set";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 40px;
+				margin: -5px 0 0 -5px;
+				border: none;
+				font-size: 8px;
+				font-weight: bold;
+				line-height: 10px;
+				text-align: center;
+				text-transform: uppercase;
+				background-color: #fff;
+				color: #444;
+			}
+
+			&[style*="background:"] {
+				&:after {
+					display: none;
+				}
+			}
 		}
 
 		.wp-color-result-text {

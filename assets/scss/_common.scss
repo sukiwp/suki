@@ -187,16 +187,6 @@
 	}
 }
 
-.site-title {
-	@extend %h3;
-	line-height: normal;
-	margin: 0;
-
-	img, svg {
-		display: block;
-	}
-}
-
 .suki-oembed-video {
 	position: relative;
 	padding-top: 56.25%; // overrided by inline style

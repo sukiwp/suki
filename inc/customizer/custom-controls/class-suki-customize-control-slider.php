@@ -28,7 +28,7 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 	/**
 	 * @var boolean
 	 */
-	public $hide_units = true;
+	public $hide_units = false;
 
 	/**
 	 * Constructor
@@ -106,7 +106,7 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 
 		$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
 
-		$this->json['hide_units'] = $this->hide_units;
+		$this->json['hide_units'] = 1 == $this->hide_units ? true : false;
 
 		$this->json['__input_attrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
