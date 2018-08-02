@@ -619,8 +619,7 @@ if ( ! function_exists( 'suki_breadcrumb' ) ) :
 function suki_breadcrumb() {
 	if ( ! suki_get_theme_mod( 'page_header_breadcrumb' ) ) return;
 
-	echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">';
-
+	ob_start();
 	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
 		case 'breadcrumb-trail':
 			if ( function_exists( 'breadcrumb_trail' ) ) {
@@ -642,8 +641,11 @@ function suki_breadcrumb() {
 			}
 			break;
 	}
+	$breadcrumb = ob_get_clean();
 	
-	echo '</div>';
+	if ( ! empty( $breadcrumb ) ) {
+		echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // WPCS: XSS OK
+	}
 }
 endif;
 
