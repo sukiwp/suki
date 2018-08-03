@@ -34,6 +34,48 @@ $add['outside_bg_attachment'] = array(
 
 /**
  * ====================================================
+ * Header > Top Bar
+ * ====================================================
+ */
+
+$add['header_top_bar_container'] = array(
+	array(
+		'setting'  => 'header_top_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Header > Bottom Bar
+ * ====================================================
+ */
+
+$add['header_bottom_bar_container'] = array(
+	array(
+		'setting'  => 'header_bottom_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Footer > Bottom Bar
+ * ====================================================
+ */
+
+$add['footer_bottom_bar_container'] = array(
+	array(
+		'setting'  => 'footer_bottom_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
  * Header > Header Builder
  * ====================================================
  */

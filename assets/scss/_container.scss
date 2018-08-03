@@ -116,6 +116,14 @@ body.suki-page-layout-boxed {
 	}
 }
 
+.suki-section-merged {
+	padding: 0;
+
+	.suki-section-inner {
+		padding: 0;
+	}
+}
+
 .suki-section-contained {
 	> .suki-section-inner {
 		margin-left: auto;

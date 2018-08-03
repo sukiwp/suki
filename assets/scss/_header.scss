@@ -145,15 +145,6 @@
 }
 
 .suki-header-section {
-	.suki-header-section {
-		&.suki-section-contained,
-		.suki-section-inner {
-			padding: 0;
-		}
-	}
-}
-
-.suki-header-section {
 	.menu {
 		@include flex();
 		height: 100%;

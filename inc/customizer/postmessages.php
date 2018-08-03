@@ -645,7 +645,8 @@ $add['header_social_links_target'] = array(
  * ====================================================
  */
 
-foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
+// Main bar is placed first because top bar and bottom bar can be merged into main bar.
+foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	$bar = str_replace( '_', '-', $type );
 
 	// Layout
