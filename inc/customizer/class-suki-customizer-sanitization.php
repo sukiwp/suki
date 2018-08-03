@@ -324,19 +324,19 @@ class Suki_Customizer_Sanitization {
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $control_id );
 
-		foreach ( $value as $slug ) {
+		foreach ( $value as $i => $slug ) {
 			if ( ! array_key_exists( $slug, $control->choices ) ) {
 				unset( $value[ $i ] );
 			}
 
-			$avoided_locations = isset( $control->avoid[ $slug ] ) ? $control->avoid[ $slug ] : array();
-			if ( array_key_exists( $location, $control->avoid ) ) {
+			if ( array_key_exists( $location, suki_array_value( $control->limitations, $slug, array() ) ) ) {
 				unset( $value[ $i ] );
 			}
 		}
 		
 		return array_values( $value );
 	}
+	
 	/**
 	 * Wrapper function to validate color value.
 	 *

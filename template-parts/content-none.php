@@ -18,10 +18,7 @@
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
 			<p>
-				<?php
-				/* translators: %s: link to admin new post editor page. */
-				printf( wp_kses( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'suki' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) );
-				?>
+				<a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php esc_html_e( 'Ready to publish your first post? Get started here.', 'suki' ); ?></a>
 			</p>
 
 		<?php elseif ( is_search() ) : ?>

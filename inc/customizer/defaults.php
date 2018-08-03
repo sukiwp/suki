@@ -200,7 +200,7 @@ $add['alignwide_negative_margin'] = '100px';
 
 /**
  * ====================================================
- * Page Container
+ * Page Canvas
  * ====================================================
  */
 
@@ -318,7 +318,7 @@ $add['header_top_bar_submenu_letter_spacing'] = '';
 
 $add['header_top_bar_icon_size'] = '18px';
 
-$add['header_top_bar_bg_color'] = $colors['bg'];
+$add['header_top_bar_bg_color'] = '';
 $add['header_top_bar_border_color'] = '';
 $add['header_top_bar_text_color'] = '';
 $add['header_top_bar_link_text_color'] = $colors['heading'];
@@ -366,7 +366,7 @@ $add['header_main_bar_submenu_letter_spacing'] = '';
 
 $add['header_main_bar_icon_size'] = '18px';
 
-$add['header_main_bar_bg_color'] = $colors['bg'];
+$add['header_main_bar_bg_color'] = '';
 $add['header_main_bar_border_color'] = '';
 $add['header_main_bar_text_color'] = '';
 $add['header_main_bar_link_text_color'] = $colors['heading'];
@@ -414,7 +414,7 @@ $add['header_bottom_bar_submenu_letter_spacing'] = '';
 
 $add['header_bottom_bar_icon_size'] = '18px';
 
-$add['header_bottom_bar_bg_color'] = $colors['bg'];
+$add['header_bottom_bar_bg_color'] = '';
 $add['header_bottom_bar_border_color'] = '';
 $add['header_bottom_bar_text_color'] = '';
 $add['header_bottom_bar_link_text_color'] = $colors['heading'];
@@ -479,7 +479,7 @@ $add['header_mobile_vertical_bar_submenu_letter_spacing'] = '';
 
 $add['header_mobile_vertical_bar_icon_size'] = '18px';
 
-$add['header_mobile_vertical_bar_bg_color'] = $colors['bg'];
+$add['header_mobile_vertical_bar_bg_color'] = '';
 $add['header_mobile_vertical_bar_border_color'] = '';
 $add['header_mobile_vertical_bar_text_color'] = '';
 $add['header_mobile_vertical_bar_link_text_color'] = $colors['heading'];
@@ -492,7 +492,7 @@ $add['header_mobile_vertical_bar_menu_highlight_color'] = $colors['accent'];
  * ====================================================
  */
 
-$add['page_header'] = 1;
+$add['page_header'] = 0;
 
 $add['page_header_container'] = 'default';
 $add['page_header_padding'] = '80px 0px 80px 0px';

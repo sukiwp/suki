@@ -229,14 +229,14 @@ class Suki_Admin {
 			$css_array['global'][ $type ]['letter-spacing'] = suki_get_theme_mod( $type . '_letter_spacing' );
 		}
 
-		// Container width for content layout with sidebar
+		// Content wrapper width for content layout with sidebar
 		$css_array['global']['body.suki-editor-left-sidebar']['width'] =
 		$css_array['global']['body.suki-editor-right-sidebar']['width'] = 'calc(' . suki_get_content_width_by_layout() . 'px + 2rem)';
 
-		// Container width for narrow content layout
+		// Content wrapper width for narrow content layout
 		$css_array['global']['body.suki-editor-narrow']['width'] = 'calc(' . suki_get_content_width_by_layout( 'narrow' ) . 'px + 2rem)';
 
-		// Container width for wide content layout
+		// Content wrapper width for full content layout
 		$css_array['global']['body.suki-editor-wide']['width'] = 'calc(' . suki_get_content_width_by_layout( 'wide' ) . 'px + 2rem)';
 
 		// Build CSS string.

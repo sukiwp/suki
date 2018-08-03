@@ -33,6 +33,5 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Use 2 columns layout', 'suki' ),
-	'description' => esc_html__( 'You might need to set your Checkout Page content layout (page settings) to "Wide Content" or "Narrow Content"', 'suki' ),
 	'priority'    => 20,
 ) ) );

@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 
 /**
-* Content - opening tag
-*/
+ * Content - opening tag
+ */
 suki_content_open();
 
 /**

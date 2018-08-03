@@ -16,7 +16,7 @@ $section = 'suki_section_footer_widgets_bar';
  * ====================================================
  */
 
-// Section container
+// Section layout
 $id = 'footer_widgets_bar_container';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
@@ -26,11 +26,11 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( $id, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Section container', 'suki' ),
+	'label'       => esc_html__( 'Section layout', 'suki' ),
 	'choices'     => array(
-		'default'            => esc_html__( 'Fixed width container', 'suki' ),
-		'full-width'         => esc_html__( 'Full container', 'suki' ),
-		'full-width-padding' => esc_html__( 'Full container with side padding', 'suki' ),
+		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
+		'full-width'         => esc_html__( 'Full width content', 'suki' ),
+		'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 		'contained'          => esc_html__( 'Contained section', 'suki' ),
 	),
 	'priority'    => 10,

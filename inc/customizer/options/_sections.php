@@ -130,32 +130,34 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_gutenberg', array(
-		'panel'       => $panel,
-		'priority'    => 20,
-	) ) );
+	if ( class_exists( 'WP_Block_Type' ) ) {
+		// ------
+		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_gutenberg', array(
+			'panel'       => $panel,
+			'priority'    => 20,
+		) ) );
 
-	// Additional Styles for Gutenberg
-	$wp_customize->add_section( 'suki_section_gutenberg', array(
-		'title'       => esc_html__( 'Additional Styles for Gutenberg', 'suki' ),
-		'description' => sprintf(
-			/* translators: %s: link to "Page Settings" section. */
-			esc_html__( 'Best content layout for Gutenberg is "Narrow Content". You can activate it via %s on each page type.', 'suki' ),
-			'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
-		),
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
+		// Additional Styles for Gutenberg
+		$wp_customize->add_section( 'suki_section_gutenberg', array(
+			'title'       => esc_html__( 'Additional Styles for Gutenberg', 'suki' ),
+			'description' => sprintf(
+				/* translators: %s: link to "Page Settings" section. */
+				esc_html__( 'Best content layout for Gutenberg is "Narrow content". You can activate the "Narrow content" layout on each page type via %s.', 'suki' ),
+				'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
+			),
+			'panel'       => $panel,
+			'priority'    => 20,
+		) );
+	}
 
 // ------
 $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_170', array(
 	'priority'    => 170,
 ) ) );
 
-// Page Container
+// Page Canvas
 $wp_customize->add_section( 'suki_section_page_container', array(
-	'title'       => esc_html__( 'Page Container', 'suki' ),
+	'title'       => esc_html__( 'Page Canvas', 'suki' ),
 	'priority'    => 171,
 ) );
 
@@ -399,7 +401,7 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->add_section( 'suki_section_blog_single', array(
 		'title'       => esc_html__( 'Single Post', 'suki' ),
 		'description' => sprintf(
-			/* translators: %s: link to "Page Settings" section. */
+			/* translators: %s: link to "Post Layout: Default" section. */
 			esc_html__( '"Default" post layout is used as the main post layout. You can configure it on %s', 'suki' ),
 			'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
 		),
