@@ -110,8 +110,8 @@ body.suki-page-layout-boxed {
 		clear: both;
 	}
 
-	.suki-section-full-width &,
-	.suki-section-full-width-padding & {
+	.suki-section-full-width > .suki-section-inner > &,
+	.suki-section-full-width-padding > .suki-section-inner > & {
 		width: auto;
 	}
 }

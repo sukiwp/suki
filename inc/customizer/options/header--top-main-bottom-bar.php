@@ -20,6 +20,28 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	 * Layout
 	 * ====================================================
 	 */
+
+	if ( $type !== 'main_bar' ) {
+		// Merge inside Main Bar
+		$id = 'header_' . $type . '_merged';
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Merge inside Main Bar', 'suki' ),
+			'description' => esc_html__( 'If enabled, please make sure that Main Bar is active (has one element or more), otherwise this bar would be hidden.', 'suki' ),
+			'priority'    => 10,
+		) ) );
+
+		// ------
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $type . '_merged', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'priority'    => 10,
+		) ) );
+	}
 	
 	// Section layout
 	$id = 'header_' . $type . '_container';
@@ -265,7 +287,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	// Colors
 	$colors = array(
 		'header_' . $type . '_bg_color'              => esc_html__( 'Background color', 'suki' ),
-		'header_' . $type . 'border_color'           => esc_html__( 'Border color', 'suki' ),
+		'header_' . $type . '_border_color'          => esc_html__( 'Border color', 'suki' ),
 		'header_' . $type . '_text_color'            => esc_html__( 'Text color', 'suki' ),
 		'header_' . $type . '_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
 		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),

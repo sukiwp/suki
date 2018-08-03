@@ -1341,8 +1341,8 @@ body.suki-has-popup-active .suki-popup-background {
 	clear: both;
 }
 
-.suki-section-full-width .suki-wrapper,
-.suki-section-full-width-padding .suki-wrapper {
+.suki-section-full-width > .suki-section-inner > .suki-wrapper,
+.suki-section-full-width-padding > .suki-section-inner > .suki-wrapper {
 	width: auto;
 }
 
@@ -1634,6 +1634,14 @@ body.suki-has-popup-active .suki-popup-background {
 	width: 50%;
 }
 
+.suki-header-section .suki-header-section {
+	padding: 0;
+}
+
+.suki-header-section .suki-header-section .suki-section-inner {
+	padding: 0;
+}
+
 .suki-header-section .menu {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1764,15 +1772,13 @@ body.suki-has-popup-active .suki-popup-background {
 	margin-left: -1em;
 }
 
-.suki-header-top-bar {
-	height: 40px;
-}
-
 .suki-header-top-bar-inner {
 	z-index: 3;
-	height: 40px;
-	background-color: #ffffff;
 	border-width: 0 0 1px 0;
+}
+
+.suki-header-top-bar-row {
+	height: 40px;
 }
 
 .suki-header-top-bar a:not(.button), .suki-header-top-bar .suki-toggle {
@@ -1791,15 +1797,13 @@ body.suki-has-popup-active .suki-popup-background {
 	background-color: #ffffff;
 }
 
-.suki-header-main-bar {
-	height: 80px;
-}
-
 .suki-header-main-bar-inner {
 	z-index: 2;
-	height: 80px;
-	background-color: #ffffff;
 	border-width: 0 0 1px 0;
+}
+
+.suki-header-main-bar-row {
+	height: 80px;
 }
 
 .suki-header-main-bar a:not(.button), .suki-header-main-bar .suki-toggle {
@@ -1818,15 +1822,13 @@ body.suki-has-popup-active .suki-popup-background {
 	background-color: #ffffff;
 }
 
-.suki-header-bottom-bar {
-	height: 40px;
-}
-
 .suki-header-bottom-bar-inner {
 	z-index: 1;
-	height: 40px;
-	background-color: #ffffff;
 	border-width: 0 0 1px 0;
+}
+
+.suki-header-bottom-bar-row {
+	height: 40px;
 }
 
 .suki-header-bottom-bar a:not(.button), .suki-header-bottom-bar .suki-toggle {
@@ -1845,15 +1847,13 @@ body.suki-has-popup-active .suki-popup-background {
 	background-color: #ffffff;
 }
 
-.suki-header-mobile-main-bar {
-	height: 60px;
-}
-
 .suki-header-mobile-main-bar-inner {
 	z-index: 1;
-	height: 60px;
-	background-color: #ffffff;
 	border-width: 0 0 1px 0;
+}
+
+.suki-header-mobile-main-bar-row {
+	height: 60px;
 }
 
 .suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle {

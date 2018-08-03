@@ -74,9 +74,7 @@ function suki_template_hooks() {
 	 *
 	 * @see suki_mobile_vertical_header()
 	 */
-	if ( ! suki_get_current_page_setting( 'disable_mobile_header' ) ) {
-		add_action( 'suki/frontend/top_popups', 'suki_mobile_vertical_header', 10 );
-	}
+	add_action( 'suki/frontend/top_popups', 'suki_mobile_vertical_header', 10 );
 
 	/**
 	 * suki/frontend/header hook
@@ -84,34 +82,22 @@ function suki_template_hooks() {
 	 * @see suki_main_header()
 	 * @see suki_mobile_header()
 	 */
-	if ( ! suki_get_current_page_setting( 'disable_header' ) ) {
-		add_action( 'suki/frontend/header', 'suki_main_header', 10 );
-	}
-	if ( ! suki_get_current_page_setting( 'disable_mobile_header' ) ) {
-		add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
-	}
+	add_action( 'suki/frontend/header', 'suki_main_header', 10 );
+	add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
 
 	/**
 	 * suki/frontend/after_header hook
 	 *
 	 * @see suki_page_header()
 	 */
-	if ( ! suki_get_current_page_setting( 'disable_page_header' ) ) {
-		add_action( 'suki/frontend/after_header', 'suki_page_header', 10 );
-	}
+	add_action( 'suki/frontend/after_header', 'suki_page_header', 10 );
 
 	/**
 	 * suki/frontend/footer hook
 	 *
-	 * @see suki_footer_widgets()
-	 * @see suki_footer_bottom()
+	 * @see suki_main_footer()
 	 */
-	if ( ! suki_get_current_page_setting( 'disable_footer_widgets' ) ) {
-		add_action( 'suki/frontend/footer', 'suki_footer_widgets', 10 );
-	}
-	if ( ! suki_get_current_page_setting( 'disable_footer_bottom' ) ) {
-		add_action( 'suki/frontend/footer', 'suki_footer_bottom', 10 );
-	}
+	add_action( 'suki/frontend/footer', 'suki_main_footer', 10 );
 
 	/**
 	 * ====================================================

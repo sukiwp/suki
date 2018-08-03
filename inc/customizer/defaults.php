@@ -283,6 +283,8 @@ $add['header_social_links_target'] = 'self';
  * ====================================================
  */
 
+$add['header_top_bar_merged'] = 0;
+
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '40px';
 $add['header_top_bar_padding'] = '0px 0px 0px 0px';
@@ -378,6 +380,8 @@ $add['header_main_bar_menu_highlight_color'] = $colors['accent'];
  * Header > Bottom Bar
  * ====================================================
  */
+
+$add['header_bottom_bar_merged'] = 0;
 
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '40px';
@@ -608,6 +612,8 @@ $add['footer_elements_bottom_right'] = array();
  * Footer > Widgets Bar
  * ====================================================
  */
+
+$add['footer_bottom_bar_merged'] = 0;
 
 $add['footer_widgets_bar_container'] = 'default';
 $add['footer_widgets_bar_padding'] = '60px 0px 60px 0px';

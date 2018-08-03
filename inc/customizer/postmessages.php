@@ -659,14 +659,14 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_height'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ', .suki-header-' . $bar . '-inner',
+			'element'  => '.suki-header-' . $bar . '-row',
 			'property' => 'height',
 		),
 	);
 	$add['header_' . $type . '_padding'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .suki-header-row',
+			'element'  => '.suki-header-' . $bar . '-row',
 			'property' => 'padding',
 		),
 	);
@@ -686,7 +686,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .suki-header-row',
+			'element'  => '.suki-header-' . $bar . '-row',
 			'property' => 'margin',
 			'pattern'  => '0 -$',
 		),
@@ -806,21 +806,21 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 $add['header_mobile_main_bar_height'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar, .suki-header-mobile-main-bar-inner',
+		'element'  => '.suki-header-mobile-main-bar-row',
 		'property' => 'height',
 	),
 );
 $add['header_mobile_main_bar_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar .suki-header-row',
+		'element'  => '.suki-header-mobile-main-bar-row',
 		'property' => 'padding',
 	),
 );
 $add['header_mobile_main_bar_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar-inner',
+		'element'  => '.suki-header-mobile-main-bar .suki-header-row',
 		'property' => 'border-width',
 	),
 );

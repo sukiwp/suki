@@ -16,6 +16,26 @@ $section = 'suki_section_footer_bottom_bar';
  * ====================================================
  */
 
+// Merge inside Main Bar
+$id = 'footer_bottom_bar_merged';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Merge inside Widgets Bar', 'suki' ),
+	'description' => esc_html__( 'If enabled, please make sure that Widgets Bar is active (has one column or more), otherwise this bar would be hidden.', 'suki' ),
+	'priority'    => 10,
+) ) );
+
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_footer_bottom_bar_merged', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 10,
+) ) );
+
 // Section layout
 $id = 'footer_bottom_bar_container';
 $wp_customize->add_setting( $id, array(
