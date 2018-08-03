@@ -93,10 +93,17 @@
 // -------------------------------------------------------------
 
 .suki-footer-bottom-bar {
-	&-inner {
-		background-color: $color_subtle; // default
-		border-width: 1px 0 0 0; // default
+	.suki-footer-widgets-bar & {
+		&.suki-section-contained,
+		.suki-section-inner {
+			padding: 0;
+		}
 	}
+}
+
+.suki-footer-bottom-bar-inner {
+	background-color: $color_subtle; // default
+	border-width: 1px 0 0 0; // default
 }
 
 .suki-footer-bottom-bar-row {

@@ -1079,11 +1079,11 @@ msgid "Title text color :hover"
 msgstr ""
 
 #: inc/customizer/options/footer--bottom-bar.php:27
-msgid "Merge inside Widgets Bar"
+msgid "Merge inside Widgets Bar wrapper"
 msgstr ""
 
 #: inc/customizer/options/footer--bottom-bar.php:28
-msgid "If enabled, please make sure that Widgets Bar is active (has one column or more), otherwise this bar would be hidden."
+msgid "If enabled, this section layout is limited inside the Widgets Bar content wrapper. &mdash; Widgets Bar must have at least 1 column."
 msgstr ""
 
 #: inc/customizer/options/footer--bottom-bar.php:49, inc/customizer/options/footer--widgets-bar.php:29, inc/customizer/options/header--top-main-bottom-bar.php:56, inc/customizer/options/page-header.php:48, inc/customizer/options/page-settings.php:45
@@ -1415,11 +1415,11 @@ msgid "Dropdown width"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:33
-msgid "Merge inside Main Bar"
+msgid "Merge inside Main Bar wrapper"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:34
-msgid "If enabled, please make sure that Main Bar is active (has one element or more), otherwise this bar would be hidden."
+msgid "If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element."
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:218

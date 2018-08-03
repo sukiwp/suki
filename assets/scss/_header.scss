@@ -146,8 +146,7 @@
 
 .suki-header-section {
 	.suki-header-section {
-		padding: 0;
-
+		&.suki-section-contained,
 		.suki-section-inner {
 			padding: 0;
 		}

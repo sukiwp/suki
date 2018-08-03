@@ -1634,10 +1634,7 @@ body.suki-has-popup-active .suki-popup-background {
 	width: 50%;
 }
 
-.suki-header-section .suki-header-section {
-	padding: 0;
-}
-
+.suki-header-section .suki-header-section.suki-section-contained,
 .suki-header-section .suki-header-section .suki-section-inner {
 	padding: 0;
 }
@@ -2413,6 +2410,11 @@ body.suki-has-popup-active .suki-popup-background {
 	.suki-footer-widgets-bar-column {
 		width: 100% !important;
 	}
+}
+
+.suki-footer-widgets-bar .suki-footer-bottom-bar.suki-section-contained,
+.suki-footer-widgets-bar .suki-footer-bottom-bar .suki-section-inner {
+	padding: 0;
 }
 
 .suki-footer-bottom-bar-inner {

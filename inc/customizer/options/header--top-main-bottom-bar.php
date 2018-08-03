@@ -30,8 +30,8 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		) );
 		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 			'section'     => $section,
-			'label'       => esc_html__( 'Merge inside Main Bar', 'suki' ),
-			'description' => esc_html__( 'If enabled, please make sure that Main Bar is active (has one element or more), otherwise this bar would be hidden.', 'suki' ),
+			'label'       => esc_html__( 'Merge inside Main Bar wrapper', 'suki' ),
+			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element.', 'suki' ),
 			'priority'    => 10,
 		) ) );
 

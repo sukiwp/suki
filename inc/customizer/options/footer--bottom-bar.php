@@ -24,8 +24,8 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Merge inside Widgets Bar', 'suki' ),
-	'description' => esc_html__( 'If enabled, please make sure that Widgets Bar is active (has one column or more), otherwise this bar would be hidden.', 'suki' ),
+	'label'       => esc_html__( 'Merge inside Widgets Bar wrapper', 'suki' ),
+	'description' => esc_html__( 'If enabled, this section layout is limited inside the Widgets Bar content wrapper. &mdash; Widgets Bar must have at least 1 column.', 'suki' ),
 	'priority'    => 10,
 ) ) );
 
