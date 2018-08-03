@@ -187,10 +187,6 @@ class Suki_Compatibility_WooCommerce {
 		 * Global template hooks
 		 */
 
-		// Add content wrapper.
-		add_action( 'woocommerce_before_main_content', 'suki_content_open', 1 );
-		add_action( 'woocommerce_sidebar', 'suki_content_close', 999 );
-
 		// Change main content (primary) wrapper.
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );

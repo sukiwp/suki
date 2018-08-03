@@ -13,11 +13,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:36
+#: 404.php:31
 msgid "Page Not Found"
 msgstr ""
 
-#: 404.php:37
+#: 404.php:32
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
@@ -488,133 +488,133 @@ msgid " URL"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin.php:345
+#: inc/admin/class-suki-admin.php:347
 msgid "Welcome to %s"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin.php:351
+#: inc/admin/class-suki-admin.php:353
 msgid "You can start customizing by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:365
+#: inc/admin/class-suki-admin.php:367
 msgid "Premium Modules in Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:370
+#: inc/admin/class-suki-admin.php:372
 msgid "Header (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:376
+#: inc/admin/class-suki-admin.php:378
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:382
+#: inc/admin/class-suki-admin.php:384
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:388
+#: inc/admin/class-suki-admin.php:390
 msgid "Alternative Header Colors"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:394
+#: inc/admin/class-suki-admin.php:396
 msgid "Footer (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:400
+#: inc/admin/class-suki-admin.php:402
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:406
+#: inc/admin/class-suki-admin.php:408
 msgid "Portable Content Blocks"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:412
+#: inc/admin/class-suki-admin.php:414
 msgid "Blog (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:418
+#: inc/admin/class-suki-admin.php:420
 msgid "WooCommerce (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:424
+#: inc/admin/class-suki-admin.php:426
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:430
+#: inc/admin/class-suki-admin.php:432
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:436
+#: inc/admin/class-suki-admin.php:438
 msgid "Color Palette"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:442
+#: inc/admin/class-suki-admin.php:444
 msgid "White Label"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:461
+#: inc/admin/class-suki-admin.php:463
 msgid "Coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:464
+#: inc/admin/class-suki-admin.php:466
 msgid "Deactivate"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:466
+#: inc/admin/class-suki-admin.php:468
 msgid "Learn more &raquo;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:486
+#: inc/admin/class-suki-admin.php:488
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:498
+#: inc/admin/class-suki-admin.php:500
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:500
+#: inc/admin/class-suki-admin.php:502
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:504
+#: inc/admin/class-suki-admin.php:506
 msgctxt "Suki Pro upsell"
 msgid "More about Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:518
+#: inc/admin/class-suki-admin.php:520
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:520
+#: inc/admin/class-suki-admin.php:522
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:524
+#: inc/admin/class-suki-admin.php:526
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:538
+#: inc/admin/class-suki-admin.php:540
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:540
+#: inc/admin/class-suki-admin.php:542
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:544
+#: inc/admin/class-suki-admin.php:546
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:559
+#: inc/admin/class-suki-admin.php:561
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:561
+#: inc/admin/class-suki-admin.php:563
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:565
+#: inc/admin/class-suki-admin.php:567
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
@@ -705,11 +705,11 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:471, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:467, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:727
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:723
 msgid "Logout"
 msgstr ""
 

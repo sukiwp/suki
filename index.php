@@ -21,11 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 
 /**
- * Content - opening tag
- */
-suki_content_open();
-
-/**
  * Primary - opening tag
  */
 suki_primary_open();
@@ -56,11 +51,6 @@ suki_primary_close();
  * Sidebar
  */
 get_sidebar();
-
-/**
- * Content - closing tag
- */
-suki_content_close();
 
 /**
  * Footer

@@ -13,6 +13,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 				/**
+				 * Content - closing tag
+				 */
+				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
+					suki_content_close();
+				}
+
+				/**
 				 * Hook: suki/frontend/before_footer
 				 */
 				do_action( 'suki/frontend/before_footer' );

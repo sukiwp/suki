@@ -195,6 +195,10 @@ class Suki_Admin {
 	 * @return array
 	 */
 	public function modify_tiny_mce_config( $mceinit ) {
+		global $post;
+
+		if ( empty( $post ) ) return;
+
 		/**
 		 * Add dynamic CSS.
 		 */
@@ -253,8 +257,6 @@ class Suki_Admin {
 		/**
 		 * Add body class.
 		 */
-		
-		global $post;
 
 		$class = 'suki-editor-' . suki_get_page_setting_by_post_id( 'content_layout', $post->ID );
 

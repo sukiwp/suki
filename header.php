@@ -53,3 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				 * @hooked suki_page_header - 10
 				 */
 				do_action( 'suki/frontend/after_header' );
+
+				/**
+				 * Content - opening tag
+				 */
+				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
+					suki_content_open();
+				}

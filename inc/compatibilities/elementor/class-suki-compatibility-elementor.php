@@ -46,7 +46,7 @@ class Suki_Compatibility_Elementor {
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
 		// Modify Elementor page template.
-		// add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
+		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
 		add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'add_page_template_canvas_wrapper' ) );
 		add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'add_page_template_canvas_wrapper_end' ) );
 		add_action( 'elementor/page_templates/header-footer/before_content', array( $this, 'add_page_template_header_footer_wrapper' ) );
@@ -80,7 +80,7 @@ class Suki_Compatibility_Elementor {
 	public function add_theme_fonts_as_options_on_font_control( $fonts ) {
 		$fonts = array();
 
-		$class = '\Elementor\Fonts';
+		$class = 'Elementor\Fonts';
 		if ( class_exists( $class ) ) {
 			foreach( suki_get_web_safe_fonts() as $font => $stack ) {
 				$fonts[ $font ] = $class::SYSTEM;
@@ -95,19 +95,17 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
-	 * Remove content wrapper on header.php via filter.
+	 * Remove content wrapper on header.php and footer.php via filter.
 	 *
 	 * @param string $template
 	 * @return string
 	 */
 	public function remove_content_wrapper_on_page_templates( $template ) {
-		if ( is_singular() ) {
-			$page_template = get_post_meta( get_the_ID(), '_wp_page_template', true );
-
-			// Remove content wrapper on Elementor's page templates.
-			if ( in_array( $page_template, array( 'elementor_header_footer', 'elementor_canvas' ) ) ) {
-				remove_action( 'suki/frontend/before_content', 'suki_content_open' );
-				remove_action( 'suki/frontend/after_content', 'suki_content_close' );
+		// Check if Elementor page template is being used.
+		if ( false !== strpos( $template, '/elementor/' ) ) {
+			if ( false !== strpos( $template, '/header-footer.php' ) || false !== strpos( $template, '/canvas.php' ) ) {
+				// Remove content wrapper.
+				add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
 			}
 		}
 

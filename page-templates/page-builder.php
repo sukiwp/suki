@@ -11,6 +11,9 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// Remove content wrapper on this page template.
+add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
+
 get_header();
 
 ?>
