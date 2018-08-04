@@ -618,38 +618,38 @@ msgstr ""
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:454
+#: inc/customizer/class-suki-customizer.php:420
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:457
+#: inc/customizer/class-suki-customizer.php:423
 msgid "404 Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:460
+#: inc/customizer/class-suki-customizer.php:426
 msgid "Posts Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:463
+#: inc/customizer/class-suki-customizer.php:429
 msgid "Single Post Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:464
+#: inc/customizer/class-suki-customizer.php:430
 msgid "This is global default value. You can override these settings on each individual post editor."
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:485
+#: inc/customizer/class-suki-customizer.php:451
 msgid "%s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:489
+#: inc/customizer/class-suki-customizer.php:455
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:491
+#: inc/customizer/class-suki-customizer.php:457
 msgid "This is global default value. You can override these settings on each individual %s editor."
 msgstr ""
 

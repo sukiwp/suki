@@ -63,16 +63,6 @@ class Suki_Customizer {
 			add_action( 'wp_head', array( $this, 'print_preview_styles' ), 20 );
 			add_action( 'wp_footer', array( $this, 'print_preview_scripts' ), 20 );
 		}
-
-		// "Use parent settings" mode
-		// ref:https://core.trac.wordpress.org/ticket/27177#comment:4
-		if ( is_child_theme() && defined( 'SUKI_CHILD_USE_PARENT_SETTINGS' ) && SUKI_CHILD_USE_PARENT_SETTINGS ) {
-			// Update parent theme mods instead of child theme mods.
-			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_theme_update_parent_settings', 10, 2 ) );
-
-			// Always get parent theme mods.
-			add_filter( 'pre_option_theme_mods_' . get_stylesheet(), array( $this, 'child_theme_get_parent_settings' ) );
-		}
 	}
 
 	/**
@@ -331,30 +321,6 @@ class Suki_Customizer {
 			})();
 		</script>
 		<?php
-	}
-
-	/**
-	 * Save any customizer changes on Parent Theme settings instead of Child Theme's.
-	 * Only works when "SUKI_CHILD_USE_PARENT_SETTINGS" mode is active (defined via Child Theme).
-	 *
-	 * @param array $value
-	 * @param array $old_value
-	 * @return array
-	 */
-	public function child_theme_update_parent_settings( $value, $old_value ) {
-		update_option( 'theme_mods_' . get_template(), $value );
-		return $old_value;
-	}
-
-	/**
-	 * Get customizer settings from Parent Theme instead of Child Theme's.
-	 * Only works when "SUKI_CHILD_USE_PARENT_SETTINGS" mode is active (defined via Child Theme).
-	 *
-	 * @param array $default
-	 * @return array
-	 */
-	public function child_theme_get_parent_settings( $default ) {
-		return get_option( 'theme_mods_' . get_template(), $default );
 	}
 
 	/**
