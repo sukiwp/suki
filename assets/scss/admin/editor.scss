@@ -33,6 +33,10 @@ body.mce-content-body {
 	&:focus {
 		outline: 0;
 	}
+
+	a {
+		text-decoration: underline;
+	}
 }
 
 blockquote {

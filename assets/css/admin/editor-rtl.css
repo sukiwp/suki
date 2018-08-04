@@ -757,6 +757,10 @@ body.mce-content-body:focus {
 	outline: 0;
 }
 
+body.mce-content-body a {
+	text-decoration: underline;
+}
+
 blockquote {
 	padding: 0.5rem 2rem;
 	border-right-width: 0.25rem;
