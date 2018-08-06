@@ -1,0 +1,8 @@
+v0.4.0
+- NEW: Option to merge header top bar, header bottom bar into header main bar.
+- NEW: Option to merge footer bottom bar into footer widgets bar.
+- IMPROVED: Content wrapper is now rendered on header.php and footer.php and add new filter to disable it.
+- IMPROVED: Change all ambiguous labels and terms on Customizer options to be more self-explanatory.
+
+v0.3.0
+- Release.
