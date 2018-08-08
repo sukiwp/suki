@@ -45,6 +45,14 @@ p {
 h1, h2, h3, h4, h5, h6 {
 	color: $color_heading; // default
 	margin: 0 0 1.25rem;
+
+	a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
+	}
 }
 
 h1 {

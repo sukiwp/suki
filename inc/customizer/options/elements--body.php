@@ -70,3 +70,17 @@ foreach ( $colors as $id => $label ) {
 		'priority'    => 10,
 	) ) );
 }
+
+// Subtle BG Color
+$id = 'subtle_color';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Subtle BG color', 'suki' ),
+	'description' => esc_html__( 'Used on &lt;code&gt;, &lt;pre&gt;, tagclouds, and archive title.', 'suki' ),
+	'priority'    => 10,
+) ) );

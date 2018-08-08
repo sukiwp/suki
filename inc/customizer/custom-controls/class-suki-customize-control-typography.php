@@ -90,6 +90,15 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
+		<# var labels = {
+			font_family: '<?php esc_html_e( 'Font', 'suki' ); ?>',
+			font_weight: '<?php esc_html_e( 'Weight', 'suki' ); ?>',
+			font_style: '<?php esc_html_e( 'Style', 'suki' ); ?>',
+			text_transform: '<?php esc_html_e( 'Transform', 'suki' ); ?>',
+			font_size: '<?php esc_html_e( 'Size', 'suki' ); ?>',
+			line_height: '<?php esc_html_e( 'Line Height', 'suki' ); ?>',
+			letter_spacing: '<?php esc_html_e( 'Spacing', 'suki' ); ?>',
+		} #>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">
 				{{{ data.label }}}
@@ -113,7 +122,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 
 			<p class="suki-typography-fieldset suki-row">
 				<label class="suki-row-item">
-					<span class="suki-small-label"><?php esc_html_e( 'Font', 'suki' ); ?></span>
+					<span class="suki-small-label">{{ labels.font_family }}</span>
 					<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
 						<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 						<# _.each( choices.font_family, function( provider_data, provider ) { #>
@@ -131,7 +140,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 				<# _.each( [ 'font_weight', 'font_style', 'text_transform' ], function( type ) { #>
 					<# if ( data.inputs[ type ] ) { #>
 						<label class="suki-row-item">
-							<span class="suki-small-label"><?php esc_html_e( 'Weight', 'suki' ); ?></span>
+							<span class="suki-small-label">{{ labels[ type ] }}</span>
 							<select class="suki-typography-input" {{{ data.inputs[ type ].__link }}}>
 								<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 								<# _.each( choices[ type ], function( label, value ) { #>
@@ -147,7 +156,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 					<# _.each( setting_keys, function( setting_data, setting_key ) { #>
 						<# if ( data.inputs[ setting_key ] ) { #>
 							<label class="suki-row-item">
-								<span class="suki-small-label"><?php esc_html_e( 'Size', 'suki' ); ?></span>
+								<span class="suki-small-label">{{ labels[ setting_key ] }}</span>
 								<span class="suki-typography-size suki-row">
 									<span class="suki-row-item">
 										<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">

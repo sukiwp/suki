@@ -4,18 +4,6 @@
 	line-height: 1.7; // default
 }
 
-%h1, %h2, %h3, %h4 {
-	color: $color_heading; // default
-
-	a {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
-	}
-}
-
 %h1 {
 	font-size: 32px; // default
 	font-weight: 500; // default

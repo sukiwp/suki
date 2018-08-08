@@ -1,16 +1,4 @@
 .woocommerce div.product .woocommerce-tabs > .panel > h2:first-child, .woocommerce div.product #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce .cart-collaterals h2, .woocommerce .woocommerce-checkout h3 {
-	color: #333333;
-}
-
-.woocommerce div.product .woocommerce-tabs > .panel > h2:first-child a, .woocommerce div.product #reviews #comments > h2 a, .woocommerce div.product .products h2 a, .woocommerce .cart-collaterals h2 a, .woocommerce .woocommerce-checkout h3 a {
-	color: #333333;
-}
-
-.woocommerce div.product .woocommerce-tabs > .panel > h2:first-child a:hover, .woocommerce div.product #reviews #comments > h2 a:hover, .woocommerce div.product .products h2 a:hover, .woocommerce .cart-collaterals h2 a:hover, .woocommerce .woocommerce-checkout h3 a:hover, .woocommerce div.product .woocommerce-tabs > .panel > h2:first-child a:focus, .woocommerce div.product #reviews #comments > h2 a:focus, .woocommerce div.product .products h2 a:focus, .woocommerce .cart-collaterals h2 a:focus, .woocommerce .woocommerce-checkout h3 a:focus {
-	color: #666666;
-}
-
-.woocommerce div.product .woocommerce-tabs > .panel > h2:first-child, .woocommerce div.product #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce .cart-collaterals h2, .woocommerce .woocommerce-checkout h3 {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
