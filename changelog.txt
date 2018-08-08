@@ -1,3 +1,10 @@
+v0.4.1
+- FIXED: Blog posts page layout options not working.
+- FIXED: Default CSS caused colors settings on headings, title, and small title not working.
+- FIXED: Font family bugs on Small Title and Meta Info.
+- FIXED: Some minor PHP warnings.
+- IMPROVED: Some translatable strings on Customizer.
+
 v0.4.0
 - NEW: Option to merge header top bar, header bottom bar into header main bar.
 - NEW: Option to merge footer bottom bar into footer widgets bar.
