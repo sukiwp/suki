@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Elements > Form Inputs
+ * Customizer settings: General Elements > Form Input
  *
  * @package Suki
  **/
@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$section = 'suki_section_form_inputs';
+$section = 'suki_section_form_input';
 
 // Padding
 $id = 'input_padding';

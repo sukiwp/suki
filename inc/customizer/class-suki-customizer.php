@@ -106,7 +106,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_setting_defaults( $defaults = array() ) {
-		include( SUKI_INCLUDES_PATH . '/customizer/defaults.php' );
+		include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
 
 		return $defaults;
 	}
@@ -119,7 +119,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_setting_postmessages( $postmessages = array() ) {
-		include( SUKI_INCLUDES_PATH . '/customizer/postmessages.php' );
+		include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
 
 		return $postmessages;
 	}
@@ -132,7 +132,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_control_contexts( $contexts = array() ) {
-		include( SUKI_INCLUDES_PATH . '/customizer/contexts.php' );
+		include( SUKI_INCLUDES_DIR . '/customizer/contexts.php' );
 
 		return $contexts;
 	}
@@ -143,26 +143,26 @@ class Suki_Customizer {
 	 * @param WP_Customize_Manager $wp_customize
 	 */
 	public function register_custom_controls( $wp_customize ) {
-		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer-sanitization.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer-sanitization.php' );
 
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-section-spacer.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-spacer.php' );
 
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-hr.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-heading.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-blank.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-toggle.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-color.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-shadow.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-slider.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-dimensions.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-typography.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-multicheck.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-builder.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-hr.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-heading.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-blank.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-toggle.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-color.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-shadow.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-slider.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-dimensions.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-typography.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-multicheck.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php' );
 
 		if ( suki_show_pro_teaser() ) {
-			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-section-pro-link.php' );
-			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-section-pro-teaser.php' );
-			require_once( SUKI_INCLUDES_PATH . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php' );
+			require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-pro-link.php' );
+			require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-pro-teaser.php' );
+			require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php' );
 		}
 	}
 
@@ -179,50 +179,50 @@ class Suki_Customizer {
 		$defaults = $this->get_setting_defaults();
 
 		// Sections and Panels
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/_sections.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_sections.php' );
 
 		// General Elements
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--body.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--headings.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--blockquote.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--form-inputs.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--buttons.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--title.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--small-title.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--meta.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/elements--gutenberg.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--body.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--headings.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--blockquote.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--form-inputs.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--buttons.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--title.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--small-title.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--meta.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--gutenberg.php' );
 
 		// Layout
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-container.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--builder.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--top-main-bottom-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--mobile-main-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--mobile-vertical-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--logo.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--html.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--search.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--social.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-header.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/sidebar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--builder.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--bottom-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--copyright.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-container.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--builder.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--top-main-bottom-bar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--mobile-main-bar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--mobile-vertical-bar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--logo.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--html.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-header.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/sidebar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--builder.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--copyright.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php' );
 
 		// Global Settings
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--google-fonts.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--google-fonts.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--social.php' );
 
 		// Page Settings
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-settings.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );
 
 		// Blog
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/blog--archive.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/blog--single.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/blog--entry-default.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/blog--entry-grid.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--archive.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--single.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-default.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-grid.php' );
 	}
 
 	/**
@@ -478,7 +478,7 @@ class Suki_Customizer {
 
 		$saved_settings = get_theme_mods();
 		if ( empty( $saved_settings ) ) {
-			$saved_setting = array();
+			$saved_settings = array();
 		}
 
 		// Iterate through the saved customizer settings, to find all font family settings.

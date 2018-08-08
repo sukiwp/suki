@@ -126,7 +126,7 @@ $add['meta_link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Form Inputs
+ * General Elements > Form Input
  * ====================================================
  */
 
@@ -172,7 +172,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Buttons
+ * General Elements > Button
  * ====================================================
  */
 

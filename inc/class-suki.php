@@ -1,8 +1,6 @@
 <?php
 /**
- * Contains methods for customizing the theme customization screen.
- * 
- * @link http://codex.wordpress.org/Theme_Customization_API
+ * Suki theme class.
  */
 
 // Prevent direct access.
@@ -68,20 +66,20 @@ class Suki {
 	 */
 	private function _includes() {
 		// Helper functions
-		require_once( SUKI_INCLUDES_PATH . '/helpers.php' );
+		require_once( SUKI_INCLUDES_DIR . '/helpers.php' );
 
 		// Customizer functions
-		require_once( SUKI_INCLUDES_PATH . '/customizer/class-suki-customizer.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer.php' );
 
 		// Template functions & hooks
-		require_once( SUKI_INCLUDES_PATH . '/template-tags.php' );
-		require_once( SUKI_INCLUDES_PATH . '/template-functions.php' );
+		require_once( SUKI_INCLUDES_DIR . '/template-tags.php' );
+		require_once( SUKI_INCLUDES_DIR . '/template-functions.php' );
 
 		// Plugins compatibility functions
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.
 			if ( class_exists( $plugin_class ) ) {
-				$compatibility_file = SUKI_INCLUDES_PATH . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php';
+				$compatibility_file = SUKI_INCLUDES_DIR . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php';
 
 				if ( file_exists( $compatibility_file ) ) {
 					require_once( $compatibility_file );
@@ -91,7 +89,7 @@ class Suki {
 
 		// Admin page functions
 		if ( is_admin() ) {
-			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin.php' );
+			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin.php' );
 		}
 	}
 
@@ -232,7 +230,7 @@ class Suki {
 	 */
 	public function register_widgets() {
 		// Include custom widgets.
-		require_once( SUKI_INCLUDES_PATH . '/widgets/class-suki-widget-posts.php' );
+		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-posts.php' );
 
 		// Register widgets.
 		register_widget( 'Suki_Widget_Posts' );

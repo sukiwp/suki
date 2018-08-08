@@ -74,6 +74,7 @@ $wp_customize->add_panel( $panel, array(
 	// Body (Base)
 	$wp_customize->add_section( 'suki_section_body', array(
 		'title'       => esc_html__( 'Body (Base)', 'suki' ),
+		'description' => esc_html__( 'The global settings of body typography and colors.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -81,6 +82,7 @@ $wp_customize->add_panel( $panel, array(
 	// Headings (H1 - H4)
 	$wp_customize->add_section( 'suki_section_headings', array(
 		'title'       => esc_html__( 'Headings (H1 - H4)', 'suki' ),
+		'description' => esc_html__( 'Used on all H1 - H4 tags globally.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -92,16 +94,16 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// Form Inputs
-	$wp_customize->add_section( 'suki_section_form_inputs', array(
-		'title'       => esc_html__( 'Form Inputs', 'suki' ),
+	// Form Input
+	$wp_customize->add_section( 'suki_section_form_input', array(
+		'title'       => esc_html__( 'Form Input', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
 
-	// Buttons
-	$wp_customize->add_section( 'suki_section_buttons', array(
-		'title'       => esc_html__( 'Buttons', 'suki' ),
+	// Button
+	$wp_customize->add_section( 'suki_section_button', array(
+		'title'       => esc_html__( 'Button', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -109,7 +111,7 @@ $wp_customize->add_panel( $panel, array(
 	// Title
 	$wp_customize->add_section( 'suki_section_title', array(
 		'title'       => esc_html__( 'Title', 'suki' ),
-		'description' => esc_html__( 'Used on Default Post title and Single Page title.', 'suki' ),
+		'description' => esc_html__( 'Used on Default Post title and Static Page title. By default, it uses H1 styles.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -117,7 +119,7 @@ $wp_customize->add_panel( $panel, array(
 	// Small Title
 	$wp_customize->add_section( 'suki_section_small_title', array(
 		'title'       => esc_html__( 'Small Title', 'suki' ),
-		'description' => esc_html__( 'Used on Grid Post title, and other subsidiary headings like "Leave a Reply", "2 Comments", etc.', 'suki' ),
+		'description' => esc_html__( 'Used on Grid Post title, and other subsidiary headings like "Leave a Reply", "2 Comments", etc. By default, it uses H3 styles.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );

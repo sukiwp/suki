@@ -76,8 +76,8 @@ class Suki_Admin {
 
 		// Only include metabox on post add/edit page and term add/edit page.
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
-			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-fields.php' );
-			require_once( SUKI_INCLUDES_PATH . '/admin/class-suki-admin-metabox-page-settings.php' );
+			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php' );
+			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
 		}
 	}
 
@@ -88,7 +88,7 @@ class Suki_Admin {
 	 */
 
 	/**
-	 * Add admin submenu page: Suki > About.
+	 * Add admin submenu page: Appearance > Suki.
 	 */
 	public function register_admin_menu() {
 		add_theme_page(

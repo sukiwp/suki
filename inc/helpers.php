@@ -403,7 +403,7 @@ function suki_get_all_fonts() {
  */
 function suki_get_google_fonts() {
 	ob_start();
-	include( SUKI_INCLUDES_PATH . '/list/google-fonts.json' );
+	include( SUKI_INCLUDES_DIR . '/list/google-fonts.json' );
 	return json_decode( ob_get_clean(), true );
 }
 

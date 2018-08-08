@@ -151,14 +151,14 @@ for ( $i = 1; $i <= 4; $i++ ) {
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .comment-author a, .entry-author-name, .entry-author-name a',
+		'element'  => 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a, h6 a, .h6 a, .comment-author a, .entry-author-name, .entry-author-name a',
 		'property' => 'color',
 	),
 );
 $add['heading_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus, .comment-author a:hover, .comment-author a:focus, .entry-author-name a:hover, .entry-author-name a:focus',
+		'element'  => 'h1 a:hover, h1 a:focus, .h1 a:hover, .h1 a:focus, h2 a:hover, h2 a:focus, .h2 a:hover, .h2 a:focus, h3 a:hover, h3 a:focus, .h3 a:hover, .h3 a:focus, h4 a:hover, h4 a:focus, .h4 a:hover, .h4 a:focus, h5 a:hover, h5 a:focus, .h5 a:hover, .h5 a:focus, h6 a:hover, h6 a:focus, .h6 a:hover, .h6 a:focus, .comment-author a:hover, .comment-author a:focus, .entry-author-name a:hover, .entry-author-name a:focus',
 		'property' => 'color',
 	),
 );
@@ -202,7 +202,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 /**
  * ====================================================
- * General Elements > Buttons
+ * General Elements > Button
  * ====================================================
  */
 
@@ -260,7 +260,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Form Inputs
+ * General Elements > Form Input
  * ====================================================
  */
 

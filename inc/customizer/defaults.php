@@ -99,7 +99,7 @@ $add['blockquote_letter_spacing'] = '';
 
 /**
  * ====================================================
- * General Elements > Form Inputs
+ * General Elements > Form Input
  * ====================================================
  */
 
@@ -116,7 +116,7 @@ $add['input_focus_text_color'] = $colors['text'];
 
 /**
  * ====================================================
- * General Elements > Buttons
+ * General Elements > Button
  * ====================================================
  */
 

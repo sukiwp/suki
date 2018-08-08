@@ -4,6 +4,8 @@
  * Define configurations
  */
 
+const info = require( './package.json' );
+
 const config = {
 	src: {
 		scss: [ './assets/scss/**/*.scss' ],
@@ -37,10 +39,9 @@ const config = {
 		scss: './assets/scss',
 		css: './assets/css',
 		js: './assets/js',
-		webfonts: './assets/webfonts',
 		icons: './assets/icons',
 		pot: './languages',
-		build: './__build/suki',
+		build: './__build/' + info.name,
 		zip: './__build/zip',
 	},
 };
