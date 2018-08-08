@@ -73,7 +73,7 @@ $add['heading_hover_text_color'] = array(
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$add['small_title_' . $prop ] = array(
 		array(
-			'type'     => 'css',
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
 			'element'  => '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce .cart-collaterals h2, .woocommerce .checkout h3',
 			'property' => str_replace( '_', '-', $prop),
 		),
@@ -96,7 +96,7 @@ $add['small_title_text_color'] = array(
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$add['meta_' . $prop ] = array(
 		array(
-			'type'     => 'css',
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
 			'element'  => '.woocommerce div.product .woocommerce-product-rating, .woocommerce div.product .product_meta, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date',
 			'property' => str_replace( '_', '-', $prop),
 		),
