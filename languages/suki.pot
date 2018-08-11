@@ -185,36 +185,40 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1226
+#: inc/template-tags.php:1208
+msgid "Nothing Found"
+msgstr ""
+
+#: inc/template-tags.php:1234
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1227
+#: inc/template-tags.php:1235
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1285
+#: inc/template-tags.php:1293
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1286
+#: inc/template-tags.php:1294
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1303
+#: inc/template-tags.php:1311
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1309
+#: inc/template-tags.php:1317
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1336
+#: inc/template-tags.php:1344
 msgid "Comments are closed."
 msgstr ""
 
@@ -226,19 +230,15 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr ""
-
-#: template-parts/content-none.php:21
+#: template-parts/content-none.php:17
 msgid "Ready to publish your first post? Get started here."
 msgstr ""
 
-#: template-parts/content-none.php:27
+#: template-parts/content-none.php:23
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:35
+#: template-parts/content-none.php:29
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 

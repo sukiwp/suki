@@ -1201,6 +1201,14 @@ function suki_content_header() {
 		</header>
 		<?php
 	}
+
+	else {
+		?>
+		<header class="page-header">
+			<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'suki' ); ?></h1>
+		</header>
+		<?php
+	}
 }
 endif;
 
@@ -1209,7 +1217,7 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) :
  * Render posts loop navigation.
  */
 function suki_loop_navigation() {
-	if ( ! is_archive() && ! is_home() ) return;
+	if ( ! is_archive() && ! is_home() && ! is_search() ) return;
 	
 	// Render posts navigation.
 	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {

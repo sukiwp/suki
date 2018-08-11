@@ -1,3 +1,6 @@
+v0.4.2
+- IMPROVED: Search results page style when no results found.
+
 v0.4.1
 - FIXED: Blog posts page layout options not working.
 - FIXED: Default CSS caused colors settings on headings, title, and small title not working.

@@ -20,14 +20,14 @@ get_header();
  */
 suki_primary_open();
 
-if ( have_posts() ) :
+/**
+ * Hook: suki/frontend/before_main
+ *
+ * @hooked suki_content_header - 10
+ */
+do_action( 'suki/frontend/before_main' );
 
-	/**
-	 * Hook: suki/frontend/before_main
-	 *
-	 * @hooked suki_content_header - 10
-	 */
-	do_action( 'suki/frontend/before_main' );
+if ( have_posts() ) :
 	
 	?>
 	<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array() ) ) ); ?>">
@@ -43,19 +43,19 @@ if ( have_posts() ) :
 	</div>
 	<?php
 
-	/**
-	 * Hook: suki/frontend/after_main
-	 * 
-	 * @hooked suki_loop_navigation - 10
-	 */
-	do_action( 'suki/frontend/after_main' );
-
 else :
 
 	// Render no content notice.
 	get_template_part( 'template-parts/content', 'none' );
 
 endif;
+
+/**
+ * Hook: suki/frontend/after_main
+ * 
+ * @hooked suki_loop_navigation - 10
+ */
+do_action( 'suki/frontend/after_main' );
 
 /**
  * Primary - closing tag

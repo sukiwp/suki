@@ -315,7 +315,7 @@ gulp.task( 'default', gulp.series( 'build', 'watch' ) );
 gulp.task( 'zip', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
-	return gulp.src( config.dest.build + '/**/*', { buffer: false, base: config.dest.build } )
-		.pipe( zip( info.name + '.zip' ) )
+	return gulp.src( config.dest.build + '/**/*', { buffer: false, base: config.dest.build + '/../' } )
+		.pipe( zip( info.name + '-' + info.version + '.zip' ) )
 		.pipe( gulp.dest( config.dest.zip ) );
 } );
