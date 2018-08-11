@@ -319,6 +319,7 @@
 
 				for ( var j = 0; j < $activePopups.length; j++ ) {
 					// Deactivate popup.
+					$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
 					$activePopups[j].classList.remove( 'suki-popup-active' );
 					document.body.classList.remove( 'suki-has-popup-active' );
 
@@ -342,6 +343,7 @@
 						deactivatePopup();
 				    } else {
 				    	// Activate popup.
+						this.classList.add( 'suki-popup-toggle-active' );
 						$target.classList.add( 'suki-popup-active' );
 						document.body.classList.add( 'suki-has-popup-active' );
 

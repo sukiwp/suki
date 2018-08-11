@@ -42,43 +42,21 @@ body.suki-page-layout-boxed {
 	}
 }
 
-.suki-popup-background {
+.suki-popup {
 	position: fixed;
 	z-index: 100;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.8);
 	opacity: 0;
 	visibility: hidden;
 	@include transition();
 
-	body.suki-has-popup-active & {
+	&.suki-popup-active {
 		opacity: 1;
 		visibility: visible;
-	}
-	
-	.suki-popup-close {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 1.25rem;
-		font-size: 1.5rem;
-		line-height: 1;
-		background-color: transparent !important;
-		color: $color_white !important; // default
-		opacity: 1;
-
-		&:hover, &:focus {
-			opacity: 0.8;
-		}
-	}
-
-	.suki-header-vertical-position-right ~ & {
-		.suki-popup-close {
-			left: 0;
-		}
 	}
 
 	.admin-bar & {
@@ -87,6 +65,35 @@ body.suki-page-layout-boxed {
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 			top: 46px;
 		}
+	}
+}
+
+.suki-popup-close-background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.suki-popup-close-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1.25rem;
+	font-size: 1.5rem;
+	line-height: 1;
+	background-color: transparent !important;
+	color: $color_white !important; // default
+	opacity: 1;
+
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+
+	.suki-header-vertical-position-right ~ & {
+		left: 0;
+		right: auto;
 	}
 }
 

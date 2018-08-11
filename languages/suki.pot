@@ -146,7 +146,7 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/template-functions.php:447
+#: inc/template-functions.php:440
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -169,56 +169,56 @@ msgid "Skip to content"
 msgstr ""
 
 #. translators: %s: header menu number.
-#: inc/template-tags.php:458
+#: inc/template-tags.php:440
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/template-tags.php:472
+#: inc/template-tags.php:454
 msgid "Header Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:508
+#: inc/template-tags.php:490
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:548, inc/customizer/options/header--builder.php:108
+#: inc/template-tags.php:530, inc/customizer/options/header--builder.php:108
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1208
+#: inc/template-tags.php:1190
 msgid "Nothing Found"
 msgstr ""
 
-#: inc/template-tags.php:1234
+#: inc/template-tags.php:1216
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1235
+#: inc/template-tags.php:1217
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1293
+#: inc/template-tags.php:1275
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1294
+#: inc/template-tags.php:1276
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1311
+#: inc/template-tags.php:1293
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1317
+#: inc/template-tags.php:1299
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1344
+#: inc/template-tags.php:1326
 msgid "Comments are closed."
 msgstr ""
 

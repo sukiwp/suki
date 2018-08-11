@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
-		 * @hooked suki_top_popups - 10
+		 * @hooked suki_mobile_vertical_header - 10
 		 */
 		do_action( 'suki/frontend/before_canvas' );
 		?>

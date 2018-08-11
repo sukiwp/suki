@@ -741,6 +741,15 @@ body.mce-content-body {
 	background-color: #ffffff;
 }
 
+body.mce-content-body:before, body.mce-content-body:after {
+	content: "";
+	display: table;
+}
+
+body.mce-content-body:after {
+	clear: both;
+}
+
 body.mce-content-body > *:first-child {
 	margin-top: 0;
 }

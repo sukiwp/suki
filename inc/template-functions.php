@@ -64,17 +64,10 @@ function suki_template_hooks() {
 	 * suki/frontend/before_canvas hook
 	 *
 	 * @see suki_skip_to_content_link()
-	 * @see suki_top_popups()
-	 */
-	add_action( 'suki/frontend/before_canvas', 'suki_skip_to_content_link', 1 );
-	add_action( 'suki/frontend/before_canvas', 'suki_top_popups', 10 );
-
-	/**
-	 * suki/frontend/top_popups hook
-	 *
 	 * @see suki_mobile_vertical_header()
 	 */
-	add_action( 'suki/frontend/top_popups', 'suki_mobile_vertical_header', 10 );
+	add_action( 'suki/frontend/before_canvas', 'suki_skip_to_content_link', 1 );
+	add_action( 'suki/frontend/before_canvas', 'suki_mobile_vertical_header', 10 );
 
 	/**
 	 * suki/frontend/header hook

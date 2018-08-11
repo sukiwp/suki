@@ -149,6 +149,7 @@ a.entry-thumbnail {
 // Content
 .entry-content {
 	margin: 0 0 2rem;
+	@include float-container();
 
 	> *:last-child {
 		margin-bottom: 0;

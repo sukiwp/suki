@@ -226,30 +226,6 @@ function suki_skip_to_content_link() {
 }
 endif;
 
-if ( ! function_exists( 'suki_top_popups' ) ) :
-/**
- * Render top popups group.
- */
-function suki_top_popups() {
-	?>
-	<div id="top-popups">
-		<?php
-		/*
-		 * Hook: suki/frontend/top_popups
-		 *
-		 * @hooked suki_mobile_vertical_header - 10
-		 */
-		do_action( 'suki/frontend/top_popups' );
-		?>
-		
-		<div class="suki-popup-background suki-popup-close">
-			<button class="suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
-		</div>
-	</div>
-	<?php
-}
-endif;
-
 if ( ! function_exists( 'suki_mobile_vertical_header' ) ) :
 /**
  * Render mobile vertical header.
@@ -261,14 +237,20 @@ function suki_mobile_vertical_header() {
 	$count = count( $elements );
 
 	if ( 0 < $count ) : ?>
-		<div id="mobile-vertical-header" class="suki-header-mobile-vertical-bar suki-header suki-header-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_bar_classes', array() ) ) ); ?> suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
-			<div class="suki-header-mobile-vertical-bar-inner suki-header-vertical-inner">
-				<div class="suki-header-vertical-column">
-					<div class="suki-header-mobile-vertical-bar-top suki-header-vertical-row suki-flex-align-left">
-						<?php foreach ( $elements as $element ) suki_header_element( $element, 'mobile_vertical_top' ); ?>
+		<div id="mobile-vertical-header" class="suki-popup suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
+			<div class="suki-popup-close-background suki-popup-close"></div>
+
+			<div class="suki-header-mobile-vertical-bar suki-header suki-header-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_bar_classes', array() ) ) ); ?>">
+				<div class="suki-header-mobile-vertical-bar-inner suki-header-vertical-inner">
+					<div class="suki-header-vertical-column">
+						<div class="suki-header-mobile-vertical-bar-top suki-header-vertical-row suki-flex-align-left">
+							<?php foreach ( $elements as $element ) suki_header_element( $element, 'mobile_vertical_top' ); ?>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
 		</div>
 	<?php endif;
 }

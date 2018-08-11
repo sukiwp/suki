@@ -1267,14 +1267,14 @@ body.suki-page-layout-boxed #page {
 	box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
 }
 
-.suki-popup-background {
+.suki-popup {
 	position: fixed;
 	z-index: 100;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: all 0.25s;
@@ -1283,12 +1283,30 @@ body.suki-page-layout-boxed #page {
 	backface-visibility: hidden;
 }
 
-body.suki-has-popup-active .suki-popup-background {
+.suki-popup.suki-popup-active {
 	opacity: 1;
 	visibility: visible;
 }
 
-.suki-popup-background .suki-popup-close {
+.admin-bar .suki-popup {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	.admin-bar .suki-popup {
+		top: 46px;
+	}
+}
+
+.suki-popup-close-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.suki-popup-close-icon {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1300,22 +1318,13 @@ body.suki-has-popup-active .suki-popup-background {
 	opacity: 1;
 }
 
-.suki-popup-background .suki-popup-close:hover, .suki-popup-background .suki-popup-close:focus {
+.suki-popup-close-icon:hover, .suki-popup-close-icon:focus {
 	opacity: 0.8;
 }
 
-.suki-header-vertical-position-right ~ .suki-popup-background .suki-popup-close {
+.suki-header-vertical-position-right ~ .suki-popup-close-icon {
 	right: 0;
-}
-
-.admin-bar .suki-popup-background {
-	top: 32px;
-}
-
-@media screen and (max-width: 782px) {
-	.admin-bar .suki-popup-background {
-		top: 46px;
-	}
+	left: auto;
 }
 
 .suki-wrapper {
@@ -1535,6 +1544,10 @@ body.suki-has-popup-active .suki-popup-background {
 
 .suki-header-social li.menu-item:last-of-type {
 	margin-left: 0;
+}
+
+.suki-header-mobile-vertical-toggle .suki-popup-toggle-active {
+	opacity: 0;
 }
 
 .suki-main-header {
@@ -1862,58 +1875,16 @@ body.suki-has-popup-active .suki-popup-background {
 	background-color: #ffffff;
 }
 
-.suki-header-vertical {
-	position: fixed;
-	z-index: 200;
-	top: 0;
-	bottom: 0;
-	max-width: calc(100% - 4rem);
-	-webkit-transition: -webkit-transform 0.25s;
-	transition: -webkit-transform 0.25s;
-	transition: transform 0.25s;
-	transition: transform 0.25s, -webkit-transform 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
 .suki-header-vertical ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.admin-bar .suki-header-vertical {
-	top: 32px;
-}
-
-@media screen and (max-width: 782px) {
-	.admin-bar .suki-header-vertical {
-		top: 46px;
-	}
-}
-
 .suki-header-vertical-inner {
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
-}
-
-.suki-header-vertical-position-left {
-	right: 0;
-	-webkit-transform: translate(100%, 0);
-	transform: translate(100%, 0);
-}
-
-.suki-header-vertical-position-right {
-	left: 0;
-	-webkit-transform: translate(-100%, 0);
-	transform: translate(-100%, 0);
-}
-
-.suki-header-vertical-display-permanent,
-.suki-header-vertical.suki-popup-active {
-	-webkit-transform: translate(0, 0) !important;
-	transform: translate(0, 0) !important;
 }
 
 .suki-header-vertical-column {
@@ -2029,7 +2000,34 @@ body.suki-has-popup-active .suki-popup-background {
 }
 
 .suki-header-mobile-vertical-bar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	max-width: calc(100% - 4rem);
 	width: 300px;
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: -webkit-transform 0.25s;
+	transition: transform 0.25s;
+	transition: transform 0.25s, -webkit-transform 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.suki-header-mobile-vertical-bar.suki-header-vertical-position-left {
+	right: 0;
+	-webkit-transform: translate(100%, 0);
+	transform: translate(100%, 0);
+}
+
+.suki-header-mobile-vertical-bar.suki-header-vertical-position-right {
+	left: 0;
+	-webkit-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+}
+
+.suki-popup-active .suki-header-mobile-vertical-bar {
+	-webkit-transform: translate(0, 0) !important;
+	transform: translate(0, 0) !important;
 }
 
 .suki-header-mobile-vertical-bar-inner {
@@ -2603,6 +2601,15 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 	margin: 0 0 2rem;
 }
 
+.entry-content:before, .entry-content:after {
+	content: "";
+	display: table;
+}
+
+.entry-content:after {
+	clear: both;
+}
+
 .entry-content > *:last-child {
 	margin-bottom: 0;
 }
@@ -3115,6 +3122,10 @@ a.more-link {
 
 .widget_calendar table caption {
 	padding: 0.2em 2em;
+}
+
+.search-results .widget_search {
+	display: none;
 }
 
 .suki_widget_posts ul {

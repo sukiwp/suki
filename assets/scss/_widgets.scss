@@ -189,6 +189,14 @@
 	}
 }
 
+// Search widget
+.widget_search {
+	// Hide search widget when on search results page.
+	.search-results & {
+		display: none;
+	}
+}
+
 // -------------------------------------------------------------
 // Custom widgets
 // -------------------------------------------------------------
