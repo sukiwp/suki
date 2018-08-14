@@ -41,24 +41,24 @@ msgstr ""
 msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/."
 msgstr ""
 
-#: inc/class-suki.php:198
+#: inc/class-suki.php:213
 msgid "Header Menu 1"
 msgstr ""
 
-#: inc/class-suki.php:199
+#: inc/class-suki.php:214
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:200, inc/customizer/options/footer--builder.php:80
+#: inc/class-suki.php:215, inc/customizer/options/footer--builder.php:80
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:244, inc/customizer/options/_sections.php:312
+#: inc/class-suki.php:259, inc/customizer/options/_sections.php:312
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
-#: inc/class-suki.php:255
+#: inc/class-suki.php:270
 msgid "Footer Widgets Column %d"
 msgstr ""
 
@@ -185,40 +185,36 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1190
-msgid "Nothing Found"
-msgstr ""
-
-#: inc/template-tags.php:1216
+#: inc/template-tags.php:1200
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1217
+#: inc/template-tags.php:1201
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1275
+#: inc/template-tags.php:1259
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1276
+#: inc/template-tags.php:1260
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1293
+#: inc/template-tags.php:1277
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1299
+#: inc/template-tags.php:1283
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1326
+#: inc/template-tags.php:1310
 msgid "Comments are closed."
 msgstr ""
 
@@ -230,15 +226,19 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-none.php:17
+#: template-parts/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:18
 msgid "Ready to publish your first post? Get started here."
 msgstr ""
 
-#: template-parts/content-none.php:23
+#: template-parts/content-none.php:24
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:29
+#: template-parts/content-none.php:30
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 

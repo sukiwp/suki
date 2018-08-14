@@ -1156,15 +1156,7 @@ if ( ! function_exists( 'suki_content_header' ) ) :
  * Render content header.
  */
 function suki_content_header() {
-	if ( is_home() && ! is_front_page() ) {
-		?>
-		<header class="page-header screen-reader-text">
-			<h1 class="page-title"><?php single_post_title(); ?></h1>
-		</header>
-		<?php
-	}
-
-	elseif ( is_archive() ) {
+	if ( is_archive() ) {
 		?>
 		<header class="page-header">
 			<?php
@@ -1180,14 +1172,6 @@ function suki_content_header() {
 		<header class="page-header">
 			<h1 class="page-title"><?php suki_title__search(); ?></h1>
 			<?php get_search_form(); ?>
-		</header>
-		<?php
-	}
-
-	else {
-		?>
-		<header class="page-header">
-			<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'suki' ); ?></h1>
 		</header>
 		<?php
 	}

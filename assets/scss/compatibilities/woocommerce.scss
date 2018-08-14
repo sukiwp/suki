@@ -267,6 +267,7 @@ p.demo_store {
 
 		a.woocommerce-loop-product__link {
 			display: block;
+			color: inherit;
 
 			img {
 				margin: 0 0 0.5em;
@@ -287,6 +288,7 @@ p.demo_store {
 		.woocommerce-loop-category__title, .woocommerce-loop-product__title, h3 {
 			padding: 0;
 			font: inherit;
+			color: inherit;
 		}
 
 		.star-rating {

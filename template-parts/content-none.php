@@ -13,6 +13,7 @@
 	<div class="page-content">
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
+			<h1><?php esc_html_e( 'Nothing Found', 'suki' ); ?></h1>
 			<p>
 				<a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php esc_html_e( 'Ready to publish your first post? Get started here.', 'suki' ); ?></a>
 			</p>

@@ -110,7 +110,6 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * Handle save action for page settings meta box on post edit page.
 	 *
 	 * @param integer $post_id
-	 * @return string
 	 */
 	public function save_post_meta_box( $post_id ) {
 		// Check if our nonce is set.
@@ -156,6 +155,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			get_taxonomies( array(
 				'public'             => true,
 				'publicly_queryable' => true,
+				'rewrite'            => true,
 				'_builtin'           => false,
 			), 'names' )
 		);

@@ -167,7 +167,7 @@ gulp.task( 'vendors', function( done ) {
 		googleFonts[ font.family ] = '"' + font.family + '", ' + fallback;
 	}
 
-	fs.writeFile( './inc/list/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
+	fs.writeFile( './inc/lists/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
 		if ( error ) {
 			console.log( error );
 		}

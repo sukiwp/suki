@@ -44,9 +44,10 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 1 );
+		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
+		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 0 );
+
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
-		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
@@ -136,16 +137,30 @@ class Suki {
 		// If no version info found in DB, then create the info.
 		if ( ! $db_version ) {
 			add_option( 'suki_theme_version', $current_version );
+
+			// Skip migration and version update, because this is new installation.
 			return;
 		}
 
-		// If current version is larger than DB version, update DB version.
-		if ( $db_version < $current_version ) {
-			/**
-			 * Hook: suki/maintenance/version_changed
-			 */
-			do_action( 'suki/maintenance/version_changed', $db_version, $current_version );
+		// If current version is larger than DB version, update DB version and run migration (if any).
+		if ( version_compare( $db_version, $current_version, '<' ) ) {
+			// Get "to-do" migration list.
+			$migration_checkpoints = $this->get_migration_checkpoints( $db_version );
 
+			// Run through each "to-do" migration list step by step.
+			foreach ( $migration_checkpoints as $migration_version ) {
+				// Include migration functions.
+				$file = SUKI_INCLUDES_DIR . '/migration/' . $migration_version . '.php';
+
+				if ( file_exists( $file ) ) {
+					include( $file );
+				}
+
+				// Update DB version to migrated version.
+				update_option( 'suki_theme_version', $migration_version );
+			}
+
+			// Update DB version to latest version.
 			update_option( 'suki_theme_version', $current_version );
 		}
 	}
@@ -428,6 +443,28 @@ class Suki {
 			'elementor-pro' => '\ElementorPro\Plugin',
 			'contact-form-7' => 'WPCF7',
 		);
+	}
+
+	/**
+	 * Return array of migration checkpoints start from specified version.
+	 *
+	 * @param string $start_from
+	 * @return array
+	 */
+	public function get_migration_checkpoints( $start_from ) {
+		$all_checkpoints = array(
+			
+		);
+
+		$todo_checkpoints = array();
+		foreach ( $all_checkpoints as $checkpoint ) {
+			// Add checkpoints to "to-do" migration list, if checkpoint is bigger than current DB version.
+			if ( version_compare( $start_from, $checkpoint, '<' ) ) {
+				$todo_checkpoints[] = $checkpoint;
+			}
+		}
+
+		return $todo_checkpoints;
 	}
 }
 
