@@ -21,10 +21,9 @@
 .suki-header-mobile-logo {
 	.site-title {
 		margin: 0;
+		@extend %small-title;
 
 		> a {
-			@extend %small-title;
-
 			> svg,
 			> img {
 				display: block;

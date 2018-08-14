@@ -176,8 +176,8 @@ h2, .h2, .wp-block-cover-image .wp-block-cover-image-text,
 	line-height: 1.5;
 }
 
-.page-header .page-title, .suki-header-logo .site-title > a,
-.suki-header-mobile-logo .site-title > a, .comments-title, .comment-reply-title, h3, .h3 {
+.page-header .page-title, .suki-header-logo .site-title,
+.suki-header-mobile-logo .site-title, .comments-title, .comment-reply-title, h3, .h3 {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
