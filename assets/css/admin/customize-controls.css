@@ -7,6 +7,10 @@
 	line-height: 18px;
 }
 
+.customize-control .notice {
+	margin: 0;
+}
+
 .description .dashicons {
 	width: auto;
 	height: auto;

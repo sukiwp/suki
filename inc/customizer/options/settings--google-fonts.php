@@ -17,11 +17,10 @@ $section = 'suki_section_google_fonts';
  */
 
 // Google Fonts privacy policy
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'content_container', array(
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_google_fonts', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Google Fonts privacy policy', 'suki' ),
-	'description' => esc_html__( 'Google Fonts would be served from Google\'s server. There are chances that visitor\'s data might be collected by Google. If you do not accept this, you can use "Self-Hosted Google Fonts" plugin to self-host the fonts on your own server. &mdash; If you are not using any Google Fonts on your settings, you can ignore this notice.', 'suki' ),
+	'description' => '<div class="notice notice-warning"><p>' . esc_html__( 'Google Fonts would be served from Google\'s server. There are chances that visitor\'s data might be collected by Google. If you do not accept this, you can use "Self-Hosted Google Fonts" plugin to self-host the fonts on your own server. &mdash; If you are not using any Google Fonts on your settings, you can ignore this notice.', 'suki' ) . '</p></div>',
 	'priority'    => 10,
 ) ) );
 

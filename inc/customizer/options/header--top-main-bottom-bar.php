@@ -43,7 +43,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		) ) );
 	}
 	
-	// Section layout
+	// Layout
 	$id = 'header_' . $type . '_container';
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
@@ -53,7 +53,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$wp_customize->add_control( $id, array(
 		'type'        => 'select',
 		'section'     => $section,
-		'label'       => esc_html__( 'Section layout', 'suki' ),
+		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
 			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 			'full-width'         => esc_html__( 'Full width content', 'suki' ),

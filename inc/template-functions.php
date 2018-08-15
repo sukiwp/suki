@@ -113,7 +113,7 @@ function suki_template_hooks() {
 		 *
 		 * @see suki_entry_title()
 		 */
-		if ( ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'page_header_keep_content_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
+		if ( ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
 			add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
 		}
 
@@ -148,7 +148,7 @@ function suki_template_hooks() {
 	 * @see suki_entry_header_meta()
 	 * @see suki_entry_title()
 	 */
-	if ( ! is_singular() || ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'page_header_keep_content_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
+	if ( ! is_singular() || ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
 		$priority = 10;
 		foreach ( suki_get_theme_mod( 'entry_header' ) as $element ) {
 			$function = 'suki_entry_' . str_replace( '-', '_', $element );
@@ -273,7 +273,7 @@ function suki_template_hooks() {
 	 */
 
 	if ( is_archive() || is_home() || is_search() ) {
-		if ( ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'page_header_keep_content_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
+		if ( ! suki_get_theme_mod( 'page_header' ) || suki_get_current_page_setting( 'disable_page_header' ) ) {
 			/**
 			 * suki/frontend/before_main hook
 			 * 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Page Canvas
+ * Customizer settings: Page Canvas & Wrapper
  *
  * @package Suki
  **/
@@ -35,10 +35,37 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_container', array(
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_container_colors', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'priority'    => 10,
+) ) );
+
+// Page background color
+$id = 'page_bg_color';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Page background color', 'suki' ),
+	'priority'    => 10,
+) ) );
+
+/**
+ * ====================================================
+ * Content Wrapper
+ * ====================================================
+ */
+
+// Heading: Content Wrapper
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_section_container', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Content Wrapper', 'suki' ),
+	'priority'    => 20,
 ) ) );
 
 // Content wrapper width
@@ -51,7 +78,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Content wrapper width', 'suki' ),
-	'description' => esc_html__( 'The maximum width of center content wrapper. This would be applied to all "Full width section, wrapped content" sections.', 'suki' ),
+	'description' => esc_html__( 'The maximum width of center content wrapper.', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 500,
@@ -59,7 +86,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
 
 // Section side padding
@@ -88,28 +115,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_container_colors', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
-// Page background color
-$id = 'page_bg_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Page background color', 'suki' ),
-	'priority'    => 10,
-) ) );
 
 /**
  * ====================================================
@@ -122,7 +130,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Boxed Page', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Boxed page width
@@ -142,7 +150,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'step' => 1,
 		),
 	),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Boxed page shadow
@@ -155,14 +163,14 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Shadow( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Boxed page shadow', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_boxed_page_outside', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Outside background color
@@ -175,7 +183,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background color', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Outside background image
@@ -189,7 +197,7 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, 
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background image', 'suki' ),
 	'mime_type'   => 'image',
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Outside background position
@@ -214,7 +222,7 @@ $wp_customize->add_control( $id, array(
 		'right center'  => esc_html__( 'Right center', 'suki' ),
 		'right bottom'  => esc_html__( 'Right bottom', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 30,
 ) );
 
 // Outside background size
@@ -233,7 +241,7 @@ $wp_customize->add_control( $id, array(
 		'cover'   => esc_html__( 'Cover', 'suki' ),
 		'contain' => esc_html__( 'Contain', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 30,
 ) );
 
 // Outside background repeat
@@ -253,7 +261,7 @@ $wp_customize->add_control( $id, array(
 		'repeat-y'  => esc_html__( 'Repeat Y (vertically)', 'suki' ),
 		'repeat'    => esc_html__( 'Repeat both axis', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 30,
 ) );
 
 // Outside background attachment
@@ -271,5 +279,5 @@ $wp_customize->add_control( $id, array(
 		'scroll' => esc_html__( 'Scroll', 'suki' ),
 		'fixed'  => esc_html__( 'Fixed', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 30,
 ) );

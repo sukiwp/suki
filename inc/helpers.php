@@ -378,8 +378,8 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
  */
 function suki_get_fallback_page_settings() {
 	return array(
-		'content_container' => 'default',
-		'content_layout'    => 'right-sidebar',
+		'content_container' => suki_get_theme_mod( 'content_container' ),
+		'content_layout'    => suki_get_theme_mod( 'content_layout' ),
 	);
 }
 

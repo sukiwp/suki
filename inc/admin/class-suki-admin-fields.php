@@ -131,27 +131,15 @@ class Suki_Admin_Fields {
 			'return_value' => 1,
 			'label'        => '',
 			'class'        => '',
-			'wrapper'      => true,
 		) );
-
-		if ( $args['wrapper'] ) : ?>
-			<fieldset>
-		<?php endif; ?>
-
-		<?php if ( ! empty( $args['label'] ) ) : ?>
-			<label class="suki-admin-checkbox-control <?php echo esc_attr( $args['class'] ); ?>">
-		<?php endif; ?>
-
-		<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?>>
-		<?php echo ( $args['label'] ); // WPCS: XSS OK ?>
-			
-		<?php if ( ! empty( $args['label'] ) ) : ?>
-			</label>
-		<?php endif; ?>
-
-		<?php if ( $args['wrapper'] ) : ?>
-			</fieldset>
-		<?php endif;
+		?>
+		<label class="suki-admin-checkbox-control <?php echo esc_attr( $args['class'] ); ?>">
+			<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?>>
+			<?php if ( ! empty( $args['label'] ) ) : ?>
+				<span><?php echo ( $args['label'] ); // WPCS: XSS OK ?></span>
+			<?php endif; ?>
+		</label>
+		<?php
 	}
 
 	/**

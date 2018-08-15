@@ -189,6 +189,11 @@ input, select, textarea {
 	margin-right: 0;
 }
 
+.suki-admin-checkbox-control {
+	display: inline-block;
+	margin: 6px 0;
+}
+
 .suki-admin-multiselect-control {
 	height: 30px !important;
 	opacity: 0;

@@ -21,7 +21,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Social Links', 'suki' ),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_social' ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Social Media URLs', 'suki' ) . '</a>',
+	'description' => sprintf(
+		/* translators: %s: link to "Global Settings" section. */
+		esc_html__( 'You can edit Social Media URLs via %s.', 'suki' ),
+		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Global Settings', 'suki' ) . '</a>'
+	),
 	'priority'    => 10,
 ) ) );
 

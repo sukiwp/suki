@@ -203,8 +203,9 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-header.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/sidebar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--main.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );
@@ -422,22 +423,18 @@ class Suki_Customizer {
 			'404' => array(
 				'title' => esc_html__( '404 Page', 'suki' ),
 			),
-			'post_archive' => array(
-				'title' => esc_html__( 'Posts Page', 'suki' ),
-			),
-			'post_singular' => array(
-				'title' => esc_html__( 'Single Post Page', 'suki' ),
-				'description' => esc_html__( 'This is global default value. You can override these settings on each individual post editor.', 'suki' ),
-			),
 		);
 
 		// Add custom post types to sections.
-		$post_types = get_post_types( array(
-			'public'             => true,
-			'publicly_queryable' => true,
-			'rewrite'            => true,
-			'_builtin'           => false,
-		), 'names' );
+		$post_types = array_merge(
+			array( 'post' ),
+			get_post_types( array(
+				'public'             => true,
+				'publicly_queryable' => true,
+				'rewrite'            => true,
+				'_builtin'           => false,
+			), 'names' )
+		);
 
 		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
 
@@ -446,15 +443,15 @@ class Suki_Customizer {
 		foreach ( $post_types as $post_type ) {
 			$post_type_object = get_post_type_object( $post_type );
 
-			$page_sections[ $post_type_object->name . '_archive' ] = array(
+			$page_sections[ $post_type . '_archive' ] = array(
 				/* translators: %s: post type's plural name. */
-				'title' => sprintf( esc_html__( '%s Page', 'suki' ), $post_type_object->labels->name ),
+				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_object->labels->name ),
 			);
-			$page_sections[ $post_type_object->name . '_singular' ] = array(
+			$page_sections[ $post_type . '_singular' ] = array(
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_object->labels->singular_name ),
 				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'This is global default value. You can override these settings on each individual %s editor.', 'suki' ), $post_type_object->labels->singular_name ),
+				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the Edit %1$s page.', 'suki' ), $post_type_object->labels->singular_name ),
 			);
 		}
 

@@ -28,14 +28,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_header_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
-// Section layout
+// Layout
 $id = 'page_header_container';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
@@ -45,7 +38,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( $id, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Section layout', 'suki' ),
+	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
 		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 		'full-width'         => esc_html__( 'Full width content', 'suki' ),
@@ -153,7 +146,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show breadcrumb', 'suki' ),
-	'description' => esc_html__( 'You need to install an additional plugin in order to display breadcrumb functionality. Please choose one from the available plugins below. The selected plugin must be installed and active.', 'suki' ),
+	'description' => esc_html__( 'You need to install an additional plugin in order to display breadcrumb. Please choose one from the available plugins below. The selected plugin must be installed and active.', 'suki' ),
 	'priority'    => 10,
 ) ) );
 

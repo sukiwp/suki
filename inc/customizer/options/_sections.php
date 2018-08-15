@@ -157,9 +157,9 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'priority'    => 170,
 ) ) );
 
-// Page Canvas
+// Page Canvas & Wrapper
 $wp_customize->add_section( 'suki_section_page_container', array(
-	'title'       => esc_html__( 'Page Canvas', 'suki' ),
+	'title'       => esc_html__( 'Page Canvas & Wrapper', 'suki' ),
 	'priority'    => 171,
 ) );
 
@@ -301,23 +301,45 @@ $wp_customize->add_section( 'suki_section_page_header', array(
 	'priority'    => 173,
 ) );
 
-// Content
-$wp_customize->add_section( 'suki_section_content', array(
-	'title'       => esc_html__( 'Content', 'suki' ),
+// Content & Sidebar
+$panel = 'suki_panel_content';
+$wp_customize->add_panel( $panel, array(
+	'title'       => esc_html__( 'Content & Sidebar', 'suki' ),
 	'priority'    => 174,
 ) );
 
-// Sidebar
-$wp_customize->add_section( 'suki_section_sidebar', array(
-	'title'       => esc_html__( 'Sidebar', 'suki' ),
-	'priority'    => 175,
-) );
+	// Content Section
+	$wp_customize->add_section( 'suki_section_content', array(
+		'title'       => esc_html__( 'Content Section', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_content', array(
+		'panel'       => $panel,
+		'priority'    => 10,
+	) ) );
+
+	// Main Content Area
+	$wp_customize->add_section( 'suki_section_main', array(
+		'title'       => esc_html__( 'Main Content Area', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
+	// Sidebar Area
+	$wp_customize->add_section( 'suki_section_sidebar', array(
+		'title'       => esc_html__( 'Sidebar Area', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
 
 // Footer
 $panel = 'suki_panel_footer';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Footer', 'suki' ),
-	'priority'    => 176,
+	'priority'    => 175,
 ) );
 
 	// Footer Builder
@@ -436,14 +458,14 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 $panel = 'suki_panel_page_settings';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Page Settings', 'suki' ),
-	'description' => esc_html__( 'Page Settings allows you to configure elements on each different page type. For example, you can set different sidebar layout for single post page and posts index page.', 'suki' ),
+	'description' => esc_html__( 'Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type.', 'suki' ),
 	'priority'    => 191,
 ) );
 
 	// Begin registering sections.
 	$i = 10;
 	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type => $type_data ) {
-		if ( 0 < strpos( $type, '_archive' ) ) {
+		if ( 0 < strpos( $type, '_archive' ) || 'search' === $type ) {
 			$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_' . $i, array(
 				'panel'       => $panel,
 				'priority'    => $i,

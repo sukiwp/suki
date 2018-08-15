@@ -200,7 +200,7 @@ $add['alignwide_negative_margin'] = '100px';
 
 /**
  * ====================================================
- * Page Canvas
+ * Page Canvas & Wrapper
  * ====================================================
  */
 
@@ -540,22 +540,30 @@ $add['page_header_bg_overlay_opacity'] = 0;
 
 /**
  * ====================================================
- * Content
+ * Content & Sidebar > Section
  * ====================================================
  */
 
+$add['content_container'] = 'default';
+$add['content_layout'] = 'right-sidebar';
 $add['content_padding'] = '80px 0px 80px 0px';
+$add['content_narrow_width'] = '720px';
+
+/**
+ * ====================================================
+ * Content & Sidebar > Main Content Area
+ * ====================================================
+ */
 
 $add['content_main_padding'] = '0px 0px 0px 0px';
 $add['content_main_border'] = '0px 0px 0px 0px';
 
-$add['content_narrow_width'] = '720px';
-
 $add['content_main_bg_color'] = '';
+$add['content_main_border_color'] = '';
 
 /**
  * ====================================================
- * Sidebar
+ * Content & Sidebar > Sidebar Area
  * ====================================================
  */
 

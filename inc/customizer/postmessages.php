@@ -487,7 +487,7 @@ $add['alignwide_negative_margin'] = array(
 
 /**
  * ====================================================
- * Page Canvas
+ * Page Canvas & Wrapper
  * ====================================================
  */
 
@@ -1157,7 +1157,7 @@ $add['page_header_bg_overlay_opacity'] = array(
 
 /**
  * ====================================================
- * Content
+ * Content & Sidebar > Section
  * ====================================================
  */
 
@@ -1168,6 +1168,20 @@ $add['content_padding'] = array(
 		'property' => 'padding',
 	),
 );
+
+$add['content_narrow_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .site-main',
+		'property' => 'max-width',
+	),
+);
+
+/**
+ * ====================================================
+ * Content & Sidebar > Main Content Area
+ * ====================================================
+ */
 
 $responsive = array(
 	'' => '',
@@ -1224,13 +1238,6 @@ $add['content_main_border'] = array(
 		'property' => 'border-width',
 	),
 );
-$add['content_narrow_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .site-main',
-		'property' => 'max-width',
-	),
-);
 
 $add['content_main_bg_color'] = array(
 	array(
@@ -1239,10 +1246,17 @@ $add['content_main_bg_color'] = array(
 		'property' => 'background-color',
 	),
 );
+$add['content_main_border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.content-area .site-main',
+		'property' => 'border-color',
+	),
+);
 
 /**
  * ====================================================
- * Sidebar
+ * Content & Sidebar > Sidebar Area
  * ====================================================
  */
 

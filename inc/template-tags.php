@@ -587,7 +587,7 @@ function suki_page_title() {
 	if ( ! suki_get_theme_mod( 'page_header_title' ) ) return;
 	
 	// Get custom title from Page Settings.
-	$title = suki_get_current_page_setting( 'page_header_page_title' );
+	$title = suki_get_current_page_setting( 'page_header_title_text' );
 
 	// If no custom title defined, use default title.
 	if ( empty( $title ) ) {
@@ -1011,9 +1011,14 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
 function suki_entry_title( $size = '' ) {
 	$class = 'small' === $size ? 'entry-small-title h3' : 'entry-title h1';
 
+	if ( suki_get_current_page_setting( 'content_hide_title' ) ) {
+		$class .= ' screen-reader-text';
+	}
+
 	if ( is_singular() ) {
 		the_title( '<h1 class="' . $class . '">', '</h1>' );
-	} else {
+	}
+	else {
 		the_title( sprintf( '<h2 class="' . $class . '"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 	}
 }

@@ -1017,7 +1017,7 @@ p.demo_store {
 		}
 
 		a {
-			text-decoration: none;
+			text-decoration: none !important;
 			color: $color_text; // default
 
 			&:hover, &:focus {
