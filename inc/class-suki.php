@@ -132,25 +132,22 @@ class Suki {
 	public function check_theme_version() {
 		// Get theme version info from DB
 		$db_version = get_option( 'suki_theme_version', false );
-		$current_version = $this->get_info( 'version' );
+		$files_version = $this->get_info( 'version' );
 
 		// If no version info found in DB, then create the info.
 		if ( ! $db_version ) {
-			add_option( 'suki_theme_version', $current_version );
+			add_option( 'suki_theme_version', $files_version );
 
 			// Skip migration and version update, because this is new installation.
 			return;
 		}
 
 		// If current version is larger than DB version, update DB version and run migration (if any).
-		if ( version_compare( $db_version, $current_version, '<' ) ) {
-			// Get "to-do" migration list.
-			$migration_checkpoints = $this->get_migration_checkpoints( $db_version );
-
+		if ( version_compare( $db_version, $files_version, '<' ) ) {
 			// Run through each "to-do" migration list step by step.
-			foreach ( $migration_checkpoints as $migration_version ) {
+			foreach ( $this->get_migration_checkpoints( $db_version ) as $migration_version ) {
 				// Include migration functions.
-				$file = SUKI_INCLUDES_DIR . '/migration/' . $migration_version . '.php';
+				$file = SUKI_INCLUDES_DIR . '/migrations/' . $migration_version . '.php';
 
 				if ( file_exists( $file ) ) {
 					include( $file );
@@ -161,7 +158,7 @@ class Suki {
 			}
 
 			// Update DB version to latest version.
-			update_option( 'suki_theme_version', $current_version );
+			update_option( 'suki_theme_version', $files_version );
 		}
 	}
 
@@ -451,20 +448,25 @@ class Suki {
 	 * @param string $start_from
 	 * @return array
 	 */
-	public function get_migration_checkpoints( $start_from ) {
+	public function get_migration_checkpoints( $start_from = null ) {
 		$all_checkpoints = array(
-			
+
 		);
 
-		$todo_checkpoints = array();
-		foreach ( $all_checkpoints as $checkpoint ) {
-			// Add checkpoints to "to-do" migration list, if checkpoint is bigger than current DB version.
-			if ( version_compare( $start_from, $checkpoint, '<' ) ) {
-				$todo_checkpoints[] = $checkpoint;
-			}
-		}
+		if ( is_null( $start_from ) ) {
+			return $all_checkpoints;
+		}else {
+			$todo_checkpoints = array();
 
-		return $todo_checkpoints;
+			foreach ( $all_checkpoints as $checkpoint ) {
+				// Add checkpoints to "to-do" migration list, if checkpoint is bigger than current DB version.
+				if ( version_compare( $start_from, $checkpoint, '<' ) ) {
+					$todo_checkpoints[] = $checkpoint;
+				}
+			}
+
+			return $todo_checkpoints;
+		}
 	}
 }
 
