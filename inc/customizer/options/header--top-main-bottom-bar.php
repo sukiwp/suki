@@ -20,8 +20,30 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	 * Layout
 	 * ====================================================
 	 */
+
+	if ( $type !== 'main_bar' ) {
+		// Merge inside Main Bar
+		$id = 'header_' . $type . '_merged';
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Merge inside Main Bar wrapper', 'suki' ),
+			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element.', 'suki' ),
+			'priority'    => 10,
+		) ) );
+
+		// ------
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $type . '_merged', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'priority'    => 10,
+		) ) );
+	}
 	
-	// Section container
+	// Layout
 	$id = 'header_' . $type . '_container';
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
@@ -31,11 +53,11 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$wp_customize->add_control( $id, array(
 		'type'        => 'select',
 		'section'     => $section,
-		'label'       => esc_html__( 'Section container', 'suki' ),
+		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
-			'default'            => esc_html__( 'Fixed width container', 'suki' ),
-			'full-width'         => esc_html__( 'Full container', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full container with side padding', 'suki' ),
+			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
+			'full-width'         => esc_html__( 'Full width content', 'suki' ),
+			'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 			'contained'          => esc_html__( 'Contained section', 'suki' ),
 		),
 		'priority'    => 10,
@@ -159,11 +181,73 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'priority'    => 20,
 	) ) );
 
-	// ------
-	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_' . $type . '_icon_size', array(
+	// Menu link typography
+	$settings = array(
+		'font_family'    => 'header_' . $type . '_menu_font_family',
+		'font_weight'    => 'header_' . $type . '_menu_font_weight',
+		'font_style'     => 'header_' . $type . '_menu_font_style',
+		'text_transform' => 'header_' . $type . '_menu_text_transform',
+		'font_size'      => 'header_' . $type . '_menu_font_size',
+		'line_height'    => 'header_' . $type . '_menu_line_height',
+		'letter_spacing' => 'header_' . $type . '_menu_letter_spacing',
+	);
+	foreach ( $settings as $id ) {
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+		) );
+	}
+	$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'header_' . $type . '_menu_typography', array(
+		'settings'    => $settings,
 		'section'     => $section,
-		'settings'    => array(),
-		'priority'    => 25,
+		'label'       => esc_html__( 'Menu link typography', 'suki' ),
+		'priority'    => 20,
+	) ) );
+
+	// Menu link hover highlight
+	$id = 'header_' . $type . '_menu_highlight';
+	$wp_customize->add_setting( $id, array(
+		'default'     => suki_array_value( $defaults, $id ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+	) );
+	$wp_customize->add_control( $id, array(
+		'type'        => 'select',
+		'section'     => $section,
+		'label'       => esc_html__( 'Menu link hover highlight', 'suki' ),
+		'choices'     => array(
+			'none'          => esc_html__( 'None', 'suki' ),
+			'background'    => esc_html__( 'Background', 'suki' ),
+			'underline'     => esc_html__( 'Underline', 'suki' ),
+			'border-top'    => esc_html__( 'Border top', 'suki' ),
+			'border-bottom' => esc_html__( 'Border bottom', 'suki' ),
+		),
+		'priority'    => 20,
+	) );
+
+	// Submenu link typography
+	$settings = array(
+		'font_family'    => 'header_' . $type . '_submenu_font_family',
+		'font_weight'    => 'header_' . $type . '_submenu_font_weight',
+		'font_style'     => 'header_' . $type . '_submenu_font_style',
+		'text_transform' => 'header_' . $type . '_submenu_text_transform',
+		'font_size'      => 'header_' . $type . '_submenu_font_size',
+		'line_height'    => 'header_' . $type . '_submenu_line_height',
+		'letter_spacing' => 'header_' . $type . '_submenu_letter_spacing',
+	);
+	foreach ( $settings as $id ) {
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+		) );
+	}
+	$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'header_' . $type . '_submenu_typography', array(
+		'settings'    => $settings,
+		'section'     => $section,
+		'label'       => esc_html__( 'Submenu link typography', 'suki' ),
+		'priority'    => 20,
 	) ) );
 
 	// Icon size
@@ -171,6 +255,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $defaults, $id ),
 		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 		'section'     => $section,
@@ -182,7 +267,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 				'step' => 1,
 			),
 		),
-		'priority'    => 25,
+		'priority'    => 20,
 	) ) );
 
 	/**
@@ -201,11 +286,12 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 
 	// Colors
 	$colors = array(
-		'header_' . $type . '_section_bg_color'      => esc_html__( 'Background color', 'suki' ),
-		'header_' . $type . '_section_border_color'  => esc_html__( 'Border color', 'suki' ),
+		'header_' . $type . '_bg_color'              => esc_html__( 'Background color', 'suki' ),
+		'header_' . $type . '_border_color'          => esc_html__( 'Border color', 'suki' ),
 		'header_' . $type . '_text_color'            => esc_html__( 'Text color', 'suki' ),
-		'header_' . $type . '_link_text_color'       => esc_html__( 'Link color', 'suki' ),
-		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link color :hover', 'suki' ),
+		'header_' . $type . '_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
+		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
+		'header_' . $type . '_menu_highlight_color'  => esc_html__( 'Menu link highlight color', 'suki' ),
 	);
 	foreach ( $colors as $id => $label ) {
 		$wp_customize->add_setting( $id, array(
@@ -217,26 +303,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'section'     => $section,
 			'label'       => $label,
 			'priority'    => 30,
-		) ) );
-	}
-
-	/**
-	 * ====================================================
-	 * Suki Pro Upsell
-	 * ====================================================
-	 */
-
-	if ( suki_show_pro_teaser() ) {
-		$wp_customize->add_control( new Suki_Customize_Control_Pro( $wp_customize, 'pro_teaser_header_' . $type, array(
-			'section'     => $section,
-			'settings'    => array(),
-			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-			'url'         => SUKI_PRO_URL,
-			'features'    => array(
-				esc_html_x( 'More typography options', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Menu highlight effects', 'Suki Pro upsell', 'suki' ),
-			),
-			'priority'    => 90,
 		) ) );
 	}
 }

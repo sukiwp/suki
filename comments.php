@@ -26,20 +26,20 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 	<?php
 	/**
-	 * Hook: suki_before_comments
+	 * Hook: suki/frontend/before_comments
 	 */
-	do_action( 'suki_before_comments' );
+	do_action( 'suki/frontend/before_comments' );
 
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 
 		/**
-		 * Hook: suki_before_comments_list
+		 * Hook: suki/frontend/before_comments_list
 		 *
 		 * @hooked suki_comments_title - 10
 		 * @hooked suki_comments_navigation - 20
 		 */
-		do_action( 'suki_before_comments_list' );
+		do_action( 'suki/frontend/before_comments_list' );
 		?>
 
 		<ol class="comment-list">
@@ -54,21 +54,21 @@ if ( post_password_required() ) {
 
 		<?php
 		/**
-		 * Hook: suki_after_comments_list
+		 * Hook: suki/frontend/after_comments_list
 		 *
 		 * @hooked suki_comments_navigation - 10
 		 * @hooked suki_comments_closed - 20
 		 */
-		do_action( 'suki_after_comments_list' );
+		do_action( 'suki/frontend/after_comments_list' );
 
 	endif; // Check for have_comments().
 
 	// Print comment form.
-	comment_form( apply_filters( 'suki_comment_form_args', array() ) );
+	comment_form( apply_filters( 'suki/frontend/comment_form_args', array() ) );
 
 	/**
-	 * Hook: suki_after_comments
+	 * Hook: suki/frontend/after_comments
 	 */
-	do_action( 'suki_after_comments' );
+	do_action( 'suki/frontend/after_comments' );
 	?>
 </div>

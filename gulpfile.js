@@ -4,6 +4,8 @@
  * Define configurations
  */
 
+const info = require( './package.json' );
+
 const config = {
 	src: {
 		scss: [ './assets/scss/**/*.scss' ],
@@ -37,10 +39,9 @@ const config = {
 		scss: './assets/scss',
 		css: './assets/css',
 		js: './assets/js',
-		webfonts: './assets/webfonts',
 		icons: './assets/icons',
 		pot: './languages',
-		build: './__build/suki',
+		build: './__build/' + info.name,
 		zip: './__build/zip',
 	},
 };
@@ -166,7 +167,7 @@ gulp.task( 'vendors', function( done ) {
 		googleFonts[ font.family ] = '"' + font.family + '", ' + fallback;
 	}
 
-	fs.writeFile( './inc/list/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
+	fs.writeFile( './inc/lists/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
 		if ( error ) {
 			console.log( error );
 		}
@@ -247,8 +248,8 @@ gulp.task( 'pot', function() {
 			package: info.title,
 			metadataFile: 'style.css',
 		} ).on( 'error', function( error ) {
-			console.error( error ); 
-			this.emit( 'end' ); 
+			console.error( error );
+			this.emit( 'end' );
 		} ) )
 		.pipe( gulp.dest( config.dest.pot + '/' + info.name + '.pot' ) );
 } );
@@ -314,7 +315,7 @@ gulp.task( 'default', gulp.series( 'build', 'watch' ) );
 gulp.task( 'zip', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
-	return gulp.src( config.dest.build + '/**/*', { buffer: false, base: config.dest.build } )
-		.pipe( zip( info.name + '.zip' ) )
+	return gulp.src( config.dest.build + '/**/*', { buffer: false, base: config.dest.build + '/../' } )
+		.pipe( zip( info.name + '-' + info.version + '.zip' ) )
 		.pipe( gulp.dest( config.dest.zip ) );
 } );

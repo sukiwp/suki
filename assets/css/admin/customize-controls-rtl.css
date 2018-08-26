@@ -7,6 +7,10 @@
 	line-height: 18px;
 }
 
+.customize-control .notice {
+	margin: 0;
+}
+
 .description .dashicons {
 	width: auto;
 	height: auto;
@@ -32,6 +36,13 @@
 #customize-outer-theme-controls .accordion-section-title {
 	border-top: 1px solid #ddd;
 	margin-top: -1px;
+}
+
+div.customize-section-description {
+	margin: 0 -12px;
+	padding: 12px 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
 }
 
 #customize-controls .customize-control-notifications-container:empty {
@@ -70,20 +81,6 @@
 	padding: 0;
 	text-align: center;
 	text-align-last: center;
-}
-
-.suki-pro-link {
-	position: absolute;
-	top: 50%;
-	left: 12px;
-	display: inline-block;
-	padding: 0 4px;
-	margin-top: -9px;
-	color: #fff;
-	background-color: #d54e21;
-	font-size: 10px;
-	line-height: 18px;
-	text-transform: uppercase;
 }
 
 .suki-heading {
@@ -144,54 +141,69 @@
 	margin-top: 15px;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title {
-	padding: 10px 18px 11px 10px !important;
-	background-color: #fff8e5;
-	border-right: none;
-	cursor: default;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title {
+	display: block;
+	background-color: #ee5253;
+	border-color: #ee5253;
+	color: #fff;
+	text-decoration: none;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title:after {
-	display: none;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title h3 {
+	margin: 0;
+	color: inherit !important;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title:hover, #customize-theme-controls .control-section-suki-section-pro .accordion-section-title:focus {
-	background-color: #fff8e5;
-	color: #555d66;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title:after {
+	color: inherit !important;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title .button {
-	margin: -1px 8px 0 0;
-	font-weight: normal;
+#customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title:hover, #customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title:focus {
+	background-color: #ec3b3c;
+	border-color: #ec3b3c;
+	border-right-color: #a61011;
+	color: #fff;
 }
 
-#customize-theme-controls .control-section-suki-section-pro .accordion-section-title ul.menu-in-location {
-	line-height: normal;
-	margin: 8px 0 0;
-}
-
-.customize-control-suki-pro {
+.customize-control-suki-pro-teaser {
 	margin: 20px 0 12px;
 }
 
-.customize-control-suki-pro h3 {
+.suki-pro-teaser {
+	background-color: #fff8e5;
+	margin-top: -1px;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
-	margin: 0 -12px;
-	padding: 10px 18px 11px 10px;
-	background-color: #fff8e5;
+	cursor: default;
 	color: inherit;
-	line-height: 21px;
 }
 
-.customize-control-suki-pro .button {
-	margin: -1px 8px 0 0;
+.customize-control > .suki-pro-teaser {
+	margin: 0 -12px;
+	padding: 12px 12px 12px 12px;
+}
+
+.accordion-section > .suki-pro-teaser {
+	padding: 12px 18px 12px 10px;
+}
+
+.suki-pro-teaser h3 {
+	display: inline-block;
+	color: inherit;
+	margin: 0;
+}
+
+.suki-pro-teaser .button {
+	margin: -3px 8px 0 0;
 	font-weight: normal;
 }
 
-.customize-control-suki-pro ul.menu-in-location {
-	line-height: normal;
-	margin: 8px 0 0;
+.suki-pro-teaser ul {
+	margin: 0.5em 0 0;
+}
+
+.suki-pro-teaser ul li {
+	margin: 0.25em 0;
 }
 
 .customize-control-suki-heading {
@@ -282,6 +294,27 @@
 	border-radius: 0 !important;
 	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.customize-control-suki-color .wp-picker-container .color-alpha:after {
+	content: "not set";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 40px;
+	margin: -5px -5px 0 0;
+	border: none;
+	font-size: 8px;
+	font-weight: bold;
+	line-height: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #fff;
+	color: #444;
+}
+
+.customize-control-suki-color .wp-picker-container .color-alpha[style*="background:"]:after {
+	display: none;
 }
 
 .customize-control-suki-color .wp-picker-container .wp-color-result-text {
@@ -923,4 +956,12 @@
 	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder {
 		right: 600px;
 	}
+}
+
+#sub-accordion-panel-suki_panel_page_settings .customize-info .customize-panel-description {
+	display: block;
+}
+
+#sub-accordion-panel-suki_panel_page_settings .customize-info .customize-help-toggle {
+	display: none;
 }

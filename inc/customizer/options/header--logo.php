@@ -25,10 +25,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Logo
-$id = 'header_logo_image';
+$id = 'custom_logo';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
 	'sanitize_callback' => 'absint',
 ) );
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
@@ -38,16 +37,6 @@ $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, 
 	'mime_type'   => 'image',
 	'priority'    => 10,
 ) ) );
-
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial( $id, array(
-		'selector'            => '.suki-header-logo',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_header_element__logo',
-		'fallback_refresh'    => false,
-	) );
-}
 
 // Max width
 $id = 'header_logo_width';
@@ -84,10 +73,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Mobile Logo
-$id = 'header_mobile_logo_image';
+$id = 'custom_logo_mobile';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
 	'sanitize_callback' => 'absint',
 ) );
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
@@ -97,17 +85,6 @@ $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, 
 	'mime_type'   => 'image',
 	'priority'    => 20,
 ) ) );
-
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	// Mobile Logo
-	$wp_customize->selective_refresh->add_partial( $id, array(
-		'selector'            => '.suki-header-mobile-logo',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_header_element__mobile_logo',
-		'fallback_refresh'    => false,
-	) );
-}
 
 // Max width
 $id = 'header_mobile_logo_width';

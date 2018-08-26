@@ -42,7 +42,7 @@ class Suki_Compatibility_Jetpack {
 	 */
 	protected function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 	}
 	
 	/**

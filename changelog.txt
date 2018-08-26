@@ -1,0 +1,26 @@
+v0.4.2
+- NEW: Global default options for "section layout" and "content & sidebar layout".
+- NEW: Version migration mechanism for future updates that require migration process.
+- NEW: Option to hide page title on static page's meta box.
+- IMPROVED: Some control & section structures on Customizer.
+- IMPROVED: Some translatable strings on Customizer.
+- IMPROVED: Mobile header drawer HTML structures.
+- IMPROVED: Search results page when no results found.
+- FIXED: Some CSS.
+- REMOVED: Ambiguous "keep content title displayed" option on Page Settings.
+
+v0.4.1
+- IMPROVED: Some translatable strings on Customizer.
+- FIXED: Blog posts page layout options not working.
+- FIXED: Default CSS caused colors settings on headings, title, and small title not working.
+- FIXED: Font family bugs on Small Title and Meta Info.
+- FIXED: Some minor PHP warnings.
+
+v0.4.0
+- NEW: Option to merge header top bar, header bottom bar into header main bar.
+- NEW: Option to merge footer bottom bar into footer widgets bar.
+- IMPROVED: Content wrapper is now rendered on header.php and footer.php and add new filter to disable it.
+- IMPROVED: Change all ambiguous labels and terms on Customizer options to be more self-explanatory.
+
+v0.3.0
+- Release.

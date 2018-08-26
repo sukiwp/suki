@@ -47,7 +47,7 @@
 .entry-content,
 .entry-author-content,
 .comment-content {
-	a {
+	a:not(.button) {
 		text-decoration: underline;
 	}
 }

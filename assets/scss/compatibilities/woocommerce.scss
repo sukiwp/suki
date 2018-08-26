@@ -47,7 +47,19 @@
 
 .woocommerce {
 	#respond input#submit, a.button, button.button, input.button {
-		@extend %button;
+		@extend %button; // default
+
+		&.disabled, &:disabled, &:disabled[disabled] {
+			@extend %button; // default
+		}
+
+		&.alt {
+			@extend %button; // default
+
+			&.disabled, &:disabled, &:disabled[disabled] {
+				@extend %button; // default
+			}
+		}
 
 		&:after {
 			vertical-align: middle;
@@ -68,6 +80,7 @@
 .woocommerce .woocommerce-info,
 .woocommerce .woocommerce-message {
 	border: none;
+	background-color: $color_subtle; // default
 	color: inherit;
 
 	.button {
@@ -82,6 +95,12 @@ p.demo_store {
 	position: relative;
 	top: 0 !important;
 	z-index: initial;
+	background-color: $color_accent; // default
+	color: $color_white; // default
+
+	a {
+		color: inherit; // default
+	}
 }
 
 // -------------------------------------------------------------
@@ -119,6 +138,13 @@ p.demo_store {
 	font-size: 1em;
 	line-height: normal;
 
+	background-color: $color_accent; // default
+	color: $color_white; // default
+
+	&:before, &:after {
+		border-color: $color_accent; // default
+	}
+
 	> span {
 		display: table-cell;
 		vertical-align: middle;
@@ -148,15 +174,24 @@ p.demo_store {
 
 .woocommerce .star-rating {
 	width: auto;
-	font-size: 1em;
+	font-size: 1rem;
 	line-height: normal;
 
 	span {
 		padding-top: 1em;
+
+		&:before {
+			color: $color_accent; // default
+		}
+	}
+
+	a {
+		color: $color_accent; // default
 	}
 
 	&:before {
 		position: static;
+		color: $color_accent; // default
 	}
 }
 
@@ -178,7 +213,8 @@ p.demo_store {
 		text-align: center;
 		line-height: 1;
 		letter-spacing: 0; /* reset */
-		color: #fff;
+		background-color: $color_accent; // default
+		color: $color_white; // default
 		animation: suki-pulse 0.5s 1;
 
 		strong {
@@ -202,11 +238,17 @@ p.demo_store {
 // Products Grid Columns
 // -------------------------------------------------------------
 
+.suki-before-shop-loop-clear {
+	clear: both;
+	margin-bottom: 1.25em;
+}
+
 .woocommerce ul.products {
 	margin: 0 -15px; // default
+	margin-bottom: -2em;
 
 	li.product {
-		margin: 1.25rem 0;
+		margin: 0 0 2em;
 		padding: 0 15px; // default
 
 		.count {
@@ -225,6 +267,7 @@ p.demo_store {
 
 		a.woocommerce-loop-product__link {
 			display: block;
+			color: inherit;
 
 			img {
 				margin: 0 0 0.5em;
@@ -245,6 +288,7 @@ p.demo_store {
 		.woocommerce-loop-category__title, .woocommerce-loop-product__title, h3 {
 			padding: 0;
 			font: inherit;
+			color: inherit;
 		}
 
 		.star-rating {
@@ -346,9 +390,23 @@ p.demo_store {
 			margin: 0 0.5em;
 			padding: 0;
 
-			a:focus, a:hover, span.current {
+			span.current {
+				padding: 0;
 				background-color: transparent;
+				color: $color_meta; // default
 			}
+
+			a {
+				padding: 0;
+				background-color: transparent;
+				color: $color_text; // default
+
+				&:focus, &:hover {
+					background-color: transparent;
+					color: $color_accent; // default
+				}
+			}
+
 		}
 	}
 }
@@ -364,9 +422,9 @@ p.demo_store {
 	div.images {
 		position: relative;
 		float: none;
-		width: 700px;
-		min-width: 700px;
-		margin-right: 50px;
+		width: 60%; // default
+		min-width: 60%; // default
+		margin-right: 40px; // default
 		margin-bottom: 0;
 
 		@media screen and ( max-width: $breakpoint_768 - 1px ) {
@@ -494,6 +552,11 @@ p.demo_store {
 					@include border( bottom, 3px );
 					border-color: transparent;
 					font-weight: inherit;
+					color: $color_text; // default
+
+					&:hover, &:focus {
+						color: $color_accent; // default
+					}
 				}
 
 				&.active {
@@ -501,6 +564,7 @@ p.demo_store {
 
 					a {
 						border-color: currentColor;
+						color: $color_heading; // default;
 					}
 				}
 			}
@@ -509,6 +573,10 @@ p.demo_store {
 		> .panel {
 			margin: 0;
 			display: none;
+
+			> h2:first-child {
+				@extend %small-title; // default
+			}
 
 			&:first-of-type {
 				display: block;
@@ -524,13 +592,15 @@ p.demo_store {
 			display: inline-block;
 			margin-top: 0;
 		}
+
+		@extend %meta; // default
 	}
 
 	p.price, span.price {
 		margin: 1.25rem 0;
 		font-size: 1.25rem;
 		font-weight: inherit;
-		color: inherit;
+		color: $color_heading; // default
 
 		del {
 			opacity: 0.5;
@@ -576,6 +646,7 @@ p.demo_store {
 		margin-top: 2rem;
 		padding-top: 1rem;
 		@include border( top );
+		@extend %meta; // default
 
 		> * {
 			display: block;
@@ -584,6 +655,10 @@ p.demo_store {
 
 	#reviews {
 		#comments {
+			> h2 {
+				@extend %small-title; // default
+			}
+
 			ol.commentlist {
 				list-style: none;
 				margin: 0;
@@ -639,11 +714,24 @@ p.demo_store {
 
 							.woocommerce-review__author {
 								font-weight: normal;
+								color: $color_heading; // default
+
+								a {
+									color: $color_heading; // default
+
+									&:hover, &:focus {
+										color: $color_text; // default
+									}
+								}
 							}
 						}
 
 						.description *:last-child {
 							margin-bottom: 0;
+						}
+
+						.woocommerce-review__published-date {
+							@extend %meta; // default
 						}
 					}
 				}
@@ -672,6 +760,10 @@ p.demo_store {
 				}
 			}
 		}
+	}
+
+	.products h2 {
+		@extend %small-title; // default
 	}
 }
 
@@ -707,6 +799,7 @@ p.demo_store {
 	td.actions .coupon .input-text {
 		min-width: 8.25rem;
 		margin-right: 0.5rem;
+		@extend %input; // default
 	}
 
 	.product-remove {
@@ -748,6 +841,10 @@ p.demo_store {
 		margin-top: 3rem;
 	}
 
+	h2 {
+		@extend %small-title; // default
+	}
+
 	.cart_totals {
 		td {
 			text-align: right;
@@ -759,6 +856,7 @@ p.demo_store {
 			a.checkout-button {
 				display: inline-block;
 				margin-bottom: 0;
+				padding: 13px 15.6px; // default
 			}
 		}
 
@@ -786,6 +884,10 @@ p.demo_store {
 			margin: 0 0 3rem;
 		}
 	}
+
+	h3 {
+		@extend %small-title; // default
+	}
 }
 
 .suki-woocommerce-checkout-2-columns {
@@ -797,9 +899,9 @@ p.demo_store {
 		}
 
 		.suki-woocommerce-checkout-col-2 {
-			width: 37.5%;
-			min-width: 37.5%;
-			margin-left: 50px;
+			width: 37.5%; // default
+			min-width: 37.5%; // default
+			margin-left: 60px; // default
 		}
 	}
 }
@@ -808,20 +910,24 @@ p.demo_store {
 .woocommerce-cart,
 .woocommerce-checkout {
 	#payment {
+		background-color: transparent;
 		border-radius: 0;
 
 		ul.payment_methods {
-			padding: 1em;
-			border-color: inherit;
+			padding: 0;
+			margin-bottom: 1.25em;
+			border-bottom: none;
 
 			li {
 				line-height: inherit;
-				margin: 0 0 0.5em;
+				padding: 0.75em 1em;
+				margin: 0 0 0.25em;
+				background-color: $color_subtle; // default
 			}
 		}
 
 		div.form-row {
-			padding: 1em;
+			padding: 0;
 		}
 
 		.payment_method_paypal {
@@ -838,14 +944,10 @@ p.demo_store {
 		}
 
 		div.payment_box {
-			margin: 0.5em 0;
+			margin: 0.75em 0 0;
 			color: inherit;
 			background-color: inherit;
 			padding: 0;
-
-			> *:first-child {
-				margin-top: 0;
-			}
 
 			> *:last-child {
 				margin-bottom: 0;
@@ -865,10 +967,10 @@ p.demo_store {
 
 .woocommerce, .woocommerce-page {
 	#payment {
-
 		#place_order {
 			float: none;
 			width: 100%;
+			padding: 13px 15.6px; // default
 		}
 	}
 }
@@ -898,53 +1000,101 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .woocommerce-account {
-	.woocommerce-MyAccount-navigation {
-		float: none;
-		width: auto;
 
-		ul {
-			margin: 0 0 2rem;
-			padding: 0;
-			@include border( bottom );
-			list-style: none;
-			overflow: visible;
-			
-			li {
-				display: inline-block;
-				margin: 0 0 -1px;
-				padding: 0;
-				border: none;
-				background-color: transparent;
+	.suki-woocommerce-MyAccount {
+		@media screen and ( min-width: $breakpoint_768 ) {
+			@include flex( stretch );
+		}
+	}
 
-				a {
-					position: relative;
-					display: inline-block;
-					padding: 0.8rem 1.2rem;
-					@include border( bottom, 3px );
-					border-color: transparent;
-					text-decoration: none;
-				}
+	.suki-woocommerce-MyAccount-sidebar {
+		margin: 0 0 1.25rem;
 
-				&.is-active {
-					a {
-						border-color: currentColor;
-					}
-				}
+		@media screen and ( min-width: $breakpoint_768 ) {
+			width: 20%;
+			min-width: 20%;
+			max-width: 200px;
+		}
+
+		a {
+			text-decoration: none !important;
+			color: $color_text; // default
+
+			&:hover, &:focus {
+				color: $color_accent; // default
 			}
 		}
 
-		> .panel {
-			display: none;
+		.is-active a {
+			color: $color_heading; // default
+		}
+	}
 
-			&:first-of-type {
+	.suki-woocommerce-MyAccount-user {
+		@include flex();
+		margin-bottom: 1.25rem;
+
+		@media screen and ( min-width: $breakpoint_768 ) {
+			padding-right: 15px;
+		}
+
+		.avatar {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-right: 15px;
+		}
+
+		.info {
+			width: 100%;
+
+			.name {
 				display: block;
+				font-weight: 500;
+			}
+
+			.logout {
+				font-size: 0.85em;
+			}
+		}
+	}
+
+	.woocommerce-MyAccount-navigation {
+		float: none; // reset
+		width: auto; // reset
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			@include border( top );
+
+			li {
+				@include border( bottom );
+
+				&.is-active {
+					font-weight: 500;
+				}
+
+				a {
+					display: block;
+					padding: 0.5em 0;					
+
+					@media screen and ( min-width: $breakpoint_768 ) {
+						padding-right: 15px;
+					}
+				}
 			}
 		}
 	}
 
 	.woocommerce-MyAccount-content {
-		float: none;
-		width: auto;
+		float: none; // reset
+		width: 100%;
+
+		@media screen and ( min-width: $breakpoint_768 ) {
+			padding-left: 60px;
+		}
 	}
 
 	table.my_account_orders {
@@ -953,6 +1103,10 @@ p.demo_store {
 
 	.addresses {
 		.title {
+			h3 {
+				margin-top: 0;
+			}
+
 			.edit {
 				text-decoration: none;
 			}
@@ -971,6 +1125,7 @@ p.demo_store {
 		height: 0.5em;
 		display: block !important;
 		background-color: transparent !important;
+		color: inherit; // default
 
 		&:before {
 			content: "";
@@ -1072,6 +1227,7 @@ p.demo_store {
 		margin: 0.5em 0 0;
 		
 		a {
+			@extend %button; // default
 			display: block;
 			width: 100%;
 			margin: 0.5em 0 0;

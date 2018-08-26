@@ -50,7 +50,7 @@
 
 			// Handle Choose button
 			frame.on( 'select', function() {
-				file = frame.state().get( 'selection' ).first().toJSON();
+				var file = frame.state().get( 'selection' ).first().toJSON();
 				$input.val( file.url );
 			});
 
@@ -111,6 +111,31 @@
 			});
 		});
 		$( '.suki-admin-dependent-field' ).trigger( 'change' );
+
+		/**
+		 * Metabox tabs
+		 */
+
+		$( '.suki-admin-metabox' ).each(function() {
+			var $metabox = $( this ),
+			    $navigation = $metabox.find( '.suki-admin-metabox-nav' ),
+			    $panels = $metabox.find( '.suki-admin-metabox-panels' );
+
+			$navigation.on( 'click', '.suki-admin-metabox-nav-item a', function( e ) {
+				e.preventDefault();
+
+				var $link = $( this ),
+				    $target = $panels.children( $link.attr( 'href' ) );
+
+				if ( $target && ! $target.hasClass( 'active' ) ) {
+					$navigation.children( '.suki-admin-metabox-nav-item.active' ).removeClass( 'active' );
+					$link.parent( '.suki-admin-metabox-nav-item' ).addClass( 'active' );
+
+					$panels.children( '.suki-admin-metabox-panel.active' ).removeClass( 'active' );
+					$target.addClass( 'active' );
+				}
+			})
+		});
 	});
 	
 })( jQuery );

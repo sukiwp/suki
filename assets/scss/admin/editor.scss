@@ -1,16 +1,17 @@
+@import "../_normalize";
+
 @import "../__variables";
 @import "../__mixins";
-@import "../__extends";
 
 // Base Elements
-@import "../_normalize";
+@import "../__extends";
 @import "../_base";
 
 // Common Elements
 @import "../_wordpress";
 
 html {
-	background-color: #fcfcfc;
+	background-color: #fcfcfc; // default
 	min-height: auto; // reset
 }
 
@@ -19,7 +20,9 @@ body.mce-content-body {
 	max-width: 100%; // default
 	min-height: auto; // reset
 	padding: 1rem !important;
-	background-color: #fff;
+	background-color: $color_bg; // default
+
+	@include float-container();
 
 	> *:first-child {
 		margin-top: 0;
@@ -31,6 +34,10 @@ body.mce-content-body {
 
 	&:focus {
 		outline: 0;
+	}
+
+	a {
+		text-decoration: underline;
 	}
 }
 

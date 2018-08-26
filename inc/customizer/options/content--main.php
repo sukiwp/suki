@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content & Sidebar > Main Content
+ * Customizer settings: Content & Sidebar > Main Content Area
  *
  * @package Suki
  **/
@@ -12,20 +12,12 @@ $section = 'suki_section_main';
 
 /**
  * ====================================================
- * Layout
+ * Main Content Area
  * ====================================================
  */
 
-// Heading: Layout
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Layout', 'suki' ),
-	'priority'    => 10,
-) ) );
-
 // Padding
-$id = 'content_padding';
+$id = 'content_main_padding';
 $settings = array(
 	$id,
 	$id . '__tablet',
@@ -53,7 +45,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border
-$id = 'content_border';
+$id = 'content_main_border';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
@@ -72,33 +64,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_narrow_content', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
-// Narrow Content width
-$id = 'narrow_content_width';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Narrow Content max width', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 600,
-			'max'  => 1000,
-			'step' => 1,
-		),
-	),
-	'priority'    => 10,
-) ) );
-
 /**
  * ====================================================
  * Typography
@@ -111,13 +76,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'settings'    => array(),
 	'label'       => esc_html__( 'Typography', 'suki' ),
 	'description' => sprintf(
-		/* translators: %s: link to "General Elements" section. */
-		esc_html__( 'Inherited from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_global_elements' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'General Elements', 'suki' ) . '</a>'
+		/* translators: %s: link to "Body (Base)" section. */
+		esc_html__( 'Inherit typography settings from %s.', 'suki' ),
+		'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_body' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
 	),
 	'priority'    => 20,
 ) ) );
-
 
 /**
  * ====================================================
@@ -130,23 +94,23 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Colors', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: link to "General Elements" section. */
-		esc_html__( 'Other colors are inherited from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_global_elements' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'General Elements', 'suki' ) . '</a>'
-	),
 	'priority'    => 30,
 ) ) );
 
 // Colors
-$id = 'content_bg_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Background color', 'suki' ),
-	'priority'    => 30,
-) ) );
+$colors = array(
+	'content_main_bg_color'     => esc_html__( 'Content Box BG color', 'suki' ),
+	'content_main_border_color' => esc_html__( 'Content Box border color', 'suki' ),
+);
+foreach ( $colors as $id => $label ) {
+	$wp_customize->add_setting( $id, array(
+		'default'     => suki_array_value( $defaults, $id ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+	) );
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+		'section'     => $section,
+		'label'       => $label,
+		'priority'    => 30,
+	) ) );
+}

@@ -5,7 +5,7 @@
 * {
 	border-style: solid;
 	border-width: 0;
-	border-color: #e5e5e5; // default
+	border-color: $color_border; // default
 
 	&, &:before, &:after {
 		box-sizing: border-box;
@@ -21,17 +21,15 @@
 }
 
 html {
-	font-family: sans-serif;
-	font-size: 15px;
-	line-height: 1.7;
 	min-height: 100vh;
+	color: $color_text; // default
 
 	@extend %base; // default
 }
 
 body {
-	background-color: #fff;
-	color: #666;
+	background-color: $color_bg; // default
+	color: $color_text; // default
 	min-height: 100vh;
 
 	@extend %base; // default
@@ -41,19 +39,19 @@ body {
 }
 
 p {
-	margin: 1.25rem 0;
+	margin: 0 0 1.25rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #333;
-	margin: 2rem 0 1.25rem;
-
-	&:first-child {
-		margin-top: 0;
-	}
+	color: $color_heading; // default
+	margin: 0 0 1.25rem;
 
 	a {
-		color: inherit;
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_text; // default
+		}
 	}
 }
 
@@ -74,6 +72,8 @@ h4 {
 }
 
 h5, h6 {
+	@extend %h4;
+
 	font-size: 1rem; // default
 	font-weight: 600; // default
 }
@@ -86,13 +86,9 @@ hr {
 }
 
 blockquote {
-	margin: 1.25rem 0;
+	margin: 0 0 1.25rem;
 
 	@extend %blockquote;
-
-	> *:first-child {
-		margin-top: 0;
-	}
 
 	> *:last-child {
 		margin-bottom: 0;
@@ -111,7 +107,7 @@ blockquote {
 
 ul,
 ol {
-	margin: 1.25rem 0;
+	margin: 0 0 1.25rem;
 	padding-left: 2rem;
 
 	li > & {
@@ -122,7 +118,7 @@ ol {
 
 table {
 	width: 100%;
-	margin: 1.25rem 0;
+	margin: 0 0 1.25rem;
 	border-collapse: collapse;
 
 	@include border();
@@ -150,20 +146,27 @@ video {
 
 pre {
 	max-width: 100%;
-	margin: 1.25rem 0;
+	margin: 0 0 1.25rem;
 	padding: 0.6rem 1.2rem;
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
+	background-color: $color_subtle; // default
 }
 
 code {
+	background-color: $color_subtle; // default
 }
 
 a {
 	background-color: transparent;
 	text-decoration: none;
+	color: $color_accent; // default
 	@include transition();
+
+	&:hover, &:focus {
+		color: $color_accent_2; // default
+	}
 }
 
 figure {
@@ -171,7 +174,7 @@ figure {
 }
 
 address {
-	margin: 1.25rem 0;
+	margin: 0 0 1.25rem;
 }
 
 dt {
@@ -208,8 +211,8 @@ img {
 }
 
 ::selection {
-	background-color: #666;
-	color: #fff;
+	background-color: $color_accent; // default
+	color: $color_bg; // default
 }
 
 *::placeholder {

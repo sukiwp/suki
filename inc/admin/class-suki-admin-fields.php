@@ -131,27 +131,15 @@ class Suki_Admin_Fields {
 			'return_value' => 1,
 			'label'        => '',
 			'class'        => '',
-			'wrapper'      => true,
 		) );
-
-		if ( $args['wrapper'] ) : ?>
-			<fieldset>
-		<?php endif; ?>
-
-		<?php if ( ! empty( $args['label'] ) ) : ?>
-			<label class="suki-admin-checkbox-control <?php echo esc_attr( $args['class'] ); ?>">
-		<?php endif; ?>
-
-		<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?>>
-		<?php echo ( $args['label'] ); // WPCS: XSS OK ?>
-			
-		<?php if ( ! empty( $args['label'] ) ) : ?>
-			</label>
-		<?php endif; ?>
-
-		<?php if ( $args['wrapper'] ) : ?>
-			</fieldset>
-		<?php endif;
+		?>
+		<label class="suki-admin-checkbox-control <?php echo esc_attr( $args['class'] ); ?>">
+			<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?>>
+			<?php if ( ! empty( $args['label'] ) ) : ?>
+				<span><?php echo ( $args['label'] ); // WPCS: XSS OK ?></span>
+			<?php endif; ?>
+		</label>
+		<?php
 	}
 
 	/**
@@ -219,7 +207,7 @@ class Suki_Admin_Fields {
 		) );
 		?>
 		<span id="<?php echo esc_attr( $args['id'] ); ?>" class="suki-admin-upload-control" data-title="<?php echo esc_attr( $args['frame_title'] ); ?>" data-button="<?php echo esc_attr( $args['frame_button'] ); ?>" data-library="<?php echo esc_attr( implode( ',', (array) $args['library'] ) ); ?>">
-			<input type="url" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" class="suki-admin-upload-control-text <?php echo esc_attr( $args['class'] ); ?>">
+			<input type="url" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" class="suki-admin-upload-control-text <?php echo esc_attr( $args['class'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>">
 			<a href="#" class="suki-admin-upload-control-button button button-small"><span class="dashicons dashicons-upload"></span></a>
 		</span>
 		<?php

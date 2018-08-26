@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom helper functions to process data.
+ * Custom helper functions that can be used globally.
  *
  * @package Suki
  */
@@ -45,29 +45,36 @@ function suki_is_pro() {
  * @return boolean
  */
 function suki_show_pro_teaser() {
-	return apply_filters( 'suki_show_pro_teaser', ! suki_is_pro() );
+	return apply_filters( 'suki/pro/show_teaser', ! suki_is_pro() );
 }
 
 /**
  * Wrapper function to get page settings of the specified post ID.
  *
  * @param string $key
- * @param mixed $post
+ * @param integer $post_id
  * @return mixed
  */
-function suki_get_page_setting_by_post_id( $key, $post ) {
-	if ( is_int( $post ) ) {
-		$post = get_post( $post_id );
+function suki_get_page_setting_by_post_id( $key, $post_id ) {
+	if ( ! is_numeric( $post_id ) ) {
+		return;
 	}
+
+	$post = get_post( $post_id );
 
 	// Abort if no post found.
 	if ( empty( $post ) ) {
 		return null;
 	}
 
+	// Get individual settings merged with global customizer settings.
 	$settings = wp_parse_args( get_post_meta( $post->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $post->post_type . '_singular', array() ) );
 
-	$value = suki_array_value( $settings, $key, suki_get_fallback_page_setting( $key ) );
+	// Merge with fallback settings.
+	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
+
+	// Get value for specified key.
+	$value = suki_array_value( $settings, $key );
 
 	return $value;
 }
@@ -75,14 +82,10 @@ function suki_get_page_setting_by_post_id( $key, $post ) {
 /**
  * Wrapper function to get current page settings.
  *
- * @param string $key
- * @return mixed
+ * @return array
  */
-function suki_get_current_page_setting( $key ) {
-	$value = null;
+function suki_get_current_page_settings() {
 	$settings = array();
-
-	$option_key = '';
 
 	// Blog posts index page
 	if ( is_home() ) {
@@ -96,7 +99,7 @@ function suki_get_current_page_setting( $key ) {
 	// Static page
 	elseif ( is_page() ) {
 		$obj = get_queried_object();
-		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_static', array() ) );
+		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
 	}
 	// Single post page (any post type)
 	elseif ( is_singular() ) {
@@ -138,9 +141,24 @@ function suki_get_current_page_setting( $key ) {
 		$settings = suki_get_theme_mod( 'page_settings_404', array() );
 	}
 
-	$value = suki_array_value( $settings, $key, suki_get_fallback_page_setting( $key ) );
+	// Merge with fallback settings.
+	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
 
-	return apply_filters( "suki_current_page_setting__{$key}", $value );
+	return apply_filters( 'suki/frontend/current_page_settings', $settings );
+}
+
+/**
+ * Wrapper function to get current page setting of specified key.
+ *
+ * @param string $key
+ * @return array
+ */
+function suki_get_current_page_setting( $key ) {
+	$settings = suki_get_current_page_settings();
+
+	$value = suki_array_value( $settings, $key, '' );
+
+	return $value;
 }
 
 /**
@@ -166,17 +184,48 @@ function suki_get_theme_mod( $key, $default = null ) {
 
 /**
  * Minify CSS string.
+ * ref: https://github.com/GaryJones/Simple-PHP-CSS-Minification
+ * modified:
+ * - add: rem to units
+ * - add: remove space after (
+ * - remove: remove space before (
  *
- * @param array $css_string
+ * @param array $css
  * @return string
  */
-function suki_minify_css_string( $css_string ) {
-	$css_string = str_replace( '( ', '(', $css_string );
-	$css_string = str_replace( ' )', ')', $css_string );
-	$css_string = str_replace( ', ', ',', $css_string );
-	$css_string = preg_replace( '/(\D)0(\.\d)/', '$1$2', $css_string );
+function suki_minify_css_string( $css ) {
+	// Normalize whitespace
+	$css = preg_replace( '/\s+/', ' ', $css );
 
-	return $css_string;
+	// Remove spaces before and after comment
+	$css = preg_replace( '/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css );
+
+	// Remove comment blocks, everything between /* and */, unless
+	// preserved with /*! ... */ or /** ... */
+	$css = preg_replace( '~/\*(?![\!|\*])(.*?)\*/~', '', $css );
+
+	// Remove ; before }
+	$css = preg_replace( '/;(?=\s*})/', '', $css );
+
+	// Remove space after , : ; { } ( */ >
+	$css = preg_replace( '/(,|:|;|\{|}|\(|\*\/|>) /', '$1', $css );
+
+	// Remove space before , ; { } ) >
+	$css = preg_replace( '/ (,|;|\{|}|\)|>)/', '$1', $css );
+
+	// Strips leading 0 on decimal values (converts 0.5px into .5px)
+	$css = preg_replace( '/(:| )0\.([0-9]+)(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
+
+	// Strips units if value is 0 (converts 0px to 0)
+	$css = preg_replace( '/(:| )(\.?)0(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
+
+	// Converts all zeros value into short-hand
+	$css = preg_replace( '/0 0 0 0/', '0', $css );
+
+	// Shortern 6-character hex color codes to 3-character where possible
+	$css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
+
+	return trim( $css );
 }
 
 /**
@@ -227,7 +276,11 @@ function suki_convert_css_array_to_string( $css_array ) {
  * @param array $google_fonts
  * @return string
  */
-function suki_generate_google_fonts_embed_url( $google_fonts ) {
+function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
+	if ( empty( $google_fonts ) ) {
+		return '';
+	}
+
 	// Basic embed link.
 	$link = '//fonts.googleapis.com/css';
 	$args = array();
@@ -248,51 +301,6 @@ function suki_generate_google_fonts_embed_url( $google_fonts ) {
 }
 
 /**
- * Build Custom Font embedding CSS via @font-face
- *
- * @param array $font_data
- * @return string
- */
-function suki_generate_custom_font_css( $font_data ) {
-	// Skip if no name is specified for this custom font.
-	if ( empty( $font_data['name'] ) ) return;
-
-	$css = '';
-
-	foreach ( $font_data['variants'] as $variant ) {
-		// Font family
-		$css .= '@font-face{font-family:"' . $font_data['name'] . '";';
-
-		// Weight & Style
-		list( $weight, $style ) = explode( '|', $variant );
-		$css .= 'font-weight:' . $weight . ';font-style:' . $style . ';';
-
-		// Sources
-		$src = array();
-		$files = $font_data['files'][ $variant ];
-		if ( ! empty( $files['eot'] ) ) {
-			$css .= 'src:url("' . esc_url( $files['eot'] ) . '");';
-			$src[] = 'url("' . esc_url( $files['eot'] ) . '?iefix") format("embedded-opentype");';
-		}
-		if ( ! empty( $files['woff2'] ) ) {
-			$src[] = 'url("' . esc_url( $files['woff2'] ) . '") format("woff2")';
-		}
-		if ( ! empty( $files['woff'] ) ) {
-			$src[] = 'url("' . esc_url( $files['woff'] ) . '") format("woff")';
-		}
-		if ( ! empty( $files['ttf'] ) ) {
-			$src[] = 'url("' . esc_url( $files['ttf'] ) . '") format("truetype")';
-		}
-		if ( ! empty( $files['svg'] ) ) {
-			$src[] = 'url("' . esc_url( $files['svg'] ) . '") format("svg")';
-		}
-		$css .= 'src:' . implode( ',', $src ) . ';}';
-	}
-
-	return $css;
-}
-
-/**
  * Get more accurate value of content width in pixels, based on current page's content layout and content column's padding and border.
  *
  * @global integer $content_width
@@ -305,7 +313,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// Modify content width based on current page content layout.
 	switch ( $content_layout ) {
 	 	case 'narrow':
-			$content_width = floatval( suki_get_theme_mod( 'narrow_content_width' ) );
+			$content_width = floatval( suki_get_theme_mod( 'content_narrow_width' ) );
 	 		break;
 
 	 	case 'left-sidebar':
@@ -335,7 +343,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	}
 
 	// // Modify content width based on its padding.
-	// $content_padding = suki_get_theme_mod( 'content_padding' );
+	// $content_padding = suki_get_theme_mod( 'content_main_padding' );
 	// $paddings = explode( ' ', $content_padding );
 	// if ( isset( $paddings[1] ) ) {
 	// 	$content_width -= floatval( $paddings[1] );
@@ -345,7 +353,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// }
 
 	// // Modify content width based on its border.
-	// $content_border = suki_get_theme_mod( 'content_border' );
+	// $content_border = suki_get_theme_mod( 'content_main_border' );
 	// $borders = explode( ' ', $content_border );
 	// if ( isset( $borders[1] ) ) {
 	// 	$content_width -= floatval( $borders[1] );
@@ -365,17 +373,19 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 
 /**
  * Return fallback values of page settings.
+<<<<<<< HEAD
  *
  * @param string $key
+=======
+ * 
+>>>>>>> pr/1
  * @return array
  */
-function suki_get_fallback_page_setting( $key ) {
-	$fallback = apply_filters( 'suki_fallback_page_settings', array(
-		'content_container' => 'default',
-		'content_layout'    => 'right-sidebar',
-	) );
-
-	return suki_array_value( $fallback, $key );
+function suki_get_fallback_page_settings() {
+	return array(
+		'content_container' => suki_get_theme_mod( 'content_container' ),
+		'content_layout'    => suki_get_theme_mod( 'content_layout' ),
+	);
 }
 
 /**
@@ -384,7 +394,7 @@ function suki_get_fallback_page_setting( $key ) {
  * @return array
  */
 function suki_get_all_fonts() {
-	return apply_filters( 'suki_fonts', array(
+	return apply_filters( 'suki/dataset/all_fonts', array(
 		'web_safe_fonts' => suki_get_web_safe_fonts(),
 		'google_fonts' => suki_get_google_fonts(),
 	) );
@@ -398,7 +408,7 @@ function suki_get_all_fonts() {
  */
 function suki_get_google_fonts() {
 	ob_start();
-	include( SUKI_INCLUDES_PATH . '/list/google-fonts.json' );
+	include( SUKI_INCLUDES_DIR . '/lists/google-fonts.json' );
 	return json_decode( ob_get_clean(), true );
 }
 
@@ -408,7 +418,7 @@ function suki_get_google_fonts() {
  * @return array
  */
 function suki_get_google_fonts_subsets() {
-	return apply_filters( 'suki_google_fonts_subsets', array(
+	return array(
 		// 'latin'        => esc_html__( 'Latin (default)', 'suki' ), // always chosen by default
 		'latin-ext'    => esc_html__( 'Latin Extended', 'suki' ),
 		'arabic'       => esc_html__( 'Arabic', 'suki' ),
@@ -431,7 +441,7 @@ function suki_get_google_fonts_subsets() {
 		'telugu'       => esc_html__( 'Telugu', 'suki' ),
 		'thai'         => esc_html__( 'Thai', 'suki' ),
 		'vietnamese'   => esc_html__( 'Vietnamese', 'suki' ),
-	) );
+	);
 }
 
 /**
@@ -440,24 +450,24 @@ function suki_get_google_fonts_subsets() {
  * @return array
  */
 function suki_get_web_safe_fonts() {
-	return apply_filters( 'suki_web_safe_fonts', array(
+	return apply_filters( 'suki/dataset/web_safe_fonts', array(
 		// System
-		'System'          => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+		'Default System Font' => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
 
 		// Sans Serif
-		'Arial'           => '"Arial", "Helvetica Neue", "Helvetica", sans-serif',
-		'Helvetica'       => '"Helvetica Neue", "Helvetica", "Arial", sans-serif',
-		'Tahoma'          => '"Tahoma", "Geneva", sans-serif',
-		'Trebuchet MS'    => '"Trebuchet MS", "Helvetica", sans-serif',
-		'Verdana'         => '"Verdana", "Geneva", sans-serif',
+		'Arial' => "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+		'Helvetica' => "'Helvetica Neue', Helvetica, Arial, sans-serif",
+		'Tahoma' => "Tahoma, Geneva, sans-serif",
+		'Trebuchet MS' => "'Trebuchet MS', Helvetica, sans-serif",
+		'Verdana' => "Verdana, Geneva, sans-serif",
 
 		// Serif
-		'Georgia'         => '"Georgia", serif',
-		'Times New Roman' => '"Times New Roman", "Times", serif',
+		'Georgia' => "Georgia, serif",
+		'Times New Roman' => "'Times New Roman', Times, serif",
 
 		// Monospace
-		'Courier New'     => '"Courier New", "Courier", monospace',
-		'Lucida Console'  => '"Lucida Console", "Monaco", monospace',
+		'Courier New' => "'Courier New', Courier, monospace",
+		'Lucida Console' => "'Lucida Console', Monaco, monospace",
 	) );
 }
 
@@ -467,7 +477,7 @@ function suki_get_web_safe_fonts() {
  * @return array
  */
 function suki_get_social_media_types() {
-	return apply_filters( 'suki_social_media_types', array(
+	return apply_filters( 'suki/dataset/social_media_types', array(
 		'facebook' => 'Facebook',
 		'instagram' => 'Instagram',
 		'google-plus' => 'Google Plus',

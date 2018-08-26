@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Elements > Buttons
+ * Customizer settings: General Elements > Button
  *
  * @package Suki
  **/
@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$section = 'suki_section_buttons';
+$section = 'suki_section_button';
 
 // Padding
 $id = 'button_padding';

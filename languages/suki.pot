@@ -13,8 +13,12 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 404.php:27
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+#: 404.php:31
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:32
+msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
 #: style.css:2
@@ -34,116 +38,115 @@ msgid "https://sukiwp.com/about/"
 msgstr ""
 
 #: style.css:6
-msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/"
+msgid "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/."
 msgstr ""
 
-#: inc/class-suki.php:208
+#: inc/class-suki.php:210
 msgid "Header Menu 1"
 msgstr ""
 
-#: inc/class-suki.php:209, inc/customizer/options/header--menu.php:40
+#: inc/class-suki.php:211
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:210, inc/customizer/options/footer--builder.php:80, inc/customizer/options/footer--menu.php:23
+#: inc/class-suki.php:212, inc/customizer/options/footer--builder.php:80
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/class-suki.php:242, inc/customizer/options/_sections.php:257
+#: inc/class-suki.php:256
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %d: number of footer widgets column.
-#. translators: %d: column number.
-#: inc/class-suki.php:253, inc/customizer/options/footer--widgets-column.php:25
+#: inc/class-suki.php:267
 msgid "Footer Widgets Column %d"
 msgstr ""
 
-#: inc/helpers.php:413
+#: inc/helpers.php:418
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/helpers.php:414
+#: inc/helpers.php:419
 msgid "Arabic"
 msgstr ""
 
-#: inc/helpers.php:415
+#: inc/helpers.php:420
 msgid "Bengali"
 msgstr ""
 
-#: inc/helpers.php:416
+#: inc/helpers.php:421
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/helpers.php:417
+#: inc/helpers.php:422
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/helpers.php:418
+#: inc/helpers.php:423
 msgid "Devaganari"
 msgstr ""
 
-#: inc/helpers.php:419
+#: inc/helpers.php:424
 msgid "Greek"
 msgstr ""
 
-#: inc/helpers.php:420
+#: inc/helpers.php:425
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/helpers.php:421
+#: inc/helpers.php:426
 msgid "Gujarati"
 msgstr ""
 
-#: inc/helpers.php:422
+#: inc/helpers.php:427
 msgid "Gurmukhi"
 msgstr ""
 
-#: inc/helpers.php:423
+#: inc/helpers.php:428
 msgid "Hebrew"
 msgstr ""
 
-#: inc/helpers.php:424
+#: inc/helpers.php:429
 msgid "Kannada"
 msgstr ""
 
-#: inc/helpers.php:425
+#: inc/helpers.php:430
 msgid "Khmer"
 msgstr ""
 
-#: inc/helpers.php:426
+#: inc/helpers.php:431
 msgid "Malayalam"
 msgstr ""
 
-#: inc/helpers.php:427
+#: inc/helpers.php:432
 msgid "Myanmar"
 msgstr ""
 
-#: inc/helpers.php:428
+#: inc/helpers.php:433
 msgid "Oriya"
 msgstr ""
 
-#: inc/helpers.php:429
+#: inc/helpers.php:434
 msgid "Sinhala"
 msgstr ""
 
-#: inc/helpers.php:430
+#: inc/helpers.php:435
 msgid "Tamil"
 msgstr ""
 
-#: inc/helpers.php:431
+#: inc/helpers.php:436
 msgid "Telugu"
 msgstr ""
 
-#: inc/helpers.php:432
+#: inc/helpers.php:437
 msgid "Thai"
 msgstr ""
 
-#: inc/helpers.php:433
+#: inc/helpers.php:438
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/template-filters.php:163
+#: inc/template-functions.php:440
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -152,67 +155,67 @@ msgstr ""
 msgid "Assign your menu to %s"
 msgstr ""
 
-#: inc/template-tags.php:186
+#. translators: %s: search query.
+#: inc/template-tags.php:183
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/template-tags.php:202
+msgid "Oops! That page can not be found."
+msgstr ""
+
+#: inc/template-tags.php:224
 msgid "Skip to content"
 msgstr ""
 
 #. translators: %s: header menu number.
-#: inc/template-tags.php:389
+#: inc/template-tags.php:440
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/template-tags.php:403
+#: inc/template-tags.php:454
 msgid "Header Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:439
+#: inc/template-tags.php:490
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:479, inc/customizer/options/header--builder.php:108
+#: inc/template-tags.php:530, inc/customizer/options/header--builder.php:108
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:946
+#: inc/template-tags.php:1205
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:947
+#: inc/template-tags.php:1206
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1004
+#: inc/template-tags.php:1264
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1005
+#: inc/template-tags.php:1265
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1022
+#: inc/template-tags.php:1282
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1028
+#: inc/template-tags.php:1288
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1055
+#: inc/template-tags.php:1315
 msgid "Comments are closed."
-msgstr ""
-
-#. translators: %s: search query.
-#: inc/template-tags.php:1107
-msgid "Search Results for: %s"
-msgstr ""
-
-#: inc/template-tags.php:1124
-msgid "Oops! That page can not be found."
 msgstr ""
 
 #: page-templates/page-builder.php:3
@@ -223,20 +226,19 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-none.php:14
+#: template-parts/content-none.php:16
 msgid "Nothing Found"
 msgstr ""
 
-#. translators: %s: link to admin new post editor page.
-#: template-parts/content-none.php:23
-msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+#: template-parts/content-none.php:18
+msgid "Ready to publish your first post? Get started here."
 msgstr ""
 
-#: template-parts/content-none.php:30
+#: template-parts/content-none.php:24
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:38
+#: template-parts/content-none.php:30
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
@@ -245,278 +247,390 @@ msgstr ""
 msgid "Continue Reading %s"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:175, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
+#: inc/admin/class-suki-admin-fields.php:163, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
 msgid "Hex / RGBA"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:217
+#: inc/admin/class-suki-admin-fields.php:205
 msgid "Upload & choose file"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:218
+#: inc/admin/class-suki-admin-fields.php:206
 msgid "Choose"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:79, inc/admin/class-suki-admin-metabox-page-settings.php:300, inc/admin/class-suki-admin-metabox-page-settings.php:361
+#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:307
+msgid "Content & Sidebar"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:66, inc/customizer/options/page-settings.php:86, inc/customizer/options/_sections.php:169
+msgid "Header"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:126, inc/customizer/options/_sections.php:300
+msgid "Page Header (Title Bar)"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:342, inc/customizer/options/_sections.php:341
+msgid "Footer"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:101, inc/admin/class-suki-admin-metabox-page-settings.php:255, inc/admin/class-suki-admin-metabox-page-settings.php:279
 msgid "Page Settings (Suki)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:193, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:176
+#: inc/admin/class-suki-admin-metabox-page-settings.php:224, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:176
 msgid "Edit Page settings here"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:231
-msgid "Content Container"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:352, inc/customizer/options/page-settings.php:99
+msgid "Disable main header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:240, inc/admin/class-suki-admin-metabox-page-settings.php:261, inc/admin/class-suki-admin-metabox-page-settings.php:337, inc/admin/class-suki-admin-metabox-page-settings.php:399
-msgid "-- Use Customizer value --"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:360, inc/admin/class-suki-admin-metabox-page-settings.php:379, inc/admin/class-suki-admin-metabox-page-settings.php:402, inc/admin/class-suki-admin-metabox-page-settings.php:422, inc/admin/class-suki-admin-metabox-page-settings.php:439, inc/admin/class-suki-admin-metabox-page-settings.php:456, inc/admin/class-suki-admin-metabox-page-settings.php:482, inc/admin/class-suki-admin-metabox-page-settings.php:502, inc/admin/class-suki-admin-metabox-page-settings.php:523, inc/admin/class-suki-admin-metabox-page-settings.php:546, inc/admin/class-suki-admin-metabox-page-settings.php:548, inc/admin/class-suki-admin-metabox-page-settings.php:570, inc/admin/class-suki-admin-metabox-page-settings.php:590, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:665
+msgid "-- Inherit from Customizer --"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:241, inc/customizer/options/footer--bottom-bar.php:31, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:36, inc/customizer/options/page-settings.php:47
-msgid "Fixed width container"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:361, inc/admin/class-suki-admin-metabox-page-settings.php:380, inc/admin/class-suki-admin-metabox-page-settings.php:403, inc/admin/class-suki-admin-metabox-page-settings.php:647, inc/admin/class-suki-admin-metabox-page-settings.php:666
+msgid "No"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:242, inc/customizer/options/footer--bottom-bar.php:32, inc/customizer/options/footer--widgets-bar.php:32, inc/customizer/options/header--top-main-bottom-bar.php:37, inc/customizer/options/page-settings.php:48
-msgid "Full container"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:362, inc/admin/class-suki-admin-metabox-page-settings.php:381, inc/admin/class-suki-admin-metabox-page-settings.php:404, inc/admin/class-suki-admin-metabox-page-settings.php:648, inc/admin/class-suki-admin-metabox-page-settings.php:667
+msgid "Yes"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:243, inc/customizer/options/footer--bottom-bar.php:33, inc/customizer/options/footer--widgets-bar.php:33, inc/customizer/options/header--top-main-bottom-bar.php:38, inc/customizer/options/page-settings.php:49
-msgid "Full container with side padding"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:371, inc/customizer/options/page-settings.php:112
+msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:252, inc/admin/class-suki-admin-metabox-page-settings.php:329, inc/admin/class-suki-admin-metabox-page-settings.php:390
-msgid "Content Layout"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:394, inc/customizer/options/page-settings.php:139
+msgid "Disable page header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:262, inc/admin/class-suki-admin-metabox-page-settings.php:339, inc/admin/class-suki-admin-metabox-page-settings.php:401
-msgid "Wide content"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:415, inc/customizer/options/page-settings.php:159
+msgid "Override default page header title text"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:263, inc/admin/class-suki-admin-metabox-page-settings.php:340, inc/admin/class-suki-admin-metabox-page-settings.php:402
-msgid "Narrow content"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:432, inc/customizer/options/page-header.php:324
+msgid "Background image"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:264, inc/admin/class-suki-admin-metabox-page-settings.php:341, inc/admin/class-suki-admin-metabox-page-settings.php:403, inc/customizer/options/page-settings.php:68
-msgid "Left Sidebar"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:448, inc/customizer/options/page-header.php:339
+msgid "Background position"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:265, inc/admin/class-suki-admin-metabox-page-settings.php:342, inc/admin/class-suki-admin-metabox-page-settings.php:404, inc/customizer/options/page-settings.php:69
-msgid "Right Sidebar"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:457, inc/customizer/options/page-container.php:215, inc/customizer/options/page-header.php:341, inc/customizer/options/page-settings.php:238
+msgid "Left top"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:338, inc/admin/class-suki-admin-metabox-page-settings.php:400
+#: inc/admin/class-suki-admin-metabox-page-settings.php:458, inc/customizer/options/page-container.php:216, inc/customizer/options/page-header.php:342, inc/customizer/options/page-settings.php:239
+msgid "Left center"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:459, inc/customizer/options/page-container.php:217, inc/customizer/options/page-header.php:343, inc/customizer/options/page-settings.php:240
+msgid "Left bottom"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:460, inc/customizer/options/page-container.php:218, inc/customizer/options/page-header.php:344, inc/customizer/options/page-settings.php:241
+msgid "Center top"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:461, inc/customizer/options/page-container.php:219, inc/customizer/options/page-header.php:345, inc/customizer/options/page-settings.php:242
+msgid "Center center"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:462, inc/customizer/options/page-container.php:220, inc/customizer/options/page-header.php:346, inc/customizer/options/page-settings.php:243
+msgid "Center bottom"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:463, inc/customizer/options/page-container.php:221, inc/customizer/options/page-header.php:347, inc/customizer/options/page-settings.php:244
+msgid "Right top"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:464, inc/customizer/options/page-container.php:222, inc/customizer/options/page-header.php:348, inc/customizer/options/page-settings.php:245
+msgid "Right center"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:465, inc/customizer/options/page-container.php:223, inc/customizer/options/page-header.php:349, inc/customizer/options/page-settings.php:246
+msgid "Right bottom"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:474, inc/customizer/options/page-header.php:364
+msgid "Background size"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:483, inc/customizer/custom-controls/class-suki-customize-control-typography.php:127, inc/customizer/custom-controls/class-suki-customize-control-typography.php:145, inc/customizer/custom-controls/class-suki-customize-control-typography.php:162, inc/customizer/options/page-container.php:240, inc/customizer/options/page-header.php:366, inc/customizer/options/page-settings.php:237, inc/customizer/options/page-settings.php:263, inc/customizer/options/page-settings.php:264, inc/customizer/options/page-settings.php:283, inc/customizer/options/page-settings.php:304
+msgid "Default"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:484, inc/customizer/options/page-container.php:241, inc/customizer/options/page-header.php:367, inc/customizer/options/page-settings.php:265
+msgid "Cover"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:485, inc/customizer/options/page-container.php:242, inc/customizer/options/page-header.php:368, inc/customizer/options/page-settings.php:266
+msgid "Contain"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:494, inc/customizer/options/page-header.php:383
+msgid "Background repeat"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:503, inc/customizer/options/page-container.php:259, inc/customizer/options/page-header.php:385, inc/customizer/options/page-settings.php:284
+msgid "No repeat"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/customizer/options/page-container.php:260, inc/customizer/options/page-header.php:386, inc/customizer/options/page-settings.php:285
+msgid "Repeat X (horizontally)"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:505, inc/customizer/options/page-container.php:261, inc/customizer/options/page-header.php:387, inc/customizer/options/page-settings.php:286
+msgid "Repeat Y (vertically)"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:506, inc/customizer/options/page-container.php:262, inc/customizer/options/page-header.php:388, inc/customizer/options/page-settings.php:287
+msgid "Repeat both axis"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:515, inc/customizer/options/page-header.php:403
+msgid "Background attachment"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:524, inc/customizer/options/page-container.php:279, inc/customizer/options/page-header.php:405, inc/customizer/options/page-settings.php:305
+msgid "Scroll"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:525, inc/customizer/options/page-container.php:280, inc/customizer/options/page-header.php:406, inc/customizer/options/page-settings.php:306
+msgid "Fixed"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:534
+msgid "Background overlay opacity"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:562
+msgid "Content container"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:571, inc/customizer/options/content--section.php:30, inc/customizer/options/footer--bottom-bar.php:51, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:58, inc/customizer/options/page-header.php:43, inc/customizer/options/page-settings.php:48
+msgid "Full width section, wrapped content"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:572, inc/customizer/options/content--section.php:31, inc/customizer/options/footer--bottom-bar.php:52, inc/customizer/options/footer--widgets-bar.php:32, inc/customizer/options/header--top-main-bottom-bar.php:59, inc/customizer/options/page-header.php:44, inc/customizer/options/page-settings.php:49
 msgid "Full width content"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:108
-msgid "Fell in love with this screenshot? Learn how to replicate same design as the screenscrot."
+#: inc/admin/class-suki-admin-metabox-page-settings.php:573, inc/customizer/options/content--section.php:32, inc/customizer/options/footer--bottom-bar.php:53, inc/customizer/options/footer--widgets-bar.php:33, inc/customizer/options/header--top-main-bottom-bar.php:60, inc/customizer/options/page-header.php:45, inc/customizer/options/page-settings.php:50
+msgid "Full width content with side padding"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:162
+#: inc/admin/class-suki-admin-metabox-page-settings.php:582, inc/customizer/options/content--section.php:46, inc/customizer/options/page-settings.php:65
+msgid "Content & sidebar layout"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:591, inc/customizer/options/content--section.php:48, inc/customizer/options/page-settings.php:68
+msgid "Full content, no sidebar"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:592, inc/customizer/options/content--section.php:49, inc/customizer/options/page-settings.php:69
+msgid "Narrow content, no sidebar"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:593, inc/admin/class-suki-admin-metabox-page-settings.php:594, inc/customizer/options/content--section.php:50, inc/customizer/options/content--section.php:51, inc/customizer/options/page-settings.php:70, inc/customizer/options/page-settings.php:71
+msgid "Right sidebar"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:593, inc/admin/class-suki-admin-metabox-page-settings.php:594, inc/customizer/options/content--section.php:50, inc/customizer/options/content--section.php:51, inc/customizer/options/page-settings.php:70, inc/customizer/options/page-settings.php:71
+msgid "Left sidebar"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:618
+msgid "Hide page title"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:638, inc/customizer/options/page-settings.php:355
+msgid "Disable footer widgets"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:657, inc/customizer/options/page-settings.php:368
+msgid "Disable footer bottom"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:167
 msgid "Facebook"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:163
+#: inc/admin/class-suki-admin.php:168
 msgid "Instagram"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:164
+#: inc/admin/class-suki-admin.php:169
 msgid "LinkedIn"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:165
+#: inc/admin/class-suki-admin.php:170
 msgid "Twitter"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:166
+#: inc/admin/class-suki-admin.php:171
 msgid "Google Plus"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:170
+#: inc/admin/class-suki-admin.php:175
 msgid " URL"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin.php:340
+#: inc/admin/class-suki-admin.php:347
 msgid "Welcome to %s"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin.php:346
+#: inc/admin/class-suki-admin.php:353
 msgid "You can start customizing by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:360
+#: inc/admin/class-suki-admin.php:367
 msgid "Premium Modules in Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:365
+#: inc/admin/class-suki-admin.php:372
 msgid "Header (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:371
+#: inc/admin/class-suki-admin.php:378
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:377
+#: inc/admin/class-suki-admin.php:384
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:383
+#: inc/admin/class-suki-admin.php:390
 msgid "Alternative Header Colors"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:389
+#: inc/admin/class-suki-admin.php:396
 msgid "Footer (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:395
-msgid "Disable Elements"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:401
+#: inc/admin/class-suki-admin.php:402
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:407
+#: inc/admin/class-suki-admin.php:408
 msgid "Portable Content Blocks"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:413
+#: inc/admin/class-suki-admin.php:414
 msgid "Blog (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:419
+#: inc/admin/class-suki-admin.php:420
 msgid "WooCommerce (Advanced)"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:425
-msgid "Typography (Advanced)"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:431
+#: inc/admin/class-suki-admin.php:426
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:437
+#: inc/admin/class-suki-admin.php:432
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:443
+#: inc/admin/class-suki-admin.php:438
 msgid "Color Palette"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:449
+#: inc/admin/class-suki-admin.php:444
 msgid "White Label"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:468
+#: inc/admin/class-suki-admin.php:463
 msgid "Coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:471
+#: inc/admin/class-suki-admin.php:466
 msgid "Deactivate"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:473
+#: inc/admin/class-suki-admin.php:468
 msgid "Learn more &raquo;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:493
+#: inc/admin/class-suki-admin.php:488
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:505
+#: inc/admin/class-suki-admin.php:500
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:507
+#: inc/admin/class-suki-admin.php:502
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:511
+#: inc/admin/class-suki-admin.php:506
 msgctxt "Suki Pro upsell"
 msgid "More about Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:525
+#: inc/admin/class-suki-admin.php:520
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:527
+#: inc/admin/class-suki-admin.php:522
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:531
+#: inc/admin/class-suki-admin.php:526
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:545
+#: inc/admin/class-suki-admin.php:540
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:547
+#: inc/admin/class-suki-admin.php:542
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:551
+#: inc/admin/class-suki-admin.php:546
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:566
+#: inc/admin/class-suki-admin.php:561
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:568
+#: inc/admin/class-suki-admin.php:563
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:572
+#: inc/admin/class-suki-admin.php:567
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:147
-msgid "Static Page"
-msgstr ""
-
-#: inc/customizer/class-suki-customizer.php:148
-msgid "You can override these settings for each individual page."
-msgstr ""
-
-#: inc/customizer/class-suki-customizer.php:151
+#: inc/customizer/class-suki-customizer.php:421
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:154
+#: inc/customizer/class-suki-customizer.php:424
 msgid "404 Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:157
-msgid "Posts Page"
-msgstr ""
-
-#: inc/customizer/class-suki-customizer.php:160
-msgid "Single Post Page"
-msgstr ""
-
-#: inc/customizer/class-suki-customizer.php:161
-msgid "You can override these settings for each individual post."
-msgstr ""
-
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:175
-msgid "%s Page"
+#: inc/customizer/class-suki-customizer.php:448
+msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:179
+#: inc/customizer/class-suki-customizer.php:452
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:181
-msgid "You can override these settings for each individual %s."
+#: inc/customizer/class-suki-customizer.php:454
+msgid "These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the Edit %1$s page."
 msgstr ""
 
 #: inc/widgets/class-suki-widget-posts.php:13
@@ -527,43 +641,39 @@ msgstr ""
 msgid "Posts list with thumbnail images"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:61
+#: inc/widgets/class-suki-widget-posts.php:60
 msgid "(no title)"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:95
+#: inc/widgets/class-suki-widget-posts.php:90
 msgid "Recent Published"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:96
+#: inc/widgets/class-suki-widget-posts.php:91
 msgid "Random"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:110
+#: inc/widgets/class-suki-widget-posts.php:104
 msgid "Title:"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:115
-msgid "Layout:"
-msgstr ""
-
-#: inc/widgets/class-suki-widget-posts.php:124
+#: inc/widgets/class-suki-widget-posts.php:108
 msgid "Number of posts to show:"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:128
+#: inc/widgets/class-suki-widget-posts.php:112
 msgid "Sort By:"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:138
+#: inc/widgets/class-suki-widget-posts.php:122
 msgid "Query from All Categories?"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:142
+#: inc/widgets/class-suki-widget-posts.php:126
 msgid "or Choose Specific Categories:"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-posts.php:152
+#: inc/widgets/class-suki-widget-posts.php:136
 msgid "Display post date?"
 msgstr ""
 
@@ -575,31 +685,19 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:441, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:467, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-builder.php:86
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:723
+msgid "Logout"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-builder.php:126
 msgid "Add element"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:103
-msgid "Top"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:104, inc/customizer/options/blog--entry-default.php:79, inc/customizer/options/blog--entry-grid.php:116, inc/customizer/options/footer--builder.php:86, inc/customizer/options/header--builder.php:126, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
-msgid "Right"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:105
-msgid "Bottom"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-dimensions.php:106, inc/customizer/options/blog--entry-default.php:77, inc/customizer/options/blog--entry-grid.php:114, inc/customizer/options/footer--builder.php:84, inc/customizer/options/header--builder.php:124, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
-msgid "Left"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-pro.php:39, inc/customizer/custom-controls/class-suki-customize-section-pro.php:51
+#: inc/customizer/custom-controls/class-suki-customize-control-pro-teaser.php:39, inc/customizer/custom-controls/class-suki-customize-section-pro-teaser.php:51
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
@@ -624,96 +722,92 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-slider.php:144
-msgid "Default"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:49
-msgid "Thin"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:50
-msgid "Extra Light"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:51
-msgid "Light"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:52
-msgid "Regular"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:53
-msgid "Medium"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:54
-msgid "Semi Bold"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:55
-msgid "Bold"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:56
-msgid "Extra Bold"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:57
-msgid "Black"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:60
-msgid "Normal"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:61
-msgid "Italic"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:64
-msgid "None"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:65
-msgid "Uppercase"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:66
-msgid "Lowercase"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:67
-msgid "Capitalize"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:190
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:94
 msgid "Font"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:208
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:95
 msgid "Weight"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:219
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:96
 msgid "Style"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:230
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:97
 msgid "Transform"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:247
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:98
 msgid "Size"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:266
-msgid "Line"
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:99
+msgid "Line Height"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:285
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:100
 msgid "Spacing"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:203
+msgid "Thin"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:204
+msgid "Extra Light"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:205
+msgid "Light"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:206
+msgid "Regular"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:207
+msgid "Medium"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:208
+msgid "Semi Bold"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
+msgid "Bold"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:210
+msgid "Extra Bold"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:211
+msgid "Black"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:214
+msgid "Normal"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:215
+msgid "Italic"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:218, inc/customizer/options/content--sidebar.php:302, inc/customizer/options/footer--widgets-bar.php:259, inc/customizer/options/header--top-main-bottom-bar.php:220
+msgid "None"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:219
+msgid "Uppercase"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:220
+msgid "Lowercase"
+msgstr ""
+
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:221
+msgid "Capitalize"
 msgstr ""
 
 #: inc/customizer/options/blog--archive.php:28
@@ -740,7 +834,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/content--sidebar.php:239, inc/customizer/options/footer--bottom-bar.php:196, inc/customizer/options/footer--widgets-bar.php:210, inc/customizer/options/footer--widgets-column.php:42, inc/customizer/options/header--html.php:62, inc/customizer/options/header--menu.php:55, inc/customizer/options/header--top-main-bottom-bar.php:233, inc/customizer/options/page-settings.php:84, inc/customizer/options/_sections.php:224, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:382, inc/customizer/options/_sections.php:284, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -750,15 +844,15 @@ msgctxt "Suki Pro upsell"
 msgid "More blog layouts"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:28, inc/customizer/options/blog--entry-grid.php:77
+#: inc/customizer/options/blog--entry-default.php:28, inc/customizer/options/blog--entry-grid.php:83
 msgid "Featured media position"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:30, inc/customizer/options/blog--entry-grid.php:79
+#: inc/customizer/options/blog--entry-default.php:30, inc/customizer/options/blog--entry-grid.php:85
 msgid "Before Post Header"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:31, inc/customizer/options/blog--entry-grid.php:80
+#: inc/customizer/options/blog--entry-default.php:31, inc/customizer/options/blog--entry-grid.php:86
 msgid "After Post Header"
 msgstr ""
 
@@ -766,47 +860,31 @@ msgstr ""
 msgid "Remove padding on featured media"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:56, inc/customizer/options/blog--entry-grid.php:93
+#: inc/customizer/options/blog--entry-default.php:56, inc/customizer/options/blog--entry-grid.php:99
 msgid "Post header elements"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:58, inc/customizer/options/blog--entry-grid.php:95
+#: inc/customizer/options/blog--entry-default.php:58, inc/customizer/options/blog--entry-grid.php:101
 msgid "Header Meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:59, inc/customizer/options/blog--entry-grid.php:96, inc/customizer/options/_sections.php:60
+#: inc/customizer/options/blog--entry-default.php:59, inc/customizer/options/blog--entry-grid.php:102, inc/customizer/options/_sections.php:113
 msgid "Title"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:75, inc/customizer/options/blog--entry-grid.php:112
-msgid "Post header alignment"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-default.php:77, inc/customizer/options/blog--entry-grid.php:114, inc/customizer/options/footer--builder.php:84, inc/customizer/options/header--builder.php:124, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:49
-msgid "Right - RTL"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-default.php:78, inc/customizer/options/blog--entry-grid.php:115, inc/customizer/options/footer--builder.php:85, inc/customizer/options/header--builder.php:125, inc/customizer/options/header--mobile-vertical-bar.php:50
-msgid "Center"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-default.php:79, inc/customizer/options/blog--entry-grid.php:116, inc/customizer/options/footer--builder.php:86, inc/customizer/options/header--builder.php:126, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:51
-msgid "Left - RTL"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-default.php:92, inc/customizer/options/blog--entry-grid.php:129
+#: inc/customizer/options/blog--entry-default.php:73, inc/customizer/options/blog--entry-grid.php:116
 msgid "Header meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:93, inc/customizer/options/blog--entry-default.php:106, inc/customizer/options/blog--entry-grid.php:130, inc/customizer/options/blog--entry-grid.php:143
+#: inc/customizer/options/blog--entry-default.php:74, inc/customizer/options/blog--entry-default.php:87, inc/customizer/options/blog--entry-grid.php:117, inc/customizer/options/blog--entry-grid.php:130
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:105, inc/customizer/options/blog--entry-grid.php:142
+#: inc/customizer/options/blog--entry-default.php:86, inc/customizer/options/blog--entry-grid.php:129
 msgid "Footer meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:28, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:194, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:260
+#: inc/customizer/options/blog--entry-grid.php:28, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:189, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:255
 msgid "Columns"
 msgstr ""
 
@@ -814,11 +892,11 @@ msgstr ""
 msgid "Columns gutter"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:64
+#: inc/customizer/options/blog--entry-grid.php:70
 msgid "Grid Item"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:155
+#: inc/customizer/options/blog--entry-grid.php:142
 msgid "Excerpt length"
 msgstr ""
 
@@ -830,130 +908,154 @@ msgstr ""
 msgid "Show prev / next posts navigation"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:23, inc/customizer/options/content--sidebar.php:32, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23
-msgid "Layout"
-msgstr ""
-
-#: inc/customizer/options/content--main.php:44, inc/customizer/options/content--sidebar.php:162, inc/customizer/options/elements--buttons.php:22, inc/customizer/options/elements--form-inputs.php:22, inc/customizer/options/footer--bottom-bar.php:56, inc/customizer/options/footer--widgets-bar.php:56, inc/customizer/options/header--top-main-bottom-bar.php:73
+#: inc/customizer/options/content--main.php:36, inc/customizer/options/content--section.php:85, inc/customizer/options/content--sidebar.php:138, inc/customizer/options/elements--buttons.php:22, inc/customizer/options/elements--form-inputs.php:22, inc/customizer/options/footer--bottom-bar.php:76, inc/customizer/options/footer--widgets-bar.php:56, inc/customizer/options/header--mobile-main-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:85, inc/customizer/options/header--top-main-bottom-bar.php:95, inc/customizer/options/page-header.php:67
 msgid "Padding"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:64, inc/customizer/options/content--sidebar.php:182, inc/customizer/options/elements--buttons.php:42, inc/customizer/options/elements--form-inputs.php:42, inc/customizer/options/footer--bottom-bar.php:76, inc/customizer/options/footer--widgets-bar.php:75, inc/customizer/options/header--mobile-main-bar.php:48, inc/customizer/options/header--top-main-bottom-bar.php:93
+#: inc/customizer/options/content--main.php:56, inc/customizer/options/content--sidebar.php:158, inc/customizer/options/elements--buttons.php:42, inc/customizer/options/elements--form-inputs.php:42, inc/customizer/options/footer--bottom-bar.php:96, inc/customizer/options/footer--widgets-bar.php:75, inc/customizer/options/header--mobile-main-bar.php:68, inc/customizer/options/header--top-main-bottom-bar.php:115, inc/customizer/options/page-header.php:87
 msgid "Border"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:91
-msgid "Narrow Content max width"
-msgstr ""
-
-#: inc/customizer/options/content--main.php:112, inc/customizer/options/footer--bottom-bar.php:97, inc/customizer/options/footer--widgets-bar.php:136, inc/customizer/options/header--mobile-main-bar.php:89, inc/customizer/options/header--mobile-vertical-bar.php:106, inc/customizer/options/header--top-main-bottom-bar.php:134
+#: inc/customizer/options/content--main.php:77, inc/customizer/options/content--sidebar.php:179, inc/customizer/options/footer--bottom-bar.php:117, inc/customizer/options/footer--widgets-bar.php:136, inc/customizer/options/header--mobile-main-bar.php:109, inc/customizer/options/header--mobile-vertical-bar.php:126, inc/customizer/options/header--top-main-bottom-bar.php:156, inc/customizer/options/page-header.php:197
 msgid "Typography"
 msgstr ""
 
-#. translators: %s: link to "General Elements" section.
 #. translators: %s: link to "Body (Base)" section.
-#: inc/customizer/options/content--main.php:115, inc/customizer/options/elements--form-inputs.php:87
-msgid "Inherited from %s."
+#: inc/customizer/options/content--main.php:80
+msgid "Inherit typography settings from %s."
 msgstr ""
 
-#: inc/customizer/options/content--main.php:116, inc/customizer/options/content--main.php:136, inc/customizer/options/_sections.php:19
-msgid "General Elements"
+#: inc/customizer/options/content--main.php:81, inc/customizer/options/_sections.php:76
+msgid "Body (Base)"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:132, inc/customizer/options/content--sidebar.php:203, inc/customizer/options/footer--bottom-bar.php:161, inc/customizer/options/footer--widgets-bar.php:174, inc/customizer/options/header--mobile-main-bar.php:122, inc/customizer/options/header--mobile-vertical-bar.php:170, inc/customizer/options/header--top-main-bottom-bar.php:198
+#: inc/customizer/options/content--main.php:96, inc/customizer/options/content--sidebar.php:319, inc/customizer/options/footer--bottom-bar.php:163, inc/customizer/options/footer--widgets-bar.php:276, inc/customizer/options/header--mobile-main-bar.php:143, inc/customizer/options/header--mobile-vertical-bar.php:232, inc/customizer/options/header--top-main-bottom-bar.php:283, inc/customizer/options/page-header.php:275
 msgid "Colors"
 msgstr ""
 
-#. translators: %s: link to "General Elements" section.
-#: inc/customizer/options/content--main.php:135
-msgid "Other colors are inherited from %s."
+#: inc/customizer/options/content--main.php:102
+msgid "Content Box BG color"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:150, inc/customizer/options/content--sidebar.php:209, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:102, inc/customizer/options/footer--bottom-bar.php:167, inc/customizer/options/footer--widgets-bar.php:180, inc/customizer/options/header--mobile-main-bar.php:128, inc/customizer/options/header--mobile-vertical-bar.php:176, inc/customizer/options/header--top-main-bottom-bar.php:204, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:89, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
-msgid "Background color"
+#: inc/customizer/options/content--main.php:103
+msgid "Content Box border color"
 msgstr ""
 
-#: inc/customizer/options/content--section.php:23, inc/customizer/options/footer--bottom-bar.php:29, inc/customizer/options/footer--widgets-bar.php:29, inc/customizer/options/header--top-main-bottom-bar.php:34, inc/customizer/options/page-settings.php:45
-msgid "Section container"
+#: inc/customizer/options/content--section.php:28, inc/customizer/options/footer--bottom-bar.php:49, inc/customizer/options/footer--widgets-bar.php:29, inc/customizer/options/header--top-main-bottom-bar.php:56, inc/customizer/options/page-header.php:41, inc/customizer/options/page-settings.php:45, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23
+msgid "Layout"
 msgstr ""
 
 #. translators: %s: link to "Page Settings" section.
-#: inc/customizer/options/content--section.php:26
-msgid "You can set different section container on each page type via  %s."
+#: inc/customizer/options/content--section.php:62
+msgid "Settings above are global default, optionally you can set different layout for each page type via %s."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:27, inc/customizer/options/_sections.php:94, inc/customizer/options/_sections.php:261, inc/customizer/options/_sections.php:414
+#: inc/customizer/options/content--section.php:63, inc/customizer/options/_sections.php:148, inc/customizer/options/_sections.php:460
 msgid "Page Settings"
 msgstr ""
 
-#: inc/customizer/options/content--section.php:49
-msgid "Section padding"
+#: inc/customizer/options/content--section.php:112
+msgid "Narrow content max width"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:17
-msgid "Add / remove widgets"
+#: inc/customizer/options/content--section.php:113
+msgid "Narrow content is a single column centered layout for main content (without sidebar). Narrow content should have less width than the content wrapper width."
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:18
-msgid "Edit Widgets on Sidebar"
-msgstr ""
-
-#: inc/customizer/options/content--sidebar.php:45, inc/customizer/options/header--mobile-vertical-bar.php:65
+#: inc/customizer/options/content--sidebar.php:28, inc/customizer/options/header--mobile-vertical-bar.php:65
 msgid "Width"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:70
+#: inc/customizer/options/content--sidebar.php:53
 msgid "Gap with main content"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:96
+#: inc/customizer/options/content--sidebar.php:79
 msgid "Widgets"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:110
+#: inc/customizer/options/content--sidebar.php:93
 msgid "Widgets style"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:112
+#: inc/customizer/options/content--sidebar.php:95
 msgid "Merged in one box"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:113
+#: inc/customizer/options/content--sidebar.php:96
 msgid "Separate boxes"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:127, inc/customizer/options/footer--widgets-bar.php:115
+#: inc/customizer/options/content--sidebar.php:110, inc/customizer/options/footer--widgets-bar.php:115
 msgid "Gap between widgets"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:210, inc/customizer/options/elements--buttons.php:113, inc/customizer/options/elements--form-inputs.php:103, inc/customizer/options/footer--bottom-bar.php:168, inc/customizer/options/footer--widgets-bar.php:181, inc/customizer/options/header--mobile-main-bar.php:129, inc/customizer/options/header--mobile-vertical-bar.php:177, inc/customizer/options/header--top-main-bottom-bar.php:205, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:90
+#: inc/customizer/options/content--sidebar.php:203, inc/customizer/options/content--sidebar.php:235, inc/customizer/options/footer--bottom-bar.php:149, inc/customizer/options/footer--widgets-bar.php:160, inc/customizer/options/footer--widgets-bar.php:192, inc/customizer/options/header--mobile-vertical-bar.php:150, inc/customizer/options/header--top-main-bottom-bar.php:180
+msgid "Text typography"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:267, inc/customizer/options/footer--widgets-bar.php:224
+msgid "Widget title typography"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:281, inc/customizer/options/footer--widgets-bar.php:238
+msgid "Widget title alignment"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:283, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:283, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:284, inc/customizer/options/footer--builder.php:85, inc/customizer/options/footer--widgets-bar.php:241, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--mobile-vertical-bar.php:50
+msgid "Center"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:300, inc/customizer/options/footer--widgets-bar.php:257
+msgid "Widget title decoration"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:303, inc/customizer/options/footer--widgets-bar.php:260
+msgid "Box"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:304, inc/customizer/options/footer--widgets-bar.php:261, inc/customizer/options/header--top-main-bottom-bar.php:224
+msgid "Border bottom"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:325, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:82, inc/customizer/options/footer--bottom-bar.php:169, inc/customizer/options/footer--widgets-bar.php:282, inc/customizer/options/header--mobile-main-bar.php:149, inc/customizer/options/header--mobile-vertical-bar.php:238, inc/customizer/options/header--top-main-bottom-bar.php:289, inc/customizer/options/page-header.php:281, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:89, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
+msgid "Background color"
+msgstr ""
+
+#: inc/customizer/options/content--sidebar.php:326, inc/customizer/options/elements--buttons.php:113, inc/customizer/options/elements--form-inputs.php:83, inc/customizer/options/footer--bottom-bar.php:170, inc/customizer/options/footer--widgets-bar.php:283, inc/customizer/options/header--mobile-main-bar.php:150, inc/customizer/options/header--mobile-vertical-bar.php:239, inc/customizer/options/header--top-main-bottom-bar.php:290, inc/customizer/options/page-header.php:282, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:90
 msgid "Border color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:211, inc/customizer/options/elements--body.php:55, inc/customizer/options/elements--buttons.php:114, inc/customizer/options/elements--form-inputs.php:104, inc/customizer/options/footer--bottom-bar.php:169, inc/customizer/options/footer--widgets-bar.php:182, inc/customizer/options/header--mobile-vertical-bar.php:178, inc/customizer/options/header--top-main-bottom-bar.php:206, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:29
+#: inc/customizer/options/content--sidebar.php:327, inc/customizer/options/elements--body.php:55, inc/customizer/options/elements--buttons.php:114, inc/customizer/options/elements--form-inputs.php:84, inc/customizer/options/footer--bottom-bar.php:171, inc/customizer/options/footer--widgets-bar.php:284, inc/customizer/options/header--mobile-vertical-bar.php:240, inc/customizer/options/header--top-main-bottom-bar.php:291, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:29
 msgid "Text color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:212, inc/customizer/options/elements--body.php:68, inc/customizer/options/footer--bottom-bar.php:170, inc/customizer/options/footer--widgets-bar.php:183
+#: inc/customizer/options/content--sidebar.php:328, inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:172, inc/customizer/options/footer--widgets-bar.php:285, inc/customizer/options/header--mobile-main-bar.php:151, inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:292
 msgid "Link text color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:213, inc/customizer/options/elements--body.php:69, inc/customizer/options/footer--widgets-bar.php:184
+#: inc/customizer/options/content--sidebar.php:329, inc/customizer/options/elements--body.php:57, inc/customizer/options/footer--bottom-bar.php:173, inc/customizer/options/footer--widgets-bar.php:286, inc/customizer/options/header--mobile-main-bar.php:152, inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:293
 msgid "Link text color :hover"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:214, inc/customizer/options/footer--widgets-bar.php:185
+#: inc/customizer/options/content--sidebar.php:330, inc/customizer/options/footer--widgets-bar.php:287
 msgid "Widget title text color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:242, inc/customizer/options/footer--bottom-bar.php:199, inc/customizer/options/footer--widgets-bar.php:213, inc/customizer/options/header--top-main-bottom-bar.php:236, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:285, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
-msgctxt "Suki Pro upsell"
-msgid "More typography options"
+#: inc/customizer/options/content--sidebar.php:331, inc/customizer/options/footer--widgets-bar.php:288
+msgid "Widget title background color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:243, inc/customizer/options/footer--widgets-bar.php:214
-msgctxt "Suki Pro upsell"
-msgid "More widget title styles"
+#: inc/customizer/options/content--sidebar.php:332, inc/customizer/options/footer--widgets-bar.php:289
+msgid "Widget title border color"
 msgstr ""
 
 #: inc/customizer/options/elements--blockquote.php:41
@@ -964,20 +1066,16 @@ msgstr ""
 msgid "Body (base) text typography"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:99
+#: inc/customizer/options/elements--body.php:58
 msgid "Line / border color"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:100
-msgid "Used in horizontal line, blockquote left border, and other global elements."
+#: inc/customizer/options/elements--body.php:59, inc/customizer/options/elements--body.php:83
+msgid "Subtle BG color"
 msgstr ""
 
-#: inc/customizer/options/elements--body.php:112
-msgid "Subtle color"
-msgstr ""
-
-#: inc/customizer/options/elements--body.php:113
-msgid "Background color that slightly different from page background color. Used in elements like &lt;pre&gt;, tagcloud links, etc."
+#: inc/customizer/options/elements--body.php:84
+msgid "Used on &lt;code&gt;, &lt;pre&gt;, tagclouds, and archive title."
 msgstr ""
 
 #: inc/customizer/options/elements--buttons.php:62, inc/customizer/options/elements--form-inputs.php:62
@@ -1000,23 +1098,15 @@ msgstr ""
 msgid "Text color :hover"
 msgstr ""
 
-#: inc/customizer/options/elements--form-inputs.php:84
-msgid "Form input typography"
-msgstr ""
-
-#: inc/customizer/options/elements--form-inputs.php:88, inc/customizer/options/_sections.php:25
-msgid "Body (Base)"
-msgstr ""
-
-#: inc/customizer/options/elements--form-inputs.php:105
+#: inc/customizer/options/elements--form-inputs.php:85
 msgid "Background color :focus"
 msgstr ""
 
-#: inc/customizer/options/elements--form-inputs.php:106
+#: inc/customizer/options/elements--form-inputs.php:86
 msgid "Border color :focus"
 msgstr ""
 
-#: inc/customizer/options/elements--form-inputs.php:107
+#: inc/customizer/options/elements--form-inputs.php:87
 msgid "Text color :focus"
 msgstr ""
 
@@ -1025,19 +1115,19 @@ msgid "\"Align Wide\" negative margin"
 msgstr ""
 
 #: inc/customizer/options/elements--gutenberg.php:23
-msgid "This negative margin is only effective on \"Narrow Content\" layout. Otherwise it would be ignored."
+msgid "This negative margin is only effective on \"Narrow content\" layout. Otherwise it would be ignored."
 msgstr ""
 
 #. translators: %1$d: heading level number.
-#: inc/customizer/options/elements--headings.php:54
+#: inc/customizer/options/elements--headings.php:43
 msgid "Heading %1$d (H%1$d) typography"
 msgstr ""
 
-#: inc/customizer/options/elements--headings.php:68
+#: inc/customizer/options/elements--headings.php:57
 msgid "Heading text color"
 msgstr ""
 
-#: inc/customizer/options/elements--headings.php:69
+#: inc/customizer/options/elements--headings.php:58
 msgid "Heading text color :hover"
 msgstr ""
 
@@ -1081,27 +1171,23 @@ msgstr ""
 msgid "Title text color :hover"
 msgstr ""
 
-#: inc/customizer/options/footer--bottom-bar.php:34, inc/customizer/options/footer--widgets-bar.php:34, inc/customizer/options/header--top-main-bottom-bar.php:39
+#: inc/customizer/options/footer--bottom-bar.php:27
+msgid "Merge inside Widgets Bar wrapper"
+msgstr ""
+
+#: inc/customizer/options/footer--bottom-bar.php:28
+msgid "If enabled, this section layout is limited inside the Widgets Bar content wrapper. &mdash; Widgets Bar must have at least 1 column."
+msgstr ""
+
+#: inc/customizer/options/footer--bottom-bar.php:54, inc/customizer/options/footer--widgets-bar.php:34, inc/customizer/options/header--top-main-bottom-bar.php:61
 msgid "Contained section"
-msgstr ""
-
-#: inc/customizer/options/footer--bottom-bar.php:121, inc/customizer/options/footer--widgets-bar.php:160, inc/customizer/options/header--mobile-vertical-bar.php:130, inc/customizer/options/header--top-main-bottom-bar.php:158
-msgid "Text typography"
-msgstr ""
-
-#: inc/customizer/options/footer--bottom-bar.php:140, inc/customizer/options/header--mobile-main-bar.php:101, inc/customizer/options/header--mobile-vertical-bar.php:149, inc/customizer/options/header--top-main-bottom-bar.php:177
-msgid "Icon size"
-msgstr ""
-
-#: inc/customizer/options/footer--bottom-bar.php:171
-msgid "Link hover text color"
 msgstr ""
 
 #: inc/customizer/options/footer--builder.php:20, inc/customizer/options/header--builder.php:30
 msgid "Hide"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:275
+#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:347
 msgid "Footer Builder"
 msgstr ""
 
@@ -1157,47 +1243,39 @@ msgstr ""
 msgid "Available tags: {{year}}, {{sitename}}, {{themeauthor}}"
 msgstr ""
 
-#: inc/customizer/options/footer--menu.php:24
-msgid "Edit Footer Menu"
-msgstr ""
-
 #: inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
 msgid "Social Links"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:24, inc/customizer/options/header--social.php:24
-msgid "Edit Social Media URLs"
+#. translators: %s: link to "Global Settings" section.
+#. translators: %s: link to "Global Settings" section.
+#: inc/customizer/options/footer--social.php:26, inc/customizer/options/header--social.php:26
+msgid "You can edit Social Media URLs via %s."
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:44, inc/customizer/options/header--social.php:44
+#: inc/customizer/options/footer--social.php:27, inc/customizer/options/header--social.php:27, inc/customizer/options/_sections.php:28
+msgid "Global Settings"
+msgstr ""
+
+#: inc/customizer/options/footer--social.php:41, inc/customizer/options/header--social.php:41
 msgid "Active links"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:69, inc/customizer/options/header--social.php:68
+#: inc/customizer/options/footer--social.php:66, inc/customizer/options/header--social.php:66
 msgid "Open links in"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:71, inc/customizer/options/header--social.php:70
+#: inc/customizer/options/footer--social.php:68, inc/customizer/options/header--social.php:68
 msgid "Same tab"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:72, inc/customizer/options/header--social.php:71
+#: inc/customizer/options/footer--social.php:69, inc/customizer/options/header--social.php:69
 msgid "New tab"
 msgstr ""
 
-#. translators: %d: column number.
-#: inc/customizer/options/footer--widgets-column.php:27
-msgid "Edit Widgets on Column %d"
-msgstr ""
-
-#: inc/customizer/options/footer--widgets-column.php:45
+#: inc/customizer/options/footer--widgets-bar.php:317
 msgctxt "Suki Pro upsell"
-msgid "Responsive dynamic columns width"
-msgstr ""
-
-#: inc/customizer/options/footer--widgets-column.php:46
-msgctxt "Suki Pro upsell"
-msgid "Text alignment for each column"
+msgid "Dynamic columns width (responsive support)"
 msgstr ""
 
 #: inc/customizer/options/header--builder.php:23
@@ -1208,7 +1286,7 @@ msgstr ""
 msgid "Tablet / Mobile"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:115
+#: inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:175
 msgid "Header Builder"
 msgstr ""
 
@@ -1236,71 +1314,47 @@ msgstr ""
 msgid "Search Dropdown"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:76
-msgid "Top - Right - RTL"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:76
-msgid "Top - Left"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:77
-msgid "Top - Center"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:78
-msgid "Top - Left - RTL"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:78
+#: inc/customizer/options/header--builder.php:73, inc/customizer/options/header--builder.php:75
 msgid "Top - Right"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:79
-msgid "Main - Right - RTL"
+#: inc/customizer/options/header--builder.php:73, inc/customizer/options/header--builder.php:75
+msgid "Top - Left"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:79
-msgid "Main - Left"
+#: inc/customizer/options/header--builder.php:74
+msgid "Top - Center"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:80
-msgid "Main - Center"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:81
-msgid "Main - Left - RTL"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:81
+#: inc/customizer/options/header--builder.php:76, inc/customizer/options/header--builder.php:78
 msgid "Main - Right"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:82
-msgid "Bottom - Right - RTL"
+#: inc/customizer/options/header--builder.php:76, inc/customizer/options/header--builder.php:78
+msgid "Main - Left"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:82
+#: inc/customizer/options/header--builder.php:77
+msgid "Main - Center"
+msgstr ""
+
+#: inc/customizer/options/header--builder.php:79, inc/customizer/options/header--builder.php:81
+msgid "Bottom - Right"
+msgstr ""
+
+#: inc/customizer/options/header--builder.php:79, inc/customizer/options/header--builder.php:81
 msgid "Bottom - Left"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:83
+#: inc/customizer/options/header--builder.php:80
 msgid "Bottom - Center"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:84
-msgid "Bottom - Left - RTL"
-msgstr ""
-
-#: inc/customizer/options/header--builder.php:84
-msgid "Bottom - Right"
 msgstr ""
 
 #: inc/customizer/options/header--builder.php:105
 msgid "Mobile Header"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:107, inc/customizer/options/header--logo.php:82
+#: inc/customizer/options/header--builder.php:107, inc/customizer/options/header--logo.php:71
 msgid "Mobile Logo"
 msgstr ""
 
@@ -1312,7 +1366,7 @@ msgstr ""
 msgid "Toggle"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:127
+#: inc/customizer/options/header--builder.php:119
 msgid "Drawer (Popup)"
 msgstr ""
 
@@ -1335,64 +1389,36 @@ msgctxt "Suki Pro upsell"
 msgid "Additional \"HTML 3\" element on Header Builder"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:36
+#: inc/customizer/options/header--logo.php:35
 msgid "Logo image"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:37
+#: inc/customizer/options/header--logo.php:36
 msgid "Supports JPG, PNG, or SVG format"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:61, inc/customizer/options/header--logo.php:121
+#: inc/customizer/options/header--logo.php:50, inc/customizer/options/header--logo.php:98
 msgid "Max width"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:95
+#: inc/customizer/options/header--logo.php:83
 msgid "Mobile Logo image"
 msgstr ""
 
-#: inc/customizer/options/header--logo.php:96
+#: inc/customizer/options/header--logo.php:84
 msgid "Supports .JPG, .PNG, or .SVG format"
 msgstr ""
 
-#. translators: %d: number of Menu element.
-#: inc/customizer/options/header--menu.php:24
-msgid "Menu %d"
-msgstr ""
-
-#. translators: %d: number of Menu element.
-#: inc/customizer/options/header--menu.php:26
-msgid "Edit Header Menu %d"
-msgstr ""
-
-#: inc/customizer/options/header--menu.php:41
-msgid "Edit Mobile Header Menu"
-msgstr ""
-
-#: inc/customizer/options/header--menu.php:58
-msgctxt "Suki Pro upsell"
-msgid "Additional \"Menu 2\" element on Header Builder"
-msgstr ""
-
-#: inc/customizer/options/header--menu.php:59
-msgctxt "Suki Pro upsell"
-msgid "Additional \"Menu 3\" element on Header Builder"
-msgstr ""
-
-#: inc/customizer/options/header--mobile-main-bar.php:28, inc/customizer/options/header--top-main-bottom-bar.php:53
+#: inc/customizer/options/header--mobile-main-bar.php:28, inc/customizer/options/header--top-main-bottom-bar.php:75
 msgid "Height"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:68, inc/customizer/options/header--mobile-vertical-bar.php:85, inc/customizer/options/header--top-main-bottom-bar.php:113
+#: inc/customizer/options/header--mobile-main-bar.php:88, inc/customizer/options/header--mobile-vertical-bar.php:105, inc/customizer/options/header--top-main-bottom-bar.php:135
 msgid "Elements gutter"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:130
-msgid "Menu text color"
-msgstr ""
-
-#: inc/customizer/options/header--mobile-main-bar.php:131
-msgid "Menu text color :hover"
+#: inc/customizer/options/header--mobile-main-bar.php:122, inc/customizer/options/header--mobile-vertical-bar.php:211, inc/customizer/options/header--top-main-bottom-bar.php:262
+msgid "Icon size"
 msgstr ""
 
 #: inc/customizer/options/header--mobile-vertical-bar.php:29
@@ -1403,12 +1429,12 @@ msgstr ""
 msgid "Elements alignment"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-vertical-bar.php:179, inc/customizer/options/header--top-main-bottom-bar.php:207
-msgid "Link color"
+#: inc/customizer/options/header--mobile-vertical-bar.php:174, inc/customizer/options/header--top-main-bottom-bar.php:204
+msgid "Menu link typography"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-vertical-bar.php:180, inc/customizer/options/header--top-main-bottom-bar.php:208
-msgid "Link color :hover"
+#: inc/customizer/options/header--mobile-vertical-bar.php:198, inc/customizer/options/header--top-main-bottom-bar.php:249
+msgid "Submenu link typography"
 msgstr ""
 
 #: inc/customizer/options/header--search.php:36
@@ -1419,9 +1445,32 @@ msgstr ""
 msgid "Dropdown width"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:237
-msgctxt "Suki Pro upsell"
-msgid "Menu highlight effects"
+#: inc/customizer/options/header--top-main-bottom-bar.php:33
+msgid "Merge inside Main Bar wrapper"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:34
+msgid "If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element."
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:218
+msgid "Menu link hover highlight"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:221
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:222
+msgid "Underline"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:223
+msgid "Border top"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:294
+msgid "Menu link highlight color"
 msgstr ""
 
 #: inc/customizer/options/page-container.php:29
@@ -1436,377 +1485,414 @@ msgstr ""
 msgid "Boxed"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:46
-msgid "Boxed page max width"
-msgstr ""
-
-#: inc/customizer/options/page-container.php:73
-msgid "Container width"
-msgstr ""
-
-#: inc/customizer/options/page-container.php:74
-msgid "The maximum width of center content wrapper. This would be applied to all \"Fixed width container\" sections."
-msgstr ""
-
-#: inc/customizer/options/page-container.php:102
-msgid "Container side padding"
-msgstr ""
-
-#: inc/customizer/options/page-container.php:103
-msgid "Padding on left & right side of each section to prevent collision between content and edges."
-msgstr ""
-
-#: inc/customizer/options/page-container.php:130
+#: inc/customizer/options/page-container.php:53
 msgid "Page background color"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:143
+#: inc/customizer/options/page-container.php:67
+msgid "Content Wrapper"
+msgstr ""
+
+#: inc/customizer/options/page-container.php:80
+msgid "Content wrapper width"
+msgstr ""
+
+#: inc/customizer/options/page-container.php:81
+msgid "The maximum width of center content wrapper."
+msgstr ""
+
+#: inc/customizer/options/page-container.php:109
+msgid "Section side padding"
+msgstr ""
+
+#: inc/customizer/options/page-container.php:110
+msgid "Padding on left & right side of each section to prevent collision between content and edges."
+msgstr ""
+
+#: inc/customizer/options/page-container.php:132
+msgid "Boxed Page"
+msgstr ""
+
+#: inc/customizer/options/page-container.php:145
+msgid "Boxed page max width"
+msgstr ""
+
+#: inc/customizer/options/page-container.php:165
 msgid "Boxed page shadow"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:157
-msgid "Outside"
-msgstr ""
-
-#: inc/customizer/options/page-container.php:170
+#: inc/customizer/options/page-container.php:185
 msgid "Outside background color"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:183
-msgid "Background image"
-msgstr ""
-
 #: inc/customizer/options/page-container.php:198
-msgid "Background position"
+msgid "Outside background image"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:200
-msgid "Left top"
+#: inc/customizer/options/page-container.php:213
+msgid "Outside background position"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:201
-msgid "Left center"
+#: inc/customizer/options/page-container.php:238
+msgid "Outside background size"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:202
-msgid "Left bottom"
+#: inc/customizer/options/page-container.php:257
+msgid "Outside background repeat"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:203
-msgid "Center top"
+#: inc/customizer/options/page-container.php:277
+msgid "Outside background attachment"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:204
-msgid "Center center"
+#: inc/customizer/options/page-header.php:27
+msgid "Enable Page Header"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:205
-msgid "Center bottom"
+#: inc/customizer/options/page-header.php:115
+msgid "Page title & breadcrumb layout"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:206
-msgid "Right top"
+#: inc/customizer/options/page-header.php:117
+msgid "Centered (all)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:207
-msgid "Right center"
+#: inc/customizer/options/page-header.php:118, inc/customizer/options/page-header.php:119
+msgid "Right (all)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:208
-msgid "Right bottom"
+#: inc/customizer/options/page-header.php:118, inc/customizer/options/page-header.php:119
+msgid "Left (all)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:223
-msgid "Background size"
+#: inc/customizer/options/page-header.php:120, inc/customizer/options/page-header.php:121
+msgid "Right title -- Left breadcrumb"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:225
-msgid "Default image size"
+#: inc/customizer/options/page-header.php:120, inc/customizer/options/page-header.php:121
+msgid "Left title -- Right breadcrumb"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:226
-msgid "Cover (fill element)"
+#: inc/customizer/options/page-header.php:135
+msgid "Show page title"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:227
-msgid "Contain (touch element edges)"
+#: inc/customizer/options/page-header.php:148, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:92, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:27
+msgid "Show breadcrumb"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:242
-msgid "Background repeat"
+#: inc/customizer/options/page-header.php:149
+msgid "You need to install an additional plugin in order to display breadcrumb. Please choose one from the available plugins below. The selected plugin must be installed and active."
 msgstr ""
 
-#: inc/customizer/options/page-container.php:244
-msgid "No repeat"
+#: inc/customizer/options/page-header.php:165
+msgid "Breadcrumb Trail"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:245
-msgid "Repeat X (horizontally)"
+#: inc/customizer/options/page-header.php:166
+msgid "Breadcrumb NavXT"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:246
-msgid "Repeat Y (vertically)"
+#: inc/customizer/options/page-header.php:167
+msgid "Yoast SEO"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:247
-msgid "Repeat both axis"
+#: inc/customizer/options/page-header.php:229
+msgid "Page title typography"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:262
-msgid "Background attachment"
+#: inc/customizer/options/page-header.php:261
+msgid "Breadcrumb typography"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:264
-msgid "Scroll"
+#: inc/customizer/options/page-header.php:283
+msgid "Page title text color"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:265
-msgid "Fixed width"
+#: inc/customizer/options/page-header.php:284
+msgid "Breadcrumb text color"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:31
-msgid "Content"
+#: inc/customizer/options/page-header.php:285
+msgid "Breadcrumb link text color"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:64
-msgid "Content layout"
+#: inc/customizer/options/page-header.php:286
+msgid "Breadcrumb link text color :hover"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:66
-msgid "Wide Content"
+#: inc/customizer/options/page-header.php:311
+msgid "Background (Global)"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:67
-msgid "Narrow Content"
+#: inc/customizer/options/page-header.php:420
+msgid "Background color overlay opacity"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:68
-msgid "Right Sidebar - RTL"
+#: inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:67
+msgid "-- Inherit from \"Content & Sidebar\" settings --"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:69
-msgid "Left Sidebar - RTL"
+#: inc/customizer/options/page-settings.php:160
+msgid "Leave empty to use default WordPress page title text."
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:87
+#: inc/customizer/options/page-settings.php:219
+msgid "Override background image"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:220
+msgid "Thus will override the global background image you set on Page Header."
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:235
+msgid "Override background position"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:261
+msgid "Override background size"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:281
+msgid "Override background repeat"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:302
+msgid "Override background attachment"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:320
+msgid "Override background overlay opacity"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:385
 msgctxt "Suki Pro upsell"
 msgid "Activate transparent header on this page"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:88
+#: inc/customizer/options/page-settings.php:386
 msgctxt "Suki Pro upsell"
 msgid "Activate alternative header colors on this page"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:89
-msgctxt "Suki Pro upsell"
-msgid "Hide some elements on this page"
+#: inc/customizer/options/settings--google-fonts.php:23
+msgid "Google Fonts would be served from Google's server. There are chances that visitor's data might be collected by Google. If you do not accept this, you can use \"Self-Hosted Google Fonts\" plugin to self-host the fonts on your own server. &mdash; If you are not using any Google Fonts on your settings, you can ignore this notice."
 msgstr ""
 
-#: inc/customizer/options/settings--google-fonts.php:27
+#: inc/customizer/options/settings--google-fonts.php:35
 msgid "Additional character subsets"
 msgstr ""
 
-#: inc/customizer/options/settings--google-fonts.php:28
+#: inc/customizer/options/settings--google-fonts.php:36
 msgid "\"Latin\" character subset is included by default."
 msgstr ""
 
-#: inc/customizer/options/_sections.php:32
-msgid "Headings (H1 - H4)"
+#: inc/customizer/options/_sections.php:14
+msgctxt "Suki Pro upsell"
+msgid "Premium Modules Available"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:39
-msgid "Blockquote"
+#: inc/customizer/options/_sections.php:47
+msgid "Customizer CSS"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:46
-msgid "Form Inputs"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:53
-msgid "Buttons"
+#: inc/customizer/options/_sections.php:54
+msgid "Google Fonts"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:61
-msgid "Used on Default Post title and Single Page title."
+msgid "Social Media Links"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:68
-msgid "Small Title"
+#: inc/customizer/options/_sections.php:62
+msgid "Please use full URL format with http:// or https://"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:69
-msgid "Used on Grid Post title, and other subsidiary headings like \"Leave a Reply\", \"2 Comments\", etc."
-msgstr ""
-
-#: inc/customizer/options/_sections.php:76
-msgid "Meta Info"
+#: inc/customizer/options/_sections.php:70
+msgid "General Elements"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:77
+msgid "The global settings of body typography and colors."
+msgstr ""
+
+#: inc/customizer/options/_sections.php:84
+msgid "Headings (H1 - H4)"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:85
+msgid "Used on all H1 - H4 tags globally."
+msgstr ""
+
+#: inc/customizer/options/_sections.php:92
+msgid "Blockquote"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:99
+msgid "Form Input"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:106
+msgid "Button"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:114
+msgid "Used on Default Post title and Static Page title. By default, it uses H1 styles."
+msgstr ""
+
+#: inc/customizer/options/_sections.php:121
+msgid "Small Title"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:122
+msgid "Used on Grid Post title, and other subsidiary headings like \"Leave a Reply\", \"2 Comments\", etc. By default, it uses H3 styles."
+msgstr ""
+
+#: inc/customizer/options/_sections.php:129
+msgid "Meta Info"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:130
 msgid "Used on Post meta, Widget meta, Comments meta, and other small info text."
 msgstr ""
 
-#: inc/customizer/options/_sections.php:90
+#: inc/customizer/options/_sections.php:144
 msgid "Additional Styles for Gutenberg"
 msgstr ""
 
 #. translators: %s: link to "Page Settings" section.
-#: inc/customizer/options/_sections.php:93
-msgid "Best content layout for Gutenberg is \"Narrow Content\". You can activate it via %s."
-msgstr ""
-
-#: inc/customizer/options/_sections.php:102
-msgid "Page Container"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:109
-msgid "Header"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:128
-msgid "Top Bar"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:135
-msgid "Main Bar"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:142, inc/customizer/options/_sections.php:295
-msgid "Bottom Bar"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:149
-msgid "Vertical Bar"
+#: inc/customizer/options/_sections.php:147
+msgid "Best content layout for Gutenberg is \"Narrow content\". You can activate the \"Narrow content\" layout on each page type via %s."
 msgstr ""
 
 #: inc/customizer/options/_sections.php:162
+msgid "Page Canvas & Wrapper"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:188
+msgid "Top Bar"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:195
+msgid "Main Bar"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:202, inc/customizer/options/_sections.php:367
+msgid "Bottom Bar"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:209
+msgid "Vertical Bar"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:222
 msgid "Mobile Main Bar"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:169
+#: inc/customizer/options/_sections.php:229
 msgid "Mobile Drawer (Popup)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:182
+#: inc/customizer/options/_sections.php:242
 msgid "Element: Logo"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:189
+#: inc/customizer/options/_sections.php:249
 msgid "Element: Menu(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:196
+#: inc/customizer/options/_sections.php:256
 msgid "Element: Search"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:203
+#: inc/customizer/options/_sections.php:263
 msgid "Element: HTML(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:210, inc/customizer/options/_sections.php:329
+#: inc/customizer/options/_sections.php:270, inc/customizer/options/_sections.php:401
 msgid "Element: Social"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:228
+#: inc/customizer/options/_sections.php:288
+msgctxt "Suki Pro upsell"
+msgid "More header elements"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:289
+msgctxt "Suki Pro upsell"
+msgid "Vertical bar (drawer & permanent style)"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:290
 msgctxt "Suki Pro upsell"
 msgid "Transparent header"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:229
+#: inc/customizer/options/_sections.php:291
 msgctxt "Suki Pro upsell"
 msgid "Sticky header"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:230
+#: inc/customizer/options/_sections.php:292
 msgctxt "Suki Pro upsell"
 msgid "Alternative header colors"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:239
-msgid "Content & Sidebar"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:245
+#: inc/customizer/options/_sections.php:313
 msgid "Content Section"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:251
-msgid "Main Content"
+#: inc/customizer/options/_sections.php:326
+msgid "Main Content Area"
 msgstr ""
 
-#. translators: %s: link to "Page Settings" section.
-#: inc/customizer/options/_sections.php:260
-msgid "You can enable / disable sidebar on each page type via %s."
+#: inc/customizer/options/_sections.php:333
+msgid "Sidebar Area"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:269
-msgid "Footer"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:288
+#: inc/customizer/options/_sections.php:360
 msgid "Widgets Bar"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:308
+#: inc/customizer/options/_sections.php:380
 msgid "Element: Widgets Column(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:315
+#: inc/customizer/options/_sections.php:387
 msgid "Element: Copyright"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:322
+#: inc/customizer/options/_sections.php:394
 msgid "Element: Menu"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:342
+#: inc/customizer/options/_sections.php:414
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:348
+#: inc/customizer/options/_sections.php:420
 msgid "Posts Index"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:354
+#: inc/customizer/options/_sections.php:426
 msgid "Single Post"
 msgstr ""
 
-#. translators: %s: link to "Page Settings" section.
-#: inc/customizer/options/_sections.php:357
+#. translators: %s: link to "Post Layout: Default" section.
+#: inc/customizer/options/_sections.php:429
 msgid "\"Default\" post layout is used as the main post layout. You can configure it on %s"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:358, inc/customizer/options/_sections.php:370
+#: inc/customizer/options/_sections.php:430, inc/customizer/options/_sections.php:442
 msgid "Post Layout: Default"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:376
+#: inc/customizer/options/_sections.php:448
 msgid "Post Layout: Grid"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:388
-msgid "Global Settings"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:394
-msgid "Customizer CSS"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:400
-msgid "Google Fonts"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:406
-msgid "Social Media Links"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:407
-msgid "Please use full URL format with http:// or https://"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:415
-msgid "You can override each singular post / page settings from the post / page editor."
+#: inc/customizer/options/_sections.php:461
+msgid "Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/header.php:21
@@ -1839,10 +1925,6 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:35
 msgid "Use 2 columns layout"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:36
-msgid "You might need to set your Checkout Page content layout (page settings) to \"Wide Content\" or \"Narrow Content\""
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:23
@@ -1886,11 +1968,7 @@ msgid "Grid columns"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:80
-msgid "Show page title"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:92, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:27
-msgid "Show breadcrumb"
+msgid "Show page header title"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:104
@@ -1909,69 +1987,69 @@ msgstr ""
 msgid "Gallery column Width"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:91
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:86
 msgid "Gap with summary column"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:115
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:110
 msgid "Enable zoom"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:127
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:122
 msgid "Enable lightbox"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:142
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:137
 msgid "Tabs"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:154
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:149
 msgid "Show tabs"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:169
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:164
 msgid "Up-Sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:181
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:176
 msgid "Show up-sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:182
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:177
 msgid "Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:216
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:211
 msgid "Related Products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:228
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:223
 msgid "Show related products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:229
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:224
 msgid "Display linked products and similar products within same categories or tags. Products that have been displayed on \"Up-sells\" section will not be included."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:242
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:237
 msgid "Max products shown"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:243
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:238
 msgid "0 = disabled; -1 = Show all."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:286
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
 msgctxt "Suki Pro upsell"
 msgid "More \"add to cart\" styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:287
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
 msgctxt "Suki Pro upsell"
 msgid "More gallery styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:288
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282
 msgctxt "Suki Pro upsell"
 msgid "More info tabs styles"
 msgstr ""
@@ -1984,7 +2062,7 @@ msgstr ""
 msgid "Show \"add to cart\""
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
 msgctxt "Suki Pro upsell"
 msgid "More products grid item styles"
 msgstr ""

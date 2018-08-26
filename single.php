@@ -10,32 +10,48 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * Header
+ */
 get_header();
 
-suki_main_content_open();
+/**
+ * Primary - opening tag
+ */
+suki_primary_open();
+
+/**
+ * Hook: suki/frontend/before_main
+ */
+do_action( 'suki/frontend/before_main' );
 
 while ( have_posts() ) : the_post();
-	/**
-	 * Hook: suki_before_main
-	 */
-	do_action( 'suki_before_main' );
 
-	// Render post content in "default" layout.
+	// Render post content using "content" layout.
 	get_template_part( 'template-parts/content' );
-
-	/**
-	 * Hook: suki_after_main
-	 * 
-	 * @hooked suki_single_post_author_bio - 10
-	 * @hooked suki_single_post_navigation - 15
-	 * @hooked suki_entry_comments - 20
-	 */
-	do_action( 'suki_after_main' );
 
 endwhile;
 
-suki_main_content_close();
+/**
+ * Hook: suki/frontend/after_main
+ * 
+ * @hooked suki_single_post_author_bio - 10
+ * @hooked suki_single_post_navigation - 15
+ * @hooked suki_entry_comments - 20
+ */
+do_action( 'suki/frontend/after_main' );
 
+/**
+ * Primary - closing tag
+ */
+suki_primary_close();
+
+/**
+ * Sidebar
+ */
 get_sidebar();
 
+/**
+ * Footer
+ */
 get_footer();

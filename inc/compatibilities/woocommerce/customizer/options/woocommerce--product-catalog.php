@@ -69,7 +69,7 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_wo
 	'priority'    => 20,
 ) ) );
 
-// Breadcrumb
+// Page header title
 $id = 'woocommerce_index_page_title';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
@@ -77,7 +77,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show page title', 'suki' ),
+	'label'       => esc_html__( 'Show page header title', 'suki' ),
 	'priority'    => 20,
 ) ) );
 

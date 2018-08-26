@@ -13,40 +13,40 @@
 	<div class="entry-wrapper">
 		<?php
 		/**
-		 * Hook: suki_before_entry_header
+		 * Hook: suki/frontend/entry/before_header
 		 *
 		 * @hooked suki_entry_featured_media - 10
 		 */
-		do_action( 'suki_before_entry_header' );
+		do_action( 'suki/frontend/entry/before_header' );
 		
-		if ( has_action( 'suki_entry_header' ) ) :
+		if ( has_action( 'suki/frontend/entry/header' ) ) :
 		?>
 			<header class="entry-header">
 				<?php
 				/**
-				 * Hook: suki_entry_header
+				 * Hook: suki/frontend/entry/header
 				 *
 				 * @hooked suki_entry_header_meta - 10
 				 * @hooked suki_entry_title - 20
 				 */
-				do_action( 'suki_entry_header' );
+				do_action( 'suki/frontend/entry/header' );
 				?>
 			</header>
 		<?php
 		endif;
 
 		/**
-		 * Hook: suki_after_entry_header
+		 * Hook: suki/frontend/entry/after_header
 		 */
-		do_action( 'suki_after_entry_header' );
+		do_action( 'suki/frontend/entry/after_header' );
 		?>
 
 		<div class="entry-content">
 			<?php
 			/**
-			 * Hook: suki_before_entry_content
+			 * Hook: suki/frontend/entry/before_content
 			 */
-			do_action( 'suki_before_entry_content' );
+			do_action( 'suki/frontend/entry/before_content' );
 			
 			// Print the content.
 			the_content(
@@ -64,37 +64,37 @@
 			) );
 			
 			/**
-			 * Hook: suki_after_entry_content
+			 * Hook: suki/frontend/entry/after_content
 			 */
-			do_action( 'suki_after_entry_content' );
+			do_action( 'suki/frontend/entry/after_content' );
 			?>
 		</div>
 
 		<?php
 		/**
-		 * Hook: suki_before_entry_footer
+		 * Hook: suki/frontend/entry/before_footer
 		 */
-		do_action( 'suki_before_entry_footer' );
+		do_action( 'suki/frontend/entry/before_footer' );
 		
-		if ( has_action( 'suki_entry_footer' ) ) :
+		if ( has_action( 'suki/frontend/entry/footer' ) ) :
 		?>
 			<footer class="entry-footer">
 				<?php
 				/**
-				 * Hook: suki_entry_footer
+				 * Hook: suki/frontend/entry/footer
 				 * 
 				 * @hooked suki_entry_footer_meta - 10
 				 */
-				do_action( 'suki_entry_footer' );
+				do_action( 'suki/frontend/entry/footer' );
 				?>
 			</footer>
 		<?php
 		endif;
 
 		/**
-		 * Hook: suki_after_entry_footer
+		 * Hook: suki/frontend/entry/after_footer
 		 */
-		do_action( 'suki_after_entry_footer' );
+		do_action( 'suki/frontend/entry/after_footer' );
 		?>
 	</div>
 </article>

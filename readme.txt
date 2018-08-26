@@ -1,17 +1,17 @@
 === Suki ===
-Contributors: sukiwp, daviedr
+Contributors: sukiwp
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, accessibility-ready, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 4.5
 Tested up to: 4.9
-Stable tag: 0.2.0
+Stable tag: 0.4.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/
+Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/.
 
 == Description ==
 
-Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight and load fast, with only less than 20KB of frontend resources to load. Get more freedom on building your contents, because Suki is fully compatible with the new Gutenberg editor and the popular Elementor Page Builder. It also contains tons of options, enables you to customize all aspects of your site from layout, typography, colors, and also Header Builder and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/
+Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/.
 
 == Installation ==
 
@@ -29,12 +29,12 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 
 == Screenshot Licenses ==
 
-Screenshot images are all licensed under [Burst Some Right Reserved](https://burst.shopify.com/licenses/shopify-some-rights-reserved)
-https://burst.shopify.com/photos/navy-polka-dot-dress
-https://burst.shopify.com/photos/off-shoulder-green-dress
-https://burst.shopify.com/photos/floral-sun-dress
-https://burst.shopify.com/photos/womens-boho-dress
-https://burst.shopify.com/photos/pink-floral-ummer-dress
+Screenshot images are all licensed under CC0 Universal
+https://unsplash.com/photos/r7XsPc5PriM
+https://unsplash.com/photos/9kqnHKvXTP0
+https://unsplash.com/photos/3_cyj5YkhTs
+https://unsplash.com/photos/uUwEAW5jFLE
+https://unsplash.com/photos/ZXrLqgimit4
 
 == Copyright ==
 

@@ -53,7 +53,7 @@
 		/**
 		 * Function to init edge sub menu detection script.
 		 */
-		initSubMenuEdgeDetection: function() {
+		initDropdownMenuReposition: function() {
 			var prop = window.suki.isRTL() ? 'right' : 'left';
 
 			var calculateSubMenuEdge = function() {
@@ -108,21 +108,7 @@
 		/**
 		 * Function to init hover menu.
 		 */
-		initHoverMenu: function() {
-			/**
-			 * Mobile Touch friendly
-			 */
-			var mobileTouch = function( e ) {
-				// Only enable double tap on menu item that has sub menu.
-				if ( this.parentElement.classList.contains( 'menu-item-has-children' ) ) {
-					if ( this !== document.activeElement ) {
-						this.focus();
-
-						e.preventDefault();
-					}
-				}
-			}
-
+		initMenuAccessibility: function() {
 			/**
 			 * Accesibility using tab button
 			 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/dropdown-menus/vanilla-js/js/dropdown.js
@@ -192,9 +178,6 @@
 
 			var $menuLinks = document.querySelectorAll( '.suki-hover-menu .menu-item > a' );
 			for ( var i = 0; i < $menuLinks.length; i++ ) {
-				$menuLinks[i].addEventListener( 'touchend', mobileTouch, false );
-
-				// Accessibility
 				$menuLinks[i].addEventListener( 'focus', toggleFocus, false );
 				$menuLinks[i].addEventListener( 'blur', toggleFocus, false );
 				$menuLinks[i].addEventListener( 'keydown', keyboardNav, false );
@@ -202,9 +185,33 @@
 		},
 
 		/**
+		 * Function to init double tap menu on mobile devices.
+		 */
+		initDoubleTapMobileMenu: function() {
+			/**
+			 * Mobile Touch friendly
+			 */
+			var mobileTouch = function( e ) {
+				// Only enable double tap on menu item that has sub menu.
+				if ( this.parentElement.classList.contains( 'menu-item-has-children' ) ) {
+					if ( this !== document.activeElement ) {
+						this.focus();
+
+						e.preventDefault();
+					}
+				}
+			}
+
+			var $menuLinks = document.querySelectorAll( '.suki-header-menu .menu-item > a' );
+			for ( var i = 0; i < $menuLinks.length; i++ ) {
+				$menuLinks[i].addEventListener( 'touchend', mobileTouch, false );
+			}
+		},
+
+		/**
 		 * Function to init toggle menu.
 		 */
-		initToggleMenu: function() {
+		initClickToggleDropdownMenu: function() {
 			/**
 			 * Click Handler
 			 */
@@ -268,7 +275,7 @@
 		/**
 		 * Function to init mobile menu.
 		 */
-		initVerticalToggleMenu: function() {
+		initAccordionMenu: function() {
 			var clickHandler = function( e ) {
 				e.preventDefault();
 
@@ -304,13 +311,21 @@
 		/**
 		 * Function to init page popup toggle.
 		 */
-		initPopupToggle: function() {
-			var removeActivePopups = function( device ) {
+		initGlobalPopup: function() {
+			var $clickedToggle = null;
+
+			var deactivatePopup = function( device ) {
 				var $activePopups = document.querySelectorAll( '.suki-popup-active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) );
 
 				for ( var j = 0; j < $activePopups.length; j++ ) {
+					// Deactivate popup.
+					$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
 					$activePopups[j].classList.remove( 'suki-popup-active' );
 					document.body.classList.remove( 'suki-has-popup-active' );
+
+					// Back current focus to the toggle.
+					$activePopups[j].removeAttribute( 'tabindex' );
+					$clickedToggle.focus();
 				}
 			}
 
@@ -325,10 +340,19 @@
 				    if ( ! $target ) return;
 
 				    if ( $target.classList.contains( 'suki-popup-active' ) ) {
-						removeActivePopups();
+						deactivatePopup();
 				    } else {
-				    	$target.classList.add( 'suki-popup-active' );
-				    	document.body.classList.add( 'suki-has-popup-active' );
+				    	// Activate popup.
+						this.classList.add( 'suki-popup-toggle-active' );
+						$target.classList.add( 'suki-popup-active' );
+						document.body.classList.add( 'suki-has-popup-active' );
+
+						// Put focus on popup.
+						$target.setAttribute( 'tabindex', 0 );
+						$target.focus();
+
+				    	// Save this toggle for putting back focus when popup is deactivated.
+						$clickedToggle = this;
 				    }
 				}, false );
 			}
@@ -338,7 +362,7 @@
 				$closes[i].addEventListener( 'click', function( e ) {
 					e.preventDefault();
 
-					removeActivePopups();
+					deactivatePopup();
 				}, false );
 			}
 
@@ -355,7 +379,7 @@
 						device = 'desktop';
 					}
 
-					removeActivePopups( device );
+					deactivatePopup( device );
 				}
 			});
 		},
@@ -365,11 +389,12 @@
 		 */
 		initAll: function() {
 			window.suki.initKeyboardAndMouseFocus();
-			window.suki.initSubMenuEdgeDetection();
-			window.suki.initHoverMenu();
-			window.suki.initToggleMenu();
-			window.suki.initVerticalToggleMenu();
-			window.suki.initPopupToggle();
+			window.suki.initDropdownMenuReposition();
+			window.suki.initMenuAccessibility();
+			window.suki.initClickToggleDropdownMenu();
+			window.suki.initDoubleTapMobileMenu();
+			window.suki.initAccordionMenu();
+			window.suki.initGlobalPopup();
 		},
 	}
 

@@ -10,33 +10,47 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * Header
+ */
 get_header();
 
-suki_main_content_open();
+/**
+ * Primary - opening tag
+ */
+suki_primary_open();
 
 /**
- * Hook: suki_before_main
- * 
- * @hooked suki_404_page_header - 10
+ * Hook: suki/frontend/before_main
  */
-do_action( 'suki_before_main' );
-?>
+do_action( 'suki/frontend/before_main' );
 
+?>
 <section class="error-404 not-found">
 	<div class="page-content">
-		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'suki' ); ?></p>
+		<h1><?php esc_html_e( 'Page Not Found', 'suki' ); ?></h1>
+		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try searching?', 'suki' ); ?></p>
 		<?php get_search_form(); ?>
 	</div>
 </section>
-
 <?php
+
 /**
- * Hook: suki_after_main
+ * Hook: suki/frontend/after_main
  */
-do_action( 'suki_after_main' );
+do_action( 'suki/frontend/after_main' );
 
-suki_main_content_close();
+/**
+ * Primary - closing tag
+ */
+suki_primary_close();
 
+/**
+ * Sidebar
+ */
 get_sidebar();
 
+/**
+ * Footer
+ */
 get_footer();

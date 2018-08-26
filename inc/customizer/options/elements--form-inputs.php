@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Elements > Form Inputs
+ * Customizer settings: General Elements > Form Input
  *
  * @package Suki
  **/
@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$section = 'suki_section_form_inputs';
+$section = 'suki_section_form_input';
 
 // Padding
 $id = 'input_padding';
@@ -66,26 +66,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'max'  => 40,
 			'step' => 1,
 		),
-	),
-	'priority'    => 10,
-) ) );
-
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_input_typography', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
-// Form input typography
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'input_typography', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Form input typography', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: link to "Body (Base)" section. */
-		esc_html__( 'Inherited from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_body' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
 	),
 	'priority'    => 10,
 ) ) );

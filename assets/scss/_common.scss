@@ -60,19 +60,19 @@
 // -------------------------------------------------------------
 
 .suki-hide-on-desktop {
-	@media screen and ( min-width: $breakpoint_1024 + 1px ) {
+	@media screen and ( min-width: $breakpoint_1024 ) {
 		display: none !important;
 	}
 }
 
 .suki-hide-on-tablet {
-	@media screen and ( min-width: $breakpoint_500 + 1px ) and ( max-width: $breakpoint_1024 ) {
+	@media screen and ( min-width: $breakpoint_500 ) and ( max-width: $breakpoint_1024 - 1px ) {
 		display: none !important;
 	}
 }
 
 .suki-hide-on-mobile {
-	@media screen and ( max-width: $breakpoint_500 ) {
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
 		display: none !important;
 	}
 }
@@ -102,29 +102,24 @@
 // -------------------------------------------------------------
 
 .suki-float-container {
-	@extend %float-container;
+	@include float-container();
 }
 
 .page-header {
-	padding: 0 0 2rem;
-	@include border( bottom );
+	padding: 1.75rem;
 	margin: 0 0 4rem;
+	@include border();
+	background-color: $color_subtle; // default	
 
 	> *:last-child {
 		margin-bottom: 0 !important;
 	}
 
-	h1 {
-		font-size: 1.1rem;
-		font-style: inherit;
-		font-weight: 600;
-		line-height: inherit;
-		letter-spacing: inherit;
-		text-transform: inherit;
+	.page-title {
+		@extend %small-title; // default
 	}
 }
 
-// Search form
 .search-form {
 	display: block;
 	position: relative;
@@ -147,8 +142,22 @@
 	}
 }
 
+.nav-links {
+	span.current {
+		color: $color_meta; // default
+	}
+	
+	a {
+		color: $color_text; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+}
+
 .tagcloud {
-	@extend %float-container;
+	@include float-container();
 	
 	a {
 		float: left;
@@ -156,6 +165,12 @@
 		margin: 0 0.5em 0.5em 0;
 		font-size: 0.9rem !important;
 		line-height: normal;
+		background-color: $color_subtle; // default	
+		color: $color_text; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
 	}
 }
 
@@ -169,16 +184,6 @@
 		&:first-child {
 			margin-left: 0 !important;
 		}
-	}
-}
-
-.site-title {
-	@extend %h2;
-	line-height: normal;
-	margin: 0;
-
-	img, svg {
-		display: block;
 	}
 }
 
@@ -205,12 +210,12 @@
 	width: auto;
 	overflow: visible;
 	background: transparent;
-	color: inherit;
 	font: inherit;
 	line-height: inherit;
 	text-align: inherit;
 	cursor: pointer;
 	-webkit-appearance: none;
+	color: $color_accent; // default
 
 	&:hover {
 		outline: 0;
@@ -218,12 +223,12 @@
 
 	&:hover, &:focus {
 		background: inherit;
-		color: inherit;
+		color: $color_accent_2; // default
 	}
 }
 
 .suki-menu-icon {
-	font-size: 16px; // default
+	font-size: 18px; // default
 	vertical-align: middle;
 }
 

@@ -1,0 +1,123 @@
+// -------------------------------------------------------------
+// Page header
+// -------------------------------------------------------------
+
+.suki-page-header-inner {
+	border-width: 0 0 1px 0; // default
+	background-color: $color_subtle; // default
+	background-position: center center; // default
+	background-size: cover; // default
+	background-repeat: no-repeat; // default
+	background-attachment: scroll; // default
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: inherit; // default
+		opacity: 0; // default
+	}
+}
+
+.suki-page-header-row {
+	padding: 80px 0; // default
+}
+
+.suki-page-header {
+	a {
+		color: $color_text; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+}
+
+.suki-page-header-layout-left-right {
+	text-align: left;
+
+	@media screen and ( min-width: $breakpoint_768 ) {
+		.suki-page-header-row {
+			@include flex();
+			justify-content: flex-start;
+
+			.suki-page-header-title {
+				width: 50%;
+				text-align: left;
+			}
+
+			.suki-page-header-breadcrumb {
+				width: 50%;
+				text-align: right;
+				margin: 0;
+			}
+		}
+	}
+}
+
+.suki-page-header-layout-right-left {
+	text-align: right;
+
+	@media screen and ( min-width: $breakpoint_768 ) {
+		.suki-page-header-row {
+			@include flex();
+			justify-content: flex-end;
+			flex-direction: row-reverse;
+
+			.suki-page-header-title {
+				width: 50%;
+				text-align: right;
+			}
+
+			.suki-page-header-breadcrumb {
+				width: 50%;
+				text-align: left;
+				margin: 0;
+			}
+		}
+	}
+}
+
+.suki-page-header-layout-left {
+	text-align: left;
+}
+
+.suki-page-header-layout-center {
+	text-align: center;
+}
+
+.suki-page-header-layout-right {
+	text-align: right;
+}
+
+.suki-page-header-title {
+	margin: 0;
+}
+
+.suki-page-header-breadcrumb {
+	font-size: 0.9em; // default
+	margin-top: 0.5em;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		display: inline-block;
+
+		&:after {
+			margin: 0 0.5em;
+			content: "\00bb";
+			opacity: 0.5;
+		}
+
+		&:last-child:after {
+			display: none;
+		}
+	}
+}

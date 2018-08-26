@@ -12,13 +12,14 @@ $add = array();
 
 /**
  * ====================================================
- * Page Container
+ * Page Canvas & Wrapper
  * ====================================================
  */
 
+$add['heading_boxed_page'] =
 $add['boxed_page_width'] =
 $add['boxed_page_shadow'] =
-$add['heading_outside'] =
+$add['hr_boxed_page_outside'] =
 $add['outside_bg_color'] =
 $add['outside_bg_image'] =
 $add['outside_bg_position'] =
@@ -28,6 +29,48 @@ $add['outside_bg_attachment'] = array(
 	array(
 		'setting'  => 'page_layout',
 		'value'    => 'boxed',
+	),
+);
+
+/**
+ * ====================================================
+ * Header > Top Bar
+ * ====================================================
+ */
+
+$add['header_top_bar_container'] = array(
+	array(
+		'setting'  => 'header_top_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Header > Bottom Bar
+ * ====================================================
+ */
+
+$add['header_bottom_bar_container'] = array(
+	array(
+		'setting'  => 'header_bottom_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Footer > Bottom Bar
+ * ====================================================
+ */
+
+$add['footer_bottom_bar_container'] = array(
+	array(
+		'setting'  => 'footer_bottom_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
 	),
 );
 

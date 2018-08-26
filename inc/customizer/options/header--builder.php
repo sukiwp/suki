@@ -61,7 +61,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Desktop Header', 'suki' ),
-	'choices'     => apply_filters( 'suki_customizer_header_elements', array(
+	'choices'     => apply_filters( 'suki/customizer/header_elements', array(
 		'logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
 		'menu-1'          => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Menu', 'suki' ) . ' 1',
 		'html-1'          => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'HTML', 'suki' ) . ' 1',
@@ -70,20 +70,20 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'social'          => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 		'contact-details' => '<span class="dashicons dashicons-id"></span>' . esc_html__( 'Contact Details', 'suki' ),
 	) ),
-	'avoid'       => apply_filters( 'suki_customizer_header_elements_avoid', array(
+	'labels'     => array(
+		'top_left'      => is_rtl() ? esc_html__( 'Top - Right', 'suki' ) : esc_html__( 'Top - Left', 'suki' ),
+		'top_center'    => esc_html__( 'Top - Center', 'suki' ),
+		'top_right'     => is_rtl() ? esc_html__( 'Top - Left', 'suki' ) : esc_html__( 'Top - Right', 'suki' ),
+		'main_left'     => is_rtl() ? esc_html__( 'Main - Right', 'suki' ) : esc_html__( 'Main - Left', 'suki' ),
+		'main_center'   => esc_html__( 'Main - Center', 'suki' ),
+		'main_right'    => is_rtl() ? esc_html__( 'Main - Left', 'suki' ) : esc_html__( 'Main - Right', 'suki' ),
+		'bottom_left'   => is_rtl() ? esc_html__( 'Bottom - Right', 'suki' ) : esc_html__( 'Bottom - Left', 'suki' ),
+		'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
+		'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left', 'suki' ) : esc_html__( 'Bottom - Right', 'suki' ),
+	),
+	'limitations'       => apply_filters( 'suki/customizer/header_elements/limitations', array(
 		'logo' => array( 'top_left', 'top_center', 'top_right', 'bottom_left', 'bottom_center', 'bottom_right' ),
 	) ),
-	'labels'      => array(
-		'top_left'      => is_rtl() ? esc_html__( 'Top - Right - RTL', 'suki' ) : esc_html__( 'Top - Left', 'suki' ),
-		'top_center'    => esc_html__( 'Top - Center', 'suki' ),
-		'top_right'     => is_rtl() ? esc_html__( 'Top - Left - RTL', 'suki' ) : esc_html__( 'Top - Right', 'suki' ),
-		'main_left'     => is_rtl() ? esc_html__( 'Main - Right - RTL', 'suki' ) : esc_html__( 'Main - Left', 'suki' ),
-		'main_center'   => esc_html__( 'Main - Center', 'suki' ),
-		'main_right'    => is_rtl() ? esc_html__( 'Main - Left - RTL', 'suki' ) : esc_html__( 'Main - Right', 'suki' ),
-		'bottom_left'   => is_rtl() ? esc_html__( 'Bottom - Right - RTL', 'suki' ) : esc_html__( 'Bottom - Left', 'suki' ),
-		'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
-		'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left - RTL', 'suki' ) : esc_html__( 'Bottom - Right', 'suki' ),
-	),
 	'priority'    => 10,
 ) ) );
 
@@ -104,7 +104,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Mobile Header', 'suki' ),
-	'choices'     => apply_filters( 'suki_customizer_header_mobile_elements', array(
+	'choices'     => apply_filters( 'suki/customizer/header_mobile_elements', array(
 		'mobile-logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Mobile Logo', 'suki' ),
 		'mobile-menu'            => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Mobile Menu', 'suki' ),
 		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'HTML', 'suki' ) . ' 1',
@@ -113,7 +113,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 		'mobile-vertical-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
 	) ),
-	'avoid'       => apply_filters( 'suki_customizer_header_mobile_elements_avoid', array(
+	'labels'      => array(
+		'mobile_main_left'    => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'mobile_main_center'  => esc_html__( 'Center', 'suki' ),
+		'mobile_main_right'   => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'mobile_vertical_top' => esc_html__( 'Drawer (Popup)', 'suki' ),
+	),
+	'limitations' => apply_filters( 'suki/customizer/header_mobile_elements/limitations', array(
 		'mobile-logo'            => array( 'mobile_vertical_top' ),
 		'mobile-menu'            => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'html-1'                 => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
@@ -121,11 +127,5 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'search-dropdown'        => array( 'mobile_vertical_top' ),
 		'mobile-vertical-toggle' => array( 'mobile_vertical_top' ),
 	) ),
-	'labels'      => array(
-		'mobile_main_left'    => is_rtl() ? esc_html__( 'Right - RTL', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'mobile_main_center'  => esc_html__( 'Center', 'suki' ),
-		'mobile_main_right'   => is_rtl() ? esc_html__( 'Left - RTL', 'suki' ) : esc_html__( 'Right', 'suki' ),
-		'mobile_vertical_top' => esc_html__( 'Drawer (Popup)', 'suki' ),
-	),
 	'priority'    => 10,
 ) ) );

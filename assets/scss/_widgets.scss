@@ -4,10 +4,10 @@
 
 .widget {
 	position: relative;
-	margin-top: 40px; // default
+	margin-bottom: 40px; // default
 
-	&:first-child {
-		margin-top: 0 !important;
+	&:last-child {
+		margin-bottom: 0;
 	}
 
 	select {
@@ -15,6 +15,7 @@
 	}
 
 	.post-date, .rss-date {
+		@extend %meta;
 		display: block;
 		margin-top: 0.25em;
 		font-size: 0.9em;
@@ -29,24 +30,32 @@
 		display: none;
 	}
 
-	&.suki-widget-title-decoration-box {
+	.suki-widget-title-decoration-box & {
 		@include border();
-		padding: 0.5em 1em;
+		padding: 0.25em 1em;
 	}
 
-	&.suki-widget-title-decoration-border-bottom {
+	.suki-widget-title-decoration-border-bottom & {
 		@include border( bottom );
-		padding-bottom: 0.5em;
+		padding-bottom: 0.25em;
+	}
+
+	.suki-widget-title-alignment-left & {
+		text-align: left;
+	}
+
+	.suki-widget-title-alignment-center & {
+		text-align: center;
+	}
+
+	.suki-widget-title-alignment-right & {
+		text-align: right;
 	}
 }
 
 .widget_text {
 	.textwidget {
-		& > *:first-child {
-			margin-top: 0;
-		}
-
-		& > *:last-child {
+		> *:last-child {
 			margin-bottom: 0;
 		}
 	}
@@ -100,7 +109,7 @@
 
 	cite {
 		display: block;
-		color: #ccc;
+		color: $color_meta; // default
 		font-size: 11px;
 
 		&:before {
@@ -180,6 +189,14 @@
 	}
 }
 
+// Search widget
+.widget_search {
+	// Hide search widget when on search results page.
+	.search-results & {
+		display: none;
+	}
+}
+
 // -------------------------------------------------------------
 // Custom widgets
 // -------------------------------------------------------------
@@ -196,7 +213,7 @@
 		padding-bottom: 0.75em;
 		margin-top: 0.75em;
 		
-		@extend %float-container;
+		@include float-container();
 
 		*:last-child {
 			border-bottom: none;

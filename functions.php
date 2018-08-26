@@ -16,11 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * ====================================================
  */
 
-define( 'SUKI_INCLUDES_PATH', get_template_directory() . '/inc' );
-
-define( 'SUKI_PLUGINS_PATH', get_template_directory() . '/plugins' );
-
-define( 'SUKI_PLUGINS_URL', get_template_directory_uri() . '/plugins' );
+define( 'SUKI_INCLUDES_DIR', get_template_directory() . '/inc' );
 
 define( 'SUKI_IMAGES_URL', get_template_directory_uri() . '/assets/images' );
 
@@ -40,4 +36,4 @@ define( 'SUKI_PRO_URL', esc_url( 'https://sukiwp.com/pro/' ) );
  * ====================================================
  */
 
-require_once( SUKI_INCLUDES_PATH . '/class-suki.php' );
+require_once( SUKI_INCLUDES_DIR . '/class-suki.php' );

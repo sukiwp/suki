@@ -1,5 +1,5 @@
 // -------------------------------------------------------------
-// Page Canvas
+// Page Canvas & Wrapper
 // -------------------------------------------------------------
 
 #canvas {
@@ -20,54 +20,43 @@
 
 #page {
 	position: relative;
-	background-color: #fff; // default
+	background-color: $color_bg; // default
 	// overflow-x: hidden;
 	@include transition( transform );
+}
 
-	body.suki-page-layout-boxed & {
+body.suki-page-layout-boxed {
+	background-color: $color_border; // default
+	background-position: center center; // default
+	background-size: cover; // default
+	background-repeat: no-repeat; // default
+	background-attachment: fixed; // default
+
+	#page {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 100%;
+
+		width: 1400px; // default
+		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05); // default
 	}
 }
 
-.suki-popup-background {
+.suki-popup {
 	position: fixed;
 	z-index: 100;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.8);
 	opacity: 0;
 	visibility: hidden;
 	@include transition();
 
-	body.suki-has-popup-active & {
+	&.suki-popup-active {
 		opacity: 1;
 		visibility: visible;
-	}
-	
-	.suki-popup-close {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 1.25rem;
-		font-size: 1.5rem;
-		line-height: 1;
-		background-color: transparent !important;
-		color: #fff !important;
-		opacity: 1;
-
-		&:hover, &:focus {
-			opacity: 0.8;
-		}
-	}
-
-	.suki-header-vertical-position-right ~ & {
-		.suki-popup-close {
-			left: 0;
-		}
 	}
 
 	.admin-bar & {
@@ -76,6 +65,35 @@
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 			top: 46px;
 		}
+	}
+}
+
+.suki-popup-close-background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.suki-popup-close-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1.25rem;
+	font-size: 1.5rem;
+	line-height: 1;
+	background-color: transparent !important;
+	color: $color_white !important; // default
+	opacity: 1;
+
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+
+	.suki-header-vertical-position-right ~ & {
+		left: 0;
+		right: auto;
 	}
 }
 
@@ -99,15 +117,44 @@
 		clear: both;
 	}
 
-	.suki-section-full-width &,
-	.suki-section-full-width-padding & {
+	.suki-section-full-width > .suki-section-inner > &,
+	.suki-section-full-width-padding > .suki-section-inner > & {
 		width: auto;
 	}
 }
 
-.suki-section-contained > .suki-section-inner {
-	margin-left: auto;
-	margin-right: auto;
+.suki-section-merged {
+	padding: 0;
+
+	.suki-section-inner {
+		padding: 0;
+	}
+}
+
+.suki-section-contained {
+	> .suki-section-inner {
+		margin-left: auto;
+		margin-right: auto;
+		width: 1140px; // default
+	}
+}
+
+.suki-section-contained,
+.suki-section-default .suki-section-inner,
+.suki-section-full-width-padding .suki-section-inner {
+	padding: 0 25px; // default
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		padding: 0 20px; // default
+	}
+
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		padding: 0 15px; // default
+	}
+}
+
+.suki-section-inner {
+	position: relative;
 }
 
 // -------------------------------------------------------------
@@ -185,5 +232,9 @@
 		width: auto !important;
 		min-width: auto !important;
 		margin: 4em 0 0 0 !important;
+	}
+
+	.widget {
+		margin-bottom: 40px; // default
 	}
 }

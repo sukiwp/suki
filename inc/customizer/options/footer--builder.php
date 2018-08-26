@@ -75,15 +75,16 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
-	'choices'     => apply_filters( 'suki_customizer_footer_elements', array(
+	'choices'     => apply_filters( 'suki/customizer/footer_elements', array(
 		'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
 		'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Footer Menu', 'suki' ),
 		'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 	) ),
-	'labels'      => array(
-		'bottom_left'   => is_rtl() ? esc_html__( 'Right - RTL', 'suki' ) : esc_html__( 'Left', 'suki' ),
+	'labels'     => array(
+		'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'bottom_center' => esc_html__( 'Center', 'suki' ),
-		'bottom_right'  => is_rtl() ? esc_html__( 'Left - RTL', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
+	'limitations' => apply_filters( 'suki/customizer/footer_elements/limitations', array() ),
 	'priority'    => 10,
 ) ) );

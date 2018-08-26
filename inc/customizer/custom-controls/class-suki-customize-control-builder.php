@@ -28,7 +28,7 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 	/**
 	 * @var array
 	 */
-	public $avoid = array();
+	public $limitations = array();
 
 	/**
 	 * @var array
@@ -49,7 +49,7 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 		$this->json['structures'] = array();
 		$this->json['actives'] = array();
 
-		$this->json['avoid'] = $this->avoid;
+		$this->json['limitations'] = $this->limitations;
 
 		if ( 0 < count( $this->settings ) ) {
 			// Multiple settings
@@ -82,9 +82,7 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 			$this->json['__input_attrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}
 
-		$this->json['labels'] = wp_parse_args( $this->labels, array(
-			'add'      => esc_html__( 'Add element', 'suki' ),
-		) );
+		$this->json['labels'] = $this->labels;
 	}
 
 	/**
@@ -116,16 +114,16 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 							<# _.each( data.inputs[ setting_key ].value, function( item ) {
 								if ( undefined === data.choices[ item ] ) return;
 
-								var avoid = undefined !== data.avoid[ item ] ? data.avoid[ item ].join( ',' ) : '';
+								var limitations = undefined !== data.limitations[ item ] ? data.limitations[ item ].join( ',' ) : '';
 
-								#><li class="suki-builder-element button button-small" data-value="{{ item }}" tabindex="0" data-avoid="{{ avoid }}">
+								#><li class="suki-builder-element button button-small" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
 									<span>{{{ data.choices[ item ] }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 								</li><#
 							}) #>
 						</ul>
 						<span class="suki-builder-element-add" tabindex="0">
 							<span class="dashicons dashicons-plus-alt"></span>
-							<span class="screen-reader-text">{{{ data.labels.add }}}</span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Add element', 'suki' ); ?></span>
 						</span>
 					</div>
 				<# }); #>
@@ -134,9 +132,9 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 				<ul class="suki-builder-sortable-panel" data-connect="{{ data.name }}">
 					<# _.each( data.choices, function( label, item ) {
 						if ( 0 > data.actives.indexOf( item ) ) {
-							var avoid = undefined !== data.avoid[ item ] ? data.avoid[ item ].join( ',' ) : '';
+							var limitations = undefined !== data.limitations[ item ] ? data.limitations[ item ].join( ',' ) : '';
 
-							#><li class="suki-builder-element button button-small" data-value="{{ item }}" tabindex="0" data-avoid="{{ avoid }}">
+							#><li class="suki-builder-element button button-small" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
 								<span>{{{ label }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 							</li><#
 						}

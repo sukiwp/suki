@@ -20,7 +20,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( '"Align Wide" negative margin', 'suki' ),
-	'description' => esc_html__( 'This negative margin is only effective on "Narrow Content" layout. Otherwise it would be ignored.', 'suki' ),
+	'description' => esc_html__( 'This negative margin is only effective on "Narrow content" layout. Otherwise it would be ignored.', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,

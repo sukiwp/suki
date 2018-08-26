@@ -10,6 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Suki_Customizer_Sanitization {
 	/**
+	 * Sanitize Text value
+	 *
+	 * @param string $value
+	 * @param WP_Customize_Setting $setting
+	 * @return string
+	 */
+	public static function text( $value, $setting ) {
+		return sanitize_text_field( $value );
+	}
+
+	/**
 	 * Sanitize Select value
 	 *
 	 * @param string $value
@@ -17,9 +28,6 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	public static function select( $value, $setting ) {
-		// Ensure input is a slug.
-		$value = sanitize_key( $value );
-		
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $setting->id );
 		
@@ -76,6 +84,23 @@ class Suki_Customizer_Sanitization {
 
 		// Validate value.
 		$value = self::validate_number( $value, $control->input_attrs );
+
+		return $value;
+	}
+
+	/**
+	 * Sanitize Image URL value
+	 *
+	 * @param string $value
+	 * @param WP_Customize_Setting $setting
+	 * @return string
+	 */
+	public static function image( $value, $setting ) {
+		$file = wp_check_filetype( $value );
+
+		if ( 0 !== strpos( $file['type'], 'image/' ) ) {
+			return '';
+		}
 
 		return $value;
 	}
@@ -162,7 +187,7 @@ class Suki_Customizer_Sanitization {
 
 		switch ( $type ) {
 			case 'font_family':
-				$choices = isset( $control->choices[ $type ] ) ? $control->choices[ $type ] : array();
+				$choices = $control->get_choices( $type );
 
 				// Check if value format is invalid, then return empty string.
 				if ( false === strpos( $value, '|' ) ) {
@@ -177,7 +202,7 @@ class Suki_Customizer_Sanitization {
 				}
 
 				// Check if font family is invalid, then return empty string.
-				if ( ! array_key_exists( $value, $choices[ $chunks[0] ] ) ) {
+				if ( ! array_key_exists( $value, $choices[ $chunks[0] ]['fonts'] ) ) {
 					return '';
 				}
 				break;
@@ -185,7 +210,7 @@ class Suki_Customizer_Sanitization {
 			case 'font_weight':
 			case 'font_style':
 			case 'text_transform':
-				$choices = isset( $control->choices[ $type ] ) ? $control->choices[ $type ] : array();
+				$choices = $control->get_choices( $type );
 
 				// Make sure the selected value in one of the available choices.
 				if ( ! array_key_exists( $value, $choices ) ) {
@@ -196,10 +221,10 @@ class Suki_Customizer_Sanitization {
 			case 'font_size':
 			case 'line_height':
 			case 'letter_spacing':
-				$units_data = isset( $control->units[ $type ] ) ? $control->units[ $type ] : array();
+				$units = $control->get_units( $type );
 
 				// Validate dimension
-				$value = self::validate_dimension( $value, $units_data );
+				$value = self::validate_dimension( $value, $units );
 
 				break;
 		}
@@ -299,19 +324,19 @@ class Suki_Customizer_Sanitization {
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $control_id );
 
-		foreach ( $value as $slug ) {
+		foreach ( $value as $i => $slug ) {
 			if ( ! array_key_exists( $slug, $control->choices ) ) {
 				unset( $value[ $i ] );
 			}
 
-			$avoided_locations = isset( $control->avoid[ $slug ] ) ? $control->avoid[ $slug ] : array();
-			if ( array_key_exists( $location, $control->avoid ) ) {
+			if ( array_key_exists( $location, suki_array_value( $control->limitations, $slug, array() ) ) ) {
 				unset( $value[ $i ] );
 			}
 		}
 		
 		return array_values( $value );
 	}
+	
 	/**
 	 * Wrapper function to validate color value.
 	 *

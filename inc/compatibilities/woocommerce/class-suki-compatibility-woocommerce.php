@@ -44,22 +44,22 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Compatibility CSS
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
-		add_filter( 'suki_customizer_setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
-		add_filter( 'suki_customizer_setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
+		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
+		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 
 		// Template tags
-		add_filter( 'suki_header_element', array( $this, 'header_element' ), 10, 2 );
+		add_filter( 'suki/frontend/header_element', array( $this, 'header_element' ), 10, 2 );
 
 		// Template hooks
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
-		add_action( 'template_redirect', array( $this, 'modify_template_hooks_based_on_customizer' ) );
+		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_customizer' ) );
 		
 		// Page settings
-		add_action( 'suki_post_ids_without_page_settings', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
+		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
 	}
 	
 	/**
@@ -101,15 +101,15 @@ class Suki_Compatibility_WooCommerce {
 	public function register_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 		
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/_sections.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/header.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--cart.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php' );
-		require_once( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/_sections.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/header.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--cart.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php' );
 	}
 
 	/**
@@ -147,7 +147,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_customizer_setting_defaults( $defaults = array() ) {
-		include( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/defaults.php' );
+		include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php' );
 
 		return $defaults;
 	}
@@ -159,7 +159,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_customizer_setting_postmessages( $postmessages = array() ) {
-		include( SUKI_INCLUDES_PATH . '/compatibilities/woocommerce/customizer/postmessages.php' );
+		include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
 
 		return $postmessages;
 	}
@@ -167,16 +167,16 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Modify page settings metabox.
 	 *
-	 * @param array $ignored_ids
+	 * @param array $ids
 	 * @param array $post
 	 * @return array
 	 */
-	public function exclude_shop_page_from_page_settings( $ignored_ids, $post ) {
+	public function exclude_shop_page_from_page_settings( $ids, $post ) {
 		if ( $post->ID === wc_get_page_id( 'shop' ) ) {
-			$ignored_ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_product_archive_page', 'url' => get_permalink( wc_get_page_id( 'shop' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
+			$ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_product_archive', 'url' => get_permalink( wc_get_page_id( 'shop' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
 		}
 
-		return $ignored_ids;
+		return $ids;
 	}
 
 	/**
@@ -187,6 +187,12 @@ class Suki_Compatibility_WooCommerce {
 		 * Global template hooks
 		 */
 
+		// Change main content (primary) wrapper.
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+		add_action( 'woocommerce_before_main_content', 'suki_primary_open' );
+		add_action( 'woocommerce_after_main_content', 'suki_primary_close' );
+
 		// Add count to Cart menu item.
 		add_filter( 'nav_menu_item_title', array( $this, 'add_count_to_cart_menu_item' ), 10, 4 );
 
@@ -195,7 +201,7 @@ class Suki_Compatibility_WooCommerce {
 
 		// Demo Store notice.
 		remove_action( 'wp_footer', 'woocommerce_demo_store' );
-		add_action( 'suki_before_header', 'woocommerce_demo_store' );
+		add_action( 'suki/frontend/before_header', 'woocommerce_demo_store' );
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
@@ -209,6 +215,9 @@ class Suki_Compatibility_WooCommerce {
 		/**
 		 * Shop page's template hooks
 		 */
+
+		// Add spacer before mail products loop.
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_before_shop_loop' ), 999 );
 
 		// Reposition sale badge on products grid item.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
@@ -258,6 +267,7 @@ class Suki_Compatibility_WooCommerce {
 		 * Checkout page's template hooks
 		 */
 
+		// Split into 2 columns.
 		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper' ), 1 );
 		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper_column_1' ), 1 );
 		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_1_end' ), 999 );
@@ -271,6 +281,15 @@ class Suki_Compatibility_WooCommerce {
 
 		// Cross sells columns
 		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
+
+		/**
+		 * My Account page's template hooks
+		 */
+
+		// Add account avatar and name into side navigation.
+		add_filter( 'woocommerce_before_account_navigation', array( $this, 'render_account_wrapper' ), 1 );
+		add_filter( 'woocommerce_before_account_navigation', array( $this, 'render_account_sidebar_wrapper' ) );
+		add_filter( 'woocommerce_after_account_navigation', array( $this, 'render_account_sidebar_wrapper_end' ) );
 	}
 
 	/**
@@ -358,6 +377,13 @@ class Suki_Compatibility_WooCommerce {
 	 * Global Page Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Add blank <div> to clear shop filters floating.
+	 */
+	public function render_before_shop_loop() {
+		?><div class="suki-before-shop-loop-clear"></div><?php
+	}
 
 	/**
 	 * Add opening product wrapper tag to products loop item.
@@ -667,6 +693,57 @@ class Suki_Compatibility_WooCommerce {
 	public function set_cart_page_cross_sells_columns( $columns ) {
 		return suki_get_theme_mod( 'woocommerce_cart_cross_sells_grid_columns' );
 	}
+
+	/**
+	 * ====================================================
+	 * My Account Page Hook functions
+	 * ====================================================
+	 */
+
+	/**
+	 * Add opening wrapper tag to wrap my account page.
+	 */
+	public function render_account_wrapper() {
+		?>
+		<div class="suki-woocommerce-MyAccount">
+		<?php
+	}
+
+	/**
+	 * Add opening wrapper tag to wrap account sidebar.
+	 */
+	public function render_account_sidebar_wrapper() {
+		?>
+		<div class="suki-woocommerce-MyAccount-sidebar">
+			<?php $user = wp_get_current_user(); ?>
+			<div class="suki-woocommerce-MyAccount-user">
+				<?php echo get_avatar( $user->user_ID, 60 ); ?>
+				<div class="info">
+					<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
+					<a href="<?php echo esc_url( wp_logout_url() ); ?>" class="logout"><?php esc_html_e( 'Logout', 'suki' ); ?></a>
+				</div>
+			</div>
+		<?php
+	}
+
+	/**
+	 * Add closing wrapper tag to wrap account sidebar.
+	 */
+	public function render_account_sidebar_wrapper_end() {
+		?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Add closing wrapper tag to wrap my account page.
+	 */
+	public function render_account_wrapper_end() {
+		?>
+		</div>
+		<?php
+	}
+
 
 	/**
 	 * ====================================================

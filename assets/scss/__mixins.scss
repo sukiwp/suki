@@ -54,3 +54,30 @@
 	border-#{$direction}width: $width;
 	border-#{$direction}style: $style;
 }
+
+// -------------------------------------------------------------
+// Floating clear
+// -------------------------------------------------------------
+
+@mixin float-container() {
+	&:before, &:after {
+		content: "";
+		display: table;	
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// -------------------------------------------------------------
+// Text colored link
+// -------------------------------------------------------------
+
+@mixin text-colored-link() {
+	color: $color_text; // default
+
+	&:hover, &:focus {
+		color: $color_accent; // default
+	}
+}

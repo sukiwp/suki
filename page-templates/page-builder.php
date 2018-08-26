@@ -11,28 +11,24 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Remove content wrapper via filter.
-add_filter( 'suki_print_content_wrapper', '__return_false' );
+// Remove content wrapper on this page template.
+add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
 
 get_header();
-?>
 
+?>
 <div id="content" class="site-content">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
-		<div class="entry-wrapper">
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-			<?php
-			while ( have_posts() ) :
-				the_post();
-
-				// Print the content.
-				the_content();
-			endwhile;
-			?>
-
-		</div>
+			// Print the content.
+			the_content();
+		endwhile;
+		?>
 	</article>
 </div>
-
 <?php
+
 get_footer();

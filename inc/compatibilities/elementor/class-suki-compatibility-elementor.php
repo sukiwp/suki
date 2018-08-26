@@ -39,14 +39,14 @@ class Suki_Compatibility_Elementor {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Compatibility CSS
-		add_action( 'suki_before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		// Compatibility CSS (via theme inline CSS)
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
 
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
 		// Modify Elementor page template.
-		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 99999 );
+		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
 		add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'add_page_template_canvas_wrapper' ) );
 		add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'add_page_template_canvas_wrapper_end' ) );
 		add_action( 'elementor/page_templates/header-footer/before_content', array( $this, 'add_page_template_header_footer_wrapper' ) );
@@ -60,11 +60,15 @@ class Suki_Compatibility_Elementor {
 	 */
 
 	/**
-	 * Enqueue compatibility CSS.
+	 * Add compatibility CSS via inline CSS.
+	 *
+	 * @param string $inline_css
+	 * @return string
 	 */
-	public function enqueue_css() {
-		wp_enqueue_style( 'suki-elementor', SUKI_CSS_URL . '/compatibilities/elementor' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-elementor', 'rtl', 'replace' );
+	public function add_compatibility_css( $inline_css ) {
+		$inline_css .= "\n/* Elementor compatibility CSS */\n" . '.elementor-text-editor > *:last-child { margin-bottom: 0; }'; // WPCS: XSS OK
+
+		return $inline_css;
 	}
 
 	/**
@@ -76,7 +80,7 @@ class Suki_Compatibility_Elementor {
 	public function add_theme_fonts_as_options_on_font_control( $fonts ) {
 		$fonts = array();
 
-		$class = '\Elementor\Fonts';
+		$class = 'Elementor\Fonts';
 		if ( class_exists( $class ) ) {
 			foreach( suki_get_web_safe_fonts() as $font => $stack ) {
 				$fonts[ $font ] = $class::SYSTEM;
@@ -91,18 +95,17 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
-	 * Remove content wrapper on header.php via filter.
+	 * Remove content wrapper on header.php and footer.php via filter.
 	 *
 	 * @param string $template
 	 * @return string
 	 */
 	public function remove_content_wrapper_on_page_templates( $template ) {
-		if ( is_singular() ) {
-			$page_template = get_post_meta( get_the_ID(), '_wp_page_template', true );
-
-			// Remove content wrapper on Elementor's page templates.
-			if ( in_array( $page_template, array( 'elementor_header_footer', 'elementor_canvas' ) ) ) {
-				add_filter( 'suki_print_content_wrapper', '__return_false' );
+		// Check if Elementor page template is being used.
+		if ( false !== strpos( $template, '/elementor/' ) ) {
+			if ( false !== strpos( $template, '/header-footer.php' ) || false !== strpos( $template, '/canvas.php' ) ) {
+				// Remove content wrapper.
+				add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
 			}
 		}
 
@@ -114,21 +117,18 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper() {
 		/**
-		 * Hook: suki_before_header
+		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
-		 * @hooked suki_mobile_vertical_header - 10
-		 * @hooked suki_popup_background - 99
+		 * @hooked suki_top_popups - 10
 		 */
-		do_action( 'suki_before_canvas' );
+		do_action( 'suki/frontend/before_canvas' );
 		?>
 
 		<div id="canvas" class="suki-canvas">
 			<div id="page" class="site">
 				<div id="content" class="site-content">
-
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
-						<div class="entry-wrapper">
 		<?php
 	}
 
@@ -137,29 +137,25 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper_end() {
 		?>
-						</div>
 					</article>
-
 				</div>
 			</div>
 		</div>
 		
 		<?php
 		/**
-		 * Hook: suki_after_canvas
+		 * Hook: suki/frontend/after_canvas
 		 */
-		do_action( 'suki_after_canvas' );
+		do_action( 'suki/frontend/after_canvas' );
 	}
 
 	/**
 	 * Add opening wrapper tag to Elementor Header & Footer (Full Width) page template.
 	 */
 	public function add_page_template_header_footer_wrapper() {
-		// Content wrapper has been deactivated via remove_content_wrapper_on_page_templates().
 		?>
 		<div id="content" class="site-content">
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
-				<div class="entry-wrapper">
 		<?php
 	}
 
@@ -168,7 +164,6 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_header_footer_wrapper_end() {
 		?>
-				</div>
 			</article>
 		</div>
 		<?php

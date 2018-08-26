@@ -15,48 +15,44 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * Header
+ */
 get_header();
 
-suki_main_content_open();
+/**
+ * Primary - opening tag
+ */
+suki_primary_open();
 
-if ( have_posts() ) :
+/**
+ * Hook: suki/frontend/before_main
+ */
+do_action( 'suki/frontend/before_main' );
 
-	/**
-	 * Hook: suki_before_main
-	 *
-	 * @hooked suki_home_page_header - 10
-	 */
-	do_action( 'suki_before_main' );
-	?>
+while ( have_posts() ) : the_post();
 
-	<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki_loop_classes', array() ) ) ); ?>">
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+	// Render post content using "content" layout.
+	get_template_part( 'template-parts/content' );
 
-			// Render post content using selected layout on Customizer.
-			get_template_part( 'template-parts/content', suki_get_theme_mod( 'blog_index_loop_mode' ) );
+endwhile;
 
-		endwhile;
-		?>
-	</div>
+/**
+ * Hook: suki/frontend/after_main
+ */
+do_action( 'suki/frontend/after_main' );
 
-	<?php
-	/**
-	 * Hook: suki_after_main
-	 * 
-	 * @hooked suki_loop_navigation - 10
-	 */
-	do_action( 'suki_after_main' );
+/**
+ * Primary - closing tag
+ */
+suki_primary_close();
 
-else :
-
-	get_template_part( 'template-parts/content', 'none' );
-
-endif;
-
-suki_main_content_close();
-
+/**
+ * Sidebar
+ */
 get_sidebar();
 
+/**
+ * Footer
+ */
 get_footer();
