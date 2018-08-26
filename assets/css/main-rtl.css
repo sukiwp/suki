@@ -1538,21 +1538,16 @@ body.suki-page-layout-boxed #page {
 	color: inherit;
 }
 
-.suki-header-social li.menu-item, .suki-header-contact-details li.menu-item {
+.suki-header-social li.menu-item {
 	margin: 0 0 0 0.75em;
 }
 
-.suki-header-social li.menu-item:last-of-type, .suki-header-contact-details li.menu-item:last-of-type {
+.suki-header-social li.menu-item:last-of-type {
 	margin-left: 0;
 }
 
-<<<<<<< HEAD
-.suki-header-social li.menu-item .suki-menu-icon, .suki-header-contact-details li.menu-item .suki-menu-icon {
-	vertical-align: initial;
-=======
 .suki-header-mobile-vertical-toggle .suki-popup-toggle-active {
 	opacity: 0;
->>>>>>> pr/1
 }
 
 .suki-main-header {

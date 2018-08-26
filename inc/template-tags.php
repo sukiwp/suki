@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! function_exists( 'suki_unassigned_menu' ) ) :
 /**
  * Fallback HTML if there is no nav menu assigned to a navigation location.
- *
+ * 
  * @param array $args
  */
 function suki_unassigned_menu( $args ) {
@@ -77,7 +77,7 @@ function suki_logo( $logo_image_id = null ) {
 				// Site name would be added as a screen reader text to represent the logo.
 				$logo_image = preg_replace( '/<title>.*?<\/title>/', '', $logo_image );
 				break;
-
+			
 			default:
 				$logo_image = wp_get_attachment_image( $logo_image_id , 'full', 0, array() );
 				break;
@@ -118,7 +118,7 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 		include( get_template_directory() . '/assets/icons/_fallback.svg' ); // fallback
 	}
 	$svg = ob_get_clean();
-
+	
 	// Filters to modify SVG icon.
 	$svg = apply_filters( 'suki/frontend/icon', $svg, $key );
 	$svg = apply_filters( "suki/frontend/icon/{$key}", $svg );
@@ -171,36 +171,6 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 }
 endif;
 
-<<<<<<< HEAD
-if ( ! function_exists( 'suki_contact_details_links' ) ) :
-/**
- * Print / return HTML markup for specified set of contact details.
- *
- * @param array $links
- * @param array $args
- * @param boolean $echo
- */
-function suki_contact_details_links( $links = array(), $args = array(), $echo = true ) {
-	$labels = suki_get_contact_details();
-
-	$args = wp_parse_args( $args, array(
-		'before_link' => '',
-		'after_link'  => '',
-		'link_class'  => '',
-	) );
-
-	ob_start();
-	foreach ( $links as $link ) :
-		echo ( $args['before_link'] ); // WPCS: XSS OK
-
-		?><a href="tel:<?php echo esc_html_e( $link['url'] ); ?>" class="suki-social-link" <?php '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; ?>>
-			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?> <?php echo esc_html_e( $link['url'] ); ?>
-		</a><?php
-
-		echo ( $args['after_link'] ); // WPCS: XSS OK
-	endforeach;
-	$html = ob_get_clean();
-=======
 if ( ! function_exists( 'suki_title__search' ) ) :
 /**
  * Print / return HTML markup for title text for search page.
@@ -230,7 +200,6 @@ if ( ! function_exists( 'suki_title__404' ) ) :
  */
 function suki_title__404( $echo = true ) {
 	$html = esc_html__( 'Oops! That page can not be found.', 'suki' );
->>>>>>> pr/1
 
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK
@@ -430,7 +399,7 @@ endif;
 if ( ! function_exists( 'suki_header_element' ) ) :
 /**
  * Wrapper function to print HTML markup for all header element.
- *
+ * 
  * @param string $element
  */
 function suki_header_element( $element ) {
@@ -478,7 +447,7 @@ function suki_header_element( $element ) {
 					'container'      => false,
 				) ); ?>
 			</nav>
-			<?php
+			<?php 
 			break;
 
 		case 'mobile-menu':
@@ -552,34 +521,6 @@ function suki_header_element( $element ) {
 				<?php
 			}
 			break;
-
-			case 'contact-details':
-			$types = suki_get_theme_mod( 'header_contact_details_links' );
-
-			if ( ! empty( $types ) ) {
-					$target = '_blank';
-					$links = array();
-
-					foreach ( $types as $type ) {
-						$url = suki_get_theme_mod( 'contact_details_' . $type );
-						$links[] = array(
-							'type'   => $type,
-							'url'    => ! empty( $url ) ? $url : '#',
-							'target' => $target,
-						);
-					}
-					?>
-					<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu suki-menu-icon">
-						<?php suki_contact_details_links( $links, array(
-							'before_link' => '<li class="menu-item">',
-							'after_link'  => '</li>',
-							'link_class'  => 'suki-menu-icon',
-						) ); ?>
-
-					</ul>
-					<?php
-				}
-				break;
 
 		case 'mobile-vertical-toggle':
 			?>
@@ -901,7 +842,7 @@ endif;
 if ( ! function_exists( 'suki_footer_element' ) ) :
 /**
  * Render each footer element.
- *
+ * 
  * @param string $element
  */
 function suki_footer_element( $element ) {
@@ -1117,7 +1058,7 @@ function suki_entry_meta( $format ) {
 
 	if ( ! empty( $format ) ) {
 		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
-
+			
 		foreach ( $matches as $match ) {
 			ob_start();
 			suki_entry_meta_element( $match[1] );
@@ -1247,13 +1188,8 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) :
  * Render posts loop navigation.
  */
 function suki_loop_navigation() {
-<<<<<<< HEAD
-	if ( ! is_archive() && ! is_home() ) return;
-
-=======
 	if ( ! is_archive() && ! is_home() && ! is_search() ) return;
 	
->>>>>>> pr/1
 	// Render posts navigation.
 	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {
 		case 'pagination':
@@ -1263,7 +1199,7 @@ function suki_loop_navigation() {
 				'next_text' => '&raquo;',
 			) );
 			break;
-
+		
 		default:
 			the_posts_navigation( array(
 				'prev_text' => esc_html__( 'Older Posts', 'suki' ) . ' &raquo;',
@@ -1392,9 +1328,6 @@ function suki_header_element__html_1() {
 }
 function suki_header_element__social() {
 	suki_header_element( 'social' );
-}
-function suki_header_element__contact_details() {
-	suki_header_element( 'contact-details' );
 }
 
 function suki_footer_element__logo() {

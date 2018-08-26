@@ -1,7 +1,7 @@
 <?php
 /**
  * Contains methods for customizing the theme customization screen.
- *
+ * 
  * @link http://codex.wordpress.org/Theme_Customization_API
  */
 
@@ -193,35 +193,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--gutenberg.php' );
 
 		// Layout
-<<<<<<< HEAD
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/page-container.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--builder.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--top-main-bottom-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--mobile-main-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--mobile-vertical-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--logo.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--menu.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--html.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--search.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--social.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/header--contact-details.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--section.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--main.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/content--sidebar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--builder.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--bottom-bar.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--copyright.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--widgets-column.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--menu.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/footer--social.php' );
-
-		// Global Settings
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--google-fonts.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--social.php' );
-		require_once( SUKI_INCLUDES_PATH . '/customizer/options/settings--contact.php' );
-		
-=======
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-container.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--top-main-bottom-bar.php' );
@@ -245,7 +216,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--google-fonts.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--social.php' );
 
->>>>>>> pr/1
 		// Page Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );
 
@@ -262,7 +232,7 @@ class Suki_Customizer {
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'suki-customize-controls', SUKI_CSS_URL . '/admin/customize-controls.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-customize-controls', 'rtl', 'replace' );
-
+		
 		wp_enqueue_script( 'suki-customize-controls', SUKI_JS_URL . '/admin/customize-controls.js', array( 'customize-controls' ), SUKI_VERSION, true );
 
 		wp_localize_script( 'suki-customize-controls', 'sukiCustomizerControlsData', array(
@@ -275,7 +245,7 @@ class Suki_Customizer {
 	 */
 	public function enqueue_preview_scripts() {
 		wp_enqueue_script( 'suki-customize-postmessages', SUKI_JS_URL . '/admin/customize-postmessages.js', array( 'customize-preview' ), SUKI_VERSION, true );
-
+		
 		wp_localize_script( 'suki-customize-postmessages', 'sukiCustomizerPreviewData', array(
 			'postMessages' => $this->get_setting_postmessages(),
 			'fonts'        => suki_get_all_fonts(),
@@ -362,7 +332,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer default preset value.
-	 *
+	 * 
 	 * @return array
 	 */
 	public function get_default_colors() {
@@ -391,7 +361,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting postmessages.
-	 *
+	 * 
 	 * @return array
 	 */
 	public function get_setting_postmessages() {
@@ -400,7 +370,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting .
-	 *
+	 * 
 	 * @return array
 	 */
 	public function get_control_contexts() {
@@ -409,7 +379,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer setting defaults.
-	 *
+	 * 
 	 * @return array
 	 */
 	public function get_setting_defaults() {
@@ -418,7 +388,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return single customizer setting value.
-	 *
+	 * 
 	 * @param string $key
 	 * @param mixed $default
 	 * @return mixed
@@ -440,13 +410,8 @@ class Suki_Customizer {
 	}
 
 	/**
-<<<<<<< HEAD
-	 * Return all customizer setting keys that contains font_family.
-	 *
-=======
 	 * Return all page types for page settings.
 	 * 
->>>>>>> pr/1
 	 * @return array
 	 */
 	public function get_all_page_settings_types() {
@@ -460,28 +425,6 @@ class Suki_Customizer {
 			),
 		);
 
-<<<<<<< HEAD
-		foreach ( $this->get_setting_defaults() as $key => $default ) {
-			// Collect all "font family" options.
-			if ( false !== strpos( $key, '_font_family' ) ) {
-				$keys[] = $key;
-			}
-		}
-		return $keys;
-	}
-
-	/**
-	 * Return all listed fonts divided into each provider.
-	 *
-	 * @param string $group
-	 * @return array
-	 */
-	public function get_all_listed_fonts( $group = null ) {
-		$fonts = array(
-			'web_safe_fonts' => array(),
-			'google_fonts' => array(),
-			'custom_fonts' => array(),
-=======
 		// Add custom post types to sections.
 		$post_types = array_merge(
 			array( 'post' ),
@@ -491,7 +434,6 @@ class Suki_Customizer {
 				'rewrite'            => true,
 				'_builtin'           => false,
 			), 'names' )
->>>>>>> pr/1
 		);
 
 		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
@@ -515,10 +457,10 @@ class Suki_Customizer {
 
 		return $page_sections;
 	}
-
+	
 	/**
 	 * Return all active fonts divided into each provider.
-	 *
+	 * 
 	 * @param string $group
 	 * @return array
 	 */
@@ -574,7 +516,7 @@ class Suki_Customizer {
 
 	/**
 	 * Return Google Fonts embed link from Customizer typography options.
-	 *
+	 * 
 	 * @return string
 	 */
 	public function generate_active_google_fonts_embed_url() {
@@ -583,7 +525,7 @@ class Suki_Customizer {
 
 	/**
 	 * Generate CSS string from customizer values.
-	 *
+	 * 
 	 * @return string
 	 */
 	public function generate_frontend_css() {
@@ -702,27 +644,6 @@ class Suki_Customizer {
 					$setting_value = isset( $array[ $index ] ) ? $array[ $index ] : '';
 					break;
 
-<<<<<<< HEAD
-					// Add to CSS array.
-					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $value;
-				}
-
-				// Detect if postmessage type is "font".
-				elseif ( 'font' === $rule['type'] ) {
-					// Skip rule if it has an array value.
-					if ( is_array( $setting_value ) ) continue;
-
-					// Split value to provider and font name.
-					if ( '' === $setting_value || 'inherit' === $setting_value ) {
-						$value = $setting_value;
-					} else {
-						$chunks = explode( '|', $setting_value );
-						if ( 2 === count( $chunks ) ) {
-							$value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
-						} else {
-							$value = $setting_value;
-						}
-=======
 				/**
 				 * Scale all dimensions found in the raw value according to the specified scale amount.
 				 *
@@ -742,7 +663,6 @@ class Suki_Customizer {
 						$unit = str_replace( $number, '', $part );
 
 						$new_parts[ $i ] = ( $number * $scale ) . $unit;
->>>>>>> pr/1
 					}
 
 					$setting_value = implode( ' ', $new_parts );

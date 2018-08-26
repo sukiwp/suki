@@ -68,7 +68,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'search-bar'      => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
 		'search-dropdown' => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
 		'social'          => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
-		'contact-details' => '<span class="dashicons dashicons-id"></span>' . esc_html__( 'Contact Details', 'suki' ),
 	) ),
 	'labels'     => array(
 		'top_left'      => is_rtl() ? esc_html__( 'Top - Right', 'suki' ) : esc_html__( 'Top - Left', 'suki' ),

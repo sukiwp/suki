@@ -72,17 +72,13 @@
 	}
 }
 
-// Social and Contact Details
-.suki-header-social, .suki-header-contact-details {
+// Social
+.suki-header-social {
 	li.menu-item {
 		margin: 0 0.75em 0 0;
 
 		&:last-of-type {
 			margin-right: 0;
-		}
-
-		.suki-menu-icon {
-			vertical-align: initial;
 		}
 	}
 }
@@ -319,16 +315,8 @@
 	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
-<<<<<<< HEAD
-	.admin-bar & {
-		top: 32px;
-
-		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
-			top: 46px;
-=======
 		&:hover, &:focus {
 			color: $color_text; // default
->>>>>>> pr/1
 		}
 	}
 
@@ -380,16 +368,10 @@
 	}
 }
 
-<<<<<<< HEAD
-.suki-header-vertical-display-permanent,
-.suki-header-vertical.suki-popup-active {
-	transform: translate( 0, 0 ) !important;
-=======
 .suki-header-vertical-inner {
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
->>>>>>> pr/1
 }
 
 .suki-header-vertical-column {
@@ -514,8 +496,6 @@
 		max-width: 100%;
 	}
 }
-<<<<<<< HEAD
-=======
 
 .suki-header-mobile-vertical-bar {
 	position: absolute;
@@ -638,4 +618,3 @@
 		}
 	}
 }
->>>>>>> pr/1
