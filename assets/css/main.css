@@ -1488,6 +1488,7 @@ body.suki-page-layout-boxed #page {
 
 .site-header {
 	position: relative;
+	z-index: 2;
 }
 
 .suki-header .menu > div,
