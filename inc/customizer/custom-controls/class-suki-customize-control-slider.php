@@ -31,6 +31,11 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 	public $hide_units = false;
 
 	/**
+	 * @var boolean
+	 */
+	public $hide_slider = false;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
@@ -107,6 +112,7 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
 
 		$this->json['hide_units'] = 1 == $this->hide_units ? true : false;
+		$this->json['hide_slider'] = 1 == $this->hide_slider ? true : false;
 
 		$this->json['__input_attrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -144,10 +150,10 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		<div class="customize-control-content">
 			<# _.each( data.structures, function( setting_key, device ) { #>
 				<div class="suki-slider-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
-					<div class="suki-row-item">
+					<div class="suki-row-item" style="width: 100%; {{ data.hide_slider ? 'display: none;' : '' }}">
 						<div class="suki-slider-ui"></div>
 					</div>
-					<div class="suki-row-item" style="width: 50px;">
+					<div class="suki-row-item" style="width: {{ data.hide_slider ? '100%' : '50px' }};">
 						<input class="suki-slider-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
 					<div class="suki-row-item" style="width: 30px; {{ data.hide_units ? 'display: none;' : '' }}">

@@ -64,11 +64,16 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 20,
 	) );
 
+// ------
+$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_170', array(
+	'priority'    => 170,
+) ) );
+
 // General Elements
 $panel = 'suki_panel_global_elements';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'General Elements', 'suki' ),
-	'priority'    => 160,
+	'priority'    => 171,
 ) );
 
 	// Body (Base)
@@ -132,42 +137,17 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	if ( class_exists( 'WP_Block_Type' ) ) {
-		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_gutenberg', array(
-			'panel'       => $panel,
-			'priority'    => 20,
-		) ) );
-
-		// Additional Styles for Gutenberg
-		$wp_customize->add_section( 'suki_section_gutenberg', array(
-			'title'       => esc_html__( 'Additional Styles for Gutenberg', 'suki' ),
-			'description' => sprintf(
-				/* translators: %s: link to "Page Settings" section. */
-				esc_html__( 'Best content layout for Gutenberg is "Narrow content". You can activate the "Narrow content" layout on each page type via %s.', 'suki' ),
-				'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
-			),
-			'panel'       => $panel,
-			'priority'    => 20,
-		) );
-	}
-
-// ------
-$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_170', array(
-	'priority'    => 170,
-) ) );
-
 // Page Canvas & Wrapper
 $wp_customize->add_section( 'suki_section_page_container', array(
 	'title'       => esc_html__( 'Page Canvas & Wrapper', 'suki' ),
-	'priority'    => 171,
+	'priority'    => 172,
 ) );
 
 // Header
 $panel = 'suki_panel_header';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
-	'priority'    => 172,
+	'priority'    => 173,
 ) );
 
 	// Header Builder
@@ -298,14 +278,14 @@ $wp_customize->add_panel( $panel, array(
 // Page Header (Title Bar)
 $wp_customize->add_section( 'suki_section_page_header', array(
 	'title'       => esc_html__( 'Page Header (Title Bar)', 'suki' ),
-	'priority'    => 173,
+	'priority'    => 174,
 ) );
 
 // Content & Sidebar
 $panel = 'suki_panel_content';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Content & Sidebar', 'suki' ),
-	'priority'    => 174,
+	'priority'    => 175,
 ) );
 
 	// Content Section
@@ -339,7 +319,7 @@ $wp_customize->add_panel( $panel, array(
 $panel = 'suki_panel_footer';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Footer', 'suki' ),
-	'priority'    => 175,
+	'priority'    => 176,
 ) );
 
 	// Footer Builder

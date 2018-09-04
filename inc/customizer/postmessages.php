@@ -67,7 +67,7 @@ $add['body_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a, .tagcloud a, .reply, .entry-author-links a',
+		'element'  => '.nav-links a, .tagcloud a, .reply',
 		'property' => 'color',
 	),
 );
@@ -79,7 +79,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus, .entry-author-links a:hover, .entry-author-links a:focus',
+		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
 		'property' => 'color',
 	),
 	array(
@@ -209,26 +209,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['button_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
 		'property' => 'padding',
 	),
 );
 $add['button_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
 		'property' => 'border-width',
 	),
 );
 $add['button_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
 		'property' => 'border-radius',
 	),
 );
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'letter_spacing' ) as $prop ) {
-	$element = 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link';
+	$element = 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['button_' . $prop ] = array(
@@ -243,7 +243,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, .wp-block-button .wp-block-button__link',
+			'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
 			'property' => $prop,
 		),
 	);
@@ -252,7 +252,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_hover_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus',
+			'element'  => 'button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus',
 			'property' => $prop,
 		),
 	);
@@ -466,27 +466,6 @@ $add['meta_link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Additional Styles for Gutenberg
- * ====================================================
- */
-
-$add['alignwide_negative_margin'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
-		'property' => 'width',
-		'pattern'  => 'calc( 100% + ( 2 * $ ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide, .suki-content-layout-wide .wp-block-gallery.alignwide',
-		'property' => 'width',
-		'pattern'  => 'calc( 100% + ( 2 * $ ) + ( 2 + 8px ) )',
-	),
-);
-
-/**
- * ====================================================
  * Page Canvas & Wrapper
  * ====================================================
  */
@@ -503,19 +482,6 @@ $add['boxed_page_width'] = array(
 		'type'     => 'css',
 		'element'  => 'body.suki-page-layout-boxed #page',
 		'property' => 'width',
-	),
-	// .alignfull
-	array(
-		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #canvas .alignfull',
-		'property' => 'max-width',
-	),
-	// .alignwide
-	array(
-		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #canvas .alignwide',
-		'property' => 'max-width',
-		'media'    => '@media screen and (min-width: $)',
 	),
 );
 $add['boxed_page_shadow'] = array(
@@ -546,7 +512,7 @@ foreach ( $responsive as $suffix => $media ) {
 	$add['edge_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-section-contained, .suki-section-default .suki-section-inner, .suki-section-full-width-padding .suki-section-inner, .suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+			'element'  => '.suki-section-contained, .suki-section-default .suki-section-inner, .suki-section-full-width-padding .suki-section-inner',
 			'property' => 'padding',
 			'pattern'  => '0 $',
 			'media'    => $media,
@@ -556,7 +522,7 @@ foreach ( $responsive as $suffix => $media ) {
 $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body, #page',
+		'element'  => 'body, #page, .entry-card .entry-wrapper',
 		'property' => 'background-color',
 	),
 );
@@ -1011,7 +977,7 @@ $add['page_header_container'] = array(
 $add['page_header_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-header .suki-page-header-row',
+		'element'  => '.suki-page-header-row',
 		'property' => 'padding',
 	),
 );

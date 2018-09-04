@@ -463,6 +463,10 @@ input, select, textarea {
 	}
 }
 
+.appearance_page_suki .notice {
+	display: none;
+}
+
 .suki-admin-wrap {
 	margin: 0 0 0 -20px;
 }
@@ -471,6 +475,10 @@ input, select, textarea {
 	.suki-admin-wrap {
 		margin: 0;
 	}
+}
+
+.suki-admin-wrap .notice {
+	display: block;
 }
 
 .suki-admin-wrap .suki-admin-wrapper {
@@ -639,6 +647,6 @@ input, select, textarea {
 	text-align: right;
 }
 
-.suki-admin-pro-modules .suki-admin-pro-table-item-coming-soon {
+.suki-admin-pro-modules .suki-admin-pro-table-item-required {
 	color: #888;
 }

@@ -192,14 +192,6 @@ $add['meta_link_hover_text_color'] = $colors['text'];
 
 /**
  * ====================================================
- * General Elements > Additional Styles for Gutenber
- * ====================================================
- */
-
-$add['alignwide_negative_margin'] = '100px';
-
-/**
- * ====================================================
  * Page Canvas & Wrapper
  * ====================================================
  */
@@ -504,7 +496,6 @@ $add['page_header_border'] = '0px 0px 1px 0px';
 
 $add['page_header_layout'] = 'center';
 
-$add['page_header_title'] = 1;
 $add['page_header_breadcrumb'] = 1;
 $add['breadcrumb_plugin'] = 'breadcrumb-trail';
 
@@ -532,11 +523,8 @@ $add['page_header_breadcrumb_link_text_color'] = $colors['text'];
 $add['page_header_breadcrumb_link_hover_text_color'] = $colors['accent'];
 
 $add['page_header_bg_image'] = '';
-$add['page_header_bg_position'] = 'center center';
-$add['page_header_bg_size'] = 'cover';
-$add['page_header_bg_repeat'] = 'no-repeat';
 $add['page_header_bg_attachment'] = 'scroll';
-$add['page_header_bg_overlay_opacity'] = 0;
+$add['page_header_bg_overlay_opacity'] = '';
 
 /**
  * ====================================================

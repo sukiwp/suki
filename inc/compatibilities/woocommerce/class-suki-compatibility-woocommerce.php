@@ -94,6 +94,14 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Enqueue compatibility CSS.
+	 */
+	public function enqueue_css() {
+		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/compatibilities/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_style_add_data( 'suki-woocommerce', 'rtl', 'replace' );
+	}
+
+	/**
 	 * Register customizer sections, settings, and controls.
 	 *
 	 * @param WP_Customize_Manager $wp_customize
@@ -110,34 +118,6 @@ class Suki_Compatibility_WooCommerce {
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php' );
-	}
-
-	/**
-	 * Mobile screen breakpoint.
-	 * 
-	 * @param string $px
-	 * @return string
-	 */
-	public function set_smallscreen_breakpoint( $px ) {
-		return '767px';
-	}
-
-	/**
-	 * Review gravatar size.
-	 * 
-	 * @param integer $size
-	 * @return integer
-	 */
-	public function set_review_gravatar_size( $size ) {
-		return 50;
-	}
-
-	/**
-	 * Enqueue compatibility CSS.
-	 */
-	public function enqueue_css() {
-		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/compatibilities/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-woocommerce', 'rtl', 'replace' );
 	}
 	
 	/**
@@ -162,21 +142,6 @@ class Suki_Compatibility_WooCommerce {
 		include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
 
 		return $postmessages;
-	}
-
-	/**
-	 * Modify page settings metabox.
-	 *
-	 * @param array $ids
-	 * @param array $post
-	 * @return array
-	 */
-	public function exclude_shop_page_from_page_settings( $ids, $post ) {
-		if ( $post->ID === wc_get_page_id( 'shop' ) ) {
-			$ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_product_archive', 'url' => get_permalink( wc_get_page_id( 'shop' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
-		}
-
-		return $ids;
 	}
 
 	/**
@@ -301,7 +266,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Keep / remove "add to cart" button on products grid.
-		if ( ! suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 
@@ -311,17 +276,17 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_shop() || is_product_taxonomy() ) {
 			// Keep / remove page title.
-			if ( ! suki_get_theme_mod( 'woocommerce_index_page_title' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_page_title' ) ) ) {
 				add_filter( 'woocommerce_show_page_title', '__return_false' );
 			}
 
 			// Keep / remove breadcrumb.
-			if ( ! suki_get_theme_mod( 'woocommerce_index_breadcrumb' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_breadcrumb' ) ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			}
 
 			// Keep / remove products loop filter on products grid.
-			if ( ! suki_get_theme_mod( 'woocommerce_index_filter' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_filter' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
@@ -333,7 +298,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_product() ) {
 			// Keep / remove breadcrumb.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_breadcrumb' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_breadcrumb' ) ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			} else {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
@@ -341,35 +306,70 @@ class Suki_Compatibility_WooCommerce {
 			}
 
 			// Keep / remove gallery.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_gallery' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery' ) ) ) {
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 			}
 
 			// Keep / remove gallery zoom module.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
 				remove_theme_support( 'wc-product-gallery-zoom' );
 			}
 
 			// Keep / remove gallery lightbox module.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
 				remove_theme_support( 'wc-product-gallery-lightbox' );
 			}
 
 			// Keep / remove tabs.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_tabs' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_tabs' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_up_sells' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_up_sells' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! suki_get_theme_mod( 'woocommerce_single_related' ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_related' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
 		}
+	}
+
+	/**
+	 * Mobile screen breakpoint.
+	 * 
+	 * @param string $px
+	 * @return string
+	 */
+	public function set_smallscreen_breakpoint( $px ) {
+		return '767px';
+	}
+
+	/**
+	 * Review gravatar size.
+	 * 
+	 * @param integer $size
+	 * @return integer
+	 */
+	public function set_review_gravatar_size( $size ) {
+		return 50;
+	}
+
+	/**
+	 * Modify page settings metabox.
+	 *
+	 * @param array $ids
+	 * @param array $post
+	 * @return array
+	 */
+	public function exclude_shop_page_from_page_settings( $ids, $post ) {
+		if ( $post->ID === wc_get_page_id( 'shop' ) ) {
+			$ids[ $post->ID ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_product_archive', 'url' => esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
+		}
+
+		return $ids;
 	}
 	
 	/**
@@ -519,7 +519,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return integer
 	 */
 	public function set_loop_posts_per_page( $posts_per_page ) {
-		return suki_get_theme_mod( 'woocommerce_index_posts_per_page' );
+		return intval( suki_get_theme_mod( 'woocommerce_index_posts_per_page' ) );
 	}
 
 	/**
@@ -529,7 +529,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return integer
 	 */
 	public function set_loop_columns( $cols ) {
-		return suki_get_theme_mod( 'woocommerce_index_grid_columns' );
+		return intval( suki_get_theme_mod( 'woocommerce_index_grid_columns' ) );
 	}
 
 	/**
@@ -568,7 +568,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param array $args Array of arguments
 	 */
 	public function set_related_products_args( $args ) {
-		if ( 0 == suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' ) ) {
+		if ( 0 == intval( suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' ) ) ) {
 			return array();
 		}
 		return $args;
@@ -580,7 +580,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param integer $columns Number of columns
 	 */
 	public function set_related_products_columns( $columns ) {
-		return suki_get_theme_mod( 'woocommerce_single_related_grid_columns' );
+		return intval( suki_get_theme_mod( 'woocommerce_single_related_grid_columns' ) );
 	}
 
 	/**
@@ -589,8 +589,8 @@ class Suki_Compatibility_WooCommerce {
 	 * @param array $args Array of arguments
 	 */
 	public function set_related_products_display_args( $args ) {
-		$args['posts_per_page'] = suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' );
-		$args['columns'] = suki_get_theme_mod( 'woocommerce_single_related_grid_columns' );
+		$args['posts_per_page'] = intval( suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' ) );
+		$args['columns'] = intval( suki_get_theme_mod( 'woocommerce_single_related_grid_columns' ) );
 
 		return $args;
 	}
@@ -601,7 +601,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param integer $columns Number of columns
 	 */
 	public function set_up_sells_columns( $columns ) {
-		return suki_get_theme_mod( 'woocommerce_single_up_sells_grid_columns' );
+		return intval( suki_get_theme_mod( 'woocommerce_single_up_sells_grid_columns' ) );
 	}
 	
 	/**
@@ -610,7 +610,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param array $args Array of arguments
 	 */
 	public function set_up_sells_display_args( $args ) {
-		$args['columns'] = suki_get_theme_mod( 'woocommerce_single_up_sells_grid_columns' );
+		$args['columns'] = intval( suki_get_theme_mod( 'woocommerce_single_up_sells_grid_columns' ) );
 
 		return $args;
 	}
@@ -626,7 +626,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_checkout_wrapper() {
 		?>
-		<div class="suki-woocommerce-checkout-wrapper <?php echo esc_attr( 'suki-woocommerce-checkout-' . ( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ? '2-columns' : '1-column' ) ); ?>">
+		<div class="suki-woocommerce-checkout-wrapper <?php echo esc_attr( 'suki-woocommerce-checkout-' . ( boolval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ? '2-columns' : '1-column' ) ); ?>">
 		<?php
 	}
 
@@ -691,7 +691,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param integer $columns Number of columns
 	 */
 	public function set_cart_page_cross_sells_columns( $columns ) {
-		return suki_get_theme_mod( 'woocommerce_cart_cross_sells_grid_columns' );
+		return intval( suki_get_theme_mod( 'woocommerce_cart_cross_sells_grid_columns' ) );
 	}
 
 	/**

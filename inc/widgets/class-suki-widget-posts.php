@@ -95,9 +95,9 @@ class Suki_Widget_Posts extends WP_Widget {
 
 		$number         = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 		$orderby        = isset( $instance['orderby'] ) ? $instance['orderby'] : 'post_date';
-		$all_categories = isset( $instance['all_categories'] ) ? (bool) $instance['all_categories'] : true;
+		$all_categories = isset( $instance['all_categories'] ) ? boolval( $instance['all_categories'] ) : true;
 		$category       = isset( $instance['category'] ) ? unserialize( $instance['category'] ) : array();
-		$show_date      = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+		$show_date      = isset( $instance['show_date'] ) ? boolval( $instance['show_date'] ) : false;
 		
 		?>
 		<p>
@@ -142,11 +142,11 @@ class Suki_Widget_Posts extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance                   = $old_instance;
 		$instance['title']          = strip_tags( $new_instance['title'] );
-		$instance['number']         = (int) $new_instance['number'];
-		$instance['orderby']        = $new_instance['orderby'];
-		$instance['all_categories'] = (bool) $new_instance['all_categories'];
+		$instance['number']         = absint( $new_instance['number'] );
+		$instance['orderby']        = sanitize_key( $new_instance['orderby'] );
+		$instance['all_categories'] = boolval( $new_instance['all_categories'] );
 		$instance['category']       = serialize( $new_instance['category'] );
-		$instance['show_date']      = (bool) $new_instance['show_date'];
+		$instance['show_date']      = boolval( $new_instance['show_date'] );
 
 		return $instance;
 	}

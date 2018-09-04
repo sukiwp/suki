@@ -231,7 +231,7 @@ if ( ! function_exists( 'suki_mobile_vertical_header' ) ) :
  * Render mobile vertical header.
  */
 function suki_mobile_vertical_header() {
-	if ( suki_get_current_page_setting( 'disable_mobile_header' ) ) return;
+	if ( boolval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	$elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 	$count = count( $elements );
@@ -282,13 +282,13 @@ if ( ! function_exists( 'suki_main_header' ) ) :
  * Render main header.
  */
 function suki_main_header() {
-	if ( suki_get_current_page_setting( 'disable_header' ) ) return;
+	if ( boolval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
 
 	?>
 	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
 		<?php
 		// Top Bar (if not merged)
-		if ( ! suki_get_theme_mod( 'header_top_bar_merged' ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
 			suki_main_header__bar( 'top' );
 		}
 
@@ -296,7 +296,7 @@ function suki_main_header() {
 		suki_main_header__bar( 'main' );
 
 		// Bottom Bar (if not merged)
-		if ( ! suki_get_theme_mod( 'header_bottom_bar_merged' ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 			suki_main_header__bar( 'bottom' );
 		}
 		?>
@@ -330,7 +330,7 @@ function suki_main_header__bar( $bar ) {
 
 				<?php
 				// Top Bar (if merged).
-				if ( 'main' === $bar && suki_get_theme_mod( 'header_top_bar_merged' ) ) {
+				if ( 'main' === $bar && boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
 					suki_main_header__bar( 'top' );
 				}
 				?>
@@ -345,7 +345,7 @@ function suki_main_header__bar( $bar ) {
 
 				<?php
 				// Bottom Bar (if merged).
-				if ( 'main' === $bar && suki_get_theme_mod( 'header_bottom_bar_merged' ) ) {
+				if ( 'main' === $bar && boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 					suki_main_header__bar( 'bottom' );
 				}
 				?>
@@ -362,7 +362,7 @@ if ( ! function_exists( 'suki_mobile_header' ) ) :
  * Render mobile header.
  */
 function suki_mobile_header() {
-	if ( suki_get_current_page_setting( 'disable_mobile_header' ) ) return;
+	if ( boolval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	?>
 	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop">
@@ -496,7 +496,7 @@ function suki_header_element( $element ) {
 			break;
 
 		case 'social':
-			$types = suki_get_theme_mod( 'header_social_links' );
+			$types = suki_get_theme_mod( 'header_social_links', array() );
 
 			if ( ! empty( $types ) ) {
 				$target = suki_get_theme_mod( 'header_social_links_target' );
@@ -559,9 +559,9 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  * Render page header section.
  */
 function suki_page_header() {
-	if ( suki_get_current_page_setting( 'disable_page_header' ) ) return;
+	if ( boolval( suki_get_current_page_setting( 'disable_page_header' ) ) ) return;
 
-	if ( ! suki_get_theme_mod( 'page_header' ) ) return;
+	if ( ! boolval( suki_get_theme_mod( 'page_header' ) ) ) return;
 
 	?>
 	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
@@ -584,11 +584,6 @@ if ( ! function_exists( 'suki_page_title' ) ) :
  * Render page title.
  */
 function suki_page_title() {
-	if ( ! suki_get_theme_mod( 'page_header_title' ) ) return;
-	
-	// Get custom title from Page Settings.
-	$title = suki_get_current_page_setting( 'page_header_title_text' );
-
 	// If no custom title defined, use default title.
 	if ( empty( $title ) ) {
 		if ( is_home() && is_front_page() ) {
@@ -600,8 +595,7 @@ function suki_page_title() {
 		}
 
 		elseif ( is_post_type_archive() ) {
-			$obj = get_queried_object();
-			$title = $obj->labels->name;
+			$title = post_type_archive_title( '', false );
 		}
 
 		elseif ( is_singular() ) {
@@ -634,7 +628,7 @@ if ( ! function_exists( 'suki_breadcrumb' ) ) :
  * Render breadcrumb via 3rd party plugin.
  */
 function suki_breadcrumb() {
-	if ( ! suki_get_theme_mod( 'page_header_breadcrumb' ) ) return;
+	if ( ! boolval( suki_get_theme_mod( 'page_header_breadcrumb' ) ) ) return;
 
 	ob_start();
 	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
@@ -759,7 +753,7 @@ function suki_main_footer() {
 	suki_footer_widgets();
 	
 	// Bottom Bar (if not merged)
-	if ( ! suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) {
+	if ( ! boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
 		suki_footer_bottom();
 	}
 }
@@ -770,16 +764,17 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) :
  * Render footer widgets area.
  */
 function suki_footer_widgets() {
-	if ( suki_get_current_page_setting( 'disable_footer_widgets' ) ) return;
+	if ( boolval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) return;
 
-	if ( 1 > suki_get_theme_mod( 'footer_widgets_bar' ) ) return;
+	$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
 
+	if ( 1 > $columns ) return;
 	?>
 	<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
 		<div class="suki-footer-widgets-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
-					<?php for ( $i = 1; $i <= suki_get_theme_mod( 'footer_widgets_bar' ); $i++ ) : ?>
+					<?php for ( $i = 1; $i <= $columns; $i++ ) : ?>
 						<div class="suki-footer-widgets-bar-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column <?php echo esc_attr( is_active_sidebar( 'footer-widgets-' . $i ) ? '' : 'suki-empty' ); ?>">
 							<?php if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
 								dynamic_sidebar( 'footer-widgets-' . $i );
@@ -790,7 +785,7 @@ function suki_footer_widgets() {
 
 				<?php
 				// Bottom Bar (if merged)
-				if ( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) {
+				if ( boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
 					suki_footer_bottom();
 				}
 				?>
@@ -807,7 +802,7 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) :
  * Render footer bottom bar.
  */
 function suki_footer_bottom() {
-	if ( suki_get_current_page_setting( 'disable_footer_bottom' ) ) return;
+	if ( boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) return;
 
 	$cols = array( 'left', 'center', 'right' );
 
@@ -815,7 +810,7 @@ function suki_footer_bottom() {
 	$count = 0;
 
 	foreach ( $cols as $col ) {
-		$elements[ $col ] = suki_get_theme_mod( 'footer_elements_bottom_' . $col );
+		$elements[ $col ] = suki_get_theme_mod( 'footer_elements_bottom_' . $col, array() );
 		$count += empty( $elements[ $col ] ) ? 0 : count( $elements[ $col ] );
 	}
 
@@ -875,7 +870,7 @@ function suki_footer_element( $element ) {
 		case 'copyright':
 			$copyright = suki_get_theme_mod( 'footer_' . $key . '_content' );
 			$copyright = str_replace( '{{year}}', date( 'Y' ), $copyright );
-			$copyright = str_replace( '{{sitename}}', '<a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
+			$copyright = str_replace( '{{sitename}}', '<a href="' . esc_url( home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
 			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
 			?>
 			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
@@ -885,7 +880,7 @@ function suki_footer_element( $element ) {
 			break;
 
 		case 'social':
-			$types = suki_get_theme_mod( 'footer_social_links' );
+			$types = suki_get_theme_mod( 'footer_social_links', array() );
 
 			if ( ! empty( $types ) ) {
 				$target = suki_get_theme_mod( 'footer_social_links_target' );
@@ -947,7 +942,7 @@ function suki_entry_meta_element( $element ) {
 				esc_html( get_the_modified_date() )
 			);
 
-			echo '<span class="entry-meta-date"><a href="' . get_permalink() . '" class="posted-on">' . $time_string . '</a></span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-date"><a href="' . esc_url( get_permalink() ) . '" class="posted-on">' . $time_string . '</a></span>'; // WPCS: XSS OK
 			break;
 
 		case 'author':
@@ -1011,7 +1006,7 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
 function suki_entry_title( $size = '' ) {
 	$class = 'small' === $size ? 'entry-small-title h3' : 'entry-title h1';
 
-	if ( suki_get_current_page_setting( 'content_hide_title' ) ) {
+	if ( boolval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
 		$class .= ' screen-reader-text';
 	}
 
@@ -1029,6 +1024,10 @@ if ( ! function_exists( 'suki_entry_featured_media' ) ) :
  * Print post's featured media based on the specified post format.
  */
 function suki_entry_featured_media() {
+	if ( boolval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
+		return;
+	}
+
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -1036,7 +1035,7 @@ function suki_entry_featured_media() {
 	global $content_width;
 
 	printf( // WPCS: XSS OK
-		'<%s class="entry-thumbnail' . ( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ? ' suki-entry-thumbnail-ignore-padding' : '' ) . '">%s</%s>',
+		'<%s class="entry-thumbnail' . ( boolval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ? ' suki-entry-thumbnail-ignore-padding' : '' ) . '">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . get_the_permalink() . '"',
 		get_the_post_thumbnail( get_the_ID(), array( $content_width, 0 ) ),
 		is_singular() ? 'div' : 'a'
@@ -1079,7 +1078,7 @@ if ( ! function_exists( 'suki_entry_header_meta' ) ) :
  * Print entry header meta.
  */
 function suki_entry_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_header_meta' ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_header_meta', array() ) );
 }
 endif;
 
@@ -1088,7 +1087,7 @@ if ( ! function_exists( 'suki_entry_footer_meta' ) ) :
  * Print entry footer meta.
  */
 function suki_entry_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_footer_meta' ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_footer_meta', array() ) );
 }
 endif;
 
@@ -1112,7 +1111,7 @@ function suki_entry_grid_featured_media() {
 
 	global $content_width;
 
-	$width = ceil( floatval( $content_width ) / suki_get_theme_mod( 'blog_index_grid_columns' ) );
+	$width = ceil( intval( $content_width ) / intval( suki_get_theme_mod( 'blog_index_grid_columns' ) ) );
 
 	printf( // WPCS: XSS OK
 		'<%s class="entry-thumbnail">%s</%s>',
@@ -1128,7 +1127,7 @@ if ( ! function_exists( 'suki_entry_grid_header_meta' ) ) :
  * Print entry grid header meta.
  */
 function suki_entry_grid_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_grid_header_meta' ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_grid_header_meta', array() ) );
 }
 endif;
 
@@ -1137,7 +1136,7 @@ if ( ! function_exists( 'suki_entry_grid_footer_meta' ) ) :
  * Print entry grid footer meta.
  */
 function suki_entry_grid_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta' ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta', array() ) );
 }
 endif;
 
@@ -1232,20 +1231,6 @@ function suki_single_post_author_bio() {
 			</div>
 			<div class="entry-author-content">
 				<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
-			</div>
-			<div class="entry-author-links suki-social-links">
-				<?php
-				$array = suki_get_social_media_types();
-				$links = array();
-
-				foreach ( $array as $type => $label ) {
-					$url = get_the_author_meta( $type );
-					if ( empty( $url ) ) continue;
-					$links[] = array( 'type' => $type, 'url' => $url, 'newtab' => true );
-				}
-
-				suki_social_links( $links );
-				?>
 			</div>
 		</div>
 	</div>

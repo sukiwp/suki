@@ -47,10 +47,10 @@ class Suki_Admin {
 	protected function __construct() {
 		// General admin hooks on every admin pages
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-		add_filter( 'upload_mimes', array( $this, 'upload_mimes' ) );
-		add_filter( 'user_contactmethods', array( $this, 'add_user_contactmethods' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
 		// add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
+		add_action( 'admin_init', array( $this, 'run_action_request' ) );
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
@@ -98,6 +98,11 @@ class Suki_Admin {
 			'suki',
 			array( $this, 'render_admin_page' )
 		);
+
+		/**
+		 * Hook: suki/admin/menu
+		 */
+		do_action( 'suki/admin/menu' );
 	}
 
 	/**
@@ -125,57 +130,95 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Enqueue scripts for all Admin page.
+	 * Enqueue admin styles.
 	 *
 	 * @param string $hook
 	 */
-	public function admin_enqueue_scripts( $hook ) {
-		// Register JS files
-		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '2.1.3', true );
-		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin.js', array( 'jquery' ), SUKI_VERSION, true );
+	public function enqueue_admin_styles( $hook ) {
+		/**
+		 * Hook: Styles to be included before admin CSS
+		 */
+		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
 
 		// Register CSS files
 		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
+
+		/**
+		 * Hook: Styles to be included after admin CSS
+		 */
+		do_action( 'suki/admin/after_enqueue_admin_css', $hook );
 	}
 
 	/**
-	 * Change footer text on all Suki admin pages.
+	 * Enqueue admin javascripts.
 	 *
-	 * @param array $mimes
-	 * @return array
+	 * @param string $hook
 	 */
-	public function upload_mimes( $mimes ) {
-		$mimes['otf'] = 'application/x-font-otf';
-		$mimes['woff2'] = 'application/x-font-woff2';
-		$mimes['woff'] = 'application/x-font-woff';
-		$mimes['ttf'] = 'application/x-font-ttf';
-		$mimes['eot'] = 'application/vnd.ms-fontobject';
-		$mimes['svg'] = 'image/svg+xml';
+	public function enqueue_admin_javascripts( $hook ) {
+		// Register JS files
+		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '2.1.3', true );
 
-		return $mimes;
+		/**
+		 * Hook: Styles to be included before admin JS
+		 */
+		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
+		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin.js', array( 'jquery' ), SUKI_VERSION, true );
+
+		/**
+		 * Hook: Styles to be included after admin JS
+		 */
+		do_action( 'suki/admin/after_enqueue_admin_js', $hook );
 	}
 
 	/**
-	 * Add social media link options to user profile edit page.
-	 * 
-	 * @param array $contactmethods
-	 * @return array
+	 * Run available actions.
 	 */
-	public function add_user_contactmethods( $contactmethods ) {
-		$contact_types = apply_filters( 'suki/dataset/user_contact_types', array(
-			'facebook'    => esc_html__( 'Facebook', 'suki' ),
-			'instagram'   => esc_html__( 'Instagram', 'suki' ),
-			'linkedin'    => esc_html__( 'LinkedIn', 'suki' ),
-			'twitter'     => esc_html__( 'Twitter', 'suki' ),
-			'google-plus' => esc_html__( 'Google Plus', 'suki' ),
-		) );
+	public function run_action_request() {
+		// Check if this is in Suki admin page.
+		if ( ! $this->is_suki_admin_page() ) return;
 
-		foreach ( suki_get_social_media_types() as $key => $value ) {
-			$contactmethods[ $key ] = $value . esc_html__( ' URL', 'suki' );
+		// Check if request has action.
+		if ( isset( $_GET['action'] ) ) {
+			$action = sanitize_key( $_GET['action'] );
+
+			// Run action based on its type.
+			switch ( $action ) {
+				case 'activate_pro_module':
+					// Abort if no module is specified.
+					if ( ! isset( $_GET['module'] ) ) return;
+
+					// Sanitize module.
+					$module = sanitize_key( $_GET['module'] );
+
+					// Get active modules array from DB.
+					$active_modules = get_option( 'suki_pro_active_modules', array() );
+
+					// Merge into active modules array.
+					$active_modules = array_merge( $active_modules, array( $module ) );
+
+					// Update DB.
+					update_option( 'suki_pro_active_modules', $active_modules );
+					break;
+
+				case 'deactivate_pro_module':
+					// Abort if no module is specified.
+					if ( ! isset( $_GET['module'] ) ) return;
+
+					// Sanitize module.
+					$module = sanitize_key( $_GET['module'] );
+
+					// Get active modules array from DB.
+					$active_modules = get_option( 'suki_pro_active_modules', array() );
+
+					// Remove from active modules array.
+					$active_modules = array_diff( $active_modules, array( $module ) );
+
+					// Update DB.
+					update_option( 'suki_pro_active_modules', $active_modules );
+					break;
+			}
 		}
-
-		return $contactmethods;
 	}
 
 	/**
@@ -268,6 +311,25 @@ class Suki_Admin {
 		}
 
 		return $mceinit;
+	}
+
+	/**
+	 * ====================================================
+	 * Public functions
+	 * ====================================================
+	 */
+
+	/**
+	 * Check if this page is Suki admin page.
+	 */
+	public function is_suki_admin_page() {
+		global $pagenow;
+
+		if ( 'themes.php' === $pagenow && 'suki' === suki_array_value( $_GET, 'page', '' ) ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -366,107 +428,27 @@ class Suki_Admin {
 		<div class="suki-admin-pro-modules postbox">
 			<h2 class="hndle"><?php esc_html_e( 'Premium Modules in Suki Pro', 'suki' ); ?></h2>
 			<div class="inside">
-				<?php $modules = array(
-					array(
-						'id'    => 'header-advanced',
-						'label' => esc_html__( 'Header (Advanced)', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/header-advanced/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'sticky-header',
-						'label' => esc_html__( 'Sticky Header', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/sticky-header/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'transparent-header',
-						'label' => esc_html__( 'Transparent Header', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/transparent-header/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'alternative-header-colors',
-						'label' => esc_html__( 'Alternative Header Colors', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/alternative-header-colors/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'footer-advanced',
-						'label' => esc_html__( 'Footer (Advanced)', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/footer-advanced/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'preloader',
-						'label' => esc_html__( 'Preloader Screen', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/preloader/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'blocks',
-						'label' => esc_html__( 'Portable Content Blocks', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/blocks/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'blog-advanced',
-						'label' => esc_html__( 'Blog (Advanced)', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/blog-advanced/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'woocommerce-advanced',
-						'label' => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/woocommerce-advanced/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'custom-fonts',
-						'label' => esc_html__( 'Custom Fonts', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/custom-fonts/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'custom-icons',
-						'label' => esc_html__( 'Custom Icons', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/custom-icons/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'color-palette',
-						'label' => esc_html__( 'Color Palette', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/color-palette/',
-						'coming_soon' => true,
-					),
-					array(
-						'id'    => 'white-label',
-						'label' => esc_html__( 'White Label', 'suki' ),
-						'url'   => trailingslashit( SUKI_PRO_URL ) . 'pro/modules/white-label/',
-						'coming_soon' => true,
-					),
-				); ?>
+				<?php
+				// Get all pro modules list.
+				$modules = suki_get_pro_modules();
+				?>
 				<table class="widefat plugins">
 					<tbody>
-						<?php foreach( $modules as $module ) : ?>
-							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && in_array( $module['id'], get_option( 'suki_active_pro_modules', array() ) ) ? 'active' : 'inactive' ); ?>">
+						<?php foreach( $modules as $module_slug => $module_data ) : ?>
+							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
 								<th class="check-column"></th>
 								<td class="suki-admin-pro-table-item-name plugin-title column-primary">
-									<?php if ( isset( $module['coming_soon'] ) && $module['coming_soon'] ) : ?>
-										<span class="suki-admin-pro-table-item-coming-soon"><?php echo $module['label']; // WPCS: XSS OK ?></span>
-									<?php else: ?>
-										<a href="<?php echo esc_url( $module['url'] ); ?>" target="_blank" rel="noopener"><?php echo $module['label']; // WPCS: XSS OK ?></a>
-									<?php endif; ?>
+									<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></a>
 								</td>
 								<td class="suki-admin-pro-table-item-actions column-description desc">
-									<?php if ( isset( $module['coming_soon'] ) && $module['coming_soon'] ) : ?>
-										<span class="suki-admin-pro-table-item-coming-soon"><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
+									<?php if ( suki_is_pro() ) : ?>
+
+										<?php foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) : ?>
+											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK. ?></a>
+										<?php endforeach; ?>
+
 									<?php else : ?>
-										<?php if ( suki_is_pro() ) : ?>
-											<a href="<?php echo esc_url( $module['url'] ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Deactivate', 'suki' ); ?></a>
-										<?php else : ?>
-											<a href="<?php echo esc_url( $module['url'] ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more &raquo;', 'suki' ); ?></a>
-										<?php endif; ?>
+										<span class="suki-admin-pro-table-item-required"><?php esc_html_e( 'Suki Pro is required', 'suki' ); ?></span>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -502,8 +484,8 @@ class Suki_Admin {
 				<p><?php esc_html_e( 'Make your site even better with our premium modules, available in a very affordable price.', 'suki' ); ?></p>
 				<p>
 					<a href="<?php echo SUKI_PRO_URL; // WPCS: XSS OK ?>" class="button button-large button-secondary" target="_blank" rel="noopener">
-						<span class="dashicons dashicons-awards"></span>
-						<?php echo esc_html_x( 'More about Suki Pro', 'Suki Pro upsell', 'suki' ); ?>
+						<span class="dashicons dashicons-unlock"></span>
+						<?php echo esc_html_x( 'Upgrade to Suki Pro', 'Suki Pro upsell', 'suki' ); ?>
 					</a>
 				</p>
 			</div>

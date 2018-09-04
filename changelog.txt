@@ -1,26 +1,41 @@
+v0.5.0
+- NEW: Page Header background image mode on Customizer's Page Settings.
+- NEW: Gutenberg columns option in Customizer
+- NEW: Option to hide featured image on page and post meta box.
+- TWEAK: Move all Gutenberg compatibility features to a separate module.
+- TWEAK: Improve some strings.
+- TWEAK: Improve all sanitization and escaping.
+- REMOVE: Author social links features.
+- REMOVE: Built-in SVG upload feature (please use 3rd party plugin instead).
+- REMOVE: All "Page header background" options on Page Header.
+- REMOVE: "Override page header title" text option on Customizer's Page Settings.
+- REMOVE: "Override page header title" text option on Page Settings metabox.
+- REMOVE: All "Page header background" options on Customizer's Page Settings.
+- REMOVE: All "Page header background" options on Page Settings metabox.
+
 v0.4.2
 - NEW: Global default options for "section layout" and "content & sidebar layout".
 - NEW: Version migration mechanism for future updates that require migration process.
-- NEW: Option to hide page title on static page's meta box.
-- IMPROVED: Some control & section structures on Customizer.
-- IMPROVED: Some translatable strings on Customizer.
-- IMPROVED: Mobile header drawer HTML structures.
-- IMPROVED: Search results page when no results found.
-- FIXED: Some CSS.
-- REMOVED: Ambiguous "keep content title displayed" option on Page Settings.
+- NEW: Option to hide page title on static page meta box.
+- TWEAK: Some control & section structures on Customizer.
+- TWEAK: Some translatable strings on Customizer.
+- TWEAK: Mobile header drawer HTML structures.
+- TWEAK: Search results page when no results found.
+- FIX: Some CSS.
+- REMOVE: Ambiguous "keep content title displayed" option on Page Settings.
 
 v0.4.1
-- IMPROVED: Some translatable strings on Customizer.
-- FIXED: Blog posts page layout options not working.
-- FIXED: Default CSS caused colors settings on headings, title, and small title not working.
-- FIXED: Font family bugs on Small Title and Meta Info.
-- FIXED: Some minor PHP warnings.
+- TWEAK: Some translatable strings on Customizer.
+- FIX: Blog posts page layout options not working.
+- FIX: Default CSS caused colors settings on headings, title, and small title not working.
+- FIX: Font family bugs on Small Title and Meta Info.
+- FIX: Some minor PHP warnings.
 
 v0.4.0
 - NEW: Option to merge header top bar, header bottom bar into header main bar.
 - NEW: Option to merge footer bottom bar into footer widgets bar.
-- IMPROVED: Content wrapper is now rendered on header.php and footer.php and add new filter to disable it.
-- IMPROVED: Change all ambiguous labels and terms on Customizer options to be more self-explanatory.
+- TWEAK: Content wrapper is now rendered on header.php and footer.php and add new filter to disable it.
+- TWEAK: Change all ambiguous labels and terms on Customizer options to be more self-explanatory.
 
 v0.3.0
 - Release.

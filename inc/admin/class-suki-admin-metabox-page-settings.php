@@ -128,7 +128,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		$sanitized = array();
 
 		if ( isset( $_POST['suki_page_settings'] ) && is_array( $_POST['suki_page_settings'] ) ) {
-			$page_settings = array_map( 'sanitize_text_field', wp_unslash( $_POST['suki_page_settings'] ) );
+			$page_settings = array_map( 'sanitize_key', wp_unslash( $_POST['suki_page_settings'] ) );
 
 			foreach ( $page_settings as $key => $value ) {
 				if ( '' === $value ) continue;
@@ -184,7 +184,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		// Sanitize values.
 		$sanitized = array();
 		if ( isset( $_POST['suki_page_settings'] ) && is_array( $_POST['suki_page_settings'] ) ) {
-			$page_settings = array_map( 'sanitize_text_field', wp_unslash( $_POST['suki_page_settings'] ) );
+			$page_settings = array_map( 'sanitize_key', wp_unslash( $_POST['suki_page_settings'] ) );
 			
 			foreach ( $page_settings as $key => $value ) {
 				if ( '' === $value ) continue;
@@ -221,7 +221,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 		// Add posts page to disabled IDs.
 		if ( 'page' === get_option( 'show_on_front' ) && $posts_page_id = get_option( 'page_for_posts' ) ) {
-			$disabled_ids[ $posts_page_id ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_post_archive', 'url' => get_permalink( get_option( 'page_for_posts' ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
+			$disabled_ids[ $posts_page_id ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_post_archive', 'url' => esc_url( get_permalink( get_option( 'page_for_posts' ) ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
 		}
 
 		// Filter to modify disabled IDs.
@@ -408,151 +408,6 @@ class Suki_Admin_Metabox_Page_Settings {
 						?>
 					</div>
 				</div>
-
-				<hr>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Override default page header title text', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$key = 'page_header_title_text';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'text',
-							'placeholder' => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
-
-				<hr>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Background image', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$key = 'page_header_bg_image';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'upload',
-							'placeholder' => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-							'library'     => 'image',
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Background position', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$key = 'page_header_bg_position';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
-							'choices'     => array(
-								''              => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'left top'      => esc_html__( 'Left top', 'suki' ),
-								'left center'   => esc_html__( 'Left center', 'suki' ),
-								'left bottom'   => esc_html__( 'Left bottom', 'suki' ),
-								'center top'    => esc_html__( 'Center top', 'suki' ),
-								'center center' => esc_html__( 'Center center', 'suki' ),
-								'center bottom' => esc_html__( 'Center bottom', 'suki' ),
-								'right top'     => esc_html__( 'Right top', 'suki' ),
-								'right center'  => esc_html__( 'Right center', 'suki' ),
-								'right bottom'  => esc_html__( 'Right bottom', 'suki' ),
-							),
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Background size', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$key = 'page_header_bg_size';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
-							'choices'     => array(
-								''        => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'auto'    => esc_html__( 'Default', 'suki' ),
-								'cover'   => esc_html__( 'Cover', 'suki' ),
-								'contain' => esc_html__( 'Contain', 'suki' ),
-							),
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Background repeat', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$key = 'page_header_bg_repeat';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
-							'choices'     => array(
-								''          => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'no-repeat' => esc_html__( 'No repeat', 'suki' ),
-								'repeat-x'  => esc_html__( 'Repeat X (horizontally)', 'suki' ),
-								'repeat-y'  => esc_html__( 'Repeat Y (vertically)', 'suki' ),
-								'repeat'    => esc_html__( 'Repeat both axis', 'suki' ),
-							),
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Background attachment', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$key = 'page_header_bg_attachment';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
-							'choices'     => array(
-								''       => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'scroll' => esc_html__( 'Scroll', 'suki' ),
-								'fixed'  => esc_html__( 'Fixed', 'suki' ),
-							),
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
-
-				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Background overlay opacity', 'suki' ); ?></label>
-					<div class="suki-admin-form-field">
-						<?php
-						$choices = array();
-						for ( $i = 0; $i <= 100; $i += 5 ) {
-							$choices[ (string)( $i / 100 ) ] = $i . '%';
-						}
-
-						$key = 'page_header_bg_overlay_opacity';
-						Suki_Admin_Fields::render_field( array(
-							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
-							'placeholder' => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-							'choices'     => array_merge(
-								array( '' => esc_html__( '-- Inherit from Customizer --', 'suki' ) ),
-								$choices
-							),
-							'value'       => suki_array_value( $values, $key ),
-						) );
-						?>
-					</div>
-				</div>
 				<?php
 				break;
 
@@ -615,10 +470,24 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( 'page' === get_post_type( $obj ) ) : ?>
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide page title', 'suki' ); ?></label>
+						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide post title', 'suki' ); ?></label>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_title';
+							Suki_Admin_Fields::render_field( array(
+								'name'        => $option_key . '[' . $key . ']',
+								'type'        => 'checkbox',
+								'value'       => suki_array_value( $values, $key ),
+							) );
+							?>
+						</div>
+					</div>
+
+					<div class="suki-admin-form-row">
+						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide featured image', 'suki' ); ?></label>
+						<div class="suki-admin-form-field">
+							<?php
+							$key = 'content_hide_thumbnail';
 							Suki_Admin_Fields::render_field( array(
 								'name'        => $option_key . '[' . $key . ']',
 								'type'        => 'checkbox',

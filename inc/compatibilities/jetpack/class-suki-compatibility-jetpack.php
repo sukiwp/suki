@@ -58,11 +58,11 @@ class Suki_Compatibility_Jetpack {
 		// Add theme support for Infinite Scroll.
 		// ref: https://jetpack.com/support/infinite-scroll/
 		add_theme_support( 'infinite-scroll', array(
+			'type'           => 'click',
 			'container'      => 'loop',
 			'footer'         => 'page',
 			'footer_widgets' => array( 'footer-widgets-1', 'footer-widgets-2', 'footer-widgets-3', 'footer-widgets-4', 'footer-widgets-5', 'footer-widgets-6' ),
 			'wrapper'        => false,
-			'posts_per_page' => is_search() ? false : suki_get_theme_mod( 'entry_' . suki_get_theme_mod( 'blog_index_loop_mode' ) . '_columns', false ),
 			'render'         => array( $this, 'render_infinite_scroll' ),
 		) );
 
