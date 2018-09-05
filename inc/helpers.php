@@ -49,7 +49,7 @@ function suki_show_pro_teaser() {
 }
 
 /**
- * Wrapper function to get page settings of the specified post ID.
+ * Wrapper function to get page setting value of the specified post ID.
  *
  * @param string $key
  * @param integer $post_id
@@ -80,40 +80,47 @@ function suki_get_page_setting_by_post_id( $key, $post_id ) {
 }
 
 /**
- * Wrapper function to get current page settings.
+ * Wrapper function to get page setting of specified key.
  *
+ * @param string $key
  * @return array
  */
-function suki_get_current_page_settings() {
+function suki_get_current_page_setting( $key ) {
 	$settings = array();
 
 	// Blog posts index page
 	if ( is_home() ) {
 		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
 	}
+
 	// Other post types index page
 	elseif ( is_post_type_archive() ) {
 		$obj = get_queried_object();
 		$settings = suki_get_theme_mod( 'page_settings_' . $obj->name . '_archive', array() );
 	}
+		
 	// Static page
 	elseif ( is_page() ) {
 		$obj = get_queried_object();
 		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
 	}
+		
 	// Single post page (any post type)
 	elseif ( is_singular() ) {
 		$obj = get_queried_object();
 		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $obj->post_type . '_singular', array() ) );
 	}
+		
 	// Time based Archive page
 	elseif ( is_year() || is_month() || is_date() || is_time() ) {
 		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
 	}
+		
 	// Author based Archive page
 	elseif ( is_author() ) {
 		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
 	}
+		
 	// Other archive page
 	elseif ( is_archive() ) {
 		$obj = get_queried_object();
@@ -132,10 +139,12 @@ function suki_get_current_page_settings() {
 		
 		$settings = wp_parse_args( $term_meta_settings, $post_type_archive_settings );
 	}
+
 	// Search page
 	elseif ( is_search() ) {
 		$settings = suki_get_theme_mod( 'page_settings_search', array() );
 	}
+
 	// 404 page
 	elseif ( is_404() ) {
 		$settings = suki_get_theme_mod( 'page_settings_404', array() );
@@ -143,18 +152,6 @@ function suki_get_current_page_settings() {
 
 	// Merge with fallback settings.
 	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
-
-	return apply_filters( 'suki/frontend/current_page_settings', $settings );
-}
-
-/**
- * Wrapper function to get current page setting of specified key.
- *
- * @param string $key
- * @return array
- */
-function suki_get_current_page_setting( $key ) {
-	$settings = suki_get_current_page_settings();
 
 	$value = suki_array_value( $settings, $key, '' );
 
@@ -308,12 +305,12 @@ function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
  * @return integer
  */
 function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
-	$content_width = floatval( suki_get_theme_mod( 'container_width' ) );
+	$content_width = intval( suki_get_theme_mod( 'container_width' ) );
 
 	// Modify content width based on current page content layout.
 	switch ( $content_layout ) {
 	 	case 'narrow':
-			$content_width = floatval( suki_get_theme_mod( 'content_narrow_width' ) );
+			$content_width = intval( suki_get_theme_mod( 'content_narrow_width' ) );
 	 		break;
 	 	
 	 	case 'left-sidebar':
@@ -325,7 +322,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 				$sidebar_width = $content_width * ( floatval( $sidebar_width ) / 100 );
 	 		} else {
 	 			// px
-	 			$sidebar_width = floatval( $sidebar_width );
+	 			$sidebar_width = intval( $sidebar_width );
 	 		}
 
 	 		// Sidebar gap
@@ -335,7 +332,7 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 				$sidebar_gap = $content_width * ( floatval( $sidebar_gap ) / 100 );
 	 		} else {
 	 			// px
-	 			$sidebar_gap = floatval( $sidebar_gap );
+	 			$sidebar_gap = intval( $sidebar_gap );
 	 		}
 
 	 		$content_width = $content_width - $sidebar_width - $sidebar_gap;
@@ -346,20 +343,20 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
 	// $content_padding = suki_get_theme_mod( 'content_main_padding' );
 	// $paddings = explode( ' ', $content_padding );
 	// if ( isset( $paddings[1] ) ) {
-	// 	$content_width -= floatval( $paddings[1] );
+	// 	$content_width -= intval( $paddings[1] );
 	// }
 	// if ( isset( $paddings[3] ) ) {
-	// 	$content_width -= floatval( $paddings[3] );
+	// 	$content_width -= intval( $paddings[3] );
 	// }
 
 	// // Modify content width based on its border.
 	// $content_border = suki_get_theme_mod( 'content_main_border' );
 	// $borders = explode( ' ', $content_border );
 	// if ( isset( $borders[1] ) ) {
-	// 	$content_width -= floatval( $borders[1] );
+	// 	$content_width -= intval( $borders[1] );
 	// }
 	// if ( isset( $borders[3] ) ) {
-	// 	$content_width -= floatval( $borders[3] );
+	// 	$content_width -= intval( $borders[3] );
 	// }
 
 	return $content_width;
@@ -370,6 +367,94 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
  * Data set functions
  * ====================================================
  */
+
+/**
+ * Return array of supported Suki Pro modules.
+ * 
+ * @return array
+ */
+function suki_get_pro_modules() {
+	return apply_filters( 'suki/pro/modules', array(
+		'header-advanced' => array(
+			'label'   => esc_html__( 'Header (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'sticky-header' => array(
+			'label'   => esc_html__( 'Sticky Header', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'transparent-header' => array(
+			'label'   => esc_html__( 'Transparent Header', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'alternative-header-colors' => array(
+			'label'   => esc_html__( 'Alternative Header Colors', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'footer-advanced' => array(
+			'label'   => esc_html__( 'Footer (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'preloader' => array(
+			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'blocks' => array(
+			'label'   => esc_html__( 'Portable Content Blocks', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'blog-advanced' => array(
+			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'woocommerce-advanced' => array(
+			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'custom-fonts' => array(
+			'label'   => esc_html__( 'Custom Fonts', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'custom-icons' => array(
+			'label'   => esc_html__( 'Custom Icons', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'color-palette' => array(
+			'label'   => esc_html__( 'Color Palette', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'white-label' => array(
+			'label'   => esc_html__( 'White Label', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+	) );
+}
 
 /**
  * Return fallback values of page settings.

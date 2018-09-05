@@ -123,19 +123,6 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 10,
 ) );
 
-// Show page title
-$id = 'page_header_title';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Show page title', 'suki' ),
-	'priority'    => 10,
-) ) );
-
 // Show breadcrumb
 $id = 'page_header_breadcrumb';
 $wp_customize->add_setting( $id, array(
@@ -173,7 +160,6 @@ $wp_customize->add_control( $id, array(
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( 'page_header', array(
 		'settings'            => array(
-			'page_header_title',
 			'page_header_breadcrumb',
 			'breadcrumb_plugin',
 		),
@@ -304,11 +290,11 @@ foreach ( $colors as $id => $label ) {
  * ====================================================
  */
 
-// Heading: Background (Global)
+// Heading: Background Image (Global Default)
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_header_background', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Background (Global)', 'suki' ),
+	'label'       => esc_html__( 'Background Image (Global Default)', 'suki' ),
 	'priority'    => 40,
 ) ) );
 
@@ -325,70 +311,6 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, 
 	'mime_type'   => 'image',
 	'priority'    => 40,
 ) ) );
-
-// Background position
-$id = 'page_header_bg_position';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $id, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Background position', 'suki' ),
-	'choices'     => array(
-		'left top'      => esc_html__( 'Left top', 'suki' ),
-		'left center'   => esc_html__( 'Left center', 'suki' ),
-		'left bottom'   => esc_html__( 'Left bottom', 'suki' ),
-		'center top'    => esc_html__( 'Center top', 'suki' ),
-		'center center' => esc_html__( 'Center center', 'suki' ),
-		'center bottom' => esc_html__( 'Center bottom', 'suki' ),
-		'right top'     => esc_html__( 'Right top', 'suki' ),
-		'right center'  => esc_html__( 'Right center', 'suki' ),
-		'right bottom'  => esc_html__( 'Right bottom', 'suki' ),
-	),
-	'priority'    => 40,
-) );
-
-// Background size
-$id = 'page_header_bg_size';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $id, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Background size', 'suki' ),
-	'choices'     => array(
-		'auto'    => esc_html__( 'Default', 'suki' ),
-		'cover'   => esc_html__( 'Cover', 'suki' ),
-		'contain' => esc_html__( 'Contain', 'suki' ),
-	),
-	'priority'    => 40,
-) );
-
-// Background repeat
-$id = 'page_header_bg_repeat';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $id, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Background repeat', 'suki' ),
-	'choices'     => array(
-		'no-repeat' => esc_html__( 'No repeat', 'suki' ),
-		'repeat-x'  => esc_html__( 'Repeat X (horizontally)', 'suki' ),
-		'repeat-y'  => esc_html__( 'Repeat Y (vertically)', 'suki' ),
-		'repeat'    => esc_html__( 'Repeat both axis', 'suki' ),
-	),
-	'priority'    => 40,
-) );
 
 // Background attachment
 $id = 'page_header_bg_attachment';

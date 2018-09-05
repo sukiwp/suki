@@ -70,6 +70,7 @@
 	.entry-card & {
 		@include border();
 		padding: 1.25em 1.5em;
+		background-color: $color_bg; // default
 	}
 }
 
@@ -252,18 +253,6 @@ a.more-link {
 .entry-author-content {
 	p {
 		margin: 0.5em 0;
-	}
-}
-
-.entry-author-links {
-	font-size: 1.1em;
-
-	a {
-		color: $color_meta; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
 	}
 }
 

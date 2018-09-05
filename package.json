@@ -7,14 +7,13 @@
 		"name": "SukiWP",
 		"url": "https://sukiwp.com/about/"
 	},
-	"version": "0.4.2",
+	"version": "0.5.0-beta",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"two-columns",
 		"left-sidebar",
 		"right-sidebar",
 		"grid-layout",
-		"accessibility-ready",
 		"custom-colors",
 		"custom-menu",
 		"editor-style",

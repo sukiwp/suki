@@ -7,11 +7,12 @@
 const info = require( './package.json' );
 
 const config = {
+	init: './style.css',
 	src: {
 		scss: [ './assets/scss/**/*.scss' ],
 		css: [ './assets/css/**/*.css', '!./assets/css/vendors/*' ],
 		js: [ './assets/js/**/*.js', '!./assets/js/vendors/*' ],
-		pot: [ './**/*.php', './style.css', '!./__build/**/*.php' ],
+		pot: [ './**/*.php', '!./__build/**/*.php' ],
 		build: [
 			'./*',
 			'./assets/css/**/*',
@@ -79,10 +80,10 @@ const zip           = require( 'gulp-zip' );
 gulp.task( 'theme_info', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
-	// Change theme version on style.css
-	return gulp.src( [ './style.css' ] )
-		.pipe( replace( /(Theme Name: ).*/, '$1' + info.title ) )
-		.pipe( replace( /(Theme URI: ).*/, '$1' + info.uri ) )
+	// Change plugin / theme info
+	return gulp.src( [ config.init ] )
+		.pipe( replace( new RegExp( '((?:Plugin|Theme) Name: ).*' ), '$1' + info.title ) )
+		.pipe( replace( new RegExp( '((?:Plugin|Theme) URI: ).*' ), '$1' + info.uri ) )
 		.pipe( replace( /(Description: ).*/, '$1' + info.description ) )
 		.pipe( replace( /(Version: ).*/, '$1' + info.version ) )
 		.pipe( replace( /(Author: ).*/, '$1' + info.author.name ) )
@@ -242,7 +243,7 @@ gulp.task( 'js', function() {
 gulp.task( 'pot', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
-	return gulp.src( config.src.pot )
+	return gulp.src( config.src.pot.concat( [ config.init ] ) )
 		.pipe( wpPot( {
 			domain: info.name,
 			package: info.title,

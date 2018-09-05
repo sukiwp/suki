@@ -171,7 +171,7 @@ class Suki {
 	public function setup_content_width() {
 		global $content_width;
 
-		$content_width = floatval( suki_get_theme_mod( 'container_width' ) );
+		$content_width = intval( suki_get_theme_mod( 'container_width' ) );
 	}
 
 	/**
@@ -294,14 +294,18 @@ class Suki {
 	 * @param string $hook
 	 */
 	public function enqueue_frontend_styles( $hook ) {
-		// Hook: Styles to be included before main CSS
+		/**
+		 * Hook: Styles to be included before main CSS
+		 */
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
 		// Main CSS
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 
-		// Hook: Styles to included after main CSS
+		/**
+		 * Hook: Styles to included after main CSS
+		 */
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 
 		// Customizer generated CSS
@@ -310,7 +314,7 @@ class Suki {
 	}
 
 	/**
-	 * Enqueue frontend scripts.
+	 * Enqueue frontend javascripts.
 	 *
 	 * @param string $hook
 	 */
@@ -330,13 +334,17 @@ class Suki {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		// Hook: Scripts to be included before main JS
+		/**
+		 * Hook: Scripts to be included before main JS
+		 */
 		do_action( 'suki/frontend/before_enqueue_main_js', $hook );
 
 		// Main JS
 		wp_enqueue_script( 'suki', SUKI_JS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
 
-		// Hook: Scripts to be included after main JS
+		/**
+		 * Hook: Scripts to be included after main JS
+		 */
 		do_action( 'suki/frontend/after_enqueue_main_js', $hook );
 	}
 
@@ -368,7 +376,26 @@ class Suki {
 	public function add_page_settings_css( $inline_css ) {
 		$css_array = array();
 
-		$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
+		$page_header_bg = suki_get_current_page_setting( 'page_header_bg' );
+		switch ( $page_header_bg ) {
+			case 'thumbnail':
+				$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+				break;
+
+			case 'archive':
+				$archive_settings = suki_get_theme_mod( 'page_settings_' . get_post_type() . '_archive', array() );
+				$page_header_bg_image = suki_array_value( $archive_settings, 'page_header_bg_image' );
+				break;
+			
+			case 'custom':
+				$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
+				break;
+
+			default:
+				$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+				break;
+		}
+
 		if ( '' !== $page_header_bg_image ) {
 			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
 		}
@@ -434,6 +461,7 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
+			'gutenberg' => 'WP_Block_Type',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
 			'elementor' => '\Elementor\Plugin',

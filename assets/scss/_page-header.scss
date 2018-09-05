@@ -5,9 +5,9 @@
 .suki-page-header-inner {
 	border-width: 0 0 1px 0; // default
 	background-color: $color_subtle; // default
-	background-position: center center; // default
-	background-size: cover; // default
-	background-repeat: no-repeat; // default
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-attachment: scroll; // default
 
 	&:before {

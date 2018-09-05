@@ -62,20 +62,6 @@ $add['header_bottom_bar_container'] = array(
 
 /**
  * ====================================================
- * Footer > Bottom Bar
- * ====================================================
- */
-
-$add['footer_bottom_bar_container'] = array(
-	array(
-		'setting'  => 'footer_bottom_bar_merged',
-		'operator' => '!=',
-		'value'    => 1,
-	),
-);
-
-/**
- * ====================================================
  * Header > Header Builder
  * ====================================================
  */
@@ -100,5 +86,53 @@ $add['header_mobile_elements'] = array(
 		'value'    => 'mobile',
 	),
 );
+
+/**
+ * ====================================================
+ * Page Header (Title Bar)
+ * ====================================================
+ */
+
+$add['breadcrumb_plugin'] =
+$add['page_header_breadcrumb_typography'] =
+$add['page_header_breadcrumb_text_color'] =
+$add['page_header_breadcrumb_link_text_color'] =
+$add['page_header_breadcrumb_link_hover_text_color'] = array(
+	array(
+		'setting'  => 'page_header_breadcrumb',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Footer > Bottom Bar
+ * ====================================================
+ */
+
+$add['footer_bottom_bar_container'] = array(
+	array(
+		'setting'  => 'footer_bottom_bar_merged',
+		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Page Settings
+ * ====================================================
+ */
+
+foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $type => $type_data ) {
+	if ( false === strpos( $type, '_singular' ) ) {
+		$add['page_settings_' . $type . '[page_header_bg_image]'] = array(
+			array(
+				'setting'  => 'page_settings_' . $type . '[page_header_bg]',
+				'value'    => 'custom',
+			),
+		);
+	}
+}
 
 $contexts = array_merge_recursive( $contexts, $add );

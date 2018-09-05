@@ -458,6 +458,10 @@ input, select, textarea {
 			right: -190px;
 		}
 	}
+
+	.notice {
+		display: none;
+	}
 }
 
 .suki-admin-wrap {
@@ -465,6 +469,10 @@ input, select, textarea {
 
 	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 		margin: 0;
+	}
+
+	.notice {
+		display: block;
 	}
 
 	.suki-admin-wrapper {
@@ -624,7 +632,7 @@ input, select, textarea {
 		text-align: right;
 	}
 
-	.suki-admin-pro-table-item-coming-soon {
+	.suki-admin-pro-table-item-required {
 		color: #888;
 	}
 }

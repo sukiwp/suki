@@ -190,7 +190,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--title.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--small-title.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--meta.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--gutenberg.php' );
 
 		// Layout
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-container.php' );
