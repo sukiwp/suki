@@ -1,10 +1,12 @@
 v0.5.0
-- NEW: Page Header background image mode on Customizer's Page Settings.
-- NEW: Gutenberg columns option in Customizer
+- NEW: Page Header background image mode on Customizer's Page Settings (replacing the old background options).
+- NEW: Gutenberg columns option in Customizer.
 - NEW: Option to hide featured image on page and post meta box.
+- TWEAK: Add proper `rel` attribute on social links -- credit to (luizbills)[https://github.com/luizbills] (#8)[https://github.com/sukiwp/suki/pull/8]
 - TWEAK: Move all Gutenberg compatibility features to a separate module.
 - TWEAK: Improve some strings.
 - TWEAK: Improve all sanitization and escaping.
+- TWEAK: Minor CSS.
 - REMOVE: Author social links features.
 - REMOVE: Built-in SVG upload feature (please use 3rd party plugin instead).
 - REMOVE: All "Page header background" options on Page Header.
