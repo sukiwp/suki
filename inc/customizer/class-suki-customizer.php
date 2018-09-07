@@ -92,7 +92,7 @@ class Suki_Customizer {
 		$css = $this->generate_frontend_css();
 		
 		if ( '' !== trim( $css ) ) {
-			$inline_css .= "\n/* Customizer CSS */\n" . $css; // WPCS: XSS OK
+			$inline_css .= "\n/* Customizer CSS */\n" . suki_minify_css_string( $css ); // WPCS: XSS OK
 		}
 
 		return $inline_css;
@@ -397,7 +397,7 @@ class Suki_Customizer {
 
 		// Fallback to defaults array
 		if ( is_null( $value ) ) {
-			$value = suki_array_value( $this->get_setting_defaults(), $key );
+			$value = suki_array_value( $this->get_setting_defaults(), $key, null );
 		}
 
 		// Fallback to default parameter

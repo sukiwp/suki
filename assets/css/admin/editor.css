@@ -396,7 +396,7 @@ blockquote > *:last-child {
 }
 
 blockquote p {
-	margin: 1em 0;
+	margin: 0 0 1em;
 }
 
 blockquote cite {

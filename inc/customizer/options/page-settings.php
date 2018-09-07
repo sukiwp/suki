@@ -176,7 +176,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	if ( false !== strpos( $type, '_singular' ) ) {
 		$post_type_object = get_post_type_object( str_replace( '_singular', '', $type ) );
 		$choices = array(
+			/* translators: %s: plural post type name */
 			'archive'   => sprintf( esc_html__( 'Same as %s archive background image', 'suki' ), $post_type_object->labels->name ),
+			/* translators: %s: singular post type name */
 			'thumbnail' => sprintf( esc_html__( 'Use %s featured image as background', 'suki' ), $post_type_object->labels->singular_name ),
 		);
 	} else {

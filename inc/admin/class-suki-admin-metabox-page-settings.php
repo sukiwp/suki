@@ -307,7 +307,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			<ul class="suki-admin-metabox-nav">
 				<?php foreach ( $tabs as $key => $label ) : ?>
 					<li class="suki-admin-metabox-nav-item <?php echo esc_attr( $key == $first_tab ? 'active' : '' ); ?>">
-						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo ( $label ); // WPCS: XSS OK ?></a>
+						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo $label; // WPCS: XSS OK ?></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -468,7 +468,7 @@ class Suki_Admin_Metabox_Page_Settings {
 					<?php endif; ?>
 				</div>
 
-				<?php if ( 'page' === get_post_type( $obj ) ) : ?>
+				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
 						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide post title', 'suki' ); ?></label>
 						<div class="suki-admin-form-field">
