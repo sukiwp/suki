@@ -62,143 +62,143 @@ msgstr ""
 msgid "Footer Widgets Column %d"
 msgstr ""
 
-#: inc/helpers.php:379
+#: inc/helpers.php:390
 msgid "Header (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:385
+#: inc/helpers.php:396
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:391
+#: inc/helpers.php:402
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:397
+#: inc/helpers.php:408
 msgid "Alternative Header Colors"
 msgstr ""
 
-#: inc/helpers.php:403
+#: inc/helpers.php:414
 msgid "Footer (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:409
+#: inc/helpers.php:420
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:415
+#: inc/helpers.php:426
 msgid "Portable Content Blocks"
 msgstr ""
 
-#: inc/helpers.php:421
+#: inc/helpers.php:432
 msgid "Blog (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:427
+#: inc/helpers.php:438
 msgid "WooCommerce (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:433
+#: inc/helpers.php:444
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:439
+#: inc/helpers.php:450
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:445
+#: inc/helpers.php:456
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:451
+#: inc/helpers.php:462
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:503
+#: inc/helpers.php:514
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/helpers.php:504
+#: inc/helpers.php:515
 msgid "Arabic"
 msgstr ""
 
-#: inc/helpers.php:505
+#: inc/helpers.php:516
 msgid "Bengali"
 msgstr ""
 
-#: inc/helpers.php:506
+#: inc/helpers.php:517
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/helpers.php:507
+#: inc/helpers.php:518
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/helpers.php:508
+#: inc/helpers.php:519
 msgid "Devaganari"
 msgstr ""
 
-#: inc/helpers.php:509
+#: inc/helpers.php:520
 msgid "Greek"
 msgstr ""
 
-#: inc/helpers.php:510
+#: inc/helpers.php:521
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/helpers.php:511
+#: inc/helpers.php:522
 msgid "Gujarati"
 msgstr ""
 
-#: inc/helpers.php:512
+#: inc/helpers.php:523
 msgid "Gurmukhi"
 msgstr ""
 
-#: inc/helpers.php:513
+#: inc/helpers.php:524
 msgid "Hebrew"
 msgstr ""
 
-#: inc/helpers.php:514
+#: inc/helpers.php:525
 msgid "Kannada"
 msgstr ""
 
-#: inc/helpers.php:515
+#: inc/helpers.php:526
 msgid "Khmer"
 msgstr ""
 
-#: inc/helpers.php:516
+#: inc/helpers.php:527
 msgid "Malayalam"
 msgstr ""
 
-#: inc/helpers.php:517
+#: inc/helpers.php:528
 msgid "Myanmar"
 msgstr ""
 
-#: inc/helpers.php:518
+#: inc/helpers.php:529
 msgid "Oriya"
 msgstr ""
 
-#: inc/helpers.php:519
+#: inc/helpers.php:530
 msgid "Sinhala"
 msgstr ""
 
-#: inc/helpers.php:520
+#: inc/helpers.php:531
 msgid "Tamil"
 msgstr ""
 
-#: inc/helpers.php:521
+#: inc/helpers.php:532
 msgid "Telugu"
 msgstr ""
 
-#: inc/helpers.php:522
+#: inc/helpers.php:533
 msgid "Thai"
 msgstr ""
 
-#: inc/helpers.php:523
+#: inc/helpers.php:534
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/template-functions.php:440
+#: inc/template-functions.php:442
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -237,36 +237,36 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1204
+#: inc/template-tags.php:1199
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1205
+#: inc/template-tags.php:1200
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1249
+#: inc/template-tags.php:1244
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1250
+#: inc/template-tags.php:1245
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1267
+#: inc/template-tags.php:1262
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1273
+#: inc/template-tags.php:1268
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1300
+#: inc/template-tags.php:1295
 msgid "Comments are closed."
 msgstr ""
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Page Header (Title Bar)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:228, inc/customizer/options/_sections.php:321
+#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:230, inc/customizer/options/_sections.php:321
 msgid "Footer"
 msgstr ""
 
@@ -403,82 +403,82 @@ msgstr ""
 msgid "Hide featured image"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:507, inc/customizer/options/page-settings.php:241
+#: inc/admin/class-suki-admin-metabox-page-settings.php:507, inc/customizer/options/page-settings.php:243
 msgid "Disable footer widgets"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:526, inc/customizer/options/page-settings.php:254
+#: inc/admin/class-suki-admin-metabox-page-settings.php:526, inc/customizer/options/page-settings.php:256
 msgid "Disable footer bottom"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin.php:409
+#: inc/admin/class-suki-admin.php:369
 msgid "Welcome to %s"
 msgstr ""
 
 #. translators: %s: theme name
-#: inc/admin/class-suki-admin.php:415
+#: inc/admin/class-suki-admin.php:375
 msgid "You can start customizing by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:429
+#: inc/admin/class-suki-admin.php:389
 msgid "Premium Modules in Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:451
-msgid "Suki Pro is required"
+#: inc/admin/class-suki-admin.php:411
+msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:470
+#: inc/admin/class-suki-admin.php:430
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:482
+#: inc/admin/class-suki-admin.php:443
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:484
+#: inc/admin/class-suki-admin.php:445
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:488
+#: inc/admin/class-suki-admin.php:449
 msgctxt "Suki Pro upsell"
 msgid "Upgrade to Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:502
+#: inc/admin/class-suki-admin.php:463
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:504
+#: inc/admin/class-suki-admin.php:465
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:508
+#: inc/admin/class-suki-admin.php:469
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:522
+#: inc/admin/class-suki-admin.php:483
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:524
+#: inc/admin/class-suki-admin.php:485
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:528
+#: inc/admin/class-suki-admin.php:489
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:543
+#: inc/admin/class-suki-admin.php:504
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:545
+#: inc/admin/class-suki-admin.php:506
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:549
+#: inc/admin/class-suki-admin.php:510
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
@@ -622,7 +622,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:127, inc/customizer/custom-controls/class-suki-customize-control-typography.php:145, inc/customizer/custom-controls/class-suki-customize-control-typography.php:162, inc/customizer/options/page-container.php:240, inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:67, inc/customizer/options/page-settings.php:196
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:127, inc/customizer/custom-controls/class-suki-customize-control-typography.php:145, inc/customizer/custom-controls/class-suki-customize-control-typography.php:162, inc/customizer/options/page-container.php:240, inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:67, inc/customizer/options/page-settings.php:198
 msgid "Default"
 msgstr ""
 
@@ -710,7 +710,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:268, inc/customizer/options/_sections.php:264, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:314, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:270, inc/customizer/options/_sections.php:264, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -1557,7 +1557,7 @@ msgstr ""
 msgid "Background Image (Global Default)"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:310, inc/customizer/options/page-settings.php:194
+#: inc/customizer/options/page-header.php:310, inc/customizer/options/page-settings.php:196
 msgid "Background image"
 msgstr ""
 
@@ -1569,24 +1569,26 @@ msgstr ""
 msgid "Background color overlay opacity"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:179
+#. translators: %s: plural post type name
+#: inc/customizer/options/page-settings.php:180
 msgid "Same as %s archive background image"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:180
+#. translators: %s: singular post type name
+#: inc/customizer/options/page-settings.php:182
 msgid "Use %s featured image as background"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:184
+#: inc/customizer/options/page-settings.php:186
 msgid "Custom background image"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:271
+#: inc/customizer/options/page-settings.php:273
 msgctxt "Suki Pro upsell"
 msgid "Activate transparent header on this page"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:272
+#: inc/customizer/options/page-settings.php:274
 msgctxt "Suki Pro upsell"
 msgid "Activate alternative header colors on this page"
 msgstr ""

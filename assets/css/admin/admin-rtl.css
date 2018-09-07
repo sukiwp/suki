@@ -615,6 +615,10 @@ input, select, textarea {
 	margin-bottom: 0.5em;
 }
 
+.suki-admin-pro-modules .hndle {
+	padding: 10px 15px !important;
+}
+
 .suki-admin-pro-modules .inside {
 	margin: 0;
 	padding: 0;
@@ -626,10 +630,15 @@ input, select, textarea {
 
 .suki-admin-pro-modules .inactive th, .suki-admin-pro-modules .inactive td, .suki-admin-pro-modules .active th, .suki-admin-pro-modules .active td {
 	color: #555;
-	padding: 8px 12px;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+	padding: 10px 15px;
 	border-bottom: 1px solid #e5e5e5;
+	border-top: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.suki-admin-pro-modules .check-column {
+	padding-right: 0 !important;
 }
 
 .suki-admin-pro-modules .suki-admin-pro-table-group-heading {
@@ -639,7 +648,6 @@ input, select, textarea {
 
 .suki-admin-pro-modules .suki-admin-pro-table-item-name {
 	white-space: nowrap;
-	padding-right: 14px !important;
 }
 
 .suki-admin-pro-modules .suki-admin-pro-table-item-actions {

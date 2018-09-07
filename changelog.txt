@@ -12,6 +12,7 @@ v0.5.0
 - REMOVE: "Override page header title" text option on Page Settings metabox.
 - REMOVE: All "Page header background" options on Customizer's Page Settings.
 - REMOVE: All "Page header background" options on Page Settings metabox.
+- REMOVE: "Show page title" option on Page Header settings (page title will always be displayed).
 
 v0.4.2
 - NEW: Global default options for "section layout" and "content & sidebar layout".

@@ -24,6 +24,13 @@ class Suki_Admin {
 	private $_menu_id = 'suki';
 
 	/**
+	 * Notice array.
+	 *
+	 * @var array
+	 */
+	private $_notices = array();
+
+	/**
 	 * ====================================================
 	 * Singleton & constructor functions
 	 * ====================================================
@@ -49,8 +56,8 @@ class Suki_Admin {
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
+		add_action( 'admin_notices', array( $this, 'show_admin_notice' ) );
 		// add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
-		add_action( 'admin_init', array( $this, 'run_action_request' ) );
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
@@ -103,6 +110,28 @@ class Suki_Admin {
 		 * Hook: suki/admin/menu
 		 */
 		do_action( 'suki/admin/menu' );
+	}
+
+	/**
+	 * Show admin notices.
+	 */
+	public function show_admin_notice() {
+		ksort( $this->_notices );
+
+		foreach ( $this->_notices as $priority => $notices ) {
+			foreach ( $notices as $notice ) {
+				$notice = wp_parse_args( $notice, array(
+					'type'        => 'warning',
+					'text'        => '',
+					'dismissible' => true,
+				) );
+				?>
+				<div class="notice <?php echo esc_attr( 'notice-' . suki_array_value( $notice, 'type' ) ); ?> <?php echo esc_attr( intval( suki_array_value( $notice, 'dismissible' ) ) ? 'is-dismissible' : '' ); ?>">
+					<p><?php echo suki_array_value( $notice, 'text' ); // WPCS: XSS OK ?></p>
+				</div>
+				<?php
+			}
+		}
 	}
 
 	/**
@@ -169,56 +198,6 @@ class Suki_Admin {
 		 * Hook: Styles to be included after admin JS
 		 */
 		do_action( 'suki/admin/after_enqueue_admin_js', $hook );
-	}
-
-	/**
-	 * Run available actions.
-	 */
-	public function run_action_request() {
-		// Check if this is in Suki admin page.
-		if ( ! $this->is_suki_admin_page() ) return;
-
-		// Check if request has action.
-		if ( isset( $_GET['action'] ) ) {
-			$action = sanitize_key( $_GET['action'] );
-
-			// Run action based on its type.
-			switch ( $action ) {
-				case 'activate_pro_module':
-					// Abort if no module is specified.
-					if ( ! isset( $_GET['module'] ) ) return;
-
-					// Sanitize module.
-					$module = sanitize_key( $_GET['module'] );
-
-					// Get active modules array from DB.
-					$active_modules = get_option( 'suki_pro_active_modules', array() );
-
-					// Merge into active modules array.
-					$active_modules = array_merge( $active_modules, array( $module ) );
-
-					// Update DB.
-					update_option( 'suki_pro_active_modules', $active_modules );
-					break;
-
-				case 'deactivate_pro_module':
-					// Abort if no module is specified.
-					if ( ! isset( $_GET['module'] ) ) return;
-
-					// Sanitize module.
-					$module = sanitize_key( $_GET['module'] );
-
-					// Get active modules array from DB.
-					$active_modules = get_option( 'suki_pro_active_modules', array() );
-
-					// Remove from active modules array.
-					$active_modules = array_diff( $active_modules, array( $module ) );
-
-					// Update DB.
-					update_option( 'suki_pro_active_modules', $active_modules );
-					break;
-			}
-		}
 	}
 
 	/**
@@ -311,25 +290,6 @@ class Suki_Admin {
 		}
 
 		return $mceinit;
-	}
-
-	/**
-	 * ====================================================
-	 * Public functions
-	 * ====================================================
-	 */
-
-	/**
-	 * Check if this page is Suki admin page.
-	 */
-	public function is_suki_admin_page() {
-		global $pagenow;
-
-		if ( 'themes.php' === $pagenow && 'suki' === suki_array_value( $_GET, 'page', '' ) ) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	/**
@@ -444,11 +404,11 @@ class Suki_Admin {
 									<?php if ( suki_is_pro() ) : ?>
 
 										<?php foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) : ?>
-											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK. ?></a>
+											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
 										<?php endforeach; ?>
 
 									<?php else : ?>
-										<span class="suki-admin-pro-table-item-required"><?php esc_html_e( 'Suki Pro is required', 'suki' ); ?></span>
+										<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more', 'suki' ); ?></a>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -477,6 +437,7 @@ class Suki_Admin {
 	 * Render "Suki Pro" info box on Suki admin page sidebar.
 	 */
 	public function render_sidebar__pro() {
+		if ( suki_is_pro() ) return;
 		?>
 		<div class="suki-admin-secondary-pro postbox">
 			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
@@ -553,6 +514,23 @@ class Suki_Admin {
 			</div>
 		<?php endif; ?>
 		<?php
+	}
+
+	/**
+	 * ====================================================
+	 * Public functions
+	 * ====================================================
+	 */
+
+	/**
+	 * Add notice to the notices array.
+	 *
+	 * @param string $message
+	 * @param string $type
+	 * @param integer $priority
+	 */
+	public function add_notice( $notice, $priority = 10 ) {
+		$this->_notices[ $priority ][] = $notice;
 	}
 }
 

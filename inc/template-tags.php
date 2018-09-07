@@ -121,7 +121,7 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	
 	// Filters to modify SVG icon.
 	$svg = apply_filters( 'suki/frontend/icon', $svg, $key );
-	$svg = apply_filters( "suki/frontend/icon/{$key}", $svg );
+	$svg = apply_filters( 'suki/frontend/icon/' . $key, $svg );
 
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
@@ -153,13 +153,13 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 
 	ob_start();
 	foreach ( $links as $link ) :
-		echo ( $args['before_link'] ); // WPCS: XSS OK
+		echo $args['before_link']; // WPCS: XSS OK
 
 		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener me nofollow"' : ' rel="me nofollow"'; ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
-		echo ( $args['after_link'] ); // WPCS: XSS OK
+		echo $args['after_link']; // WPCS: XSS OK
 	endforeach;
 	$html = ob_get_clean();
 
@@ -231,7 +231,7 @@ if ( ! function_exists( 'suki_mobile_vertical_header' ) ) :
  * Render mobile vertical header.
  */
 function suki_mobile_vertical_header() {
-	if ( boolval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	$elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 	$count = count( $elements );
@@ -282,13 +282,13 @@ if ( ! function_exists( 'suki_main_header' ) ) :
  * Render main header.
  */
 function suki_main_header() {
-	if ( boolval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
 
 	?>
 	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
 		<?php
 		// Top Bar (if not merged)
-		if ( ! boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+		if ( ! intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
 			suki_main_header__bar( 'top' );
 		}
 
@@ -296,7 +296,7 @@ function suki_main_header() {
 		suki_main_header__bar( 'main' );
 
 		// Bottom Bar (if not merged)
-		if ( ! boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+		if ( ! intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 			suki_main_header__bar( 'bottom' );
 		}
 		?>
@@ -324,13 +324,13 @@ function suki_main_header__bar( $bar ) {
 	if ( 1 > $count ) return;
 
 	?>
-	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( "suki/frontend/header_{$bar}_bar_classes", array() ) ) ); ?>">
+	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>">
 		<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 
 				<?php
 				// Top Bar (if merged).
-				if ( 'main' === $bar && boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+				if ( 'main' === $bar && intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
 					suki_main_header__bar( 'top' );
 				}
 				?>
@@ -345,7 +345,7 @@ function suki_main_header__bar( $bar ) {
 
 				<?php
 				// Bottom Bar (if merged).
-				if ( 'main' === $bar && boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+				if ( 'main' === $bar && intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 					suki_main_header__bar( 'bottom' );
 				}
 				?>
@@ -362,7 +362,7 @@ if ( ! function_exists( 'suki_mobile_header' ) ) :
  * Render mobile header.
  */
 function suki_mobile_header() {
-	if ( boolval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	?>
 	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop">
@@ -542,7 +542,7 @@ function suki_header_element( $element ) {
 
 	// Filters to modify the final HTML tag.
 	$html = apply_filters( 'suki/frontend/header_element', $html, $element );
-	$html = apply_filters( "suki/frontend/header_element/{$element}", $html );
+	$html = apply_filters( 'suki/frontend/header_element/' . $element, $html );
 
 	echo $html; // WPCS: XSS OK
 }
@@ -559,9 +559,9 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  * Render page header section.
  */
 function suki_page_header() {
-	if ( boolval( suki_get_current_page_setting( 'disable_page_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_page_header' ) ) ) return;
 
-	if ( ! boolval( suki_get_theme_mod( 'page_header' ) ) ) return;
+	if ( ! intval( suki_get_theme_mod( 'page_header' ) ) ) return;
 
 	?>
 	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
@@ -628,7 +628,7 @@ if ( ! function_exists( 'suki_breadcrumb' ) ) :
  * Render breadcrumb via 3rd party plugin.
  */
 function suki_breadcrumb() {
-	if ( ! boolval( suki_get_theme_mod( 'page_header_breadcrumb' ) ) ) return;
+	if ( ! intval( suki_get_theme_mod( 'page_header_breadcrumb' ) ) ) return;
 
 	ob_start();
 	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
@@ -753,7 +753,7 @@ function suki_main_footer() {
 	suki_footer_widgets();
 	
 	// Bottom Bar (if not merged)
-	if ( ! boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+	if ( ! intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
 		suki_footer_bottom();
 	}
 }
@@ -764,7 +764,7 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) :
  * Render footer widgets area.
  */
 function suki_footer_widgets() {
-	if ( boolval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) return;
 
 	$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
 
@@ -785,7 +785,7 @@ function suki_footer_widgets() {
 
 				<?php
 				// Bottom Bar (if merged)
-				if ( boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+				if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
 					suki_footer_bottom();
 				}
 				?>
@@ -802,7 +802,7 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) :
  * Render footer bottom bar.
  */
 function suki_footer_bottom() {
-	if ( boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) return;
 
 	$cols = array( 'left', 'center', 'right' );
 
@@ -910,7 +910,7 @@ function suki_footer_element( $element ) {
 
 	// Filters to modify the final HTML tag.
 	$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
-	$html = apply_filters( "suki/frontend/footer_element/{$element}", $html );
+	$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
 
 	echo $html; // WPCS: XSS OK
 }
@@ -1006,14 +1006,9 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
 function suki_entry_title( $size = '' ) {
 	$class = 'small' === $size ? 'entry-small-title h3' : 'entry-title h1';
 
-	if ( boolval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
-		$class .= ' screen-reader-text';
-	}
-
 	if ( is_singular() ) {
 		the_title( '<h1 class="' . $class . '">', '</h1>' );
-	}
-	else {
+	} else {
 		the_title( sprintf( '<h2 class="' . $class . '"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 	}
 }
@@ -1024,7 +1019,7 @@ if ( ! function_exists( 'suki_entry_featured_media' ) ) :
  * Print post's featured media based on the specified post format.
  */
 function suki_entry_featured_media() {
-	if ( boolval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
+	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
 		return;
 	}
 
@@ -1035,7 +1030,7 @@ function suki_entry_featured_media() {
 	global $content_width;
 
 	printf( // WPCS: XSS OK
-		'<%s class="entry-thumbnail' . ( boolval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ? ' suki-entry-thumbnail-ignore-padding' : '' ) . '">%s</%s>',
+		'<%s class="entry-thumbnail' . ( intval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ? ' suki-entry-thumbnail-ignore-padding' : '' ) . '">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . get_the_permalink() . '"',
 		get_the_post_thumbnail( get_the_ID(), array( $content_width, 0 ) ),
 		is_singular() ? 'div' : 'a'

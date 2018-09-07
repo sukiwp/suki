@@ -70,11 +70,16 @@ function suki_get_page_setting_by_post_id( $key, $post_id ) {
 	// Get individual settings merged with global customizer settings.
 	$settings = wp_parse_args( get_post_meta( $post->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $post->post_type . '_singular', array() ) );
 
-	// Merge with fallback settings.
-	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
+	// Get the value.
+	$value = suki_array_value( $settings, $key, '' );
 
-	// Get value for specified key.
-	$value = suki_array_value( $settings, $key );
+	// Get fallback settings.
+	$fallback_settings = suki_get_fallback_page_settings();
+
+	// If the setting value is empty string and it has fallback value, use fallback value.
+	if ( '' === $value && array_key_exists( $key, $fallback_settings ) ) {
+		$value = suki_array_value( $fallback_settings, $key );
+	}
 
 	return $value;
 }
@@ -150,10 +155,16 @@ function suki_get_current_page_setting( $key ) {
 		$settings = suki_get_theme_mod( 'page_settings_404', array() );
 	}
 
-	// Merge with fallback settings.
-	$settings = wp_parse_args( $settings, suki_get_fallback_page_settings() );
-
+	// Get the value.
 	$value = suki_array_value( $settings, $key, '' );
+
+	// Get fallback settings.
+	$fallback_settings = suki_get_fallback_page_settings();
+
+	// If the setting value is empty string and it has fallback value, use fallback value.
+	if ( '' === $value && array_key_exists( $key, $fallback_settings ) ) {
+		$value = suki_array_value( $fallback_settings, $key );
+	}
 
 	return $value;
 }
@@ -381,19 +392,19 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
-		'sticky-header' => array(
+		'header-sticky' => array(
 			'label'   => esc_html__( 'Sticky Header', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
 		),
-		'transparent-header' => array(
+		'header-transparent' => array(
 			'label'   => esc_html__( 'Transparent Header', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
 		),
-		'alternative-header-colors' => array(
+		'header-alternative-colors' => array(
 			'label'   => esc_html__( 'Alternative Header Colors', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
@@ -463,8 +474,8 @@ function suki_get_pro_modules() {
  */
 function suki_get_fallback_page_settings() {
 	return array(
-		'content_container' => suki_get_theme_mod( 'content_container' ),
-		'content_layout'    => suki_get_theme_mod( 'content_layout' ),
+		'content_container' => suki_get_theme_mod( 'content_container', 'default' ),
+		'content_layout'    => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
 	);
 }
 

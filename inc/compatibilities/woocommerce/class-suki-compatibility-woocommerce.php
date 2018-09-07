@@ -266,7 +266,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Keep / remove "add to cart" button on products grid.
-		if ( ! boolval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
+		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 
@@ -276,17 +276,17 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_shop() || is_product_taxonomy() ) {
 			// Keep / remove page title.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_page_title' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_page_title' ) ) ) {
 				add_filter( 'woocommerce_show_page_title', '__return_false' );
 			}
 
 			// Keep / remove breadcrumb.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_breadcrumb' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_breadcrumb' ) ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			}
 
 			// Keep / remove products loop filter on products grid.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_filter' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_filter' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
@@ -298,7 +298,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_product() ) {
 			// Keep / remove breadcrumb.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_breadcrumb' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_breadcrumb' ) ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			} else {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
@@ -306,32 +306,32 @@ class Suki_Compatibility_WooCommerce {
 			}
 
 			// Keep / remove gallery.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery' ) ) ) {
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 			}
 
 			// Keep / remove gallery zoom module.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
 				remove_theme_support( 'wc-product-gallery-zoom' );
 			}
 
 			// Keep / remove gallery lightbox module.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
 				remove_theme_support( 'wc-product-gallery-lightbox' );
 			}
 
 			// Keep / remove tabs.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_tabs' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_tabs' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_up_sells' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_up_sells' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_related' ) ) ) {
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_related' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
 		}
@@ -626,7 +626,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_checkout_wrapper() {
 		?>
-		<div class="suki-woocommerce-checkout-wrapper <?php echo esc_attr( 'suki-woocommerce-checkout-' . ( boolval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ? '2-columns' : '1-column' ) ); ?>">
+		<div class="suki-woocommerce-checkout-wrapper <?php echo esc_attr( 'suki-woocommerce-checkout-' . ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ? '2-columns' : '1-column' ) ); ?>">
 		<?php
 	}
 

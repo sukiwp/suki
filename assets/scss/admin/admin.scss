@@ -599,6 +599,10 @@ input, select, textarea {
 }
 
 .suki-admin-pro-modules {
+	.hndle {
+		padding: 10px 15px !important;
+	}
+
 	.inside {
 		margin: 0;
 		padding: 0;
@@ -611,10 +615,15 @@ input, select, textarea {
 	.inactive, .active {
 		th, td {
 			color: #555;
-			padding: 8px 12px;
-			box-shadow: none;
+			padding: 10px 15px;
 			border-bottom: 1px solid #e5e5e5;
+			border-top: none !important;
+			box-shadow: none !important;
 		}
+	}
+
+	.check-column {
+		padding-left: 0 !important;
 	}
 
 	.suki-admin-pro-table-group-heading {
@@ -624,7 +633,6 @@ input, select, textarea {
 
 	.suki-admin-pro-table-item-name {
 		white-space: nowrap;
-		padding-left: 14px !important;
 	}
 	
 	.suki-admin-pro-table-item-actions {
