@@ -350,9 +350,7 @@ class Suki {
 	 * Print inline custom CSS.
 	 */
 	public function print_custom_css() {
-		echo '<style type="text/css" id="suki-custom-css">' . "\n"; // WPCS: XSS OK.
-		echo wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n";
-		echo '</style>' . "\n"; // WPCS: XSS OK.
+		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK.
 	}
 
 	/**
