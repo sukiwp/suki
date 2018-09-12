@@ -1,3 +1,6 @@
+v0.5.2
+- FIX: custom CSS bug on v0.5.1.
+
 v0.5.1
 - NEW: "Page header" option on Page Settings to enable / disable page header (replacing "Disable page header" option).
 - TWEAK: Improve all sanitization and escaping.

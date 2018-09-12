@@ -3,7 +3,7 @@ Contributors: sukiwp
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 4.5
 Tested up to: 4.9
-Stable tag: 0.5.1
+Stable tag: 0.5.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
