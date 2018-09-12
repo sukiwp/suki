@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer default values.
+ * Customizer control's conditional display.
  *
  * @package Suki
  **/

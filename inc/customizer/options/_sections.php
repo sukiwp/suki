@@ -184,13 +184,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// Vertical Bar
-	$wp_customize->add_section( 'suki_section_header_vertical_bar', array(
-		'title'       => esc_html__( 'Vertical Bar', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 10,
-	) );
-
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_mobile_bars', array(
 		'panel'       => $panel,
@@ -220,13 +213,6 @@ $wp_customize->add_panel( $panel, array(
 	// Logo
 	$wp_customize->add_section( 'suki_section_header_logo', array(
 		'title'       => esc_html__( 'Element: Logo', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 40,
-	) );
-
-	// Menu
-	$wp_customize->add_section( 'suki_section_header_menu', array(
-		'title'       => esc_html__( 'Element: Menu(s)', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 40,
 	) );

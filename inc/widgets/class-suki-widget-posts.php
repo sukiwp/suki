@@ -28,13 +28,12 @@ class Suki_Widget_Posts extends WP_Widget {
 		$category_default = array();
 		foreach ( $cats as $cat ) $category_default[] = $cat->term_id;
 
-		$title          = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-
+		$title          = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) : '';
 		$number         = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-		$orderby        = isset( $instance['orderby'] ) ? $instance['orderby'] : 'post_date';
-		$all_categories = isset( $instance['all_categories'] ) ? (bool) $instance['all_categories'] : true;
-		$category       = isset( $instance['category'] ) ? unserialize( $instance['category'] ) : $category_default;
-		$show_date      = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+		$orderby        = isset( $instance['orderby'] ) ? sanitize_key( $instance['orderby'] ) : 'post_date';
+		$all_categories = isset( $instance['all_categories'] ) ? (bool) $instance['all_categories'] : false;
+		$category       = isset( $instance['category'] ) ? $instance['category'] : $category_default;
+		$show_date      = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 
 		$query_args = array(
 			'post_type'           => 'post',
@@ -91,14 +90,12 @@ class Suki_Widget_Posts extends WP_Widget {
 			'rand'      => esc_html__( 'Random', 'suki' ),
 		);
 
-		$title          = isset( $instance['title'] ) ? strip_tags( $instance['title'] ) : '';
-
+		$title          = isset( $instance['title'] ) ? sanitize_text_field( $instance['title'] ) : '';
 		$number         = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-		$orderby        = isset( $instance['orderby'] ) ? $instance['orderby'] : 'post_date';
-		$all_categories = isset( $instance['all_categories'] ) ? intval( $instance['all_categories'] ) : true;
-		$category       = isset( $instance['category'] ) ? unserialize( $instance['category'] ) : array();
-		$show_date      = isset( $instance['show_date'] ) ? intval( $instance['show_date'] ) : false;
-		
+		$orderby        = isset( $instance['orderby'] ) ? sanitize_key( $instance['orderby'] ) : 'post_date';
+		$all_categories = isset( $instance['all_categories'] ) ? (bool) $instance['all_categories'] : false;
+		$category       = isset( $instance['category'] ) ? $instance['category'] : array();
+		$show_date      = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'suki' ); ?></label>
@@ -141,12 +138,13 @@ class Suki_Widget_Posts extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 		$instance                   = $old_instance;
-		$instance['title']          = strip_tags( $new_instance['title'] );
-		$instance['number']         = absint( $new_instance['number'] );
-		$instance['orderby']        = sanitize_key( $new_instance['orderby'] );
-		$instance['all_categories'] = intval( $new_instance['all_categories'] );
-		$instance['category']       = serialize( $new_instance['category'] );
-		$instance['show_date']      = intval( $new_instance['show_date'] );
+
+		$instance['title']          = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['number']         = isset( $new_instance['number'] ) ? absint( $new_instance['number'] ) : 5;
+		$instance['orderby']        = isset( $new_instance['orderby'] ) ? sanitize_key( $new_instance['orderby'] ) : 'post_date';
+		$instance['all_categories'] = isset( $new_instance['all_categories'] ) ? (bool) $new_instance['all_categories'] : false;
+		$instance['category']       = isset( $new_instance['category'] ) ? $new_instance['category'] : array();
+		$instance['show_date']      = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 
 		return $instance;
 	}

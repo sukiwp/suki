@@ -28,6 +28,18 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+// Notice overridable via page settings
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_override_page_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info"><p>' . sprintf(
+		/* translators: %s: link to "Page Settings" section. */
+		esc_html__( 'This is global default setting, optionally you can enable / disable Page Header for each page type via %s.', 'suki' ),
+		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
+	) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Layout
 $id = 'page_header_container';
 $wp_customize->add_setting( $id, array(

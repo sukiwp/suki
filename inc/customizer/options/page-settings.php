@@ -156,34 +156,39 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 		'priority'    => 30,
 	) ) );
 
-	// Disable page header
-	$key = 'disable_page_header';
+	// Page header
+	$key = 'page_header';
 	$id = $option_key . '[' . $key . ']';
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $default, $key ),
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	$wp_customize->add_control( $id, array(
+		'type'        => 'select',
 		'section'     => $section,
-		'label'       => esc_html__( 'Disable page header', 'suki' ),
+		'label'       => esc_html__( 'Page header', 'suki' ),
+		'choices'     => array(
+			''  => esc_html__( 'Default', 'suki' ),
+			'0' => esc_html__( 'Disabled', 'suki' ),
+			'1' => esc_html__( 'Enabled', 'suki' ),
+		),
 		'priority'    => 30,
-	) ) );
+	) );
 
-
-	// Background image
+	// Page header background image
 	$key = 'page_header_bg';
 	$id = $option_key . '[' . $key . ']';
 	if ( false !== strpos( $type, '_singular' ) ) {
 		$post_type_object = get_post_type_object( str_replace( '_singular', '', $type ) );
 		$choices = array(
 			/* translators: %s: plural post type name */
-			'archive'   => sprintf( esc_html__( 'Same as %s archive background image', 'suki' ), $post_type_object->labels->name ),
+			'archive'   => sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_object->labels->name ),
 			/* translators: %s: singular post type name */
-			'thumbnail' => sprintf( esc_html__( 'Use %s featured image as background', 'suki' ), $post_type_object->labels->singular_name ),
+			'thumbnail' => sprintf( esc_html__( 'Use %s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name ),
 		);
 	} else {
 		$choices = array(
-			'custom'    => esc_html__( 'Custom background image', 'suki' ),
+			'custom'    => esc_html__( 'Custom', 'suki' ),
 		);
 	}
 	$wp_customize->add_setting( $id, array(
@@ -193,7 +198,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	$wp_customize->add_control( $id, array(
 		'type'        => 'select',
 		'section'     => $section,
-		'label'       => esc_html__( 'Background image', 'suki' ),
+		'label'       => esc_html__( 'Page header background image', 'suki' ),
 		'choices'     => array_merge(
 			array( '' => esc_html__( 'Default', 'suki' ) ),
 			$choices

@@ -137,7 +137,7 @@
 				var key = e.which || e.keyCode;
 
 				// left key
-				if ( key === 37 ) {
+				if ( 37 === key ) {
 					e.preventDefault();
 
 					if ( this.parentElement.previousElementSibling ) {
@@ -145,7 +145,7 @@
 					}
 				}
 				// right key
-				else if ( key === 39 ) {
+				else if ( 39 === key ) {
 					e.preventDefault();
 
 					if ( this.parentElement.nextElementSibling ) {
@@ -153,7 +153,7 @@
 					}
 				}
 				// down key
-				else if ( key === 40 ) {
+				else if ( 40 === key ) {
 					e.preventDefault();
 
 					if ( this.nextElementSibling ) {
@@ -164,7 +164,7 @@
 					}
 				}
 				// up key
-				else if ( key === 38 ) {
+				else if ( 38 === key ) {
 					e.preventDefault();
 
 					if ( this.parentElement.previousElementSibling ) {
@@ -301,7 +301,7 @@
 				}
 			}
 
-			var $menuToggles = document.querySelectorAll( '.suki-header-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
+			var $menuToggles = document.querySelectorAll( '.suki-header-section-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
 			for ( var i = 0; i < $menuToggles.length; i++ ) {
 				$menuToggles[i].addEventListener( 'click', clickHandler, false );
 				$menuToggles[i].addEventListener( 'touchend', clickHandler, false );
@@ -348,8 +348,10 @@
 						document.body.classList.add( 'suki-has-popup-active' );
 
 						// Put focus on popup.
-						$target.setAttribute( 'tabindex', 0 );
-						$target.focus();
+						setTimeout(function() {
+							$target.setAttribute( 'tabindex', 0 );
+							$target.focus();
+						}, 300 );
 
 				    	// Save this toggle for putting back focus when popup is deactivated.
 						$clickedToggle = this;
@@ -365,6 +367,14 @@
 					deactivatePopup();
 				}, false );
 			}
+
+			document.body.addEventListener( 'keydown', function( e ) {
+				var key = e.which || e.keyCode;
+
+				if ( document.body.classList.contains( 'suki-has-popup-active' ) && 27 === key ) {
+					deactivatePopup();
+				}
+			});
 
 			// When window resize, close Active Popups based on their responsive visibility classes.
 			window.addEventListener( 'resize', function( e ) {

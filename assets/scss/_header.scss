@@ -36,14 +36,11 @@
 // Navigation Menu
 .suki-header-menu {
 	a {
-		// position: relative;
 		display: block;
-		// white-space: nowrap;
 	}
 
 	.suki-menu-item-title {
 		position: relative;
-		z-index: 1;
 	}
 }
 
@@ -94,7 +91,7 @@
 // Header Horizontal
 // -------------------------------------------------------------
 
-.suki-main-header {
+.suki-header-main {
 	position: relative;
 }
 
@@ -360,7 +357,7 @@
 // Vertical Header
 // -------------------------------------------------------------
 
-.suki-header-vertical {
+.suki-header-section-vertical {
 	ul {
 		list-style: none;
 		margin: 0;
@@ -395,7 +392,7 @@
 	}
 }
 
-.suki-header-vertical {
+.suki-header-section-vertical {
 	.menu {
 		.sub-menu {
 			width: 100%;
@@ -418,7 +415,7 @@
 	}
 }
 
-.suki-header-vertical {
+.suki-header-section-vertical {
 	.suki-header-menu {
 		li {
 			position: relative;
@@ -444,38 +441,38 @@
 			cursor: pointer;
 			text-align: center;
 		}
-	}
 
-	&.suki-text-align-left .suki-header-menu {
-		.sub-menu {
-			padding-left: 1.5em;
-		}
-	}
-
-	&.suki-text-align-center .suki-header-menu {
-		li.menu-item-has-children a {
-			margin-right: 0;
-		}
-	}
-
-	&.suki-text-align-right .suki-header-menu {
-		li.menu-item-has-children a {
-			margin-right: 0;
-			margin-left: 1.5em;
+		.suki-text-align-left & {
+			.sub-menu {
+				padding-left: 1.5em;
+			}
 		}
 
-		.sub-menu {
-			padding-right: 1.5em;
+		.suki-text-align-center & {
+			li.menu-item-has-children a {
+				margin-right: 0;
+			}
 		}
 
-		.suki-sub-menu-toggle {
-			right: auto;
-			left: 0;
+		.suki-text-align-right & {
+			li.menu-item-has-children a {
+				margin-right: 0;
+				margin-left: 1.5em;
+			}
+
+			.sub-menu {
+				padding-right: 1.5em;
+			}
+
+			.suki-sub-menu-toggle {
+				right: auto;
+				left: 0;
+			}
 		}
 	}
 }
 
-.suki-header-vertical {
+.suki-header-section-vertical {
 	.suki-header-social {
 		li {
 			display: inline-block;
@@ -491,9 +488,15 @@
 	}
 }
 
-.suki-header-vertical {
+.suki-header-section-vertical {
 	.suki-header-button {
 		max-width: 100%;
+	}
+}
+
+.suki-header-mobile-vertical {
+	.suki-popup-background {
+		background-color: rgba(0,0,0,0.8);
 	}
 }
 
@@ -505,18 +508,19 @@
 	width: 300px; // default
 	@include transition( transform );
 
-	&.suki-header-vertical-position-left {
+	.suki-header-mobile-vertical-position-left & {
 		left: 0;
 		transform: translate( -100%, 0 );
 	}
 
-	&.suki-header-vertical-position-right {
+	.suki-header-mobile-vertical-position-right & {
 		right: 0;
 		transform: translate( 100%, 0 );
 	}
 
 	.suki-popup-active & {
 		transform: translate( 0, 0 ) !important;
+		@include transition( transform 0.25s 0.125s );
 	}
 
 	&-inner {

@@ -19,24 +19,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! function_exists( 'suki_unassigned_menu' ) ) :
 /**
  * Fallback HTML if there is no nav menu assigned to a navigation location.
- * 
- * @param array $args
  */
-function suki_unassigned_menu( $args ) {
+function suki_unassigned_menu() {
 	$labels = get_registered_nav_menus();
+
+	if ( ! is_user_logged_in() || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
 	?>
-	<ul class="menu-blank menu">
-		<li class="menu-item">
-			<a href="<?php echo esc_url( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>">
-				<span>
-					<?php
-					/* translators: %s: menu location name. */
-					printf( esc_html__( 'Assign your menu to %s', 'suki' ), $labels[ $args['theme_location'] ] ); // WPCS: XSS OK
-					?>
-				</span>
-			</a>
-		</li>
-	</ul>
+	<div class="menu-blank menu">
+		<a href="<?php echo esc_url( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>" class="menu-item">
+			<?php esc_html_e( 'Assign menu to this location', 'suki' ); ?>
+		</a>
+	</div>
 	<?php
 }
 endif;
@@ -111,17 +106,18 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 
 	// Get default SVG icons from theme's icons folder.
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
+
+	// Allow modification via filter.
+	$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
+	$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
+
 	ob_start();
-	if ( file_exists( $path ) ) {
+	if ( file_exists( $path ) && 'svg' == strtolower( pathinfo( $path, PATHINFO_EXTENSION ) ) ) {
 		include( $path );
 	} else {
 		include( get_template_directory() . '/assets/icons/_fallback.svg' ); // fallback
 	}
 	$svg = ob_get_clean();
-	
-	// Filters to modify SVG icon.
-	$svg = apply_filters( 'suki/frontend/icon', $svg, $key );
-	$svg = apply_filters( 'suki/frontend/icon/' . $key, $svg );
 
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
@@ -237,14 +233,14 @@ function suki_mobile_vertical_header() {
 	$count = count( $elements );
 
 	if ( 0 < $count ) : ?>
-		<div id="mobile-vertical-header" class="suki-popup suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
-			<div class="suki-popup-close-background suki-popup-close"></div>
+		<div id="mobile-vertical-header" class="suki-header-mobile-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array() ) ) ); ?> suki-header suki-popup suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
+			<div class="suki-popup-background suki-popup-close"></div>
 
-			<div class="suki-header-mobile-vertical-bar suki-header suki-header-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_bar_classes', array() ) ) ); ?>">
+			<div class="suki-header-mobile-vertical-bar suki-header-section-vertical">
 				<div class="suki-header-mobile-vertical-bar-inner suki-header-vertical-inner">
 					<div class="suki-header-vertical-column">
 						<div class="suki-header-mobile-vertical-bar-top suki-header-vertical-row suki-flex-align-left">
-							<?php foreach ( $elements as $element ) suki_header_element( $element, 'mobile_vertical_top' ); ?>
+							<?php foreach ( $elements as $element ) suki_header_element( $element ); ?>
 						</div>
 					</div>
 				</div>
@@ -285,7 +281,7 @@ function suki_main_header() {
 	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
 
 	?>
-	<div id="header" class="suki-main-header suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
+	<div id="header" class="suki-header-main suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
 		<?php
 		// Top Bar (if not merged)
 		if ( ! intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
@@ -338,7 +334,7 @@ function suki_main_header__bar( $bar ) {
 				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row">
 					<?php foreach ( $cols as $col ) : ?>
 						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
-							<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element, $bar . '_' . $col ); ?>
+							<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -384,7 +380,7 @@ function suki_mobile_header() {
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
 						<?php foreach ( $cols as $col ) : ?>
 							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
-								<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element, 'mobile_main_' . $col ); ?>
+								<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
 							</div>
 						<?php endforeach; ?>
 					</div>
@@ -436,39 +432,44 @@ function suki_header_element( $element ) {
 			break;
 
 		case 'menu':
-			/* translators: %s: header menu number. */
-			$aria_label = sprintf( esc_html__( 'Header Menu %s', 'suki' ), str_replace( 'menu-', '', $element ) );
-			?>
-			<nav class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" aria-label="<?php echo esc_attr( $aria_label ); ?>">
-				<?php wp_nav_menu( array(
-					'theme_location' => 'header-' . $element,
-					'fallback_cb'    => 'suki_unassigned_menu',
-					'menu_class'     => 'menu suki-hover-menu',
-					'container'      => false,
-				) ); ?>
-			</nav>
-			<?php 
+			if ( has_nav_menu( 'header-' . $element ) ) {
+				/* translators: %s: header menu number. */
+				$aria_label = sprintf( esc_html__( 'Header Menu %s', 'suki' ), str_replace( 'menu-', '', $element ) );
+				?>
+				<nav class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" aria-label="<?php echo esc_attr( $aria_label ); ?>">
+					<?php wp_nav_menu( array(
+						'theme_location' => 'header-' . $element,
+						'menu_class'     => 'menu suki-hover-menu',
+						'container'      => false,
+					) ); ?>
+				</nav>
+				<?php
+			} else {
+				suki_unassigned_menu();
+			}
 			break;
 
 		case 'mobile-menu':
-			$aria_label = esc_html__( 'Header Mobile Menu', 'suki' );
-			?>
-			<nav class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" aria-label="<?php echo esc_attr( $aria_label ); ?>">
-				<?php wp_nav_menu( array(
-					'theme_location' => 'header-' . $element,
-					'fallback_cb'    => 'suki_unassigned_menu',
-					'menu_class'     => 'menu suki-toggle-menu',
-					'container'      => false,
-					'items_wrap'     => '<ul id="%1$s" class="%2$s" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">%3$s</ul>',
-				) ); ?>
-			</nav>
-			<?php
+			if ( has_nav_menu( 'header-' . $element ) ) {
+				?>
+				<nav class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" aria-label="<?php esc_attr_e( 'Mobile Header Menu', 'suki' ); ?>">
+					<?php wp_nav_menu( array(
+						'theme_location' => 'header-' . $element,
+						'menu_class'     => 'menu suki-toggle-menu',
+						'container'      => false,
+					) ); ?>
+				</nav>
+				<?php
+			} else {
+				suki_unassigned_menu();
+			}
 			break;
 
 		case 'html':
+			$content = suki_get_theme_mod( 'header_' . $key . '_content' );
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
-				<div><?php echo do_shortcode( suki_get_theme_mod( 'header_' . $key . '_content' ) ); ?></div>
+				<div><?php echo do_shortcode( $content ); ?></div>
 			</div>
 			<?php
 			break;
@@ -559,10 +560,7 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  * Render page header section.
  */
 function suki_page_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_page_header' ) ) ) return;
-
-	if ( ! intval( suki_get_theme_mod( 'page_header' ) ) ) return;
-
+	if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) return;
 	?>
 	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
 		<div class="suki-page-header-inner suki-section-inner">
@@ -854,17 +852,20 @@ function suki_footer_element( $element ) {
 	ob_start();
 	switch ( $type ) {
 		case 'menu':
-			?>
-			<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
-				<?php wp_nav_menu( array(
-					'theme_location' => 'footer-' . $element,
-					'fallback_cb'    => 'suki_unassigned_menu',
-					'menu_class'     => 'menu',
-					'container'      => false,
-					'depth'          => -1,
-				) ); ?>
-			</nav>
-			<?php
+			if ( has_nav_menu( 'footer-' . $element ) ) {
+				?>
+				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
+					<?php wp_nav_menu( array(
+						'theme_location' => 'footer-' . $element,
+						'menu_class'     => 'menu',
+						'container'      => false,
+						'depth'          => -1,
+					) ); ?>
+				</nav>
+				<?php
+			} else {
+				suki_unassigned_menu();
+			}
 			break;
 
 		case 'copyright':
@@ -1031,7 +1032,7 @@ function suki_entry_featured_media() {
 
 	printf( // WPCS: XSS OK
 		'<%s class="entry-thumbnail' . ( intval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ? ' suki-entry-thumbnail-ignore-padding' : '' ) . '">%s</%s>',
-		is_singular() ? 'div' : 'a href="' . get_the_permalink() . '"',
+		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		get_the_post_thumbnail( get_the_ID(), array( $content_width, 0 ) ),
 		is_singular() ? 'div' : 'a'
 	);
@@ -1110,7 +1111,7 @@ function suki_entry_grid_featured_media() {
 
 	printf( // WPCS: XSS OK
 		'<%s class="entry-thumbnail">%s</%s>',
-		is_singular() ? 'div' : 'a href="' . get_the_permalink() . '"',
+		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		get_the_post_thumbnail( get_the_ID(), array( $width, 0 ) ),
 		is_singular() ? 'div' : 'a'
 	);

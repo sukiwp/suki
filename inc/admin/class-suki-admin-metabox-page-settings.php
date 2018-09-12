@@ -391,17 +391,17 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'page_header':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable page header', 'suki' ); ?></label>
+					<label class="suki-admin-form-label"><?php esc_html_e( 'Page header', 'suki' ); ?></label>
 					<div class="suki-admin-form-field">
 						<?php
-						$key = 'disable_page_header';
+						$key = 'page_header';
 						Suki_Admin_Fields::render_field( array(
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
 							'choices'     => array(
 								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'0' => esc_html__( 'No', 'suki' ),
-								'1' => esc_html__( 'Yes', 'suki' ),
+								'0' => esc_html__( 'Disabled', 'suki' ),
+								'1' => esc_html__( 'Enabled', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );

@@ -855,11 +855,18 @@ $add['header_mobile_main_bar_link_hover_text_color'] = array(
  * ====================================================
  */
 
+$add['header_mobile_vertical_bar_position'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-header-mobile-vertical',
+		'pattern'  => 'suki-header-mobile-vertical-position-$',
+	),
+);
 $add['header_mobile_vertical_bar_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => '.suki-header-mobile-vertical-bar',
-		'pattern'  => 'suki-header-mobile-vertical-alignment-$',
+		'element'  => '.suki-header-mobile-vertical',
+		'pattern'  => 'suki-text-align-$',
 	),
 );
 
@@ -911,7 +918,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add['header_mobile_vertical_bar_submenu_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => '.suki-header-mobile-vertical-bar .sub-menu .menu .menu-item > a, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
+			'element'  => '.suki-header-mobile-vertical-bar .sub-menu .menu-item > a, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
 			'property' => str_replace( '_', '-', $prop),
 		),
 	);

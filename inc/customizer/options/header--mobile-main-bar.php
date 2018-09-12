@@ -76,7 +76,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	'priority'    => 10,
 ) ) );
 
-// Items gap
+// Items gutter
 $id = 'header_mobile_main_bar_items_gutter';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),

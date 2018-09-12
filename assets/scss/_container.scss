@@ -6,16 +6,6 @@
 	min-height: 100vh;
 	overflow: hidden;
 	@include transition( transform );
-
-	@media screen and ( min-width: $breakpoint_1024 ) {
-		.suki-header-vertical-bar.suki-popup-active.suki-header-vertical-position-left ~ & {
-			transform: translate( 100px, 0 );
-		}
-
-		.suki-header-vertical-bar.suki-popup-active.suki-header-vertical-position-right ~ & {
-			transform: translate( -100px, 0 );
-		}
-	}
 }
 
 #page {
@@ -49,7 +39,6 @@ body.suki-page-layout-boxed {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(0,0,0,0.8);
 	opacity: 0;
 	visibility: hidden;
 	@include transition();
@@ -68,7 +57,7 @@ body.suki-page-layout-boxed {
 	}
 }
 
-.suki-popup-close-background {
+.suki-popup-background {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -163,7 +152,6 @@ body.suki-page-layout-boxed {
 
 .site-content {
 	position: relative;
-	z-index: 1;
 }
 
 .suki-content-row {

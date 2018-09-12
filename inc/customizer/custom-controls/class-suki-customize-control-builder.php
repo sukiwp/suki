@@ -28,12 +28,26 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 	/**
 	 * @var array
 	 */
+	public $locations = array();
+
+	/**
+	 * @var array
+	 */
 	public $limitations = array();
 
 	/**
 	 * @var array
 	 */
 	public $labels = array();
+
+	/**
+	 * Constructor
+	 */
+	public function __construct( $manager, $id, $args = array() ) {
+		parent::__construct( $manager, $id, $args );
+
+		$this->locations = isset( $args['settings'] ) ? $args['settings'] : array( 'default' );
+	}
 
 	/**
 	 * Setup parameters for content rendering by Underscore JS template.

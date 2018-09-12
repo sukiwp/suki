@@ -24,13 +24,6 @@ class Suki_Admin {
 	private $_menu_id = 'suki';
 
 	/**
-	 * Notice array.
-	 *
-	 * @var array
-	 */
-	private $_notices = array();
-
-	/**
 	 * ====================================================
 	 * Singleton & constructor functions
 	 * ====================================================
@@ -56,7 +49,6 @@ class Suki_Admin {
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
-		add_action( 'admin_notices', array( $this, 'show_admin_notice' ) );
 		// add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
 
 		// Classic editor hooks
@@ -110,28 +102,6 @@ class Suki_Admin {
 		 * Hook: suki/admin/menu
 		 */
 		do_action( 'suki/admin/menu' );
-	}
-
-	/**
-	 * Show admin notices.
-	 */
-	public function show_admin_notice() {
-		ksort( $this->_notices );
-
-		foreach ( $this->_notices as $priority => $notices ) {
-			foreach ( $notices as $notice ) {
-				$notice = wp_parse_args( $notice, array(
-					'type'        => 'warning',
-					'text'        => '',
-					'dismissible' => true,
-				) );
-				?>
-				<div class="notice <?php echo esc_attr( 'notice-' . suki_array_value( $notice, 'type' ) ); ?> <?php echo esc_attr( intval( suki_array_value( $notice, 'dismissible' ) ) ? 'is-dismissible' : '' ); ?>">
-					<p><?php echo suki_array_value( $notice, 'text' ); // WPCS: XSS OK ?></p>
-				</div>
-				<?php
-			}
-		}
 	}
 
 	/**
@@ -398,7 +368,7 @@ class Suki_Admin {
 							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
 								<th class="check-column"></th>
 								<td class="suki-admin-pro-table-item-name plugin-title column-primary">
-									<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></a>
+									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>
 								</td>
 								<td class="suki-admin-pro-table-item-actions column-description desc">
 									<?php if ( suki_is_pro() ) : ?>
@@ -408,7 +378,7 @@ class Suki_Admin {
 										<?php endforeach; ?>
 
 									<?php else : ?>
-										<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more', 'suki' ); ?></a>
+										<span><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -514,23 +484,6 @@ class Suki_Admin {
 			</div>
 		<?php endif; ?>
 		<?php
-	}
-
-	/**
-	 * ====================================================
-	 * Public functions
-	 * ====================================================
-	 */
-
-	/**
-	 * Add notice to the notices array.
-	 *
-	 * @param string $message
-	 * @param string $type
-	 * @param integer $priority
-	 */
-	public function add_notice( $notice, $priority = 10 ) {
-		$this->_notices[ $priority ][] = $notice;
 	}
 }
 

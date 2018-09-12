@@ -207,9 +207,10 @@ class Suki {
 
 		// Register menus
 		register_nav_menus( array(
-			'header-menu-1' => esc_html__( 'Header Menu 1', 'suki' ),
+			/* translators: %d: number of Header Menu. */
+			'header-menu-1' => sprintf( esc_html__( 'Header Menu %d', 'suki' ), 1 ),
 			'header-mobile-menu' => esc_html__( 'Mobile Header Menu', 'suki' ),
-			'footer-menu-1' => esc_html__( 'Footer Menu', 'suki' ),
+			'footer-menu-1' => esc_html__( 'Footer Bottom Menu', 'suki' ),
 		) );
 
 		// Enable HTML5 tags for search form, comment form, and comments
@@ -284,6 +285,7 @@ class Suki {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
+		add_action( 'wp_head', array( $this, 'print_custom_css' ) );
 
 		add_filter( 'suki/frontend/inline_css', array( $this, 'add_page_settings_css' ), 25 );
 	}
@@ -307,10 +309,6 @@ class Suki {
 		 * Hook: Styles to included after main CSS
 		 */
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
-
-		// Customizer generated CSS
-		// Use filter to allow priority in adding the CSS.
-		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/inline_css', '' ) ) );
 	}
 
 	/**
@@ -346,6 +344,15 @@ class Suki {
 		 * Hook: Scripts to be included after main JS
 		 */
 		do_action( 'suki/frontend/after_enqueue_main_js', $hook );
+	}
+
+	/**
+	 * Print inline custom CSS.
+	 */
+	public function print_custom_css() {
+		echo '<style type="text/css" id="suki-custom-css">' . "\n"; // WPCS: XSS OK.
+		echo esc_html( trim( apply_filters( 'suki/frontend/inline_css', '' ) ) ) . "\n";
+		echo '</style>' . "\n"; // WPCS: XSS OK.
 	}
 
 	/**
@@ -394,7 +401,7 @@ class Suki {
 		}
 
 		if ( '' !== $page_header_bg_image ) {
-			$css_array['global']['.suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
+			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
 		}
 
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );

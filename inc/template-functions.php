@@ -113,7 +113,7 @@ function suki_template_hooks() {
 		 *
 		 * @see suki_entry_title()
 		 */
-		if ( ! intval( suki_get_theme_mod( 'page_header' ) ) || intval( suki_get_current_page_setting( 'disable_page_header' ) ) ) {
+		if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
 			add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
 		}
 
@@ -148,7 +148,7 @@ function suki_template_hooks() {
 	 * @see suki_entry_header_meta()
 	 * @see suki_entry_title()
 	 */
-	if ( ! is_singular() || ! intval( suki_get_theme_mod( 'page_header' ) ) || intval( suki_get_current_page_setting( 'disable_page_header' ) ) ) {
+	if ( ! is_singular() || ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
 		if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
 			$priority = 10;
 			foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
@@ -275,7 +275,7 @@ function suki_template_hooks() {
 	 */
 
 	if ( is_archive() || is_home() || is_search() ) {
-		if ( ! intval( suki_get_theme_mod( 'page_header' ) ) || intval( suki_get_current_page_setting( 'disable_page_header' ) ) ) {
+		if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
 			/**
 			 * suki/frontend/before_main hook
 			 * 
@@ -563,13 +563,13 @@ add_filter( 'body_class', 'suki_body_classes' );
  * @param array $classes
  * @return array
  */
-function suki_header_mobile_vertical_bar_classes( $classes ) {
-	$classes['position'] = esc_attr( 'suki-header-vertical-position-' . suki_get_theme_mod( 'header_mobile_vertical_bar_position' ) );
+function suki_header_mobile_vertical_classes( $classes ) {
+	$classes['position'] = esc_attr( 'suki-header-mobile-vertical-position-' . suki_get_theme_mod( 'header_mobile_vertical_bar_position' ) );
 	$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) );
 
 	return $classes;
 }
-add_filter( 'suki/frontend/header_mobile_vertical_bar_classes', 'suki_header_mobile_vertical_bar_classes' );
+add_filter( 'suki/frontend/header_mobile_vertical_classes', 'suki_header_mobile_vertical_classes' );
 
 /**
  * Add custom classes to the array of header top bar section classes.

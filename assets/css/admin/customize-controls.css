@@ -940,7 +940,19 @@ div.customize-section-description {
 	}
 	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical,
 	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical {
-		width: 25%;
+		width: 15%;
+	}
+	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location,
+	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location {
+		margin: 0;
+	}
+	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child,
+	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child {
+		margin-top: 2px;
+	}
+	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child,
+	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child {
+		margin-bottom: 2px;
 	}
 }
 
