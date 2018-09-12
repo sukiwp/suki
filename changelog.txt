@@ -2,6 +2,7 @@ v0.5.1
 - NEW: "Page header" option on Page Settings to enable / disable page header (replacing "Disable page header" option).
 - TWEAK: Improve all sanitization and escaping.
 - TWEAK: Improve some strings.
+- FIX: z-index on Content section overlapping Header bottom bar.
 - FIX: Mobile header submenu typography live preview on Customizer.
 - FIX: Page settings fallback values for Page header background image.
 - REMOVE: "Disable page header" option on Page Setting (in favor of the new "Page header" option).
