@@ -351,7 +351,7 @@ class Suki {
 	 */
 	public function print_custom_css() {
 		echo '<style type="text/css" id="suki-custom-css">' . "\n"; // WPCS: XSS OK.
-		echo esc_html( trim( apply_filters( 'suki/frontend/inline_css', '' ) ) ) . "\n";
+		echo wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n";
 		echo '</style>' . "\n"; // WPCS: XSS OK.
 	}
 
