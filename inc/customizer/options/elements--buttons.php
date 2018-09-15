@@ -23,8 +23,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,
-			'max'  => 40,
-			'step' => 0.5,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,
@@ -43,7 +42,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,
-			'max'  => 8,
 			'step' => 1,
 		),
 	),

@@ -1,3 +1,7 @@
+v0.5.3
+- TWEAK: Improve compatibility for Suki Pro.
+- TWEAK: Improve value range on padding, border controls in Customizer.
+
 v0.5.2
 - FIX: custom CSS bug on v0.5.1.
 

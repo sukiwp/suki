@@ -86,7 +86,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,
-			'max'  => 120,
 			'step' => 1,
 		),
 	),

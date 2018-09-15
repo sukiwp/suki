@@ -76,7 +76,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'units'       => array(
 			'px' => array(
 				'min'   => 20,
-				'max'   => 200,
+				'max'   => 300,
 				'step'  => 1,
 			),
 		),
@@ -96,7 +96,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'units'       => array(
 			'px' => array(
 				'min'  => 0,
-				'max'  => 120,
 				'step' => 1,
 			),
 		),
@@ -116,7 +115,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'units'       => array(
 			'px' => array(
 				'min'  => 0,
-				'max'  => 8,
 				'step' => 1,
 			),
 		),
