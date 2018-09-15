@@ -96,7 +96,11 @@
 }
 
 .suki-header-section {
+	position: relative;
+
 	.suki-section-inner {
+		height: 100%;
+		background-color: #fff; // default
 		@include transition( background-color, border-color, color );
 	}
 
@@ -238,13 +242,11 @@
 }
 
 .suki-header-top-bar {
+	height: 40px; // default
+
 	&-inner {
 		z-index: 3;
 		border-width: 0 0 1px 0; // default
-	}
-
-	&-row {
-		height: 40px; // default
 	}
 
 	a:not(.button), .suki-toggle {
@@ -269,13 +271,11 @@
 }
 
 .suki-header-main-bar {
+	height: 80px; // default
+
 	&-inner {
 		z-index: 2;
 		border-width: 0 0 1px 0; // default
-	}
-
-	&-row {
-		height: 80px; // default
 	}
 
 	a:not(.button), .suki-toggle {
@@ -300,13 +300,11 @@
 }
 
 .suki-header-bottom-bar {
+	height: 40px; // default
+
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
-	}
-
-	&-row {
-		height: 40px; // default
 	}
 
 	a:not(.button), .suki-toggle {
@@ -331,13 +329,11 @@
 }
 
 .suki-header-mobile-main-bar {
+	height: 60px; // default
+
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
-	}
-
-	&-row {
-		height: 60px; // default
 	}
 
 	a:not(.button), .suki-toggle {

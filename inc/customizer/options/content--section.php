@@ -57,11 +57,18 @@ $wp_customize->add_control( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_override_content_layout', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'description' => '<div class="notice notice-info"><p>' . sprintf(
+	'description' => sprintf(
 		/* translators: %s: link to "Page Settings" section. */
 		esc_html__( 'Settings above are global default, optionally you can set different layout for each page type via %s.', 'suki' ),
 		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
-	) . '</p></div>',
+	),
+	'priority'    => 10,
+) ) );
+
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_content_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
 	'priority'    => 10,
 ) ) );
 

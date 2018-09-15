@@ -404,38 +404,14 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
-		'header-alternative-colors' => array(
-			'label'   => esc_html__( 'Alternative Header Colors', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
 		'footer-advanced' => array(
 			'label'   => esc_html__( 'Footer (Advanced)', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
 		),
-		'preloader' => array(
-			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
-		'blocks' => array(
-			'label'   => esc_html__( 'Portable Content Blocks', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
-		'blog-advanced' => array(
-			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
-		'woocommerce-advanced' => array(
-			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
+		'custom-blocks' => array(
+			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
@@ -454,6 +430,24 @@ function suki_get_pro_modules() {
 		),
 		'color-palette' => array(
 			'label'   => esc_html__( 'Color Palette', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'preloader' => array(
+			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'blog-advanced' => array(
+			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'woocommerce-advanced' => array(
+			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,

@@ -29,6 +29,27 @@
 		};
 	}
 
+	window.sukiHelper = {
+		/**
+		 * Helper function to get element's offset.
+		 */
+		getOffset: function( $el ) {
+			var rect = $el.getBoundingClientRect();
+
+			return {
+				top: rect.top + window.pageYOffset,
+				left: rect.left + window.pageXOffset,
+			}
+		},
+
+		/**
+		 * Helper function to check if element's visible or not.
+		 */
+		isVisible: function( $el ) {
+			return $el.offsetWidth > 0 && $el.offsetHeight > 0;
+		},
+	}
+
 	window.suki = {
 		/**
 		 * Function to check RTL
@@ -62,8 +83,8 @@
 				for ( var i = 0; i < $submenus.length; i++ ) {
 					var $submenu = $submenus[i],
 					    $wrapper = $submenu.closest( '.suki-wrapper' ),
-						wrapperEdge = $wrapper.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $wrapper.offsetWidth ),
-						submenuEdge = $submenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $submenu.offsetWidth ),
+						wrapperEdge = $wrapper.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $wrapper.getBoundingClientRect().width ),
+						submenuEdge = $submenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
 						isSubmenuOverflow = window.suki.isRTL() ? submenuEdge < wrapperEdge : submenuEdge > wrapperEdge;
 
 					// Reset inline styling.
@@ -80,7 +101,7 @@
 					var $subsubmenus = $submenu.querySelectorAll( '.sub-menu' );
 					for ( var j = 0; j < $subsubmenus.length; j++ ) {
 						var $subsubmenu = $subsubmenus[j],
-						    subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $subsubmenu.offsetWidth ),
+						    subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
 							isSubsubmenuOverflow = window.suki.isRTL() ? subsubmenuEdge < wrapperEdge : subsubmenuEdge > wrapperEdge;
 
 						// Apply class and left position.
@@ -255,7 +276,7 @@
 			 * Close Handler
 			 */
 
-			var closeToggle = function ( e ) {
+			var closeToggle = function( e ) {
 				// Make sure click event doesn't happen inside the toggle.
 				if ( ! e.target.closest( '.suki-toggle-menu' ) ) {
 					var $header = document.getElementById( 'masthead' ),

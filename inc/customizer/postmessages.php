@@ -626,8 +626,13 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_height'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . '-row',
+			'element'  => '.suki-header-' . $bar,
 			'property' => 'height',
+		),
+		array(
+			'type'     => 'html',
+			'element'  => '.suki-header-' . $bar,
+			'property' => 'data-height',
 		),
 	);
 	$add['header_' . $type . '_padding'] = array(
@@ -773,7 +778,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 $add['header_mobile_main_bar_height'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar-row',
+		'element'  => '.suki-header-mobile-main-bar',
 		'property' => 'height',
 	),
 );

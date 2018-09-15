@@ -319,8 +319,16 @@ function suki_main_header__bar( $bar ) {
 
 	if ( 1 > $count ) return;
 
+	$attrs_array = apply_filters( 'suki/frontend/header_' . $bar . '_bar_attrs', array(
+		'data-height' => intval( suki_get_theme_mod( 'header_' . $bar . '_bar_height' ) ),
+	) );
+	$attrs = '';
+	foreach ( $attrs_array as $key => $value ) {
+		$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+	}
+
 	?>
-	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>">
+	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>" <?php echo ( $attrs ); // WPCS: XSS OK. ?>>
 		<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 
@@ -373,8 +381,17 @@ function suki_mobile_header() {
 		}
 
 		if ( 1 > $count ) return;
+
+		$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
+			'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
+		) );
+		$attrs = '';
+		foreach ( $attrs_array as $key => $value ) {
+			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+		}
+
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>">
+		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo ( $attrs ); // WPCS: XSS OK. ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
