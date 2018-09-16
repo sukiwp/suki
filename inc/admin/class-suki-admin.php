@@ -59,7 +59,7 @@ class Suki_Admin {
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__welcome_panel' ), 1 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_modules_table' ), 20 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__pro' ), 20 );
+		// add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__pro' ), 20 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__community' ), 40 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
@@ -367,7 +367,7 @@ class Suki_Admin {
 				// Get all pro modules list.
 				$modules = suki_get_pro_modules();
 				?>
-				<table class="widefat plugins">
+				<table class="suki-admin-pro-table widefat plugins">
 					<tbody>
 						<?php foreach( $modules as $module_slug => $module_data ) : ?>
 							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
@@ -415,13 +415,13 @@ class Suki_Admin {
 		if ( suki_is_pro() ) return;
 		?>
 		<div class="suki-admin-secondary-pro postbox">
-			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
+			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?>&nbsp;&nbsp;<span class="suki-admin-pro-coming-soon"><?php esc_html_e( 'coming soon', 'suki' ); ?></span></h2>
 			<div class="inside">
 				<p><?php esc_html_e( 'Make your site even better with our premium modules, available in a very affordable price.', 'suki' ); ?></p>
 				<p>
 					<a href="<?php echo SUKI_PRO_URL; // WPCS: XSS OK ?>" class="button button-large button-secondary" target="_blank" rel="noopener">
 						<span class="dashicons dashicons-unlock"></span>
-						<?php echo esc_html_x( 'Upgrade to Suki Pro', 'Suki Pro upsell', 'suki' ); ?>
+						<?php echo esc_html_x( 'More about Suki Pro', 'Suki Pro upsell', 'suki' ); ?>
 					</a>
 				</p>
 			</div>

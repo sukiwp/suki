@@ -449,13 +449,17 @@ msgstr ""
 msgid "Suki Pro"
 msgstr ""
 
+#: inc/admin/class-suki-admin.php:418
+msgid "coming soon"
+msgstr ""
+
 #: inc/admin/class-suki-admin.php:420
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:424
 msgctxt "Suki Pro upsell"
-msgid "Upgrade to Suki Pro"
+msgid "More about Suki Pro"
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:438

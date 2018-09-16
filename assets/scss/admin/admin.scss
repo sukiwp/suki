@@ -586,6 +586,15 @@ input, select, textarea {
 // Suki > Dashboard
 // -------------------------------------------------------------
 
+.suki-admin-pro-coming-soon {
+	padding: 0.125em 0.25em;
+	border-radius: 2px;
+	background-color: #ca4a1f;
+	color: #fff;
+	font-size: 0.75em;
+	text-transform: uppercase;
+}
+
 .suki-admin-welcome-panel {
 	padding: 0;
 
@@ -595,7 +604,6 @@ input, select, textarea {
 
 		&:before {
 			content: "🎉";
-			// content: "🎊";
 			position: absolute;
 			left: 30px;
 			top: 30px;
@@ -607,6 +615,12 @@ input, select, textarea {
 
 	h2 {
 		margin-bottom: 0.4em;
+	}
+
+	hr {
+		margin: 20px 0 0;
+		border-top: 1px solid #f3f4f5;
+		border-bottom: none;
 	}
 }
 
@@ -632,11 +646,6 @@ input, select, textarea {
 			border-top: none !important;
 			box-shadow: none !important;
 		}
-	}
-
-	.suki-admin-pro-table-group-heading {
-		font-weight: 500 !important;
-		background-color: #f9f9f9;
 	}
 
 	.suki-admin-pro-table-item-name {
