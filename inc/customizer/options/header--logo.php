@@ -33,7 +33,6 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Logo image', 'suki' ),
-	'description' => esc_html__( 'Supports JPG, PNG, or SVG format', 'suki' ),
 	'mime_type'   => 'image',
 	'priority'    => 10,
 ) ) );
@@ -80,7 +79,6 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Mobile Logo image', 'suki' ),
-	'description' => esc_html__( 'Supports .JPG, .PNG, or .SVG format', 'suki' ),
 	'mime_type'   => 'image',
 	'priority'    => 20,
 ) ) );

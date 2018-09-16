@@ -49,7 +49,7 @@ class Suki_Admin {
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
-		// add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
+		add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
@@ -114,8 +114,10 @@ class Suki_Admin {
 			<div class="suki-admin-theme-notice notice notice-info">
 				<div class="suki-admin-theme-notice-arrow"></div>
 				<p>
-					<?php // esc_html_e( 'Fell in love with this screenshot? Learn how to replicate the same design into your site.', 'suki' ); ?>&nbsp;
-					<a href=""></a>
+					<?php printf(
+						esc_html__( 'Fell in love with this screenshot? Learn how to replicate the same design %s.', 'suki' ),
+						'<a href="' . esc_url( 'https://docs.sukiwp.com/article/getting-started/replicating-theme-screenshot/' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suki' ) . '</a>'
+					); ?>
 				</p>
 			</div>
 			<script type="text/javascript">
@@ -334,16 +336,19 @@ class Suki_Admin {
 		<div class="suki-admin-welcome-panel welcome-panel">
 			<div class="welcome-panel-content">
 				<h2>
-					<?php
-					/* translators: %s: theme name */
-					printf( esc_html__( 'Welcome to %s', 'suki' ), suki_get_theme_info( 'name' ) ); // WPCS: XSS OK
-					?>
+					<?php printf(
+						/* translators: %s: theme name. */
+						esc_html__( 'Welcome to %s!', 'suki' ),
+						suki_get_theme_info( 'name' )
+					); ?>
 				</h2>
 				<p class="about-description">
-					<?php
-					/* translators: %s: theme name */
-					printf( esc_html__( 'You can start customizing by going to the Customizer page. Or if you need more details about how to use %s, please check our Documentation page.', 'suki' ), suki_get_theme_info( 'name' ) ); // WPCS: XSS OK
-					?>
+					<?php printf(
+						/* translators: %1$s: theme name; %1$2: link to theme URL. */
+						esc_html__( 'Let\'s make your website better and faster. Read more about %1$s\'s features at %2$s.', 'suki' ),
+						suki_get_theme_info( 'name' ),
+						'<a href="' . esc_url( suki_get_theme_info( 'url' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'our website', 'suki' ) . '</a>'
+					); ?>
 				</p>
 			</div>
 		</div>
@@ -371,14 +376,14 @@ class Suki_Admin {
 									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>
 								</td>
 								<td class="suki-admin-pro-table-item-actions column-description desc">
-									<?php if ( suki_is_pro() ) : ?>
+									<?php if ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
 
 										<?php foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) : ?>
 											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
 										<?php endforeach; ?>
 
 									<?php else : ?>
-										<span><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
+										<span class="suki-admin-pro-table-item-coming-soon"><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -469,20 +474,18 @@ class Suki_Admin {
 	 */
 	public function render_sidebar__feedback() {
 		?>
-		<?php if ( false ) : ?>
-			<div class="suki-admin-secondary-rate postbox">
-				<h2 class="hndle"><?php esc_html_e( 'Enjoy Suki?', 'suki' ); ?></h2>
-				<div class="inside">
-					<p><?php esc_html_e( 'Please take a minute to leave a review on Suki, we would really appreciate it!', 'suki' ); ?></p>
-					<p>
-						<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-secondary" target="_blank" rel="noopener">
-							<span class="dashicons dashicons-thumbs-up"></span>
-							<?php esc_html_e( 'Rate us &#9733;&#9733;&#9733;&#9733;&#9733;', 'suki' ); ?>
-						</a>
-					</p>
-				</div>
+		<div class="suki-admin-secondary-rate postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Enjoy Suki?', 'suki' ); ?></h2>
+			<div class="inside">
+				<p><?php esc_html_e( 'Please take a minute to leave a review on Suki, we would really appreciate it!', 'suki' ); ?></p>
+				<p>
+					<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-secondary" target="_blank" rel="noopener">
+						<span class="dashicons dashicons-thumbs-up"></span>
+						<?php esc_html_e( 'Rate us &#9733;&#9733;&#9733;&#9733;&#9733;', 'suki' ); ?>
+					</a>
+				</p>
 			</div>
-		<?php endif; ?>
+		</div>
 		<?php
 	}
 }
