@@ -79,6 +79,20 @@ function suki_template_hooks() {
 	add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
 
 	/**
+	 * suki/frontend/logo hook
+	 *
+	 * @see suki_default_logo()
+	 */
+	add_action( 'suki/frontend/logo', 'suki_default_logo', 10 );
+
+	/**
+	 * suki/frontend/mobile_logo hook
+	 *
+	 * @see suki_default_mobile_logo()
+	 */
+	add_action( 'suki/frontend/mobile_logo', 'suki_default_mobile_logo', 10 );
+
+	/**
 	 * suki/frontend/after_header hook
 	 *
 	 * @see suki_page_header()

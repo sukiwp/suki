@@ -1293,12 +1293,14 @@ body.suki-page-layout-boxed #page {
 	margin: 0;
 }
 
-.suki-header-logo .site-title > a > svg,
-.suki-header-logo .site-title > a > img,
-.suki-header-mobile-logo .site-title > a > svg,
-.suki-header-mobile-logo .site-title > a > img {
+.suki-header-logo .suki-logo,
+.suki-header-mobile-logo .suki-logo {
 	display: block;
 	width: 100px;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .suki-header-menu a {

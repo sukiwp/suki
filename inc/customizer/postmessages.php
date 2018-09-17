@@ -555,14 +555,14 @@ foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachme
 $add['header_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-logo .site-title > a > img, .suki-header-logo .site-title > a > svg',
+		'element'  => '.suki-header-logo .suki-logo',
 		'property' => 'width',
 	),
 );
 $add['header_mobile_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-logo .site-title > a > img, .suki-header-mobile-logo .site-title > a > svg',
+		'element'  => '.suki-header-mobile-logo .suki-logo',
 		'property' => 'width',
 	),
 );
@@ -628,11 +628,6 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar,
 			'property' => 'height',
-		),
-		array(
-			'type'     => 'html',
-			'element'  => '.suki-header-' . $bar,
-			'property' => 'data-height',
 		),
 	);
 	$add['header_' . $type . '_padding'] = array(

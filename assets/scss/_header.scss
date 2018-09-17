@@ -22,14 +22,12 @@
 	.site-title {
 		margin: 0;
 		@extend %small-title;
+	}
 
-		> a {
-			> svg,
-			> img {
-				display: block;
-				width: 100px; // default
-			}
-		}
+	.suki-logo {
+		display: block;
+		width: 100px; // default
+		@include transition();
 	}
 }
 
