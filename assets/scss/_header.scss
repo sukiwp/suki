@@ -17,17 +17,19 @@
 }
 
 // Logo
-.suki-header-logo,
-.suki-header-mobile-logo {
-	.site-title {
-		margin: 0;
-		@extend %small-title;
-	}
+.site-title {
+	margin: 0;
+	@extend %small-title;
+}
 
-	.suki-logo {
-		display: block;
-		width: 100px; // default
-		@include transition();
+.suki-logo {
+	display: block;
+	width: 100px; // default
+	@include transition();
+
+	img, svg {
+		max-width: 100%;
+		vertical-align: bottom;
 	}
 }
 
@@ -99,7 +101,7 @@
 	.suki-section-inner {
 		height: 100%;
 		background-color: #fff; // default
-		@include transition( background-color, border-color, color );
+		@include transition( background-color, border-color, color, height );
 	}
 
 	.suki-wrapper {

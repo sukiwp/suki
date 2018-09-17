@@ -581,7 +581,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-builder.php:140
+#: inc/customizer/custom-controls/class-suki-customize-control-builder.php:135
 msgid "Add element"
 msgstr ""
 

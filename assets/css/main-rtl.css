@@ -175,8 +175,7 @@ h2, .h2 {
 	line-height: 1.5;
 }
 
-.page-header .page-title, .suki-header-logo .site-title,
-.suki-header-mobile-logo .site-title, .comments-title, .comment-reply-title, h3, .h3 {
+.page-header .page-title, .site-title, .comments-title, .comment-reply-title, h3, .h3 {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
@@ -1288,19 +1287,22 @@ body.suki-page-layout-boxed #page {
 	position: relative;
 }
 
-.suki-header-logo .site-title,
-.suki-header-mobile-logo .site-title {
+.site-title {
 	margin: 0;
 }
 
-.suki-header-logo .suki-logo,
-.suki-header-mobile-logo .suki-logo {
+.suki-logo {
 	display: block;
 	width: 100px;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.suki-logo img, .suki-logo svg {
+	max-width: 100%;
+	vertical-align: bottom;
 }
 
 .suki-header-menu a {
@@ -1355,8 +1357,8 @@ body.suki-page-layout-boxed #page {
 .suki-header-section .suki-section-inner {
 	height: 100%;
 	background-color: #fff;
-	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s;
-	transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s, height 0.25s;
+	transition: background-color 0.25s, border-color 0.25s, color 0.25s, height 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }

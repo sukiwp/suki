@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer custom control: Slider
+ * Customizer custom control: Dimension
  *
  * @package Suki
  */
@@ -8,15 +8,15 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_Slider' ) ) :
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_Dimension' ) ) :
 /**
- * Slider control class
+ * Dimension control class
  */
-class Suki_Customize_Control_Slider extends WP_Customize_Control {
+class Suki_Customize_Control_Dimension extends WP_Customize_Control {
 	/**
 	 * @var string
 	 */
-	public $type = 'suki-slider';
+	public $type = 'suki-dimension';
 
 	/**
 	 * Available choices: px, em, %.
@@ -24,11 +24,6 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 	 * @var array
 	 */
 	public $units = array( '' );
-
-	/**
-	 * @var boolean
-	 */
-	public $hide_units = false;
 
 	/**
 	 * Constructor
@@ -86,15 +81,6 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 				'unit' => $unit,
 			);
 
-			// Add reset value.
-			if ( isset( $setting->default ) ) {
-				$reset_number = '' === $value ? '' : floatval( $setting->default );
-				$reset_unit = str_replace( $reset_number, '', $setting->default );
-				
-				$this->json['inputs'][ $setting_key ]['reset_number'] = $reset_number;
-				$this->json['inputs'][ $setting_key ]['reset_unit'] = $reset_unit;
-			}
-
 			// Add to structures array.
 			$device = 'desktop';
 			if ( false !== strpos( $setting->id, '__' ) ) {
@@ -105,15 +91,6 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		}
 
 		$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
-
-		$this->json['hide_units'] = 1 == $this->hide_units ? true : false;
-	}
-
-	/**
-	 * Enqueue additional control's CSS or JS scripts.
-	 */
-	public function enqueue() {
-		wp_enqueue_style( 'jquery-ui-slider' );
 	}
 
 	/**
@@ -138,25 +115,19 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		<# } #>
 		<div class="customize-control-content">
 			<# _.each( data.structures, function( setting_key, device ) { #>
-				<div class="suki-slider-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
+				<div class="suki-dimension-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
 					<div class="suki-row-item" style="width: 100%;">
-						<div class="suki-slider-ui"></div>
+						<input class="suki-dimension-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
-					<div class="suki-row-item" style="width: 50px;">
-						<input class="suki-slider-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
-					</div>
-					<div class="suki-row-item" style="width: 30px; {{ data.hide_units ? 'display: none;' : '' }}">
-						<select class="suki-slider-unit suki-unit">
+					<div class="suki-row-item" style="width: 30px;">
+						<select class="suki-dimension-unit suki-unit">
 							<# _.each( data.units, function( unit_data, unit ) { #>
 								<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
 							<# }); #>
 						</select>
 					</div>
-					<div class="suki-row-item" style="width: 20px;">
-						<span class="suki-slider-reset dashicons dashicons-image-rotate" data-number="{{ data.inputs[ setting_key ].reset_number }}" data-unit="{{ data.inputs[ setting_key ].reset_unit }}" tabindex="0"></span>
-					</div>
 
-					<input type="hidden" class="suki-slider-value" value="{{ data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
+					<input type="hidden" class="suki-dimension-value" value="{{ data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
 				</div>
 			<# }); #>
 		</div>
@@ -165,5 +136,5 @@ class Suki_Customize_Control_Slider extends WP_Customize_Control {
 }
 
 // Register control type.
-$wp_customize->register_control_type( 'Suki_Customize_Control_Slider' );
+$wp_customize->register_control_type( 'Suki_Customize_Control_Dimension' );
 endif;

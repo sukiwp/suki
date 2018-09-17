@@ -73,7 +73,7 @@ $id = 'container_width';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
@@ -100,7 +100,7 @@ foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
 		'default'     => suki_array_value( $defaults, $setting ),
 		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 	) );
 }
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
@@ -138,7 +138,7 @@ $id = 'boxed_page_width';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,

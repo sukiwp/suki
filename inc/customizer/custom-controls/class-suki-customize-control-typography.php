@@ -62,7 +62,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 				// Convert raw value string into number and unit.
 				$number = '' === $value ? '' : floatval( $value );
 				$unit = str_replace( $number, '', $value );
-				if ( '' === $unit ) {
+				if ( ! array_key_exists( $unit, $units ) ) {
 					$unit = key( $units );
 				}
 
