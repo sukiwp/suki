@@ -20,12 +20,13 @@
 .site-title {
 	margin: 0;
 	@extend %small-title;
+	position: relative;
 }
 
 .suki-logo {
 	display: block;
 	width: 100px; // default
-	@include transition();
+	@include transition( color );
 
 	img, svg {
 		max-width: 100%;
@@ -99,9 +100,9 @@
 	position: relative;
 
 	.suki-section-inner {
-		height: 100%;
+		height: inherit;
 		background-color: #fff; // default
-		@include transition( background-color, border-color, color, height );
+		@include transition( background-color, border-color, color );
 	}
 
 	.suki-wrapper {

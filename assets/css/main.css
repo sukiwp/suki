@@ -1289,13 +1289,14 @@ body.suki-page-layout-boxed #page {
 
 .site-title {
 	margin: 0;
+	position: relative;
 }
 
 .suki-logo {
 	display: block;
 	width: 100px;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
+	-webkit-transition: color 0.25s;
+	transition: color 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -1355,10 +1356,10 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-header-section .suki-section-inner {
-	height: 100%;
+	height: inherit;
 	background-color: #fff;
-	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s, height 0.25s;
-	transition: background-color 0.25s, border-color 0.25s, color 0.25s, height 0.25s;
+	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+	transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
