@@ -90,6 +90,9 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
+		<# if ( data.name === 'page_header_title_typography' ) {
+			console.log( data );
+		} #>
 		<# var labels = {
 			font_family: '<?php esc_html_e( 'Font', 'suki' ); ?>',
 			font_weight: '<?php esc_html_e( 'Weight', 'suki' ); ?>',
@@ -153,7 +156,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 			</p>
 			<# _.each( data.structures, function( setting_keys, device ) { #>
 				<div class="suki-typography-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
-					<# _.each( setting_keys, function( setting_data, setting_key ) { #>
+					<# _.each( setting_keys, function( setting_key, setting_type ) { #>
 						<# if ( data.inputs[ setting_key ] ) { #>
 							<label class="suki-row-item">
 								<span class="suki-small-label">{{ labels[ setting_key ] }}</span>
@@ -163,7 +166,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 									</span>
 									<span class="suki-row-item" style="width: 30px;">
 										<select class="suki-typography-size-unit suki-unit">
-											<# _.each( units[ setting_key ], function( unit_data, unit ) { #>
+											<# _.each( units[ setting_type ], function( unit_data, unit ) { #>
 												<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
 											<# }); #>
 										</select>

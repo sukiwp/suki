@@ -1,8 +1,10 @@
 v0.5.3
-- TWEAK: Improve Gutenberg compatibility styles.
+- NEW: Customizer's dimension control.
+- TWEAK: Improve default compatibility styles for Gutenberg.
 - TWEAK: Improve compatibility for Suki Pro.
-- TWEAK: Improve value range on padding, border controls in Customizer.
+- TWEAK: Improve value range on all padding, border controls in Customizer.
 - TWEAK: Improve Suki admin page content and design.
+- FIX: Responsive settings on Customizer's Typography control.
 - FIX: "Hide post title" option (Page Settings) bug on static page.
 - REMOVE: Section side padding options on Customizer -- now is default in theme CSS.
 - REMOVE: Gutenberg options on Customizer -- now is default in theme CSS.

@@ -172,7 +172,7 @@
 				$input.on( 'change', function( e ) {
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
 
-					control.setting.set( value );
+					$value.val( value ).trigger( 'change' );
 				});
 			});
 		}
@@ -233,7 +233,7 @@
 
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
 
-					control.setting.set( value );
+					$value.val( value ).trigger( 'change' );
 				});
 			});
 		}
@@ -294,7 +294,7 @@
 
 					var value = values.join( ' ' );
 
-					control.setting.set( value );
+					$value.val( value ).trigger( 'change' );
 				});
 			});
 		}
@@ -331,7 +331,7 @@
 				$input.on( 'change', function( e ) {
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
 
-					control.setting.set( value );
+					$value.val( value ).trigger( 'change' );
 				});
 			});
 		}
