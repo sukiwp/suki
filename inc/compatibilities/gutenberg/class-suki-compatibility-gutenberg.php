@@ -41,6 +41,9 @@ class Suki_Compatibility_Gutenberg {
 	protected function __construct() {
 		// Compatibility CSS
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+
+		// Customizer settings & values
+		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 	}
 
 	/**
@@ -55,6 +58,18 @@ class Suki_Compatibility_Gutenberg {
 	public function enqueue_css() {
 		wp_enqueue_style( 'suki-gutenberg', SUKI_CSS_URL . '/compatibilities/gutenberg' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-gutenberg', 'rtl', 'replace' );
+	}
+
+	/**
+	 * Add postmessage rules for some Customizer settings.
+	 *
+	 * @param array $postmessages
+	 * @return array
+	 */
+	public function add_customizer_setting_postmessages( $postmessages = array() ) {
+		include( SUKI_INCLUDES_DIR . '/compatibilities/gutenberg/customizer/postmessages.php' );
+
+		return $postmessages;
 	}
 }
 
