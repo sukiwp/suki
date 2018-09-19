@@ -128,7 +128,9 @@ function suki_template_hooks() {
 		 * @see suki_entry_title()
 		 */
 		if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
-			add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
+			if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
+				add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
+			}
 		}
 
 		/**

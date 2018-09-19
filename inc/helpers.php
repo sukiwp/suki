@@ -467,12 +467,12 @@ function suki_get_pro_modules() {
  * @return array
  */
 function suki_get_fallback_page_settings() {
-	return array(
+	return apply_filters( 'suki/dataset/fallback_page_settings', array(
 		'content_container'    => suki_get_theme_mod( 'content_container', 'default' ),
 		'content_layout'       => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
 		'page_header'          => suki_get_theme_mod( 'page_header', 0 ),
 		'page_header_bg_image' => suki_get_theme_mod( 'page_header_bg_image', '' ),
-	);
+	) );
 }
 
 /**

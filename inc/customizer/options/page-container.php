@@ -89,36 +89,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 20,
 ) ) );
 
-// Section side padding
-$id = 'edge_padding';
-$settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
-);
-foreach ( $settings as $setting ) {
-	$wp_customize->add_setting( $setting, array(
-		'default'     => suki_array_value( $defaults, $setting ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-	) );
-}
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
-	'settings'    => $settings,
-	'section'     => $section,
-	'label'       => esc_html__( 'Section side padding', 'suki' ),
-	'description' => esc_html__( 'Padding on left & right side of each section to prevent collision between content and edges.', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'max'  => 60,
-			'step' => 1,
-		),
-	),
-	'priority'    => 20,
-) ) );
-
-
 /**
  * ====================================================
  * Boxed Page

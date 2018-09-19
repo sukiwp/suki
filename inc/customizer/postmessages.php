@@ -503,22 +503,6 @@ $add['container_width'] = array(
 		'property' => 'max-width',
 	),
 );
-$responsive = array(
-	'' => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
-);
-foreach ( $responsive as $suffix => $media ) {
-	$add['edge_padding' . $suffix ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-section-contained, .suki-section-default .suki-section-inner, .suki-section-full-width-padding .suki-section-inner',
-			'property' => 'padding',
-			'pattern'  => '0 $',
-			'media'    => $media,
-		),
-	);
-}
 $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',

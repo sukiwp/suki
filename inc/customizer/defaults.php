@@ -201,9 +201,6 @@ $add['boxed_page_width'] = '1400px';
 $add['boxed_page_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0.05)';
 $add['container_width'] = '1140px';
 
-$add['edge_padding'] = '25px';
-$add['edge_padding__tablet'] = '20px';
-$add['edge_padding__mobile'] = '15px';
 $add['page_bg_color'] = $colors['bg'];
 
 $add['outside_bg_color'] = $colors['border'];

@@ -195,7 +195,7 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: inc/template-functions.php:456
+#: inc/template-functions.php:458
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:127, inc/customizer/custom-controls/class-suki-customize-control-typography.php:145, inc/customizer/custom-controls/class-suki-customize-control-typography.php:162, inc/customizer/options/page-container.php:240, inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:67, inc/customizer/options/page-settings.php:171, inc/customizer/options/page-settings.php:203
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:127, inc/customizer/custom-controls/class-suki-customize-control-typography.php:145, inc/customizer/custom-controls/class-suki-customize-control-typography.php:162, inc/customizer/options/page-container.php:210, inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:67, inc/customizer/options/page-settings.php:171, inc/customizer/options/page-settings.php:203
 msgid "Default"
 msgstr ""
 
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-grid.php:49, inc/customizer/options/footer--widgets-bar.php:94, inc/compatibilities/gutenberg/customizer/options/elements--gutenberg.php:51
+#: inc/customizer/options/blog--entry-grid.php:49, inc/customizer/options/footer--widgets-bar.php:94
 msgid "Columns gutter"
 msgstr ""
 
@@ -842,7 +842,7 @@ msgstr ""
 msgid "Settings above are global default, optionally you can set different layout for each page type via %s."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:63, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:426, inc/compatibilities/gutenberg/customizer/options/_sections.php:25
+#: inc/customizer/options/content--section.php:63, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:426
 msgid "Page Settings"
 msgstr ""
 
@@ -1381,115 +1381,107 @@ msgstr ""
 msgid "The maximum width of center content wrapper."
 msgstr ""
 
-#: inc/customizer/options/page-container.php:109
-msgid "Section side padding"
-msgstr ""
-
-#: inc/customizer/options/page-container.php:110
-msgid "Padding on left & right side of each section to prevent collision between content and edges."
-msgstr ""
-
-#: inc/customizer/options/page-container.php:132
+#: inc/customizer/options/page-container.php:102
 msgid "Boxed Page"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:145
+#: inc/customizer/options/page-container.php:115
 msgid "Boxed page max width"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:165
+#: inc/customizer/options/page-container.php:135
 msgid "Boxed page shadow"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:185
+#: inc/customizer/options/page-container.php:155
 msgid "Outside background color"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:198
+#: inc/customizer/options/page-container.php:168
 msgid "Outside background image"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:213
+#: inc/customizer/options/page-container.php:183
 msgid "Outside background position"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:215
+#: inc/customizer/options/page-container.php:185
 msgid "Left top"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:216
+#: inc/customizer/options/page-container.php:186
 msgid "Left center"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:217
+#: inc/customizer/options/page-container.php:187
 msgid "Left bottom"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:218
+#: inc/customizer/options/page-container.php:188
 msgid "Center top"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:219
+#: inc/customizer/options/page-container.php:189
 msgid "Center center"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:220
+#: inc/customizer/options/page-container.php:190
 msgid "Center bottom"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:221
+#: inc/customizer/options/page-container.php:191
 msgid "Right top"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:222
+#: inc/customizer/options/page-container.php:192
 msgid "Right center"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:223
+#: inc/customizer/options/page-container.php:193
 msgid "Right bottom"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:238
+#: inc/customizer/options/page-container.php:208
 msgid "Outside background size"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:241
+#: inc/customizer/options/page-container.php:211
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:242
+#: inc/customizer/options/page-container.php:212
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:257
+#: inc/customizer/options/page-container.php:227
 msgid "Outside background repeat"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:259
+#: inc/customizer/options/page-container.php:229
 msgid "No repeat"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:260
+#: inc/customizer/options/page-container.php:230
 msgid "Repeat X (horizontally)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:261
+#: inc/customizer/options/page-container.php:231
 msgid "Repeat Y (vertically)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:262
+#: inc/customizer/options/page-container.php:232
 msgid "Repeat both axis"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:277
+#: inc/customizer/options/page-container.php:247
 msgid "Outside background attachment"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:279, inc/customizer/options/page-header.php:337
+#: inc/customizer/options/page-container.php:249, inc/customizer/options/page-header.php:337
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:280, inc/customizer/options/page-header.php:338
+#: inc/customizer/options/page-container.php:250, inc/customizer/options/page-header.php:338
 msgid "Fixed"
 msgstr ""
 
@@ -1815,27 +1807,6 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:427
 msgid "Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type."
-msgstr ""
-
-#: inc/compatibilities/gutenberg/customizer/options/elements--gutenberg.php:22
-msgid "\"Align Wide\" negative margin"
-msgstr ""
-
-#: inc/compatibilities/gutenberg/customizer/options/elements--gutenberg.php:23
-msgid "This negative margin is only effective on \"Narrow content\" layout. Otherwise it would be ignored."
-msgstr ""
-
-#: inc/compatibilities/gutenberg/customizer/options/elements--gutenberg.php:38
-msgid "Block: Columns"
-msgstr ""
-
-#: inc/compatibilities/gutenberg/customizer/options/_sections.php:21
-msgid "Gutenberg Elements"
-msgstr ""
-
-#. translators: %s: link to "Page Settings" section.
-#: inc/compatibilities/gutenberg/customizer/options/_sections.php:24
-msgid "Best content layout for Gutenberg is \"Narrow content\". You can activate the \"Narrow content\" layout on each page type via %s."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/header--builder.php:26, inc/compatibilities/woocommerce/customizer/options/header--builder.php:39
