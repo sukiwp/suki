@@ -71,11 +71,11 @@ class Suki_Admin {
 	 * Include additional files.
 	 */
 	private function _includes() {
-		global $pagenow;
+		require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php' );
 
 		// Only include metabox on post add/edit page and term add/edit page.
+		global $pagenow;
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
-			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php' );
 			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
 		}
 	}
@@ -141,7 +141,7 @@ class Suki_Admin {
 		 */
 		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
 
-		// Register CSS files
+		// Enqueue CSS files
 		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
 
@@ -157,13 +157,19 @@ class Suki_Admin {
 	 * @param string $hook
 	 */
 	public function enqueue_admin_javascripts( $hook ) {
-		// Register JS files
-		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '2.1.3', true );
+		// Fetched version from package.json
+		$ver = array();
+		$ver['wp-color-picker-alpha'] = '2.1.3';
 
 		/**
 		 * Hook: Styles to be included before admin JS
 		 */
 		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
+
+		// Register JS files
+		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), $ver['wp-color-picker-alpha'], true );
+
+		// Enqueue JS files.
 		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin.js', array( 'jquery' ), SUKI_VERSION, true );
 
 		/**
