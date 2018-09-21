@@ -391,7 +391,7 @@ function suki_mobile_header() {
 	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	?>
-	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop">
+	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
 		<?php
 		$elements = array();
 		$count = 0;
