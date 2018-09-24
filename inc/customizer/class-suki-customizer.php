@@ -467,8 +467,8 @@ class Suki_Customizer {
 	public function get_active_fonts( $group = null ) {
 		$fonts = array(
 			'web_safe_fonts' => array(),
-			'google_fonts' => array(),
 			'custom_fonts' => array(),
+			'google_fonts' => array(),
 		);
 
 		$count = 0;

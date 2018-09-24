@@ -68,24 +68,6 @@
 			$( '.suki-admin-color-control' ).find( 'input' ).wpColorPicker();
 		}
 
-		// Repeater control
-		// https://github.com/DubFriend/jquery.repeater/
-		if ( $.fn.repeater ) {
-			$( '.suki-admin-repeater-control' ).repeater({
-				show: function() {
-					var $this = $( this );
-
-					$this.show();
-					$this.find( '.suki-admin-repeater-control-hide-on-added' ).hide();
-
-					if ( $.fn.select2 ) {
-						$this.find( '.select2' ).remove();
-						$this.find( '.suki-admin-multiselect-control' ).removeClass( 'select2-hidden-accessible' ).select2();
-					}
-				}
-			});
-		}
-
 		// Dependency fields
 		$body.on( 'change', '.suki-admin-dependent-field', function() {
 			var $select = $( this ),

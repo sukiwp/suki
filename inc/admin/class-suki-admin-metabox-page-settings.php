@@ -245,11 +245,8 @@ class Suki_Admin_Metabox_Page_Settings {
 
 	/**
 	 * Render page settings meta box on add term page.
-	 *
-	 * @param string $taxonomy
-	 * @return string
 	 */
-	public function render_meta_box__term_add( $term ) {
+	public function render_meta_box__term_add() {
 		?>
 		<div class="form-field suki-add-term-page-settings" style="margin: 2em 0;">
 			<h2><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h2>
@@ -258,8 +255,8 @@ class Suki_Admin_Metabox_Page_Settings {
 			wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
 
 			// Render meta box
-			echo '<div class="suki-term-meta-box-container">';
-			$this->render_meta_box_content( $term );
+			echo '<div class="suki-term-metabox-container">';
+			$this->render_meta_box_content();
 			echo '</div>';
 			?>
 		</div>
@@ -270,7 +267,6 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * Render page settings meta box on edit term page.
 	 *
 	 * @param string $taxonomy
-	 * @return string
 	 */
 	public function render_meta_box__term_edit( $term ) {
 		?>
@@ -282,7 +278,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
 				
 				// Render meta box
-				echo '<div class="suki-term-meta-box-container">';
+				echo '<div class="suki-term-metabox-container">';
 				$this->render_meta_box_content( $term );
 				echo '</div>';
 				?>
@@ -297,9 +293,9 @@ class Suki_Admin_Metabox_Page_Settings {
 	/**
 	 * Render meta box wrapper.
 	 *
-	 * @param WP_Post|WP_Term $post
+	 * @param WP_Post|WP_Term $obj
 	 */
-	public function render_meta_box_content( $obj ) {
+	public function render_meta_box_content( $obj = null ) {
 		$tabs = $this->get_tabs();
 		$first_tab = key( $tabs );
 		?>

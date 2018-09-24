@@ -483,7 +483,8 @@ function suki_get_fallback_page_settings() {
 function suki_get_all_fonts() {
 	return apply_filters( 'suki/dataset/all_fonts', array(
 		'web_safe_fonts' => suki_get_web_safe_fonts(),
-		'google_fonts' => suki_get_google_fonts(),
+		'custom_fonts'   => array(),
+		'google_fonts'   => suki_get_google_fonts(),
 	) );
 }
 

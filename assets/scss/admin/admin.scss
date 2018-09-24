@@ -35,24 +35,23 @@ input, select, textarea {
 
 .suki-admin-form-row {
 	padding: 0.75em 0;
-	display: table;
 	width: 100%;
-	table-layout: fixed;
+
+	@include float-container();
 }
 
 .suki-admin-form-label {
-	display: table-cell;
+	display: block;
+	float: left;
 	min-width: 150px;
 	width: 20%;
 	padding: 5px 15px 0 0;
-	vertical-align: top;
 	font-weight: 600;
 }
 
 .suki-admin-form-field {
-	display: table-cell;
-	vertical-align: top;
-	width: 80%;
+	display: block;
+	overflow: hidden;
 }
 
 .select2-container {
@@ -199,6 +198,7 @@ input, select, textarea {
 
 	.suki-admin-upload-control-text {
 		padding-right: 40px;
+		width: 100%;
 	}
 
 	.suki-admin-upload-control-button {
@@ -210,9 +210,16 @@ input, select, textarea {
 		padding: 0 !important;
 		border-radius: 0;
 		text-align: center;
+		height: 24px !important;
+		line-height: 22px !important;
 
 		.dashicons {
 			margin-right: 0;
+			font-size: 18px;
+		}
+
+		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
+			height: 26px !important;
 		}
 	}
 }
@@ -227,65 +234,11 @@ input, select, textarea {
 	opacity: 0;
 }
 
-.suki-admin-repeater-control {
-	margin: 0;
-
-	.suki-admin-repeater-control-list {
-		margin: 0;
-	}
-
-	.suki-admin-form {
-		margin: -1em 0;
-	}
-
-	.suki-admin-repeater-control-item {
-		position: relative;
-		margin-bottom: 10px;
-		padding: 10px;
-		padding-right: 30px;
-		min-width: auto;
-
-		.suki-admin-repeater-control-item-table {
-			margin: 0;
-
-			th {
-				padding: 10px 10px 10px 0;
-				font-weight: normal;
-			}
-
-			td {
-				padding: 5px 5px;
-			}
-		}
-
-		.submitbox {
-			margin: 15px 0 0;
-		}
-
-		.suki-admin-repeater-control-delete {
-			position: absolute;
-			top: 0;
-			right: 0;
-			display: inline-block;
-			width: 22px;
-			height: 22px;
-			margin: -1px -1px 0 0;
-			padding: 0;
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			line-height: 20px;
-			text-align: center;
-			text-decoration: none;
-		}
-	}
-}
-
 // -------------------------------------------------------------
 // Page Settings Metabox
 // -------------------------------------------------------------
 
-.suki-term-meta-box-container {
+.suki-term-metabox-container {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	padding: 0 !important;
@@ -352,23 +305,19 @@ input, select, textarea {
 	}
 }
 
-.edit-tags-php .suki-term-meta-box-container,
-.term-php .suki-term-meta-box-container,
+.edit-tags-php .suki-term-metabox-container,
+.term-php .suki-term-metabox-container,
 .post-php #side-sortables {
-	.suki-admin-form-row {
-		display: block;
-		width: auto;
-	}
 
 	.suki-admin-form-label {
-		display: block;
+		float: none;
 		width: auto;
 		padding: 0;
 		margin: 0 0 0.5em;
 	}
 
 	.suki-admin-form-field {
-		display: block;
+		float: none;
 		width: auto;
 	}
 
