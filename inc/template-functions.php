@@ -79,6 +79,20 @@ function suki_template_hooks() {
 	add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
 
 	/**
+	 * suki/frontend/logo hook
+	 *
+	 * @see suki_default_logo()
+	 */
+	add_action( 'suki/frontend/logo', 'suki_default_logo', 10 );
+
+	/**
+	 * suki/frontend/mobile_logo hook
+	 *
+	 * @see suki_default_mobile_logo()
+	 */
+	add_action( 'suki/frontend/mobile_logo', 'suki_default_mobile_logo', 10 );
+
+	/**
 	 * suki/frontend/after_header hook
 	 *
 	 * @see suki_page_header()
@@ -114,7 +128,9 @@ function suki_template_hooks() {
 		 * @see suki_entry_title()
 		 */
 		if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
-			add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
+			if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
+				add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
+			}
 		}
 
 		/**

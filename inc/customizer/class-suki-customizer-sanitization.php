@@ -112,7 +112,7 @@ class Suki_Customizer_Sanitization {
 	 * @param WP_Customize_Setting $setting
 	 * @return string
 	 */
-	public static function slider( $value, $setting ) {
+	public static function dimension( $value, $setting ) {
 		// Get control ID, support for reponsive control.
 		$control_id = preg_replace( '/__(tablet|mobile)/', '', $setting->id );
 
@@ -363,9 +363,9 @@ class Suki_Customizer_Sanitization {
 			return '';
 		}
 
-		$step = ( isset( $range['step'] ) ? $range['step'] : 1 );
-		$min = ( isset( $range['min'] ) ? $range['min'] : $number );
-		$max = ( isset( $range['max'] ) ? $range['max'] : $number );
+		$step = empty( $range['step'] ) ? 1 : $range['step'];
+		$min = empty( $range['min'] ) ? $number : $range['min'];
+		$max = empty( $range['max'] ) ? $number : $range['max'];
 
 		if ( preg_match( '/\d*?\.(\d*)/', $step, $matches ) ) {
 			$decimal_count = strlen( $matches[1] );
@@ -379,12 +379,12 @@ class Suki_Customizer_Sanitization {
 		}
 
 		// Make sure the number is not smaller than min value.
-		if ( isset( $min ) && $number < $min ) {
+		if ( $number < $min ) {
 			$number = $min;
 		}
 
 		// Make sure the number is not higher than max value.
-		if ( isset( $max ) && $number > $max ) {
+		if ( $number > $max ) {
 			$number = $max;
 		}
 

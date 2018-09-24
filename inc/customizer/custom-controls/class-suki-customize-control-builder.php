@@ -90,11 +90,6 @@ class Suki_Customize_Control_Builder extends WP_Customize_Control {
 				'value'  => (array) $this->value(),
 			);
 		}
-		
-		$this->json['__input_attrs'] = '';
-		foreach ( $this->input_attrs as $attr => $value ) {
-			$this->json['__input_attrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-		}
 
 		$this->json['labels'] = $this->labels;
 	}

@@ -82,14 +82,14 @@
 	 */
 	wp.customize.sectionConstructor['suki-section-pro-teaser'] =
 	wp.customize.sectionConstructor['suki-section-pro-link'] =
-	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend( {
+	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend({
 		// No events for this type of section.
 		attachEvents: function () {},
 		// Always make the section active.
 		isContextuallyActive: function () {
 			return true;
 		}
-	} );
+	});
 
 	/**
 	 * Suki color control
@@ -142,7 +142,39 @@
 					control.container.find( '.wp-color-result' ).focus();
 					e.stopPropagation(); // Prevent section from being collapsed.
 				}
-			} );
+			});
+		}
+	});
+
+	/**
+	 * Suki dimension control
+	 */
+	wp.customize.controlConstructor['suki-dimension'] = wp.customize.Control.extend({
+		ready: function() {
+			var control = this;
+
+			control.container.find( '.suki-dimension-fieldset' ).each(function( i, el ) {
+				var $el = $( el ),
+				    $unit = $el.find( '.suki-dimension-unit' ),
+				    $input = $el.find( '.suki-dimension-input' ),
+				    $value = $el.find( '.suki-dimension-value' );
+
+				$unit.on( 'change', function( e ) {
+					var $option = $unit.find( 'option[value="' + this.value + '"]' );
+
+					$input.attr( 'min', $option.attr( 'data-min' ) );
+					$input.attr( 'max', $option.attr( 'data-max' ) );
+					$input.attr( 'step', $option.attr( 'data-step' ) );
+
+					$input.val( '' ).trigger( 'change' );
+				});
+
+				$input.on( 'change', function( e ) {
+					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+
+					$value.val( value ).trigger( 'change' );
+				});
+			});
 		}
 	});
 
@@ -200,6 +232,7 @@
 					$slider.slider( 'value', this.value );
 
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+
 					$value.val( value ).trigger( 'change' );
 				});
 			});

@@ -33,7 +33,6 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Logo image', 'suki' ),
-	'description' => esc_html__( 'Supports JPG, PNG, or SVG format', 'suki' ),
 	'mime_type'   => 'image',
 	'priority'    => 10,
 ) ) );
@@ -43,15 +42,14 @@ $id = 'header_logo_width';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Max width', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,
-			'max'  => 500,
 			'step' => 1,
 		),
 	),
@@ -81,7 +79,6 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Mobile Logo image', 'suki' ),
-	'description' => esc_html__( 'Supports .JPG, .PNG, or .SVG format', 'suki' ),
 	'mime_type'   => 'image',
 	'priority'    => 20,
 ) ) );
@@ -91,15 +88,14 @@ $id = 'header_mobile_logo_width';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'slider' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Max width', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 0,
-			'max'  => 500,
 			'step' => 1,
 		),
 	),

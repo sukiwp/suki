@@ -1,3 +1,4 @@
+@charset "UTF-8";
 input, select, textarea {
 	max-width: 100%;
 }
@@ -14,24 +15,30 @@ input, select, textarea {
 
 .suki-admin-form-row {
 	padding: 0.75em 0;
-	display: table;
 	width: 100%;
-	table-layout: fixed;
+}
+
+.suki-admin-form-row:before, .suki-admin-form-row:after {
+	content: "";
+	display: table;
+}
+
+.suki-admin-form-row:after {
+	clear: both;
 }
 
 .suki-admin-form-label {
-	display: table-cell;
+	display: block;
+	float: right;
 	min-width: 150px;
 	width: 20%;
 	padding: 5px 0 0 15px;
-	vertical-align: top;
 	font-weight: 600;
 }
 
 .suki-admin-form-field {
-	display: table-cell;
-	vertical-align: top;
-	width: 80%;
+	display: block;
+	overflow: hidden;
 }
 
 .select2-container .select2-selection {
@@ -172,6 +179,7 @@ input, select, textarea {
 
 .suki-admin-upload-control .suki-admin-upload-control-text {
 	padding-left: 40px;
+	width: 100%;
 }
 
 .suki-admin-upload-control .suki-admin-upload-control-button {
@@ -183,10 +191,19 @@ input, select, textarea {
 	padding: 0 !important;
 	border-radius: 0;
 	text-align: center;
+	height: 24px !important;
+	line-height: 22px !important;
 }
 
 .suki-admin-upload-control .suki-admin-upload-control-button .dashicons {
 	margin-left: 0;
+	font-size: 18px;
+}
+
+@media screen and (max-width: 782px) {
+	.suki-admin-upload-control .suki-admin-upload-control-button {
+		height: 26px !important;
+	}
 }
 
 .suki-admin-checkbox-control {
@@ -199,61 +216,7 @@ input, select, textarea {
 	opacity: 0;
 }
 
-.suki-admin-repeater-control {
-	margin: 0;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-list {
-	margin: 0;
-}
-
-.suki-admin-repeater-control .suki-admin-form {
-	margin: -1em 0;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-item {
-	position: relative;
-	margin-bottom: 10px;
-	padding: 10px;
-	padding-left: 30px;
-	min-width: auto;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-item .suki-admin-repeater-control-item-table {
-	margin: 0;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-item .suki-admin-repeater-control-item-table th {
-	padding: 10px 0 10px 10px;
-	font-weight: normal;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-item .suki-admin-repeater-control-item-table td {
-	padding: 5px 5px;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-item .submitbox {
-	margin: 15px 0 0;
-}
-
-.suki-admin-repeater-control .suki-admin-repeater-control-item .suki-admin-repeater-control-delete {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: inline-block;
-	width: 22px;
-	height: 22px;
-	margin: -1px 0 0 -1px;
-	padding: 0;
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-	line-height: 20px;
-	text-align: center;
-	text-decoration: none;
-}
-
-.suki-term-meta-box-container {
+.suki-term-metabox-container {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	padding: 0 !important;
@@ -335,72 +298,65 @@ input, select, textarea {
 	display: block;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-form-row,
-.term-php .suki-term-meta-box-container .suki-admin-form-row,
-.post-php #side-sortables .suki-admin-form-row {
-	display: block;
-	width: auto;
-}
-
-.edit-tags-php .suki-term-meta-box-container .suki-admin-form-label,
-.term-php .suki-term-meta-box-container .suki-admin-form-label,
+.edit-tags-php .suki-term-metabox-container .suki-admin-form-label,
+.term-php .suki-term-metabox-container .suki-admin-form-label,
 .post-php #side-sortables .suki-admin-form-label {
-	display: block;
+	float: none;
 	width: auto;
 	padding: 0;
 	margin: 0 0 0.5em;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-form-field,
-.term-php .suki-term-meta-box-container .suki-admin-form-field,
+.edit-tags-php .suki-term-metabox-container .suki-admin-form-field,
+.term-php .suki-term-metabox-container .suki-admin-form-field,
 .post-php #side-sortables .suki-admin-form-field {
-	display: block;
+	float: none;
 	width: auto;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox,
-.term-php .suki-term-meta-box-container .suki-admin-metabox,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox,
+.term-php .suki-term-metabox-container .suki-admin-metabox,
 .post-php #side-sortables .suki-admin-metabox {
 	display: block;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox-nav,
+.term-php .suki-term-metabox-container .suki-admin-metabox-nav,
 .post-php #side-sortables .suki-admin-metabox-nav {
 	min-width: auto;
 	width: auto;
 	border-bottom: 1px solid #eee;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:before, .edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:before,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox-nav:before, .edit-tags-php .suki-term-metabox-container .suki-admin-metabox-nav:after,
+.term-php .suki-term-metabox-container .suki-admin-metabox-nav:before,
+.term-php .suki-term-metabox-container .suki-admin-metabox-nav:after,
 .post-php #side-sortables .suki-admin-metabox-nav:before,
 .post-php #side-sortables .suki-admin-metabox-nav:after {
 	content: "";
 	display: table;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav:after,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox-nav:after,
+.term-php .suki-term-metabox-container .suki-admin-metabox-nav:after,
 .post-php #side-sortables .suki-admin-metabox-nav:after {
 	clear: both;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav li,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav li,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox-nav li,
+.term-php .suki-term-metabox-container .suki-admin-metabox-nav li,
 .post-php #side-sortables .suki-admin-metabox-nav li {
 	float: right;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-nav li a,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-nav li a,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox-nav li a,
+.term-php .suki-term-metabox-container .suki-admin-metabox-nav li a,
 .post-php #side-sortables .suki-admin-metabox-nav li a {
 	border: none;
 }
 
-.edit-tags-php .suki-term-meta-box-container .suki-admin-metabox-panel,
-.term-php .suki-term-meta-box-container .suki-admin-metabox-panel,
+.edit-tags-php .suki-term-metabox-container .suki-admin-metabox-panel,
+.term-php .suki-term-metabox-container .suki-admin-metabox-panel,
 .post-php #side-sortables .suki-admin-metabox-panel {
 	padding: 6px 12px;
 }
@@ -433,13 +389,13 @@ input, select, textarea {
 	position: absolute;
 	z-index: 99;
 	top: 50%;
-	right: 0;
+	right: 0px;
 	width: 20px;
-	height: 30px;
-	border-right: 10px solid #00a0d2;
-	border-radius: 0 30px 0 0;
-	-webkit-transform: rotate(30deg);
-	transform: rotate(30deg);
+	height: 32px;
+	border-right: 14px solid #00a0d2;
+	border-radius: 0 32px 0 0;
+	-webkit-transform: rotate(15deg);
+	transform: rotate(15deg);
 	-webkit-transform-origin: 0% 0;
 	transform-origin: 0% 0;
 }
@@ -448,10 +404,10 @@ input, select, textarea {
 	content: "";
 	position: absolute;
 	top: 100%;
-	right: -20px;
-	border-top: 15px solid #00a0d2;
-	border-right: 15px solid transparent;
-	border-left: 15px solid transparent;
+	right: -27px;
+	border-top: 20px solid #00a0d2;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
 }
 
 @media screen and (max-width: 782px) {
@@ -603,16 +559,42 @@ input, select, textarea {
 	text-align: center;
 }
 
+.suki-admin-pro-coming-soon {
+	padding: 0.125em 0.25em;
+	border-radius: 2px;
+	background-color: #ca4a1f;
+	color: #fff;
+	font-size: 0.75em;
+	text-transform: uppercase;
+}
+
 .suki-admin-welcome-panel {
 	padding: 0;
 }
 
 .suki-admin-welcome-panel .welcome-panel-content {
 	margin: 20px;
+	padding-right: 80px;
+}
+
+.suki-admin-welcome-panel .welcome-panel-content:before {
+	content: "🎉";
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	font-family: inherit;
+	font-size: 50px;
+	line-height: 1;
 }
 
 .suki-admin-welcome-panel h2 {
-	margin-bottom: 0.5em;
+	margin-bottom: 0.4em;
+}
+
+.suki-admin-welcome-panel hr {
+	margin: 20px 0 0;
+	border-top: 1px solid #f3f4f5;
+	border-bottom: none;
 }
 
 .suki-admin-pro-modules .hndle {
@@ -637,11 +619,6 @@ input, select, textarea {
 	box-shadow: none !important;
 }
 
-.suki-admin-pro-modules .suki-admin-pro-table-group-heading {
-	font-weight: 500 !important;
-	background-color: #f9f9f9;
-}
-
 .suki-admin-pro-modules .suki-admin-pro-table-item-name {
 	padding-right: 9px !important;
 	white-space: nowrap;
@@ -652,6 +629,6 @@ input, select, textarea {
 	text-align: left;
 }
 
-.suki-admin-pro-modules .suki-admin-pro-table-item-required {
-	color: #888;
+.suki-admin-pro-modules .suki-admin-pro-table-item-coming-soon {
+	opacity: 0.5;
 }

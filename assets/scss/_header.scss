@@ -17,19 +17,20 @@
 }
 
 // Logo
-.suki-header-logo,
-.suki-header-mobile-logo {
-	.site-title {
-		margin: 0;
-		@extend %small-title;
+.site-title {
+	margin: 0;
+	@extend %small-title;
+	position: relative;
+}
 
-		> a {
-			> svg,
-			> img {
-				display: block;
-				width: 100px; // default
-			}
-		}
+.suki-logo {
+	display: block;
+	width: 100px; // default
+	@include transition( color );
+
+	img, svg {
+		max-width: 100%;
+		vertical-align: bottom;
 	}
 }
 
@@ -96,7 +97,11 @@
 }
 
 .suki-header-section {
+	position: relative;
+
 	.suki-section-inner {
+		height: inherit;
+		background-color: #fff; // default
 		@include transition( background-color, border-color, color );
 	}
 
@@ -237,21 +242,31 @@
 	}
 }
 
-.suki-header-top-bar {
+.suki-header-main .suki-header-top-bar {
+	height: 40px; // default
+
 	&-inner {
 		z-index: 3;
 		border-width: 0 0 1px 0; // default
 	}
 
-	&-row {
-		height: 40px; // default
+	&-inner, .sub-menu {
+		background-color: $color_bg; // default
 	}
 
-	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
+	*, .sub-menu {
+		border-color: $color_border; // default
+	}
 
-		&:hover, &:focus {
-			color: $color_text; // default
+	&, .sub-menu {
+		color: $color_text; // default
+
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_text; // default
+			}
 		}
 	}
 
@@ -262,27 +277,34 @@
 			}
 		}
 	}
-
-	.sub-menu {
-		background-color: $color_bg; // default
-	}
 }
 
-.suki-header-main-bar {
+// Need .suki-header-main prefix for transparent header CSS.
+.suki-header-main .suki-header-main-bar {
+	height: 80px; // default
+
 	&-inner {
 		z-index: 2;
 		border-width: 0 0 1px 0; // default
 	}
 
-	&-row {
-		height: 80px; // default
+	&-inner, .sub-menu {
+		background-color: $color_bg; // default
 	}
 
-	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
+	*, .sub-menu {
+		border-color: $color_border; // default
+	}
 
-		&:hover, &:focus {
-			color: $color_text; // default
+	&, .sub-menu {
+		color: $color_text; // default
+
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_text; // default
+			}
 		}
 	}
 
@@ -293,27 +315,34 @@
 			}
 		}
 	}
-
-	.sub-menu {
-		background-color: $color_bg; // default
-	}
 }
 
-.suki-header-bottom-bar {
+// Need .suki-header-main prefix for transparent header CSS.
+.suki-header-main .suki-header-bottom-bar {
+	height: 40px; // default
+
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
 	}
 
-	&-row {
-		height: 40px; // default
+	&-inner, .sub-menu {
+		background-color: $color_bg; // default
 	}
 
-	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
+	*, .sub-menu {
+		border-color: $color_border; // default
+	}
 
-		&:hover, &:focus {
-			color: $color_text; // default
+	&, .sub-menu {
+		color: $color_text; // default
+
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_text; // default
+			}
 		}
 	}
 
@@ -324,32 +353,35 @@
 			}
 		}
 	}
-
-	.sub-menu {
-		background-color: $color_bg; // default
-	}
 }
 
-.suki-header-mobile-main-bar {
+// Need .suki-header-main prefix for transparent header CSS.
+.suki-header-mobile .suki-header-mobile-main-bar {
+	height: 60px; // default
+
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
 	}
 
-	&-row {
-		height: 60px; // default
-	}
-
-	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
-	}
-
-	.sub-menu {
+	&-inner, .sub-menu {
 		background-color: $color_bg; // default
+	}
+
+	*, .sub-menu {
+		border-color: $color_border; // default
+	}
+
+	&, .sub-menu {
+		color: $color_text; // default
+
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_text; // default
+			}
+		}
 	}
 }
 

@@ -88,6 +88,28 @@ function suki_logo( $logo_image_id = null ) {
 }
 endif;
 
+if ( ! function_exists( 'suki_default_logo' ) ) :
+/**
+ * Print / return HTML markup for default logo.
+ */
+function suki_default_logo() {
+	?>
+	<span class="suki-default-logo suki-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></span>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_default_mobile_logo' ) ) :
+/**
+ * Print / return HTML markup for default mobile logo.
+ */
+function suki_default_mobile_logo() {
+	?>
+	<span class="suki-default-logo suki-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo_mobile' ) ); ?></span>
+	<?php
+}
+endif;
+
 if ( ! function_exists( 'suki_icon' ) ) :
 /**
  * Print / return HTML markup for specified icon type in SVG format.
@@ -319,8 +341,16 @@ function suki_main_header__bar( $bar ) {
 
 	if ( 1 > $count ) return;
 
+	$attrs_array = apply_filters( 'suki/frontend/header_' . $bar . '_bar_attrs', array(
+		'data-height' => intval( suki_get_theme_mod( 'header_' . $bar . '_bar_height' ) ),
+	) );
+	$attrs = '';
+	foreach ( $attrs_array as $key => $value ) {
+		$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+	}
+
 	?>
-	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>">
+	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>" <?php echo ( $attrs ); // WPCS: XSS OK. ?>>
 		<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 
@@ -361,7 +391,7 @@ function suki_mobile_header() {
 	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	?>
-	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop">
+	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
 		<?php
 		$elements = array();
 		$count = 0;
@@ -373,8 +403,17 @@ function suki_mobile_header() {
 		}
 
 		if ( 1 > $count ) return;
+
+		$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
+			'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
+		) );
+		$attrs = '';
+		foreach ( $attrs_array as $key => $value ) {
+			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+		}
+
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>">
+		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo ( $attrs ); // WPCS: XSS OK. ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
@@ -415,7 +454,16 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
 				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title">
-					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home">
+						<?php
+						/**
+						 * Hook: suki/frontend/logo
+						 *
+						 * @hooked suki_default_logo - 10
+						 */
+						do_action( 'suki/frontend/logo' );
+						?>
+					</a>
 				</<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?>>
 			</div>
 			<?php
@@ -425,7 +473,16 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
 				<div class="site-title">
-					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php suki_logo( suki_get_theme_mod( 'custom_logo_mobile' ) ); ?></a>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home">
+						<?php
+						/**
+						 * Hook: suki/frontend/mobile_logo
+						 *
+						 * @hooked suki_default_mobile_logo - 10
+						 */
+						do_action( 'suki/frontend/mobile_logo' );
+						?>
+					</a>
 				</div>
 			</div>
 			<?php

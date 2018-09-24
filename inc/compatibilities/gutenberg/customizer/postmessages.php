@@ -70,42 +70,6 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Gutenberg Elements
- * ====================================================
- */
-
-$add['gutenberg_alignwide_negative_margin'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
-		'property' => 'width',
-		'pattern'  => 'calc( 100% + ( 2 * $ ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide, .suki-content-layout-wide .wp-block-gallery.alignwide',
-		'property' => 'width',
-		'pattern'  => 'calc( 100% + ( 2 * $ ) + ( 2 + 8px ) )',
-	),
-);
-
-$add['gutenberg_columns_gutter'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.wp-block-columns',
-		'property' => 'margin',
-		'pattern'  => '0 -$',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.wp-block-column',
-		'property' => 'padding',
-		'pattern'  => '0 $',
-	),
-);
-
-/**
- * ====================================================
  * Page Canvas & Wrapper
  * ====================================================
  */
@@ -113,29 +77,103 @@ $add['gutenberg_columns_gutter'] = array(
 $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #canvas .alignfull',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'max-width',
+	),
+
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .wp-block-gallery.alignfull',
+		'property' => 'width',
+		'pattern'  => 'calc( $ + ( 2 * 8px ) )',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #canvas .alignwide',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .wp-block-gallery.alignfull',
 		'property' => 'max-width',
-		'media'    => '@media screen and (min-width: $)',
+		'pattern'  => 'calc( $ + ( 2 * 8px ) )',
 	),
 );
-$responsive = array(
-	'' => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+
+$add['container_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'width',
+		'pattern'  => 'calc( $ + ( 2 * 25px ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 25px ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 20px ) )',
+		'media'    => '@media screen and ( max-width: 767px )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 15px ) )',
+		'media'    => '@media screen and ( max-width: 499px )',
+	),
+
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
+		'property' => 'width',
+		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 15px ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 15px ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 20px ) + ( 2 * 15px ) )',
+		'media'    => '@media screen and ( max-width: 767px )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 15px ) + ( 2 * 15px ) )',
+		'media'    => '@media screen and ( max-width: 499px )',
+	),
+
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
+		'property' => 'width',
+		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 8px ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 8px ) )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 20px ) + ( 2 * 8px ) )',
+		'media'    => '@media screen and ( max-width: 767px )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
+		'property' => 'max-width',
+		'pattern'  => 'calc( $ + ( 2 * 15px ) + ( 2 * 8px ) )',
+		'media'    => '@media screen and ( max-width: 499px )',
+	),
 );
-foreach ( $responsive as $suffix => $media ) {
-	$add['edge_padding' . $suffix ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
-			'property' => 'padding',
-			'pattern'  => '0 $',
-			'media'    => $media,
-		),
-	);
-}

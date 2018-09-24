@@ -49,10 +49,10 @@ body.suki-page-layout-boxed {
 	}
 
 	.admin-bar & {
-		top: 32px;
+		top: $adminbar_height;
 		
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
-			top: 46px;
+			top: $adminbar_height_mobile;
 		}
 	}
 }

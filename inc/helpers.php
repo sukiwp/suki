@@ -404,38 +404,14 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
-		'header-alternative-colors' => array(
-			'label'   => esc_html__( 'Alternative Header Colors', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
 		'footer-advanced' => array(
 			'label'   => esc_html__( 'Footer (Advanced)', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
 		),
-		'preloader' => array(
-			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
-		'blocks' => array(
-			'label'   => esc_html__( 'Portable Content Blocks', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
-		'blog-advanced' => array(
-			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
-			'url'     => SUKI_PRO_URL,
-			'actions' => array(),
-			'active'  => false,
-		),
-		'woocommerce-advanced' => array(
-			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
+		'custom-blocks' => array(
+			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
@@ -458,6 +434,24 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
+		'preloader' => array(
+			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'blog-advanced' => array(
+			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
+		'woocommerce-advanced' => array(
+			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
 		'white-label' => array(
 			'label'   => esc_html__( 'White Label', 'suki' ),
 			'url'     => SUKI_PRO_URL,
@@ -473,12 +467,12 @@ function suki_get_pro_modules() {
  * @return array
  */
 function suki_get_fallback_page_settings() {
-	return array(
+	return apply_filters( 'suki/dataset/fallback_page_settings', array(
 		'content_container'    => suki_get_theme_mod( 'content_container', 'default' ),
 		'content_layout'       => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
 		'page_header'          => suki_get_theme_mod( 'page_header', 0 ),
 		'page_header_bg_image' => suki_get_theme_mod( 'page_header_bg_image', '' ),
-	);
+	) );
 }
 
 /**
@@ -489,7 +483,8 @@ function suki_get_fallback_page_settings() {
 function suki_get_all_fonts() {
 	return apply_filters( 'suki/dataset/all_fonts', array(
 		'web_safe_fonts' => suki_get_web_safe_fonts(),
-		'google_fonts' => suki_get_google_fonts(),
+		'custom_fonts'   => array(),
+		'google_fonts'   => suki_get_google_fonts(),
 	) );
 }
 
