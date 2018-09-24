@@ -115,6 +115,7 @@ class Suki_Admin {
 				<div class="suki-admin-theme-notice-arrow"></div>
 				<p>
 					<?php printf(
+						/* translators: link to the documentation article. */
 						esc_html__( 'Fell in love with this screenshot? Learn how to replicate the same design %s.', 'suki' ),
 						'<a href="' . esc_url( 'https://docs.sukiwp.com/article/getting-started/replicating-theme-screenshot/' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suki' ) . '</a>'
 					); ?>
@@ -345,14 +346,14 @@ class Suki_Admin {
 					<?php printf(
 						/* translators: %s: theme name. */
 						esc_html__( 'Welcome to %s!', 'suki' ),
-						suki_get_theme_info( 'name' )
+						esc_html( suki_get_theme_info( 'name' ) )
 					); ?>
 				</h2>
 				<p class="about-description">
 					<?php printf(
 						/* translators: %1$s: theme name; %1$2: link to theme URL. */
 						esc_html__( 'Let\'s make your website better and faster. Read more about %1$s\'s features at %2$s.', 'suki' ),
-						suki_get_theme_info( 'name' ),
+						esc_html( suki_get_theme_info( 'name' ) ),
 						'<a href="' . esc_url( suki_get_theme_info( 'url' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'our website', 'suki' ) . '</a>'
 					); ?>
 				</p>
