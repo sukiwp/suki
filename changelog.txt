@@ -1,4 +1,4 @@
-v0.5.3
+v0.5.4
 - NEW: Customizer's dimension control.
 - TWEAK: Improve default compatibility styles for Gutenberg.
 - TWEAK: Improve compatibility for Suki Pro.
