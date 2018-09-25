@@ -382,7 +382,13 @@ class Suki {
 		$css_array = array();
 
 		$page_header_bg_image = '';
-		$page_header_bg = suki_get_current_page_setting( 'page_header_bg' );
+
+		if ( is_page() ) {
+			$page_header_bg = 'thumbnail';
+		} else {
+			$page_header_bg = suki_get_current_page_setting( 'page_header_bg' );
+		}
+
 		switch ( $page_header_bg ) {
 			case 'thumbnail':
 				$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
@@ -441,8 +447,8 @@ class Suki {
 			'gutenberg' => 'WP_Block_Type',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
-			'elementor' => '\Elementor\Plugin',
-			'elementor-pro' => '\ElementorPro\Plugin',
+			'elementor' => 'Elementor\Plugin',
+			'elementor-pro' => 'ElementorPro\Plugin',
 			'contact-form-7' => 'WPCF7',
 		);
 	}

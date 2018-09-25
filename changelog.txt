@@ -1,3 +1,6 @@
+v0.5.5
+- FIX: Page header's background not using feature image on static pages.
+
 v0.5.4
 - NEW: Customizer's dimension control.
 - TWEAK: Improve default compatibility styles for Gutenberg.
