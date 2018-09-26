@@ -1,4 +1,5 @@
 v0.5.5
+- TWEAK: Improve compatibility for Suki Pro.
 - FIX: Page header's background not using feature image on static pages.
 
 v0.5.4

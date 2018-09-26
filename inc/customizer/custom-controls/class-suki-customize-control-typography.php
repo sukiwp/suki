@@ -90,9 +90,6 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<# if ( data.name === 'page_header_title_typography' ) {
-			console.log( data );
-		} #>
 		<# var labels = {
 			font_family: '<?php esc_html_e( 'Font', 'suki' ); ?>',
 			font_weight: '<?php esc_html_e( 'Weight', 'suki' ); ?>',

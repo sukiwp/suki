@@ -55,7 +55,7 @@ $wp_customize->add_control( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_footer_builder', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
 
 // Bottom bar elements
@@ -86,5 +86,5 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
 	'limitations' => apply_filters( 'suki/customizer/footer_elements/limitations', array() ),
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
