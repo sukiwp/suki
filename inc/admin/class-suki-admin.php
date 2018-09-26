@@ -108,6 +108,11 @@ class Suki_Admin {
 	 * Add admin notice to import data like screenshot.
 	 */
 	public function add_theme_notice() {
+		// Abort if we are on Child Theme.
+		if ( is_child_theme() ) {
+			return;
+		}
+
 		global $hook_suffix;
 
 		if ( 'themes.php' == $hook_suffix ) : ?>
