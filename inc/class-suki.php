@@ -391,7 +391,11 @@ class Suki {
 
 		switch ( $page_header_bg ) {
 			case 'thumbnail':
-				$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+				if ( has_post_thumbnail() ) {
+					$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+				} else {
+					$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+				}
 				break;
 
 			case 'archive':
