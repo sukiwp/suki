@@ -92,15 +92,234 @@
 	});
 
 	/**
+	 * Suki base control
+	 * 
+	 * ref:
+	 * - https://github.com/aristath/kirki/blob/develop/controls/js/src/dynamic-control.js
+	 * - https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
+	 */
+	wp.customize.SukiControl = wp.customize.Control.extend({
+		initialize: function( id, options ) {
+			var control = this,
+			    args    = options || {};
+
+			args.params = args.params || {};
+			if ( ! args.params.type ) {
+				args.params.type = 'suki-base';
+			}
+			if ( ! args.params.content ) {
+				args.params.content = jQuery( '<li></li>' );
+				args.params.content.attr( 'id', 'customize-control-' + id.replace( /]/g, '' ).replace( /\[/g, '-' ) );
+				args.params.content.attr( 'class', 'customize-control customize-control-' + args.params.type );
+			}
+
+			control.propertyElements = [];
+			wp.customize.Control.prototype.initialize.call( control, id, args );
+		},
+
+		/**
+		 * Add bidirectional data binding links between inputs and the setting(s).
+		 *
+		 * This is copied from wp.customize.Control.prototype.initialize(). It
+		 * should be changed in Core to be applied once the control is embedded.
+		 *
+		 * @private
+		 * @returns {null}
+		 */
+		_setUpSettingRootLinks: function() {
+			var control = this,
+				nodes   = control.container.find( '[data-customize-setting-link]' );
+
+			nodes.each(function() {
+				var node = jQuery( this );
+
+				wp.customize( node.data( 'customizeSettingLink' ), function( setting ) {
+					var element = new wp.customize.Element( node );
+					control.elements.push( element );
+					element.sync( setting );
+					element.set( setting() );
+				});
+			});
+		},
+
+		/**
+		 * Add bidirectional data binding links between inputs and the setting properties.
+		 *
+		 * @private
+		 * @returns {null}
+		 */
+		_setUpSettingPropertyLinks: function() {
+			var control = this,
+				nodes;
+
+			if ( ! control.setting ) {
+				return;
+			}
+
+			nodes = control.container.find( '[data-customize-setting-property-link]' );
+
+			nodes.each(function() {
+				var node = jQuery( this ),
+					element,
+					propertyName = node.data( 'customizeSettingPropertyLink' );
+
+				element = new wp.customize.Element( node );
+				control.propertyElements.push( element );
+				element.set( control.setting()[ propertyName ] );
+
+				element.bind(function( newPropertyValue ) {
+					var newSetting = control.setting();
+					if ( newPropertyValue === newSetting[ propertyName ] ) {
+						return;
+					}
+					newSetting = _.clone( newSetting );
+					newSetting[ propertyName ] = newPropertyValue;
+					control.setting.set( newSetting );
+				});
+				control.setting.bind(function( newValue ) {
+					if ( newValue[ propertyName ] !== element.get() ) {
+						element.set( newValue[ propertyName ] );
+					}
+				});
+			});
+		},
+
+		/**
+		 * @inheritdoc
+		 */
+		ready: function() {
+			var control = this;
+
+			control._setUpSettingRootLinks();
+			control._setUpSettingPropertyLinks();
+
+			wp.customize.Control.prototype.ready.call( control );
+
+			control.deferred.embedded.done(function() {});
+		},
+
+		/**
+		 * Embed the control in the document.
+		 *
+		 * Override the embed() method to do nothing,
+		 * so that the control isn't embedded on load,
+		 * unless the containing section is already expanded.
+		 *
+		 * @returns {null}
+		 */
+		embed: function() {
+			var control   = this,
+				sectionId = control.section();
+
+			if ( ! sectionId ) {
+				return;
+			}
+
+			wp.customize.section( sectionId, function( section ) {
+				if ( section.expanded() || wp.customize.settings.autofocus.control === control.id ) {
+					control.actuallyEmbed();
+				} else {
+					section.expanded.bind(function( expanded ) {
+						if ( expanded ) {
+							control.actuallyEmbed();
+						}
+					});
+				}
+			});
+		},
+
+		/**
+		 * Deferred embedding of control when actually
+		 *
+		 * This function is called in Section.onChangeExpanded() so the control
+		 * will only get embedded when the Section is first expanded.
+		 *
+		 * @returns {null}
+		 */
+		actuallyEmbed: function() {
+			var control = this;
+			if ( 'resolved' === control.deferred.embedded.state() ) {
+				return;
+			}
+			control.renderContent();
+			control.deferred.embedded.resolve(); // This triggers control.ready().
+
+			// Fire event after control is initialized.
+			control.container.trigger( 'init' );
+		},
+
+		/**
+		 * This is not working with autofocus.
+		 *
+		 * @param {object} [args] Args.
+		 * @returns {null}
+		 */
+		focus: function( args ) {
+			var control = this;
+			control.actuallyEmbed();
+			wp.customize.Control.prototype.focus.call( control, args );
+		},
+	});
+	wp.customize.controlConstructor['suki-base'] = wp.customize.SukiControl;
+
+	/**
 	 * Suki color control
 	 */
 	// Use native ColorControl for our custom color controls.
-	wp.customize.controlConstructor['suki-color'] = wp.customize.ColorControl;
+	wp.customize.controlConstructor['suki-color'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this,
+				updating = false,
+				$picker;
+
+			$picker = this.container.find( '.color-picker-hex' );
+
+			$picker.val( control.setting() ).wpColorPicker({
+				change: function() {
+					updating = true;
+					control.setting.set( $picker.wpColorPicker( 'color' ) );
+					updating = false;
+				},
+				clear: function() {
+					updating = true;
+					control.setting.set( '' );
+					updating = false;
+				}
+			});
+
+			control.setting.bind( function ( value ) {
+				// Bail if the update came from the control itself.
+				if ( updating ) {
+					return;
+				}
+
+				$picker.val( value );
+				$picker.wpColorPicker( 'color', value );
+			} );
+
+			// Collapse color picker when hitting Esc instead of collapsing the current section.
+			control.container.on( 'keydown', function( event ) {
+				var $pickerContainer;
+
+				if ( 27 !== event.which ) { // Esc.
+					return;
+				}
+
+				$pickerContainer = control.container.find( '.wp-picker-container' );
+
+				if ( $pickerContainer.hasClass( 'wp-picker-active' ) ) {
+					picker.wpColorPicker( 'close' );
+					control.container.find( '.wp-color-result' ).focus();
+					event.stopPropagation(); // Prevent section from being collapsed.
+				}
+			} );
+		}
+	});
 
 	/**
 	 * Suki shadow control
 	 */
-	wp.customize.controlConstructor['suki-shadow'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-shadow'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
 			    updating = false,
@@ -122,7 +341,7 @@
 			});
 
 			$inputs.on( 'change', function( i, el ) {
-				var values = $inputs.map( function() {
+				var values = $inputs.map(function() {
 					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '' : this.value.toString() + 'px' );
 				}).get();
 
@@ -149,7 +368,7 @@
 	/**
 	 * Suki dimension control
 	 */
-	wp.customize.controlConstructor['suki-dimension'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-dimension'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this;
 
@@ -181,7 +400,7 @@
 	/**
 	 * Suki slider control
 	 */
-	wp.customize.controlConstructor['suki-slider'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-slider'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this;
 
@@ -242,7 +461,7 @@
 	/**
 	 * Suki dimensions control
 	 */
-	wp.customize.controlConstructor['suki-dimensions'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-dimensions'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this;
 
@@ -303,7 +522,7 @@
 	/**
 	 * Suki typography control
 	 */
-	 wp.customize.controlConstructor['suki-typography'] = wp.customize.Control.extend({
+	 wp.customize.controlConstructor['suki-typography'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this;
 
@@ -340,7 +559,7 @@
 	/**
 	 * Suki multiple checkboxes control
 	 */
-	wp.customize.controlConstructor['suki-multicheck'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-multicheck'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
 			    $checkboxes = control.container.find( '.suki-multicheck-input' );
@@ -362,7 +581,7 @@
 	/**
 	 * Suki builder control
 	 */
-	wp.customize.controlConstructor['suki-builder'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-builder'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this;
 
@@ -695,7 +914,7 @@
 			}
 		}
 		$window.on( 'resize', resizePreviewer );
-		wp.customize.previewedDevice.bind( function( device ) {
+		wp.customize.previewedDevice.bind(function( device ) {
 			setTimeout(function() {
 				resizePreviewer();
 			}, 250 );
@@ -705,10 +924,22 @@
 		 * Init Header & Footer Builder
 		 */
 		var initHeaderFooterBuilder = function( panel ) {
-			var $section = 'suki_panel_header' === panel.id ? wp.customize.section( 'suki_section_header_builder' ).contentContainer : wp.customize.section( 'suki_section_footer_builder' ).contentContainer;
+			var section = 'suki_panel_header' === panel.id ? wp.customize.section( 'suki_section_header_builder' ) : wp.customize.section( 'suki_section_footer_builder' ),
+			    $section = section.contentContainer;
 
 			// If Header panel is expanded, add class to the body tag (for CSS styling).
 			panel.expanded.bind(function( isExpanded ) {
+				_.each(section.controls(), function( control ) {
+					if ( 'resolved' === control.deferred.embedded.state() ) {
+						return;
+					}
+					control.renderContent();
+					control.deferred.embedded.resolve(); // This triggers control.ready().
+					
+					// Fire event after control is initialized.
+					control.container.trigger( 'init' );
+				});
+
 				if ( isExpanded ) {
 					$body.addClass( 'suki-has-builder-active' );
 					$section.addClass( 'suki-builder-active' );
@@ -738,26 +969,26 @@
 		/**
 		 * Init Header Elements Locations Grouping
 		 */
-		var initHeaderFooterBuilderElements = function( control ) {
-			var $groupWrapper = control.container.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' );
+		var initHeaderFooterBuilderElements = function( e ) {
+			var $control = $( this ),
+			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
+			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
+			    $verticalLocations = $control.find( verticalSelector ),
+			    $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
 
-			var verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top';
-
-			var $verticalLocations = control.container.find( verticalSelector );
 			if ( $verticalLocations.length ) {
 				$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' ).appendTo( $groupWrapper ).append( $verticalLocations );
 			}
 
-			var $horizontalLocations = control.container.find( '.suki-builder-location' ).not( verticalSelector );
 			if ( $horizontalLocations.length ) {
 				$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline' ).appendTo( $groupWrapper ).append( $horizontalLocations );
 			}
 
 			// Make logo element has button-primary colors.
-			control.container.find( '.suki-builder-element[data-value="logo"], .suki-builder-element[data-value="mobile-logo"]' ).addClass( 'button-primary' );
+			$control.find( '.suki-builder-element[data-value="logo"], .suki-builder-element[data-value="mobile-logo"]' ).addClass( 'button-primary' );
 
 			// Element on click jump to element options.
-			control.container.on( 'click', '.suki-builder-location .suki-builder-element > span', function( e ) {
+			$control.on( 'click', '.suki-builder-location .suki-builder-element > span', function( e ) {
 				e.preventDefault();
 
 				var $element = $( this ).parent( '.suki-builder-element' ),
@@ -768,7 +999,7 @@
 			});
 
 			// Group edit button on click jump to group section.
-			control.container.on( 'click', '.suki-builder-group-edit', function( e ) {
+			$control.on( 'click', '.suki-builder-group-edit', function( e ) {
 				e.preventDefault();
 
 				var targetKey = 'suki_section_' + ( 'footer_elements' == control.id ? 'footer' : 'header' ) + '_' + $( this ).attr( 'data-value' ).replace( '-', '_' ),
@@ -777,9 +1008,9 @@
 				if ( targetSection ) targetSection.focus();
 			});
 		};
-		wp.customize.control( 'header_elements', initHeaderFooterBuilderElements );
-		wp.customize.control( 'header_mobile_elements', initHeaderFooterBuilderElements );
-		wp.customize.control( 'footer_elements', initHeaderFooterBuilderElements );
+		wp.customize.control( 'header_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
+		wp.customize.control( 'header_mobile_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
+		wp.customize.control( 'footer_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
 
 	});
 })( wp, jQuery );
