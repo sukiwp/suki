@@ -291,7 +291,7 @@ msgstr ""
 msgid "Continue Reading %s"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:159, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
+#: inc/admin/class-suki-admin-fields.php:159, inc/customizer/custom-controls/class-suki-customize-control-color.php:58, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
 msgid "Hex / RGBA"
 msgstr ""
 
