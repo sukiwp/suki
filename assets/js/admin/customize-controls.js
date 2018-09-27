@@ -265,7 +265,6 @@
 	/**
 	 * Suki color control
 	 */
-	// Use native ColorControl for our custom color controls.
 	wp.customize.controlConstructor['suki-color'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
@@ -274,28 +273,14 @@
 
 			$picker = this.container.find( '.color-picker-hex' );
 
-			$picker.val( control.setting() ).wpColorPicker({
+			$picker.wpColorPicker({
 				change: function() {
-					updating = true;
 					control.setting.set( $picker.wpColorPicker( 'color' ) );
-					updating = false;
 				},
 				clear: function() {
-					updating = true;
 					control.setting.set( '' );
-					updating = false;
 				}
 			});
-
-			control.setting.bind( function ( value ) {
-				// Bail if the update came from the control itself.
-				if ( updating ) {
-					return;
-				}
-
-				$picker.val( value );
-				$picker.wpColorPicker( 'color', value );
-			} );
 
 			// Collapse color picker when hitting Esc instead of collapsing the current section.
 			control.container.on( 'keydown', function( event ) {
