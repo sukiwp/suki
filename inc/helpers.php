@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 
 /**
- * PHP custom function: suki_array_value()
+ * Check if specified key exists on an array, then return the value.
+ * Otherwise return the specified fallback value, or null if no fallback is specified.
  *
  * @param array $item
  * @param mixed $index
@@ -28,6 +29,26 @@ function suki_array_value( $array, $index, $fallback = null ) {
 	}
 
 	return isset( $array[ $index ] ) ? $array[ $index ] : $fallback;
+}
+
+/**
+ * Recursively flatten a multi-dimensional array into a one-dimensional array.
+ *
+ * @param array @array
+ * @return array
+ */
+function suki_flatten_array( $array ) {
+	$flattened = array();
+
+	foreach ( $array as $key => $value ) {
+		if ( is_array( $value ) ) {
+			$flattened[ $key ] = suki_flatten_array( $value );
+		} else {
+			$flattened[ $key ] = $value;
+		}
+	}
+
+	return $flattened;
 }
 
 /**
@@ -410,8 +431,8 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
-		'custom-blocks' => array(
-			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
+		'blocks' => array(
+			'label'   => esc_html__( 'Blocks', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
