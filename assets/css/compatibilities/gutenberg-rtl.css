@@ -253,6 +253,12 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 	border-color: inherit;
 }
 
+.wp-block-embed .suki-oembed {
+	position: static;
+	padding: 0 !important;
+	margin: 0;
+}
+
 .wp-block-embed .suki-oembed > * {
 	margin-top: 0;
 	margin-bottom: 0;
