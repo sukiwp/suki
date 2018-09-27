@@ -102,26 +102,6 @@ $add['container_width'] = array(
 		'property' => 'width',
 		'pattern'  => 'calc( $ + ( 2 * 25px ) )',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 25px ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 20px ) )',
-		'media'    => '@media screen and ( max-width: 767px )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 15px ) )',
-		'media'    => '@media screen and ( max-width: 499px )',
-	),
 
 	array(
 		'type'     => 'css',
@@ -129,51 +109,11 @@ $add['container_width'] = array(
 		'property' => 'width',
 		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 15px ) )',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 15px ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 20px ) + ( 2 * 15px ) )',
-		'media'    => '@media screen and ( max-width: 767px )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 15px ) + ( 2 * 15px ) )',
-		'media'    => '@media screen and ( max-width: 499px )',
-	),
 
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
 		'property' => 'width',
 		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 8px ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 25px ) + ( 2 * 8px ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 20px ) + ( 2 * 8px ) )',
-		'media'    => '@media screen and ( max-width: 767px )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
-		'property' => 'max-width',
-		'pattern'  => 'calc( $ + ( 2 * 15px ) + ( 2 * 8px ) )',
-		'media'    => '@media screen and ( max-width: 499px )',
 	),
 );
