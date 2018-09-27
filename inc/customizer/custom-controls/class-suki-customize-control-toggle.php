@@ -12,7 +12,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 /**
  * Toggle control class
  */
-class Suki_Customize_Control_Toggle extends WP_Customize_Control {
+class Suki_Customize_Control_Toggle extends Suki_Customize_Control {
 	/**
 	 * @var string
 	 */

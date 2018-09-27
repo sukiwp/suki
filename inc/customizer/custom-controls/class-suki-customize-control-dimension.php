@@ -12,7 +12,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 /**
  * Dimension control class
  */
-class Suki_Customize_Control_Dimension extends WP_Customize_Control {
+class Suki_Customize_Control_Dimension extends Suki_Customize_Control {
 	/**
 	 * @var string
 	 */

@@ -499,26 +499,26 @@ msgstr ""
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:421
+#: inc/customizer/class-suki-customizer.php:423
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:424
+#: inc/customizer/class-suki-customizer.php:426
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:448
+#: inc/customizer/class-suki-customizer.php:450
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:452
+#: inc/customizer/class-suki-customizer.php:454
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:454
+#: inc/customizer/class-suki-customizer.php:456
 msgid "These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the Edit %1$s page."
 msgstr ""
 
