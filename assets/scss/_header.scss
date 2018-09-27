@@ -102,12 +102,11 @@
 	.suki-wrapper {
 		height: 100%;
 	}
-}
 
-.suki-section-inner {
-	height: inherit;
-	background-color: #fff; // default
-	@include transition( background-color, border-color, color );
+	.suki-section-inner {
+		height: inherit;
+		@include transition( background-color, border-color, color );
+	}
 }
 
 .suki-header-row {

@@ -1,3 +1,11 @@
+v0.6.0
+- TWEAK: Drastically improve Customizer performance (now it loads much faster).
+- FIX: Customizer color control's prefill issue.
+- FIX: Customizer bugs.
+- FIX: Header CSS bugs.
+- FIX: oEmbed CSS bugs on Gutenberg blocks.
+- FIX: Page header's default background on static pages.
+
 v0.5.5
 - TWEAK: Improve compatibility for Suki Pro.
 - FIX: Page header's background not using feature image on static pages.

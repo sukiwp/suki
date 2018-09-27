@@ -1363,9 +1363,8 @@ body.suki-page-layout-boxed #page {
 	height: 100%;
 }
 
-.suki-section-inner {
+.suki-header-section .suki-section-inner {
 	height: inherit;
-	background-color: #fff;
 	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 	transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 	-webkit-backface-visibility: hidden;

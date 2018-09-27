@@ -342,6 +342,10 @@ div.customize-section-description {
 	display: block;
 }
 
+.customize-control-suki-color .wp-picker-container .wp-picker-holder {
+	margin-top: 6px;
+}
+
 .customize-control-suki-shadow .customize-control-content {
 	position: relative;
 }
