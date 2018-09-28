@@ -315,6 +315,7 @@ $add['header_top_bar_text_color'] = $colors['text'];
 $add['header_top_bar_link_text_color'] = $colors['heading'];
 $add['header_top_bar_link_hover_text_color'] = $colors['text'];
 $add['header_top_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_top_bar_menu_highlight_text_color'] = '';
 
 /**
  * ====================================================

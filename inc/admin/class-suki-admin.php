@@ -373,7 +373,9 @@ class Suki_Admin {
 	public function render_content__pro_modules_table() {
 		?>
 		<div class="suki-admin-pro-modules postbox">
-			<h2 class="hndle"><?php esc_html_e( 'Premium Modules in Suki Pro', 'suki' ); ?></h2>
+			<h2 class="hndle">
+				<?php echo apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More features are available on Suki Pro', 'suki' ) ); ?>
+			</h2>
 			<div class="inside">
 				<?php
 				// Get all pro modules list.
@@ -388,14 +390,20 @@ class Suki_Admin {
 									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>
 								</td>
 								<td class="suki-admin-pro-table-item-actions column-description desc">
-									<?php if ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
+									<?php if ( ! suki_is_pro() ) : ?>
+
+										<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more', 'suki' ); ?></a>
+
+									<?php elseif ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
 
 										<?php foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) : ?>
 											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
 										<?php endforeach; ?>
 
 									<?php else : ?>
+
 										<span class="suki-admin-pro-table-item-coming-soon"><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
+
 									<?php endif; ?>
 								</td>
 							</tr>

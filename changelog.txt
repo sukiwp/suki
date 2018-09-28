@@ -1,4 +1,5 @@
 v0.6.0
+- NEW: Header menu highlight now has highlight text color option.
 - TWEAK: Drastically improve Customizer performance (now it loads much faster).
 - TWEAK: Now section layout side padding is configurable and merged to "Padding" option to avoid confusion.
 - FIX: Header sub-menu typography.
