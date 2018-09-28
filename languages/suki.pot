@@ -303,7 +303,7 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:273
+#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:272
 msgid "Content & Sidebar"
 msgstr ""
 
@@ -311,11 +311,11 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:155, inc/customizer/options/_sections.php:266
+#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:155, inc/customizer/options/_sections.php:265
 msgid "Page Header (Title Bar)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:235, inc/customizer/options/_sections.php:307
+#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:235, inc/customizer/options/_sections.php:306
 msgid "Footer"
 msgstr ""
 
@@ -425,9 +425,9 @@ msgstr ""
 msgid "Welcome to %s!"
 msgstr ""
 
-#. translators: %1$s: theme name; %1$2: link to theme URL.
+#. translators: %1$s: theme name; %2$s: link to theme URL.
 #: inc/admin/class-suki-admin.php:360
-msgid "Let's make your website better and faster. Read more about %1$s's features at %2$s."
+msgid "Your website is now in good hands! %1$s offers highly customizable design, and lightning fast performance. Learn more about its full features and premium modules at %2$s."
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:362
@@ -843,7 +843,7 @@ msgstr ""
 msgid "Settings above are global default, optionally you can set different layout for each page type via %s."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:63, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:426
+#: inc/customizer/options/content--section.php:63, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:425
 msgid "Page Settings"
 msgstr ""
 
@@ -1072,7 +1072,7 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:313
+#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:312
 msgid "Footer Builder"
 msgstr ""
 
@@ -1599,12 +1599,17 @@ msgstr ""
 
 #: inc/customizer/options/page-settings.php:278
 msgctxt "Suki Pro upsell"
-msgid "Activate transparent header on this page"
+msgid "Activate / deactivate preloader screen on this page"
 msgstr ""
 
 #: inc/customizer/options/page-settings.php:279
 msgctxt "Suki Pro upsell"
-msgid "Activate alternative header colors on this page"
+msgid "Activate / deactivate transparent header on this page"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:280
+msgctxt "Suki Pro upsell"
+msgid "Activate / deactivate sticky header on this page"
 msgstr ""
 
 #: inc/customizer/options/settings--google-fonts.php:23
@@ -1700,7 +1705,7 @@ msgstr ""
 msgid "Main Bar"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:182, inc/customizer/options/_sections.php:333
+#: inc/customizer/options/_sections.php:182, inc/customizer/options/_sections.php:332
 msgid "Bottom Bar"
 msgstr ""
 
@@ -1724,7 +1729,7 @@ msgstr ""
 msgid "Element: HTML(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:236, inc/customizer/options/_sections.php:367
+#: inc/customizer/options/_sections.php:236, inc/customizer/options/_sections.php:366
 msgid "Element: Social"
 msgstr ""
 
@@ -1748,65 +1753,60 @@ msgctxt "Suki Pro upsell"
 msgid "Sticky header"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:258
-msgctxt "Suki Pro upsell"
-msgid "Alternative header colors"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:279
+#: inc/customizer/options/_sections.php:278
 msgid "Content Section"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:292
+#: inc/customizer/options/_sections.php:291
 msgid "Main Content Area"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:299
+#: inc/customizer/options/_sections.php:298
 msgid "Sidebar Area"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:326
+#: inc/customizer/options/_sections.php:325
 msgid "Widgets Bar"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:346
+#: inc/customizer/options/_sections.php:345
 msgid "Element: Widgets Column(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:353
+#: inc/customizer/options/_sections.php:352
 msgid "Element: Copyright"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:360
+#: inc/customizer/options/_sections.php:359
 msgid "Element: Menu"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:380
+#: inc/customizer/options/_sections.php:379
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:386
+#: inc/customizer/options/_sections.php:385
 msgid "Posts Index"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:392
+#: inc/customizer/options/_sections.php:391
 msgid "Single Post"
 msgstr ""
 
 #. translators: %s: link to "Post Layout: Default" section.
-#: inc/customizer/options/_sections.php:395
+#: inc/customizer/options/_sections.php:394
 msgid "\"Default\" post layout is used as the main post layout. You can configure it on %s"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:396, inc/customizer/options/_sections.php:408
+#: inc/customizer/options/_sections.php:395, inc/customizer/options/_sections.php:407
 msgid "Post Layout: Default"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:414
+#: inc/customizer/options/_sections.php:413
 msgid "Post Layout: Grid"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:427
+#: inc/customizer/options/_sections.php:426
 msgid "Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type."
 msgstr ""
 

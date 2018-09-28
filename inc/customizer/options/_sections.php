@@ -255,7 +255,6 @@ $wp_customize->add_panel( $panel, array(
 				esc_html_x( 'Vertical bar (drawer & permanent style)', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Transparent header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Sticky header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Alternative header colors', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

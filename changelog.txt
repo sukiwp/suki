@@ -1,6 +1,6 @@
 v0.6.0
 - TWEAK: Drastically improve Customizer performance (now it loads much faster).
-- FIX: Customizer color control's prefill issue.
+- FIX: Customizer color control's autocomplete issue.
 - FIX: Customizer bugs.
 - FIX: Header CSS bugs.
 - FIX: oEmbed CSS bugs on Gutenberg blocks.

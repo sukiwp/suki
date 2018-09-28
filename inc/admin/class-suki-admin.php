@@ -356,8 +356,8 @@ class Suki_Admin {
 				</h2>
 				<p class="about-description">
 					<?php printf(
-						/* translators: %1$s: theme name; %1$2: link to theme URL. */
-						esc_html__( 'Let\'s make your website better and faster. Read more about %1$s\'s features at %2$s.', 'suki' ),
+						/* translators: %1$s: theme name; %2$s: link to theme URL. */
+						esc_html__( 'Your website is now in good hands! %1$s offers highly customizable design, and lightning fast performance. Learn more about its full features and premium modules at %2$s.', 'suki' ),
 						esc_html( suki_get_theme_info( 'name' ) ),
 						'<a href="' . esc_url( suki_get_theme_info( 'url' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'our website', 'suki' ) . '</a>'
 					); ?>

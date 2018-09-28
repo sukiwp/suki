@@ -275,8 +275,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
-				esc_html_x( 'Activate transparent header on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Activate alternative header colors on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate / deactivate preloader screen on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate / deactivate transparent header on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate / deactivate sticky header on this page', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );
