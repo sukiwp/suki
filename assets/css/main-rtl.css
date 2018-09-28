@@ -845,25 +845,6 @@ select[multiple] {
 	margin-right: 0 !important;
 }
 
-.suki-oembed {
-	margin: 0 0 1.25em;
-}
-
-.suki-oembed-video {
-	position: relative;
-	padding-top: 56.25%;
-}
-
-.suki-oembed-video > * {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
 .suki-toggle {
 	border: none;
 	margin: 0;
@@ -1024,6 +1005,29 @@ select[multiple] {
 .mejs-button > button {
 	background-color: transparent !important;
 	color: inherit !important;
+}
+
+.wpview {
+	margin: 0;
+}
+
+.suki-oembed {
+	margin: 0 0 1.25em;
+}
+
+.suki-oembed-video {
+	position: relative;
+	padding-top: 56.25%;
+}
+
+.suki-oembed-video > * {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 #canvas {
