@@ -287,8 +287,8 @@ a.button {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #5c6bc0;
-	border-color: #5c6bc0;
+	background-color: #288ce6;
+	border-color: #288ce6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -305,8 +305,8 @@ input:focus[type="reset"],
 input:focus[type="submit"],
 .button:focus {
 	color: #ffffff;
-	background-color: #3949ab;
-	border-color: #3949ab;
+	background-color: #1465ad;
+	border-color: #1465ad;
 }
 
 button:hover,
@@ -477,7 +477,7 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: #5c6bc0;
+	color: #288ce6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -485,7 +485,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #3949ab;
+	color: #1465ad;
 }
 
 figure {
@@ -529,12 +529,12 @@ img {
 }
 
 ::-moz-selection {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 }
 
 ::selection {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 }
 
@@ -806,7 +806,7 @@ select[multiple] {
 }
 
 .nav-links a:hover, .nav-links a:focus {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .tagcloud:before, .tagcloud:after {
@@ -829,7 +829,7 @@ select[multiple] {
 }
 
 .tagcloud a:hover, .tagcloud a:focus {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .suki-social-links {
@@ -857,7 +857,7 @@ select[multiple] {
 	text-align: inherit;
 	cursor: pointer;
 	-webkit-appearance: none;
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .suki-toggle:hover {
@@ -866,7 +866,7 @@ select[multiple] {
 
 .suki-toggle:hover, .suki-toggle:focus {
 	background: inherit;
-	color: #3949ab;
+	color: #1465ad;
 }
 
 .suki-menu-icon {
@@ -1592,7 +1592,7 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-header-top-bar .suki-header-menu > ul > li > a:hover:after, .suki-header-top-bar .suki-header-menu > ul > li > a:focus:after {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 }
 
 .suki-header-main-bar {
@@ -1626,7 +1626,7 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-header-main-bar .suki-header-menu > ul > li > a:hover:after, .suki-header-main-bar .suki-header-menu > ul > li > a:focus:after {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 }
 
 .suki-header-bottom-bar {
@@ -1660,7 +1660,7 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-header-bottom-bar .suki-header-menu > ul > li > a:hover:after, .suki-header-bottom-bar .suki-header-menu > ul > li > a:focus:after {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 }
 
 .suki-header-mobile-main-bar {
@@ -2019,7 +2019,7 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-page-header a:hover, .suki-page-header a:focus {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .suki-page-header-layout-left-right {
@@ -2642,7 +2642,7 @@ a.more-link {
 }
 
 .comment-body .reply a:hover, .comment-body .reply a:focus {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 @media screen and (max-width: 499px) {

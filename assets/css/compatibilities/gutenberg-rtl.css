@@ -18,8 +18,8 @@
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #5c6bc0;
-	border-color: #5c6bc0;
+	background-color: #288ce6;
+	border-color: #288ce6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -28,8 +28,8 @@
 
 .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus {
 	color: #ffffff;
-	background-color: #3949ab;
-	border-color: #3949ab;
+	background-color: #1465ad;
+	border-color: #1465ad;
 }
 
 .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus, .wp-block-button .wp-block-button__link:active {
