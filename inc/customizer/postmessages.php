@@ -980,7 +980,7 @@ $add['page_header_container'] = array(
 	),
 );
 $responsive = array(
-	''         => '@media screen and (min-width: 1024px)',
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1115,7 +1115,7 @@ $add['page_header_breadcrumb_link_hover_text_color'] = array(
 	),
 );
 
-foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachment' ) as $prop ) {
+foreach ( array( 'bg_image', 'bg_attachment' ) as $prop ) {
 	$add['page_header_' . $prop ] = array(
 		array(
 			'type'     => 'css',
@@ -1141,7 +1141,7 @@ $add['page_header_bg_overlay_opacity'] = array(
  */
 
 $responsive = array(
-	''         => '@media screen and (min-width: 1024px)',
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1171,7 +1171,7 @@ $add['content_narrow_width'] = array(
  */
 
 $responsive = array(
-	''         => '@media screen and (min-width: 1024px)',
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1298,7 +1298,7 @@ $add['sidebar_widgets_gap'] = array(
 );
 
 $responsive = array(
-	''         => '@media screen and (min-width: 1024px)',
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1470,7 +1470,7 @@ $add['footer_widgets_bar_container'] = array(
 	),
 );
 $responsive = array(
-	''         => '@media screen and (min-width: 1024px)',
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1670,7 +1670,7 @@ $add['footer_bottom_bar_container'] = array(
 );
 
 $responsive = array(
-	''         => '@media screen and (min-width: 1024px)',
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1723,14 +1723,6 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
-
-$add['footer_bottom_bar_icon_size'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-bottom-bar .suki-menu-icon',
-		'property' => 'font-size',
-	),
-);
 
 $add['footer_bottom_bar_bg_color'] = array(
 	array(

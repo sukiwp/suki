@@ -616,8 +616,6 @@ $add['footer_elements_bottom_right'] = array();
  * ====================================================
  */
 
-$add['footer_bottom_bar_merged'] = 0;
-
 $add['footer_widgets_bar_container'] = 'default';
 $add['footer_widgets_bar_padding'] = '60px 25px 60px 25px';
 $add['footer_widgets_bar_padding__tablet'] = '60px 20px 60px 20px';
@@ -660,6 +658,8 @@ $add['footer_widgets_bar_widget_title_border_color'] = '';
  * Footer > Bottom Bar
  * ====================================================
  */
+
+$add['footer_bottom_bar_merged'] = 0;
 
 $add['footer_bottom_bar_container'] = 'default';
 $add['footer_bottom_bar_padding'] = '25px 25px 25px 25px';

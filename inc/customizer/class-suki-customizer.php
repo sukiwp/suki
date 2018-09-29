@@ -273,29 +273,29 @@ class Suki_Customizer {
 			// Get saved value.
 			$setting_value = get_theme_mod( $key );
 
-			// Skip this setting if value is not valid (only accepts string and number).
-			if ( ! is_numeric( $setting_value ) && ! is_string( $setting_value ) ) continue;
-
-			// Skip this setting if value is empty string.
-			if ( '' === $setting_value ) continue;
-
-			// Skip rule if value === default value.
-			if ( $setting_value === suki_array_value( $default_values, $key ) ) continue;
+			// Get default value.
+			$default_value = suki_array_value( $default_values, $key );
+			if ( is_null( $default_value ) ) {
+				$default_value = '';
+			}
 
 			// Temporary CSS array to organize output.
 			$css_array = array();
 
-			foreach ( $rules as $rule ) {
-				// Check rule validity, and then skip if it's not valid.
-				if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
-					continue;
+			// Add CSS only if value is not the same as default value and not empty.
+			if ( $setting_value !== $default_value && '' !== $setting_value ) {
+				foreach ( $rules as $rule ) {
+					// Check rule validity, and then skip if it's not valid.
+					if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
+						continue;
+					}
+
+					// Sanitize rule.
+					$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
+
+					// Add to CSS array.
+					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 				}
-
-				// Sanitize rule.
-				$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
-
-				// Add to CSS array.
-				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 			}
 
 			echo '<style id="suki-customize-preview-css-' . $key . '" type="text/css">' . suki_convert_css_array_to_string( $css_array ) . '</style>' . "\n"; // WPCS: XSS OK
