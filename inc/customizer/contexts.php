@@ -32,6 +32,7 @@ $add['outside_bg_attachment'] = array(
 	),
 );
 
+
 /**
  * ====================================================
  * Header > Top Bar
@@ -42,6 +43,13 @@ $add['outside_bg_attachment'] = array(
 
 // Main bar is placed first because top bar and bottom bar can be merged into main bar.
 foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
+	$add['suki_section_header_' . $type ] = array(
+		array(
+			'setting'  => '__device',
+			'value'    => 'desktop',
+		),
+	);
+	
 	if ( 'main_bar' !==  $type ) {
 		$add['header_' . $type . '_container'] = array(
 			array(
@@ -61,6 +69,26 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 		),
 	);
 }
+
+/**
+ * ====================================================
+ * Header > Mobile Main Bar
+ * Header > Mobile Drawer (Popup)
+ * ====================================================
+ */
+
+$add['suki_section_header_mobile_main_bar'] =
+$add['suki_section_header_mobile_vertical_bar'] = array(
+	'relation' => 'OR',
+	array(
+		'setting'  => '__device',
+		'value'    => 'tablet',
+	),
+	array(
+		'setting'  => '__device',
+		'value'    => 'mobile',
+	),
+);
 
 /**
  * ====================================================

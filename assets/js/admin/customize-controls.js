@@ -686,13 +686,16 @@
 		/**
 		 * Suki responsive control
 		 */
+
+		// Set handler when custom responsive toggle is clicked.
 		$( '#customize-theme-controls' ).on( 'click', '.suki-responsive-switcher-button', function( e ) {
 			e.preventDefault();
 
 			wp.customize.previewedDevice.set( $( this ).attr( 'data-device' ) );
 		});
 
-		wp.customize.previewedDevice.bind(function( device ) {
+		// Set all custom responsive toggles and fieldsets.
+		var setCustomResponsiveElementsDisplay = function( device ) {
 			var $buttons = $( 'span.suki-responsive-switcher-button' ),
 			    $tabs = $( '.suki-responsive-switcher-button.nav-tab' ),
 			    $panels = $( '.suki-responsive-fieldset' );
@@ -700,6 +703,17 @@
 			$panels.removeClass( 'active' ).filter( '.preview-' + device ).addClass( 'active' );
 			$buttons.removeClass( 'active' ).filter( '.preview-' + device ).addClass( 'active' );
 			$tabs.removeClass( 'nav-tab-active' ).filter( '.preview-' + device ).addClass( 'nav-tab-active' );
+		}
+
+		// Refresh all responsive elements when previewedDevice is changed.
+		wp.customize.previewedDevice.bind( setCustomResponsiveElementsDisplay );
+
+		// Refresh all responsive elements when any section is expanded.
+		// This is required to set responsive elements on newly added controls inside the section.
+		wp.customize.section.each(function ( section ) {
+			section.expanded.bind(function() {
+				setCustomResponsiveElementsDisplay( wp.customize.previewedDevice.get() );
+			});
 		});
 
 		/**

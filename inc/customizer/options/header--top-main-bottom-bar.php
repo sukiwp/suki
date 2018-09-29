@@ -57,7 +57,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'choices'     => array(
 			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 			'full-width'         => esc_html__( 'Full width content', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 			'contained'          => esc_html__( 'Contained section', 'suki' ),
 		),
 		'priority'    => 10,
@@ -129,8 +128,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 		'section'     => $section,
-		'label'       => esc_html__( 'Gap between elements', 'suki' ),
-		'description' => esc_html__( 'Also works as gap between menu items.', 'suki' ),
+		'label'       => esc_html__( 'Spacing between elements', 'suki' ),
 		'units'       => array(
 			'px' => array(
 				'min'   => 0,

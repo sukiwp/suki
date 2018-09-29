@@ -112,7 +112,7 @@ class Suki_Customize_Control_Builder extends Suki_Customize_Control {
 		<# if ( data.description ) { #>
 			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
-		<div class="customize-control-content suki-builder suki-builder-layout-{{ data.layout }} {{ data.responsive ? 'suki-customize-responsive-control' : '' }}" data-name="{{ data.name }}">
+		<div class="customize-control-content suki-builder suki-builder-layout-{{ data.layout }}" data-name="{{ data.name }}">
 			<div class="suki-builder-locations">
 				<# _.each( data.settings, function( setting_id, setting_key ) { #>
 					<div class="suki-builder-location suki-builder-location-{{ setting_key }}" data-location="{{ setting_key }}">

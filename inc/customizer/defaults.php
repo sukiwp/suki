@@ -276,7 +276,7 @@ $add['header_top_bar_merged'] = 0;
 
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '40px';
-$add['header_top_bar_padding'] = '0px 0px 0px 0px';
+$add['header_top_bar_padding'] = '0px 25px 0px 25px';
 $add['header_top_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_top_bar_items_gutter'] = '12px';
@@ -325,7 +325,7 @@ $add['header_top_bar_menu_highlight_text_color'] = '';
 
 $add['header_main_bar_container'] = 'default';
 $add['header_main_bar_height'] = '80px';
-$add['header_main_bar_padding'] = '0px 0px 0px 0px';
+$add['header_main_bar_padding'] = '0px 25px 0px 25px';
 $add['header_main_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_main_bar_items_gutter'] = '12px';
@@ -375,7 +375,7 @@ $add['header_bottom_bar_merged'] = 0;
 
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '40px';
-$add['header_bottom_bar_padding'] = '0px 0px 0px 0px';
+$add['header_bottom_bar_padding'] = '0px 25px 0px 25px';
 $add['header_bottom_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_bottom_bar_items_gutter'] = '12px';
@@ -422,7 +422,8 @@ $add['header_bottom_bar_menu_highlight_color'] = $colors['accent'];
  */
 
 $add['header_mobile_main_bar_height'] = '60px';
-$add['header_mobile_main_bar_padding'] = '0px 0px 0px 0px';
+$add['header_mobile_main_bar_padding__tablet'] = '0px 20px 0px 20px';
+$add['header_mobile_main_bar_padding__mobile'] = '0px 15px 0px 15px';
 $add['header_mobile_main_bar_border'] = '0px 0px 1px 0px';
 
 $add['header_mobile_main_bar_items_gutter'] = '12px';
@@ -489,7 +490,9 @@ $add['header_mobile_vertical_bar_menu_highlight_color'] = $colors['accent'];
 $add['page_header'] = 0;
 
 $add['page_header_container'] = 'default';
-$add['page_header_padding'] = '80px 0px 80px 0px';
+$add['page_header_padding'] = '80px 25px 80px 25px';
+$add['page_header_padding__tablet'] = '70px 20px 70px 20px';
+$add['page_header_padding__mobile'] = '60px 15px 60px 15px';
 $add['page_header_border'] = '0px 0px 1px 0px';
 
 $add['page_header_layout'] = 'center';
@@ -532,7 +535,9 @@ $add['page_header_bg_overlay_opacity'] = '';
 
 $add['content_container'] = 'default';
 $add['content_layout'] = 'right-sidebar';
-$add['content_padding'] = '80px 0px 80px 0px';
+$add['content_padding'] = '80px 25px 80px 25px';
+$add['content_padding__tablet'] = '70px 20px 70px 20px';
+$add['content_padding__mobile'] = '60px 15px 60px 15px';
 $add['content_narrow_width'] = '720px';
 
 /**
@@ -542,6 +547,8 @@ $add['content_narrow_width'] = '720px';
  */
 
 $add['content_main_padding'] = '0px 0px 0px 0px';
+$add['content_main_padding__tablet'] = '';
+$add['content_main_padding__mobile'] = '';
 $add['content_main_border'] = '0px 0px 0px 0px';
 
 $add['content_main_bg_color'] = '';
@@ -559,6 +566,8 @@ $add['sidebar_gap'] = '60px';
 $add['sidebar_widgets_mode'] = 'merged';
 $add['sidebar_widgets_gap'] = '40px';
 $add['sidebar_padding'] = '0px 0px 0px 0px';
+$add['sidebar_padding__tablet'] = '';
+$add['sidebar_padding__mobile'] = '';
 $add['sidebar_border'] = '0px 0px 0px 0px';
 
 $add['sidebar_font_family'] = '';
@@ -610,7 +619,9 @@ $add['footer_elements_bottom_right'] = array();
 $add['footer_bottom_bar_merged'] = 0;
 
 $add['footer_widgets_bar_container'] = 'default';
-$add['footer_widgets_bar_padding'] = '60px 0px 60px 0px';
+$add['footer_widgets_bar_padding'] = '60px 25px 60px 25px';
+$add['footer_widgets_bar_padding__tablet'] = '60px 20px 60px 20px';
+$add['footer_widgets_bar_padding__mobile'] = '60px 15px 60px 15px';
 $add['footer_widgets_bar_border'] = '1px 0px 0px 0px';
 
 $add['footer_widgets_bar_columns_gutter'] = '15px';
@@ -651,7 +662,9 @@ $add['footer_widgets_bar_widget_title_border_color'] = '';
  */
 
 $add['footer_bottom_bar_container'] = 'default';
-$add['footer_bottom_bar_padding'] = '25px 0px 25px 0px';
+$add['footer_bottom_bar_padding'] = '25px 25px 25px 25px';
+$add['footer_bottom_bar_padding__tablet'] = '25px 20px 25px 20px';
+$add['footer_bottom_bar_padding__mobile'] = '25px 15px 25px 15px';
 $add['footer_bottom_bar_border'] = '1px 0px 0px 0px';
 
 $add['footer_bottom_bar_font_family'] = '';
@@ -723,7 +736,6 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
 
 $add['blog_index_grid_columns'] = 2;
 $add['blog_index_grid_columns_gutter'] = '15px';
-$add['entry_grid_padding'] = '15px 15px 15px 15px';
 
 $add['entry_grid_featured_media_position'] = 'before-entry-header';
 $add['entry_grid_header'] = array( 'header-meta', 'title' );

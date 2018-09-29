@@ -617,7 +617,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_padding'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . '-row',
+			'element'  => '.suki-header-' . $bar . '-inner',
 			'property' => 'padding',
 		),
 	);
@@ -768,17 +768,24 @@ $add['header_mobile_main_bar_height'] = array(
 		'property' => 'height',
 	),
 );
-$add['header_mobile_main_bar_padding'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar-row',
-		'property' => 'padding',
-	),
+$responsive = array(
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
 );
+foreach ( $responsive as $suffix => $media ) {
+	$add['header_mobile_main_bar_padding' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-header-mobile-main-bar-inner',
+			'property' => 'padding',
+			'media'    => $media,
+		),
+	);
+}
 $add['header_mobile_main_bar_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar .suki-header-row',
+		'element'  => '.suki-header-mobile-main-bar-inner',
 		'property' => 'border-width',
 	),
 );
@@ -871,7 +878,7 @@ $add['header_mobile_vertical_bar_width'] = array(
 $add['header_mobile_vertical_bar_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .suki-header-vertical-column',
+		'element'  => '.suki-header-mobile-vertical-bar-inner',
 		'property' => 'padding',
 	),
 );
@@ -973,7 +980,7 @@ $add['page_header_container'] = array(
 	),
 );
 $responsive = array(
-	'' => '',
+	''         => '@media screen and (min-width: 1024px)',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -981,7 +988,7 @@ foreach ( $responsive as $suffix => $media ) {
 	$add['page_header_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-page-header-row',
+			'element'  => '.suki-page-header-inner',
 			'property' => 'padding',
 			'media'    => $media,
 		),
@@ -1133,13 +1140,21 @@ $add['page_header_bg_overlay_opacity'] = array(
  * ====================================================
  */
 
-$add['content_padding'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-row',
-		'property' => 'padding',
-	),
+$responsive = array(
+	''         => '@media screen and (min-width: 1024px)',
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
 );
+foreach ( $responsive as $suffix => $media ) {
+	$add['content_padding' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-content-inner',
+			'property' => 'padding',
+			'media'    => $media,
+		),
+	);
+}
 
 $add['content_narrow_width'] = array(
 	array(
@@ -1156,7 +1171,7 @@ $add['content_narrow_width'] = array(
  */
 
 $responsive = array(
-	'' => '',
+	''         => '@media screen and (min-width: 1024px)',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1283,7 +1298,7 @@ $add['sidebar_widgets_gap'] = array(
 );
 
 $responsive = array(
-	'' => '',
+	''         => '@media screen and (min-width: 1024px)',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1455,7 +1470,7 @@ $add['footer_widgets_bar_container'] = array(
 	),
 );
 $responsive = array(
-	'' => '',
+	''         => '@media screen and (min-width: 1024px)',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1463,7 +1478,7 @@ foreach ( $responsive as $suffix => $media ) {
 	$add['footer_widgets_bar_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-footer-widgets-bar-row',
+			'element'  => '.suki-footer-widgets-bar-inner',
 			'property' => 'padding',
 			'media'    => $media,
 		),
@@ -1655,7 +1670,7 @@ $add['footer_bottom_bar_container'] = array(
 );
 
 $responsive = array(
-	'' => '',
+	''         => '@media screen and (min-width: 1024px)',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );
@@ -1663,7 +1678,7 @@ foreach ( $responsive as $suffix => $media ) {
 	$add['footer_bottom_bar_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-footer-bottom-bar-row',
+			'element'  => '.suki-footer-bottom-bar-inner',
 			'property' => 'padding',
 			'media'    => $media,
 		),

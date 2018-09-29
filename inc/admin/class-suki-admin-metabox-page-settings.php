@@ -421,7 +421,6 @@ class Suki_Admin_Metabox_Page_Settings {
 								''                   => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 								'full-width'         => esc_html__( 'Full width content', 'suki' ),
-								'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );

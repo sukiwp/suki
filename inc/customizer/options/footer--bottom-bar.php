@@ -50,7 +50,6 @@ $wp_customize->add_control( $id, array(
 	'choices'     => array(
 		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 		'full-width'         => esc_html__( 'Full width content', 'suki' ),
-		'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 		'contained'          => esc_html__( 'Contained section', 'suki' ),
 	),
 	'priority'    => 10,

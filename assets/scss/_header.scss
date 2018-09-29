@@ -242,6 +242,15 @@
 	&-inner {
 		z-index: 3;
 		border-width: 0 0 1px 0; // default
+		padding: 0 25px; // default
+
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			padding: 0 20px; // default
+		}
+
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			padding: 0 15px; // default
+		}
 	}
 
 	&-inner, .sub-menu {
@@ -279,6 +288,15 @@
 	&-inner {
 		z-index: 2;
 		border-width: 0 0 1px 0; // default
+		padding: 0 25px; // default
+
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			padding: 0 20px; // default
+		}
+
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			padding: 0 15px; // default
+		}
 	}
 
 	&-inner, .sub-menu {
@@ -316,6 +334,15 @@
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
+		padding: 0 25px; // default
+
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			padding: 0 20px; // default
+		}
+
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			padding: 0 15px; // default
+		}
 	}
 
 	&-inner, .sub-menu {
@@ -353,6 +380,15 @@
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
+		padding: 0 25px; // default
+
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			padding: 0 20px; // default
+		}
+
+		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+			padding: 0 15px; // default
+		}
 	}
 
 	&-inner, .sub-menu {

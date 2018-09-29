@@ -44,10 +44,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 		'section'     => $section,
 		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
-			''                   => esc_html__( 'Default', 'suki' ),
-			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-			'full-width'         => esc_html__( 'Full width content', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
+			''           => esc_html__( 'Default', 'suki' ),
+			'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
+			'full-width' => esc_html__( 'Full width content', 'suki' ),
 		),
 		'priority'    => 10,
 	) );

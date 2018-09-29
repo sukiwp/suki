@@ -9,6 +9,15 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: scroll; // default
+	padding: 80px 25px; // default
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		padding: 70px 20px; // default
+	}
+
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		padding: 60px 15px; // default
+	}
 
 	&:before {
 		content: "";
@@ -20,10 +29,6 @@
 		background-color: inherit; // default
 		opacity: 0; // default
 	}
-}
-
-.suki-page-header-row {
-	padding: 80px 0; // default
 }
 
 .suki-page-header {

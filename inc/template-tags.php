@@ -413,7 +413,7 @@ function suki_mobile_header() {
 		}
 
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-full-width-padding <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo ( $attrs ); // WPCS: XSS OK. ?>>
+		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-default <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo ( $attrs ); // WPCS: XSS OK. ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
@@ -728,7 +728,7 @@ if ( ! function_exists( 'suki_content_open' ) ) :
 function suki_content_open() {
 	?>
 	<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array() ) ) ); ?>">
-		<div class="suki-section-inner">
+		<div class="suki-content-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-content-row">
 	<?php
