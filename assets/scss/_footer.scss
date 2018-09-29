@@ -18,15 +18,7 @@
 	&-inner {
 		background-color: $color_subtle; // default
 		border-width: 1px 0 0 0; // default
-		padding: 60px 25px; // default
-
-		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-			padding: 60px 20px; // default
-		}
-
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			padding: 60px 15px; // default
-		}
+		padding: 60px 20px; // default
 	}
 
 	.widget {
@@ -103,15 +95,7 @@
 .suki-footer-bottom-bar-inner {
 	background-color: $color_subtle; // default
 	border-width: 1px 0 0 0; // default
-	padding: 25px 25px; // default
-
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		padding: 25px 20px; // default
-	}
-
-	@media screen and ( max-width: $breakpoint_500 - 1px ) {
-		padding: 25px 15px; // default
-	}
+	padding: 25px 20px; // default
 }
 
 .suki-footer-bottom-bar-row {

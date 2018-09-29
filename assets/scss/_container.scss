@@ -140,15 +140,7 @@ body.suki-page-layout-boxed {
 }
 
 .suki-content-inner {
-	padding: 80px 25px; // default
-
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		padding: 70px 20px; // default
-	}
-
-	@media screen and ( max-width: $breakpoint_500 - 1px ) {
-		padding: 60px 15px; // default
-	}
+	padding: 80px 20px; // default
 }
 
 .suki-content-row {

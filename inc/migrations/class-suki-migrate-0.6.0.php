@@ -81,18 +81,17 @@ class Suki_Migrate_0_6_0 {
 				$padding = explode( ' ', $padding );
 
 				// Merge 
-				$padding[1] = ( intval( $padding[1] ) + 25 ) . 'px';
-				$padding[3] = ( intval( $padding[3] ) + 25 ) . 'px';
+				$padding[1] = '20px';
+				$padding[3] = '20px';
 
 				$padding = implode( ' ', $padding );
 
 				// Update DB value
 				set_theme_mod( $key, $padding );
 
-				// Split "header_mobile_main_bar_padding" into "header_mobile_main_bar_padding__tablet" and "header_mobile_main_bar_padding__mobile"
+				// Split "header_mobile_main_bar_padding" into "header_mobile_main_bar_padding__tablet"
 				if ( 'header_mobile_main_bar_padding' === $key ) {
 					set_theme_mod( $key . '__tablet', $padding );
-					set_theme_mod( $key . '__mobile', $padding );
 					remove_theme_mod( $key );
 				}
 			}
@@ -105,8 +104,8 @@ class Suki_Migrate_0_6_0 {
 				if ( false !== $padding_tablet ) {
 					$padding_tablet = explode( ' ', $padding_tablet );
 
-					$padding_tablet[1] = ( intval( $padding_tablet[1] ) + 20 ) . 'px';
-					$padding_tablet[3] = ( intval( $padding_tablet[3] ) + 20 ) . 'px';
+					$padding_tablet[1] = '20px';
+					$padding_tablet[3] = '20px';
 
 					set_theme_mod( $key_tablet, implode( ' ', $padding_tablet ) );
 				}
@@ -117,8 +116,8 @@ class Suki_Migrate_0_6_0 {
 				if ( false !== $padding_mobile ) {
 					$padding_mobile = explode( ' ', $padding_mobile );
 
-					$padding_mobile[1] = ( intval( $padding_mobile[1] ) + 15 ) . 'px';
-					$padding_mobile[3] = ( intval( $padding_mobile[3] ) + 15 ) . 'px';
+					$padding_mobile[1] = '20px';
+					$padding_mobile[3] = '20px';
 
 					set_theme_mod( $key_mobile, implode( ' ', $padding_mobile ) );
 				}
