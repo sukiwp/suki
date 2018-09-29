@@ -125,13 +125,13 @@ $settings = array(
 	'line_height'    => 'footer_bottom_bar_line_height',
 	'letter_spacing' => 'footer_bottom_bar_letter_spacing',
 
-	'font_size__tablet'      => 'footer_widgets_bar_font_size__tablet',
-	'line_height__tablet'    => 'footer_widgets_bar_line_height__tablet',
-	'letter_spacing__tablet' => 'footer_widgets_bar_letter_spacing__tablet',
+	'font_size__tablet'      => 'footer_bottom_bar_font_size__tablet',
+	'line_height__tablet'    => 'footer_bottom_bar_line_height__tablet',
+	'letter_spacing__tablet' => 'footer_bottom_bar_letter_spacing__tablet',
 
-	'font_size__mobile'      => 'footer_widgets_bar_font_size__mobile',
-	'line_height__mobile'    => 'footer_widgets_bar_line_height__mobile',
-	'letter_spacing__mobile' => 'footer_widgets_bar_letter_spacing__mobile',
+	'font_size__mobile'      => 'footer_bottom_bar_font_size__mobile',
+	'line_height__mobile'    => 'footer_bottom_bar_line_height__mobile',
+	'letter_spacing__mobile' => 'footer_bottom_bar_letter_spacing__mobile',
 );
 foreach ( $settings as $id ) {
 	$wp_customize->add_setting( $id, array(
