@@ -465,7 +465,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide post title', 'suki' ); ?></label>
+						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide title', 'suki' ); ?></label>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_title';

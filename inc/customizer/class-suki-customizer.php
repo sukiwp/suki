@@ -453,7 +453,7 @@ class Suki_Customizer {
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_object->labels->singular_name ),
 				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the Edit %1$s page.', 'suki' ), $post_type_object->labels->singular_name ),
+				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_object->labels->singular_name ),
 			);
 		}
 

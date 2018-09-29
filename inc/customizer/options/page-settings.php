@@ -74,6 +74,13 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 
 	// Options specifically for singular page types.
 	if ( false !== strpos( $type, '_singular' ) ) {
+		// ------
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $type . '_content_elements', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'priority'    => 10,
+		) ) );
+
 		// Hide post title
 		$key = 'content_hide_title';
 		$id = $option_key . '[' . $key . ']';
@@ -183,7 +190,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 			/* translators: %s: plural post type name */
 			'archive'   => sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_object->labels->name ),
 			/* translators: %s: singular post type name */
-			'thumbnail' => sprintf( esc_html__( 'Use %s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name ),
+			'thumbnail' => sprintf( esc_html__( 'Use %s\'s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name ),
 		);
 	} else {
 		$choices = array(
