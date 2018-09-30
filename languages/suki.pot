@@ -409,7 +409,7 @@ msgstr ""
 
 #. translators: link to the documentation article.
 #: inc/admin/class-suki-admin.php:124
-msgid "Fell in love with this screenshot? Learn how to replicate the same design %s."
+msgid "Fell in love with our screenshot? Learn how to replicate the same design %s."
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:125
@@ -417,85 +417,85 @@ msgid "here"
 msgstr ""
 
 #. translators: %s: theme name.
-#: inc/admin/class-suki-admin.php:353
+#: inc/admin/class-suki-admin.php:346
 msgid "Welcome to %s!"
 msgstr ""
 
 #. translators: %1$s: theme name; %2$s: link to theme URL.
-#: inc/admin/class-suki-admin.php:360
+#: inc/admin/class-suki-admin.php:353
 msgid "Your website is now in good hands! %1$s offers highly customizable design, and lightning fast performance. Learn more about its full features and premium modules at %2$s."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:362
+#: inc/admin/class-suki-admin.php:355
 msgid "our website"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:377
+#: inc/admin/class-suki-admin.php:370
 msgid "More features are available on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:395
+#: inc/admin/class-suki-admin.php:388
 msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:405
+#: inc/admin/class-suki-admin.php:398
 msgid "Coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:425
+#: inc/admin/class-suki-admin.php:418
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:438
+#: inc/admin/class-suki-admin.php:431
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:438
+#: inc/admin/class-suki-admin.php:431
 msgid "coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:440
+#: inc/admin/class-suki-admin.php:433
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:444
+#: inc/admin/class-suki-admin.php:437
 msgctxt "Suki Pro upsell"
 msgid "More about Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:458
+#: inc/admin/class-suki-admin.php:451
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:460
+#: inc/admin/class-suki-admin.php:453
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:464
+#: inc/admin/class-suki-admin.php:457
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:478
+#: inc/admin/class-suki-admin.php:471
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:480
+#: inc/admin/class-suki-admin.php:473
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:484
+#: inc/admin/class-suki-admin.php:477
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:498
+#: inc/admin/class-suki-admin.php:491
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:500
+#: inc/admin/class-suki-admin.php:493
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:504
+#: inc/admin/class-suki-admin.php:497
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 

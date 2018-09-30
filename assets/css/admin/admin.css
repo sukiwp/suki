@@ -381,33 +381,7 @@ input, select, textarea {
 
 .wp-header-end ~ .suki-admin-theme-notice {
 	position: relative;
-	padding-left: 40px;
 	display: block;
-}
-
-.wp-header-end ~ .suki-admin-theme-notice .suki-admin-theme-notice-arrow {
-	position: absolute;
-	z-index: 99;
-	top: 50%;
-	left: 0px;
-	width: 20px;
-	height: 32px;
-	border-left: 14px solid #00a0d2;
-	border-radius: 32px 0 0 0;
-	-webkit-transform: rotate(-15deg);
-	transform: rotate(-15deg);
-	-webkit-transform-origin: 100% 0;
-	transform-origin: 100% 0;
-}
-
-.wp-header-end ~ .suki-admin-theme-notice .suki-admin-theme-notice-arrow:before {
-	content: "";
-	position: absolute;
-	top: 100%;
-	left: -27px;
-	border-top: 20px solid #00a0d2;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
 }
 
 @media screen and (max-width: 782px) {

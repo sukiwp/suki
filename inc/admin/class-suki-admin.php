@@ -121,18 +121,11 @@ class Suki_Admin {
 				<p>
 					<?php printf(
 						/* translators: link to the documentation article. */
-						esc_html__( 'Fell in love with this screenshot? Learn how to replicate the same design %s.', 'suki' ),
+						esc_html__( 'Fell in love with our screenshot? Learn how to replicate the same design %s.', 'suki' ),
 						'<a href="' . esc_url( 'https://docs.sukiwp.com/article/getting-started/replicating-theme-screenshot/' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suki' ) . '</a>'
 					); ?>
 				</p>
 			</div>
-			<script type="text/javascript">
-				(function($) {
-					$(function() {
-						$( '.suki-admin-theme-notice' ).insertBefore( $( '.theme-browser' ) );
-					});
-				})( jQuery );
-			</script>
 		<?php endif;
 	}
 
@@ -374,7 +367,7 @@ class Suki_Admin {
 		?>
 		<div class="suki-admin-pro-modules postbox">
 			<h2 class="hndle">
-				<?php echo apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More features are available on Suki Pro', 'suki' ) ); ?>
+				<?php echo esc_html( apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More features are available on Suki Pro', 'suki' ) ) ); ?>
 			</h2>
 			<div class="inside">
 				<?php

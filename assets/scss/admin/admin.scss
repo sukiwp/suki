@@ -369,31 +369,7 @@ input, select, textarea {
 
 	.wp-header-end ~ & {
 		position: relative;
-		padding-left: 40px;
 		display: block;
-
-		.suki-admin-theme-notice-arrow {
-			position: absolute;
-			z-index: 99;
-			top: 50%;
-			left: 0px;
-			width: 20px;
-			height: 32px;
-			border-left: 14px solid #00a0d2;
-			border-radius: 32px 0 0 0;
-			transform: rotate(-15deg);
-			transform-origin: 100% 0;
-
-			&:before {
-				content: "";
-				position: absolute;
-				top: 100%;
-				left: -27px;
-				border-top: 20px solid #00a0d2;
-				border-left: 20px solid transparent;
-				border-right: 20px solid transparent;
-			}
-		}
 	}
 }
 
