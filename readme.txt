@@ -30,10 +30,11 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 == Screenshot Licenses ==
 
 Screenshot images are all licensed under CC0 Universal
-https://pixabay.com/en/girl-winter-beach-retro-2976553/
-https://pixabay.com/en/beautiful-girl-woman-young-1274056/
-https://pixabay.com/en/beautiful-girl-female-young-woman-1274063/
-https://pixabay.com/en/beautiful-smile-girl-woman-happy-1274361/
+https://www.pexels.com/photo/blue-sky-building-clouds-design-411595/
+https://www.pexels.com/photo/man-standing-near-building-white-black-turtleneck-shirt-874158/
+https://www.pexels.com/photo/blur-close-up-depth-of-field-female-458649/
+https://www.pexels.com/photo/person-in-teal-ice-cream-print-tank-top-holds-ice-cream-886285/
+https://www.pexels.com/photo/woman-holding-black-leather-bag-1204464/
 
 == Copyright ==
 
