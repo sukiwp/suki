@@ -269,9 +269,7 @@
 		ready: function() {
 			var control = this,
 				updating = false,
-				$picker;
-
-			$picker = this.container.find( '.color-picker-hex' );
+				$picker = control.container.find( '.color-picker-hex' );
 
 			$picker.wpColorPicker({
 				change: function() {
@@ -279,7 +277,7 @@
 				},
 				clear: function() {
 					control.setting.set( '' );
-				}
+				},
 			});
 
 			// Collapse color picker when hitting Esc instead of collapsing the current section.
