@@ -30,7 +30,7 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 == Screenshot Licenses ==
 
 Screenshot images are all licensed under CC0 Universal
-https://www.pexels.com/photo/blue-sky-building-clouds-design-411595/
+https://www.pexels.com/photo/man-in-blue-suit-999267/
 https://www.pexels.com/photo/man-standing-near-building-white-black-turtleneck-shirt-874158/
 https://www.pexels.com/photo/blur-close-up-depth-of-field-female-458649/
 https://www.pexels.com/photo/person-in-teal-ice-cream-print-tank-top-holds-ice-cream-886285/
