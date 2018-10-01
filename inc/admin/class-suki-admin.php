@@ -121,18 +121,11 @@ class Suki_Admin {
 				<p>
 					<?php printf(
 						/* translators: link to the documentation article. */
-						esc_html__( 'Fell in love with this screenshot? Learn how to replicate the same design %s.', 'suki' ),
+						esc_html__( 'Fell in love with our screenshot? Learn how to replicate the same design %s.', 'suki' ),
 						'<a href="' . esc_url( 'https://docs.sukiwp.com/article/getting-started/replicating-theme-screenshot/' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suki' ) . '</a>'
 					); ?>
 				</p>
 			</div>
-			<script type="text/javascript">
-				(function($) {
-					$(function() {
-						$( '.suki-admin-theme-notice' ).insertBefore( $( '.theme-browser' ) );
-					});
-				})( jQuery );
-			</script>
 		<?php endif;
 	}
 
@@ -173,10 +166,10 @@ class Suki_Admin {
 		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
 
 		// Register JS files
-		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), $ver['wp-color-picker-alpha'], true );
+		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha' . SUKI_ASSETS_SUFFIX . '.js', array( 'wp-color-picker' ), $ver['wp-color-picker-alpha'], true );
 
 		// Enqueue JS files.
-		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin.js', array( 'jquery' ), SUKI_VERSION, true );
+		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );
 
 		/**
 		 * Hook: Styles to be included after admin JS
@@ -356,8 +349,8 @@ class Suki_Admin {
 				</h2>
 				<p class="about-description">
 					<?php printf(
-						/* translators: %1$s: theme name; %1$2: link to theme URL. */
-						esc_html__( 'Let\'s make your website better and faster. Read more about %1$s\'s features at %2$s.', 'suki' ),
+						/* translators: %1$s: theme name; %2$s: link to theme URL. */
+						esc_html__( 'Your website is now in good hands! %1$s offers highly customizable design, and lightning fast performance. Learn more about its full features and premium modules at %2$s.', 'suki' ),
 						esc_html( suki_get_theme_info( 'name' ) ),
 						'<a href="' . esc_url( suki_get_theme_info( 'url' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'our website', 'suki' ) . '</a>'
 					); ?>
@@ -373,7 +366,9 @@ class Suki_Admin {
 	public function render_content__pro_modules_table() {
 		?>
 		<div class="suki-admin-pro-modules postbox">
-			<h2 class="hndle"><?php esc_html_e( 'Premium Modules in Suki Pro', 'suki' ); ?></h2>
+			<h2 class="hndle">
+				<?php echo esc_html( apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More features are available on Suki Pro', 'suki' ) ) ); ?>
+			</h2>
 			<div class="inside">
 				<?php
 				// Get all pro modules list.
@@ -388,14 +383,20 @@ class Suki_Admin {
 									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>
 								</td>
 								<td class="suki-admin-pro-table-item-actions column-description desc">
-									<?php if ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
+									<?php if ( ! suki_is_pro() ) : ?>
+
+										<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more', 'suki' ); ?></a>
+
+									<?php elseif ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
 
 										<?php foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) : ?>
 											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
 										<?php endforeach; ?>
 
 									<?php else : ?>
+
 										<span class="suki-admin-pro-table-item-coming-soon"><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
+
 									<?php endif; ?>
 								</td>
 							</tr>

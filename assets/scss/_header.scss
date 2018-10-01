@@ -99,19 +99,13 @@
 .suki-header-section {
 	position: relative;
 
-	.suki-section-inner {
-		height: inherit;
-		background-color: #fff; // default
-		@include transition( background-color, border-color, color );
-	}
-
 	.suki-wrapper {
 		height: 100%;
 	}
 
-	.suki-header-absolute > & {
-		position: absolute;
-		width: 100%;
+	.suki-section-inner {
+		height: inherit;
+		@include transition( background-color, border-color, color );
 	}
 }
 
@@ -242,12 +236,13 @@
 	}
 }
 
-.suki-header-main .suki-header-top-bar {
+.suki-header-top-bar {
 	height: 40px; // default
 
 	&-inner {
 		z-index: 3;
 		border-width: 0 0 1px 0; // default
+		padding: 0 20px; // default
 	}
 
 	&-inner, .sub-menu {
@@ -279,13 +274,13 @@
 	}
 }
 
-// Need .suki-header-main prefix for transparent header CSS.
-.suki-header-main .suki-header-main-bar {
+.suki-header-main-bar {
 	height: 80px; // default
 
 	&-inner {
 		z-index: 2;
 		border-width: 0 0 1px 0; // default
+		padding: 0 20px; // default
 	}
 
 	&-inner, .sub-menu {
@@ -317,13 +312,13 @@
 	}
 }
 
-// Need .suki-header-main prefix for transparent header CSS.
-.suki-header-main .suki-header-bottom-bar {
+.suki-header-bottom-bar {
 	height: 40px; // default
 
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
+		padding: 0 20px; // default
 	}
 
 	&-inner, .sub-menu {
@@ -355,13 +350,13 @@
 	}
 }
 
-// Need .suki-header-main prefix for transparent header CSS.
-.suki-header-mobile .suki-header-mobile-main-bar {
+.suki-header-mobile-main-bar {
 	height: 60px; // default
 
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
+		padding: 0 20px; // default
 	}
 
 	&-inner, .sub-menu {
@@ -587,7 +582,7 @@
 		&:after {
 			content: "";
 			position: absolute;
-			z-index: 0;
+			z-index: -1;
 			@include transition();
 		}
 	}

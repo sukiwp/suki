@@ -7,6 +7,9 @@
  * Version: 2.1.3
  * https://github.com/kallookoo/wp-color-picker-alpha
  * Licensed under the GPLv2 license.
+ *
+ * Modified:
+ * - Fix color control's autofill on 3 digits hex input.
  */
 ( function( $ ) {
 	// Prevent double-init.
@@ -474,7 +477,7 @@
 					} else {
 						if ( color.toString() !== self._color.toString() ) {
 							// let's not do this on keyup for hex shortcodes
-							if ( ! ( event.type === 'keyup' && val.match( /^[0-9a-fA-F]{3}$/ ) ) )
+							if ( ! ( event.type === 'keyup' && val.match( /^#?[0-9a-fA-F]{3}$/ ) ) )
 								self._setOption( 'color', color.toString() );
 						}
 					}

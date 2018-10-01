@@ -11,19 +11,8 @@
 		position: relative;
 		left: 50%;
 		transform: translate( -50%, 0 );
-		width: calc( 1140px + ( 2 * 25px ) ); // default
-		max-width: calc( 1140px + ( 2 * 25px ) ); // default
-		padding: 0 25px; // default
-
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			padding: 0 20px; // default
-			max-width: calc( 1140px + ( 2 * 20px ) ); // default
-		}
-
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			padding: 0 15px; // default
-			max-width: calc( 1140px + ( 2 * 15px ) ); // default
-		}
+		width: 1140px; // default
+		max-width: 100vw;
 	}
 
 	img {
@@ -41,7 +30,7 @@
 		max-width: 100vw;
 
 		body.suki-page-layout-boxed & {
-			max-width: 1400px; // default
+			width: 1400px; // default
 		}
 	}
 
@@ -67,24 +56,22 @@
 
 	&.alignwide {
 		.suki-content-layout-narrow & {
-			width: calc( 1140px + ( 2 * 25px ) + ( 2 * 15px ) ); // default
-			max-width: calc( 1140px + ( 2 * 25px ) + ( 2 * 15px ) ); // default
+			width: calc( 1140px + ( 2 * 15px ) ); // default
+			max-width: calc( 100vw + ( 2 * 15px ) );
 			margin: 0;
-
-			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				max-width: calc( 1140px + ( 2 * 20px ) + ( 2 * 15px ) ); // default
-			}
-
-			@media screen and ( max-width: $breakpoint_500 - 1px ) {
-				max-width: calc( 1140px + ( 2 * 15px ) + ( 2 * 15px ) ); // default
-			}
 		}
 	}
 
 	&.alignfull {
 		.suki-content-layout-narrow &,
 		.suki-content-layout-wide & {
+			width: calc( 100vw + ( 2 * 15px ) );
+			max-width: calc( 100vw + ( 2 * 15px ) );
 			margin: 0;
+
+			body.suki-page-layout-boxed & {
+				width: calc( 1400px + ( 2 * 15px ) ); // default
+			}
 		}
 	}
 }
@@ -218,16 +205,8 @@ p.wp-block-subhead {
 		.suki-content-layout-narrow & {
 			margin-left: 0;
 			margin-right: 0;
-			width: calc( 1140px + ( 2 * 25px ) + ( 2 * 8px ) ); // default
-			max-width: calc( 1140px + ( 2 * 25px ) + ( 2 * 8px ) ); // default
-
-			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				max-width: calc( 1140px + ( 2 * 20px ) + ( 2 * 8px ) ); // default
-			}
-
-			@media screen and ( max-width: $breakpoint_500 - 1px ) {
-				max-width: calc( 1140px + ( 2 * 15px ) + ( 2 * 8px ) ); // default
-			}
+			width: calc( 1140px + ( 2 * 8px ) ); // default
+			max-width: calc( 100vw + ( 2 * 8px ) );
 		}
 	}
 
@@ -236,12 +215,11 @@ p.wp-block-subhead {
 		.suki-content-layout-wide & {
 			margin-left: 0;
 			margin-right: 0;
-			width: calc( 100vw + ( 2 * 8px ) ); // default
-			max-width: calc( 100vw + ( 2 * 8px ) ); // default
+			width: calc( 100vw + ( 2 * 8px ) );
+			max-width: calc( 100vw + ( 2 * 8px ) );
 
 			body.suki-page-layout-boxed & {
 				width: calc( 1400px + ( 2 * 8px ) ); // default
-				max-width: calc( 1400px + ( 2 * 8px ) ); // default
 			}
 		}
 	}
@@ -295,6 +273,11 @@ p.wp-block-subhead {
 
 .wp-block-embed {
 	.suki-oembed {
+		// reset responsive wrapper, Gutenberg already does it
+		position: static;
+		padding: 0 !important;
+		margin: 0;
+
 		> * {
 			margin-top: 0;
 			margin-bottom: 0;

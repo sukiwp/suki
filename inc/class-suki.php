@@ -147,7 +147,7 @@ class Suki {
 			// Run through each "to-do" migration list step by step.
 			foreach ( $this->get_migration_checkpoints( $db_version ) as $migration_version ) {
 				// Include migration functions.
-				$file = SUKI_INCLUDES_DIR . '/migrations/' . $migration_version . '.php';
+				$file = SUKI_INCLUDES_DIR . '/migrations/class-suki-migrate-' . $migration_version . '.php';
 
 				if ( file_exists( $file ) ) {
 					include( $file );
@@ -391,7 +391,11 @@ class Suki {
 
 		switch ( $page_header_bg ) {
 			case 'thumbnail':
-				$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+				if ( has_post_thumbnail() ) {
+					$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+				} else {
+					$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+				}
 				break;
 
 			case 'archive':
@@ -461,7 +465,7 @@ class Suki {
 	 */
 	public function get_migration_checkpoints( $start_from = null ) {
 		$all_checkpoints = array(
-
+			'0.6.0',
 		);
 
 		if ( is_null( $start_from ) ) {

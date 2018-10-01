@@ -9,6 +9,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: scroll; // default
+	padding: 80px 20px; // default
 
 	&:before {
 		content: "";
@@ -20,10 +21,6 @@
 		background-color: inherit; // default
 		opacity: 0; // default
 	}
-}
-
-.suki-page-header-row {
-	padding: 80px 0; // default
 }
 
 .suki-page-header {

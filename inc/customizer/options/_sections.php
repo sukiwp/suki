@@ -255,7 +255,6 @@ $wp_customize->add_panel( $panel, array(
 				esc_html_x( 'Vertical bar (drawer & permanent style)', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Transparent header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Sticky header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Alternative header colors', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );
@@ -431,7 +430,7 @@ $wp_customize->add_panel( $panel, array(
 	// Begin registering sections.
 	$i = 10;
 	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type => $type_data ) {
-		if ( 0 < strpos( $type, '_archive' ) || 'search' === $type ) {
+		if ( 0 < strpos( $type, '_archive' ) ) {
 			$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_' . $i, array(
 				'panel'       => $panel,
 				'priority'    => $i,

@@ -147,6 +147,8 @@ class Suki_Customizer {
 
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-spacer.php' );
 
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control.php' );
+
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-hr.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-heading.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-blank.php' );
@@ -271,29 +273,29 @@ class Suki_Customizer {
 			// Get saved value.
 			$setting_value = get_theme_mod( $key );
 
-			// Skip this setting if value is not valid (only accepts string and number).
-			if ( ! is_numeric( $setting_value ) && ! is_string( $setting_value ) ) continue;
-
-			// Skip this setting if value is empty string.
-			if ( '' === $setting_value ) continue;
-
-			// Skip rule if value === default value.
-			if ( $setting_value === suki_array_value( $default_values, $key ) ) continue;
+			// Get default value.
+			$default_value = suki_array_value( $default_values, $key );
+			if ( is_null( $default_value ) ) {
+				$default_value = '';
+			}
 
 			// Temporary CSS array to organize output.
 			$css_array = array();
 
-			foreach ( $rules as $rule ) {
-				// Check rule validity, and then skip if it's not valid.
-				if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
-					continue;
+			// Add CSS only if value is not the same as default value and not empty.
+			if ( $setting_value !== $default_value && '' !== $setting_value ) {
+				foreach ( $rules as $rule ) {
+					// Check rule validity, and then skip if it's not valid.
+					if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
+						continue;
+					}
+
+					// Sanitize rule.
+					$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
+
+					// Add to CSS array.
+					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 				}
-
-				// Sanitize rule.
-				$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
-
-				// Add to CSS array.
-				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 			}
 
 			echo '<style id="suki-customize-preview-css-' . $key . '" type="text/css">' . suki_convert_css_array_to_string( $css_array ) . '</style>' . "\n"; // WPCS: XSS OK
@@ -340,8 +342,8 @@ class Suki_Customizer {
 			'transparent'       => 'rgba(0,0,0,0)',
 			'white'             => '#ffffff',
 			'black'             => '#000000',
-			'accent'            => '#5c6bc0',
-			'accent_2'          => '#3949ab',
+			'accent'            => '#288ce6', // '#5c6bc0',
+			'accent_2'          => '#1465ad', // '#3949ab',
 			'bg'                => '#ffffff',
 			'text'              => '#666666',
 			'text_lighter'      => '#999999',
@@ -451,7 +453,7 @@ class Suki_Customizer {
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_object->labels->singular_name ),
 				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the Edit %1$s page.', 'suki' ), $post_type_object->labels->singular_name ),
+				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_object->labels->singular_name ),
 			);
 		}
 

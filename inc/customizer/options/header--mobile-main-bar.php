@@ -37,12 +37,19 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 
 // Padding
 $id = 'header_mobile_main_bar_padding';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
-) );
+$settings = array(
+	$id . '__tablet',
+	$id . '__mobile',
+);
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
+	) );
+}
 $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
 	'units'       => array(
@@ -82,7 +89,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Elements gutter', 'suki' ),
+	'label'       => esc_html__( 'Spacing between elements', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'   => 0,

@@ -109,12 +109,11 @@ div.customize-section-description {
 .suki-responsive-title .suki-responsive-switcher .suki-responsive-switcher-button {
 	cursor: pointer;
 	outline: 0;
-	opacity: 0.6;
-	display: none;
+	opacity: 0.25;
 }
 
 .suki-responsive-title .suki-responsive-switcher .suki-responsive-switcher-button.active {
-	display: inline-block;
+	opacity: 0.75;
 }
 
 .suki-responsive-title .suki-responsive-switcher .suki-responsive-switcher-button .dashicons {
@@ -340,6 +339,10 @@ div.customize-section-description {
 
 .customize-control-suki-color .wp-picker-container .wp-picker-open + .wp-picker-input-wrap {
 	display: block;
+}
+
+.customize-control-suki-color .wp-picker-container .wp-picker-holder {
+	margin-top: 6px;
 }
 
 .customize-control-suki-shadow .customize-control-content {
@@ -783,7 +786,7 @@ div.customize-section-description {
 		outline: 0;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-		opacity: 0.7;
+		opacity: 0.75;
 	}
 	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:hover, #customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:focus,
 	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:hover,

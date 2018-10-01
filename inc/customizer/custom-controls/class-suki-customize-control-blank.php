@@ -12,7 +12,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 /**
  * Blank control class
  */
-class Suki_Customize_Control_Blank extends WP_Customize_Control {
+class Suki_Customize_Control_Blank extends Suki_Customize_Control {
 	/**
 	 * @var string
 	 */

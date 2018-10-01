@@ -32,31 +32,61 @@ $add['outside_bg_attachment'] = array(
 	),
 );
 
+
 /**
  * ====================================================
  * Header > Top Bar
- * ====================================================
- */
-
-$add['header_top_bar_container'] = array(
-	array(
-		'setting'  => 'header_top_bar_merged',
-		'operator' => '!=',
-		'value'    => 1,
-	),
-);
-
-/**
- * ====================================================
+ * Header > Main Bar
  * Header > Bottom Bar
  * ====================================================
  */
 
-$add['header_bottom_bar_container'] = array(
+// Main bar is placed first because top bar and bottom bar can be merged into main bar.
+foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
+	$add['suki_section_header_' . $type ] = array(
+		array(
+			'setting'  => '__device',
+			'value'    => 'desktop',
+		),
+	);
+	
+	if ( 'main_bar' !==  $type ) {
+		$add['header_' . $type . '_container'] = array(
+			array(
+				'setting'  => 'header_top_bar_merged',
+				'operator' => '!=',
+				'value'    => 1,
+			),
+		);
+	}
+
+	$add['header_' . $type . '_menu_highlight_color'] =
+	$add['header_' . $type . '_menu_highlight_text_color'] = array(
+		array(
+			'setting'  => 'header_' . $type . '_menu_highlight',
+			'operator' => '!=',
+			'value'    => 'none',
+		),
+	);
+}
+
+/**
+ * ====================================================
+ * Header > Mobile Main Bar
+ * Header > Mobile Drawer (Popup)
+ * ====================================================
+ */
+
+$add['suki_section_header_mobile_main_bar'] =
+$add['suki_section_header_mobile_vertical_bar'] = array(
+	'relation' => 'OR',
 	array(
-		'setting'  => 'header_bottom_bar_merged',
-		'operator' => '!=',
-		'value'    => 1,
+		'setting'  => '__device',
+		'value'    => 'tablet',
+	),
+	array(
+		'setting'  => '__device',
+		'value'    => 'mobile',
 	),
 );
 

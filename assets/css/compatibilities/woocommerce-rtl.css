@@ -45,8 +45,8 @@
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #5c6bc0;
-	border-color: #5c6bc0;
+	background-color: #288ce6;
+	border-color: #288ce6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -55,8 +55,8 @@
 
 .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover:disabled[disabled], .woocommerce a.button:hover:disabled[disabled], .woocommerce button.button:hover:disabled[disabled], .woocommerce input.button:hover:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:hover:disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:hover:disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:hover:disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:hover:disabled, .woocommerce.widget_shopping_cart .buttons a:hover, .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, .woocommerce #respond input#submit:focus:disabled[disabled], .woocommerce a.button:focus:disabled[disabled], .woocommerce button.button:focus:disabled[disabled], .woocommerce input.button:focus:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:focus:disabled, .woocommerce a.button.alt.disabled:focus, .woocommerce a.button.alt:focus:disabled, .woocommerce button.button.alt.disabled:focus, .woocommerce button.button.alt:focus:disabled, .woocommerce input.button.alt.disabled:focus, .woocommerce input.button.alt:focus:disabled, .woocommerce.widget_shopping_cart .buttons a:focus {
 	color: #ffffff;
-	background-color: #3949ab;
-	border-color: #3949ab;
+	background-color: #1465ad;
+	border-color: #1465ad;
 }
 
 .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover:disabled[disabled], .woocommerce a.button:hover:disabled[disabled], .woocommerce button.button:hover:disabled[disabled], .woocommerce input.button:hover:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:hover:disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:hover:disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:hover:disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:hover:disabled, .woocommerce.widget_shopping_cart .buttons a:hover, .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, .woocommerce #respond input#submit:focus:disabled[disabled], .woocommerce a.button:focus:disabled[disabled], .woocommerce button.button:focus:disabled[disabled], .woocommerce input.button:focus:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:focus:disabled, .woocommerce a.button.alt.disabled:focus, .woocommerce a.button.alt:focus:disabled, .woocommerce button.button.alt.disabled:focus, .woocommerce button.button.alt:focus:disabled, .woocommerce input.button.alt.disabled:focus, .woocommerce input.button.alt:focus:disabled, .woocommerce.widget_shopping_cart .buttons a:focus, .woocommerce #respond input#submit:active, .woocommerce a.button:active, .woocommerce button.button:active, .woocommerce input.button:active, .woocommerce #respond input#submit:active:disabled[disabled], .woocommerce a.button:active:disabled[disabled], .woocommerce button.button:active:disabled[disabled], .woocommerce input.button:active:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:active, .woocommerce #respond input#submit.alt:active:disabled, .woocommerce a.button.alt.disabled:active, .woocommerce a.button.alt:active:disabled, .woocommerce button.button.alt.disabled:active, .woocommerce button.button.alt:active:disabled, .woocommerce input.button.alt.disabled:active, .woocommerce input.button.alt:active:disabled, .woocommerce.widget_shopping_cart .buttons a:active {
@@ -146,7 +146,7 @@ p.demo_store {
 	position: relative;
 	top: 0 !important;
 	z-index: initial;
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 }
 
@@ -181,12 +181,12 @@ p.demo_store a {
 	min-width: auto;
 	font-size: 1em;
 	line-height: normal;
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 }
 
 .woocommerce span.onsale:before, .woocommerce span.onsale:after {
-	border-color: #5c6bc0;
+	border-color: #288ce6;
 }
 
 .woocommerce span.onsale > span {
@@ -218,16 +218,16 @@ p.demo_store a {
 }
 
 .woocommerce .star-rating span:before {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .woocommerce .star-rating a {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .woocommerce .star-rating:before {
 	position: static;
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .suki-header-shopping-cart .shopping-cart-count {
@@ -243,7 +243,7 @@ p.demo_store a {
 	line-height: 1;
 	letter-spacing: 0;
 	/* reset */
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 	-webkit-animation: suki-pulse 0.5s 1;
 	animation: suki-pulse 0.5s 1;
@@ -439,7 +439,7 @@ p.demo_store a {
 
 .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .woocommerce #content div.product div.images,
@@ -633,7 +633,7 @@ p.demo_store a {
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
@@ -1071,7 +1071,7 @@ p.demo_store a {
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus {
-	color: #5c6bc0;
+	color: #288ce6;
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar .is-active a {

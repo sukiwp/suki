@@ -287,8 +287,8 @@ a.button {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #5c6bc0;
-	border-color: #5c6bc0;
+	background-color: #288ce6;
+	border-color: #288ce6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -305,8 +305,8 @@ input:focus[type="reset"],
 input:focus[type="submit"],
 .button:focus {
 	color: #ffffff;
-	background-color: #3949ab;
-	border-color: #3949ab;
+	background-color: #1465ad;
+	border-color: #1465ad;
 }
 
 button:hover,
@@ -463,7 +463,7 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: #5c6bc0;
+	color: #288ce6;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -471,7 +471,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #3949ab;
+	color: #1465ad;
 }
 
 figure {
@@ -515,12 +515,12 @@ img {
 }
 
 ::-moz-selection {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 }
 
 ::selection {
-	background-color: #5c6bc0;
+	background-color: #288ce6;
 	color: #ffffff;
 }
 
@@ -726,6 +726,29 @@ select[multiple] {
 .mejs-button > button {
 	background-color: transparent !important;
 	color: inherit !important;
+}
+
+.wpview {
+	margin: 0;
+}
+
+.suki-oembed {
+	margin: 0 0 1.25em;
+}
+
+.suki-oembed-video {
+	position: relative;
+	padding-top: 56.25%;
+}
+
+.suki-oembed-video > * {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 html {

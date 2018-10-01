@@ -12,7 +12,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 /**
  * Dimension control class
  */
-class Suki_Customize_Control_Dimension extends WP_Customize_Control {
+class Suki_Customize_Control_Dimension extends Suki_Customize_Control {
 	/**
 	 * @var string
 	 */
@@ -103,9 +103,9 @@ class Suki_Customize_Control_Dimension extends WP_Customize_Control {
 				{{{ data.label }}}
 				<# if ( data.responsive ) { #>
 					<span class="suki-responsive-switcher">
-						<span class="suki-responsive-switcher-button preview-desktop active" data-device="tablet"><span class="dashicons dashicons-desktop"></span></span>
-						<span class="suki-responsive-switcher-button preview-tablet" data-device="mobile"><span class="dashicons dashicons-tablet"></span></span>
-						<span class="suki-responsive-switcher-button preview-mobile" data-device="desktop"><span class="dashicons dashicons-smartphone"></span></span>
+						<# _.each( data.structures, function( setting_key, device ) { #>
+							<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
+						<# }); #>
 					</span>
 				<# } #>
 			</span>

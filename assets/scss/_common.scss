@@ -187,21 +187,6 @@
 	}
 }
 
-.suki-oembed-video {
-	position: relative;
-	padding-top: 56.25%; // overrided by inline style
-
-	> * {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 100%;
-	}
-}
-
 .suki-toggle {
 	// reset button appearance
 	border: none;

@@ -12,7 +12,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 /**
  * Typography control class
  */
-class Suki_Customize_Control_Typography extends WP_Customize_Control {
+class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 	/**
 	 * @var string
 	 */
@@ -156,7 +156,7 @@ class Suki_Customize_Control_Typography extends WP_Customize_Control {
 					<# _.each( setting_keys, function( setting_key, setting_type ) { #>
 						<# if ( data.inputs[ setting_key ] ) { #>
 							<label class="suki-row-item">
-								<span class="suki-small-label">{{ labels[ setting_key ] }}</span>
+								<span class="suki-small-label">{{ labels[ setting_type ] }}</span>
 								<span class="suki-typography-size suki-row">
 									<span class="suki-row-item">
 										<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">

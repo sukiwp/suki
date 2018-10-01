@@ -1,3 +1,13 @@
+v0.6.0
+- NEW: Header menu highlight now has highlight text color option.
+- TWEAK: Drastically improve Customizer performance (now it loads much faster).
+- TWEAK: Now section side padding is merged to "Padding" option (to avoid confusion).
+- FIX: Header sub-menu typography.
+- FIX: Customizer color control's autocomplete issue.
+- FIX: Customizer bugs.
+- FIX: Some CSS bugs.
+- FIX: Page header's default background on static pages.
+
 v0.5.5
 - TWEAK: Improve compatibility for Suki Pro.
 - FIX: Page header's background not using feature image on static pages.

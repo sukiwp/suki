@@ -18,6 +18,7 @@
 	&-inner {
 		background-color: $color_subtle; // default
 		border-width: 1px 0 0 0; // default
+		padding: 60px 20px; // default
 	}
 
 	.widget {
@@ -31,7 +32,6 @@
 
 .suki-footer-widgets-bar-row {
 	@include flex( flex-start );
-	padding: 60px 0; // default
 	margin-left: -15px; // default
 	margin-right: -15px; // default
 	margin-bottom: -40px; // default
@@ -95,10 +95,10 @@
 .suki-footer-bottom-bar-inner {
 	background-color: $color_subtle; // default
 	border-width: 1px 0 0 0; // default
+	padding: 25px 20px; // default
 }
 
 .suki-footer-bottom-bar-row {
-	padding: 25px 0; // default
 	margin-bottom: -1.25em;
 
 	@media screen and ( min-width: $breakpoint_1024 ) {

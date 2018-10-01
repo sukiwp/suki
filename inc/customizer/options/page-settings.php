@@ -44,10 +44,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 		'section'     => $section,
 		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
-			''                   => esc_html__( 'Default', 'suki' ),
-			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-			'full-width'         => esc_html__( 'Full width content', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
+			''           => esc_html__( 'Default', 'suki' ),
+			'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
+			'full-width' => esc_html__( 'Full width content', 'suki' ),
 		),
 		'priority'    => 10,
 	) );
@@ -75,6 +74,13 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 
 	// Options specifically for singular page types.
 	if ( false !== strpos( $type, '_singular' ) ) {
+		// ------
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $type . '_content_elements', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'priority'    => 10,
+		) ) );
+
 		// Hide post title
 		$key = 'content_hide_title';
 		$id = $option_key . '[' . $key . ']';
@@ -184,7 +190,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 			/* translators: %s: plural post type name */
 			'archive'   => sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_object->labels->name ),
 			/* translators: %s: singular post type name */
-			'thumbnail' => sprintf( esc_html__( 'Use %s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name ),
+			'thumbnail' => sprintf( esc_html__( 'Use %s\'s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name ),
 		);
 	} else {
 		$choices = array(
@@ -275,8 +281,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
-				esc_html_x( 'Activate transparent header on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Activate alternative header colors on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate / deactivate preloader screen on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate / deactivate transparent header on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Activate / deactivate sticky header on this page', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

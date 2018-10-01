@@ -12,7 +12,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 /**
  * Custom color control class
  */
-class Suki_Customize_Control_Color extends WP_Customize_Control {
+class Suki_Customize_Control_Color extends Suki_Customize_Control {
 	/**
 	 * @var string
 	 */
@@ -40,10 +40,7 @@ class Suki_Customize_Control_Color extends WP_Customize_Control {
 	 * Enqueue additional control's CSS or JS scripts.
 	 */
 	public function enqueue() {
-		// Color picker alpha
-		// https://github.com/23r9i0/wp-color-picker-alpha
-		wp_enqueue_style( 'wp-color-picker' );
-		wp_enqueue_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/admin/wp-color-picker-alpha' . SUKI_ASSETS_SUFFIX . '.js', array( 'wp-color-picker' ), '1.2.2', true );
+		wp_enqueue_script( 'wp-color-picker-alpha' );
 	}
 
 	/**

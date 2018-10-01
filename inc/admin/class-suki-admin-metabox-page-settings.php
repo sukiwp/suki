@@ -421,7 +421,6 @@ class Suki_Admin_Metabox_Page_Settings {
 								''                   => esc_html__( '-- Inherit from Customizer --', 'suki' ),
 								'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 								'full-width'         => esc_html__( 'Full width content', 'suki' ),
-								'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -466,7 +465,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide post title', 'suki' ); ?></label>
+						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide title', 'suki' ); ?></label>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_title';

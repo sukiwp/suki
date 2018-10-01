@@ -123,11 +123,10 @@ div.customize-section-description {
 		.suki-responsive-switcher-button {
 			cursor: pointer;
 			outline: 0;
-			opacity: 0.6;
-			display: none;
+			opacity: 0.25;
 
 			&.active {
-				display: inline-block;
+				opacity: 0.75;
 			}
 
 			.dashicons {
@@ -377,6 +376,10 @@ div.customize-section-description {
 
 		.wp-picker-open + .wp-picker-input-wrap {
 			display: block;
+		}
+
+		.wp-picker-holder {
+			margin-top: 6px;
 		}
 	}
 }
@@ -832,7 +835,7 @@ div.customize-section-description {
 						border-color: #ddd;
 						outline: 0;
 						box-shadow: none;
-						opacity: 0.7;
+						opacity: 0.75;
 
 						&:hover, &:focus {
 							background-color: #eee;

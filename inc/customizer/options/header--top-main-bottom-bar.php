@@ -57,7 +57,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'choices'     => array(
 			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
 			'full-width'         => esc_html__( 'Full width content', 'suki' ),
-			'full-width-padding' => esc_html__( 'Full width content with side padding', 'suki' ),
 			'contained'          => esc_html__( 'Contained section', 'suki' ),
 		),
 		'priority'    => 10,
@@ -129,7 +128,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 		'section'     => $section,
-		'label'       => esc_html__( 'Elements gutter', 'suki' ),
+		'label'       => esc_html__( 'Spacing between elements', 'suki' ),
 		'units'       => array(
 			'px' => array(
 				'min'   => 0,
@@ -213,6 +212,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'type'        => 'select',
 		'section'     => $section,
 		'label'       => esc_html__( 'Menu link hover highlight', 'suki' ),
+		'description' => esc_html__( 'Additional effect on menu item when hovered.', 'suki' ),
 		'choices'     => array(
 			'none'          => esc_html__( 'None', 'suki' ),
 			'background'    => esc_html__( 'Background', 'suki' ),
@@ -283,12 +283,13 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 
 	// Colors
 	$colors = array(
-		'header_' . $type . '_bg_color'              => esc_html__( 'Background color', 'suki' ),
-		'header_' . $type . '_border_color'          => esc_html__( 'Border color', 'suki' ),
-		'header_' . $type . '_text_color'            => esc_html__( 'Text color', 'suki' ),
-		'header_' . $type . '_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
-		'header_' . $type . '_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
-		'header_' . $type . '_menu_highlight_color'  => esc_html__( 'Menu link highlight color', 'suki' ),
+		'header_' . $type . '_bg_color'                   => esc_html__( 'Background color', 'suki' ),
+		'header_' . $type . '_border_color'               => esc_html__( 'Border color', 'suki' ),
+		'header_' . $type . '_text_color'                 => esc_html__( 'Text color', 'suki' ),
+		'header_' . $type . '_link_text_color'            => esc_html__( 'Link text color', 'suki' ),
+		'header_' . $type . '_link_hover_text_color'      => esc_html__( 'Link text color :hover', 'suki' ),
+		'header_' . $type . '_menu_highlight_color'       => esc_html__( 'Menu link highlight color', 'suki' ),
+		'header_' . $type . '_menu_highlight_text_color'  => esc_html__( 'Menu link highlight text color', 'suki' ),
 	);
 	foreach ( $colors as $id => $label ) {
 		$wp_customize->add_setting( $id, array(

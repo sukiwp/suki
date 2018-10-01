@@ -101,7 +101,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Elements gutter', 'suki' ),
+	'label'       => esc_html__( 'Spacing between elements', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'   => 0,
