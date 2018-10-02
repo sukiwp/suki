@@ -77,7 +77,8 @@
 			$settings.hide();
 			$settings.each(function() {
 				var $setting = $( this ),
-				    requirements = $setting.attr( 'data-value' ).split( ',' );
+				    requirements = $setting.attr( 'data-value' ).split( ',' ),
+				    found;
 
 				found = -1 < requirements.indexOf( value ) ? true : false;
 

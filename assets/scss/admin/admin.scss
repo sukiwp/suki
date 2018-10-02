@@ -34,15 +34,12 @@ input, select, textarea {
 // -------------------------------------------------------------
 
 .suki-admin-form-row {
+	@include flex( flex-start );
 	padding: 0.75em 0;
-	width: 100%;
-
-	@include float-container();
 }
 
 .suki-admin-form-label {
 	display: block;
-	float: left;
 	min-width: 150px;
 	width: 20%;
 	padding: 5px 15px 0 0;
@@ -51,7 +48,7 @@ input, select, textarea {
 
 .suki-admin-form-field {
 	display: block;
-	overflow: hidden;
+	width: 100%;
 }
 
 .select2-container {
