@@ -42,9 +42,9 @@ function suki_flatten_array( $array ) {
 
 	foreach ( $array as $key => $value ) {
 		if ( is_array( $value ) ) {
-			$flattened[ $key ] = suki_flatten_array( $value );
+			$flattened = array_merge( $flattened, suki_flatten_array( $value ) );
 		} else {
-			$flattened[ $key ] = $value;
+			$flattened[ strval( $key ) ] = $value;
 		}
 	}
 
