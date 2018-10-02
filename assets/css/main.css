@@ -2238,10 +2238,6 @@ body.suki-page-layout-boxed #page {
 	padding: 25px 20px;
 }
 
-.suki-footer-bottom-bar-row {
-	margin-bottom: -1.25em;
-}
-
 @media screen and (min-width: 1024px) {
 	.suki-footer-bottom-bar-row {
 		display: -webkit-box;
@@ -2261,18 +2257,6 @@ body.suki-page-layout-boxed #page {
 		align-items: center;
 		white-space: nowrap;
 	}
-}
-
-.suki-footer-bottom-bar-column {
-	margin-bottom: 1.25em;
-}
-
-.suki-footer-bottom-bar-column > * {
-	margin-bottom: 1.25em 0;
-}
-
-.suki-footer-bottom-bar-column > *:last-child {
-	margin-bottom: 0;
 }
 
 @media screen and (max-width: 1023px) {
