@@ -526,6 +526,7 @@ sup {
 img {
 	height: auto;
 	max-width: 100%;
+	vertical-align: middle;
 }
 
 ::-moz-selection {
@@ -1288,7 +1289,6 @@ body.suki-page-layout-boxed #page {
 
 .suki-logo img, .suki-logo svg {
 	max-width: 100%;
-	vertical-align: bottom;
 }
 
 .suki-header-menu a {
