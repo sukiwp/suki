@@ -264,7 +264,15 @@ p.demo_store a {
 
 .woocommerce ul.products {
 	margin: 0 -15px;
-	margin-bottom: -2em;
+}
+
+.woocommerce ul.products:before, .woocommerce ul.products:after {
+	content: "";
+	display: table;
+}
+
+.woocommerce ul.products:after {
+	clear: both;
 }
 
 .woocommerce ul.products li.product {
