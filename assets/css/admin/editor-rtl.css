@@ -515,6 +515,10 @@ img {
 	vertical-align: middle;
 }
 
+svg {
+	vertical-align: middle;
+}
+
 ::-moz-selection {
 	background-color: #288ce6;
 	color: #ffffff;

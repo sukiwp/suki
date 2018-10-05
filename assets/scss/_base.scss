@@ -211,6 +211,10 @@ img {
 	vertical-align: middle;
 }
 
+svg {
+	vertical-align: middle;
+}
+
 ::selection {
 	background-color: $color_accent; // default
 	color: $color_bg; // default
