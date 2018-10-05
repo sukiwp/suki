@@ -1,5 +1,9 @@
 v0.6.1
-- FIX: Footer bottom CSS.
+- NEW: WooCommerce cart's table responsive styles.
+- FIX: Customizer's shadow control JS bug.
+- FIX: Some minor CSS.
+- FIX: Custom CSS media queries order.
+- TWEAK: Adjust narrow content and content wrapper allowed width ranges in Customizer.
 - TWEAK: Improve WooCommerce responsive cart table styles.
 
 v0.6.0
