@@ -68,11 +68,11 @@ msgid "Header (Advanced)"
 msgstr ""
 
 #: inc/helpers.php:417
-msgid "Sticky Header"
+msgid "Transparent Header"
 msgstr ""
 
 #: inc/helpers.php:423
-msgid "Transparent Header"
+msgid "Sticky Header"
 msgstr ""
 
 #: inc/helpers.php:429

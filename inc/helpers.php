@@ -413,14 +413,14 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
-		'header-sticky' => array(
-			'label'   => esc_html__( 'Sticky Header', 'suki' ),
+		'header-transparent' => array(
+			'label'   => esc_html__( 'Transparent Header', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
 		),
-		'header-transparent' => array(
-			'label'   => esc_html__( 'Transparent Header', 'suki' ),
+		'header-sticky' => array(
+			'label'   => esc_html__( 'Sticky Header', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
