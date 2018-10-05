@@ -305,45 +305,42 @@
 	wp.customize.controlConstructor['suki-shadow'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
-			    updating = false,
 			    $inputs = control.container.find( '.suki-shadow-input' ),
 			    $color = control.container.find( '.suki-shadow-color input' ),
 			    $value = control.container.find( '.suki-shadow-value' );
 
 			$color.wpColorPicker({
 				change: function() {
-					updating = true;
-					$color.val( $color.wpColorPicker( 'color' ) ).trigger( 'change' );
-					updating = false;
+					control.setting.set( $color.wpColorPicker( 'color' ) );
 				},
 				clear: function() {
-					updating = true;
-					$color.val( '' ).trigger( 'change' );
-					updating = false;
+					control.setting.set( '' );
 				},
-			});
-
-			$inputs.on( 'change blur', function( i, el ) {
-				var values = $inputs.map(function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '' : this.value.toString() + 'px' );
-				}).get();
-
-				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			});
 
 			// Collapse color picker when hitting Esc instead of collapsing the current section.
-			control.container.on( 'keydown', function( e ) {
-				if ( 27 !== e.which ) { // Esc.
+			control.container.on( 'keydown', function( event ) {
+				var $colorContainer;
+
+				if ( 27 !== event.which ) { // Esc.
 					return;
 				}
 
-				var $pickerContainer = control.container.find( '.wp-picker-container' );
+				$colorContainer = control.container.find( '.wp-picker-container' );
 
-				if ( $pickerContainer.hasClass( 'wp-picker-active' ) ) {
+				if ( $colorContainer.hasClass( 'wp-picker-active' ) ) {
 					picker.wpColorPicker( 'close' );
 					control.container.find( '.wp-color-result' ).focus();
-					e.stopPropagation(); // Prevent section from being collapsed.
+					event.stopPropagation(); // Prevent section from being collapsed.
 				}
+			} );
+
+			$inputs.on( 'change blur', function( i, el ) {
+				var values = $inputs.map(function() {
+					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+				}).get();
+
+				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			});
 		}
 	});
