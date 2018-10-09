@@ -24,7 +24,7 @@ html {
 	min-height: 100vh;
 	color: $color_text; // default
 
-	@extend %base; // default
+	@include base(); // default
 }
 
 body {
@@ -32,7 +32,7 @@ body {
 	color: $color_text; // default
 	min-height: 100vh;
 
-	@extend %base; // default
+	@include base(); // default
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -56,23 +56,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	@extend %h1;
+	@include h1();
 }
 
 h2 {
-	@extend %h2;
+	@include h2();
 }
 
 h3 {
-	@extend %h3;
+	@include h3();
 }
 
 h4 {
-	@extend %h4;
+	@include h4();
 }
 
 h5, h6 {
-	@extend %h4;
+	@include h4();
 
 	font-size: 1rem; // default
 	font-weight: 600; // default
@@ -88,7 +88,7 @@ hr {
 blockquote {
 	margin: 0 0 1.25rem;
 
-	@extend %blockquote;
+	@include blockquote();
 
 	> *:last-child {
 		margin-bottom: 0;
@@ -245,7 +245,7 @@ input[type="reset"],
 input[type="submit"],
 .button,
 a.button {
-	@extend %button;
+	@include button();
 }
 
 // -------------------------------------------------------------
@@ -266,15 +266,15 @@ input[type="time"],
 input[type="url"],
 input[type="week"],
 .input {
-	@extend %input;
+	@include input();
 }
 
 textarea {
-	@extend %input;
+	@include input();
 }
 
 select {
-	@extend %select;
+	@include select();
 }
 
 select[multiple] {
@@ -290,7 +290,7 @@ select[multiple] {
 	line-height: normal;
 
 	.select2-selection {
-		@extend %select;
+		@include select();
 		display: block;
 		height: auto;
 		border-color: inherit;

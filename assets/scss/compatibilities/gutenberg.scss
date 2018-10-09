@@ -1,6 +1,5 @@
 @import "../__variables";
 @import "../__mixins";
-@import "../__extends";
 
 // -------------------------------------------------------------
 // Alignment
@@ -174,7 +173,7 @@ p.wp-block-subhead {
 		max-width: 70%;
 		margin: 0;
 		padding: 0.5em;
-		@extend %h2;
+		@include h2();
 	}
 }
 
@@ -263,7 +262,7 @@ p.wp-block-subhead {
 
 .wp-block-button {
 	.wp-block-button__link {
-		@extend %button;
+		@include button();
 	}
 }
 

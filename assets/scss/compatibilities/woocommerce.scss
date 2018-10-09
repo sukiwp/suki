@@ -1,6 +1,5 @@
 @import "../__variables";
 @import "../__mixins";
-@import "../__extends";
 
 // -------------------------------------------------------------
 // Form Row
@@ -45,18 +44,17 @@
 // -------------------------------------------------------------
 
 .woocommerce {
-	#respond input#submit, a.button, button.button, input.button {
-		@extend %button; // default
-
-		&.disabled, &:disabled, &:disabled[disabled] {
-			@extend %button; // default
-		}
-
+	#respond input#submit,
+	a.button,
+	button.button,
+	input.button {
+		&,
 		&.alt {
-			@extend %button; // default
-
-			&.disabled, &:disabled, &:disabled[disabled] {
-				@extend %button; // default
+			&,			
+			&.disabled,
+			&:disabled,
+			&:disabled[disabled] {
+				@include button(); // default
 			}
 		}
 
@@ -67,6 +65,20 @@
 		&.loading:after {
 			top: 50%;
 			margin-top: -0.5em;
+		}
+	}
+}
+
+.woocommerce {
+	#respond input#submit.alt,
+	a.button.alt,
+	button.button.alt,
+	input.button.alt {
+		&,
+		&.disabled,
+		&:disabled,
+		&:disabled[disabled] {
+			@include button(); // default
 		}
 	}
 }
@@ -229,7 +241,8 @@ p.demo_store {
 	}
 
 	.sub-menu {
-		min-width: 280px !important;
+		white-space: normal;
+		width: 20rem !important;
 	}
 }
 
@@ -575,7 +588,7 @@ p.demo_store {
 			display: none;
 
 			> h2:first-child {
-				@extend %small-title; // default
+				@include h3(); // default
 			}
 
 			&:first-of-type {
@@ -593,7 +606,7 @@ p.demo_store {
 			margin-top: 0;
 		}
 
-		@extend %meta; // default
+		@include meta(); // default
 	}
 
 	p.price, span.price {
@@ -646,7 +659,7 @@ p.demo_store {
 		margin-top: 2rem;
 		padding-top: 1rem;
 		@include border( top );
-		@extend %meta; // default
+		@include meta(); // default
 
 		> * {
 			display: block;
@@ -656,7 +669,7 @@ p.demo_store {
 	#reviews {
 		#comments {
 			> h2 {
-				@extend %small-title; // default
+				@include h3(); // default
 			}
 
 			ol.commentlist {
@@ -731,7 +744,7 @@ p.demo_store {
 						}
 
 						.woocommerce-review__published-date {
-							@extend %meta; // default
+							@include meta(); // default
 						}
 					}
 				}
@@ -763,7 +776,7 @@ p.demo_store {
 	}
 
 	.products h2 {
-		@extend %small-title; // default
+		@include h3(); // default
 	}
 }
 
@@ -805,7 +818,7 @@ p.demo_store {
 			td.actions .coupon .input-text {
 				min-width: 8.25rem;
 				margin-right: 0.5rem;
-				@extend %input; // default
+				@include input(); // default
 			}
 
 			.product-remove {
@@ -925,7 +938,7 @@ p.demo_store {
 	}
 
 	h2 {
-		@extend %small-title; // default
+		@include h3(); // default
 	}
 
 	.cart_totals {
@@ -971,7 +984,7 @@ p.demo_store {
 	}
 
 	h3 {
-		@extend %small-title; // default
+		@include h3(); // default
 	}
 }
 
@@ -1203,6 +1216,13 @@ p.demo_store {
 // Widgets
 // -------------------------------------------------------------
 
+.woocommerce.widget {
+	.amount {
+		display: inline-block;
+		margin-top: 0.25em;
+	}
+}
+
 // Price
 .woocommerce.widget_price_filter {
 	.price_slider {
@@ -1312,7 +1332,6 @@ p.demo_store {
 		margin: 0.5em 0 0;
 		
 		a {
-			@extend %button; // default
 			display: block;
 			width: 100%;
 			margin: 0.5em 0 0;
@@ -1321,6 +1340,10 @@ p.demo_store {
 
 	.woocommerce-mini-cart__empty-message {
 		margin: 0;
+	}
+
+	.woocommerce-mini-cart__total {
+		@include float-container();
 	}
 }
 

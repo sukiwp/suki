@@ -19,7 +19,7 @@
 // Logo
 .site-title {
 	margin: 0;
-	@extend %small-title;
+	@include h3();
 	position: relative;
 }
 

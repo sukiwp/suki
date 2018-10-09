@@ -1,82 +1,3 @@
-.woocommerce div.product .woocommerce-tabs > .panel > h2:first-child, .woocommerce div.product #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cart-collaterals h2, .woocommerce .woocommerce-checkout h3 {
-	font-size: 22px;
-	font-weight: 500;
-	line-height: 1.6;
-}
-
-.woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text {
-	display: inline-block;
-	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	padding: 10px 12px;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 3px;
-	color: #666666;
-	background-color: #ffffff;
-	border-color: #e5e5e5;
-}
-
-.woocommerce table.cart td.actions .coupon .input-text:hover, .woocommerce #content table.cart td.actions .coupon .input-text:hover, .woocommerce-page table.cart td.actions .coupon .input-text:hover, .woocommerce-page #content table.cart td.actions .coupon .input-text:hover, .woocommerce table.cart td.actions .coupon .input-text:focus, .woocommerce #content table.cart td.actions .coupon .input-text:focus, .woocommerce-page table.cart td.actions .coupon .input-text:focus, .woocommerce-page #content table.cart td.actions .coupon .input-text:focus {
-	color: #666666;
-	background-color: #ffffff;
-	border-color: #bbbbbb;
-}
-
-.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce a.button.alt.disabled, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled[disabled], .woocommerce button.button.alt.disabled, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled[disabled], .woocommerce input.button.alt.disabled, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled[disabled], .woocommerce.widget_shopping_cart .buttons a {
-	position: relative;
-	display: inline-block;
-	line-height: normal;
-	text-align: center;
-	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
-	padding: 10px 20px;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 3px;
-	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover:disabled[disabled], .woocommerce a.button:hover:disabled[disabled], .woocommerce button.button:hover:disabled[disabled], .woocommerce input.button:hover:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:hover:disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:hover:disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:hover:disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:hover:disabled, .woocommerce.widget_shopping_cart .buttons a:hover, .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, .woocommerce #respond input#submit:focus:disabled[disabled], .woocommerce a.button:focus:disabled[disabled], .woocommerce button.button:focus:disabled[disabled], .woocommerce input.button:focus:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:focus:disabled, .woocommerce a.button.alt.disabled:focus, .woocommerce a.button.alt:focus:disabled, .woocommerce button.button.alt.disabled:focus, .woocommerce button.button.alt:focus:disabled, .woocommerce input.button.alt.disabled:focus, .woocommerce input.button.alt:focus:disabled, .woocommerce.widget_shopping_cart .buttons a:focus {
-	color: #ffffff;
-	background-color: #1465ad;
-	border-color: #1465ad;
-}
-
-.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover:disabled[disabled], .woocommerce a.button:hover:disabled[disabled], .woocommerce button.button:hover:disabled[disabled], .woocommerce input.button:hover:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:hover:disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:hover:disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:hover:disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:hover:disabled, .woocommerce.widget_shopping_cart .buttons a:hover, .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, .woocommerce #respond input#submit:focus:disabled[disabled], .woocommerce a.button:focus:disabled[disabled], .woocommerce button.button:focus:disabled[disabled], .woocommerce input.button:focus:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:focus:disabled, .woocommerce a.button.alt.disabled:focus, .woocommerce a.button.alt:focus:disabled, .woocommerce button.button.alt.disabled:focus, .woocommerce button.button.alt:focus:disabled, .woocommerce input.button.alt.disabled:focus, .woocommerce input.button.alt:focus:disabled, .woocommerce.widget_shopping_cart .buttons a:focus, .woocommerce #respond input#submit:active, .woocommerce a.button:active, .woocommerce button.button:active, .woocommerce input.button:active, .woocommerce #respond input#submit:active:disabled[disabled], .woocommerce a.button:active:disabled[disabled], .woocommerce button.button:active:disabled[disabled], .woocommerce input.button:active:disabled[disabled], .woocommerce #respond input#submit.alt.disabled:active, .woocommerce #respond input#submit.alt:active:disabled, .woocommerce a.button.alt.disabled:active, .woocommerce a.button.alt:active:disabled, .woocommerce button.button.alt.disabled:active, .woocommerce button.button.alt:active:disabled, .woocommerce input.button.alt.disabled:active, .woocommerce input.button.alt:active:disabled, .woocommerce.widget_shopping_cart .buttons a:active {
-	text-decoration: none;
-}
-
-.woocommerce div.product .woocommerce-product-rating, .woocommerce div.product .product_meta, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date {
-	font-size: 0.8em;
-	line-height: 1.7;
-	color: #bbbbbb;
-}
-
-.woocommerce div.product .woocommerce-product-rating a, .woocommerce div.product .product_meta a, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a {
-	color: #bbbbbb;
-}
-
-.woocommerce div.product .woocommerce-product-rating a:hover, .woocommerce div.product .product_meta a:hover, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:hover, .woocommerce div.product .woocommerce-product-rating a:focus, .woocommerce div.product .product_meta a:focus, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:focus {
-	color: #666666;
-}
-
 .woocommerce form .form-row, .woocommerce-page form .form-row {
 	padding: 0;
 	margin: 0 0 1.25rem;
@@ -109,13 +30,181 @@
 	margin: 1.25rem 0;
 }
 
-.woocommerce #respond input#submit:after, .woocommerce a.button:after, .woocommerce button.button:after, .woocommerce input.button:after {
+.woocommerce #respond input#submit, .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled[disabled],
+.woocommerce a.button,
+.woocommerce a.button.disabled,
+.woocommerce a.button:disabled,
+.woocommerce a.button:disabled[disabled],
+.woocommerce a.button.alt,
+.woocommerce a.button.alt.disabled,
+.woocommerce a.button.alt:disabled,
+.woocommerce a.button.alt:disabled[disabled],
+.woocommerce button.button,
+.woocommerce button.button.disabled,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled],
+.woocommerce button.button.alt,
+.woocommerce button.button.alt.disabled,
+.woocommerce button.button.alt:disabled,
+.woocommerce button.button.alt:disabled[disabled],
+.woocommerce input.button,
+.woocommerce input.button.disabled,
+.woocommerce input.button:disabled,
+.woocommerce input.button:disabled[disabled],
+.woocommerce input.button.alt,
+.woocommerce input.button.alt.disabled,
+.woocommerce input.button.alt:disabled,
+.woocommerce input.button.alt:disabled[disabled] {
+	position: relative;
+	display: inline-block;
+	line-height: normal;
+	text-align: center;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 10px 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+	color: #ffffff;
+	background-color: #288ce6;
+	border-color: #288ce6;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.woocommerce #respond input#submit:hover, .woocommerce #respond input#submit:focus, .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit.disabled:focus, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled:focus, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce #respond input#submit:disabled[disabled]:focus, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled:focus, .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.alt:disabled[disabled]:focus,
+.woocommerce a.button:hover,
+.woocommerce a.button:focus,
+.woocommerce a.button.disabled:hover,
+.woocommerce a.button.disabled:focus,
+.woocommerce a.button:disabled:hover,
+.woocommerce a.button:disabled:focus,
+.woocommerce a.button:disabled[disabled]:hover,
+.woocommerce a.button:disabled[disabled]:focus,
+.woocommerce a.button.alt:hover,
+.woocommerce a.button.alt:focus,
+.woocommerce a.button.alt.disabled:hover,
+.woocommerce a.button.alt.disabled:focus,
+.woocommerce a.button.alt:disabled:hover,
+.woocommerce a.button.alt:disabled:focus,
+.woocommerce a.button.alt:disabled[disabled]:hover,
+.woocommerce a.button.alt:disabled[disabled]:focus,
+.woocommerce button.button:hover,
+.woocommerce button.button:focus,
+.woocommerce button.button.disabled:hover,
+.woocommerce button.button.disabled:focus,
+.woocommerce button.button:disabled:hover,
+.woocommerce button.button:disabled:focus,
+.woocommerce button.button:disabled[disabled]:hover,
+.woocommerce button.button:disabled[disabled]:focus,
+.woocommerce button.button.alt:hover,
+.woocommerce button.button.alt:focus,
+.woocommerce button.button.alt.disabled:hover,
+.woocommerce button.button.alt.disabled:focus,
+.woocommerce button.button.alt:disabled:hover,
+.woocommerce button.button.alt:disabled:focus,
+.woocommerce button.button.alt:disabled[disabled]:hover,
+.woocommerce button.button.alt:disabled[disabled]:focus,
+.woocommerce input.button:hover,
+.woocommerce input.button:focus,
+.woocommerce input.button.disabled:hover,
+.woocommerce input.button.disabled:focus,
+.woocommerce input.button:disabled:hover,
+.woocommerce input.button:disabled:focus,
+.woocommerce input.button:disabled[disabled]:hover,
+.woocommerce input.button:disabled[disabled]:focus,
+.woocommerce input.button.alt:hover,
+.woocommerce input.button.alt:focus,
+.woocommerce input.button.alt.disabled:hover,
+.woocommerce input.button.alt.disabled:focus,
+.woocommerce input.button.alt:disabled:hover,
+.woocommerce input.button.alt:disabled:focus,
+.woocommerce input.button.alt:disabled[disabled]:hover,
+.woocommerce input.button.alt:disabled[disabled]:focus {
+	color: #ffffff;
+	background-color: #1465ad;
+	border-color: #1465ad;
+}
+
+.woocommerce #respond input#submit:after,
+.woocommerce a.button:after,
+.woocommerce button.button:after,
+.woocommerce input.button:after {
 	vertical-align: middle;
 }
 
-.woocommerce #respond input#submit.loading:after, .woocommerce a.button.loading:after, .woocommerce button.button.loading:after, .woocommerce input.button.loading:after {
+.woocommerce #respond input#submit.loading:after,
+.woocommerce a.button.loading:after,
+.woocommerce button.button.loading:after,
+.woocommerce input.button.loading:after {
 	top: 50%;
 	margin-top: -0.5em;
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled[disabled],
+.woocommerce a.button.alt,
+.woocommerce a.button.alt.disabled,
+.woocommerce a.button.alt:disabled,
+.woocommerce a.button.alt:disabled[disabled],
+.woocommerce button.button.alt,
+.woocommerce button.button.alt.disabled,
+.woocommerce button.button.alt:disabled,
+.woocommerce button.button.alt:disabled[disabled],
+.woocommerce input.button.alt,
+.woocommerce input.button.alt.disabled,
+.woocommerce input.button.alt:disabled,
+.woocommerce input.button.alt:disabled[disabled] {
+	position: relative;
+	display: inline-block;
+	line-height: normal;
+	text-align: center;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 10px 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+	color: #ffffff;
+	background-color: #288ce6;
+	border-color: #288ce6;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled:focus, .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.alt:disabled[disabled]:focus,
+.woocommerce a.button.alt:hover,
+.woocommerce a.button.alt:focus,
+.woocommerce a.button.alt.disabled:hover,
+.woocommerce a.button.alt.disabled:focus,
+.woocommerce a.button.alt:disabled:hover,
+.woocommerce a.button.alt:disabled:focus,
+.woocommerce a.button.alt:disabled[disabled]:hover,
+.woocommerce a.button.alt:disabled[disabled]:focus,
+.woocommerce button.button.alt:hover,
+.woocommerce button.button.alt:focus,
+.woocommerce button.button.alt.disabled:hover,
+.woocommerce button.button.alt.disabled:focus,
+.woocommerce button.button.alt:disabled:hover,
+.woocommerce button.button.alt:disabled:focus,
+.woocommerce button.button.alt:disabled[disabled]:hover,
+.woocommerce button.button.alt:disabled[disabled]:focus,
+.woocommerce input.button.alt:hover,
+.woocommerce input.button.alt:focus,
+.woocommerce input.button.alt.disabled:hover,
+.woocommerce input.button.alt.disabled:focus,
+.woocommerce input.button.alt:disabled:hover,
+.woocommerce input.button.alt:disabled:focus,
+.woocommerce input.button.alt:disabled[disabled]:hover,
+.woocommerce input.button.alt:disabled[disabled]:focus {
+	color: #ffffff;
+	background-color: #1465ad;
+	border-color: #1465ad;
 }
 
 .woocommerce .woocommerce-error,
@@ -254,7 +343,8 @@ p.demo_store a {
 }
 
 .suki-header-shopping-cart .sub-menu {
-	min-width: 280px !important;
+	white-space: normal;
+	width: 20rem !important;
 }
 
 .suki-before-shop-loop-clear {
@@ -639,18 +729,35 @@ p.demo_store a {
 	display: none;
 }
 
+.woocommerce div.product .woocommerce-tabs > .panel > h2:first-child {
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
 .woocommerce div.product .woocommerce-tabs > .panel:first-of-type {
 	display: block;
 }
 
 .woocommerce div.product .woocommerce-product-rating {
 	margin: 0.5rem 0;
+	font-size: 0.8em;
+	line-height: 1.7;
+	color: #bbbbbb;
 }
 
 .woocommerce div.product .woocommerce-product-rating .star-rating {
 	float: none;
 	display: inline-block;
 	margin-top: 0;
+}
+
+.woocommerce div.product .woocommerce-product-rating a {
+	color: #bbbbbb;
+}
+
+.woocommerce div.product .woocommerce-product-rating a:hover, .woocommerce div.product .woocommerce-product-rating a:focus {
+	color: #666666;
 }
 
 .woocommerce div.product p.price, .woocommerce div.product span.price {
@@ -704,10 +811,27 @@ p.demo_store a {
 	padding-top: 1rem;
 	border-top-width: 1px;
 	border-top-style: solid;
+	font-size: 0.8em;
+	line-height: 1.7;
+	color: #bbbbbb;
+}
+
+.woocommerce div.product .product_meta a {
+	color: #bbbbbb;
+}
+
+.woocommerce div.product .product_meta a:hover, .woocommerce div.product .product_meta a:focus {
+	color: #666666;
 }
 
 .woocommerce div.product .product_meta > * {
 	display: block;
+}
+
+.woocommerce div.product #reviews #comments > h2 {
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.6;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist {
@@ -787,6 +911,20 @@ p.demo_store a {
 	margin-bottom: 0;
 }
 
+.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date {
+	font-size: 0.8em;
+	line-height: 1.7;
+	color: #bbbbbb;
+}
+
+.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a {
+	color: #bbbbbb;
+}
+
+.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:hover, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:focus {
+	color: #666666;
+}
+
 .woocommerce div.product #reviews #review_form #respond {
 	padding-top: 2em;
 	border-top-width: 1px;
@@ -807,6 +945,12 @@ p.demo_store a {
 	display: inline-block;
 	line-height: 1;
 	margin: 0;
+}
+
+.woocommerce div.product .products h2 {
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.6;
 }
 
 .woocommerce table.shop_attributes th {
@@ -836,6 +980,31 @@ p.demo_store a {
 .woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text {
 	min-width: 8.25rem;
 	margin-left: 0.5rem;
+	display: inline-block;
+	max-width: 100%;
+	font: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	padding: 10px 12px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+	color: #666666;
+	background-color: #ffffff;
+	border-color: #e5e5e5;
+}
+
+.woocommerce table.cart td.actions .coupon .input-text:hover, .woocommerce table.cart td.actions .coupon .input-text:focus, .woocommerce #content table.cart td.actions .coupon .input-text:hover, .woocommerce #content table.cart td.actions .coupon .input-text:focus, .woocommerce-page table.cart td.actions .coupon .input-text:hover, .woocommerce-page table.cart td.actions .coupon .input-text:focus, .woocommerce-page #content table.cart td.actions .coupon .input-text:hover, .woocommerce-page #content table.cart td.actions .coupon .input-text:focus {
+	color: #666666;
+	background-color: #ffffff;
+	border-color: #bbbbbb;
 }
 
 .woocommerce table.cart .product-remove, .woocommerce #content table.cart .product-remove, .woocommerce-page table.cart .product-remove, .woocommerce-page #content table.cart .product-remove {
@@ -977,6 +1146,12 @@ p.demo_store a {
 	margin-top: 3rem;
 }
 
+.woocommerce-cart .cart-collaterals h2 {
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
 .woocommerce-cart .cart-collaterals .cart_totals tr td {
 	text-align: left;
 }
@@ -1003,6 +1178,12 @@ p.demo_store a {
 	float: none;
 	width: auto;
 	margin: 0 0 3rem;
+}
+
+.woocommerce .woocommerce-checkout h3 {
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.6;
 }
 
 @media screen and (min-width: 1024px) {
@@ -1273,6 +1454,11 @@ p.demo_store a {
 	text-decoration: none;
 }
 
+.woocommerce.widget .amount {
+	display: inline-block;
+	margin-top: 0.25em;
+}
+
 .woocommerce.widget_price_filter .price_slider {
 	position: relative;
 	height: 0.5em;
@@ -1378,6 +1564,15 @@ p.demo_store a {
 
 .woocommerce.widget_shopping_cart .woocommerce-mini-cart__empty-message {
 	margin: 0;
+}
+
+.woocommerce.widget_shopping_cart .woocommerce-mini-cart__total:before, .woocommerce.widget_shopping_cart .woocommerce-mini-cart__total:after {
+	content: "";
+	display: table;
+}
+
+.woocommerce.widget_shopping_cart .woocommerce-mini-cart__total:after {
+	clear: both;
 }
 
 .woocommerce ul.cart_list li,
