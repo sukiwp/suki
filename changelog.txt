@@ -1,5 +1,6 @@
 v0.6.1
 - NEW: WooCommerce cart's table responsive styles.
+- NEW: Make search form's placeholder text translatable from theme's text domain.
 - FIX: Customizer's shadow control JS bug.
 - FIX: Customizer's postmessage on button radius option for WooCommerce buttons.
 - FIX: Custom CSS media queries order.

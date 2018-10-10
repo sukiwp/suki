@@ -199,6 +199,10 @@ msgstr ""
 msgid "Expand / Collapse"
 msgstr ""
 
+#: inc/template-functions.php:497
+msgid "Search&hellip"
+msgstr ""
+
 #: inc/template-tags.php:32
 msgid "Assign menu to this location"
 msgstr ""
@@ -323,7 +327,7 @@ msgstr ""
 msgid "Page Settings (Suki)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:224, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:369
+#: inc/admin/class-suki-admin-metabox-page-settings.php:224, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:372
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -566,19 +570,19 @@ msgstr ""
 msgid "Display post date?"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:86
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:89
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:88
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:91
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:466, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:481, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:723
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:738
 msgid "Logout"
 msgstr ""
 
