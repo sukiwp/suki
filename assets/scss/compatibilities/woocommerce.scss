@@ -18,7 +18,7 @@
 			@media screen and ( max-width: 519px ) {
 				float: none;
 				width: auto;
-				padding: 0;
+				padding: 0 !important;
 			}
 		}
 
@@ -808,6 +808,13 @@ p.demo_store {
 		a {
 			text-decoration: none;
 		}
+
+
+		&.shop_table_responsive {
+			@media screen and ( max-width: $breakpoint_768 - 1px ) {
+				border-bottom: none;
+			}
+		}
 	}
 }
 
@@ -945,6 +952,7 @@ p.demo_store {
 		tr {
 			td {
 				text-align: right;
+				border-top: none;
 			}
 		}
 

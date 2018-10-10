@@ -11,7 +11,7 @@
 	.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
 		float: none;
 		width: auto;
-		padding: 0;
+		padding: 0 !important;
 	}
 }
 
@@ -977,6 +977,12 @@ p.demo_store a {
 	text-decoration: none;
 }
 
+@media screen and (max-width: 767px) {
+	.woocommerce table.shop_table.shop_table_responsive, .woocommerce-page table.shop_table.shop_table_responsive {
+		border-bottom: none;
+	}
+}
+
 .woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text {
 	min-width: 8.25rem;
 	margin-right: 0.5rem;
@@ -1154,6 +1160,7 @@ p.demo_store a {
 
 .woocommerce-cart .cart-collaterals .cart_totals tr td {
 	text-align: right;
+	border-top: none;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals .wc-proceed-to-checkout {
