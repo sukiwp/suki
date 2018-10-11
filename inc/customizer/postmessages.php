@@ -121,6 +121,14 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		$element = 'h' . $i . ', .h' . $i;
 		$property = str_replace( '_', '-', $prop );
 
+		if ( 1 === $i ) {
+			$element .= ', .entry-title';
+		}
+
+		if ( 3 === $i ) {
+			$element .= ', .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
+		}
+
 		$add['h' . $i . '_' . $prop ] = array(
 			array(
 				'type'     => 'font_family' === $prop ? 'font' : 'css',

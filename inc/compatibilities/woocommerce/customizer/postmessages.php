@@ -49,6 +49,15 @@ $add['subtle_color'] = array(
  * ====================================================
  */
 
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
+	$add['h3_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce .cart-collaterals h2, .woocommerce .checkout h3',
+			'property' => str_replace( '_', '-', $prop),
+		),
+	);
+}
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',

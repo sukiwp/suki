@@ -11,7 +11,7 @@
 	.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
 		float: none;
 		width: auto;
-		padding: 0 !important;
+		padding: 0;
 	}
 }
 
