@@ -76,122 +76,126 @@ msgid "Sticky Header"
 msgstr ""
 
 #: inc/helpers.php:429
-msgid "Footer (Advanced)"
+msgid "Alternate Header Colors"
 msgstr ""
 
 #: inc/helpers.php:435
-msgid "Blocks"
+msgid "Footer (Advanced)"
 msgstr ""
 
 #: inc/helpers.php:441
-msgid "Custom Fonts"
+msgid "Blocks"
 msgstr ""
 
 #: inc/helpers.php:447
-msgid "Custom Icons"
+msgid "Custom Fonts"
 msgstr ""
 
 #: inc/helpers.php:453
-msgid "Color Palette"
+msgid "Custom Icons"
 msgstr ""
 
 #: inc/helpers.php:459
-msgid "Preloader Screen"
+msgid "Color Palette"
 msgstr ""
 
 #: inc/helpers.php:465
-msgid "Blog (Advanced)"
+msgid "Preloader Screen"
 msgstr ""
 
 #: inc/helpers.php:471
-msgid "WooCommerce (Advanced)"
+msgid "Blog (Advanced)"
 msgstr ""
 
 #: inc/helpers.php:477
+msgid "WooCommerce (Advanced)"
+msgstr ""
+
+#: inc/helpers.php:483
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:532
+#: inc/helpers.php:538
 msgid "Latin Extended"
 msgstr ""
 
-#: inc/helpers.php:533
+#: inc/helpers.php:539
 msgid "Arabic"
 msgstr ""
 
-#: inc/helpers.php:534
+#: inc/helpers.php:540
 msgid "Bengali"
 msgstr ""
 
-#: inc/helpers.php:535
+#: inc/helpers.php:541
 msgid "Cyrillic"
 msgstr ""
 
-#: inc/helpers.php:536
+#: inc/helpers.php:542
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: inc/helpers.php:537
+#: inc/helpers.php:543
 msgid "Devaganari"
 msgstr ""
 
-#: inc/helpers.php:538
+#: inc/helpers.php:544
 msgid "Greek"
 msgstr ""
 
-#: inc/helpers.php:539
+#: inc/helpers.php:545
 msgid "Greek Extended"
 msgstr ""
 
-#: inc/helpers.php:540
+#: inc/helpers.php:546
 msgid "Gujarati"
 msgstr ""
 
-#: inc/helpers.php:541
+#: inc/helpers.php:547
 msgid "Gurmukhi"
 msgstr ""
 
-#: inc/helpers.php:542
+#: inc/helpers.php:548
 msgid "Hebrew"
 msgstr ""
 
-#: inc/helpers.php:543
+#: inc/helpers.php:549
 msgid "Kannada"
 msgstr ""
 
-#: inc/helpers.php:544
+#: inc/helpers.php:550
 msgid "Khmer"
 msgstr ""
 
-#: inc/helpers.php:545
+#: inc/helpers.php:551
 msgid "Malayalam"
 msgstr ""
 
-#: inc/helpers.php:546
+#: inc/helpers.php:552
 msgid "Myanmar"
 msgstr ""
 
-#: inc/helpers.php:547
+#: inc/helpers.php:553
 msgid "Oriya"
 msgstr ""
 
-#: inc/helpers.php:548
+#: inc/helpers.php:554
 msgid "Sinhala"
 msgstr ""
 
-#: inc/helpers.php:549
+#: inc/helpers.php:555
 msgid "Tamil"
 msgstr ""
 
-#: inc/helpers.php:550
+#: inc/helpers.php:556
 msgid "Telugu"
 msgstr ""
 
-#: inc/helpers.php:551
+#: inc/helpers.php:557
 msgid "Thai"
 msgstr ""
 
-#: inc/helpers.php:552
+#: inc/helpers.php:558
 msgid "Vietnamese"
 msgstr ""
 

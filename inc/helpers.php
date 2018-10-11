@@ -425,6 +425,12 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
+		'header-alt-colors' => array(
+			'label'   => esc_html__( 'Alternate Header Colors', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
 		'footer-advanced' => array(
 			'label'   => esc_html__( 'Footer (Advanced)', 'suki' ),
 			'url'     => SUKI_PRO_URL,
