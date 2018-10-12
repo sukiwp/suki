@@ -5,7 +5,8 @@ v0.6.1
 - FIX: Customizer's postmessage on button radius option for WooCommerce buttons.
 - FIX: Customizer's postmessage on subsidiary headings.
 - FIX: Custom CSS media queries order.
-- FIX: Some CSS.
+- FIX: Custom CSS on WooCommerce buttons.
+- FIX: Some minor CSS.
 - TWEAK: Adjust narrow content and content wrapper allowed width ranges in Customizer.
 - TWEAK: Improve WooCommerce responsive cart table styles.
 
