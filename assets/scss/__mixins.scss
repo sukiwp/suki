@@ -56,7 +56,7 @@
 	background-color: $color_bg; // default
 	border-color: $color_border; // default
 
-	&:hover, &:focus {	
+	&:focus {	
 		color: $color_text; // default
 		background-color: $color_bg; // default
 		border-color: $color_meta; // default

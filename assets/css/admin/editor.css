@@ -503,32 +503,19 @@ input[type="week"],
 	border-color: #e5e5e5;
 }
 
-input[type="text"]:hover, input[type="text"]:focus,
-input[type="password"]:hover,
+input[type="text"]:focus,
 input[type="password"]:focus,
-input[type="color"]:hover,
 input[type="color"]:focus,
-input[type="date"]:hover,
 input[type="date"]:focus,
-input[type="datetime-local"]:hover,
 input[type="datetime-local"]:focus,
-input[type="email"]:hover,
 input[type="email"]:focus,
-input[type="month"]:hover,
 input[type="month"]:focus,
-input[type="number"]:hover,
 input[type="number"]:focus,
-input[type="search"]:hover,
 input[type="search"]:focus,
-input[type="tel"]:hover,
 input[type="tel"]:focus,
-input[type="time"]:hover,
 input[type="time"]:focus,
-input[type="url"]:hover,
 input[type="url"]:focus,
-input[type="week"]:hover,
 input[type="week"]:focus,
-.input:hover,
 .input:focus {
 	color: #666666;
 	background-color: #ffffff;
@@ -557,7 +544,7 @@ textarea {
 	border-color: #e5e5e5;
 }
 
-textarea:hover, textarea:focus {
+textarea:focus {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #bbbbbb;
@@ -590,7 +577,7 @@ select {
 	padding-right: 1.8em;
 }
 
-select:hover, select:focus {
+select:focus {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #bbbbbb;
@@ -636,7 +623,7 @@ select[multiple] {
 	background-color: transparent;
 }
 
-.select2-container .select2-selection:hover, .select2-container .select2-selection:focus {
+.select2-container .select2-selection:focus {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #bbbbbb;
