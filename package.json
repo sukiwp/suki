@@ -45,7 +45,7 @@
 		"eligrey-classlist-js-polyfill": "^1.2.20180112",
 		"google-fonts-complete": "^1.2.2",
 		"gulp": "^4.0.0",
-		"gulp-autoprefixer": "^5.0.0",
+		"gulp-autoprefixer": "^6.0.0",
 		"gulp-merge-media-queries": "^0.2.1",
 		"gulp-rename": "^1.4.0",
 		"gulp-replace": "^1.0.0",
