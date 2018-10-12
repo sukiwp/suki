@@ -155,9 +155,24 @@
 .woocommerce .woocommerce-error .button,
 .woocommerce .woocommerce-info .button,
 .woocommerce .woocommerce-message .button {
+	padding: 0;
+	border: none;
 	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	text-decoration: inherit;
 	line-height: inherit;
-	padding: 0 0.5em;
+	letter-spacing: inherit;
+	background-color: transparent !important;
+	color: #288ce6;
+}
+
+.woocommerce .woocommerce-error .button:hover, .woocommerce .woocommerce-error .button:focus,
+.woocommerce .woocommerce-info .button:hover,
+.woocommerce .woocommerce-info .button:focus,
+.woocommerce .woocommerce-message .button:hover,
+.woocommerce .woocommerce-message .button:focus {
+	color: #1465ad;
 }
 
 .woocommerce-store-notice,
@@ -1110,12 +1125,20 @@ p.demo_store a {
 	padding: 13px 15.6px;
 }
 
+.woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator {
+	margin-top: 0.5em;
+}
+
 .woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator > p {
 	margin-bottom: 0;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator .shipping-calculator-form {
 	margin-top: 1em;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator .shipping-calculator-form .select2 {
+	text-align: initial;
 }
 
 .woocommerce .woocommerce-checkout #customer_details > * {

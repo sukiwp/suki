@@ -73,17 +73,30 @@
 // Notices
 // -------------------------------------------------------------
 
-.woocommerce .woocommerce-error,
-.woocommerce .woocommerce-info,
-.woocommerce .woocommerce-message {
-	border: none;
-	background-color: $color_subtle; // default
-	color: inherit;
+.woocommerce {
+	.woocommerce-error,
+	.woocommerce-info,
+	.woocommerce-message {
+		border: none;
+		background-color: $color_subtle; // default
+		color: inherit;
 
-	.button {
-		font-size: inherit;
-		line-height: inherit;
-		padding: 0 0.5em;
+		.button {
+			padding: 0;
+			border: none;
+			font-size: inherit;
+			font-weight: inherit;
+			font-style: inherit;
+			text-decoration: inherit;
+			line-height: inherit;
+			letter-spacing: inherit;
+			background-color: transparent !important;
+			color: $color_accent; // default
+
+			&:hover, &:focus {
+				color: $color_accent_2; // default
+			}
+		}
 	}
 }
 
@@ -953,12 +966,18 @@ p.demo_store {
 		}
 
 		.woocommerce-shipping-calculator {
+			margin-top: 0.5em;
+
 			> p {
 				margin-bottom: 0;
 			}
 
 			.shipping-calculator-form {
 				margin-top: 1em;
+
+				.select2 {
+					text-align: initial;
+				}
 			}
 		}
 	}

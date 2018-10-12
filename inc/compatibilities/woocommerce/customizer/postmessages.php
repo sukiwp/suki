@@ -26,6 +26,11 @@ $add['body_text_color'] = array(
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
+		'element'  => '.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
 		'element'  => '.woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
 		'property' => 'color',
 	),
@@ -35,10 +40,17 @@ $add['link_text_color'] = array(
 		'property' => 'background-color',
 	),
 );
+$add['link_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce .woocommerce-error .button:hover, .woocommerce .woocommerce-error .button:focus, .woocommerce .woocommerce-info .button:hover, .woocommerce .woocommerce-info .button:focus, .woocommerce .woocommerce-message .button:hover, .woocommerce .woocommerce-message .button:focus',
+		'property' => 'color',
+	),
+);
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce-error, .woocommerce-info, .woocommerce-message, #add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li',
+		'element'  => '.woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message, #add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li',
 		'property' => 'background-color',
 	),
 );
@@ -142,21 +154,21 @@ $add['meta_link_hover_text_color'] = array(
 $add['input_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce table.cart td.actions .coupon .input-text',
+		'element'  => '.woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text',
 		'property' => 'padding',
 	),
 );
 $add['input_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce table.cart td.actions .coupon .input-text',
+		'element'  => '.woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text',
 		'property' => 'border-width',
 	),
 );
 $add['input_border_radius' ] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce table.cart td.actions .coupon .input-text',
+		'element'  => '.woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text',
 		'property' => 'border-radius',
 	),
 );
@@ -164,7 +176,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['input_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.woocommerce table.cart td.actions .coupon .input-text',
+			'element'  => '.woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text',
 			'property' => $prop,
 		),
 	);
@@ -173,7 +185,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['input_focus_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.woocommerce table.cart td.actions .coupon .input-text:focus',
+			'element'  => '.woocommerce table.cart td.actions .coupon .input-text, .woocommerce #content table.cart td.actions .coupon .input-text, .woocommerce-page table.cart td.actions .coupon .input-text, .woocommerce-page #content table.cart td.actions .coupon .input-text:focus',
 			'property' => $prop,
 		),
 	);
