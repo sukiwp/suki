@@ -326,6 +326,7 @@ select[multiple] {
 		border-color: inherit;
 
 		.select2-search {
+			padding: 6px;
 			@include border( bottom );
 
 			.select2-search__field {
