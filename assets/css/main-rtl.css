@@ -1373,11 +1373,15 @@ body.suki-page-layout-boxed #page {
 
 .suki-logo {
 	display: block;
-	width: 100px;
 	-webkit-transition: color 0.25s;
 	transition: color 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.suki-logo .suki-logo-image {
+	display: block;
+	width: 100px;
 }
 
 .suki-logo img, .suki-logo svg {
@@ -1508,6 +1512,9 @@ body.suki-page-layout-boxed #page {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: inherit;
+	-ms-flex-pack: inherit;
+	justify-content: inherit;
 	height: 100%;
 	max-width: 100%;
 	padding: 0 12px;
@@ -1540,6 +1547,9 @@ body.suki-page-layout-boxed #page {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: inherit;
+	-ms-flex-pack: inherit;
+	justify-content: inherit;
 	height: 100%;
 }
 

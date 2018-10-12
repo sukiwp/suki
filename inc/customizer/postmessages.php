@@ -547,14 +547,14 @@ foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachme
 $add['header_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-logo .suki-logo',
+		'element'  => '.suki-header-logo .suki-logo-image',
 		'property' => 'width',
 	),
 );
 $add['header_mobile_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-logo .suki-logo',
+		'element'  => '.suki-header-mobile-logo .suki-logo-image',
 		'property' => 'width',
 	),
 );
