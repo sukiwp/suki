@@ -404,11 +404,6 @@ svg {
 	color: inherit;
 }
 
-*:-ms-input-placeholder {
-	opacity: 0.75;
-	color: inherit;
-}
-
 *::-ms-input-placeholder {
 	opacity: 0.75;
 	color: inherit;
