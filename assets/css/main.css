@@ -589,7 +589,15 @@ select[multiple] {
 }
 
 .select2-container {
-	line-height: normal;
+	display: block;
+}
+
+.select2-container .selection {
+	display: block;
+}
+
+.select2-container .dropdown-wrapper {
+	margin-top: -1px;
 }
 
 .select2-container .select2-selection {
@@ -620,7 +628,6 @@ select[multiple] {
 	display: block;
 	height: auto;
 	border-color: inherit;
-	background-color: transparent;
 }
 
 .select2-container .select2-selection:focus {
@@ -651,8 +658,6 @@ select[multiple] {
 }
 
 .select2-container .select2-dropdown .select2-search {
-	border-top-width: 1px;
-	border-top-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }

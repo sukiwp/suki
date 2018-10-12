@@ -287,14 +287,21 @@ select[multiple] {
 // -------------------------------------------------------------
 
 .select2-container {
-	line-height: normal;
+	display: block;
+
+	.selection {
+		display: block;
+	}
+
+	.dropdown-wrapper {
+		margin-top: -1px;
+	}
 
 	.select2-selection {
 		@include select();
 		display: block;
 		height: auto;
 		border-color: inherit;
-		background-color: transparent;
 	}
 
 	.select2-selection--single {
@@ -319,7 +326,6 @@ select[multiple] {
 		border-color: inherit;
 
 		.select2-search {
-			@include border( top );
 			@include border( bottom );
 
 			.select2-search__field {
