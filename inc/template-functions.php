@@ -494,7 +494,7 @@ add_filter( 'nav_menu_item_title', 'suki_nav_menu_item_title', 99, 4 );
  * @return string
  */
 function suki_get_search_form_add_icon( $form ) {
-	$form = preg_replace( '/placeholder="(.*?)"/', 'placeholder="' . esc_attr__( 'Search&hellip', 'suki' ) . '"', $form );
+	$form = preg_replace( '/placeholder="(.*?)"/', 'placeholder="' . esc_attr__( 'Search&hellip;', 'suki' ) . '"', $form );
 	$form = preg_replace( '/<\/form>/', suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ) . '</form>', $form );
 
 	return $form;

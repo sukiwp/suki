@@ -204,7 +204,7 @@ msgid "Expand / Collapse"
 msgstr ""
 
 #: inc/template-functions.php:497
-msgid "Search&hellip"
+msgid "Search&hellip;"
 msgstr ""
 
 #: inc/template-tags.php:32
