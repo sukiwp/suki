@@ -69,20 +69,6 @@
 	}
 }
 
-.woocommerce {
-	#respond input#submit.alt,
-	a.button.alt,
-	button.button.alt,
-	input.button.alt {
-		&,
-		&.disabled,
-		&:disabled,
-		&:disabled[disabled] {
-			@include button(); // default
-		}
-	}
-}
-
 // -------------------------------------------------------------
 // Notices
 // -------------------------------------------------------------
