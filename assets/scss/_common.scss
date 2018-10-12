@@ -82,19 +82,19 @@
 // -------------------------------------------------------------
 
 .h1 {
-	@extend %h1;
+	@include h1();
 }
 
 .h2 {
-	@extend %h2;
+	@include h2();
 }
 
 .h3 {
-	@extend %h3;
+	@include h3();
 }
 
 .h4 {
-	@extend %h4;
+	@include h4();
 }
 
 // -------------------------------------------------------------
@@ -116,7 +116,7 @@
 	}
 
 	.page-title {
-		@extend %small-title; // default
+		@include h3(); // default
 	}
 }
 

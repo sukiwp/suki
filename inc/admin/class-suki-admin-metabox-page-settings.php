@@ -345,7 +345,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'header':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable main header', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable main header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_header';
@@ -364,7 +364,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable mobile header', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable mobile header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_mobile_header';
@@ -387,7 +387,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'page_header':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Page header', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'page_header';
@@ -410,7 +410,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'content':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Content container', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content container', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'content_container';
@@ -429,7 +429,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Content & sidebar layout', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content & sidebar layout', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'content_layout';
@@ -465,7 +465,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide title', 'suki' ); ?></label>
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide title', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_title';
@@ -479,7 +479,7 @@ class Suki_Admin_Metabox_Page_Settings {
 					</div>
 
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide featured image', 'suki' ); ?></label>
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide featured image', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_thumbnail';
@@ -499,7 +499,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'footer':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable footer widgets', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable footer widgets', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_footer_widgets';
@@ -518,7 +518,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable footer bottom', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable footer bottom', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_footer_bottom';

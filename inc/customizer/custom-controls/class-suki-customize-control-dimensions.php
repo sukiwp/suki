@@ -125,8 +125,8 @@ class Suki_Customize_Control_Dimensions extends Suki_Customize_Control {
 				<div class="suki-dimensions-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}" data-linked="false">
 					<label class="suki-row-item" style="width: 30px;">
 						<span class="suki-small-label">&nbsp;</span>
-						<span class="suki-dimensions-link button button-secondary dashicons dashicons-editor-unlink" tabindex="0"></span>
-						<span class="suki-dimensions-unlink button button-primary dashicons dashicons-admin-links" tabindex="0"></span>
+						<button class="suki-dimensions-link button button-secondary dashicons dashicons-editor-unlink" tabindex="0"></button>
+						<button class="suki-dimensions-unlink button button-primary dashicons dashicons-admin-links" tabindex="0"></button>
 					</label>
 					<# _.each( [ 'top', 'right', 'bottom', 'left' ], function( prop, i ) { #>
 						<label class="suki-row-item">

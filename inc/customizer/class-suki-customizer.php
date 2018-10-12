@@ -539,7 +539,12 @@ class Suki_Customizer {
 		$default_values = array();
 
 		// Temporary CSS array to organize output.
-		$css_array = array();
+		// Media groups are defined now, for proper responsive orders.
+		$css_array = array(
+			'global' => array(),
+			'tablet' => array(),
+			'mobile' => array(),
+		);
 
 		// Loop through each setting.
 		foreach ( $postmessages as $key => $rules ) {

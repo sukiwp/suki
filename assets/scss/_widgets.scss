@@ -15,7 +15,7 @@
 	}
 
 	.post-date, .rss-date {
-		@extend %meta;
+		@include meta();
 		display: block;
 		margin-top: 0.25em;
 		font-size: 0.9em;
@@ -225,6 +225,5 @@
 		width: 40px;
 		height: auto;
 		margin-left: 0.5em;
-		border-radius: 20px;
 	}
 }

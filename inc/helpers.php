@@ -42,9 +42,9 @@ function suki_flatten_array( $array ) {
 
 	foreach ( $array as $key => $value ) {
 		if ( is_array( $value ) ) {
-			$flattened[ $key ] = suki_flatten_array( $value );
+			$flattened = array_merge( $flattened, suki_flatten_array( $value ) );
 		} else {
-			$flattened[ $key ] = $value;
+			$flattened[ strval( $key ) ] = $value;
 		}
 	}
 
@@ -413,14 +413,20 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 			'active'  => false,
 		),
+		'header-transparent' => array(
+			'label'   => esc_html__( 'Transparent Header', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+			'active'  => false,
+		),
 		'header-sticky' => array(
 			'label'   => esc_html__( 'Sticky Header', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,
 		),
-		'header-transparent' => array(
-			'label'   => esc_html__( 'Transparent Header', 'suki' ),
+		'header-alt-colors' => array(
+			'label'   => esc_html__( 'Alternate Header Colors', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 			'active'  => false,

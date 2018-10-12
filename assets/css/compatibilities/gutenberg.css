@@ -1,41 +1,3 @@
-.wp-block-cover-image .wp-block-cover-image-text,
-.wp-block-cover-image h2 {
-	font-size: 27px;
-	font-weight: 500;
-	line-height: 1.5;
-}
-
-.wp-block-button .wp-block-button__link {
-	position: relative;
-	display: inline-block;
-	line-height: normal;
-	text-align: center;
-	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
-	padding: 10px 20px;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 3px;
-	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus {
-	color: #ffffff;
-	background-color: #1465ad;
-	border-color: #1465ad;
-}
-
-.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus, .wp-block-button .wp-block-button__link:active {
-	text-decoration: none;
-}
-
 .suki-content-layout-narrow .alignwide {
 	position: relative;
 	left: 50%;
@@ -169,6 +131,9 @@ p.wp-block-subhead {
 	max-width: 70%;
 	margin: 0;
 	padding: 0.5em;
+	font-size: 27px;
+	font-weight: 500;
+	line-height: 1.5;
 }
 
 .wp-block-image img {
@@ -218,6 +183,33 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-color: inherit;
+}
+
+.wp-block-button .wp-block-button__link {
+	position: relative;
+	display: inline-block;
+	line-height: normal;
+	text-align: center;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 10px 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+	color: #ffffff;
+	background-color: #288ce6;
+	border-color: #288ce6;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus {
+	color: #ffffff;
+	background-color: #1465ad;
+	border-color: #1465ad;
 }
 
 .wp-block-embed .suki-oembed {

@@ -162,11 +162,11 @@ $add['title_hover_text_color'] = '';
  */
 
 $add['small_title_font_family'] = '';
-$add['small_title_font_weight'] = 500;
+$add['small_title_font_weight'] = '';
 $add['small_title_font_style'] = '';
 $add['small_title_text_transform'] = '';
-$add['small_title_font_size'] = '22px';
-$add['small_title_line_height'] = '1.6';
+$add['small_title_font_size'] = '';
+$add['small_title_line_height'] = '';
 $add['small_title_letter_spacing'] = '';
 
 $add['small_title_text_color'] = '';

@@ -19,18 +19,21 @@
 // Logo
 .site-title {
 	margin: 0;
-	@extend %small-title;
+	@include h3();
 	position: relative;
 }
 
 .suki-logo {
 	display: block;
-	width: 100px; // default
 	@include transition( color );
+
+	.suki-logo-image {
+		display: block;
+		width: 100px; // default
+	}
 
 	img, svg {
 		max-width: 100%;
-		vertical-align: bottom;
 	}
 }
 
@@ -129,6 +132,7 @@
 
 	> * {
 		@include flex();
+		justify-content: inherit;
 		height: 100%;
 		max-width: 100%;
 		padding: 0 12px; // default
@@ -149,6 +153,7 @@
 .suki-header-section {
 	.menu {
 		@include flex();
+		justify-content: inherit;
 		height: 100%;
 
 		> div,

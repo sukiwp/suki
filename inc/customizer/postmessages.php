@@ -121,6 +121,14 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		$element = 'h' . $i . ', .h' . $i;
 		$property = str_replace( '_', '-', $prop );
 
+		if ( 1 === $i ) {
+			$element .= ', .entry-title';
+		}
+
+		if ( 3 === $i ) {
+			$element .= ', .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
+		}
+
 		$add['h' . $i . '_' . $prop ] = array(
 			array(
 				'type'     => 'font_family' === $prop ? 'font' : 'css',
@@ -539,14 +547,14 @@ foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachme
 $add['header_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-logo .suki-logo',
+		'element'  => '.suki-header-logo .suki-logo-image',
 		'property' => 'width',
 	),
 );
 $add['header_mobile_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-logo .suki-logo',
+		'element'  => '.suki-header-mobile-logo .suki-logo-image',
 		'property' => 'width',
 	),
 );

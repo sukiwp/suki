@@ -60,6 +60,9 @@ class Suki_Compatibility_WooCommerce {
 		
 		// Page settings
 		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
+
+		// Product search form widget
+		add_filter( 'get_product_search_form', array( $this, 'add_icon_to_product_search_widget' ) );
 	}
 	
 	/**
@@ -370,6 +373,18 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		return $ids;
+	}
+
+	/**
+	 * Add SVG icon to product search widget HTML.
+	 *
+	 * @param string $from
+	 * @return string
+	 */
+	public function add_icon_to_product_search_widget( $form ) {
+		$form = preg_replace( '/<\/form>/', suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ) . '</form>', $form );
+
+		return $form;
 	}
 	
 	/**

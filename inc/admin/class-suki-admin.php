@@ -367,7 +367,7 @@ class Suki_Admin {
 		?>
 		<div class="suki-admin-pro-modules postbox">
 			<h2 class="hndle">
-				<?php echo esc_html( apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More features are available on Suki Pro', 'suki' ) ) ); ?>
+				<?php echo wp_kses_post( apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More features are available on Suki Pro', 'suki' ) ) ); ?>
 			</h2>
 			<div class="inside">
 				<?php

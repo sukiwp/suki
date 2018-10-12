@@ -1,8 +1,6 @@
 @import "../__variables";
 @import "../__mixins";
 
-@import "../__extends";
-
 input, select, textarea {
 	max-width: 100%;
 }
@@ -34,27 +32,35 @@ input, select, textarea {
 // -------------------------------------------------------------
 
 .suki-admin-form-row {
+	@include flex( flex-start );
+	margin: 0 -10px;
 	padding: 0.75em 0;
-	width: 100%;
-
-	@include float-container();
 }
 
 .suki-admin-form-label {
 	display: block;
-	float: left;
 	min-width: 150px;
 	width: 20%;
-	padding: 5px 15px 0 0;
+	padding: 5px 10px;
 	font-weight: 600;
+
+	label {
+		display: block;
+		cursor: default;
+	}
 }
 
 .suki-admin-form-field {
 	display: block;
-	overflow: hidden;
+	width: 100%;
+	padding: 0 10px;
 }
 
 .select2-container {
+	.select2-results__group {
+		padding: 6px;		
+	}
+
 	.select2-selection {
 		background-color: white;
 		border-color: #ddd;
@@ -84,7 +90,7 @@ input, select, textarea {
 
 		&.select2-selection--single .select2-selection__rendered {
 			padding: 3px 5px;
-			line-height: normal;
+			line-height: 20px;
 		}
 	}
 
@@ -101,14 +107,23 @@ input, select, textarea {
 				margin: 0;
 				padding: 5px;
 
+				&[role="group"] {
+					padding: 0;
+				}
+
 				&.select2-results__option--highlighted {
 					color: inherit;
 					background-color: rgba(0,0,0,0.05);
 				}
 
 				&[aria-selected=true] {
-					font-weight: bold;
 					background-color: rgba(0,0,0,0.1) !important;
+				}
+			}
+
+			.select2-results__options {
+				.select2-results__option {
+					padding-left: 20px;
 				}
 			}
 		}
@@ -229,11 +244,6 @@ input, select, textarea {
 	margin: 6px 0;
 }
 
-.suki-admin-multiselect-control {
-	height: 30px !important;
-	opacity: 0;
-}
-
 // -------------------------------------------------------------
 // Page Settings Metabox
 // -------------------------------------------------------------
@@ -293,15 +303,24 @@ input, select, textarea {
 }
 
 .suki-admin-metabox-panels {
+	position: relative;
 	width: 100%;
+	overflow: hidden;
 }
 
 .suki-admin-metabox-panel {
-	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	visibility: hidden;
 	padding: 0.5em 20px;
 
 	&.active {
-		display: block;
+		position: static;
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
@@ -309,15 +328,17 @@ input, select, textarea {
 .term-php .suki-term-metabox-container,
 .post-php #side-sortables {
 
+	.suki-admin-form-row {
+		display: block;
+	}
+
 	.suki-admin-form-label {
-		float: none;
 		width: auto;
 		padding: 0;
 		margin: 0 0 0.5em;
 	}
 
 	.suki-admin-form-field {
-		float: none;
 		width: auto;
 	}
 

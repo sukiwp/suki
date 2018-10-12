@@ -102,7 +102,7 @@
 
 // Meta
 .entry-meta {
-	@extend %meta;
+	@include meta();
 	margin: 0 0 0.25em;
 
 	.avatar {
@@ -303,11 +303,11 @@ a.more-link {
 .comments-title {
 	position: relative;
 	margin-top: 2em;
-	@extend %small-title; // default
+	@include h3(); // default
 }
 
 .comment-reply-title {
-	@extend %small-title; // default
+	@include h3(); // default
 
 	small {
 		margin-left: 1em;
@@ -416,7 +416,7 @@ a.more-link {
 .comment-metadata {
 	margin: 0.25em 0;
 
-	@extend %meta;
+	@include meta();
 
 	> * {
 		position: relative;

@@ -80,7 +80,7 @@ function suki_logo( $logo_image_id = null ) {
 
 		// Replace logo HTML if logo image is found.
 		if ( ! empty( $logo_image ) ) {
-			$html = $logo_image . '<span class="screen-reader-text">' . get_bloginfo( 'name', 'display' ) . '</span>';
+			$html = '<span class="suki-logo-image">' . $logo_image . '</span><span class="screen-reader-text">' . get_bloginfo( 'name', 'display' ) . '</span>';
 		}
 	}
 

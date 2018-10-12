@@ -1,3 +1,15 @@
+v0.6.1
+- NEW: WooCommerce cart's table responsive styles.
+- NEW: Make search form's placeholder text translatable from theme's text domain.
+- FIX: Customizer's shadow control JS bug.
+- FIX: Customizer's postmessage on button radius option for WooCommerce buttons.
+- FIX: Customizer's postmessage on subsidiary headings.
+- FIX: Custom CSS media queries order.
+- FIX: Custom CSS on WooCommerce buttons and inputs.
+- FIX: Some minor CSS.
+- TWEAK: Adjust narrow content and content wrapper allowed width ranges in Customizer.
+- TWEAK: Improve WooCommerce responsive cart table styles.
+
 v0.6.0
 - NEW: Header menu highlight now has highlight text color option.
 - TWEAK: Drastically improve Customizer performance (now it loads much faster).

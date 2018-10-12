@@ -63,7 +63,7 @@
 		$( input ).trigger( 'change' );
 	}
 
-	// $( '#customize-theme-controls' ).on( 'blur', 'input[type="number"]', inputNumberValidation );
+	$( '#customize-theme-controls' ).on( 'blur', 'input[type="number"]', inputNumberValidation );
 	$( '#customize-theme-controls' ).on( 'keyup', 'input[type="number"]', function( e ) {
 		if ( 13 == e.which ) {
 			inputNumberValidation( e );
@@ -305,45 +305,42 @@
 	wp.customize.controlConstructor['suki-shadow'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
-			    updating = false,
 			    $inputs = control.container.find( '.suki-shadow-input' ),
 			    $color = control.container.find( '.suki-shadow-color input' ),
 			    $value = control.container.find( '.suki-shadow-value' );
 
 			$color.wpColorPicker({
 				change: function() {
-					updating = true;
-					$color.val( $color.wpColorPicker( 'color' ) ).trigger( 'change' );
-					updating = false;
+					control.setting.set( $color.wpColorPicker( 'color' ) );
 				},
 				clear: function() {
-					updating = true;
-					$color.val( '' ).trigger( 'change' );
-					updating = false;
+					control.setting.set( '' );
 				},
-			});
-
-			$inputs.on( 'change', function( i, el ) {
-				var values = $inputs.map(function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '' : this.value.toString() + 'px' );
-				}).get();
-
-				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			});
 
 			// Collapse color picker when hitting Esc instead of collapsing the current section.
-			control.container.on( 'keydown', function( e ) {
-				if ( 27 !== e.which ) { // Esc.
+			control.container.on( 'keydown', function( event ) {
+				var $colorContainer;
+
+				if ( 27 !== event.which ) { // Esc.
 					return;
 				}
 
-				var $pickerContainer = control.container.find( '.wp-picker-container' );
+				$colorContainer = control.container.find( '.wp-picker-container' );
 
-				if ( $pickerContainer.hasClass( 'wp-picker-active' ) ) {
+				if ( $colorContainer.hasClass( 'wp-picker-active' ) ) {
 					picker.wpColorPicker( 'close' );
 					control.container.find( '.wp-color-result' ).focus();
-					e.stopPropagation(); // Prevent section from being collapsed.
+					event.stopPropagation(); // Prevent section from being collapsed.
 				}
+			} );
+
+			$inputs.on( 'change blur', function( i, el ) {
+				var values = $inputs.map(function() {
+					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+				}).get();
+
+				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			});
 		}
 	});
@@ -371,7 +368,7 @@
 					$input.val( '' ).trigger( 'change' );
 				});
 
-				$input.on( 'change', function( e ) {
+				$input.on( 'change blur', function( e ) {
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
 
 					$value.val( value ).trigger( 'change' );
@@ -430,7 +427,7 @@
 					$input.val( '' ).trigger( 'change' );
 				});
 
-				$input.on( 'change', function( e ) {
+				$input.on( 'change blur', function( e ) {
 					$slider.slider( 'value', this.value );
 
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
@@ -467,12 +464,16 @@
 				});
 
 				$link.on( 'click', function( e ) {
+					e.preventDefault();
+					
 					$el.attr( 'data-linked', 'true' );
 					$inputs.val( $inputs.first().val() ).trigger( 'change' );
 					$inputs.first().focus();
 				});
 
 				$unlink.on( 'click', function( e ) {
+					e.preventDefault();
+					
 					$el.attr( 'data-linked', 'false' );
 					$inputs.first().focus();
 				});
@@ -483,18 +484,26 @@
 					}
 				});
 
-				$inputs.on( 'change', function( e ) {
-					var values = [];
+				$inputs.on( 'change blur', function( e ) {
+					var values = [],
+					    unit = $unit.val().toString(),
+					    isEmpty = true,
+					    value;
 
 					$inputs.each(function() {
 						if ( '' === this.value ) {
-							values.push( '0' + $unit.val().toString() );
+							values.push( '0' + unit );
 						} else {
-							values.push( this.value.toString() + $unit.val().toString() );
+							values.push( this.value.toString() + unit );
+							isEmpty = false;
 						}
 					});
 
-					var value = values.join( ' ' );
+					if ( isEmpty ) {
+						value = '   ';
+					} else {
+						value = values.join( ' ' );
+					}
 
 					$value.val( value ).trigger( 'change' );
 				});
@@ -530,7 +539,7 @@
 				});
 				setNumberAttrs( $unit.val() );
 
-				$input.on( 'change', function( e ) {
+				$input.on( 'change blur', function( e ) {
 					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
 
 					$value.val( value ).trigger( 'change' );

@@ -145,7 +145,7 @@ gulp.task( 'vendors', function( done ) {
 
 	// Change version
 	gulp.src( './inc/class-suki.php', { base: './' } )
-		.pipe( replace( /(\$ver\['classlist-polyfill'\])(?:.*)/, '$1 = \'' + info.devDependencies['eligrey-classlist-js-polyfill'].replace( '^', '' ) + '\';' ) )
+		.pipe( replace( /(\$ver\['classlist-polyfill'\] = )(?:.*)/g, '$1\'' + info.devDependencies['eligrey-classlist-js-polyfill'].replace( '^', '' ) + '\';' ) )
 		.pipe( gulp.dest( './' ) );
 
 	/**
