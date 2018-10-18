@@ -32,6 +32,8 @@
 
 .suki-footer-widgets-bar-row {
 	@include flex( flex-start );
+	justify-content: flex-start;
+	flex-wrap: wrap;
 	margin-left: -15px; // default
 	margin-right: -15px; // default
 	margin-bottom: -40px; // default
@@ -83,8 +85,8 @@
 		}
 	}
 
-	@media screen and ( max-width: $breakpoint_768 - 1px ) {
-		width: 100% !important;
+	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		width: 100%;
 	}
 }
 

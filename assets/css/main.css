@@ -2283,6 +2283,11 @@ body.suki-page-layout-boxed #page {
 	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -40px;
@@ -2337,9 +2342,9 @@ body.suki-page-layout-boxed #page {
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 499px) {
 	.suki-footer-widgets-bar-column {
-		width: 100% !important;
+		width: 100%;
 	}
 }
 
