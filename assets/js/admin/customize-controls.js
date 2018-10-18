@@ -968,12 +968,11 @@
 				resizePreviewer();
 			});
 
-			console.log( 'halo' );
-
-			setCustomResponsiveElementsDisplay();
 		};
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );
+		
+		wp.customize.control( 'footer_widgets_bar_column_6_width' ).container.on( 'init', setCustomResponsiveElementsDisplay );
 
 		/**
 		 * Init Header Elements Locations Grouping
