@@ -702,8 +702,9 @@
 		});
 
 		// Set all custom responsive toggles and fieldsets.
-		var setCustomResponsiveElementsDisplay = function( device ) {
-			var $buttons = $( 'span.suki-responsive-switcher-button' ),
+		var setCustomResponsiveElementsDisplay = function() {
+			var device = wp.customize.previewedDevice.get(),
+			    $buttons = $( 'span.suki-responsive-switcher-button' ),
 			    $tabs = $( '.suki-responsive-switcher-button.nav-tab' ),
 			    $panels = $( '.suki-responsive-fieldset' );
 
@@ -718,9 +719,7 @@
 		// Refresh all responsive elements when any section is expanded.
 		// This is required to set responsive elements on newly added controls inside the section.
 		wp.customize.section.each(function ( section ) {
-			section.expanded.bind(function() {
-				setCustomResponsiveElementsDisplay( wp.customize.previewedDevice.get() );
-			});
+			section.expanded.bind( setCustomResponsiveElementsDisplay );
 		});
 
 		/**
@@ -968,6 +967,10 @@
 			$section.find( '.suki-builder-sortable-panel' ).on( 'sortover', function( e, ui ) {
 				resizePreviewer();
 			});
+
+			console.log( 'halo' );
+
+			setCustomResponsiveElementsDisplay();
 		};
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );

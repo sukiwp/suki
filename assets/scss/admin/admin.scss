@@ -221,12 +221,13 @@ input, select, textarea {
 		top: 0;
 		right: 0;
 		width: 32px;
-		margin: 1px 0 0 0;
+		margin: 1px -1px 0 0;
 		padding: 0 !important;
 		border-radius: 0;
+		height: auto !important;
+		line-height: 23px !important;
 		text-align: center;
-		height: 24px !important;
-		line-height: 22px !important;
+		box-shadow: none;
 
 		.dashicons {
 			margin-right: 0;
