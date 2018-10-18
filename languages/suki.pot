@@ -46,7 +46,7 @@ msgstr ""
 msgid "Header Menu %d"
 msgstr ""
 
-#: inc/class-suki.php:212, inc/template-tags.php:512
+#: inc/class-suki.php:212, inc/template-tags.php:517
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -115,88 +115,34 @@ msgstr ""
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:538
-msgid "Latin Extended"
+#: inc/helpers.php:621
+msgctxt "icon label"
+msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:539
-msgid "Arabic"
+#: inc/helpers.php:622
+msgctxt "icon label"
+msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:540
-msgid "Bengali"
+#: inc/helpers.php:623
+msgctxt "icon label"
+msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:541
-msgid "Cyrillic"
+#: inc/helpers.php:624
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:542
-msgid "Cyrillic Extended"
+#: inc/helpers.php:625
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:543
-msgid "Devaganari"
-msgstr ""
-
-#: inc/helpers.php:544
-msgid "Greek"
-msgstr ""
-
-#: inc/helpers.php:545
-msgid "Greek Extended"
-msgstr ""
-
-#: inc/helpers.php:546
-msgid "Gujarati"
-msgstr ""
-
-#: inc/helpers.php:547
-msgid "Gurmukhi"
-msgstr ""
-
-#: inc/helpers.php:548
-msgid "Hebrew"
-msgstr ""
-
-#: inc/helpers.php:549
-msgid "Kannada"
-msgstr ""
-
-#: inc/helpers.php:550
-msgid "Khmer"
-msgstr ""
-
-#: inc/helpers.php:551
-msgid "Malayalam"
-msgstr ""
-
-#: inc/helpers.php:552
-msgid "Myanmar"
-msgstr ""
-
-#: inc/helpers.php:553
-msgid "Oriya"
-msgstr ""
-
-#: inc/helpers.php:554
-msgid "Sinhala"
-msgstr ""
-
-#: inc/helpers.php:555
-msgid "Tamil"
-msgstr ""
-
-#: inc/helpers.php:556
-msgid "Telugu"
-msgstr ""
-
-#: inc/helpers.php:557
-msgid "Thai"
-msgstr ""
-
-#: inc/helpers.php:558
-msgid "Vietnamese"
+#: inc/helpers.php:626
+msgctxt "icon label"
+msgid "Shopping Cart"
 msgstr ""
 
 #: inc/template-functions.php:458
@@ -212,61 +158,61 @@ msgid "Assign menu to this location"
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:201
+#: inc/template-tags.php:206
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:220
+#: inc/template-tags.php:225
 msgid "Oops! That page can not be found."
 msgstr ""
 
-#: inc/template-tags.php:242
+#: inc/template-tags.php:247
 msgid "Skip to content"
 msgstr ""
 
 #. translators: %s: header menu number.
-#: inc/template-tags.php:494
+#: inc/template-tags.php:499
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/template-tags.php:548
+#: inc/template-tags.php:553
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:588, inc/customizer/options/header--builder.php:108
+#: inc/template-tags.php:593, inc/customizer/options/header--builder.php:108
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1257
+#: inc/template-tags.php:1262
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1258
+#: inc/template-tags.php:1263
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1302
+#: inc/template-tags.php:1307
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1303
+#: inc/template-tags.php:1308
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1320
+#: inc/template-tags.php:1325
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1326
+#: inc/template-tags.php:1331
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1353
+#: inc/template-tags.php:1358
 msgid "Comments are closed."
 msgstr ""
 

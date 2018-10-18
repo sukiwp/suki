@@ -534,28 +534,28 @@ function suki_get_google_fonts() {
  */
 function suki_get_google_fonts_subsets() {
 	return array(
-		// 'latin'        => esc_html__( 'Latin (default)', 'suki' ), // always chosen by default
-		'latin-ext'    => esc_html__( 'Latin Extended', 'suki' ),
-		'arabic'       => esc_html__( 'Arabic', 'suki' ),
-		'bengali'      => esc_html__( 'Bengali', 'suki' ),
-		'cyrillic'     => esc_html__( 'Cyrillic', 'suki' ),
-		'cyrillic-ext' => esc_html__( 'Cyrillic Extended', 'suki' ),
-		'devaganari'   => esc_html__( 'Devaganari', 'suki' ),
-		'greek'        => esc_html__( 'Greek', 'suki' ),
-		'greek-ext'    => esc_html__( 'Greek Extended', 'suki' ),
-		'gujarati'     => esc_html__( 'Gujarati', 'suki' ),
-		'gurmukhi'     => esc_html__( 'Gurmukhi', 'suki' ),
-		'hebrew'       => esc_html__( 'Hebrew', 'suki' ),
-		'kannada'      => esc_html__( 'Kannada', 'suki' ),
-		'khmer'        => esc_html__( 'Khmer', 'suki' ),
-		'malayalam'    => esc_html__( 'Malayalam', 'suki' ),
-		'myanmar'      => esc_html__( 'Myanmar', 'suki' ),
-		'oriya'        => esc_html__( 'Oriya', 'suki' ),
-		'sinhala'      => esc_html__( 'Sinhala', 'suki' ),
-		'tamil'        => esc_html__( 'Tamil', 'suki' ),
-		'telugu'       => esc_html__( 'Telugu', 'suki' ),
-		'thai'         => esc_html__( 'Thai', 'suki' ),
-		'vietnamese'   => esc_html__( 'Vietnamese', 'suki' ),
+		// 'latin' always chosen by default
+		'latin-ext' => 'Latin Extended',
+		'arabic' => 'Arabic',
+		'bengali' => 'Bengali',
+		'cyrillic' => 'Cyrillic',
+		'cyrillic-ext' => 'Cyrillic Extended',
+		'devaganari' => 'Devaganari',
+		'greek' => 'Greek',
+		'greek-ext' => 'Greek Extended',
+		'gujarati' => 'Gujarati',
+		'gurmukhi' => 'Gurmukhi',
+		'hebrew' => 'Hebrew',
+		'kannada' => 'Kannada',
+		'khmer' => 'Khmer',
+		'malayalam' => 'Malayalam',
+		'myanmar' => 'Myanmar',
+		'oriya' => 'Oriya',
+		'sinhala' => 'Sinhala',
+		'tamil' => 'Tamil',
+		'telugu' => 'Telugu',
+		'thai' => 'Thai',
+		'vietnamese' => 'Vietnamese',
 	);
 }
 
@@ -607,5 +607,24 @@ function suki_get_social_media_types() {
 		'vimeo' => 'Vimeo',
 		'youtube' => 'Youtube',
 		'rss' => 'RSS',
+	) );
+}
+
+/**
+ * Return array of icons choices.
+ * 
+ * @return array
+ */
+function suki_get_all_icons() {
+	return apply_filters( 'suki/dataset/all_icons', array(
+		'theme_icons' => array(
+			'search' => esc_html_x( 'Search', 'icon label', 'suki' ),
+			'close' => esc_html_x( 'Close', 'icon label', 'suki' ),
+			'menu' => esc_html_x( 'Menu', 'icon label', 'suki' ),
+			'submenu-down' => esc_html_x( 'Dropdown Arrow -- Down', 'icon label', 'suki' ),
+			'submenu-right' => esc_html_x( 'Dropdown Arrow -- Right', 'icon label', 'suki' ),
+			'shopping-cart' => esc_html_x( 'Shopping Cart', 'icon label', 'suki' ),
+		),
+		'social_icons' => suki_get_social_media_types(),
 	) );
 }
