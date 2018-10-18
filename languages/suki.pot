@@ -257,7 +257,7 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:272
+#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:273
 msgid "Content & Sidebar"
 msgstr ""
 
@@ -265,11 +265,11 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:161, inc/customizer/options/_sections.php:265
+#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:161, inc/customizer/options/_sections.php:266
 msgid "Page Header (Title Bar)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:241, inc/customizer/options/_sections.php:306
+#: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:241, inc/customizer/options/_sections.php:307
 msgid "Footer"
 msgstr ""
 
@@ -681,7 +681,7 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:312, inc/customizer/options/header--html.php:62, inc/customizer/options/page-settings.php:281, inc/customizer/options/_sections.php:250, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:312, inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:91, inc/customizer/options/page-settings.php:281, inc/customizer/options/_sections.php:250, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -797,7 +797,7 @@ msgstr ""
 msgid "Settings above are global default, optionally you can set different layout for each page type via %s."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:62, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:425
+#: inc/customizer/options/content--section.php:62, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:426
 msgid "Page Settings"
 msgstr ""
 
@@ -1026,7 +1026,7 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:312
+#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:313
 msgid "Footer Builder"
 msgstr ""
 
@@ -1278,6 +1278,11 @@ msgstr ""
 
 #: inc/customizer/options/header--search.php:70
 msgid "Dropdown width"
+msgstr ""
+
+#: inc/customizer/options/header--search.php:94
+msgctxt "Suki Pro upsell"
+msgid "Post types query selector"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:33
@@ -1671,7 +1676,7 @@ msgstr ""
 msgid "Main Bar"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:182, inc/customizer/options/_sections.php:332
+#: inc/customizer/options/_sections.php:182, inc/customizer/options/_sections.php:333
 msgid "Bottom Bar"
 msgstr ""
 
@@ -1695,7 +1700,7 @@ msgstr ""
 msgid "Element: HTML(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:236, inc/customizer/options/_sections.php:366
+#: inc/customizer/options/_sections.php:236, inc/customizer/options/_sections.php:367
 msgid "Element: Social"
 msgstr ""
 
@@ -1716,63 +1721,68 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:257
 msgctxt "Suki Pro upsell"
+msgid "Alternate Header Colors"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:258
+msgctxt "Suki Pro upsell"
 msgid "Sticky header"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:278
+#: inc/customizer/options/_sections.php:279
 msgid "Content Section"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:291
+#: inc/customizer/options/_sections.php:292
 msgid "Main Content Area"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:298
+#: inc/customizer/options/_sections.php:299
 msgid "Sidebar Area"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:325
+#: inc/customizer/options/_sections.php:326
 msgid "Widgets Bar"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:345
+#: inc/customizer/options/_sections.php:346
 msgid "Element: Widgets Column(s)"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:352
+#: inc/customizer/options/_sections.php:353
 msgid "Element: Copyright"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:359
+#: inc/customizer/options/_sections.php:360
 msgid "Element: Menu"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:379
+#: inc/customizer/options/_sections.php:380
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:385
+#: inc/customizer/options/_sections.php:386
 msgid "Posts Index"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:391
+#: inc/customizer/options/_sections.php:392
 msgid "Single Post"
 msgstr ""
 
 #. translators: %s: link to "Post Layout: Default" section.
-#: inc/customizer/options/_sections.php:394
+#: inc/customizer/options/_sections.php:395
 msgid "\"Default\" post layout is used as the main post layout. You can configure it on %s"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:395, inc/customizer/options/_sections.php:407
+#: inc/customizer/options/_sections.php:396, inc/customizer/options/_sections.php:408
 msgid "Post Layout: Default"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:413
+#: inc/customizer/options/_sections.php:414
 msgid "Post Layout: Grid"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:426
+#: inc/customizer/options/_sections.php:427
 msgid "Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type."
 msgstr ""
 
