@@ -373,11 +373,13 @@ class Suki_Admin {
 				<?php
 				// Get all pro modules list.
 				$modules = suki_get_pro_modules();
+
+				$active_modules = get_option( 'suki_pro_active_modules', array() );
 				?>
 				<table class="suki-admin-pro-table widefat plugins">
 					<tbody>
 						<?php foreach( $modules as $module_slug => $module_data ) : ?>
-							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
+							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && in_array( $module_slug, $active_modules ) ? 'active' : 'inactive' ); ?>">
 								<th class="check-column"></th>
 								<td class="suki-admin-pro-table-item-name plugin-title column-primary">
 									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>
@@ -389,13 +391,17 @@ class Suki_Admin {
 
 									<?php elseif ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
 
-										<?php foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) : ?>
-											<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
-										<?php endforeach; ?>
-
-									<?php else : ?>
-
-										<span class="suki-admin-pro-table-item-coming-soon"><?php esc_html_e( 'Coming soon', 'suki' ); ?></span>
+										<?php
+										foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) :
+											if ( isset( $action_data['url'] ) ) :
+											?>
+												<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
+											<?php else : ?>
+												<span class="suki-admin-pro-table-item-unavailable"><?php echo esc_html( $action_data['label'] ); ?></span>
+											<?php
+											endif;
+										endforeach;
+										?>
 
 									<?php endif; ?>
 								</td>
