@@ -57,11 +57,7 @@
 .woocommerce input.button.alt:disabled[disabled] {
 	position: relative;
 	display: inline-block;
-	line-height: normal;
-	text-align: center;
 	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -69,6 +65,13 @@
 	color: #ffffff;
 	background-color: #288ce6;
 	border-color: #288ce6;
+	font-size: 1rem;
+	font-style: inherit;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-align: center;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -940,9 +943,6 @@ p.demo_store a {
 	margin-left: 0.5rem;
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -957,6 +957,13 @@ p.demo_store a {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 }
 
 .woocommerce table.cart td.actions .coupon .input-text:focus, .woocommerce #content table.cart td.actions .coupon .input-text:focus, .woocommerce-page table.cart td.actions .coupon .input-text:focus, .woocommerce-page #content table.cart td.actions .coupon .input-text:focus {

@@ -188,11 +188,7 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 .wp-block-button .wp-block-button__link {
 	position: relative;
 	display: inline-block;
-	line-height: normal;
-	text-align: center;
 	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -200,6 +196,13 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 	color: #ffffff;
 	background-color: #288ce6;
 	border-color: #288ce6;
+	font-size: 1rem;
+	font-style: inherit;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-align: center;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;

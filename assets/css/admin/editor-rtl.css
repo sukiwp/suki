@@ -429,11 +429,7 @@ input[type="submit"],
 a.button {
 	position: relative;
 	display: inline-block;
-	line-height: normal;
-	text-align: center;
 	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -441,6 +437,13 @@ a.button {
 	color: #ffffff;
 	background-color: #288ce6;
 	border-color: #288ce6;
+	font-size: 1rem;
+	font-style: inherit;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-align: center;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -479,9 +482,6 @@ input[type="week"],
 .input {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -496,6 +496,13 @@ input[type="week"],
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 }
 
 input[type="text"]:focus,
@@ -520,9 +527,6 @@ input[type="week"]:focus,
 textarea {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -537,6 +541,13 @@ textarea {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 }
 
 textarea:focus {
@@ -548,9 +559,6 @@ textarea:focus {
 select {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -565,6 +573,13 @@ select {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center left;
 	background-repeat: no-repeat;
@@ -598,9 +613,6 @@ select[multiple] {
 .select2-container .select2-selection {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -615,6 +627,13 @@ select[multiple] {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center left;
 	background-repeat: no-repeat;
