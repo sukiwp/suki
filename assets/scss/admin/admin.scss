@@ -602,6 +602,10 @@ input, select, textarea {
 	.suki-admin-pro-table-item-actions {
 		width: 100%;
 		text-align: right;
+
+		> * {
+			margin-left: 1.25em;
+		}
 	}
 
 	.suki-admin-pro-table-item-unavailable {

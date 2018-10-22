@@ -373,13 +373,14 @@ class Suki_Admin {
 				<?php
 				// Get all pro modules list.
 				$modules = suki_get_pro_modules();
-
+				
+				// Get active modules from DB.
 				$active_modules = get_option( 'suki_pro_active_modules', array() );
 				?>
 				<table class="suki-admin-pro-table widefat plugins">
 					<tbody>
 						<?php foreach( $modules as $module_slug => $module_data ) : ?>
-							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && in_array( $module_slug, $active_modules ) ? 'active' : 'inactive' ); ?>">
+							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
 								<th class="check-column"></th>
 								<td class="suki-admin-pro-table-item-name plugin-title column-primary">
 									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>

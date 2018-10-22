@@ -388,64 +388,64 @@ msgstr ""
 msgid "More features are available on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:390
+#: inc/admin/class-suki-admin.php:391
 msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:424
+#: inc/admin/class-suki-admin.php:425
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:437
+#: inc/admin/class-suki-admin.php:438
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:437
+#: inc/admin/class-suki-admin.php:438
 msgid "coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:439
+#: inc/admin/class-suki-admin.php:440
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:443
+#: inc/admin/class-suki-admin.php:444
 msgctxt "Suki Pro upsell"
 msgid "More about Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:457
+#: inc/admin/class-suki-admin.php:458
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:459
+#: inc/admin/class-suki-admin.php:460
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:463
+#: inc/admin/class-suki-admin.php:464
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:477
+#: inc/admin/class-suki-admin.php:478
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:479
+#: inc/admin/class-suki-admin.php:480
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:483
+#: inc/admin/class-suki-admin.php:484
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:497
+#: inc/admin/class-suki-admin.php:498
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:499
+#: inc/admin/class-suki-admin.php:500
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:503
+#: inc/admin/class-suki-admin.php:504
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
