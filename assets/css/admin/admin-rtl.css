@@ -462,11 +462,18 @@ input, select, textarea {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-.suki-admin-wrap .suki-admin-logo img {
-	vertical-align: middle;
+.suki-admin-wrap .suki-admin-logo {
+	font-size: 1.5em;
+	font-weight: 500;
+	line-height: 30px;
 }
 
-.suki-admin-wrap .suki-admin-logo .suki-admin-version {
+.suki-admin-wrap .suki-admin-logo img {
+	vertical-align: middle;
+	max-height: 30px;
+}
+
+.suki-admin-wrap .suki-admin-version {
 	display: inline-block;
 	padding: 0.3em 0.5em;
 	margin: 0 0.5em 0 0;

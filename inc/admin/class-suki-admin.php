@@ -56,6 +56,8 @@ class Suki_Admin {
 		add_action( 'tiny_mce_before_init', array( $this, 'modify_tiny_mce_config' ) );
 
 		// Suki admin page hooks
+		add_action( 'suki/admin/dashboard/logo', array( $this, 'render_logo__image' ), 10 );
+		add_action( 'suki/admin/dashboard/logo', array( $this, 'render_logo__version' ), 20 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__welcome_panel' ), 1 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_modules_table' ), 20 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
@@ -284,8 +286,15 @@ class Suki_Admin {
 			<div class="suki-admin-header">
 				<div class="suki-admin-wrapper wp-clearfix">
 					<div class="suki-admin-logo">
-						<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ); ?>" height="30" alt="<?php echo esc_attr( get_admin_page_title() ); ?>">
-						<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // WPCS: XSS OK ?></span>
+						<?php
+						/**
+						 * Hook: suki/admin/dashboard/logo
+						 *
+						 * @hooked Suki_Admin::render_logo__image - 10
+						 * @hooked Suki_Admin::render_logo__version - 20
+						 */
+						do_action( 'suki/admin/dashboard/logo' );
+						?>
 					</div>
 				</div>
 			</div>
@@ -312,24 +321,45 @@ class Suki_Admin {
 							do_action( 'suki/admin/dashboard/content' );
 							?>
 						</div>
-						<div class="suki-admin-secondary">
-							<?php
-							/**
-							 * Hook: suki/admin/dashboard/sidebar
-							 *
-							 * @hooked Suki_Admin::render_sidebar__customizer - 10
-							 * @hooked Suki_Admin::render_sidebar__pro - 20
-							 * @hooked Suki_Admin::render_sidebar__documentation - 30
-							 * @hooked Suki_Admin::render_sidebar__community - 40
-							 * @hooked Suki_Admin::render_sidebar__feedback - 50
-							 */
-							do_action( 'suki/admin/dashboard/sidebar' );
-							?>
-						</div>
+
+						<?php if ( has_action( 'suki/admin/dashboard/sidebar' ) ) : ?>
+							<div class="suki-admin-secondary">
+								<?php
+								/**
+								 * Hook: suki/admin/dashboard/sidebar
+								 *
+								 * @hooked Suki_Admin::render_sidebar__customizer - 10
+								 * @hooked Suki_Admin::render_sidebar__pro - 20
+								 * @hooked Suki_Admin::render_sidebar__documentation - 30
+								 * @hooked Suki_Admin::render_sidebar__community - 40
+								 * @hooked Suki_Admin::render_sidebar__feedback - 50
+								 */
+								do_action( 'suki/admin/dashboard/sidebar' );
+								?>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
 		</div>
+		<?php
+	}
+
+	/**
+	 * Render logo on Suki admin page content.
+	 */
+	public function render_logo__image() {
+		?>
+		<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ); ?>" height="30" alt="<?php echo esc_attr( get_admin_page_title() ); ?>">
+		<?php
+	}
+
+	/**
+	 * Render logo on Suki admin page content.
+	 */
+	public function render_logo__version() {
+		?>
+		<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // WPCS: XSS OK ?></span>
 		<?php
 	}
 
@@ -373,7 +403,7 @@ class Suki_Admin {
 				<?php
 				// Get all pro modules list.
 				$modules = suki_get_pro_modules();
-				
+
 				// Get active modules from DB.
 				$active_modules = get_option( 'suki_pro_active_modules', array() );
 				?>

@@ -44,8 +44,8 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
-		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 0 );
+		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 1 );
+		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 1 );
 
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
@@ -123,7 +123,7 @@ class Suki {
 		$info['screenshot'] = esc_url( get_template_directory_uri() . '/screenshot.png' );
 
 		// Assign to class $_info property.
-		$this->_info = $info;
+		$this->_info = apply_filters( 'suki/theme_info', $info );
 	}
 
 	/**

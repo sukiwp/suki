@@ -441,20 +441,25 @@ input, select, textarea {
 	}
 
 	.suki-admin-logo {
+		font-size: 1.5em;
+		font-weight: 500;
+		line-height: 30px;
+
 		img {
 			vertical-align: middle;
+			max-height: 30px;
 		}
+	}
 
-		.suki-admin-version {
-			display: inline-block;
-			padding: 0.3em 0.5em;
-			margin: 0 0 0 0.5em;
-			font-size: 12px;
-			font-weight: 600;
-			line-height: 1;
-			vertical-align: middle;
-			background-color: rgba(0,0,0,0.1);
-		}
+	.suki-admin-version {
+		display: inline-block;
+		padding: 0.3em 0.5em;
+		margin: 0 0 0 0.5em;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1;
+		vertical-align: middle;
+		background-color: rgba(0,0,0,0.1);
 	}
 
 	.wp-badge {
