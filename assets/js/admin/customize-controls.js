@@ -309,6 +309,14 @@
 			    $color = control.container.find( '.suki-shadow-color input' ),
 			    $value = control.container.find( '.suki-shadow-value' );
 
+			$inputs.on( 'change blur', function( i, el ) {
+				var values = $inputs.map(function() {
+					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+				}).get();
+
+				$value.val( values.join( ' ' ) ).trigger( 'change' );
+			});
+
 			$color.wpColorPicker({
 				change: function() {
 					control.setting.set( $color.wpColorPicker( 'color' ) );
@@ -334,14 +342,6 @@
 					event.stopPropagation(); // Prevent section from being collapsed.
 				}
 			} );
-
-			$inputs.on( 'change blur', function( i, el ) {
-				var values = $inputs.map(function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
-				}).get();
-
-				$value.val( values.join( ' ' ) ).trigger( 'change' );
-			});
 		}
 	});
 
