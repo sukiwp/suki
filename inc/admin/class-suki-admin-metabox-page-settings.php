@@ -98,7 +98,8 @@ class Suki_Admin_Metabox_Page_Settings {
 
 		add_meta_box(
 			'suki_page_settings',
-			esc_html__( 'Page Settings (Suki)', 'suki' ),
+			/* translators: %s: theme name. */
+			sprintf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
 			'normal',
@@ -249,7 +250,12 @@ class Suki_Admin_Metabox_Page_Settings {
 	public function render_meta_box__term_add() {
 		?>
 		<div class="form-field suki-add-term-page-settings" style="margin: 2em 0;">
-			<h2><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h2>
+			<h2>
+				<?php
+				/* translators: %s: theme name. */
+				printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+				?>
+			</h2>
 			<?php
 			// Add a nonce field so we can check for it later.
 			wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
@@ -272,7 +278,12 @@ class Suki_Admin_Metabox_Page_Settings {
 		?>
 		<tr>
 			<th colspan="2" style="padding: 0;">
-				<h3><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h3>
+				<h3>
+					<?php
+					/* translators: %s: theme name. */
+					printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+					?>
+				</h3>
 				<?php
 				// Add a nonce field so we can check for it later.
 				wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
