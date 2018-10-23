@@ -38,10 +38,10 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 
 		$chunks = explode( ' ', $value );
 		$this->json['value'] = array(
-			'h_offset' => trim( $chunks[0], 'px' ),
-			'v_offset' => trim( $chunks[1], 'px' ),
-			'blur' => trim( $chunks[2], 'px' ),
-			'spread' => trim( $chunks[3], 'px' ),
+			'h_offset' => intval( $chunks[0] ),
+			'v_offset' => intval( $chunks[1] ),
+			'blur' => intval( $chunks[2] ),
+			'spread' => intval( $chunks[3] ),
 			'color' => $chunks[4],
 		);
 		$this->json['raw_value'] = $value;
