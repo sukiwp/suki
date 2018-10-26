@@ -1402,25 +1402,23 @@ p.demo_store {
 }
 
 // Product search
-.woocommerce.widget_product_search {
-	.woocommerce-product-search {
-		display: block;
-		position: relative;
+.woocommerce-product-search {
+	display: block;
+	position: relative;
 
-		.suki-search-icon {
-			position: absolute;
-			top: 50%;
-			left: 0;
-			margin: -0.5em 0 0 0.75em;
-		}
+	.suki-search-icon {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin: -0.5em 0 0 0.75em;
+	}
 
-		.search-field {
-			width: 100%;
-			padding-left: 2.5em;
-		}
+	.search-field {
+		width: 100%;
+		padding-left: 2.5em;
+	}
 
-		button[type="submit"] {
-			display: none;
-		}
+	button[type="submit"] {
+		display: none;
 	}
 }

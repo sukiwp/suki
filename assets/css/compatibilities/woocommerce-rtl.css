@@ -1595,23 +1595,23 @@ p.demo_store a {
 	font-weight: normal;
 }
 
-.woocommerce.widget_product_search .woocommerce-product-search {
+.woocommerce-product-search {
 	display: block;
 	position: relative;
 }
 
-.woocommerce.widget_product_search .woocommerce-product-search .suki-search-icon {
+.woocommerce-product-search .suki-search-icon {
 	position: absolute;
 	top: 50%;
 	right: 0;
 	margin: -0.5em 0.75em 0 0;
 }
 
-.woocommerce.widget_product_search .woocommerce-product-search .search-field {
+.woocommerce-product-search .search-field {
 	width: 100%;
 	padding-right: 2.5em;
 }
 
-.woocommerce.widget_product_search .woocommerce-product-search button[type="submit"] {
+.woocommerce-product-search button[type="submit"] {
 	display: none;
 }
