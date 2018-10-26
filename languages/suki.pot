@@ -681,16 +681,6 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:63, inc/customizer/options/footer--widgets-bar.php:312, inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:91, inc/customizer/options/page-settings.php:281, inc/customizer/options/_sections.php:250, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
-msgctxt "Suki Pro upsell"
-msgid "More Options on Suki Pro"
-msgstr ""
-
-#: inc/customizer/options/blog--archive.php:66
-msgctxt "Suki Pro upsell"
-msgid "More blog layouts"
-msgstr ""
-
 #: inc/customizer/options/blog--entry-default.php:28, inc/customizer/options/blog--entry-grid.php:83
 msgid "Featured media position"
 msgstr ""
@@ -797,7 +787,7 @@ msgstr ""
 msgid "Settings above are global default, optionally you can set different layout for each page type via %s."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:62, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:426
+#: inc/customizer/options/content--section.php:62, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:445
 msgid "Page Settings"
 msgstr ""
 
@@ -1116,11 +1106,6 @@ msgstr ""
 msgid "New tab"
 msgstr ""
 
-#: inc/customizer/options/footer--widgets-bar.php:315
-msgctxt "Suki Pro upsell"
-msgid "Dynamic columns width (responsive support)"
-msgstr ""
-
 #: inc/customizer/options/header--builder.php:23
 msgid "Desktop"
 msgstr ""
@@ -1222,6 +1207,11 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
+#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:91, inc/customizer/options/page-settings.php:281, inc/customizer/options/_sections.php:250, inc/customizer/options/_sections.php:381
+msgctxt "Suki Pro upsell"
+msgid "More Options on Suki Pro"
+msgstr ""
+
 #: inc/customizer/options/header--html.php:65
 msgctxt "Suki Pro upsell"
 msgid "Additional \"HTML 2\" element on Header Builder"
@@ -1282,7 +1272,7 @@ msgstr ""
 
 #: inc/customizer/options/header--search.php:94
 msgctxt "Suki Pro upsell"
-msgid "Post types query selector"
+msgid "Search query mode (support WooCommerce products search)"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:33
@@ -1568,19 +1558,19 @@ msgstr ""
 msgid "Page header background image"
 msgstr ""
 
-#: inc/customizer/options/page-settings.php:284
-msgctxt "Suki Pro upsell"
-msgid "Activate / deactivate preloader screen on this page"
-msgstr ""
-
 #: inc/customizer/options/page-settings.php:285
 msgctxt "Suki Pro upsell"
-msgid "Activate / deactivate transparent header on this page"
+msgid "Enable / disable transparent header on this page"
 msgstr ""
 
 #: inc/customizer/options/page-settings.php:286
 msgctxt "Suki Pro upsell"
-msgid "Activate / deactivate sticky header on this page"
+msgid "Enable / disable alternate header colors on this page"
+msgstr ""
+
+#: inc/customizer/options/page-settings.php:287
+msgctxt "Suki Pro upsell"
+msgid "Enable / disable sticky header on this page"
 msgstr ""
 
 #: inc/customizer/options/settings--google-fonts.php:23
@@ -1757,32 +1747,37 @@ msgstr ""
 msgid "Element: Menu"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:380
+#: inc/customizer/options/_sections.php:385
+msgctxt "Suki Pro upsell"
+msgid "Dynamic widgets column width (responsive)"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:399
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:386
+#: inc/customizer/options/_sections.php:405
 msgid "Posts Index"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:392
+#: inc/customizer/options/_sections.php:411
 msgid "Single Post"
 msgstr ""
 
 #. translators: %s: link to "Post Layout: Default" section.
-#: inc/customizer/options/_sections.php:395
+#: inc/customizer/options/_sections.php:414
 msgid "\"Default\" post layout is used as the main post layout. You can configure it on %s"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:396, inc/customizer/options/_sections.php:408
+#: inc/customizer/options/_sections.php:415, inc/customizer/options/_sections.php:427
 msgid "Post Layout: Default"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:414
+#: inc/customizer/options/_sections.php:433
 msgid "Post Layout: Grid"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:427
+#: inc/customizer/options/_sections.php:446
 msgid "Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type."
 msgstr ""
 
@@ -1926,32 +1921,12 @@ msgstr ""
 msgid "0 = disabled; -1 = Show all."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
-msgctxt "Suki Pro upsell"
-msgid "More \"add to cart\" styles"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
-msgctxt "Suki Pro upsell"
-msgid "More gallery styles"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:282
-msgctxt "Suki Pro upsell"
-msgid "More info tabs styles"
-msgstr ""
-
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:28
 msgid "Grid columns gutter"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:54
 msgid "Show \"add to cart\""
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
-msgctxt "Suki Pro upsell"
-msgid "More products grid item styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:26
