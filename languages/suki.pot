@@ -1711,7 +1711,7 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:257
 msgctxt "Suki Pro upsell"
-msgid "Alternate Header Colors"
+msgid "Alternate header colors"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:258
