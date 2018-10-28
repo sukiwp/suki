@@ -80,18 +80,6 @@ $add['boxed_page_width'] = array(
 		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'width',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-columns.alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .wp-block-columns.alignfull',
-		'property' => 'width',
-		'pattern'  => 'calc( $ + ( 2 * 15px ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .wp-block-gallery.alignfull',
-		'property' => 'width',
-		'pattern'  => 'calc( $ + ( 2 * 8px ) )',
-	),
 );
 
 $add['container_width'] = array(
@@ -99,17 +87,5 @@ $add['container_width'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-content-layout-narrow .alignwide',
 		'property' => 'width',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-columns.alignwide',
-		'property' => 'width',
-		'pattern'  => 'calc( $ + ( 2 * 15px ) )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .wp-block-gallery.alignwide',
-		'property' => 'width',
-		'pattern'  => 'calc( $ + ( 2 * 8px ) )',
 	),
 );
