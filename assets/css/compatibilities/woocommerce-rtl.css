@@ -1129,11 +1129,14 @@ p.demo_store a {
 .woocommerce-cart .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
 	display: inline-block;
 	margin-bottom: 0;
-	padding: 13px 15.6px;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator {
 	margin-top: 0.5em;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator:first-child {
+	margin-top: 0;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator > p {
@@ -1146,6 +1149,11 @@ p.demo_store a {
 
 .woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator .shipping-calculator-form .select2 {
 	text-align: initial;
+}
+
+.woocommerce ul#shipping_method li input {
+	margin: 0 0 0 0.5em;
+	vertical-align: baseline;
 }
 
 .woocommerce .woocommerce-checkout #customer_details > * {
@@ -1188,6 +1196,20 @@ p.demo_store a {
 	}
 }
 
+#add_payment_method .cart-collaterals .cart_totals table th, #add_payment_method .cart-collaterals .cart_totals table td,
+.woocommerce-cart .cart-collaterals .cart_totals table th,
+.woocommerce-cart .cart-collaterals .cart_totals table td,
+.woocommerce-checkout .cart-collaterals .cart_totals table th,
+.woocommerce-checkout .cart-collaterals .cart_totals table td {
+	width: 50%;
+}
+
+#add_payment_method .cart-collaterals .shipping-calculator-button,
+.woocommerce-cart .cart-collaterals .shipping-calculator-button,
+.woocommerce-checkout .cart-collaterals .shipping-calculator-button {
+	margin-top: 0;
+}
+
 #add_payment_method #payment,
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment {
@@ -1210,6 +1232,12 @@ p.demo_store a {
 	padding: 0.75em 1em;
 	margin: 0 0 0.25em;
 	background-color: #f3f3f3;
+}
+
+#add_payment_method #payment ul.payment_methods li input,
+.woocommerce-cart #payment ul.payment_methods li input,
+.woocommerce-checkout #payment ul.payment_methods li input {
+	margin: 0 0 0 0.5em;
 }
 
 #add_payment_method #payment div.form-row,
@@ -1280,6 +1308,10 @@ p.demo_store a {
 
 .woocommerce ul.order_details li strong {
 	margin-top: 0.5em;
+}
+
+.woocommerce-checkout-review-order th, .woocommerce-checkout-review-order td {
+	width: 50%;
 }
 
 @media screen and (min-width: 768px) {
