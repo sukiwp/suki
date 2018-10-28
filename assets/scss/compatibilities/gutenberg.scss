@@ -210,9 +210,9 @@ p.wp-block-subhead {
 .wp-block-embed {
 	.suki-oembed {
 		// reset responsive wrapper, Gutenberg already does it
-		position: static;
-		padding: 0 !important;
-		margin: 0;
+		// position: static;
+		// padding: 0 !important;
+		// margin: 0;
 
 		> * {
 			margin-top: 0;

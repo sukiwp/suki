@@ -168,12 +168,6 @@ p.wp-block-subhead {
 	border-color: #1465ad;
 }
 
-.wp-block-embed .suki-oembed {
-	position: static;
-	padding: 0 !important;
-	margin: 0;
-}
-
 .wp-block-embed .suki-oembed > * {
 	margin-top: 0;
 	margin-bottom: 0;
