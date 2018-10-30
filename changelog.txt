@@ -2,6 +2,7 @@ v0.6.2
 - TWEAK: Improve compatibility CSS for WooCommerce 3.5.
 - TWEAK: Improve letter spacing step, from 0.5px to 0.1px.
 - FIX: Gutenberg blocks CSS.
+- FIX: Customizer's dimensions control bug for not saving responsive values.
 - FIX: Customizer's shadow control JS.
 - FIX: Customizer's footer builder JS.
 
