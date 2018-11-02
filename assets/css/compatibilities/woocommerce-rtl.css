@@ -1,3 +1,9 @@
+.woocommerce .quantity .qty {
+	width: 4em;
+	padding-right: 0.25em;
+	padding-left: 0.25em;
+}
+
 .woocommerce form .form-row, .woocommerce-page form .form-row {
 	padding: 0;
 	margin: 0 0 1.25rem;
