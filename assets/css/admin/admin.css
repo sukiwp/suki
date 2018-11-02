@@ -209,12 +209,14 @@ input, select, textarea {
 	top: 0;
 	right: 0;
 	width: 32px;
-	margin: 1px 0 0 0;
+	margin: 1px -1px 0 0;
 	padding: 0 !important;
 	border-radius: 0;
+	height: auto !important;
+	line-height: 23px !important;
 	text-align: center;
-	height: 24px !important;
-	line-height: 22px !important;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 .suki-admin-upload-control .suki-admin-upload-control-button .dashicons {
@@ -460,11 +462,18 @@ input, select, textarea {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
-.suki-admin-wrap .suki-admin-logo img {
-	vertical-align: middle;
+.suki-admin-wrap .suki-admin-logo {
+	font-size: 1.5em;
+	font-weight: 500;
+	line-height: 30px;
 }
 
-.suki-admin-wrap .suki-admin-logo .suki-admin-version {
+.suki-admin-wrap .suki-admin-logo img {
+	vertical-align: middle;
+	max-height: 30px;
+}
+
+.suki-admin-wrap .suki-admin-version {
 	display: inline-block;
 	padding: 0.3em 0.5em;
 	margin: 0 0 0 0.5em;
@@ -632,6 +641,10 @@ input, select, textarea {
 	text-align: right;
 }
 
-.suki-admin-pro-modules .suki-admin-pro-table-item-coming-soon {
+.suki-admin-pro-modules .suki-admin-pro-table-item-actions > * {
+	margin-left: 1.25em;
+}
+
+.suki-admin-pro-modules .suki-admin-pro-table-item-unavailable {
 	opacity: 0.5;
 }

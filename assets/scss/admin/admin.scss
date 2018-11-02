@@ -221,12 +221,13 @@ input, select, textarea {
 		top: 0;
 		right: 0;
 		width: 32px;
-		margin: 1px 0 0 0;
+		margin: 1px -1px 0 0;
 		padding: 0 !important;
 		border-radius: 0;
+		height: auto !important;
+		line-height: 23px !important;
 		text-align: center;
-		height: 24px !important;
-		line-height: 22px !important;
+		box-shadow: none;
 
 		.dashicons {
 			margin-right: 0;
@@ -440,20 +441,25 @@ input, select, textarea {
 	}
 
 	.suki-admin-logo {
+		font-size: 1.5em;
+		font-weight: 500;
+		line-height: 30px;
+
 		img {
 			vertical-align: middle;
+			max-height: 30px;
 		}
+	}
 
-		.suki-admin-version {
-			display: inline-block;
-			padding: 0.3em 0.5em;
-			margin: 0 0 0 0.5em;
-			font-size: 12px;
-			font-weight: 600;
-			line-height: 1;
-			vertical-align: middle;
-			background-color: rgba(0,0,0,0.1);
-		}
+	.suki-admin-version {
+		display: inline-block;
+		padding: 0.3em 0.5em;
+		margin: 0 0 0 0.5em;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1;
+		vertical-align: middle;
+		background-color: rgba(0,0,0,0.1);
 	}
 
 	.wp-badge {
@@ -601,9 +607,13 @@ input, select, textarea {
 	.suki-admin-pro-table-item-actions {
 		width: 100%;
 		text-align: right;
+
+		> * {
+			margin-left: 1.25em;
+		}
 	}
 
-	.suki-admin-pro-table-item-coming-soon {
+	.suki-admin-pro-table-item-unavailable {
 		opacity: 0.5;
 	}
 }

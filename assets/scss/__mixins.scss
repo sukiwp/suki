@@ -42,9 +42,6 @@
 @mixin input() {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	appearance: none;
 	@include transition();
 
@@ -55,6 +52,14 @@
 	color: $color_text; // default
 	background-color: $color_bg; // default
 	border-color: $color_border; // default
+	
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 
 	&:focus {	
 		color: $color_text; // default
@@ -75,12 +80,7 @@
 @mixin button() {
 	position: relative;
 	display: inline-block;
-	line-height: normal;
-	text-align: center;
 	cursor: pointer;
-
-	font-size: 1rem; // default
-	font-weight: 500; // default
 
 	padding: 10px 20px; // default
 	@include border(); // default
@@ -89,6 +89,14 @@
 	color: $color_white; // default
 	background-color: $color_accent; // default
 	border-color: $color_accent; // default
+
+	font-size: 1rem; // default
+	font-style: inherit;
+	font-weight: 500; // default
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-align: center;
 
 	@include transition();
 

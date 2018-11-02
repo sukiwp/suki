@@ -34,33 +34,6 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 	margin-bottom: 1.25rem;
 }
 
-.wp-block-columns {
-	margin: 0 -15px;
-}
-
-.suki-content-layout-narrow .wp-block-columns.alignwide {
-	width: calc( 1140px + ( 2 * 15px ));
-	max-width: calc( 100vw + ( 2 * 15px ));
-	margin: 0;
-}
-
-.suki-content-layout-narrow .wp-block-columns.alignfull,
-.suki-content-layout-wide .wp-block-columns.alignfull {
-	width: calc( 100vw + ( 2 * 15px ));
-	max-width: calc( 100vw + ( 2 * 15px ));
-	margin: 0;
-}
-
-body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-columns.alignfull, body.suki-page-layout-boxed
-.suki-content-layout-wide .wp-block-columns.alignfull {
-	width: calc( 1400px + ( 2 * 15px ));
-}
-
-.wp-block-column {
-	padding: 0 15px;
-	margin: 0;
-}
-
 p.has-drop-cap:not(:focus):first-letter {
 	float: right;
 	line-height: 1;
@@ -148,26 +121,6 @@ p.wp-block-subhead {
 	text-align: center;
 }
 
-.suki-content-layout-narrow .wp-block-gallery.alignwide {
-	margin-right: 0;
-	margin-left: 0;
-	width: calc( 1140px + ( 2 * 8px ));
-	max-width: calc( 100vw + ( 2 * 8px ));
-}
-
-.suki-content-layout-narrow .wp-block-gallery.alignfull,
-.suki-content-layout-wide .wp-block-gallery.alignfull {
-	margin-right: 0;
-	margin-left: 0;
-	width: calc( 100vw + ( 2 * 8px ));
-	max-width: calc( 100vw + ( 2 * 8px ));
-}
-
-body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignfull, body.suki-page-layout-boxed
-.suki-content-layout-wide .wp-block-gallery.alignfull {
-	width: calc( 1400px + ( 2 * 8px ));
-}
-
 .wp-block-audio audio {
 	width: 100%;
 }
@@ -188,11 +141,7 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 .wp-block-button .wp-block-button__link {
 	position: relative;
 	display: inline-block;
-	line-height: normal;
-	text-align: center;
 	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -200,6 +149,13 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 	color: #ffffff;
 	background-color: #288ce6;
 	border-color: #288ce6;
+	font-size: 1rem;
+	font-style: inherit;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-align: center;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -210,12 +166,6 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .wp-block-gallery.alignf
 	color: #ffffff;
 	background-color: #1465ad;
 	border-color: #1465ad;
-}
-
-.wp-block-embed .suki-oembed {
-	position: static;
-	padding: 0 !important;
-	margin: 0;
 }
 
 .wp-block-embed .suki-oembed > * {

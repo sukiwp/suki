@@ -309,13 +309,17 @@
 			    $color = control.container.find( '.suki-shadow-color input' ),
 			    $value = control.container.find( '.suki-shadow-value' );
 
+			control.updateValue = function( i, el ) {
+				var values = $inputs.map(function() {
+					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+				}).get();
+
+				$value.val( values.join( ' ' ) ).trigger( 'change' );
+			}
+
 			$color.wpColorPicker({
-				change: function() {
-					control.setting.set( $color.wpColorPicker( 'color' ) );
-				},
-				clear: function() {
-					control.setting.set( '' );
-				},
+				change: control.updateValue,
+				clear: control.updateValue,
 			});
 
 			// Collapse color picker when hitting Esc instead of collapsing the current section.
@@ -335,13 +339,7 @@
 				}
 			} );
 
-			$inputs.on( 'change blur', function( i, el ) {
-				var values = $inputs.map(function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
-				}).get();
-
-				$value.val( values.join( ' ' ) ).trigger( 'change' );
-			});
+			$inputs.on( 'change blur', control.updateValue );
 		}
 	});
 
@@ -702,8 +700,9 @@
 		});
 
 		// Set all custom responsive toggles and fieldsets.
-		var setCustomResponsiveElementsDisplay = function( device ) {
-			var $buttons = $( 'span.suki-responsive-switcher-button' ),
+		var setCustomResponsiveElementsDisplay = function() {
+			var device = wp.customize.previewedDevice.get(),
+			    $buttons = $( 'span.suki-responsive-switcher-button' ),
 			    $tabs = $( '.suki-responsive-switcher-button.nav-tab' ),
 			    $panels = $( '.suki-responsive-fieldset' );
 
@@ -718,9 +717,7 @@
 		// Refresh all responsive elements when any section is expanded.
 		// This is required to set responsive elements on newly added controls inside the section.
 		wp.customize.section.each(function ( section ) {
-			section.expanded.bind(function() {
-				setCustomResponsiveElementsDisplay( wp.customize.previewedDevice.get() );
-			});
+			section.expanded.bind( setCustomResponsiveElementsDisplay );
 		});
 
 		/**
@@ -968,9 +965,12 @@
 			$section.find( '.suki-builder-sortable-panel' ).on( 'sortover', function( e, ui ) {
 				resizePreviewer();
 			});
+
 		};
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );
+		
+		wp.customize.control( 'hr_footer_builder' ).container.on( 'init', setCustomResponsiveElementsDisplay );
 
 		/**
 		 * Init Header Elements Locations Grouping

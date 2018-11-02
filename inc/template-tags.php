@@ -126,15 +126,16 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 
 	$classes = implode( ' ', array( $args['class'], 'suki-icon' ) );
 
-	// Get default SVG icons from theme's icons folder.
+	// Get SVG path.
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
 
 	// Allow modification via filter.
 	$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
 	$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
 
+	// Get SVG markup.
 	ob_start();
-	if ( file_exists( $path ) && 'svg' == strtolower( pathinfo( $path, PATHINFO_EXTENSION ) ) ) {
+	if ( file_exists( $path ) ) {
 		include( $path );
 	} else {
 		include( get_template_directory() . '/assets/icons/_fallback.svg' ); // fallback
@@ -143,6 +144,10 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
+
+	// Allow modification via filter.
+	$html = apply_filters( 'suki/frontend/svg_icon', $html, $key );
+	$html = apply_filters( 'suki/frontend/svg_icon/' . $key, $html );
 
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK

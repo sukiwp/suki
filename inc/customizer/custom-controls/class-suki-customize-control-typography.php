@@ -263,7 +263,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'px' => array(
 					'min' => -20,
 					'max' => 20,
-					'step' => 0.5,
+					'step' => 0.1,
 					'label' => 'px',
 				),
 				'em' => array(

@@ -429,11 +429,7 @@ input[type="submit"],
 a.button {
 	position: relative;
 	display: inline-block;
-	line-height: normal;
-	text-align: center;
 	cursor: pointer;
-	font-size: 1rem;
-	font-weight: 500;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -441,6 +437,13 @@ a.button {
 	color: #ffffff;
 	background-color: #288ce6;
 	border-color: #288ce6;
+	font-size: 1rem;
+	font-style: inherit;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-align: center;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -479,9 +482,6 @@ input[type="week"],
 .input {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -496,6 +496,13 @@ input[type="week"],
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 }
 
 input[type="text"]:focus,
@@ -520,9 +527,6 @@ input[type="week"]:focus,
 textarea {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -537,6 +541,13 @@ textarea {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 }
 
 textarea:focus {
@@ -548,9 +559,6 @@ textarea:focus {
 select {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -565,6 +573,13 @@ select {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center left;
 	background-repeat: no-repeat;
@@ -598,9 +613,6 @@ select[multiple] {
 .select2-container .select2-selection {
 	display: inline-block;
 	max-width: 100%;
-	font: inherit;
-	line-height: normal;
-	vertical-align: middle;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -615,6 +627,13 @@ select[multiple] {
 	color: #666666;
 	background-color: #ffffff;
 	border-color: #e5e5e5;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: normal;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	vertical-align: middle;
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center left;
 	background-repeat: no-repeat;
@@ -1663,23 +1682,23 @@ body.suki-page-layout-boxed #page {
 	padding: 0 20px;
 }
 
-.suki-header-top-bar-inner, .suki-header-top-bar .sub-menu {
+.suki-header-top-bar-inner, .suki-header-top-bar .menu .sub-menu {
 	background-color: #ffffff;
 }
 
-.suki-header-top-bar *, .suki-header-top-bar .sub-menu {
+.suki-header-top-bar *, .suki-header-top-bar .menu .sub-menu {
 	border-color: #e5e5e5;
 }
 
-.suki-header-top-bar, .suki-header-top-bar .sub-menu {
+.suki-header-top-bar, .suki-header-top-bar .menu .sub-menu {
 	color: #666666;
 }
 
-.suki-header-top-bar a:not(.button), .suki-header-top-bar .suki-toggle, .suki-header-top-bar .sub-menu a:not(.button), .suki-header-top-bar .sub-menu .suki-toggle {
+.suki-header-top-bar a:not(.button), .suki-header-top-bar .suki-toggle, .suki-header-top-bar .menu .sub-menu a:not(.button), .suki-header-top-bar .menu .sub-menu .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-top-bar a:not(.button):hover, .suki-header-top-bar a:not(.button):focus, .suki-header-top-bar .suki-toggle:hover, .suki-header-top-bar .suki-toggle:focus, .suki-header-top-bar .sub-menu a:not(.button):hover, .suki-header-top-bar .sub-menu a:not(.button):focus, .suki-header-top-bar .sub-menu .suki-toggle:hover, .suki-header-top-bar .sub-menu .suki-toggle:focus {
+.suki-header-top-bar a:not(.button):hover, .suki-header-top-bar a:not(.button):focus, .suki-header-top-bar .suki-toggle:hover, .suki-header-top-bar .suki-toggle:focus, .suki-header-top-bar .menu .sub-menu a:not(.button):hover, .suki-header-top-bar .menu .sub-menu a:not(.button):focus, .suki-header-top-bar .menu .sub-menu .suki-toggle:hover, .suki-header-top-bar .menu .sub-menu .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -1697,23 +1716,23 @@ body.suki-page-layout-boxed #page {
 	padding: 0 20px;
 }
 
-.suki-header-main-bar-inner, .suki-header-main-bar .sub-menu {
+.suki-header-main-bar-inner, .suki-header-main-bar .menu .sub-menu {
 	background-color: #ffffff;
 }
 
-.suki-header-main-bar *, .suki-header-main-bar .sub-menu {
+.suki-header-main-bar *, .suki-header-main-bar .menu .sub-menu {
 	border-color: #e5e5e5;
 }
 
-.suki-header-main-bar, .suki-header-main-bar .sub-menu {
+.suki-header-main-bar, .suki-header-main-bar .menu .sub-menu {
 	color: #666666;
 }
 
-.suki-header-main-bar a:not(.button), .suki-header-main-bar .suki-toggle, .suki-header-main-bar .sub-menu a:not(.button), .suki-header-main-bar .sub-menu .suki-toggle {
+.suki-header-main-bar a:not(.button), .suki-header-main-bar .suki-toggle, .suki-header-main-bar .menu .sub-menu a:not(.button), .suki-header-main-bar .menu .sub-menu .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-main-bar a:not(.button):hover, .suki-header-main-bar a:not(.button):focus, .suki-header-main-bar .suki-toggle:hover, .suki-header-main-bar .suki-toggle:focus, .suki-header-main-bar .sub-menu a:not(.button):hover, .suki-header-main-bar .sub-menu a:not(.button):focus, .suki-header-main-bar .sub-menu .suki-toggle:hover, .suki-header-main-bar .sub-menu .suki-toggle:focus {
+.suki-header-main-bar a:not(.button):hover, .suki-header-main-bar a:not(.button):focus, .suki-header-main-bar .suki-toggle:hover, .suki-header-main-bar .suki-toggle:focus, .suki-header-main-bar .menu .sub-menu a:not(.button):hover, .suki-header-main-bar .menu .sub-menu a:not(.button):focus, .suki-header-main-bar .menu .sub-menu .suki-toggle:hover, .suki-header-main-bar .menu .sub-menu .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -1731,23 +1750,23 @@ body.suki-page-layout-boxed #page {
 	padding: 0 20px;
 }
 
-.suki-header-bottom-bar-inner, .suki-header-bottom-bar .sub-menu {
+.suki-header-bottom-bar-inner, .suki-header-bottom-bar .menu .sub-menu {
 	background-color: #ffffff;
 }
 
-.suki-header-bottom-bar *, .suki-header-bottom-bar .sub-menu {
+.suki-header-bottom-bar *, .suki-header-bottom-bar .menu .sub-menu {
 	border-color: #e5e5e5;
 }
 
-.suki-header-bottom-bar, .suki-header-bottom-bar .sub-menu {
+.suki-header-bottom-bar, .suki-header-bottom-bar .menu .sub-menu {
 	color: #666666;
 }
 
-.suki-header-bottom-bar a:not(.button), .suki-header-bottom-bar .suki-toggle, .suki-header-bottom-bar .sub-menu a:not(.button), .suki-header-bottom-bar .sub-menu .suki-toggle {
+.suki-header-bottom-bar a:not(.button), .suki-header-bottom-bar .suki-toggle, .suki-header-bottom-bar .menu .sub-menu a:not(.button), .suki-header-bottom-bar .menu .sub-menu .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-bottom-bar a:not(.button):hover, .suki-header-bottom-bar a:not(.button):focus, .suki-header-bottom-bar .suki-toggle:hover, .suki-header-bottom-bar .suki-toggle:focus, .suki-header-bottom-bar .sub-menu a:not(.button):hover, .suki-header-bottom-bar .sub-menu a:not(.button):focus, .suki-header-bottom-bar .sub-menu .suki-toggle:hover, .suki-header-bottom-bar .sub-menu .suki-toggle:focus {
+.suki-header-bottom-bar a:not(.button):hover, .suki-header-bottom-bar a:not(.button):focus, .suki-header-bottom-bar .suki-toggle:hover, .suki-header-bottom-bar .suki-toggle:focus, .suki-header-bottom-bar .menu .sub-menu a:not(.button):hover, .suki-header-bottom-bar .menu .sub-menu a:not(.button):focus, .suki-header-bottom-bar .menu .sub-menu .suki-toggle:hover, .suki-header-bottom-bar .menu .sub-menu .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -1765,23 +1784,23 @@ body.suki-page-layout-boxed #page {
 	padding: 0 20px;
 }
 
-.suki-header-mobile-main-bar-inner, .suki-header-mobile-main-bar .sub-menu {
+.suki-header-mobile-main-bar-inner, .suki-header-mobile-main-bar .menu .sub-menu {
 	background-color: #ffffff;
 }
 
-.suki-header-mobile-main-bar *, .suki-header-mobile-main-bar .sub-menu {
+.suki-header-mobile-main-bar *, .suki-header-mobile-main-bar .menu .sub-menu {
 	border-color: #e5e5e5;
 }
 
-.suki-header-mobile-main-bar, .suki-header-mobile-main-bar .sub-menu {
+.suki-header-mobile-main-bar, .suki-header-mobile-main-bar .menu .sub-menu {
 	color: #666666;
 }
 
-.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle, .suki-header-mobile-main-bar .sub-menu a:not(.button), .suki-header-mobile-main-bar .sub-menu .suki-toggle {
+.suki-header-mobile-main-bar a:not(.button), .suki-header-mobile-main-bar .suki-toggle, .suki-header-mobile-main-bar .menu .sub-menu a:not(.button), .suki-header-mobile-main-bar .menu .sub-menu .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus, .suki-header-mobile-main-bar .sub-menu a:not(.button):hover, .suki-header-mobile-main-bar .sub-menu a:not(.button):focus, .suki-header-mobile-main-bar .sub-menu .suki-toggle:hover, .suki-header-mobile-main-bar .sub-menu .suki-toggle:focus {
+.suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus, .suki-header-mobile-main-bar .menu .sub-menu a:not(.button):hover, .suki-header-mobile-main-bar .menu .sub-menu a:not(.button):focus, .suki-header-mobile-main-bar .menu .sub-menu .suki-toggle:hover, .suki-header-mobile-main-bar .menu .sub-menu .suki-toggle:focus {
 	color: #666666;
 }
 
@@ -2264,6 +2283,11 @@ body.suki-page-layout-boxed #page {
 	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	margin-right: -15px;
 	margin-left: -15px;
 	margin-bottom: -40px;
@@ -2318,9 +2342,9 @@ body.suki-page-layout-boxed #page {
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 499px) {
 	.suki-footer-widgets-bar-column {
-		width: 100% !important;
+		width: 100%;
 	}
 }
 

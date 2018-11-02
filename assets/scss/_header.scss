@@ -250,15 +250,15 @@
 		padding: 0 20px; // default
 	}
 
-	&-inner, .sub-menu {
+	&-inner, .menu .sub-menu {
 		background-color: $color_bg; // default
 	}
 
-	*, .sub-menu {
+	*, .menu .sub-menu {
 		border-color: $color_border; // default
 	}
 
-	&, .sub-menu {
+	&, .menu .sub-menu {
 		color: $color_text; // default
 
 		a:not(.button), .suki-toggle {
@@ -288,15 +288,15 @@
 		padding: 0 20px; // default
 	}
 
-	&-inner, .sub-menu {
+	&-inner, .menu .sub-menu {
 		background-color: $color_bg; // default
 	}
 
-	*, .sub-menu {
+	*, .menu .sub-menu {
 		border-color: $color_border; // default
 	}
 
-	&, .sub-menu {
+	&, .menu .sub-menu {
 		color: $color_text; // default
 
 		a:not(.button), .suki-toggle {
@@ -326,15 +326,15 @@
 		padding: 0 20px; // default
 	}
 
-	&-inner, .sub-menu {
+	&-inner, .menu .sub-menu {
 		background-color: $color_bg; // default
 	}
 
-	*, .sub-menu {
+	*, .menu .sub-menu {
 		border-color: $color_border; // default
 	}
 
-	&, .sub-menu {
+	&, .menu .sub-menu {
 		color: $color_text; // default
 
 		a:not(.button), .suki-toggle {
@@ -364,15 +364,15 @@
 		padding: 0 20px; // default
 	}
 
-	&-inner, .sub-menu {
+	&-inner, .menu .sub-menu {
 		background-color: $color_bg; // default
 	}
 
-	*, .sub-menu {
+	*, .menu .sub-menu {
 		border-color: $color_border; // default
 	}
 
-	&, .sub-menu {
+	&, .menu .sub-menu {
 		color: $color_text; // default
 
 		a:not(.button), .suki-toggle {
