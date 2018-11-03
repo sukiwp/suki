@@ -280,7 +280,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:225, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:372
+#: inc/admin/class-suki-admin-metabox-page-settings.php:225, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:375
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -528,11 +528,11 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:481, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:484, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:738
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:753
 msgid "Logout"
 msgstr ""
 

@@ -753,14 +753,35 @@ p.demo_store a {
 	margin: 2rem 0;
 }
 
-.woocommerce div.product form.cart table {
+.woocommerce div.product form.cart .variations {
 	margin: -0.75rem 0 1.25rem;
 	border-bottom: none;
 }
 
-.woocommerce div.product form.cart table th, .woocommerce div.product form.cart table td {
+.woocommerce div.product form.cart .variations th, .woocommerce div.product form.cart .variations td {
 	vertical-align: middle !important;
 	line-height: inherit !important;
+}
+
+.woocommerce div.product form.cart .variations .value {
+	padding-right: 1.5em;
+	position: relative;
+	white-space: nowrap;
+}
+
+.woocommerce div.product form.cart .variations select {
+	width: 100%;
+	margin-right: 0;
+}
+
+.woocommerce div.product form.cart .reset_variations {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin: -0.5em 0 0;
+	font-size: 1.5em;
+	color: inherit;
+	line-height: 1;
 }
 
 .woocommerce div.product form.cart div.quantity {
