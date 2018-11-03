@@ -1,3 +1,7 @@
+v0.6.3
+- TWEAK: Improve variable product's "add to cart" form CSS.
+- FIX: Footer widget columns width on mobile.
+
 v0.6.2
 - TWEAK: Improve compatibility CSS for WooCommerce 3.5.
 - TWEAK: Improve letter spacing step, from 0.5px to 0.1px.

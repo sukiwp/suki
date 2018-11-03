@@ -2343,7 +2343,11 @@ body.suki-page-layout-boxed #page {
 }
 
 @media screen and (max-width: 499px) {
-	.suki-footer-widgets-bar-column {
+	.suki-footer-widgets-bar-columns-2 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-3 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-4 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-5 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-6 .suki-footer-widgets-bar-column {
 		width: 100%;
 	}
 }
