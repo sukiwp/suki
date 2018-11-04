@@ -222,9 +222,6 @@ class Suki_Compatibility_WooCommerce {
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );
 
-		// Variable product form.
-		add_filter( 'woocommerce_reset_variations_link', array( $this, 'change_reset_variations_link' ) );
-
 		// Related products
 		add_filter( 'woocommerce_related_products_args', array( $this, 'set_related_products_args' ) );
 		add_filter( 'woocommerce_related_products_columns', array( $this, 'set_related_products_columns' ) );
@@ -578,18 +575,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_product_thumbnails_columns( $columns ) {
 		return 8;
-	}
-
-	/**
-	 * Change reset variation link on variable product's "add to cart" form.
-	 *
-	 * @param string $html
-	 * @return string
-	 */
-	public function change_reset_variations_link( $html ) {
-		$html = preg_replace( '/(<a .*?>)((?:.|\s)*?)(<\/a>)/', '$1×$3', $html );
-
-		return $html;
 	}
 
 	/**

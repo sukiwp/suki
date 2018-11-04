@@ -652,34 +652,39 @@ p.demo_store {
 		margin: 2rem 0;
 
 		.variations {
-			margin: -0.75rem 0 1.25rem;
+			margin: -0.75rem 0 0;
 			border-bottom: none;
 
-			th, td {
-				vertical-align: middle !important;
-				line-height: inherit !important;
+			td {
+				display: block;
+				padding: 0;
+			}
+
+			label {
+				font-weight: inherit;
 			}
 
 			.value {
-				padding-right: 1.5em;
+				padding-right: 0;
 				position: relative;
-				white-space: nowrap;
+				margin-bottom: 0.5em;
 			}
 
 			select {
 				width: 100%;
 				margin-right: 0;
 			}
+
+			.reset_variations {
+				display: inline-block;
+				margin-top: 1.25em;
+				font-size: 0.85em;
+				line-height: 1;
+			}
 		}
 
-		.reset_variations {
-			position: absolute;
-			top: 50%;
-			right: 0;
-			margin: -0.5em 0 0;
-			font-size: 1.5em;
-			color: inherit;
-			line-height: 1;
+		.woocommerce-variation {
+			margin-bottom: 1.25rem;
 		}
 
 		div.quantity {
@@ -812,8 +817,22 @@ p.demo_store {
 	}
 }
 
-.woocommerce table.shop_attributes th {
-	text-align: initial;
+.woocommerce table.shop_attributes {
+	border-style: solid;
+	border-color: inherit;
+
+	th, td {
+		text-align: initial;
+		padding: 0.75rem 1rem;
+		border-style: solid;
+		border-color: inherit;
+	}
+
+	td {
+		p {
+			padding: 0;
+		}
+	}
 }
 
 // -------------------------------------------------------------
