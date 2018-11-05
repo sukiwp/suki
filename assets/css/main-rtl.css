@@ -641,7 +641,6 @@ select[multiple] {
 	padding-left: 1.8em;
 	display: block;
 	height: auto;
-	border-color: inherit;
 }
 
 .select2-container .select2-selection:focus {
@@ -675,6 +674,7 @@ select[multiple] {
 	padding: 6px;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
+	border-color: inherit;
 }
 
 .select2-container .select2-dropdown .select2-search .select2-search__field {

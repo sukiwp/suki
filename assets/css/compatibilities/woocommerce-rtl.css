@@ -1342,6 +1342,7 @@ p.demo_store a {
 .woocommerce .woocommerce-customer-details address {
 	border-width: 1px;
 	border-style: solid;
+	border-color: inherit;
 	border-radius: 0;
 	padding: 1.25rem;
 }
