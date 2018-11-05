@@ -1240,14 +1240,6 @@ p.demo_store a {
 	}
 }
 
-#add_payment_method .cart-collaterals .cart_totals table th, #add_payment_method .cart-collaterals .cart_totals table td,
-.woocommerce-cart .cart-collaterals .cart_totals table th,
-.woocommerce-cart .cart-collaterals .cart_totals table td,
-.woocommerce-checkout .cart-collaterals .cart_totals table th,
-.woocommerce-checkout .cart-collaterals .cart_totals table td {
-	width: 50%;
-}
-
 #add_payment_method .cart-collaterals .shipping-calculator-button,
 .woocommerce-cart .cart-collaterals .shipping-calculator-button,
 .woocommerce-checkout .cart-collaterals .shipping-calculator-button {
