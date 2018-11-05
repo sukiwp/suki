@@ -30,7 +30,7 @@ $id = 'header_html_1_content';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'html' ),
+	'sanitize_callback' => false,
 ) );
 $wp_customize->add_control( $id, array(
 	'type'        => 'textarea',
