@@ -970,7 +970,7 @@
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );
 		
-		wp.customize.control( 'hr_footer_builder' ).container.on( 'init', setCustomResponsiveElementsDisplay );
+		wp.customize.control( 'footer_elements' ).container.on( 'init', setCustomResponsiveElementsDisplay );
 
 		/**
 		 * Init Header Elements Locations Grouping
