@@ -641,7 +641,6 @@ select[multiple] {
 	padding-left: 1.8em;
 	display: block;
 	height: auto;
-	border-color: inherit;
 }
 
 .select2-container .select2-selection:focus {
@@ -675,6 +674,7 @@ select[multiple] {
 	padding: 6px;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
+	border-color: inherit;
 }
 
 .select2-container .select2-dropdown .select2-search .select2-search__field {
@@ -1451,8 +1451,10 @@ body.suki-page-layout-boxed #page {
 
 .suki-header-section .suki-section-inner {
 	height: inherit;
-	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s;
-	transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+	-webkit-transition: background-color 0.25s, border-color 0.25s, color 0.25s, -webkit-box-shadow 0.25s;
+	transition: background-color 0.25s, border-color 0.25s, color 0.25s, -webkit-box-shadow 0.25s;
+	transition: background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+	transition: background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s, -webkit-box-shadow 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -2343,7 +2345,11 @@ body.suki-page-layout-boxed #page {
 }
 
 @media screen and (max-width: 499px) {
-	.suki-footer-widgets-bar-column {
+	.suki-footer-widgets-bar-columns-2 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-3 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-4 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-5 .suki-footer-widgets-bar-column,
+	.suki-footer-widgets-bar-columns-6 .suki-footer-widgets-bar-column {
 		width: 100%;
 	}
 }

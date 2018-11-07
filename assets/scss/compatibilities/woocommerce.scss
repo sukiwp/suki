@@ -651,14 +651,40 @@ p.demo_store {
 	form.cart {
 		margin: 2rem 0;
 
-		table {
-			margin: -0.75rem 0 1.25rem;
+		.variations {
+			margin: -0.75rem 0 0;
 			border-bottom: none;
 
-			th, td {
-				vertical-align: middle !important;
-				line-height: inherit !important;
+			td {
+				display: block;
+				padding: 0;
 			}
+
+			label {
+				font-weight: inherit;
+			}
+
+			.value {
+				padding-right: 0;
+				position: relative;
+				margin-bottom: 0.5em;
+			}
+
+			select {
+				width: 100%;
+				margin-right: 0;
+			}
+
+			.reset_variations {
+				display: inline-block;
+				margin-top: 1.25em;
+				font-size: 0.85em;
+				line-height: 1;
+			}
+		}
+
+		.woocommerce-variation {
+			margin-bottom: 1.25rem;
 		}
 
 		div.quantity {
@@ -791,8 +817,22 @@ p.demo_store {
 	}
 }
 
-.woocommerce table.shop_attributes th {
-	text-align: initial;
+.woocommerce table.shop_attributes {
+	border-style: solid;
+	border-color: inherit;
+
+	th, td {
+		text-align: initial;
+		padding: 0.75rem 1rem;
+		border-style: solid;
+		border-color: inherit;
+	}
+
+	td {
+		p {
+			padding: 0;
+		}
+	}
 }
 
 // -------------------------------------------------------------
@@ -1045,14 +1085,6 @@ p.demo_store {
 .woocommerce-cart,
 .woocommerce-checkout {
 	.cart-collaterals {
-		.cart_totals {
-			table {
-				th, td {
-					width: 50%;
-				}
-			}
-		}
-
 		.shipping-calculator-button {
 			margin-top: 0;
 		}
@@ -1132,6 +1164,7 @@ p.demo_store {
 	.woocommerce-customer-details {
 		address {
 			@include border();
+			border-color: inherit;
 			border-radius: 0;
 			padding: 1.25rem;
 		}

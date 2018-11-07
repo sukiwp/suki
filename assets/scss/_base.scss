@@ -301,7 +301,6 @@ select[multiple] {
 		@include select();
 		display: block;
 		height: auto;
-		border-color: inherit;
 	}
 
 	.select2-selection--single {
@@ -328,6 +327,7 @@ select[multiple] {
 		.select2-search {
 			padding: 6px;
 			@include border( bottom );
+			border-color: inherit;
 
 			.select2-search__field {
 				border: none;

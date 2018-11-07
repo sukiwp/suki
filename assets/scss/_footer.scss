@@ -86,7 +86,13 @@
 	}
 
 	@media screen and ( max-width: $breakpoint_500 - 1px ) {
-		width: 100%;
+		.suki-footer-widgets-bar-columns-2 &,
+		.suki-footer-widgets-bar-columns-3 &,
+		.suki-footer-widgets-bar-columns-4 &,
+		.suki-footer-widgets-bar-columns-5 &,
+		.suki-footer-widgets-bar-columns-6 & {
+			width: 100%; // default
+		}
 	}
 }
 

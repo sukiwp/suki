@@ -108,7 +108,7 @@
 
 	.suki-section-inner {
 		height: inherit;
-		@include transition( background-color, border-color, color );
+		@include transition( background-color, border-color, color, box-shadow );
 	}
 }
 

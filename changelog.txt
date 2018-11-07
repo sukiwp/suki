@@ -1,3 +1,10 @@
+v0.6.3
+- TWEAK: Make header HTML elements allow all HTML tags.
+- FIX: Variable product's "add to cart" form CSS.
+- FIX: Footer widget columns width on mobile.
+- FIX: Cart totals CSS.
+- FIX: Select2 CSS.
+
 v0.6.2
 - TWEAK: Improve compatibility CSS for WooCommerce 3.5.
 - TWEAK: Improve letter spacing step, from 0.5px to 0.1px.

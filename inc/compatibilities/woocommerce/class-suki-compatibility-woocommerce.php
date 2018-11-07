@@ -568,7 +568,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Product thumbnails columns in single product page.
+	 * Set Product thumbnails columns in single product page.
 	 * 
 	 * @param integer $columns
 	 * @return integer

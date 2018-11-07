@@ -753,14 +753,40 @@ p.demo_store a {
 	margin: 2rem 0;
 }
 
-.woocommerce div.product form.cart table {
-	margin: -0.75rem 0 1.25rem;
+.woocommerce div.product form.cart .variations {
+	margin: -0.75rem 0 0;
 	border-bottom: none;
 }
 
-.woocommerce div.product form.cart table th, .woocommerce div.product form.cart table td {
-	vertical-align: middle !important;
-	line-height: inherit !important;
+.woocommerce div.product form.cart .variations td {
+	display: block;
+	padding: 0;
+}
+
+.woocommerce div.product form.cart .variations label {
+	font-weight: inherit;
+}
+
+.woocommerce div.product form.cart .variations .value {
+	padding-right: 0;
+	position: relative;
+	margin-bottom: 0.5em;
+}
+
+.woocommerce div.product form.cart .variations select {
+	width: 100%;
+	margin-right: 0;
+}
+
+.woocommerce div.product form.cart .variations .reset_variations {
+	display: inline-block;
+	margin-top: 1.25em;
+	font-size: 0.85em;
+	line-height: 1;
+}
+
+.woocommerce div.product form.cart .woocommerce-variation {
+	margin-bottom: 1.25rem;
 }
 
 .woocommerce div.product form.cart div.quantity {
@@ -914,8 +940,20 @@ p.demo_store a {
 	line-height: 1.6;
 }
 
-.woocommerce table.shop_attributes th {
+.woocommerce table.shop_attributes {
+	border-style: solid;
+	border-color: inherit;
+}
+
+.woocommerce table.shop_attributes th, .woocommerce table.shop_attributes td {
 	text-align: initial;
+	padding: 0.75rem 1rem;
+	border-style: solid;
+	border-color: inherit;
+}
+
+.woocommerce table.shop_attributes td p {
+	padding: 0;
 }
 
 .woocommerce table.shop_table, .woocommerce-page table.shop_table {
@@ -1202,14 +1240,6 @@ p.demo_store a {
 	}
 }
 
-#add_payment_method .cart-collaterals .cart_totals table th, #add_payment_method .cart-collaterals .cart_totals table td,
-.woocommerce-cart .cart-collaterals .cart_totals table th,
-.woocommerce-cart .cart-collaterals .cart_totals table td,
-.woocommerce-checkout .cart-collaterals .cart_totals table th,
-.woocommerce-checkout .cart-collaterals .cart_totals table td {
-	width: 50%;
-}
-
 #add_payment_method .cart-collaterals .shipping-calculator-button,
 .woocommerce-cart .cart-collaterals .shipping-calculator-button,
 .woocommerce-checkout .cart-collaterals .shipping-calculator-button {
@@ -1304,6 +1334,7 @@ p.demo_store a {
 .woocommerce .woocommerce-customer-details address {
 	border-width: 1px;
 	border-style: solid;
+	border-color: inherit;
 	border-radius: 0;
 	padding: 1.25rem;
 }
