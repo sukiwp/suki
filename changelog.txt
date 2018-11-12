@@ -1,3 +1,7 @@
+v0.7.0
+- FIX: Alignleft, alignright, aligncenter CSS.
+- FIX: Some minor CSS.
+
 v0.6.3
 - TWEAK: Make header HTML elements allow all HTML tags.
 - FIX: Variable product's "add to cart" form CSS.

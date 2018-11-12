@@ -478,11 +478,13 @@ div.customize-section-description {
 		display: block;
 		height: 6px;
 		margin: 10px 12px 10px 7px;
+		border: none;
 		border-radius: 3px;
 		background: #ccc;
 
 		.ui-slider-handle {
 			position: absolute;
+			top: 0;
 			display: inline-block;
 			height: 12px;
 			width: 12px;

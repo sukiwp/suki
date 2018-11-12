@@ -230,9 +230,14 @@ svg {
 // -------------------------------------------------------------
 
 fieldset {
-	padding: 1rem 1.25rem;
-	margin: 1em 0;
-	@include border();
+	padding: 0;
+	margin: 0 0 1.25rem;
+	border: 0;
+}
+
+legend {
+	@include h3();
+	margin: 0 0 1.25rem;
 }
 
 // -------------------------------------------------------------

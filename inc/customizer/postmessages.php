@@ -370,7 +370,7 @@ $add['title_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
+	$element = 'legend, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['small_title_' . $prop ] = array(
@@ -402,7 +402,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['small_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
+		'element'  => 'legend, .entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
 		'property' => 'color',
 	),
 );

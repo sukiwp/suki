@@ -415,10 +415,16 @@ svg {
 }
 
 fieldset {
-	padding: 1rem 1.25rem;
-	margin: 1em 0;
-	border-width: 1px;
-	border-style: solid;
+	padding: 0;
+	margin: 0 0 1.25rem;
+	border: 0;
+}
+
+legend {
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.6;
+	margin: 0 0 1.25rem;
 }
 
 button,
@@ -723,17 +729,18 @@ select[multiple] {
 
 .alignleft {
 	float: right;
-	margin: 0.5em 0 0.5em 1.5em;
+	margin: 0 0 0 1.25em;
 }
 
 .alignright {
 	float: left;
-	margin: 0.5em 1.5em 0.5em 0;
+	margin: 0 1.25em 0 0;
 }
 
 .aligncenter {
+	display: block;
 	clear: both;
-	margin: 0.5em auto;
+	margin: 0 auto;
 }
 
 .wp-caption {
@@ -870,6 +877,15 @@ body.mce-content-body:focus {
 
 body.mce-content-body a {
 	text-decoration: underline;
+}
+
+body.mce-content-body a[data-mce-selected] {
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background: transparent;
 }
 
 blockquote {

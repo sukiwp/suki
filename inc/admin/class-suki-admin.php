@@ -346,7 +346,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render logo on Suki admin page content.
+	 * Render logo on Suki admin page's content.
 	 */
 	public function render_logo__image() {
 		?>
@@ -355,7 +355,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render logo on Suki admin page content.
+	 * Render logo on Suki admin page's content.
 	 */
 	public function render_logo__version() {
 		?>
@@ -364,7 +364,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render welcome panel on Suki admin page content.
+	 * Render welcome panel on Suki admin page's content.
 	 */
 	public function render_content__welcome_panel() {
 		?>
@@ -391,7 +391,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render pro modules table on Suki admin page content.
+	 * Render pro modules table on Suki admin page's content.
 	 */
 	public function render_content__pro_modules_table() {
 		?>
@@ -446,7 +446,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Go to Customizer" button on Suki admin page sidebar.
+	 * Render "Go to Customizer" button on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__customizer() {
 		?>
@@ -459,7 +459,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Suki Pro" info box on Suki admin page sidebar.
+	 * Render "Suki Pro" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__pro() {
 		if ( suki_is_pro() ) return;
@@ -480,7 +480,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Documentation" info box on Suki admin page sidebar.
+	 * Render "Documentation" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__documentation() {
 		?>
@@ -500,7 +500,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Community" info box on Suki admin page sidebar.
+	 * Render "Community" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__community() {
 		?>
@@ -520,7 +520,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Feedback" info box on Suki admin page sidebar.
+	 * Render "Feedback" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__feedback() {
 		?>
