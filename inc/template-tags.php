@@ -916,7 +916,7 @@ function suki_footer_element( $element ) {
 		case 'menu':
 			if ( has_nav_menu( 'footer-' . $element ) ) {
 				?>
-				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
+				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'footer-' . $element,
 						'menu_class'     => 'menu',

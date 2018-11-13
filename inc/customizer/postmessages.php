@@ -1699,6 +1699,26 @@ $add['footer_bottom_bar_border'] = array(
 		'property' => 'border-width',
 	),
 );
+$add['footer_bottom_bar_items_gutter'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-bottom-bar .suki-footer-column > *',
+		'property' => 'padding',
+		'pattern'  => '0 $',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-bottom-bar-row',
+		'property' => 'margin',
+		'pattern'  => '0 -$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-bottom-bar .suki-footer-menu .menu-item',
+		'property' => 'padding',
+		'pattern'  => '0 $',
+	),
+);
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$element = '.suki-footer-bottom-bar';

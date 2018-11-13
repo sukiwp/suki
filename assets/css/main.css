@@ -2367,25 +2367,54 @@ body.suki-page-layout-boxed #page {
 	padding: 25px 20px;
 }
 
-@media screen and (min-width: 1024px) {
+.suki-footer-bottom-bar-row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 0 -12px;
+	white-space: nowrap;
+}
+
+@media screen and (max-width: 1023px) {
 	.suki-footer-bottom-bar-row {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-		white-space: nowrap;
+		display: block;
 	}
+}
+
+.suki-footer-bottom-bar-column > * {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: inherit;
+	-ms-flex-pack: inherit;
+	justify-content: inherit;
+	height: 100%;
+	max-width: 100%;
+	padding: 0 12px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -2399,6 +2428,32 @@ body.suki-page-layout-boxed #page {
 	.suki-footer-bottom-bar-right {
 		width: 50%;
 	}
+}
+
+.suki-footer-menu {
+	padding: 0 !important;
+}
+
+.suki-footer-menu ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.suki-footer-menu ul li {
+	padding: 0 12px;
 }
 
 .suki-loop-grid {

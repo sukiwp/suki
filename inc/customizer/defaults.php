@@ -653,6 +653,7 @@ $add['footer_bottom_bar_merged'] = 0;
 $add['footer_bottom_bar_container'] = 'default';
 $add['footer_bottom_bar_padding'] = '25px 20px 25px 20px';
 $add['footer_bottom_bar_border'] = '1px 0px 0px 0px';
+$add['footer_bottom_bar_items_gutter'] = '12px';
 
 $add['footer_bottom_bar_font_family'] = '';
 $add['footer_bottom_bar_font_weight'] = '';
