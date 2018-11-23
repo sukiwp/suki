@@ -448,12 +448,12 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
+			'contact-form-7' => 'WPCF7',
+			'elementor' => 'Elementor\Plugin',
+			'elementor-pro' => 'ElementorPro\Plugin',
 			'gutenberg' => 'WP_Block_Type',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
-			'elementor' => 'Elementor\Plugin',
-			'elementor-pro' => 'ElementorPro\Plugin',
-			'contact-form-7' => 'WPCF7',
 		);
 	}
 

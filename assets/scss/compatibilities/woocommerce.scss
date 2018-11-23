@@ -22,6 +22,10 @@
 		.form-row {
 			padding: 0;
 			margin: 0 0 1.25rem;
+
+			label {
+				line-height: inherit;
+			}
 		}
 
 		.form-row-first, .form-row-last {
@@ -1013,6 +1017,8 @@ p.demo_store {
 			a.checkout-button {
 				display: inline-block;
 				margin-bottom: 0;
+				font-size: 1.15rem; // default
+				padding: 13px 15.6px; // default
 			}
 		}
 
@@ -1155,6 +1161,7 @@ p.demo_store {
 		#place_order {
 			float: none;
 			width: 100%;
+			font-size: 1.15rem; // default
 			padding: 13px 15.6px; // default
 		}
 	}
