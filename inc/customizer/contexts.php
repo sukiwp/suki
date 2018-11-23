@@ -60,8 +60,10 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 		);
 	}
 
-	$add['header_' . $type . '_menu_highlight_color'] =
-	$add['header_' . $type . '_menu_highlight_text_color'] = array(
+	$add['header_' . $type . '_menu_hover_highlight_color'] =
+	$add['header_' . $type . '_menu_hover_highlight_text_color'] =
+	$add['header_' . $type . '_menu_active_highlight_color'] =
+	$add['header_' . $type . '_menu_active_highlight_text_color'] = array(
 		array(
 			'setting'  => 'header_' . $type . '_menu_highlight',
 			'operator' => '!=',

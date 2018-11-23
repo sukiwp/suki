@@ -314,8 +314,12 @@ $add['header_top_bar_border_color'] = $colors['border'];
 $add['header_top_bar_text_color'] = $colors['text'];
 $add['header_top_bar_link_text_color'] = $colors['heading'];
 $add['header_top_bar_link_hover_text_color'] = $colors['text'];
-$add['header_top_bar_menu_highlight_color'] = $colors['accent'];
-$add['header_top_bar_menu_highlight_text_color'] = '';
+$add['header_top_bar_link_active_text_color'] = '';
+
+$add['header_top_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_top_bar_menu_hover_highlight_text_color'] = '';
+$add['header_top_bar_menu_active_highlight_color'] = '';
+$add['header_top_bar_menu_active_highlight_text_color'] = '';
 
 /**
  * ====================================================
@@ -363,7 +367,12 @@ $add['header_main_bar_border_color'] = $colors['border'];
 $add['header_main_bar_text_color'] = $colors['text'];
 $add['header_main_bar_link_text_color'] = $colors['heading'];
 $add['header_main_bar_link_hover_text_color'] = $colors['text'];
-$add['header_main_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_main_bar_link_active_text_color'] = '';
+
+$add['header_main_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_main_bar_menu_hover_highlight_text_color'] = '';
+$add['header_main_bar_menu_active_highlight_color'] = '';
+$add['header_main_bar_menu_active_highlight_text_color'] = '';
 
 /**
  * ====================================================
@@ -413,7 +422,12 @@ $add['header_bottom_bar_border_color'] = $colors['border'];
 $add['header_bottom_bar_text_color'] = $colors['text'];
 $add['header_bottom_bar_link_text_color'] = $colors['heading'];
 $add['header_bottom_bar_link_hover_text_color'] = $colors['text'];
-$add['header_bottom_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_bottom_bar_link_active_text_color'] = '';
+
+$add['header_bottom_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_bottom_bar_menu_hover_highlight_text_color'] = '';
+$add['header_bottom_bar_menu_active_highlight_color'] = '';
+$add['header_bottom_bar_menu_active_highlight_text_color'] = '';
 
 /**
  * ====================================================
@@ -474,11 +488,11 @@ $add['header_mobile_vertical_bar_submenu_letter_spacing'] = '';
 $add['header_mobile_vertical_bar_icon_size'] = '18px';
 
 $add['header_mobile_vertical_bar_bg_color'] = $colors['bg'];
-$add['header_mobile_vertical_bar_border_color'] = $colors['border'];
-$add['header_mobile_vertical_bar_text_color'] = $colors['text'];
+$add['header_mobile_vertical_bar_border_color'] = '';
+$add['header_mobile_vertical_bar_text_color'] = '';
 $add['header_mobile_vertical_bar_link_text_color'] = $colors['heading'];
 $add['header_mobile_vertical_bar_link_hover_text_color'] = $colors['text'];
-$add['header_mobile_vertical_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_mobile_vertical_bar_link_active_text_color'] = '';
 
 /**
  * ====================================================

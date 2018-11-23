@@ -270,10 +270,10 @@
 		}
 	}
 
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_accent; // default
+				background-color: $color_border; // default
 			}
 		}
 	}
@@ -308,10 +308,10 @@
 		}
 	}
 
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_accent; // default
+				background-color: $color_border; // default
 			}
 		}
 	}
@@ -346,10 +346,10 @@
 		}
 	}
 
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_accent; // default
+				background-color: $color_border; // default
 			}
 		}
 	}
@@ -583,7 +583,7 @@
 // -------------------------------------------------------------
 
 .suki-header-menu {
-	> ul > li > a {
+	> .menu > .menu-item > a {
 		&:after {
 			content: "";
 			position: absolute;
@@ -594,7 +594,7 @@
 }
 
 .suki-header-menu-highlight-underline {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		position: relative;
 
 		&:after {
@@ -608,7 +608,7 @@
 }
 
 .suki-header-menu-highlight-background {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		@include flex();
 		height: 100%;
 
@@ -622,7 +622,7 @@
 }
 
 .suki-header-menu-highlight-border-top {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		@include flex();
 		height: 100%;
 
@@ -639,7 +639,7 @@
 }
 
 .suki-header-menu-highlight-border-bottom {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		@include flex();
 		height: 100%;
 
