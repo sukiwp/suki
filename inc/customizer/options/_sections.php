@@ -147,6 +147,7 @@ $wp_customize->add_section( 'suki_section_page_container', array(
 $panel = 'suki_panel_header';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
+	'description' => esc_html__( 'Tips: you can customize the Mobile Header by switching to tablet / mobile view.', 'suki' ),
 	'priority'    => 173,
 ) );
 

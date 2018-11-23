@@ -975,10 +975,12 @@ div.customize-section-description {
 	}
 }
 
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description,
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-panel-description {
 	display: block;
 }
 
+#sub-accordion-panel-suki_panel_header .customize-info .customize-help-toggle,
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-help-toggle {
 	display: none;
 }
