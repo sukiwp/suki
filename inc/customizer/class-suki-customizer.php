@@ -542,8 +542,8 @@ class Suki_Customizer {
 		// Media groups are defined now, for proper responsive orders.
 		$css_array = array(
 			'global' => array(),
-			'tablet' => array(),
-			'mobile' => array(),
+			'@media screen and (max-width: 1023px)' => array(),
+			'@media screen and (max-width: 499px)' => array(),
 		);
 
 		// Loop through each setting.
