@@ -63,84 +63,84 @@ msgstr ""
 msgid "Footer Widgets Column %d"
 msgstr ""
 
-#: inc/helpers.php:411
+#: inc/helpers.php:415
 msgid "Header (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:416
+#: inc/helpers.php:420
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:421
+#: inc/helpers.php:425
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:426
+#: inc/helpers.php:430
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:431
+#: inc/helpers.php:435
 msgid "Footer (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:436
+#: inc/helpers.php:440
 msgid "Blocks"
 msgstr ""
 
-#: inc/helpers.php:441
+#: inc/helpers.php:445
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:446
+#: inc/helpers.php:450
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:451
+#: inc/helpers.php:455
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:456
+#: inc/helpers.php:460
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:461
+#: inc/helpers.php:465
 msgid "Blog (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:466
+#: inc/helpers.php:470
 msgid "WooCommerce (Advanced)"
 msgstr ""
 
-#: inc/helpers.php:471
+#: inc/helpers.php:475
 msgid "White Label"
-msgstr ""
-
-#: inc/helpers.php:608
-msgctxt "icon label"
-msgid "Search"
-msgstr ""
-
-#: inc/helpers.php:609
-msgctxt "icon label"
-msgid "Close"
-msgstr ""
-
-#: inc/helpers.php:610
-msgctxt "icon label"
-msgid "Menu"
-msgstr ""
-
-#: inc/helpers.php:611
-msgctxt "icon label"
-msgid "Dropdown Arrow -- Down"
 msgstr ""
 
 #: inc/helpers.php:612
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Right"
+msgid "Search"
 msgstr ""
 
 #: inc/helpers.php:613
+msgctxt "icon label"
+msgid "Close"
+msgstr ""
+
+#: inc/helpers.php:614
+msgctxt "icon label"
+msgid "Menu"
+msgstr ""
+
+#: inc/helpers.php:615
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Down"
+msgstr ""
+
+#: inc/helpers.php:616
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Right"
+msgstr ""
+
+#: inc/helpers.php:617
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -183,36 +183,36 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1262
+#: inc/template-tags.php:1272
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1263
+#: inc/template-tags.php:1273
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1307
+#: inc/template-tags.php:1317
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1308
+#: inc/template-tags.php:1318
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1325
+#: inc/template-tags.php:1335
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1331
+#: inc/template-tags.php:1341
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1358
+#: inc/template-tags.php:1368
 msgid "Comments are closed."
 msgstr ""
 
@@ -320,11 +320,11 @@ msgstr ""
 msgid "Content container"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:433, inc/customizer/options/content--section.php:30, inc/customizer/options/footer--bottom-bar.php:51, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:58, inc/customizer/options/page-header.php:55, inc/customizer/options/page-settings.php:48
+#: inc/admin/class-suki-admin-metabox-page-settings.php:433, inc/customizer/options/content--section.php:30, inc/customizer/options/footer--bottom-bar.php:70, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:77, inc/customizer/options/page-header.php:55, inc/customizer/options/page-settings.php:48
 msgid "Full width section, wrapped content"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:434, inc/customizer/options/content--section.php:31, inc/customizer/options/footer--bottom-bar.php:52, inc/customizer/options/footer--widgets-bar.php:32, inc/customizer/options/header--top-main-bottom-bar.php:59, inc/customizer/options/page-header.php:56, inc/customizer/options/page-settings.php:49
+#: inc/admin/class-suki-admin-metabox-page-settings.php:434, inc/customizer/options/content--section.php:31, inc/customizer/options/footer--bottom-bar.php:71, inc/customizer/options/footer--widgets-bar.php:32, inc/customizer/options/header--top-main-bottom-bar.php:78, inc/customizer/options/page-header.php:56, inc/customizer/options/page-settings.php:49
 msgid "Full width content"
 msgstr ""
 
@@ -641,7 +641,7 @@ msgstr ""
 msgid "Italic"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:218, inc/customizer/options/content--sidebar.php:300, inc/customizer/options/footer--widgets-bar.php:257, inc/customizer/options/header--top-main-bottom-bar.php:303
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:218, inc/customizer/options/content--sidebar.php:300, inc/customizer/options/footer--widgets-bar.php:257, inc/customizer/options/header--top-main-bottom-bar.php:322
 msgid "None"
 msgstr ""
 
@@ -745,15 +745,15 @@ msgstr ""
 msgid "Show prev / next posts navigation"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:36, inc/customizer/options/content--section.php:91, inc/customizer/options/content--sidebar.php:138, inc/customizer/options/elements--buttons.php:22, inc/customizer/options/elements--form-inputs.php:22, inc/customizer/options/footer--bottom-bar.php:75, inc/customizer/options/footer--widgets-bar.php:55, inc/customizer/options/header--mobile-main-bar.php:54, inc/customizer/options/header--mobile-vertical-bar.php:85, inc/customizer/options/header--top-main-bottom-bar.php:93, inc/customizer/options/page-header.php:78
+#: inc/customizer/options/content--main.php:36, inc/customizer/options/content--section.php:91, inc/customizer/options/content--sidebar.php:138, inc/customizer/options/elements--buttons.php:22, inc/customizer/options/elements--form-inputs.php:22, inc/customizer/options/footer--bottom-bar.php:94, inc/customizer/options/footer--widgets-bar.php:55, inc/customizer/options/header--mobile-main-bar.php:54, inc/customizer/options/header--mobile-vertical-bar.php:85, inc/customizer/options/header--top-main-bottom-bar.php:112, inc/customizer/options/page-header.php:78
 msgid "Padding"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:55, inc/customizer/options/content--sidebar.php:157, inc/customizer/options/elements--buttons.php:41, inc/customizer/options/elements--form-inputs.php:41, inc/customizer/options/footer--bottom-bar.php:94, inc/customizer/options/footer--widgets-bar.php:74, inc/customizer/options/header--mobile-main-bar.php:73, inc/customizer/options/header--top-main-bottom-bar.php:112, inc/customizer/options/page-header.php:97
+#: inc/customizer/options/content--main.php:55, inc/customizer/options/content--sidebar.php:157, inc/customizer/options/elements--buttons.php:41, inc/customizer/options/elements--form-inputs.php:41, inc/customizer/options/footer--bottom-bar.php:113, inc/customizer/options/footer--widgets-bar.php:74, inc/customizer/options/header--mobile-main-bar.php:73, inc/customizer/options/header--top-main-bottom-bar.php:131, inc/customizer/options/page-header.php:97
 msgid "Border"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:75, inc/customizer/options/content--sidebar.php:177, inc/customizer/options/footer--bottom-bar.php:134, inc/customizer/options/footer--widgets-bar.php:134, inc/customizer/options/header--mobile-main-bar.php:113, inc/customizer/options/header--mobile-vertical-bar.php:125, inc/customizer/options/header--top-main-bottom-bar.php:152, inc/customizer/options/page-header.php:192
+#: inc/customizer/options/content--main.php:75, inc/customizer/options/content--sidebar.php:177, inc/customizer/options/footer--bottom-bar.php:153, inc/customizer/options/footer--widgets-bar.php:134, inc/customizer/options/header--mobile-main-bar.php:113, inc/customizer/options/header--mobile-vertical-bar.php:125, inc/customizer/options/header--top-main-bottom-bar.php:171, inc/customizer/options/page-header.php:192
 msgid "Typography"
 msgstr ""
 
@@ -766,7 +766,7 @@ msgstr ""
 msgid "Body (Base)"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:94, inc/customizer/options/content--sidebar.php:317, inc/customizer/options/footer--bottom-bar.php:180, inc/customizer/options/footer--widgets-bar.php:274, inc/customizer/options/header--mobile-main-bar.php:147, inc/customizer/options/header--mobile-vertical-bar.php:231, inc/customizer/options/header--top-main-bottom-bar.php:258, inc/customizer/options/page-header.php:270
+#: inc/customizer/options/content--main.php:94, inc/customizer/options/content--sidebar.php:317, inc/customizer/options/footer--bottom-bar.php:199, inc/customizer/options/footer--widgets-bar.php:274, inc/customizer/options/header--mobile-main-bar.php:147, inc/customizer/options/header--mobile-vertical-bar.php:231, inc/customizer/options/header--top-main-bottom-bar.php:277, inc/customizer/options/page-header.php:270
 msgid "Colors"
 msgstr ""
 
@@ -778,7 +778,7 @@ msgstr ""
 msgid "Content Box border color"
 msgstr ""
 
-#: inc/customizer/options/content--section.php:28, inc/customizer/options/footer--bottom-bar.php:49, inc/customizer/options/footer--widgets-bar.php:29, inc/customizer/options/header--top-main-bottom-bar.php:56, inc/customizer/options/page-header.php:53, inc/customizer/options/page-settings.php:45, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23
+#: inc/customizer/options/content--section.php:28, inc/customizer/options/footer--bottom-bar.php:68, inc/customizer/options/footer--widgets-bar.php:29, inc/customizer/options/header--top-main-bottom-bar.php:75, inc/customizer/options/page-header.php:53, inc/customizer/options/page-settings.php:45, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23
 msgid "Layout"
 msgstr ""
 
@@ -827,7 +827,7 @@ msgstr ""
 msgid "Gap between widgets"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:201, inc/customizer/options/content--sidebar.php:233, inc/customizer/options/footer--bottom-bar.php:166, inc/customizer/options/footer--widgets-bar.php:158, inc/customizer/options/footer--widgets-bar.php:190, inc/customizer/options/header--mobile-vertical-bar.php:149, inc/customizer/options/header--top-main-bottom-bar.php:176
+#: inc/customizer/options/content--sidebar.php:201, inc/customizer/options/content--sidebar.php:233, inc/customizer/options/footer--bottom-bar.php:185, inc/customizer/options/footer--widgets-bar.php:158, inc/customizer/options/footer--widgets-bar.php:190, inc/customizer/options/header--mobile-vertical-bar.php:149, inc/customizer/options/header--top-main-bottom-bar.php:195
 msgid "Text typography"
 msgstr ""
 
@@ -859,27 +859,27 @@ msgstr ""
 msgid "Box"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:302, inc/customizer/options/footer--widgets-bar.php:259, inc/customizer/options/header--top-main-bottom-bar.php:307
+#: inc/customizer/options/content--sidebar.php:302, inc/customizer/options/footer--widgets-bar.php:259, inc/customizer/options/header--top-main-bottom-bar.php:326
 msgid "Border bottom"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:323, inc/customizer/options/elements--buttons.php:110, inc/customizer/options/elements--form-inputs.php:80, inc/customizer/options/footer--bottom-bar.php:186, inc/customizer/options/footer--widgets-bar.php:280, inc/customizer/options/header--mobile-main-bar.php:153, inc/customizer/options/header--mobile-vertical-bar.php:237, inc/customizer/options/header--top-main-bottom-bar.php:264, inc/customizer/options/page-header.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:89, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
+#: inc/customizer/options/content--sidebar.php:323, inc/customizer/options/elements--buttons.php:110, inc/customizer/options/elements--form-inputs.php:80, inc/customizer/options/footer--bottom-bar.php:205, inc/customizer/options/footer--widgets-bar.php:280, inc/customizer/options/header--mobile-main-bar.php:153, inc/customizer/options/header--mobile-vertical-bar.php:237, inc/customizer/options/header--top-main-bottom-bar.php:283, inc/customizer/options/page-header.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:89, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
 msgid "Background color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:324, inc/customizer/options/elements--buttons.php:111, inc/customizer/options/elements--form-inputs.php:81, inc/customizer/options/footer--bottom-bar.php:187, inc/customizer/options/footer--widgets-bar.php:281, inc/customizer/options/header--mobile-main-bar.php:154, inc/customizer/options/header--mobile-vertical-bar.php:238, inc/customizer/options/header--top-main-bottom-bar.php:265, inc/customizer/options/page-header.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:90
+#: inc/customizer/options/content--sidebar.php:324, inc/customizer/options/elements--buttons.php:111, inc/customizer/options/elements--form-inputs.php:81, inc/customizer/options/footer--bottom-bar.php:206, inc/customizer/options/footer--widgets-bar.php:281, inc/customizer/options/header--mobile-main-bar.php:154, inc/customizer/options/header--mobile-vertical-bar.php:238, inc/customizer/options/header--top-main-bottom-bar.php:284, inc/customizer/options/page-header.php:277, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:90
 msgid "Border color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:325, inc/customizer/options/elements--body.php:55, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:82, inc/customizer/options/footer--bottom-bar.php:188, inc/customizer/options/footer--widgets-bar.php:282, inc/customizer/options/header--mobile-vertical-bar.php:239, inc/customizer/options/header--top-main-bottom-bar.php:266, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:29
+#: inc/customizer/options/content--sidebar.php:325, inc/customizer/options/elements--body.php:55, inc/customizer/options/elements--buttons.php:112, inc/customizer/options/elements--form-inputs.php:82, inc/customizer/options/footer--bottom-bar.php:207, inc/customizer/options/footer--widgets-bar.php:282, inc/customizer/options/header--mobile-vertical-bar.php:239, inc/customizer/options/header--top-main-bottom-bar.php:285, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:29
 msgid "Text color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:326, inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:189, inc/customizer/options/footer--widgets-bar.php:283, inc/customizer/options/header--mobile-main-bar.php:155, inc/customizer/options/header--mobile-vertical-bar.php:240, inc/customizer/options/header--top-main-bottom-bar.php:267
+#: inc/customizer/options/content--sidebar.php:326, inc/customizer/options/elements--body.php:56, inc/customizer/options/footer--bottom-bar.php:208, inc/customizer/options/footer--widgets-bar.php:283, inc/customizer/options/header--mobile-main-bar.php:155, inc/customizer/options/header--mobile-vertical-bar.php:240, inc/customizer/options/header--top-main-bottom-bar.php:286
 msgid "Link text color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:327, inc/customizer/options/elements--body.php:57, inc/customizer/options/footer--bottom-bar.php:190, inc/customizer/options/footer--widgets-bar.php:284, inc/customizer/options/header--mobile-main-bar.php:156, inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:268
+#: inc/customizer/options/content--sidebar.php:327, inc/customizer/options/elements--body.php:57, inc/customizer/options/footer--bottom-bar.php:209, inc/customizer/options/footer--widgets-bar.php:284, inc/customizer/options/header--mobile-main-bar.php:156, inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:287
 msgid "Link text color :hover"
 msgstr ""
 
@@ -1008,11 +1008,15 @@ msgstr ""
 msgid "If enabled, this section layout is limited inside the Widgets Bar content wrapper. &mdash; Widgets Bar must have at least 1 column."
 msgstr ""
 
-#: inc/customizer/options/footer--bottom-bar.php:53, inc/customizer/options/footer--widgets-bar.php:33, inc/customizer/options/header--top-main-bottom-bar.php:60
+#: inc/customizer/options/footer--bottom-bar.php:41
+msgid "Gap with Widgets Bar content"
+msgstr ""
+
+#: inc/customizer/options/footer--bottom-bar.php:72, inc/customizer/options/footer--widgets-bar.php:33, inc/customizer/options/header--top-main-bottom-bar.php:79
 msgid "Contained section"
 msgstr ""
 
-#: inc/customizer/options/footer--bottom-bar.php:113, inc/customizer/options/header--mobile-main-bar.php:92, inc/customizer/options/header--mobile-vertical-bar.php:104, inc/customizer/options/header--top-main-bottom-bar.php:131
+#: inc/customizer/options/footer--bottom-bar.php:132, inc/customizer/options/header--mobile-main-bar.php:92, inc/customizer/options/header--mobile-vertical-bar.php:104, inc/customizer/options/header--top-main-bottom-bar.php:150
 msgid "Spacing between elements"
 msgstr ""
 
@@ -1238,11 +1242,11 @@ msgstr ""
 msgid "Mobile Logo image"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:27, inc/customizer/options/header--top-main-bottom-bar.php:73
+#: inc/customizer/options/header--mobile-main-bar.php:27, inc/customizer/options/header--top-main-bottom-bar.php:92
 msgid "Height"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-main-bar.php:126, inc/customizer/options/header--mobile-vertical-bar.php:210, inc/customizer/options/header--top-main-bottom-bar.php:237
+#: inc/customizer/options/header--mobile-main-bar.php:126, inc/customizer/options/header--mobile-vertical-bar.php:210, inc/customizer/options/header--top-main-bottom-bar.php:256
 msgid "Icon size"
 msgstr ""
 
@@ -1254,15 +1258,15 @@ msgstr ""
 msgid "Elements alignment"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-vertical-bar.php:173, inc/customizer/options/header--top-main-bottom-bar.php:200
+#: inc/customizer/options/header--mobile-vertical-bar.php:173, inc/customizer/options/header--top-main-bottom-bar.php:219
 msgid "Menu link typography"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-vertical-bar.php:197, inc/customizer/options/header--top-main-bottom-bar.php:224
+#: inc/customizer/options/header--mobile-vertical-bar.php:197, inc/customizer/options/header--top-main-bottom-bar.php:243
 msgid "Submenu link typography"
 msgstr ""
 
-#: inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:269
+#: inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:288
 msgid "Link text color :active"
 msgstr ""
 
@@ -1284,38 +1288,42 @@ msgid "Merge inside Main Bar wrapper"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:34
-msgid "If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element."
+msgid "If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element. &mdash; You might need to make the Main Bar height bigger to accommodate this bar height."
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:301
+#: inc/customizer/options/header--top-main-bottom-bar.php:47
+msgid "Gap with Main Bar content"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:320
 msgid "Top level menu items highlight"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:304
+#: inc/customizer/options/header--top-main-bottom-bar.php:323
 msgid "Background"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:305
+#: inc/customizer/options/header--top-main-bottom-bar.php:324
 msgid "Underline"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:306
+#: inc/customizer/options/header--top-main-bottom-bar.php:325
 msgid "Border top"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:314
+#: inc/customizer/options/header--top-main-bottom-bar.php:333
 msgid "Highlight color :hover"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:315
+#: inc/customizer/options/header--top-main-bottom-bar.php:334
 msgid "Highlight text color :hover"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:316
+#: inc/customizer/options/header--top-main-bottom-bar.php:335
 msgid "Highlight color :active"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:317
+#: inc/customizer/options/header--top-main-bottom-bar.php:336
 msgid "Highlight text color :active"
 msgstr ""
 

@@ -50,11 +50,18 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 		),
 	);
 	
-	if ( 'main_bar' !==  $type ) {
+	if ( 'main_bar' !== $type ) {
 		$add['header_' . $type . '_container'] = array(
 			array(
-				'setting'  => 'header_top_bar_merged',
+				'setting'  => 'header_' . $type . '_merged',
 				'operator' => '!=',
+				'value'    => 1,
+			),
+		);
+		$add['header_' . $type . '_merged_gap'] = array(
+			array(
+				'setting'  => 'header_' . $type . '_merged',
+				'operator' => '==',
 				'value'    => 1,
 			),
 		);
@@ -146,6 +153,13 @@ $add['footer_bottom_bar_container'] = array(
 	array(
 		'setting'  => 'footer_bottom_bar_merged',
 		'operator' => '!=',
+		'value'    => 1,
+	),
+);
+$add['footer_bottom_bar_merged_gap'] = array(
+	array(
+		'setting'  => 'footer_bottom_bar_merged',
+		'operator' => '==',
 		'value'    => 1,
 	),
 );

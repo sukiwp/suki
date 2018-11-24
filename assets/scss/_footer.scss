@@ -23,10 +23,6 @@
 
 	.widget {
 		margin-bottom: 40px; // default
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 }
 
@@ -46,11 +42,6 @@
 .suki-footer-widgets-bar-column {
 	width: 100%; // default
 	padding: 0 15px; // default
-	margin-bottom: 40px; // default
-
-	&.suki-empty {
-		margin: 0 !important;
-	}
 		
 	.suki-footer-widgets-bar-columns-2 & {
 		width: 50%; // default

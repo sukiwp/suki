@@ -267,6 +267,10 @@ function suki_convert_css_array_to_string( $css_array ) {
 	$final_css = '';
 
 	foreach ( $css_array as $media => $selectors ) {
+		if ( empty( $selectors ) ) {
+			continue;
+		}
+
 		// Add media query open tag.
 		if ( 'global' !== $media ) {
 			$final_css .= $media. '{';

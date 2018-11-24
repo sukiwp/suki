@@ -6,7 +6,7 @@
 	position: relative;
 	margin-bottom: 40px; // default
 
-	&:last-child {
+	.sidebar &:last-child {
 		margin-bottom: 0;
 	}
 

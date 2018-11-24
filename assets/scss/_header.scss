@@ -277,6 +277,13 @@
 			}
 		}
 	}
+
+	&.suki-section-merged {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
 }
 
 .suki-header-main-bar {
@@ -315,6 +322,14 @@
 			}
 		}
 	}
+
+	&.suki-header-main-bar-with-top-bar > .suki-section-inner > .suki-wrapper {
+		padding-top: 40px; // default
+	}
+
+	&.suki-header-main-bar-with-bottom-bar > .suki-section-inner > .suki-wrapper {
+		padding-bottom: 40px; // default
+	}
 }
 
 .suki-header-bottom-bar {
@@ -352,6 +367,13 @@
 				background-color: $color_border; // default
 			}
 		}
+	}
+
+	&.suki-section-merged {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 	}
 }
 

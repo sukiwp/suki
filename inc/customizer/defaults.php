@@ -273,6 +273,7 @@ $add['header_social_links_target'] = 'self';
  */
 
 $add['header_top_bar_merged'] = 0;
+$add['header_top_bar_merged_gap'] = '0px';
 
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '40px';
@@ -381,6 +382,7 @@ $add['header_main_bar_menu_active_highlight_text_color'] = '';
  */
 
 $add['header_bottom_bar_merged'] = 0;
+$add['header_bottom_bar_merged_gap'] = '0px';
 
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '40px';
@@ -663,6 +665,7 @@ $add['footer_widgets_bar_widget_title_border_color'] = '';
  */
 
 $add['footer_bottom_bar_merged'] = 0;
+$add['footer_bottom_bar_merged_gap'] = '0px';
 
 $add['footer_bottom_bar_container'] = 'default';
 $add['footer_bottom_bar_padding'] = '25px 20px 25px 20px';

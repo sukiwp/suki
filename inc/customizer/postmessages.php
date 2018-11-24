@@ -607,6 +607,16 @@ $add['header_social_links_target'] = array(
 foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	$bar = str_replace( '_', '-', $type );
 
+	if ( 'main_bar' !== $type ) {
+		$add['header_' . $type . '_merged_gap'] = array(
+			array(
+				'type'     => 'css',
+				'element'  => '.suki-header-main-bar.suki-header-main-bar-with-' . $bar . ' .suki-header-main-bar-row',
+				'property' => 'padding-' . ( 'top_bar' === $type ? 'top' : 'bottom' ),
+			),
+		);
+	}
+
 	// Layout
 	$add['header_' . $type . '_container'] = array(
 		array(
@@ -622,6 +632,15 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 			'property' => 'height',
 		),
 	);
+
+	if ( 'main_bar' !== $type ) {
+		$add['header_' . $type . '_height'][] = array(
+			'type'     => 'css',
+			'element'  => '.suki-header-main-bar.suki-header-main-bar-with-' . $bar . ' > .suki-section-inner > .suki-wrapper',
+			'property' => 'padding-' . ( 'top_bar' === $type ? 'top' : 'bottom' ),
+		);
+	}
+
 	$add['header_' . $type . '_padding'] = array(
 		array(
 			'type'     => 'css',
@@ -1697,6 +1716,14 @@ $add['footer_widgets_bar_widget_title_border_color'] = array(
  * Footer > Bottom Bar
  * ====================================================
  */
+
+$add['footer_bottom_bar_merged_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-bottom-bar.suki-section-merged',
+		'property' => 'margin-top',
+	),
+);
 
 $add['footer_bottom_bar_container'] = array(
 	array(

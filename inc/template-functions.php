@@ -598,7 +598,7 @@ function suki_header_top_bar_classes( $classes ) {
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_top_bar_menu_highlight' ) );
 
 	if ( intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-		$classes['container'] = 'suki-section-merged';
+		$classes['merged'] = 'suki-section-merged';
 	}
 
 	return $classes;
@@ -615,6 +615,14 @@ function suki_header_main_bar_classes( $classes ) {
 	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'header_main_bar_container' ) );
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_main_bar_menu_highlight' ) );
 
+	if ( intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+		$classes['top_bar_merged'] = 'suki-header-main-bar-with-top-bar';
+	}
+
+	if ( intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+		$classes['bottom_bar_merged'] = 'suki-header-main-bar-with-bottom-bar';
+	}
+
 	return $classes;
 }
 add_filter( 'suki/frontend/header_main_bar_classes', 'suki_header_main_bar_classes' );
@@ -630,7 +638,7 @@ function suki_header_bottom_bar_classes( $classes ) {
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_bottom_bar_menu_highlight' ) );
 
 	if ( intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-		$classes['container'] = 'suki-section-merged';
+		$classes['merged'] = 'suki-section-merged';
 	}
 
 	return $classes;
@@ -708,6 +716,10 @@ function suki_footer_widgets_classes( $classes ) {
 	$classes['widget_title_alignment'] = esc_attr( 'suki-widget-title-alignment-' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_alignment' ) );
 	$classes['widget_title_decoration'] = esc_attr( 'suki-widget-title-decoration-' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_decoration' ) );
 
+	if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+		$classes['bottom_bar_merged'] = 'suki-footer-widgets-bar-with-bottom-bar';
+	}
+
 	return $classes;
 }
 add_filter( 'suki/frontend/footer_widgets_bar_classes', 'suki_footer_widgets_classes' );
@@ -722,7 +734,7 @@ function suki_footer_bottom_classes( $classes ) {
 	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'footer_bottom_bar_container' ) );
 
 	if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
-		$classes['container'] = 'suki-section-merged';
+		$classes['merged'] = 'suki-section-merged';
 	}
 
 	return $classes;

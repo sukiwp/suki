@@ -31,7 +31,26 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Merge inside Main Bar wrapper', 'suki' ),
-			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element.', 'suki' ),
+			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element. &mdash; You might need to make the Main Bar height bigger to accommodate this bar height.', 'suki' ),
+			'priority'    => 10,
+		) ) );
+
+		// Merged gap
+		$id = 'header_' . $type . '_merged_gap';
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Gap with Main Bar content', 'suki' ),
+			'units'       => array(
+				'px' => array(
+					'min'   => 0,
+					'step'  => 1,
+				),
+			),
 			'priority'    => 10,
 		) ) );
 
