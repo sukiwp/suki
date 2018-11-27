@@ -2984,7 +2984,7 @@ a.more-link {
 	margin: 0 0 1.25rem;
 }
 
-.widget-title :empty {
+.widget-title:empty {
 	display: none;
 }
 
