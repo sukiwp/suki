@@ -1,8 +1,6 @@
 /**
  * Theme Customizer postMessage handler.
  */
-;jQuery.noConflict();
-
 (function( $ ) {
 	"use strict";
 
