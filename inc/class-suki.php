@@ -466,6 +466,7 @@ class Suki {
 	public function get_migration_checkpoints( $start_from = null ) {
 		$all_checkpoints = array(
 			'0.6.0',
+			// '0.7.0',
 		);
 
 		if ( is_null( $start_from ) ) {
