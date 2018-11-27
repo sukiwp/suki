@@ -767,6 +767,7 @@ select[multiple] {
 
 .gallery img {
 	display: block;
+	width: 100%;
 }
 
 .gallery-item {

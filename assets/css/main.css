@@ -1062,6 +1062,7 @@ select[multiple] {
 
 .gallery img {
 	display: block;
+	width: 100%;
 }
 
 .gallery-item {
@@ -3151,6 +3152,11 @@ a.more-link {
 
 .search-results .widget_search {
 	display: none;
+}
+
+.widget_media_image img {
+	display: table;
+	margin: 0 auto;
 }
 
 .suki_widget_posts ul {
