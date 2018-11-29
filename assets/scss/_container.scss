@@ -65,27 +65,6 @@ body.suki-page-layout-boxed {
 	left: 0;
 }
 
-.suki-popup-close-icon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 1.25rem;
-	font-size: 1.5rem;
-	line-height: 1;
-	background-color: transparent !important;
-	color: $color_white !important; // default
-	opacity: 1;
-
-	&:hover, &:focus {
-		opacity: 0.8;
-	}
-
-	.suki-header-vertical-position-right ~ & {
-		left: 0;
-		right: auto;
-	}
-}
-
 // -------------------------------------------------------------
 // Content Container
 // -------------------------------------------------------------

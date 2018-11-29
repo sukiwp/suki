@@ -340,7 +340,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #1465ad;
+	color: #1772c4;
 }
 
 figure {
@@ -468,8 +468,8 @@ input[type="submit"]:focus,
 a.button:hover,
 a.button:focus {
 	color: #ffffff;
-	background-color: #1465ad;
-	border-color: #1465ad;
+	background-color: #1772c4;
+	border-color: #1772c4;
 }
 
 input[type="text"],

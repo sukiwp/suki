@@ -340,7 +340,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #1465ad;
+	color: #1772c4;
 }
 
 figure {
@@ -468,8 +468,8 @@ input[type="submit"]:focus,
 a.button:hover,
 a.button:focus {
 	color: #ffffff;
-	background-color: #1465ad;
-	border-color: #1465ad;
+	background-color: #1772c4;
+	border-color: #1772c4;
 }
 
 input[type="text"],
@@ -971,7 +971,7 @@ select[multiple] {
 
 .suki-toggle:hover, .suki-toggle:focus {
 	background: inherit;
-	color: #1465ad;
+	color: #1772c4;
 }
 
 .suki-menu-icon {
@@ -1212,27 +1212,6 @@ body.suki-page-layout-boxed #page {
 	right: 0;
 	bottom: 0;
 	left: 0;
-}
-
-.suki-popup-close-icon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 1.25rem;
-	font-size: 1.5rem;
-	line-height: 1;
-	background-color: transparent !important;
-	color: #ffffff !important;
-	opacity: 1;
-}
-
-.suki-popup-close-icon:hover, .suki-popup-close-icon:focus {
-	opacity: 0.8;
-}
-
-.suki-header-vertical-position-right ~ .suki-popup-close-icon {
-	left: 0;
-	right: auto;
 }
 
 .suki-wrapper {
@@ -1826,6 +1805,27 @@ body.suki-page-layout-boxed #page {
 
 .suki-header-mobile-main-bar a:not(.button):hover, .suki-header-mobile-main-bar a:not(.button):focus, .suki-header-mobile-main-bar .suki-toggle:hover, .suki-header-mobile-main-bar .suki-toggle:focus, .suki-header-mobile-main-bar .menu .sub-menu a:not(.button):hover, .suki-header-mobile-main-bar .menu .sub-menu a:not(.button):focus, .suki-header-mobile-main-bar .menu .sub-menu .suki-toggle:hover, .suki-header-mobile-main-bar .menu .sub-menu .suki-toggle:focus {
 	color: #666666;
+}
+
+.suki-popup-close-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1.25rem;
+	font-size: 1.5rem;
+	line-height: 1;
+	background-color: transparent !important;
+	color: #ffffff !important;
+	opacity: 1;
+}
+
+.suki-popup-close-icon:hover, .suki-popup-close-icon:focus {
+	opacity: 0.8;
+}
+
+.suki-header-mobile-vertical-position-right > .suki-popup-close-icon {
+	left: 0;
+	right: auto;
 }
 
 .suki-header-section-vertical ul {
