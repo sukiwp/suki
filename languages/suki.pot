@@ -284,7 +284,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:225, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:372
+#: inc/admin/class-suki-admin-metabox-page-settings.php:225, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:375
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -532,11 +532,11 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:481, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:484, inc/compatibilities/woocommerce/customizer/options/_sections.php:33
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:738
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:753
 msgid "Logout"
 msgstr ""
 
@@ -843,15 +843,15 @@ msgstr ""
 msgid "Widget title alignment"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
+#: inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
 msgid "Right"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51
+#: inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:282, inc/customizer/options/footer--builder.php:85, inc/customizer/options/footer--widgets-bar.php:239, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--mobile-vertical-bar.php:50
+#: inc/customizer/options/content--sidebar.php:282, inc/customizer/options/footer--builder.php:85, inc/customizer/options/footer--widgets-bar.php:239, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--mobile-vertical-bar.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
 msgid "Center"
 msgstr ""
 
@@ -1951,6 +1951,10 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:54
 msgid "Show \"add to cart\""
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+msgid "Text alignment"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:26

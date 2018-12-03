@@ -184,7 +184,7 @@ class Suki_Compatibility_WooCommerce {
 		 * Shop page's template hooks
 		 */
 
-		// Add spacer before mail products loop.
+		// Add spacer before main products loop.
 		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_before_shop_loop' ), 999 );
 
 		// Reposition sale badge on products grid item.
@@ -267,6 +267,9 @@ class Suki_Compatibility_WooCommerce {
 		/**
 		 * Global template hooks
 		 */
+
+		// Add text alignment class on products loop.
+		add_filter( 'woocommerce_product_loop_start', array( $this, 'add_loop_text_alignment_class' ) );
 
 		// Keep / remove "add to cart" button on products grid.
 		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
@@ -545,6 +548,18 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_loop_columns( $cols ) {
 		return intval( suki_get_theme_mod( 'woocommerce_index_grid_columns' ) );
+	}
+
+	/**
+	 * Add text alignment class on loop start tag.
+	 *
+	 * @param string $hml
+	 * @return string
+	 */
+	public function add_loop_text_alignment_class( $html ) {
+		$html = preg_replace( '/(class=".*?)"/', '$1 suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) . '"', $html );
+
+		return $html;
 	}
 
 	/**

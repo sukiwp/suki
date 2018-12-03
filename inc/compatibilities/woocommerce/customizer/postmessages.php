@@ -342,6 +342,13 @@ $add['woocommerce_products_grid_columns_gutter'] = array(
 		'pattern'  => '0 -$',
 	),
 );
+$add['woocommerce_products_grid_text_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.woocommerce ul.products',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
 
 /**
  * ====================================================
