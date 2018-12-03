@@ -332,7 +332,7 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: #288ce6;
+	color: #1772c4;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -340,7 +340,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #1772c4;
+	color: #288ce6;
 }
 
 figure {

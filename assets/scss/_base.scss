@@ -161,11 +161,11 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: $color_accent; // default
+	color: $color_accent_2; // default
 	@include transition();
 
 	&:hover, &:focus {
-		color: $color_accent_2; // default
+		color: $color_accent; // default
 	}
 }
 
