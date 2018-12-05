@@ -21,7 +21,7 @@
 		
 		if ( has_action( 'suki/frontend/entry_page/header' ) ) :
 		?>
-			<header class="entry-header">
+			<header class="entry-header <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'entry_header_alignment' ) ); ?>">
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_page/header

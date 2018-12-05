@@ -36,6 +36,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_entry_grid_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 10,
+) ) );
+
 // Featured media position
 $id = 'entry_grid_featured_media_position';
 $wp_customize->add_setting( $id, array(
@@ -71,7 +78,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 ) ) );
 
 // Post header alignment
-$id = 'entry_grid_alignment';
+$id = 'entry_grid_header_alignment';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
@@ -80,7 +87,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( $id, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Alignment', 'suki' ),
+	'label'       => esc_html__( 'Post header alignment', 'suki' ),
 	'choices'     => array(
 		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'center' => esc_html__( 'Center', 'suki' ),
@@ -90,7 +97,7 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_content_layout', array(
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_entry_grid_meta', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'priority'    => 10,

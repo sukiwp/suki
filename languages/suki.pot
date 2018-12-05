@@ -693,15 +693,15 @@ msgstr ""
 msgid "Pagination (page numbers)"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:28, inc/customizer/options/blog--entry-grid.php:48
+#: inc/customizer/options/blog--entry-default.php:28, inc/customizer/options/blog--entry-grid.php:55
 msgid "Featured media position"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:30, inc/customizer/options/blog--entry-grid.php:50
+#: inc/customizer/options/blog--entry-default.php:30, inc/customizer/options/blog--entry-grid.php:57
 msgid "Before Post Header"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:31, inc/customizer/options/blog--entry-grid.php:51
+#: inc/customizer/options/blog--entry-default.php:31, inc/customizer/options/blog--entry-grid.php:58
 msgid "After Post Header"
 msgstr ""
 
@@ -709,48 +709,57 @@ msgstr ""
 msgid "Remove padding on featured media"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:56, inc/customizer/options/blog--entry-grid.php:64
+#. translators: %s: menu path to main content's padding setting.
+#: inc/customizer/options/blog--entry-default.php:47
+msgid "If you set padding on %s, enabling this option will make your featured media disregard the padding."
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:48, inc/customizer/options/_sections.php:293
+msgid "Main Content Area"
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:61, inc/customizer/options/blog--entry-grid.php:71
 msgid "Post header elements"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:58, inc/customizer/options/blog--entry-grid.php:66
+#: inc/customizer/options/blog--entry-default.php:63, inc/customizer/options/blog--entry-grid.php:73
 msgid "Header Meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:59, inc/customizer/options/blog--entry-grid.php:67, inc/customizer/options/_sections.php:118
+#: inc/customizer/options/blog--entry-default.php:64, inc/customizer/options/blog--entry-grid.php:74, inc/customizer/options/_sections.php:118
 msgid "Title"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:73, inc/customizer/options/blog--entry-grid.php:107
+#: inc/customizer/options/blog--entry-default.php:80, inc/customizer/options/blog--entry-grid.php:90
+msgid "Post header alignment"
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:82, inc/customizer/options/blog--entry-default.php:84, inc/customizer/options/blog--entry-grid.php:92, inc/customizer/options/blog--entry-grid.php:94, inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:82, inc/customizer/options/blog--entry-default.php:84, inc/customizer/options/blog--entry-grid.php:92, inc/customizer/options/blog--entry-grid.php:94, inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:83, inc/customizer/options/blog--entry-grid.php:93, inc/customizer/options/content--sidebar.php:282, inc/customizer/options/footer--builder.php:85, inc/customizer/options/footer--widgets-bar.php:239, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--mobile-vertical-bar.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
+msgid "Center"
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:104, inc/customizer/options/blog--entry-grid.php:114
 msgid "Header meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:74, inc/customizer/options/blog--entry-default.php:87, inc/customizer/options/blog--entry-grid.php:108, inc/customizer/options/blog--entry-grid.php:121
+#: inc/customizer/options/blog--entry-default.php:105, inc/customizer/options/blog--entry-default.php:118, inc/customizer/options/blog--entry-grid.php:115, inc/customizer/options/blog--entry-grid.php:128
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:86, inc/customizer/options/blog--entry-grid.php:120
+#: inc/customizer/options/blog--entry-default.php:117, inc/customizer/options/blog--entry-grid.php:127
 msgid "Footer meta"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-grid.php:27
 msgid "Excerpt length"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-grid.php:83
-msgid "Alignment"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-grid.php:85, inc/customizer/options/blog--entry-grid.php:87, inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
-msgid "Right"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-grid.php:85, inc/customizer/options/blog--entry-grid.php:87, inc/customizer/options/content--sidebar.php:281, inc/customizer/options/content--sidebar.php:283, inc/customizer/options/footer--builder.php:84, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--widgets-bar.php:238, inc/customizer/options/footer--widgets-bar.php:240, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--builder.php:118, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
-msgid "Left"
-msgstr ""
-
-#: inc/customizer/options/blog--entry-grid.php:86, inc/customizer/options/content--sidebar.php:282, inc/customizer/options/footer--builder.php:85, inc/customizer/options/footer--widgets-bar.php:239, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--mobile-vertical-bar.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
-msgid "Center"
 msgstr ""
 
 #: inc/customizer/options/blog--single.php:27
@@ -1745,10 +1754,6 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:280
 msgid "Content Section"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:293
-msgid "Main Content Area"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:300

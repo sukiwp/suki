@@ -1862,7 +1862,7 @@ $add['footer_social_links_target'] = array(
 
 /**
  * ====================================================
- * Blog > Post Layout: Grid
+ * Blog > Posts Page
  * ====================================================
  */
 
@@ -1895,6 +1895,34 @@ $add['blog_index_grid_columns_gutter'] = array(
 		'element'  => '.suki-loop-grid',
 		'property' => 'margin-right',
 		'pattern'  => '-$',
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Post Layout: Default
+ * ====================================================
+ */
+
+$add['entry_header_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-default .entry-header',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Post Layout: Grid
+ * ====================================================
+ */
+
+$add['entry_grid_header_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-grid .entry-header',
+		'pattern'  => 'suki-text-align-$',
 	),
 );
 
