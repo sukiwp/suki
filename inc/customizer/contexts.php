@@ -166,6 +166,20 @@ $add['footer_bottom_bar_merged_gap'] = array(
 
 /**
  * ====================================================
+ * Blog > Posts Page
+ * ====================================================
+ */
+
+$add['blog_index_grid_columns'] =
+$add['blog_index_grid_columns_gutter'] = array(
+	array(
+		'setting'  => 'blog_index_loop_mode',
+		'value'    => 'grid',
+	),
+);
+
+/**
+ * ====================================================
  * Page Settings
  * ====================================================
  */
