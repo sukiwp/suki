@@ -102,8 +102,8 @@ class Suki_Admin_Metabox_Page_Settings {
 			sprintf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
-			'normal',
-			'high'
+			'side',
+			'default'
 		);
 	}
 
@@ -462,12 +462,12 @@ class Suki_Admin_Metabox_Page_Settings {
 						<script type="text/javascript">
 						(function( $ ) {
 							$( 'body.post-php' ).on( 'change', '#suki_page_settings__content_layout', function( e ) {
-								var $body = $( '#content_ifr' ).contents().find( 'body' ),
-								    inheritValue = '<?php echo suki_get_page_setting_by_post_id( 'content_layout', $obj->ID ); // WPCS: XSS OK ?>',
+								var $tinymce = $( '#content_ifr' ).contents().find( 'body' ),
+								    inheritValue = '<?php echo esc_js( suki_get_page_setting_by_post_id( 'content_layout', $obj->ID ) ); ?>',
 								    value = '' === this.value ? inheritValue : this.value;
 
-								$body.removeClass( 'suki-editor-wide suki-editor-narrow suki-editor-right-sidebar suki-editor-left-sidebar' );
-								$body.addClass( 'suki-editor-' + value );
+								$tinymce.removeClass( 'suki-editor-wide suki-editor-narrow suki-editor-right-sidebar suki-editor-left-sidebar' );
+								$tinymce.addClass( 'suki-editor-' + value );
 							});
 						})( jQuery );
 						</script>

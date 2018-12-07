@@ -236,6 +236,12 @@ class Suki {
 
 		// Gutenberg "align-wide" compatibility
 		add_theme_support( 'align-wide' );
+
+		// Gutenberg responsive embeds
+		add_theme_support( 'responsive-embeds' );
+
+		// Gutenberg editor styles
+		add_theme_support( 'editor-styles' );
 	}
 
 	/**
@@ -451,7 +457,6 @@ class Suki {
 			'contact-form-7' => 'WPCF7',
 			'elementor' => 'Elementor\Plugin',
 			'elementor-pro' => 'ElementorPro\Plugin',
-			'gutenberg' => 'WP_Block_Type',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
 		);

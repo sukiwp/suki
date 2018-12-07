@@ -1,0 +1,145 @@
+// -------------------------------------------------------------
+// Form basic
+// -------------------------------------------------------------
+
+fieldset {
+	padding: 0;
+	margin: 0 0 1.25rem;
+	border: 0;
+}
+
+legend {
+	@include h3();
+	margin: 0 0 1.25rem;
+}
+
+// -------------------------------------------------------------
+// Button
+// -------------------------------------------------------------
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
+a.button,
+a.wp-block-button__link {
+	@include button();
+}
+
+// -------------------------------------------------------------
+// Input, select, textarea
+// -------------------------------------------------------------
+
+input[type="text"],
+input[type="password"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+.input {
+	@include input();
+}
+
+textarea {
+	@include input();
+}
+
+select {
+	@include select();
+}
+
+select[multiple] {
+	background: none;
+	padding-right: 0;
+}
+
+// -------------------------------------------------------------
+// Select2
+// -------------------------------------------------------------
+
+.select2-container {
+	display: block;
+
+	.selection {
+		display: block;
+	}
+
+	.dropdown-wrapper {
+		margin-top: -1px;
+	}
+
+	.select2-selection {
+		@include select();
+		display: block;
+		height: auto;
+	}
+
+	.select2-selection--single {
+		.select2-selection__rendered {
+			padding-left: 0;
+			padding-right: 0;
+			font: inherit;
+			color: inherit;
+		}
+
+		.select2-selection__placeholder:empty {
+			display: inline-block;
+		}
+
+		.select2-selection__arrow {
+			display: none;
+		}
+	}
+
+	.select2-dropdown {
+		@include border();
+		border-color: inherit;
+
+		.select2-search {
+			padding: 6px;
+			@include border( bottom );
+			border-color: inherit;
+
+			.select2-search__field {
+				border: none;
+				border-radius: 0;
+				padding: 0;
+			}
+		}
+
+		.select2-results {
+			padding: 0.5em 0;
+
+			.select2-results__option {
+				&--highlighted {
+					background-color: rgba(0,0,0,0.025);
+					color: inherit;
+				}
+
+				&[aria-selected="true"] {
+					background-color: rgba(0,0,0,0.05);
+				}
+			}
+		}
+	}
+	
+	.select2-dropdown--below {
+		border-top: none;
+		border-top-left-radius: 0 !important;
+		border-top-right-radius: 0 !important;
+	}
+
+	.select2-dropdown--above {
+		border-bottom: none;
+		border-bottom-left-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+	}
+}

@@ -1,18 +1,20 @@
-@import "../_normalize";
-
 @import "../__variables";
+
 @import "../__mixins";
 
-// Base Elements
 @import "../_base";
 
-// Common Elements
 @import "../_wordpress";
 
+@import "../_gutenberg";
+
 html {
-	background-color: #fcfcfc; // default
 	min-height: auto; // reset
 }
+
+// -------------------------------------------------------------
+// Classic Editor
+// -------------------------------------------------------------
 
 body.mce-content-body {
 	position: relative;
@@ -48,16 +50,32 @@ body.mce-content-body {
 	}
 }
 
-blockquote {
-	padding: 0.5rem 2rem;
-	@include border( left, 0.25rem, solid );
+// -------------------------------------------------------------
+// Gutenberg
+// -------------------------------------------------------------
 
-	&[style*="center"] {
-		border-left: none;
+.editor-post-title__block .editor-post-title__input {
+	@include h1();
+	border-radius: 0;
+	font-family: inherit;
+}
+
+.wp-block {
+	max-width: calc( 720px + 30px ); // default
+
+	&[data-align="wide"] {
+		max-width: calc( 1140px + 30px ); // default
 	}
 
-	&[style*="right"] {
-		border-left: none;
-		@include border( right, 0.25rem, solid );
+	&[data-align="full"] {
+		max-width: none;
+	}
+}
+
+.wp-block-button {
+	a.wp-block-button__link, .wp-block-button__link[role="textbox"] {
+		@include button();
+		margin-bottom: 0;
+		text-decoration: none;
 	}
 }

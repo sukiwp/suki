@@ -1,4 +1,5 @@
 @import "../__variables";
+
 @import "../__mixins";
 
 input, select, textarea {
@@ -32,6 +33,7 @@ input, select, textarea {
 // -------------------------------------------------------------
 
 .suki-admin-form-row {
+	position: relative;
 	@include flex( flex-start );
 	margin: 0 -10px;
 	padding: 0.75em 0;
@@ -259,6 +261,10 @@ input, select, textarea {
 	margin: -6px -12px -12px !important;
 }
 
+.edit-post-meta-boxes-area .suki-admin-metabox-page-settings {
+	margin: -6px -14px -14px !important;
+}
+
 .suki-admin-metabox {
 	@include flex( stretch );
 
@@ -331,16 +337,18 @@ input, select, textarea {
 
 	.suki-admin-form-row {
 		display: block;
+		padding: 0.5em 0;
 	}
 
 	.suki-admin-form-label {
 		width: auto;
-		padding: 0;
-		margin: 0 0 0.5em;
+		padding: 0 10px;
+		margin: 0 0 0.25em;
 	}
 
 	.suki-admin-form-field {
 		width: auto;
+		padding: 0 10px;
 	}
 
 	.suki-admin-metabox {
@@ -365,6 +373,12 @@ input, select, textarea {
 
 	.suki-admin-metabox-panel {
 		padding: 6px 12px;
+	}
+
+	.suki-admin-checkbox-control:only-child {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 }
 

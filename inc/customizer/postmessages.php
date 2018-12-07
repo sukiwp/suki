@@ -217,26 +217,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['button_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, a.wp-block-button__link',
 		'property' => 'padding',
 	),
 );
 $add['button_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, a.wp-block-button__link',
 		'property' => 'border-width',
 	),
 );
 $add['button_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
+		'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, a.wp-block-button__link',
 		'property' => 'border-radius',
 	),
 );
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'letter_spacing' ) as $prop ) {
-	$element = 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button';
+	$element = 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, a.wp-block-button__link';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['button_' . $prop ] = array(
@@ -251,7 +251,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button',
+			'element'  => 'button, input[type="button"], input[type="reset"], input[type="submit"], .button, a.button, a.wp-block-button__link',
 			'property' => $prop,
 		),
 	);
@@ -260,7 +260,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_hover_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus',
+			'element'  => 'button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, a.wp-block-button__link:hover, a.wp-block-button__link:focus',
 			'property' => $prop,
 		),
 	);
@@ -488,7 +488,7 @@ $add['page_layout'] = array(
 $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #page',
+		'element'  => 'body.suki-page-layout-boxed #page, body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'width',
 	),
 );
@@ -502,7 +502,7 @@ $add['boxed_page_shadow'] = array(
 $add['container_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-wrapper, .suki-section-contained > .suki-section-inner',
+		'element'  => '.suki-wrapper, .suki-section-contained > .suki-section-inner, .suki-content-layout-narrow .alignwide',
 		'property' => 'width',
 	),
 	array(
