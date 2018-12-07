@@ -1125,7 +1125,7 @@ function suki_entry_meta( $format ) {
 
 	if ( ! empty( $format ) ) {
 		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
-			
+
 		foreach ( $matches as $match ) {
 			ob_start();
 			suki_entry_meta_element( $match[1] );

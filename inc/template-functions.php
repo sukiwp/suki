@@ -108,44 +108,7 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * Content page hooks
-	 * ====================================================
-	 */
-
-	if ( is_page() ) {
-		/**
-		 * suki/frontend/entry_page/before_header hook
-		 * 
-		 * @see suki_entry_featured_media()
-		 */
-		if ( 'before-entry-header' === suki_get_theme_mod( 'entry_featured_media_position' ) ) {
-			add_action( 'suki/frontend/entry_page/before_header', 'suki_entry_featured_media', 10 );
-		}
-
-		/**
-		 * suki/frontend/entry_page/header hook
-		 *
-		 * @see suki_entry_title()
-		 */
-		if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
-			if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
-				add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
-			}
-		}
-
-		/**
-		 * suki/frontend/entry_page/after_header hook
-		 * 
-		 * @see suki_entry_featured_media()
-		 */
-		if ( 'after-entry-header' === suki_get_theme_mod( 'entry_featured_media_position' ) ) {
-			add_action( 'suki/frontend/entry_page/after_header', 'suki_entry_featured_media', 10 );
-		}
-	}
-
-	/**
-	 * ====================================================
-	 * Content default (blog post) hooks
+	 * Content default (post / page) hooks
 	 * ====================================================
 	 */
 
