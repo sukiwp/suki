@@ -21,7 +21,8 @@ v0.7.0
 - FIX: JS warning when header is disabled.
 - FIX: Reponsive switcher on Customizer's slider and typography controls.
 - FIX: Some WooCommerce CSS.
-- FIX: Some template CSS.
+- FIX: Some Gutenberg CSS.
+- FIX: Some other template CSS.
 
 v0.6.3
 - TWEAK: Make header HTML elements allow all HTML tags.
