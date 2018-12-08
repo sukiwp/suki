@@ -853,17 +853,22 @@ p.demo_store {
 		margin-right: 0;
 		margin-bottom: 1.25rem;
 
-		tbody tr:first-child td:first-child {
-			@include border( top );
-			border-color: inherit;
+		thead, tbody, tfoot {
+			tr:first-child td:first-child {
+				@include border( top );
+				border-color: inherit;
+			}
+
+			th, td {
+				padding: 0.6rem 0.8rem;
+				@include border( top );
+				border-color: inherit;
+				border-left: none;
+				border-right: none;
+				border-color: inherit;
+			}
 		}
 
-		th, td {
-			padding: 0.6rem 0.8rem;
-			border-left: none;
-			border-right: none;
-			border-color: inherit;
-		}
 
 		a {
 			text-decoration: none;
@@ -1010,6 +1015,11 @@ p.demo_store {
 
 	.cart_totals {
 		tr {
+			th, td {
+				@include border( top );
+				border-color: inherit;
+			}
+
 			td {
 				text-align: right;
 			}

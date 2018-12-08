@@ -968,14 +968,17 @@ p.demo_store a {
 	margin-bottom: 1.25rem;
 }
 
-.woocommerce table.shop_table tbody tr:first-child td:first-child, .woocommerce-page table.shop_table tbody tr:first-child td:first-child {
+.woocommerce table.shop_table thead tr:first-child td:first-child, .woocommerce table.shop_table tbody tr:first-child td:first-child, .woocommerce table.shop_table tfoot tr:first-child td:first-child, .woocommerce-page table.shop_table thead tr:first-child td:first-child, .woocommerce-page table.shop_table tbody tr:first-child td:first-child, .woocommerce-page table.shop_table tfoot tr:first-child td:first-child {
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-color: inherit;
 }
 
-.woocommerce table.shop_table th, .woocommerce table.shop_table td, .woocommerce-page table.shop_table th, .woocommerce-page table.shop_table td {
+.woocommerce table.shop_table thead th, .woocommerce table.shop_table thead td, .woocommerce table.shop_table tbody th, .woocommerce table.shop_table tbody td, .woocommerce table.shop_table tfoot th, .woocommerce table.shop_table tfoot td, .woocommerce-page table.shop_table thead th, .woocommerce-page table.shop_table thead td, .woocommerce-page table.shop_table tbody th, .woocommerce-page table.shop_table tbody td, .woocommerce-page table.shop_table tfoot th, .woocommerce-page table.shop_table tfoot td {
 	padding: 0.6rem 0.8rem;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-color: inherit;
 	border-right: none;
 	border-left: none;
 	border-color: inherit;
@@ -1168,6 +1171,12 @@ p.demo_store a {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-color: inherit;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals tr td {
