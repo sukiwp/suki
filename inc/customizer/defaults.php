@@ -538,7 +538,7 @@ $add['page_header_breadcrumb_link_hover_text_color'] = $colors['accent'];
 
 $add['page_header_bg_image'] = '';
 $add['page_header_bg_attachment'] = 'scroll';
-$add['page_header_bg_overlay_opacity'] = '';
+$add['page_header_bg_overlay_color'] = '';
 
 /**
  * ====================================================

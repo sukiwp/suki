@@ -1562,7 +1562,7 @@ msgid "Background attachment"
 msgstr ""
 
 #: inc/customizer/options/page-header.php:351
-msgid "Background color overlay opacity"
+msgid "Background overlay color"
 msgstr ""
 
 #: inc/customizer/options/page-settings.php:93

@@ -1182,11 +1182,11 @@ foreach ( array( 'bg_image', 'bg_attachment' ) as $prop ) {
 	);
 }
 
-$add['page_header_bg_overlay_opacity'] = array(
+$add['page_header_bg_overlay_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-page-header-inner:before',
-		'property' => 'opacity',
+		'property' => 'background-color',
 	),
 );
 

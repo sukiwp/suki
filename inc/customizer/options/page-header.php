@@ -339,23 +339,15 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 40,
 ) );
 
-// Background overlay
-$id = 'page_header_bg_overlay_opacity'; 
+// Colors
+$id = 'page_header_bg_overlay_color';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Background color overlay opacity', 'suki' ),
-	'units'       => array(
-		'' => array(
-			'min'  => 0,
-			'max'  => 1,
-			'step' => 0.05,
-		),
-	),
-	'hide_units'  => true,
+	'label'       => esc_html__( 'Background overlay color', 'suki' ),
 	'priority'    => 40,
 ) ) );
