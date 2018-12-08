@@ -115,6 +115,10 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 				'min'  => 0,
 				'step' => 1,
 			),
+			'%' => array(
+				'min'  => 0,
+				'step' => 0.01,
+			),
 		),
 		'priority'    => 10,
 	) ) );
