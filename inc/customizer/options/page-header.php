@@ -136,6 +136,26 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 10,
 ) );
 
+// Effective text width
+$id = 'page_header_layout_width';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Effective width', 'suki' ),
+	'units'       => array(
+		'%' => array(
+			'min'  => 25,
+			'max'  => 100,
+			'step' => 0.01,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
 // Show breadcrumb
 $id = 'page_header_breadcrumb';
 $wp_customize->add_setting( $id, array(
@@ -315,7 +335,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 $id = 'page_header_bg_image';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
 ) );
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(

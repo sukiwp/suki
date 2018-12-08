@@ -509,6 +509,7 @@ $add['page_header_padding'] = '80px 20px 80px 20px';
 $add['page_header_border'] = '0px 0px 1px 0px';
 
 $add['page_header_layout'] = 'center';
+$add['page_header_layout_width'] = '100%';
 
 $add['page_header_breadcrumb'] = 1;
 $add['breadcrumb_plugin'] = 'breadcrumb-trail';

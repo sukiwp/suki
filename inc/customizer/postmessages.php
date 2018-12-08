@@ -1128,6 +1128,14 @@ $add['page_header_layout'] = array(
 	),
 );
 
+$add['page_header_layout_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-page-header-layout-left .suki-page-header-row, .suki-page-header-layout-center .suki-page-header-row, .suki-page-header-layout-right .suki-page-header-row',
+		'property' => 'max-width',
+	),
+);
+
 $add['page_header_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -1171,16 +1179,13 @@ $add['page_header_breadcrumb_link_hover_text_color'] = array(
 	),
 );
 
-foreach ( array( 'bg_image', 'bg_attachment' ) as $prop ) {
-	$add['page_header_' . $prop ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-page-header-inner',
-			'property' => str_replace( 'bg_', 'background-', $prop ),
-			'pattern'  => ( 'bg_image' == $prop ) ? 'url($)' : '$',
-		),
-	);
-}
+$add['page_header_bg_attachment'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-page-header-inner',
+		'property' => 'background-attachment',
+	),
+);
 
 $add['page_header_bg_overlay_color'] = array(
 	array(

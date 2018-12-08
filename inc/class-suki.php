@@ -415,7 +415,7 @@ class Suki {
 		}
 
 		if ( '' !== $page_header_bg_image ) {
-			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
+			$css_array['global']['.suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
 		}
 
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );

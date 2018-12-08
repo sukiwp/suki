@@ -2472,12 +2472,27 @@ body.suki-page-layout-boxed #page {
 	text-align: right;
 }
 
+.suki-page-header-layout-left .suki-page-header-row {
+	margin-right: 0;
+	margin-left: auto;
+}
+
 .suki-page-header-layout-center {
 	text-align: center;
 }
 
+.suki-page-header-layout-center .suki-page-header-row {
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .suki-page-header-layout-right {
 	text-align: left;
+}
+
+.suki-page-header-layout-right .suki-page-header-row {
+	margin-right: auto;
+	margin-left: 0;
 }
 
 .suki-page-header-title {

@@ -88,14 +88,10 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 
 $add['suki_section_header_mobile_main_bar'] =
 $add['suki_section_header_mobile_vertical_bar'] = array(
-	'relation' => 'OR',
 	array(
 		'setting'  => '__device',
-		'value'    => 'tablet',
-	),
-	array(
-		'setting'  => '__device',
-		'value'    => 'mobile',
+		'operator' => 'in',
+		'value'    => array( 'tablet', 'mobile' ),
 	),
 );
 
@@ -115,14 +111,10 @@ $add['header_elements' ] = array(
 
 // Mobile Header Elements
 $add['header_mobile_elements'] = array(
-	'relation' => 'OR',
 	array(
 		'setting'  => '__device',
-		'value'    => 'tablet',
-	),
-	array(
-		'setting'  => '__device',
-		'value'    => 'mobile',
+		'operator' => 'in',
+		'value'    => array( 'tablet', 'mobile' ),
 	),
 );
 
@@ -131,6 +123,14 @@ $add['header_mobile_elements'] = array(
  * Page Header (Title Bar)
  * ====================================================
  */
+
+$add['page_header_layout_width'] = array(
+	array(
+		'setting'  => 'page_header_layout',
+		'operator' => 'in',
+		'value'    => array( 'left', 'center', 'right' ),
+	),
+);
 
 $add['breadcrumb_plugin'] =
 $add['page_header_breadcrumb_typography'] =
