@@ -1815,8 +1815,8 @@ body.suki-page-layout-boxed #page {
 	min-width: 100%;
 	border-width: 1px;
 	border-style: solid;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 	visibility: hidden;
 	opacity: 0;
 	-webkit-transition: opacity 0.25s, visibility 0s 0.25s;
