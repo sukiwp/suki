@@ -853,9 +853,13 @@ p.demo_store {
 		margin-right: 0;
 		margin-bottom: 1.25rem;
 
+		tbody tr:first-child td:first-child {
+			@include border( top );
+			border-color: inherit;
+		}
+
 		th, td {
 			padding: 0.6rem 0.8rem;
-			border-top: none;
 			border-left: none;
 			border-right: none;
 			border-color: inherit;
@@ -868,7 +872,7 @@ p.demo_store {
 
 		&.shop_table_responsive {
 			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				border-bottom: none;
+				border-top: none;
 			}
 		}
 	}
@@ -1008,7 +1012,6 @@ p.demo_store {
 		tr {
 			td {
 				text-align: right;
-				border-top: none;
 			}
 		}
 
