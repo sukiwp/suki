@@ -31,10 +31,10 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 
 Screenshot images are all licensed under CC0 Universal
 https://www.pexels.com/photo/man-in-blue-suit-999267/
-https://www.pexels.com/photo/man-standing-near-building-white-black-turtleneck-shirt-874158/
-https://www.pexels.com/photo/blur-close-up-depth-of-field-female-458649/
 https://www.pexels.com/photo/person-in-teal-ice-cream-print-tank-top-holds-ice-cream-886285/
 https://www.pexels.com/photo/woman-holding-black-leather-bag-1204464/
+https://www.pexels.com/photo/beach-beautiful-enjoying-female-601168/
+https://www.pexels.com/photo/closeup-photo-of-smiling-woman-wearing-blue-denim-jacket-1130626/
 
 == Copyright ==
 

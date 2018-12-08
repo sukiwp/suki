@@ -1,6 +1,27 @@
 v0.7.0
-- FIX: Alignleft, alignright, aligncenter CSS.
-- FIX: Some minor CSS.
+- NEW: Move Gutenberg compatibility features into core.
+- NEW: Gutenberg editor's styles.
+- NEW: Option to set spacing between header's merged bars (top and bottom) and the main bar.
+- NEW: Option to set spacing between footer's merged bottom bar and the widgets bar.
+- NEW: Option to set spacing between footer's merged bottom bar and the widgets bar.
+- NEW: Option to set active menu link colors including its highlight effect colors.
+- NEW: Option to set spacing between elements on footer bottom bar.
+- NEW: Option to set page header background overlay color along with transparency.
+- NEW: Option to set page header layout width when on "left", "center", "right" layout.
+- NEW: Option to set WooCommerce products grid text alignment.
+- NEW: Option to set post / page content header alignment.
+- NEW: Percentage (%) unit on all section padding settings.
+- TWEAK: Move "Page Settings" metabox to side panels (for better experience on Gutenberg).
+- TWEAK: Remove static page's template hooks and use same hooks as default post content's.
+- TWEAK: Header's merged bars HTML structure.
+- TWEAK: Footer's merged bars HTML structure.
+- TWEAK: Suki Pro modules list.
+- TWEAK: Remove "page header background overlay opacity" setting in favor of "page header background overlay color".
+- TWEAK: Update Google Fonts JSON.
+- FIX: JS warning when header is disabled.
+- FIX: Reponsive switcher on Customizer's slider and typography controls.
+- FIX: Some WooCommerce CSS.
+- FIX: Some template CSS.
 
 v0.6.3
 - TWEAK: Make header HTML elements allow all HTML tags.
