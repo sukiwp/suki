@@ -1128,13 +1128,21 @@ $add['page_header_layout'] = array(
 	),
 );
 
-$add['page_header_layout_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-page-header-layout-left .suki-page-header-row, .suki-page-header-layout-center .suki-page-header-row, .suki-page-header-layout-right .suki-page-header-row',
-		'property' => 'max-width',
-	),
+$responsive = array(
+	''         => '',
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
 );
+foreach ( $responsive as $suffix => $media ) {
+	$add['page_header_layout_width' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-page-header-layout-left .suki-page-header-row, .suki-page-header-layout-center .suki-page-header-row, .suki-page-header-layout-right .suki-page-header-row',
+			'property' => 'max-width',
+			'media'    => $media,
+		),
+	);
+}
 
 $add['page_header_bg_color'] = array(
 	array(

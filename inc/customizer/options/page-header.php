@@ -138,12 +138,20 @@ $wp_customize->add_control( $id, array(
 
 // Effective text width
 $id = 'page_header_layout_width';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
+$settings = array(
+	$id,
+	$id . '__tablet',
+	$id . '__mobile',
+);
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	) );
+}
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Effective width', 'suki' ),
 	'units'       => array(

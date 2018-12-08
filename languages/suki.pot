@@ -778,7 +778,7 @@ msgstr ""
 msgid "Border"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:79, inc/customizer/options/content--sidebar.php:181, inc/customizer/options/footer--bottom-bar.php:157, inc/customizer/options/footer--widgets-bar.php:138, inc/customizer/options/header--mobile-main-bar.php:117, inc/customizer/options/header--mobile-vertical-bar.php:129, inc/customizer/options/header--top-main-bottom-bar.php:175, inc/customizer/options/page-header.php:216
+#: inc/customizer/options/content--main.php:79, inc/customizer/options/content--sidebar.php:181, inc/customizer/options/footer--bottom-bar.php:157, inc/customizer/options/footer--widgets-bar.php:138, inc/customizer/options/header--mobile-main-bar.php:117, inc/customizer/options/header--mobile-vertical-bar.php:129, inc/customizer/options/header--top-main-bottom-bar.php:175, inc/customizer/options/page-header.php:224
 msgid "Typography"
 msgstr ""
 
@@ -791,7 +791,7 @@ msgstr ""
 msgid "Body (Base)"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:98, inc/customizer/options/content--sidebar.php:321, inc/customizer/options/footer--bottom-bar.php:203, inc/customizer/options/footer--widgets-bar.php:278, inc/customizer/options/header--mobile-main-bar.php:151, inc/customizer/options/header--mobile-vertical-bar.php:235, inc/customizer/options/header--top-main-bottom-bar.php:281, inc/customizer/options/page-header.php:294
+#: inc/customizer/options/content--main.php:98, inc/customizer/options/content--sidebar.php:321, inc/customizer/options/footer--bottom-bar.php:203, inc/customizer/options/footer--widgets-bar.php:278, inc/customizer/options/header--mobile-main-bar.php:151, inc/customizer/options/header--mobile-vertical-bar.php:235, inc/customizer/options/header--top-main-bottom-bar.php:281, inc/customizer/options/page-header.php:302
 msgid "Colors"
 msgstr ""
 
@@ -876,11 +876,11 @@ msgstr ""
 msgid "Border bottom"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:327, inc/customizer/options/elements--buttons.php:110, inc/customizer/options/elements--form-inputs.php:80, inc/customizer/options/footer--bottom-bar.php:209, inc/customizer/options/footer--widgets-bar.php:284, inc/customizer/options/header--mobile-main-bar.php:157, inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:287, inc/customizer/options/page-header.php:300, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:89, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
+#: inc/customizer/options/content--sidebar.php:327, inc/customizer/options/elements--buttons.php:110, inc/customizer/options/elements--form-inputs.php:80, inc/customizer/options/footer--bottom-bar.php:209, inc/customizer/options/footer--widgets-bar.php:284, inc/customizer/options/header--mobile-main-bar.php:157, inc/customizer/options/header--mobile-vertical-bar.php:241, inc/customizer/options/header--top-main-bottom-bar.php:287, inc/customizer/options/page-header.php:308, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:89, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
 msgid "Background color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:328, inc/customizer/options/elements--buttons.php:111, inc/customizer/options/elements--form-inputs.php:81, inc/customizer/options/footer--bottom-bar.php:210, inc/customizer/options/footer--widgets-bar.php:285, inc/customizer/options/header--mobile-main-bar.php:158, inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:288, inc/customizer/options/page-header.php:301, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:90
+#: inc/customizer/options/content--sidebar.php:328, inc/customizer/options/elements--buttons.php:111, inc/customizer/options/elements--form-inputs.php:81, inc/customizer/options/footer--bottom-bar.php:210, inc/customizer/options/footer--widgets-bar.php:285, inc/customizer/options/header--mobile-main-bar.php:158, inc/customizer/options/header--mobile-vertical-bar.php:242, inc/customizer/options/header--top-main-bottom-bar.php:288, inc/customizer/options/page-header.php:309, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:90
 msgid "Border color"
 msgstr ""
 
@@ -1464,11 +1464,11 @@ msgstr ""
 msgid "Outside background attachment"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:249, inc/customizer/options/page-header.php:359
+#: inc/customizer/options/page-container.php:249, inc/customizer/options/page-header.php:367
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:250, inc/customizer/options/page-header.php:360
+#: inc/customizer/options/page-container.php:250, inc/customizer/options/page-header.php:368
 msgid "Fixed"
 msgstr ""
 
@@ -1505,67 +1505,67 @@ msgstr ""
 msgid "Left title -- Right breadcrumb"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:148
+#: inc/customizer/options/page-header.php:156
 msgid "Effective width"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:168, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:92, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:27
+#: inc/customizer/options/page-header.php:176, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:92, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:27
 msgid "Show breadcrumb"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:169
+#: inc/customizer/options/page-header.php:177
 msgid "You need to install an additional plugin in order to display breadcrumb. Please choose one from the available plugins below. The selected plugin must be installed and active."
 msgstr ""
 
-#: inc/customizer/options/page-header.php:185
+#: inc/customizer/options/page-header.php:193
 msgid "Breadcrumb Trail"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:186
+#: inc/customizer/options/page-header.php:194
 msgid "Breadcrumb NavXT"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:187
+#: inc/customizer/options/page-header.php:195
 msgid "Yoast SEO"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:248
+#: inc/customizer/options/page-header.php:256
 msgid "Page title typography"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:280
+#: inc/customizer/options/page-header.php:288
 msgid "Breadcrumb typography"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:302
+#: inc/customizer/options/page-header.php:310
 msgid "Page title text color"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:303
+#: inc/customizer/options/page-header.php:311
 msgid "Breadcrumb text color"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:304
+#: inc/customizer/options/page-header.php:312
 msgid "Breadcrumb link text color"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:305
+#: inc/customizer/options/page-header.php:313
 msgid "Breadcrumb link text color :hover"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:330
+#: inc/customizer/options/page-header.php:338
 msgid "Background Image (Global Default)"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:342
+#: inc/customizer/options/page-header.php:350
 msgid "Background image"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:357
+#: inc/customizer/options/page-header.php:365
 msgid "Background attachment"
 msgstr ""
 
-#: inc/customizer/options/page-header.php:374
+#: inc/customizer/options/page-header.php:382
 msgid "Background overlay color"
 msgstr ""
 
@@ -1867,7 +1867,7 @@ msgid "Alt Button"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:83
-msgid "Used in single product \"Add to Cart\" and Checkout page"
+msgid "Used in single product \"Add to Cart\" and Checkout page."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:36
