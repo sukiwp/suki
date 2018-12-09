@@ -525,10 +525,7 @@ function suki_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
-
-	// Add frontend class.
-	$classes['frontend'] = 'frontend';
-
+	
 	// Add page layout class.
 	$classes['page_layout'] = esc_attr( 'suki-page-layout-' . suki_get_theme_mod( 'page_layout' ) );
 

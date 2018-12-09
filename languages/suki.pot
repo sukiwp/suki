@@ -104,47 +104,51 @@ msgid "Color Palette"
 msgstr ""
 
 #: inc/helpers.php:465
-msgid "Preloader Screen"
+msgid "Mega Menu"
 msgstr ""
 
 #: inc/helpers.php:470
-msgid "Blog Plus"
+msgid "Preloader Screen"
 msgstr ""
 
 #: inc/helpers.php:475
-msgid "WooCommerce Plus"
+msgid "Blog Plus"
 msgstr ""
 
 #: inc/helpers.php:480
+msgid "WooCommerce Plus"
+msgstr ""
+
+#: inc/helpers.php:485
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:617
+#: inc/helpers.php:622
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:618
+#: inc/helpers.php:623
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:619
+#: inc/helpers.php:624
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:620
+#: inc/helpers.php:625
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:621
+#: inc/helpers.php:626
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:622
+#: inc/helpers.php:627
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
