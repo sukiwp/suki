@@ -1,8 +1,6 @@
 /**
  * Theme Customizer custom controls handlers
  */
-;jQuery.noConflict();
-
 (function( exports, $ ) {
 	"use strict";
 

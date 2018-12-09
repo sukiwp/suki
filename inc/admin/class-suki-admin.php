@@ -53,7 +53,9 @@ class Suki_Admin {
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
-		add_action( 'tiny_mce_before_init', array( $this, 'modify_tiny_mce_config' ) );
+		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
+		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_body_class' ) );
+		add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
 
 		// Suki admin page hooks
 		add_action( 'suki/admin/dashboard/logo', array( $this, 'render_logo__image' ), 10 );
@@ -184,29 +186,27 @@ class Suki_Admin {
 	 */
 	public function add_editor_css() {
 		add_editor_style( SUKI_CSS_URL . '/admin/editor' . SUKI_ASSETS_SUFFIX . '.css' );
-		add_editor_style( Suki_Customizer::instance()->generate_active_google_fonts_embed_url() );
+
+		wp_enqueue_style( 'suki-editor-google-fonts', Suki_Customizer::instance()->generate_active_google_fonts_embed_url() );
 	}
 
 	/**
-	 * Modify TinyMCE configurations.
-	 * - Add dymanic CSS for editor page.
-	 * - Add content layout body class.
+	 * Add custom CSS to classic editor.
 	 *
-	 * @param array $mceinit
+	 * @param array $settings
 	 * @return array
 	 */
-	public function modify_tiny_mce_config( $mceinit ) {
+	public function add_classic_editor_custom_css( $settings ) {
 		global $post;
 
 		if ( empty( $post ) ) return;
 
-		/**
-		 * Add dynamic CSS.
-		 */
-
 		$css_array = array(
 			'global' => array(),
 		);
+
+		// TinyMCE HTML
+		$css_array['global']['html']['background-color'] = '#fcfcfc';
 
 		// Typography
 		$active_google_fonts = array();
@@ -249,26 +249,83 @@ class Suki_Admin {
 		$styles = wp_slash( suki_convert_css_array_to_string( $css_array ) );
 
 		// Merge with existing styles or add new styles.
-		if ( ! isset( $mceinit['content_style'] ) ) {
-			$mceinit['content_style'] = $styles . ' ';
+		if ( ! isset( $settings['content_style'] ) ) {
+			$settings['content_style'] = $styles . ' ';
 		} else {
-			$mceinit['content_style'] .= ' ' . $styles . ' ';
+			$settings['content_style'] .= ' ' . $styles . ' ';
 		}
 
-		/**
-		 * Add body class.
-		 */
+		return $settings;
+	}
+
+	/**
+	 * Add body class to classic editor.
+	 *
+	 * @param array $settings
+	 * @return array
+	 */
+	public function add_classic_editor_body_class( $settings ) {
+		global $post;
+
+		if ( empty( $post ) ) return;
 
 		$class = 'suki-editor-' . suki_get_page_setting_by_post_id( 'content_layout', $post->ID );
 
 		// Merge with existing classes or add new class.
-		if ( ! isset( $mceinit['body_class'] ) ) {
-			$mceinit['body_class'] = $class . ' ';
+		if ( ! isset( $settings['body_class'] ) ) {
+			$settings['body_class'] = $class . ' ';
 		} else {
-			$mceinit['body_class'] .= ' ' . $class . ' ';
+			$settings['body_class'] .= ' ' . $class . ' ';
 		}
 
-		return $mceinit;
+		return $settings;
+	}
+
+	/**
+	 * Add custom CSS to Gutenberg editor.
+	 *
+	 * @param array $settings
+	 * @return array
+	 */
+	public function add_gutenberg_custom_css( $settings ) {
+		$css_array = array();
+
+		// Content width
+		$css_array['global']['.wp-block']['max-width'] = 'calc(' . suki_get_theme_mod( 'content_narrow_width' ) . ' + ' . '30px)';
+		$css_array['global']['.wp-block[data-align="wide"]']['max-width'] = 'calc(' . suki_get_theme_mod( 'container_width' ) . ' + ' . '30px)';
+
+		// Typography
+		$active_google_fonts = array();
+		$typography_types = array( 'body', 'blockquote', 'h1', 'h2', 'h3', 'h4' );
+		$fonts = suki_get_all_fonts();
+
+		foreach ( $typography_types as $type ) {
+			$selected_font_family = suki_get_theme_mod( $type . '_font_family' );
+
+			if ( '' === $selected_font_family || 'inherit' === $selected_font_family ) {
+				$select_font_stack = $selected_font_family;
+			} else {
+				$chunks = explode( '|', $selected_font_family );
+				if ( 2 === count( $chunks ) ) {
+					$select_font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
+				}
+			}
+
+			$css_array['global'][ $type ]['font-family'] = $select_font_stack;
+			$css_array['global'][ $type ]['font-weight'] = suki_get_theme_mod( $type . '_font_weight' );
+			$css_array['global'][ $type ]['font-style'] = suki_get_theme_mod( $type . '_font_style' );
+			$css_array['global'][ $type ]['text-transform'] = suki_get_theme_mod( $type . '_text_transform' );
+			$css_array['global'][ $type ]['font-size'] = suki_get_theme_mod( $type . '_font_size' );
+			$css_array['global'][ $type ]['line-height'] = suki_get_theme_mod( $type . '_line_height' );
+			$css_array['global'][ $type ]['letter-spacing'] = suki_get_theme_mod( $type . '_letter_spacing' );
+		}
+
+		// Add to settings array.
+		$settings['styles'][] = array(
+			'css' => suki_convert_css_array_to_string( $css_array ),
+		);
+
+		return $settings;
 	}
 
 	/**
@@ -346,7 +403,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render logo on Suki admin page content.
+	 * Render logo on Suki admin page's content.
 	 */
 	public function render_logo__image() {
 		?>
@@ -355,7 +412,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render logo on Suki admin page content.
+	 * Render logo on Suki admin page's content.
 	 */
 	public function render_logo__version() {
 		?>
@@ -364,7 +421,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render welcome panel on Suki admin page content.
+	 * Render welcome panel on Suki admin page's content.
 	 */
 	public function render_content__welcome_panel() {
 		?>
@@ -391,7 +448,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render pro modules table on Suki admin page content.
+	 * Render pro modules table on Suki admin page's content.
 	 */
 	public function render_content__pro_modules_table() {
 		?>
@@ -446,7 +503,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Go to Customizer" button on Suki admin page sidebar.
+	 * Render "Go to Customizer" button on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__customizer() {
 		?>
@@ -459,7 +516,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Suki Pro" info box on Suki admin page sidebar.
+	 * Render "Suki Pro" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__pro() {
 		if ( suki_is_pro() ) return;
@@ -480,7 +537,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Documentation" info box on Suki admin page sidebar.
+	 * Render "Documentation" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__documentation() {
 		?>
@@ -500,7 +557,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Community" info box on Suki admin page sidebar.
+	 * Render "Community" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__community() {
 		?>
@@ -520,7 +577,7 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Feedback" info box on Suki admin page sidebar.
+	 * Render "Feedback" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__feedback() {
 		?>

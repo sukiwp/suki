@@ -1,6 +1,3 @@
-@import "../__variables";
-@import "../__mixins";
-
 // -------------------------------------------------------------
 // Alignment
 // -------------------------------------------------------------
@@ -42,7 +39,20 @@
 // Global block
 // -------------------------------------------------------------
 
-[class*="wp-block"] {
+.entry-content > [class*="wp-block"],
+.wp-block-column > [class*="wp-block"] {
+	margin-bottom: 1.25rem;
+}
+
+// -------------------------------------------------------------
+// Columns
+// -------------------------------------------------------------
+
+.wp-block-columns {
+	margin-bottom: 0 !important;
+}
+
+.wp-block-column {
 	margin-bottom: 1.25rem;
 }
 
@@ -67,6 +77,18 @@ p.has-drop-cap:not(:focus):first-letter {
 // -------------------------------------------------------------
 
 .wp-block-quote {
+	padding: 0.5rem 2rem;
+	@include border( left, 0.25rem, solid );
+
+	&[style*="center"] {
+		border-left: none;
+	}
+
+	&[style*="right"] {
+		border-left: none;
+		@include border( right, 0.25rem, solid );
+	}
+
 	p {
 		font: inherit;
 	}
@@ -162,6 +184,14 @@ p.wp-block-subhead {
 }
 
 // -------------------------------------------------------------
+// Gallery
+// -------------------------------------------------------------
+
+.wp-block-gallery {
+	padding: 0;
+}
+
+// -------------------------------------------------------------
 // Audio
 // -------------------------------------------------------------
 
@@ -186,8 +216,8 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-separator {
-	margin: 2.5rem 0;
-	max-width: none;
+	margin: 2.5rem 0 !important;
+	max-width: none !important;
 	border-bottom: none; // reset
 	@include border( top );
 	border-color: inherit;
@@ -197,10 +227,8 @@ p.wp-block-subhead {
 // Button
 // -------------------------------------------------------------
 
-.wp-block-button {
-	.wp-block-button__link {
-		@include button();
-	}
+.wp-block-button__link {
+	@include button();
 }
 
 // -------------------------------------------------------------
@@ -209,6 +237,11 @@ p.wp-block-subhead {
 
 .wp-block-embed {
 	.suki-oembed {
+		// reset in favor of "responsive-embeds" theme support
+		position: static;
+		padding: 0 !important;
+		margin: 0;
+
 		> * {
 			margin-top: 0;
 			margin-bottom: 0;

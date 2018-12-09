@@ -324,7 +324,7 @@ $add['woocommerce_demo_store_notice_text_color'] = array(
 
 /**
  * ====================================================
- * WooCommerce > Products Catalog
+ * WooCommerce > Shop (Catalog) Page
  * ====================================================
  */
 
@@ -340,6 +340,13 @@ $add['woocommerce_products_grid_columns_gutter'] = array(
 		'element'  => '.woocommerce ul.products',
 		'property' => 'margin',
 		'pattern'  => '0 -$',
+	),
+);
+$add['woocommerce_products_grid_text_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.woocommerce ul.products',
+		'pattern'  => 'suki-text-align-$',
 	),
 );
 

@@ -542,8 +542,8 @@ class Suki_Customizer {
 		// Media groups are defined now, for proper responsive orders.
 		$css_array = array(
 			'global' => array(),
-			'tablet' => array(),
-			'mobile' => array(),
+			'@media screen and (max-width: 1023px)' => array(),
+			'@media screen and (max-width: 499px)' => array(),
 		);
 
 		// Loop through each setting.
@@ -599,7 +599,7 @@ class Suki_Customizer {
 		// Check if there is no type defined, then return false.
 		if ( ! isset( $rule['type'] ) ) return false;
 
-		// Skup rule if it's not CSS related.
+		// Skip rule if it's not CSS related.
 		if ( ! in_array( $rule['type'], array( 'css', 'font' ) ) ) return false;
 
 		// Check if no element selector is defined, then return false.

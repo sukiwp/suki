@@ -50,18 +50,27 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 		),
 	);
 	
-	if ( 'main_bar' !==  $type ) {
+	if ( 'main_bar' !== $type ) {
 		$add['header_' . $type . '_container'] = array(
 			array(
-				'setting'  => 'header_top_bar_merged',
+				'setting'  => 'header_' . $type . '_merged',
 				'operator' => '!=',
+				'value'    => 1,
+			),
+		);
+		$add['header_' . $type . '_merged_gap'] = array(
+			array(
+				'setting'  => 'header_' . $type . '_merged',
+				'operator' => '==',
 				'value'    => 1,
 			),
 		);
 	}
 
-	$add['header_' . $type . '_menu_highlight_color'] =
-	$add['header_' . $type . '_menu_highlight_text_color'] = array(
+	$add['header_' . $type . '_menu_hover_highlight_color'] =
+	$add['header_' . $type . '_menu_hover_highlight_text_color'] =
+	$add['header_' . $type . '_menu_active_highlight_color'] =
+	$add['header_' . $type . '_menu_active_highlight_text_color'] = array(
 		array(
 			'setting'  => 'header_' . $type . '_menu_highlight',
 			'operator' => '!=',
@@ -79,14 +88,10 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 
 $add['suki_section_header_mobile_main_bar'] =
 $add['suki_section_header_mobile_vertical_bar'] = array(
-	'relation' => 'OR',
 	array(
 		'setting'  => '__device',
-		'value'    => 'tablet',
-	),
-	array(
-		'setting'  => '__device',
-		'value'    => 'mobile',
+		'operator' => 'in',
+		'value'    => array( 'tablet', 'mobile' ),
 	),
 );
 
@@ -106,14 +111,10 @@ $add['header_elements' ] = array(
 
 // Mobile Header Elements
 $add['header_mobile_elements'] = array(
-	'relation' => 'OR',
 	array(
 		'setting'  => '__device',
-		'value'    => 'tablet',
-	),
-	array(
-		'setting'  => '__device',
-		'value'    => 'mobile',
+		'operator' => 'in',
+		'value'    => array( 'tablet', 'mobile' ),
 	),
 );
 
@@ -122,6 +123,14 @@ $add['header_mobile_elements'] = array(
  * Page Header (Title Bar)
  * ====================================================
  */
+
+$add['page_header_layout_width'] = array(
+	array(
+		'setting'  => 'page_header_layout',
+		'operator' => 'in',
+		'value'    => array( 'left', 'center', 'right' ),
+	),
+);
 
 $add['breadcrumb_plugin'] =
 $add['page_header_breadcrumb_typography'] =
@@ -145,6 +154,27 @@ $add['footer_bottom_bar_container'] = array(
 		'setting'  => 'footer_bottom_bar_merged',
 		'operator' => '!=',
 		'value'    => 1,
+	),
+);
+$add['footer_bottom_bar_merged_gap'] = array(
+	array(
+		'setting'  => 'footer_bottom_bar_merged',
+		'operator' => '==',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Posts Page
+ * ====================================================
+ */
+
+$add['blog_index_grid_columns'] =
+$add['blog_index_grid_columns_gutter'] = array(
+	array(
+		'setting'  => 'blog_index_loop_mode',
+		'value'    => 'grid',
 	),
 );
 

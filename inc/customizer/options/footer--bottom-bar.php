@@ -29,6 +29,25 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+// Merged gap
+$id = 'footer_bottom_bar_merged_gap';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Gap with Widgets Bar content', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'   => 0,
+			'step'  => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
 // ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_footer_bottom_bar_merged', array(
 	'section'     => $section,
@@ -78,6 +97,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'min'  => 0,
 			'step' => 1,
 		),
+		'%' => array(
+			'min'  => 0,
+			'step' => 0.01,
+		),
 	),
 	'priority'    => 10,
 ) ) );
@@ -96,6 +119,26 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		'px' => array(
 			'min'  => 0,
 			'step' => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
+// Items gutter
+$id = 'footer_bottom_bar_items_gutter';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Spacing between elements', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'   => 0,
+			'max'   => 40,
+			'step'  => 1,
 		),
 	),
 	'priority'    => 10,

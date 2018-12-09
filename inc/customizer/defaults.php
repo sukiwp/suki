@@ -273,6 +273,7 @@ $add['header_social_links_target'] = 'self';
  */
 
 $add['header_top_bar_merged'] = 0;
+$add['header_top_bar_merged_gap'] = '0px';
 
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '40px';
@@ -314,8 +315,12 @@ $add['header_top_bar_border_color'] = $colors['border'];
 $add['header_top_bar_text_color'] = $colors['text'];
 $add['header_top_bar_link_text_color'] = $colors['heading'];
 $add['header_top_bar_link_hover_text_color'] = $colors['text'];
-$add['header_top_bar_menu_highlight_color'] = $colors['accent'];
-$add['header_top_bar_menu_highlight_text_color'] = '';
+$add['header_top_bar_link_active_text_color'] = '';
+
+$add['header_top_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_top_bar_menu_hover_highlight_text_color'] = '';
+$add['header_top_bar_menu_active_highlight_color'] = '';
+$add['header_top_bar_menu_active_highlight_text_color'] = '';
 
 /**
  * ====================================================
@@ -363,7 +368,12 @@ $add['header_main_bar_border_color'] = $colors['border'];
 $add['header_main_bar_text_color'] = $colors['text'];
 $add['header_main_bar_link_text_color'] = $colors['heading'];
 $add['header_main_bar_link_hover_text_color'] = $colors['text'];
-$add['header_main_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_main_bar_link_active_text_color'] = '';
+
+$add['header_main_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_main_bar_menu_hover_highlight_text_color'] = '';
+$add['header_main_bar_menu_active_highlight_color'] = '';
+$add['header_main_bar_menu_active_highlight_text_color'] = '';
 
 /**
  * ====================================================
@@ -372,6 +382,7 @@ $add['header_main_bar_menu_highlight_color'] = $colors['accent'];
  */
 
 $add['header_bottom_bar_merged'] = 0;
+$add['header_bottom_bar_merged_gap'] = '0px';
 
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '40px';
@@ -413,7 +424,12 @@ $add['header_bottom_bar_border_color'] = $colors['border'];
 $add['header_bottom_bar_text_color'] = $colors['text'];
 $add['header_bottom_bar_link_text_color'] = $colors['heading'];
 $add['header_bottom_bar_link_hover_text_color'] = $colors['text'];
-$add['header_bottom_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_bottom_bar_link_active_text_color'] = '';
+
+$add['header_bottom_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_bottom_bar_menu_hover_highlight_text_color'] = '';
+$add['header_bottom_bar_menu_active_highlight_color'] = '';
+$add['header_bottom_bar_menu_active_highlight_text_color'] = '';
 
 /**
  * ====================================================
@@ -474,11 +490,11 @@ $add['header_mobile_vertical_bar_submenu_letter_spacing'] = '';
 $add['header_mobile_vertical_bar_icon_size'] = '18px';
 
 $add['header_mobile_vertical_bar_bg_color'] = $colors['bg'];
-$add['header_mobile_vertical_bar_border_color'] = $colors['border'];
-$add['header_mobile_vertical_bar_text_color'] = $colors['text'];
+$add['header_mobile_vertical_bar_border_color'] = '';
+$add['header_mobile_vertical_bar_text_color'] = '';
 $add['header_mobile_vertical_bar_link_text_color'] = $colors['heading'];
 $add['header_mobile_vertical_bar_link_hover_text_color'] = $colors['text'];
-$add['header_mobile_vertical_bar_menu_highlight_color'] = $colors['accent'];
+$add['header_mobile_vertical_bar_link_active_text_color'] = '';
 
 /**
  * ====================================================
@@ -493,6 +509,7 @@ $add['page_header_padding'] = '80px 20px 80px 20px';
 $add['page_header_border'] = '0px 0px 1px 0px';
 
 $add['page_header_layout'] = 'center';
+$add['page_header_layout_width'] = '100%';
 
 $add['page_header_breadcrumb'] = 1;
 $add['breadcrumb_plugin'] = 'breadcrumb-trail';
@@ -522,7 +539,7 @@ $add['page_header_breadcrumb_link_hover_text_color'] = $colors['accent'];
 
 $add['page_header_bg_image'] = '';
 $add['page_header_bg_attachment'] = 'scroll';
-$add['page_header_bg_overlay_opacity'] = '';
+$add['page_header_bg_overlay_color'] = '';
 
 /**
  * ====================================================
@@ -649,10 +666,12 @@ $add['footer_widgets_bar_widget_title_border_color'] = '';
  */
 
 $add['footer_bottom_bar_merged'] = 0;
+$add['footer_bottom_bar_merged_gap'] = '0px';
 
 $add['footer_bottom_bar_container'] = 'default';
 $add['footer_bottom_bar_padding'] = '25px 20px 25px 20px';
 $add['footer_bottom_bar_border'] = '1px 0px 0px 0px';
+$add['footer_bottom_bar_items_gutter'] = '12px';
 
 $add['footer_bottom_bar_font_family'] = '';
 $add['footer_bottom_bar_font_weight'] = '';
@@ -687,7 +706,7 @@ $add['footer_social_links_target'] = 'self';
 
 /**
  * ====================================================
- * Blog > Posts Index
+ * Blog > Posts Page
  * ====================================================
  */
 
@@ -696,7 +715,7 @@ $add['blog_index_navigation_mode'] = 'pagination';
 
 /**
  * ====================================================
- * Blog > Single Post
+ * Blog > Single Post Page
  * ====================================================
  */
 
@@ -712,6 +731,7 @@ $add['blog_single_navigation'] = 1;
 $add['entry_featured_media_position'] = 'before-entry-header';
 $add['entry_featured_media_ignore_padding'] = 0;
 $add['entry_header'] = array( 'header-meta', 'title' );
+$add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
 $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
 
@@ -724,10 +744,11 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
 $add['blog_index_grid_columns'] = 2;
 $add['blog_index_grid_columns_gutter'] = '15px';
 
+$add['entry_grid_excerpt_length'] = 30;
 $add['entry_grid_featured_media_position'] = 'before-entry-header';
 $add['entry_grid_header'] = array( 'header-meta', 'title' );
+$add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
 $add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
-$add['entry_grid_excerpt_length'] = 30;
 
 $defaults = array_merge_recursive( $defaults, $add );

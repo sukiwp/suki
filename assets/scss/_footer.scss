@@ -23,10 +23,6 @@
 
 	.widget {
 		margin-bottom: 40px; // default
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 }
 
@@ -46,11 +42,6 @@
 .suki-footer-widgets-bar-column {
 	width: 100%; // default
 	padding: 0 15px; // default
-	margin-bottom: 40px; // default
-
-	&.suki-empty {
-		margin: 0 !important;
-	}
 		
 	.suki-footer-widgets-bar-columns-2 & {
 		width: 50%; // default
@@ -107,24 +98,23 @@
 }
 
 .suki-footer-bottom-bar-row {
-	// margin-bottom: -1.25em;
+	@include flex();
+	margin: 0 -12px; // default
+	white-space: nowrap;
 
-	@media screen and ( min-width: $breakpoint_1024 ) {
-		@include flex();
-		white-space: nowrap;
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: block;
 	}
 }
 
 .suki-footer-bottom-bar-column {
-	// margin-bottom: 1.25em;
-	
-	// > * {
-	// 	margin-bottom: 1.25em;
-
-	// 	&:last-child {
-	// 		margin-bottom: 0;
-	// 	}
-	// }
+	> * {
+		@include flex();
+		justify-content: inherit;
+		height: 100%;
+		max-width: 100%;
+		padding: 0 12px; // default
+	}
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		text-align: center;
@@ -135,5 +125,17 @@
 .suki-footer-bottom-bar-right {
 	@media screen and ( min-width: $breakpoint_1024 ) {
 		width: 50%;
+	}
+}
+
+.suki-footer-menu {
+	padding: 0 !important;
+	
+	ul {
+		@include flex();
+
+		li {
+			padding: 0 12px; // default
+		}
 	}
 }

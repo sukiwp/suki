@@ -1,4 +1,5 @@
 @import "../__variables";
+
 @import "../__mixins";
 
 // -------------------------------------------------------------
@@ -22,6 +23,10 @@
 		.form-row {
 			padding: 0;
 			margin: 0 0 1.25rem;
+
+			label {
+				line-height: inherit;
+			}
 		}
 
 		.form-row-first, .form-row-last {
@@ -848,13 +853,22 @@ p.demo_store {
 		margin-right: 0;
 		margin-bottom: 1.25rem;
 
-		th, td {
-			padding: 0.6rem 0.8rem;
-			border-top: none;
-			border-left: none;
-			border-right: none;
-			border-color: inherit;
+		thead, tbody, tfoot {
+			tr:first-child td:first-child {
+				@include border( top );
+				border-color: inherit;
+			}
+
+			th, td {
+				padding: 0.6rem 0.8rem;
+				@include border( top );
+				border-color: inherit;
+				border-left: none;
+				border-right: none;
+				border-color: inherit;
+			}
 		}
+
 
 		a {
 			text-decoration: none;
@@ -863,7 +877,7 @@ p.demo_store {
 
 		&.shop_table_responsive {
 			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				border-bottom: none;
+				border-top: none;
 			}
 		}
 	}
@@ -1001,9 +1015,13 @@ p.demo_store {
 
 	.cart_totals {
 		tr {
+			th, td {
+				@include border( top );
+				border-color: inherit;
+			}
+
 			td {
 				text-align: right;
-				border-top: none;
 			}
 		}
 
@@ -1013,6 +1031,8 @@ p.demo_store {
 			a.checkout-button {
 				display: inline-block;
 				margin-bottom: 0;
+				font-size: 1.15rem; // default
+				padding: 13px 15.6px; // default
 			}
 		}
 
@@ -1155,6 +1175,7 @@ p.demo_store {
 		#place_order {
 			float: none;
 			width: 100%;
+			font-size: 1.15rem; // default
 			padding: 13px 15.6px; // default
 		}
 	}

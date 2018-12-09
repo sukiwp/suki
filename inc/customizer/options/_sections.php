@@ -147,6 +147,7 @@ $wp_customize->add_section( 'suki_section_page_container', array(
 $panel = 'suki_panel_header';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
+	'description' => esc_html__( 'Tips: you can customize the Mobile Header by switching to tablet / mobile view.', 'suki' ),
 	'priority'    => 173,
 ) );
 
@@ -402,13 +403,13 @@ $wp_customize->add_panel( $panel, array(
 
 	// Post Index
 	$wp_customize->add_section( 'suki_section_blog_index', array(
-		'title'       => esc_html__( 'Posts Index', 'suki' ),
+		'title'       => esc_html__( 'Posts Page', 'suki' ),
 		'panel'       => $panel,
 	) );
 
 	// Single Post
 	$wp_customize->add_section( 'suki_section_blog_single', array(
-		'title'       => esc_html__( 'Single Post', 'suki' ),
+		'title'       => esc_html__( 'Single Post Page', 'suki' ),
 		'description' => sprintf(
 			/* translators: %s: link to "Post Layout: Default" section. */
 			esc_html__( '"Default" post layout is used as the main post layout. You can configure it on %s', 'suki' ),

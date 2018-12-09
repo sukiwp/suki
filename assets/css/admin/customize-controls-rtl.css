@@ -427,12 +427,14 @@ div.customize-section-description {
 	display: block;
 	height: 6px;
 	margin: 10px 7px 10px 12px;
+	border: none;
 	border-radius: 3px;
 	background: #ccc;
 }
 
 .customize-control-suki-slider .suki-slider-ui .ui-slider-handle {
 	position: absolute;
+	top: 0;
 	display: inline-block;
 	height: 12px;
 	width: 12px;
@@ -973,10 +975,12 @@ div.customize-section-description {
 	}
 }
 
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description,
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-panel-description {
 	display: block;
 }
 
+#sub-accordion-panel-suki_panel_header .customize-info .customize-help-toggle,
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-help-toggle {
 	display: none;
 }

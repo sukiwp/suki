@@ -6,7 +6,7 @@
 	position: relative;
 	margin-bottom: 40px; // default
 
-	&:last-child {
+	.sidebar &:last-child {
 		margin-bottom: 0;
 	}
 
@@ -26,7 +26,7 @@
 .widget-title {
 	margin: 0 0 1.25rem;
 
-	:empty {
+	&:empty {
 		display: none;
 	}
 
@@ -194,6 +194,14 @@
 	// Hide search widget when on search results page.
 	.search-results & {
 		display: none;
+	}
+}
+
+// Image
+.widget_media_image {
+	img {
+		display: table;
+		margin: 0 auto;
 	}
 }
 

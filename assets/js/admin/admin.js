@@ -1,8 +1,6 @@
 /**
  * Admin page javascript
  */
-;jQuery.noConflict();
-
 (function( $ ) {
 	"use strict";
 

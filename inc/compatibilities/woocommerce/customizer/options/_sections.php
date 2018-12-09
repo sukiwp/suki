@@ -21,21 +21,25 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'priority'    => 9,
 ) ) );
 
+// Products Catalog
+$wp_customize->get_section( 'woocommerce_product_catalog' )->title = esc_html__( 'Shop (Catalog) Page', 'suki' );
+
 // Single Product
 $wp_customize->add_section( 'woocommerce_product_single', array(
-	'title'       => esc_html__( 'Single Product', 'suki' ),
+	'title'       => esc_html__( 'Single Product Page', 'suki' ),
 	'panel'       => $panel,
 	'priority'    => 11, // Place it under the 'Product Catalog' section
 ) );
 
-// Shopping Cart
+// Cart
 $wp_customize->add_section( 'woocommerce_cart', array(
-	'title'       => esc_html__( 'Shopping Cart', 'suki' ),
+	'title'       => esc_html__( 'Cart Page', 'suki' ),
 	'panel'       => $panel,
 	'priority'    => 19, // Place it under the 'Product Catalog' section
 ) );
 
 // Checkout
+$wp_customize->get_section( 'woocommerce_checkout' )->title = esc_html__( 'Checkout Page', 'suki' );
 $wp_customize->get_section( 'woocommerce_checkout' )->priority = 20;
 
 // ------

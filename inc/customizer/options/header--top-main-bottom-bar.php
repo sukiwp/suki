@@ -31,7 +31,26 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Merge inside Main Bar wrapper', 'suki' ),
-			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element.', 'suki' ),
+			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element. &mdash; You might need to make the Main Bar height bigger to accommodate this bar height.', 'suki' ),
+			'priority'    => 10,
+		) ) );
+
+		// Merged gap
+		$id = 'header_' . $type . '_merged_gap';
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Gap with Main Bar content', 'suki' ),
+			'units'       => array(
+				'px' => array(
+					'min'   => 0,
+					'step'  => 1,
+				),
+			),
 			'priority'    => 10,
 		) ) );
 
@@ -95,6 +114,10 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 			'px' => array(
 				'min'  => 0,
 				'step' => 1,
+			),
+			'%' => array(
+				'min'  => 0,
+				'step' => 0.01,
 			),
 		),
 		'priority'    => 10,
@@ -201,28 +224,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 		'priority'    => 20,
 	) ) );
 
-	// Menu link hover highlight
-	$id = 'header_' . $type . '_menu_highlight';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-	) );
-	$wp_customize->add_control( $id, array(
-		'type'        => 'select',
-		'section'     => $section,
-		'label'       => esc_html__( 'Menu link hover highlight', 'suki' ),
-		'description' => esc_html__( 'Additional effect on menu item when hovered.', 'suki' ),
-		'choices'     => array(
-			'none'          => esc_html__( 'None', 'suki' ),
-			'background'    => esc_html__( 'Background', 'suki' ),
-			'underline'     => esc_html__( 'Underline', 'suki' ),
-			'border-top'    => esc_html__( 'Border top', 'suki' ),
-			'border-bottom' => esc_html__( 'Border bottom', 'suki' ),
-		),
-		'priority'    => 20,
-	) );
-
 	// Submenu link typography
 	$settings = array(
 		'font_family'    => 'header_' . $type . '_submenu_font_family',
@@ -283,13 +284,60 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 
 	// Colors
 	$colors = array(
-		'header_' . $type . '_bg_color'                   => esc_html__( 'Background color', 'suki' ),
-		'header_' . $type . '_border_color'               => esc_html__( 'Border color', 'suki' ),
-		'header_' . $type . '_text_color'                 => esc_html__( 'Text color', 'suki' ),
-		'header_' . $type . '_link_text_color'            => esc_html__( 'Link text color', 'suki' ),
-		'header_' . $type . '_link_hover_text_color'      => esc_html__( 'Link text color :hover', 'suki' ),
-		'header_' . $type . '_menu_highlight_color'       => esc_html__( 'Menu link highlight color', 'suki' ),
-		'header_' . $type . '_menu_highlight_text_color'  => esc_html__( 'Menu link highlight text color', 'suki' ),
+		'header_' . $type . '_bg_color'                  => esc_html__( 'Background color', 'suki' ),
+		'header_' . $type . '_border_color'              => esc_html__( 'Border color', 'suki' ),
+		'header_' . $type . '_text_color'                => esc_html__( 'Text color', 'suki' ),
+		'header_' . $type . '_link_text_color'           => esc_html__( 'Link text color', 'suki' ),
+		'header_' . $type . '_link_hover_text_color'     => esc_html__( 'Link text color :hover', 'suki' ),
+		'header_' . $type . '_link_active_text_color'    => esc_html__( 'Link text color :active', 'suki' ),
+	);
+	foreach ( $colors as $id => $label ) {
+		$wp_customize->add_setting( $id, array(
+			'default'     => suki_array_value( $defaults, $id ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+			'section'     => $section,
+			'label'       => $label,
+			'priority'    => 30,
+		) ) );
+	}
+
+	// ------
+	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $type . '_menu_highlight', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'priority'    => 30,
+	) ) );
+
+	// Top level menu items highlight
+	$id = 'header_' . $type . '_menu_highlight';
+	$wp_customize->add_setting( $id, array(
+		'default'     => suki_array_value( $defaults, $id ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+	) );
+	$wp_customize->add_control( $id, array(
+		'type'        => 'select',
+		'section'     => $section,
+		'label'       => esc_html__( 'Top level menu items highlight', 'suki' ),
+		'choices'     => array(
+			'none'          => esc_html__( 'None', 'suki' ),
+			'background'    => esc_html__( 'Background', 'suki' ),
+			'underline'     => esc_html__( 'Underline', 'suki' ),
+			'border-top'    => esc_html__( 'Border top', 'suki' ),
+			'border-bottom' => esc_html__( 'Border bottom', 'suki' ),
+		),
+		'priority'    => 30,
+	) );
+
+	// Colors
+	$colors = array(
+		'header_' . $type . '_menu_hover_highlight_color'       => esc_html__( 'Highlight color :hover', 'suki' ),
+		'header_' . $type . '_menu_hover_highlight_text_color'  => esc_html__( 'Highlight text color :hover', 'suki' ),
+		'header_' . $type . '_menu_active_highlight_color'      => esc_html__( 'Highlight color :active', 'suki' ),
+		'header_' . $type . '_menu_active_highlight_text_color' => esc_html__( 'Highlight text color :active', 'suki' ),
 	);
 	foreach ( $colors as $id => $label ) {
 		$wp_customize->add_setting( $id, array(

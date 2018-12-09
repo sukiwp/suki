@@ -236,6 +236,12 @@ class Suki {
 
 		// Gutenberg "align-wide" compatibility
 		add_theme_support( 'align-wide' );
+
+		// Gutenberg responsive embeds
+		add_theme_support( 'responsive-embeds' );
+
+		// Gutenberg editor styles
+		add_theme_support( 'editor-styles' );
 	}
 
 	/**
@@ -409,7 +415,7 @@ class Suki {
 		}
 
 		if ( '' !== $page_header_bg_image ) {
-			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
+			$css_array['global']['.suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
 		}
 
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
@@ -448,12 +454,11 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
-			'gutenberg' => 'WP_Block_Type',
-			'jetpack' => 'Jetpack',
-			'woocommerce' => 'WooCommerce',
+			'contact-form-7' => 'WPCF7',
 			'elementor' => 'Elementor\Plugin',
 			'elementor-pro' => 'ElementorPro\Plugin',
-			'contact-form-7' => 'WPCF7',
+			'jetpack' => 'Jetpack',
+			'woocommerce' => 'WooCommerce',
 		);
 	}
 
@@ -466,6 +471,7 @@ class Suki {
 	public function get_migration_checkpoints( $start_from = null ) {
 		$all_checkpoints = array(
 			'0.6.0',
+			'0.7.0',
 		);
 
 		if ( is_null( $start_from ) ) {

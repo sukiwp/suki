@@ -91,6 +91,13 @@
 	}
 }
 
+// Shopping cart
+.suki-header-shopping-cart {
+	.widget {
+		margin: 0;
+	}
+}
+
 // -------------------------------------------------------------
 // Header Horizontal
 // -------------------------------------------------------------
@@ -171,7 +178,7 @@
 			max-width: 100vw;
 			min-width: 100%;
 			@include border();
-			box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
@@ -270,12 +277,19 @@
 		}
 	}
 
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_accent; // default
+				background-color: $color_border; // default
 			}
 		}
+	}
+
+	&.suki-section-merged {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 	}
 }
 
@@ -308,12 +322,20 @@
 		}
 	}
 
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_accent; // default
+				background-color: $color_border; // default
 			}
 		}
+	}
+
+	&.suki-header-main-bar-with-top-bar > .suki-section-inner > .suki-wrapper {
+		padding-top: 40px; // default
+	}
+
+	&.suki-header-main-bar-with-bottom-bar > .suki-section-inner > .suki-wrapper {
+		padding-bottom: 40px; // default
 	}
 }
 
@@ -346,12 +368,19 @@
 		}
 	}
 
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_accent; // default
+				background-color: $color_border; // default
 			}
 		}
+	}
+
+	&.suki-section-merged {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 	}
 }
 
@@ -388,6 +417,27 @@
 // -------------------------------------------------------------
 // Vertical Header
 // -------------------------------------------------------------
+
+.suki-popup-close-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1.25rem;
+	font-size: 1.5rem;
+	line-height: 1;
+	background-color: transparent !important;
+	color: $color_white !important; // default
+	opacity: 1;
+
+	&:hover, &:focus {
+		opacity: 0.8;
+	}
+
+	.suki-header-mobile-vertical-position-right > & {
+		left: 0;
+		right: auto;
+	}
+}
 
 .suki-header-section-vertical {
 	ul {
@@ -583,7 +633,7 @@
 // -------------------------------------------------------------
 
 .suki-header-menu {
-	> ul > li > a {
+	> .menu > .menu-item > a {
 		&:after {
 			content: "";
 			position: absolute;
@@ -594,7 +644,7 @@
 }
 
 .suki-header-menu-highlight-underline {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		position: relative;
 
 		&:after {
@@ -608,7 +658,7 @@
 }
 
 .suki-header-menu-highlight-background {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		@include flex();
 		height: 100%;
 
@@ -622,7 +672,7 @@
 }
 
 .suki-header-menu-highlight-border-top {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		@include flex();
 		height: 100%;
 
@@ -639,7 +689,7 @@
 }
 
 .suki-header-menu-highlight-border-bottom {
-	.suki-header-menu > ul > li > a {
+	.suki-header-menu > .menu > .menu-item > a {
 		@include flex();
 		height: 100%;
 

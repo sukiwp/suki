@@ -33,6 +33,54 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 10,
 ) );
 
+// Grid columns
+$id = 'blog_index_grid_columns';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Columns', 'suki' ),
+	'units'       => array(
+		'' => array(
+			'min'  => 2,
+			'max'  => 4,
+			'step' => 1,
+			'label' => 'col',
+		),
+	),
+	'priority'    => 10,
+) ) );
+
+// Columns gutter
+$id = 'blog_index_grid_columns_gutter';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Columns gutter', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 40,
+			'step' => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_blog_index_navigation', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 10,
+) ) );
+
 // Navigation mode
 $id = 'blog_index_navigation_mode';
 $wp_customize->add_setting( $id, array(

@@ -55,6 +55,25 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+// Text alignment
+$id = 'woocommerce_products_grid_text_alignment';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $id, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Text alignment', 'suki' ),
+	'choices'     => array(
+		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'center' => esc_html__( 'Center', 'suki' ),
+		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+	),
+	'priority'    => 10,
+) );
+
 /**
  * ====================================================
  * Suki Pro Upsell

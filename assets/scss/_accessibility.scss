@@ -1,4 +1,12 @@
 // -------------------------------------------------------------
+// Keyboard users
+// -------------------------------------------------------------
+
+.using-keyboard *:focus {
+	outline: thin dotted;
+}
+
+// -------------------------------------------------------------
 // Screen reader text
 // -------------------------------------------------------------
 
@@ -47,7 +55,11 @@
 .entry-content,
 .entry-author-content,
 .comment-content {
-	a:not(.button) {
+	a {
 		text-decoration: underline;
+	}
+
+	.button, .wp-block-button__link {
+		text-decoration: none;
 	}
 }

@@ -267,6 +267,10 @@ function suki_convert_css_array_to_string( $css_array ) {
 	$final_css = '';
 
 	foreach ( $css_array as $media => $selectors ) {
+		if ( empty( $selectors ) ) {
+			continue;
+		}
+
 		// Add media query open tag.
 		if ( 'global' !== $media ) {
 			$final_css .= $media. '{';
@@ -407,8 +411,13 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
  */
 function suki_get_pro_modules() {
 	return apply_filters( 'suki/pro/modules', array(
-		'header-advanced' => array(
-			'label'   => esc_html__( 'Header (Advanced)', 'suki' ),
+		'header-elements-plus' => array(
+			'label'   => esc_html__( 'Header Elements Plus', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+		),
+		'header-vertical' => array(
+			'label'   => esc_html__( 'Vertical Header', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
@@ -427,13 +436,13 @@ function suki_get_pro_modules() {
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
-		'footer-advanced' => array(
-			'label'   => esc_html__( 'Footer (Advanced)', 'suki' ),
+		'footer-widgets-columns-width' => array(
+			'label'   => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
-		'blocks' => array(
-			'label'   => esc_html__( 'Blocks', 'suki' ),
+		'custom-blocks' => array(
+			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
@@ -457,13 +466,13 @@ function suki_get_pro_modules() {
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
-		'blog-advanced' => array(
-			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
+		'blog-plus' => array(
+			'label'   => esc_html__( 'Blog Plus', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
-		'woocommerce-advanced' => array(
-			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
+		'woocommerce-plus' => array(
+			'label'   => esc_html__( 'WooCommerce Plus', 'suki' ),
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
