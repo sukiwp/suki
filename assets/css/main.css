@@ -158,12 +158,9 @@ template {
 }
 
 * {
-	border-color: #e5e5e5;
-}
-
-.frontend * {
 	border-width: 0;
 	border-style: solid;
+	border-color: #e5e5e5;
 }
 
 *, *:before, *:after {
@@ -301,6 +298,7 @@ table th, table td {
 
 table th {
 	font-weight: 600;
+	text-align: initial;
 }
 
 embed,
