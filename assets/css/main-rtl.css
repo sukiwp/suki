@@ -1592,6 +1592,9 @@ body.suki-page-layout-boxed #page {
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 1.6;
+}
+
+.site-title a {
 	position: relative;
 }
 
@@ -2675,6 +2678,12 @@ body.suki-page-layout-boxed #page {
 	height: 100%;
 	max-width: 100%;
 	padding: 0 12px;
+}
+
+@media screen and (max-width: 1023px) {
+	.suki-footer-bottom-bar-column > * {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 1023px) {
