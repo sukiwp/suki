@@ -1,3 +1,8 @@
+v0.7.1
+- FIX: Global page header background image was not showing in archive page.
+- FIX: Footer bottom responsive CSS.
+- FIX: Some minor CSS.
+
 v0.7.0
 - NEW: Move Gutenberg compatibility features into core.
 - NEW: Gutenberg editor's styles.
