@@ -412,6 +412,10 @@ class Suki {
 			case 'custom':
 				$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
 				break;
+
+			default:
+				$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+				break;
 		}
 
 		if ( '' !== $page_header_bg_image ) {

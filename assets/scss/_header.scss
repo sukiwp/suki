@@ -20,7 +20,10 @@
 .site-title {
 	margin: 0;
 	@include h3();
-	position: relative;
+
+	a {
+		position: relative;
+	}
 }
 
 .suki-logo {

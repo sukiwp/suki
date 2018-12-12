@@ -54,6 +54,14 @@ body.mce-content-body {
 // Gutenberg
 // -------------------------------------------------------------
 
+.editor-post-permalink {
+	border-width: 1px;
+}
+
+.editor-block-toolbar {
+	border-left-width: 1px;
+}
+
 .editor-post-title__block .editor-post-title__input {
 	@include h1();
 	border-radius: 0;

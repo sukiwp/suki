@@ -461,6 +461,11 @@ function suki_get_pro_modules() {
 			'url'     => SUKI_PRO_URL,
 			'actions' => array(),
 		),
+		'mega-menu' => array(
+			'label'   => esc_html__( 'Mega Menu', 'suki' ),
+			'url'     => SUKI_PRO_URL,
+			'actions' => array(),
+		),
 		'preloader' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
 			'url'     => SUKI_PRO_URL,

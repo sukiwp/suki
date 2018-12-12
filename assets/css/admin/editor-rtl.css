@@ -1,10 +1,7 @@
 * {
-	border-color: #e5e5e5;
-}
-
-.frontend * {
 	border-width: 0;
 	border-style: solid;
+	border-color: #e5e5e5;
 }
 
 *, *:before, *:after {
@@ -142,6 +139,7 @@ table th, table td {
 
 table th {
 	font-weight: 600;
+	text-align: initial;
 }
 
 embed,
@@ -649,6 +647,14 @@ body.mce-content-body a[data-mce-selected] {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	background: transparent;
+}
+
+.editor-post-permalink {
+	border-width: 1px;
+}
+
+.editor-block-toolbar {
+	border-right-width: 1px;
 }
 
 .editor-post-title__block .editor-post-title__input {
