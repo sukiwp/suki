@@ -1,5 +1,6 @@
 v0.7.1
 - FIX: Global page header background image was not showing in archive page.
+- FIX: Header link hover color.
 - FIX: Footer bottom responsive CSS.
 - FIX: Some minor CSS.
 
