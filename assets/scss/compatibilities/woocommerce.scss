@@ -1461,8 +1461,7 @@ p.demo_store {
 	}
 }
 
-// Cart & Products list
-.woocommerce ul.cart_list,
+// Products list
 .woocommerce ul.product_list_widget {
 	li {
 		@include border( bottom );
@@ -1491,7 +1490,11 @@ p.demo_store {
 	}
 
 	.star-rating {
-		margin-top: 0.25em;
+		margin: 0.25em 0;
+	}
+
+	.amount {
+		text-decoration: inherit;
 	}
 
 	del {
