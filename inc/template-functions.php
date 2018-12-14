@@ -129,18 +129,24 @@ function suki_template_hooks() {
 	 */
 	if ( ! is_singular() || ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
 		if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
-			$priority = 10;
-			foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
-				$function = 'suki_entry_' . str_replace( '-', '_', $element );
 
-				// If function exists, attach to hook.
-				if ( function_exists( $function ) ) {
-					add_action( 'suki/frontend/entry/header', $function, $priority );
-				}
+			if ( is_page() ) {
+				add_action( 'suki/frontend/entry/header', 'suki_entry_title', 10 );
+			} else {
+				$priority = 10;
+				foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
+					$function = 'suki_entry_' . str_replace( '-', '_', $element );
 
-				// Increment priority number.
-				$priority = $priority + 10;
+					// If function exists, attach to hook.
+					if ( function_exists( $function ) ) {
+						add_action( 'suki/frontend/entry/header', $function, $priority );
+					}
+
+					// Increment priority number.
+					$priority = $priority + 10;
+				}	
 			}
+			
 		}
 	}
 
@@ -158,7 +164,9 @@ function suki_template_hooks() {
 	 * 
 	 * @see suki_entry_footer_meta()
 	 */
-	add_action( 'suki/frontend/entry/footer', 'suki_entry_footer_meta', 10 );
+	if ( ! is_page() ) {
+		add_action( 'suki/frontend/entry/footer', 'suki_entry_footer_meta', 10 );
+	}
 
 	/**
 	 * ====================================================
