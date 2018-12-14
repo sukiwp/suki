@@ -1,16 +1,4 @@
 // -------------------------------------------------------------
-// Footer Elements
-// -------------------------------------------------------------
-
-// Social
-.suki-footer-social {
-	li.menu-item {
-		display: inline-block;
-		margin: 0 0.5em;
-	}
-}
-
-// -------------------------------------------------------------
 // Footer Widgets
 // -------------------------------------------------------------
 
@@ -108,6 +96,8 @@
 }
 
 .suki-footer-bottom-bar-column {
+	@include flex();
+
 	> * {
 		@include flex();
 		justify-content: inherit;
@@ -121,8 +111,20 @@
 	}
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		text-align: center;
+		justify-content: center !important;
 	}
+}
+
+.suki-footer-bottom-bar-left {
+	justify-content: flex-start;
+}
+
+.suki-footer-bottom-bar-center {
+	justify-content: center;
+}
+
+.suki-footer-bottom-bar-right {
+	justify-content: flex-end;
 }
 
 .suki-footer-bottom-bar-left,
@@ -140,6 +142,18 @@
 
 		li {
 			padding: 0 12px; // default
+		}
+	}
+}
+
+.suki-footer-social {
+	line-height: 1;
+	
+	li.menu-item {
+		margin: 0 0.75em 0 0;
+
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 }
