@@ -126,7 +126,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		}
 
 		if ( 3 === $i ) {
-			$element .= ', .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
+			$element .= ', legend, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
 		}
 
 		$add['h' . $i . '_' . $prop ] = array(
