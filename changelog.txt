@@ -1,3 +1,6 @@
+v0.7.3
+- FIX: Use selected font family in Gutenberg editor.
+
 v0.7.2
 - TWEAK: Improve Gutenberg editor CSS.
 - TWEAK: Improve CSS for widgets and other minor elements.
