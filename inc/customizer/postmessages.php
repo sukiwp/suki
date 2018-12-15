@@ -122,7 +122,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		$property = str_replace( '_', '-', $prop );
 
 		if ( 1 === $i ) {
-			$element .= ', .entry-title';
+			$element .= ', .entry-title, .page-title';
 		}
 
 		if ( 3 === $i ) {
@@ -319,7 +319,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-title';
+	$element = '.entry-title, .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['title_' . $prop ] = array(
@@ -351,14 +351,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-title, .entry-title a',
+		'element'  => '.entry-title, .entry-title a, .page-title, .page-title a',
 		'property' => 'color',
 	),
 );
 $add['title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-title a:hover, .entry-title a:focus',
+		'element'  => '.entry-title a:hover, .entry-title a:focus, .page-title a:hover, .page-title a:focus',
 		'property' => 'color',
 	),
 );

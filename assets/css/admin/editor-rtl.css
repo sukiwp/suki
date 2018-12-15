@@ -18,7 +18,11 @@ html {
 	color: #666666;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 body {
@@ -27,7 +31,11 @@ body {
 	min-height: 100vh;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -51,32 +59,47 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hov
 
 h1 {
 	font-size: 32px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.4;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h2 {
 	font-size: 27px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h3 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h4 {
 	font-size: 17px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h5, h6 {
 	font-size: 17px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 	font-size: 1rem;
 	font-weight: 600;
 }
@@ -512,8 +535,11 @@ p.wp-block-subhead {
 	margin: 0;
 	padding: 0.5em;
 	font-size: 27px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .wp-block-image img {
@@ -660,8 +686,11 @@ body.mce-content-body a[data-mce-selected] {
 
 .editor-post-title__block .editor-post-title__input {
 	font-size: 32px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.4;
+	letter-spacing: 0;
+	text-transform: none;
 	border-radius: 0;
 	font-family: inherit;
 }

@@ -696,8 +696,11 @@ p.demo_store a {
 
 .woocommerce div.product .woocommerce-tabs > .panel > h2:first-child {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .woocommerce div.product .woocommerce-tabs > .panel:first-of-type {
@@ -821,8 +824,11 @@ p.demo_store a {
 
 .woocommerce div.product #reviews #comments > h2 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist {
@@ -940,8 +946,11 @@ p.demo_store a {
 
 .woocommerce div.product .products h2 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .woocommerce table.shop_attributes {
@@ -1169,8 +1178,11 @@ p.demo_store a {
 
 .woocommerce-cart .cart-collaterals h2 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td {
@@ -1227,8 +1239,11 @@ p.demo_store a {
 
 .woocommerce .woocommerce-checkout h3 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 @media screen and (min-width: 1024px) {
