@@ -666,6 +666,13 @@ body.mce-content-body a[data-mce-selected] {
 	font-family: inherit;
 }
 
+.editor-block-list__layout .editor-default-block-appender > .editor-default-block-appender__content,
+.editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit,
+.editor-block-list__layout > .editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
 .wp-block {
 	max-width: calc( 720px + 30px);
 }
@@ -676,6 +683,10 @@ body.mce-content-body a[data-mce-selected] {
 
 .wp-block[data-align="full"] {
 	max-width: none;
+}
+
+.wp-block-button {
+	margin: 0;
 }
 
 .wp-block-button a.wp-block-button__link, .wp-block-button .wp-block-button__link[role="textbox"] {

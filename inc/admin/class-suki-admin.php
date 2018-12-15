@@ -210,28 +210,65 @@ class Suki_Admin {
 
 		// Typography
 		$active_google_fonts = array();
-		$typography_types = array( 'body', 'blockquote', 'h1', 'h2', 'h3', 'h4' );
+		$typography_types = array(
+			'body' => 'body',
+			'blockquote' => 'blockquote',
+			'h1' => 'h1',
+			'h2' => 'h2',
+			'h3' => 'h3',
+			'h4' => 'h4',
+		);
 		$fonts = suki_get_all_fonts();
 
-		foreach ( $typography_types as $type ) {
-			$selected_font_family = suki_get_theme_mod( $type . '_font_family' );
-
-			if ( '' === $selected_font_family || 'inherit' === $selected_font_family ) {
-				$select_font_stack = $selected_font_family;
-			} else {
-				$chunks = explode( '|', $selected_font_family );
+		foreach ( $typography_types as $type => $selector ) {
+			// Font Family
+			$font_family = suki_get_theme_mod( $type . '_font_family' );
+			$font_stack = $font_family;
+			if ( '' !== $font_family && 'inherit' === $font_family ) {
+				$chunks = explode( '|', $font_family );
 				if ( 2 === count( $chunks ) ) {
-					$select_font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
+					$font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
 				}
 			}
+			if ( ! empty( $font_stack ) ) {
+				$css_array['global'][ $selector ]['font-family'] = $font_stack;
+			}
 
-			$css_array['global'][ $type ]['font-family'] = $select_font_stack;
-			$css_array['global'][ $type ]['font-weight'] = suki_get_theme_mod( $type . '_font_weight' );
-			$css_array['global'][ $type ]['font-style'] = suki_get_theme_mod( $type . '_font_style' );
-			$css_array['global'][ $type ]['text-transform'] = suki_get_theme_mod( $type . '_text_transform' );
-			$css_array['global'][ $type ]['font-size'] = suki_get_theme_mod( $type . '_font_size' );
-			$css_array['global'][ $type ]['line-height'] = suki_get_theme_mod( $type . '_line_height' );
-			$css_array['global'][ $type ]['letter-spacing'] = suki_get_theme_mod( $type . '_letter_spacing' );
+			// Font weight
+			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
+			if ( ! empty( $font_weight ) ) {
+				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
+			}
+			
+			// Font style
+			$font_style = suki_get_theme_mod( $type . '_font_style' );
+			if ( ! empty( $font_style ) ) {
+				$css_array['global'][ $selector ]['font-style'] = $font_style;
+			}
+			
+			// Text transform
+			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
+			if ( ! empty( $text_transform ) ) {
+				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
+			}
+
+			// Font size
+			$font_size = suki_get_theme_mod( $type . '_font_size' );
+			if ( ! empty( $font_size ) ) {
+				$css_array['global'][ $selector ]['font-size'] = $font_size;
+			}
+
+			// Line height
+			$line_height = suki_get_theme_mod( $type . '_line_height' );
+			if ( ! empty( $line_height ) ) {
+				$css_array['global'][ $selector ]['line-height'] = $line_height;
+			}
+
+			// Letter spacing
+			$letter_spacing = suki_get_theme_mod( $type . '_letter_spacing' );
+			if ( ! empty( $letter_spacing ) ) {
+				$css_array['global'][ $selector ]['letter-spacing'] = $letter_spacing;
+			}
 		}
 
 		// Content wrapper width for content layout with sidebar
@@ -296,28 +333,66 @@ class Suki_Admin {
 
 		// Typography
 		$active_google_fonts = array();
-		$typography_types = array( 'body', 'blockquote', 'h1', 'h2', 'h3', 'h4' );
+		$typography_types = array(
+			'body' => 'body',
+			'blockquote' => 'blockquote',
+			'h1' => 'h1, .editor-post-title__block .editor-post-title__input',
+			'h2' => 'h2',
+			'h3' => 'h3',
+			'h4' => 'h4',
+			'title' => '.editor-post-title__block .editor-post-title__input',
+		);
 		$fonts = suki_get_all_fonts();
 
-		foreach ( $typography_types as $type ) {
-			$selected_font_family = suki_get_theme_mod( $type . '_font_family' );
-
-			if ( '' === $selected_font_family || 'inherit' === $selected_font_family ) {
-				$select_font_stack = $selected_font_family;
-			} else {
-				$chunks = explode( '|', $selected_font_family );
+		foreach ( $typography_types as $type => $selector ) {
+			// Font Family
+			$font_family = suki_get_theme_mod( $type . '_font_family' );
+			$font_stack = $font_family;
+			if ( '' !== $font_family && 'inherit' === $font_family ) {
+				$chunks = explode( '|', $font_family );
 				if ( 2 === count( $chunks ) ) {
-					$select_font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
+					$font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
 				}
 			}
+			if ( ! empty( $font_stack ) ) {
+				$css_array['global'][ $selector ]['font-family'] = $font_stack;
+			}
 
-			$css_array['global'][ $type ]['font-family'] = $select_font_stack;
-			$css_array['global'][ $type ]['font-weight'] = suki_get_theme_mod( $type . '_font_weight' );
-			$css_array['global'][ $type ]['font-style'] = suki_get_theme_mod( $type . '_font_style' );
-			$css_array['global'][ $type ]['text-transform'] = suki_get_theme_mod( $type . '_text_transform' );
-			$css_array['global'][ $type ]['font-size'] = suki_get_theme_mod( $type . '_font_size' );
-			$css_array['global'][ $type ]['line-height'] = suki_get_theme_mod( $type . '_line_height' );
-			$css_array['global'][ $type ]['letter-spacing'] = suki_get_theme_mod( $type . '_letter_spacing' );
+			// Font weight
+			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
+			if ( ! empty( $font_weight ) ) {
+				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
+			}
+			
+			// Font style
+			$font_style = suki_get_theme_mod( $type . '_font_style' );
+			if ( ! empty( $font_style ) ) {
+				$css_array['global'][ $selector ]['font-style'] = $font_style;
+			}
+			
+			// Text transform
+			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
+			if ( ! empty( $text_transform ) ) {
+				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
+			}
+
+			// Font size
+			$font_size = suki_get_theme_mod( $type . '_font_size' );
+			if ( ! empty( $font_size ) ) {
+				$css_array['global'][ $selector ]['font-size'] = $font_size;
+			}
+
+			// Line height
+			$line_height = suki_get_theme_mod( $type . '_line_height' );
+			if ( ! empty( $line_height ) ) {
+				$css_array['global'][ $selector ]['line-height'] = $line_height;
+			}
+
+			// Letter spacing
+			$letter_spacing = suki_get_theme_mod( $type . '_letter_spacing' );
+			if ( ! empty( $letter_spacing ) ) {
+				$css_array['global'][ $selector ]['letter-spacing'] = $letter_spacing;
+			}
 		}
 
 		// Add to settings array.

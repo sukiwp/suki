@@ -282,6 +282,10 @@ function suki_convert_css_array_to_string( $css_array ) {
 
 			$i = 1;
 			foreach ( $properties as $property => $value ) {
+				if ( '' === $value ) {
+					continue;
+				}
+
 				$final_css .= $property . ':' . $value;
 
 				if ( $i !== count( $properties ) ) {

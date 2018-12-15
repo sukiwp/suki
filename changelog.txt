@@ -1,3 +1,10 @@
+v0.7.2
+- TWEAK: Improve Gutenberg editor CSS.
+- TWEAK: Improve CSS for widgets and other minor elements.
+- TWEAK: Improve static pages template hooks.
+- TWEAK: Make multiple elements in a footer bottom column displayed inline (previously block).
+- FIX: Footer bottom CSS.
+
 v0.7.1
 - FIX: Global page header background image was not showing in archive page.
 - FIX: Header link hover color.

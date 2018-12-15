@@ -63,92 +63,92 @@ msgstr ""
 msgid "Footer Widgets Column %d"
 msgstr ""
 
-#: inc/helpers.php:415
+#: inc/helpers.php:419
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:420
+#: inc/helpers.php:424
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:425
+#: inc/helpers.php:429
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:430
+#: inc/helpers.php:434
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:435
+#: inc/helpers.php:439
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:440
+#: inc/helpers.php:444
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:445
+#: inc/helpers.php:449
 msgid "Custom Blocks"
 msgstr ""
 
-#: inc/helpers.php:450
+#: inc/helpers.php:454
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:455
+#: inc/helpers.php:459
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:460
+#: inc/helpers.php:464
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:465
+#: inc/helpers.php:469
 msgid "Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:470
+#: inc/helpers.php:474
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:475
+#: inc/helpers.php:479
 msgid "Blog Plus"
 msgstr ""
 
-#: inc/helpers.php:480
+#: inc/helpers.php:484
 msgid "WooCommerce Plus"
 msgstr ""
 
-#: inc/helpers.php:485
+#: inc/helpers.php:489
 msgid "White Label"
-msgstr ""
-
-#: inc/helpers.php:622
-msgctxt "icon label"
-msgid "Search"
-msgstr ""
-
-#: inc/helpers.php:623
-msgctxt "icon label"
-msgid "Close"
-msgstr ""
-
-#: inc/helpers.php:624
-msgctxt "icon label"
-msgid "Menu"
-msgstr ""
-
-#: inc/helpers.php:625
-msgctxt "icon label"
-msgid "Dropdown Arrow -- Down"
 msgstr ""
 
 #: inc/helpers.php:626
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Right"
+msgid "Search"
 msgstr ""
 
 #: inc/helpers.php:627
+msgctxt "icon label"
+msgid "Close"
+msgstr ""
+
+#: inc/helpers.php:628
+msgctxt "icon label"
+msgid "Menu"
+msgstr ""
+
+#: inc/helpers.php:629
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Down"
+msgstr ""
+
+#: inc/helpers.php:630
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Right"
+msgstr ""
+
+#: inc/helpers.php:631
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -382,81 +382,81 @@ msgid "here"
 msgstr ""
 
 #. translators: %s: theme name.
-#: inc/admin/class-suki-admin.php:433
+#: inc/admin/class-suki-admin.php:508
 msgid "Welcome to %s!"
 msgstr ""
 
 #. translators: %1$s: theme name; %2$s: link to theme URL.
-#: inc/admin/class-suki-admin.php:440
+#: inc/admin/class-suki-admin.php:515
 msgid "Your website is now in good hands! %1$s offers highly customizable design, and lightning fast performance. Learn more about its full features and premium modules at %2$s."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:442
+#: inc/admin/class-suki-admin.php:517
 msgid "our website"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:457
+#: inc/admin/class-suki-admin.php:532
 msgid "More features are available on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:478
+#: inc/admin/class-suki-admin.php:553
 msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:512
+#: inc/admin/class-suki-admin.php:587
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:525
+#: inc/admin/class-suki-admin.php:600
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:525
+#: inc/admin/class-suki-admin.php:600
 msgid "coming soon"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:527
+#: inc/admin/class-suki-admin.php:602
 msgid "Make your site even better with our premium modules, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:531
+#: inc/admin/class-suki-admin.php:606
 msgctxt "Suki Pro upsell"
 msgid "More about Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:545
+#: inc/admin/class-suki-admin.php:620
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:547
+#: inc/admin/class-suki-admin.php:622
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:551
+#: inc/admin/class-suki-admin.php:626
 msgid "Go to our Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:565
+#: inc/admin/class-suki-admin.php:640
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:567
+#: inc/admin/class-suki-admin.php:642
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:571
+#: inc/admin/class-suki-admin.php:646
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:585
+#: inc/admin/class-suki-admin.php:660
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:587
+#: inc/admin/class-suki-admin.php:662
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:591
+#: inc/admin/class-suki-admin.php:666
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 

@@ -69,6 +69,13 @@ body.mce-content-body {
 	font-family: inherit;
 }
 
+.editor-block-list__layout .editor-default-block-appender > .editor-default-block-appender__content,
+.editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit,
+.editor-block-list__layout > .editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
 .wp-block {
 	max-width: calc( 720px + 30px ); // default
 
@@ -82,6 +89,8 @@ body.mce-content-body {
 }
 
 .wp-block-button {
+	margin: 0;
+
 	a.wp-block-button__link, .wp-block-button__link[role="textbox"] {
 		@include button();
 		margin-bottom: 0;
