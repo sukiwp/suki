@@ -678,25 +678,6 @@ div.customize-section-description {
 	display: none !important;
 }
 
-#customize-theme-controls #customize-control-footer_elements .suki-builder-location .suki-builder-sortable-panel {
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-}
-
-#customize-theme-controls #customize-control-footer_elements .suki-builder-location-bottom_left .suki-builder-sortable-panel {
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-}
-
-#customize-theme-controls #customize-control-footer_elements .suki-builder-location-bottom_right .suki-builder-sortable-panel {
-	-webkit-box-align: end;
-	-ms-flex-align: end;
-	align-items: flex-end;
-}
-
 @media screen and (min-width: 1324px) {
 	#customize-theme-controls #accordion-section-suki_section_header_builder,
 	#customize-theme-controls #accordion-section-suki_section_footer_builder {

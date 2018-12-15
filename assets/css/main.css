@@ -177,7 +177,11 @@ html {
 	color: #666666;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 body {
@@ -186,7 +190,11 @@ body {
 	min-height: 100vh;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -210,32 +218,47 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hov
 
 h1 {
 	font-size: 32px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.4;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h2 {
 	font-size: 27px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h3 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h4 {
 	font-size: 17px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 h5, h6 {
 	font-size: 17px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 	font-size: 1rem;
 	font-weight: 600;
 }
@@ -419,8 +442,11 @@ fieldset {
 
 legend {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 	margin: 0 0 1.25rem;
 }
 
@@ -843,26 +869,38 @@ select[multiple] {
 
 .h1 {
 	font-size: 32px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.4;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .h2 {
 	font-size: 27px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .h3 {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .h4 {
 	font-size: 17px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .suki-float-container:before, .suki-float-container:after {
@@ -872,6 +910,15 @@ select[multiple] {
 
 .suki-float-container:after {
 	clear: both;
+}
+
+.page-title {
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .page-header {
@@ -888,8 +935,11 @@ select[multiple] {
 
 .page-header .page-title {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .search-form {
@@ -1281,8 +1331,11 @@ p.wp-block-subhead {
 	margin: 0;
 	padding: 0.5em;
 	font-size: 27px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .wp-block-image img {
@@ -1590,8 +1643,11 @@ body.suki-page-layout-boxed #page {
 .site-title {
 	margin: 0;
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .site-title a {
@@ -2529,11 +2585,6 @@ body.suki-page-layout-boxed #page {
 	display: none;
 }
 
-.suki-footer-social li.menu-item {
-	display: inline-block;
-	margin: 0 0.5em;
-}
-
 .suki-footer-widgets-bar-inner {
 	background-color: #f3f3f3;
 	border-width: 1px 0 0 0;
@@ -2656,6 +2707,24 @@ body.suki-page-layout-boxed #page {
 	}
 }
 
+.suki-footer-bottom-bar-column {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
 .suki-footer-bottom-bar-column > * {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -2688,8 +2757,28 @@ body.suki-page-layout-boxed #page {
 
 @media screen and (max-width: 1023px) {
 	.suki-footer-bottom-bar-column {
-		text-align: center;
+		-webkit-box-pack: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
 	}
+}
+
+.suki-footer-bottom-bar-left {
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+
+.suki-footer-bottom-bar-center {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.suki-footer-bottom-bar-right {
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
 }
 
 @media screen and (min-width: 1024px) {
@@ -2723,6 +2812,18 @@ body.suki-page-layout-boxed #page {
 
 .suki-footer-menu ul li {
 	padding: 0 12px;
+}
+
+.suki-footer-social {
+	line-height: 1;
+}
+
+.suki-footer-social li.menu-item {
+	margin: 0 0.75em 0 0;
+}
+
+.suki-footer-social li.menu-item:last-child {
+	margin-right: 0;
 }
 
 .suki-loop-grid {
@@ -3036,14 +3137,20 @@ a.more-link {
 	position: relative;
 	margin-top: 2em;
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .comment-reply-title {
 	font-size: 22px;
+	font-style: normal;
 	font-weight: 500;
 	line-height: 1.6;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .comment-reply-title small {
@@ -3313,6 +3420,7 @@ a.more-link {
 .widget_pages ul li,
 .widget_rss ul li {
 	position: relative;
+	margin-top: 0.25em;
 }
 
 .widget_recent_entries li,

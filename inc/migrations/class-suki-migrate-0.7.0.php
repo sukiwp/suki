@@ -62,7 +62,7 @@ class Suki_Migrate_0_7_0 {
 			// If page header background color is set.
 			if ( ! empty( $color )  ) {
 				// If opacity is less than 1, convert to rgba.
-				if ( 1 < $opacity ) {
+				if ( 1 < floatval( $opacity ) ) {
 					// If page header background color is in hex format.
 					if ( 0 === strpos( $color, '#' ) ) {
 						// Strip the '#' prefix.

@@ -105,6 +105,10 @@
 	@include float-container();
 }
 
+.page-title {
+	@include h1();
+}
+
 .page-header {
 	padding: 1.75rem;
 	margin: 0 0 4rem;
