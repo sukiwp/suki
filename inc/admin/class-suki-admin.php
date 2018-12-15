@@ -224,7 +224,7 @@ class Suki_Admin {
 			// Font Family
 			$font_family = suki_get_theme_mod( $type . '_font_family' );
 			$font_stack = $font_family;
-			if ( '' !== $font_family && 'inherit' === $font_family ) {
+			if ( '' !== $font_family && 'inherit' !== $font_family ) {
 				$chunks = explode( '|', $font_family );
 				if ( 2 === count( $chunks ) ) {
 					$font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
@@ -348,7 +348,7 @@ class Suki_Admin {
 			// Font Family
 			$font_family = suki_get_theme_mod( $type . '_font_family' );
 			$font_stack = $font_family;
-			if ( '' !== $font_family && 'inherit' === $font_family ) {
+			if ( '' !== $font_family && 'inherit' !== $font_family ) {
 				$chunks = explode( '|', $font_family );
 				if ( 2 === count( $chunks ) ) {
 					$font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
