@@ -1,3 +1,6 @@
+v0.7.4
+- FIX: Gutenberg cover image CSS when using parallax and wide alignment mode.
+
 v0.7.3
 - FIX: Use selected font family in Gutenberg editor.
 
