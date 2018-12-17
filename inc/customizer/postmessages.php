@@ -522,6 +522,20 @@ $add['container_width'] = array(
 		'property' => 'margin-right',
 		'pattern'  => 'calc( -0.5 * $ + 50% )',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'margin-left',
+		'pattern'  => 'calc( -0.5 * 100vw + 50% )',
+		'media'    => '@media screen and (max-width: $)',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'margin-right',
+		'pattern'  => 'calc( -0.5 * 100vw + 50% )',
+		'media'    => '@media screen and (max-width: $)',
+	),
 );
 $add['page_bg_color'] = array(
 	array(

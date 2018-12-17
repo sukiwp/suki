@@ -1206,6 +1206,13 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	margin-right: calc( -0.5 * 1140px + 50%);
 }
 
+@media screen and (max-width: 1140px) {
+	.suki-content-layout-narrow .alignwide {
+		margin-left: calc( -50vw + 50%);
+		margin-right: calc( -50vw + 50%);
+	}
+}
+
 .alignwide img {
 	width: 100%;
 }
