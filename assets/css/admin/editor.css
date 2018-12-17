@@ -404,12 +404,17 @@ svg {
 }
 
 .suki-content-layout-narrow .alignwide {
-	position: relative;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0);
-	transform: translate(-50%, 0);
 	width: 1140px;
 	max-width: 100vw;
+	margin-left: calc( -0.5 * 1140px + 50%);
+	margin-right: calc( -0.5 * 1140px + 50%);
+}
+
+@media screen and (max-width: 1140px) {
+	.suki-content-layout-narrow .alignwide {
+		margin-left: calc( -50vw + 50%);
+		margin-right: calc( -50vw + 50%);
+	}
 }
 
 .alignwide img {
@@ -418,12 +423,10 @@ svg {
 
 .suki-content-layout-narrow .alignfull,
 .suki-content-layout-wide .alignfull {
-	position: relative;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0);
-	transform: translate(-50%, 0);
 	width: 100vw;
 	max-width: 100vw;
+	margin-left: calc( -50vw + 50%);
+	margin-right: calc( -50vw + 50%);
 }
 
 body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed
