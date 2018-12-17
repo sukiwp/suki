@@ -510,6 +510,18 @@ $add['container_width'] = array(
 		'element'  => '.suki-header-section.suki-section-default .sub-menu',
 		'property' => 'max-width',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'margin-left',
+		'pattern'  => 'calc( -0.5 * $ + 50% )',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .alignwide',
+		'property' => 'margin-right',
+		'pattern'  => 'calc( -0.5 * $ + 50% )',
+	),
 );
 $add['page_bg_color'] = array(
 	array(
