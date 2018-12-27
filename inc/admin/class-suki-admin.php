@@ -53,7 +53,7 @@ class Suki_Admin {
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
-		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
+		// add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_body_class' ) );
 		add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
 
@@ -197,9 +197,12 @@ class Suki_Admin {
 	 * @return array
 	 */
 	public function add_classic_editor_custom_css( $settings ) {
+		// echo 'halo';
 		global $post;
 
-		if ( empty( $post ) ) return;
+		if ( empty( $post ) ) {
+			return $settings;
+		}
 
 		$css_array = array(
 			'global' => array(),
@@ -304,7 +307,9 @@ class Suki_Admin {
 	public function add_classic_editor_body_class( $settings ) {
 		global $post;
 
-		if ( empty( $post ) ) return;
+		if ( empty( $post ) ) {
+			return $settings;
+		}
 
 		$class = 'suki-editor-' . suki_get_page_setting_by_post_id( 'content_layout', $post->ID );
 
