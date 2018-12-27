@@ -84,12 +84,12 @@ gulp.task( 'theme_info', function() {
 	return gulp.src( [ config.init ] )
 		.pipe( replace( new RegExp( '((?:Plugin|Theme) Name: ).*' ), '$1' + info.title ) )
 		.pipe( replace( new RegExp( '((?:Plugin|Theme) URI: ).*' ), '$1' + info.uri ) )
-		.pipe( replace( /(Description: ).*/, '$1' + info.description ) )
-		.pipe( replace( /(Version: ).*/, '$1' + info.version ) )
-		.pipe( replace( /(Author: ).*/, '$1' + info.author.name ) )
-		.pipe( replace( /(Author URI: ).*/, '$1' + info.author.url ) )
-		.pipe( replace( /(Text Domain: ).*/, '$1' + info.name ) )
-		.pipe( replace( /(Tags: ).*/, '$1' + info.keywords.join( ', ' ) ) )
+		.pipe( replace( new RegExp( '(Description: ).*' ), '$1' + info.description ) )
+		.pipe( replace( new RegExp( '(Version: ).*' ), '$1' + info.version ) )
+		.pipe( replace( new RegExp( '(Author: ).*' ), '$1' + info.author.name ) )
+		.pipe( replace( new RegExp( '(Author URI: ).*' ), '$1' + info.author.url ) )
+		.pipe( replace( new RegExp( '(Text Domain: ).*' ), '$1' + info.name ) )
+		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
 		.pipe( gulp.dest( './' ) );
 } );
 
@@ -105,14 +105,14 @@ gulp.task( 'readme_txt', function() {
 
 	// Change theme version on eadme.txt
 	return gulp.src( [ './readme.txt' ] )
-		.pipe( replace( /(===).*(===)/, '$1 ' + info.title + ' $2' ) )
-		.pipe( replace( /(Contributors: ).*/, '$1' + contributors.join( ', ' ) ) )
-		.pipe( replace( /(Tags: ).*/, '$1' + info.keywords.join( ', ' ) ) )
-		.pipe( replace( /(Stable tag: ).*/, '$1' + info.version ) )
+		.pipe( replace( new RegExp( '(===).*(===)' ), '$1 ' + info.title + ' $2' ) )
+		.pipe( replace( new RegExp( '(Contributors: ).*' ), '$1' + contributors.join( ', ' ) ) )
+		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
+		.pipe( replace( new RegExp( '(Stable tag: ).*' ), '$1' + info.version ) )
 
-		.pipe( replace( /(\s\s).*(\s\s== Description ==)/, '$1' + info.description + '$2' ) )
+		.pipe( replace( new RegExp( '(\n\n).*(\n\n== Description ==)' ), '$1' + info.description + '$2' ) )
 
-		.pipe( replace( /(== Description ==\s\s).*(\s\s)/, '$1' + info.description + '$2' ) )
+		.pipe( replace( new RegExp( '(== Description ==\n\n).*(\n\n)' ), '$1' + info.description + '$2' ) )
 
 		.pipe( gulp.dest( './' ) );
 } );

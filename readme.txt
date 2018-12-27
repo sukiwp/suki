@@ -3,7 +3,7 @@ Contributors: sukiwp
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 4.5
 Tested up to: 5.0
-Stable tag: 0.7.4
+Stable tag: 0.7.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,7 +44,7 @@ Underscores
 License: GPLv2 or later
 Source: https://underscores.me
 
-Basic UI icons (svg icons) are customly designed for Suki WordPress Theme by David Rozando (SukiWP team)
+Basic UI icons (svg icons) are customly designed for Suki WordPress Theme by David Rozando (Suki WordPress Theme team)
 
 Suki bundles the following third-party resources:
 

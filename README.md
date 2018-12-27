@@ -1,3 +1,3 @@
 # Suki WordPress Theme
 
-by [SukiWP](https://sukiwp.com/)
+[Learn more](https://sukiwp.com/)

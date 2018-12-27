@@ -1,3 +1,7 @@
+v0.7.5
+- FIX: TinyMCE settings filters which caused blank white error on TinyMCE.
+- FIX: Minor CSS.
+
 v0.7.4
 - FIX: Gutenberg cover image CSS when using parallax and wide alignment mode.
 
