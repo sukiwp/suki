@@ -299,6 +299,11 @@ ol {
 	padding-left: 2rem;
 }
 
+ul li,
+ol li {
+	margin: 0;
+}
+
 li > ul, li >
 ol {
 	margin-top: 0;

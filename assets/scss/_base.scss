@@ -105,6 +105,10 @@ ol {
 	margin: 0 0 1.25rem;
 	padding-left: 2rem;
 
+	li {
+		margin: 0;
+	}
+
 	li > & {
 		margin-top: 0;
 		margin-bottom: 0;
