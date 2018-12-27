@@ -44,7 +44,7 @@ Underscores
 License: GPLv2 or later
 Source: https://underscores.me
 
-Basic UI icons (svg icons) are customly designed for Suki WordPress Theme by David Rozando (SukiWP team)
+Basic UI icons (svg icons) are customly designed for Suki WordPress Theme by David Rozando (Suki WordPress Theme team)
 
 Suki bundles the following third-party resources:
 
