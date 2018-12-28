@@ -2115,7 +2115,7 @@ body.suki-page-layout-boxed #page {
 	color: #666666;
 }
 
-.suki-popup-close-icon {
+.suki-toggle.suki-popup-close-icon {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -2127,11 +2127,11 @@ body.suki-page-layout-boxed #page {
 	opacity: 1;
 }
 
-.suki-popup-close-icon:hover, .suki-popup-close-icon:focus {
+.suki-toggle.suki-popup-close-icon:hover, .suki-toggle.suki-popup-close-icon:focus {
 	opacity: 0.8;
 }
 
-.suki-header-mobile-vertical-position-right > .suki-popup-close-icon {
+.suki-header-mobile-vertical-position-right > .suki-toggle.suki-popup-close-icon {
 	left: 0;
 	right: auto;
 }
