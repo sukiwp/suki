@@ -99,19 +99,19 @@
 	@include flex();
 
 	> * {
-		@include flex();
-		justify-content: inherit;
-		height: 100%;
+		display: block;
 		max-width: 100%;
 		padding: 0 12px; // default
-		
-		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-			display: block;
-		}
 	}
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		justify-content: center !important;
+		display: block;
+		text-align: center;
+		margin: 0 0 1em;
+
+		&:last-child {
+			margin: 0;
+		}
 	}
 }
 
@@ -138,22 +138,28 @@
 	padding: 0 !important;
 	
 	ul {
-		@include flex();
+		display: block;
 
 		li {
+			display: inline-block;
 			padding: 0 12px; // default
 		}
 	}
 }
 
 .suki-footer-social {
-	line-height: 1;
+	display: block;
 	
-	li.menu-item {
+	li {
+		display: inline-block;
 		margin: 0 0.75em 0 0;
 
 		&:last-child {
 			margin-right: 0;
+		}
+
+		a {
+			vertical-align: middle;
 		}
 	}
 }
