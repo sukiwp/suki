@@ -45,6 +45,8 @@ class Suki_Admin {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		add_action( 'after_switch_theme', array( $this, 'redirect_on_theme_activation' ) );
+
 		// General admin hooks on every admin pages
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -53,7 +55,7 @@ class Suki_Admin {
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
-		// add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
+		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_body_class' ) );
 		add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
 
@@ -63,7 +65,7 @@ class Suki_Admin {
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__welcome_panel' ), 1 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_modules_table' ), 20 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
-		// add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__pro' ), 20 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__pro' ), 20 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__community' ), 40 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
@@ -89,6 +91,13 @@ class Suki_Admin {
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Redirect admin page to Suki admin page when theme is activated.
+	 */
+	public function redirect_on_theme_activation() {
+		wp_safe_redirect( admin_url( 'themes.php?page=suki' ) );
+	}
 
 	/**
 	 * Add admin submenu page: Appearance > Suki.
@@ -602,13 +611,13 @@ class Suki_Admin {
 		if ( suki_is_pro() ) return;
 		?>
 		<div class="suki-admin-secondary-pro postbox">
-			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?>&nbsp;&nbsp;<span class="suki-admin-pro-coming-soon"><?php esc_html_e( 'coming soon', 'suki' ); ?></span></h2>
+			<h2 class="hndle"><?php esc_html_e( 'Premium Modules', 'suki' ); ?> <span><?php esc_html_e( 'Suki Pro', 'suki' ); ?></span></h2>
 			<div class="inside">
-				<p><?php esc_html_e( 'Make your site even better with our premium modules, available in a very affordable price.', 'suki' ); ?></p>
+				<p><?php esc_html_e( 'Get more flexibility and stunning design options on Suki Pro, available in a very affordable price.', 'suki' ); ?></p>
 				<p>
-					<a href="<?php echo SUKI_PRO_URL; // WPCS: XSS OK ?>" class="button button-large button-secondary" target="_blank" rel="noopener">
-						<span class="dashicons dashicons-unlock"></span>
-						<?php echo esc_html_x( 'More about Suki Pro', 'Suki Pro upsell', 'suki' ); ?>
+					<a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-large button-primary" target="_blank" rel="noopener">
+						<span class="dashicons dashicons-admin-network"></span>
+						<?php echo esc_html_x( 'Upgrade to Pro', 'Suki Pro upsell', 'suki' ); ?>
 					</a>
 				</p>
 			</div>
@@ -627,8 +636,8 @@ class Suki_Admin {
 				<p><?php esc_html_e( 'Not sure how something works? Our documentation might help you figure out the solution.', 'suki' ); ?></p>
 				<p>
 					<a href="https://docs.sukiwp.com/" class="button button-secondary" target="_blank" rel="noopener">
-						<span class="dashicons dashicons-lightbulb"></span>
-						<?php esc_html_e( 'Go to our Documentation', 'suki' ); ?>
+						<span class="dashicons dashicons-book-alt"></span>
+						<?php esc_html_e( 'Go to Documentation', 'suki' ); ?>
 					</a>
 				</p>
 			</div>
