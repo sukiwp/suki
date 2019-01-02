@@ -6,7 +6,7 @@
 	position: relative;
 	margin-bottom: 40px; // default
 
-	&:last-child {
+	.sidebar &:last-child {
 		margin-bottom: 0;
 	}
 
@@ -15,7 +15,7 @@
 	}
 
 	.post-date, .rss-date {
-		@extend %meta;
+		@include meta();
 		display: block;
 		margin-top: 0.25em;
 		font-size: 0.9em;
@@ -26,7 +26,7 @@
 .widget-title {
 	margin: 0 0 1.25rem;
 
-	:empty {
+	&:empty {
 		display: none;
 	}
 
@@ -82,6 +82,7 @@
 
 		li {
 			position: relative;
+			margin-top: 0.25em;
 		}
 	}
 }
@@ -197,6 +198,14 @@
 	}
 }
 
+// Image
+.widget_media_image {
+	img {
+		display: table;
+		margin: 0 auto;
+	}
+}
+
 // -------------------------------------------------------------
 // Custom widgets
 // -------------------------------------------------------------
@@ -225,6 +234,5 @@
 		width: 40px;
 		height: auto;
 		margin-left: 0.5em;
-		border-radius: 20px;
 	}
 }

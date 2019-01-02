@@ -80,7 +80,7 @@ function suki_logo( $logo_image_id = null ) {
 
 		// Replace logo HTML if logo image is found.
 		if ( ! empty( $logo_image ) ) {
-			$html = $logo_image . '<span class="screen-reader-text">' . get_bloginfo( 'name', 'display' ) . '</span>';
+			$html = '<span class="suki-logo-image">' . $logo_image . '</span><span class="screen-reader-text">' . get_bloginfo( 'name', 'display' ) . '</span>';
 		}
 	}
 
@@ -126,15 +126,16 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 
 	$classes = implode( ' ', array( $args['class'], 'suki-icon' ) );
 
-	// Get default SVG icons from theme's icons folder.
+	// Get SVG path.
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
 
 	// Allow modification via filter.
 	$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
 	$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
 
+	// Get SVG markup.
 	ob_start();
-	if ( file_exists( $path ) && 'svg' == strtolower( pathinfo( $path, PATHINFO_EXTENSION ) ) ) {
+	if ( file_exists( $path ) ) {
 		include( $path );
 	} else {
 		include( get_template_directory() . '/assets/icons/_fallback.svg' ); // fallback
@@ -143,6 +144,10 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
+
+	// Allow modification via filter.
+	$html = apply_filters( 'suki/frontend/svg_icon', $html, $key );
+	$html = apply_filters( 'suki/frontend/svg_icon/' . $key, $html );
 
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK
@@ -452,8 +457,8 @@ function suki_header_element( $element ) {
 	switch ( $type ) {
 		case 'logo':
 			?>
-			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
-				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title">
+			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
+				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title menu-item">
 					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home">
 						<?php
 						/**
@@ -471,8 +476,8 @@ function suki_header_element( $element ) {
 
 		case 'mobile-logo':
 			?>
-			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding">
-				<div class="site-title">
+			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
+				<div class="site-title menu-item">
 					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home">
 						<?php
 						/**
@@ -824,19 +829,29 @@ function suki_footer_widgets() {
 	$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
 
 	if ( 1 > $columns ) return;
+
+	$print_row = 0;
+	for ( $i = 1; $i <= $columns; $i++ ) {
+		if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
+			$print_row = true;
+			break;
+		}
+	}
 	?>
 	<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
 		<div class="suki-footer-widgets-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
-				<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
-					<?php for ( $i = 1; $i <= $columns; $i++ ) : ?>
-						<div class="suki-footer-widgets-bar-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column <?php echo esc_attr( is_active_sidebar( 'footer-widgets-' . $i ) ? '' : 'suki-empty' ); ?>">
-							<?php if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
-								dynamic_sidebar( 'footer-widgets-' . $i );
-							} ?>
-						</div>
-					<?php endfor; ?>
-				</div>
+				<?php if ( $print_row ) : ?>
+					<div class="suki-footer-widgets-bar-row <?php echo esc_attr( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ) ); ?>">
+						<?php for ( $i = 1; $i <= $columns; $i++ ) : ?>
+							<div class="suki-footer-widgets-bar-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column">
+								<?php if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
+									dynamic_sidebar( 'footer-widgets-' . $i );
+								} ?>
+							</div>
+						<?php endfor; ?>
+					</div>
+				<?php endif; ?>
 
 				<?php
 				// Bottom Bar (if merged)
@@ -877,7 +892,7 @@ function suki_footer_bottom() {
 			<div class="suki-wrapper">
 				<div class="suki-footer-bottom-bar-row suki-footer-row">
 					<?php foreach ( $cols as $col ) : ?>
-						<div class="suki-footer-bottom-bar-<?php echo esc_attr( $col ); ?> suki-footer-bottom-bar-column suki-footer-column <?php echo esc_attr( 'suki-text-align-' . $col ); ?>">
+						<div class="suki-footer-bottom-bar-<?php echo esc_attr( $col ); ?> suki-footer-bottom-bar-column">
 							<?php foreach ( $elements[ $col ] as $element ) suki_footer_element( $element ); ?>
 						</div>
 					<?php endforeach; ?>
@@ -911,7 +926,7 @@ function suki_footer_element( $element ) {
 		case 'menu':
 			if ( has_nav_menu( 'footer-' . $element ) ) {
 				?>
-				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
+				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'footer-' . $element,
 						'menu_class'     => 'menu',
@@ -1110,7 +1125,7 @@ function suki_entry_meta( $format ) {
 
 	if ( ! empty( $format ) ) {
 		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
-			
+
 		foreach ( $matches as $match ) {
 			ob_start();
 			suki_entry_meta_element( $match[1] );

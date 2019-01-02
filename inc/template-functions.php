@@ -108,44 +108,7 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * Content page hooks
-	 * ====================================================
-	 */
-
-	if ( is_page() ) {
-		/**
-		 * suki/frontend/entry_page/before_header hook
-		 * 
-		 * @see suki_entry_featured_media()
-		 */
-		if ( 'before-entry-header' === suki_get_theme_mod( 'entry_featured_media_position' ) ) {
-			add_action( 'suki/frontend/entry_page/before_header', 'suki_entry_featured_media', 10 );
-		}
-
-		/**
-		 * suki/frontend/entry_page/header hook
-		 *
-		 * @see suki_entry_title()
-		 */
-		if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
-			if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
-				add_action( 'suki/frontend/entry_page/header', 'suki_entry_title', 10 );
-			}
-		}
-
-		/**
-		 * suki/frontend/entry_page/after_header hook
-		 * 
-		 * @see suki_entry_featured_media()
-		 */
-		if ( 'after-entry-header' === suki_get_theme_mod( 'entry_featured_media_position' ) ) {
-			add_action( 'suki/frontend/entry_page/after_header', 'suki_entry_featured_media', 10 );
-		}
-	}
-
-	/**
-	 * ====================================================
-	 * Content default (blog post) hooks
+	 * Content default (post / page) hooks
 	 * ====================================================
 	 */
 
@@ -166,18 +129,24 @@ function suki_template_hooks() {
 	 */
 	if ( ! is_singular() || ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
 		if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
-			$priority = 10;
-			foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
-				$function = 'suki_entry_' . str_replace( '-', '_', $element );
 
-				// If function exists, attach to hook.
-				if ( function_exists( $function ) ) {
-					add_action( 'suki/frontend/entry/header', $function, $priority );
-				}
+			if ( is_page() ) {
+				add_action( 'suki/frontend/entry/header', 'suki_entry_title', 10 );
+			} else {
+				$priority = 10;
+				foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
+					$function = 'suki_entry_' . str_replace( '-', '_', $element );
 
-				// Increment priority number.
-				$priority = $priority + 10;
+					// If function exists, attach to hook.
+					if ( function_exists( $function ) ) {
+						add_action( 'suki/frontend/entry/header', $function, $priority );
+					}
+
+					// Increment priority number.
+					$priority = $priority + 10;
+				}	
 			}
+			
 		}
 	}
 
@@ -195,7 +164,9 @@ function suki_template_hooks() {
 	 * 
 	 * @see suki_entry_footer_meta()
 	 */
-	add_action( 'suki/frontend/entry/footer', 'suki_entry_footer_meta', 10 );
+	if ( ! is_page() ) {
+		add_action( 'suki/frontend/entry/footer', 'suki_entry_footer_meta', 10 );
+	}
 
 	/**
 	 * ====================================================
@@ -494,12 +465,12 @@ add_filter( 'nav_menu_item_title', 'suki_nav_menu_item_title', 99, 4 );
  * @return string
  */
 function suki_get_search_form_add_icon( $form ) {
+	$form = preg_replace( '/placeholder="(.*?)"/', 'placeholder="' . esc_attr__( 'Search&hellip;', 'suki' ) . '"', $form );
 	$form = preg_replace( '/<\/form>/', suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ) . '</form>', $form );
 
 	return $form;
 }
 add_filter( 'get_search_form', 'suki_get_search_form_add_icon' );
-add_filter( 'get_product_search_form', 'suki_get_search_form_add_icon' );
 
 /**
  * ====================================================
@@ -562,7 +533,7 @@ function suki_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
-
+	
 	// Add page layout class.
 	$classes['page_layout'] = esc_attr( 'suki-page-layout-' . suki_get_theme_mod( 'page_layout' ) );
 
@@ -598,7 +569,7 @@ function suki_header_top_bar_classes( $classes ) {
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_top_bar_menu_highlight' ) );
 
 	if ( intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-		$classes['container'] = 'suki-section-merged';
+		$classes['merged'] = 'suki-section-merged';
 	}
 
 	return $classes;
@@ -615,6 +586,14 @@ function suki_header_main_bar_classes( $classes ) {
 	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'header_main_bar_container' ) );
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_main_bar_menu_highlight' ) );
 
+	if ( intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+		$classes['top_bar_merged'] = 'suki-header-main-bar-with-top-bar';
+	}
+
+	if ( intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+		$classes['bottom_bar_merged'] = 'suki-header-main-bar-with-bottom-bar';
+	}
+
 	return $classes;
 }
 add_filter( 'suki/frontend/header_main_bar_classes', 'suki_header_main_bar_classes' );
@@ -630,7 +609,7 @@ function suki_header_bottom_bar_classes( $classes ) {
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_bottom_bar_menu_highlight' ) );
 
 	if ( intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-		$classes['container'] = 'suki-section-merged';
+		$classes['merged'] = 'suki-section-merged';
 	}
 
 	return $classes;
@@ -708,6 +687,10 @@ function suki_footer_widgets_classes( $classes ) {
 	$classes['widget_title_alignment'] = esc_attr( 'suki-widget-title-alignment-' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_alignment' ) );
 	$classes['widget_title_decoration'] = esc_attr( 'suki-widget-title-decoration-' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_decoration' ) );
 
+	if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+		$classes['bottom_bar_merged'] = 'suki-footer-widgets-bar-with-bottom-bar';
+	}
+
 	return $classes;
 }
 add_filter( 'suki/frontend/footer_widgets_bar_classes', 'suki_footer_widgets_classes' );
@@ -722,7 +705,7 @@ function suki_footer_bottom_classes( $classes ) {
 	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'footer_bottom_bar_container' ) );
 
 	if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
-		$classes['container'] = 'suki-section-merged';
+		$classes['merged'] = 'suki-section-merged';
 	}
 
 	return $classes;

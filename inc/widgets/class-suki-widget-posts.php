@@ -10,7 +10,8 @@ class Suki_Widget_Posts extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'suki_widget_posts',
-			esc_html__( 'Suki - Posts with Featured Image', 'suki' ),
+			/* translators: %s: theme name. */
+			sprintf( esc_html__( '%s - Posts with Featured Image', 'suki' ), suki_get_theme_info( 'name' ) ),
 			array(
 				'classname' => 'suki_widget_posts',
 				'description' => esc_html__( 'Posts list with thumbnail images', 'suki' ),

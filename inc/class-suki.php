@@ -44,8 +44,8 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 0 );
-		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 0 );
+		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 1 );
+		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 1 );
 
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
@@ -123,7 +123,7 @@ class Suki {
 		$info['screenshot'] = esc_url( get_template_directory_uri() . '/screenshot.png' );
 
 		// Assign to class $_info property.
-		$this->_info = $info;
+		$this->_info = apply_filters( 'suki/theme_info', $info );
 	}
 
 	/**
@@ -236,6 +236,12 @@ class Suki {
 
 		// Gutenberg "align-wide" compatibility
 		add_theme_support( 'align-wide' );
+
+		// Gutenberg responsive embeds
+		add_theme_support( 'responsive-embeds' );
+
+		// Gutenberg editor styles
+		add_theme_support( 'editor-styles' );
 	}
 
 	/**
@@ -406,10 +412,14 @@ class Suki {
 			case 'custom':
 				$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
 				break;
+
+			default:
+				$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+				break;
 		}
 
 		if ( '' !== $page_header_bg_image ) {
-			$css_array['global']['.suki-page-header .suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
+			$css_array['global']['.suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
 		}
 
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
@@ -448,12 +458,11 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
-			'gutenberg' => 'WP_Block_Type',
-			'jetpack' => 'Jetpack',
-			'woocommerce' => 'WooCommerce',
+			'contact-form-7' => 'WPCF7',
 			'elementor' => 'Elementor\Plugin',
 			'elementor-pro' => 'ElementorPro\Plugin',
-			'contact-form-7' => 'WPCF7',
+			'jetpack' => 'Jetpack',
+			'woocommerce' => 'WooCommerce',
 		);
 	}
 
@@ -466,6 +475,7 @@ class Suki {
 	public function get_migration_checkpoints( $start_from = null ) {
 		$all_checkpoints = array(
 			'0.6.0',
+			'0.7.0',
 		);
 
 		if ( is_null( $start_from ) ) {

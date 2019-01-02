@@ -42,9 +42,9 @@ function suki_flatten_array( $array ) {
 
 	foreach ( $array as $key => $value ) {
 		if ( is_array( $value ) ) {
-			$flattened[ $key ] = suki_flatten_array( $value );
+			$flattened = array_merge( $flattened, suki_flatten_array( $value ) );
 		} else {
-			$flattened[ $key ] = $value;
+			$flattened[ strval( $key ) ] = $value;
 		}
 	}
 
@@ -267,6 +267,10 @@ function suki_convert_css_array_to_string( $css_array ) {
 	$final_css = '';
 
 	foreach ( $css_array as $media => $selectors ) {
+		if ( empty( $selectors ) ) {
+			continue;
+		}
+
 		// Add media query open tag.
 		if ( 'global' !== $media ) {
 			$final_css .= $media. '{';
@@ -278,6 +282,10 @@ function suki_convert_css_array_to_string( $css_array ) {
 
 			$i = 1;
 			foreach ( $properties as $property => $value ) {
+				if ( '' === $value ) {
+					continue;
+				}
+
 				$final_css .= $property . ':' . $value;
 
 				if ( $i !== count( $properties ) ) {
@@ -407,77 +415,80 @@ function suki_get_content_width_by_layout( $content_layout = 'right-sidebar' ) {
  */
 function suki_get_pro_modules() {
 	return apply_filters( 'suki/pro/modules', array(
-		'header-advanced' => array(
-			'label'   => esc_html__( 'Header (Advanced)', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+		'header-elements-plus' => array(
+			'label'   => esc_html__( 'Header Elements Plus', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-elements-plus',
 			'actions' => array(),
-			'active'  => false,
 		),
-		'header-sticky' => array(
-			'label'   => esc_html__( 'Sticky Header', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+		'header-vertical' => array(
+			'label'   => esc_html__( 'Vertical Header', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-vertical',
 			'actions' => array(),
-			'active'  => false,
 		),
 		'header-transparent' => array(
 			'label'   => esc_html__( 'Transparent Header', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-transparent',
 			'actions' => array(),
-			'active'  => false,
 		),
-		'footer-advanced' => array(
-			'label'   => esc_html__( 'Footer (Advanced)', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+		'header-sticky' => array(
+			'label'   => esc_html__( 'Sticky Header', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-sticky',
 			'actions' => array(),
-			'active'  => false,
 		),
-		'blocks' => array(
-			'label'   => esc_html__( 'Blocks', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+		'header-alt-colors' => array(
+			'label'   => esc_html__( 'Alternate Header Colors', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-alt-colors',
 			'actions' => array(),
-			'active'  => false,
+		),
+		'footer-widgets-columns-width' => array(
+			'label'   => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-widgets-columns-width',
+			'actions' => array(),
+		),
+		'custom-blocks' => array(
+			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-blocks',
+			'actions' => array(),
 		),
 		'custom-fonts' => array(
 			'label'   => esc_html__( 'Custom Fonts', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-fonts',
 			'actions' => array(),
-			'active'  => false,
 		),
 		'custom-icons' => array(
 			'label'   => esc_html__( 'Custom Icons', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-icons',
 			'actions' => array(),
-			'active'  => false,
 		),
 		'color-palette' => array(
 			'label'   => esc_html__( 'Color Palette', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-color-palette',
 			'actions' => array(),
-			'active'  => false,
+		),
+		'mega-menu' => array(
+			'label'   => esc_html__( 'Mega Menu', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-mega-menu',
+			'actions' => array(),
 		),
 		'preloader' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader',
 			'actions' => array(),
-			'active'  => false,
 		),
-		'blog-advanced' => array(
-			'label'   => esc_html__( 'Blog (Advanced)', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+		'blog-plus' => array(
+			'label'   => esc_html__( 'Blog Plus', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-blog-plus',
 			'actions' => array(),
-			'active'  => false,
 		),
-		'woocommerce-advanced' => array(
-			'label'   => esc_html__( 'WooCommerce (Advanced)', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+		'woocommerce-plus' => array(
+			'label'   => esc_html__( 'WooCommerce Plus', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-woocommerce-plus',
 			'actions' => array(),
-			'active'  => false,
 		),
 		'white-label' => array(
 			'label'   => esc_html__( 'White Label', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-white-label',
 			'actions' => array(),
-			'active'  => false,
 		),
 	) );
 }
@@ -528,28 +539,28 @@ function suki_get_google_fonts() {
  */
 function suki_get_google_fonts_subsets() {
 	return array(
-		// 'latin'        => esc_html__( 'Latin (default)', 'suki' ), // always chosen by default
-		'latin-ext'    => esc_html__( 'Latin Extended', 'suki' ),
-		'arabic'       => esc_html__( 'Arabic', 'suki' ),
-		'bengali'      => esc_html__( 'Bengali', 'suki' ),
-		'cyrillic'     => esc_html__( 'Cyrillic', 'suki' ),
-		'cyrillic-ext' => esc_html__( 'Cyrillic Extended', 'suki' ),
-		'devaganari'   => esc_html__( 'Devaganari', 'suki' ),
-		'greek'        => esc_html__( 'Greek', 'suki' ),
-		'greek-ext'    => esc_html__( 'Greek Extended', 'suki' ),
-		'gujarati'     => esc_html__( 'Gujarati', 'suki' ),
-		'gurmukhi'     => esc_html__( 'Gurmukhi', 'suki' ),
-		'hebrew'       => esc_html__( 'Hebrew', 'suki' ),
-		'kannada'      => esc_html__( 'Kannada', 'suki' ),
-		'khmer'        => esc_html__( 'Khmer', 'suki' ),
-		'malayalam'    => esc_html__( 'Malayalam', 'suki' ),
-		'myanmar'      => esc_html__( 'Myanmar', 'suki' ),
-		'oriya'        => esc_html__( 'Oriya', 'suki' ),
-		'sinhala'      => esc_html__( 'Sinhala', 'suki' ),
-		'tamil'        => esc_html__( 'Tamil', 'suki' ),
-		'telugu'       => esc_html__( 'Telugu', 'suki' ),
-		'thai'         => esc_html__( 'Thai', 'suki' ),
-		'vietnamese'   => esc_html__( 'Vietnamese', 'suki' ),
+		// 'latin' always chosen by default
+		'latin-ext' => 'Latin Extended',
+		'arabic' => 'Arabic',
+		'bengali' => 'Bengali',
+		'cyrillic' => 'Cyrillic',
+		'cyrillic-ext' => 'Cyrillic Extended',
+		'devaganari' => 'Devaganari',
+		'greek' => 'Greek',
+		'greek-ext' => 'Greek Extended',
+		'gujarati' => 'Gujarati',
+		'gurmukhi' => 'Gurmukhi',
+		'hebrew' => 'Hebrew',
+		'kannada' => 'Kannada',
+		'khmer' => 'Khmer',
+		'malayalam' => 'Malayalam',
+		'myanmar' => 'Myanmar',
+		'oriya' => 'Oriya',
+		'sinhala' => 'Sinhala',
+		'tamil' => 'Tamil',
+		'telugu' => 'Telugu',
+		'thai' => 'Thai',
+		'vietnamese' => 'Vietnamese',
 	);
 }
 
@@ -601,5 +612,24 @@ function suki_get_social_media_types() {
 		'vimeo' => 'Vimeo',
 		'youtube' => 'Youtube',
 		'rss' => 'RSS',
+	) );
+}
+
+/**
+ * Return array of icons choices.
+ * 
+ * @return array
+ */
+function suki_get_all_icons() {
+	return apply_filters( 'suki/dataset/all_icons', array(
+		'theme_icons' => array(
+			'search' => esc_html_x( 'Search', 'icon label', 'suki' ),
+			'close' => esc_html_x( 'Close', 'icon label', 'suki' ),
+			'menu' => esc_html_x( 'Menu', 'icon label', 'suki' ),
+			'submenu-down' => esc_html_x( 'Dropdown Arrow -- Down', 'icon label', 'suki' ),
+			'submenu-right' => esc_html_x( 'Dropdown Arrow -- Right', 'icon label', 'suki' ),
+			'shopping-cart' => esc_html_x( 'Shopping Cart', 'icon label', 'suki' ),
+		),
+		'social_icons' => suki_get_social_media_types(),
 	) );
 }

@@ -1,24 +1,26 @@
-@import "../_normalize";
-
 @import "../__variables";
+
 @import "../__mixins";
 
-// Base Elements
-@import "../__extends";
 @import "../_base";
 
-// Common Elements
 @import "../_wordpress";
 
+@import "../_gutenberg";
+
 html {
-	background-color: #fcfcfc; // default
 	min-height: auto; // reset
 }
+
+// -------------------------------------------------------------
+// Classic Editor
+// -------------------------------------------------------------
 
 body.mce-content-body {
 	position: relative;
 	max-width: 100%; // default
 	min-height: auto; // reset
+	margin: 0;
 	padding: 1rem !important;
 	background-color: $color_bg; // default
 
@@ -38,19 +40,60 @@ body.mce-content-body {
 
 	a {
 		text-decoration: underline;
+
+		&[data-mce-selected] {
+			padding: 0;
+			margin: 0;
+			border-radius: 0;
+			box-shadow: none;
+			background: transparent;
+		}
 	}
 }
 
-blockquote {
-	padding: 0.5rem 2rem;
-	@include border( left, 0.25rem, solid );
+// -------------------------------------------------------------
+// Gutenberg
+// -------------------------------------------------------------
 
-	&[style*="center"] {
-		border-left: none;
+.editor-post-permalink {
+	border-width: 1px;
+}
+
+.editor-block-toolbar {
+	border-left-width: 1px;
+}
+
+.editor-post-title__block .editor-post-title__input {
+	@include h1();
+	border-radius: 0;
+	font-family: inherit;
+}
+
+.editor-block-list__layout .editor-default-block-appender > .editor-default-block-appender__content,
+.editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit,
+.editor-block-list__layout > .editor-block-list__layout > .editor-block-list__block > .editor-block-list__block-edit {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+.wp-block {
+	max-width: calc( 720px + 30px ); // default
+
+	&[data-align="wide"] {
+		max-width: calc( 1140px + 30px ); // default
 	}
 
-	&[style*="right"] {
-		border-left: none;
-		@include border( right, 0.25rem, solid );
+	&[data-align="full"] {
+		max-width: none;
+	}
+}
+
+.wp-block-button {
+	margin: 0;
+
+	a.wp-block-button__link, .wp-block-button__link[role="textbox"] {
+		@include button();
+		margin-bottom: 0;
+		text-decoration: none;
 	}
 }

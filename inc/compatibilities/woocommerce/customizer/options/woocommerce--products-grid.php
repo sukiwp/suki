@@ -55,21 +55,40 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+// Text alignment
+$id = 'woocommerce_products_grid_text_alignment';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $id, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Text alignment', 'suki' ),
+	'choices'     => array(
+		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'center' => esc_html__( 'Center', 'suki' ),
+		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+	),
+	'priority'    => 10,
+) );
+
 /**
  * ====================================================
  * Suki Pro Upsell
  * ====================================================
  */
 
-if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_index', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-		'url'         => SUKI_PRO_URL,
-		'features'    => array(
-			esc_html_x( 'More products grid item styles', 'Suki Pro upsell', 'suki' ),
-		),
-		'priority'    => 90,
-	) ) );
-}
+// if ( suki_show_pro_teaser() ) {
+// 	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_index', array(
+// 		'section'     => $section,
+// 		'settings'    => array(),
+// 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+// 		'url'         => SUKI_PRO_URL,
+// 		'features'    => array(
+// 			esc_html_x( 'More products grid item styles', 'Suki Pro upsell', 'suki' ),
+// 		),
+// 		'priority'    => 90,
+// 	) ) );
+// }

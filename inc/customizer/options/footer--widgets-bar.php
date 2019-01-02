@@ -58,6 +58,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'min'  => 0,
 			'step' => 1,
 		),
+		'%' => array(
+			'min'  => 0,
+			'step' => 0.01,
+		),
 	),
 	'priority'    => 10,
 ) ) );
@@ -296,24 +300,5 @@ foreach ( $colors as $id => $label ) {
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,
-	) ) );
-}
-
-/**
- * ====================================================
- * Suki Pro Upsell
- * ====================================================
- */
-
-if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_footer_widgets_bar', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-		'url'         => SUKI_PRO_URL,
-		'features'    => array(
-			esc_html_x( 'Dynamic columns width (responsive support)', 'Suki Pro upsell', 'suki' ),
-		),
-		'priority'    => 90,
 	) ) );
 }

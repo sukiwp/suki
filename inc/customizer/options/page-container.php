@@ -81,7 +81,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'description' => esc_html__( 'The maximum width of center content wrapper.', 'suki' ),
 	'units'       => array(
 		'px' => array(
-			'min'  => 500,
+			'min'  => 600,
 			'max'  => 1600,
 			'step' => 1,
 		),

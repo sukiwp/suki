@@ -4,10 +4,10 @@
 	"description": "Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/.",
 	"uri": "https://sukiwp.com/",
 	"author": {
-		"name": "SukiWP",
-		"url": "https://sukiwp.com/about/"
+		"name": "Suki WordPress Theme",
+		"url": "https://sukiwp.com/#about"
 	},
-	"version": "0.6.0",
+	"version": "0.7.6",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"two-columns",
@@ -45,18 +45,18 @@
 		"eligrey-classlist-js-polyfill": "^1.2.20180112",
 		"google-fonts-complete": "^1.2.2",
 		"gulp": "^4.0.0",
-		"gulp-autoprefixer": "^5.0.0",
+		"gulp-autoprefixer": "^6.0.0",
 		"gulp-merge-media-queries": "^0.2.1",
 		"gulp-rename": "^1.4.0",
 		"gulp-replace": "^1.0.0",
 		"gulp-rtlcss": "^1.3.0",
-		"gulp-sass": "^4.0.1",
+		"gulp-sass": "^4.0.2",
 		"gulp-uglify": "^3.0.1",
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-watch": "^5.0.1",
-		"gulp-wp-pot": "^2.3.2",
+		"gulp-wp-pot": "^2.3.3",
 		"gulp-zip": "^4.2.0",
-		"normalize.css": "^8.0.0"
+		"normalize.css": "^8.0.1"
 	},
 	"browserslist": [
 		"last 2 versions",

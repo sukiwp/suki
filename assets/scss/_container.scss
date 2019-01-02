@@ -65,27 +65,6 @@ body.suki-page-layout-boxed {
 	left: 0;
 }
 
-.suki-popup-close-icon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 1.25rem;
-	font-size: 1.5rem;
-	line-height: 1;
-	background-color: transparent !important;
-	color: $color_white !important; // default
-	opacity: 1;
-
-	&:hover, &:focus {
-		opacity: 0.8;
-	}
-
-	.suki-header-vertical-position-right ~ & {
-		left: 0;
-		right: auto;
-	}
-}
-
 // -------------------------------------------------------------
 // Content Container
 // -------------------------------------------------------------
@@ -108,14 +87,6 @@ body.suki-page-layout-boxed {
 
 	.suki-section-full-width > .suki-section-inner > & {
 		width: auto;
-	}
-}
-
-.suki-section-merged {
-	padding: 0;
-
-	.suki-section-inner {
-		padding: 0;
 	}
 }
 
@@ -160,6 +131,8 @@ body.suki-page-layout-boxed {
 	// fix <pre> width on flex element
 	// ref: https://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
 	min-width: 0;
+
+	@include border( null, 0 );
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		width: auto !important;

@@ -1,18 +1,18 @@
-@import "../__variables";
-@import "../__mixins";
-@import "../__extends";
-
 // -------------------------------------------------------------
 // Alignment
 // -------------------------------------------------------------
 
 .alignwide {
 	.suki-content-layout-narrow & {
-		position: relative;
-		left: 50%;
-		transform: translate( -50%, 0 );
 		width: 1140px; // default
 		max-width: 100vw;
+		margin-left: calc( -0.5 * 1140px + 50% ); // default
+		margin-right: calc( -0.5 * 1140px + 50% ); // default
+
+		@media screen and (max-width: 1140px) {
+			margin-left: calc( -50vw + 50% ); // default
+			margin-right: calc( -50vw + 50% ); // default
+		}
 	}
 
 	img {
@@ -23,11 +23,10 @@
 .alignfull {
 	.suki-content-layout-narrow &,
 	.suki-content-layout-wide & {
-		position: relative;
-		left: 50%;
-		transform: translate( -50%, 0 );
 		width: 100vw;
 		max-width: 100vw;
+		margin-left: calc( -50vw + 50% ); // default
+		margin-right: calc( -50vw + 50% ); // default
 
 		body.suki-page-layout-boxed & {
 			width: 1400px; // default
@@ -43,7 +42,8 @@
 // Global block
 // -------------------------------------------------------------
 
-[class*="wp-block"] {
+.entry-content > [class*="wp-block"],
+.wp-block-column > [class*="wp-block"] {
 	margin-bottom: 1.25rem;
 }
 
@@ -52,33 +52,11 @@
 // -------------------------------------------------------------
 
 .wp-block-columns {
-	margin: 0 -15px; // default
-
-	&.alignwide {
-		.suki-content-layout-narrow & {
-			width: calc( 1140px + ( 2 * 15px ) ); // default
-			max-width: calc( 100vw + ( 2 * 15px ) );
-			margin: 0;
-		}
-	}
-
-	&.alignfull {
-		.suki-content-layout-narrow &,
-		.suki-content-layout-wide & {
-			width: calc( 100vw + ( 2 * 15px ) );
-			max-width: calc( 100vw + ( 2 * 15px ) );
-			margin: 0;
-
-			body.suki-page-layout-boxed & {
-				width: calc( 1400px + ( 2 * 15px ) ); // default
-			}
-		}
-	}
+	margin-bottom: 0 !important;
 }
 
 .wp-block-column {
-	padding: 0 15px; // default
-	margin: 0;
+	margin-bottom: 1.25rem;
 }
 
 // -------------------------------------------------------------
@@ -102,6 +80,18 @@ p.has-drop-cap:not(:focus):first-letter {
 // -------------------------------------------------------------
 
 .wp-block-quote {
+	padding: 0.5rem 2rem;
+	@include border( left, 0.25rem, solid );
+
+	&[style*="center"] {
+		border-left: none;
+	}
+
+	&[style*="right"] {
+		border-left: none;
+		@include border( right, 0.25rem, solid );
+	}
+
 	p {
 		font: inherit;
 	}
@@ -174,7 +164,7 @@ p.wp-block-subhead {
 		max-width: 70%;
 		margin: 0;
 		padding: 0.5em;
-		@extend %h2;
+		@include h2();
 	}
 }
 
@@ -201,28 +191,7 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-gallery {
-	&.alignwide {
-		.suki-content-layout-narrow & {
-			margin-left: 0;
-			margin-right: 0;
-			width: calc( 1140px + ( 2 * 8px ) ); // default
-			max-width: calc( 100vw + ( 2 * 8px ) );
-		}
-	}
-
-	&.alignfull {
-		.suki-content-layout-narrow &,
-		.suki-content-layout-wide & {
-			margin-left: 0;
-			margin-right: 0;
-			width: calc( 100vw + ( 2 * 8px ) );
-			max-width: calc( 100vw + ( 2 * 8px ) );
-
-			body.suki-page-layout-boxed & {
-				width: calc( 1400px + ( 2 * 8px ) ); // default
-			}
-		}
-	}
+	padding: 0;
 }
 
 // -------------------------------------------------------------
@@ -250,8 +219,8 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-separator {
-	margin: 2.5rem 0;
-	max-width: none;
+	margin: 2.5rem 0 !important;
+	max-width: none !important;
 	border-bottom: none; // reset
 	@include border( top );
 	border-color: inherit;
@@ -261,10 +230,8 @@ p.wp-block-subhead {
 // Button
 // -------------------------------------------------------------
 
-.wp-block-button {
-	.wp-block-button__link {
-		@extend %button;
-	}
+.wp-block-button__link {
+	@include button();
 }
 
 // -------------------------------------------------------------
@@ -273,7 +240,7 @@ p.wp-block-subhead {
 
 .wp-block-embed {
 	.suki-oembed {
-		// reset responsive wrapper, Gutenberg already does it
+		// reset in favor of "responsive-embeds" theme support
 		position: static;
 		padding: 0 !important;
 		margin: 0;

@@ -23,7 +23,7 @@ $add['woocommerce_demo_store_notice_text_color'] = $colors['white'];
 
 /**
  * ====================================================
- * WooCommerce > Product Catalog
+ * WooCommerce > Shop (Catalog) Page
  * ====================================================
  */
 
@@ -37,7 +37,7 @@ $add['woocommerce_products_grid_item_add_to_cart'] = 0;
 
 /**
  * ====================================================
- * WooCommerce > Single Product
+ * WooCommerce > Single Product Page
  * ====================================================
  */
 
@@ -60,7 +60,7 @@ $add['woocommerce_single_related_grid_columns'] = 4;
 
 /**
  * ====================================================
- * WooCommerce > Cart
+ * WooCommerce > Cart Page
  * ====================================================
  */
 
@@ -69,7 +69,7 @@ $add['woocommerce_cart_cross_sells_grid_columns'] = 4;
 
 /**
  * ====================================================
- * WooCommerce > Checkout
+ * WooCommerce > Checkout Page
  * ====================================================
  */
 
@@ -82,6 +82,7 @@ $add['woocommerce_checkout_two_columns'] = 1;
  */
 
 $add['woocommerce_products_grid_columns_gutter'] = '15px';
+$add['woocommerce_products_grid_text_alignment'] = 'left';
 
 /**
  * ====================================================

@@ -427,12 +427,14 @@ div.customize-section-description {
 	display: block;
 	height: 6px;
 	margin: 10px 12px 10px 7px;
+	border: none;
 	border-radius: 3px;
 	background: #ccc;
 }
 
 .customize-control-suki-slider .suki-slider-ui .ui-slider-handle {
 	position: absolute;
+	top: 0;
 	display: inline-block;
 	height: 12px;
 	width: 12px;
@@ -674,25 +676,6 @@ div.customize-section-description {
 #customize-theme-controls #customize-control-header_builder_actions,
 #customize-theme-controls #customize-control-footer_builder_actions {
 	display: none !important;
-}
-
-#customize-theme-controls #customize-control-footer_elements .suki-builder-location .suki-builder-sortable-panel {
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-}
-
-#customize-theme-controls #customize-control-footer_elements .suki-builder-location-bottom_left .suki-builder-sortable-panel {
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-}
-
-#customize-theme-controls #customize-control-footer_elements .suki-builder-location-bottom_right .suki-builder-sortable-panel {
-	-webkit-box-align: end;
-	-ms-flex-align: end;
-	align-items: flex-end;
 }
 
 @media screen and (min-width: 1324px) {
@@ -973,10 +956,12 @@ div.customize-section-description {
 	}
 }
 
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description,
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-panel-description {
 	display: block;
 }
 
+#sub-accordion-panel-suki_panel_header .customize-info .customize-help-toggle,
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-help-toggle {
 	display: none;
 }

@@ -81,6 +81,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'min'  => 0,
 			'step' => 1,
 		),
+		'%' => array(
+			'min'  => 0,
+			'step' => 0.01,
+		),
 	),
 	'priority'    => 10,
 ) ) );
@@ -131,6 +135,34 @@ $wp_customize->add_control( $id, array(
 	),
 	'priority'    => 10,
 ) );
+
+// Effective text width
+$id = 'page_header_layout_width';
+$settings = array(
+	$id,
+	$id . '__tablet',
+	$id . '__mobile',
+);
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	) );
+}
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+	'settings'    => $settings,
+	'section'     => $section,
+	'label'       => esc_html__( 'Effective width', 'suki' ),
+	'units'       => array(
+		'%' => array(
+			'min'  => 25,
+			'max'  => 100,
+			'step' => 0.01,
+		),
+	),
+	'priority'    => 10,
+) ) );
 
 // Show breadcrumb
 $id = 'page_header_breadcrumb';
@@ -311,7 +343,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 $id = 'page_header_bg_image';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
-	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
 ) );
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
@@ -339,23 +370,15 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 40,
 ) );
 
-// Background overlay
-$id = 'page_header_bg_overlay_opacity'; 
+// Colors
+$id = 'page_header_bg_overlay_color';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
 	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Background color overlay opacity', 'suki' ),
-	'units'       => array(
-		'' => array(
-			'min'  => 0,
-			'max'  => 1,
-			'step' => 0.05,
-		),
-	),
-	'hide_units'  => true,
+	'label'       => esc_html__( 'Background overlay color', 'suki' ),
 	'priority'    => 40,
 ) ) );

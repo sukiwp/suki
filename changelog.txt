@@ -1,3 +1,83 @@
+v0.7.6
+- FIX: Popup close icon CSS.
+- FIX: Footer bottom CSS.
+
+v0.7.5
+- FIX: TinyMCE settings filters which caused blank white error on TinyMCE.
+- FIX: Minor CSS.
+
+v0.7.4
+- FIX: Gutenberg cover image CSS when using parallax and wide alignment mode.
+
+v0.7.3
+- FIX: Use selected font family in Gutenberg editor.
+
+v0.7.2
+- TWEAK: Improve Gutenberg editor CSS.
+- TWEAK: Improve CSS for widgets and other minor elements.
+- TWEAK: Improve static pages template hooks.
+- TWEAK: Make multiple elements in a footer bottom column displayed inline (previously block).
+- FIX: Footer bottom CSS.
+
+v0.7.1
+- FIX: Global page header background image was not showing in archive page.
+- FIX: Header link hover color.
+- FIX: Footer bottom responsive CSS.
+- FIX: Some minor CSS.
+
+v0.7.0
+- NEW: Move Gutenberg compatibility features into core.
+- NEW: Gutenberg editor's styles.
+- NEW: Option to set spacing between header's merged bars (top and bottom) and the main bar.
+- NEW: Option to set spacing between footer's merged bottom bar and the widgets bar.
+- NEW: Option to set spacing between footer's merged bottom bar and the widgets bar.
+- NEW: Option to set active menu link colors including its highlight effect colors.
+- NEW: Option to set spacing between elements on footer bottom bar.
+- NEW: Option to set page header background overlay color along with transparency.
+- NEW: Option to set page header layout width when on "left", "center", "right" layout.
+- NEW: Option to set WooCommerce products grid text alignment.
+- NEW: Option to set post / page content header alignment.
+- NEW: Percentage (%) unit on all section padding settings.
+- TWEAK: Move "Page Settings" metabox to side panels (for better experience on Gutenberg).
+- TWEAK: Remove static page's template hooks and use same hooks as default post content's.
+- TWEAK: Header's merged bars HTML structure.
+- TWEAK: Footer's merged bars HTML structure.
+- TWEAK: Suki Pro modules list.
+- TWEAK: Remove "page header background overlay opacity" setting in favor of "page header background overlay color".
+- TWEAK: Update Google Fonts JSON.
+- FIX: JS warning when header is disabled.
+- FIX: Reponsive switcher on Customizer's slider and typography controls.
+- FIX: Some WooCommerce CSS.
+- FIX: Some Gutenberg CSS.
+- FIX: Some other template CSS.
+
+v0.6.3
+- TWEAK: Make header HTML elements allow all HTML tags.
+- FIX: Variable product's "add to cart" form CSS.
+- FIX: Footer widget columns width on mobile.
+- FIX: Cart totals CSS.
+- FIX: Select2 CSS.
+
+v0.6.2
+- TWEAK: Improve compatibility CSS for WooCommerce 3.5.
+- TWEAK: Improve letter spacing step, from 0.5px to 0.1px.
+- FIX: Gutenberg blocks CSS.
+- FIX: Customizer's dimensions control bug for not saving responsive values.
+- FIX: Customizer's shadow control JS.
+- FIX: Customizer's footer builder JS.
+
+v0.6.1
+- NEW: WooCommerce cart's table responsive styles.
+- NEW: Make search form's placeholder text translatable from theme's text domain.
+- TWEAK: Adjust narrow content and content wrapper allowed width ranges in Customizer.
+- TWEAK: Improve WooCommerce responsive cart table styles.
+- FIX: Customizer's shadow control JS bug.
+- FIX: Customizer's postmessage on button radius option for WooCommerce buttons.
+- FIX: Customizer's postmessage on subsidiary headings.
+- FIX: Custom CSS media queries order.
+- FIX: Custom CSS on WooCommerce buttons and inputs.
+- FIX: Some minor CSS.
+
 v0.6.0
 - NEW: Header menu highlight now has highlight text color option.
 - TWEAK: Drastically improve Customizer performance (now it loads much faster).

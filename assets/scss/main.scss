@@ -1,31 +1,29 @@
-@import "_normalize";
+@import "__normalize";
 
 @import "__variables";
+
 @import "__mixins";
 
-// Base Elements
-@import "__extends";
 @import "_base";
 
-// Common Elements
+@import "_forms";
+
 @import "_accessibility";
+
 @import "_common";
+
 @import "_wordpress";
 
-// Page Canvas & Wrapper
+@import "_gutenberg";
+
 @import "_container";
 
-// Header
 @import "_header";
 
-// Page Header
 @import "_page-header";
 
-// Footer
 @import "_footer";
 
-// Entry
 @import "_entry";
 
-// Widgets
 @import "_widgets";

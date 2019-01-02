@@ -77,3 +77,22 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	),
 	'priority'    => 20,
 ) ) );
+
+/**
+ * ====================================================
+ * Suki Pro Upsell
+ * ====================================================
+ */
+
+if ( suki_show_pro_teaser() ) {
+	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_header_search', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'Search query mode (support WooCommerce products search)', 'Suki Pro upsell', 'suki' ),
+		),
+		'priority'    => 90,
+	) ) );
+}

@@ -280,10 +280,14 @@
 				// Make sure click event doesn't happen inside the toggle.
 				if ( ! e.target.closest( '.suki-toggle-menu' ) ) {
 					var $header = document.getElementById( 'masthead' ),
-					    $focusedMenuItems = $header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' );
+					    $focusedMenuItems;
 
-					for ( var i = 0; i < $focusedMenuItems.length; i++ ) {
-						$focusedMenuItems[i].classList.remove( 'focus' );
+					if ( $header ) {
+						$focusedMenuItems = $header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' );
+
+						for ( var i = 0; i < $focusedMenuItems.length; i++ ) {
+							$focusedMenuItems[i].classList.remove( 'focus' );
+						}
 					}
 				}
 			};

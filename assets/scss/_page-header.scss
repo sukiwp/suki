@@ -18,8 +18,6 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: inherit; // default
-		opacity: 0; // default
 	}
 }
 
@@ -80,14 +78,29 @@
 
 .suki-page-header-layout-left {
 	text-align: left;
+
+	.suki-page-header-row {
+		margin-left: 0;
+		margin-right: auto;
+	}
 }
 
 .suki-page-header-layout-center {
 	text-align: center;
+
+	.suki-page-header-row {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .suki-page-header-layout-right {
 	text-align: right;
+
+	.suki-page-header-row {
+		margin-left: auto;
+		margin-right: 0;
+	}
 }
 
 .suki-page-header-title {

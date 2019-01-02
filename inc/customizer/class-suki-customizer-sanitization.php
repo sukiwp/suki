@@ -137,6 +137,12 @@ class Suki_Customizer_Sanitization {
 		if ( '' === trim( $value ) ) {
 			return '';
 		}
+		
+		// Get control ID, support for reponsive control.
+		$control_id = preg_replace( '/__(tablet|mobile)/', '', $setting->id );
+
+		// Get the control object associated with the setting.
+		$control = $setting->manager->get_control( $control_id );
 
 		// Elaborate each property.
 		// Check if properties count is less than 4, return empty string.
@@ -144,9 +150,6 @@ class Suki_Customizer_Sanitization {
 		if ( 4 > count( $props ) ) {
 			return '';
 		}
-
-		// Get the control object associated with the setting.
-		$control = $setting->manager->get_control( $setting->id );
 
 		// Validate each property.
 		for ( $i = 0; $i < 4; $i++ ) {

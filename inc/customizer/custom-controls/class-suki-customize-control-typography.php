@@ -104,9 +104,9 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				{{{ data.label }}}
 				<# if ( data.responsive ) { #>
 					<span class="suki-responsive-switcher">
-						<span class="suki-responsive-switcher-button preview-desktop active" data-device="tablet"><span class="dashicons dashicons-desktop"></span></span>
-						<span class="suki-responsive-switcher-button preview-tablet" data-device="mobile"><span class="dashicons dashicons-tablet"></span></span>
-						<span class="suki-responsive-switcher-button preview-mobile" data-device="desktop"><span class="dashicons dashicons-smartphone"></span></span>
+						<# _.each( data.structures, function( setting_key, device ) { #>
+							<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
+						<# }); #>
 					</span>
 				<# } #>
 			</span>
@@ -263,7 +263,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'px' => array(
 					'min' => -20,
 					'max' => 20,
-					'step' => 0.5,
+					'step' => 0.1,
 					'label' => 'px',
 				),
 				'em' => array(

@@ -60,6 +60,9 @@ class Suki_Compatibility_WooCommerce {
 		
 		// Page settings
 		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
+
+		// Product search form widget
+		add_filter( 'get_product_search_form', array( $this, 'add_icon_to_product_search_widget' ) );
 	}
 	
 	/**
@@ -181,7 +184,7 @@ class Suki_Compatibility_WooCommerce {
 		 * Shop page's template hooks
 		 */
 
-		// Add spacer before mail products loop.
+		// Add spacer before main products loop.
 		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_before_shop_loop' ), 999 );
 
 		// Reposition sale badge on products grid item.
@@ -264,6 +267,9 @@ class Suki_Compatibility_WooCommerce {
 		/**
 		 * Global template hooks
 		 */
+
+		// Add text alignment class on products loop.
+		add_filter( 'woocommerce_product_loop_start', array( $this, 'add_loop_text_alignment_class' ) );
 
 		// Keep / remove "add to cart" button on products grid.
 		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
@@ -370,6 +376,18 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		return $ids;
+	}
+
+	/**
+	 * Add SVG icon to product search widget HTML.
+	 *
+	 * @param string $from
+	 * @return string
+	 */
+	public function add_icon_to_product_search_widget( $form ) {
+		$form = preg_replace( '/<\/form>/', suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ) . '</form>', $form );
+
+		return $form;
 	}
 	
 	/**
@@ -533,6 +551,18 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Add text alignment class on loop start tag.
+	 *
+	 * @param string $hml
+	 * @return string
+	 */
+	public function add_loop_text_alignment_class( $html ) {
+		$html = preg_replace( '/(class=".*?)"/', '$1 suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) . '"', $html );
+
+		return $html;
+	}
+
+	/**
 	 * ====================================================
 	 * Product Page Hook functions
 	 * ====================================================
@@ -553,7 +583,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Product thumbnails columns in single product page.
+	 * Set Product thumbnails columns in single product page.
 	 * 
 	 * @param integer $columns
 	 * @return integer

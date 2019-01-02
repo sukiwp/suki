@@ -147,6 +147,7 @@ $wp_customize->add_section( 'suki_section_page_container', array(
 $panel = 'suki_panel_header';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
+	'description' => esc_html__( 'Tips: you can customize the Mobile Header by switching to tablet / mobile view.', 'suki' ),
 	'priority'    => 173,
 ) );
 
@@ -254,6 +255,7 @@ $wp_customize->add_panel( $panel, array(
 				esc_html_x( 'More header elements', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Vertical bar (drawer & permanent style)', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Transparent header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Alternate header colors', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Sticky header', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
@@ -368,6 +370,25 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) );
 
+	if ( suki_show_pro_teaser() ) {
+		// ------
+		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_footer_advanced', array(
+			'panel'       => $panel,
+			'priority'    => 90,
+		) ) );
+
+		// More Options Available on Suki Pro
+		$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_pro_footer_advanced', array(
+			'title'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+			'panel'       => $panel,
+			'url'         => SUKI_PRO_URL,
+			'features'    => array(
+				esc_html_x( 'Dynamic widgets column width (responsive)', 'Suki Pro upsell', 'suki' ),
+			),
+			'priority'    => 90,
+		) ) );
+	}
+
 // ------
 $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_180', array(
 	'priority'    => 180,
@@ -382,13 +403,13 @@ $wp_customize->add_panel( $panel, array(
 
 	// Post Index
 	$wp_customize->add_section( 'suki_section_blog_index', array(
-		'title'       => esc_html__( 'Posts Index', 'suki' ),
+		'title'       => esc_html__( 'Posts Page', 'suki' ),
 		'panel'       => $panel,
 	) );
 
 	// Single Post
 	$wp_customize->add_section( 'suki_section_blog_single', array(
-		'title'       => esc_html__( 'Single Post', 'suki' ),
+		'title'       => esc_html__( 'Single Post Page', 'suki' ),
 		'description' => sprintf(
 			/* translators: %s: link to "Post Layout: Default" section. */
 			esc_html__( '"Default" post layout is used as the main post layout. You can configure it on %s', 'suki' ),

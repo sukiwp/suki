@@ -46,6 +46,12 @@ class Suki_Migrate_0_6_0 {
 	 * ====================================================
 	 */
 
+	/**
+	 * Build a new padding value for template sections.
+	 *
+	 * Formerly, there is an automatic padding added to the section when user select "Full width with side padding" (full-width-padding) value.
+	 * Now, the full-width-padding option is gone, and the side padding is merged to "Padding" options.
+	 */
 	private function merge_section_layout_and_padding() {
 		$containers = array(
 			'header_top_bar_container',
@@ -80,16 +86,16 @@ class Suki_Migrate_0_6_0 {
 			if ( false !== $padding ) {
 				$padding = explode( ' ', $padding );
 
-				// Merge 
+				// Merge side padding into padding.
 				$padding[1] = '20px';
 				$padding[3] = '20px';
 
 				$padding = implode( ' ', $padding );
 
-				// Update DB value
+				// Update DB value.
 				set_theme_mod( $key, $padding );
 
-				// Split "header_mobile_main_bar_padding" into "header_mobile_main_bar_padding__tablet"
+				// Split "header_mobile_main_bar_padding" into "header_mobile_main_bar_padding__tablet".
 				if ( 'header_mobile_main_bar_padding' === $key ) {
 					set_theme_mod( $key . '__tablet', $padding );
 					remove_theme_mod( $key );

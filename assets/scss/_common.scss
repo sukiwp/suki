@@ -82,19 +82,19 @@
 // -------------------------------------------------------------
 
 .h1 {
-	@extend %h1;
+	@include h1();
 }
 
 .h2 {
-	@extend %h2;
+	@include h2();
 }
 
 .h3 {
-	@extend %h3;
+	@include h3();
 }
 
 .h4 {
-	@extend %h4;
+	@include h4();
 }
 
 // -------------------------------------------------------------
@@ -103,6 +103,10 @@
 
 .suki-float-container {
 	@include float-container();
+}
+
+.page-title {
+	@include h1();
 }
 
 .page-header {
@@ -116,7 +120,7 @@
 	}
 
 	.page-title {
-		@extend %small-title; // default
+		@include h3(); // default
 	}
 }
 
@@ -187,7 +191,7 @@
 	}
 }
 
-.suki-toggle {
+button.suki-toggle {
 	// reset button appearance
 	border: none;
 	margin: 0;

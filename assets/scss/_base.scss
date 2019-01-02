@@ -3,8 +3,7 @@
 // -------------------------------------------------------------
 
 * {
-	border-style: solid;
-	border-width: 0;
+	@include border( null, 0 );
 	border-color: $color_border; // default
 
 	&, &:before, &:after {
@@ -13,10 +12,6 @@
 
 	&:focus {
 		outline: 0;
-
-		body.using-keyboard & {
-			outline: thin dotted;
-		}
 	}
 }
 
@@ -24,7 +19,7 @@ html {
 	min-height: 100vh;
 	color: $color_text; // default
 
-	@extend %base; // default
+	@include base(); // default
 }
 
 body {
@@ -32,7 +27,7 @@ body {
 	color: $color_text; // default
 	min-height: 100vh;
 
-	@extend %base; // default
+	@include base(); // default
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -56,23 +51,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	@extend %h1;
+	@include h1();
 }
 
 h2 {
-	@extend %h2;
+	@include h2();
 }
 
 h3 {
-	@extend %h3;
+	@include h3();
 }
 
 h4 {
-	@extend %h4;
+	@include h4();
 }
 
 h5, h6 {
-	@extend %h4;
+	@include h4();
 
 	font-size: 1rem; // default
 	font-weight: 600; // default
@@ -88,7 +83,7 @@ hr {
 blockquote {
 	margin: 0 0 1.25rem;
 
-	@extend %blockquote;
+	@include blockquote();
 
 	> *:last-child {
 		margin-bottom: 0;
@@ -110,6 +105,10 @@ ol {
 	margin: 0 0 1.25rem;
 	padding-left: 2rem;
 
+	li {
+		margin: 0;
+	}
+
 	li > & {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -130,6 +129,7 @@ table {
 
 	th {
 		font-weight: 600;
+		text-align: initial;
 	}
 }
 
@@ -161,11 +161,11 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: $color_accent; // default
+	color: $color_accent_2; // default
 	@include transition();
 
 	&:hover, &:focus {
-		color: $color_accent_2; // default
+		color: $color_accent; // default
 	}
 }
 
@@ -208,6 +208,11 @@ sup {
 img {
 	height: auto;
 	max-width: 100%;
+	vertical-align: middle;
+}
+
+svg {
+	vertical-align: middle;
 }
 
 ::selection {
@@ -218,136 +223,4 @@ img {
 *::placeholder {
 	opacity: 0.75;
 	color: inherit;
-}
-
-// -------------------------------------------------------------
-// Form basic
-// -------------------------------------------------------------
-
-fieldset {
-	padding: 1rem 1.25rem;
-	margin: 1em 0;
-	@include border();
-}
-
-// -------------------------------------------------------------
-// Button
-// -------------------------------------------------------------
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.button,
-a.button {
-	@extend %button;
-}
-
-// -------------------------------------------------------------
-// Input, select, textarea
-// -------------------------------------------------------------
-
-input[type="text"],
-input[type="password"],
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-.input {
-	@extend %input;
-}
-
-textarea {
-	@extend %input;
-}
-
-select {
-	@extend %select;
-}
-
-select[multiple] {
-	background: none;
-	padding-right: 0;
-}
-
-// -------------------------------------------------------------
-// Select2
-// -------------------------------------------------------------
-
-.select2-container {
-	line-height: normal;
-
-	.select2-selection {
-		@extend %select;
-		display: block;
-		height: auto;
-		border-color: inherit;
-		background-color: transparent;
-	}
-
-	.select2-selection--single {
-		.select2-selection__rendered {
-			padding-left: 0;
-			padding-right: 0;
-			font: inherit;
-			color: inherit;
-		}
-
-		.select2-selection__placeholder:empty {
-			display: inline-block;
-		}
-
-		.select2-selection__arrow {
-			display: none;
-		}
-	}
-
-	.select2-dropdown {
-		@include border();
-		border-color: inherit;
-
-		.select2-search {
-			@include border( top );
-			@include border( bottom );
-
-			.select2-search__field {
-				border: none;
-				padding: 0;
-			}
-		}
-
-		.select2-results {
-			padding: 0.5em 0;
-
-			.select2-results__option {
-				&--highlighted {
-					background-color: rgba(0,0,0,0.025);
-					color: inherit;
-				}
-
-				&[aria-selected="true"] {
-					background-color: rgba(0,0,0,0.05);
-				}
-			}
-		}
-	}
-	
-	.select2-dropdown--below {
-		border-top: none;
-		border-top-left-radius: 0 !important;
-		border-top-right-radius: 0 !important;
-	}
-
-	.select2-dropdown--above {
-		border-bottom: none;
-		border-bottom-left-radius: 0 !important;
-		border-bottom-right-radius: 0 !important;
-	}
 }

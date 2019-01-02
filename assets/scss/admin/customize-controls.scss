@@ -1,7 +1,6 @@
 @import "../__variables";
-@import "../__mixins";
 
-@import "../__extends";
+@import "../__mixins";
 
 // -------------------------------------------------------------
 // Basic customize control
@@ -480,11 +479,13 @@ div.customize-section-description {
 		display: block;
 		height: 6px;
 		margin: 10px 12px 10px 7px;
+		border: none;
 		border-radius: 3px;
 		background: #ccc;
 
 		.ui-slider-handle {
 			position: absolute;
+			top: 0;
 			display: inline-block;
 			height: 12px;
 			width: 12px;
@@ -739,25 +740,25 @@ div.customize-section-description {
 		display: none !important;
 	}
 
-	#customize-control-footer_elements {
-		.suki-builder-location {
-			.suki-builder-sortable-panel {
-				flex-direction: column;
-			}
-		}
+	// #customize-control-footer_elements {
+	// 	.suki-builder-location {
+	// 		.suki-builder-sortable-panel {
+	// 			flex-direction: column;
+	// 		}
+	// 	}
 
-		.suki-builder-location-bottom_left {
-			.suki-builder-sortable-panel {
-				align-items: flex-start;
-			}
-		}
+	// 	.suki-builder-location-bottom_left {
+	// 		.suki-builder-sortable-panel {
+	// 			align-items: flex-start;
+	// 		}
+	// 	}
 
-		.suki-builder-location-bottom_right {
-			.suki-builder-sortable-panel {
-				align-items: flex-end;
-			}
-		}
-	}
+	// 	.suki-builder-location-bottom_right {
+	// 		.suki-builder-sortable-panel {
+	// 			align-items: flex-end;
+	// 		}
+	// 	}
+	// }
 
 	@media screen and ( min-width: 1324px ) {
 		// Hide section accordion menu
@@ -983,6 +984,7 @@ div.customize-section-description {
 // Specific sections
 // -------------------------------------------------------------
 
+#sub-accordion-panel-suki_panel_header,
 #sub-accordion-panel-suki_panel_page_settings {
 	.customize-info {
 		.customize-panel-description {

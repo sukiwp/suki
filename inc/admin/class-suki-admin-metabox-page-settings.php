@@ -98,11 +98,12 @@ class Suki_Admin_Metabox_Page_Settings {
 
 		add_meta_box(
 			'suki_page_settings',
-			esc_html__( 'Page Settings (Suki)', 'suki' ),
+			/* translators: %s: theme name. */
+			sprintf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
-			'normal',
-			'high'
+			'side',
+			'default'
 		);
 	}
 
@@ -249,7 +250,12 @@ class Suki_Admin_Metabox_Page_Settings {
 	public function render_meta_box__term_add() {
 		?>
 		<div class="form-field suki-add-term-page-settings" style="margin: 2em 0;">
-			<h2><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h2>
+			<h2>
+				<?php
+				/* translators: %s: theme name. */
+				printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+				?>
+			</h2>
 			<?php
 			// Add a nonce field so we can check for it later.
 			wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
@@ -272,7 +278,12 @@ class Suki_Admin_Metabox_Page_Settings {
 		?>
 		<tr>
 			<th colspan="2" style="padding: 0;">
-				<h3><?php esc_html_e( 'Page Settings (Suki)', 'suki' ); ?></h3>
+				<h3>
+					<?php
+					/* translators: %s: theme name. */
+					printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+					?>
+				</h3>
 				<?php
 				// Add a nonce field so we can check for it later.
 				wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
@@ -345,7 +356,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'header':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable main header', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable main header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_header';
@@ -364,7 +375,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable mobile header', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable mobile header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_mobile_header';
@@ -387,7 +398,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'page_header':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Page header', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'page_header';
@@ -410,7 +421,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'content':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Content container', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content container', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'content_container';
@@ -429,7 +440,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Content & sidebar layout', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content & sidebar layout', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'content_layout';
@@ -451,12 +462,12 @@ class Suki_Admin_Metabox_Page_Settings {
 						<script type="text/javascript">
 						(function( $ ) {
 							$( 'body.post-php' ).on( 'change', '#suki_page_settings__content_layout', function( e ) {
-								var $body = $( '#content_ifr' ).contents().find( 'body' ),
-								    inheritValue = '<?php echo suki_get_page_setting_by_post_id( 'content_layout', $obj->ID ); // WPCS: XSS OK ?>',
+								var $tinymce = $( '#content_ifr' ).contents().find( 'body' ),
+								    inheritValue = '<?php echo esc_js( suki_get_page_setting_by_post_id( 'content_layout', $obj->ID ) ); ?>',
 								    value = '' === this.value ? inheritValue : this.value;
 
-								$body.removeClass( 'suki-editor-wide suki-editor-narrow suki-editor-right-sidebar suki-editor-left-sidebar' );
-								$body.addClass( 'suki-editor-' + value );
+								$tinymce.removeClass( 'suki-editor-wide suki-editor-narrow suki-editor-right-sidebar suki-editor-left-sidebar' );
+								$tinymce.addClass( 'suki-editor-' + value );
 							});
 						})( jQuery );
 						</script>
@@ -465,7 +476,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide title', 'suki' ); ?></label>
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide title', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_title';
@@ -479,7 +490,7 @@ class Suki_Admin_Metabox_Page_Settings {
 					</div>
 
 					<div class="suki-admin-form-row">
-						<label class="suki-admin-form-label"><?php esc_html_e( 'Hide featured image', 'suki' ); ?></label>
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide featured image', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_thumbnail';
@@ -499,7 +510,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'footer':
 				?>
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable footer widgets', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable footer widgets', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_footer_widgets';
@@ -518,7 +529,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<label class="suki-admin-form-label"><?php esc_html_e( 'Disable footer bottom', 'suki' ); ?></label>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable footer bottom', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_footer_bottom';
