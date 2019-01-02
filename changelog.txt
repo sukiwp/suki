@@ -1,3 +1,7 @@
+v0.7.6
+- FIX: Popup close icon CSS.
+- FIX: Footer bottom CSS.
+
 v0.7.5
 - FIX: TinyMCE settings filters which caused blank white error on TinyMCE.
 - FIX: Minor CSS.

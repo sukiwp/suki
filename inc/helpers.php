@@ -417,77 +417,77 @@ function suki_get_pro_modules() {
 	return apply_filters( 'suki/pro/modules', array(
 		'header-elements-plus' => array(
 			'label'   => esc_html__( 'Header Elements Plus', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-elements-plus',
 			'actions' => array(),
 		),
 		'header-vertical' => array(
 			'label'   => esc_html__( 'Vertical Header', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-vertical',
 			'actions' => array(),
 		),
 		'header-transparent' => array(
 			'label'   => esc_html__( 'Transparent Header', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-transparent',
 			'actions' => array(),
 		),
 		'header-sticky' => array(
 			'label'   => esc_html__( 'Sticky Header', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-sticky',
 			'actions' => array(),
 		),
 		'header-alt-colors' => array(
 			'label'   => esc_html__( 'Alternate Header Colors', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-alt-colors',
 			'actions' => array(),
 		),
 		'footer-widgets-columns-width' => array(
 			'label'   => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-widgets-columns-width',
 			'actions' => array(),
 		),
 		'custom-blocks' => array(
 			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-blocks',
 			'actions' => array(),
 		),
 		'custom-fonts' => array(
 			'label'   => esc_html__( 'Custom Fonts', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-fonts',
 			'actions' => array(),
 		),
 		'custom-icons' => array(
 			'label'   => esc_html__( 'Custom Icons', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-icons',
 			'actions' => array(),
 		),
 		'color-palette' => array(
 			'label'   => esc_html__( 'Color Palette', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-color-palette',
 			'actions' => array(),
 		),
 		'mega-menu' => array(
 			'label'   => esc_html__( 'Mega Menu', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-mega-menu',
 			'actions' => array(),
 		),
 		'preloader' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader',
 			'actions' => array(),
 		),
 		'blog-plus' => array(
 			'label'   => esc_html__( 'Blog Plus', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-blog-plus',
 			'actions' => array(),
 		),
 		'woocommerce-plus' => array(
 			'label'   => esc_html__( 'WooCommerce Plus', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-woocommerce-plus',
 			'actions' => array(),
 		),
 		'white-label' => array(
 			'label'   => esc_html__( 'White Label', 'suki' ),
-			'url'     => SUKI_PRO_URL,
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-white-label',
 			'actions' => array(),
 		),
 	) );

@@ -584,13 +584,41 @@ input, select, textarea {
 	text-align: center;
 }
 
-.suki-admin-pro-coming-soon {
-	padding: 0.125em 0.25em;
-	border-radius: 2px;
-	background-color: #ca4a1f;
-	color: #fff;
+.suki-admin-secondary-pro h2 {
+	position: relative;
+	padding-right: 5em;
+}
+
+.suki-admin-secondary-pro h2 span {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 4em;
+	padding: 0.75em 0;
+	margin: -0.25em 0.5em;
 	font-size: 0.75em;
+	font-weight: bold;
 	text-transform: uppercase;
+	background-color: #ee5253;
+	color: #fff;
+	text-align: center;
+}
+
+.suki-admin-secondary-pro h2 span:before, .suki-admin-secondary-pro h2 span:after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	border-top: 0.75em solid #ee5253;
+}
+
+.suki-admin-secondary-pro h2 span:before {
+	left: 0;
+	border-right: 2em solid transparent;
+}
+
+.suki-admin-secondary-pro h2 span:after {
+	right: 0;
+	border-left: 2em solid transparent;
 }
 
 .suki-admin-welcome-panel {
