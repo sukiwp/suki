@@ -1660,6 +1660,7 @@ body.suki-page-layout-boxed #page {
 
 .site-title a {
 	position: relative;
+	display: inline-block;
 }
 
 .suki-logo {
