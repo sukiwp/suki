@@ -42,7 +42,6 @@
 	],
 	"devDependencies": {
 		"del": "^3.0.0",
-		"eligrey-classlist-js-polyfill": "^1.2.20180112",
 		"google-fonts-complete": "^1.2.2",
 		"gulp": "^4.0.0",
 		"gulp-autoprefixer": "^6.0.0",

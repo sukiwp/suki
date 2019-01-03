@@ -139,15 +139,6 @@ gulp.task( 'vendors', function( done ) {
 		.pipe( rename( { prefix: '_', extname: '.scss' } ) )
 		.pipe( gulp.dest( config.dest.scss ) );
 
-	// classList Polyfill
-	gulp.src( './node_modules/eligrey-classlist-js-polyfill/classList?(.min).js' )
-		.pipe( gulp.dest( config.dest.js + '/vendors' ) );
-
-	// Change version
-	gulp.src( './inc/class-suki.php', { base: './' } )
-		.pipe( replace( /(\$ver\['classlist-polyfill'\] = )(?:.*)/g, '$1\'' + info.devDependencies['eligrey-classlist-js-polyfill'].replace( '^', '' ) + '\';' ) )
-		.pipe( gulp.dest( './' ) );
-
 	/**
 	 * Google Fonts JSON
 	 */

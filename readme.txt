@@ -52,10 +52,6 @@ normalize.css, by Nicolas Gallagher and Jonathan Neal
 License: MIT
 Source: https://necolas.github.io/normalize.css
 
-classList, by Eli Grey
-License: Unlicense
-Source: https://github.com/eligrey/classList.js
-
 WP Color Picker Alpha, by Sergio (kallookoo)
 License: GPLv2 or later
 Source: https://github.com/kallookoo/wp-color-picker-alpha
