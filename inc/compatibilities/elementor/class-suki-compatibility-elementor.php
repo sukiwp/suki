@@ -51,6 +51,9 @@ class Suki_Compatibility_Elementor {
 		add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'add_page_template_canvas_wrapper_end' ) );
 		add_action( 'elementor/page_templates/header-footer/before_content', array( $this, 'add_page_template_header_footer_wrapper' ) );
 		add_action( 'elementor/page_templates/header-footer/after_content', array( $this, 'add_page_template_header_footer_wrapper_end' ) );
+
+		// Modify single template for many Elementor Library types.
+		add_filter( 'single_template', array( $this, 'set_elementor_library_single_template' ) );
 	}
 	
 	/**
@@ -167,6 +170,30 @@ class Suki_Compatibility_Elementor {
 			</article>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Change Elementor Library single template.
+	 *
+	 * @param string $template
+	 * @return string
+	 */
+	public function set_elementor_library_single_template( $template ) {
+		global $post;
+
+		$terms = wp_list_pluck( get_the_terms( $post->ID, 'elementor_library_type' ), 'slug' );
+
+		if ( ! empty( $terms ) ) {
+			switch ( $terms[0] ) {
+			 	case 'section':
+			 	case 'page':
+			 		$template = SUKI_INCLUDES_DIR . '/compatibilities/elementor/templates/single-elementor_library.php';
+			 		break;
+			}
+		}
+
+
+		return $template;
 	}
 }
 
