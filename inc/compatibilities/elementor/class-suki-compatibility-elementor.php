@@ -45,8 +45,8 @@ class Suki_Compatibility_Elementor {
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
-		// Add editor CSS.
-		add_action( 'elementor/preview/enqueue_styles', array( $this, 'add_editor_css' ) );
+		// Add editor preview CSS.
+		add_action( 'elementor/preview/enqueue_styles', array( $this, 'add_editor_preview_css' ) );
 
 		// Modify Elementor page template.
 		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
@@ -103,7 +103,7 @@ class Suki_Compatibility_Elementor {
 	/**
 	 * Add additional CSS to Elementor editor's preview.
 	 */
-	public function add_editor_css() {
+	public function add_editor_preview_css() {
 		wp_add_inline_style( 'editor-preview', suki_minify_css_string( '.elementor-editor-active > * { pointer-events: none; } .elementor-editor-active .elementor-edit-mode { pointer-events: auto; }' ) );
 	}
 
