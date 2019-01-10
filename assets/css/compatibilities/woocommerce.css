@@ -1503,12 +1503,6 @@ p.demo_store a {
 	padding: 0.5em 0;
 }
 
-@media screen and (min-width: 768px) {
-	.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
-		padding-right: 15px;
-	}
-}
-
 .woocommerce-account .woocommerce-MyAccount-content {
 	float: none;
 	width: 100%;

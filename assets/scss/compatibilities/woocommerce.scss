@@ -1291,11 +1291,7 @@ p.demo_store {
 
 				a {
 					display: block;
-					padding: 0.5em 0;					
-
-					@media screen and ( min-width: $breakpoint_768 ) {
-						padding-right: 15px;
-					}
+					padding: 0.5em 0;
 				}
 			}
 		}
