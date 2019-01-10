@@ -7,7 +7,7 @@
 		"name": "Suki WordPress Theme",
 		"url": "https://sukiwp.com/#about"
 	},
-	"version": "0.7.6",
+	"version": "0.7.7",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"two-columns",
@@ -42,7 +42,6 @@
 	],
 	"devDependencies": {
 		"del": "^3.0.0",
-		"eligrey-classlist-js-polyfill": "^1.2.20180112",
 		"google-fonts-complete": "^1.2.2",
 		"gulp": "^4.0.0",
 		"gulp-autoprefixer": "^6.0.0",

@@ -36,8 +36,8 @@ $add['body_letter_spacing'] = '';
 
 $add['body_text_color'] = $colors['text'];
 
-$add['link_text_color'] = $colors['accent'];
-$add['link_hover_text_color'] = $colors['accent_2'];
+$add['link_text_color'] = $colors['accent_2'];
+$add['link_hover_text_color'] = $colors['accent'];
 
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];

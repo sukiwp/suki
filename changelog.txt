@@ -1,3 +1,11 @@
+v0.7.7
+- NEW: Add dedicated template for Elementor Template with "Page" or "Section" types.
+- NEW: Add CSS to Elementor preview for disabling pointer events on non editable parts of the page.
+- NEW: Add CSS to Brizy preview for disabling pointer events on non editable parts of the page.
+- TWEAK: Remove `classList` polyfill JS (unnecessary).
+- FIX: Header logo CSS for sticky header integration (used in Suki Pro).
+- FIX: Link default colors.
+
 v0.7.6
 - FIX: Popup close icon CSS.
 - FIX: Footer bottom CSS.

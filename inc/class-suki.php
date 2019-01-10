@@ -325,13 +325,6 @@ class Suki {
 	public function enqueue_frontend_javascripts( $hook ) {
 		// Fetched version from package.json
 		$ver = array();
-		$ver['classlist-polyfill'] = '1.2.20180112';
-
-		// classList Polyfill
-		if ( function_exists( 'wp_script_add_data' ) ) {
-			wp_enqueue_script( 'classlist-polyfill', SUKI_JS_URL . '/classList' . SUKI_ASSETS_SUFFIX . '.js', array(), $ver['classlist-polyfill'], true );
-			wp_script_add_data( 'classlist-polyfill', 'conditional', 'lte IE 11' );
-		}
 
 		// Comment reply (WordPress)
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -461,6 +454,7 @@ class Suki {
 			'contact-form-7' => 'WPCF7',
 			'elementor' => 'Elementor\Plugin',
 			'elementor-pro' => 'ElementorPro\Plugin',
+			'brizy' => 'Brizy_Editor',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',
 		);

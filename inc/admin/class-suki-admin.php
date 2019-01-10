@@ -45,13 +45,10 @@ class Suki_Admin {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_switch_theme', array( $this, 'redirect_on_theme_activation' ) );
-
 		// General admin hooks on every admin pages
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
-		add_action( 'admin_notices', array( $this, 'add_theme_notice' ), 99 );
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
@@ -93,13 +90,6 @@ class Suki_Admin {
 	 */
 
 	/**
-	 * Redirect admin page to Suki admin page when theme is activated.
-	 */
-	public function redirect_on_theme_activation() {
-		wp_safe_redirect( admin_url( 'themes.php?page=suki' ) );
-	}
-
-	/**
 	 * Add admin submenu page: Appearance > Suki.
 	 */
 	public function register_admin_menu() {
@@ -115,31 +105,6 @@ class Suki_Admin {
 		 * Hook: suki/admin/menu
 		 */
 		do_action( 'suki/admin/menu' );
-	}
-
-	/**
-	 * Add admin notice to import data like screenshot.
-	 */
-	public function add_theme_notice() {
-		// Abort if we are on Child Theme.
-		if ( is_child_theme() ) {
-			return;
-		}
-
-		global $hook_suffix;
-
-		if ( 'themes.php' == $hook_suffix ) : ?>
-			<div class="suki-admin-theme-notice notice notice-info">
-				<div class="suki-admin-theme-notice-arrow"></div>
-				<p>
-					<?php printf(
-						/* translators: link to the documentation article. */
-						esc_html__( 'Fell in love with our screenshot? Learn how to replicate the same design %s.', 'suki' ),
-						'<a href="' . esc_url( 'https://docs.sukiwp.com/article/getting-started/replicating-theme-screenshot/' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suki' ) . '</a>'
-					); ?>
-				</p>
-			</div>
-		<?php endif;
 	}
 
 	/**

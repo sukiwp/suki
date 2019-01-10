@@ -45,12 +45,18 @@ class Suki_Compatibility_Elementor {
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
+		// Add editor preview CSS.
+		add_action( 'elementor/preview/enqueue_styles', array( $this, 'add_editor_preview_css' ) );
+
 		// Modify Elementor page template.
 		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
 		add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'add_page_template_canvas_wrapper' ) );
 		add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'add_page_template_canvas_wrapper_end' ) );
 		add_action( 'elementor/page_templates/header-footer/before_content', array( $this, 'add_page_template_header_footer_wrapper' ) );
 		add_action( 'elementor/page_templates/header-footer/after_content', array( $this, 'add_page_template_header_footer_wrapper_end' ) );
+
+		// Modify single template for many Elementor Library types.
+		add_filter( 'single_template', array( $this, 'set_elementor_library_single_template' ) );
 	}
 	
 	/**
@@ -92,6 +98,13 @@ class Suki_Compatibility_Elementor {
 		}
 
 		return $fonts;
+	}
+
+	/**
+	 * Add additional CSS to Elementor editor's preview.
+	 */
+	public function add_editor_preview_css() {
+		wp_add_inline_style( 'editor-preview', suki_minify_css_string( '.elementor-editor-active > * { pointer-events: none; } .elementor-editor-active .elementor-edit-mode { pointer-events: auto; }' ) );
 	}
 
 	/**
@@ -167,6 +180,30 @@ class Suki_Compatibility_Elementor {
 			</article>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Change Elementor Library single template.
+	 *
+	 * @param string $template
+	 * @return string
+	 */
+	public function set_elementor_library_single_template( $template ) {
+		global $post;
+
+		$terms = wp_list_pluck( get_the_terms( $post->ID, 'elementor_library_type' ), 'slug' );
+
+		if ( ! empty( $terms ) ) {
+			switch ( $terms[0] ) {
+			 	case 'section':
+			 	case 'page':
+			 		$template = SUKI_INCLUDES_DIR . '/compatibilities/elementor/templates/single-elementor_library.php';
+			 		break;
+			}
+		}
+
+
+		return $template;
 	}
 }
 
