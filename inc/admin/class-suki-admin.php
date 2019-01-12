@@ -52,7 +52,7 @@ class Suki_Admin {
 
 		add_action( 'admin_notices', array( $this, 'add_rating_notice' ) );
 		add_action( 'wp_ajax_suki_rating_notice_close', array( $this, 'ajax_dismiss_rating_notice' ) );
-		add_action( 'after_switch_theme', array( $this, 'reset_installed_time' ) );
+		add_action( 'after_switch_theme', array( $this, 'reset_rating_notice_flag' ) );
 
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
@@ -194,7 +194,7 @@ class Suki_Admin {
 	/**
 	 * Reset theme installed time, for rating notice purpose.
 	 */
-	public function reset_installed_time() {
+	public function reset_rating_notice_flag() {
 		update_option( 'suki_installed_time', time() );
 		update_option( 'suki_rating_notice_is_dismissed', 0 );
 	}
