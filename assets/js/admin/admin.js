@@ -117,6 +117,29 @@
 				}
 			})
 		});
+
+		/**
+		 * Rating notice close button
+		 */
+
+		$( '.suki-rating-notice' ).on( 'click', '.suki-rating-notice-close', function( e ) {
+			var $link = $( this ),
+			    $notice = $link.closest( '.suki-rating-notice' ),
+			    repeat = $link.attr( 'data-suki-rating-notice-repeat' );
+
+			// Run AJAX to set data after closing the notice.
+			$.ajax({
+				method: 'POST',
+				url: ajaxurl,
+				data: {
+					action: 'suki_rating_notice_close',
+					repeat_after: repeat,
+				},
+			});
+
+			// Always remove the notice on current page.
+			$notice.remove();
+		});
 	});
 	
 })( jQuery );
