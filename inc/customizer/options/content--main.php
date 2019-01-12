@@ -80,7 +80,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'description' => sprintf(
 		/* translators: %s: link to "Body (Base)" section. */
 		esc_html__( 'Inherit typography settings from %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_body' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
+		'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_body', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
 	),
 	'priority'    => 20,
 ) ) );

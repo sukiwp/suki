@@ -59,7 +59,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'no
 	'description' => sprintf(
 		/* translators: %s: link to "Page Settings" section. */
 		esc_html__( 'Settings above are global default, optionally you can set different layout for each page type via %s.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
+		'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
 	),
 	'priority'    => 10,
 ) ) );

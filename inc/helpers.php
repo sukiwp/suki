@@ -334,7 +334,7 @@ function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
 	$subsets = array_merge( array( 'latin' ), suki_get_theme_mod( 'google_fonts_subsets', array() ) );
 	$args['subset'] = implode( ',', $subsets );
 
-	return esc_url( add_query_arg( $args, $link ) );
+	return esc_attr( add_query_arg( $args, $link ) );
 }
 
 /**

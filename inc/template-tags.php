@@ -28,7 +28,7 @@ function suki_unassigned_menu() {
 	}
 	?>
 	<div class="menu-blank menu">
-		<a href="<?php echo esc_url( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>" class="menu-item">
+		<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>" class="menu-item">
 			<?php esc_html_e( 'Assign menu to this location', 'suki' ); ?>
 		</a>
 	</div>

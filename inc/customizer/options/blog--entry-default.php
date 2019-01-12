@@ -45,7 +45,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'description' => sprintf(
 		/* translators: %s: menu path to main content's padding setting. */
 		esc_html__( 'If you set padding on %s, enabling this option will make your featured media disregard the padding.', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_main' ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Main Content Area', 'suki' ) . '</a>'
+		'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_main', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Main Content Area', 'suki' ) . '</a>'
 	),
 	'priority'    => 10,
 ) ) );

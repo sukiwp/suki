@@ -551,8 +551,12 @@ class Suki_Admin {
 			<div class="welcome-panel-content">
 				<h2><?php esc_html_e( 'Welcome to Suki!', 'suki' ); ?></h2>
 				<p class="about-description">
-					<?php echo wp_kses_post( 
-						__( 'Your website is now in good hands! Suki offers highly customizable design and lightning fast performance. Learn more about its full features and premium modules at <a href="%s">our website</a>.', 'suki' )
+					<?php echo wp_kses_post(
+						sprintf(
+							/* translators: %s: Suki website URL. */
+							__( 'Your website is now in good hands! Suki offers highly customizable design and lightning fast performance. Learn more about its full features and premium modules at <a href="%s">our website</a>.', 'suki' ),
+							esc_url( suki_get_theme_info( 'url' ) )
+						)
 					); ?>
 				</p>
 				<h3><?php esc_html_e( 'Quick Links to Customizer', 'suki' ); ?></h3>
@@ -590,7 +594,7 @@ class Suki_Admin {
 							<div class="welcome-panel-column">
 								<ul>
 						<?php endif; ?>
-								<li><a href="<?php echo esc_url( add_query_arg( $link['query'], admin_url( 'customize.php' ) ) ); ?>"><?php echo $link['label']; // WPCS: XSS OK. ?></a></li>
+								<li><a href="<?php echo esc_attr( add_query_arg( $link['query'], admin_url( 'customize.php' ) ) ); ?>"><?php echo $link['label']; // WPCS: XSS OK. ?></a></li>
 						<?php if ( 2 === $i % 3 ) : ?>
 								</ul>
 							</div>
