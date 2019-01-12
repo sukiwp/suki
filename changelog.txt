@@ -1,4 +1,8 @@
+v0.7.9
+- FIX: Remove Elementor and Brizy isolation mode (this caused some problems in multiple cases).
+
 v0.7.8
+- TWEAK: Improve Suki admin page with quick links.
 - FIX: Brizy editor isolation mode.
 
 v0.7.7

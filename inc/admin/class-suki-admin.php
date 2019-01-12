@@ -50,6 +50,10 @@ class Suki_Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
 
+		add_action( 'admin_notices', array( $this, 'add_rating_notice' ) );
+		add_action( 'wp_ajax_suki_rating_notice_close', array( $this, 'ajax_dismiss_rating_notice' ) );
+		add_action( 'after_switch_theme', array( $this, 'reset_rating_notice_flag' ) );
+
 		// Classic editor hooks
 		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
@@ -153,6 +157,46 @@ class Suki_Admin {
 		 * Hook: Styles to be included after admin JS
 		 */
 		do_action( 'suki/admin/after_enqueue_admin_js', $hook );
+	}
+
+	/**
+	 * Add notice to give rating on WordPress.org.
+	 */
+	public function add_rating_notice() {
+		$time_interval = strtotime( '-7 days' );
+
+		$installed_time = get_option( 'suki_installed_time' );
+		if ( ! $installed_time ) {
+			$installed_time = time();
+			update_option( 'suki_installed_time', $installed_time );
+		}
+
+		// Abort if:
+		// - Suki is installed less than 7 days.
+		// - The notice is already dismissed before.
+		// - Current user can't manage options.
+		if ( $installed_time > $time_interval || intval( get_option( 'suki_rating_notice_is_dismissed', 0 ) ) || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		?>
+		<div class="notice notice-info suki-rating-notice">
+			<p><?php esc_html_e( 'Hey, it\'s me David from Suki WordPress theme. I noticed you\'ve been using Suki to build your website - that\'s awesome!', 'suki' ); ?><br><?php esc_html_e( 'Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future.', 'suki' ); ?></p>
+			<p>
+				<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-primary" target="_blank"><?php esc_html_e( 'Okay, you deserve it', 'suki' ); ?></a>&nbsp;&nbsp;&nbsp;
+				<a href="#" class="suki-rating-notice-close button-link" data-suki-rating-notice-repeat="<?php echo esc_attr( $time_interval ); ?>"><?php esc_html_e( 'Nope, maybe later', 'suki' ); ?></a>&nbsp;&nbsp;&nbsp;
+				<a href="#" class="suki-rating-notice-close button-link" data-suki-rating-notice-repeat="-1"><?php esc_html_e( 'I already did', 'suki' ); ?></a>
+			</p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Reset theme installed time, for rating notice purpose.
+	 */
+	public function reset_rating_notice_flag() {
+		update_option( 'suki_installed_time', time() );
+		update_option( 'suki_rating_notice_is_dismissed', 0 );
 	}
 
 	/**
@@ -384,6 +428,29 @@ class Suki_Admin {
 
 	/**
 	 * ====================================================
+	 * AJAX functions
+	 * ====================================================
+	 */
+
+	/**
+	 * AJAX callback to dismiss rating notice.
+	 */
+	public function ajax_dismiss_rating_notice() {
+		$repeat_after = ( isset( $_REQUEST['repeat_after'] ) ) ? intval( $_REQUEST['repeat_after'] ) : false;
+
+		if ( -1 == $repeat_after ) {
+			// Dismiss rating notice forever.
+			update_option( 'suki_rating_notice_is_dismissed', 1 );
+		} else {
+			// Repeat rating notice later.
+			update_option( 'suki_installed_time', time() );
+		}
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * ====================================================
 	 * Render functions
 	 * ====================================================
 	 */
@@ -427,6 +494,7 @@ class Suki_Admin {
 							 * Hook: suki/admin/dashboard/content
 							 *
 							 * @hooked Suki_Admin::render_content__welcome_panel - 1
+							 * @hooked Suki_Admin::render_content__quick_links - 5
 							 * @hooked Suki_Admin::render_content__pro_modules_table - 20
 							 */
 							do_action( 'suki/admin/dashboard/content' );
@@ -481,21 +549,54 @@ class Suki_Admin {
 		?>
 		<div class="suki-admin-welcome-panel welcome-panel">
 			<div class="welcome-panel-content">
-				<h2>
-					<?php printf(
-						/* translators: %s: theme name. */
-						esc_html__( 'Welcome to %s!', 'suki' ),
-						esc_html( suki_get_theme_info( 'name' ) )
-					); ?>
-				</h2>
+				<h2><?php esc_html_e( 'Welcome to Suki!', 'suki' ); ?></h2>
 				<p class="about-description">
-					<?php printf(
-						/* translators: %1$s: theme name; %2$s: link to theme URL. */
-						esc_html__( 'Your website is now in good hands! %1$s offers highly customizable design, and lightning fast performance. Learn more about its full features and premium modules at %2$s.', 'suki' ),
-						esc_html( suki_get_theme_info( 'name' ) ),
-						'<a href="' . esc_url( suki_get_theme_info( 'url' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'our website', 'suki' ) . '</a>'
+					<?php echo wp_kses_post( 
+						__( 'Your website is now in good hands! Suki offers highly customizable design and lightning fast performance. Learn more about its full features and premium modules at <a href="%s">our website</a>.', 'suki' )
 					); ?>
 				</p>
+				<h3><?php esc_html_e( 'Quick Links to Customizer', 'suki' ); ?></h3>
+				<div class="welcome-panel-column-container">
+					<?php
+					$links = array(
+						array(
+							'label' => esc_html__( 'Page Layout', 'suki' ),
+							'query' => array( 'autofocus[section]' => 'suki_section_page_container' ),
+						),
+						array(
+							'label' => esc_html__( 'General Elements', 'suki' ),
+							'query' => array( 'autofocus[panel]' => 'suki_panel_global_elements' ),
+						),
+						array(
+							'label' => esc_html__( 'Header Builder', 'suki' ),
+							'query' => array( 'autofocus[panel]' => 'suki_panel_header' ),
+						),
+						array(
+							'label' => esc_html__( 'Page Header (Title Bar)', 'suki' ),
+							'query' => array( 'autofocus[panel]' => 'suki_section_page_header' ),
+						),
+						array(
+							'label' => esc_html__( 'Content & Sidebar', 'suki' ),
+							'query' => array( 'autofocus[panel]' => 'suki_panel_content' ),
+						),
+						array(
+							'label' => esc_html__( 'Footer Builder', 'suki' ),
+							'query' => array( 'autofocus[panel]' => 'suki_panel_footer' ),
+						),
+					);
+					?>
+					<?php foreach ( $links as $i => $link ) : ?>
+						<?php if ( 0 === $i % 3 ) : ?>
+							<div class="welcome-panel-column">
+								<ul>
+						<?php endif; ?>
+								<li><a href="<?php echo esc_url( add_query_arg( $link['query'], admin_url( 'customize.php' ) ) ); ?>"><?php echo $link['label']; // WPCS: XSS OK. ?></a></li>
+						<?php if ( 2 === $i % 3 ) : ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		</div>
 		<?php
@@ -611,12 +712,12 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render "Community" info box on Suki admin page's sidebar.
+	 * Render "Suki Community" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__community() {
 		?>
 		<div class="suki-admin-secondary-fb-group postbox">
-			<h2 class="hndle"><?php esc_html_e( 'Community', 'suki' ); ?></h2>
+			<h2 class="hndle"><?php esc_html_e( 'Suki Community', 'suki' ); ?></h2>
 			<div class="inside">
 				<p><?php esc_html_e( 'Join our Facebook group for latest updates info and discussions with other Suki users.', 'suki' ); ?></p>
 				<p>

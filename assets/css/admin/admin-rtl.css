@@ -459,7 +459,7 @@ input, select, textarea {
 }
 
 .suki-admin-wrap .suki-admin-wrapper {
-	max-width: 1080px;
+	max-width: 1000px;
 	padding: 0 10px;
 	margin: 0 auto;
 }
@@ -584,6 +584,10 @@ input, select, textarea {
 	text-align: center;
 }
 
+.suki-admin-primary .hndle {
+	padding: 10px 15px !important;
+}
+
 .suki-admin-secondary-pro h2 {
 	position: relative;
 	padding-left: 5em;
@@ -644,14 +648,8 @@ input, select, textarea {
 	margin-bottom: 0.4em;
 }
 
-.suki-admin-welcome-panel hr {
-	margin: 20px 0 0;
-	border-top: 1px solid #f3f4f5;
-	border-bottom: none;
-}
-
-.suki-admin-pro-modules .hndle {
-	padding: 10px 15px !important;
+.suki-admin-welcome-panel .welcome-panel-column {
+	width: 50% !important;
 }
 
 .suki-admin-pro-modules .inside {

@@ -437,7 +437,7 @@ input, select, textarea {
 	}
 
 	.suki-admin-wrapper {
-		max-width: 1080px;
+		max-width: 1000px;
 		padding: 0 10px;
 		margin: 0 auto;
 
@@ -549,6 +549,12 @@ input, select, textarea {
 // Suki Dashboard
 // -------------------------------------------------------------
 
+.suki-admin-primary {
+	.hndle {
+		padding: 10px 15px !important;
+	}
+}
+
 .suki-admin-secondary-pro {
 	h2 {
 		position: relative;
@@ -611,18 +617,12 @@ input, select, textarea {
 		margin-bottom: 0.4em;
 	}
 
-	hr {
-		margin: 20px 0 0;
-		border-top: 1px solid #f3f4f5;
-		border-bottom: none;
+	.welcome-panel-column {
+		width: 50% !important;
 	}
 }
 
 .suki-admin-pro-modules {
-	.hndle {
-		padding: 10px 15px !important;
-	}
-
 	.inside {
 		margin: 0;
 		padding: 0;
