@@ -7,7 +7,7 @@
 const info = require( './package.json' );
 
 const config = {
-	init: './style.css',
+	init: 'style.css',
 	src: {
 		scss: [ './assets/scss/**/*.scss' ],
 		css: [ './assets/css/**/*.css', '!./assets/css/vendors/*' ],
@@ -238,7 +238,7 @@ gulp.task( 'pot', function() {
 		.pipe( wpPot( {
 			domain: info.name,
 			package: info.title,
-			metadataFile: 'style.css',
+			metadataFile: config.init,
 		} ).on( 'error', function( error ) {
 			console.error( error );
 			this.emit( 'end' );
