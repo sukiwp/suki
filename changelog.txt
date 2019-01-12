@@ -1,7 +1,10 @@
+v0.7.8
+- FIX: Brizy editor isolation mode.
+
 v0.7.7
 - NEW: Add dedicated template for Elementor Template with "Page" or "Section" types.
-- NEW: Add CSS to Elementor preview for disabling pointer events on non editable parts of the page.
-- NEW: Add CSS to Brizy preview for disabling pointer events on non editable parts of the page.
+- NEW: Elementor preview isolation mode (elements except the main editor is ignoring any mouse event).
+- NEW: Brizy preview isolation mode (elements except the main editor is ignoring any mouse event).
 - TWEAK: Remove `classList` polyfill JS (unnecessary).
 - FIX: Header logo CSS for sticky header integration (used in Suki Pro).
 - FIX: Link default colors.
