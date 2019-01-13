@@ -181,17 +181,18 @@ class Suki_Compatibility_Elementor {
 	public function set_elementor_library_single_template( $template ) {
 		global $post;
 
-		$terms = wp_list_pluck( get_the_terms( $post->ID, 'elementor_library_type' ), 'slug' );
+		if ( 'elementor_library' === $post->post_type ) {
+			$terms = wp_list_pluck( get_the_terms( $post->ID, 'elementor_library_type' ), 'slug' );
 
-		if ( ! empty( $terms ) ) {
-			switch ( $terms[0] ) {
-			 	case 'section':
-			 	case 'page':
-			 		$template = SUKI_INCLUDES_DIR . '/compatibilities/elementor/templates/single-elementor_library.php';
-			 		break;
+			if ( ! empty( $terms ) ) {
+				switch ( $terms[0] ) {
+				 	case 'section':
+				 	case 'page':
+				 		$template = SUKI_INCLUDES_DIR . '/compatibilities/elementor/templates/single-elementor_library.php';
+				 		break;
+				}
 			}
 		}
-
 
 		return $template;
 	}
