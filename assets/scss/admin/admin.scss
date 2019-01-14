@@ -26,6 +26,15 @@ input, select, textarea {
 	a[href="themes.php?page=suki"] {
 		color: #00b9eb;
 	}
+
+	a[href^="edit.php?post_type=suki_block"],
+	a[href^="themes.php?page=suki-"] {
+		&:before {
+			content: "\21B3";
+			margin-right: 0.5em;
+			opacity: 0.5;
+		}
+	}
 }
 
 // -------------------------------------------------------------
