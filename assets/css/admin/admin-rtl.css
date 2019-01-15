@@ -415,20 +415,6 @@ input, select, textarea {
 	left: 0;
 }
 
-.suki-pro-badge {
-	display: inline-block;
-	padding: 0.3em 0.5em;
-	margin-top: -0.15em;
-	color: #fff;
-	background-color: #d54e21;
-	font-size: 0.7em;
-	font-weight: 500;
-	font-style: normal;
-	line-height: 1;
-	text-transform: uppercase;
-	vertical-align: middle;
-}
-
 .suki-admin-theme-notice {
 	display: none;
 }
