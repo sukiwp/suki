@@ -45,6 +45,9 @@ class Suki_Compatibility_Elementor {
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
+		// Add editor preview CSS.
+		add_action( 'elementor/preview/enqueue_styles', array( $this, 'add_editor_preview_css' ) );
+
 		// Modify Elementor page template.
 		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
 		add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'add_page_template_canvas_wrapper' ) );
@@ -98,6 +101,13 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
+	 * Add additional CSS to Elementor editor's preview.
+	 */
+	public function add_editor_preview_css() {
+		wp_add_inline_style( 'editor-preview', suki_minify_css_string( '#body { pointer-events: none; } .elementor-edit-mode { pointer-events: auto; }' ) );
+	}
+
+	/**
 	 * Remove content wrapper on header.php and footer.php via filter.
 	 *
 	 * @param string $template
@@ -127,11 +137,11 @@ class Suki_Compatibility_Elementor {
 		 */
 		do_action( 'suki/frontend/before_canvas' );
 		?>
-
-		<div id="canvas" class="suki-canvas">
-			<div id="page" class="site">
-				<div id="content" class="site-content">
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
+		<div id="body" class="suki-body">
+			<div id="canvas" class="suki-canvas">
+				<div id="page" class="site">
+					<div id="content" class="site-content">
+						<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
 		<?php
 	}
 
@@ -140,7 +150,8 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper_end() {
 		?>
-					</article>
+						</article>
+					</div>
 				</div>
 			</div>
 		</div>
