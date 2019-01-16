@@ -20,6 +20,8 @@ html {
 	color: $color_text; // default
 
 	@include base(); // default
+
+	scroll-behavior: smooth;
 }
 
 body {
