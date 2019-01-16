@@ -129,10 +129,6 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	// Get SVG path.
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
 
-	// Allow modification via filter.
-	$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
-	$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
-
 	// Get SVG markup.
 	ob_start();
 	if ( file_exists( $path ) ) {
@@ -142,12 +138,16 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	}
 	$svg = ob_get_clean();
 
+	// Allow modification via filter.
+	$svg = apply_filters( 'suki/frontend/svg_icon', $svg, $key );
+	$svg = apply_filters( 'suki/frontend/svg_icon/' . $key, $svg );
+
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
 
 	// Allow modification via filter.
-	$html = apply_filters( 'suki/frontend/svg_icon', $html, $key );
-	$html = apply_filters( 'suki/frontend/svg_icon/' . $key, $html );
+	$html = apply_filters( 'suki/frontend/suki_icon', $html, $key );
+	$html = apply_filters( 'suki/frontend/suki_icon/' . $key, $html );
 
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK
