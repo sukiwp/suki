@@ -175,7 +175,7 @@ class Suki_Admin {
 		// - Suki is installed less than 7 days.
 		// - The notice is already dismissed before.
 		// - Current user can't manage options.
-		if ( $installed_time > $time_interval || intval( get_option( 'suki_rating_notice_is_dismissed', 0 ) ) || ! current_user_can( 'manage_options' ) ) {
+		if ( $installed_time > $time_interval || intval( get_option( 'suki_rating_notice_is_dismissed', 0 ) ) || ! current_user_can( 'edit_theme_options' ) ) {
 			return;
 		}
 
