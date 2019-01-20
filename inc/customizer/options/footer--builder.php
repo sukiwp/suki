@@ -18,7 +18,7 @@ $section = 'suki_section_footer_builder';
 
 ob_start(); ?>
 <span class="button button-secondary suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
-<span class="button button-secondary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Footer Builder', 'suki' ); ?></span>
+<span class="button button-primary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Footer Builder', 'suki' ); ?></span>
 <?php $switcher = ob_get_clean();
 
 // --- Blank: Footer Builder Switcher
