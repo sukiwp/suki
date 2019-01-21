@@ -61,17 +61,17 @@
 		$( input ).trigger( 'change' );
 	}
 
-	$( '#customize-theme-controls' ).on( 'blur', 'input[type="number"]', inputNumberValidation );
-	$( '#customize-theme-controls' ).on( 'keyup', 'input[type="number"]', function( e ) {
+	$( '#customize-controls' ).on( 'blur', 'input[type="number"]', inputNumberValidation );
+	$( '#customize-controls' ).on( 'keyup', 'input[type="number"]', function( e ) {
 		if ( 13 == e.which ) {
 			inputNumberValidation( e );
 		}
 	});
 	// Disable mousewheel scroll when input is in focus.
-	$( '#customize-theme-controls' ).on( 'focus', 'input[type="number"]', function( e ) {
+	$( '#customize-controls' ).on( 'focus', 'input[type="number"]', function( e ) {
 		$( this ).on( 'mousewheel.disableScroll', function ( e ) { e.preventDefault(); });
 	});
-	$( '#customize-theme-controls' ).on( 'blur', 'input[type="number"]', function( e ) {
+	$( '#customize-controls' ).on( 'blur', 'input[type="number"]', function( e ) {
 		$( this ).off( 'mousewheel.disableScroll' );
 	});
 
@@ -691,7 +691,7 @@
 		 */
 
 		// Set handler when custom responsive toggle is clicked.
-		$( '#customize-theme-controls' ).on( 'click', '.suki-responsive-switcher-button', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-responsive-switcher-button', function( e ) {
 			e.preventDefault();
 
 			wp.customize.previewedDevice.set( $( this ).attr( 'data-device' ) );
@@ -721,7 +721,7 @@
 		/**
 		 * Event handler for links to set preview URL.
 		 */
-		$( '#customize-theme-controls' ).on( 'click', '.suki-customize-set-preview-url', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-customize-set-preview-url', function( e ) {
 			e.preventDefault();
 
 			var $this = $( this ),
@@ -736,7 +736,7 @@
 		/**
 		 * Event handler for links to jump to a certain control / section.
 		 */
-		$( '#customize-theme-controls' ).on( 'click', '.suki-customize-goto-control', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-customize-goto-control', function( e ) {
 			e.preventDefault();
 
 			var $this = $( this ),
@@ -908,7 +908,7 @@
 		var resizePreviewer = function() {
 			var $section = $( '.control-section.suki-builder-active' );
 
-			if ( $body.hasClass( 'suki-has-builder-active' ) && 0 < $section.length && ! $section.hasClass( 'suki-hide' ) ) {
+			if ( 1324 <= window.innerWidth && $body.hasClass( 'suki-has-builder-active' ) && 0 < $section.length && ! $section.hasClass( 'suki-hide' ) ) {
 				wp.customize.previewer.container.css({ "bottom" : $section.outerHeight() + 'px' });
 			} else {
 				wp.customize.previewer.container.css({ "bottom" : "" });
@@ -964,6 +964,19 @@
 				resizePreviewer();
 			});
 
+			var moveHeaderFooterBuilder = function() {
+				if ( 1324 <= window.innerWidth ) {
+					$section.insertAfter( $( '.wp-full-overlay-sidebar-content' ) );
+					
+					if ( section.expanded() ) {
+						section.collapse();
+					}
+				} else {
+					$section.appendTo( $( '#customize-theme-controls' ) );
+				}
+			}
+			wp.customize.bind( 'pane-contents-reflowed', moveHeaderFooterBuilder );
+			$window.on( 'resize', moveHeaderFooterBuilder );
 		};
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );

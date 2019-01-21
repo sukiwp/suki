@@ -673,23 +673,24 @@ div.customize-section-description {
 	height: auto;
 }
 
-#customize-theme-controls #customize-control-header_builder_actions,
-#customize-theme-controls #customize-control-footer_builder_actions {
+#customize-control-header_builder_actions,
+#customize-control-footer_builder_actions {
 	display: none !important;
 }
 
 @media screen and (min-width: 1324px) {
-	#customize-theme-controls #accordion-section-suki_section_header_builder,
-	#customize-theme-controls #accordion-section-suki_section_footer_builder {
+	#customize-controls #accordion-section-suki_section_header_builder,
+	#customize-controls #accordion-section-suki_section_footer_builder {
 		display: none !important;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder {
+	#customize-controls #sub-accordion-section-suki_section_header_builder,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder {
 		position: fixed !important;
 		top: auto;
 		bottom: 0;
 		right: 300px;
 		left: 0;
+		display: block;
 		width: auto;
 		height: auto;
 		padding: 20px;
@@ -706,23 +707,23 @@ div.customize-section-description {
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
-	.suki-has-builder-active .wp-full-overlay.expanded #customize-theme-controls #sub-accordion-section-suki_section_header_builder.suki-builder-active, .suki-has-builder-active .wp-full-overlay.expanded
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder.suki-builder-active {
+	.suki-has-builder-active .wp-full-overlay.expanded #customize-controls #sub-accordion-section-suki_section_header_builder.suki-builder-active, .suki-has-builder-active .wp-full-overlay.expanded
+	#customize-controls #sub-accordion-section-suki_section_footer_builder.suki-builder-active {
 		visibility: visible;
 		-webkit-transform: translateY(0);
 		transform: translateY(0);
 	}
-	.suki-has-builder-active .wp-full-overlay.expanded #customize-theme-controls #sub-accordion-section-suki_section_header_builder.suki-hide, .suki-has-builder-active .wp-full-overlay.expanded
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder.suki-hide {
+	.suki-has-builder-active .wp-full-overlay.expanded #customize-controls #sub-accordion-section-suki_section_header_builder.suki-hide, .suki-has-builder-active .wp-full-overlay.expanded
+	#customize-controls #sub-accordion-section-suki_section_footer_builder.suki-hide {
 		-webkit-transform: translateY(100%) !important;
 		transform: translateY(100%) !important;
 		overflow: visible;
 	}
-	.suki-has-builder-active .wp-full-overlay.expanded #customize-theme-controls #sub-accordion-section-suki_section_header_builder.suki-hide #customize-control-header_builder_actions .suki-builder-show,
-	.suki-has-builder-active .wp-full-overlay.expanded #customize-theme-controls #sub-accordion-section-suki_section_header_builder.suki-hide #customize-control-footer_builder_actions .suki-builder-show, .suki-has-builder-active .wp-full-overlay.expanded
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder.suki-hide #customize-control-header_builder_actions .suki-builder-show,
+	.suki-has-builder-active .wp-full-overlay.expanded #customize-controls #sub-accordion-section-suki_section_header_builder.suki-hide #customize-control-header_builder_actions .suki-builder-show,
+	.suki-has-builder-active .wp-full-overlay.expanded #customize-controls #sub-accordion-section-suki_section_header_builder.suki-hide #customize-control-footer_builder_actions .suki-builder-show, .suki-has-builder-active .wp-full-overlay.expanded
+	#customize-controls #sub-accordion-section-suki_section_footer_builder.suki-hide #customize-control-header_builder_actions .suki-builder-show,
 	.suki-has-builder-active .wp-full-overlay.expanded
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder.suki-hide #customize-control-footer_builder_actions .suki-builder-show {
+	#customize-controls #sub-accordion-section-suki_section_footer_builder.suki-hide #customize-control-footer_builder_actions .suki-builder-show {
 		visibility: visible;
 		opacity: 1;
 		-webkit-transition: opacity 0.2s 0.2s;
@@ -730,40 +731,40 @@ div.customize-section-description {
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .customize-control-suki-pro,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .customize-control-suki-pro {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-control-suki-pro,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-control-suki-pro {
 		margin: 0 0 12px;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .customize-control-suki-pro .suki-heading,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .customize-control-suki-pro .suki-heading {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-control-suki-pro .suki-heading,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-control-suki-pro .suki-heading {
 		margin: 0;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions {
 		display: block !important;
 		z-index: 10;
 		margin-top: -20px;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .description,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .description,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .description,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .description {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .description,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .description,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .description,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .description {
 		font-style: normal;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher {
 		margin: 0 -20px;
 		padding: 9px 20px 0;
 		border-color: #ddd;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab {
 		background-color: #eee;
 		border-color: #ddd;
 		outline: 0;
@@ -771,48 +772,48 @@ div.customize-section-description {
 		box-shadow: none;
 		opacity: 0.75;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:hover, #customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:focus,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:hover,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:focus,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:hover,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:focus,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:hover,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:focus {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:hover, #customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:focus,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:hover,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:focus,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:hover,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab:focus,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:hover,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab:focus {
 		background-color: #eee;
 		opacity: 1;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher .nav-tab.nav-tab-active {
 		background-color: #eee;
 		border-bottom-color: #eee;
 		opacity: 1;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher-button:first-child,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher-button:first-child,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher-button:first-child,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher-button:first-child {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-responsive-switcher-button:first-child,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-responsive-switcher-button:first-child,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher-button:first-child,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher-button:first-child {
 		margin-right: 0;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-builder-toggle,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-builder-toggle,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-builder-toggle,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-builder-toggle {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-builder-toggle,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-builder-toggle,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-builder-toggle,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-builder-toggle {
 		position: absolute;
 		left: 0;
 		top: 0;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-builder-hide,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-builder-hide,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-builder-hide,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-builder-hide {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-builder-hide,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-builder-hide,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-builder-hide,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-builder-hide {
 		margin-top: 8px;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-builder-show,
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-builder-show,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-builder-show,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-builder-show {
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions .suki-builder-show,
+	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions .suki-builder-show,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-builder-show,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-builder-show {
 		top: auto;
 		bottom: 100%;
 		margin-bottom: 20px;
@@ -821,63 +822,63 @@ div.customize-section-description {
 		-webkit-transition: none;
 		transition: none;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .customize-section-description-container,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .customize-section-description-container {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-section-description-container,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-section-description-container {
 		display: none !important;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-sortable-panel,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-sortable-panel {
 		padding: 8px !important;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location {
 		position: relative;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 		margin: 2px 0;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="left"] .suki-small-label,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="left"] .suki-small-label {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="left"] .suki-small-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="left"] .suki-small-label {
 		text-align: right;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="left"] .suki-builder-sortable-panel,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="left"] .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="left"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="left"] .suki-builder-sortable-panel {
 		-webkit-box-pack: start;
 		-ms-flex-pack: start;
 		justify-content: flex-start;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="vertical"] .suki-small-label, #customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="center"] .suki-small-label,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="vertical"] .suki-small-label,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="center"] .suki-small-label {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="vertical"] .suki-small-label, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="center"] .suki-small-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="vertical"] .suki-small-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="center"] .suki-small-label {
 		text-align: center;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="vertical"] .suki-builder-sortable-panel, #customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="center"] .suki-builder-sortable-panel,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="vertical"] .suki-builder-sortable-panel,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="center"] .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="vertical"] .suki-builder-sortable-panel, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="center"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="vertical"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="center"] .suki-builder-sortable-panel {
 		-webkit-box-pack: center;
 		-ms-flex-pack: center;
 		justify-content: center;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="right"] .suki-small-label,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="right"] .suki-small-label {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="right"] .suki-small-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="right"] .suki-small-label {
 		text-align: left;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="right"] .suki-builder-sortable-panel,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="right"] .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="right"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="right"] .suki-builder-sortable-panel {
 		-webkit-box-pack: end;
 		-ms-flex-pack: end;
 		justify-content: flex-end;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-element-add,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-element-add {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-element-add,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-element-add {
 		display: none;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-inactive,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-inactive {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-inactive,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-inactive {
 		display: block !important;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -895,12 +896,12 @@ div.customize-section-description {
 		align-items: flex-start;
 		margin: 0 -10px;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group {
 		padding: 0 10px;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -920,38 +921,38 @@ div.customize-section-description {
 		flex-wrap: wrap;
 		width: 100%;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location {
 		width: 33.33%;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical {
 		width: 15%;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location {
 		margin: 0;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child {
 		margin-top: 2px;
 	}
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child {
 		margin-bottom: 2px;
 	}
 }
 
 @media screen and (min-width: 1667px) {
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder {
+	#customize-controls #sub-accordion-section-suki_section_header_builder,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder {
 		right: 18%;
 	}
 }
 
 @media screen and (min-width: 3333px) {
-	#customize-theme-controls #sub-accordion-section-suki_section_header_builder,
-	#customize-theme-controls #sub-accordion-section-suki_section_footer_builder {
+	#customize-controls #sub-accordion-section-suki_section_header_builder,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder {
 		right: 600px;
 	}
 }

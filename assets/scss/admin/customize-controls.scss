@@ -734,32 +734,12 @@ div.customize-section-description {
 	}
 }
 
-#customize-theme-controls {
-	#customize-control-header_builder_actions,
-	#customize-control-footer_builder_actions {
-		display: none !important;
-	}
+#customize-control-header_builder_actions,
+#customize-control-footer_builder_actions {
+	display: none !important;
+}
 
-	// #customize-control-footer_elements {
-	// 	.suki-builder-location {
-	// 		.suki-builder-sortable-panel {
-	// 			flex-direction: column;
-	// 		}
-	// 	}
-
-	// 	.suki-builder-location-bottom_left {
-	// 		.suki-builder-sortable-panel {
-	// 			align-items: flex-start;
-	// 		}
-	// 	}
-
-	// 	.suki-builder-location-bottom_right {
-	// 		.suki-builder-sortable-panel {
-	// 			align-items: flex-end;
-	// 		}
-	// 	}
-	// }
-
+#customize-controls {
 	@media screen and ( min-width: 1324px ) {
 		// Hide section accordion menu
 		#accordion-section-suki_section_header_builder,
@@ -775,6 +755,7 @@ div.customize-section-description {
 			bottom: 0;
 			left: 300px;
 			right: 0;
+			display: block;
 			width: auto;
 			height: auto;
 			padding: 20px;
