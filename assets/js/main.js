@@ -122,7 +122,7 @@
 
 				clearTimeout( timeout );
 				timeout = setTimeout( calculateSubMenuEdge, 100 );
-			} );
+			});
 			calculateSubMenuEdge();
 		},
 
@@ -417,6 +417,26 @@
 					deactivatePopup( device );
 				}
 			});
+
+			// Close popup if any hash link is clicked.
+			var $menuLinks = document.querySelectorAll( '.suki-popup a' );
+			for ( var i = 0; i < $menuLinks.length; i++ ) {
+				$menuLinks[i].addEventListener( 'click', function( e ) {
+					// Check if the link is a hash link.
+					if ( '' !== this.hash ) {
+						var pageURL = ( window.location.hostname + '/' + window.location.pathname ).replace( '/\/$/', '' ),
+						    linkURL = ( this.hostname + '/' + this.pathname ).replace( '/\/$/', '' );
+
+						// Check if the hash target is on this page.
+						if ( pageURL === linkURL ) {
+							// Deactivate all popups.
+							if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
+								deactivatePopup();
+							}
+						}
+					}
+				});
+			}
 		},
 
 		/**
