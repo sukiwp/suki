@@ -909,6 +909,27 @@ select[multiple] {
 	text-transform: none;
 }
 
+.h5, .h6 {
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	color: #333333;
+}
+
+.h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
+	color: #333333;
+}
+
+.h1 a:hover, .h1 a:focus, .h2 a:hover, .h2 a:focus, .h3 a:hover, .h3 a:focus, .h4 a:hover, .h4 a:focus, .h5 a:hover, .h5 a:focus, .h6 a:hover, .h6 a:focus {
+	color: #666666;
+}
+
 .suki-float-container:before, .suki-float-container:after {
 	content: "";
 	display: table;
