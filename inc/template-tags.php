@@ -145,10 +145,6 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
 
-	// Allow modification via filter.
-	$html = apply_filters( 'suki/frontend/suki_icon', $html, $key );
-	$html = apply_filters( 'suki/frontend/suki_icon/' . $key, $html );
-
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK
 	} else {
