@@ -262,8 +262,8 @@ class Suki {
 		register_sidebar( array(
 			'name'          => esc_html__( 'Sidebar', 'suki' ),
 			'id'            => 'sidebar',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title h4">',
 			'after_title'   => '</h2>',
 		) );
@@ -273,8 +273,8 @@ class Suki {
 				/* translators: %d: number of footer widgets column. */
 				'name'          => sprintf( esc_html__( 'Footer Widgets Column %d', 'suki' ), $i ),
 				'id'            => 'footer-widgets-' . $i,
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
 				'before_title'  => '<h2 class="widget-title h4">',
 				'after_title'   => '</h2>',
 			) );
