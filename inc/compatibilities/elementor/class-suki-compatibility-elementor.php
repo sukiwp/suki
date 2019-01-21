@@ -104,7 +104,7 @@ class Suki_Compatibility_Elementor {
 	 * Add additional CSS to Elementor editor's preview.
 	 */
 	public function add_editor_preview_css() {
-		wp_add_inline_style( 'editor-preview', suki_minify_css_string( '#body { pointer-events: none; } .elementor-edit-mode { pointer-events: auto; }' ) );
+		wp_add_inline_style( 'editor-preview', suki_minify_css_string( '.suki-body { pointer-events: none; } .elementor-edit-mode { pointer-events: auto; }' ) );
 	}
 
 	/**

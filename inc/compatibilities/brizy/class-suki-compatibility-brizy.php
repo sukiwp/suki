@@ -53,7 +53,7 @@ class Suki_Compatibility_Brizy {
 	 * Add additional CSS to Brizy editor's preview.
 	 */
 	public function add_editor_preview_css() {
-		wp_add_inline_style( 'brizy-editor', suki_minify_css_string( '#body { pointer-events: none; } #brz-ed-root { pointer-events: auto; }' ) );
+		wp_add_inline_style( 'brizy-editor', suki_minify_css_string( '.suki-body { pointer-events: none; } #brz-ed-root { pointer-events: auto; }' ) );
 	}
 }
 
