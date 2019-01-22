@@ -2892,13 +2892,6 @@ body.suki-page-layout-boxed #page {
 	margin-bottom: 0;
 }
 
-.entry-card .entry-wrapper {
-	border-width: 1px;
-	border-style: solid;
-	padding: 1.25em 1.5em;
-	background-color: #ffffff;
-}
-
 .entry-header {
 	margin: 0 0 2rem;
 }
@@ -2958,15 +2951,6 @@ body.suki-page-layout-boxed #page {
 
 .entry-small .entry-thumbnail {
 	margin: 0 0 1rem;
-}
-
-.entry-card .entry-thumbnail {
-	margin-right: -1.5em;
-	margin-left: -1.5em;
-}
-
-.entry-card .entry-thumbnail:first-child {
-	margin-top: -1.25em;
 }
 
 a.entry-thumbnail:hover, a.entry-thumbnail:focus {

@@ -16,6 +16,14 @@ $section = 'suki_section_entry_default';
  * ====================================================
  */
 
+// Heading: Featured Media
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_featured_media', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Featured Media', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 // Featured media position
 $id = 'entry_featured_media_position';
 $wp_customize->add_setting( $id, array(
@@ -41,13 +49,21 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Remove padding on featured media', 'suki' ),
+	'label'       => esc_html__( 'Featured media ignore padding', 'suki' ),
 	'description' => sprintf(
 		/* translators: %s: menu path to main content's padding setting. */
 		esc_html__( 'If you set padding on %s, enabling this option will make your featured media disregard the padding.', 'suki' ),
 		'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_main', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Main Content Area', 'suki' ) . '</a>'
 	),
 	'priority'    => 10,
+) ) );
+
+// Heading: Header
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Header', 'suki' ),
+	'priority'    => 20,
 ) ) );
 
 // Post header elements
@@ -64,7 +80,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'title'          => esc_html__( 'Title', 'suki' ),
 	) ),
 	'layout'      => 'block',
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
 
 // Post header alignment
@@ -83,14 +99,15 @@ $wp_customize->add_control( $id, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 10,
+	'priority'    => 20,
 ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_entry_meta', array(
+// Heading: Meta
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_meta', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'priority'    => 10,
+	'label'       => esc_html__( 'Meta', 'suki' ),
+	'priority'    => 30,
 ) ) );
 
 // Post header meta
@@ -103,7 +120,7 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Header meta', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 30,
 ) );
 
 // Post footer meta
@@ -116,5 +133,5 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Footer meta', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 30,
 ) );

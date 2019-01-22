@@ -66,12 +66,6 @@
 	> *:last-child {
 		margin-bottom: 0;
 	}
-
-	.entry-card & {
-		@include border();
-		padding: 1.25em 1.5em;
-		background-color: $color_bg; // default
-	}
 }
 
 // Entry header
@@ -128,15 +122,6 @@
 
 	.entry-small & {
 		margin: 0 0 1rem;
-	}
-
-	.entry-card & {
-		margin-left: -1.5em;
-		margin-right: -1.5em;
-
-		&:first-child {
-			margin-top: -1.25em;
-		}
 	}
 }
 
