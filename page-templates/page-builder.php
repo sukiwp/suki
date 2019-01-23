@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page Builder
+ * Template Name: Page Builder (theme)
  *
  * Page template for displaying content built by Page Builder plugins, such as Elementor, Brizy, etc.
  * The template doesn't use default theme's content container, you can specify the container for each section on the Page Builder.

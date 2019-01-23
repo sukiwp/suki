@@ -225,7 +225,7 @@ msgid "Comments are closed."
 msgstr ""
 
 #: page-templates/page-builder.php:3
-msgid "Page Builder"
+msgid "Page Builder (theme)"
 msgstr ""
 
 #: template-parts/content-grid.php:56, template-parts/content-page.php:55, template-parts/content-search.php:53, template-parts/content.php:62
