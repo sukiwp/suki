@@ -102,8 +102,8 @@ class Suki_Admin_Metabox_Page_Settings {
 			sprintf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
-			'side',
-			'default'
+			'normal',
+			'high'
 		);
 	}
 
@@ -415,6 +415,40 @@ class Suki_Admin_Metabox_Page_Settings {
 						?>
 					</div>
 				</div>
+				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
+					<div class="suki-admin-form-row">
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Background image', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field">
+							<?php
+							$post_type_obj = get_post_type_object( get_post_type( $obj ) );
+							$page_settings = suki_get_theme_mod( 'page_settings_' . $post_type_obj->name . '_singular' );
+							$value = suki_array_value( $page_settings, 'page_header_bg' );
+							?>
+							<p class="description" style="margin: 0.5em 0;">
+								<?php
+								switch ( $value ) {
+									case 'archive':
+										printf(
+											/* translators: %s: post type plural name. */
+											esc_html__( 'Currently is set to use the same image as %s archive page.', 'suki' ),
+											$post_type_obj->labels->name
+										);
+										break;
+
+									case 'thumbnail':
+										esc_html_e( 'Currently is set to use Feature Image as the background image.', 'suki' );
+										break;
+									
+									default:
+										esc_html_e( 'Currently is set to use global default background image defined in the Customize > Page Header.', 'suki' );
+										break;
+								}
+								?><br>
+								<a href="<?php echo esc_url( add_query_arg( 'autofocus[control]', 'page_settings_' . $post_type_obj->name . '_singular[page_header_bg]', admin_url( 'customize.php' ) ) ); ?>"><?php esc_html_e( 'Change this configuration', 'suki' ); ?></a>
+							</p>
+						</div>
+					</div>
+				<?php endif; ?>
 				<?php
 				break;
 

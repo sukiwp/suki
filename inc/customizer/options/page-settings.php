@@ -184,18 +184,19 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	// Page header background image
 	$key = 'page_header_bg';
 	$id = $option_key . '[' . $key . ']';
+	$choices = array();
 	if ( false !== strpos( $type, '_singular' ) ) {
 		$post_type_object = get_post_type_object( str_replace( '_singular', '', $type ) );
-		$choices = array(
-			/* translators: %s: plural post type name */
-			'archive'   => sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_object->labels->name ),
+
+		/* translators: %s: plural post type name */
+		$choices['archive'] = sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_object->labels->name );
+
+		if ( post_type_supports( $post_type_object->name, 'thumbnail' ) ) {
 			/* translators: %s: singular post type name */
-			'thumbnail' => sprintf( esc_html__( 'Use %s\'s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name ),
-		);
+			$choices['thumbnail'] = sprintf( esc_html__( 'Use %s\'s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name );
+		}
 	} else {
-		$choices = array(
-			'custom'    => esc_html__( 'Custom', 'suki' ),
-		);
+		$choices['custom'] = esc_html__( 'Custom', 'suki' );
 	}
 	$wp_customize->add_setting( $id, array(
 		'default'     => suki_array_value( $default, $key ),
