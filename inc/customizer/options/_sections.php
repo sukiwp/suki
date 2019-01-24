@@ -233,6 +233,13 @@ $wp_customize->add_panel( $panel, array(
 	) );
 
 	// Social
+	$wp_customize->add_section( 'suki_section_header_cart', array(
+		'title'       => esc_html__( 'Element: Shopping Cart', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 40,
+	) );
+
+	// Social
 	$wp_customize->add_section( 'suki_section_header_social', array(
 		'title'       => esc_html__( 'Element: Social', 'suki' ),
 		'panel'       => $panel,

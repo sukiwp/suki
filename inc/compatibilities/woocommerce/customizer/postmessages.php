@@ -34,11 +34,6 @@ $add['link_text_color'] = array(
 		'element'  => '.woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
 		'property' => 'color',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-header-shopping-cart .shopping-cart-count',
-		'property' => 'background-color',
-	),
 );
 $add['link_hover_text_color'] = array(
 	array(

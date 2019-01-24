@@ -566,7 +566,7 @@ foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachme
 
 /**
  * ====================================================
- * Header > Logo
+ * Header > Element: Logo
  * ====================================================
  */
 
@@ -587,7 +587,7 @@ $add['header_mobile_logo_width'] = array(
 
 /**
  * ====================================================
- * Header > Search
+ * Header > Element: Search
  * ====================================================
  */
 
@@ -608,7 +608,28 @@ $add['header_search_dropdown_width'] = array(
 
 /**
  * ====================================================
- * Header > Social
+ * Header > Element: Shopping Cart
+ * ====================================================
+ */
+
+$add['header_cart_count_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-shopping-cart .shopping-cart-count',
+		'property' => 'background-color',
+	),
+);
+$add['header_cart_count_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-shopping-cart .shopping-cart-count',
+		'property' => 'color',
+	),
+);
+
+/**
+ * ====================================================
+ * Header > Element: Social
  * ====================================================
  */
 

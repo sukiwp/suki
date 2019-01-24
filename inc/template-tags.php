@@ -554,6 +554,55 @@ function suki_header_element( $element ) {
 			<?php
 			break;
 
+		case 'shopping-cart-dropdown':
+			if ( class_exists( 'WooCommerce' ) ) {
+				$cart = WC()->cart;
+
+				if ( ! empty( $cart ) ) {
+					$count = $cart->get_cart_contents_count();
+					?>
+					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu suki-toggle-menu">
+						<div class="menu-item">
+							<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
+								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
+								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
+							</button>
+							<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
+							<div class="sub-menu">
+								<?php the_widget( 'WC_Widget_Cart', array(
+									'title'         => '',
+									'hide_if_empty' => false,
+								) ); ?>
+							</div>
+							<?php remove_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
+						</div>
+					</div>
+					<?php
+				}
+			}
+			break;
+
+		case 'shopping-cart-link':
+			if ( class_exists( 'WooCommerce' ) ) {
+				$cart = WC()->cart;
+
+				if ( ! empty( $cart ) ) {
+					$count = $cart->get_cart_contents_count();
+					?>
+					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu">
+						<div class="menu-item">
+							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
+								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
+							</a>
+						</div>
+					</div>
+					<?php
+				}
+			}
+			break;
+
 		case 'social':
 			$types = suki_get_theme_mod( 'header_social_links', array() );
 

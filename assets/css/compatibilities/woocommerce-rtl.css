@@ -277,41 +277,6 @@ p.demo_store a {
 	color: #288ce6;
 }
 
-.suki-header-shopping-cart .shopping-cart-count {
-	width: 1em;
-	height: 1em;
-	position: absolute;
-	right: 100%;
-	z-index: 1;
-	display: inline-block;
-	margin: -0.4em -0.4em 0 0;
-	border-radius: 50%;
-	text-align: center;
-	line-height: 1;
-	letter-spacing: 0;
-	/* reset */
-	background-color: #288ce6;
-	color: #ffffff;
-	-webkit-animation: suki-pulse 0.5s 1;
-	animation: suki-pulse 0.5s 1;
-}
-
-.suki-header-shopping-cart .shopping-cart-count strong {
-	display: inline-block;
-	font-size: 0.5em;
-	line-height: 2;
-	vertical-align: top;
-}
-
-.suki-header-shopping-cart .shopping-cart-count[data-count="0"] {
-	display: none;
-}
-
-.suki-header-shopping-cart .sub-menu {
-	white-space: normal;
-	width: 20rem !important;
-}
-
 .suki-before-shop-loop-clear {
 	clear: both;
 	margin-bottom: 1.25em;

@@ -51,9 +51,6 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 
-		// Template tags
-		add_filter( 'suki/frontend/header_element', array( $this, 'header_element' ), 10, 2 );
-
 		// Template hooks
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
 		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_customizer' ) );
@@ -113,7 +110,6 @@ class Suki_Compatibility_WooCommerce {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 		
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/_sections.php' );
-		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/header--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php' );
@@ -451,75 +447,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function change_sale_badge_markup( $html, $post, $product ) {
 		$html = preg_replace( '/<span class="onsale">(.*)<\/span>/', '<span class="onsale"><span>$1</span></span>', $html );
-
-		return $html;
-	}
-
-	/**
-	 * Add markup for shopping cart header element.
-	 *
-	 * @param string $html
-	 * @param string $element
-	 * @return string
-	 */
-	public function header_element( $html, $element ) {
-		// Check if the specified element is a shopping cart.
-		if ( ! in_array( $element, array( 'shopping-cart-dropdown', 'shopping-cart-link' ) ) ) {
-			return $html;
-		}
-
-		ob_start();
-		switch ( $element ) {
-			case 'shopping-cart-dropdown':
-				if ( class_exists( 'WooCommerce' ) ) {
-					$cart = WC()->cart;
-
-					if ( ! empty( $cart ) ) {
-						$count = $cart->get_cart_contents_count();
-						?>
-						<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu suki-toggle-menu">
-							<div class="menu-item">
-								<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
-									<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-									<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-									<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
-								</button>
-								<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
-								<div class="sub-menu">
-									<?php the_widget( 'WC_Widget_Cart', array(
-										'title'         => '',
-										'hide_if_empty' => false,
-									) ); ?>
-								</div>
-								<?php remove_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
-							</div>
-						</div>
-						<?php
-					}
-				}
-				break;
-
-			case 'shopping-cart-link':
-				if ( class_exists( 'WooCommerce' ) ) {
-					$cart = WC()->cart;
-
-					if ( ! empty( $cart ) ) {
-						$count = $cart->get_cart_contents_count();
-						?>
-						<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu">
-							<div class="menu-item">
-								<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
-									<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-									<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
-								</a>
-							</div>
-						</div>
-						<?php
-					}
-				}
-				break;
-		}
-		$html = ob_get_clean();
 
 		return $html;
 	}
