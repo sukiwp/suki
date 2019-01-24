@@ -1,3 +1,15 @@
+v1.0.0
+- NEW: Options to change padding, border, background color of grid post item.
+- NEW: Options to change header's cart count colors.
+- NEW: `suki/frontend/svg_icon/` filter to modify the SVG tags of theme's icons.
+- TWEAK: Header popup (e.g. mobile header drawer) will automatically close when user clicks a hash link to elements on the same page.
+- TWEAK: Improve some default theme's CSS.
+- TWEAK: Improve Suki admin submenu style to show that it is a submenu of Suki.
+- TWEAK: Change default grid post style to no border and no padding (configurable this via new added options).
+- FIX: Header and Footer Builder on Safari Mac.
+- FIX: Fix custom CSS of WooCommerce's button typography.
+- REMOVE: `suki/frontend/svg_icon_path` filter, in favor of the new `suki/frontend/svg_icon/` filter.
+
 v0.7.10
 - FIX: Single template filter for Elementor library affected all other post types as well.
 
