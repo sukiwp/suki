@@ -122,19 +122,28 @@ function suki_get_current_page_setting( $key ) {
 	// Other post types index page
 	elseif ( is_post_type_archive() ) {
 		$obj = get_queried_object();
-		$settings = suki_get_theme_mod( 'page_settings_' . $obj->name . '_archive', array() );
+
+		if ( $obj ) {
+			$settings = suki_get_theme_mod( 'page_settings_' . $obj->name . '_archive', array() );
+		}
 	}
 		
 	// Static page
 	elseif ( is_page() ) {
 		$obj = get_queried_object();
-		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
+
+		if ( $obj ) {
+			$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
+		}
 	}
 		
 	// Single post page (any post type)
 	elseif ( is_singular() ) {
 		$obj = get_queried_object();
-		$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $obj->post_type . '_singular', array() ) );
+
+		if ( $obj ) {
+			$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $obj->post_type . '_singular', array() ) );
+		}
 	}
 		
 	// Time based Archive page
@@ -150,20 +159,23 @@ function suki_get_current_page_setting( $key ) {
 	// Other archive page
 	elseif ( is_archive() ) {
 		$obj = get_queried_object();
-		$post_type = 'post';
-		
-		global $wp_taxonomies;
-		if ( isset( $wp_taxonomies[ $obj->taxonomy ] ) ) {
-			$post_types = $wp_taxonomies[ $obj->taxonomy ]->object_type;
-			$post_type_archive_settings = suki_get_theme_mod( 'page_settings_' . $post_types[0] . '_archive', array() );
-		}
 
-		$term_meta_settings = get_term_meta( $obj->term_id, 'suki_page_settings', true );
-		if ( '' === $term_meta_settings ) {
-			$term_meta_settings = array();
+		if ( $obj ) {
+			$post_type = 'post';
+			
+			global $wp_taxonomies;
+			if ( isset( $wp_taxonomies[ $obj->taxonomy ] ) ) {
+				$post_types = $wp_taxonomies[ $obj->taxonomy ]->object_type;
+				$post_type_archive_settings = suki_get_theme_mod( 'page_settings_' . $post_types[0] . '_archive', array() );
+			}
+
+			$term_meta_settings = get_term_meta( $obj->term_id, 'suki_page_settings', true );
+			if ( '' === $term_meta_settings ) {
+				$term_meta_settings = array();
+			}
+			
+			$settings = wp_parse_args( $term_meta_settings, $post_type_archive_settings );
 		}
-		
-		$settings = wp_parse_args( $term_meta_settings, $post_type_archive_settings );
 	}
 
 	// Search page
