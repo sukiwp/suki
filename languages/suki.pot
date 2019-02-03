@@ -228,7 +228,7 @@ msgstr ""
 msgid "Page Builder (theme)"
 msgstr ""
 
-#: template-parts/content-grid.php:56, template-parts/content-page.php:55, template-parts/content-search.php:53, template-parts/content.php:62
+#: template-parts/content-grid.php:56, template-parts/content-page.php:55, template-parts/content-search.php:53, template-parts/content.php:58
 msgid "Pages:"
 msgstr ""
 
@@ -248,9 +248,8 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#. translators: %s: current post title.
-#: template-parts/content.php:55
-msgid "Continue Reading %s"
+#: template-parts/content.php:71
+msgid "Continue Reading"
 msgstr ""
 
 #: inc/admin/class-suki-admin-fields.php:159, inc/customizer/custom-controls/class-suki-customize-control-color.php:58, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
