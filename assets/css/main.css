@@ -2778,6 +2778,7 @@ body.suki-page-layout-boxed #page {
 @media screen and (max-width: 1023px) {
 	.suki-footer-bottom-bar-row {
 		display: block;
+		white-space: normal;
 	}
 }
 
