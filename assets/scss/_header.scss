@@ -55,6 +55,7 @@
 // Search Dropdown
 .suki-header-search-bar {
 	.search-form {
+		display: inline-block;
 		width: 300px; // default
 	}
 }
@@ -219,7 +220,8 @@
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
-			@include transition( opacity, visibility 0s 0.25s );
+			transform: translate( 0, 1em );
+			@include transition( opacity, transform, visibility 0s 0.25s );
 		}
 
 		&.suki-hover-menu .menu-item:hover > .sub-menu,
@@ -227,7 +229,8 @@
 			// hover menu show
 			visibility: visible;
 			opacity: 1;
-			@include transition( opacity, visibility 0s 0s );
+			transform: translate( 0, 0 );
+			@include transition( opacity, transform, visibility 0s 0s );
 		}
 	}
 

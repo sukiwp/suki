@@ -1710,6 +1710,7 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-header-search-bar .search-form {
+	display: inline-block;
 	width: 300px;
 }
 
@@ -1941,8 +1942,12 @@ body.suki-page-layout-boxed #page {
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 	visibility: hidden;
 	opacity: 0;
-	-webkit-transition: opacity 0.25s, visibility 0s 0.25s;
-	transition: opacity 0.25s, visibility 0s 0.25s;
+	-webkit-transform: translate(0, 1em);
+	transform: translate(0, 1em);
+	-webkit-transition: opacity 0.25s, visibility 0s 0.25s, -webkit-transform 0.25s;
+	transition: opacity 0.25s, visibility 0s 0.25s, -webkit-transform 0.25s;
+	transition: opacity 0.25s, transform 0.25s, visibility 0s 0.25s;
+	transition: opacity 0.25s, transform 0.25s, visibility 0s 0.25s, -webkit-transform 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -1951,8 +1956,12 @@ body.suki-page-layout-boxed #page {
 .suki-header-section .menu .menu-item.focus > .sub-menu {
 	visibility: visible;
 	opacity: 1;
-	-webkit-transition: opacity 0.25s, visibility 0s 0s;
-	transition: opacity 0.25s, visibility 0s 0s;
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+	-webkit-transition: opacity 0.25s, visibility 0s 0s, -webkit-transform 0.25s;
+	transition: opacity 0.25s, visibility 0s 0s, -webkit-transform 0.25s;
+	transition: opacity 0.25s, transform 0.25s, visibility 0s 0s;
+	transition: opacity 0.25s, transform 0.25s, visibility 0s 0s, -webkit-transform 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $section = 'suki_section_headings';
 
 for ( $i = 1; $i <= 4; $i++ ) {
-	// Heading %d typography
+	// Heading %s typography
 	$settings = array(
 		'font_family'    => 'h' . $i . '_font_family',
 		'font_weight'    => 'h' . $i . '_font_weight',
@@ -39,8 +39,8 @@ for ( $i = 1; $i <= 4; $i++ ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'h' . $i . '_typography', array(
 		'settings'    => $settings,
 		'section'     => $section,
-		/* translators: %1$d: heading level number. */
-		'label'       => sprintf( esc_html__( 'Heading %1$d (H%1$d) typography', 'suki' ), $i ),
+		/* translators: %1$s: heading level number. */
+		'label'       => sprintf( esc_html__( 'Heading %1$s (H%1$s) typography', 'suki' ), $i ),
 		'priority'    => 10,
 	) ) );
 }

@@ -207,8 +207,8 @@ class Suki {
 
 		// Register menus
 		register_nav_menus( array(
-			/* translators: %d: number of Header Menu. */
-			'header-menu-1' => sprintf( esc_html__( 'Header Menu %d', 'suki' ), 1 ),
+			/* translators: %s: number of Header Menu. */
+			'header-menu-1' => sprintf( esc_html__( 'Header Menu %s', 'suki' ), 1 ),
 			'header-mobile-menu' => esc_html__( 'Mobile Header Menu', 'suki' ),
 			'footer-menu-1' => esc_html__( 'Footer Bottom Menu', 'suki' ),
 		) );
@@ -270,8 +270,8 @@ class Suki {
 
 		for ( $i = 1; $i <= 6; $i++ ) {
 			register_sidebar( array(
-				/* translators: %d: number of footer widgets column. */
-				'name'          => sprintf( esc_html__( 'Footer Widgets Column %d', 'suki' ), $i ),
+				/* translators: %s: footer widgets column number. */
+				'name'          => sprintf( esc_html__( 'Footer Widgets Column %s', 'suki' ), $i ),
 				'id'            => 'footer-widgets-' . $i,
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',

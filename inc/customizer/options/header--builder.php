@@ -64,8 +64,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
 	'choices'     => array(
 		'logo'                   => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
-		'menu-1'                 => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Menu', 'suki' ) . ' 1',
-		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'HTML', 'suki' ) . ' 1',
+		/* translators: %s: instance number. */
+		'menu-1'                 => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Menu %s', 'suki-pro' ), 1 ),
+		/* translators: %s: instance number. */
+		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki-pro' ), 1 ),
 		'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
 		'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
 		'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
@@ -110,7 +112,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'choices'     => array(
 		'mobile-logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Mobile Logo', 'suki' ),
 		'mobile-menu'            => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Mobile Menu', 'suki' ),
-		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'HTML', 'suki' ) . ' 1',
+		/* translators: %s: instance number. */
+		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki-pro' ), 1 ),
 		'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
 		'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Icon', 'suki' ),
 		'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),

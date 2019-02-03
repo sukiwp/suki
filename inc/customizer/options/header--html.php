@@ -20,8 +20,8 @@ $section = 'suki_section_header_html';
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_header_html_1', array(
 	'section'     => $section,
 	'settings'    => array(),
-	/* translators: %d: number of HTML element. */
-	'label'       => sprintf( esc_html__( 'HTML %d', 'suki' ), 1 ),
+	/* translators: %s: number of HTML element. */
+	'label'       => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
 	'priority'    => 10,
 ) ) );
 

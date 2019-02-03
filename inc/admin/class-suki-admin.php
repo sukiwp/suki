@@ -67,9 +67,10 @@ class Suki_Admin {
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_modules_table' ), 20 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__customizer' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__pro' ), 20 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__documentation' ), 30 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__community' ), 40 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__feedback' ), 50 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 30 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__documentation' ), 40 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__community' ), 50 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__feedback' ), 60 );
 		
 		$this->_includes();
 	}
@@ -689,6 +690,35 @@ class Suki_Admin {
 						<span class="dashicons dashicons-admin-network"></span>
 						<?php echo esc_html_x( 'Upgrade to Pro', 'Suki Pro upsell', 'suki' ); ?>
 					</a>
+				</p>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render "Starter Sites" info box on Suki admin page's sidebar.
+	 */
+	public function render_sidebar__sites() {
+		?>
+		<div class="suki-admin-secondary-pro postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Import Starter Sites', 'suki' ); ?></h2>
+			<div class="inside">
+				<p><?php esc_html_e( 'Kickstart your project with our growing pre-made sites library, easily import with simple clicks.', 'suki' ); ?></p>
+				<p>
+					<?php if ( is_plugin_active( 'suki-sites-import/suki-sites-import.php' ) ) : ?>
+						<?php $url = add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ); ?>
+						<a href="<?php echo esc_url( $url ); ?>" class="button button-large button-secondary">
+							<span class="dashicons dashicons-admin-plugins"></span>
+							<?php esc_html_e( 'Browse and Import', 'suki' ); ?>
+						</a>
+					<?php else : ?>
+						<?php $url = add_query_arg( array( 's' => 'suki+sites+import', 'tab' => 'search', 'type' => 'term' ), admin_url( 'plugin-install.php' ) ); ?>
+						<a href="<?php echo esc_url( $url ); ?>" class="button button-large button-secondary">
+							<span class="dashicons dashicons-admin-plugins"></span>
+							<?php esc_html_e( 'Install "Suki Sites Import"', 'suki' ); ?>
+						</a>
+					<?php endif; ?>
 				</p>
 			</div>
 		</div>
