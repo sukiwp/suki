@@ -38,7 +38,7 @@
 	margin-top: -1px;
 }
 
-div.customize-section-description {
+li:not(.customize-info) div.customize-section-description {
 	margin: 0 -12px;
 	padding: 12px 15px;
 	background-color: #fff;
