@@ -585,7 +585,7 @@ function suki_header_element( $element ) {
 							<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
+								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
 							</button>
 							<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
 							<div class="sub-menu">
@@ -613,7 +613,7 @@ function suki_header_element( $element ) {
 						<div class="menu-item">
 							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><strong><?php echo $count; // WPCS: XSS OK ?></strong></span>
+								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
 							</a>
 						</div>
 					</div>

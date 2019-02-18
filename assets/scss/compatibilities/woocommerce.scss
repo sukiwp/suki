@@ -814,21 +814,14 @@ p.demo_store {
 		margin-bottom: 1.25rem;
 
 		thead, tbody, tfoot {
-			tr:first-child td:first-child {
-				@include border( top );
-				border-color: inherit;
-			}
-
 			th, td {
 				padding: 0.6rem 0.8rem;
-				@include border( top );
-				border-color: inherit;
+				border-top: none;
 				border-left: none;
 				border-right: none;
 				border-color: inherit;
 			}
 		}
-
 
 		a {
 			text-decoration: none;
@@ -837,8 +830,8 @@ p.demo_store {
 
 		&.shop_table_responsive {
 			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				border-top: none;
-			}
+				border-bottom: none;
+			}				
 		}
 	}
 }
@@ -976,7 +969,7 @@ p.demo_store {
 	.cart_totals {
 		tr {
 			th, td {
-				@include border( top );
+				border-top: none;
 				border-color: inherit;
 			}
 

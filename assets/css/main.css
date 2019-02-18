@@ -453,6 +453,7 @@ legend {
 	letter-spacing: 0;
 	text-transform: none;
 	margin: 0 0 1.25rem;
+	color: #333333;
 }
 
 button,
@@ -1736,16 +1737,17 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-header-shopping-cart .shopping-cart-count {
-	width: 1em;
-	height: 1em;
+	width: 2em;
+	height: 2em;
 	position: absolute;
 	left: 100%;
 	z-index: 1;
 	display: inline-block;
-	margin: -0.4em 0 0 -0.4em;
+	margin: -0.8em 0 0 -0.8em;
 	border-radius: 50%;
+	font-size: 0.6em;
 	text-align: center;
-	line-height: 1;
+	line-height: 2;
 	letter-spacing: 0;
 	/* reset */
 	background-color: #288ce6;
