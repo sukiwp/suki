@@ -43,11 +43,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: header menu number.
-#: inc/class-suki.php:211, inc/template-tags.php:495
+#: inc/class-suki.php:211, inc/template-tags.php:514
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:212, inc/template-tags.php:513
+#: inc/class-suki.php:212, inc/template-tags.php:532
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -167,60 +167,60 @@ msgid "Assign menu to this location"
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:202
+#: inc/template-tags.php:221
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:221
+#: inc/template-tags.php:240
 msgid "Oops! That page can not be found."
 msgstr ""
 
-#: inc/template-tags.php:243
+#: inc/template-tags.php:262
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:549
+#: inc/template-tags.php:568
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:568
+#: inc/template-tags.php:587
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-tags.php:638, inc/customizer/options/header--builder.php:114
+#: inc/template-tags.php:657, inc/customizer/options/header--builder.php:114
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1319
+#: inc/template-tags.php:1338
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1320
+#: inc/template-tags.php:1339
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1364
+#: inc/template-tags.php:1383
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1365
+#: inc/template-tags.php:1384
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1382
+#: inc/template-tags.php:1401
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1388
+#: inc/template-tags.php:1407
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1415
+#: inc/template-tags.php:1434
 msgid "Comments are closed."
 msgstr ""
 

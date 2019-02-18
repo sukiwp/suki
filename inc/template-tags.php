@@ -36,9 +36,46 @@ function suki_unassigned_menu() {
 }
 endif;
 
+if ( ! function_exists( 'suki_inline_svg' ) ) :
+/**
+ * Print / return inline SVG HTML tags.
+ */
+function suki_inline_svg( $svg_file, $echo = true ) {
+	// Return empty if no SVG file path is provided.
+	if ( empty( $svg_file ) ) return;
+
+	// Get SVG markup.
+	ob_start();
+	include( $svg_file );
+	$html = ob_get_clean();
+
+	// Remove XML encoding tag.
+	// This should not be printed on inline SVG.
+	$html = preg_replace( '/<\?xml(?:.*?)\?>/', '', $html );
+
+	// Add width attribute if not found in the SVG markup.
+	// Width value is extracted from viewBox attribute.
+	if ( ! preg_match( '/<svg.*?width.*?>/', $html ) ) {
+		if ( preg_match( '/<svg.*?viewBox="0 0 ([0-9.]+) ([0-9.]+)".*?>/', $html, $matches ) ) {
+			$html = preg_replace( '/<svg (.*?)>/', '<svg $1 width="' . $matches[1] . '" height="' . $matches[2] . '">', $html );
+		}
+	}
+
+	// Remove <title> from SVG markup.
+	// Site name would be added as a screen reader text to represent the logo.
+	$html = preg_replace( '/<title>.*?<\/title>/', '', $html );
+
+	if ( $echo ) {
+		echo $html; // WPCS: XSS OK
+	} else {
+		return $html;
+	}
+}
+endif;
+
 if ( ! function_exists( 'suki_logo' ) ) :
 /**
- * Print / return HTML markup for specified site logo.
+ * Print HTML markup for specified site logo.
  *
  * @param integer $logo_image_id
  */
@@ -52,25 +89,9 @@ function suki_logo( $logo_image_id = null ) {
 
 		switch ( $mime ) {
 			case 'image/svg+xml':
-				ob_start();
 				$svg_file = get_attached_file( $logo_image_id );
 
-				if ( ! empty( $svg_file ) ) {
-					include( $svg_file );
-				}
-				$logo_image = ob_get_clean();
-
-				// Add width attribute if not found in the SVG markup.
-				// Width value is extracted from viewBox attribute.
-				if ( ! preg_match( '/<svg.*?width.*?>/', $logo_image ) ) {
-					if ( preg_match( '/<svg.*?viewBox="0 0 ([0-9.]+) ([0-9.]+)".*?>/', $logo_image, $matches ) ) {
-						$logo_image = preg_replace( '/<svg (.*?)>/', '<svg $1 width="' . $matches[1] . '" height="' . $matches[2] . '">', $logo_image );
-					}
-				}
-
-				// Remove <title> from SVG markup.
-				// Site name would be added as a screen reader text to represent the logo.
-				$logo_image = preg_replace( '/<title>.*?<\/title>/', '', $logo_image );
+				$logo_image = suki_inline_svg( $svg_file, false );
 				break;
 			
 			default:
@@ -130,13 +151,11 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
 
 	// Get SVG markup.
-	ob_start();
 	if ( file_exists( $path ) ) {
-		include( $path );
+		$svg = suki_inline_svg( $path, false );
 	} else {
-		include( get_template_directory() . '/assets/icons/_fallback.svg' ); // fallback
+		$svg = suki_inline_svg( get_template_directory() . '/assets/icons/_fallback.svg', false ); // fallback
 	}
-	$svg = ob_get_clean();
 
 	// Allow modification via filter.
 	$svg = apply_filters( 'suki/frontend/svg_icon', $svg, $key );
