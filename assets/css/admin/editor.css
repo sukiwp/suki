@@ -206,7 +206,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 figure {
@@ -256,7 +256,7 @@ svg {
 }
 
 ::selection {
-	background-color: #288ce6;
+	background-color: #377dff;
 	color: #ffffff;
 }
 
@@ -592,8 +592,8 @@ p.wp-block-subhead {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
+	background-color: #377dff;
+	border-color: #377dff;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;
@@ -735,8 +735,8 @@ body.mce-content-body a[data-mce-selected] {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
+	background-color: #377dff;
+	border-color: #377dff;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;

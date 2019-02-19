@@ -73,8 +73,8 @@
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
+	background-color: #377dff;
+	border-color: #377dff;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;
@@ -177,7 +177,7 @@
 	line-height: inherit;
 	letter-spacing: inherit;
 	background-color: transparent !important;
-	color: #288ce6;
+	color: #377dff;
 }
 
 .woocommerce .woocommerce-error .button:hover, .woocommerce .woocommerce-error .button:focus,
@@ -193,7 +193,7 @@ p.demo_store {
 	position: relative;
 	top: 0 !important;
 	z-index: initial;
-	background-color: #288ce6;
+	background-color: #377dff;
 	color: #ffffff;
 }
 
@@ -228,12 +228,12 @@ p.demo_store a {
 	min-width: auto;
 	font-size: 1em;
 	line-height: normal;
-	background-color: #288ce6;
+	background-color: #377dff;
 	color: #ffffff;
 }
 
 .woocommerce span.onsale:before, .woocommerce span.onsale:after {
-	border-color: #288ce6;
+	border-color: #377dff;
 }
 
 .woocommerce span.onsale > span {
@@ -265,16 +265,16 @@ p.demo_store a {
 }
 
 .woocommerce .star-rating span:before {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .woocommerce .star-rating a {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .woocommerce .star-rating:before {
 	position: static;
-	color: #288ce6;
+	color: #377dff;
 }
 
 .suki-before-shop-loop-clear {
@@ -460,7 +460,7 @@ p.demo_store a {
 
 .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
-	color: #288ce6;
+	color: #377dff;
 }
 
 .woocommerce div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce-page #content div.product div.images {
@@ -642,7 +642,7 @@ p.demo_store a {
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
@@ -1380,7 +1380,7 @@ p.demo_store a {
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar .is-active a {

@@ -365,7 +365,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 figure {
@@ -415,7 +415,7 @@ svg {
 }
 
 ::selection {
-	background-color: #288ce6;
+	background-color: #377dff;
 	color: #ffffff;
 }
 
@@ -471,8 +471,8 @@ a.wp-block-button__link {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
+	background-color: #377dff;
+	border-color: #377dff;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;
@@ -1000,7 +1000,7 @@ select[multiple] {
 }
 
 .nav-links a:hover, .nav-links a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .tagcloud:before, .tagcloud:after {
@@ -1023,7 +1023,7 @@ select[multiple] {
 }
 
 .tagcloud a:hover, .tagcloud a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .suki-social-links {
@@ -1051,7 +1051,7 @@ button.suki-toggle {
 	text-align: inherit;
 	cursor: pointer;
 	-webkit-appearance: none;
-	color: #288ce6;
+	color: #377dff;
 }
 
 button.suki-toggle:hover {
@@ -1410,8 +1410,8 @@ p.wp-block-subhead {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #288ce6;
-	border-color: #288ce6;
+	background-color: #377dff;
+	border-color: #377dff;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;
@@ -1750,7 +1750,7 @@ body.suki-page-layout-boxed #page {
 	line-height: 2;
 	letter-spacing: 0;
 	/* reset */
-	background-color: #288ce6;
+	background-color: #377dff;
 	color: #ffffff;
 	-webkit-animation: suki-pulse 0.5s 1;
 	animation: suki-pulse 0.5s 1;
@@ -2528,7 +2528,7 @@ body.suki-page-layout-boxed #page {
 }
 
 .suki-page-header a:hover, .suki-page-header a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 .suki-page-header-layout-left-right {
@@ -3238,7 +3238,7 @@ a.more-link {
 }
 
 .comment-body .reply a:hover, .comment-body .reply a:focus {
-	color: #288ce6;
+	color: #377dff;
 }
 
 @media screen and (max-width: 499px) {
