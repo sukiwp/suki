@@ -459,6 +459,25 @@ function suki_nav_menu_item_title( $title, $item, $args, $depth ) {
 add_filter( 'nav_menu_item_title', 'suki_nav_menu_item_title', 99, 4 );
 
 /**
+ * Add 'suki-menu-item-link' class to menu item's anchor tag.
+ *
+ * @param array $atts
+ * @param WP_Post $item
+ * @param stdClass $args
+ * @param int $depth
+ */
+function suki_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+	if ( ! isset( $atts['class'] ) ) {
+		$atts['class'] = '';
+	}
+
+	$atts['class'] = 'suki-menu-item-link ' . $atts['class'];
+
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'suki_nav_menu_link_attributes', 10, 4 );
+
+/**
  * Add SVG icon to search textbox.
  *
  * @param string $from

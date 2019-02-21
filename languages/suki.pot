@@ -166,7 +166,7 @@ msgstr ""
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:468
+#: inc/template-functions.php:487
 msgid "Search&hellip;"
 msgstr ""
 
