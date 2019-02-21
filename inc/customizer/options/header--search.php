@@ -31,13 +31,12 @@ $wp_customize->add_setting( $id, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Bar width', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'   => 100,
-			'max'   => 1600,
 			'step'  => 1,
 		),
 	),
@@ -65,13 +64,12 @@ $wp_customize->add_setting( $id, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Dropdown width', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'   => 100,
-			'max'   => 1600,
 			'step'  => 1,
 		),
 	),

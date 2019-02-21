@@ -1231,7 +1231,7 @@ msgstr ""
 msgid "Search Bar"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:72, inc/customizer/options/header--search.php:57
+#: inc/customizer/options/header--builder.php:72, inc/customizer/options/header--search.php:56
 msgid "Search Dropdown"
 msgstr ""
 
@@ -1320,7 +1320,7 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
-#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:91, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:389
+#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:389
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -1379,11 +1379,11 @@ msgstr ""
 msgid "Bar width"
 msgstr ""
 
-#: inc/customizer/options/header--search.php:70
+#: inc/customizer/options/header--search.php:69
 msgid "Dropdown width"
 msgstr ""
 
-#: inc/customizer/options/header--search.php:94
+#: inc/customizer/options/header--search.php:92
 msgctxt "Suki Pro upsell"
 msgid "Search query mode (support WooCommerce products search)"
 msgstr ""
