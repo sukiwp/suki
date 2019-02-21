@@ -85,71 +85,79 @@ msgid "Alternate Header Colors"
 msgstr ""
 
 #: inc/helpers.php:456
-msgid "Footer Widgets Columns Width"
+msgid "Header Mega Menu"
 msgstr ""
 
 #: inc/helpers.php:461
-msgid "Custom Blocks"
+msgid "Footer Widgets Columns Width"
 msgstr ""
 
 #: inc/helpers.php:466
-msgid "Custom Fonts"
+msgid "Footer Elements Plus"
 msgstr ""
 
 #: inc/helpers.php:471
-msgid "Custom Icons"
+msgid "Custom Blocks (Hooks)"
 msgstr ""
 
 #: inc/helpers.php:476
-msgid "Color Palette"
+msgid "Custom Fonts"
 msgstr ""
 
 #: inc/helpers.php:481
-msgid "Mega Menu"
+msgid "Custom Icons"
 msgstr ""
 
 #: inc/helpers.php:486
-msgid "Preloader Screen"
+msgid "Custom Responsive Breakpoints"
 msgstr ""
 
 #: inc/helpers.php:491
-msgid "Blog Plus"
+msgid "Preloader Screen"
 msgstr ""
 
 #: inc/helpers.php:496
-msgid "WooCommerce Plus"
+msgid "Color Palette"
 msgstr ""
 
 #: inc/helpers.php:501
+msgid "Blog Plus"
+msgstr ""
+
+#: inc/helpers.php:506
+msgid "WooCommerce Plus"
+msgstr ""
+
+#: inc/helpers.php:511
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:638
+#: inc/helpers.php:648
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:639
+#: inc/helpers.php:649
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:640
+#: inc/helpers.php:650
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:641
+#: inc/helpers.php:651
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:642
+#: inc/helpers.php:652
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:643
+#: inc/helpers.php:653
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""

@@ -180,7 +180,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		if ( ! isset( $_POST['suki_term_page_settings_nonce'] ) ) return;
 
 		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( sanitize_key( $_POST['suki_term_page_settings_nonce'] ), 'suki_term_page_settings' ) ) return;;
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['suki_term_page_settings_nonce'] ), 'suki_term_page_settings' ) ) return;
 
 		// Sanitize values.
 		$sanitized = array();

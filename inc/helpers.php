@@ -452,13 +452,23 @@ function suki_get_pro_modules() {
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-alt-colors',
 			'actions' => array(),
 		),
+		'header-mega-menu' => array(
+			'label'   => esc_html__( 'Header Mega Menu', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-mega-menu',
+			'actions' => array(),
+		),
 		'footer-widgets-columns-width' => array(
 			'label'   => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-widgets-columns-width',
 			'actions' => array(),
 		),
+		'footer-elements-plus' => array(
+			'label'   => esc_html__( 'Footer Elements Plus', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-elements-plus',
+			'actions' => array(),
+		),
 		'custom-blocks' => array(
-			'label'   => esc_html__( 'Custom Blocks', 'suki' ),
+			'label'   => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-blocks',
 			'actions' => array(),
 		),
@@ -472,19 +482,19 @@ function suki_get_pro_modules() {
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-icons',
 			'actions' => array(),
 		),
-		'color-palette' => array(
-			'label'   => esc_html__( 'Color Palette', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-color-palette',
-			'actions' => array(),
-		),
-		'mega-menu' => array(
-			'label'   => esc_html__( 'Mega Menu', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-mega-menu',
+		'custom-breakpoints' => array(
+			'label'   => esc_html__( 'Custom Responsive Breakpoints', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-breakpoints',
 			'actions' => array(),
 		),
 		'preloader' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader',
+			'actions' => array(),
+		),
+		'color-palette' => array(
+			'label'   => esc_html__( 'Color Palette', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-color-palette',
 			'actions' => array(),
 		),
 		'blog-plus' => array(
