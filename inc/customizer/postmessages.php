@@ -491,6 +491,11 @@ $add['boxed_page_width'] = array(
 		'element'  => 'body.suki-page-layout-boxed #page, body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'width',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .sub-menu',
+		'property' => 'max-width',
+	),
 );
 $add['boxed_page_shadow'] = array(
 	array(

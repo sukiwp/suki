@@ -234,10 +234,22 @@
 	}
 
 	&.suki-section-default {
-		.menu {
-			.sub-menu {
-				max-width: 1140px; // default
+		.sub-menu {
+			max-width: 1140px; // default
+		}
+	}
+
+	&.suki-section-full-width {
+		.sub-menu {
+			max-width: 100vw; // default
+
+			body.suki-page-layout-boxed & {
+				max-width: 1400px; // default
 			}
+		}
+
+		.menu > .menu-item > .sub-menu {
+			margin-right: -20px;
 		}
 	}
 }

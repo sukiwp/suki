@@ -1960,8 +1960,20 @@ body.suki-page-layout-boxed #page {
 	backface-visibility: hidden;
 }
 
-.suki-header-section.suki-section-default .menu .sub-menu {
+.suki-header-section.suki-section-default .sub-menu {
 	max-width: 1140px;
+}
+
+.suki-header-section.suki-section-full-width .sub-menu {
+	max-width: 100vw;
+}
+
+body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .sub-menu {
+	max-width: 1400px;
+}
+
+.suki-header-section.suki-section-full-width .menu > .menu-item > .sub-menu {
+	margin-right: -20px;
 }
 
 .suki-header-section .suki-header-menu {
