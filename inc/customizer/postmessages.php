@@ -512,7 +512,7 @@ $add['container_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-section.suki-section-default .sub-menu',
+		'element'  => '.suki-header-section .menu .sub-menu',
 		'property' => 'max-width',
 	),
 	array(
