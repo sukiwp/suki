@@ -138,8 +138,8 @@
 .woocommerce input.button.alt:disabled[disabled]:hover,
 .woocommerce input.button.alt:disabled[disabled]:focus {
 	color: #ffffff;
-	background-color: #1772c4;
-	border-color: #1772c4;
+	background-color: #1164ff;
+	border-color: #1164ff;
 }
 
 .woocommerce #respond input#submit:after,
@@ -185,7 +185,7 @@
 .woocommerce .woocommerce-info .button:focus,
 .woocommerce .woocommerce-message .button:hover,
 .woocommerce .woocommerce-message .button:focus {
-	color: #1772c4;
+	color: #1164ff;
 }
 
 .woocommerce-store-notice,

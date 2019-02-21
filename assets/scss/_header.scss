@@ -21,7 +21,7 @@
 	margin: 0;
 	@include h3();
 
-	a {
+	.suki-menu-item-link {
 		position: relative;
 		display: inline-block;
 	}
@@ -43,7 +43,7 @@
 
 // Navigation Menu
 .suki-header-menu {
-	a {
+	.suki-menu-item-link {
 		display: block;
 	}
 
@@ -221,8 +221,7 @@
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
-			transform: translate( 0, 1em );
-			@include transition( opacity, transform, visibility 0s 0.25s );
+			@include transition( opacity, visibility 0s 0.25s );
 		}
 
 		&.suki-hover-menu .menu-item:hover > .sub-menu,
@@ -230,8 +229,7 @@
 			// hover menu show
 			visibility: visible;
 			opacity: 1;
-			transform: translate( 0, 0 );
-			@include transition( opacity, transform, visibility 0s 0s );
+			@include transition( opacity, visibility 0s 0s );
 		}
 	}
 
@@ -260,14 +258,14 @@
 			padding: 1em 0;
 			z-index: 5;
 
-			li {
-				padding: 0 1em;
+			.menu-item {
+				padding: 0 1.25em;
 				margin: 0;
 			}
 
-			a {
+			.suki-menu-item-link {
 				@include flex();
-				padding: 0.25em 0.5em;
+				padding: 0.25em 0;
 			}
 
 			.sub-menu {
@@ -283,7 +281,7 @@
 
 			.suki-dropdown-sign {
 				margin-left: 0;
-				margin-right: -1em;
+				margin-right: -0.5em;
 			}
 		}
 	}
@@ -318,7 +316,7 @@
 		}
 	}
 
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		&:hover, &:focus {
 			&:after {
 				background-color: $color_border; // default
@@ -363,7 +361,7 @@
 		}
 	}
 
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		&:hover, &:focus {
 			&:after {
 				background-color: $color_border; // default
@@ -409,7 +407,7 @@
 		}
 	}
 
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		&:hover, &:focus {
 			&:after {
 				background-color: $color_border; // default
@@ -540,16 +538,16 @@
 
 .suki-header-section-vertical {
 	.suki-header-menu {
-		li {
+		.menu-item {
 			position: relative;
 			display: block;
 
-			a {
+			.suki-menu-item-link {
 				display: block;
 				padding: 0.5em 0;
 			}
 
-			&.menu-item-has-children a {
+			&.menu-item-has-children .suki-menu-item-link {
 				margin-right: 2em;
 			}
 		}
@@ -572,13 +570,13 @@
 		}
 
 		.suki-text-align-center & {
-			li.menu-item-has-children a {
+			li.menu-item-has-children .suki-menu-item-link {
 				margin-right: 0;
 			}
 		}
 
 		.suki-text-align-right & {
-			li.menu-item-has-children a {
+			li.menu-item-has-children .suki-menu-item-link {
 				margin-right: 0;
 				margin-left: 1.5em;
 			}
@@ -674,7 +672,7 @@
 // -------------------------------------------------------------
 
 .suki-header-menu {
-	> .menu > .menu-item > a {
+	> .menu > .menu-item > .suki-menu-item-link {
 		&:after {
 			content: "";
 			position: absolute;
@@ -685,7 +683,7 @@
 }
 
 .suki-header-menu-highlight-underline {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		position: relative;
 
 		&:after {
@@ -699,7 +697,7 @@
 }
 
 .suki-header-menu-highlight-background {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		@include flex();
 		height: 100%;
 
@@ -713,7 +711,7 @@
 }
 
 .suki-header-menu-highlight-border-top {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		@include flex();
 		height: 100%;
 
@@ -730,7 +728,7 @@
 }
 
 .suki-header-menu-highlight-border-bottom {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		@include flex();
 		height: 100%;
 

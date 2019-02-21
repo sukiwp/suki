@@ -737,7 +737,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	}
 
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = '.suki-header-' . $bar . ' .menu .menu-item > a';
+		$element = '.suki-header-' . $bar . ' .menu .menu-item > .suki-menu-item-link';
 		$property = str_replace( '_', '-', $prop );
 
 		$add['header_' . $type . '_menu_' . $prop ] = array(
@@ -750,7 +750,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	}
 
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = '.suki-header-' . $bar . ' .menu .sub-menu .menu-item > a';
+		$element = '.suki-header-' . $bar . ' .menu .sub-menu .menu-item > .suki-menu-item-link';
 		$property = str_replace( '_', '-', $prop );
 
 		$add['header_' . $type . '_submenu_' . $prop ] = array(
@@ -808,7 +808,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_link_active_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ' .current-menu-item > a, .suki-header-' . $bar . ' .current-menu-ancestor > a, .suki-header-' . $bar . ' .menu .sub-menu .current-menu-item > a, .suki-header-' . $bar . ' .menu .sub-menu .current-menu-ancestor > a',
+			'element'  => '.suki-header-' . $bar . ' .current-menu-item > .suki-menu-item-link, .suki-header-' . $bar . ' .current-menu-ancestor > .suki-menu-item-link, .suki-header-' . $bar . ' .menu .sub-menu .current-menu-item > .suki-menu-item-link, .suki-header-' . $bar . ' .menu .sub-menu .current-menu-ancestor > .suki-menu-item-link',
 			'property' => 'color',
 		),
 	);
@@ -845,7 +845,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
 	$add['header_' . $type . '_menu_active_highlight_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-item > a, .suki-header-' . $bar . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-ancestor > a',
+			'element'  => '.suki-header-' . $bar . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link, .suki-header-' . $bar . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link',
 			'property' => 'color',
 		),
 	);
@@ -1002,7 +1002,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add['header_mobile_vertical_bar_menu_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > a, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
+			'element'  => '.suki-header-mobile-vertical-bar .menu .menu-item > .suki-menu-item-link, .suki-header-mobile-vertical-bar .menu-item > .suki-toggle',
 			'property' => str_replace( '_', '-', $prop),
 		),
 	);
@@ -1012,7 +1012,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add['header_mobile_vertical_bar_submenu_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => '.suki-header-mobile-vertical-bar .menu .sub-menu .menu-item > a, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
+			'element'  => '.suki-header-mobile-vertical-bar .menu .sub-menu .menu-item > .suki-menu-item-link, .suki-header-mobile-vertical-bar .sub-menu .menu-item > .suki-toggle',
 			'property' => str_replace( '_', '-', $prop),
 		),
 	);
@@ -1064,7 +1064,7 @@ $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 $add['header_mobile_vertical_bar_link_active_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .current-menu-item > a, .suki-header-mobile-vertical-bar .current-menu-ancestor > a',
+		'element'  => '.suki-header-mobile-vertical-bar .current-menu-item > .suki-menu-item-link, .suki-header-mobile-vertical-bar .current-menu-ancestor > .suki-menu-item-link',
 		'property' => 'color',
 	),
 );

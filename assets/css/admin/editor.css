@@ -198,7 +198,7 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: #1772c4;
+	color: #1164ff;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -609,8 +609,8 @@ p.wp-block-subhead {
 
 .wp-block-button__link:hover, .wp-block-button__link:focus {
 	color: #ffffff;
-	background-color: #1772c4;
-	border-color: #1772c4;
+	background-color: #1164ff;
+	border-color: #1164ff;
 }
 
 .wp-block-embed .suki-oembed {
@@ -754,6 +754,6 @@ body.mce-content-body a[data-mce-selected] {
 
 .wp-block-button a.wp-block-button__link:hover, .wp-block-button a.wp-block-button__link:focus, .wp-block-button .wp-block-button__link[role="textbox"]:hover, .wp-block-button .wp-block-button__link[role="textbox"]:focus {
 	color: #ffffff;
-	background-color: #1772c4;
-	border-color: #1772c4;
+	background-color: #1164ff;
+	border-color: #1164ff;
 }

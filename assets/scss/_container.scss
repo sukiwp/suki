@@ -76,14 +76,7 @@ body.suki-page-layout-boxed {
 	max-width: 100%;
 	width: 1140px; // default
 
-	&:before, &:after {
-		content: "";
-		display: table;	
-	}
-
-	&:after {
-		clear: both;
-	}
+	@include float-container();
 
 	.suki-section-full-width > .suki-section-inner > & {
 		width: auto;
