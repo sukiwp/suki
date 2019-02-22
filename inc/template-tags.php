@@ -474,7 +474,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
 				<<?php echo is_front_page() && is_home() ? 'h1' : 'div'; ?> class="site-title menu-item">
-					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home">
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home" class="suki-menu-item-link">
 						<?php
 						/**
 						 * Hook: suki/frontend/logo
@@ -493,7 +493,7 @@ function suki_header_element( $element ) {
 			?>
 			<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> site-branding menu">
 				<div class="site-title menu-item">
-					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home">
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" rel="home" class="suki-menu-item-link">
 						<?php
 						/**
 						 * Hook: suki/frontend/mobile_logo
@@ -626,7 +626,7 @@ function suki_header_element( $element ) {
 			$types = suki_get_theme_mod( 'header_social_links', array() );
 
 			if ( ! empty( $types ) ) {
-				$target = suki_get_theme_mod( 'header_social_links_target' );
+				$target = '_' . suki_get_theme_mod( 'header_social_links_target' );
 				$links = array();
 
 				foreach ( $types as $type ) {
@@ -1020,7 +1020,7 @@ function suki_footer_element( $element ) {
 			$types = suki_get_theme_mod( 'footer_social_links', array() );
 
 			if ( ! empty( $types ) ) {
-				$target = suki_get_theme_mod( 'footer_social_links_target' );
+				$target = '_' . suki_get_theme_mod( 'footer_social_links_target' );
 				$links = array();
 
 				foreach ( $types as $type ) {
