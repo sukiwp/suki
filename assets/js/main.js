@@ -82,8 +82,8 @@
 				var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
 				for ( var i = 0; i < $submenus.length; i++ ) {
 					var $submenu = $submenus[i],
-					    $section = $submenu.closest( '.suki-section-inner' ),
-					    $container = $section.classList.contains( 'suki-section-default' ) ? $submenu.closest( '.suki-wrapper' ) : $section,
+					    $section = $submenu.closest( '.suki-header-section' ),
+					    $container = $section.classList.contains( 'suki-section-default' ) ? $submenu.closest( '.suki-wrapper' ) : $section.querySelector( '.suki-section-inner' ),
 						containerEdge = $container.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $container.getBoundingClientRect().width ),
 						submenuEdge = $submenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
 						isSubmenuOverflow = window.suki.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
