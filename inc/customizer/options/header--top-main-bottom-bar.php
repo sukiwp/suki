@@ -305,7 +305,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $type ) {
 	}
 
 	// ------
-	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $type . '_menu_highlight', array(
+	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $type . '_menu_highlight_colors', array(
 		'section'     => $section,
 		'settings'    => array(),
 		'priority'    => 30,
