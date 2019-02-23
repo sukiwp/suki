@@ -260,10 +260,11 @@ $wp_customize->add_panel( $panel, array(
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
 				esc_html_x( 'More header elements', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Vertical bar (drawer & permanent style)', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Vertical bar (popup & permanent style)', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Transparent header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Alternate header colors', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Sticky header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Header mega menu', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );
@@ -349,23 +350,9 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) ) );
 
-	// Widgets
-	$wp_customize->add_section( 'suki_section_footer_widgets_column', array(
-		'title'       => esc_html__( 'Element: Widgets Column(s)', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 30,
-	) );
-
 	// Copyright
 	$wp_customize->add_section( 'suki_section_footer_copyright', array(
 		'title'       => esc_html__( 'Element: Copyright', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 30,
-	) );
-
-	// Menu
-	$wp_customize->add_section( 'suki_section_footer_menu', array(
-		'title'       => esc_html__( 'Element: Menu', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 30,
 	) );
@@ -390,6 +377,7 @@ $wp_customize->add_panel( $panel, array(
 			'panel'       => $panel,
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
+				esc_html_x( 'More footer elements', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Dynamic widgets column width (responsive)', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,

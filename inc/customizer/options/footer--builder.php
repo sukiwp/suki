@@ -76,16 +76,17 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
 	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
-	'choices'     => apply_filters( 'suki/customizer/footer_elements', array(
+	'choices'     => array(
 		'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
-		'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Footer Menu', 'suki' ),
+		/* translators: %s: instance number. */
+		'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
 		'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
-	) ),
+	),
 	'labels'     => array(
 		'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'bottom_center' => esc_html__( 'Center', 'suki' ),
 		'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'limitations' => apply_filters( 'suki/customizer/footer_elements/limitations', array() ),
+	'limitations' => array(),
 	'priority'    => 20,
 ) ) );

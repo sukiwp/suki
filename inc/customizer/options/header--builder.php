@@ -41,15 +41,15 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'he
 
 // Desktop Header
 $settings = array(
-	'top_left'         => 'header_elements_top_left',
-	'top_center'       => 'header_elements_top_center',
-	'top_right'        => 'header_elements_top_right',
-	'main_left'        => 'header_elements_main_left',
-	'main_center'      => 'header_elements_main_center',
-	'main_right'       => 'header_elements_main_right',
-	'bottom_left'      => 'header_elements_bottom_left',
-	'bottom_center'    => 'header_elements_bottom_center',
-	'bottom_right'     => 'header_elements_bottom_right',
+	'top_left'      => 'header_elements_top_left',
+	'top_center'    => 'header_elements_top_center',
+	'top_right'     => 'header_elements_top_right',
+	'main_left'     => 'header_elements_main_left',
+	'main_center'   => 'header_elements_main_center',
+	'main_right'    => 'header_elements_main_right',
+	'bottom_left'   => 'header_elements_bottom_left',
+	'bottom_center' => 'header_elements_bottom_center',
+	'bottom_right'  => 'header_elements_bottom_right',
 );
 foreach ( $settings as $id ) {
 	$wp_customize->add_setting( $id, array(
