@@ -530,26 +530,26 @@ msgstr ""
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:424
+#: inc/customizer/class-suki-customizer.php:415
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:427
+#: inc/customizer/class-suki-customizer.php:418
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:451
+#: inc/customizer/class-suki-customizer.php:442
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:455
+#: inc/customizer/class-suki-customizer.php:446
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:457
+#: inc/customizer/class-suki-customizer.php:448
 msgid "These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor."
 msgstr ""
 
@@ -1300,16 +1300,16 @@ msgstr ""
 msgid "Drawer (Popup)"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:22
-msgid "Cart items count BG color"
-msgstr ""
-
-#: inc/customizer/options/header--cart.php:23
-msgid "Cart items count text color"
-msgstr ""
-
-#: inc/customizer/options/header--cart.php:42
+#: inc/customizer/options/header--cart.php:24
 msgid "Only available if WooCommerce plugin is installed and activated."
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:31
+msgid "Cart count BG color"
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:32
+msgid "Cart count text color"
 msgstr ""
 
 #. translators: %s: number of HTML element.

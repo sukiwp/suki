@@ -45,8 +45,8 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #333333;
 	margin: 0 0 1.25rem;
+	color: #333333;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -54,7 +54,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus {
-	color: #666666;
+	color: #1976d2;
 }
 
 h1 {
@@ -188,17 +188,17 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: #f3f3f3;
+	background-color: #f6f6f6;
 }
 
 code {
-	background-color: #f3f3f3;
+	background-color: #f6f6f6;
 }
 
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: #1164ff;
+	color: #1976d2;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
@@ -206,7 +206,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #377dff;
+	color: #333333;
 }
 
 figure {
@@ -256,7 +256,7 @@ svg {
 }
 
 ::selection {
-	background-color: #377dff;
+	background-color: #1976d2;
 	color: #ffffff;
 }
 
@@ -592,8 +592,8 @@ p.wp-block-subhead {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #377dff;
-	border-color: #377dff;
+	background-color: #333333;
+	border-color: #333333;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;
@@ -609,8 +609,8 @@ p.wp-block-subhead {
 
 .wp-block-button__link:hover, .wp-block-button__link:focus {
 	color: #ffffff;
-	background-color: #1164ff;
-	border-color: #1164ff;
+	background-color: #666666;
+	border-color: #666666;
 }
 
 .wp-block-embed .suki-oembed {
@@ -735,8 +735,8 @@ body.mce-content-body a[data-mce-selected] {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #377dff;
-	border-color: #377dff;
+	background-color: #333333;
+	border-color: #333333;
 	font-size: 1rem;
 	font-style: inherit;
 	font-weight: 500;
@@ -754,6 +754,6 @@ body.mce-content-body a[data-mce-selected] {
 
 .wp-block-button a.wp-block-button__link:hover, .wp-block-button a.wp-block-button__link:focus, .wp-block-button .wp-block-button__link[role="textbox"]:hover, .wp-block-button .wp-block-button__link[role="textbox"]:focus {
 	color: #ffffff;
-	background-color: #1164ff;
-	border-color: #1164ff;
+	background-color: #666666;
+	border-color: #666666;
 }

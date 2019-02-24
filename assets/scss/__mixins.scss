@@ -48,6 +48,18 @@
 	text-transform: none;
 }
 
+@mixin heading() {
+	color: $color_heading; // default
+
+	a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+}
+
 @mixin blockquote() {
 	font-size: 20px; // default
 	font-style: italic; // default
@@ -66,7 +78,7 @@
 	border-radius: 3px; // default
 
 	color: $color_text; // default
-	background-color: $color_bg; // default
+	background-color: $color_subtle; // default
 	border-color: $color_border; // default
 	
 	font-size: inherit;
@@ -80,7 +92,7 @@
 	&:focus {	
 		color: $color_text; // default
 		background-color: $color_bg; // default
-		border-color: $color_meta; // default
+		border-color: $color_border; // default
 	}
 }
 
@@ -103,8 +115,8 @@
 	border-radius: 3px; // default
 
 	color: $color_white; // default
-	background-color: $color_accent; // default
-	border-color: $color_accent; // default
+	background-color: $color_heading; // default
+	border-color: $color_heading; // default
 
 	font-size: 1rem; // default
 	font-style: inherit;
@@ -118,22 +130,22 @@
 
 	&:hover, &:focus {
 		color: $color_white; // default
-		background-color: $color_accent_2; // default
-		border-color: $color_accent_2; // default
+		background-color: $color_text; // default
+		border-color: $color_text; // default
 	}
 }
 
 @mixin meta() {
-	font-size: 0.8em; // default
+	font-size: 0.85em; // default
 	line-height: 1.7; // default
 
-	color: $color_meta; // default
+	color: $color_text; // default
 
 	a {
-		color: $color_meta; // default
+		color: $color_text; // default
 
 		&:hover, &:focus {
-			color: $color_text; // default
+			color: $color_accent; // default
 		}
 	}
 }

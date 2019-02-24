@@ -38,16 +38,8 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: $color_heading; // default
 	margin: 0 0 1.25rem;
-
-	a {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
-	}
+	@include heading();
 }
 
 h1 {
@@ -161,11 +153,11 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: $color_accent_2; // default
+	color: $color_accent; // default
 	@include transition();
 
 	&:hover, &:focus {
-		color: $color_accent; // default
+		color: $color_heading; // default
 	}
 }
 

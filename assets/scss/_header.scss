@@ -143,6 +143,19 @@
 
 .suki-header-main {
 	position: relative;
+	display: block;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: none;
+	}
+}
+
+.suki-header-mobile {
+	display: none;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: block;
+	}
 }
 
 .suki-header-section {
@@ -319,7 +332,7 @@
 			color: $color_heading; // default
 
 			&:hover, &:focus {
-				color: $color_text; // default
+				color: $color_accent; // default
 			}
 		}
 	}
@@ -364,7 +377,7 @@
 			color: $color_heading; // default
 
 			&:hover, &:focus {
-				color: $color_text; // default
+				color: $color_accent; // default
 			}
 		}
 	}
@@ -410,7 +423,7 @@
 			color: $color_heading; // default
 
 			&:hover, &:focus {
-				color: $color_text; // default
+				color: $color_accent; // default
 			}
 		}
 	}
@@ -455,7 +468,7 @@
 			color: $color_heading; // default
 
 			&:hover, &:focus {
-				color: $color_text; // default
+				color: $color_accent; // default
 			}
 		}
 	}
@@ -624,6 +637,12 @@
 }
 
 .suki-header-mobile-vertical {
+	display: none;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: block;
+	}
+
 	.suki-popup-background {
 		background-color: rgba(0,0,0,0.8);
 	}
@@ -670,7 +689,7 @@
 		color: $color_heading; // default
 
 		&:hover, &:focus {
-			color: $color_text; // default
+			color: $color_accent; // default
 		}
 	}
 }

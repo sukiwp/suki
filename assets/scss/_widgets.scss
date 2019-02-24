@@ -110,8 +110,7 @@
 
 	cite {
 		display: block;
-		color: $color_meta; // default
-		font-size: 11px;
+		font-size: 0.85em;
 
 		&:before {
 			content: "-";

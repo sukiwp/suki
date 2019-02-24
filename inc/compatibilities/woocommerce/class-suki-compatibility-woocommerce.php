@@ -713,7 +713,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function update_header_cart( $fragments ) {
 		$count = WC()->cart->get_cart_contents_count();
-		$fragments['.shopping-cart-count'] = '<span class="shopping-cart-count suki-menu-icon" data-count="' . $count . '">' . $count . '</span>';
+		$fragments['.shopping-cart-count'] = '<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>';
 		
 		return $fragments;
 	}

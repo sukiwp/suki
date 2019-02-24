@@ -108,7 +108,7 @@
 		color: $color_heading; // default
 
 		&:hover, &:focus {
-			color: $color_text; // default
+			color: $color_accent; // default
 		}
 	}
 }
@@ -159,20 +159,6 @@
 
 	> label + input[type="submit"] {
 		display: none;
-	}
-}
-
-.nav-links {
-	span.current {
-		color: $color_meta; // default
-	}
-	
-	a {
-		color: $color_text; // default
-
-		&:hover, &:focus {
-			color: $color_accent; // default
-		}
 	}
 }
 
@@ -228,7 +214,7 @@ button.suki-toggle {
 
 	&:hover, &:focus {
 		background: inherit;
-		color: $color_accent_2; // default
+		color: $color_heading; // default
 	}
 }
 

@@ -67,7 +67,7 @@ $add['body_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a, .tagcloud a, .reply',
+		'element'  => '.tagcloud a, .reply',
 		'property' => 'color',
 	),
 );
@@ -79,7 +79,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
+		'element'  => '.tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
 		'property' => 'color',
 	),
 	array(
@@ -453,7 +453,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-meta, .comment-metadata, .widget .post-date, .widget_rss .rss-date, .nav-links span.current',
+		'element'  => '.entry-meta, .comment-metadata, .widget .post-date, .widget_rss .rss-date',
 		'property' => 'color',
 	),
 );

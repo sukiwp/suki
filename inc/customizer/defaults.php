@@ -36,8 +36,8 @@ $add['body_letter_spacing'] = '';
 
 $add['body_text_color'] = $colors['text'];
 
-$add['link_text_color'] = $colors['accent_2'];
-$add['link_hover_text_color'] = $colors['accent'];
+$add['link_text_color'] = $colors['accent'];
+$add['link_hover_text_color'] = $colors['heading'];
 
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];
@@ -107,11 +107,11 @@ $add['input_padding'] = '10px 12px 10px 12px';
 $add['input_border'] = '1px 1px 1px 1px';
 $add['input_border_radius'] = '3px';
 
-$add['input_bg_color'] = $colors['bg'];
+$add['input_bg_color'] = $colors['subtle'];
 $add['input_border_color'] = $colors['border'];
 $add['input_text_color'] = $colors['text'];
 $add['input_focus_bg_color'] = $colors['bg'];
-$add['input_focus_border_color'] = $colors['meta'];
+$add['input_focus_border_color'] = $colors['border'];
 $add['input_focus_text_color'] = $colors['text'];
 
 /**
@@ -131,11 +131,11 @@ $add['button_text_transform'] = '';
 $add['button_font_size'] = '1rem';
 $add['button_letter_spacing'] = '';
 
-$add['button_bg_color'] = $colors['accent'];
-$add['button_border_color'] = $colors['accent'];
+$add['button_bg_color'] = $colors['heading'];
+$add['button_border_color'] = $colors['heading'];
 $add['button_text_color'] = $colors['white'];
-$add['button_hover_bg_color'] = $colors['accent_2'];
-$add['button_hover_border_color'] = $colors['accent_2'];
+$add['button_hover_bg_color'] = $colors['text'];
+$add['button_hover_border_color'] = $colors['text'];
 $add['button_hover_text_color'] = $colors['white'];
 
 /**
@@ -186,9 +186,9 @@ $add['meta_font_size'] = '0.9rem';
 $add['meta_line_height'] = '1.7';
 $add['meta_letter_spacing'] = '';
 
-$add['meta_text_color'] = $colors['meta'];
-$add['meta_link_text_color'] = $colors['meta'];
-$add['meta_link_hover_text_color'] = $colors['text'];
+$add['meta_text_color'] = $colors['text'];
+$add['meta_link_text_color'] = $colors['text'];
+$add['meta_link_hover_text_color'] = $colors['accent'];
 
 /**
  * ====================================================

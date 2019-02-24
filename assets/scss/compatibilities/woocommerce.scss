@@ -111,7 +111,7 @@
 			color: $color_accent; // default
 
 			&:hover, &:focus {
-				color: $color_accent_2; // default
+				color: $color_heading; // default
 			}
 		}
 	}
@@ -381,7 +381,7 @@ p.demo_store {
 			span.current {
 				padding: 0;
 				background-color: transparent;
-				color: $color_meta; // default
+				color: inherit;
 			}
 
 			a {
@@ -729,15 +729,8 @@ p.demo_store {
 
 							.woocommerce-review__author {
 								font-weight: normal;
-								color: $color_heading; // default
 
-								a {
-									color: $color_heading; // default
-
-									&:hover, &:focus {
-										color: $color_text; // default
-									}
-								}
+								@include heading();
 							}
 						}
 

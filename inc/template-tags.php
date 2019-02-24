@@ -275,7 +275,7 @@ function suki_mobile_vertical_header() {
 	$count = count( $elements );
 
 	if ( 0 < $count ) : ?>
-		<div id="mobile-vertical-header" class="suki-header-mobile-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array() ) ) ); ?> suki-header suki-popup suki-hide-on-desktop" itemtype="https://schema.org/WPHeader" itemscope>
+		<div id="mobile-vertical-header" class="suki-header-mobile-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array() ) ) ); ?> suki-header suki-popup" itemtype="https://schema.org/WPHeader" itemscope>
 			<div class="suki-popup-background suki-popup-close"></div>
 
 			<div class="suki-header-mobile-vertical-bar suki-header-section-vertical">
@@ -323,7 +323,7 @@ function suki_main_header() {
 	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
 
 	?>
-	<div id="header" class="suki-header-main suki-header suki-hide-on-tablet suki-hide-on-mobile <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
+	<div id="header" class="suki-header-main suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
 		<?php
 		// Top Bar (if not merged)
 		if ( ! intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
@@ -411,7 +411,7 @@ function suki_mobile_header() {
 	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
 
 	?>
-	<div id="mobile-header" class="suki-header-mobile suki-header suki-hide-on-desktop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
+	<div id="mobile-header" class="suki-header-mobile suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
 		<?php
 		$elements = array();
 		$count = 0;
@@ -585,7 +585,7 @@ function suki_header_element( $element ) {
 							<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
+								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
 							</button>
 							<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
 							<div class="sub-menu">
@@ -613,7 +613,7 @@ function suki_header_element( $element ) {
 						<div class="menu-item">
 							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-								<span class="shopping-cart-count suki-menu-icon" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
+								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
 							</a>
 						</div>
 					</div>

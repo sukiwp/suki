@@ -19,7 +19,7 @@ $add = array();
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce nav.woocommerce-pagination ul li a, .woocommerce .woocommerce-breadcrumb, .woocommerce .woocommerce-breadcrumb a, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a',
+		'element'  => '.woocommerce .woocommerce-breadcrumb, .woocommerce .woocommerce-breadcrumb a, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a',
 		'property' => 'color',
 	),
 );
@@ -31,7 +31,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
+		'element'  => '.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
 		'property' => 'color',
 	),
 );
@@ -121,7 +121,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce div.product .product_meta, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date',
+		'element'  => '.woocommerce div.product .product_meta, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date',
 		'property' => 'color',
 	),
 );

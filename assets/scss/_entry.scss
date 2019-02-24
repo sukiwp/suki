@@ -75,13 +75,19 @@
 	.entry-small & {
 		margin: 0 0 1em;
 	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
 }
 
 // Entry footer
 .entry-footer {
-	> *:first-child {
-		padding-top: 1em;
-		@include border( top );
+	padding-top: 1em;
+	@include border( top );
+
+	> *:last-child {
+		margin-bottom: 0;
 	}
 }
 
@@ -206,7 +212,7 @@ a.more-link {
 .entry-author-name {
 	font-size: 1.1em;
 	margin: 0 0 0.5em;
-	color: $color_heading; // default
+	@include heading();
 
 	.avatar {
 		width: 80px;
@@ -224,14 +230,6 @@ a.more-link {
 	.fn {
 		font-weight: 500;
 		display: block;
-	}
-
-	a {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
 	}
 }
 
@@ -278,16 +276,15 @@ a.more-link {
 }
 
 // -------------------------------------------------------------
-// Navigation & pagination
+// Comments
 // -------------------------------------------------------------
 
 .comments-area {
-	margin-top: 4em;
+	margin-top: 6em;
 }
 
 .comments-title {
 	position: relative;
-	margin-top: 2em;
 	@include h3(); // default
 }
 
@@ -382,19 +379,12 @@ a.more-link {
 	}
 
 	.fn {
+		@include heading();
 		font-weight: 500;
 	}
 
 	.says {
 		display: none;
-	}
-
-	a {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
 	}
 }
 
@@ -419,7 +409,7 @@ a.more-link {
 }
 
 .comment-respond {
-	padding-top: 2em;
+	padding-top: 1.5em;
 	border-top-width: 1px;
 	border-top-style: solid;
 
