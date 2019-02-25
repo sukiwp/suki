@@ -29,12 +29,13 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 
 == Screenshot Licenses ==
 
-Screenshot images are all licensed under CC0 Universal
-https://www.pexels.com/photo/man-in-blue-suit-999267/
-https://www.pexels.com/photo/person-in-teal-ice-cream-print-tank-top-holds-ice-cream-886285/
-https://www.pexels.com/photo/woman-holding-black-leather-bag-1204464/
-https://www.pexels.com/photo/beach-beautiful-enjoying-female-601168/
-https://www.pexels.com/photo/closeup-photo-of-smiling-woman-wearing-blue-denim-jacket-1130626/
+Screenshot images
+License: CC0 Universal
+Sources: https://www.pexels.com/photo/macro-photograph-of-grass-1090977/
+
+Icons are taken from [Feather Icons](https://twitter.com/colebemis)
+License: MIT
+Source: https://feathericons.com/
 
 == Copyright ==
 
