@@ -1977,6 +1977,14 @@ $add['entry_header_alignment'] = array(
 	),
 );
 
+$add['entry_footer_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-default .entry-footer',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
 /**
  * ====================================================
  * Blog > Post Layout: Grid
@@ -2039,6 +2047,14 @@ $add['entry_grid_header_alignment'] = array(
 	array(
 		'type'     => 'class',
 		'element'  => '.entry-layout-grid .entry-header',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+$add['entry_grid_footer_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-grid .entry-footer',
 		'pattern'  => 'suki-text-align-$',
 	),
 );

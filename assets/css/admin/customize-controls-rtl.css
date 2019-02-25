@@ -613,8 +613,7 @@ li:not(.customize-info) div.customize-section-description {
 	background-color: #f7f7f7;
 }
 
-.customize-control-suki-builder .suki-builder .suki-builder-inactive .suki-builder-element-delete,
-.customize-control-suki-builder .suki-builder .suki-builder-inactive .suki-builder-element-disabled {
+.customize-control-suki-builder .suki-builder .suki-builder-inactive .suki-builder-element-delete {
 	display: none;
 }
 
@@ -634,7 +633,18 @@ li:not(.customize-info) div.customize-section-description {
 	box-shadow: none !important;
 }
 
-.customize-control-suki-builder .suki-builder-layout-inline .suki-builder-sortable-panel {
+.customize-control-suki-builder .suki-builder .suki-builder-no-more-items {
+	display: none;
+	margin: 0;
+	font-style: italic;
+	text-decoration: none;
+}
+
+.customize-control-suki-builder .suki-builder .suki-builder-no-more-items:only-child {
+	display: inline-block;
+}
+
+.customize-control-suki-builder .suki-builder-layout-inline .suki-builder-location .suki-builder-sortable-panel {
 	padding-left: 28px;
 }
 
@@ -647,7 +657,7 @@ li:not(.customize-info) div.customize-section-description {
 	margin: 2px !important;
 }
 
-.customize-control-suki-builder .suki-builder-layout-block .suki-builder-sortable-panel {
+.customize-control-suki-builder .suki-builder-layout-block .suki-builder-location .suki-builder-sortable-panel {
 	padding-bottom: 28px;
 }
 

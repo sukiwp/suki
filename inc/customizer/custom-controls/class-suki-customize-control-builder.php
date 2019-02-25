@@ -148,6 +148,7 @@ class Suki_Customize_Control_Builder extends Suki_Customize_Control {
 							</li><#
 						}
 					}); #>
+					<li class="suki-builder-no-more-items"><?php esc_html_e( 'No more items to add', 'suki' ); ?></li>
 				</ul>
 			</div>
 		</div>

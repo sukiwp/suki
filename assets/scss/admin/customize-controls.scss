@@ -662,8 +662,7 @@ li:not(.customize-info) div.customize-section-description {
 				background-color: #f7f7f7;
 			}
 
-			.suki-builder-element-delete,
-			.suki-builder-element-disabled {
+			.suki-builder-element-delete {
 				display: none;
 			}
 
@@ -682,10 +681,21 @@ li:not(.customize-info) div.customize-section-description {
 			border-color: transparent !important;
 			box-shadow: none !important;
 		}
+
+		.suki-builder-no-more-items {
+			display: none;
+			margin: 0;
+			font-style: italic;
+			text-decoration: none;
+
+			&:only-child {
+				display: inline-block;
+			}
+		}
 	}
 
 	.suki-builder-layout-inline {
-		.suki-builder-sortable-panel {
+		.suki-builder-location .suki-builder-sortable-panel {
 			padding-right: 28px;
 		}
 
@@ -700,7 +710,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.suki-builder-layout-block {
-		.suki-builder-sortable-panel {
+		.suki-builder-location .suki-builder-sortable-panel {
 			padding-bottom: 28px;
 		}
 

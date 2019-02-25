@@ -543,8 +543,8 @@ $add['page_header_bg_color'] = $colors['subtle'];
 $add['page_header_border_color'] = '';
 $add['page_header_title_text_color'] = '';
 $add['page_header_breadcrumb_text_color'] = '';
-$add['page_header_breadcrumb_link_text_color'] = $colors['text'];
-$add['page_header_breadcrumb_link_hover_text_color'] = $colors['accent'];
+$add['page_header_breadcrumb_link_text_color'] = '';
+$add['page_header_breadcrumb_link_hover_text_color'] = '';
 
 $add['page_header_bg_image'] = '';
 $add['page_header_bg_attachment'] = 'scroll';
@@ -745,6 +745,8 @@ $add['entry_featured_media_ignore_padding'] = 0;
 $add['entry_header'] = array( 'header-meta', 'title' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
+$add['entry_footer'] = array( 'footer-meta' );
+$add['entry_footer_alignment'] = 'left';
 $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
 
 /**
@@ -758,10 +760,12 @@ $add['entry_grid_border'] = '0 0 0 0';
 $add['entry_grid_bg_color'] = '';
 $add['entry_grid_featured_media_position'] = 'before-entry-header';
 $add['entry_grid_featured_media_ignore_padding'] = 0;
+$add['entry_grid_excerpt_length'] = 30;
 $add['entry_grid_header'] = array( 'header-meta', 'title' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
+$add['entry_grid_footer'] = array( 'footer-meta' );
+$add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
-$add['entry_grid_excerpt_length'] = 30;
 
 $defaults = array_merge_recursive( $defaults, $add );

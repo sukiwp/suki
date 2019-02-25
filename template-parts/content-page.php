@@ -71,7 +71,7 @@
 		
 		if ( has_action( 'suki/frontend/entry/footer' ) ) :
 		?>
-			<footer class="entry-footer">
+			<footer class="entry-footer <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'entry_footer_alignment' ) ); ?>">
 				<?php
 				/**
 				 * Hook: suki/frontend/entry/footer
