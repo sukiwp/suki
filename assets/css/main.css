@@ -1228,10 +1228,6 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	}
 }
 
-.alignwide img {
-	width: 100%;
-}
-
 .suki-content-layout-narrow .alignfull,
 .suki-content-layout-wide .alignfull {
 	width: 100vw;
@@ -1243,10 +1239,6 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed
 .suki-content-layout-wide .alignfull {
 	width: 1400px;
-}
-
-.alignfull img {
-	width: 100%;
 }
 
 .entry-content > [class*="wp-block"],
