@@ -834,8 +834,16 @@
 										result = 0 <= comparedValue.indexOf( currentValue );
 										break;
 
-									case 'contains':
+									case 'not_in':
+										result = 0 < comparedValue.indexOf( currentValue );
+										break;
+
+									case 'contain':
 										result = 0 <= currentValue.indexOf( comparedValue );
+										break;
+
+									case 'not_contain':
+										result = 0 < currentValue.indexOf( comparedValue );
 										break;
 
 									case '!=':
