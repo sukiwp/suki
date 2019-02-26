@@ -1676,10 +1676,12 @@ body.suki-page-layout-boxed #page {
 .suki-logo .suki-logo-image {
 	display: block;
 	width: 100px;
+	line-height: 1;
 }
 
 .suki-logo img, .suki-logo svg {
 	max-width: 100%;
+	height: auto;
 }
 
 .suki-header-menu .suki-menu-item-link {
@@ -1882,7 +1884,7 @@ body.suki-page-layout-boxed #page {
 .suki-header-main-bar-right,
 .suki-header-bottom-bar-right,
 .suki-header-mobile-main-bar-right {
-	width: 50%;
+	width: 100%;
 }
 
 .suki-header-section .menu {
@@ -2777,9 +2779,9 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
 	margin: 0 -12px;
 	white-space: nowrap;
 }
@@ -2847,7 +2849,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 @media screen and (min-width: 1024px) {
 	.suki-footer-bottom-bar-left,
 	.suki-footer-bottom-bar-right {
-		width: 50%;
+		width: 100%;
 	}
 }
 
@@ -2856,16 +2858,25 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-footer-menu ul {
-	display: block;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
 .suki-footer-menu ul li {
-	display: inline-block;
 	padding: 0 12px;
-}
-
-.suki-footer-social {
-	display: block;
 }
 
 .suki-footer-social li {

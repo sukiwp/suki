@@ -16,6 +16,14 @@ $section = 'suki_section_footer_copyright';
  * ====================================================
  */
 
+// Heading: HTML
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_footer_copyright', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Copyright', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 // Copyright
 $id = 'footer_copyright_content';
 $wp_customize->add_setting( $id, array(

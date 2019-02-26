@@ -988,6 +988,7 @@
 		 */
 		var initHeaderFooterBuilderElements = function( e ) {
 			var $control = $( this ),
+			    mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
 			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
 			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
 			    $verticalLocations = $control.find( verticalSelector ),
@@ -1009,7 +1010,7 @@
 				e.preventDefault();
 
 				var $element = $( this ).parent( '.suki-builder-element' ),
-				    targetKey = 'heading_header_' + $element.attr( 'data-value' ).replace( '-', '_' ),
+				    targetKey = 'heading_' + mode + '_' + $element.attr( 'data-value' ).replace( '-', '_' ),
 				    targetControl = wp.customize.control( targetKey );
 
 				if ( targetControl ) targetControl.focus();

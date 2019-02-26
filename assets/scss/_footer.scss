@@ -86,7 +86,7 @@
 }
 
 .suki-footer-bottom-bar-row {
-	@include flex();
+	@include flex( flex-start );	
 	margin: 0 -12px; // default
 	white-space: nowrap;
 
@@ -131,7 +131,7 @@
 .suki-footer-bottom-bar-left,
 .suki-footer-bottom-bar-right {
 	@media screen and ( min-width: $breakpoint_1024 ) {
-		width: 50%;
+		width: 100%;
 	}
 }
 
@@ -139,18 +139,15 @@
 	padding: 0 !important;
 	
 	ul {
-		display: block;
+		@include flex();
 
 		li {
-			display: inline-block;
 			padding: 0 12px; // default
 		}
 	}
 }
 
 .suki-footer-social {
-	display: block;
-	
 	li {
 		display: inline-block;
 		margin: 0 0.75em 0 0;

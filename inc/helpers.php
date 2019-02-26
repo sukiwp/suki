@@ -462,11 +462,6 @@ function suki_get_pro_modules() {
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-widgets-columns-width',
 			'actions' => array(),
 		),
-		'footer-elements-plus' => array(
-			'label'   => esc_html__( 'Footer Elements Plus', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-elements-plus',
-			'actions' => array(),
-		),
 		'custom-blocks' => array(
 			'label'   => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-blocks',

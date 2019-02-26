@@ -34,10 +34,12 @@
 	.suki-logo-image {
 		display: block;
 		width: 100px; // default
+		line-height: 1;
 	}
 
 	img, svg {
 		max-width: 100%;
+		height: auto;
 	}
 }
 
@@ -206,7 +208,7 @@
 .suki-header-main-bar-right,
 .suki-header-bottom-bar-right,
 .suki-header-mobile-main-bar-right {
-	width: 50%;
+	width: 100%;
 }
 
 .suki-header-section {

@@ -38,7 +38,7 @@ msgid "https://sukiwp.com/#about"
 msgstr ""
 
 #: style.css:6
-msgid "Suki is a free multi-purpose WordPress theme that is lightweight, fast, highly customizable, and flexible. Build any kind of websites, blog, business, portfolio, WooCommerce storefronts, and also niche websites like Spa, Restaurant, Wedding, Non Profit, Education, Hotel, etc. Fully compatible with Gutenberg, Elementor, Brizy, Visual Composer, Beaver Builder, Divi, SiteOrigin, and other page builders. Suki includes complete design options for typography, colors, layout, and also free built-in Header and Footer builder. Built with SEO in mind, Suki is incredibly fast, mobile optimized, 100% HTML valid, and integrated with Schema.org structured data. Suki also supports multi-language translation and RTL ready. Learn more about Suki features and our one click demo import feature at https://sukiwp.com/."
+msgid "Suki is a free multi-purpose WordPress theme that is lightweight, fast, highly customizable, and flexible. Build any kind of websites, blog, business, portfolio, WooCommerce storefronts, and also niche websites like Spa, Restaurant, Wedding, Non Profit, Education, Hotel, etc. Fully compatible with Gutenberg, Elementor, Brizy, Visual Composer, Beaver Builder, Divi, SiteOrigin, and other page builders. Tons of design options for customizing typography, colors, layout, and also free built-in Header and Footer builder. Built with SEO in mind, Suki is incredibly fast, mobile optimized, 100% HTML valid, and integrated with Schema.org structured data. Furthermore, Suki supports accessibility, multi-language translation, and RTL languages. Learn more about the full features and also \"one click demo import\" feature at https://sukiwp.com/."
 msgstr ""
 
 #. translators: %s: number of Header Menu.
@@ -93,71 +93,67 @@ msgid "Footer Widgets Columns Width"
 msgstr ""
 
 #: inc/helpers.php:466
-msgid "Footer Elements Plus"
-msgstr ""
-
-#: inc/helpers.php:471
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:476
+#: inc/helpers.php:471
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:481
+#: inc/helpers.php:476
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:486
+#: inc/helpers.php:481
 msgid "Custom Responsive Breakpoints"
 msgstr ""
 
-#: inc/helpers.php:491
+#: inc/helpers.php:486
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:496
+#: inc/helpers.php:491
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:501
+#: inc/helpers.php:496
 msgid "Blog Plus"
 msgstr ""
 
-#: inc/helpers.php:506
+#: inc/helpers.php:501
 msgid "WooCommerce Plus"
 msgstr ""
 
-#: inc/helpers.php:511
+#: inc/helpers.php:506
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:648
+#: inc/helpers.php:643
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:649
+#: inc/helpers.php:644
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:650
+#: inc/helpers.php:645
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:651
+#: inc/helpers.php:646
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:652
+#: inc/helpers.php:647
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:653
+#: inc/helpers.php:648
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -1171,7 +1167,7 @@ msgstr ""
 msgid "Drag and drop the elements into the location you want. Some elements can only be added to certain locations."
 msgstr ""
 
-#: inc/customizer/options/footer--builder.php:80
+#: inc/customizer/options/footer--builder.php:80, inc/customizer/options/footer--copyright.php:23
 msgid "Copyright"
 msgstr ""
 
@@ -1184,11 +1180,11 @@ msgstr ""
 msgid "Social"
 msgstr ""
 
-#: inc/customizer/options/footer--copyright.php:29
+#: inc/customizer/options/footer--copyright.php:37
 msgid "Copyright Text"
 msgstr ""
 
-#: inc/customizer/options/footer--copyright.php:30
+#: inc/customizer/options/footer--copyright.php:38
 msgid "Available tags: {{year}}, {{sitename}}, {{themeauthor}}"
 msgstr ""
 
