@@ -34,6 +34,7 @@ const config = {
 			'!./README.md',
 			'!./LICENSE.md',
 			'!./__build',
+			'!./__bak',
 		],
 	},
 	dest: {

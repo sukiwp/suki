@@ -7,3 +7,6 @@ Thumbs.db
 
 # Build files
 __build
+
+# Private backup
+__bak
