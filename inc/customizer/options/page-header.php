@@ -52,8 +52,8 @@ $wp_customize->add_control( $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width'         => esc_html__( 'Full width content', 'suki' ),
+		'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
+		'full-width' => esc_html__( 'Full width content', 'suki' ),
 	),
 	'priority'    => 10,
 ) );

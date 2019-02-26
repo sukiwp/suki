@@ -62,10 +62,12 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	private function get_tabs() {
 		return apply_filters( 'suki/admin/metabox/page_settings/tabs', array(
-			'content'     => esc_html__( 'Content & Sidebar', 'suki' ),
-			'header'      => esc_html__( 'Header', 'suki' ),
-			'page_header' => esc_html__( 'Page Header (Title Bar)', 'suki' ),
-			'footer'      => esc_html__( 'Footer', 'suki' ),
+			'content'          => esc_html__( 'Content & Sidebar', 'suki' ),
+			'header'           => esc_html__( 'Header', 'suki' ),
+			'page-header'      => esc_html__( 'Page Header (Title Bar)', 'suki' ),
+			'footer'           => esc_html__( 'Footer', 'suki' ),
+			'custom-blocks'    => esc_html__( 'Portable Blocks (Hooks)', 'suki' ),
+			'preloader-screen' => esc_html__( 'Preloader Screen', 'suki' ),
 		) );
 	}
 
@@ -392,10 +394,24 @@ class Suki_Admin_Metabox_Page_Settings {
 						?>
 					</div>
 				</div>
-				<?php
+
+				<?php if ( ! suki_is_pro() ) : ?>
+					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
+						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Enable Transparent Header', 'Suki Pro upsell', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
+					</div>
+					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
+						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Enable Sicky Header', 'Suki Pro upsell', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
+					</div>
+					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
+						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Enable Alt. Header Colors', 'Suki Pro upsell', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
+					</div>
+				<?php endif;
 				break;
 
-			case 'page_header':
+			case 'page-header':
 				?>
 				<div class="suki-admin-form-row">
 					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header', 'suki' ); ?></label></div>
@@ -581,6 +597,24 @@ class Suki_Admin_Metabox_Page_Settings {
 					</div>
 				</div>
 				<?php
+				break;
+
+			case 'preloader-screen':
+				if ( ! suki_is_pro() ) : ?>
+					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
+						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Enable Preloader Screen', 'Suki Pro upsell', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
+					</div>
+				<?php endif;
+				break;
+
+			case 'custom-blocks':
+				if ( ! suki_is_pro() ) : ?>
+					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
+						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Custom blocks on this page', 'Suki Pro upsell', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
+					</div>
+				<?php endif;
 				break;
 			
 			default:

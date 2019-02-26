@@ -243,6 +243,11 @@ input, select, textarea {
 	margin: 6px 0;
 }
 
+.suki-metabox-field-pro-teaser .suki-admin-form-field {
+	padding: 5px 10px;
+	font-style: italic;
+}
+
 .suki-term-metabox-container {
 	background-color: #fff;
 	border: 1px solid #ddd;
