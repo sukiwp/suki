@@ -477,11 +477,6 @@ function suki_get_pro_modules() {
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-icons',
 			'actions' => array(),
 		),
-		'custom-breakpoints' => array(
-			'label'   => esc_html__( 'Custom Responsive Breakpoints', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-breakpoints',
-			'actions' => array(),
-		),
 		'preloader-screen' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader-screen',

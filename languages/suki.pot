@@ -105,55 +105,51 @@ msgid "Custom Icons"
 msgstr ""
 
 #: inc/helpers.php:481
-msgid "Custom Responsive Breakpoints"
-msgstr ""
-
-#: inc/helpers.php:486
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:491
+#: inc/helpers.php:486
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:496
+#: inc/helpers.php:491
 msgid "Blog Plus"
 msgstr ""
 
-#: inc/helpers.php:501
+#: inc/helpers.php:496
 msgid "WooCommerce Plus"
 msgstr ""
 
-#: inc/helpers.php:506
+#: inc/helpers.php:501
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:643
+#: inc/helpers.php:638
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:644
+#: inc/helpers.php:639
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:645
+#: inc/helpers.php:640
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:646
+#: inc/helpers.php:641
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:647
+#: inc/helpers.php:642
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:648
+#: inc/helpers.php:643
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
