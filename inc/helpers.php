@@ -482,9 +482,9 @@ function suki_get_pro_modules() {
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-breakpoints',
 			'actions' => array(),
 		),
-		'preloader' => array(
+		'preloader-screen' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader',
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader-screen',
 			'actions' => array(),
 		),
 		'color-palette' => array(
