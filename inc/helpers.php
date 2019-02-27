@@ -487,14 +487,14 @@ function suki_get_pro_modules() {
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-color-palette',
 			'actions' => array(),
 		),
-		'blog-plus' => array(
-			'label'   => esc_html__( 'Blog Plus', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-blog-plus',
+		'blog-advanced' => array(
+			'label'   => esc_html__( 'Advanced Blog', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-blog-advanced',
 			'actions' => array(),
 		),
-		'woocommerce-plus' => array(
-			'label'   => esc_html__( 'WooCommerce Plus', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-woocommerce-plus',
+		'woocommerce-advanced' => array(
+			'label'   => esc_html__( 'Advanced WooCommerce', 'suki' ),
+			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-woocommerce-advanced',
 			'actions' => array(),
 		),
 		'white-label' => array(

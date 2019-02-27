@@ -113,11 +113,11 @@ msgid "Color Palette"
 msgstr ""
 
 #: inc/helpers.php:491
-msgid "Blog Plus"
+msgid "Advanced Blog"
 msgstr ""
 
 #: inc/helpers.php:496
-msgid "WooCommerce Plus"
+msgid "Advanced WooCommerce"
 msgstr ""
 
 #: inc/helpers.php:501
