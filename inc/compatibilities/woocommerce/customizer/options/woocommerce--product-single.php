@@ -129,7 +129,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
  * ====================================================
  */
 
-
 // Heading: Tabs
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_single_tabs', array(
 	'section'     => $section,
@@ -270,17 +269,17 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
  * ====================================================
  */
 
-// if ( suki_show_pro_teaser() ) {
-// 	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_single', array(
-// 		'section'     => $section,
-// 		'settings'    => array(),
-// 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-// 		'url'         => SUKI_PRO_URL,
-// 		'features'    => array(
-// 			esc_html_x( 'More "add to cart" styles', 'Suki Pro upsell', 'suki' ),
-// 			esc_html_x( 'More gallery styles', 'Suki Pro upsell', 'suki' ),
-// 			esc_html_x( 'More info tabs styles', 'Suki Pro upsell', 'suki' ),
-// 		),
-// 		'priority'    => 90,
-// 	) ) );
-// }
+if ( suki_show_pro_teaser() ) {
+	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_single', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'More "add to cart" styles', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More gallery styles', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More info tabs styles', 'Suki Pro upsell', 'suki' ),
+		),
+		'priority'    => 90,
+	) ) );
+}

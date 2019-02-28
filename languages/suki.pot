@@ -769,7 +769,7 @@ msgstr ""
 msgid "Grid"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:45, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:189, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:255
+#: inc/customizer/options/blog--archive.php:45, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:188, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:254
 msgid "Columns"
 msgstr ""
 
@@ -842,15 +842,15 @@ msgstr ""
 msgid "Alignment"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:99, inc/customizer/options/blog--entry-default.php:101, inc/customizer/options/blog--entry-default.php:156, inc/customizer/options/blog--entry-default.php:158, inc/customizer/options/blog--entry-grid.php:173, inc/customizer/options/blog--entry-grid.php:175, inc/customizer/options/blog--entry-grid.php:230, inc/customizer/options/blog--entry-grid.php:232, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/content--sidebar.php:287, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--builder.php:88, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/footer--widgets-bar.php:244, inc/customizer/options/header--builder.php:124, inc/customizer/options/header--builder.php:126, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+#: inc/customizer/options/blog--entry-default.php:99, inc/customizer/options/blog--entry-default.php:101, inc/customizer/options/blog--entry-default.php:156, inc/customizer/options/blog--entry-default.php:158, inc/customizer/options/blog--entry-grid.php:173, inc/customizer/options/blog--entry-grid.php:175, inc/customizer/options/blog--entry-grid.php:230, inc/customizer/options/blog--entry-grid.php:232, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/content--sidebar.php:287, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--builder.php:88, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/footer--widgets-bar.php:244, inc/customizer/options/header--builder.php:124, inc/customizer/options/header--builder.php:126, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:53
 msgid "Right"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:99, inc/customizer/options/blog--entry-default.php:101, inc/customizer/options/blog--entry-default.php:156, inc/customizer/options/blog--entry-default.php:158, inc/customizer/options/blog--entry-grid.php:173, inc/customizer/options/blog--entry-grid.php:175, inc/customizer/options/blog--entry-grid.php:230, inc/customizer/options/blog--entry-grid.php:232, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/content--sidebar.php:287, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--builder.php:88, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/footer--widgets-bar.php:244, inc/customizer/options/header--builder.php:124, inc/customizer/options/header--builder.php:126, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:70, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:72
+#: inc/customizer/options/blog--entry-default.php:99, inc/customizer/options/blog--entry-default.php:101, inc/customizer/options/blog--entry-default.php:156, inc/customizer/options/blog--entry-default.php:158, inc/customizer/options/blog--entry-grid.php:173, inc/customizer/options/blog--entry-grid.php:175, inc/customizer/options/blog--entry-grid.php:230, inc/customizer/options/blog--entry-grid.php:232, inc/customizer/options/content--sidebar.php:285, inc/customizer/options/content--sidebar.php:287, inc/customizer/options/footer--builder.php:86, inc/customizer/options/footer--builder.php:88, inc/customizer/options/footer--widgets-bar.php:242, inc/customizer/options/footer--widgets-bar.php:244, inc/customizer/options/header--builder.php:124, inc/customizer/options/header--builder.php:126, inc/customizer/options/header--mobile-vertical-bar.php:31, inc/customizer/options/header--mobile-vertical-bar.php:32, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/header--mobile-vertical-bar.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:51, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:53
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:100, inc/customizer/options/blog--entry-default.php:157, inc/customizer/options/blog--entry-grid.php:174, inc/customizer/options/blog--entry-grid.php:231, inc/customizer/options/content--sidebar.php:286, inc/customizer/options/footer--builder.php:87, inc/customizer/options/footer--widgets-bar.php:243, inc/customizer/options/header--builder.php:125, inc/customizer/options/header--mobile-vertical-bar.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:71
+#: inc/customizer/options/blog--entry-default.php:100, inc/customizer/options/blog--entry-default.php:157, inc/customizer/options/blog--entry-grid.php:174, inc/customizer/options/blog--entry-grid.php:231, inc/customizer/options/content--sidebar.php:286, inc/customizer/options/footer--builder.php:87, inc/customizer/options/footer--widgets-bar.php:243, inc/customizer/options/header--builder.php:125, inc/customizer/options/header--mobile-vertical-bar.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:52
 msgid "Center"
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
-#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376
+#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:118, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:80
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -1420,7 +1420,7 @@ msgstr ""
 
 #: inc/customizer/options/header--search.php:92
 msgctxt "Suki Pro upsell"
-msgid "Search query mode (support WooCommerce products search)"
+msgid "Search mode (support WooCommerce products search)"
 msgstr ""
 
 #: inc/customizer/options/header--top-main-bottom-bar.php:33
@@ -1965,6 +1965,16 @@ msgstr ""
 msgid "Cross-sells grid columns"
 msgstr ""
 
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:74, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:52
+msgctxt "Suki Pro upsell"
+msgid "Distraction Free mode"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:75
+msgctxt "Suki Pro upsell"
+msgid "Mobile floating checkout bar"
+msgstr ""
+
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:35
 msgid "Use 2 columns layout"
 msgstr ""
@@ -2041,60 +2051,100 @@ msgstr ""
 msgid "Enable lightbox"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:137
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:136
 msgid "Tabs"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:149
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:148
 msgid "Show tabs"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:164
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:163
 msgid "Up-Sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:176
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:175
 msgid "Show up-sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:177
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:176
 msgid "Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:211
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:210
 msgid "Related Products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:223
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:222
 msgid "Show related products"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:224
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:223
 msgid "Display linked products and similar products within same categories or tags. Products that have been displayed on \"Up-sells\" section will not be included."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:237
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:236
 msgid "Max products shown"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:238
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:237
 msgid "0 = disabled; -1 = Show all."
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:279
+msgctxt "Suki Pro upsell"
+msgid "More \"add to cart\" styles"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
+msgctxt "Suki Pro upsell"
+msgid "More gallery styles"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
+msgctxt "Suki Pro upsell"
+msgid "More info tabs styles"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:28
 msgid "Grid columns gutter"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:54
-msgid "Show \"add to cart\""
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:49
 msgid "Text alignment"
 msgstr ""
 
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:66
+msgid "Show \"add to cart\""
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:83
+msgctxt "Suki Pro upsell"
+msgid "Change grid item's padding and border"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:84
+msgctxt "Suki Pro upsell"
+msgid "Change grid item's title typography"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:85
+msgctxt "Suki Pro upsell"
+msgid "Change grid item's background color"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
+msgctxt "Suki Pro upsell"
+msgid "Enable hover image"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:87
+msgctxt "Suki Pro upsell"
+msgid "Enable Quick View popup"
+msgstr ""
+
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:25
-msgid "Shop (Catalog) Page"
+msgid "Products Catalog Page"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:29

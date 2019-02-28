@@ -22,7 +22,7 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 ) ) );
 
 // Products Catalog
-$wp_customize->get_section( 'woocommerce_product_catalog' )->title = esc_html__( 'Shop (Catalog) Page', 'suki' );
+$wp_customize->get_section( 'woocommerce_product_catalog' )->title = esc_html__( 'Products Catalog Page', 'suki' );
 
 // Single Product
 $wp_customize->add_section( 'woocommerce_product_single', array(

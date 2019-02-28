@@ -36,25 +36,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_woocommerce_products_grid_add_to_cart', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
-// Product Add to cart
-$id = 'woocommerce_products_grid_item_add_to_cart';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Show "add to cart"', 'suki' ),
-	'priority'    => 10,
-) ) );
-
 // Text alignment
 $id = 'woocommerce_products_grid_text_alignment';
 $wp_customize->add_setting( $id, array(
@@ -74,21 +55,37 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 10,
 ) );
 
+// Product Add to cart
+$id = 'woocommerce_products_grid_item_add_to_cart';
+$wp_customize->add_setting( $id, array(
+	'default'     => suki_array_value( $defaults, $id ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Show "add to cart"', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 /**
  * ====================================================
  * Suki Pro Upsell
  * ====================================================
  */
 
-// if ( suki_show_pro_teaser() ) {
-// 	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_index', array(
-// 		'section'     => $section,
-// 		'settings'    => array(),
-// 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-// 		'url'         => SUKI_PRO_URL,
-// 		'features'    => array(
-// 			esc_html_x( 'More products grid item styles', 'Suki Pro upsell', 'suki' ),
-// 		),
-// 		'priority'    => 90,
-// 	) ) );
-// }
+if ( suki_show_pro_teaser() ) {
+	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_products_grid', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'Change grid item\'s padding and border', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Change grid item\'s title typography', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Change grid item\'s background color', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Enable hover image', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Enable Quick View popup', 'Suki Pro upsell', 'suki' ),
+		),
+		'priority'    => 90,
+	) ) );
+}

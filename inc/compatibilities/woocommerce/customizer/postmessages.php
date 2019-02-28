@@ -319,7 +319,7 @@ $add['woocommerce_demo_store_notice_text_color'] = array(
 
 /**
  * ====================================================
- * WooCommerce > Shop (Catalog) Page
+ * WooCommerce > Products Catalog Page
  * ====================================================
  */
 
