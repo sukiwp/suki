@@ -59,6 +59,12 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
+		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
+		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
+			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
+			add_filter( 'pre_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__get' ) );
+		}
+
 		$this->_includes();
 	}
 
@@ -422,6 +428,32 @@ class Suki {
 		}
 
 		return $inline_css;
+	}
+
+	/**
+	 * Intercept saving mods on Child Theme and save it to Parent Theme instead.
+	 *
+	 * @param array $value
+	 * @param array $old_value
+	 * @return array
+	 */
+	function child_use_parent_mods__set( $value, $old_value ) {
+		// Update parent theme mods.
+		update_option( 'theme_mods_' . get_template(), $value );
+
+		// Prevent update to child theme mods.
+		return $old_value;
+	}
+
+	/**
+	 * Intercept retrieving mods on Child Theme and return Parent Theme's mods instead.
+	 *
+	 * @param array $default
+	 * @return array
+	 */
+	function child_use_parent_mods__get( $default ) {
+		// Return parent theme mods.
+		return get_option( 'theme_mods_' . get_template(), $default );
 	}
 
 	/**

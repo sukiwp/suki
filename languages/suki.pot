@@ -43,24 +43,24 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: header menu number.
-#: inc/class-suki.php:211, inc/template-tags.php:514
+#: inc/class-suki.php:217, inc/template-tags.php:514
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:212, inc/template-tags.php:532
+#: inc/class-suki.php:218, inc/template-tags.php:532
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:213
+#: inc/class-suki.php:219
 msgid "Footer Bottom Menu"
 msgstr ""
 
-#: inc/class-suki.php:263
+#: inc/class-suki.php:269
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: inc/class-suki.php:274
+#: inc/class-suki.php:280
 msgid "Footer Widgets Column %s"
 msgstr ""
 
