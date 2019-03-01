@@ -463,7 +463,7 @@ function suki_get_pro_modules() {
 			'actions' => array(),
 		),
 		'custom-blocks' => array(
-			'label'   => esc_html__( 'Portable Blocks (Hooks)', 'suki' ),
+			'label'   => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-blocks',
 			'actions' => array(),
 		),

@@ -93,7 +93,7 @@ msgid "Footer Widgets Columns Width"
 msgstr ""
 
 #: inc/helpers.php:466, inc/admin/class-suki-admin-metabox-page-settings.php:69
-msgid "Portable Blocks (Hooks)"
+msgid "Custom Blocks (Hooks)"
 msgstr ""
 
 #: inc/helpers.php:471

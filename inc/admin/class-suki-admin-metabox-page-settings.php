@@ -66,7 +66,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			'header'           => esc_html__( 'Header', 'suki' ),
 			'page-header'      => esc_html__( 'Page Header (Title Bar)', 'suki' ),
 			'footer'           => esc_html__( 'Footer', 'suki' ),
-			'custom-blocks'    => esc_html__( 'Portable Blocks (Hooks)', 'suki' ),
+			'custom-blocks'    => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'preloader-screen' => esc_html__( 'Preloader Screen', 'suki' ),
 		) );
 	}
