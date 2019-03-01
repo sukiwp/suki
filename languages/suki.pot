@@ -1355,7 +1355,7 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
-#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:118, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:80
+#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:118, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:94
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -2114,31 +2114,40 @@ msgstr ""
 msgid "Text alignment"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:66
-msgid "Show \"add to cart\""
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:68
+msgid "Add to Cart"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:83
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:80
+msgid "Show \"add to cart\" button"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:97
 msgctxt "Suki Pro upsell"
 msgid "Change grid item's padding and border"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:84
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:98
 msgctxt "Suki Pro upsell"
-msgid "Change grid item's title typography"
+msgid "Change grid item's typography"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:85
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:99
 msgctxt "Suki Pro upsell"
 msgid "Change grid item's background color"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:100
 msgctxt "Suki Pro upsell"
-msgid "Enable hover image"
+msgid "Change \"add to cart\" buttons width"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:87
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:101
+msgctxt "Suki Pro upsell"
+msgid "Enable alternate hover image"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:102
 msgctxt "Suki Pro upsell"
 msgid "Enable Quick View popup"
 msgstr ""
