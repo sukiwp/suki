@@ -2,7 +2,7 @@
  * Admin page javascript
  */
 (function( $ ) {
-	"use strict";
+	'use strict';
 
 	var $window = $( window ),
 	    $document = $( document ),
@@ -115,7 +115,9 @@
 					$panels.children( '.suki-admin-metabox-panel.active' ).removeClass( 'active' );
 					$target.addClass( 'active' );
 				}
-			})
+			});
+
+			$metabox.trigger( 'suki-admin-metabox.ready', this );
 		});
 
 		/**

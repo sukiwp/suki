@@ -2,7 +2,7 @@
  * Theme Customizer custom controls handlers
  */
 (function( exports, $ ) {
-	"use strict";
+	'use strict';
 
 	var $window = $( window ),
 	    $document = $( document ),
