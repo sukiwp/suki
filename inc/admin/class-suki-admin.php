@@ -379,37 +379,37 @@ class Suki_Admin {
 				}
 			}
 			if ( ! empty( $font_stack ) ) {
-				$css_array['global'][ $selector ]['font-family'] = $font_stack;
+				$css_array['global'][ $selector ]['font-family'] = $font_stack . ' !important';
 			}
 
 			// Font weight
 			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
 			if ( ! empty( $font_weight ) ) {
-				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
+				$css_array['global'][ $selector ]['font-weight'] = $font_weight . ' !important';
 			}
 			
 			// Font style
 			$font_style = suki_get_theme_mod( $type . '_font_style' );
 			if ( ! empty( $font_style ) ) {
-				$css_array['global'][ $selector ]['font-style'] = $font_style;
+				$css_array['global'][ $selector ]['font-style'] = $font_style . ' !important';
 			}
 			
 			// Text transform
 			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
 			if ( ! empty( $text_transform ) ) {
-				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
+				$css_array['global'][ $selector ]['text-transform'] = $text_transform . ' !important';
 			}
 
 			// Font size
 			$font_size = suki_get_theme_mod( $type . '_font_size' );
 			if ( ! empty( $font_size ) ) {
-				$css_array['global'][ $selector ]['font-size'] = $font_size;
+				$css_array['global'][ $selector ]['font-size'] = $font_size . ' !important';
 			}
 
 			// Line height
 			$line_height = suki_get_theme_mod( $type . '_line_height' );
 			if ( ! empty( $line_height ) ) {
-				$css_array['global'][ $selector ]['line-height'] = $line_height;
+				$css_array['global'][ $selector ]['line-height'] = $line_height . ' !important';
 			}
 
 			// Letter spacing
@@ -419,8 +419,11 @@ class Suki_Admin {
 			}
 		}
 
+		// Relative heading margin top
+		$css_array['global']['h1, h2, h3, h4, h5, h6']['margin-top'] = 'calc( 2 * ' . suki_get_theme_mod( 'body_font_size' ) . ') !important';
+
 		// Add to settings array.
-		$settings['styles'][] = array(
+		$settings['styles']['suki-custom'] = array(
 			'css' => suki_convert_css_array_to_string( $css_array ),
 		);
 

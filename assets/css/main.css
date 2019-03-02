@@ -1251,7 +1251,7 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 }
 
 .wp-block-column {
-	margin-bottom: 1.25rem;
+	margin-bottom: 0;
 }
 
 p.has-drop-cap:not(:focus):first-letter {
@@ -1267,23 +1267,22 @@ p.has-drop-cap:not(:focus):first-letter {
 }
 
 .wp-block-quote {
-	padding: 0.5rem 2rem;
+	padding: 0.5rem 2em;
 	border-left-width: 0.25rem;
 	border-left-style: solid;
 }
 
 .wp-block-quote[style*="center"] {
+	padding-left: 0;
+	padding-right: 0;
 	border-left: none;
 }
 
 .wp-block-quote[style*="right"] {
+	padding-left: 0;
 	border-left: none;
 	border-right-width: 0.25rem;
 	border-right-style: solid;
-}
-
-.wp-block-quote p {
-	font: inherit;
 }
 
 .wp-block-quote cite {
