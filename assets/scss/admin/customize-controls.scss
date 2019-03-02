@@ -596,9 +596,7 @@ li:not(.customize-info) div.customize-section-description {
 		}
 
 		.suki-builder-sortable-panel {
-			@include flex();
-			justify-content: flex-start;
-			flex-wrap: wrap;
+			@include flex( center, flex-start, wrap );
 			min-height: 28px;
 			margin: 0;
 			padding: 6px 8px 8px;
@@ -928,8 +926,7 @@ li:not(.customize-info) div.customize-section-description {
 				}
 
 				.suki-builder-group-horizontal {
-					@include flex( stretch );
-					flex-wrap: wrap;
+					@include flex( stretch, space-between, wrap );
 					width: 100%;
 
 					.suki-builder-location {

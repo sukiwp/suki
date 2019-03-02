@@ -1557,10 +1557,6 @@ body.suki-page-layout-boxed #page {
 		display: flex;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
 		justify-content: space-between;
@@ -1811,10 +1807,6 @@ body.suki-page-layout-boxed #page {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -1832,10 +1824,6 @@ body.suki-page-layout-boxed #page {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -1857,19 +1845,12 @@ body.suki-page-layout-boxed #page {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
 	-webkit-box-pack: inherit;
 	-ms-flex-pack: inherit;
 	justify-content: inherit;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 	height: 100%;
 	max-width: 100%;
 	padding: 0 12px;
@@ -1892,19 +1873,12 @@ body.suki-page-layout-boxed #page {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
 	-webkit-box-pack: inherit;
 	-ms-flex-pack: inherit;
 	justify-content: inherit;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 	height: 100%;
 }
 
@@ -1915,10 +1889,6 @@ body.suki-page-layout-boxed #page {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -1998,10 +1968,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2220,16 +2186,14 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
 	height: 100%;
@@ -2428,10 +2392,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2454,10 +2414,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2486,10 +2442,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2550,19 +2502,12 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 		display: flex;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
 		-webkit-box-pack: start;
 		-ms-flex-pack: start;
 		justify-content: flex-start;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
 	}
 	.suki-page-header-layout-left-right .suki-page-header-row .suki-page-header-title {
 		width: 50%;
@@ -2586,19 +2531,14 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 		display: flex;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
 		-webkit-box-pack: end;
 		-ms-flex-pack: end;
 		justify-content: flex-end;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
 		-ms-flex-direction: row-reverse;
 		flex-direction: row-reverse;
 	}
@@ -2683,33 +2623,17 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	-webkit-box-pack: start;
 	-ms-flex-pack: start;
 	justify-content: flex-start;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -40px;
-}
-
-@media screen and (max-width: 1023px) {
-	.suki-footer-widgets-bar-row {
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-	}
 }
 
 .suki-footer-widgets-bar-column {
@@ -2771,10 +2695,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2798,10 +2718,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2862,10 +2778,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -2989,16 +2901,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .entry-meta {
 	font-size: 0.85em;
 	line-height: 1.7;
-	color: #666666;
 	margin: 0 0 0.25em;
-}
-
-.entry-meta a {
-	color: #666666;
-}
-
-.entry-meta a:hover, .entry-meta a:focus {
-	color: #1976d2;
 }
 
 .entry-meta .avatar {
@@ -3317,15 +3220,6 @@ a.more-link {
 	margin: 0.25em 0;
 	font-size: 0.85em;
 	line-height: 1.7;
-	color: #666666;
-}
-
-.comment-metadata a {
-	color: #666666;
-}
-
-.comment-metadata a:hover, .comment-metadata a:focus {
-	color: #1976d2;
 }
 
 .comment-metadata > * {
@@ -3393,18 +3287,9 @@ a.more-link {
 .widget .post-date, .widget .rss-date {
 	font-size: 0.85em;
 	line-height: 1.7;
-	color: #666666;
 	display: block;
 	margin-top: 0.25em;
 	font-size: 0.9em;
-}
-
-.widget .post-date a, .widget .rss-date a {
-	color: #666666;
-}
-
-.widget .post-date a:hover, .widget .post-date a:focus, .widget .rss-date a:hover, .widget .rss-date a:focus {
-	color: #1976d2;
 }
 
 .widget-title {

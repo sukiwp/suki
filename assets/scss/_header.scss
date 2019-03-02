@@ -192,8 +192,7 @@
 	}
 
 	> * {
-		@include flex();
-		justify-content: inherit;
+		@include flex( center, inherit );
 		height: 100%;
 		max-width: 100%;
 		padding: 0 12px; // default
@@ -213,8 +212,7 @@
 
 .suki-header-section {
 	.menu {
-		@include flex();
-		justify-content: inherit;
+		@include flex( center, inherit );
 		height: 100%;
 
 		> div,

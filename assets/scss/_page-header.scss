@@ -36,8 +36,7 @@
 
 	@media screen and ( min-width: $breakpoint_768 ) {
 		.suki-page-header-row {
-			@include flex();
-			justify-content: flex-start;
+			@include flex( center, flex-start );
 
 			.suki-page-header-title {
 				width: 50%;
@@ -58,8 +57,7 @@
 
 	@media screen and ( min-width: $breakpoint_768 ) {
 		.suki-page-header-row {
-			@include flex();
-			justify-content: flex-end;
+			@include flex( center, flex-end );
 			flex-direction: row-reverse;
 
 			.suki-page-header-title {

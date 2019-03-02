@@ -232,10 +232,6 @@ p.demo_store a {
 	color: #ffffff;
 }
 
-.woocommerce span.onsale:before, .woocommerce span.onsale:after {
-	border-color: #1976d2;
-}
-
 .woocommerce span.onsale > span {
 	display: table-cell;
 	vertical-align: middle;
@@ -286,20 +282,14 @@ p.demo_store a {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
 	-webkit-box-align: stretch;
 	-ms-flex-align: stretch;
 	align-items: stretch;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
 	margin: 0 -15px;
 }
 
@@ -469,12 +459,10 @@ p.demo_store a {
 .woocommerce nav.woocommerce-pagination ul li a {
 	padding: 0;
 	background-color: transparent;
-	color: #1976d2;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
-	color: #333333;
 }
 
 .woocommerce div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce-page #content div.product div.images {
@@ -523,10 +511,6 @@ p.demo_store a {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -550,23 +534,14 @@ p.demo_store a {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 	margin: 10px -5px 0;
 }
 
@@ -690,21 +665,12 @@ p.demo_store a {
 	margin: 0.5rem 0;
 	font-size: 0.85em;
 	line-height: 1.7;
-	color: #666666;
 }
 
 .woocommerce div.product .woocommerce-product-rating .star-rating {
 	float: none;
 	display: inline-block;
 	margin-top: 0;
-}
-
-.woocommerce div.product .woocommerce-product-rating a {
-	color: #666666;
-}
-
-.woocommerce div.product .woocommerce-product-rating a:hover, .woocommerce div.product .woocommerce-product-rating a:focus {
-	color: #1976d2;
 }
 
 .woocommerce div.product p.price, .woocommerce div.product span.price {
@@ -786,15 +752,6 @@ p.demo_store a {
 	border-top-style: solid;
 	font-size: 0.85em;
 	line-height: 1.7;
-	color: #666666;
-}
-
-.woocommerce div.product .product_meta a {
-	color: #666666;
-}
-
-.woocommerce div.product .product_meta a:hover, .woocommerce div.product .product_meta a:focus {
-	color: #1976d2;
 }
 
 .woocommerce div.product .product_meta > * {
@@ -890,15 +847,6 @@ p.demo_store a {
 .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date {
 	font-size: 0.85em;
 	line-height: 1.7;
-	color: #666666;
-}
-
-.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a {
-	color: #666666;
-}
-
-.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:hover, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:focus {
-	color: #1976d2;
 }
 
 .woocommerce div.product #reviews #review_form #respond {
@@ -1041,20 +989,14 @@ p.demo_store a {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
 		justify-content: space-between;
 		-webkit-box-align: stretch;
 		-ms-flex-align: stretch;
 		align-items: stretch;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
 		width: 100%;
 	}
 	.woocommerce table.cart.shop_table_responsive tr.cart_item td, .woocommerce #content table.cart.shop_table_responsive tr.cart_item td, .woocommerce-page table.cart.shop_table_responsive tr.cart_item td, .woocommerce-page #content table.cart.shop_table_responsive tr.cart_item td {
@@ -1063,10 +1005,6 @@ p.demo_store a {
 		display: flex;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
 		justify-content: space-between;
@@ -1223,10 +1161,6 @@ p.demo_store a {
 		display: flex;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
 		justify-content: space-between;
@@ -1363,10 +1297,6 @@ p.demo_store a {
 		display: flex;
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
 		justify-content: space-between;
@@ -1407,10 +1337,6 @@ p.demo_store a {
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;

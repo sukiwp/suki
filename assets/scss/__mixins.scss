@@ -138,16 +138,6 @@
 @mixin meta() {
 	font-size: 0.85em; // default
 	line-height: 1.7; // default
-
-	color: $color_text; // default
-
-	a {
-		color: $color_text; // default
-
-		&:hover, &:focus {
-			color: $color_accent; // default
-		}
-	}
 }
 
 // -------------------------------------------------------------
@@ -186,11 +176,10 @@
 // Flex
 // -------------------------------------------------------------
 
-@mixin flex( $align_items: center ) {
+@mixin flex( $align_items: center, $justify_content: space-between, $flex_wrap: nowrap ) {
 	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: space-between;
+	flex-wrap: $flex_wrap;
+	justify-content: $justify_content;
 	align-items: $align_items;
 }
 

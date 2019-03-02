@@ -168,10 +168,6 @@ p.demo_store {
 	background-color: $color_accent; // default
 	color: $color_white; // default
 
-	&:before, &:after {
-		border-color: $color_accent; // default
-	}
-
 	> span {
 		display: table-cell;
 		vertical-align: middle;
@@ -232,8 +228,7 @@ p.demo_store {
 }
 
 .woocommerce ul.products {
-	@include flex( stretch );
-	flex-wrap: wrap;
+	@include flex( stretch, flex-start, wrap );
 	margin: 0 -15px; // default
 
 	li.product {
@@ -394,11 +389,9 @@ p.demo_store {
 			a {
 				padding: 0;
 				background-color: transparent;
-				color: $color_accent; // default
 
 				&:focus, &:hover {
 					background-color: transparent;
-					color: $color_heading; // default
 				}
 			}
 
@@ -468,9 +461,7 @@ p.demo_store {
 		}
 
 		.flex-control-thumbs {
-			@include flex();
-			justify-content: center;
-			flex-wrap: wrap;
+			@include flex( center, center, wrap );
 			margin: 10px -5px 0;
 
 			li {
@@ -874,8 +865,7 @@ p.demo_store {
 				@media screen and ( max-width: $breakpoint_768 - 1px ) {
 					tr {
 						position: relative;
-						@include flex( stretch );
-						flex-wrap: wrap;
+						@include flex( stretch, space-between, wrap );
 						width: 100%;
 
 						&.cart_item {
