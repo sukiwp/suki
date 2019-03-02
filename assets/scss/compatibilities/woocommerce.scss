@@ -232,10 +232,12 @@ p.demo_store {
 }
 
 .woocommerce ul.products {
+	@include flex( stretch );
+	flex-wrap: wrap;
 	margin: 0 -15px; // default
-	@include float-container();
 
 	li.product {
+		float: none;
 		margin: 0 0 2em;
 		padding: 0 15px; // default
 
@@ -247,6 +249,21 @@ p.demo_store {
 
 		.suki-product-wrapper {
 			position: relative;
+			height: 100%;
+		}
+
+		.suki-product-thumbnail {
+			margin: 0 0 0.75em;
+
+			a {
+				&:hover, &:focus {
+					opacity: 0.9;
+				}
+			}
+
+			img {
+				margin: 0;
+			}
 		}
 
 		.onsale {
@@ -256,16 +273,6 @@ p.demo_store {
 		a.woocommerce-loop-product__link {
 			display: block;
 			color: inherit;
-
-			img {
-				margin: 0 0 0.5em;
-			}
-
-			&:hover, &:focus {
-				img {
-					opacity: 0.9;
-				}
-			}
 		}
 
 		a.added_to_cart {
@@ -387,11 +394,11 @@ p.demo_store {
 			a {
 				padding: 0;
 				background-color: transparent;
-				color: $color_text; // default
+				color: $color_accent; // default
 
 				&:focus, &:hover {
 					background-color: transparent;
-					color: $color_accent; // default
+					color: $color_heading; // default
 				}
 			}
 

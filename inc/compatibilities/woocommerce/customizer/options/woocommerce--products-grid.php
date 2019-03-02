@@ -10,12 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'woocommerce_products_grid';
 
-/**
- * ====================================================
- * Layout
- * ====================================================
- */
-
 // Grid columns gutter
 $id = 'woocommerce_products_grid_columns_gutter';
 $wp_customize->add_setting( $id, array(
@@ -36,6 +30,20 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+/**
+ * ====================================================
+ * Grid Item
+ * ====================================================
+ */
+
+// Heading: Grid Item
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_products_grid_item', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Grid Item', 'suki-pro' ),
+	'priority'    => 20,
+) ) );
+
 // Text alignment
 $id = 'woocommerce_products_grid_text_alignment';
 $wp_customize->add_setting( $id, array(
@@ -52,7 +60,7 @@ $wp_customize->add_control( $id, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 10,
+	'priority'    => 20,
 ) );
 
 /**
@@ -66,7 +74,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Add to Cart', 'suki' ),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 // Show "add to cart" button
@@ -78,7 +86,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show "add to cart" button', 'suki' ),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 /**
@@ -95,11 +103,9 @@ if ( suki_show_pro_teaser() ) {
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
 			esc_html_x( 'Change grid item\'s padding and border', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Change grid item\'s typography', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Change grid item\'s background color', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Change "add to cart" buttons width', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Enable alternate hover image', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Enable Quick View popup', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

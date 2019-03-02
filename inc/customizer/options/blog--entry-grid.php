@@ -95,6 +95,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 	'priority'    => 10,
 ) ) );
 
+/**
+ * ====================================================
+ * Featured Media
+ * ====================================================
+ */
+
 // Heading: Featured Media
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_featured_media', array(
 	'section'     => $section,
@@ -120,7 +126,7 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 20,
 ) );
 
-// Featured media ignore padding
+// Ignore grid item padding
 $id = 'entry_grid_featured_media_ignore_padding';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
@@ -128,9 +134,15 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Featured media ignore padding', 'suki' ),
+	'label'       => esc_html__( 'Ignore grid item padding', 'suki' ),
 	'priority'    => 20,
 ) ) );
+
+/**
+ * ====================================================
+ * Post Header
+ * ====================================================
+ */
 
 // Heading: Post Header
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_header', array(
@@ -189,6 +201,12 @@ $wp_customize->add_control( $id, array(
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
 	'priority'    => 30,
 ) );
+
+/**
+ * ====================================================
+ * Post Footer
+ * ====================================================
+ */
 
 // Heading: Post Footer
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_meta', array(

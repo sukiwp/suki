@@ -183,21 +183,27 @@ class Suki_Compatibility_WooCommerce {
 		// Add spacer before main products loop.
 		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_before_shop_loop' ), 999 );
 
+		// Add wrapper to products grid item.
+		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
+		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
+
 		// Reposition sale badge on products grid item.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 1 );
 
-		// Separate <a> tag for product image and title on products grid item.
+		// Reposition product image and wrap it with custom <div>.
+		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper' ), 5 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 9 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_thumbnail', 10 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_close', 11 );
+		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 20 );
+
+		// Wrap the title with link.
 		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 9 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 11 );
 		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 1 );
 		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
-
-		// Add wrapper to products grid item.
-		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
-		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
 
 		// Products loop
 		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
@@ -265,7 +271,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Add text alignment class on products loop.
-		add_filter( 'woocommerce_product_loop_start', array( $this, 'add_loop_text_alignment_class' ) );
+		add_filter( 'post_class', array( $this, 'add_loop_text_alignment_class' ), 10, 3 );
 
 		// Keep / remove "add to cart" button on products grid.
 		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
@@ -414,6 +420,20 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Add opening product image wrapper tag.
+	 */
+	public function render_loop_product_thumbnail_wrapper() {
+		?><div class="suki-product-thumbnail <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array() ) ) ); ?>"><?php
+	}
+
+	/**
+	 * Add closing product image wrapper tag.
+	 */
+	public function render_loop_product_thumbnail_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
 	 * Add items count to Cart menu item.
 	 *
 	 * @param string $title
@@ -453,6 +473,26 @@ class Suki_Compatibility_WooCommerce {
 
 	/**
 	 * ====================================================
+	 * Global template hooks
+	 * ====================================================
+	 */
+
+	/**
+	 * Add text alignment class on loop start tag.
+	 *
+	 * @param array $classes
+	 * @param array $class
+	 * @param integer $post_id
+	 * @return array
+	 */
+	public function add_loop_text_alignment_class( $classes, $class, $post_id ) {
+		$classes['suki-text-align'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
+
+		return $classes;
+	}
+
+	/**
+	 * ====================================================
 	 * Shop Page Hook functions
 	 * ====================================================
 	 */
@@ -475,18 +515,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_loop_columns( $cols ) {
 		return intval( suki_get_theme_mod( 'woocommerce_index_grid_columns' ) );
-	}
-
-	/**
-	 * Add text alignment class on loop start tag.
-	 *
-	 * @param string $hml
-	 * @return string
-	 */
-	public function add_loop_text_alignment_class( $html ) {
-		$html = preg_replace( '/(class=".*?)"/', '$1 suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) . '"', $html );
-
-		return $html;
 	}
 
 	/**

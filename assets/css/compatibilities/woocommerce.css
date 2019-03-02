@@ -283,19 +283,28 @@ p.demo_store a {
 }
 
 .woocommerce ul.products {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	margin: 0 -15px;
 }
 
-.woocommerce ul.products:before, .woocommerce ul.products:after {
-	content: "";
-	display: table;
-}
-
-.woocommerce ul.products:after {
-	clear: both;
-}
-
 .woocommerce ul.products li.product {
+	float: none;
 	margin: 0 0 2em;
 	padding: 0 15px;
 }
@@ -308,6 +317,19 @@ p.demo_store a {
 
 .woocommerce ul.products li.product .suki-product-wrapper {
 	position: relative;
+	height: 100%;
+}
+
+.woocommerce ul.products li.product .suki-product-thumbnail {
+	margin: 0 0 0.75em;
+}
+
+.woocommerce ul.products li.product .suki-product-thumbnail a:hover, .woocommerce ul.products li.product .suki-product-thumbnail a:focus {
+	opacity: 0.9;
+}
+
+.woocommerce ul.products li.product .suki-product-thumbnail img {
+	margin: 0;
 }
 
 .woocommerce ul.products li.product .onsale {
@@ -317,14 +339,6 @@ p.demo_store a {
 .woocommerce ul.products li.product a.woocommerce-loop-product__link {
 	display: block;
 	color: inherit;
-}
-
-.woocommerce ul.products li.product a.woocommerce-loop-product__link img {
-	margin: 0 0 0.5em;
-}
-
-.woocommerce ul.products li.product a.woocommerce-loop-product__link:hover img, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus img {
-	opacity: 0.9;
 }
 
 .woocommerce ul.products li.product a.added_to_cart {
@@ -455,12 +469,12 @@ p.demo_store a {
 .woocommerce nav.woocommerce-pagination ul li a {
 	padding: 0;
 	background-color: transparent;
-	color: #666666;
+	color: #1976d2;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
-	color: #1976d2;
+	color: #333333;
 }
 
 .woocommerce div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce-page #content div.product div.images {
