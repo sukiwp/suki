@@ -395,7 +395,7 @@ class Suki_Admin_Metabox_Page_Settings {
 					</div>
 				</div>
 
-				<?php if ( ! suki_is_pro() ) : ?>
+				<?php if ( suki_show_pro_teaser() ) : ?>
 					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
 						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Enable Transparent Header', 'Suki Pro upsell', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
@@ -600,7 +600,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				break;
 
 			case 'preloader-screen':
-				if ( ! suki_is_pro() ) : ?>
+				if ( suki_show_pro_teaser() ) : ?>
 					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
 						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Enable Preloader Screen', 'Suki Pro upsell', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>
@@ -609,7 +609,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				break;
 
 			case 'custom-blocks':
-				if ( ! suki_is_pro() ) : ?>
+				if ( suki_show_pro_teaser() ) : ?>
 					<div class="suki-admin-form-row suki-metabox-field-pro-teaser">
 						<div class="suki-admin-form-label"><label><?php echo esc_html_x( 'Custom blocks on this page', 'Suki Pro upsell', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field"><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>"><?php echo esc_html_x( 'Available on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></a></div>

@@ -340,7 +340,7 @@ $add['woocommerce_products_grid_columns_gutter'] = array(
 $add['woocommerce_products_grid_text_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => '.woocommerce ul.products',
+		'element'  => '.woocommerce ul.products li.product .suki-product-wrapper',
 		'pattern'  => 'suki-text-align-$',
 	),
 );

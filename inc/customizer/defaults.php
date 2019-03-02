@@ -186,9 +186,9 @@ $add['meta_font_size'] = '0.9rem';
 $add['meta_line_height'] = '1.7';
 $add['meta_letter_spacing'] = '';
 
-$add['meta_text_color'] = $colors['text'];
-$add['meta_link_text_color'] = $colors['text'];
-$add['meta_link_hover_text_color'] = $colors['accent'];
+$add['meta_text_color'] = '';
+$add['meta_link_text_color'] = '';
+$add['meta_link_hover_text_color'] = '';
 
 /**
  * ====================================================

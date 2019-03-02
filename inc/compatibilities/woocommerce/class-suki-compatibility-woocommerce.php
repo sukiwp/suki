@@ -193,10 +193,10 @@ class Suki_Compatibility_WooCommerce {
 
 		// Reposition product image and wrap it with custom <div>.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
-		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper' ), 5 );
-		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 9 );
+		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper' ), 2 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 3 );
 		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_thumbnail', 10 );
-		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_close', 11 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_close', 19 );
 		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 20 );
 
 		// Wrap the title with link.
@@ -271,7 +271,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Add text alignment class on products loop.
-		add_filter( 'post_class', array( $this, 'add_loop_text_alignment_class' ), 10, 3 );
+		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_text_alignment_class' ) );
 
 		// Keep / remove "add to cart" button on products grid.
 		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
@@ -409,7 +409,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Add opening product wrapper tag to products loop item.
 	 */
 	public function render_loop_item_wrapper() {
-		?><div class="suki-product-wrapper"><?php
+		?><div class="suki-product-wrapper <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_classes', array() ) ) ); ?>"><?php
 	}
 
 	/**
@@ -481,11 +481,9 @@ class Suki_Compatibility_WooCommerce {
 	 * Add text alignment class on loop start tag.
 	 *
 	 * @param array $classes
-	 * @param array $class
-	 * @param integer $post_id
 	 * @return array
 	 */
-	public function add_loop_text_alignment_class( $classes, $class, $post_id ) {
+	public function add_loop_text_alignment_class( $classes ) {
 		$classes['suki-text-align'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
 
 		return $classes;

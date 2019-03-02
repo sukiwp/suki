@@ -628,7 +628,7 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:708
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:706
 msgid "Logout"
 msgstr ""
 
