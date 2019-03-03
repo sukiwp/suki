@@ -84,7 +84,27 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
+		'element'  => '.entry-meta a:hover, .entry-meta a:focus, .comment-metadata a:hover, .comment-metadata a:focus, .widget .post-date a:hover, .widget .post-date a:focus, .widget_rss .rss-date a:hover, .widget_rss .rss-date a:focus',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => 'h1 a:hover, h1 a:focus, .h1 a:hover, .h1 a:focus, h2 a:hover, h2 a:focus, .h2 a:hover, .h2 a:focus, h3 a:hover, h3 a:focus, .h3 a:hover, .h3 a:focus, h4 a:hover, h4 a:focus, .h4 a:hover, .h4 a:focus, h5 a:hover, h5 a:focus, .h5 a:hover, .h5 a:focus, h6 a:hover, h6 a:focus, .h6 a:hover, .h6 a:focus, .comment-author a:hover, .comment-author a:focus, .entry-author-name a:hover, .entry-author-name a:focus',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-section a:not(.button):hover, .suki-header-section a:not(.button):focus, .suki-header-section .suki-toggle:hover, .suki-header-section .suki-toggle:focus, .suki-header-section .menu .sub-menu a:not(.button):hover, .suki-header-section .menu .sub-menu a:not(.button):focus, .suki-header-section .menu .sub-menu .suki-toggle:hover, .suki-header-section .menu .sub-menu .suki-toggle:focus, .suki-header-section-vertical a:not(.button):hover, .suki-header-section-vertical a:not(.button):focus, .suki-header-section-vertical .suki-toggle:hover, .suki-header-section-vertical .suki-toggle:focus, .suki-header-section-vertical .menu .sub-menu a:not(.button):hover, .suki-header-section-vertical .menu .sub-menu a:not(.button):focus, .suki-header-section-vertical .menu .sub-menu .suki-toggle:hover, .suki-header-section-vertical .menu .sub-menu .suki-toggle:focus',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
 		'element'  => '::selection',
+		'property' => 'background-color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-shopping-cart .shopping-cart-count',
 		'property' => 'background-color',
 	),
 );
@@ -160,6 +180,11 @@ $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a, h6 a, .h6 a, .comment-author a, .entry-author-name, .entry-author-name a',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-section a:not(.button), .suki-header-section .suki-toggle, .suki-header-section .menu .sub-menu a:not(.button), .suki-header-section .menu .sub-menu .suki-toggle, .suki-header-section-vertical a:not(.button), .suki-header-section-vertical .suki-toggle, .suki-header-section-vertical .menu .sub-menu a:not(.button), .suki-header-section-vertical .menu .sub-menu .suki-toggle',
 		'property' => 'color',
 	),
 );

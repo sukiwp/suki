@@ -52,7 +52,7 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_ti
 // Colors
 $colors = array(
 	'title_text_color'       => esc_html__( 'Title text color', 'suki' ),
-	'title_hover_text_color' => esc_html__( 'Title text color :hover', 'suki' ),
+	'title_hover_text_color' => esc_html__( 'Title link text color :hover', 'suki' ),
 );
 foreach ( $colors as $id => $label ) {
 	$wp_customize->add_setting( $id, array(

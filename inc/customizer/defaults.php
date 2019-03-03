@@ -49,7 +49,7 @@ $add['border_color'] = $colors['border'];
  */
 
 $add['h1_font_family'] = '';
-$add['h1_font_weight'] = 500;
+$add['h1_font_weight'] = 600;
 $add['h1_font_style'] = '';
 $add['h1_text_transform'] = '';
 $add['h1_font_size'] = '32px';
@@ -57,7 +57,7 @@ $add['h1_line_height'] = '1.4';
 $add['h1_letter_spacing'] = '';
 
 $add['h2_font_family'] = '';
-$add['h2_font_weight'] = 500;
+$add['h2_font_weight'] = 600;
 $add['h2_font_style'] = '';
 $add['h2_text_transform'] = '';
 $add['h2_font_size'] = '27px';
@@ -65,7 +65,7 @@ $add['h2_line_height'] = '1.5';
 $add['h2_letter_spacing'] = '';
 
 $add['h3_font_family'] = '';
-$add['h3_font_weight'] = 500;
+$add['h3_font_weight'] = 600;
 $add['h3_font_style'] = '';
 $add['h3_text_transform'] = '';
 $add['h3_font_size'] = '22px';
@@ -73,7 +73,7 @@ $add['h3_line_height'] = '1.6';
 $add['h3_letter_spacing'] = '';
 
 $add['h4_font_family'] = '';
-$add['h4_font_weight'] = 500;
+$add['h4_font_weight'] = 600;
 $add['h4_font_style'] = '';
 $add['h4_text_transform'] = '';
 $add['h4_font_size'] = '17px';
@@ -81,7 +81,7 @@ $add['h4_line_height'] = '1.7';
 $add['h4_letter_spacing'] = '';
 
 $add['heading_text_color'] = $colors['heading'];
-$add['heading_hover_text_color'] = $colors['accent'];
+$add['heading_hover_text_color'] = '';
 
 /**
  * ====================================================
@@ -108,11 +108,11 @@ $add['input_border'] = '1px 1px 1px 1px';
 $add['input_border_radius'] = '3px';
 
 $add['input_bg_color'] = $colors['subtle'];
-$add['input_border_color'] = $colors['border'];
-$add['input_text_color'] = $colors['text'];
+$add['input_border_color'] ='';
+$add['input_text_color'] = '';
 $add['input_focus_bg_color'] = $colors['bg'];
-$add['input_focus_border_color'] = $colors['border'];
-$add['input_focus_text_color'] = $colors['text'];
+$add['input_focus_border_color'] = '';
+$add['input_focus_text_color'] = '';
 
 /**
  * ====================================================
@@ -125,17 +125,17 @@ $add['button_border'] = '1px 1px 1px 1px';
 $add['button_border_radius'] = '3px';
 
 $add['button_font_family'] = '';
-$add['button_font_weight'] = 500;
+$add['button_font_weight'] = 600;
 $add['button_font_style'] = '';
 $add['button_text_transform'] = '';
 $add['button_font_size'] = '1rem';
 $add['button_letter_spacing'] = '';
 
-$add['button_bg_color'] = $colors['heading'];
-$add['button_border_color'] = $colors['heading'];
+$add['button_bg_color'] = $colors['accent'];
+$add['button_border_color'] = $colors['accent'];
 $add['button_text_color'] = $colors['white'];
-$add['button_hover_bg_color'] = $colors['text'];
-$add['button_hover_border_color'] = $colors['text'];
+$add['button_hover_bg_color'] = $colors['accent2'];
+$add['button_hover_border_color'] = $colors['accent2'];
 $add['button_hover_text_color'] = $colors['white'];
 
 /**
@@ -263,7 +263,7 @@ $add['header_search_dropdown_width'] = '300px';
  * ====================================================
  */
 
-$add['header_cart_count_bg_color'] = $colors['accent'];
+$add['header_cart_count_bg_color'] = '';
 $add['header_cart_count_text_color'] = $colors['white'];
 
 /**
@@ -300,7 +300,7 @@ $add['header_top_bar_line_height'] = '';
 $add['header_top_bar_letter_spacing'] = '';
 
 $add['header_top_bar_menu_font_family'] = '';
-$add['header_top_bar_menu_font_weight'] = '';
+$add['header_top_bar_menu_font_weight'] = 600;
 $add['header_top_bar_menu_font_style'] = '';
 $add['header_top_bar_menu_text_transform'] = '';
 $add['header_top_bar_menu_font_size'] = '';
@@ -319,11 +319,11 @@ $add['header_top_bar_submenu_letter_spacing'] = '';
 
 $add['header_top_bar_icon_size'] = '18px';
 
-$add['header_top_bar_bg_color'] = $colors['bg'];
-$add['header_top_bar_border_color'] = $colors['border'];
-$add['header_top_bar_text_color'] = $colors['text'];
-$add['header_top_bar_link_text_color'] = $colors['accent'];
-$add['header_top_bar_link_hover_text_color'] = $colors['text'];
+$add['header_top_bar_bg_color'] = '';
+$add['header_top_bar_border_color'] = '';
+$add['header_top_bar_text_color'] = '';
+$add['header_top_bar_link_text_color'] = '';
+$add['header_top_bar_link_hover_text_color'] = '';
 $add['header_top_bar_link_active_text_color'] = '';
 
 $add['header_top_bar_menu_hover_highlight_color'] = $colors['border'];
@@ -353,7 +353,7 @@ $add['header_main_bar_line_height'] = '';
 $add['header_main_bar_letter_spacing'] = '';
 
 $add['header_main_bar_menu_font_family'] = '';
-$add['header_main_bar_menu_font_weight'] = '';
+$add['header_main_bar_menu_font_weight'] = 600;
 $add['header_main_bar_menu_font_style'] = '';
 $add['header_main_bar_menu_text_transform'] = '';
 $add['header_main_bar_menu_font_size'] = '';
@@ -372,11 +372,11 @@ $add['header_main_bar_submenu_letter_spacing'] = '';
 
 $add['header_main_bar_icon_size'] = '18px';
 
-$add['header_main_bar_bg_color'] = $colors['bg'];
-$add['header_main_bar_border_color'] = $colors['border'];
-$add['header_main_bar_text_color'] = $colors['text'];
-$add['header_main_bar_link_text_color'] = $colors['accent'];
-$add['header_main_bar_link_hover_text_color'] = $colors['text'];
+$add['header_main_bar_bg_color'] = '';
+$add['header_main_bar_border_color'] = '';
+$add['header_main_bar_text_color'] = '';
+$add['header_main_bar_link_text_color'] = '';
+$add['header_main_bar_link_hover_text_color'] = '';
 $add['header_main_bar_link_active_text_color'] = '';
 
 $add['header_main_bar_menu_hover_highlight_color'] = $colors['border'];
@@ -409,7 +409,7 @@ $add['header_bottom_bar_line_height'] = '';
 $add['header_bottom_bar_letter_spacing'] = '';
 
 $add['header_bottom_bar_menu_font_family'] = '';
-$add['header_bottom_bar_menu_font_weight'] = '';
+$add['header_bottom_bar_menu_font_weight'] = 600;
 $add['header_bottom_bar_menu_font_style'] = '';
 $add['header_bottom_bar_menu_text_transform'] = '';
 $add['header_bottom_bar_menu_font_size'] = '';
@@ -428,11 +428,11 @@ $add['header_bottom_bar_submenu_letter_spacing'] = '';
 
 $add['header_bottom_bar_icon_size'] = '18px';
 
-$add['header_bottom_bar_bg_color'] = $colors['bg'];
-$add['header_bottom_bar_border_color'] = $colors['border'];
-$add['header_bottom_bar_text_color'] = $colors['text'];
-$add['header_bottom_bar_link_text_color'] = $colors['accent'];
-$add['header_bottom_bar_link_hover_text_color'] = $colors['text'];
+$add['header_bottom_bar_bg_color'] = '';
+$add['header_bottom_bar_border_color'] = '';
+$add['header_bottom_bar_text_color'] = '';
+$add['header_bottom_bar_link_text_color'] = '';
+$add['header_bottom_bar_link_hover_text_color'] = '';
 $add['header_bottom_bar_link_active_text_color'] = '';
 
 $add['header_bottom_bar_menu_hover_highlight_color'] = $colors['border'];
@@ -454,10 +454,10 @@ $add['header_mobile_main_bar_items_gutter'] = '12px';
 
 $add['header_mobile_main_bar_icon_size'] = '18px';
 
-$add['header_mobile_main_bar_bg_color'] = $colors['bg'];
-$add['header_mobile_main_bar_border_color'] = $colors['border'];
-$add['header_mobile_main_bar_link_text_color'] = $colors['accent'];
-$add['header_mobile_main_bar_link_hover_text_color'] = $colors['text'];
+$add['header_mobile_main_bar_bg_color'] = '';
+$add['header_mobile_main_bar_border_color'] = '';
+$add['header_mobile_main_bar_link_text_color'] = '';
+$add['header_mobile_main_bar_link_hover_text_color'] = '';
 
 /**
  * ====================================================
@@ -481,7 +481,7 @@ $add['header_mobile_vertical_bar_line_height'] = '';
 $add['header_mobile_vertical_bar_letter_spacing'] = '';
 
 $add['header_mobile_vertical_bar_menu_font_family'] = '';
-$add['header_mobile_vertical_bar_menu_font_weight'] = '';
+$add['header_mobile_vertical_bar_menu_font_weight'] = 600;
 $add['header_mobile_vertical_bar_menu_font_style'] = '';
 $add['header_mobile_vertical_bar_menu_text_transform'] = '';
 $add['header_mobile_vertical_bar_menu_font_size'] = '';
@@ -498,11 +498,11 @@ $add['header_mobile_vertical_bar_submenu_letter_spacing'] = '';
 
 $add['header_mobile_vertical_bar_icon_size'] = '18px';
 
-$add['header_mobile_vertical_bar_bg_color'] = $colors['bg'];
-$add['header_mobile_vertical_bar_border_color'] = $colors['border'];
-$add['header_mobile_vertical_bar_text_color'] = $colors['text'];
-$add['header_mobile_vertical_bar_link_text_color'] = $colors['accent'];
-$add['header_mobile_vertical_bar_link_hover_text_color'] = $colors['text'];
+$add['header_mobile_vertical_bar_bg_color'] = '';
+$add['header_mobile_vertical_bar_border_color'] = '';
+$add['header_mobile_vertical_bar_text_color'] = '';
+$add['header_mobile_vertical_bar_link_text_color'] = '';
+$add['header_mobile_vertical_bar_link_hover_text_color'] = '';
 $add['header_mobile_vertical_bar_link_active_text_color'] = '';
 
 /**

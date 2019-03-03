@@ -15,7 +15,7 @@
 @mixin h1() {
 	font-size: 32px; // default
 	font-style: normal;
-	font-weight: 500; // default
+	font-weight: 600; // default
 	line-height: 1.4; // default
 	letter-spacing: 0;
 	text-transform: none;
@@ -24,7 +24,7 @@
 @mixin h2() {
 	font-size: 27px; // default
 	font-style: normal;
-	font-weight: 500; // default
+	font-weight: 600; // default
 	line-height: 1.5; // default
 	letter-spacing: 0;
 	text-transform: none;
@@ -33,7 +33,7 @@
 @mixin h3() {
 	font-size: 22px; // default
 	font-style: normal;
-	font-weight: 500; // default
+	font-weight: 600; // default
 	line-height: 1.6; // default
 	letter-spacing: 0;
 	text-transform: none;
@@ -42,7 +42,7 @@
 @mixin h4() {
 	font-size: 17px; // default
 	font-style: normal;
-	font-weight: 500; // default
+	font-weight: 600; // default
 	line-height: 1.7; // default
 	letter-spacing: 0;
 	text-transform: none;
@@ -75,11 +75,11 @@
 
 	padding: 10px 12px; // default
 	@include border(); // default
+	border-color: inherit; // default
 	border-radius: 3px; // default
 
-	color: $color_text; // default
+	color: inherit; // default
 	background-color: $color_subtle; // default
-	border-color: $color_border; // default
 	
 	font-size: inherit;
 	font-style: inherit;
@@ -89,10 +89,8 @@
 	text-transform: inherit;
 	vertical-align: middle;
 
-	&:focus {	
-		color: $color_text; // default
+	&:focus {
 		background-color: $color_bg; // default
-		border-color: $color_border; // default
 	}
 }
 
@@ -115,12 +113,12 @@
 	border-radius: 3px; // default
 
 	color: $color_white; // default
-	background-color: $color_heading; // default
-	border-color: $color_heading; // default
+	background-color: $color_accent; // default
+	border-color: $color_accent; // default
 
 	font-size: 1rem; // default
 	font-style: inherit;
-	font-weight: 500; // default
+	font-weight: 600; // default
 	line-height: normal;
 	letter-spacing: inherit;
 	text-transform: inherit;
@@ -130,14 +128,23 @@
 
 	&:hover, &:focus {
 		color: $color_white; // default
-		background-color: $color_text; // default
-		border-color: $color_text; // default
+		background-color: $color_accent2; // default
+		border-color: $color_accent2; // default
 	}
 }
 
 @mixin meta() {
 	font-size: 0.85em; // default
 	line-height: 1.7; // default
+	color: inherit; // default
+
+	a {
+		color: inherit; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
 }
 
 // -------------------------------------------------------------

@@ -19,7 +19,7 @@ $add = array();
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .woocommerce-breadcrumb, .woocommerce .woocommerce-breadcrumb a, .woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a',
+		'element'  => '.woocommerce div.product .woocommerce-tabs ul.tabs li a, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a',
 		'property' => 'color',
 	),
 );
@@ -31,8 +31,33 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
+		'element'  => '.woocommerce nav.woocommerce-pagination ul li a',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
 		'element'  => '.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
 		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce .star-rating:before, .woocommerce .star-rating span:before, .woocommerce p.stars a',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products li.product a.woocommerce-loop-product__link:hover, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce div.product .woocommerce-product-rating a:hover, .woocommerce div.product .woocommerce-product-rating a:focus, .woocommerce div.product .product_meta a:hover, .woocommerce div.product .product_meta a:focus',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce span.onsale',
+		'property' => 'background-color',
 	),
 );
 $add['link_hover_text_color'] = array(
@@ -68,7 +93,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author a, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a',
+		'element'  => '.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author, .woocommerce ul.products li.product a.woocommerce-loop-product__link, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author a, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover',
 		'property' => 'color',
 	),
 );
@@ -383,11 +408,6 @@ $add['woocommerce_sale_badge_bg_color'] = array(
 		'type'     => 'css',
 		'element'  => '.woocommerce span.onsale',
 		'property' => 'background-color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce span.onsale:before, .woocommerce span.onsale:after',
-		'property' => 'border-color',
 	),
 );
 $add['woocommerce_sale_badge_text_color'] = array(

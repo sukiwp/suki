@@ -271,6 +271,10 @@
 			padding: 0 12px; // default
 		}
 
+		a {
+			font-weight: 600; // default
+		}
+
 		.suki-dropdown-sign {
 			margin-left: 0.3em;
 		}
@@ -308,6 +312,32 @@
 	}
 }
 
+.suki-header-section {
+	&, &-vertical {
+		&-inner, .menu .sub-menu {
+			background-color: $color_bg; // default
+		}
+
+		&, .menu .sub-menu {
+			a:not(.button), .suki-toggle {
+				color: $color_heading; // default
+
+				&:hover, &:focus {
+					color: $color_accent; // default
+				}
+			}
+		}
+
+		.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+			&:hover, &:focus {
+				&:after {
+					background-color: $color_border; // default
+				}
+			}
+		}
+	}
+}
+
 .suki-header-top-bar {
 	height: 40px; // default
 
@@ -315,34 +345,6 @@
 		z-index: 3;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
-		}
-	}
-
-	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
 	}
 
 	&.suki-section-merged {
@@ -362,34 +364,6 @@
 		padding: 0 20px; // default
 	}
 
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
-		}
-	}
-
-	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
-	}
-
 	&.suki-header-main-bar-with-top-bar > .suki-section-inner > .suki-wrapper {
 		padding-top: 40px; // default
 	}
@@ -400,40 +374,12 @@
 }
 
 .suki-header-bottom-bar {
-	height: 40px; // default
+	height: 60px; // default
 
 	&-inner {
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
-		}
-	}
-
-	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
 	}
 
 	&.suki-section-merged {
@@ -451,26 +397,6 @@
 		z-index: 1;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
-		}
 	}
 }
 
@@ -689,7 +615,7 @@
 		color: $color_heading; // default
 
 		&:hover, &:focus {
-			color: $color_accent; // default
+			color: $color_text; // default
 		}
 	}
 }

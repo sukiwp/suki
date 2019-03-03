@@ -228,7 +228,7 @@ a.more-link {
 	}
 
 	.fn {
-		font-weight: 500;
+		font-weight: 600;
 		display: block;
 	}
 }
@@ -337,11 +337,6 @@ a.more-link {
 
 		a {
 			font-size: 90%;
-			color: $color_text; // default
-
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
 		}
 	}
 
@@ -365,6 +360,8 @@ a.more-link {
 }
 
 .comment-author {
+	@include heading();
+
 	.avatar {
 		position: absolute;
 		top: 2em;
@@ -379,8 +376,7 @@ a.more-link {
 	}
 
 	.fn {
-		@include heading();
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	.says {

@@ -252,19 +252,19 @@ msgstr ""
 msgid "Continue Reading"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:159, inc/customizer/custom-controls/class-suki-customize-control-color.php:60, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
+#: inc/admin/class-suki-admin-fields.php:160, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
 msgid "Hex / RGBA"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:200
+#: inc/admin/class-suki-admin-fields.php:201
 msgid "Upload & choose file"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:201
+#: inc/admin/class-suki-admin-fields.php:202
 msgid "Choose"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/admin/class-suki-admin.php:587, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:282
+#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/admin/class-suki-admin.php:589, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:282
 msgid "Content & Sidebar"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/admin/class-suki-admin.php:583, inc/customizer/options/page-settings.php:161, inc/customizer/options/_sections.php:275
+#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/admin/class-suki-admin.php:585, inc/customizer/options/page-settings.php:161, inc/customizer/options/_sections.php:275
 msgid "Page Header (Title Bar)"
 msgstr ""
 
@@ -422,156 +422,156 @@ msgctxt "Suki Pro upsell"
 msgid "Custom blocks on this page"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:185
+#: inc/admin/class-suki-admin.php:187
 msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:185
+#: inc/admin/class-suki-admin.php:187
 msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:187
+#: inc/admin/class-suki-admin.php:189
 msgid "Okay, you deserve it"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:188
+#: inc/admin/class-suki-admin.php:190
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:189
+#: inc/admin/class-suki-admin.php:191
 msgid "I already did"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:556
+#: inc/admin/class-suki-admin.php:558
 msgid "Welcome to Suki!"
 msgstr ""
 
 #. translators: %s: Suki website URL.
-#: inc/admin/class-suki-admin.php:561
+#: inc/admin/class-suki-admin.php:563
 msgid "Your website is now in good hands! Suki offers highly customizable design and lightning fast performance. Learn more about its full features and premium modules at <a href=\"%s\">our website</a>."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:566
+#: inc/admin/class-suki-admin.php:568
 msgid "Quick Links to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:571
+#: inc/admin/class-suki-admin.php:573
 msgid "Page Layout"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:575, inc/customizer/options/_sections.php:75
+#: inc/admin/class-suki-admin.php:577, inc/customizer/options/_sections.php:75
 msgid "General Elements"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:579, inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:156
+#: inc/admin/class-suki-admin.php:581, inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:156
 msgid "Header Builder"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:591, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:322
+#: inc/admin/class-suki-admin.php:593, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:322
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:620
+#: inc/admin/class-suki-admin.php:622
 msgid "More features are available on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:641
+#: inc/admin/class-suki-admin.php:643
 msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:675
+#: inc/admin/class-suki-admin.php:677
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:688
+#: inc/admin/class-suki-admin.php:690
 msgid "Premium Modules"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:688
+#: inc/admin/class-suki-admin.php:690
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:690
+#: inc/admin/class-suki-admin.php:692
 msgid "Get more flexibility and stunning design options on Suki Pro, available in a very affordable price."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:694
+#: inc/admin/class-suki-admin.php:696
 msgctxt "Suki Pro upsell"
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:708
+#: inc/admin/class-suki-admin.php:710
 msgid "Import Starter Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:710
+#: inc/admin/class-suki-admin.php:712
 msgid "Kickstart your project with our growing pre-made sites library, easily import with simple clicks."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:716
+#: inc/admin/class-suki-admin.php:718
 msgid "Browse and Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:722
+#: inc/admin/class-suki-admin.php:724
 msgid "Install \"Suki Sites Import\""
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:737
+#: inc/admin/class-suki-admin.php:739
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:739
+#: inc/admin/class-suki-admin.php:741
 msgid "Not sure how something works? Our documentation might help you figure out the solution."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:743
+#: inc/admin/class-suki-admin.php:745
 msgid "Go to Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:757
+#: inc/admin/class-suki-admin.php:759
 msgid "Suki Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:759
+#: inc/admin/class-suki-admin.php:761
 msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:763
+#: inc/admin/class-suki-admin.php:765
 msgid "Join our Facebook Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:777
+#: inc/admin/class-suki-admin.php:779
 msgid "Enjoy Suki?"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:779
+#: inc/admin/class-suki-admin.php:781
 msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:783
+#: inc/admin/class-suki-admin.php:785
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:415
+#: inc/customizer/class-suki-customizer.php:416
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:418
+#: inc/customizer/class-suki-customizer.php:419
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:442
+#: inc/customizer/class-suki-customizer.php:443
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:446
+#: inc/customizer/class-suki-customizer.php:447
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:448
+#: inc/customizer/class-suki-customizer.php:449
 msgid "These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor."
 msgstr ""
 
@@ -1090,7 +1090,7 @@ msgid "Heading text color"
 msgstr ""
 
 #: inc/customizer/options/elements--headings.php:58
-msgid "Heading text color :hover"
+msgid "Heading link text color :hover"
 msgstr ""
 
 #: inc/customizer/options/elements--meta.php:41
@@ -1118,7 +1118,7 @@ msgid "Small Title text color"
 msgstr ""
 
 #: inc/customizer/options/elements--small-title.php:55
-msgid "Small Title text color :hover"
+msgid "Small Title link text color :hover"
 msgstr ""
 
 #: inc/customizer/options/elements--title.php:41
@@ -1130,7 +1130,7 @@ msgid "Title text color"
 msgstr ""
 
 #: inc/customizer/options/elements--title.php:55
-msgid "Title text color :hover"
+msgid "Title link text color :hover"
 msgstr ""
 
 #: inc/customizer/options/footer--bottom-bar.php:27

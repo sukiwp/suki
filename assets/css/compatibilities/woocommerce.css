@@ -73,11 +73,11 @@
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #333333;
-	border-color: #333333;
+	background-color: #1976d2;
+	border-color: #1976d2;
 	font-size: 1rem;
 	font-style: inherit;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: normal;
 	letter-spacing: inherit;
 	text-transform: inherit;
@@ -138,8 +138,8 @@
 .woocommerce input.button.alt:disabled[disabled]:hover,
 .woocommerce input.button.alt:disabled[disabled]:focus {
 	color: #ffffff;
-	background-color: #666666;
-	border-color: #666666;
+	background-color: #145ea8;
+	border-color: #145ea8;
 }
 
 .woocommerce #respond input#submit:after,
@@ -204,6 +204,7 @@ p.demo_store a {
 
 .woocommerce .woocommerce-breadcrumb {
 	font-size: 0.9em;
+	color: inherit;
 }
 
 .woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter {
@@ -212,6 +213,14 @@ p.demo_store a {
 
 .woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter:before {
 	content: "\00BB";
+}
+
+.woocommerce .woocommerce-breadcrumb a {
+	color: inherit;
+}
+
+.woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus {
+	color: #333333;
 }
 
 .woocommerce span.onsale {
@@ -328,7 +337,11 @@ p.demo_store a {
 
 .woocommerce ul.products li.product a.woocommerce-loop-product__link {
 	display: block;
-	color: inherit;
+	color: #333333;
+}
+
+.woocommerce ul.products li.product a.woocommerce-loop-product__link:hover, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus {
+	color: #1976d2;
 }
 
 .woocommerce ul.products li.product a.added_to_cart {
@@ -459,10 +472,12 @@ p.demo_store a {
 .woocommerce nav.woocommerce-pagination ul li a {
 	padding: 0;
 	background-color: transparent;
+	color: #1976d2;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
+	color: #333333;
 }
 
 .woocommerce div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce-page #content div.product div.images {
@@ -651,7 +666,7 @@ p.demo_store a {
 .woocommerce div.product .woocommerce-tabs > .panel > h2:first-child {
 	font-size: 22px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
@@ -665,12 +680,21 @@ p.demo_store a {
 	margin: 0.5rem 0;
 	font-size: 0.85em;
 	line-height: 1.7;
+	color: inherit;
 }
 
 .woocommerce div.product .woocommerce-product-rating .star-rating {
 	float: none;
 	display: inline-block;
 	margin-top: 0;
+}
+
+.woocommerce div.product .woocommerce-product-rating a {
+	color: inherit;
+}
+
+.woocommerce div.product .woocommerce-product-rating a:hover, .woocommerce div.product .woocommerce-product-rating a:focus {
+	color: #1976d2;
 }
 
 .woocommerce div.product p.price, .woocommerce div.product span.price {
@@ -752,6 +776,15 @@ p.demo_store a {
 	border-top-style: solid;
 	font-size: 0.85em;
 	line-height: 1.7;
+	color: inherit;
+}
+
+.woocommerce div.product .product_meta a {
+	color: inherit;
+}
+
+.woocommerce div.product .product_meta a:hover, .woocommerce div.product .product_meta a:focus {
+	color: #1976d2;
 }
 
 .woocommerce div.product .product_meta > * {
@@ -761,7 +794,7 @@ p.demo_store a {
 .woocommerce div.product #reviews #comments > h2 {
 	font-size: 22px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
@@ -828,7 +861,7 @@ p.demo_store a {
 }
 
 .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author {
-	font-weight: normal;
+	font-weight: 600;
 	color: #333333;
 }
 
@@ -847,6 +880,15 @@ p.demo_store a {
 .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date {
 	font-size: 0.85em;
 	line-height: 1.7;
+	color: inherit;
+}
+
+.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a {
+	color: inherit;
+}
+
+.woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:hover, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date a:focus {
+	color: #1976d2;
 }
 
 .woocommerce div.product #reviews #review_form #respond {
@@ -874,7 +916,7 @@ p.demo_store a {
 .woocommerce div.product .products h2 {
 	font-size: 22px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
@@ -937,10 +979,10 @@ p.demo_store a {
 	padding: 10px 12px;
 	border-width: 1px;
 	border-style: solid;
+	border-color: inherit;
 	border-radius: 3px;
-	color: #666666;
+	color: inherit;
 	background-color: #f6f6f6;
-	border-color: #e5e5e5;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -951,9 +993,7 @@ p.demo_store a {
 }
 
 .woocommerce table.cart td.actions .coupon .input-text:focus, .woocommerce #content table.cart td.actions .coupon .input-text:focus, .woocommerce-page table.cart td.actions .coupon .input-text:focus, .woocommerce-page #content table.cart td.actions .coupon .input-text:focus {
-	color: #666666;
 	background-color: #ffffff;
-	border-color: #e5e5e5;
 }
 
 .woocommerce table.cart .product-remove, .woocommerce #content table.cart .product-remove, .woocommerce-page table.cart .product-remove, .woocommerce-page #content table.cart .product-remove {
@@ -1088,7 +1128,7 @@ p.demo_store a {
 .woocommerce-cart .cart-collaterals h2 {
 	font-size: 22px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
@@ -1111,7 +1151,7 @@ p.demo_store a {
 	display: inline-block;
 	margin-bottom: 0;
 	font-size: 1.15rem;
-	padding: 13px 15.6px;
+	padding: 13px 26px;
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals .woocommerce-shipping-calculator {
@@ -1148,7 +1188,7 @@ p.demo_store a {
 .woocommerce .woocommerce-checkout h3 {
 	font-size: 22px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
@@ -1267,7 +1307,7 @@ p.demo_store a {
 	float: none;
 	width: 100%;
 	font-size: 1.15rem;
-	padding: 13px 15.6px;
+	padding: 13px 26px;
 }
 
 .woocommerce .woocommerce-customer-details address {
@@ -1365,7 +1405,7 @@ p.demo_store a {
 
 .woocommerce-account .suki-woocommerce-MyAccount-user .info .name {
 	display: block;
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-user .info .logout {
@@ -1391,7 +1431,7 @@ p.demo_store a {
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul li a {

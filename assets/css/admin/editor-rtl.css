@@ -60,7 +60,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hov
 h1 {
 	font-size: 32px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.4;
 	letter-spacing: 0;
 	text-transform: none;
@@ -69,7 +69,7 @@ h1 {
 h2 {
 	font-size: 27px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
@@ -78,7 +78,7 @@ h2 {
 h3 {
 	font-size: 22px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
@@ -87,7 +87,7 @@ h3 {
 h4 {
 	font-size: 17px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.7;
 	letter-spacing: 0;
 	text-transform: none;
@@ -96,7 +96,7 @@ h4 {
 h5, h6 {
 	font-size: 17px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.7;
 	letter-spacing: 0;
 	text-transform: none;
@@ -454,7 +454,7 @@ p.has-drop-cap:not(:focus):first-letter {
 	font-family: inherit;
 	font-size: 3.4em;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	margin: 0 0 0 0.25em;
 	text-transform: uppercase;
 	initial-letter: 2;
@@ -535,7 +535,7 @@ p.wp-block-subhead {
 	padding: 0.5em;
 	font-size: 27px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
@@ -583,11 +583,11 @@ p.wp-block-subhead {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #333333;
-	border-color: #333333;
+	background-color: #1976d2;
+	border-color: #1976d2;
 	font-size: 1rem;
 	font-style: inherit;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: normal;
 	letter-spacing: inherit;
 	text-transform: inherit;
@@ -600,8 +600,8 @@ p.wp-block-subhead {
 
 .wp-block-button__link:hover, .wp-block-button__link:focus {
 	color: #ffffff;
-	background-color: #666666;
-	border-color: #666666;
+	background-color: #145ea8;
+	border-color: #145ea8;
 }
 
 .wp-block-embed .suki-oembed {
@@ -686,7 +686,7 @@ body.mce-content-body a[data-mce-selected] {
 .editor-post-title__block .editor-post-title__input {
 	font-size: 32px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.4;
 	letter-spacing: 0;
 	text-transform: none;
@@ -729,11 +729,11 @@ body.mce-content-body a[data-mce-selected] {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #333333;
-	border-color: #333333;
+	background-color: #1976d2;
+	border-color: #1976d2;
 	font-size: 1rem;
 	font-style: inherit;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: normal;
 	letter-spacing: inherit;
 	text-transform: inherit;
@@ -748,8 +748,8 @@ body.mce-content-body a[data-mce-selected] {
 
 .wp-block-button a.wp-block-button__link:hover, .wp-block-button a.wp-block-button__link:focus, .wp-block-button .wp-block-button__link[role="textbox"]:hover, .wp-block-button .wp-block-button__link[role="textbox"]:focus {
 	color: #ffffff;
-	background-color: #666666;
-	border-color: #666666;
+	background-color: #145ea8;
+	border-color: #145ea8;
 }
 
 .editor-rich-text__tinymce {

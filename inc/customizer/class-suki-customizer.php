@@ -344,6 +344,7 @@ class Suki_Customizer {
 			'white'             => '#ffffff',
 			'black'             => '#000000',
 			'accent'            => '#1976d2',
+			'accent2'           => '#145ea8',
 			'bg'                => '#ffffff',
 			'text'              => '#666666',
 			'heading'           => '#333333',

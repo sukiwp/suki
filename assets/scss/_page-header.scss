@@ -21,16 +21,6 @@
 	}
 }
 
-.suki-page-header {
-	a {
-		color: $color_text; // default
-
-		&:hover, &:focus {
-			color: $color_accent; // default
-		}
-	}
-}
-
 .suki-page-header-layout-left-right {
 	text-align: left;
 

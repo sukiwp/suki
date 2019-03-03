@@ -142,23 +142,18 @@ input, select, textarea {
 }
 
 .suki-admin-color-control {
-	display: inline-block;
-
 	.wp-picker-container {
+		display: table;
+		margin-left: auto;
 
 		.wp-color-result.button {
 			margin: 0;
 			width: 30px;
 			height: 24px;
 			border: none;
-			border-radius: 0;
-			box-shadow: none;
-		}
-
-		.color-alpha {
 			border-radius: 0 !important;
 			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
-			
+
 			&:after {
 				content: "not set";
 				position: absolute;
@@ -176,7 +171,7 @@ input, select, textarea {
 				color: #444;
 			}
 
-			&[style*="background:"] {
+			&[style*="background"] {
 				&:after {
 					display: none;
 				}
@@ -188,6 +183,7 @@ input, select, textarea {
 		}
 
 		.wp-picker-input-wrap {
+			display: none;
 			position: relative;
 			padding-right: 60px;
 			margin-top: 6px;
@@ -204,8 +200,12 @@ input, select, textarea {
 			}
 		}
 
-		.wp-picker-open + .wp-picker-input-wrap {
+		&.wp-picker-active .wp-picker-input-wrap {
 			display: block;
+		}
+
+		.wp-picker-holder {
+			margin-top: 6px;
 		}
 	}
 }
@@ -458,7 +458,7 @@ input, select, textarea {
 
 	.suki-admin-logo {
 		font-size: 1.5em;
-		font-weight: 500;
+		font-weight: 600;
 		line-height: 30px;
 
 		img {
