@@ -313,26 +313,24 @@
 }
 
 .suki-header-section {
-	&, &-vertical {
-		&-inner, .menu .sub-menu {
-			background-color: $color_bg; // default
-		}
+	&-inner, .menu .sub-menu {
+		background-color: $color_bg; // default
+	}
 
-		&, .menu .sub-menu {
-			a:not(.button), .suki-toggle {
-				color: $color_heading; // default
+	&, .menu .sub-menu {
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
 
-				&:hover, &:focus {
-					color: $color_accent; // default
-				}
+			&:hover, &:focus {
+				color: $color_accent; // default
 			}
 		}
+	}
 
-		.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-			&:hover, &:focus {
-				&:after {
-					background-color: $color_border; // default
-				}
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_border; // default
 			}
 		}
 	}
@@ -426,6 +424,30 @@
 }
 
 .suki-header-section-vertical {
+	&-inner, .menu .sub-menu {
+		background-color: $color_bg; // default
+	}
+
+	&, .menu .sub-menu {
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
+		}
+	}
+
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_border; // default
+			}
+		}
+	}
+}
+
+.suki-header-section-vertical {
 	ul {
 		list-style: none;
 		margin: 0;
@@ -433,19 +455,19 @@
 	}
 }
 
-.suki-header-vertical-inner {
+.suki-header-section-vertical-inner {
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
 }
 
-.suki-header-vertical-column {
+.suki-header-section-vertical-column {
 	@include flex();
 	flex-direction: column;
 	height: 100%;
 }
 
-.suki-header-vertical-row {
+.suki-header-section-vertical-row {
 	width: 100%;
 
 	&,
@@ -597,25 +619,13 @@
 		@include transition( transform 0.25s 0.125s );
 	}
 
-	&-inner {
-		background-color: $color_bg; // default
-	}
-
-	.suki-header-vertical-column {
+	.suki-header-section-vertical-column {
 		padding: 30px; // default
 	}
 
-	.suki-header-vertical-row {
+	.suki-header-section-vertical-row {
 		&, > * {
 			padding: 12px 0; // default
-		}
-	}
-
-	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
 		}
 	}
 }

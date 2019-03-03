@@ -279,9 +279,9 @@ function suki_mobile_vertical_header() {
 			<div class="suki-popup-background suki-popup-close"></div>
 
 			<div class="suki-header-mobile-vertical-bar suki-header-section-vertical">
-				<div class="suki-header-mobile-vertical-bar-inner suki-header-vertical-inner">
-					<div class="suki-header-vertical-column">
-						<div class="suki-header-mobile-vertical-bar-top suki-header-vertical-row suki-flex-align-left">
+				<div class="suki-header-mobile-vertical-bar-inner suki-header-section-vertical-inner">
+					<div class="suki-header-section-vertical-column">
+						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row suki-flex-align-left">
 							<?php foreach ( $elements as $element ) suki_header_element( $element ); ?>
 						</div>
 					</div>

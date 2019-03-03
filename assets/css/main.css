@@ -1989,19 +1989,19 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin-right: -0.5em;
 }
 
-.suki-header-section-inner, .suki-header-section .menu .sub-menu, .suki-header-section-vertical-inner, .suki-header-section-vertical .menu .sub-menu {
+.suki-header-section-inner, .suki-header-section .menu .sub-menu {
 	background-color: #ffffff;
 }
 
-.suki-header-section a:not(.button), .suki-header-section .suki-toggle, .suki-header-section .menu .sub-menu a:not(.button), .suki-header-section .menu .sub-menu .suki-toggle, .suki-header-section-vertical a:not(.button), .suki-header-section-vertical .suki-toggle, .suki-header-section-vertical .menu .sub-menu a:not(.button), .suki-header-section-vertical .menu .sub-menu .suki-toggle {
+.suki-header-section a:not(.button), .suki-header-section .suki-toggle, .suki-header-section .menu .sub-menu a:not(.button), .suki-header-section .menu .sub-menu .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-section a:not(.button):hover, .suki-header-section a:not(.button):focus, .suki-header-section .suki-toggle:hover, .suki-header-section .suki-toggle:focus, .suki-header-section .menu .sub-menu a:not(.button):hover, .suki-header-section .menu .sub-menu a:not(.button):focus, .suki-header-section .menu .sub-menu .suki-toggle:hover, .suki-header-section .menu .sub-menu .suki-toggle:focus, .suki-header-section-vertical a:not(.button):hover, .suki-header-section-vertical a:not(.button):focus, .suki-header-section-vertical .suki-toggle:hover, .suki-header-section-vertical .suki-toggle:focus, .suki-header-section-vertical .menu .sub-menu a:not(.button):hover, .suki-header-section-vertical .menu .sub-menu a:not(.button):focus, .suki-header-section-vertical .menu .sub-menu .suki-toggle:hover, .suki-header-section-vertical .menu .sub-menu .suki-toggle:focus {
+.suki-header-section a:not(.button):hover, .suki-header-section a:not(.button):focus, .suki-header-section .suki-toggle:hover, .suki-header-section .suki-toggle:focus, .suki-header-section .menu .sub-menu a:not(.button):hover, .suki-header-section .menu .sub-menu a:not(.button):focus, .suki-header-section .menu .sub-menu .suki-toggle:hover, .suki-header-section .menu .sub-menu .suki-toggle:focus {
 	color: #1976d2;
 }
 
-.suki-header-section .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-section .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after, .suki-header-section-vertical .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-section-vertical .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after {
+.suki-header-section .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-section .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after {
 	background-color: #e5e5e5;
 }
 
@@ -2088,19 +2088,35 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	right: auto;
 }
 
+.suki-header-section-vertical-inner, .suki-header-section-vertical .menu .sub-menu {
+	background-color: #ffffff;
+}
+
+.suki-header-section-vertical a:not(.button), .suki-header-section-vertical .suki-toggle, .suki-header-section-vertical .menu .sub-menu a:not(.button), .suki-header-section-vertical .menu .sub-menu .suki-toggle {
+	color: #333333;
+}
+
+.suki-header-section-vertical a:not(.button):hover, .suki-header-section-vertical a:not(.button):focus, .suki-header-section-vertical .suki-toggle:hover, .suki-header-section-vertical .suki-toggle:focus, .suki-header-section-vertical .menu .sub-menu a:not(.button):hover, .suki-header-section-vertical .menu .sub-menu a:not(.button):focus, .suki-header-section-vertical .menu .sub-menu .suki-toggle:hover, .suki-header-section-vertical .menu .sub-menu .suki-toggle:focus {
+	color: #1976d2;
+}
+
+.suki-header-section-vertical .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-section-vertical .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after {
+	background-color: #e5e5e5;
+}
+
 .suki-header-section-vertical ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.suki-header-vertical-inner {
+.suki-header-section-vertical-inner {
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
 }
 
-.suki-header-vertical-column {
+.suki-header-section-vertical-column {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -2119,17 +2135,17 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	height: 100%;
 }
 
-.suki-header-vertical-row {
+.suki-header-section-vertical-row {
 	width: 100%;
 }
 
-.suki-header-vertical-row:first-child,
-.suki-header-vertical-row > *:first-child {
+.suki-header-section-vertical-row:first-child,
+.suki-header-section-vertical-row > *:first-child {
 	padding-top: 0 !important;
 }
 
-.suki-header-vertical-row:last-child,
-.suki-header-vertical-row > *:last-child {
+.suki-header-section-vertical-row:last-child,
+.suki-header-section-vertical-row > *:last-child {
 	padding-bottom: 0 !important;
 }
 
@@ -2261,24 +2277,12 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	backface-visibility: hidden;
 }
 
-.suki-header-mobile-vertical-bar-inner {
-	background-color: #ffffff;
-}
-
-.suki-header-mobile-vertical-bar .suki-header-vertical-column {
+.suki-header-mobile-vertical-bar .suki-header-section-vertical-column {
 	padding: 30px;
 }
 
-.suki-header-mobile-vertical-bar .suki-header-vertical-row, .suki-header-mobile-vertical-bar .suki-header-vertical-row > * {
+.suki-header-mobile-vertical-bar .suki-header-section-vertical-row, .suki-header-mobile-vertical-bar .suki-header-section-vertical-row > * {
 	padding: 12px 0;
-}
-
-.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle {
-	color: #333333;
-}
-
-.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus {
-	color: #666666;
 }
 
 .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {

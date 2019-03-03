@@ -1012,7 +1012,7 @@ $add['header_mobile_vertical_bar_padding'] = array(
 $add['header_mobile_vertical_bar_items_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .suki-header-vertical-row, .suki-header-mobile-vertical-bar .suki-header-vertical-row > *',
+		'element'  => '.suki-header-mobile-vertical-bar .suki-header-section-vertical-row, .suki-header-mobile-vertical-bar .suki-header-section-vertical-row > *',
 		'property' => 'padding',
 		'pattern'  => '$ 0',
 	),
