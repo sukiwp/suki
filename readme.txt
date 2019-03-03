@@ -53,9 +53,9 @@ normalize.css, by Nicolas Gallagher and Jonathan Neal
 License: MIT
 Source: https://necolas.github.io/normalize.css
 
-WP Color Picker Alpha, by Sergio (kallookoo)
-License: GPLv2 or later
-Source: https://github.com/kallookoo/wp-color-picker-alpha
+Alpha Color Picker for WordPress, by Braad Martin
+License: GPL
+Source: https://github.com/BraadMartin/components/tree/master/alpha-color-picker
 
 Simple Icons
 License: CC0 1.0 Universal

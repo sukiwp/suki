@@ -266,34 +266,9 @@
 	wp.customize.controlConstructor['suki-color'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
-				updating = false,
-				$picker = control.container.find( '.color-picker-hex' );
+				$picker = control.container.find( '.color-picker' );
 
-			$picker.wpColorPicker({
-				change: function() {
-					control.setting.set( $picker.wpColorPicker( 'color' ) );
-				},
-				clear: function() {
-					control.setting.set( '' );
-				},
-			});
-
-			// Collapse color picker when hitting Esc instead of collapsing the current section.
-			control.container.on( 'keydown', function( event ) {
-				var $pickerContainer;
-
-				if ( 27 !== event.which ) { // Esc.
-					return;
-				}
-
-				$pickerContainer = control.container.find( '.wp-picker-container' );
-
-				if ( $pickerContainer.hasClass( 'wp-picker-active' ) ) {
-					picker.wpColorPicker( 'close' );
-					control.container.find( '.wp-color-result' ).focus();
-					event.stopPropagation(); // Prevent section from being collapsed.
-				}
-			} );
+			$picker.alphaColorPicker();
 		}
 	});
 

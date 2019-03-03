@@ -42,7 +42,8 @@ class Suki_Customize_Control_Color extends Suki_Customize_Control {
 	 * Enqueue additional control's CSS or JS scripts.
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'wp-color-picker-alpha' );
+		wp_enqueue_script( 'alpha-color-picker' );
+		wp_enqueue_style( 'alpha-color-picker' );
 	}
 
 	/**
@@ -57,7 +58,7 @@ class Suki_Customize_Control_Color extends Suki_Customize_Control {
 			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
 		<div class="customize-control-content suki-colorpicker suki-colorpicker-{{ data.alpha ? 'with-alpha' : 'no-alpha' }}">
-			<input value="{{ data.value }}" type="text" maxlength="30" class="color-picker-hex" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="{{ data.default }}" data-alpha="{{ data.alpha }}"  data-custom-width="false" {{{ data.__link }}}>
+			<input value="{{ data.value }}" type="text" maxlength="30" class="color-picker" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="{{ data.default }}" data-show-opacity="{{ data.alpha }}"  data-custom-width="false" {{{ data.__link }}}>
 		</div>
 		<?php
 	}

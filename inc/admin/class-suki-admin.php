@@ -123,6 +123,9 @@ class Suki_Admin {
 		 */
 		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
 
+		// Register CSS files
+		wp_register_style( 'alpha-color-picker', SUKI_CSS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.css', array( 'wp-color-picker' ), SUKI_VERSION );
+
 		// Enqueue CSS files
 		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
@@ -141,7 +144,6 @@ class Suki_Admin {
 	public function enqueue_admin_javascripts( $hook ) {
 		// Fetched version from package.json
 		$ver = array();
-		$ver['wp-color-picker-alpha'] = '2.1.3';
 
 		/**
 		 * Hook: Styles to be included before admin JS
@@ -149,7 +151,7 @@ class Suki_Admin {
 		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
 
 		// Register JS files
-		wp_register_script( 'wp-color-picker-alpha', SUKI_JS_URL . '/vendors/wp-color-picker-alpha' . SUKI_ASSETS_SUFFIX . '.js', array( 'wp-color-picker' ), $ver['wp-color-picker-alpha'], true );
+		wp_register_script( 'alpha-color-picker', SUKI_JS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery', 'wp-color-picker' ), SUKI_VERSION, true );
 
 		// Enqueue JS files.
 		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );

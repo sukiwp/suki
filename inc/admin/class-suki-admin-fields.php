@@ -146,17 +146,18 @@ class Suki_Admin_Fields {
 	private static function render_color( $args ) {
 		if ( ! isset( $args['name'] ) ) return;
 
-		wp_enqueue_script( 'wp-color-picker-alpha' );
+		wp_enqueue_script( 'alpha-color-picker' );
 
 		$args = wp_parse_args( $args, array(
 			'value'       => '',
 			'default'     => '',
 			'label'       => '',
 			'class'       => '',
+			'alpha'       => true,
 		) );
 		?>
 		<div class="suki-admin-color-control">
-			<input type="text" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" maxlength="30" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="<?php echo esc_attr( $args['default'] ); ?>" data-alpha="true" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+			<input type="text" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" maxlength="30" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="<?php echo esc_attr( $args['default'] ); ?>" data-show-opacity="<?php echo esc_attr( $args['alpha'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
 		</div>
 		<?php
 	}
