@@ -64,92 +64,92 @@ msgstr ""
 msgid "Footer Widgets Column %s"
 msgstr ""
 
-#: inc/helpers.php:431
+#: inc/helpers.php:434
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:436
+#: inc/helpers.php:439
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:441
+#: inc/helpers.php:444
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:446
+#: inc/helpers.php:449
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:451
+#: inc/helpers.php:454
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:456
+#: inc/helpers.php:459
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:461
+#: inc/helpers.php:464
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:466, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:469, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:471
+#: inc/helpers.php:474
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:476
+#: inc/helpers.php:479
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:481, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:484, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:486
+#: inc/helpers.php:489
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:491
+#: inc/helpers.php:494
 msgid "Advanced Blog"
 msgstr ""
 
-#: inc/helpers.php:496
+#: inc/helpers.php:499
 msgid "Advanced WooCommerce"
 msgstr ""
 
-#: inc/helpers.php:501
+#: inc/helpers.php:504
 msgid "White Label"
-msgstr ""
-
-#: inc/helpers.php:638
-msgctxt "icon label"
-msgid "Search"
-msgstr ""
-
-#: inc/helpers.php:639
-msgctxt "icon label"
-msgid "Close"
-msgstr ""
-
-#: inc/helpers.php:640
-msgctxt "icon label"
-msgid "Menu"
 msgstr ""
 
 #: inc/helpers.php:641
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Down"
+msgid "Search"
 msgstr ""
 
 #: inc/helpers.php:642
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Right"
+msgid "Close"
 msgstr ""
 
 #: inc/helpers.php:643
+msgctxt "icon label"
+msgid "Menu"
+msgstr ""
+
+#: inc/helpers.php:644
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Down"
+msgstr ""
+
+#: inc/helpers.php:645
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Right"
+msgstr ""
+
+#: inc/helpers.php:646
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:377
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:383
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -552,26 +552,26 @@ msgstr ""
 msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:416
+#: inc/customizer/class-suki-customizer.php:419
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:419
+#: inc/customizer/class-suki-customizer.php:422
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:443
+#: inc/customizer/class-suki-customizer.php:446
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:447
+#: inc/customizer/class-suki-customizer.php:450
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:449
+#: inc/customizer/class-suki-customizer.php:452
 msgid "These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor."
 msgstr ""
 
@@ -628,7 +628,7 @@ msgstr ""
 msgid "Sidebar used in WooCommerce pages"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:706
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:770
 msgid "Logout"
 msgstr ""
 
@@ -1359,7 +1359,7 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
-#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:118, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:102
+#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:118, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:102
 msgctxt "Suki Pro upsell"
 msgid "More Options on Suki Pro"
 msgstr ""
@@ -1969,18 +1969,22 @@ msgstr ""
 msgid "Cross-sells grid columns"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:74, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:52
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:74
 msgctxt "Suki Pro upsell"
-msgid "Distraction Free mode"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:75
-msgctxt "Suki Pro upsell"
-msgid "Mobile floating checkout bar"
+msgid "Sticky checkout button on tablet & mobile"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:35
 msgid "Use 2 columns layout"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:36
+msgid "Divide the content into 2 columns: billing details and payment methods."
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:53
+msgctxt "Suki Pro upsell"
+msgid "Distraction Free mode"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:23
@@ -2029,6 +2033,11 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:104
 msgid "Show products filter"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:121
+msgctxt "Suki Pro upsell"
+msgid "Enable off-canvas filters"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:41
@@ -2097,17 +2106,12 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:279
 msgctxt "Suki Pro upsell"
-msgid "More \"add to cart\" styles"
+msgid "Enable AJAX add to cart"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
 msgctxt "Suki Pro upsell"
-msgid "More gallery styles"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:281
-msgctxt "Suki Pro upsell"
-msgid "More info tabs styles"
+msgid "More Gallery layout"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:22
@@ -2128,22 +2132,17 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:105
 msgctxt "Suki Pro upsell"
-msgid "Change grid item's padding and border"
+msgid "Change grid item's style"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:106
 msgctxt "Suki Pro upsell"
-msgid "Change grid item's background color"
+msgid "Enable alternate hover image"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:107
 msgctxt "Suki Pro upsell"
-msgid "Change \"add to cart\" buttons width"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:108
-msgctxt "Suki Pro upsell"
-msgid "Enable alternate hover image"
+msgid "Enable quick view"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:25
@@ -2162,14 +2161,14 @@ msgstr ""
 msgid "Checkout Page"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/_sections.php:56
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:53
 msgid "Products Grid"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/_sections.php:57
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:54
 msgid "Global styles for products grid as used in main product catalog page, related products, up-sells, cross-sells, and products shortcodes."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/_sections.php:64
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:70
 msgid "Other Elements"
 msgstr ""

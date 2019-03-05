@@ -71,8 +71,7 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
-			esc_html_x( 'Distraction Free mode', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Mobile floating checkout bar', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Sticky checkout button on tablet & mobile', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

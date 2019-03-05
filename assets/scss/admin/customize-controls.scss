@@ -269,10 +269,10 @@ li:not(.customize-info) div.customize-section-description {
 		top: 0;
 		right: 0;
 		display: inline-block;
-		width: 35px;
-		height: 20px;
-		margin: 2px 0 0;
-		border-radius: 10px;
+		width: 30px;
+		height: 18px;
+		margin: 3px 0 0;
+		border-radius: 15px;
 		background-color: #ccc;
 
 		.suki-toggle-ui-handle {
@@ -281,9 +281,9 @@ li:not(.customize-info) div.customize-section-description {
 			left: 0;
 			margin: 2px;
 			display: inline-block;
-			width: 16px;
-			height: 16px;
-			border-radius: 8px;
+			width: 14px;
+			height: 14px;
+			border-radius: 15px;
 			background-color: #fff;
 			@include transition();
 		}
@@ -374,7 +374,12 @@ li:not(.customize-info) div.customize-section-description {
 		}
 
 		.wp-picker-holder {
+			display: none;
 			margin-top: 6px;
+		}
+
+		&.wp-picker-active .wp-picker-holder {
+			display: block;
 		}
 	}
 }

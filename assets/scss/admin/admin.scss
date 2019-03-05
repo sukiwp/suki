@@ -205,7 +205,12 @@ input, select, textarea {
 		}
 
 		.wp-picker-holder {
+			display: none;
 			margin-top: 6px;
+		}
+
+		&.wp-picker-active .wp-picker-holder {
+			display: block;
 		}
 	}
 }

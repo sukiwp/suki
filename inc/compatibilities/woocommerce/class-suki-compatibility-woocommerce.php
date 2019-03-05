@@ -194,9 +194,9 @@ class Suki_Compatibility_WooCommerce {
 		// Reposition product image and wrap it with custom <div>.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper' ), 2 );
-		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 3 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 5 );
 		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_thumbnail', 10 );
-		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_close', 19 );
+		add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_close', 15 );
 		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 20 );
 
 		// Wrap the title with link.
@@ -210,19 +210,25 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'loop_shop_columns', array( $this, 'set_loop_columns' ) );
 
 		/**
-		 * Products page's template hooks
+		 * Product page's template hooks
 		 */
 
-		// Wrap images and summary
-		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_images_summary_wrapper' ), 1 );
-		add_action( 'woocommerce_after_single_product_summary', array( $this, 'render_product_images_summary_wrapper_end' ), 1 );
+		// Add a new filter to add additional classes to single product wrapper.
+		add_action( 'woocommerce_before_single_product', array( $this, 'add_single_product_class' ) );
 
-		// Reposition sale badge on product page.
+		// Add class to single product gallery for single image or multiple images.
+		add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_single_product_gallery_class' ) );
+
+		// Move sale badge
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 		add_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 21 );
 
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );
+
+		// Add wrapper to single product add to cart form.
+		add_filter( 'woocommerce_before_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper' ) );
+		add_filter( 'woocommerce_after_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper_end' ) );
 
 		// Related products
 		add_filter( 'woocommerce_related_products_args', array( $this, 'set_related_products_args' ) );
@@ -232,6 +238,13 @@ class Suki_Compatibility_WooCommerce {
 		// Up sells
 		add_filter( 'woocommerce_up_sells_columns', array( $this, 'set_up_sells_columns' ) );
 		add_filter( 'woocommerce_upsell_display_args', array( $this, 'set_up_sells_display_args' ) );
+
+		/**
+		 * Cart page's template hooks
+		 */
+
+		// Cross sells columns
+		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
 
 		/**
 		 * Checkout page's template hooks
@@ -244,13 +257,6 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_2' ), 999 );
 		add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_wrapper_column_2_end' ), 999 );
 		add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_wrapper_end' ), 999 );
-
-		/**
-		 * Cart page's template hooks
-		 */
-
-		// Cross sells columns
-		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
 
 		/**
 		 * My Account page's template hooks
@@ -434,6 +440,20 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Add opening add to cart form's wrapper tag.
+	 */
+	public function render_add_to_cart_form_wrapper() {
+		?><div class="suki-product-add-to-cart <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array() ) ) ); ?>"><?php
+	}
+
+	/**
+	 * Add closing add to cart form's wrapper tag.
+	 */
+	public function render_add_to_cart_form_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
 	 * Add items count to Cart menu item.
 	 *
 	 * @param string $title
@@ -543,6 +563,50 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_product_thumbnails_columns( $columns ) {
 		return 8;
+	}
+
+	/**
+	 * Add some classes on single product wrapper on single product template.
+	 *
+	 * @param array $classes
+	 * @param array $class
+	 * @param integer $post_id
+	 * @return array
+	 */
+	public function add_single_product_class() {
+		add_filter( 'post_class', array( $this, 'add_single_product_class_filter' ), 10, 3 );
+	}
+
+	/**
+	 * Add some classes on single product wrapper via filter.
+	 *
+	 * @param array $classes
+	 * @param array $class
+	 * @param integer $post_id
+	 * @return array
+	 */
+	public function add_single_product_class_filter( $classes, $class, $post_id ) {
+		$classes = apply_filters( 'suki/frontend/woocommerce/single_product_classes', $classes );
+		
+		return $classes;
+	}
+
+	/**
+	 * Add class on single product gallery whether it contains single image or multiple images.
+	 *
+	 * @param array $classes
+	 * @return array
+	 */
+	public function add_single_product_gallery_class( $classes ) {
+		global $product;
+
+		$gallery_ids = $product->get_gallery_image_ids();
+
+		if ( 0 < count( $gallery_ids ) ) {
+			$classes['suki-single-gallery-multiple-images'] = esc_attr( 'suki-woocommerce-single-gallery-multiple-images' );
+		}
+		
+		return $classes;
 	}
 
 	/**

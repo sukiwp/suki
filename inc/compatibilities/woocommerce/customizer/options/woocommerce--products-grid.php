@@ -102,10 +102,9 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
-			esc_html_x( 'Change grid item\'s padding and border', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Change grid item\'s background color', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Change "add to cart" buttons width', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Change grid item\'s style', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Enable alternate hover image', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Enable quick view', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

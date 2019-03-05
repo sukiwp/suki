@@ -134,7 +134,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Tabs', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 40,
 ) ) );
 
 // Show tabs
@@ -146,7 +146,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show tabs', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 40,
 ) ) );
 
 
@@ -161,7 +161,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Up-Sells', 'suki' ),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 // Show up-sells
@@ -174,7 +174,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'section'     => $section,
 	'label'       => esc_html__( 'Show up-sells', 'suki' ),
 	'description' => esc_html__( 'Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells.', 'suki' ),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 // Up-sells columns
@@ -194,7 +194,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'label' => 'col',
 		),
 	),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 /**
@@ -208,7 +208,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Related Products', 'suki' ),
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Show related products
@@ -221,7 +221,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 	'section'     => $section,
 	'label'       => esc_html__( 'Show related products', 'suki' ),
 	'description' => esc_html__( 'Display linked products and similar products within same categories or tags. Products that have been displayed on "Up-sells" section will not be included.', 'suki' ),
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Related products posts per page
@@ -240,7 +240,7 @@ $wp_customize->add_control( $id, array(
 		'max'  => 12,
 		'step' => 1,
 	),
-	'priority'    => 50,
+	'priority'    => 60,
 ) );
 
 // Related products columns
@@ -260,7 +260,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 			'label' => 'col',
 		),
 	),
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 /**
@@ -276,9 +276,8 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => SUKI_PRO_URL,
 		'features'    => array(
-			esc_html_x( 'More "add to cart" styles', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More gallery styles', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More info tabs styles', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Enable AJAX add to cart', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More Gallery layout', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

@@ -59,6 +59,11 @@ $add['link_text_color'] = array(
 		'element'  => '.woocommerce span.onsale',
 		'property' => 'background-color',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce-store-notice, p.demo_store',
+		'property' => 'background-color',
+	),
 );
 $add['link_hover_text_color'] = array(
 	array(
@@ -384,8 +389,9 @@ $add['woocommerce_single_gallery_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images',
-		'property' => 'min-width',
+		'element'  => '.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary',
+		'property' => 'width',
+		'pattern'  => 'calc(100% - $)',
 	),
 );
 

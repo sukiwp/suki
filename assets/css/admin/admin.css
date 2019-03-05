@@ -187,7 +187,12 @@ input, select, textarea {
 }
 
 .suki-admin-color-control .wp-picker-container .wp-picker-holder {
+	display: none;
 	margin-top: 6px;
+}
+
+.suki-admin-color-control .wp-picker-container.wp-picker-active .wp-picker-holder {
+	display: block;
 }
 
 .suki-admin-spacing-control {

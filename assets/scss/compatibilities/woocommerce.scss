@@ -15,6 +15,17 @@
 }
 
 // -------------------------------------------------------------
+// Added to Cart
+// -------------------------------------------------------------
+
+.woocommerce {
+	a.added_to_cart {
+		display: block;
+		clear: both;
+	}
+}
+
+// -------------------------------------------------------------
 // Form Row
 // -------------------------------------------------------------
 
@@ -257,6 +268,7 @@ p.demo_store {
 		}
 
 		.suki-product-thumbnail {
+			position: relative;
 			margin: 0 0 0.75em;
 
 			a {
@@ -281,11 +293,6 @@ p.demo_store {
 			&:hover, &:focus {
 				color: $color_accent; // default
 			}
-		}
-
-		a.added_to_cart {
-			display: table;
-			margin: 0 auto;
 		}
 
 		.woocommerce-loop-category__title, .woocommerce-loop-product__title, h3 {
@@ -423,29 +430,19 @@ p.demo_store {
 		div.product {
 			div.images {
 				position: relative;
-				float: none;
 				width: 60%; // default
-				min-width: 60%; // default
-				margin-right: 40px; // default
-				margin-bottom: 0;
 
 				@media screen and ( max-width: $breakpoint_768 - 1px ) {
-					min-width: auto !important;
-					width: auto !important;
-					float: none !important;
-					margin-right: 0 !important;
-					margin-bottom: 3rem;
+					width: 100% !important;
 				}
 			}
 
 			div.summary {
-				float: none;
-				width: 100%;
-				margin-bottom: 0;
+				width: 40%; // default
+				padding-left: 40px; // default
 
 				@media screen and ( max-width: $breakpoint_768 - 1px ) {
-					width: auto !important;
-					float: none !important;
+					width: 100% !important;
 				}
 			}
 		}
@@ -453,7 +450,10 @@ p.demo_store {
 }
 
 .woocommerce div.product {
-	> * {
+	@include flex( flex-start, space-between, wrap );
+
+	> *:not(.onsale) {
+		width: 100%;
 		margin-bottom: 3rem;
 
 		&:last-child {
@@ -461,15 +461,14 @@ p.demo_store {
 		}
 	}
 
-	.suki-woocommerce-product-images-summary-wrapper {
-		@include flex( flex-start );
-
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			display: block;
-		}
+	span.onsale {
+		width: 3.6em;
+		height: 3.6em;
 	}
 
 	div.images {
+		margin-bottom: 3rem;
+
 		.woocommerce-product-gallery__wrapper {
 			display: block;
 			width: 100%;
@@ -663,6 +662,10 @@ p.demo_store {
 
 		.woocommerce-variation {
 			margin-bottom: 1.25rem;
+
+			&:empty {
+				display: none;
+			}
 		}
 
 		div.quantity {
@@ -991,6 +994,10 @@ p.demo_store {
 				margin-bottom: 0;
 				font-size: 1.15rem; // default
 				padding: 13px 26px; // default
+
+				@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+					display: block;
+				}
 			}
 		}
 

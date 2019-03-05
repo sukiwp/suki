@@ -235,10 +235,10 @@ li:not(.customize-info) div.customize-section-description {
 	top: 0;
 	left: 0;
 	display: inline-block;
-	width: 35px;
-	height: 20px;
-	margin: 2px 0 0;
-	border-radius: 10px;
+	width: 30px;
+	height: 18px;
+	margin: 3px 0 0;
+	border-radius: 15px;
 	background-color: #ccc;
 }
 
@@ -248,9 +248,9 @@ li:not(.customize-info) div.customize-section-description {
 	right: 0;
 	margin: 2px;
 	display: inline-block;
-	width: 16px;
-	height: 16px;
-	border-radius: 8px;
+	width: 14px;
+	height: 14px;
+	border-radius: 15px;
 	background-color: #fff;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
@@ -337,7 +337,12 @@ li:not(.customize-info) div.customize-section-description {
 }
 
 .customize-control-suki-color .wp-picker-container .wp-picker-holder {
+	display: none;
 	margin-top: 6px;
+}
+
+.customize-control-suki-color .wp-picker-container.wp-picker-active .wp-picker-holder {
+	display: block;
 }
 
 .customize-control-suki-shadow .customize-control-content {

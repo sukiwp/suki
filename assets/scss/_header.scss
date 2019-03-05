@@ -403,23 +403,9 @@
 // -------------------------------------------------------------
 
 .suki-toggle.suki-popup-close-icon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 1.25rem;
-	font-size: 1.5rem;
-	line-height: 1;
-	background-color: transparent !important;
-	color: $color_white !important; // default
-	opacity: 1;
-
-	&:hover, &:focus {
-		opacity: 0.8;
-	}
-
 	.suki-header-mobile-vertical-position-right > & {
-		left: 0;
-		right: auto;
+		left: 0 !important;
+		right: auto !important;
 	}
 }
 
@@ -589,10 +575,6 @@
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		display: block;
-	}
-
-	.suki-popup-background {
-		background-color: rgba(0,0,0,0.8);
 	}
 }
 
