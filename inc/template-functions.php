@@ -331,7 +331,7 @@ function suki_template_hooks() {
 		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
 	}
 }
-add_action( 'wp', 'suki_template_hooks' );
+add_action( 'wp', 'suki_template_hooks', 20 );
 
 /**
  * ====================================================
