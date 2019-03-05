@@ -401,6 +401,9 @@ class Suki_Customizer {
 			$value = $default;
 		}
 
+		$value = apply_filters( 'suki/customizer/setting_value', $value, $key );
+		$value = apply_filters( 'suki/customizer/setting_value/' . $key, $value );
+
 		return $value;
 	}
 

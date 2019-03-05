@@ -199,6 +199,9 @@ function suki_get_current_page_setting( $key ) {
 		$value = suki_array_value( $fallback_settings, $key );
 	}
 
+	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key );
+	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value );
+
 	return $value;
 }
 
