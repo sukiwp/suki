@@ -150,6 +150,10 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	// Get SVG path.
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
 
+	// Allow modification via filter.
+	$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
+	$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
+
 	// Get SVG markup.
 	if ( file_exists( $path ) ) {
 		$svg = suki_inline_svg( $path, false );
