@@ -1664,12 +1664,6 @@ body.suki-page-layout-boxed #page {
 
 .site-title {
 	margin: 0;
-	font-size: 22px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 1.6;
-	letter-spacing: 0;
-	text-transform: none;
 }
 
 .site-title .suki-menu-item-link {
@@ -1917,7 +1911,7 @@ body.suki-page-layout-boxed #page {
 
 .suki-header-section .menu .sub-menu {
 	position: absolute;
-	z-index: 4;
+	z-index: 40;
 	top: 100%;
 	left: 0;
 	padding: 1em;
@@ -1975,7 +1969,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-header-section .suki-header-menu .sub-menu {
 	padding: 1em 0;
-	z-index: 5;
+	z-index: 50;
 }
 
 .suki-header-section .suki-header-menu .sub-menu .menu-item {
@@ -2035,7 +2029,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-top-bar-inner {
-	z-index: 3;
+	z-index: 30;
 	border-width: 0 0 1px 0;
 	padding: 0 20px;
 }
@@ -2052,7 +2046,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-main-bar-inner {
-	z-index: 2;
+	z-index: 20;
 	border-width: 0 0 1px 0;
 	padding: 0 20px;
 }
@@ -2070,7 +2064,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-bottom-bar-inner {
-	z-index: 1;
+	z-index: 10;
 	border-width: 0 0 1px 0;
 	padding: 0 20px;
 }
@@ -2087,7 +2081,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-mobile-main-bar-inner {
-	z-index: 1;
+	z-index: 10;
 	border-width: 0 0 1px 0;
 	padding: 0 20px;
 }

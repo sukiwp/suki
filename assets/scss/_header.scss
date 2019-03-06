@@ -19,7 +19,6 @@
 // Logo
 .site-title {
 	margin: 0;
-	@include h3();
 
 	.suki-menu-item-link {
 		position: relative;
@@ -223,7 +222,7 @@
 
 		.sub-menu {
 			position: absolute;
-			z-index: 4;
+			z-index: 40;
 			top: 100%;
 			left: 0;
 			padding: 1em;
@@ -281,7 +280,7 @@
 
 		.sub-menu {
 			padding: 1em 0;
-			z-index: 5;
+			z-index: 50;
 
 			.menu-item {
 				padding: 0 1.25em;
@@ -340,7 +339,7 @@
 	height: 40px; // default
 
 	&-inner {
-		z-index: 3;
+		z-index: 30;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
 	}
@@ -357,7 +356,7 @@
 	height: 80px; // default
 
 	&-inner {
-		z-index: 2;
+		z-index: 20;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
 	}
@@ -375,7 +374,7 @@
 	height: 60px; // default
 
 	&-inner {
-		z-index: 1;
+		z-index: 10;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
 	}
@@ -392,7 +391,7 @@
 	height: 60px; // default
 
 	&-inner {
-		z-index: 1;
+		z-index: 10;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
 	}
