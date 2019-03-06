@@ -163,38 +163,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'priority'    => 20,
 ) ) );
 
-// Text typography
-$settings = array(
-	'font_family'    => 'footer_widgets_bar_font_family',
-	'font_weight'    => 'footer_widgets_bar_font_weight',
-	'font_style'     => 'footer_widgets_bar_font_style',
-	'text_transform' => 'footer_widgets_bar_text_transform',
-	'font_size'      => 'footer_widgets_bar_font_size',
-	'line_height'    => 'footer_widgets_bar_line_height',
-	'letter_spacing' => 'footer_widgets_bar_letter_spacing',
-
-	'font_size__tablet'      => 'footer_widgets_bar_font_size__tablet',
-	'line_height__tablet'    => 'footer_widgets_bar_line_height__tablet',
-	'letter_spacing__tablet' => 'footer_widgets_bar_letter_spacing__tablet',
-
-	'font_size__mobile'      => 'footer_widgets_bar_font_size__mobile',
-	'line_height__mobile'    => 'footer_widgets_bar_line_height__mobile',
-	'letter_spacing__mobile' => 'footer_widgets_bar_letter_spacing__mobile',
-);
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
-	) );
-}
-$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'footer_widgets_bar_typography', array(
-	'settings'    => $settings,
-	'section'     => $section,
-	'label'       => esc_html__( 'Text typography', 'suki' ),
-	'priority'    => 20,
-) ) );
-
 // Widget title typography
 $settings = array(
 	'font_family'    => 'footer_widgets_bar_widget_title_font_family',

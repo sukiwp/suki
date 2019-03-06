@@ -318,10 +318,10 @@ $add['sidebar_gap'] = array(
 	),
 );
 
-$add['sidebar_text_color'] = array(
+$add['sidebar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce.widget_price_filter .price_slider',
+		'element'  => '.sidebar .woocommerce.widget_price_filter .price_slider',
 		'property' => 'color',
 	),
 );

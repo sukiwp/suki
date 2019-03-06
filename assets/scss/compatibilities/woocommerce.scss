@@ -242,9 +242,21 @@ p.demo_store {
 // Products Grid Columns
 // -------------------------------------------------------------
 
-.suki-before-shop-loop-clear {
-	clear: both;
-	margin-bottom: 1.25em;
+.suki-products-filters {
+	@include flex( center, flex-start );
+	margin: 0 -0.5em 2.5em;
+
+	> * {
+		padding: 0 0.5em;
+	}
+
+	.woocommerce-result-count {
+		margin: 0;
+	}
+
+	.woocommerce-ordering {
+		margin: 0 0 0 auto;
+	}
 }
 
 .woocommerce ul.products {
@@ -253,7 +265,7 @@ p.demo_store {
 
 	li.product {
 		float: none;
-		margin: 0 0 2em;
+		margin: 0 0 2.5em;
 		padding: 0 15px; // default
 
 		.count {
@@ -1303,9 +1315,10 @@ p.demo_store {
 	.price_slider {
 		position: relative;
 		height: 0.5em;
+		margin: 0 0.5em 1.25em;
 		display: block !important;
 		background-color: transparent !important;
-		color: inherit; // default
+		color: $color_accent; // default
 
 		&:before {
 			content: "";
@@ -1314,29 +1327,34 @@ p.demo_store {
 			height: 100%;
 			border-radius: 0.25em;
 			background-color: currentColor;
-			opacity: 0.25;
+			opacity: 0.2;
 		}
 
 		.ui-slider-range {
 			background-color: currentColor;
-			opacity: 0.5;
+			opacity: 0.3;
 		}
 
 		.ui-slider-handle {
-			background-color: currentColor;
+			background-color: $color_white;
+			border: 0.1rem solid;
+			border-color: currentColor;
 			top: -0.25em;
 		}
 	}
 
 	.price_slider_amount {
+		font-size: inherit;
+		line-height: inherit;
+
 		input {
 			display: none;
 		}
 
 		.button {
 			font-size: inherit;
-			line-height: inherit;
-			padding: 0 0.5em;
+			line-height: normal;
+			padding: 0.25em 0.5em;
 		}
 	}
 }
@@ -1374,6 +1392,20 @@ p.demo_store {
 	ul li {
 		.count {
 			opacity: 0.5;
+		}
+	}
+}
+
+// Chosen
+.woocommerce .widget {
+	ul {
+		li.chosen {
+			a {
+				&:before {
+					font-size: 0.85em;
+					color: inherit;
+				}
+			}
 		}
 	}
 }

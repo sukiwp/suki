@@ -41,7 +41,6 @@ class Suki_Compatibility_WooCommerce {
 	protected function __construct() {
 		// Theme supports
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
-		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Compatibility CSS
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
@@ -52,6 +51,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 
 		// Template hooks
+		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
 		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_customizer' ) );
 		
@@ -76,21 +76,6 @@ class Suki_Compatibility_WooCommerce {
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-slider' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
-	}
-
-	/**
-	 * Register additional sidebar for WooCommerce.
-	 */
-	public function register_sidebars() {
-		register_sidebar( array(
-			'name'          => esc_html__( 'Sidebar Shop', 'suki' ),
-			'id'            => 'sidebar-shop',
-			'description'   => esc_html__( 'Sidebar used in WooCommerce pages', 'suki' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title h4">',
-			'after_title'   => '</h2>',
-		) );
 	}
 
 	/**
@@ -144,6 +129,21 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Register additional sidebar for WooCommerce.
+	 */
+	public function register_sidebars() {
+		register_sidebar( array(
+			'name'          => esc_html__( 'Sidebar Shop', 'suki' ),
+			'id'            => 'sidebar-shop',
+			'description'   => esc_html__( 'Sidebar that replaces the default sidebar when on WooCommerce pages.', 'suki' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title h4">',
+			'after_title'   => '</h2>',
+		) );
+	}
+
+	/**
 	 * Modify filters for WooCommerce template rendering.
 	 */
 	public function modify_template_hooks() {
@@ -180,8 +180,9 @@ class Suki_Compatibility_WooCommerce {
 		 * Shop page's template hooks
 		 */
 
-		// Add spacer before main products loop.
-		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_before_shop_loop' ), 999 );
+		// Add wrapper to products grid filters.
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper' ), 11 );
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper_end' ), 999 );
 
 		// Add wrapper to products grid item.
 		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
@@ -299,9 +300,13 @@ class Suki_Compatibility_WooCommerce {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			}
 
-			// Keep / remove products loop filter on products grid.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_filter' ) ) ) {
+			// Keep / remove products count filter.
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_results_count' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+			}
+
+			// Keep / remove products sorting filter.
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_sort_filter' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
 		}
@@ -405,10 +410,17 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add blank <div> to clear shop filters floating.
+	 * Add opening products filters wrapper tag.
 	 */
-	public function render_before_shop_loop() {
-		?><div class="suki-before-shop-loop-clear"></div><?php
+	public function render_loop_filters_wrapper() {
+		?><div class="suki-products-filters"><?php
+	}
+
+	/**
+	 * Add closing products filters wrapper tag.
+	 */
+	public function render_loop_filters_wrapper_end() {
+		?></div><?php
 	}
 
 	/**

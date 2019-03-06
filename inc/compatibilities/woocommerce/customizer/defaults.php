@@ -32,7 +32,8 @@ $add['woocommerce_index_grid_columns'] = 4;
 
 $add['woocommerce_index_page_title'] = 1;
 $add['woocommerce_index_breadcrumb'] = 1;
-$add['woocommerce_index_filter'] = 1;
+$add['woocommerce_index_results_count'] = 1;
+$add['woocommerce_index_sort_filter'] = 1;
 $add['woocommerce_products_grid_item_add_to_cart'] = 0;
 
 /**

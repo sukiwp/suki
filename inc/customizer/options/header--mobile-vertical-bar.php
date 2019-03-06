@@ -34,7 +34,7 @@ $wp_customize->add_control( $id, array(
 	'priority'    => 10,
 ) );
 
-// Elements alignment
+// Alignment
 $id = 'header_mobile_vertical_bar_alignment';
 $wp_customize->add_setting( $id, array(
 	'default'     => suki_array_value( $defaults, $id ),
@@ -44,7 +44,7 @@ $wp_customize->add_setting( $id, array(
 $wp_customize->add_control( $id, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Elements alignment', 'suki' ),
+	'label'       => esc_html__( 'Alignment', 'suki' ),
 	'choices'     => array(
 		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'center' => esc_html__( 'Center', 'suki' ),

@@ -104,7 +104,7 @@ if ( suki_show_pro_teaser() ) {
 		'features'    => array(
 			esc_html_x( 'Change grid item\'s style', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Enable alternate hover image', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Enable quick view', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Enable quick view popup', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

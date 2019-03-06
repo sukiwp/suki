@@ -287,9 +287,31 @@ p.demo_store a {
 	color: #1976d2;
 }
 
-.suki-before-shop-loop-clear {
-	clear: both;
-	margin-bottom: 1.25em;
+.suki-products-filters {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 0 -0.5em 2.5em;
+}
+
+.suki-products-filters > * {
+	padding: 0 0.5em;
+}
+
+.suki-products-filters .woocommerce-result-count {
+	margin: 0;
+}
+
+.suki-products-filters .woocommerce-ordering {
+	margin: 0 auto 0 0;
 }
 
 .woocommerce ul.products {
@@ -309,7 +331,7 @@ p.demo_store a {
 
 .woocommerce ul.products li.product {
 	float: none;
-	margin: 0 0 2em;
+	margin: 0 0 2.5em;
 	padding: 0 15px;
 }
 
@@ -1474,9 +1496,10 @@ p.demo_store a {
 .woocommerce.widget_price_filter .price_slider {
 	position: relative;
 	height: 0.5em;
+	margin: 0 0.5em 1.25em;
 	display: block !important;
 	background-color: transparent !important;
-	color: inherit;
+	color: #1976d2;
 }
 
 .woocommerce.widget_price_filter .price_slider:before {
@@ -1486,17 +1509,24 @@ p.demo_store a {
 	height: 100%;
 	border-radius: 0.25em;
 	background-color: currentColor;
-	opacity: 0.25;
+	opacity: 0.2;
 }
 
 .woocommerce.widget_price_filter .price_slider .ui-slider-range {
 	background-color: currentColor;
-	opacity: 0.5;
+	opacity: 0.3;
 }
 
 .woocommerce.widget_price_filter .price_slider .ui-slider-handle {
-	background-color: currentColor;
+	background-color: #ffffff;
+	border: 0.1rem solid;
+	border-color: currentColor;
 	top: -0.25em;
+}
+
+.woocommerce.widget_price_filter .price_slider_amount {
+	font-size: inherit;
+	line-height: inherit;
 }
 
 .woocommerce.widget_price_filter .price_slider_amount input {
@@ -1505,8 +1535,8 @@ p.demo_store a {
 
 .woocommerce.widget_price_filter .price_slider_amount .button {
 	font-size: inherit;
-	line-height: inherit;
-	padding: 0 0.5em;
+	line-height: normal;
+	padding: 0.25em 0.5em;
 }
 
 .woocommerce.widget_product_categories ul {
@@ -1538,6 +1568,11 @@ p.demo_store a {
 .woocommerce.widget_rating_filter ul li .count,
 .woocommerce.widget_product_categories ul li .count {
 	opacity: 0.5;
+}
+
+.woocommerce .widget ul li.chosen a:before {
+	font-size: 0.85em;
+	color: inherit;
 }
 
 .woocommerce.widget_shopping_cart .cart_list li {
