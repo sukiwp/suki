@@ -243,11 +243,11 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .suki-products-filters {
-	@include flex( center, flex-start );
-	margin: 0 -0.5em 2.5em;
+	@include flex( center, space-between, wrap );
+	margin: 0 -0.5em 0.75em;
 
 	> * {
-		padding: 0 0.5em;
+		padding: 0.5em;
 	}
 
 	.woocommerce-result-count {
@@ -255,13 +255,21 @@ p.demo_store {
 	}
 
 	.woocommerce-ordering {
-		margin: 0 0 0 auto;
+		margin: 0;
+	}
+
+	.suki-off-canvas-filters-button-wrapper {
+		flex-grow: 1;
 	}
 }
 
 .woocommerce ul.products {
 	@include flex( stretch, flex-start, wrap );
 	margin: 0 -15px; // default
+
+	.woocommerce-products-header ~ & {
+		margin-top: 2.5em;
+	}
 
 	li.product {
 		float: none;
@@ -1397,7 +1405,7 @@ p.demo_store {
 }
 
 // Chosen
-.woocommerce .widget {
+.woocommerce.widget {
 	ul {
 		li.chosen {
 			a {

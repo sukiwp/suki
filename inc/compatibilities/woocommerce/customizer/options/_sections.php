@@ -28,14 +28,14 @@ $wp_customize->get_section( 'woocommerce_product_catalog' )->title = esc_html__(
 $wp_customize->add_section( 'woocommerce_product_single', array(
 	'title'       => esc_html__( 'Single Product Page', 'suki' ),
 	'panel'       => $panel,
-	'priority'    => 11, // Place it under the 'Product Catalog' section
+	'priority'    => 11, // Place it under the 'Shop (Products Catalog) Page' section
 ) );
 
 // Cart
 $wp_customize->add_section( 'woocommerce_cart', array(
 	'title'       => esc_html__( 'Cart Page', 'suki' ),
 	'panel'       => $panel,
-	'priority'    => 12, // Place it under the 'Product Catalog' section
+	'priority'    => 12, // Place it under the 'Shop (Products Catalog) Page' section
 ) );
 
 // Checkout

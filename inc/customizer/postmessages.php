@@ -65,11 +65,6 @@ $add['body_text_color'] = array(
 		'element'  => 'html, body',
 		'property' => 'color',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.tagcloud a, .reply',
-		'property' => 'color',
-	),
 );
 $add['link_text_color'] = array(
 	array(

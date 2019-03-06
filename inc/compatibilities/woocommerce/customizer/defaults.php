@@ -23,7 +23,7 @@ $add['woocommerce_demo_store_notice_text_color'] = '';
 
 /**
  * ====================================================
- * WooCommerce > Products Catalog Page
+ * WooCommerce > Shop (Products Catalog) Page
  * ====================================================
  */
 

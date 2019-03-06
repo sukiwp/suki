@@ -999,7 +999,7 @@ select[multiple] {
 	font-size: 0.9rem !important;
 	line-height: normal;
 	background-color: #f6f6f6;
-	color: #666666;
+	color: inherit;
 }
 
 .tagcloud a:hover, .tagcloud a:focus {
@@ -3091,6 +3091,7 @@ a.more-link {
 
 .comment-body .reply a {
 	font-size: 90%;
+	color: inherit;
 }
 
 @media screen and (max-width: 499px) {

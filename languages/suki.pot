@@ -2027,8 +2027,12 @@ msgstr ""
 msgid "Show page header title"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:104, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:116
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:104
 msgid "Show products count"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:116
+msgid "Show products sort filter"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:133

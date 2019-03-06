@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: WooCommerce > Products Catalog
+ * Customizer settings: WooCommerce > Shop (Products Catalog) Page
  *
  * @package Suki
  **/
@@ -113,7 +113,7 @@ $wp_customize->add_setting( $id, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show products count', 'suki' ),
+	'label'       => esc_html__( 'Show products sort filter', 'suki' ),
 	'priority'    => 20,
 ) ) );
 

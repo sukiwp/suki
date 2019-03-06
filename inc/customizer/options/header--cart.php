@@ -21,7 +21,7 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_header_cart', array(
 		'section'     => $section,
 		'settings'    => array(),
-		'description' => '<div class="notice notice-warning"><p>' . esc_html__( 'Only available if WooCommerce plugin is installed and activated.', 'suki' ) . '</p></div>',
+		'description' => '<div class="notice notice-warning notice-alt inline"><p>' . esc_html__( 'Only available if WooCommerce plugin is installed and activated.', 'suki' ) . '</p></div>',
 		'priority'    => 10,
 	) ) );
 }

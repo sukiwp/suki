@@ -164,7 +164,7 @@
 		font-size: 0.9rem !important;
 		line-height: normal;
 		background-color: $color_subtle; // default	
-		color: $color_text; // default
+		color: inherit;
 
 		&:hover, &:focus {
 			color: $color_accent; // default
