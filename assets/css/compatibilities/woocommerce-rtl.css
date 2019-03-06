@@ -299,7 +299,7 @@ p.demo_store a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	margin: 0 -0.5em 0.75em;
+	margin: 0 -0.5em 2.5em;
 }
 
 .suki-products-filters > * {
@@ -320,6 +320,14 @@ p.demo_store a {
 	flex-grow: 1;
 }
 
+.suki-products-selected-filters {
+	margin: -2em 0 2.5em;
+}
+
+.suki-products-selected-filters .widget {
+	margin: 0;
+}
+
 .woocommerce ul.products {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -333,10 +341,6 @@ p.demo_store a {
 	-ms-flex-align: stretch;
 	align-items: stretch;
 	margin: 0 -15px;
-}
-
-.woocommerce-products-header ~ .woocommerce ul.products {
-	margin-top: 2.5em;
 }
 
 .woocommerce ul.products li.product {
@@ -471,12 +475,6 @@ p.demo_store a {
 @media screen and (max-width: 767px) {
 	.woocommerce ul.products.columns-6 li.product {
 		width: 50%;
-	}
-}
-
-@media screen and (max-width: 767px) {
-	.woocommerce .woocommerce-ordering, .woocommerce .woocommerce-result-count {
-		float: none;
 	}
 }
 
