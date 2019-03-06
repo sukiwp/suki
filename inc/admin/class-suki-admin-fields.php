@@ -132,7 +132,7 @@ class Suki_Admin_Fields {
 		<label class="suki-admin-checkbox-control <?php echo esc_attr( $args['class'] ); ?>">
 			<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?> <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
 			<?php if ( ! empty( $args['label'] ) ) : ?>
-				<span><?php echo $args['label']; // WPCS: XSS OK ?></span>
+				<span><?php echo $args['label']; // WPCS: XSS OK. ?></span>
 			<?php endif; ?>
 		</label>
 		<?php
@@ -245,7 +245,7 @@ class Suki_Admin_Fields {
 		}
 
 		if ( $echo ) {
-			echo $output; // WPCS: XSS OK
+			echo $output; // WPCS: XSS OK.
 		} else {
 			return $output;
 		}

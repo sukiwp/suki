@@ -233,7 +233,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		// Check if current post ID is one of the disabled IDs
 		if ( array_key_exists( $post->ID, $disabled_ids ) ) {
 			// Print the notice here.
-			echo $disabled_ids[ $post->ID ]; // WPCS: XSS OK
+			echo $disabled_ids[ $post->ID ]; // WPCS: XSS OK.
 
 			// There is no other content should be rendered.
 			return;
@@ -316,7 +316,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			<ul class="suki-admin-metabox-nav">
 				<?php foreach ( $tabs as $key => $label ) : ?>
 					<li class="suki-admin-metabox-nav-item <?php echo esc_attr( $key == $first_tab ? 'active' : '' ); ?>">
-						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo $label; // WPCS: XSS OK ?></a>
+						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo $label; // WPCS: XSS OK. ?></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -447,7 +447,7 @@ class Suki_Admin_Metabox_Page_Settings {
 										printf(
 											/* translators: %s: post type plural name. */
 											esc_html__( 'Currently is set to use the same image as %s archive page.', 'suki' ),
-											$post_type_obj->labels->name
+											esc_html( $post_type_obj->labels->name )
 										);
 										break;
 

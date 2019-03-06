@@ -1578,6 +1578,10 @@ p.demo_store a {
 	opacity: 0.5;
 }
 
+.woocommerce.widget a .star-rating {
+	color: unset;
+}
+
 .woocommerce.widget ul li.chosen a:before {
 	font-size: 0.85em;
 	color: inherit;

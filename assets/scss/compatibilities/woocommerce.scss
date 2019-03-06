@@ -1402,6 +1402,14 @@ p.demo_store {
 	}
 }
 
+.woocommerce.widget {
+	a {
+		.star-rating {
+			color: unset;
+		}
+	}
+}
+
 // Chosen
 .woocommerce.widget {
 	ul {

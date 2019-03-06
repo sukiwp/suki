@@ -1265,7 +1265,17 @@ msgid "Logo"
 msgstr ""
 
 #. translators: %s: instance number.
+#: inc/customizer/options/header--builder.php:68
+msgid "Menu %s"
+msgstr ""
+
 #. translators: %s: instance number.
+#. translators: %s: instance number.
+#. translators: %s: number of HTML element.
+#: inc/customizer/options/header--builder.php:70, inc/customizer/options/header--builder.php:116, inc/customizer/options/header--html.php:24
+msgid "HTML %s"
+msgstr ""
+
 #: inc/customizer/options/header--builder.php:71, inc/customizer/options/header--builder.php:117, inc/customizer/options/header--search.php:23
 msgid "Search Bar"
 msgstr ""
@@ -1348,11 +1358,6 @@ msgstr ""
 
 #: inc/customizer/options/header--cart.php:32
 msgid "Cart count text color"
-msgstr ""
-
-#. translators: %s: number of HTML element.
-#: inc/customizer/options/header--html.php:24
-msgid "HTML %s"
 msgstr ""
 
 #: inc/customizer/options/header--html.php:38
@@ -2116,6 +2121,10 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:22
 msgid "Grid columns gutter"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:43
+msgid "Grid Item"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:57

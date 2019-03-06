@@ -83,14 +83,13 @@ class Suki_Compatibility_Elementor {
 	public function add_theme_fonts_as_options_on_font_control( $fonts ) {
 		$fonts = array();
 
-		$class = 'Elementor\Fonts';
-		if ( class_exists( $class ) ) {
+		if ( class_exists( 'Elementor\Fonts' ) ) {
 			foreach( suki_get_web_safe_fonts() as $font => $stack ) {
-				$fonts[ $font ] = $class::SYSTEM;
+				$fonts[ $font ] = Elementor\Fonts::SYSTEM;
 			}
 
 			foreach( suki_get_google_fonts() as $font => $stack ) {
-				$fonts[ $font ] = $class::GOOGLE;
+				$fonts[ $font ] = Elementor\Fonts::GOOGLE;
 			}
 		}
 

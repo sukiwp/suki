@@ -40,7 +40,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_products_grid_item', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Grid Item', 'suki-pro' ),
+	'label'       => esc_html__( 'Grid Item', 'suki' ),
 	'priority'    => 20,
 ) ) );
 

@@ -516,7 +516,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_loop_text_alignment_class( $classes ) {
-		$classes['suki-text-align'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
+		$classes['text_alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
 
 		return $classes;
 	}
@@ -615,7 +615,7 @@ class Suki_Compatibility_WooCommerce {
 		$gallery_ids = $product->get_gallery_image_ids();
 
 		if ( 0 < count( $gallery_ids ) ) {
-			$classes['suki-single-gallery-multiple-images'] = esc_attr( 'suki-woocommerce-single-gallery-multiple-images' );
+			$classes['gallery_multiple_images'] = esc_attr( 'suki-woocommerce-single-gallery-multiple-images' );
 		}
 		
 		return $classes;
