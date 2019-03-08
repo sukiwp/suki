@@ -83,7 +83,7 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 				</label>
 			</div>
 			<div class="suki-shadow-color">
-				<input value="{{ data.value.color }}" type="text" maxlength="30" class="suki-shadow-input color-picker-hex" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="" data-alpha="true" data-custom-width="false">
+				<input value="{{ data.value.color }}" type="text" maxlength="30" class="suki-shadow-input color-picker-hex" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="" data-show-opacity="true" data-custom-width="false">
 			</div>
 
 			<input type="hidden" {{{ data.__link }}} value="{{ data.raw_value }}" class="suki-shadow-value">

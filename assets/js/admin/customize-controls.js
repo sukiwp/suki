@@ -290,27 +290,10 @@
 				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			}
 
-			$color.wpColorPicker({
+			$color.alphaColorPicker({
 				change: control.updateValue,
 				clear: control.updateValue,
 			});
-
-			// Collapse color picker when hitting Esc instead of collapsing the current section.
-			control.container.on( 'keydown', function( event ) {
-				var $colorContainer;
-
-				if ( 27 !== event.which ) { // Esc.
-					return;
-				}
-
-				$colorContainer = control.container.find( '.wp-picker-container' );
-
-				if ( $colorContainer.hasClass( 'wp-picker-active' ) ) {
-					picker.wpColorPicker( 'close' );
-					control.container.find( '.wp-color-result' ).focus();
-					event.stopPropagation(); // Prevent section from being collapsed.
-				}
-			} );
 
 			$inputs.on( 'change blur', control.updateValue );
 		}
