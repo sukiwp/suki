@@ -1405,7 +1405,9 @@ p.demo_store {
 .woocommerce.widget {
 	a {
 		.star-rating {
-			color: unset;
+			:before {
+				color: inherit;
+			}
 		}
 	}
 }
@@ -1415,7 +1417,7 @@ p.demo_store {
 	ul {
 		li.chosen {
 			a {
-				&:before {
+				:before {
 					font-size: 0.85em;
 					color: inherit;
 				}

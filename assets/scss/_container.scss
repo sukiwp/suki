@@ -65,14 +65,14 @@ body.suki-page-layout-boxed {
 	left: 0;
 	background-color: rgba(0,0,0,0.8);
 	color: $color_bg; // default
+}
 
-	.suki-toggle.suki-popup-close-icon {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 1.25rem;
-		font-size: 1.5rem;
-	}
+.suki-toggle.suki-popup-close-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1.25rem;
+	font-size: 1.5rem;
 }
 
 .suki-toggle.suki-popup-close-icon {

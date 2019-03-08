@@ -1505,7 +1505,7 @@ body.suki-page-layout-boxed #page {
 	color: #ffffff;
 }
 
-.suki-popup-background .suki-toggle.suki-popup-close-icon {
+.suki-toggle.suki-popup-close-icon {
 	position: absolute;
 	top: 0;
 	right: 0;
