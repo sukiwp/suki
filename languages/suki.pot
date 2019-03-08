@@ -43,11 +43,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: header menu number.
-#: inc/class-suki.php:217, inc/template-tags.php:518
+#: inc/class-suki.php:217, inc/template-tags.php:522
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:218, inc/template-tags.php:536
+#: inc/class-suki.php:218, inc/template-tags.php:540
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -162,65 +162,65 @@ msgstr ""
 msgid "Search&hellip;"
 msgstr ""
 
-#: inc/template-tags.php:32
+#: inc/template-tags.php:34
 msgid "Assign menu to this location"
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:225
+#: inc/template-tags.php:229
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:244
+#: inc/template-tags.php:248
 msgid "Oops! That page can not be found."
 msgstr ""
 
-#: inc/template-tags.php:266
+#: inc/template-tags.php:270
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:572
+#: inc/template-tags.php:576
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:591
+#: inc/template-tags.php:595
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-tags.php:661, inc/customizer/options/header--builder.php:114
+#: inc/template-tags.php:665, inc/customizer/options/header--builder.php:114
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1342
+#: inc/template-tags.php:1346
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1343
+#: inc/template-tags.php:1347
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1387
+#: inc/template-tags.php:1391
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1388
+#: inc/template-tags.php:1392
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1405
+#: inc/template-tags.php:1409
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1411
+#: inc/template-tags.php:1415
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1438
+#: inc/template-tags.php:1442
 msgid "Comments are closed."
 msgstr ""
 

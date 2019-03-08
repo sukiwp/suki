@@ -27,11 +27,15 @@ function suki_unassigned_menu() {
 		return;
 	}
 	?>
-	<div class="menu-blank menu">
-		<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>" class="menu-item">
-			<?php esc_html_e( 'Assign menu to this location', 'suki' ); ?>
-		</a>
-	</div>
+	<nav class="suki-header-menu-blank suki-header-menu site-navigation">
+		<ul class="menu">
+			<li class="menu-item">
+				<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>" class="suki-menu-item-link">
+					<?php esc_html_e( 'Assign menu to this location', 'suki' ); ?>
+				</a>
+			</li>
+		</ul>
+	</nav>
 	<?php
 }
 endif;
