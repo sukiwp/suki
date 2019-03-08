@@ -291,77 +291,83 @@ msgstr ""
 msgid "Edit Page settings here"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:361, inc/customizer/options/page-settings.php:134
+#: inc/admin/class-suki-admin-metabox-page-settings.php:358, inc/customizer/options/page-settings.php:134
 msgid "Disable main header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:369, inc/admin/class-suki-admin-metabox-page-settings.php:388, inc/admin/class-suki-admin-metabox-page-settings.php:425, inc/admin/class-suki-admin-metabox-page-settings.php:482, inc/admin/class-suki-admin-metabox-page-settings.php:501, inc/admin/class-suki-admin-metabox-page-settings.php:571, inc/admin/class-suki-admin-metabox-page-settings.php:590
+#: inc/admin/class-suki-admin-metabox-page-settings.php:366, inc/admin/class-suki-admin-metabox-page-settings.php:385, inc/admin/class-suki-admin-metabox-page-settings.php:417, inc/admin/class-suki-admin-metabox-page-settings.php:482, inc/admin/class-suki-admin-metabox-page-settings.php:501, inc/admin/class-suki-admin-metabox-page-settings.php:537, inc/admin/class-suki-admin-metabox-page-settings.php:556, inc/admin/class-suki-admin-metabox-page-settings.php:581, inc/admin/class-suki-admin-metabox-page-settings.php:600
 msgid "-- Inherit from Customizer --"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:370, inc/admin/class-suki-admin-metabox-page-settings.php:389, inc/admin/class-suki-admin-metabox-page-settings.php:572, inc/admin/class-suki-admin-metabox-page-settings.php:591
+#: inc/admin/class-suki-admin-metabox-page-settings.php:367, inc/admin/class-suki-admin-metabox-page-settings.php:386, inc/admin/class-suki-admin-metabox-page-settings.php:538, inc/admin/class-suki-admin-metabox-page-settings.php:557, inc/admin/class-suki-admin-metabox-page-settings.php:582, inc/admin/class-suki-admin-metabox-page-settings.php:601
 msgid "No"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:371, inc/admin/class-suki-admin-metabox-page-settings.php:390, inc/admin/class-suki-admin-metabox-page-settings.php:573, inc/admin/class-suki-admin-metabox-page-settings.php:592
+#: inc/admin/class-suki-admin-metabox-page-settings.php:368, inc/admin/class-suki-admin-metabox-page-settings.php:387, inc/admin/class-suki-admin-metabox-page-settings.php:539, inc/admin/class-suki-admin-metabox-page-settings.php:558, inc/admin/class-suki-admin-metabox-page-settings.php:583, inc/admin/class-suki-admin-metabox-page-settings.php:602
 msgid "Yes"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:380, inc/customizer/options/page-settings.php:147
+#: inc/admin/class-suki-admin-metabox-page-settings.php:377, inc/customizer/options/page-settings.php:147
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:400
+#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:615, inc/admin/class-suki-admin-metabox-page-settings.php:625, inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:130, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:102
 msgctxt "Suki Pro upsell"
-msgid "Enable Transparent Header"
+msgid "More Options on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:405, inc/admin/class-suki-admin-metabox-page-settings.php:409, inc/admin/class-suki-admin-metabox-page-settings.php:606, inc/admin/class-suki-admin-metabox-page-settings.php:615
+#: inc/admin/class-suki-admin-metabox-page-settings.php:398
 msgctxt "Suki Pro upsell"
-msgid "Available on Suki Pro"
+msgid "Enable / disable Transparent Header on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:404
+#: inc/admin/class-suki-admin-metabox-page-settings.php:398
 msgctxt "Suki Pro upsell"
-msgid "Enable Sicky Header"
+msgid "Enable / disable Sticky Header on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:408
+#: inc/admin/class-suki-admin-metabox-page-settings.php:399
 msgctxt "Suki Pro upsell"
-msgid "Enable Alt. Header Colors"
+msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:417, inc/customizer/options/page-settings.php:175
+#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:617, inc/admin/class-suki-admin-metabox-page-settings.php:627, inc/customizer/custom-controls/class-suki-customize-control-pro-teaser.php:39, inc/customizer/custom-controls/class-suki-customize-section-pro-teaser.php:51
+msgctxt "Suki Pro upsell"
+msgid "Learn More"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:409, inc/customizer/options/page-settings.php:175
 msgid "Page header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:426, inc/customizer/options/page-settings.php:178
+#: inc/admin/class-suki-admin-metabox-page-settings.php:418, inc/customizer/options/page-settings.php:178
 msgid "Disabled"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:427, inc/customizer/options/page-settings.php:179
+#: inc/admin/class-suki-admin-metabox-page-settings.php:419, inc/customizer/options/page-settings.php:179
 msgid "Enabled"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:436, inc/customizer/options/page-header.php:350
-msgid "Background image"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:429, inc/customizer/options/page-settings.php:208
+msgid "Page header background image"
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:435
+msgid "Global default background image as configured at Customize > Page Header."
+msgstr ""
+
+#: inc/admin/class-suki-admin-metabox-page-settings.php:436
+msgid "You can set Featured Image to replace global default background image."
 msgstr ""
 
 #. translators: %s: post type plural name.
-#: inc/admin/class-suki-admin-metabox-page-settings.php:449
-msgid "Currently is set to use the same image as %s archive page."
+#: inc/admin/class-suki-admin-metabox-page-settings.php:439
+msgid "Use same background image as archive page (configured at Customize > Page Settings > %s Archive Page)."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:455
-msgid "Currently is set to use Feature Image as the background image."
-msgstr ""
-
-#: inc/admin/class-suki-admin-metabox-page-settings.php:459
-msgid "Currently is set to use global default background image defined in the Customize > Page Header."
-msgstr ""
-
-#: inc/admin/class-suki-admin-metabox-page-settings.php:463
-msgid "Change this configuration"
+#. translators: %s: post type singular name.
+#: inc/admin/class-suki-admin-metabox-page-settings.php:458
+msgid "TIPS: You can switch between \"Use global default\", \"Use Featured Image\", or \"Use same background image as archive page\" at Customize > Page Settings > Single %s Page."
 msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:474
@@ -396,30 +402,30 @@ msgstr ""
 msgid "Left sidebar"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:529
-msgid "Hide title"
+#: inc/admin/class-suki-admin-metabox-page-settings.php:529, inc/customizer/options/page-settings.php:93
+msgid "Hide post title"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:543, inc/customizer/options/page-settings.php:106
+#: inc/admin/class-suki-admin-metabox-page-settings.php:548, inc/customizer/options/page-settings.php:106
 msgid "Hide featured image"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:563, inc/customizer/options/page-settings.php:255
+#: inc/admin/class-suki-admin-metabox-page-settings.php:573, inc/customizer/options/page-settings.php:255
 msgid "Disable footer widgets"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:582, inc/customizer/options/page-settings.php:268
+#: inc/admin/class-suki-admin-metabox-page-settings.php:592, inc/customizer/options/page-settings.php:268
 msgid "Disable footer bottom"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:605
+#: inc/admin/class-suki-admin-metabox-page-settings.php:616
 msgctxt "Suki Pro upsell"
-msgid "Enable Preloader Screen"
+msgid "Enable / disable Preloader Screen on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:614
+#: inc/admin/class-suki-admin-metabox-page-settings.php:626
 msgctxt "Suki Pro upsell"
-msgid "Custom blocks on this page"
+msgid "Insert Custom Blocks (section / element) on any part of this page (header, footer, etc.)."
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:187
@@ -638,11 +644,6 @@ msgstr ""
 
 #: inc/customizer/custom-controls/class-suki-customize-control-builder.php:151
 msgid "No more items to add"
-msgstr ""
-
-#: inc/customizer/custom-controls/class-suki-customize-control-pro-teaser.php:39, inc/customizer/custom-controls/class-suki-customize-section-pro-teaser.php:51
-msgctxt "Suki Pro upsell"
-msgid "Learn More"
 msgstr ""
 
 #: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:59
@@ -1364,11 +1365,6 @@ msgstr ""
 msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
-#: inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:130, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:102
-msgctxt "Suki Pro upsell"
-msgid "More Options on Suki Pro"
-msgstr ""
-
 #: inc/customizer/options/header--html.php:65
 msgctxt "Suki Pro upsell"
 msgid "Additional \"HTML 2\" element on Header Builder"
@@ -1689,16 +1685,16 @@ msgstr ""
 msgid "Background Image (Global Default)"
 msgstr ""
 
+#: inc/customizer/options/page-header.php:350
+msgid "Background image"
+msgstr ""
+
 #: inc/customizer/options/page-header.php:365
 msgid "Background attachment"
 msgstr ""
 
 #: inc/customizer/options/page-header.php:382
 msgid "Background overlay color"
-msgstr ""
-
-#: inc/customizer/options/page-settings.php:93
-msgid "Hide post title"
 msgstr ""
 
 #. translators: %s: plural post type name
@@ -1713,10 +1709,6 @@ msgstr ""
 
 #: inc/customizer/options/page-settings.php:199
 msgid "Custom"
-msgstr ""
-
-#: inc/customizer/options/page-settings.php:208
-msgid "Page header background image"
 msgstr ""
 
 #: inc/customizer/options/page-settings.php:285

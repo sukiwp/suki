@@ -439,17 +439,17 @@ class Suki_Customizer {
 		$post_types = array_diff( $post_types, $ignored_post_types );
 
 		foreach ( $post_types as $post_type ) {
-			$post_type_object = get_post_type_object( $post_type );
+			$post_type_obj = get_post_type_object( $post_type );
 
 			$page_sections[ $post_type . '_archive' ] = array(
 				/* translators: %s: post type's plural name. */
-				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_object->labels->name ),
+				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
 			);
 			$page_sections[ $post_type . '_singular' ] = array(
 				/* translators: %s: post type's singular name. */
-				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_object->labels->singular_name ),
+				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
 				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_object->labels->singular_name ),
+				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_obj->labels->singular_name ),
 			);
 		}
 
