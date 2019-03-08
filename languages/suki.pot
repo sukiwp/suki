@@ -353,11 +353,11 @@ msgid "Page header background image"
 msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:435
-msgid "Global default background image as configured at Customize > Page Header."
+msgid "Use global default background image as configured at Customize > Page Header."
 msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:436
-msgid "You can set Featured Image to replace global default background image."
+msgid "Use Featured Image as background image."
 msgstr ""
 
 #. translators: %s: post type plural name.

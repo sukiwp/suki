@@ -432,8 +432,8 @@ class Suki_Admin_Metabox_Page_Settings {
 							$post_type_obj = get_post_type_object( get_post_type( $obj ) );
 
 							$choices = array(
-								'' => esc_html__( 'Global default background image as configured at Customize > Page Header.', 'suki' ),
-								'thumbnail' => esc_html__( 'You can set Featured Image to replace global default background image.', 'suki' ),
+								'' => esc_html__( 'Use global default background image as configured at Customize > Page Header.', 'suki' ),
+								'thumbnail' => esc_html__( 'Use Featured Image as background image.', 'suki' ),
 								'archive' => sprintf(
 									/* translators: %s: post type plural name. */
 									esc_html__( 'Use same background image as archive page (configured at Customize > Page Settings > %s Archive Page).', 'suki' ),
