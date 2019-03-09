@@ -278,11 +278,11 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	public function render_meta_box__term_edit( $term ) {
 		?>
-		<tr>
-			<th colspan="2" style="padding: 0;">
+		<tr class="form-field suki-edit-term-page-settings">
+			<td colspan="2" style="padding: 0;">
 				<h3>
 					<?php
-					/* translators: %s: theme name. */
+					/* translators: %s: tdeme name. */
 					printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
 					?>
 				</h3>
@@ -433,7 +433,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 							$choices = array(
 								'' => esc_html__( 'Use global default background image as configured at Customize > Page Header.', 'suki' ),
-								'thumbnail' => esc_html__( 'Use Featured Image as background image.', 'suki' ),
+								'thumbnail' => esc_html__( 'Use Featured Image as background image (replace the global default background image).', 'suki' ),
 								'archive' => sprintf(
 									/* translators: %s: post type plural name. */
 									esc_html__( 'Use same background image as archive page (configured at Customize > Page Settings > %s Archive Page).', 'suki' ),

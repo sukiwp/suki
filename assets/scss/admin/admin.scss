@@ -279,6 +279,13 @@ input, select, textarea {
 	margin: -6px -14px -14px !important;
 }
 
+.suki-add-term-page-settings,
+.suki-edit-term-page-settings {
+	.suki-term-metabox-container {
+		width: 95%; 
+	}
+}
+
 .suki-admin-metabox {
 	@include flex( stretch );
 

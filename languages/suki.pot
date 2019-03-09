@@ -282,7 +282,7 @@ msgstr ""
 
 #. translators: %s: theme name.
 #. translators: %s: theme name.
-#. translators: %s: theme name.
+#. translators: %s: tdeme name.
 #: inc/admin/class-suki-admin-metabox-page-settings.php:104, inc/admin/class-suki-admin-metabox-page-settings.php:258, inc/admin/class-suki-admin-metabox-page-settings.php:286
 msgid "Page Settings (%s)"
 msgstr ""
@@ -357,7 +357,7 @@ msgid "Use global default background image as configured at Customize > Page Hea
 msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:436
-msgid "Use Featured Image as background image."
+msgid "Use Featured Image as background image (replace the global default background image)."
 msgstr ""
 
 #. translators: %s: post type plural name.
