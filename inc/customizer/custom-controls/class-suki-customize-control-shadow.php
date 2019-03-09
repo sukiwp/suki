@@ -52,6 +52,14 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 	}
 
 	/**
+	 * Enqueue additional control's CSS or JS scripts.
+	 */
+	public function enqueue() {
+		wp_enqueue_script( 'alpha-color-picker' );
+		wp_enqueue_style( 'alpha-color-picker' );
+	}
+
+	/**
 	 * Render Underscore JS template for this control's content.
 	 */
 	protected function content_template() {

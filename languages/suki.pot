@@ -252,7 +252,7 @@ msgstr ""
 msgid "Continue Reading"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:160, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:86
+#: inc/admin/class-suki-admin-fields.php:160, inc/customizer/custom-controls/class-suki-customize-control-color.php:61, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:94
 msgid "Hex / RGBA"
 msgstr ""
 
@@ -646,23 +646,23 @@ msgstr ""
 msgid "No more items to add"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:59
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:67
 msgid "H-Offset"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:60
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:68
 msgid "V-Offset"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:61
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:69
 msgid "Blur"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:62
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:70
 msgid "Spread"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:82
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:90
 msgid "Color"
 msgstr ""
 
