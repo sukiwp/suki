@@ -200,6 +200,7 @@ $add['page_layout'] = 'full-width';
 $add['boxed_page_width'] = '1400px';
 $add['boxed_page_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0.05)';
 $add['container_width'] = '1140px';
+$add['content_narrow_width'] = '720px';
 
 $add['page_bg_color'] = $colors['bg'];
 
@@ -559,7 +560,6 @@ $add['page_header_bg_overlay_color'] = '';
 $add['content_container'] = 'default';
 $add['content_layout'] = 'right-sidebar';
 $add['content_padding'] = '80px 20px 80px 20px';
-$add['content_narrow_width'] = '720px';
 
 /**
  * ====================================================

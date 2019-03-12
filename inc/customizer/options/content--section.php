@@ -101,31 +101,3 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	),
 	'priority'    => 10,
 ) ) );
-
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_content_narrow', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
-// Narrow content max width
-$key = 'content_narrow_width';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Narrow content max width', 'suki' ),
-	'description' => esc_html__( 'Narrow content is a single column centered layout for main content (without sidebar). Narrow content should have less width than the content wrapper width.', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 600,
-			'max'  => 1600,
-			'step' => 1,
-		),
-	),
-	'priority'    => 10,
-) ) );

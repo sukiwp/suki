@@ -567,6 +567,14 @@ $add['container_width'] = array(
 		'media'    => '@media screen and (max-width: $)',
 	),
 );
+$add['content_narrow_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-content-layout-narrow .site-main',
+		'property' => 'max-width',
+	),
+);
+
 $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',
@@ -1301,14 +1309,6 @@ foreach ( $responsive as $suffix => $media ) {
 		),
 	);
 }
-
-$add['content_narrow_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .site-main',
-		'property' => 'max-width',
-	),
-);
 
 /**
  * ====================================================

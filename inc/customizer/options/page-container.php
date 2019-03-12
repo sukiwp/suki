@@ -89,6 +89,27 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 	'priority'    => 20,
 ) ) );
 
+// Narrow content max width
+$key = 'content_narrow_width';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Narrow content wrapper width', 'suki' ),
+	'description' => esc_html__( 'Used when "narrow content" layout is active on page content. It should be less than the content wrapper width.', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 600,
+			'max'  => 1600,
+			'step' => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
 /**
  * ====================================================
  * Boxed Page
