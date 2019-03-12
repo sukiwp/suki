@@ -29,13 +29,13 @@ $colors = array(
 	'woocommerce_sale_badge_bg_color'   => esc_html__( 'Badge background color', 'suki' ),
 	'woocommerce_sale_badge_text_color' => esc_html__( 'Badge text color', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 10,
@@ -57,13 +57,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Review star color
-$id = 'woocommerce_review_star_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_review_star_color';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Rating (&#9733;) color', 'suki' ),
 	'priority'    => 20,
@@ -93,13 +93,13 @@ $colors = array(
 	'woocommerce_alt_button_hover_border_color' => esc_html__( 'Border color :hover', 'suki' ),
 	'woocommerce_alt_button_hover_text_color'   => esc_html__( 'Text color :hover', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,

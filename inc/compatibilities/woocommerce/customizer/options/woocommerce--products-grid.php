@@ -11,13 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $section = 'woocommerce_products_grid';
 
 // Grid columns gutter
-$id = 'woocommerce_products_grid_columns_gutter';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_products_grid_columns_gutter';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Grid columns gutter', 'suki' ),
 	'units'       => array(
@@ -45,13 +45,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Text alignment
-$id = 'woocommerce_products_grid_text_alignment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_products_grid_text_alignment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Text alignment', 'suki' ),
@@ -78,12 +78,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Show "add to cart" button
-$id = 'woocommerce_products_grid_item_add_to_cart';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_products_grid_item_add_to_cart';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show "add to cart" button', 'suki' ),
 	'priority'    => 50,

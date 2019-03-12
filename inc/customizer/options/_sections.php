@@ -445,17 +445,17 @@ $wp_customize->add_panel( $panel, array(
 
 	// Begin registering sections.
 	$i = 10;
-	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type => $type_data ) {
-		if ( 0 < strpos( $type, '_archive' ) ) {
+	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+		if ( 0 < strpos( $ps_type, '_archive' ) ) {
 			$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_' . $i, array(
 				'panel'       => $panel,
 				'priority'    => $i,
 			) ) );
 		}
 
-		$wp_customize->add_section( 'suki_section_page_settings_' . $type, array(
-			'title'       => suki_array_value( $type_data, 'title' ),
-			'description' => suki_array_value( $type_data, 'description' ),
+		$wp_customize->add_section( 'suki_section_page_settings_' . $ps_type, array(
+			'title'       => suki_array_value( $ps_data, 'title' ),
+			'description' => suki_array_value( $ps_data, 'description' ),
 			'panel'       => $panel,
 			'priority'    => $i,
 		) );

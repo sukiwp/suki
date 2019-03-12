@@ -42,37 +42,37 @@ $add['outside_bg_attachment'] = array(
  */
 
 // Main bar is placed first because top bar and bottom bar can be merged into main bar.
-foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $type ) {
-	$add['suki_section_header_' . $type ] = array(
+foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
+	$add['suki_section_header_' . $bar ] = array(
 		array(
 			'setting'  => '__device',
 			'value'    => 'desktop',
 		),
 	);
 	
-	if ( 'main_bar' !== $type ) {
-		$add['header_' . $type . '_container'] = array(
+	if ( 'main_bar' !== $bar ) {
+		$add['header_' . $bar . '_container'] = array(
 			array(
-				'setting'  => 'header_' . $type . '_merged',
+				'setting'  => 'header_' . $bar . '_merged',
 				'operator' => '!=',
 				'value'    => 1,
 			),
 		);
-		$add['header_' . $type . '_merged_gap'] = array(
+		$add['header_' . $bar . '_merged_gap'] = array(
 			array(
-				'setting'  => 'header_' . $type . '_merged',
+				'setting'  => 'header_' . $bar . '_merged',
 				'operator' => '==',
 				'value'    => 1,
 			),
 		);
 	}
 
-	$add['header_' . $type . '_menu_hover_highlight_color'] =
-	$add['header_' . $type . '_menu_hover_highlight_text_color'] =
-	$add['header_' . $type . '_menu_active_highlight_color'] =
-	$add['header_' . $type . '_menu_active_highlight_text_color'] = array(
+	$add['header_' . $bar . '_menu_hover_highlight_color'] =
+	$add['header_' . $bar . '_menu_hover_highlight_text_color'] =
+	$add['header_' . $bar . '_menu_active_highlight_color'] =
+	$add['header_' . $bar . '_menu_active_highlight_text_color'] = array(
 		array(
-			'setting'  => 'header_' . $type . '_menu_highlight',
+			'setting'  => 'header_' . $bar . '_menu_highlight',
 			'operator' => '!=',
 			'value'    => 'none',
 		),
@@ -184,11 +184,11 @@ $add['blog_index_grid_columns_gutter'] = array(
  * ====================================================
  */
 
-foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $type => $type_data ) {
-	if ( false === strpos( $type, '_singular' ) ) {
-		$add['page_settings_' . $type . '[page_header_bg_image]'] = array(
+foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+	if ( false === strpos( $ps_type, '_singular' ) ) {
+		$add['page_settings_' . $ps_type . '[page_header_bg_image]'] = array(
 			array(
-				'setting'  => 'page_settings_' . $type . '[page_header_bg]',
+				'setting'  => 'page_settings_' . $ps_type . '[page_header_bg]',
 				'value'    => 'custom',
 			),
 		);

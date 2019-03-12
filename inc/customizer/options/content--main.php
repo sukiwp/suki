@@ -17,11 +17,11 @@ $section = 'suki_section_main';
  */
 
 // Padding
-$id = 'content_main_padding';
+$key = 'content_main_padding';
 $settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -30,7 +30,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
@@ -48,13 +48,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border
-$id = 'content_main_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'content_main_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border', 'suki' ),
 	'units'       => array(
@@ -104,13 +104,13 @@ $colors = array(
 	'content_main_bg_color'     => esc_html__( 'Content Box BG color', 'suki' ),
 	'content_main_border_color' => esc_html__( 'Content Box border color', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,

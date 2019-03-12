@@ -17,12 +17,12 @@ $section = 'suki_section_footer_bottom_bar';
  */
 
 // Merge inside Main Bar
-$id = 'footer_bottom_bar_merged';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_bottom_bar_merged';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Merge inside Widgets Bar wrapper', 'suki' ),
 	'description' => esc_html__( 'If enabled, this section layout is limited inside the Widgets Bar content wrapper. &mdash; Widgets Bar must have at least 1 column.', 'suki' ),
@@ -30,13 +30,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 ) ) );
 
 // Merged gap
-$id = 'footer_bottom_bar_merged_gap';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_bottom_bar_merged_gap';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Gap with Widgets Bar content', 'suki' ),
 	'units'       => array(
@@ -56,13 +56,13 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_fo
 ) ) );
 
 // Layout
-$id = 'footer_bottom_bar_container';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_bottom_bar_container';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
@@ -75,11 +75,11 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Padding
-$id = 'footer_bottom_bar_padding';
+$key = 'footer_bottom_bar_padding';
 $settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -88,7 +88,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
@@ -106,13 +106,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border
-$id = 'footer_bottom_bar_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_bottom_bar_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border', 'suki' ),
 	'units'       => array(
@@ -125,13 +125,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Items gutter
-$id = 'footer_bottom_bar_items_gutter';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_bottom_bar_items_gutter';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Spacing between elements', 'suki' ),
 	'units'       => array(
@@ -176,9 +176,9 @@ $settings = array(
 	'line_height__mobile'    => 'footer_bottom_bar_line_height__mobile',
 	'letter_spacing__mobile' => 'footer_bottom_bar_letter_spacing__mobile',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 	) );
@@ -212,13 +212,13 @@ $colors = array(
 	'footer_bottom_bar_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
 	'footer_bottom_bar_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,

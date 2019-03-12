@@ -30,13 +30,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Social links
-$id = 'footer_social_links';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_social_links';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Active links', 'suki' ),
 	'choices'     => suki_get_social_media_types(),
@@ -54,13 +54,13 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 }
 
 // Social links target
-$id = 'footer_social_links_target';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_social_links_target';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Open links in', 'suki' ),

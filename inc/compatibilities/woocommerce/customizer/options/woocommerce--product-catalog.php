@@ -25,12 +25,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Loop posts per page
-$id = 'woocommerce_index_posts_per_page';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_index_posts_per_page';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'number',
 	'section'     => $section,
 	'label'       => esc_html__( 'Max products per page', 'suki' ),
@@ -43,12 +43,12 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Loop columns
-$id = 'woocommerce_index_grid_columns';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_index_grid_columns';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Grid columns', 'suki' ),
 	'units'       => array(
@@ -70,48 +70,48 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_wo
 ) ) );
 
 // Page header title
-$id = 'woocommerce_index_page_title';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_index_page_title';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show page header title', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
 // Breadcrumb
-$id = 'woocommerce_index_breadcrumb';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_index_breadcrumb';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show breadcrumb', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
 // Show products count
-$id = 'woocommerce_index_results_count';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_index_results_count';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show products count', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
 // Show products count
-$id = 'woocommerce_index_sort_filter';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'woocommerce_index_sort_filter';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show products sort filter', 'suki' ),
 	'priority'    => 20,

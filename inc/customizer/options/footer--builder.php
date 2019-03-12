@@ -30,12 +30,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'fo
 ) ) );
 
 // Widgets columns
-$id = 'footer_widgets_bar';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Widgets columns', 'suki' ),
@@ -59,11 +59,11 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_fo
 ) ) );
 
 // Bottom bar elements
-$id = 'footer_elements';
+$key = 'footer_elements';
 $settings = array(
-	'bottom_left'   => $id . '_bottom_left',
-	'bottom_center' => $id . '_bottom_center',
-	'bottom_right'  => $id . '_bottom_right',
+	'bottom_left'   => $key . '_bottom_left',
+	'bottom_center' => $key . '_bottom_center',
+	'bottom_right'  => $key . '_bottom_right',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -71,7 +71,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),

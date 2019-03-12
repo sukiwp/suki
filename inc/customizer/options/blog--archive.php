@@ -17,12 +17,12 @@ $section = 'suki_section_blog_index';
  */
 
 // Posts layout
-$id = 'blog_index_loop_mode';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'blog_index_loop_mode';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Posts layout', 'suki' ),
@@ -34,13 +34,13 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Grid columns
-$id = 'blog_index_grid_columns';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'blog_index_grid_columns';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Columns', 'suki' ),
 	'units'       => array(
@@ -55,13 +55,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 ) ) );
 
 // Columns gutter
-$id = 'blog_index_grid_columns_gutter';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'blog_index_grid_columns_gutter';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Columns gutter', 'suki' ),
 	'units'       => array(
@@ -82,12 +82,12 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_bl
 ) ) );
 
 // Navigation mode
-$id = 'blog_index_navigation_mode';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'blog_index_navigation_mode';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Navigation mode', 'suki' ),

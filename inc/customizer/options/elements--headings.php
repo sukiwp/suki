@@ -29,9 +29,9 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		'line_height__mobile'    => 'h' . $i . '_line_height__mobile',
 		'letter_spacing__mobile' => 'h' . $i . '_letter_spacing__mobile',
 	);
-	foreach ( $settings as $id ) {
-		$wp_customize->add_setting( $id, array(
-			'default'     => suki_array_value( $defaults, $id ),
+	foreach ( $settings as $key ) {
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $defaults, $key ),
 			'transport'   => 'postMessage',
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 		) );
@@ -57,13 +57,13 @@ $colors = array(
 	'heading_text_color'       => esc_html__( 'Heading text color', 'suki' ),
 	'heading_hover_text_color' => esc_html__( 'Heading link text color :hover', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 10,

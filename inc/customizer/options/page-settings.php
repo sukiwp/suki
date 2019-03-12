@@ -8,9 +8,9 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type => $type_data ) {
-	$section = 'suki_section_page_settings_' . $type;
-	$option_key = 'page_settings_' . $type;
+foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+	$section = 'suki_section_page_settings_' . $ps_type;
+	$option_key = 'page_settings_' . $ps_type;
 
 	// Get default value (array) of the option key.
 	$default = suki_array_value( $defaults, $option_key, array() );
@@ -25,7 +25,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	 */
 
 	// Heading: Content & Sidebar
-	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $type . '_content', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type . '_content', array(
 		'section'     => $section,
 		'settings'    => array(),
 		'label'       => esc_html__( 'Content & Sidebar', 'suki' ),
@@ -33,13 +33,13 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) ) );
 
 	// Layout
-	$key = 'content_container';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'content_container';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $id, array(
+	$wp_customize->add_control( $key, array(
 		'type'        => 'select',
 		'section'     => $section,
 		'label'       => esc_html__( 'Layout', 'suki' ),
@@ -52,13 +52,13 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) );
 
 	// Content & sidebar layout
-	$key = 'content_layout';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'content_layout';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $id, array(
+	$wp_customize->add_control( $key, array(
 		'type'        => 'select',
 		'section'     => $section,
 		'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
@@ -73,35 +73,35 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) );
 
 	// Options specifically for singular page types.
-	if ( false !== strpos( $type, '_singular' ) ) {
+	if ( false !== strpos( $ps_type, '_singular' ) ) {
 		// ------
-		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $type . '_content_elements', array(
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $ps_type . '_content_elements', array(
 			'section'     => $section,
 			'settings'    => array(),
 			'priority'    => 10,
 		) ) );
 
 		// Hide post title
-		$key = 'content_hide_title';
-		$id = $option_key . '[' . $key . ']';
-		$wp_customize->add_setting( $id, array(
-			'default'     => suki_array_value( $default, $key ),
+		$subkey = 'content_hide_title';
+		$key = $option_key . '[' . $subkey . ']';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $default, $subkey ),
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 		) );
-		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Hide post title', 'suki' ),
 			'priority'    => 10,
 		) ) );
 
 		// Hide featured image
-		$key = 'content_hide_thumbnail';
-		$id = $option_key . '[' . $key . ']';
-		$wp_customize->add_setting( $id, array(
-			'default'     => suki_array_value( $default, $key ),
+		$subkey = 'content_hide_thumbnail';
+		$key = $option_key . '[' . $subkey . ']';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $default, $subkey ),
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 		) );
-		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Hide featured image', 'suki' ),
 			'priority'    => 10,
@@ -115,7 +115,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	 */
 
 	// Heading: Header
-	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $type . '_header', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type . '_header', array(
 		'section'     => $section,
 		'settings'    => array(),
 		'label'       => esc_html__( 'Header', 'suki' ),
@@ -123,26 +123,26 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) ) );
 
 	// Disable main header
-	$key = 'disable_header';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'disable_header';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Disable main header', 'suki' ),
 		'priority'    => 20,
 	) ) );
 
 	// Disable mobile header
-	$key = 'disable_mobile_header';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'disable_mobile_header';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Disable mobile header', 'suki' ),
 		'priority'    => 20,
@@ -155,7 +155,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	 */
 
 	// Heading: Page Header (Title Bar)
-	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $type . '_page_header', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type . '_page_header', array(
 		'section'     => $section,
 		'settings'    => array(),
 		'label'       => esc_html__( 'Page Header (Title Bar)', 'suki' ),
@@ -163,13 +163,13 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) ) );
 
 	// Page header
-	$key = 'page_header';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'page_header';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $id, array(
+	$wp_customize->add_control( $key, array(
 		'type'        => 'select',
 		'section'     => $section,
 		'label'       => esc_html__( 'Page header', 'suki' ),
@@ -182,27 +182,27 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) );
 
 	// Page header background image
-	$key = 'page_header_bg';
-	$id = $option_key . '[' . $key . ']';
+	$subkey = 'page_header_bg';
+	$key = $option_key . '[' . $subkey . ']';
 	$choices = array();
-	if ( false !== strpos( $type, '_singular' ) ) {
-		$post_type_object = get_post_type_object( str_replace( '_singular', '', $type ) );
+	if ( false !== strpos( $ps_type, '_singular' ) ) {
+		$post_type_obj = get_post_type_object( str_replace( '_singular', '', $ps_type ) );
 
 		/* translators: %s: plural post type name */
-		$choices['archive'] = sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_object->labels->name );
+		$choices['archive'] = sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_obj->labels->name );
 
-		if ( post_type_supports( $post_type_object->name, 'thumbnail' ) ) {
+		if ( post_type_supports( $post_type_obj->name, 'thumbnail' ) ) {
 			/* translators: %s: singular post type name */
-			$choices['thumbnail'] = sprintf( esc_html__( 'Use %s\'s featured image (if specified)', 'suki' ), $post_type_object->labels->singular_name );
+			$choices['thumbnail'] = sprintf( esc_html__( 'Use %s\'s featured image (if specified)', 'suki' ), $post_type_obj->labels->singular_name );
 		}
 	} else {
 		$choices['custom'] = esc_html__( 'Custom', 'suki' );
 	}
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $id, array(
+	$wp_customize->add_control( $key, array(
 		'type'        => 'select',
 		'section'     => $section,
 		'label'       => esc_html__( 'Page header background image', 'suki' ),
@@ -214,15 +214,15 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) );
 
 	// Options specifically for non singular page types.
-	if ( false === strpos( $type, '_singular' ) ) {
+	if ( false === strpos( $ps_type, '_singular' ) ) {
 		// Custom background image
-		$key = 'page_header_bg_image';
-		$id = $option_key . '[' . $key . ']';
-		$wp_customize->add_setting( $id, array(
-			'default'     => suki_array_value( $default, $key ),
+		$subkey = 'page_header_bg_image';
+		$key = $option_key . '[' . $subkey . ']';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $default, $subkey ),
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
 		) );
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $key, array(
 			'section'     => $section,
 			'mime_type'   => 'image',
 			'priority'    => 30,
@@ -236,7 +236,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	 */
 
 	// Heading: Footer
-	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $type . '_footer', array(
+	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type . '_footer', array(
 		'section'     => $section,
 		'settings'    => array(),
 		'label'       => esc_html__( 'Footer', 'suki' ),
@@ -244,26 +244,26 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	) ) );
 
 	// Disable footer widgets
-	$key = 'disable_footer_widgets';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'disable_footer_widgets';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Disable footer widgets', 'suki' ),
 		'priority'    => 40,
 	) ) );
 
 	// Disable footer bottom
-	$key = 'disable_footer_bottom';
-	$id = $option_key . '[' . $key . ']';
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $default, $key ),
+	$subkey = 'disable_footer_bottom';
+	$key = $option_key . '[' . $subkey . ']';
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Disable footer bottom', 'suki' ),
 		'priority'    => 40,
@@ -276,7 +276,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $type =>
 	 */
 
 	if ( suki_show_pro_teaser() ) {
-		$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_page_settings_' . $type, array(
+		$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_page_settings_' . $ps_type, array(
 			'section'     => $section,
 			'settings'    => array(),
 			'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),

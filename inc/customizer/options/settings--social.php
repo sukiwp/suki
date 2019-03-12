@@ -21,12 +21,12 @@ ksort( $links );
 	
 foreach ( $links as $slug => $label ) {
 	// Social media link
-	$id = 'social_' . $slug;
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+	$key = 'social_' . $slug;
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => 'esc_url_raw',
 	) );
-	$wp_customize->add_control( $id, array(
+	$wp_customize->add_control( $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 10,

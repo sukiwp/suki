@@ -17,13 +17,13 @@ $section = 'suki_section_footer_widgets_bar';
  */
 
 // Layout
-$id = 'footer_widgets_bar_container';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar_container';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
@@ -36,11 +36,11 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Padding
-$id = 'footer_widgets_bar_padding';
+$key = 'footer_widgets_bar_padding';
 $settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -49,7 +49,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
@@ -67,13 +67,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border
-$id = 'footer_widgets_bar_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border', 'suki' ),
 	'units'       => array(
@@ -86,13 +86,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Columns gutter
-$id = 'footer_widgets_bar_columns_gutter';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar_columns_gutter';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Columns gutter', 'suki' ),
 	'units'       => array(
@@ -106,13 +106,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 ) ) );
 
 // Gap between widgets
-$id = 'footer_widgets_bar_widgets_gap';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar_widgets_gap';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Gap between widgets', 'suki' ),
 	'units'       => array(
@@ -149,9 +149,9 @@ $settings = array(
 	'line_height'    => 'footer_widgets_bar_line_height',
 	'letter_spacing' => 'footer_widgets_bar_letter_spacing',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 	) );
@@ -181,9 +181,9 @@ $settings = array(
 	'line_height_mobile'    => 'footer_widgets_bar_widget_title_line_height__mobile',
 	'letter_spacing_mobile' => 'footer_widgets_bar_widget_title_letter_spacing__mobile',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 	) );
@@ -196,13 +196,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 ) ) );
 
 // Widget title alignment
-$id = 'footer_widgets_bar_widget_title_alignment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar_widget_title_alignment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Widget title alignment', 'suki' ),
@@ -215,13 +215,13 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Widget title decoration
-$id = 'footer_widgets_bar_widget_title_decoration';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'footer_widgets_bar_widget_title_decoration';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Widget title decoration', 'suki' ),
@@ -258,13 +258,13 @@ $colors = array(
 	'footer_widgets_bar_widget_title_bg_color'     => esc_html__( 'Widget title background color', 'suki' ),
 	'footer_widgets_bar_widget_title_border_color' => esc_html__( 'Widget title border color', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,

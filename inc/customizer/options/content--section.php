@@ -17,12 +17,12 @@ $section = 'suki_section_content';
  */
 
 // Layout
-$id = 'content_container';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'content_container';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
@@ -34,12 +34,12 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Content & sidebar layout
-$id = 'content_layout';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'content_layout';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
@@ -72,11 +72,11 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_co
 ) ) );
 
 // Padding
-$id = 'content_padding';
+$key = 'content_padding';
 $settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -85,7 +85,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
@@ -110,13 +110,13 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_co
 ) ) );
 
 // Narrow content max width
-$id = 'content_narrow_width';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'content_narrow_width';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Narrow content max width', 'suki' ),
 	'description' => esc_html__( 'Narrow content is a single column centered layout for main content (without sidebar). Narrow content should have less width than the content wrapper width.', 'suki' ),

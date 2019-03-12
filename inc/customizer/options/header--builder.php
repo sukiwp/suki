@@ -51,9 +51,9 @@ $settings = array(
 	'bottom_center' => 'header_elements_bottom_center',
 	'bottom_right'  => 'header_elements_bottom_right',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
@@ -98,9 +98,9 @@ $settings = array(
 	'mobile_main_right'   => 'header_mobile_elements_main_right',
 	'mobile_vertical_top' => 'header_mobile_elements_vertical_top',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }

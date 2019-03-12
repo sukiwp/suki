@@ -17,13 +17,13 @@ $section = 'suki_section_entry_grid';
  */
 
 // Padding
-$id = 'entry_grid_padding';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_padding';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
 	'units'       => array(
@@ -37,13 +37,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border
-$id = 'entry_grid_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border', 'suki' ),
 	'units'       => array(
@@ -56,13 +56,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Background color
-$id = 'entry_grid_bg_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_bg_color';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Background color', 'suki' ),
 	'priority'    => 10,
@@ -76,12 +76,12 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_en
 ) ) );
 
 // Entry grid excerpt length
-$id = 'entry_grid_excerpt_length';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_excerpt_length';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Content / excerpt words limit', 'suki' ),
 	'units'       => array(
@@ -110,12 +110,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Featured media position
-$id = 'entry_grid_featured_media_position';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_featured_media_position';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Featured media position', 'suki' ),
@@ -127,12 +127,12 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Ignore grid item padding
-$id = 'entry_grid_featured_media_ignore_padding';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_featured_media_ignore_padding';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Ignore grid item padding', 'suki' ),
 	'priority'    => 20,
@@ -153,12 +153,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Elements to display
-$id = 'entry_grid_header';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_header';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Elements to display', 'suki' ),
 	'description' => esc_html__( 'Add and move elements as you wish. Leave it blank to disable.', 'suki' ),
@@ -171,13 +171,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 ) ) );
 
 // Alignment
-$id = 'entry_grid_header_alignment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_header_alignment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Alignment', 'suki' ),
@@ -190,12 +190,12 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Header meta format
-$id = 'entry_grid_header_meta';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_header_meta';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Header meta format', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
@@ -217,12 +217,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Elements to display
-$id = 'entry_grid_footer';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_footer';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Elements to display', 'suki' ),
 	'description' => esc_html__( 'Add and move elements as you wish. Leave it blank to disable.', 'suki' ),
@@ -234,13 +234,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 ) ) );
 
 // Alignment
-$id = 'entry_grid_footer_alignment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_footer_alignment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Alignment', 'suki' ),
@@ -253,12 +253,12 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Footer meta format
-$id = 'entry_grid_footer_meta';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'entry_grid_footer_meta';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Footer meta format', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),

@@ -25,12 +25,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'no
 ) ) );
 
 // Additional subsets
-$id = 'google_fonts_subsets';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'google_fonts_subsets';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_MultiCheck( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_MultiCheck( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Additional character subsets', 'suki' ),
 	'description' => esc_html__( '"Latin" character subset is included by default.', 'suki' ),
