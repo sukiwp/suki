@@ -483,10 +483,10 @@ input, select, textarea {
 
 	.suki-admin-version {
 		padding: 0.25em 0.5em;
-		margin: 0 0 0 0.25em;
-		font-size: 12px;
+		margin: 0 0 0 0.5em;
+		font-size: 13px;
 		font-weight: 600;
-		background-color: rgba(0,0,0,0.1);
+		background-color: rgba(0,0,0,0.05);
 	}
 
 	.wp-badge {
@@ -527,6 +527,17 @@ input, select, textarea {
 		> * {
 			margin: 0 0 20px;
 		}
+
+		.postbox {
+			.hndle {
+				padding: 10px 15px;
+			}
+
+			.inside {
+				margin: 15px;
+				padding: 0;
+			}
+		}
 	}
 
 	.suki-admin-secondary {
@@ -564,12 +575,6 @@ input, select, textarea {
 // -------------------------------------------------------------
 // Suki Dashboard
 // -------------------------------------------------------------
-
-.suki-admin-primary {
-	.hndle {
-		padding: 10px 15px !important;
-	}
-}
 
 .suki-admin-secondary-pro {
 	h2 {
@@ -611,37 +616,32 @@ input, select, textarea {
 	}
 }
 
-.suki-admin-welcome-panel {
-	padding: 0;
+.suki-admin-secondary-sites {
+	&-banner {
+		margin: -15px -15px 0 -15px;
 
-	.welcome-panel-content {
-		margin: 20px;
-		padding-left: 80px;
-
-		&:before {
-			content: "🎉";
-			position: absolute;
-			left: 30px;
-			top: 30px;
-			font-family: inherit;
-			font-size: 50px;
-			line-height: 1;
+		img {
+			width: 100%;
+			height: auto;
 		}
 	}
 
-	h2 {
-		margin-bottom: 0.4em;
+	.button {
+		width: 100%;
+		text-align: center;
 	}
+}
 
-	.welcome-panel-column {
-		width: 50% !important;
+.suki-admin-secondary-links {
+	a {
+		text-decoration: none;
 	}
 }
 
 .suki-admin-pro-modules {
 	.inside {
-		margin: 0;
-		padding: 0;
+		margin: 0 !important;
+		padding: 0 !important;
 	}
 
 	table {

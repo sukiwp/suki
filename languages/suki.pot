@@ -264,7 +264,7 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/admin/class-suki-admin.php:589, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:282
+#: inc/admin/class-suki-admin-metabox-page-settings.php:65, inc/customizer/options/page-settings.php:31, inc/customizer/options/_sections.php:282
 msgid "Content & Sidebar"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/admin/class-suki-admin.php:585, inc/customizer/options/page-settings.php:161, inc/customizer/options/_sections.php:275
+#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:161, inc/customizer/options/_sections.php:275
 msgid "Page Header (Title Bar)"
 msgstr ""
 
@@ -428,134 +428,72 @@ msgctxt "Suki Pro upsell"
 msgid "Insert Custom Blocks (section / element) on any part of this page (header, footer, etc.)."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:187
+#: inc/admin/class-suki-admin.php:182
 msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:187
+#: inc/admin/class-suki-admin.php:182
 msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:189
+#: inc/admin/class-suki-admin.php:184
 msgid "Okay, you deserve it"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:190
+#: inc/admin/class-suki-admin.php:185
 msgid "Nope, maybe later"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:191
+#: inc/admin/class-suki-admin.php:186
 msgid "I already did"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:558
-msgid "Welcome to Suki!"
+#: inc/admin/class-suki-admin.php:548
+msgid "Premium Modules Available"
 msgstr ""
 
-#. translators: %s: Suki website URL.
-#: inc/admin/class-suki-admin.php:563
-msgid "Your website is now in good hands! Suki offers highly customizable design and lightning fast performance. Learn more about its full features and premium modules at <a href=\"%s\">our website</a>."
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:568
-msgid "Quick Links to Customizer"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:573
-msgid "Page Layout"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:577, inc/customizer/options/_sections.php:75
-msgid "General Elements"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:581, inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:156
-msgid "Header Builder"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:593, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:322
-msgid "Footer Builder"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:622
-msgid "More features are available on Suki Pro"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:643
+#: inc/admin/class-suki-admin.php:578
 msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:677
-msgid "Go to Customizer"
+#: inc/admin/class-suki-admin.php:611
+msgid "Suki Homepage"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:690
-msgid "Premium Modules"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:690
+#: inc/admin/class-suki-admin.php:616
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:692
-msgid "Get more flexibility and stunning design options on Suki Pro, available in a very affordable price."
+#: inc/admin/class-suki-admin.php:621
+msgid "Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:696
-msgctxt "Suki Pro upsell"
-msgid "Upgrade to Pro"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:710
-msgid "Import Starter Sites"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:712
-msgid "Kickstart your project with our growing pre-made sites library, easily import with simple clicks."
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:718
-msgid "Browse and Import"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:724
-msgid "Install \"Suki Sites Import\""
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:739
+#: inc/admin/class-suki-admin.php:626
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:741
-msgid "Not sure how something works? Our documentation might help you figure out the solution."
+#: inc/admin/class-suki-admin.php:631
+msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:745
-msgid "Go to Documentation"
+#: inc/admin/class-suki-admin.php:636
+msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:759
-msgid "Suki Community"
+#: inc/admin/class-suki-admin.php:643
+msgid "Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:761
-msgid "Join our Facebook group for latest updates info and discussions with other Suki users."
+#: inc/admin/class-suki-admin.php:661
+msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:765
-msgid "Join our Facebook Group"
+#: inc/admin/class-suki-admin.php:669
+msgid "Browse and Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:779
-msgid "Enjoy Suki?"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:781
-msgid "Please take a minute to leave a review on Suki, we would really appreciate it!"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:785
-msgid "Rate us &#9733;&#9733;&#9733;&#9733;&#9733;"
+#: inc/admin/class-suki-admin.php:675
+msgid "Install \"Suki Sites Import\""
 msgstr ""
 
 #: inc/customizer/class-suki-customizer.php:419
@@ -1158,6 +1096,10 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
+#: inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:322
+msgid "Footer Builder"
+msgstr ""
+
 #: inc/customizer/options/footer--builder.php:41
 msgid "Widgets columns"
 msgstr ""
@@ -1255,6 +1197,10 @@ msgstr ""
 
 #: inc/customizer/options/header--builder.php:27
 msgid "Tablet / Mobile"
+msgstr ""
+
+#: inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:156
+msgid "Header Builder"
 msgstr ""
 
 #: inc/customizer/options/header--builder.php:63
@@ -1767,6 +1713,10 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:62
 msgid "Please use full URL format with http:// or https://"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:75
+msgid "General Elements"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:82

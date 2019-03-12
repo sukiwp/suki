@@ -1,4 +1,3 @@
-@charset "UTF-8";
 input, select, textarea {
 	max-width: 100%;
 }
@@ -494,10 +493,10 @@ input, select, textarea {
 
 .suki-admin-wrap .suki-admin-version {
 	padding: 0.25em 0.5em;
-	margin: 0 0.25em 0 0;
-	font-size: 12px;
+	margin: 0 0.5em 0 0;
+	font-size: 13px;
 	font-weight: 600;
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .suki-admin-wrap .wp-badge {
@@ -553,6 +552,15 @@ input, select, textarea {
 	margin: 0 0 20px;
 }
 
+.suki-admin-wrap .suki-admin-primary .postbox .hndle {
+	padding: 10px 15px;
+}
+
+.suki-admin-wrap .suki-admin-primary .postbox .inside {
+	margin: 15px;
+	padding: 0;
+}
+
 .suki-admin-wrap .suki-admin-secondary {
 	min-width: 255px;
 	width: 255px;
@@ -582,10 +590,6 @@ input, select, textarea {
 .suki-admin-wrap .suki-admin-customize-button {
 	width: 100%;
 	text-align: center;
-}
-
-.suki-admin-primary .hndle {
-	padding: 10px 15px !important;
 }
 
 .suki-admin-secondary-pro h2 {
@@ -625,36 +629,27 @@ input, select, textarea {
 	border-right: 2em solid transparent;
 }
 
-.suki-admin-welcome-panel {
-	padding: 0;
+.suki-admin-secondary-sites-banner {
+	margin: -15px -15px 0 -15px;
 }
 
-.suki-admin-welcome-panel .welcome-panel-content {
-	margin: 20px;
-	padding-right: 80px;
+.suki-admin-secondary-sites-banner img {
+	width: 100%;
+	height: auto;
 }
 
-.suki-admin-welcome-panel .welcome-panel-content:before {
-	content: "🎉";
-	position: absolute;
-	right: 30px;
-	top: 30px;
-	font-family: inherit;
-	font-size: 50px;
-	line-height: 1;
+.suki-admin-secondary-sites .button {
+	width: 100%;
+	text-align: center;
 }
 
-.suki-admin-welcome-panel h2 {
-	margin-bottom: 0.4em;
-}
-
-.suki-admin-welcome-panel .welcome-panel-column {
-	width: 50% !important;
+.suki-admin-secondary-links a {
+	text-decoration: none;
 }
 
 .suki-admin-pro-modules .inside {
-	margin: 0;
-	padding: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 .suki-admin-pro-modules table {
