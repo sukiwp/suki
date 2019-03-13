@@ -452,47 +452,47 @@ msgstr ""
 msgid "Premium Modules Available"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:578
+#: inc/admin/class-suki-admin.php:581
 msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:611
+#: inc/admin/class-suki-admin.php:614
 msgid "Suki Homepage"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:616
+#: inc/admin/class-suki-admin.php:619
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:621
+#: inc/admin/class-suki-admin.php:624
 msgid "Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:626
+#: inc/admin/class-suki-admin.php:629
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:631
+#: inc/admin/class-suki-admin.php:634
 msgid "Community"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:636
+#: inc/admin/class-suki-admin.php:639
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:643
+#: inc/admin/class-suki-admin.php:646
 msgid "Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:661
+#: inc/admin/class-suki-admin.php:664
 msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:669
+#: inc/admin/class-suki-admin.php:672
 msgid "Browse and Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:675
+#: inc/admin/class-suki-admin.php:678
 msgid "Install \"Suki Sites Import\""
 msgstr ""
 

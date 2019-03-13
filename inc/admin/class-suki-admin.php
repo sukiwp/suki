@@ -567,6 +567,9 @@ class Suki_Admin {
 				<table class="suki-admin-pro-table widefat plugins">
 					<tbody>
 						<?php foreach( $modules as $module_slug => $module_data ) : ?>
+							<?php if ( intval( suki_array_value( $module_data, 'hide' ) ) ) {
+								continue;
+							} ?>
 							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
 								<th class="check-column"></th>
 								<td class="suki-admin-pro-table-item-name plugin-title column-primary">
