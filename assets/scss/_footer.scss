@@ -133,7 +133,7 @@
 	padding: 0 !important;
 	
 	ul {
-		@include flex();
+		@include flex( center, center );
 
 		li {
 			padding: 0 12px; // default
