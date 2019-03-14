@@ -401,13 +401,6 @@
 // Vertical Header
 // -------------------------------------------------------------
 
-.suki-toggle.suki-popup-close-icon {
-	.suki-header-mobile-vertical-position-right > & {
-		left: 0 !important;
-		right: auto !important;
-	}
-}
-
 .suki-header-section-vertical {
 	&-inner, .menu .sub-menu {
 		background-color: $color_bg; // default
@@ -685,5 +678,12 @@
 			margin: 0 auto;
 			@include transition();
 		}
+	}
+}
+
+.suki-toggle.suki-popup-close-icon {
+	.suki-header-mobile-vertical-position-right & {
+		left: 0 !important;
+		right: auto !important;
 	}
 }

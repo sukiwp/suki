@@ -2086,11 +2086,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	padding: 0 20px;
 }
 
-.suki-header-mobile-vertical-position-right > .suki-toggle.suki-popup-close-icon {
-	right: 0 !important;
-	left: auto !important;
-}
-
 .suki-header-section-vertical-inner, .suki-header-section-vertical .menu .sub-menu {
 	background-color: #ffffff;
 }
@@ -2385,6 +2380,11 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+
+.suki-header-mobile-vertical-position-right .suki-toggle.suki-popup-close-icon {
+	right: 0 !important;
+	left: auto !important;
 }
 
 .suki-page-header-inner {
