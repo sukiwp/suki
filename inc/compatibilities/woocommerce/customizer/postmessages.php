@@ -26,27 +26,12 @@ $add['body_text_color'] = array(
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button',
-		'property' => 'color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce nav.woocommerce-pagination ul li a',
-		'property' => 'color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus',
+		'element'  => '.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus, .woocommerce ul.products li.product a.woocommerce-loop-product__link:hover, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus',
 		'property' => 'color',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce .star-rating:before, .woocommerce .star-rating span:before, .woocommerce p.stars a',
-		'property' => 'color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce ul.products li.product a.woocommerce-loop-product__link:hover, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus',
 		'property' => 'color',
 	),
 	array(
@@ -98,7 +83,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author, .woocommerce ul.products li.product a.woocommerce-loop-product__link, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author a, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover',
+		'element'  => '.woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author, .woocommerce ul.products li.product a.woocommerce-loop-product__link, .woocommerce div.product #reviews #comments ol.commentlist li .comment-text p.meta .woocommerce-review__author a, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a, .woocommerce nav.woocommerce-pagination ul li span.current',
 		'property' => 'color',
 	),
 );

@@ -74,7 +74,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
+		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
 		'property' => 'color',
 	),
 	array(
@@ -185,6 +185,11 @@ $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-section a:not(.button), .suki-header-section .suki-toggle, .suki-header-section .menu .sub-menu a:not(.button), .suki-header-section .menu .sub-menu .suki-toggle, .suki-header-section-vertical a:not(.button), .suki-header-section-vertical .suki-toggle, .suki-header-section-vertical .menu .sub-menu a:not(.button), .suki-header-section-vertical .menu .sub-menu .suki-toggle',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.nav-links .current',
 		'property' => 'color',
 	),
 );

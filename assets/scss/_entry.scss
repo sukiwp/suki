@@ -3,6 +3,7 @@
 // -------------------------------------------------------------
 
 .suki-loop-grid {
+	@include flex( stretch, flex-start, wrap );
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -2em;
@@ -19,7 +20,6 @@
 		padding: 0 15px;
 		margin-bottom: 2em;
 		border: none;
-		float: left;
 
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
 			width: 100% !important;
@@ -107,10 +107,10 @@
 
 	.avatar {
 		display: inline-block;
-		width: 1.75em;
-		height: 1.75em;
+		width: 2em;
+		height: 2em;
 		vertical-align: middle;
-		margin-right: 0.75em;
+		margin-right: 0.5em;
 		border-radius: 50%;
 	}
 }
@@ -313,40 +313,52 @@ a.more-link {
 	}
 
 	ul, ol {
-		padding-left: 65px;
+		padding-left: 1.25em;
 
 		li {
 			@include border( top );
 		}
 
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			padding-left: 1.25em;
+		@media screen and ( min-width: $breakpoint_500 ) {
+			padding-left: 65px;
 		}
 	}
 }
 
 .comment-body {
 	position: relative;
-	padding: 2em 0 2em 65px;
+	padding: 1.25em 0;
 
 	.reply {
 		position: absolute;
 		top: 0;
 		right: 0;
-		margin: 2em 0 0 0;
+		margin: 1.25em 0 0 0;
 
 		a {
 			font-size: 90%;
 			color: inherit;
+			
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			margin-top: 2em;
 		}
 	}
 
-	@media screen and ( max-width: $breakpoint_500 - 1px ) {
-		padding: 1.25em 0;
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding: 2em 0;
 	}
 }
 
 .comment-content {
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 65px;
+	}
+
 	> * {
 		&:last-child {
 			margin-bottom: 0;
@@ -355,24 +367,31 @@ a.more-link {
 }
 
 .comment-meta {
+	position: relative;
 	padding-right: 50px;
 	margin-bottom: 1em;
 	min-height: 50px;
+
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 65px;
+	}
 }
 
 .comment-author {
 	@include heading();
 
 	.avatar {
-		position: absolute;
-		top: 2em;
-		left: 0;
-		height: 50px;
-		width: 50px;
+		width: 2em;
+		height: 2em;
+		margin-right: 0.5em;
 		border-radius: 50%;
 		
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			display: none;
+		@media screen and ( min-width: $breakpoint_500 ) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 50px;
+			width: 50px;
 		}
 	}
 
@@ -415,11 +434,11 @@ a.more-link {
 	}
 
 	label {
-		display: inline-block;
+		display: block;
 		width: 120px;
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			display: block;
+		@media screen and ( min-width: $breakpoint_768 ) {
+			display: inline-block;
 		}
 	}
 

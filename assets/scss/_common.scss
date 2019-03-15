@@ -113,6 +113,20 @@
 	@include float-container();
 }
 
+.nav-links {
+	a {
+		color: inherit; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+
+	.current {
+		color: $color_heading; // default
+	}
+}
+
 .page-title {
 	@include h1();
 }

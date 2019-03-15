@@ -497,18 +497,18 @@ p.demo_store a {
 .woocommerce nav.woocommerce-pagination ul li span.current {
 	padding: 0;
 	background-color: transparent;
-	color: inherit;
+	color: #333333;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a {
 	padding: 0;
 	background-color: transparent;
-	color: #1976d2;
+	color: inherit;
 }
 
 .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background-color: transparent;
-	color: #333333;
+	color: #1976d2;
 }
 
 .woocommerce div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page div.product div.images, .woocommerce-page #content div.product div.images {
