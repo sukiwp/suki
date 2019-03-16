@@ -1567,6 +1567,7 @@ body.suki-page-layout-boxed #page {
 	margin-right: auto;
 	margin-left: auto;
 	width: 1140px;
+	max-width: 100%;
 }
 
 .suki-section-inner {
