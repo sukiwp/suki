@@ -2742,9 +2742,9 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	-webkit-box-pack: start;
 	-ms-flex-pack: start;
 	justify-content: flex-start;
-	-webkit-box-align: stretch;
-	-ms-flex-align: stretch;
-	align-items: stretch;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -2em;
@@ -2771,24 +2771,12 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	width: 50%;
 }
 
-.suki-loop-grid.suki-loop-grid-2-columns .entry:nth-child(2n+1) {
-	clear: left;
-}
-
 .suki-loop-grid.suki-loop-grid-3-columns .entry {
 	width: 33.33%;
 }
 
-.suki-loop-grid.suki-loop-grid-3-columns .entry:nth-child(3n+1) {
-	clear: left;
-}
-
 .suki-loop-grid.suki-loop-grid-4-columns .entry {
 	width: 25%;
-}
-
-.suki-loop-grid.suki-loop-grid-4-columns .entry:nth-child(4n+1) {
-	clear: left;
 }
 
 @media screen and (max-width: 767px) {

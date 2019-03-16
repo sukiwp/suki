@@ -3,7 +3,7 @@
 // -------------------------------------------------------------
 
 .suki-loop-grid {
-	@include flex( stretch, flex-start, wrap );
+	@include flex( flex-start, flex-start, wrap );
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -2em;
@@ -28,26 +28,14 @@
 
 	.suki-loop-grid.suki-loop-grid-2-columns & {
 		width: 50%;
-
-		&:nth-child(2n+1) {
-			clear: left;
-		}
 	}
 
 	.suki-loop-grid.suki-loop-grid-3-columns & {
 		width: 33.33%;
-
-		&:nth-child(3n+1) {
-			clear: left;
-		}
 	}
 
 	.suki-loop-grid.suki-loop-grid-4-columns & {
 		width: 25%;
-
-		&:nth-child(4n+1) {
-			clear: left;
-		}
 
 		@media screen and ( max-width: $breakpoint_768 - 1px ) {
 			width: 50%;

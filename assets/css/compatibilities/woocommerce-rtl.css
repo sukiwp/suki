@@ -337,9 +337,9 @@ p.demo_store a {
 	-webkit-box-pack: start;
 	-ms-flex-pack: start;
 	justify-content: flex-start;
-	-webkit-box-align: stretch;
-	-ms-flex-align: stretch;
-	align-items: stretch;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
 	margin: 0 -15px;
 }
 
@@ -357,7 +357,6 @@ p.demo_store a {
 
 .woocommerce ul.products li.product .suki-product-wrapper {
 	position: relative;
-	height: 100%;
 }
 
 .woocommerce ul.products li.product .suki-product-thumbnail {
