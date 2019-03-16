@@ -27,6 +27,7 @@ v1.0.0
 - TWEAK: Improve some text strings.
 - TWEAK: Update Suki Pro modules list.
 - TWEAK: Update Suki admin page looks to be simpler and cleaner.
+- FIX: Customizer styles were applied on whole Gutenberg editor page when page is built using page builders.
 - FIX: Header or Footer Social links "open in new tab".
 - FIX: Footer bottom overflow bug on mobile screen.
 - FIX: Header and Footer Builder on Safari Mac.
