@@ -44,7 +44,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 20,
 ) ) );
 
-// Text alignment
+// Alignment
 $key = 'woocommerce_products_grid_text_alignment';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -54,7 +54,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Text alignment', 'suki' ),
+	'label'       => esc_html__( 'Alignment', 'suki' ),
 	'choices'     => array(
 		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'center' => esc_html__( 'Center', 'suki' ),
@@ -104,7 +104,6 @@ if ( suki_show_pro_teaser() ) {
 		'features'    => array(
 			esc_html_x( 'Change grid item\'s padding, border', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Same height grid items in a row', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More add to cart button styles', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Enable alternate hover image', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Enable quick view popup', 'Suki Pro upsell', 'suki' ),
 		),

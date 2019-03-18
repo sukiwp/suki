@@ -57,6 +57,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'min'  => 0,
 			'step' => 1,
 		),
+		'em' => array(
+			'min'  => 0,
+			'step' => 0.05,
+		),
 		'%' => array(
 			'min'  => 0,
 			'step' => 0.01,
