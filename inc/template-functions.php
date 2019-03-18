@@ -694,13 +694,27 @@ add_filter( 'suki/frontend/content_classes', 'suki_content_classes' );
 function suki_loop_classes( $classes ) {
 	$classes['mode'] = esc_attr( 'suki-loop-' . suki_get_theme_mod( 'blog_index_loop_mode' ) );
 	if ( 'grid' == suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
-		$classes['float-container'] = esc_attr( 'suki-float-container' );
 		$classes['blog_index_grid_columns'] = esc_attr( 'suki-loop-grid-' . suki_get_theme_mod( 'blog_index_grid_columns' ) . '-columns' );
 	}
 
 	return $classes;
 }
 add_filter( 'suki/frontend/loop_classes', 'suki_loop_classes' );
+
+/**
+ * Add custom classes to entry thumbnail.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_entry_thumbnail_classes( $classes ) {
+	if ( intval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ) {
+		$classes['entry_featured_media_ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/entry/thumbnail_classes', 'suki_entry_thumbnail_classes' );
 
 /**
  * Add custom classes to the array of sidebar classes.

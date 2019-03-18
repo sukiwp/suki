@@ -1175,9 +1175,9 @@ function suki_entry_featured_media() {
 	global $content_width;
 
 	printf( // WPCS: XSS OK
-		'<%s class="entry-thumbnail %s">%s</%s>',
+		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
-		intval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ? 'suki-entry-thumbnail-ignore-padding' : '',
+		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
 		get_the_post_thumbnail( get_the_ID(), array( $content_width, 0 ) ),
 		is_singular() ? 'div' : 'a'
 	);
@@ -1255,9 +1255,9 @@ function suki_entry_grid_featured_media() {
 	$width = ceil( intval( $content_width ) / intval( suki_get_theme_mod( 'blog_index_grid_columns' ) ) );
 
 	printf( // WPCS: XSS OK
-		'<%s class="entry-thumbnail %s">%s</%s>',
+		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
-		intval( suki_get_theme_mod( 'entry_grid_featured_media_ignore_padding' ) ) ? 'suki-entry-thumbnail-ignore-padding' : '',
+		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ),
 		get_the_post_thumbnail( get_the_ID(), array( $width, 0 ) ),
 		is_singular() ? 'div' : 'a'
 	);
