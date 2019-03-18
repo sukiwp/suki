@@ -2796,6 +2796,12 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin-bottom: 0;
 }
 
+.entry-layout-grid .entry-wrapper {
+	border-width: 1px;
+	padding: 1.25em 1.5em;
+	background-color: #ffffff;
+}
+
 .entry-header {
 	margin: 0 0 2rem;
 }
@@ -2863,6 +2869,15 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .entry-small .entry-thumbnail {
 	margin: 0 0 1rem;
+}
+
+.entry-layout-grid .entry-thumbnail {
+	margin-left: -1.5em;
+	margin-right: -1.5em;
+}
+
+.entry-layout-grid .entry-thumbnail:first-child {
+	margin-top: -1.25em;
 }
 
 a.entry-thumbnail:hover, a.entry-thumbnail:focus {

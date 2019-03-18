@@ -54,6 +54,12 @@
 	> *:last-child {
 		margin-bottom: 0;
 	}
+
+	.entry-layout-grid & {
+		border-width: 1px; // default
+		padding: 1.25em 1.5em; // default
+		background-color: $color_bg; // default
+	}
 }
 
 // Entry header
@@ -116,6 +122,15 @@
 
 	.entry-small & {
 		margin: 0 0 1rem;
+	}
+
+	.entry-layout-grid & {
+		margin-left: -1.5em; // default
+		margin-right: -1.5em; // default
+
+		&:first-child {
+			margin-top: -1.25em; // default
+		}
 	}
 }
 
