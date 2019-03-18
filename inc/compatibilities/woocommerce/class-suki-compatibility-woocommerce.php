@@ -476,7 +476,9 @@ class Suki_Compatibility_WooCommerce {
 	 * @return string
 	 */
 	public function change_star_rating_markup( $html, $rating, $count ) {
-		$html = '<div class="suki-star-rating">' . $html . '</div>';
+		if ( ! empty( $html ) ) {
+			$html = '<div class="suki-star-rating">' . $html . '</div>';
+		}
 
 		return $html;
 	}

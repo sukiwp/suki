@@ -572,7 +572,7 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:822
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:824
 msgid "Logout"
 msgstr ""
 
