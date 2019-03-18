@@ -586,6 +586,11 @@ $add['page_bg_color'] = array(
 		'element'  => 'body, #page',
 		'property' => 'background-color',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'background-color',
+	),
 );
 
 $add['outside_bg_color'] = array(
