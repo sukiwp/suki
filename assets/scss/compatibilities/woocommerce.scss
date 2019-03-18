@@ -215,6 +215,10 @@ p.demo_store {
 // Star Rating
 // -------------------------------------------------------------
 
+.suki-star-rating {
+	display: inline-block;
+}
+
 .woocommerce .star-rating {
 	width: auto;
 	font-size: 1rem;
@@ -292,15 +296,18 @@ p.demo_store {
 
 		.suki-product-thumbnail {
 			position: relative;
-			margin: 0 0 0.75em;
+			margin: 0 0 1em;
 
 			a {
+				display: block;
+
 				&:hover, &:focus {
 					opacity: 0.9;
 				}
 			}
 
 			img {
+				width: 100%;
 				margin: 0;
 			}
 		}
@@ -310,7 +317,6 @@ p.demo_store {
 		}
 
 		a.woocommerce-loop-product__link {
-			display: block;
 			color: $color_heading; // default
 
 			&:hover, &:focus {
@@ -326,11 +332,11 @@ p.demo_store {
 
 		.star-rating {
 			display: inline-block;
-			margin: 0.5em auto 0;
+			margin: 0.5em 0 0;
 		}
 
 		.price {
-			margin: 0;
+			margin: 0 0 1em;
 			font-size: 1em;
 			font-weight: inherit;
 			color: inherit;
@@ -349,9 +355,17 @@ p.demo_store {
 			}
 		}
 
+		.button {
+			margin-top: 0;
+		}
+
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
 			float: none !important;
 			width: 100% !important;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
 		}
 	}
 

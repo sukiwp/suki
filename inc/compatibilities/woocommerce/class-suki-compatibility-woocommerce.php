@@ -160,12 +160,18 @@ class Suki_Compatibility_WooCommerce {
 		// Add count to Cart menu item.
 		add_filter( 'nav_menu_item_title', array( $this, 'add_count_to_cart_menu_item' ), 10, 4 );
 
+		// Add filter for adding class to products grid wrapper.
+		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
+
 		// Change sale badge tags.
 		add_filter( 'woocommerce_sale_flash', array( $this, 'change_sale_badge_markup' ), 99, 3 );
 
 		// Demo Store notice.
 		remove_action( 'wp_footer', 'woocommerce_demo_store' );
 		add_action( 'suki/frontend/before_header', 'woocommerce_demo_store' );
+
+		// Wrap star rating HTML
+		add_filter( 'woocommerce_product_get_rating_html', array( $this, 'change_star_rating_markup' ), 10, 3 );
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
@@ -278,7 +284,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Add text alignment class on products loop.
-		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_text_alignment_class' ) );
+		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
 
 		// Keep / remove "add to cart" button on products grid.
 		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
@@ -405,7 +411,79 @@ class Suki_Compatibility_WooCommerce {
 	
 	/**
 	 * ====================================================
-	 * Global Page Hook functions
+	 * Global Hook functions
+	 * ====================================================
+	 */
+
+	/**
+	 * Add items count to Cart menu item.
+	 *
+	 * @param string $title
+	 * @param WP_Post $item
+	 * @param array $args
+	 * @param integer $depth
+	 * @return string
+	 */
+	public function add_count_to_cart_menu_item( $title, $item, $args, $depth ) {
+		// Add items count to "Cart" menu.
+		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) && class_exists( 'WooCommerce' ) ) {
+			if ( strpos( $title, '{{count}}' ) ) {
+				$cart = WC()->cart;
+				if ( ! empty( $cart ) ) {
+					$count = $cart->cart_contents_count;
+				} else {
+					$count = 0;
+				}
+				$title = str_replace( '{{count}}', '(<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>)', $title );
+			}
+		}
+
+		return $title;
+	}
+
+	/**
+	 * Improve sale badge HTML markup.
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	public function change_loop_start_markup( $html ) {
+		$html = preg_replace( '/(class=".*?)"/', '$1 ' . implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_classes', array() ) ) . '"', $html );
+
+		return $html;
+	}
+
+	/**
+	 * Improve sale badge HTML markup.
+	 *
+	 * @param string $html
+	 * @param WP_Post $post
+	 * @param WC_Product $product
+	 * @return string
+	 */
+	public function change_sale_badge_markup( $html, $post, $product ) {
+		$html = preg_replace( '/<span class="onsale">(.*)<\/span>/', '<span class="onsale"><span>$1</span></span>', $html );
+
+		return $html;
+	}
+
+	/**
+	 * Improve star rating HTML markup.
+	 *
+	 * @param string $html
+	 * @param float $rating
+	 * @param integer $count
+	 * @return string
+	 */
+	public function change_star_rating_markup( $html, $rating, $count ) {
+		$html = '<div class="suki-star-rating">' . $html . '</div>';
+
+		return $html;
+	}
+	
+	/**
+	 * ====================================================
+	 * Shop Page's Hook functions
 	 * ====================================================
 	 */
 
@@ -466,44 +544,6 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Add items count to Cart menu item.
-	 *
-	 * @param string $title
-	 * @param WP_Post $item
-	 * @param array $args
-	 * @param integer $depth
-	 */
-	public function add_count_to_cart_menu_item( $title, $item, $args, $depth ) {
-		// Add items count to "Cart" menu.
-		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) && class_exists( 'WooCommerce' ) ) {
-			if ( strpos( $title, '{{count}}' ) ) {
-				$cart = WC()->cart;
-				if ( ! empty( $cart ) ) {
-					$count = $cart->cart_contents_count;
-				} else {
-					$count = 0;
-				}
-				$title = str_replace( '{{count}}', '(<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>)', $title );
-			}
-		}
-
-		return $title;
-	}
-
-	/**
-	 * Improve sale badge HTML markup.
-	 *
-	 * @param string $html
-	 * @param WP_Post $post
-	 * @param WC_Product $product
-	 */
-	public function change_sale_badge_markup( $html, $post, $product ) {
-		$html = preg_replace( '/<span class="onsale">(.*)<\/span>/', '<span class="onsale"><span>$1</span></span>', $html );
-
-		return $html;
-	}
-
-	/**
 	 * ====================================================
 	 * Global template hooks
 	 * ====================================================
@@ -515,7 +555,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param array $classes
 	 * @return array
 	 */
-	public function add_loop_text_alignment_class( $classes ) {
+	public function add_loop_item_alignment_class( $classes ) {
 		$classes['text_alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
 
 		return $classes;
@@ -557,7 +597,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Add opening wrapper tag to wrap product images + summary.
 	 */
 	public function render_product_images_summary_wrapper() {
-		?><div class="suki-woocommerce-product-images-summary-wrapper"><?php
+		?><div class="suki-product-images-summary-wrapper"><?php
 	}
 
 	/**
