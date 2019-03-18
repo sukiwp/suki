@@ -1597,7 +1597,7 @@ p.demo_store a {
 	color: inherit;
 }
 
-.woocommerce.widget ul li.chosen a :before {
+.woocommerce.widget ul li.chosen a:before {
 	font-size: 0.85em;
 	color: inherit;
 }
