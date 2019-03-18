@@ -395,7 +395,7 @@ $add['header_bottom_bar_merged'] = 0;
 $add['header_bottom_bar_merged_gap'] = '0px';
 
 $add['header_bottom_bar_container'] = 'default';
-$add['header_bottom_bar_height'] = '40px';
+$add['header_bottom_bar_height'] = '60px';
 $add['header_bottom_bar_padding'] = '0px 20px 0px 20px';
 $add['header_bottom_bar_border'] = '0px 0px 1px 0px';
 
@@ -755,12 +755,8 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
  * ====================================================
  */
 
-$add['entry_grid_padding'] = '0 0 0 0';
-$add['entry_grid_border'] = '0 0 0 0';
-$add['entry_grid_bg_color'] = '';
-$add['entry_grid_featured_media_position'] = 'before-entry-header';
-$add['entry_grid_featured_media_ignore_padding'] = 0;
 $add['entry_grid_excerpt_length'] = 30;
+$add['entry_grid_featured_media_position'] = 'before-entry-header';
 $add['entry_grid_header'] = array( 'header-meta', 'title' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';

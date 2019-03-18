@@ -107,7 +107,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
 
 /**
