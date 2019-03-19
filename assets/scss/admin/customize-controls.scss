@@ -86,7 +86,7 @@ li:not(.customize-info) div.customize-section-description {
 	line-height: 1;
 	text-transform: uppercase;
 	opacity: 0.75;
-	margin-bottom: 0.25em;
+	margin-bottom: 0.3em;
 	display: block;
 }
 
@@ -401,7 +401,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.wp-color-result.button {
 			position: absolute !important;
-			top: 20px;
+			top: 14px;
 			right: 0;
 			margin: 0;
 			width: 30px;
@@ -511,7 +511,7 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-dimensions {
 	.customize-control-content {
-		padding: 0.25em 0.5em 0.5em;
+		padding: 0.5em;
 		border: 1px solid #ddd;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 		background-color: #fff;
@@ -549,7 +549,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.suki-row {
 			&:first-child{
-				margin-top: -4px;
+				margin-top: 0;
 			}
 
 			&:last-child {
