@@ -53,7 +53,7 @@ $add['h1_font_weight'] = 600;
 $add['h1_font_style'] = '';
 $add['h1_text_transform'] = '';
 $add['h1_font_size'] = '32px';
-$add['h1_line_height'] = '1.4';
+$add['h1_line_height'] = '1.3';
 $add['h1_letter_spacing'] = '';
 
 $add['h2_font_family'] = '';
@@ -61,7 +61,7 @@ $add['h2_font_weight'] = 600;
 $add['h2_font_style'] = '';
 $add['h2_text_transform'] = '';
 $add['h2_font_size'] = '27px';
-$add['h2_line_height'] = '1.5';
+$add['h2_line_height'] = '1.4';
 $add['h2_letter_spacing'] = '';
 
 $add['h3_font_family'] = '';
@@ -69,7 +69,7 @@ $add['h3_font_weight'] = 600;
 $add['h3_font_style'] = '';
 $add['h3_text_transform'] = '';
 $add['h3_font_size'] = '22px';
-$add['h3_line_height'] = '1.6';
+$add['h3_line_height'] = '1.5';
 $add['h3_letter_spacing'] = '';
 
 $add['h4_font_family'] = '';
@@ -77,7 +77,7 @@ $add['h4_font_weight'] = 600;
 $add['h4_font_style'] = '';
 $add['h4_text_transform'] = '';
 $add['h4_font_size'] = '17px';
-$add['h4_line_height'] = '1.7';
+$add['h4_line_height'] = '1.6';
 $add['h4_letter_spacing'] = '';
 
 $add['heading_text_color'] = $colors['heading'];

@@ -364,6 +364,8 @@ p.demo_store a {
 }
 
 .woocommerce ul.products li.product .suki-product-thumbnail {
+	-ms-flex-item-align: stretch;
+	align-self: stretch;
 	position: relative;
 	margin: 0 0 0.75em;
 }
@@ -711,7 +713,7 @@ p.demo_store a {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -843,7 +845,7 @@ p.demo_store a {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -965,7 +967,7 @@ p.demo_store a {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -1177,7 +1179,7 @@ p.demo_store a {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -1243,7 +1245,7 @@ p.demo_store a {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }

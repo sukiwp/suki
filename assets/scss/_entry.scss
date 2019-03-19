@@ -113,7 +113,6 @@
 .entry-thumbnail {
 	display: block;
 	margin: 0 0 2rem;
-	text-align: center;
 
 	> * {
 		display: block;
@@ -125,6 +124,7 @@
 	}
 
 	.entry-layout-grid & {
+		align-self: stretch;
 		margin-left: -1.5em; // default
 		margin-right: -1.5em; // default
 

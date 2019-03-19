@@ -222,7 +222,7 @@ h1 {
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.4;
+	line-height: 1.3;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -231,7 +231,7 @@ h2 {
 	font-size: 27px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.5;
+	line-height: 1.4;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -240,7 +240,7 @@ h3 {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -249,7 +249,7 @@ h4 {
 	font-size: 17px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.7;
+	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -258,7 +258,7 @@ h5, h6 {
 	font-size: 17px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.7;
+	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
 	font-size: 1rem;
@@ -451,7 +451,7 @@ legend {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 	margin: 0 0 1.25rem;
@@ -871,7 +871,7 @@ select[multiple] {
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.4;
+	line-height: 1.3;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -880,7 +880,7 @@ select[multiple] {
 	font-size: 27px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.5;
+	line-height: 1.4;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -889,7 +889,7 @@ select[multiple] {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -898,7 +898,7 @@ select[multiple] {
 	font-size: 17px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.7;
+	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -907,7 +907,7 @@ select[multiple] {
 	font-size: 17px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.7;
+	line-height: 1.6;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -949,7 +949,7 @@ select[multiple] {
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.4;
+	line-height: 1.3;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -970,7 +970,7 @@ select[multiple] {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -1348,7 +1348,7 @@ p.wp-block-subhead {
 	font-size: 27px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.5;
+	line-height: 1.4;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -2859,7 +2859,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .entry-thumbnail {
 	display: block;
 	margin: 0 0 2rem;
-	text-align: center;
 }
 
 .entry-thumbnail > * {
@@ -2872,6 +2871,8 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .entry-layout-grid .entry-thumbnail {
+	-ms-flex-item-align: stretch;
+	align-self: stretch;
 	margin-right: -1.5em;
 	margin-left: -1.5em;
 }
@@ -3050,7 +3051,7 @@ a.more-link {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -3059,7 +3060,7 @@ a.more-link {
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 1.6;
+	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
 }
