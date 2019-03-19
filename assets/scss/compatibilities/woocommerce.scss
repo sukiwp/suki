@@ -296,7 +296,7 @@ p.demo_store {
 
 		.suki-product-thumbnail {
 			position: relative;
-			margin: 0 0 1em;
+			margin: 0 0 0.75em;
 
 			a {
 				display: block;
@@ -336,10 +336,14 @@ p.demo_store {
 		}
 
 		.price {
-			margin: 0 0 1em;
+			margin: 0 0 0.75em;
 			font-size: 1em;
 			font-weight: inherit;
 			color: inherit;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 
 			del {
 				opacity: 0.5;

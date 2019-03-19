@@ -365,7 +365,7 @@ p.demo_store a {
 
 .woocommerce ul.products li.product .suki-product-thumbnail {
 	position: relative;
-	margin: 0 0 1em;
+	margin: 0 0 0.75em;
 }
 
 .woocommerce ul.products li.product .suki-product-thumbnail a {
@@ -405,10 +405,14 @@ p.demo_store a {
 }
 
 .woocommerce ul.products li.product .price {
-	margin: 0 0 1em;
+	margin: 0 0 0.75em;
 	font-size: 1em;
 	font-weight: inherit;
 	color: inherit;
+}
+
+.woocommerce ul.products li.product .price:last-child {
+	margin-bottom: 0;
 }
 
 .woocommerce ul.products li.product .price del {
