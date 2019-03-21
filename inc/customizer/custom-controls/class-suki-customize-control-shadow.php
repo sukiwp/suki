@@ -32,8 +32,8 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 		$this->json['name'] = $this->id;
 
 		$value = $this->value();
-		if ( false === $value || '' === $value ) {
-			$value = '    '; // 4 empty space for default value
+		if ( false === $value || '' === trim( $value ) ) {
+			$value = '0 0 0 0 rgba(0,0,0,0)'; // 4 empty space for default value
 		}
 
 		$chunks = explode( ' ', $value );
@@ -91,7 +91,7 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 				</label>
 			</div>
 			<div class="suki-shadow-color">
-				<input value="{{ data.value.color }}" type="text" maxlength="30" class="suki-shadow-input color-picker-hex" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="" data-show-opacity="true" data-custom-width="false">
+				<input value="{{ data.value.color }}" type="text" maxlength="30" class="suki-shadow-input color-picker-hex" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="rgba(0,0,0,0)" data-show-opacity="true">
 			</div>
 
 			<input type="hidden" {{{ data.__link }}} value="{{ data.raw_value }}" class="suki-shadow-value">

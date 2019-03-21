@@ -279,23 +279,19 @@
 		ready: function() {
 			var control = this,
 			    $inputs = control.container.find( '.suki-shadow-input' ),
-			    $color = control.container.find( '.suki-shadow-color input' ),
 			    $value = control.container.find( '.suki-shadow-value' );
 
-			control.updateValue = function( i, el ) {
+			control.updateValue = function( e ) {
 				var values = $inputs.map(function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+					return $( this ).hasClass( 'color-picker-hex' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
 				}).get();
 
 				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			}
 
-			$color.alphaColorPicker({
-				change: control.updateValue,
-				clear: control.updateValue,
-			});
+			control.container.find( '.suki-shadow-color .color-picker-hex' ).alphaColorPicker();
 
-			$inputs.on( 'change blur', control.updateValue );
+			control.container.on( 'change', '.suki-shadow-input', control.updateValue );
 		}
 	});
 

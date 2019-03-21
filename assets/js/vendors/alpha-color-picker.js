@@ -1,5 +1,7 @@
 /**
  * Alpha Color Picker JS
+ *
+ * modified: trigger chnage on input field instead of looking for customizer setting.
  */
 
 ( function( $ ) {
@@ -134,7 +136,7 @@
 				change: function( event, ui ) {
 					var key, value, alpha, $transparency;
 
-					key   = $input.attr( 'data-customize-setting-link' );
+					// key   = $input.attr( 'data-customize-setting-link' );
 					value = $input.wpColorPicker( 'color' );
 
 					// Set the opacity value on the slider handle when the default color button is clicked.
@@ -143,29 +145,33 @@
 						$alphaSlider.find( '.ui-slider-handle' ).text( alpha );
 					}
 
-					// If we're in the Customizer, send an ajax request to wp.customize
-					// to trigger the Save action.
-					if ( typeof wp.customize != 'undefined' ) {
-						wp.customize( key, function( obj ) {
-							obj.set( value );
-						});
-					}
+					// // If we're in the Customizer, send an ajax request to wp.customize
+					// // to trigger the Save action.
+					// if ( typeof wp.customize != 'undefined' ) {
+					// 	wp.customize( key, function( obj ) {
+					// 		obj.set( value );
+					// 	});
+					// }
 
 					$transparency = $container.find( '.transparency' );
 
 					// Always show the background color of the opacity slider at 100% opacity.
 					$transparency.css( 'background-color', ui.color.toString( 'no-alpha' ) );
+
+					$( this ).val( value ).trigger( 'change' );
 				},
 				clear: function( event, ui ) {
-					var key = $input.attr( 'data-customize-setting-link' );
+					// var key = $input.attr( 'data-customize-setting-link' );
 
-					// If we're in the Customizer, send an ajax request to wp.customize
-					// to trigger the Save action.
-					if ( typeof wp.customize != 'undefined' ) {
-						wp.customize( key, function( obj ) {
-							obj.set( '' );
-						});
-					}
+					// // If we're in the Customizer, send an ajax request to wp.customize
+					// // to trigger the Save action.
+					// if ( typeof wp.customize != 'undefined' ) {
+					// 	wp.customize( key, function( obj ) {
+					// 		obj.set( '' );
+					// 	});
+					// }
+
+					$( this ).val( '' ).trigger( 'change' );
 				},
 				palettes: palette // Use the passed in palette.
 			};
