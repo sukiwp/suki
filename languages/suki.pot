@@ -484,18 +484,6 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:675
-msgid "One Click Demo Import"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:683
-msgid "Browse and Import"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:689
-msgid "Install \"Suki Sites Import\""
-msgstr ""
-
 #: inc/customizer/class-suki-customizer.php:419
 msgid "Search Results Page"
 msgstr ""
