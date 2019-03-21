@@ -34,11 +34,12 @@
 		display: block;
 		width: 100px; // default
 		line-height: 1;
-	}
 
-	img, svg {
-		max-width: 100%;
-		height: auto;
+		img, svg {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
 	}
 }
 

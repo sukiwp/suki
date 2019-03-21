@@ -1701,7 +1701,8 @@ body.suki-page-layout-boxed #page {
 	line-height: 1;
 }
 
-.suki-logo img, .suki-logo svg {
+.suki-logo .suki-logo-image img, .suki-logo .suki-logo-image svg {
+	display: block;
 	max-width: 100%;
 	height: auto;
 }
