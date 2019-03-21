@@ -107,10 +107,10 @@ $add['input_padding'] = '10px 12px 10px 12px';
 $add['input_border'] = '1px 1px 1px 1px';
 $add['input_border_radius'] = '3px';
 
-$add['input_bg_color'] = $colors['subtle'];
+$add['input_bg_color'] = $colors['bg'];
 $add['input_border_color'] ='';
 $add['input_text_color'] = '';
-$add['input_focus_bg_color'] = $colors['bg'];
+$add['input_focus_bg_color'] = $colors['subtle'];
 $add['input_focus_border_color'] = '';
 $add['input_focus_text_color'] = '';
 

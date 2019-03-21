@@ -452,14 +452,15 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 
 p.has-drop-cap:not(:focus):first-letter {
 	float: left;
-	line-height: 1;
+	line-height: 0.9;
 	font-family: inherit;
-	font-size: 3.4em;
+	font-size: 5.1em;
 	font-style: normal;
 	font-weight: 600;
 	margin: 0 0.25em 0 0;
 	text-transform: uppercase;
-	initial-letter: 2;
+	initial-letter: 3;
+	color: #333333;
 }
 
 .wp-block-quote {

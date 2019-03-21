@@ -57,14 +57,15 @@
 
 p.has-drop-cap:not(:focus):first-letter {
 	float: left;
-	line-height: 1;
+	line-height: 0.9;
 	font-family: inherit;
-	font-size: 2 * 1.7em; // default
+	font-size: 3 * 1.7em; // default
 	font-style: normal;
 	font-weight: 600;
 	margin: 0 0.25em 0 0;
 	text-transform: uppercase;
-	initial-letter: 2;
+	initial-letter: 3;
+	color: $color_heading; // default
 }
 
 // -------------------------------------------------------------

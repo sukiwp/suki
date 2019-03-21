@@ -79,7 +79,7 @@
 	border-radius: 3px; // default
 
 	color: inherit; // default
-	background-color: $color_subtle; // default
+	background-color: $color_bg; // default
 	
 	font-size: inherit;
 	font-style: inherit;
@@ -90,7 +90,7 @@
 	vertical-align: middle;
 
 	&:focus {
-		background-color: $color_bg; // default
+		background-color: $color_subtle; // default
 	}
 }
 

@@ -535,7 +535,7 @@ input[type="week"],
 	border-color: inherit;
 	border-radius: 3px;
 	color: inherit;
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -559,7 +559,7 @@ input[type="time"]:focus,
 input[type="url"]:focus,
 input[type="week"]:focus,
 .input:focus {
-	background-color: #ffffff;
+	background-color: #f6f6f6;
 }
 
 textarea {
@@ -578,7 +578,7 @@ textarea {
 	border-color: inherit;
 	border-radius: 3px;
 	color: inherit;
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -589,7 +589,7 @@ textarea {
 }
 
 textarea:focus {
-	background-color: #ffffff;
+	background-color: #f6f6f6;
 }
 
 select {
@@ -608,7 +608,7 @@ select {
 	border-color: inherit;
 	border-radius: 3px;
 	color: inherit;
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -624,7 +624,7 @@ select {
 }
 
 select:focus {
-	background-color: #ffffff;
+	background-color: #f6f6f6;
 }
 
 select[multiple] {
@@ -660,7 +660,7 @@ select[multiple] {
 	border-color: inherit;
 	border-radius: 3px;
 	color: inherit;
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -678,7 +678,7 @@ select[multiple] {
 }
 
 .select2-container .select2-selection:focus {
-	background-color: #ffffff;
+	background-color: #f6f6f6;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -1262,14 +1262,15 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 
 p.has-drop-cap:not(:focus):first-letter {
 	float: left;
-	line-height: 1;
+	line-height: 0.9;
 	font-family: inherit;
-	font-size: 3.4em;
+	font-size: 5.1em;
 	font-style: normal;
 	font-weight: 600;
 	margin: 0 0.25em 0 0;
 	text-transform: uppercase;
-	initial-letter: 2;
+	initial-letter: 3;
+	color: #333333;
 }
 
 .wp-block-quote {
@@ -2825,7 +2826,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .entry-title {
-	margin: 0 0 0.5rem;
+	margin: 0 0 0.75rem;
 }
 
 .entry-small-title {

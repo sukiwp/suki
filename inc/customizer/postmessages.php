@@ -55,7 +55,7 @@ $add['body_line_height'][] = array(
 	'pattern'  => '$em',
 	'function' => array(
 		'name' => 'scale_dimensions',
-		'args' => array( 2 ),
+		'args' => array( 3 ),
 	),
 );
 
@@ -180,6 +180,11 @@ $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a, h6 a, .h6 a, .comment-author a, .entry-author-name, .entry-author-name a',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => 'p.has-drop-cap:not(:focus):first-letter',
 		'property' => 'color',
 	),
 	array(

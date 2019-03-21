@@ -1032,7 +1032,7 @@ p.demo_store a {
 	border-color: inherit;
 	border-radius: 3px;
 	color: inherit;
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -1043,7 +1043,7 @@ p.demo_store a {
 }
 
 .woocommerce table.cart td.actions .coupon .input-text:focus, .woocommerce #content table.cart td.actions .coupon .input-text:focus, .woocommerce-page table.cart td.actions .coupon .input-text:focus, .woocommerce-page #content table.cart td.actions .coupon .input-text:focus {
-	background-color: #ffffff;
+	background-color: #f6f6f6;
 }
 
 .woocommerce table.cart .product-remove, .woocommerce #content table.cart .product-remove, .woocommerce-page table.cart .product-remove, .woocommerce-page #content table.cart .product-remove {
