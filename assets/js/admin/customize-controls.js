@@ -268,7 +268,14 @@
 			var control = this,
 				$picker = control.container.find( '.color-picker' );
 
-			$picker.alphaColorPicker();
+			$picker.alphaColorPicker({
+				change: function() {
+					control.setting.set( $picker.wpColorPicker( 'color' ) );
+				},
+				clear: function() {
+					control.setting.set( '' );
+				},
+			});
 		}
 	});
 
@@ -283,15 +290,18 @@
 
 			control.updateValue = function( e ) {
 				var values = $inputs.map(function() {
-					return $( this ).hasClass( 'color-picker-hex' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+					return $( this ).hasClass( 'color-picker-hex' ) ? ( '' === $( this ).wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $( this ).wpColorPicker( 'color' ) ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
 				}).get();
 
 				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			}
 
-			control.container.find( '.suki-shadow-color .color-picker-hex' ).alphaColorPicker();
+			control.container.find( '.suki-shadow-color .color-picker-hex' ).alphaColorPicker({
+				change: control.updateValue,
+				clear: control.updateValue,
+			});
 
-			control.container.on( 'change', '.suki-shadow-input', control.updateValue );
+			control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
 		}
 	});
 

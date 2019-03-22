@@ -2,7 +2,8 @@
  * Alpha Color Picker JS
  *
  * modified:
- * - trigger chnage on input field instead of looking for customizer setting.
+ * - remove customizer setting triggers.
+ * - add parameter on main function for custom callbacks.
  * - fix error when showOpacity mode is not active.
  */
 
@@ -98,10 +99,12 @@
 		$alphaSlider.find( '.ui-slider-handle' ).text( alpha.toString() );
 	}
 
-	$.fn.alphaColorPicker = function() {
+	$.fn.alphaColorPicker = function( callbacks ) {
+		if ( callbacks === undefined ) {
+			callbacks = {};
+		}
 
 		return this.each( function() {
-
 			// Scope the vars.
 			var $input, startingColor, paletteInput, showOpacity, defaultColor, palette,
 				colorPickerOptions, $container, $alphaSlider, alphaVal, sliderOptions;
@@ -164,20 +167,14 @@
 					// Always show the background color of the opacity slider at 100% opacity.
 					$transparency.css( 'background-color', ui.color.toString( 'no-alpha' ) );
 
-					$( this ).val( value ).trigger( 'change' );
+					if ( $.isFunction( callbacks.change ) ) {
+						callbacks.change.call( this, event );
+					}
 				},
 				clear: function( event, ui ) {
-					// var key = $input.attr( 'data-customize-setting-link' );
-
-					// // If we're in the Customizer, send an ajax request to wp.customize
-					// // to trigger the Save action.
-					// if ( typeof wp.customize != 'undefined' ) {
-					// 	wp.customize( key, function( obj ) {
-					// 		obj.set( '' );
-					// 	});
-					// }
-
-					$( this ).val( '' ).trigger( 'change' );
+					if ( $.isFunction( callbacks.clear ) ) {
+						callbacks.clear.call( this, event );
+					}
 				},
 				palettes: palette // Use the passed in palette.
 			};
@@ -273,10 +270,9 @@
 
 			// Bind event handler for typing or pasting into the input.
 			$input.on( 'input', function() {
-				var value = $( this ).val();
-
 				if ( 'true' === showOpacity ) {
-					var alpha = acp_get_alpha_value_from_color( value );
+					var value = $( this ).val(),
+						alpha = acp_get_alpha_value_from_color( value );
 
 					acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
 				}
