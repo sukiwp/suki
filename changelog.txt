@@ -23,6 +23,7 @@ v1.0.0
 - TWEAK: Improve shopping cart count HTML markup for easier styling.
 - TWEAK: Improve page settings meta box with clearer information.
 - TWEAK: Improve Gutenberg editor CSS.
+- TWEAK: Improve Gutenberg frontend CSS.
 - TWEAK: Improve WooCommerce compatibility CSS.
 - TWEAK: Improve default theme's CSS.
 - TWEAK: Improve some text strings.
