@@ -12,7 +12,7 @@ const config = {
 		scss: [ './assets/scss/**/*.scss' ],
 		css: [ './assets/css/**/*.css', '!./assets/css/vendors/*' ],
 		js: [ './assets/js/**/*.js', '!./assets/js/vendors/*' ],
-		pot: [ './**/*.php', '!./__build/**/*.php' ],
+		pot: [ './**/*.php', '!./__build/**/*.php', '!./__bak/**/*.php' ],
 		build: [
 			'./*',
 			'./assets/css/**/*',
