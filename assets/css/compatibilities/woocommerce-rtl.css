@@ -551,6 +551,7 @@ p.demo_store a {
 @media screen and (max-width: 767px) {
 	.woocommerce div.product div.summary, .woocommerce #content div.product div.summary, .woocommerce-page div.product div.summary, .woocommerce-page #content div.product div.summary {
 		width: 100% !important;
+		padding-right: 0;
 	}
 }
 

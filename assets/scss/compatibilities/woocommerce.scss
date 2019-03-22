@@ -479,6 +479,7 @@ p.demo_store {
 
 				@media screen and ( max-width: $breakpoint_768 - 1px ) {
 					width: 100% !important;
+					padding-left: 0;
 				}
 			}
 		}
