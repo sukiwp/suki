@@ -536,7 +536,7 @@ $add['page_header_breadcrumb_font_family'] = '';
 $add['page_header_breadcrumb_font_weight'] = '';
 $add['page_header_breadcrumb_font_style'] = '';
 $add['page_header_breadcrumb_text_transform'] = '';
-$add['page_header_breadcrumb_font_size'] = '0.9rem';
+$add['page_header_breadcrumb_font_size'] = '';
 $add['page_header_breadcrumb_line_height'] = '';
 $add['page_header_breadcrumb_letter_spacing'] = '';
 
