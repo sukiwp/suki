@@ -1,7 +1,9 @@
 /**
  * Alpha Color Picker JS
  *
- * modified: trigger chnage on input field instead of looking for customizer setting.
+ * modified:
+ * - trigger chnage on input field instead of looking for customizer setting.
+ * - fix error when showOpacity mode is not active.
  */
 
 ( function( $ ) {
@@ -79,7 +81,9 @@
 
 		// Maybe update the alpha slider itself.
 		if ( update_slider ) {
-			acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+			if ( 'true' === showOpacity ) {
+				acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+			}
 		}
 
 		// Update the color value of the color picker object.
@@ -141,8 +145,10 @@
 
 					// Set the opacity value on the slider handle when the default color button is clicked.
 					if ( defaultColor == value ) {
-						alpha = acp_get_alpha_value_from_color( value );
-						$alphaSlider.find( '.ui-slider-handle' ).text( alpha );
+						if ( 'true' === showOpacity ) {
+							alpha = acp_get_alpha_value_from_color( value );
+							$alphaSlider.find( '.ui-slider-handle' ).text( alpha );
+						}
 					}
 
 					// // If we're in the Customizer, send an ajax request to wp.customize
@@ -237,19 +243,20 @@
 
 			// Bind event handler for clicking on a palette color.
 			$container.find( '.iris-palette' ).on( 'click', function() {
-				var color, alpha;
+				var color = $( this ).css( 'background-color' );
 
-				color = $( this ).css( 'background-color' );
-				alpha = acp_get_alpha_value_from_color( color );
+				if ( 'true' === showOpacity ) {
+					var alpha = acp_get_alpha_value_from_color( color );
 
-				acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+					acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
 
-				// Sometimes Iris doesn't set a perfect background-color on the palette,
-				// for example rgba(20, 80, 100, 0.3) becomes rgba(20, 80, 100, 0.298039).
-				// To compensante for this we round the opacity value on RGBa colors here
-				// and save it a second time to the color picker object.
-				if ( alpha != 100 ) {
-					color = color.replace( /[^,]+(?=\))/, ( alpha / 100 ).toFixed( 2 ) );
+					// Sometimes Iris doesn't set a perfect background-color on the palette,
+					// for example rgba(20, 80, 100, 0.3) becomes rgba(20, 80, 100, 0.298039).
+					// To compensante for this we round the opacity value on RGBa colors here
+					// and save it a second time to the color picker object.
+					if ( alpha != 100 ) {
+						color = color.replace( /[^,]+(?=\))/, ( alpha / 100 ).toFixed( 2 ) );
+					}
 				}
 
 				$input.wpColorPicker( 'color', color );
@@ -257,17 +264,22 @@
 
 			// Bind event handler for clicking on the 'Default' button.
 			$container.find( '.button.wp-picker-default' ).on( 'click', function() {
-				var alpha = acp_get_alpha_value_from_color( defaultColor );
+				if ( 'true' === showOpacity ) {
+					var alpha = acp_get_alpha_value_from_color( defaultColor );
 
-				acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+					acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+				}
 			});
 
 			// Bind event handler for typing or pasting into the input.
 			$input.on( 'input', function() {
 				var value = $( this ).val();
-				var alpha = acp_get_alpha_value_from_color( value );
 
-				acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+				if ( 'true' === showOpacity ) {
+					var alpha = acp_get_alpha_value_from_color( value );
+
+					acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+				}
 			});
 		});
 	}
