@@ -309,6 +309,35 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 	}
 
 	// ------
+	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $bar . '_submenu_colors', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'priority'    => 30,
+	) ) );
+
+	// Colors
+	$colors = array(
+		'header_' . $bar . '_submenu_bg_color'                  => esc_html__( 'Submenu background color', 'suki' ),
+		'header_' . $bar . '_submenu_border_color'              => esc_html__( 'Submenu border color', 'suki' ),
+		'header_' . $bar . '_submenu_text_color'                => esc_html__( 'Submenu text color', 'suki' ),
+		'header_' . $bar . '_submenu_link_text_color'           => esc_html__( 'Submenu link text color', 'suki' ),
+		'header_' . $bar . '_submenu_link_hover_text_color'     => esc_html__( 'Submenu link text color :hover', 'suki' ),
+		'header_' . $bar . '_submenu_link_active_text_color'    => esc_html__( 'Submenu link text color :active', 'suki' ),
+	);
+	foreach ( $colors as $key => $label ) {
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $defaults, $key ),
+			'transport'   => 'postMessage',
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
+			'section'     => $section,
+			'label'       => $label,
+			'priority'    => 30,
+		) ) );
+	}
+
+	// ------
 	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_' . $bar . '_menu_highlight_colors', array(
 		'section'     => $section,
 		'settings'    => array(),

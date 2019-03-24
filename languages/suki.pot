@@ -668,7 +668,7 @@ msgstr ""
 msgid "Italic"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:218, inc/customizer/options/content--sidebar.php:308, inc/customizer/options/footer--widgets-bar.php:233, inc/customizer/options/header--top-main-bottom-bar.php:330
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:218, inc/customizer/options/content--sidebar.php:308, inc/customizer/options/footer--widgets-bar.php:233, inc/customizer/options/header--top-main-bottom-bar.php:359
 msgid "None"
 msgstr ""
 
@@ -907,7 +907,7 @@ msgstr ""
 msgid "Box"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:310, inc/customizer/options/footer--widgets-bar.php:235, inc/customizer/options/header--top-main-bottom-bar.php:334
+#: inc/customizer/options/content--sidebar.php:310, inc/customizer/options/footer--widgets-bar.php:235, inc/customizer/options/header--top-main-bottom-bar.php:363
 msgid "Border bottom"
 msgstr ""
 
@@ -1358,35 +1358,59 @@ msgstr ""
 msgid "Gap with Main Bar content"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:328
+#: inc/customizer/options/header--top-main-bottom-bar.php:320
+msgid "Submenu background color"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:321
+msgid "Submenu border color"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:322
+msgid "Submenu text color"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:323
+msgid "Submenu link text color"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:324
+msgid "Submenu link text color :hover"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:325
+msgid "Submenu link text color :active"
+msgstr ""
+
+#: inc/customizer/options/header--top-main-bottom-bar.php:357
 msgid "Top level menu items highlight"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:331
+#: inc/customizer/options/header--top-main-bottom-bar.php:360
 msgid "Background"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:332
+#: inc/customizer/options/header--top-main-bottom-bar.php:361
 msgid "Underline"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:333
+#: inc/customizer/options/header--top-main-bottom-bar.php:362
 msgid "Border top"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:341
+#: inc/customizer/options/header--top-main-bottom-bar.php:370
 msgid "Highlight color :hover"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:342
+#: inc/customizer/options/header--top-main-bottom-bar.php:371
 msgid "Highlight text color :hover"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:343
+#: inc/customizer/options/header--top-main-bottom-bar.php:372
 msgid "Highlight color :active"
 msgstr ""
 
-#: inc/customizer/options/header--top-main-bottom-bar.php:344
+#: inc/customizer/options/header--top-main-bottom-bar.php:373
 msgid "Highlight text color :active"
 msgstr ""
 
