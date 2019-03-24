@@ -1470,13 +1470,13 @@ p.demo_store {
 		}
 	}
 
-	.buttons {
-		margin: 0.5em 0 0;
-		
+	.woocommerce-mini-cart__buttons {
+		@include flex( flex-start );
+		margin: 0.5em -5px 0;
+
 		a {
-			display: block;
-			width: 100%;
-			margin: 0.5em 0 0;
+			flex: 1;
+			margin: 0.5em 5px 0;
 		}
 	}
 
