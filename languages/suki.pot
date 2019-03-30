@@ -464,10 +464,6 @@ msgstr ""
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:635
-msgid "Demo Sites"
-msgstr ""
-
 #: inc/admin/class-suki-admin.php:640
 msgid "Documentation"
 msgstr ""
