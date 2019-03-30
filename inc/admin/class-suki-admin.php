@@ -631,11 +631,11 @@ class Suki_Admin {
 				'url'    => 'https://sukiwp.com/pro/',
 				'newtab' => true,
 			),
-			array(
-				'label'  => esc_html__( 'Demo Sites', 'suki' ),
-				'url'    => 'https://sukiwp.com/demos/',
-				'newtab' => true,
-			),
+			// array(
+			// 	'label'  => esc_html__( 'Demo Sites', 'suki' ),
+			// 	'url'    => 'https://sukiwp.com/sites/',
+			// 	'newtab' => true,
+			// ),
 			array(
 				'label'  => esc_html__( 'Documentation', 'suki' ),
 				'url'    => 'https://docs.sukiwp.com/',
