@@ -1,6 +1,7 @@
 v1.0.0
 - NEW: Allow child theme to use parent theme options (for easier migration).
 - NEW: Default blog posts layout will automatically use `excerpt` instead of the main `content` if specified.
+- NEW: Options to change header's submenu colors on each header bar (top, main, bottom bar).
 - NEW: Options to change header's cart count colors.
 - NEW: Options to change entry footer text alignment.
 - NEW: Header popup (e.g. mobile header drawer) will automatically close when user clicks a hash link to elements on the same page.
