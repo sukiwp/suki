@@ -81,11 +81,11 @@
 	background-color: #1976d2;
 	border-color: #1976d2;
 	font-size: 1rem;
-	font-style: inherit;
+	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
-	letter-spacing: inherit;
-	text-transform: inherit;
+	letter-spacing: 0;
+	text-transform: none;
 	text-align: center;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;

@@ -117,11 +117,11 @@
 	border-color: $color_accent; // default
 
 	font-size: 1rem; // default
-	font-style: inherit;
+	font-style: normal; // default
 	font-weight: 600; // default
 	line-height: normal;
-	letter-spacing: inherit;
-	text-transform: inherit;
+	letter-spacing: 0; // default
+	text-transform: none; // default
 	text-align: center;
 
 	@include transition();
