@@ -250,6 +250,10 @@ p.demo_store {
 	@include flex( center, space-between, wrap );
 	margin: 0 -0.5em 2.5em;
 
+	&:empty {
+		display: none;
+	}
+
 	> * {
 		padding: 0.5em;
 	}

@@ -306,6 +306,10 @@ p.demo_store a {
 	margin: 0 -0.5em 2.5em;
 }
 
+.suki-products-filters:empty {
+	display: none;
+}
+
 .suki-products-filters > * {
 	padding: 0.5em;
 }
