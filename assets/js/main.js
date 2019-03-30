@@ -82,10 +82,11 @@
 				var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
 				for ( var i = 0; i < $submenus.length; i++ ) {
 					var $submenu = $submenus[i],
-					    $wrapper = $submenu.closest( '.suki-wrapper' ),
-						wrapperEdge = $wrapper.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $wrapper.getBoundingClientRect().width ),
+					    $section = $submenu.closest( '.suki-header-section' ),
+					    $container = $section.classList.contains( 'suki-section-default' ) ? $submenu.closest( '.suki-wrapper' ) : $section.querySelector( '.suki-section-inner' ),
+						containerEdge = $container.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $container.getBoundingClientRect().width ),
 						submenuEdge = $submenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
-						isSubmenuOverflow = window.suki.isRTL() ? submenuEdge < wrapperEdge : submenuEdge > wrapperEdge;
+						isSubmenuOverflow = window.suki.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
 					// Reset inline styling.
 					$submenu.classList.remove( 'suki-sub-menu-edge' );
@@ -94,7 +95,7 @@
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
-						$submenu.style[ prop ] = -1 * Math.abs( wrapperEdge - submenuEdge ).toString() + 'px';
+						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
 					}
 
 					// Iterate to 2nd & higher level submenu.
@@ -102,7 +103,7 @@
 					for ( var j = 0; j < $subsubmenus.length; j++ ) {
 						var $subsubmenu = $subsubmenus[j],
 						    subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
-							isSubsubmenuOverflow = window.suki.isRTL() ? subsubmenuEdge < wrapperEdge : subsubmenuEdge > wrapperEdge;
+							isSubsubmenuOverflow = window.suki.isRTL() ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
 
 						// Apply class and left position.
 						if ( isSubsubmenuOverflow ) {
@@ -122,7 +123,7 @@
 
 				clearTimeout( timeout );
 				timeout = setTimeout( calculateSubMenuEdge, 100 );
-			} );
+			});
 			calculateSubMenuEdge();
 		},
 
@@ -417,6 +418,26 @@
 					deactivatePopup( device );
 				}
 			});
+
+			// Close popup if any hash link is clicked.
+			var $menuLinks = document.querySelectorAll( '.suki-popup a' );
+			for ( var i = 0; i < $menuLinks.length; i++ ) {
+				$menuLinks[i].addEventListener( 'click', function( e ) {
+					// Check if the link is a hash link.
+					if ( '' !== this.hash ) {
+						var pageURL = ( window.location.hostname + '/' + window.location.pathname ).replace( '/\/$/', '' ),
+						    linkURL = ( this.hostname + '/' + this.pathname ).replace( '/\/$/', '' );
+
+						// Check if the hash target is on this page.
+						if ( pageURL === linkURL ) {
+							// Deactivate all popups.
+							if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
+								deactivatePopup();
+							}
+						}
+					}
+				});
+			}
 		},
 
 		/**

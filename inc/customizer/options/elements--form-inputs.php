@@ -11,13 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $section = 'suki_section_form_input';
 
 // Padding
-$id = 'input_padding';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'input_padding';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
 	'units'       => array(
@@ -25,18 +25,22 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'min'  => 0,
 			'step' => 0.5,
 		),
+		'em' => array(
+			'min'  => 0,
+			'step' => 0.05,
+		),
 	),
 	'priority'    => 10,
 ) ) );
 
 // Border
-$id = 'input_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'input_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border', 'suki' ),
 	'units'       => array(
@@ -49,13 +53,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border radius
-$id = 'input_border_radius';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'input_border_radius';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border radius', 'suki' ),
 	'units'       => array(
@@ -84,13 +88,13 @@ $colors = array(
 	'input_focus_border_color' => esc_html__( 'Border color :focus', 'suki' ),
 	'input_focus_text_color'   => esc_html__( 'Text color :focus', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 10,

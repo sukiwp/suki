@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="page-<?php the_ID(); ?>" <?php post_class( 'entry entry-page entry-layout-default' ); ?> role="article">
+<article id="page-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry/page_classes', array( 'entry', 'entry-page', 'entry-layout-default' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**
@@ -71,7 +71,7 @@
 		
 		if ( has_action( 'suki/frontend/entry/footer' ) ) :
 		?>
-			<footer class="entry-footer">
+			<footer class="entry-footer <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'entry_footer_alignment' ) ); ?>">
 				<?php
 				/**
 				 * Hook: suki/frontend/entry/footer

@@ -17,13 +17,13 @@ $section = 'suki_section_page_container';
  */
 
 // Page layout
-$id = 'page_layout';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_layout';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Page layout', 'suki' ),
@@ -42,13 +42,13 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_pa
 ) ) );
 
 // Page background color
-$id = 'page_bg_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_bg_color';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Page background color', 'suki' ),
 	'priority'    => 10,
@@ -69,16 +69,37 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Content wrapper width
-$id = 'container_width';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'container_width';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Content wrapper width', 'suki' ),
 	'description' => esc_html__( 'The maximum width of center content wrapper.', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 600,
+			'max'  => 1600,
+			'step' => 1,
+		),
+	),
+	'priority'    => 20,
+) ) );
+
+// Narrow content max width
+$key = 'content_narrow_width';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Narrow content wrapper width', 'suki' ),
+	'description' => esc_html__( 'Used when "narrow content" layout is active on page content. It should be less than the content wrapper width.', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 600,
@@ -104,13 +125,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Boxed page width
-$id = 'boxed_page_width';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'boxed_page_width';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Boxed page max width', 'suki' ),
 	'units'       => array(
@@ -124,13 +145,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 ) ) );
 
 // Boxed page shadow
-$id = 'boxed_page_shadow';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'boxed_page_shadow';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'shadow' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Shadow( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Shadow( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Boxed page shadow', 'suki' ),
 	'priority'    => 30,
@@ -144,26 +165,26 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_bo
 ) ) );
 
 // Outside background color
-$id = 'outside_bg_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'outside_bg_color';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background color', 'suki' ),
 	'priority'    => 30,
 ) ) );
 
 // Outside background image
-$id = 'outside_bg_image';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'outside_bg_image';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
 ) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
+$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background image', 'suki' ),
 	'mime_type'   => 'image',
@@ -171,13 +192,13 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, 
 ) ) );
 
 // Outside background position
-$id = 'outside_bg_position';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'outside_bg_position';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background position', 'suki' ),
@@ -196,13 +217,13 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Outside background size
-$id = 'outside_bg_size';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'outside_bg_size';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background size', 'suki' ),
@@ -215,13 +236,13 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Outside background repeat
-$id = 'outside_bg_repeat';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'outside_bg_repeat';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background repeat', 'suki' ),
@@ -235,13 +256,13 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Outside background attachment
-$id = 'outside_bg_attachment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'outside_bg_attachment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Outside background attachment', 'suki' ),

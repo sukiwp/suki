@@ -97,12 +97,34 @@
 	@include h4();
 }
 
+.h5, .h6 {
+	@include h4();
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	@include heading();
+}
+
 // -------------------------------------------------------------
 // Other Common Classes
 // -------------------------------------------------------------
 
 .suki-float-container {
 	@include float-container();
+}
+
+.nav-links {
+	a {
+		color: inherit; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
+
+	.current {
+		color: $color_heading; // default
+	}
 }
 
 .page-title {
@@ -146,20 +168,6 @@
 	}
 }
 
-.nav-links {
-	span.current {
-		color: $color_meta; // default
-	}
-	
-	a {
-		color: $color_text; // default
-
-		&:hover, &:focus {
-			color: $color_accent; // default
-		}
-	}
-}
-
 .tagcloud {
 	@include float-container();
 	
@@ -170,7 +178,7 @@
 		font-size: 0.9rem !important;
 		line-height: normal;
 		background-color: $color_subtle; // default	
-		color: $color_text; // default
+		color: inherit;
 
 		&:hover, &:focus {
 			color: $color_accent; // default
@@ -212,7 +220,7 @@ button.suki-toggle {
 
 	&:hover, &:focus {
 		background: inherit;
-		color: $color_accent_2; // default
+		color: $color_heading; // default
 	}
 }
 
@@ -230,7 +238,7 @@ button.suki-toggle {
 	display: inline-block;
 	line-height: 1;
 	text-align: center;
-
+	
 	svg {
 		display: inline-block;
 		width: auto;

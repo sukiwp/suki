@@ -62,10 +62,12 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	private function get_tabs() {
 		return apply_filters( 'suki/admin/metabox/page_settings/tabs', array(
-			'content'     => esc_html__( 'Content & Sidebar', 'suki' ),
-			'header'      => esc_html__( 'Header', 'suki' ),
-			'page_header' => esc_html__( 'Page Header (Title Bar)', 'suki' ),
-			'footer'      => esc_html__( 'Footer', 'suki' ),
+			'content'          => esc_html__( 'Content & Sidebar', 'suki' ),
+			'header'           => esc_html__( 'Header', 'suki' ),
+			'page-header'      => esc_html__( 'Page Header (Title Bar)', 'suki' ),
+			'footer'           => esc_html__( 'Footer', 'suki' ),
+			'custom-blocks'    => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
+			'preloader-screen' => esc_html__( 'Preloader Screen', 'suki' ),
 		) );
 	}
 
@@ -102,8 +104,8 @@ class Suki_Admin_Metabox_Page_Settings {
 			sprintf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
-			'side',
-			'default'
+			'normal',
+			'high'
 		);
 	}
 
@@ -180,7 +182,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		if ( ! isset( $_POST['suki_term_page_settings_nonce'] ) ) return;
 
 		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( sanitize_key( $_POST['suki_term_page_settings_nonce'] ), 'suki_term_page_settings' ) ) return;;
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['suki_term_page_settings_nonce'] ), 'suki_term_page_settings' ) ) return;
 
 		// Sanitize values.
 		$sanitized = array();
@@ -231,7 +233,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		// Check if current post ID is one of the disabled IDs
 		if ( array_key_exists( $post->ID, $disabled_ids ) ) {
 			// Print the notice here.
-			echo $disabled_ids[ $post->ID ]; // WPCS: XSS OK
+			echo $disabled_ids[ $post->ID ]; // WPCS: XSS OK.
 
 			// There is no other content should be rendered.
 			return;
@@ -276,11 +278,11 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	public function render_meta_box__term_edit( $term ) {
 		?>
-		<tr>
-			<th colspan="2" style="padding: 0;">
+		<tr class="form-field suki-edit-term-page-settings">
+			<td colspan="2" style="padding: 0;">
 				<h3>
 					<?php
-					/* translators: %s: theme name. */
+					/* translators: %s: tdeme name. */
 					printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
 					?>
 				</h3>
@@ -294,9 +296,6 @@ class Suki_Admin_Metabox_Page_Settings {
 				echo '</div>';
 				?>
 			</th>
-		</tr>
-		<tr>
-			
 		</tr>
 		<?php
 	}
@@ -314,7 +313,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			<ul class="suki-admin-metabox-nav">
 				<?php foreach ( $tabs as $key => $label ) : ?>
 					<li class="suki-admin-metabox-nav-item <?php echo esc_attr( $key == $first_tab ? 'active' : '' ); ?>">
-						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo $label; // WPCS: XSS OK ?></a>
+						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $key ); ?>"><?php echo $label; // WPCS: XSS OK. ?></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -392,10 +391,19 @@ class Suki_Admin_Metabox_Page_Settings {
 						?>
 					</div>
 				</div>
-				<?php
+
+				<?php if ( suki_show_pro_teaser() ) : ?>
+					<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
+						<h3><?php echo esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></h3>
+						<p><?php echo esc_html_x( 'Enable / disable Transparent Header on this page.', 'Suki Pro upsell', 'suki' ); ?><br><?php echo esc_html_x( 'Enable / disable Sticky Header on this page.', 'Suki Pro upsell', 'suki' ); ?><br>
+							<?php echo esc_html_x( 'Enable / disable Alternate Header Colors on this page.', 'Suki Pro upsell', 'suki' ); ?><br>
+						</p>
+						<p><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+					</div>
+				<?php endif;
 				break;
 
-			case 'page_header':
+			case 'page-header':
 				?>
 				<div class="suki-admin-form-row">
 					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header', 'suki' ); ?></label></div>
@@ -415,7 +423,49 @@ class Suki_Admin_Metabox_Page_Settings {
 						?>
 					</div>
 				</div>
-				<?php
+			
+				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
+					<div class="suki-admin-form-row">
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header background image', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-field">
+							<?php
+							$post_type_obj = get_post_type_object( get_post_type( $obj ) );
+
+							$choices = array(
+								'' => esc_html__( 'Use global default background image as configured at Customize > Page Header.', 'suki' ),
+								'thumbnail' => esc_html__( 'Use Featured Image as background image (replace the global default background image).', 'suki' ),
+								'archive' => sprintf(
+									/* translators: %s: post type plural name. */
+									esc_html__( 'Use same background image as archive page (configured at Customize > Page Settings > %s Archive Page).', 'suki' ),
+									esc_html( $post_type_obj->labels->name )
+								),
+							);
+							?>
+							<div style="padding: 0.5em 0;">
+								<?php
+								if ( 'page' === get_post_type( $obj ) ) {
+									echo esc_html( $choices['thumbnail'] );
+								} else {
+									$page_settings = suki_get_theme_mod( 'page_settings_' . $post_type_obj->name . '_singular' );
+									$value = suki_array_value( $page_settings, 'page_header_bg' );
+
+									echo esc_html( $choices[ $value ] );
+
+									?>
+									<div class="notice notice-info notice-alt inline">
+										<p><?php printf(
+											/* translators: %s: post type singular name. */
+											esc_html__( 'TIPS: You can switch between "Use global default", "Use Featured Image", or "Use same background image as archive page" at Customize > Page Settings > Single %s Page.', 'suki' ),
+											esc_html( $post_type_obj->labels->singular_name )
+										); ?></p>
+									</div>
+									<?php
+								}
+								?>
+							</div>
+						</div>
+					</div>
+				<?php endif;
 				break;
 
 			case 'content':
@@ -476,13 +526,18 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
-						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide title', 'suki' ); ?></label></div>
+						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide post title', 'suki' ); ?></label></div>
 						<div class="suki-admin-form-field">
 							<?php
 							$key = 'content_hide_title';
 							Suki_Admin_Fields::render_field( array(
 								'name'        => $option_key . '[' . $key . ']',
-								'type'        => 'checkbox',
+								'type'        => 'select',
+								'choices'     => array(
+									''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+									'0' => esc_html__( 'No', 'suki' ),
+									'1' => esc_html__( 'Yes', 'suki' ),
+								),
 								'value'       => suki_array_value( $values, $key ),
 							) );
 							?>
@@ -496,7 +551,12 @@ class Suki_Admin_Metabox_Page_Settings {
 							$key = 'content_hide_thumbnail';
 							Suki_Admin_Fields::render_field( array(
 								'name'        => $option_key . '[' . $key . ']',
-								'type'        => 'checkbox',
+								'type'        => 'select',
+								'choices'     => array(
+									''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
+									'0' => esc_html__( 'No', 'suki' ),
+									'1' => esc_html__( 'Yes', 'suki' ),
+								),
 								'value'       => suki_array_value( $values, $key ),
 							) );
 							?>
@@ -547,6 +607,26 @@ class Suki_Admin_Metabox_Page_Settings {
 					</div>
 				</div>
 				<?php
+				break;
+
+			case 'preloader-screen':
+				if ( suki_show_pro_teaser() ) : ?>
+					<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
+						<h3><?php echo esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></h3>
+						<p><?php echo esc_html_x( 'Enable / disable Preloader Screen on this page.', 'Suki Pro upsell', 'suki' ); ?></p>
+						<p><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+					</div>
+				<?php endif;
+				break;
+
+			case 'custom-blocks':
+				if ( suki_show_pro_teaser() ) : ?>
+					<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
+						<h3><?php echo esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></h3>
+						<p><?php echo esc_html_x( 'Insert Custom Blocks (section / element) on any part of this page (header, footer, etc.).', 'Suki Pro upsell', 'suki' ); ?></p>
+						<p><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+					</div>
+				<?php endif;
 				break;
 			
 			default:

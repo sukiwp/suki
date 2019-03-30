@@ -3,6 +3,7 @@
 // -------------------------------------------------------------
 
 .suki-loop-grid {
+	@include flex( flex-start, flex-start, wrap );
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -2em;
@@ -19,7 +20,6 @@
 		padding: 0 15px;
 		margin-bottom: 2em;
 		border: none;
-		float: left;
 
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
 			width: 100% !important;
@@ -28,26 +28,14 @@
 
 	.suki-loop-grid.suki-loop-grid-2-columns & {
 		width: 50%;
-
-		&:nth-child(2n+1) {
-			clear: left;
-		}
 	}
 
 	.suki-loop-grid.suki-loop-grid-3-columns & {
 		width: 33.33%;
-
-		&:nth-child(3n+1) {
-			clear: left;
-		}
 	}
 
 	.suki-loop-grid.suki-loop-grid-4-columns & {
 		width: 25%;
-
-		&:nth-child(4n+1) {
-			clear: left;
-		}
 
 		@media screen and ( max-width: $breakpoint_768 - 1px ) {
 			width: 50%;
@@ -67,9 +55,9 @@
 		margin-bottom: 0;
 	}
 
-	.entry-card & {
-		@include border();
-		padding: 1.25em 1.5em;
+	.entry-layout-grid & {
+		border-width: 1px; // default
+		padding: 1.25em 1.5em; // default
 		background-color: $color_bg; // default
 	}
 }
@@ -81,19 +69,25 @@
 	.entry-small & {
 		margin: 0 0 1em;
 	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
 }
 
 // Entry footer
 .entry-footer {
-	> *:first-child {
-		padding-top: 1em;
-		@include border( top );
+	padding-top: 1em;
+	@include border( top );
+
+	> *:last-child {
+		margin-bottom: 0;
 	}
 }
 
 // Title
 .entry-title {
-	margin: 0 0 0.5rem;
+	margin: 0 0 0.75rem;
 }
 
 .entry-small-title {
@@ -107,10 +101,10 @@
 
 	.avatar {
 		display: inline-block;
-		width: 1.75em;
-		height: 1.75em;
+		width: 2em;
+		height: 2em;
 		vertical-align: middle;
-		margin-right: 0.75em;
+		margin-right: 0.5em;
 		border-radius: 50%;
 	}
 }
@@ -119,7 +113,6 @@
 .entry-thumbnail {
 	display: block;
 	margin: 0 0 2rem;
-	text-align: center;
 
 	> * {
 		display: block;
@@ -130,12 +123,13 @@
 		margin: 0 0 1rem;
 	}
 
-	.entry-card & {
-		margin-left: -1.5em;
-		margin-right: -1.5em;
+	.entry-layout-grid & {
+		align-self: stretch;
+		margin-left: -1.5em; // default
+		margin-right: -1.5em; // default
 
 		&:first-child {
-			margin-top: -1.25em;
+			margin-top: -1.25em; // default
 		}
 	}
 }
@@ -221,7 +215,7 @@ a.more-link {
 .entry-author-name {
 	font-size: 1.1em;
 	margin: 0 0 0.5em;
-	color: $color_heading; // default
+	@include heading();
 
 	.avatar {
 		width: 80px;
@@ -237,16 +231,8 @@ a.more-link {
 	}
 
 	.fn {
-		font-weight: 500;
+		font-weight: 600;
 		display: block;
-	}
-
-	a {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
 	}
 }
 
@@ -293,16 +279,15 @@ a.more-link {
 }
 
 // -------------------------------------------------------------
-// Navigation & pagination
+// Comments
 // -------------------------------------------------------------
 
 .comments-area {
-	margin-top: 4em;
+	margin-top: 6em;
 }
 
 .comments-title {
 	position: relative;
-	margin-top: 2em;
 	@include h3(); // default
 }
 
@@ -331,44 +316,52 @@ a.more-link {
 	}
 
 	ul, ol {
-		padding-left: 65px;
+		padding-left: 1.25em;
 
 		li {
 			@include border( top );
 		}
 
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			padding-left: 1.25em;
+		@media screen and ( min-width: $breakpoint_500 ) {
+			padding-left: 65px;
 		}
 	}
 }
 
 .comment-body {
 	position: relative;
-	padding: 2em 0 2em 65px;
+	padding: 1.25em 0;
 
 	.reply {
 		position: absolute;
 		top: 0;
 		right: 0;
-		margin: 2em 0 0 0;
+		margin: 1.25em 0 0 0;
 
 		a {
 			font-size: 90%;
-			color: $color_text; // default
-
+			color: inherit;
+			
 			&:hover, &:focus {
 				color: $color_accent; // default
 			}
 		}
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			margin-top: 2em;
+		}
 	}
 
-	@media screen and ( max-width: $breakpoint_500 - 1px ) {
-		padding: 1.25em 0;
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding: 2em 0;
 	}
 }
 
 .comment-content {
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 65px;
+	}
+
 	> * {
 		&:last-child {
 			margin-bottom: 0;
@@ -377,39 +370,40 @@ a.more-link {
 }
 
 .comment-meta {
+	position: relative;
 	padding-right: 50px;
 	margin-bottom: 1em;
 	min-height: 50px;
+
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 65px;
+	}
 }
 
 .comment-author {
+	@include heading();
+
 	.avatar {
-		position: absolute;
-		top: 2em;
-		left: 0;
-		height: 50px;
-		width: 50px;
+		width: 2em;
+		height: 2em;
+		margin-right: 0.5em;
 		border-radius: 50%;
 		
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
-			display: none;
+		@media screen and ( min-width: $breakpoint_500 ) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 50px;
+			width: 50px;
 		}
 	}
 
 	.fn {
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	.says {
 		display: none;
-	}
-
-	a {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
-		}
 	}
 }
 
@@ -434,7 +428,7 @@ a.more-link {
 }
 
 .comment-respond {
-	padding-top: 2em;
+	padding-top: 1.5em;
 	border-top-width: 1px;
 	border-top-style: solid;
 
@@ -443,11 +437,11 @@ a.more-link {
 	}
 
 	label {
-		display: inline-block;
+		display: block;
 		width: 120px;
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			display: block;
+		@media screen and ( min-width: $breakpoint_768 ) {
+			display: inline-block;
 		}
 	}
 

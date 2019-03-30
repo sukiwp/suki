@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout-search entry-small' ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_search/post_classes', array( 'entry', 'entry-layout-search', 'entry-small' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**

@@ -19,9 +19,8 @@
 // Logo
 .site-title {
 	margin: 0;
-	@include h3();
 
-	a {
+	.suki-menu-item-link {
 		position: relative;
 		display: inline-block;
 	}
@@ -34,16 +33,19 @@
 	.suki-logo-image {
 		display: block;
 		width: 100px; // default
-	}
+		line-height: 1;
 
-	img, svg {
-		max-width: 100%;
+		img, svg {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
 	}
 }
 
 // Navigation Menu
 .suki-header-menu {
-	a {
+	.suki-menu-item-link {
 		display: block;
 	}
 
@@ -55,6 +57,7 @@
 // Search Dropdown
 .suki-header-search-bar {
 	.search-form {
+		display: inline-block;
 		width: 300px; // default
 	}
 }
@@ -77,6 +80,47 @@
 	}
 }
 
+// Cart
+.suki-header-shopping-cart {
+	.widget {
+		margin: 0;
+	}
+
+	.shopping-cart-count {
+		width: 2em;
+		height: 2em;
+		position: absolute;
+		left: 100%;
+		z-index: 1;
+		display: inline-block;
+		margin: -0.8em 0 0 -0.8em;
+		border-radius: 50%;
+		font-size: 0.6em;
+		text-align: center;
+		line-height: 2;
+		letter-spacing: 0; /* reset */
+		background-color: $color_accent; // default
+		color: $color_white; // default
+		animation: suki-pulse 0.5s 1;
+
+		strong {
+			display: inline-block;
+			font-size: 0.5em;
+			line-height: 2;
+			vertical-align: top;
+		}
+
+		&[data-count="0"] {
+			display: none;
+		}
+	}
+
+	.sub-menu {
+		white-space: normal;
+		width: 20rem !important;
+	}
+}
+
 // Social
 .suki-header-social {
 	li.menu-item {
@@ -95,19 +139,25 @@
 	}
 }
 
-// Shopping cart
-.suki-header-shopping-cart {
-	.widget {
-		margin: 0;
-	}
-}
-
 // -------------------------------------------------------------
 // Header Horizontal
 // -------------------------------------------------------------
 
 .suki-header-main {
 	position: relative;
+	display: block;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: none;
+	}
+}
+
+.suki-header-mobile {
+	display: none;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: block;
+	}
 }
 
 .suki-header-section {
@@ -142,8 +192,7 @@
 	}
 
 	> * {
-		@include flex();
-		justify-content: inherit;
+		@include flex( center, inherit );
 		height: 100%;
 		max-width: 100%;
 		padding: 0 12px; // default
@@ -158,13 +207,12 @@
 .suki-header-main-bar-right,
 .suki-header-bottom-bar-right,
 .suki-header-mobile-main-bar-right {
-	width: 50%;
+	width: 100%;
 }
 
 .suki-header-section {
 	.menu {
-		@include flex();
-		justify-content: inherit;
+		@include flex( center, inherit );
 		height: 100%;
 
 		> div,
@@ -175,11 +223,11 @@
 
 		.sub-menu {
 			position: absolute;
-			z-index: 4;
+			z-index: 40;
 			top: 100%;
 			left: 0;
 			padding: 1em;
-			max-width: 100vw;
+			max-width: 1140px; // default
 			min-width: 100%;
 			@include border();
 			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -198,11 +246,19 @@
 		}
 	}
 
-	&.suki-section-default {
+	&.suki-section-full-width {
 		.menu {
 			.sub-menu {
-				max-width: 1140px; // default
+				max-width: 100vw; // default
+
+				body.suki-page-layout-boxed & {
+					max-width: 1400px; // default
+				}
 			}
+		}
+
+		.menu > .menu-item > .sub-menu {
+			margin-right: -20px;
 		}
 	}
 }
@@ -221,16 +277,16 @@
 
 		.sub-menu {
 			padding: 1em 0;
-			z-index: 5;
+			z-index: 50;
 
-			li {
-				padding: 0 1em;
+			.menu-item {
+				padding: 0 1.25em;
 				margin: 0;
 			}
 
-			a {
+			.suki-menu-item-link {
 				@include flex();
-				padding: 0.25em 0.5em;
+				padding: 0.25em 0;
 			}
 
 			.sub-menu {
@@ -246,7 +302,31 @@
 
 			.suki-dropdown-sign {
 				margin-left: 0;
-				margin-right: -1em;
+				margin-right: -0.5em;
+			}
+		}
+	}
+}
+
+.suki-header-section {
+	&-inner, .menu .sub-menu {
+		background-color: $color_bg; // default
+	}
+
+	&, .menu .sub-menu {
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
+		}
+	}
+
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_border; // default
 			}
 		}
 	}
@@ -256,37 +336,9 @@
 	height: 40px; // default
 
 	&-inner {
-		z-index: 3;
+		z-index: 30;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_text; // default
-			}
-		}
-	}
-
-	.suki-header-menu > .menu > .menu-item > a {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
 	}
 
 	&.suki-section-merged {
@@ -301,37 +353,9 @@
 	height: 80px; // default
 
 	&-inner {
-		z-index: 2;
+		z-index: 20;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_text; // default
-			}
-		}
-	}
-
-	.suki-header-menu > .menu > .menu-item > a {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
 	}
 
 	&.suki-header-main-bar-with-top-bar > .suki-section-inner > .suki-wrapper {
@@ -344,40 +368,12 @@
 }
 
 .suki-header-bottom-bar {
-	height: 40px; // default
+	height: 60px; // default
 
 	&-inner {
-		z-index: 1;
+		z-index: 10;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_text; // default
-			}
-		}
-	}
-
-	.suki-header-menu > .menu > .menu-item > a {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
 	}
 
 	&.suki-section-merged {
@@ -392,29 +388,9 @@
 	height: 60px; // default
 
 	&-inner {
-		z-index: 1;
+		z-index: 10;
 		border-width: 0 0 1px 0; // default
 		padding: 0 20px; // default
-	}
-
-	&-inner, .menu .sub-menu {
-		background-color: $color_bg; // default
-	}
-
-	*, .menu .sub-menu {
-		border-color: $color_border; // default
-	}
-
-	&, .menu .sub-menu {
-		color: $color_text; // default
-
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
-
-			&:hover, &:focus {
-				color: $color_text; // default
-			}
-		}
 	}
 }
 
@@ -422,24 +398,27 @@
 // Vertical Header
 // -------------------------------------------------------------
 
-.suki-toggle.suki-popup-close-icon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 1.25rem;
-	font-size: 1.5rem;
-	line-height: 1;
-	background-color: transparent !important;
-	color: $color_white !important; // default
-	opacity: 1;
-
-	&:hover, &:focus {
-		opacity: 0.8;
+.suki-header-section-vertical {
+	&-inner, .menu .sub-menu {
+		background-color: $color_bg; // default
 	}
 
-	.suki-header-mobile-vertical-position-right > & {
-		left: 0;
-		right: auto;
+	&, .menu .sub-menu {
+		a:not(.button), .suki-toggle {
+			color: $color_heading; // default
+
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
+		}
+	}
+
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+		&:hover, &:focus {
+			&:after {
+				background-color: $color_border; // default
+			}
+		}
 	}
 }
 
@@ -451,19 +430,19 @@
 	}
 }
 
-.suki-header-vertical-inner {
+.suki-header-section-vertical-inner {
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
 }
 
-.suki-header-vertical-column {
+.suki-header-section-vertical-column {
 	@include flex();
 	flex-direction: column;
 	height: 100%;
 }
 
-.suki-header-vertical-row {
+.suki-header-section-vertical-row {
 	width: 100%;
 
 	&,
@@ -503,16 +482,16 @@
 
 .suki-header-section-vertical {
 	.suki-header-menu {
-		li {
+		.menu-item {
 			position: relative;
 			display: block;
 
-			a {
+			.suki-menu-item-link {
 				display: block;
 				padding: 0.5em 0;
 			}
 
-			&.menu-item-has-children a {
+			&.menu-item-has-children .suki-menu-item-link {
 				margin-right: 2em;
 			}
 		}
@@ -535,13 +514,13 @@
 		}
 
 		.suki-text-align-center & {
-			li.menu-item-has-children a {
+			li.menu-item-has-children .suki-menu-item-link {
 				margin-right: 0;
 			}
 		}
 
 		.suki-text-align-right & {
-			li.menu-item-has-children a {
+			li.menu-item-has-children .suki-menu-item-link {
 				margin-right: 0;
 				margin-left: 1.5em;
 			}
@@ -581,8 +560,10 @@
 }
 
 .suki-header-mobile-vertical {
-	.suki-popup-background {
-		background-color: rgba(0,0,0,0.8);
+	display: none;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		display: block;
 	}
 }
 
@@ -609,25 +590,13 @@
 		@include transition( transform 0.25s 0.125s );
 	}
 
-	&-inner {
-		background-color: $color_bg; // default
-	}
-
-	.suki-header-vertical-column {
+	.suki-header-section-vertical-column {
 		padding: 30px; // default
 	}
 
-	.suki-header-vertical-row {
+	.suki-header-section-vertical-row {
 		&, > * {
 			padding: 12px 0; // default
-		}
-	}
-
-	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
-
-		&:hover, &:focus {
-			color: $color_text; // default
 		}
 	}
 }
@@ -637,7 +606,7 @@
 // -------------------------------------------------------------
 
 .suki-header-menu {
-	> .menu > .menu-item > a {
+	> .menu > .menu-item > .suki-menu-item-link {
 		&:after {
 			content: "";
 			position: absolute;
@@ -648,7 +617,7 @@
 }
 
 .suki-header-menu-highlight-underline {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		position: relative;
 
 		&:after {
@@ -662,7 +631,7 @@
 }
 
 .suki-header-menu-highlight-background {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		@include flex();
 		height: 100%;
 
@@ -676,7 +645,7 @@
 }
 
 .suki-header-menu-highlight-border-top {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		@include flex();
 		height: 100%;
 
@@ -693,7 +662,7 @@
 }
 
 .suki-header-menu-highlight-border-bottom {
-	.suki-header-menu > .menu > .menu-item > a {
+	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		@include flex();
 		height: 100%;
 
@@ -706,5 +675,12 @@
 			margin: 0 auto;
 			@include transition();
 		}
+	}
+}
+
+.suki-toggle.suki-popup-close-icon {
+	.suki-header-mobile-vertical-position-right & {
+		left: 0 !important;
+		right: auto !important;
 	}
 }

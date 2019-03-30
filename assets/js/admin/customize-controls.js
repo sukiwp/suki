@@ -2,7 +2,7 @@
  * Theme Customizer custom controls handlers
  */
 (function( exports, $ ) {
-	"use strict";
+	'use strict';
 
 	var $window = $( window ),
 	    $document = $( document ),
@@ -61,17 +61,17 @@
 		$( input ).trigger( 'change' );
 	}
 
-	$( '#customize-theme-controls' ).on( 'blur', 'input[type="number"]', inputNumberValidation );
-	$( '#customize-theme-controls' ).on( 'keyup', 'input[type="number"]', function( e ) {
+	$( '#customize-controls' ).on( 'blur', 'input[type="number"]', inputNumberValidation );
+	$( '#customize-controls' ).on( 'keyup', 'input[type="number"]', function( e ) {
 		if ( 13 == e.which ) {
 			inputNumberValidation( e );
 		}
 	});
 	// Disable mousewheel scroll when input is in focus.
-	$( '#customize-theme-controls' ).on( 'focus', 'input[type="number"]', function( e ) {
+	$( '#customize-controls' ).on( 'focus', 'input[type="number"]', function( e ) {
 		$( this ).on( 'mousewheel.disableScroll', function ( e ) { e.preventDefault(); });
 	});
-	$( '#customize-theme-controls' ).on( 'blur', 'input[type="number"]', function( e ) {
+	$( '#customize-controls' ).on( 'blur', 'input[type="number"]', function( e ) {
 		$( this ).off( 'mousewheel.disableScroll' );
 	});
 
@@ -266,10 +266,9 @@
 	wp.customize.controlConstructor['suki-color'] = wp.customize.SukiControl.extend({
 		ready: function() {
 			var control = this,
-				updating = false,
-				$picker = control.container.find( '.color-picker-hex' );
+				$picker = control.container.find( '.color-picker' );
 
-			$picker.wpColorPicker({
+			$picker.alphaColorPicker({
 				change: function() {
 					control.setting.set( $picker.wpColorPicker( 'color' ) );
 				},
@@ -277,23 +276,6 @@
 					control.setting.set( '' );
 				},
 			});
-
-			// Collapse color picker when hitting Esc instead of collapsing the current section.
-			control.container.on( 'keydown', function( event ) {
-				var $pickerContainer;
-
-				if ( 27 !== event.which ) { // Esc.
-					return;
-				}
-
-				$pickerContainer = control.container.find( '.wp-picker-container' );
-
-				if ( $pickerContainer.hasClass( 'wp-picker-active' ) ) {
-					picker.wpColorPicker( 'close' );
-					control.container.find( '.wp-color-result' ).focus();
-					event.stopPropagation(); // Prevent section from being collapsed.
-				}
-			} );
 		}
 	});
 
@@ -304,40 +286,22 @@
 		ready: function() {
 			var control = this,
 			    $inputs = control.container.find( '.suki-shadow-input' ),
-			    $color = control.container.find( '.suki-shadow-color input' ),
 			    $value = control.container.find( '.suki-shadow-value' );
 
-			control.updateValue = function( i, el ) {
+			control.updateValue = function( e ) {
 				var values = $inputs.map(function() {
-					return 'text' === this.getAttribute( 'type' ) ? ( '' === this.value ? 'rgba(0,0,0,0)' : this.value ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+					return $( this ).hasClass( 'color-picker-hex' ) ? ( '' === $( this ).wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $( this ).wpColorPicker( 'color' ) ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
 				}).get();
 
 				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			}
 
-			$color.wpColorPicker({
+			control.container.find( '.suki-shadow-color .color-picker-hex' ).alphaColorPicker({
 				change: control.updateValue,
 				clear: control.updateValue,
 			});
 
-			// Collapse color picker when hitting Esc instead of collapsing the current section.
-			control.container.on( 'keydown', function( event ) {
-				var $colorContainer;
-
-				if ( 27 !== event.which ) { // Esc.
-					return;
-				}
-
-				$colorContainer = control.container.find( '.wp-picker-container' );
-
-				if ( $colorContainer.hasClass( 'wp-picker-active' ) ) {
-					picker.wpColorPicker( 'close' );
-					control.container.find( '.wp-color-result' ).focus();
-					event.stopPropagation(); // Prevent section from being collapsed.
-				}
-			} );
-
-			$inputs.on( 'change blur', control.updateValue );
+			control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
 		}
 	});
 
@@ -691,7 +655,7 @@
 		 */
 
 		// Set handler when custom responsive toggle is clicked.
-		$( '#customize-theme-controls' ).on( 'click', '.suki-responsive-switcher-button', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-responsive-switcher-button', function( e ) {
 			e.preventDefault();
 
 			wp.customize.previewedDevice.set( $( this ).attr( 'data-device' ) );
@@ -721,7 +685,7 @@
 		/**
 		 * Event handler for links to set preview URL.
 		 */
-		$( '#customize-theme-controls' ).on( 'click', '.suki-customize-set-preview-url', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-customize-set-preview-url', function( e ) {
 			e.preventDefault();
 
 			var $this = $( this ),
@@ -736,7 +700,7 @@
 		/**
 		 * Event handler for links to jump to a certain control / section.
 		 */
-		$( '#customize-theme-controls' ).on( 'click', '.suki-customize-goto-control', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-customize-goto-control', function( e ) {
 			e.preventDefault();
 
 			var $this = $( this ),
@@ -834,8 +798,16 @@
 										result = 0 <= comparedValue.indexOf( currentValue );
 										break;
 
-									case 'contains':
+									case 'not_in':
+										result = 0 < comparedValue.indexOf( currentValue );
+										break;
+
+									case 'contain':
 										result = 0 <= currentValue.indexOf( comparedValue );
+										break;
+
+									case 'not_contain':
+										result = 0 < currentValue.indexOf( comparedValue );
 										break;
 
 									case '!=':
@@ -908,7 +880,7 @@
 		var resizePreviewer = function() {
 			var $section = $( '.control-section.suki-builder-active' );
 
-			if ( $body.hasClass( 'suki-has-builder-active' ) && 0 < $section.length && ! $section.hasClass( 'suki-hide' ) ) {
+			if ( 1324 <= window.innerWidth && $body.hasClass( 'suki-has-builder-active' ) && 0 < $section.length && ! $section.hasClass( 'suki-hide' ) ) {
 				wp.customize.previewer.container.css({ "bottom" : $section.outerHeight() + 'px' });
 			} else {
 				wp.customize.previewer.container.css({ "bottom" : "" });
@@ -964,6 +936,19 @@
 				resizePreviewer();
 			});
 
+			var moveHeaderFooterBuilder = function() {
+				if ( 1324 <= window.innerWidth ) {
+					$section.insertAfter( $( '.wp-full-overlay-sidebar-content' ) );
+					
+					if ( section.expanded() ) {
+						section.collapse();
+					}
+				} else {
+					$section.appendTo( $( '#customize-theme-controls' ) );
+				}
+			}
+			wp.customize.bind( 'pane-contents-reflowed', moveHeaderFooterBuilder );
+			$window.on( 'resize', moveHeaderFooterBuilder );
 		};
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );
@@ -975,6 +960,7 @@
 		 */
 		var initHeaderFooterBuilderElements = function( e ) {
 			var $control = $( this ),
+			    mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
 			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
 			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
 			    $verticalLocations = $control.find( verticalSelector ),
@@ -996,7 +982,7 @@
 				e.preventDefault();
 
 				var $element = $( this ).parent( '.suki-builder-element' ),
-				    targetKey = 'heading_header_' + $element.attr( 'data-value' ).replace( '-', '_' ),
+				    targetKey = 'heading_' + mode + '_' + $element.attr( 'data-value' ).replace( '-', '_' ),
 				    targetControl = wp.customize.control( targetKey );
 
 				if ( targetControl ) targetControl.focus();

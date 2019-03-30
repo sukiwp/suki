@@ -11,6 +11,7 @@ fieldset {
 legend {
 	@include h3();
 	margin: 0 0 1.25rem;
+	color: $color_heading; // default
 }
 
 // -------------------------------------------------------------

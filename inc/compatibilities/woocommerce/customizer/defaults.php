@@ -18,12 +18,12 @@ $add = array();
  * ====================================================
  */
 
-$add['woocommerce_demo_store_notice_bg_color'] = $colors['accent'];
-$add['woocommerce_demo_store_notice_text_color'] = $colors['white'];
+$add['woocommerce_demo_store_notice_bg_color'] = '';
+$add['woocommerce_demo_store_notice_text_color'] = '';
 
 /**
  * ====================================================
- * WooCommerce > Shop (Catalog) Page
+ * WooCommerce > Shop (Products Catalog) Page
  * ====================================================
  */
 
@@ -32,7 +32,8 @@ $add['woocommerce_index_grid_columns'] = 4;
 
 $add['woocommerce_index_page_title'] = 1;
 $add['woocommerce_index_breadcrumb'] = 1;
-$add['woocommerce_index_filter'] = 1;
+$add['woocommerce_index_results_count'] = 1;
+$add['woocommerce_index_sort_filter'] = 1;
 $add['woocommerce_products_grid_item_add_to_cart'] = 0;
 
 /**
@@ -90,16 +91,16 @@ $add['woocommerce_products_grid_text_alignment'] = 'left';
  * ====================================================
  */
 
-$add['woocommerce_sale_badge_bg_color'] = $colors['accent'];
-$add['woocommerce_sale_badge_text_color'] = $colors['white'];
+$add['woocommerce_sale_badge_bg_color'] = '';
+$add['woocommerce_sale_badge_text_color'] = '';
 
-$add['woocommerce_review_star_color'] = $colors['accent'];
+$add['woocommerce_review_star_color'] = '';
 
-$add['woocommerce_alt_button_bg_color'] = $colors['accent'];
-$add['woocommerce_alt_button_border_color'] = $colors['accent'];
-$add['woocommerce_alt_button_text_color'] = $colors['white'];
-$add['woocommerce_alt_button_hover_bg_color'] = $colors['accent_2'];
-$add['woocommerce_alt_button_hover_border_color'] = $colors['accent_2'];
-$add['woocommerce_alt_button_hover_text_color'] = $colors['white'];
+$add['woocommerce_alt_button_bg_color'] = '';
+$add['woocommerce_alt_button_border_color'] = '';
+$add['woocommerce_alt_button_text_color'] = '';
+$add['woocommerce_alt_button_hover_bg_color'] = '';
+$add['woocommerce_alt_button_hover_border_color'] = '';
+$add['woocommerce_alt_button_hover_text_color'] = '';
 
 $defaults = array_merge_recursive( $defaults, $add );

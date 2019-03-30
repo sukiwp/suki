@@ -28,9 +28,9 @@ $settings = array(
 	'line_height__mobile'    => 'blockquote_line_height__mobile',
 	'letter_spacing__mobile' => 'blockquote_letter_spacing__mobile',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 	) );

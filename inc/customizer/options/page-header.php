@@ -17,12 +17,12 @@ $section = 'suki_section_page_header';
  */
 
 // Enable Page Header
-$id = 'page_header';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Enable Page Header', 'suki' ),
 	'description' => sprintf(
@@ -41,29 +41,29 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_pa
 ) ) );
 
 // Layout
-$id = 'page_header_container';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_container';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width'         => esc_html__( 'Full width content', 'suki' ),
+		'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
+		'full-width' => esc_html__( 'Full width content', 'suki' ),
 	),
 	'priority'    => 10,
 ) );
 
 // Padding
-$id = 'page_header_padding';
+$key = 'page_header_padding';
 $settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -72,7 +72,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
@@ -80,6 +80,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		'px' => array(
 			'min'  => 0,
 			'step' => 1,
+		),
+		'em' => array(
+			'min'  => 0,
+			'step' => 0.05,
 		),
 		'%' => array(
 			'min'  => 0,
@@ -90,13 +94,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 ) ) );
 
 // Border
-$id = 'page_header_border';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Border', 'suki' ),
 	'units'       => array(
@@ -116,13 +120,13 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_pa
 ) ) );
 
 // Page title & breadcrumb layout
-$id = 'page_header_layout';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_layout';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Page title & breadcrumb layout', 'suki' ),
@@ -137,11 +141,11 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Effective text width
-$id = 'page_header_layout_width';
+$key = 'page_header_layout_width';
 $settings = array(
-	$id,
-	$id . '__tablet',
-	$id . '__mobile',
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
 );
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
@@ -150,7 +154,7 @@ foreach ( $settings as $setting ) {
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Effective width', 'suki' ),
@@ -165,13 +169,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $i
 ) ) );
 
 // Show breadcrumb
-$id = 'page_header_breadcrumb';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_breadcrumb';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Show breadcrumb', 'suki' ),
 	'description' => esc_html__( 'You need to install an additional plugin in order to display breadcrumb. Please choose one from the available plugins below. The selected plugin must be installed and active.', 'suki' ),
@@ -179,13 +183,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $i
 ) ) );
 
 // Breadcrumb plugin
-$id = 'breadcrumb_plugin';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'breadcrumb_plugin';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => '',
@@ -243,9 +247,9 @@ $settings = array(
 	'line_height__mobile'    => 'page_header_title_line_height__mobile',
 	'letter_spacing__mobile' => 'page_header_title_letter_spacing__mobile',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 	) );
@@ -275,9 +279,9 @@ $settings = array(
 	'line_height__mobile'    => 'page_header_breadcrumb_line_height__mobile',
 	'letter_spacing__mobile' => 'page_header_breadcrumb_letter_spacing__mobile',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
 	) );
@@ -312,13 +316,13 @@ $colors = array(
 	'page_header_breadcrumb_link_text_color'       => esc_html__( 'Breadcrumb link text color', 'suki' ),
 	'page_header_breadcrumb_link_hover_text_color' => esc_html__( 'Breadcrumb link text color :hover', 'suki' ),
 );
-foreach ( $colors as $id => $label ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
 		'priority'    => 30,
@@ -340,12 +344,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Background image
-$id = 'page_header_bg_image';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_bg_image';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
 ) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
+$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Background image', 'suki' ),
 	'mime_type'   => 'image',
@@ -353,13 +357,13 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, 
 ) ) );
 
 // Background attachment
-$id = 'page_header_bg_attachment';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_bg_attachment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Background attachment', 'suki' ),
@@ -371,13 +375,13 @@ $wp_customize->add_control( $id, array(
 ) );
 
 // Colors
-$id = 'page_header_bg_overlay_color';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'page_header_bg_overlay_color';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Background overlay color', 'suki' ),
 	'priority'    => 40,

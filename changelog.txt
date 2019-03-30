@@ -1,3 +1,43 @@
+v1.0.0
+- NEW: Allow child theme to use parent theme options (for easier migration).
+- NEW: Default blog posts layout will automatically use `excerpt` instead of the main `content` if specified.
+- NEW: Options to change header's submenu colors on each header bar (top, main, bottom bar).
+- NEW: Options to change header's cart count colors.
+- NEW: Options to change entry footer text alignment.
+- NEW: Header popup (e.g. mobile header drawer) will automatically close when user clicks a hash link to elements on the same page.
+- NEW: Filters (`suki/page_settings/setting_value` and `suki/page_settings/setting_value/{$key}`) to modify current page setting values when retrieving1.
+- NEW: Filters (`suki/customizer/setting_value` and `suki/customizer/setting_value/{$key}`) to modify theme option values when retrieving1.
+- NEW: Filter (`suki/frontend/svg_icon/`) to modify the SVG tags of theme's icons.
+- NEW: Filters to add classes to many different post entries.
+- NEW: Filters to add classes to some WooCommerce elements.
+- NEW: Brizy compatilibity: container width will inherit from Theme options.
+- NEW: Improve default theme colors to pass WCAG 2.0 AA.
+- NEW: Add supports for Suki Pro v1.0.x.
+- NEW: Add `em` unit to `font size` options.
+- NEW: Add `em` unit to `padding` options.
+- TWEAK: Improve some WooCommerce HTML markup.
+- TWEAK: Colors of general elements will affect more globally.
+- TWEAK: Change default grid post style to no border and no padding (configurable via new added options).
+- TWEAK: Update color picker library from [`wp-color-picker-alpha`](https://github.com/kallookoo/wp-color-picker-alpha) to [`alpha-color-picker`](https://github.com/BraadMartin/components/tree/master/alpha-color-picker).
+- TWEAK: Logo in text will automatically use `h1` styles.
+- TWEAK: Improve entry header and entry footer HTML markup.
+- TWEAK: Improve shopping cart count HTML markup for easier styling.
+- TWEAK: Improve page settings meta box with clearer information.
+- TWEAK: Improve Gutenberg editor CSS.
+- TWEAK: Improve Gutenberg frontend CSS.
+- TWEAK: Improve WooCommerce compatibility CSS.
+- TWEAK: Improve default theme's CSS.
+- TWEAK: Improve some text strings.
+- TWEAK: Update Suki Pro modules list.
+- TWEAK: Update Suki admin page looks to be simpler and cleaner.
+- FIX: Customizer styles were applied on whole Gutenberg editor page when page is built using page builders.
+- FIX: Header or Footer Social links "open in new tab".
+- FIX: Footer bottom overflow bug on mobile screen.
+- FIX: Header and Footer Builder on Safari Mac.
+- FIX: Contained section CSS.
+- FIX: Dynamic CSS for WooCommerce's button.
+- FIX: Warning on `suki_get_current_page_setting` function.
+
 v0.7.10
 - FIX: Single template filter for Elementor library affected all other post types as well.
 

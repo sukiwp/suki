@@ -3,15 +3,15 @@ Contributors: sukiwp
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 4.5
 Tested up to: 5.0
-Stable tag: 0.7.10
+Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/.
+Suki is a free multi-purpose WordPress theme that is lightweight, fast, highly customizable, and flexible. Build any kind of websites, blog, business, portfolio, WooCommerce storefronts, and also niche websites like Spa, Restaurant, Wedding, Non Profit, Education, Hotel, etc. Fully compatible with Gutenberg, Elementor, Brizy, Visual Composer, Beaver Builder, Divi, SiteOrigin, and other page builders. Tons of design options for customizing typography, colors, layout, and also free built-in Header and Footer builder. Built with SEO in mind, Suki is incredibly fast, mobile optimized, 100% HTML valid, and integrated with Schema.org structured data. Furthermore, Suki supports accessibility, multi-language translation, and RTL languages. Learn more about the full features and also "one click demo import" feature at https://sukiwp.com/.
 
 == Description ==
 
-Suki is a multi-purpose WordPress theme suitable for blog, business websites, portfolio, or even WooCommerce stores. It's extremely lightweight, which is less than 20KB resources and fewest HTTP requests on frontend, your site definitely runs faster with Suki. Freely build your content with any editor you love, because Suki is fully compatible with the new Gutenberg editor, Elementor, and other page builder plugins. It also contains plentiful theme options, enables you to customize layout, typography, colors, and also Header and Footer Builder. Suki is definitely 100% HTML valid and integrated with Schema.org microdata, so search engines would surely love your site. With the built in Hooks API, developers could easily extend the theme features to the next level. Learn more about Suki and its premium modules at https://sukiwp.com/.
+Suki is a free multi-purpose WordPress theme that is lightweight, fast, highly customizable, and flexible. Build any kind of websites, blog, business, portfolio, WooCommerce storefronts, and also niche websites like Spa, Restaurant, Wedding, Non Profit, Education, Hotel, etc. Fully compatible with Gutenberg, Elementor, Brizy, Visual Composer, Beaver Builder, Divi, SiteOrigin, and other page builders. Tons of design options for customizing typography, colors, layout, and also free built-in Header and Footer builder. Built with SEO in mind, Suki is incredibly fast, mobile optimized, 100% HTML valid, and integrated with Schema.org structured data. Furthermore, Suki supports accessibility, multi-language translation, and RTL languages. Learn more about the full features and also "one click demo import" feature at https://sukiwp.com/.
 
 == Installation ==
 
@@ -29,12 +29,13 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 
 == Screenshot Licenses ==
 
-Screenshot images are all licensed under CC0 Universal
-https://www.pexels.com/photo/man-in-blue-suit-999267/
-https://www.pexels.com/photo/person-in-teal-ice-cream-print-tank-top-holds-ice-cream-886285/
-https://www.pexels.com/photo/woman-holding-black-leather-bag-1204464/
-https://www.pexels.com/photo/beach-beautiful-enjoying-female-601168/
-https://www.pexels.com/photo/closeup-photo-of-smiling-woman-wearing-blue-denim-jacket-1130626/
+Screenshot images
+License: CC0 Universal
+Sources: https://www.pexels.com/photo/macro-photograph-of-grass-1090977/
+
+Icons are taken from [Feather Icons](https://twitter.com/colebemis)
+License: MIT
+Source: https://feathericons.com/
 
 == Copyright ==
 
@@ -52,9 +53,9 @@ normalize.css, by Nicolas Gallagher and Jonathan Neal
 License: MIT
 Source: https://necolas.github.io/normalize.css
 
-WP Color Picker Alpha, by Sergio (kallookoo)
-License: GPLv2 or later
-Source: https://github.com/kallookoo/wp-color-picker-alpha
+Alpha Color Picker for WordPress, by Braad Martin
+License: GPL
+Source: https://github.com/BraadMartin/components/tree/master/alpha-color-picker
 
 Simple Icons
 License: CC0 1.0 Universal

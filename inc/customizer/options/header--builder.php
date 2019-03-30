@@ -28,7 +28,7 @@ ob_start(); ?>
 	</a>
 </div>
 <span class="button button-secondary suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
-<span class="button button-secondary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Header Builder', 'suki' ); ?></span>
+<span class="button button-primary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Header Builder', 'suki' ); ?></span>
 <?php $switcher = ob_get_clean();
 
 // --- Blank: Header Builder Switcher
@@ -41,19 +41,19 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'he
 
 // Desktop Header
 $settings = array(
-	'top_left'         => 'header_elements_top_left',
-	'top_center'       => 'header_elements_top_center',
-	'top_right'        => 'header_elements_top_right',
-	'main_left'        => 'header_elements_main_left',
-	'main_center'      => 'header_elements_main_center',
-	'main_right'       => 'header_elements_main_right',
-	'bottom_left'      => 'header_elements_bottom_left',
-	'bottom_center'    => 'header_elements_bottom_center',
-	'bottom_right'     => 'header_elements_bottom_right',
+	'top_left'      => 'header_elements_top_left',
+	'top_center'    => 'header_elements_top_center',
+	'top_right'     => 'header_elements_top_right',
+	'main_left'     => 'header_elements_main_left',
+	'main_center'   => 'header_elements_main_center',
+	'main_right'    => 'header_elements_main_right',
+	'bottom_left'   => 'header_elements_bottom_left',
+	'bottom_center' => 'header_elements_bottom_center',
+	'bottom_right'  => 'header_elements_bottom_right',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
@@ -61,14 +61,18 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Desktop Header', 'suki' ),
-	'description' => esc_html__( 'Drag and drop the elements into the location you want.', 'suki' ),
+	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
 	'choices'     => array(
-		'logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
-		'menu-1'          => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Menu', 'suki' ) . ' 1',
-		'html-1'          => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'HTML', 'suki' ) . ' 1',
-		'search-bar'      => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
-		'search-dropdown' => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
-		'social'          => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+		'logo'                   => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
+		/* translators: %s: instance number. */
+		'menu-1'                 => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
+		/* translators: %s: instance number. */
+		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+		'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
+		'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
+		'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
+		'shopping-cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
+		'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 	),
 	'labels'      => array(
 		'top_left'      => is_rtl() ? esc_html__( 'Top - Right', 'suki' ) : esc_html__( 'Top - Left', 'suki' ),
@@ -94,9 +98,9 @@ $settings = array(
 	'mobile_main_right'   => 'header_mobile_elements_main_right',
 	'mobile_vertical_top' => 'header_mobile_elements_vertical_top',
 );
-foreach ( $settings as $id ) {
-	$wp_customize->add_setting( $id, array(
-		'default'     => suki_array_value( $defaults, $id ),
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
@@ -104,13 +108,15 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Mobile Header', 'suki' ),
-	'description' => esc_html__( 'Drag and drop the elements into the location you want.', 'suki' ),
+	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
 	'choices'     => array(
 		'mobile-logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Mobile Logo', 'suki' ),
 		'mobile-menu'            => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Mobile Menu', 'suki' ),
-		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'HTML', 'suki' ) . ' 1',
+		/* translators: %s: instance number. */
+		'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
 		'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
 		'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Icon', 'suki' ),
+		'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
 		'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 		'mobile-vertical-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
 	),
@@ -126,6 +132,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'html-1'                 => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'search-bar'             => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'search-dropdown'        => array( 'mobile_vertical_top' ),
+		'shopping-cart-link'     => array( 'mobile_vertical_top' ),
+		'social'                 => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'mobile-vertical-toggle' => array( 'mobile_vertical_top' ),
 	),
 	'priority'    => 10,

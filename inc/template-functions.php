@@ -144,7 +144,7 @@ function suki_template_hooks() {
 
 					// Increment priority number.
 					$priority = $priority + 10;
-				}	
+				}
 			}
 			
 		}
@@ -165,7 +165,18 @@ function suki_template_hooks() {
 	 * @see suki_entry_footer_meta()
 	 */
 	if ( ! is_page() ) {
-		add_action( 'suki/frontend/entry/footer', 'suki_entry_footer_meta', 10 );
+		$priority = 10;
+		foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
+			$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+			// If function exists, attach to hook.
+			if ( function_exists( $function ) ) {
+				add_action( 'suki/frontend/entry/footer', $function, $priority );
+			}
+
+			// Increment priority number.
+			$priority = $priority + 10;
+		}
 	}
 
 	/**
@@ -229,7 +240,18 @@ function suki_template_hooks() {
 	 * 
 	 * @see suki_entry_grid_footer_meta()
 	 */
-	add_action( 'suki/frontend/entry_grid/footer', 'suki_entry_grid_footer_meta', 10 );
+	$priority = 10;
+	foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
+		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
+
+		// If function exists, attach to hook.
+		if ( function_exists( $function ) ) {
+			add_action( 'suki/frontend/entry_grid/footer', $function, $priority );
+		}
+
+		// Increment priority number.
+		$priority = $priority + 10;
+	}
 
 	/**
 	 * ====================================================
@@ -309,7 +331,7 @@ function suki_template_hooks() {
 		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
 	}
 }
-add_action( 'wp', 'suki_template_hooks' );
+add_action( 'wp', 'suki_template_hooks', 20 );
 
 /**
  * ====================================================
@@ -457,6 +479,25 @@ function suki_nav_menu_item_title( $title, $item, $args, $depth ) {
 	return '<span class="suki-menu-item-title">' . $title . '</span>' . trim( $sign );
 }
 add_filter( 'nav_menu_item_title', 'suki_nav_menu_item_title', 99, 4 );
+
+/**
+ * Add 'suki-menu-item-link' class to menu item's anchor tag.
+ *
+ * @param array $atts
+ * @param WP_Post $item
+ * @param stdClass $args
+ * @param int $depth
+ */
+function suki_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+	if ( ! isset( $atts['class'] ) ) {
+		$atts['class'] = '';
+	}
+
+	$atts['class'] = 'suki-menu-item-link ' . $atts['class'];
+
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'suki_nav_menu_link_attributes', 10, 4 );
 
 /**
  * Add SVG icon to search textbox.
@@ -653,13 +694,27 @@ add_filter( 'suki/frontend/content_classes', 'suki_content_classes' );
 function suki_loop_classes( $classes ) {
 	$classes['mode'] = esc_attr( 'suki-loop-' . suki_get_theme_mod( 'blog_index_loop_mode' ) );
 	if ( 'grid' == suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
-		$classes['float-container'] = esc_attr( 'suki-float-container' );
 		$classes['blog_index_grid_columns'] = esc_attr( 'suki-loop-grid-' . suki_get_theme_mod( 'blog_index_grid_columns' ) . '-columns' );
 	}
 
 	return $classes;
 }
 add_filter( 'suki/frontend/loop_classes', 'suki_loop_classes' );
+
+/**
+ * Add custom classes to entry thumbnail.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_entry_thumbnail_classes( $classes ) {
+	if ( intval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ) {
+		$classes['entry_featured_media_ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/entry/thumbnail_classes', 'suki_entry_thumbnail_classes' );
 
 /**
  * Add custom classes to the array of sidebar classes.

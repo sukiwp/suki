@@ -30,13 +30,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Social links
-$id = 'header_social_links';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'header_social_links';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $id, array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Active links', 'suki' ),
 	'choices'     => suki_get_social_media_types(),
@@ -45,7 +45,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 
 // Selective Refresh
 if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial( $id, array(
+	$wp_customize->selective_refresh->add_partial( $key, array(
 		'selector'            => '.suki-header-social',
 		'container_inclusive' => true,
 		'render_callback'     => 'suki_header_element__social',
@@ -54,13 +54,13 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 }
 
 // Social links target
-$id = 'header_social_links_target';
-$wp_customize->add_setting( $id, array(
-	'default'     => suki_array_value( $defaults, $id ),
+$key = 'header_social_links_target';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $id, array(
+$wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Open links in', 'suki' ),

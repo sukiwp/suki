@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry-layout-grid entry-small entry-card' ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_grid/post_classes', array( 'entry', 'entry-layout-grid', 'entry-small' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**
@@ -72,7 +72,7 @@
 
 		if ( has_action( 'suki/frontend/entry_grid/footer' ) ) :
 		?>
-			<footer class="entry-footer">
+			<footer class="entry-footer <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'entry_grid_footer_alignment' ) ); ?>">
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_grid/footer

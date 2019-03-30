@@ -203,6 +203,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--logo.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--html.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--cart.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-header.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );
@@ -342,22 +343,14 @@ class Suki_Customizer {
 			'transparent'       => 'rgba(0,0,0,0)',
 			'white'             => '#ffffff',
 			'black'             => '#000000',
-			'accent'            => '#288ce6', // '#5c6bc0',
-			'accent_2'          => '#1465ad', // '#3949ab',
+			'accent'            => '#1976d2',
+			'accent2'           => '#145ea8',
 			'bg'                => '#ffffff',
 			'text'              => '#666666',
-			'text_lighter'      => '#999999',
 			'heading'           => '#333333',
 			'meta'              => '#bbbbbb',
-			'subtle'            => '#f3f3f3',
+			'subtle'            => '#f6f6f6',
 			'border'            => '#e5e5e5',
-			'dark_bg'           => '#000000',
-			'dark_text'         => '#bbbbbb',
-			'dark_text_lighter' => '#888888',
-			'dark_heading'      => '#ffffff',
-			'dark_meta'         => '#666666',
-			'dark_subtle'       => '#0d0d0d',
-			'dark_border'       => '#333333',
 		) );
 	}
 
@@ -408,6 +401,9 @@ class Suki_Customizer {
 			$value = $default;
 		}
 
+		$value = apply_filters( 'suki/customizer/setting_value', $value, $key );
+		$value = apply_filters( 'suki/customizer/setting_value/' . $key, $value );
+
 		return $value;
 	}
 
@@ -443,17 +439,17 @@ class Suki_Customizer {
 		$post_types = array_diff( $post_types, $ignored_post_types );
 
 		foreach ( $post_types as $post_type ) {
-			$post_type_object = get_post_type_object( $post_type );
+			$post_type_obj = get_post_type_object( $post_type );
 
 			$page_sections[ $post_type . '_archive' ] = array(
 				/* translators: %s: post type's plural name. */
-				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_object->labels->name ),
+				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
 			);
 			$page_sections[ $post_type . '_singular' ] = array(
 				/* translators: %s: post type's singular name. */
-				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_object->labels->singular_name ),
+				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
 				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_object->labels->singular_name ),
+				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_obj->labels->singular_name ),
 			);
 		}
 

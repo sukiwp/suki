@@ -2,7 +2,7 @@
  * Theme Customizer postMessage handler.
  */
 (function( $ ) {
-	"use strict";
+	'use strict';
 
 	var $window = $( window ),
 	    $document = $( document ),

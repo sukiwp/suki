@@ -15,8 +15,8 @@
 @mixin h1() {
 	font-size: 32px; // default
 	font-style: normal;
-	font-weight: 500; // default
-	line-height: 1.4; // default
+	font-weight: 600; // default
+	line-height: 1.3; // default
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -24,8 +24,8 @@
 @mixin h2() {
 	font-size: 27px; // default
 	font-style: normal;
-	font-weight: 500; // default
-	line-height: 1.5; // default
+	font-weight: 600; // default
+	line-height: 1.4; // default
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -33,8 +33,8 @@
 @mixin h3() {
 	font-size: 22px; // default
 	font-style: normal;
-	font-weight: 500; // default
-	line-height: 1.6; // default
+	font-weight: 600; // default
+	line-height: 1.5; // default
 	letter-spacing: 0;
 	text-transform: none;
 }
@@ -42,10 +42,22 @@
 @mixin h4() {
 	font-size: 17px; // default
 	font-style: normal;
-	font-weight: 500; // default
-	line-height: 1.7; // default
+	font-weight: 600; // default
+	line-height: 1.6; // default
 	letter-spacing: 0;
 	text-transform: none;
+}
+
+@mixin heading() {
+	color: $color_heading; // default
+
+	a {
+		color: $color_heading; // default
+
+		&:hover, &:focus {
+			color: $color_accent; // default
+		}
+	}
 }
 
 @mixin blockquote() {
@@ -63,11 +75,11 @@
 
 	padding: 10px 12px; // default
 	@include border(); // default
+	border-color: inherit; // default
 	border-radius: 3px; // default
 
-	color: $color_text; // default
+	color: inherit; // default
 	background-color: $color_bg; // default
-	border-color: $color_border; // default
 	
 	font-size: inherit;
 	font-style: inherit;
@@ -77,10 +89,8 @@
 	text-transform: inherit;
 	vertical-align: middle;
 
-	&:focus {	
-		color: $color_text; // default
-		background-color: $color_bg; // default
-		border-color: $color_meta; // default
+	&:focus {
+		background-color: $color_subtle; // default
 	}
 }
 
@@ -107,33 +117,32 @@
 	border-color: $color_accent; // default
 
 	font-size: 1rem; // default
-	font-style: inherit;
-	font-weight: 500; // default
+	font-style: normal; // default
+	font-weight: 600; // default
 	line-height: normal;
-	letter-spacing: inherit;
-	text-transform: inherit;
+	letter-spacing: 0; // default
+	text-transform: none; // default
 	text-align: center;
 
 	@include transition();
 
 	&:hover, &:focus {
 		color: $color_white; // default
-		background-color: $color_accent_2; // default
-		border-color: $color_accent_2; // default
+		background-color: $color_accent2; // default
+		border-color: $color_accent2; // default
 	}
 }
 
 @mixin meta() {
-	font-size: 0.8em; // default
+	font-size: 0.85em; // default
 	line-height: 1.7; // default
-
-	color: $color_meta; // default
+	color: inherit; // default
 
 	a {
-		color: $color_meta; // default
+		color: inherit; // default
 
 		&:hover, &:focus {
-			color: $color_text; // default
+			color: $color_accent; // default
 		}
 	}
 }
@@ -174,11 +183,10 @@
 // Flex
 // -------------------------------------------------------------
 
-@mixin flex( $align_items: center ) {
+@mixin flex( $align_items: center, $justify_content: space-between, $flex_wrap: nowrap ) {
 	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: space-between;
+	flex-wrap: $flex_wrap;
+	justify-content: $justify_content;
 	align-items: $align_items;
 }
 
@@ -202,22 +210,10 @@
 @mixin float-container() {
 	&:before, &:after {
 		content: "";
-		display: table;	
+		display: table;
 	}
 
 	&:after {
 		clear: both;
-	}
-}
-
-// -------------------------------------------------------------
-// Text colored link
-// -------------------------------------------------------------
-
-@mixin text-colored-link() {
-	color: $color_text; // default
-
-	&:hover, &:focus {
-		color: $color_accent; // default
 	}
 }

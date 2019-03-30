@@ -59,6 +59,12 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
+		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
+		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
+			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
+			add_filter( 'pre_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__get' ) );
+		}
+
 		$this->_includes();
 	}
 
@@ -207,8 +213,8 @@ class Suki {
 
 		// Register menus
 		register_nav_menus( array(
-			/* translators: %d: number of Header Menu. */
-			'header-menu-1' => sprintf( esc_html__( 'Header Menu %d', 'suki' ), 1 ),
+			/* translators: %s: number of Header Menu. */
+			'header-menu-1' => sprintf( esc_html__( 'Header Menu %s', 'suki' ), 1 ),
 			'header-mobile-menu' => esc_html__( 'Mobile Header Menu', 'suki' ),
 			'footer-menu-1' => esc_html__( 'Footer Bottom Menu', 'suki' ),
 		) );
@@ -262,19 +268,19 @@ class Suki {
 		register_sidebar( array(
 			'name'          => esc_html__( 'Sidebar', 'suki' ),
 			'id'            => 'sidebar',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title h4">',
 			'after_title'   => '</h2>',
 		) );
 
 		for ( $i = 1; $i <= 6; $i++ ) {
 			register_sidebar( array(
-				/* translators: %d: number of footer widgets column. */
-				'name'          => sprintf( esc_html__( 'Footer Widgets Column %d', 'suki' ), $i ),
+				/* translators: %s: footer widgets column number. */
+				'name'          => sprintf( esc_html__( 'Footer Widgets Column %s', 'suki' ), $i ),
 				'id'            => 'footer-widgets-' . $i,
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
 				'before_title'  => '<h2 class="widget-title h4">',
 				'after_title'   => '</h2>',
 			) );
@@ -422,6 +428,32 @@ class Suki {
 		}
 
 		return $inline_css;
+	}
+
+	/**
+	 * Intercept saving mods on Child Theme and save it to Parent Theme instead.
+	 *
+	 * @param array $value
+	 * @param array $old_value
+	 * @return array
+	 */
+	function child_use_parent_mods__set( $value, $old_value ) {
+		// Update parent theme mods.
+		update_option( 'theme_mods_' . get_template(), $value );
+
+		// Prevent update to child theme mods.
+		return $old_value;
+	}
+
+	/**
+	 * Intercept retrieving mods on Child Theme and return Parent Theme's mods instead.
+	 *
+	 * @param array $default
+	 * @return array
+	 */
+	function child_use_parent_mods__get( $default ) {
+		// Return parent theme mods.
+		return get_option( 'theme_mods_' . get_template(), $default );
 	}
 
 	/**
