@@ -303,7 +303,7 @@ p.demo_store a {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	margin: 0 -0.5em 2.5em;
+	margin: 0 -0.5em 2em;
 }
 
 .suki-products-filters:empty {
@@ -329,7 +329,7 @@ p.demo_store a {
 }
 
 .suki-products-selected-filters {
-	margin: -2em 0 2.5em;
+	margin: -1.5em 0 2em;
 }
 
 .suki-products-selected-filters .widget {
@@ -348,12 +348,12 @@ p.demo_store a {
 	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
-	margin: 0 -15px;
+	margin: 2em -15px 0;
 }
 
 .woocommerce ul.products li.product {
 	float: none;
-	margin: 0 0 2.5em;
+	margin: 0 0 2em;
 	padding: 0 15px;
 }
 
