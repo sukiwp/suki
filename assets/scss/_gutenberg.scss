@@ -48,16 +48,26 @@
 // -------------------------------------------------------------
 
 .wp-block-columns {
-	margin: 0 -15px; // default
-
-	.wp-block-column {
+	> .wp-block-column {
 		flex: 1;
-		margin: 0 0 1.25rem;
-		padding: 0 15px; // default
+		margin: 0 1rem 1.25rem;
+
+		&:first-child {
+			margin-left: 0;
+		}
+		
+		&:last-child {
+			margin-right: 0;
+		}
 
 		@media screen and ( max-width: $breakpoint_768 - 1px ) {
 			flex-basis: 100%;
+			margin: 0 0 1.25rem;
 		}
+	}
+
+	&.alignwide {
+		
 	}
 }
 

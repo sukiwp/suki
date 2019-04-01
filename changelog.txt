@@ -1,3 +1,7 @@
+v1.0.1
+- TWEAK: Improve WooCommerce products grid CSS.
+- TWEAK: Improve Gutenberg columns CSS.
+
 v1.0.0
 - NEW: Allow child theme to use parent theme options (for easier migration).
 - NEW: Default blog posts layout will automatically use `excerpt` instead of the main `content` if specified.

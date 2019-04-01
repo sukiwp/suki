@@ -248,7 +248,11 @@ p.demo_store {
 
 .suki-products-filters {
 	@include flex( center, space-between, wrap );
-	margin: 0 -0.5em 2.5em;
+	margin: 0 -0.5em 2em;
+
+	&:empty {
+		display: none;
+	}
 
 	> * {
 		padding: 0.5em;
@@ -268,7 +272,7 @@ p.demo_store {
 }
 
 .suki-products-selected-filters {
-	margin: -2em 0 2.5em;
+	margin: -1.5em 0 2em;
 
 	.widget {
 		margin: 0;
@@ -277,11 +281,11 @@ p.demo_store {
 
 .woocommerce ul.products {
 	@include flex( flex-start, flex-start, wrap );
-	margin: 0 -15px; // default
+	margin: 2em -15px 0; // default
 
 	li.product {
 		float: none;
-		margin: 0 0 2.5em;
+		margin: 0 0 2em;
 		padding: 0 15px; // default
 
 		.count {
