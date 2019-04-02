@@ -1,3 +1,6 @@
+v1.0.2
+- FIX: WooCommerce's single product gallery width CSS.
+
 v1.0.1
 - TWEAK: Improve WooCommerce products grid CSS.
 - TWEAK: Improve Gutenberg columns CSS.
