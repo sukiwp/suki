@@ -309,11 +309,11 @@
 }
 
 .suki-header-section {
-	&-inner, .menu .sub-menu {
+	&-inner, .menu > .menu-item .sub-menu {
 		background-color: $color_bg; // default
 	}
 
-	&, .menu .sub-menu {
+	&, .menu > .menu-item .sub-menu {
 		a:not(.button), .suki-toggle {
 			color: $color_heading; // default
 
@@ -399,17 +399,15 @@
 // -------------------------------------------------------------
 
 .suki-header-section-vertical {
-	&-inner, .menu .sub-menu {
+	&-inner {
 		background-color: $color_bg; // default
 	}
 
-	&, .menu .sub-menu {
-		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
+	a:not(.button), .suki-toggle {
+		color: $color_heading; // default
 
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
+		&:hover, &:focus {
+			color: $color_accent; // default
 		}
 	}
 
