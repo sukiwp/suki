@@ -1628,6 +1628,10 @@ body.suki-page-layout-boxed #page {
 	}
 }
 
+.suki-content-row > * {
+	width: 100%;
+}
+
 .content-area {
 	width: 100%;
 	min-width: 0;
