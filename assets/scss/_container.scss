@@ -142,6 +142,10 @@ body.suki-page-layout-boxed {
 			flex-direction: row-reverse;
 		}
 	}
+
+	> * {
+		width: 100%;
+	}
 }
 
 .content-area {

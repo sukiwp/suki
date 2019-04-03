@@ -1,3 +1,8 @@
+v1.0.2
+- TWEAK: Improve content row CSS.
+- FIX: WooCommerce's single product gallery width CSS.
+- FIX: Header submenu / dropdown CSS.
+
 v1.0.1
 - TWEAK: Improve WooCommerce products grid CSS.
 - TWEAK: Improve Gutenberg columns CSS.

@@ -1628,6 +1628,10 @@ body.suki-page-layout-boxed #page {
 	}
 }
 
+.suki-content-row > * {
+	width: 100%;
+}
+
 .content-area {
 	width: 100%;
 	min-width: 0;
@@ -2041,15 +2045,15 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin-right: -0.5em;
 }
 
-.suki-header-section-inner, .suki-header-section .menu .sub-menu {
+.suki-header-section-inner, .suki-header-section .menu > .menu-item .sub-menu {
 	background-color: #ffffff;
 }
 
-.suki-header-section a:not(.button), .suki-header-section .suki-toggle, .suki-header-section .menu .sub-menu a:not(.button), .suki-header-section .menu .sub-menu .suki-toggle {
+.suki-header-section a:not(.button), .suki-header-section .suki-toggle, .suki-header-section .menu > .menu-item .sub-menu a:not(.button), .suki-header-section .menu > .menu-item .sub-menu .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-section a:not(.button):hover, .suki-header-section a:not(.button):focus, .suki-header-section .suki-toggle:hover, .suki-header-section .suki-toggle:focus, .suki-header-section .menu .sub-menu a:not(.button):hover, .suki-header-section .menu .sub-menu a:not(.button):focus, .suki-header-section .menu .sub-menu .suki-toggle:hover, .suki-header-section .menu .sub-menu .suki-toggle:focus {
+.suki-header-section a:not(.button):hover, .suki-header-section a:not(.button):focus, .suki-header-section .suki-toggle:hover, .suki-header-section .suki-toggle:focus, .suki-header-section .menu > .menu-item .sub-menu a:not(.button):hover, .suki-header-section .menu > .menu-item .sub-menu a:not(.button):focus, .suki-header-section .menu > .menu-item .sub-menu .suki-toggle:hover, .suki-header-section .menu > .menu-item .sub-menu .suki-toggle:focus {
 	color: #1976d2;
 }
 
@@ -2119,15 +2123,15 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	padding: 0 20px;
 }
 
-.suki-header-section-vertical-inner, .suki-header-section-vertical .menu .sub-menu {
+.suki-header-section-vertical-inner {
 	background-color: #ffffff;
 }
 
-.suki-header-section-vertical a:not(.button), .suki-header-section-vertical .suki-toggle, .suki-header-section-vertical .menu .sub-menu a:not(.button), .suki-header-section-vertical .menu .sub-menu .suki-toggle {
+.suki-header-section-vertical a:not(.button), .suki-header-section-vertical .suki-toggle {
 	color: #333333;
 }
 
-.suki-header-section-vertical a:not(.button):hover, .suki-header-section-vertical a:not(.button):focus, .suki-header-section-vertical .suki-toggle:hover, .suki-header-section-vertical .suki-toggle:focus, .suki-header-section-vertical .menu .sub-menu a:not(.button):hover, .suki-header-section-vertical .menu .sub-menu a:not(.button):focus, .suki-header-section-vertical .menu .sub-menu .suki-toggle:hover, .suki-header-section-vertical .menu .sub-menu .suki-toggle:focus {
+.suki-header-section-vertical a:not(.button):hover, .suki-header-section-vertical a:not(.button):focus, .suki-header-section-vertical .suki-toggle:hover, .suki-header-section-vertical .suki-toggle:focus {
 	color: #1976d2;
 }
 

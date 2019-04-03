@@ -383,8 +383,8 @@ $add['woocommerce_single_gallery_width'] = array(
 $add['woocommerce_single_gallery_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images',
-		'property' => 'margin-right',
+		'element'  => '.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary',
+		'property' => 'padding-left',
 	),
 );
 
