@@ -1096,6 +1096,11 @@ $add['header_mobile_vertical_bar_width'] = array(
 		'element'  => '.suki-header-mobile-vertical-bar',
 		'property' => 'width',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical.suki-header-mobile-vertical-display-full-screen .suki-header-section-vertical-column',
+		'property' => 'width',
+	),
 );
 $add['header_mobile_vertical_bar_padding'] = array(
 	array(

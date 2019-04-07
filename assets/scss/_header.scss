@@ -597,6 +597,30 @@
 			padding: 12px 0; // default
 		}
 	}
+
+	.suki-header-mobile-vertical-display-full-screen & {
+		width: 100% !important;
+		max-width: 100%;
+		left: 0;
+		right: 0;
+		border: none !important;
+		transform: none !important;
+	}
+}
+
+.suki-header-mobile-vertical-display-full-screen {
+	width: 100%;
+	
+	.suki-popup-close-icon {
+		color: inherit !important;
+	}
+
+	.suki-header-section-vertical-column {
+		justify-content: center;
+		width: 300px; // default
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
 }
 
 // -------------------------------------------------------------

@@ -592,6 +592,7 @@ add_filter( 'body_class', 'suki_body_classes' );
  * @return array
  */
 function suki_header_mobile_vertical_classes( $classes ) {
+	$classes['display'] = esc_attr( 'suki-header-mobile-vertical-display-' . suki_get_theme_mod( 'header_mobile_vertical_bar_display' ) );
 	$classes['position'] = esc_attr( 'suki-header-mobile-vertical-position-' . suki_get_theme_mod( 'header_mobile_vertical_bar_position' ) );
 	$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) );
 

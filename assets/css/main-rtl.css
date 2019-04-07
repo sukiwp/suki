@@ -2316,6 +2316,33 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	padding: 12px 0;
 }
 
+.suki-header-mobile-vertical-display-full-screen .suki-header-mobile-vertical-bar {
+	width: 100% !important;
+	max-width: 100%;
+	right: 0;
+	left: 0;
+	border: none !important;
+	-webkit-transform: none !important;
+	transform: none !important;
+}
+
+.suki-header-mobile-vertical-display-full-screen {
+	width: 100%;
+}
+
+.suki-header-mobile-vertical-display-full-screen .suki-popup-close-icon {
+	color: inherit !important;
+}
+
+.suki-header-mobile-vertical-display-full-screen .suki-header-section-vertical-column {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	width: 300px;
+	margin-right: auto !important;
+	margin-left: auto !important;
+}
+
 .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
 	content: "";
 	position: absolute;
