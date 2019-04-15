@@ -1,3 +1,6 @@
+v1.0.4
+- TWEAK: Use Filesystem API to render inline SVG.
+
 v1.0.3
 - TWEAK: Remove default center alignment for Image Widget.
 - FIX: Footer widgets gap CSS.
