@@ -1751,6 +1751,12 @@ $add['footer_widgets_bar_widgets_gap'] = array(
 		'element'  => '.suki-footer-widgets-bar .widget',
 		'property' => 'margin-bottom',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar-row',
+		'property' => 'margin-bottom',
+		'pattern'  => '-$',
+	),
 );
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {

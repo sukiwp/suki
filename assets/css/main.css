@@ -3483,11 +3483,6 @@ a.more-link {
 	display: none;
 }
 
-.widget_media_image img {
-	display: table;
-	margin: 0 auto;
-}
-
 .suki_widget_posts ul {
 	list-style: none;
 	margin: 0;
