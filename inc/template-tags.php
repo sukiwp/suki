@@ -49,9 +49,7 @@ function suki_inline_svg( $svg_file, $echo = true ) {
 	if ( empty( $svg_file ) ) return;
 
 	// Get SVG markup.
-	ob_start();
-	include( $svg_file );
-	$html = ob_get_clean();
+	$html = file_get_contents( $svg_file );
 
 	// Remove XML encoding tag.
 	// This should not be printed on inline SVG.
