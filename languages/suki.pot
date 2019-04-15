@@ -464,6 +464,10 @@ msgstr ""
 msgid "Suki Pro"
 msgstr ""
 
+#: inc/admin/class-suki-admin.php:635
+msgid "Demo Sites"
+msgstr ""
+
 #: inc/admin/class-suki-admin.php:640
 msgid "Documentation"
 msgstr ""
@@ -478,6 +482,18 @@ msgstr ""
 
 #: inc/admin/class-suki-admin.php:657
 msgid "Links"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:675
+msgid "Suki Demo Sites"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:683
+msgid "Browse and Import"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:689
+msgid "Install \"Suki Sites Import\""
 msgstr ""
 
 #: inc/customizer/class-suki-customizer.php:419
