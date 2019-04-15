@@ -1,3 +1,8 @@
+v1.0.3
+- TWEAK: Remove default center alignment for Image Widget.
+- FIX: Footer widgets gap CSS.
+- FIX: SVG logo rendering error.
+
 v1.0.2
 - TWEAK: Improve content row CSS.
 - FIX: WooCommerce's single product gallery width CSS.
