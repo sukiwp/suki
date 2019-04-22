@@ -59,7 +59,7 @@ $wp_customize->add_panel( $panel, array(
 	// Social
 	$wp_customize->add_section( 'suki_section_social', array(
 		'title'       => esc_html__( 'Social Media Links', 'suki' ),
-		'description' => esc_html__( 'Please use full URL format with http:// or https://', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Please use full URL format with http:// or https://', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );
@@ -79,7 +79,7 @@ $wp_customize->add_panel( $panel, array(
 	// Body (Base)
 	$wp_customize->add_section( 'suki_section_body', array(
 		'title'       => esc_html__( 'Body (Base)', 'suki' ),
-		'description' => esc_html__( 'The global settings of body typography and colors.', 'suki' ),
+		'description' => '<p>' . esc_html__( 'The global settings of body typography and colors.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -87,7 +87,7 @@ $wp_customize->add_panel( $panel, array(
 	// Headings (H1 - H4)
 	$wp_customize->add_section( 'suki_section_headings', array(
 		'title'       => esc_html__( 'Headings (H1 - H4)', 'suki' ),
-		'description' => esc_html__( 'Used on all H1 - H4 tags globally.', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Used on all H1 - H4 tags globally.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -116,7 +116,7 @@ $wp_customize->add_panel( $panel, array(
 	// Title
 	$wp_customize->add_section( 'suki_section_title', array(
 		'title'       => esc_html__( 'Title', 'suki' ),
-		'description' => esc_html__( 'Used on Default Post title and Static Page title. By default, it uses H1 styles.', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Used on Default Post title and Static Page title. By default, it uses H1 styles.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -124,7 +124,7 @@ $wp_customize->add_panel( $panel, array(
 	// Small Title
 	$wp_customize->add_section( 'suki_section_small_title', array(
 		'title'       => esc_html__( 'Small Title', 'suki' ),
-		'description' => esc_html__( 'Used on Grid Post title, and other subsidiary headings like "Leave a Reply", "2 Comments", etc. By default, it uses H3 styles.', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Used on Grid Post title, and other subsidiary headings like "Leave a Reply", "2 Comments", etc. By default, it uses H3 styles.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -132,7 +132,7 @@ $wp_customize->add_panel( $panel, array(
 	// Meta Info
 	$wp_customize->add_section( 'suki_section_meta', array(
 		'title'       => esc_html__( 'Meta Info', 'suki' ),
-		'description' => esc_html__( 'Used on Post meta, Widget meta, Comments meta, and other small info text.', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Used on Post meta, Widget meta, Comments meta, and other small info text.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -147,7 +147,7 @@ $wp_customize->add_section( 'suki_section_page_container', array(
 $panel = 'suki_panel_header';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
-	'description' => esc_html__( 'Tips: you can customize the Mobile Header by switching to tablet / mobile view.', 'suki' ),
+	'description' => '<p>' . esc_html__( 'Tips: you can customize the Mobile Header by switching to tablet / mobile view.', 'suki' ) . '</p>',
 	'priority'    => 173,
 ) );
 
@@ -405,11 +405,11 @@ $wp_customize->add_panel( $panel, array(
 	// Single Post
 	$wp_customize->add_section( 'suki_section_blog_single', array(
 		'title'       => esc_html__( 'Single Post Page', 'suki' ),
-		'description' => sprintf(
+		'description' => '<p>' . sprintf(
 			/* translators: %s: link to "Post Layout: Default" section. */
 			esc_html__( '"Default" post layout is used as the main post layout. You can configure it on %s', 'suki' ),
 			'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
-		),
+		) . '</p>',
 		'panel'       => $panel,
 	) );
 
@@ -439,7 +439,7 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 $panel = 'suki_panel_page_settings';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Page Settings', 'suki' ),
-	'description' => esc_html__( 'Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type.', 'suki' ),
+	'description' => '<p>' . esc_html__( 'Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type.', 'suki' ) . '</p><p><a href="http://docs.sukiwp.com/article/customization/page-settings/" class="button button-secondary" target="_blank">' . esc_html__( 'Learn More About Page Settings', 'suki' ) . '</a></p>',
 	'priority'    => 191,
 ) );
 
@@ -455,7 +455,7 @@ $wp_customize->add_panel( $panel, array(
 
 		$wp_customize->add_section( 'suki_section_page_settings_' . $ps_type, array(
 			'title'       => suki_array_value( $ps_data, 'title' ),
-			'description' => suki_array_value( $ps_data, 'description' ),
+			'description' => '<p>' . suki_array_value( $ps_data, 'description' ) . '</p>',
 			'panel'       => $panel,
 			'priority'    => $i,
 		) );

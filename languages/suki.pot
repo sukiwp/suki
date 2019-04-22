@@ -1916,6 +1916,10 @@ msgstr ""
 msgid "Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type."
 msgstr ""
 
+#: inc/customizer/options/_sections.php:442
+msgid "Learn More About Page Settings"
+msgstr ""
+
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:23
 msgid "Cross-Sells"
 msgstr ""
