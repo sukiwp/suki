@@ -1293,6 +1293,14 @@ p.has-drop-cap:not(:focus):first-letter {
 	color: #333333;
 }
 
+div.wp-block-image {
+	margin-bottom: 0 !important;
+}
+
+div.wp-block-image > figure.aligncenter {
+	margin-bottom: 1.25rem;
+}
+
 .wp-block-quote {
 	padding: 0.5rem 2em;
 	border-right-width: 0.25rem;
