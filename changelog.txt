@@ -1,3 +1,6 @@
+v1.0.5
+- TWEAK: Improve Gutenberg editor CSS.
+
 v1.0.4
 - TWEAK: Use Filesystem API to render inline SVG.
 

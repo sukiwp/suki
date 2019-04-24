@@ -158,8 +158,6 @@ template {
 }
 
 * {
-	border-width: 0;
-	border-style: solid;
 	border-color: #e5e5e5;
 }
 
@@ -465,7 +463,6 @@ input[type="submit"],
 .button,
 a.button,
 a.wp-block-button__link {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;
@@ -1416,7 +1413,6 @@ p.wp-block-subhead {
 }
 
 .wp-block-button__link {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;

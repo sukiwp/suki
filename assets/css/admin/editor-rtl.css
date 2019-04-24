@@ -1,6 +1,4 @@
 * {
-	border-width: 0;
-	border-style: solid;
 	border-color: #e5e5e5;
 }
 
@@ -606,7 +604,6 @@ p.wp-block-subhead {
 }
 
 .wp-block-button__link {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;
@@ -706,14 +703,6 @@ body.mce-content-body a[data-mce-selected] {
 	background: transparent;
 }
 
-.editor-post-permalink {
-	border-width: 1px;
-}
-
-.editor-block-toolbar {
-	border-right-width: 1px;
-}
-
 .editor-post-title__block .editor-post-title__input {
 	font-size: 32px;
 	font-style: normal;
@@ -723,16 +712,6 @@ body.mce-content-body a[data-mce-selected] {
 	text-transform: none;
 	border-radius: 0;
 	font-family: inherit;
-}
-
-.editor-block-list__block > .editor-block-list__block-edit {
-	margin-top: 1.25em;
-	margin-bottom: 1.25em;
-}
-
-.wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"] > .editor-block-list__block-edit > div > .editor-inner-blocks {
-	margin-top: -1.25em;
-	margin-bottom: -1.25em;
 }
 
 .wp-block {
@@ -747,40 +726,9 @@ body.mce-content-body a[data-mce-selected] {
 	max-width: none;
 }
 
-.wp-block-button {
-	margin: 0;
-}
-
-.wp-block-button a.wp-block-button__link, .wp-block-button .wp-block-button__link[role="textbox"] {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-	padding: 10px 20px;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 3px;
-	color: #ffffff;
-	background-color: #1976d2;
-	border-color: #1976d2;
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 600;
-	line-height: normal;
-	letter-spacing: 0;
-	text-transform: none;
-	text-align: center;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	margin-bottom: 0;
-	text-decoration: none;
-}
-
-.wp-block-button a.wp-block-button__link:hover, .wp-block-button a.wp-block-button__link:focus, .wp-block-button .wp-block-button__link[role="textbox"]:hover, .wp-block-button .wp-block-button__link[role="textbox"]:focus {
-	color: #ffffff;
-	background-color: #145ea8;
-	border-color: #145ea8;
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	padding: 0.5rem 2em;
+	border-color: inherit;
 }
 
 .editor-rich-text__tinymce {
