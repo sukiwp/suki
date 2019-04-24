@@ -1,3 +1,6 @@
+v1.0.7
+- FIX: Border CSS bug (grid blog post).
+
 v1.0.6
 - FIX: Border CSS bug.
 

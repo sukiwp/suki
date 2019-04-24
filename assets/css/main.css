@@ -2840,6 +2840,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .entry-layout-grid .entry-wrapper {
 	border-width: 1px;
+	border-style: solid;
 	padding: 1.25em 1.5em;
 	background-color: #ffffff;
 }
