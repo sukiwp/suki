@@ -5,7 +5,7 @@
 .suki-footer-widgets-bar {
 	&-inner {
 		background-color: $color_subtle; // default
-		border-width: 1px 0 0 0; // default
+		@include border( null, 1px 0 0 0 ); // default
 		padding: 60px 20px; // default
 	}
 
@@ -75,7 +75,7 @@
 
 .suki-footer-bottom-bar-inner {
 	background-color: $color_subtle; // default
-	border-width: 1px 0 0 0; // default
+	@include border( null, 1px 0 0 0 ); // default
 	padding: 25px 20px; // default
 }
 

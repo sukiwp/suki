@@ -1639,8 +1639,6 @@ body.suki-page-layout-boxed #page {
 .content-area {
 	width: 100%;
 	min-width: 0;
-	border-width: 0;
-	border-style: solid;
 }
 
 @media screen and (max-width: 1023px) {
@@ -1648,6 +1646,11 @@ body.suki-page-layout-boxed #page {
 		width: auto !important;
 		margin: 0 !important;
 	}
+}
+
+.site-main {
+	border-width: 0;
+	border-style: solid;
 }
 
 .site-main > *:first-child {
@@ -1683,6 +1686,12 @@ body.suki-page-layout-boxed #page {
 
 .rtl .suki-content-layout-left-sidebar .sidebar {
 	margin-left: 60px;
+}
+
+.sidebar.suki-sidebar-widgets-mode-merged .sidebar-inner,
+.sidebar.suki-sidebar-widgets-mode-separated .widget {
+	border-width: 0;
+	border-style: solid;
 }
 
 @media screen and (max-width: 1023px) {
@@ -2049,7 +2058,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin-right: -0.5em;
 }
 
-.suki-header-section-inner, .suki-header-section .menu > .menu-item .sub-menu {
+.suki-header-section .menu > .menu-item .sub-menu {
 	background-color: #ffffff;
 }
 
@@ -2072,6 +2081,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-header-top-bar-inner {
 	z-index: 30;
 	border-width: 0 0 1px 0;
+	border-style: solid;
 	padding: 0 20px;
 }
 
@@ -2089,6 +2099,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-header-main-bar-inner {
 	z-index: 20;
 	border-width: 0 0 1px 0;
+	border-style: solid;
 	padding: 0 20px;
 }
 
@@ -2107,6 +2118,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-header-bottom-bar-inner {
 	z-index: 10;
 	border-width: 0 0 1px 0;
+	border-style: solid;
 	padding: 0 20px;
 }
 
@@ -2124,6 +2136,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-header-mobile-main-bar-inner {
 	z-index: 10;
 	border-width: 0 0 1px 0;
+	border-style: solid;
 	padding: 0 20px;
 }
 
@@ -2430,6 +2443,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-page-header-inner {
 	border-width: 0 0 1px 0;
+	border-style: solid;
 	background-color: #f6f6f6;
 	background-position: center center;
 	background-size: cover;
@@ -2568,6 +2582,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-footer-widgets-bar-inner {
 	background-color: #f6f6f6;
 	border-width: 1px 0 0 0;
+	border-style: solid;
 	padding: 60px 20px;
 }
 
@@ -2642,6 +2657,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-footer-bottom-bar-inner {
 	background-color: #f6f6f6;
 	border-width: 1px 0 0 0;
+	border-style: solid;
 	padding: 25px 20px;
 }
 

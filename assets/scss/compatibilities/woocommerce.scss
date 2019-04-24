@@ -295,6 +295,7 @@ p.demo_store {
 		}
 
 		.suki-product-wrapper {
+			@include border( null, 0 ); // default
 			position: relative;
 		}
 

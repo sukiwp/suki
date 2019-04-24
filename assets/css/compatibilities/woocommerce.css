@@ -363,6 +363,8 @@ p.demo_store a {
 }
 
 .woocommerce ul.products li.product .suki-product-wrapper {
+	border-width: 0;
+	border-style: solid;
 	position: relative;
 }
 

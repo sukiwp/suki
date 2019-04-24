@@ -309,7 +309,7 @@
 }
 
 .suki-header-section {
-	&-inner, .menu > .menu-item .sub-menu {
+	.menu > .menu-item .sub-menu {
 		background-color: $color_bg; // default
 	}
 
@@ -337,7 +337,7 @@
 
 	&-inner {
 		z-index: 30;
-		border-width: 0 0 1px 0; // default
+		@include border( null, 0 0 1px 0 ); // default
 		padding: 0 20px; // default
 	}
 
@@ -354,7 +354,7 @@
 
 	&-inner {
 		z-index: 20;
-		border-width: 0 0 1px 0; // default
+		@include border( null, 0 0 1px 0 ); // default
 		padding: 0 20px; // default
 	}
 
@@ -372,7 +372,7 @@
 
 	&-inner {
 		z-index: 10;
-		border-width: 0 0 1px 0; // default
+		@include border( null, 0 0 1px 0 ); // default
 		padding: 0 20px; // default
 	}
 
@@ -389,7 +389,7 @@
 
 	&-inner {
 		z-index: 10;
-		border-width: 0 0 1px 0; // default
+		@include border( null, 0 0 1px 0 ); // default
 		padding: 0 20px; // default
 	}
 }
