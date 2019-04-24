@@ -1,3 +1,6 @@
+v1.0.6
+- FIX: Border CSS bug.
+
 v1.0.5
 - TWEAK: Improve Gutenberg editor CSS.
 - TWEAK: Remove additional custom CSS for Elementor, now will use 100% Elementor default CSS.

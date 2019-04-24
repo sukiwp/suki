@@ -3,7 +3,7 @@
 // -------------------------------------------------------------
 
 .suki-page-header-inner {
-	border-width: 0 0 1px 0; // default
+	@include border( null, 0 0 1px 0 ); // default
 	background-color: $color_subtle; // default
 	background-position: center center;
 	background-size: cover;
