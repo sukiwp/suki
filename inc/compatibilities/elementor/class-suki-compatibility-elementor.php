@@ -39,9 +39,6 @@ class Suki_Compatibility_Elementor {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Compatibility CSS (via theme inline CSS)
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
-
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
@@ -61,18 +58,6 @@ class Suki_Compatibility_Elementor {
 	 * Hook functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Add compatibility CSS via inline CSS.
-	 *
-	 * @param string $inline_css
-	 * @return string
-	 */
-	public function add_compatibility_css( $inline_css ) {
-		$inline_css .= "\n/* Elementor compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' ); // WPCS: XSS OK
-
-		return $inline_css;
-	}
 
 	/**
 	 * Modify Icon control: add fonts.
