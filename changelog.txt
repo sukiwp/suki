@@ -1,3 +1,7 @@
+v1.0.5
+- TWEAK: Improve Gutenberg editor CSS.
+- TWEAK: Remove additional custom CSS for Elementor, now will use 100% Elementor default CSS.
+
 v1.0.4
 - TWEAK: Use Filesystem API to render inline SVG.
 

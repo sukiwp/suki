@@ -158,8 +158,6 @@ template {
 }
 
 * {
-	border-width: 0;
-	border-style: solid;
 	border-color: #e5e5e5;
 }
 
@@ -465,7 +463,6 @@ input[type="submit"],
 .button,
 a.button,
 a.wp-block-button__link {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;
@@ -1293,6 +1290,14 @@ p.has-drop-cap:not(:focus):first-letter {
 	color: #333333;
 }
 
+div.wp-block-image {
+	margin-bottom: 0 !important;
+}
+
+div.wp-block-image > figure.aligncenter {
+	margin-bottom: 1.25rem;
+}
+
 .wp-block-quote {
 	padding: 0.5rem 2em;
 	border-right-width: 0.25rem;
@@ -1408,7 +1413,6 @@ p.wp-block-subhead {
 }
 
 .wp-block-button__link {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;

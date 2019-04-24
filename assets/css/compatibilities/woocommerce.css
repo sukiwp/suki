@@ -70,7 +70,6 @@
 .woocommerce input.button.alt.disabled,
 .woocommerce input.button.alt:disabled,
 .woocommerce input.button.alt:disabled[disabled] {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;

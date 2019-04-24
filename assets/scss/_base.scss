@@ -3,7 +3,6 @@
 // -------------------------------------------------------------
 
 * {
-	@include border( null, 0 );
 	border-color: $color_border; // default
 
 	&, &:before, &:after {
