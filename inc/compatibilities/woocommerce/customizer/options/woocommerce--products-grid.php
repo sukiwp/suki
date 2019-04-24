@@ -104,8 +104,6 @@ if ( suki_show_pro_teaser() ) {
 		'features'    => array(
 			esc_html_x( 'Change grid item\'s padding, border', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Same height grid items in a row', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Enable alternate hover image', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Enable quick view popup', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

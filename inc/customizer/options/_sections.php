@@ -377,7 +377,6 @@ $wp_customize->add_panel( $panel, array(
 			'panel'       => $panel,
 			'url'         => SUKI_PRO_URL,
 			'features'    => array(
-				esc_html_x( 'More footer elements', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Dynamic widgets column width (responsive)', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
