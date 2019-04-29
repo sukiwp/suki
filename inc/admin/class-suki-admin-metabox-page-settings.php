@@ -43,7 +43,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		add_action( 'save_post', array( $this, 'save_post_meta_box' ) );
 
 		// Term meta box
-		add_action( 'init', array( $this, 'init_term_meta_boxes' ) );
+		add_action( 'admin_init', array( $this, 'init_term_meta_boxes' ) );
 
 		// Render actions
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_meta_box_fields__standard' ), 10, 2 );
