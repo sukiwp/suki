@@ -674,9 +674,10 @@ p.demo_store {
 			margin: -0.75rem 0 0;
 			border-bottom: none;
 
-			td {
+			th, td {
 				display: block;
 				padding: 0;
+				border: inherit;
 			}
 
 			label {
