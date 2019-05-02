@@ -44,12 +44,12 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'setup_theme_info' ), 1 );
 		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 1 );
-
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
+
+		add_action( 'init', array( $this, 'setup_theme_info' ), 1 );
 
 		add_action( 'wp', array( $this, 'setup_accurate_content_width' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
