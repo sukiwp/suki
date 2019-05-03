@@ -23,42 +23,40 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	</head>
 
 	<body <?php body_class(); ?>>
-		<div id="body" class="suki-body">
-			
-			<?php
-			/**
-			 * Hook: suki/frontend/before_canvas
-			 *
-			 * @hooked suki_skip_to_content_link - 1
-			 * @hooked suki_mobile_vertical_header - 10
-			 */
-			do_action( 'suki/frontend/before_canvas' );
-			?>
+		<?php
+		/**
+		 * Hook: suki/frontend/before_canvas
+		 *
+		 * @hooked suki_skip_to_content_link - 1
+		 * @hooked suki_mobile_vertical_header - 10
+		 */
+		do_action( 'suki/frontend/before_canvas' );
+		?>
 
-			<div id="canvas" class="suki-canvas">
-				<div id="page" class="site">
+		<div id="canvas" class="suki-canvas">
+			<div id="page" class="site">
 
-					<?php
-					/**
-					 * Hook: suki/frontend/before_header
-					 */
-					do_action( 'suki/frontend/before_header' );
+				<?php
+				/**
+				 * Hook: suki/frontend/before_header
+				 */
+				do_action( 'suki/frontend/before_header' );
 
-					/**
-					 * Header
-					 */
-					suki_header();
+				/**
+				 * Header
+				 */
+				suki_header();
 
-					/**
-					 * Hook: suki/frontend/after_header
-					 *
-					 * @hooked suki_page_header - 10
-					 */
-					do_action( 'suki/frontend/after_header' );
+				/**
+				 * Hook: suki/frontend/after_header
+				 *
+				 * @hooked suki_page_header - 10
+				 */
+				do_action( 'suki/frontend/after_header' );
 
-					/**
-					 * Content - opening tag
-					 */
-					if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
-						suki_content_open();
-					}
+				/**
+				 * Content - opening tag
+				 */
+				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
+					suki_content_open();
+				}

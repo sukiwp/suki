@@ -12,40 +12,42 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-					/**
-					 * Content - closing tag
-					 */
-					if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
-						suki_content_close();
-					}
+				/**
+				 * Content - closing tag
+				 */
+				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
+					suki_content_close();
+				}
 
-					/**
-					 * Hook: suki/frontend/before_footer
-					 */
-					do_action( 'suki/frontend/before_footer' );
+				/**
+				 * Hook: suki/frontend/before_footer
+				 */
+				do_action( 'suki/frontend/before_footer' );
 
-					/**
-					 * Footer
-					 */
-					suki_footer();
-					
-					/**
-					 * Hook: suki/frontend/after_footer
-					 */
-					do_action( 'suki/frontend/after_footer' );
-					?>
-					
-				</div>
+				/**
+				 * Footer
+				 */
+				suki_footer();
+				
+				/**
+				 * Hook: suki/frontend/after_footer
+				 */
+				do_action( 'suki/frontend/after_footer' );
+				?>
+				
 			</div>
-
-			<?php
-			/**
-			 * Hook: suki/frontend/after_canvas
-			 */
-			do_action( 'suki/frontend/after_canvas' );
-			?>
 		</div>
 
-		<?php wp_footer(); ?>
+		<?php
+		/**
+		 * Hook: suki/frontend/after_canvas
+		 */
+		do_action( 'suki/frontend/after_canvas' );
+		
+		/**
+		 * Hook: wp_footer
+		 */
+		wp_footer();
+		?>
 	</body>
 </html>
