@@ -104,6 +104,17 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper() {
 		/**
+		 * Hook: wp_body_open
+		 *
+		 * `wp_body_open` is a native theme hook available since WordPress 5.2
+		 */
+		if ( function_exists( 'wp_body_open' ) ) {
+			wp_body_open();
+		} else {
+			do_action( 'wp_body_open' );
+		}
+
+		/**
 		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
