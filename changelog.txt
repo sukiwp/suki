@@ -1,3 +1,11 @@
+v1.0.8
+- NEW: Add the new `wp_body_open()` theme hook (WordPress 5.2 compatibility).
+- TWEAK: Remove `#body` wrapper inside the `<body>` tag.
+- TWEAK: Improve minor WooCommerce CSS.
+- TWEAK: Improve some text strings in admin pages.
+- FIX: When White Label mode is active (via Suki Pro), it should show the White Label value instead of original theme name "Suki".
+- FIX: Header mobile main bar's "spacing between elements".
+
 v1.0.7
 - FIX: Border CSS bug (grid blog post).
 

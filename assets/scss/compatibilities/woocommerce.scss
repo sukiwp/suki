@@ -674,9 +674,10 @@ p.demo_store {
 			margin: -0.75rem 0 0;
 			border-bottom: none;
 
-			td {
+			th, td {
 				display: block;
 				padding: 0;
+				border: inherit;
 			}
 
 			label {
@@ -930,7 +931,7 @@ p.demo_store {
 
 						&.cart_item {
 							td {
-								@include flex();
+								@include flex( center, flex-start, wrap );
 							}
 						}
 
@@ -977,6 +978,7 @@ p.demo_store {
 						order: 5;
 						position: relative;
 						white-space: nowrap;
+						flex-grow: 1;
 
 						&:before {
 							display: inline-block;

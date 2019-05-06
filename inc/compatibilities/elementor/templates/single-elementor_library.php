@@ -20,19 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	</head>
 
 	<body <?php body_class(); ?>>
-		<div id="body" class="suki-body">
-			<div id="canvas" class="suki-canvas">
-				<div id="page" class="site">
-					<?php
-					while ( have_posts() ) :
-						the_post();
-						the_content();
-					endwhile;
-					?>
-				</div>
+		<div id="canvas" class="suki-canvas">
+			<div id="page" class="site">
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					the_content();
+				endwhile;
+				?>
 			</div>
 		</div>
-
 		<?php wp_footer(); ?>
 	</body>
 </html>
