@@ -1,3 +1,6 @@
+v1.0.9
+- FIX: Social media links can't open in new tab.
+
 v1.0.8
 - NEW: Add the new `wp_body_open()` theme hook (WordPress 5.2 compatibility).
 - TWEAK: Remove `#body` wrapper inside the `<body>` tag.
