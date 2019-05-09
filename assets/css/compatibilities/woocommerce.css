@@ -192,6 +192,14 @@
 	color: #333333;
 }
 
+@media screen and (max-width: 767px) {
+	.woocommerce .woocommerce-error .button,
+	.woocommerce .woocommerce-info .button,
+	.woocommerce .woocommerce-message .button {
+		float: none;
+	}
+}
+
 .woocommerce-store-notice,
 p.demo_store {
 	position: relative;
@@ -1396,31 +1404,19 @@ p.demo_store a {
 	width: 50%;
 }
 
-@media screen and (min-width: 768px) {
-	.woocommerce-account .suki-woocommerce-MyAccount {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-webkit-box-align: stretch;
-		-ms-flex-align: stretch;
-		align-items: stretch;
-	}
-}
-
 .woocommerce-account .suki-woocommerce-MyAccount-sidebar {
-	margin: 0 0 1.25rem;
+	width: 20%;
+	float: left;
+	min-width: 20%;
+	max-width: 200px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
 	.woocommerce-account .suki-woocommerce-MyAccount-sidebar {
-		width: 20%;
-		min-width: 20%;
-		max-width: 200px;
+		max-width: none;
+		width: auto;
+		float: none;
+		margin-bottom: 2.5em;
 	}
 }
 
@@ -1450,12 +1446,6 @@ p.demo_store a {
 	-ms-flex-align: center;
 	align-items: center;
 	margin-bottom: 1.25rem;
-}
-
-@media screen and (min-width: 768px) {
-	.woocommerce-account .suki-woocommerce-MyAccount-user {
-		padding-right: 15px;
-	}
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-user .avatar {
@@ -1507,12 +1497,13 @@ p.demo_store a {
 
 .woocommerce-account .woocommerce-MyAccount-content {
 	float: none;
-	width: 100%;
+	overflow: hidden;
+	padding-left: 60px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
 	.woocommerce-account .woocommerce-MyAccount-content {
-		padding-left: 60px;
+		padding-left: 0;
 	}
 }
 

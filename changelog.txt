@@ -1,3 +1,9 @@
+v1.0.9
+- TWEAK: Improve mobile header menu's dropdown sign style.
+- TWEAK: Improve WooCommerce template modifications.
+- TWEAK: Improve minor WooCommerce CSS.
+- FIX: Social media links can't open in new tab.
+
 v1.0.8
 - NEW: Add the new `wp_body_open()` theme hook (WordPress 5.2 compatibility).
 - TWEAK: Remove `#body` wrapper inside the `<body>` tag.

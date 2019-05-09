@@ -154,7 +154,7 @@ msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-functions.php:451
+#: inc/template-functions.php:449
 msgid "Expand / Collapse"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:394
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:369
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -564,15 +564,15 @@ msgstr ""
 msgid "Display post date?"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:136
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:133
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:138
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:135
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:824
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:794
 msgid "Logout"
 msgstr ""
 

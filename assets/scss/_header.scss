@@ -482,24 +482,19 @@
 	.suki-header-menu {
 		.menu-item {
 			position: relative;
-			display: block;
+			@include flex( flex-start, flext-start, wrap );
+		}
+		
+		.sub-menu {
+			width: 100%;
+		}
 
-			.suki-menu-item-link {
-				display: block;
-				padding: 0.5em 0;
-			}
-
-			&.menu-item-has-children .suki-menu-item-link {
-				margin-right: 2em;
-			}
+		.suki-menu-item-link {
+			padding: 0.5em 0;
 		}
 
 		.suki-sub-menu-toggle {
-			position: absolute;
-			top: 0;
-			right: 0;
 			width: 1.5em;
-			margin: 0 !important;
 			padding: 0.5em 0 !important;
 			cursor: pointer;
 			text-align: center;
@@ -509,27 +504,39 @@
 			.sub-menu {
 				padding-left: 1.5em;
 			}
+
+			.suki-sub-menu-toggle {
+				margin: 0 0 0 0.5em;
+			}
 		}
 
 		.suki-text-align-center & {
-			li.menu-item-has-children .suki-menu-item-link {
-				margin-right: 0;
+			.menu-item {
+				justify-content: center;
+			}
+
+			.suki-sub-menu-toggle {
+				margin: 0 -2em 0 0.5em;
 			}
 		}
 
 		.suki-text-align-right & {
-			li.menu-item-has-children .suki-menu-item-link {
-				margin-right: 0;
-				margin-left: 1.5em;
+			.menu-item {
+				justify-content: flex-end;
 			}
 
 			.sub-menu {
 				padding-right: 1.5em;
+				order: 3;
+			}
+
+			.suki-menu-item-link {
+				order: 2;
 			}
 
 			.suki-sub-menu-toggle {
-				right: auto;
-				left: 0;
+				margin: 0 0.5em 0 0;
+				order: 1;
 			}
 		}
 	}

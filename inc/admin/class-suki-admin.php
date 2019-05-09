@@ -181,7 +181,7 @@ class Suki_Admin {
 		<div class="notice notice-info suki-rating-notice">
 			<p><?php esc_html_e( 'Hey, it\'s me David from Suki WordPress theme. I noticed you\'ve been using Suki to build your website - that\'s awesome!', 'suki' ); ?><br><?php esc_html_e( 'Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future.', 'suki' ); ?></p>
 			<p>
-				<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-primary" target="_blank"><?php esc_html_e( 'Okay, you deserve it', 'suki' ); ?></a>&nbsp;&nbsp;&nbsp;
+				<a href="https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post" class="button button-primary" target="_blank" rel="noopener"><?php esc_html_e( 'Okay, you deserve it', 'suki' ); ?></a>&nbsp;&nbsp;&nbsp;
 				<a href="#" class="suki-rating-notice-close button-link" data-suki-rating-notice-repeat="<?php echo esc_attr( $time_interval ); ?>"><?php esc_html_e( 'Nope, maybe later', 'suki' ); ?></a>&nbsp;&nbsp;&nbsp;
 				<a href="#" class="suki-rating-notice-close button-link" data-suki-rating-notice-repeat="-1"><?php esc_html_e( 'I already did', 'suki' ); ?></a>
 			</p>
@@ -658,7 +658,7 @@ class Suki_Admin {
 			<div class="inside">
 				<ul>
 					<?php foreach ( $menus as $menu ) : ?>
-						<li><a href="<?php echo esc_url( $menu['url'] ); ?>" target="<?php echo esc_attr( $menu['newtab'] ? '_blank' : '_self' ); ?>"><?php echo esc_html( $menu['label'] ); ?></a></li>
+						<li><a href="<?php echo esc_url( $menu['url'] ); ?>" <?php echo $menu['newtab'] ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK. ?>><?php echo esc_html( $menu['label'] ); ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
