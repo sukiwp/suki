@@ -1,4 +1,7 @@
 v1.0.9
+- TWEAK: Improve mobile header menu's dropdown sign style.
+- TWEAK: Improve WooCommerce template modifications.
+- TWEAK: Improve minor WooCommerce CSS.
 - FIX: Social media links can't open in new tab.
 
 v1.0.8
