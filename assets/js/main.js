@@ -34,12 +34,19 @@
 		 * Helper function to get element's offset.
 		 */
 		getOffset: function( $el ) {
-			var rect = $el.getBoundingClientRect();
+			if ( $el instanceof HTMLElement ) {
+				var rect = $el.getBoundingClientRect();
+
+				return {
+					top: rect.top + window.pageYOffset,
+					left: rect.left + window.pageXOffset,
+				}
+			}
 
 			return {
-				top: rect.top + window.pageYOffset,
-				left: rect.left + window.pageXOffset,
-			}
+				top: null,
+				left: null,
+			};
 		},
 
 		/**
