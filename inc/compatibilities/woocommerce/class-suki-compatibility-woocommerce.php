@@ -100,7 +100,7 @@ class Suki_Compatibility_WooCommerce {
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php' );
 	}
-	
+
 	/**
 	 * Add default values for all Customizer settings.
 	 *

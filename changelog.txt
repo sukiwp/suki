@@ -1,3 +1,6 @@
+v1.0.10
+- NEW: Brizy Integration option: use theme's content width as Brizy content width (resolve #48).
+
 v1.0.9
 - TWEAK: Improve mobile header menu's dropdown sign style.
 - TWEAK: Improve WooCommerce template modifications.

@@ -1915,6 +1915,18 @@ msgstr ""
 msgid "Learn More"
 msgstr ""
 
+#: inc/compatibilities/brizy/customizer/options/brizy.php:27
+msgid "Use theme's content width as Brizy content width"
+msgstr ""
+
+#: inc/compatibilities/brizy/customizer/options/brizy.php:28
+msgid "Brizy doesn't have the option to change the maximum content width (fixed at 1170px). Enabling this option will make Brizy use theme's content wrapper width as Brizy content width, so you'll have consistent content width between header, footer, and your Brizy content."
+msgstr ""
+
+#: inc/compatibilities/brizy/customizer/options/_sections.php:13
+msgid "Brizy Integration"
+msgstr ""
+
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:23
 msgid "Cross-Sells"
 msgstr ""
