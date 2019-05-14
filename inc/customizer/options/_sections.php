@@ -438,7 +438,7 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 $panel = 'suki_panel_page_settings';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Page Settings', 'suki' ),
-	'description' => '<p>' . esc_html__( 'Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type.', 'suki' ) . '</p><p><a href="http://docs.sukiwp.com/article/customization/page-settings/" class="button button-secondary" target="_blank" rel="noopener">' . esc_html__( 'Learn More', 'suki' ) . '</a></p>',
+	'description' => '<p>' . esc_html__( 'Page Settings allows you to override global configuration of page elements (Header, Title Bar, Content, and Footer) on each different page type.', 'suki' ) . '</p><p><a href="http://docs.sukiwp.com/article/page-settings/" class="button button-secondary" target="_blank" rel="noopener">' . esc_html__( 'Learn More', 'suki' ) . '</a></p>',
 	'priority'    => 191,
 ) );
 
