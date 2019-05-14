@@ -484,8 +484,8 @@ class Suki {
 	public function get_compatible_plugins() {
 		return array(
 			'contact-form-7' => 'WPCF7',
-			'elementor' => 'Elementor\Plugin',
-			'elementor-pro' => 'ElementorPro\Plugin',
+			'elementor' => '\Elementor\Plugin',
+			'elementor-pro' => '\ElementorPro\Plugin',
 			'brizy' => 'Brizy_Editor',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',

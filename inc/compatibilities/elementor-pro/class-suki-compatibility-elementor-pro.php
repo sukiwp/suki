@@ -67,7 +67,7 @@ class Suki_Compatibility_Elementor_Pro {
 	/**
 	 * Register all template locations for Elementor Pro's Theme Builder.
 	 *
-	 * @param ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $elementor_theme_manager
+	 * @param \ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $elementor_theme_manager
 	 */
 	public function register_elementor_locations( $elementor_theme_manager ) {
 		global $wp_filter;
