@@ -730,20 +730,20 @@ function suki_page_title() {
 			$title = get_the_title( get_option( 'page_for_posts' ) );
 		}
 
-		elseif ( is_post_type_archive() ) {
-			$title = post_type_archive_title( '', false );
+		elseif ( is_search() ) {
+			$title = suki_title__search( false );
 		}
 
 		elseif ( is_singular() ) {
 			$title = get_the_title();
 		}
 
-		elseif ( is_archive() ) {
-			$title = get_the_archive_title();
+		elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
 		}
 
-		elseif ( is_search() ) {
-			$title = suki_title__search( false );
+		elseif ( is_archive() ) {
+			$title = get_the_archive_title();
 		}
 
 		elseif ( is_404() ) {

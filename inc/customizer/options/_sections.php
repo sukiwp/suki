@@ -452,9 +452,11 @@ $wp_customize->add_panel( $panel, array(
 			) ) );
 		}
 
+		$desc = suki_array_value( $ps_data, 'description' );
+
 		$wp_customize->add_section( 'suki_section_page_settings_' . $ps_type, array(
 			'title'       => suki_array_value( $ps_data, 'title' ),
-			'description' => '<p>' . suki_array_value( $ps_data, 'description' ) . '</p>',
+			'description' => ! empty( $desc ) ? '<p>' . $desc . '</p>' : '',
 			'panel'       => $panel,
 			'priority'    => $i,
 		) );
