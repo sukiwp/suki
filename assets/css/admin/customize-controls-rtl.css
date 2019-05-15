@@ -82,6 +82,7 @@ li:not(.customize-info) div.customize-section-description {
 	appearance: none;
 	padding: 0;
 	text-align: center;
+	-moz-text-align-last: center;
 	text-align-last: center;
 }
 

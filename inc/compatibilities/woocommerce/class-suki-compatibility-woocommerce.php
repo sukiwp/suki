@@ -100,7 +100,7 @@ class Suki_Compatibility_WooCommerce {
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php' );
 	}
-	
+
 	/**
 	 * Add default values for all Customizer settings.
 	 *
@@ -184,6 +184,9 @@ class Suki_Compatibility_WooCommerce {
 
 		// Add text alignment class on products loop.
 		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
+
+		// Modify "added to cart" message.
+		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_html' ), 10, 3 );
 
 		// Keep / remove "add to cart" button on products grid.
 		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
@@ -499,6 +502,20 @@ class Suki_Compatibility_WooCommerce {
 
 		return $classes;
 	}
+
+	/**
+	 * Modify "added to cart" message.
+	 *
+	 * @param string $message
+	 * @param array $products
+	 * @param boolean $show_qty
+	 * @return string
+	 */
+	public function change_add_to_cart_message_html( $message, $products, $show_qty ) {
+		$message = preg_replace( '/(<a .*?>.*?<\/a>) (.*)/', '$2 $1', $message );
+
+		return $message;
+	}
 	
 	/**
 	 * ====================================================
@@ -646,11 +663,13 @@ class Suki_Compatibility_WooCommerce {
 	 * Keep / remove related products.
 	 * 
 	 * @param array $args Array of arguments
+	 * @return array
 	 */
 	public function set_related_products_args( $args ) {
 		if ( 0 == intval( suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' ) ) ) {
 			return array();
 		}
+
 		return $args;
 	}
 	
@@ -658,6 +677,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Set related products columns.
 	 * 
 	 * @param integer $columns Number of columns
+	 * @return integer
 	 */
 	public function set_related_products_columns( $columns ) {
 		return intval( suki_get_theme_mod( 'woocommerce_single_related_grid_columns' ) );
@@ -667,6 +687,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Set related products arguments.
 	 * 
 	 * @param array $args Array of arguments
+	 * @return array
 	 */
 	public function set_related_products_display_args( $args ) {
 		$args['posts_per_page'] = intval( suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' ) );
@@ -679,6 +700,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Set up-sells columns.
 	 * 
 	 * @param integer $columns Number of columns
+	 * @return integer
 	 */
 	public function set_up_sells_columns( $columns ) {
 		return intval( suki_get_theme_mod( 'woocommerce_single_up_sells_grid_columns' ) );
@@ -688,6 +710,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Set up-sells products arguments.
 	 * 
 	 * @param array $args Array of arguments
+	 * @return array
 	 */
 	public function set_up_sells_display_args( $args ) {
 		$args['columns'] = intval( suki_get_theme_mod( 'woocommerce_single_up_sells_grid_columns' ) );
@@ -705,6 +728,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Set cross-sells columns.
 	 * 
 	 * @param integer $columns Number of columns
+	 * @return integer
 	 */
 	public function set_cart_page_cross_sells_columns( $columns ) {
 		return intval( suki_get_theme_mod( 'woocommerce_cart_cross_sells_grid_columns' ) );

@@ -1,3 +1,8 @@
+v1.0.10
+- NEW: Brizy Integration option: use theme's content width as Brizy content width (resolve #48).
+- TWEAK: Improve HTML markup of WooCommerce's "added to cart" message.
+- FIX: Page header title text on products search results page should show "Search results for ...".
+
 v1.0.9
 - TWEAK: Improve mobile header menu's dropdown sign style.
 - TWEAK: Improve WooCommerce template modifications.
