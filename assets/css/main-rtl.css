@@ -414,12 +414,22 @@ svg {
 	vertical-align: middle;
 }
 
+::-moz-selection {
+	background-color: #1976d2;
+	color: #ffffff;
+}
+
 ::selection {
 	background-color: #1976d2;
 	color: #ffffff;
 }
 
 *::-webkit-input-placeholder {
+	opacity: 0.75;
+	color: inherit;
+}
+
+*::-moz-placeholder {
 	opacity: 0.75;
 	color: inherit;
 }
