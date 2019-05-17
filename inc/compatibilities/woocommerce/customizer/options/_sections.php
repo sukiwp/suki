@@ -71,3 +71,24 @@ $wp_customize->add_section( 'suki_section_woocommerce_elements', array(
 	'panel'       => $panel,
 	'priority'    => 72,
 ) );
+
+if ( suki_show_pro_teaser() ) {
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_woocommerce_advanced', array(
+		'panel'       => $panel,
+		'priority'    => 90,
+	) ) );
+
+	// More Options Available on Suki Pro
+	$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_pro_woocommerce_advanced', array(
+		'title'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'panel'       => $panel,
+		'url'         => SUKI_PRO_URL,
+		'features'    => array(
+			esc_html_x( 'Product alternate hover image', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Product quick view', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Off-canvas filters', 'Suki Pro upsell', 'suki' ),
+		),
+		'priority'    => 90,
+	) ) );
+}

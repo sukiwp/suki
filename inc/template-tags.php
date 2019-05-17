@@ -49,9 +49,13 @@ function suki_inline_svg( $svg_file, $echo = true ) {
 	if ( empty( $svg_file ) ) return;
 
 	// Get SVG markup.
-	ob_start();
-	include( $svg_file );
-	$html = ob_get_clean();
+	global $wp_filesystem;
+	if ( empty( $wp_filesystem ) ) {
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		WP_Filesystem();
+	}
+
+	$html = $wp_filesystem->get_contents( $svg_file );
 
 	// Remove XML encoding tag.
 	// This should not be printed on inline SVG.
@@ -201,7 +205,7 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	foreach ( $links as $link ) :
 		echo $args['before_link']; // WPCS: XSS OK
 
-		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener me nofollow"' : ' rel="me nofollow"'; ?>>
+		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK. ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
@@ -737,20 +741,20 @@ function suki_page_title() {
 			$title = get_the_title( get_option( 'page_for_posts' ) );
 		}
 
-		elseif ( is_post_type_archive() ) {
-			$title = post_type_archive_title( '', false );
+		elseif ( is_search() ) {
+			$title = suki_title__search( false );
 		}
 
 		elseif ( is_singular() ) {
 			$title = get_the_title();
 		}
 
-		elseif ( is_archive() ) {
-			$title = get_the_archive_title();
+		elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
 		}
 
-		elseif ( is_search() ) {
-			$title = suki_title__search( false );
+		elseif ( is_archive() ) {
+			$title = get_the_archive_title();
 		}
 
 		elseif ( is_404() ) {

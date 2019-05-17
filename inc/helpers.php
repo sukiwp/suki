@@ -119,13 +119,9 @@ function suki_get_current_page_setting( $key ) {
 		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
 	}
 
-	// Other post types index page
-	elseif ( is_post_type_archive() ) {
-		$obj = get_queried_object();
-
-		if ( $obj ) {
-			$settings = suki_get_theme_mod( 'page_settings_' . $obj->name . '_archive', array() );
-		}
+	// Search page
+	elseif ( is_search() ) {
+		$settings = suki_get_theme_mod( 'page_settings_search', array() );
 	}
 		
 	// Static page
@@ -143,6 +139,15 @@ function suki_get_current_page_setting( $key ) {
 
 		if ( $obj ) {
 			$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $obj->post_type . '_singular', array() ) );
+		}
+	}
+
+	// Other post types index page
+	elseif ( is_post_type_archive() ) {
+		$obj = get_queried_object();
+
+		if ( $obj ) {
+			$settings = suki_get_theme_mod( 'page_settings_' . $obj->name . '_archive', array() );
 		}
 	}
 		
@@ -176,11 +181,6 @@ function suki_get_current_page_setting( $key ) {
 			
 			$settings = wp_parse_args( $term_meta_settings, $post_type_archive_settings );
 		}
-	}
-
-	// Search page
-	elseif ( is_search() ) {
-		$settings = suki_get_theme_mod( 'page_settings_search', array() );
 	}
 
 	// 404 page
@@ -542,9 +542,15 @@ function suki_get_all_fonts() {
  * @return array
  */
 function suki_get_google_fonts() {
-	ob_start();
-	include( SUKI_INCLUDES_DIR . '/lists/google-fonts.json' );
-	return json_decode( ob_get_clean(), true );
+	global $wp_filesystem;
+	if ( empty( $wp_filesystem ) ) {
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		WP_Filesystem();
+	}
+
+	$json = $wp_filesystem->get_contents( SUKI_INCLUDES_DIR . '/lists/google-fonts.json' );
+	
+	return json_decode( $json, true );
 }
 
 /**

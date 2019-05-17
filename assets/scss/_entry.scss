@@ -56,7 +56,7 @@
 	}
 
 	.entry-layout-grid & {
-		border-width: 1px; // default
+		@include border( null, 1px ); // default
 		padding: 1.25em 1.5em; // default
 		background-color: $color_bg; // default
 	}

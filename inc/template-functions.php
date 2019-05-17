@@ -442,17 +442,17 @@ add_filter( 'excerpt_more', 'suki_excerpt_more' );
  * @return string
  */
 function suki_walker_nav_menu_start_el( $item_output, $item, $depth, $args ) {
-	$sign = '';
-
 	// Only add to menu item that has sub menu.
 	if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
 		// Only add to toggle menu.
 		if ( is_integer( strpos( $args->menu_class, 'suki-toggle-menu' ) ) ) {
 			$sign = '<button class="suki-sub-menu-toggle suki-toggle">' . suki_icon( 'submenu-down', array( 'class' => 'suki-dropdown-sign' ), false ) . '<span class="screen-reader-text">' . esc_html__( 'Expand / Collapse', 'suki' ) . '</span></button>';
+			
+			$item_output .= trim( $sign );
 		}
 	}
 
-	return $item_output . trim( $sign );
+	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'suki_walker_nav_menu_start_el', 99, 4 );
 
