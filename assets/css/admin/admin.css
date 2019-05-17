@@ -21,15 +21,12 @@ input, select, textarea {
 
 .suki-admin-form-row {
 	position: relative;
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-	-webkit-box-align: start;
 	-ms-flex-align: start;
 	align-items: flex-start;
 	margin: 0 -10px;
@@ -134,7 +131,6 @@ input, select, textarea {
 	height: 24px;
 	border: none;
 	border-radius: 0 !important;
-	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
@@ -223,7 +219,6 @@ input, select, textarea {
 	height: auto !important;
 	line-height: 23px !important;
 	text-align: center;
-	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
@@ -263,15 +258,12 @@ input, select, textarea {
 }
 
 .suki-admin-metabox {
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-	-webkit-box-align: stretch;
 	-ms-flex-align: stretch;
 	align-items: stretch;
 }
@@ -304,7 +296,6 @@ input, select, textarea {
 	margin: 0;
 	padding: 10px;
 	display: block;
-	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-bottom: 1px solid #eee;
 }
@@ -476,7 +467,6 @@ input, select, textarea {
 	padding: 15px 0;
 	background-color: #fff;
 	border-bottom: 1px solid #e5e5e5;
-	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
 
@@ -519,15 +509,12 @@ input, select, textarea {
 }
 
 .suki-admin-wrap .suki-admin-content-row {
-	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-	-webkit-box-align: stretch;
 	-ms-flex-align: stretch;
 	align-items: stretch;
 }
@@ -660,7 +647,6 @@ input, select, textarea {
 	color: #555;
 	padding: 10px 15px;
 	border-top: 1px solid #e5e5e5 !important;
-	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 }
 
