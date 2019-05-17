@@ -24,6 +24,7 @@ html {
 }
 
 body {
+	margin: 0;
 	background-color: #ffffff;
 	color: #666666;
 	min-height: 100vh;
