@@ -49,10 +49,6 @@ Basic UI icons (svg icons) are customly designed for Suki WordPress Theme by Dav
 
 Suki bundles the following third-party resources:
 
-normalize.css, by Nicolas Gallagher and Jonathan Neal
-License: MIT
-Source: https://necolas.github.io/normalize.css
-
 Alpha Color Picker for WordPress, by Braad Martin
 License: GPL
 Source: https://github.com/BraadMartin/components/tree/master/alpha-color-picker

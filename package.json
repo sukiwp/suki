@@ -54,8 +54,7 @@
 		"gulp-uglifycss": "^1.1.0",
 		"gulp-watch": "^5.0.1",
 		"gulp-wp-pot": "^2.3.5",
-		"gulp-zip": "^4.2.0",
-		"normalize.css": "^8.0.1"
+		"gulp-zip": "^4.2.0"
 	},
 	"browserslist": [
 		"last 2 versions",
