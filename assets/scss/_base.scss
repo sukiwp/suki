@@ -113,6 +113,7 @@ table {
 	width: 100%;
 	margin: 0 0 1.25rem;
 	border-collapse: collapse;
+	border-spacing: 0;
 
 	@include border();
 
@@ -127,14 +128,20 @@ table {
 	}
 }
 
+img,
 embed,
 iframe,
-object {
+object,
+video {
 	max-width: 100%;
+	height: auto;
 }
 
-audio,
-video {
+img {
+	vertical-align: middle;
+}
+
+audio {
 	max-width: 100%;
 }
 
@@ -197,12 +204,6 @@ sub {
 
 sup {
 	top: -0.5em;
-}
-
-img {
-	height: auto;
-	max-width: 100%;
-	vertical-align: middle;
 }
 
 svg {
