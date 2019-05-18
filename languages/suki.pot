@@ -191,36 +191,36 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1350
+#: inc/template-tags.php:1351
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1351
+#: inc/template-tags.php:1352
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1395
+#: inc/template-tags.php:1396
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1396
+#: inc/template-tags.php:1397
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1413
+#: inc/template-tags.php:1414
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1419
+#: inc/template-tags.php:1420
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1446
+#: inc/template-tags.php:1447
 msgid "Comments are closed."
 msgstr ""
 
@@ -1146,7 +1146,7 @@ msgid "Copyright Text"
 msgstr ""
 
 #: inc/customizer/options/footer--copyright.php:38
-msgid "Available tags: {{year}}, {{sitename}}, {{themeauthor}}"
+msgid "Available tags: {{year}}, {{sitename}}, {{theme}}, {{themeauthor}}"
 msgstr ""
 
 #: inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23

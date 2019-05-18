@@ -723,7 +723,7 @@ $add['footer_bottom_bar_link_hover_text_color'] = '';
  * ====================================================
  */
 
-$add['footer_copyright_content'] = 'Copyright &copy; {{year}}, {{sitename}} &mdash; designed by {{themeauthor}}';
+$add['footer_copyright_content'] = 'Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}';
 
 /**
  * ====================================================
