@@ -1920,7 +1920,15 @@ msgid "Use theme's content width as Brizy content width"
 msgstr ""
 
 #: inc/compatibilities/brizy/customizer/options/brizy.php:28
-msgid "Brizy doesn't have the option to change the maximum content width (fixed at 1170px). Enabling this option will make Brizy use theme's content wrapper width as Brizy content width, so you'll have consistent content width between header, footer, and your Brizy content."
+msgid "By default, Brizy doesn't have the option to change the maximum content width (fixed at 1170px). Enabling this option will make Brizy use theme's content wrapper width as Brizy content width, so you'll have consistent content width between header, footer, and your Brizy content."
+msgstr ""
+
+#: inc/compatibilities/brizy/customizer/options/brizy.php:40
+msgid "Disable Brizy's reset CSS"
+msgstr ""
+
+#: inc/compatibilities/brizy/customizer/options/brizy.php:41
+msgid "By default, Brizy applies reset CSS to the content and causes any non-native Brizy element (e.g. shortcode) to be unstyled. Disabling Brizy reset CSS makes those elements' inherit theme CSS."
 msgstr ""
 
 #: inc/compatibilities/brizy/customizer/options/_sections.php:13

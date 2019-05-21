@@ -8,6 +8,16 @@ input, select, textarea {
 	vertical-align: middle;
 }
 
+.suki-beta-badge {
+	display: inline-block;
+	white-space: nowrap;
+	padding: 0.4em;
+	background-color: rgba(0, 0, 0, 0.1);
+	font-size: 0.85em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
 #menu-appearance a[href="themes.php?page=suki"] {
 	color: #00b9eb;
 }
