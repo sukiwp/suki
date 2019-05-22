@@ -130,9 +130,6 @@ table {
 }
 
 img,
-embed,
-iframe,
-object,
 video {
 	max-width: 100%;
 	height: auto;
@@ -142,8 +139,8 @@ img {
 	vertical-align: middle;
 }
 
-audio {
-	max-width: 100%;
+iframe {
+	border: none;
 }
 
 pre {

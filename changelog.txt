@@ -1,5 +1,6 @@
 v1.0.12
 - TWEAK: Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
+- FIX: Base CSS for iframe.
 
 v1.0.11
 - NEW: Elementor compatibility CSS.
