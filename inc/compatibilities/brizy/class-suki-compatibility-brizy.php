@@ -39,21 +39,11 @@ class Suki_Compatibility_Brizy {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		if ( suki_get_theme_mod( 'brizy_use_container_width' ) ) {
-			// Add editor CSS to replace default (fixed) 1170px content width with theme content container (wrapper) width.
-			add_action( 'brizy_editor_enqueue_scripts', array( $this, 'use_theme_container_width_on_editor' ) );
+		// Modify generated Brizy head content: Replace default (fixed) 1170px content width with theme content container (wrapper) width.
+		add_filter( 'brizy_content', array( $this, 'modify_brizy_content' ), 10, 3 );
 
-			// Modify generated Brizy head content: Replace default (fixed) 1170px content width with theme content container (wrapper) width.
-			add_filter( 'brizy_content', array( $this, 'use_theme_container_width_on_frontend' ), 10, 3 );
-		}
-
-		if ( suki_get_theme_mod( 'brizy_disable_reset_css' ) ) {
-			// Add editor CSS to unset all Brizy reset CSS.
-			add_action( 'brizy_editor_enqueue_scripts', array( $this, 'disable_reset_css_on_editor' ) );
-			
-			// Add frontend CSS to unset all Brizy reset CSS.
-			add_action( 'brizy_preview_enqueue_scripts', array( $this, 'disable_reset_css_on_frontend' ) );
-		}
+		// Add compatibility CSS.
+		add_action( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
 
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
@@ -65,41 +55,51 @@ class Suki_Compatibility_Brizy {
 	 * ====================================================
 	 */
 
-	/**
-	 * Replace default (fixed) 1170px content width with theme content container (wrapper) width on editor.
-	 */
-	public function use_theme_container_width_on_editor() {
-		wp_add_inline_style( 'brizy-editor', suki_minify_css_string( '.brz-ed .brz-section__content[style*="--containerWidth:1170px"] { --containerWidth: ' . suki_get_theme_mod( 'container_width' ) . ' !important; }' ) );
-	}
 
 	/**
-	 * Modify generated Brizy head content: Replace default (fixed) 1170px content width with theme content container (wrapper) width.
+	 * Modify generated Brizy content:
+	 * - Replace default (fixed) 1170px content width with theme content container (wrapper) width.
 	 *
 	 * @param string $content
 	 * @param Brizy_Editor_Project $project
 	 * @param WP_Post $post
 	 * @return string
 	 */
-	public function use_theme_container_width_on_frontend( $content, $project, $post ) {
-		if ( '<meta ' === substr( $content, 0, 6 ) ) {
+	public function modify_brizy_content( $content, $project, $post ) {
+		// Use theme's container width.
+		if ( '<meta ' === substr( $content, 0, 6 ) && suki_get_theme_mod( 'brizy_use_container_width' ) ) {
 			$content = preg_replace( '/(\.css-(.*?),\[data-css-\2\])\{max-width:1170px;/', '$1{max-width:' . suki_get_theme_mod( 'container_width' ) . ';', $content );
 		}
 
 		return $content;
 	}
 
-	/**
-	 * Unset all Brizy reset CSS on editor.
-	 */
-	public function disable_reset_css_on_editor() {
-		wp_add_inline_style( 'brizy-editor', suki_minify_css_string( '.brz .brz-root__container.brz-reset-all { all: unset; }' ) );
-	}
+	/**	
+	 * Add compatibility CSS
+	 * - Replace default (fixed) 1170px content width with theme content container (wrapper) width.
+	 * - Disable Brizy's reset CSS.
+	 *
+	 * @param string $inline_css	
+	 * @return string
+	 */	
+	public function add_compatibility_css( $inline_css ) {
+		$add_css = '';
 
-	/**
-	 * Unset all Brizy reset CSS on frontend.
-	 */
-	public function disable_reset_css_on_frontend() {
-		wp_add_inline_style( 'brizy-preview', suki_minify_css_string( '.brz .brz-root__container.brz-reset-all { all: unset; }' ) );
+		// Use theme's container width on editor.
+		if ( suki_get_theme_mod( 'brizy_use_container_width' ) && wp_style_is( 'brizy-editor', 'enqueued' ) ) {
+			$add_css .= '.brz-ed .brz-section__content[style*="--containerWidth:1170px"] { --containerWidth: ' . suki_get_theme_mod( 'container_width' ) . ' !important; }';
+		}
+
+		// Disable reset CSS.
+		if ( suki_get_theme_mod( 'brizy_disable_reset_css' ) ) {
+			$add_css .= '.brz .brz-root__container.brz-reset-all { all: unset; }';
+		}
+
+		if ( ! empty( $add_css ) ) {
+			$inline_css .= "\n/* Brizy Compatibility CSS */\n" . suki_minify_css_string( $add_css );
+		}
+
+ 		return $inline_css;
 	}
 
 	/**

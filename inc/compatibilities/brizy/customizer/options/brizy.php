@@ -37,7 +37,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Disable Brizy\'s reset CSS', 'suki' ) . ' <span class="suki-beta-badge">Beta</span>',
+	'label'       => esc_html__( 'Disable Brizy\'s reset CSS', 'suki' ),
 	'description' => esc_html__( 'By default, Brizy applies reset CSS to the content and causes any non-native Brizy element (e.g. shortcode) to be unstyled. Disabling Brizy reset CSS makes those elements\' inherit theme CSS.', 'suki' ),
 	'priority'    => 10,
 ) ) );
