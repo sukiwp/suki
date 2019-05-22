@@ -1,8 +1,9 @@
 v1.0.11
+- NEW: Elementor compatibility CSS.
 - NEW: Brizy Integration option: disable Brizy's reset CSS.
 - NEW: Footer copyright text now supports new syntax {{theme}}.
-- TWEAK: Automatically set embed's image width to 100%.
-- TWEAK: Remove normalize.css as CSS reset.
+- TWEAK: Improve theme's CSS to be slightly slimmer.
+- TWEAK: Improve image width on any Gutenberg embed block with image type.
 
 v1.0.10
 - NEW: Brizy Integration option: use theme's content width as Brizy content width.
