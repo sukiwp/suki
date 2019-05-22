@@ -269,12 +269,14 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Split into 2 columns.
-		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper' ), 1 );
-		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper_column_1' ), 1 );
-		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_1_end' ), 999 );
-		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_2' ), 999 );
-		add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_wrapper_column_2_end' ), 999 );
-		add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_wrapper_end' ), 999 );
+		if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
+			add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_two_columns_wrapper' ), 1 );
+			add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_two_columns__column_1_wrapper' ), 1 );
+			add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_two_columns__column_1_wrapper_end' ), 999 );
+			add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_two_columns__column_2_wrapper' ), 999 );
+			add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_two_columns__column_2_wrapper_end' ), 999 );
+			add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_two_columns_wrapper_end' ), 999 );
+		}
 
 		/**
 		 * My Account page's template hooks
@@ -743,16 +745,16 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add opening wrapper tag to wrap checkout form.
 	 */
-	public function render_checkout_wrapper() {
+	public function render_checkout_two_columns_wrapper() {
 		?>
-		<div class="suki-woocommerce-checkout-wrapper <?php echo esc_attr( 'suki-woocommerce-checkout-' . ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ? '2-columns' : '1-column' ) ); ?>">
+		<div class="suki-woocommerce-checkout-2-columns">
 		<?php
 	}
 
 	/**
 	 * Add opening wrapper tag to wrap checkout form column 1.
 	 */
-	public function render_checkout_wrapper_column_1() {
+	public function render_checkout_two_columns__column_1_wrapper() {
 		?>
 		<div class="suki-woocommerce-checkout-col-1">
 		<?php
@@ -761,7 +763,7 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add closing wrapper tag to wrap checkout form column 1.
 	 */
-	public function render_checkout_wrapper_column_1_end() {
+	public function render_checkout_two_columns__column_1_wrapper_end() {
 		?>
 		</div>
 		<?php
@@ -770,7 +772,7 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add opening wrapper tag to wrap checkout form column 2.
 	 */
-	public function render_checkout_wrapper_column_2() {
+	public function render_checkout_two_columns__column_2_wrapper() {
 		?>
 		<div class="suki-woocommerce-checkout-col-2">
 		<?php
@@ -779,7 +781,7 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add closing wrapper tag to wrap checkout form column 2.
 	 */
-	public function render_checkout_wrapper_column_2_end() {
+	public function render_checkout_two_columns__column_2_wrapper_end() {
 		$checkout = WC()->checkout;
 
 		if ( $checkout->get_checkout_fields() ) : ?>
@@ -790,7 +792,7 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add closing wrapper tag to wrap checkout form.
 	 */
-	public function render_checkout_wrapper_end() {
+	public function render_checkout_two_columns_wrapper_end() {
 		$checkout = WC()->checkout;
 
 		if ( $checkout->get_checkout_fields() ) : ?>
