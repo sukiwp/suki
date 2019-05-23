@@ -1256,7 +1256,6 @@ p.demo_store a {
 .woocommerce .woocommerce-checkout #customer_details > * {
 	float: none;
 	width: auto;
-	margin: 0 0 3rem;
 }
 
 .woocommerce .woocommerce-checkout h3 {
@@ -1268,27 +1267,14 @@ p.demo_store a {
 	text-transform: none;
 }
 
-@media screen and (min-width: 1024px) {
-	.suki-woocommerce-checkout-2-columns {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-webkit-box-align: start;
-		-ms-flex-align: start;
-		align-items: flex-start;
+@media screen and (min-width: 768px) {
+	.suki-woocommerce-checkout-2-columns .woocommerce-checkout > * {
+		float: left;
+		width: 40%;
 	}
-	.suki-woocommerce-checkout-2-columns .suki-woocommerce-checkout-col-1 {
-		width: 100%;
-	}
-	.suki-woocommerce-checkout-2-columns .suki-woocommerce-checkout-col-2 {
-		width: 37.5%;
-		min-width: 37.5%;
-		margin-right: 60px;
+	.suki-woocommerce-checkout-2-columns .woocommerce-checkout .col2-set {
+		float: right;
+		width: 55%;
 	}
 }
 

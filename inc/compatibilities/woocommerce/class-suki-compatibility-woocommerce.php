@@ -265,20 +265,6 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
 
 		/**
-		 * Checkout page's template hooks
-		 */
-
-		// Split into 2 columns.
-		if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
-			add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_two_columns_wrapper' ), 1 );
-			add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_two_columns__column_1_wrapper' ), 1 );
-			add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_two_columns__column_1_wrapper_end' ), 999 );
-			add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_two_columns__column_2_wrapper' ), 999 );
-			add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_two_columns__column_2_wrapper_end' ), 999 );
-			add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_two_columns_wrapper_end' ), 999 );
-		}
-
-		/**
 		 * My Account page's template hooks
 		 */
 
@@ -360,6 +346,17 @@ class Suki_Compatibility_WooCommerce {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
 		}
+
+		/**
+		 * Checkout page's template hooks
+		 */
+
+		if ( is_checkout() ) {
+			// Split into 2 columns.
+			if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
+				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
+			}
+		}
 	}
 
 	/**
@@ -394,7 +391,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function add_count_to_cart_menu_item( $title, $item, $args, $depth ) {
 		// Add items count to "Cart" menu.
-		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) && class_exists( 'WooCommerce' ) ) {
+		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) ) {
 			if ( strpos( $title, '{{count}}' ) ) {
 				$cart = WC()->cart;
 				if ( ! empty( $cart ) ) {
@@ -743,61 +740,12 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add opening wrapper tag to wrap checkout form.
+	 * Add two columns layout class for checkout page.
 	 */
-	public function render_checkout_two_columns_wrapper() {
-		?>
-		<div class="suki-woocommerce-checkout-2-columns">
-		<?php
-	}
+	public function add_checkout_two_columns_class( $classes ) {
+		$classes[] = 'suki-woocommerce-checkout-2-columns';
 
-	/**
-	 * Add opening wrapper tag to wrap checkout form column 1.
-	 */
-	public function render_checkout_two_columns__column_1_wrapper() {
-		?>
-		<div class="suki-woocommerce-checkout-col-1">
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap checkout form column 1.
-	 */
-	public function render_checkout_two_columns__column_1_wrapper_end() {
-		?>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Add opening wrapper tag to wrap checkout form column 2.
-	 */
-	public function render_checkout_two_columns__column_2_wrapper() {
-		?>
-		<div class="suki-woocommerce-checkout-col-2">
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap checkout form column 2.
-	 */
-	public function render_checkout_two_columns__column_2_wrapper_end() {
-		$checkout = WC()->checkout;
-
-		if ( $checkout->get_checkout_fields() ) : ?>
-			</div>
-		<?php endif;
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap checkout form.
-	 */
-	public function render_checkout_two_columns_wrapper_end() {
-		$checkout = WC()->checkout;
-
-		if ( $checkout->get_checkout_fields() ) : ?>
-			</div>
-		<?php endif;
+		return $classes;
 	}
 
 	/**

@@ -1089,7 +1089,6 @@ p.demo_store {
 		> * {
 			float: none;
 			width: auto;
-			margin: 0 0 3rem;
 		}
 	}
 
@@ -1099,17 +1098,17 @@ p.demo_store {
 }
 
 .suki-woocommerce-checkout-2-columns {
-	@media screen and ( min-width: $breakpoint_1024 ) {
-		@include flex( flex-start );
+	@media screen and ( min-width: $breakpoint_768 ) {
+		.woocommerce-checkout {
+			> * {
+				float: right;
+				width: 40%;
+			}
 
-		.suki-woocommerce-checkout-col-1 {
-			width: 100%;
-		}
-
-		.suki-woocommerce-checkout-col-2 {
-			width: 37.5%; // default
-			min-width: 37.5%; // default
-			margin-left: 60px; // default
+			.col2-set {
+				float: left;
+				width: 55%;
+			}
 		}
 	}
 }
