@@ -1,5 +1,17 @@
+v1.0.12
+- TWEAK: Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
+- TWEAK: Improve WooCommerce 2 columns layout checkout page styles.
+- FIX: Base CSS for iframe.
+
+v1.0.11
+- NEW: Elementor compatibility CSS.
+- NEW: Brizy Integration option: disable Brizy's reset CSS.
+- NEW: Footer copyright text now supports new syntax {{theme}}.
+- TWEAK: Improve theme's CSS to be slightly slimmer.
+- TWEAK: Improve image width on any Gutenberg embed block with image type.
+
 v1.0.10
-- NEW: Brizy Integration option: use theme's content width as Brizy content width (resolve #48).
+- NEW: Brizy Integration option: use theme's content width as Brizy content width.
 - TWEAK: Improve HTML markup of WooCommerce's "added to cart" message.
 - FIX: Page header title text on products search results page should show "Search results for ...".
 

@@ -160,21 +160,11 @@ class Suki_Compatibility_WooCommerce {
 		// Add filter for adding class to products grid wrapper.
 		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
 
-		// Change sale badge tags.
-		add_filter( 'woocommerce_sale_flash', array( $this, 'change_sale_badge_markup' ), 99, 3 );
-
-		// Demo Store notice.
-		remove_action( 'wp_footer', 'woocommerce_demo_store' );
-		add_action( 'suki/frontend/before_header', 'woocommerce_demo_store' );
-
 		// Wrap star rating HTML
 		add_filter( 'woocommerce_product_get_rating_html', array( $this, 'change_star_rating_markup' ), 10, 3 );
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
-
-		// Change gravatar size on reviews.
-		add_filter( 'woocommerce_review_gravatar_size', array( $this, 'set_review_gravatar_size' ) );
 
 		// Add cart fragments.
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'update_header_cart' ) );
@@ -265,18 +255,6 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
 
 		/**
-		 * Checkout page's template hooks
-		 */
-
-		// Split into 2 columns.
-		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper' ), 1 );
-		add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_wrapper_column_1' ), 1 );
-		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_1_end' ), 999 );
-		add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_wrapper_column_2' ), 999 );
-		add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_wrapper_column_2_end' ), 999 );
-		add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_wrapper_end' ), 999 );
-
-		/**
 		 * My Account page's template hooks
 		 */
 
@@ -358,6 +336,17 @@ class Suki_Compatibility_WooCommerce {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
 		}
+
+		/**
+		 * Checkout page's template hooks
+		 */
+
+		if ( is_checkout() ) {
+			// Split into 2 columns.
+			if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
+				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
+			}
+		}
 	}
 
 	/**
@@ -392,7 +381,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function add_count_to_cart_menu_item( $title, $item, $args, $depth ) {
 		// Add items count to "Cart" menu.
-		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) && class_exists( 'WooCommerce' ) ) {
+		if ( 'page' == $item->object && $item->object_id == get_option( 'woocommerce_cart_page_id' ) ) {
 			if ( strpos( $title, '{{count}}' ) ) {
 				$cart = WC()->cart;
 				if ( ! empty( $cart ) ) {
@@ -415,20 +404,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function change_loop_start_markup( $html ) {
 		$html = preg_replace( '/(class=".*?)"/', '$1 ' . implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_classes', array() ) ) . '"', $html );
-
-		return $html;
-	}
-
-	/**
-	 * Improve sale badge HTML markup.
-	 *
-	 * @param string $html
-	 * @param WP_Post $post
-	 * @param WC_Product $product
-	 * @return string
-	 */
-	public function change_sale_badge_markup( $html, $post, $product ) {
-		$html = preg_replace( '/<span class="onsale">(.*)<\/span>/', '<span class="onsale"><span>$1</span></span>', $html );
 
 		return $html;
 	}
@@ -457,16 +432,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_smallscreen_breakpoint( $px ) {
 		return '767px';
-	}
-
-	/**
-	 * Review gravatar size.
-	 * 
-	 * @param integer $size
-	 * @return integer
-	 */
-	public function set_review_gravatar_size( $size ) {
-		return 50;
 	}
 
 	/**
@@ -741,61 +706,12 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add opening wrapper tag to wrap checkout form.
+	 * Add two columns layout class for checkout page.
 	 */
-	public function render_checkout_wrapper() {
-		?>
-		<div class="suki-woocommerce-checkout-wrapper <?php echo esc_attr( 'suki-woocommerce-checkout-' . ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ? '2-columns' : '1-column' ) ); ?>">
-		<?php
-	}
+	public function add_checkout_two_columns_class( $classes ) {
+		$classes[] = 'suki-woocommerce-checkout-2-columns';
 
-	/**
-	 * Add opening wrapper tag to wrap checkout form column 1.
-	 */
-	public function render_checkout_wrapper_column_1() {
-		?>
-		<div class="suki-woocommerce-checkout-col-1">
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap checkout form column 1.
-	 */
-	public function render_checkout_wrapper_column_1_end() {
-		?>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Add opening wrapper tag to wrap checkout form column 2.
-	 */
-	public function render_checkout_wrapper_column_2() {
-		?>
-		<div class="suki-woocommerce-checkout-col-2">
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap checkout form column 2.
-	 */
-	public function render_checkout_wrapper_column_2_end() {
-		$checkout = WC()->checkout;
-
-		if ( $checkout->get_checkout_fields() ) : ?>
-			</div>
-		<?php endif;
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap checkout form.
-	 */
-	public function render_checkout_wrapper_end() {
-		$checkout = WC()->checkout;
-
-		if ( $checkout->get_checkout_fields() ) : ?>
-			</div>
-		<?php endif;
+		return $classes;
 	}
 
 	/**

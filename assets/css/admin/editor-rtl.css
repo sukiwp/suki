@@ -23,6 +23,7 @@ html {
 }
 
 body {
+	margin: 0;
 	background-color: #ffffff;
 	color: #666666;
 	min-height: 100vh;
@@ -154,6 +155,7 @@ table {
 	width: 100%;
 	margin: 0 0 1.25rem;
 	border-collapse: collapse;
+	border-spacing: 0;
 	border-width: 1px;
 	border-style: solid;
 }
@@ -169,15 +171,18 @@ table th {
 	text-align: initial;
 }
 
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-audio,
+img,
 video {
 	max-width: 100%;
+	height: auto;
+}
+
+img {
+	vertical-align: middle;
+}
+
+iframe {
+	border: none;
 }
 
 pre {
@@ -241,12 +246,6 @@ sub {
 
 sup {
 	top: -0.5em;
-}
-
-img {
-	height: auto;
-	max-width: 100%;
-	vertical-align: middle;
 }
 
 svg {
@@ -660,6 +659,10 @@ p.wp-block-subhead {
 
 .wp-block-embed.alignright .suki-oembed > * {
 	margin-right: auto;
+}
+
+.wp-block-embed.is-type-photo img {
+	width: 100%;
 }
 
 html {
