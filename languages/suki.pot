@@ -287,7 +287,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:372
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:361
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -572,7 +572,7 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:818
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:734
 msgid "Logout"
 msgstr ""
 

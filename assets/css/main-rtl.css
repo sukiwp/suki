@@ -173,9 +173,6 @@ table th {
 }
 
 img,
-embed,
-iframe,
-object,
 video {
 	max-width: 100%;
 	height: auto;
@@ -185,8 +182,8 @@ img {
 	vertical-align: middle;
 }
 
-audio {
-	max-width: 100%;
+iframe {
+	border: none;
 }
 
 pre {
@@ -2827,14 +2824,6 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 
 .entry-content > *:last-child {
 	margin-bottom: 0;
-}
-
-.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
-	margin-top: 2rem;
-}
-
-.entry-content h1:first-child, .entry-content h2:first-child, .entry-content h3:first-child, .entry-content h4:first-child, .entry-content h5:first-child, .entry-content h6:first-child {
-	margin-top: 0;
 }
 
 .entry-content blockquote {

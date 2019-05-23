@@ -134,9 +134,6 @@
 
 .woocommerce-store-notice,
 p.demo_store {
-	position: relative;
-	top: 0 !important;
-	z-index: initial;
 	background-color: $color_accent; // default
 	color: $color_white; // default
 
@@ -175,7 +172,7 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .woocommerce span.onsale {
-	display: table;
+	display: inline-block;
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -187,15 +184,10 @@ p.demo_store {
 	min-height: auto;
 	min-width: auto;
 	font-size: 1em;
-	line-height: normal;
+	line-height: 3em;
 
 	background-color: $color_accent; // default
 	color: $color_white; // default
-
-	> span {
-		display: table-cell;
-		vertical-align: middle;
-	}
 }
 
 // -------------------------------------------------------------
@@ -1089,7 +1081,6 @@ p.demo_store {
 		> * {
 			float: none;
 			width: auto;
-			margin: 0 0 3rem;
 		}
 	}
 
@@ -1099,17 +1090,18 @@ p.demo_store {
 }
 
 .suki-woocommerce-checkout-2-columns {
-	@media screen and ( min-width: $breakpoint_1024 ) {
-		@include flex( flex-start );
+	@media screen and ( min-width: $breakpoint_768 ) {
+		.woocommerce-checkout {
+			> .woocommerce-checkout-review-order,
+			> #order_review_heading {
+				float: right;
+				width: 40%;
+			}
 
-		.suki-woocommerce-checkout-col-1 {
-			width: 100%;
-		}
-
-		.suki-woocommerce-checkout-col-2 {
-			width: 37.5%; // default
-			min-width: 37.5%; // default
-			margin-left: 60px; // default
+			> .col2-set {
+				float: left;
+				width: 55%;
+			}
 		}
 	}
 }
