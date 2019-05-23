@@ -191,36 +191,36 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1351
+#: inc/template-tags.php:1362
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1352
+#: inc/template-tags.php:1363
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1396
+#: inc/template-tags.php:1407
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1397
+#: inc/template-tags.php:1408
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1414
+#: inc/template-tags.php:1425
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1420
+#: inc/template-tags.php:1431
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1447
+#: inc/template-tags.php:1458
 msgid "Comments are closed."
 msgstr ""
 
