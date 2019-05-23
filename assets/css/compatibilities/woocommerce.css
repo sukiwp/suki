@@ -202,9 +202,6 @@
 
 .woocommerce-store-notice,
 p.demo_store {
-	position: relative;
-	top: 0 !important;
-	z-index: initial;
 	background-color: #1976d2;
 	color: #ffffff;
 }
@@ -236,7 +233,7 @@ p.demo_store a {
 }
 
 .woocommerce span.onsale {
-	display: table;
+	display: inline-block;
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -248,14 +245,9 @@ p.demo_store a {
 	min-height: auto;
 	min-width: auto;
 	font-size: 1em;
-	line-height: normal;
+	line-height: 3em;
 	background-color: #1976d2;
 	color: #ffffff;
-}
-
-.woocommerce span.onsale > span {
-	display: table-cell;
-	vertical-align: middle;
 }
 
 .woocommerce a.remove {

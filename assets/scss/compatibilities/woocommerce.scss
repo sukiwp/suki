@@ -134,9 +134,6 @@
 
 .woocommerce-store-notice,
 p.demo_store {
-	position: relative;
-	top: 0 !important;
-	z-index: initial;
 	background-color: $color_accent; // default
 	color: $color_white; // default
 
@@ -175,7 +172,7 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .woocommerce span.onsale {
-	display: table;
+	display: inline-block;
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -187,15 +184,10 @@ p.demo_store {
 	min-height: auto;
 	min-width: auto;
 	font-size: 1em;
-	line-height: normal;
+	line-height: 3em;
 
 	background-color: $color_accent; // default
 	color: $color_white; // default
-
-	> span {
-		display: table-cell;
-		vertical-align: middle;
-	}
 }
 
 // -------------------------------------------------------------

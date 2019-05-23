@@ -160,21 +160,11 @@ class Suki_Compatibility_WooCommerce {
 		// Add filter for adding class to products grid wrapper.
 		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
 
-		// Change sale badge tags.
-		add_filter( 'woocommerce_sale_flash', array( $this, 'change_sale_badge_markup' ), 99, 3 );
-
-		// Demo Store notice.
-		remove_action( 'wp_footer', 'woocommerce_demo_store' );
-		add_action( 'suki/frontend/before_header', 'woocommerce_demo_store' );
-
 		// Wrap star rating HTML
 		add_filter( 'woocommerce_product_get_rating_html', array( $this, 'change_star_rating_markup' ), 10, 3 );
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
-
-		// Change gravatar size on reviews.
-		add_filter( 'woocommerce_review_gravatar_size', array( $this, 'set_review_gravatar_size' ) );
 
 		// Add cart fragments.
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'update_header_cart' ) );
@@ -419,20 +409,6 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Improve sale badge HTML markup.
-	 *
-	 * @param string $html
-	 * @param WP_Post $post
-	 * @param WC_Product $product
-	 * @return string
-	 */
-	public function change_sale_badge_markup( $html, $post, $product ) {
-		$html = preg_replace( '/<span class="onsale">(.*)<\/span>/', '<span class="onsale"><span>$1</span></span>', $html );
-
-		return $html;
-	}
-
-	/**
 	 * Improve star rating HTML markup.
 	 *
 	 * @param string $html
@@ -456,16 +432,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_smallscreen_breakpoint( $px ) {
 		return '767px';
-	}
-
-	/**
-	 * Review gravatar size.
-	 * 
-	 * @param integer $size
-	 * @return integer
-	 */
-	public function set_review_gravatar_size( $size ) {
-		return 50;
 	}
 
 	/**
