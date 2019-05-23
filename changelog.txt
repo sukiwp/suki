@@ -1,5 +1,6 @@
 v1.0.12
 - TWEAK: Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
+- TWEAK: Improve WooCommerce 2 columns layout checkout page styles.
 - FIX: Base CSS for iframe.
 
 v1.0.11

@@ -1260,11 +1260,12 @@ p.demo_store a {
 }
 
 @media screen and (min-width: 768px) {
-	.suki-woocommerce-checkout-2-columns .woocommerce-checkout > * {
+	.suki-woocommerce-checkout-2-columns .woocommerce-checkout > .woocommerce-checkout-review-order,
+	.suki-woocommerce-checkout-2-columns .woocommerce-checkout > #order_review_heading {
 		float: left;
 		width: 40%;
 	}
-	.suki-woocommerce-checkout-2-columns .woocommerce-checkout .col2-set {
+	.suki-woocommerce-checkout-2-columns .woocommerce-checkout > .col2-set {
 		float: right;
 		width: 55%;
 	}

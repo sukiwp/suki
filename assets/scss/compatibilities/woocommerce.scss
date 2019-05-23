@@ -1092,12 +1092,13 @@ p.demo_store {
 .suki-woocommerce-checkout-2-columns {
 	@media screen and ( min-width: $breakpoint_768 ) {
 		.woocommerce-checkout {
-			> * {
+			> .woocommerce-checkout-review-order,
+			> #order_review_heading {
 				float: right;
 				width: 40%;
 			}
 
-			.col2-set {
+			> .col2-set {
 				float: left;
 				width: 55%;
 			}
