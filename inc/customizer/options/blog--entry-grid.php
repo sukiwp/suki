@@ -21,7 +21,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Content', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 10,
 ) ) );
 
 // Entry grid excerpt length
