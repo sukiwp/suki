@@ -90,7 +90,7 @@
 				for ( var i = 0; i < $submenus.length; i++ ) {
 					var $submenu = $submenus[i],
 					    $section = $submenu.closest( '.suki-header-section' ),
-					    $container = $section.classList.contains( 'suki-section-default' ) ? $submenu.closest( '.suki-wrapper' ) : $section.querySelector( '.suki-section-inner' );
+					    $container = $section.classList.contains( 'suki-section-contained' ) ? $section.querySelector( '.suki-section-inner' ) : $submenu.closest( '.suki-wrapper' );
 
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
