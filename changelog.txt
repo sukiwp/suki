@@ -1,3 +1,7 @@
+v1.0.13
+- TWEAK: Improve javascript that makes header sub menu aligned properly.
+- FIX: Button and form input typography should inherit base typography.
+
 v1.0.12
 - TWEAK: Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
 - TWEAK: Improve WooCommerce 2 columns layout checkout page styles.
