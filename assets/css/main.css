@@ -322,6 +322,7 @@ a.wp-block-button__link {
 	color: #ffffff;
 	background-color: #1976d2;
 	border-color: #1976d2;
+	font-family: inherit;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 600;
@@ -383,6 +384,7 @@ input[type="week"],
 	border-radius: 3px;
 	color: inherit;
 	background-color: #ffffff;
+	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -426,6 +428,7 @@ textarea {
 	border-radius: 3px;
 	color: inherit;
 	background-color: #ffffff;
+	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -456,6 +459,7 @@ select {
 	border-radius: 3px;
 	color: inherit;
 	background-color: #ffffff;
+	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -508,6 +512,7 @@ select[multiple] {
 	border-radius: 3px;
 	color: inherit;
 	background-color: #ffffff;
+	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
@@ -1272,6 +1277,7 @@ p.wp-block-subhead {
 	color: #ffffff;
 	background-color: #1976d2;
 	border-color: #1976d2;
+	font-family: inherit;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 600;

@@ -79,6 +79,7 @@
 	color: #ffffff;
 	background-color: #1976d2;
 	border-color: #1976d2;
+	font-family: inherit;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 600;
@@ -1040,6 +1041,7 @@ p.demo_store a {
 	border-radius: 3px;
 	color: inherit;
 	background-color: #ffffff;
+	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
