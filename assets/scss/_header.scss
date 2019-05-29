@@ -9,8 +9,7 @@
 .suki-header {
 	// Base "menu"
 	.menu {
-		> div,
-		li {
+		.menu-item {
 			position: relative;
 		}
 	}
@@ -215,8 +214,7 @@
 		@include flex( center, inherit );
 		height: 100%;
 
-		> div,
-		> li {
+		> .menu-item {
 			@include flex();
 			height: 100%;
 		}

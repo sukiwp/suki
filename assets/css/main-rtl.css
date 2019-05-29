@@ -1570,8 +1570,7 @@ body.suki-page-layout-boxed #page {
 	position: relative;
 }
 
-.suki-header .menu > div,
-.suki-header .menu li {
+.suki-header .menu .menu-item {
 	position: relative;
 }
 
@@ -1807,8 +1806,7 @@ body.suki-page-layout-boxed #page {
 	height: 100%;
 }
 
-.suki-header-section .menu > div,
-.suki-header-section .menu > li {
+.suki-header-section .menu > .menu-item {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
