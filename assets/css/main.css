@@ -1582,7 +1582,7 @@ body.suki-page-layout-boxed #page {
 
 .site-title .suki-menu-item-link {
 	position: relative;
-	display: inline-block;
+	display: block;
 }
 
 .suki-logo {
