@@ -14,7 +14,6 @@
 html {
 	min-height: 100vh;
 	color: #666666;
-	overflow: hidden;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 15px;
 	font-style: normal;
@@ -29,7 +28,6 @@ body {
 	background-color: #ffffff;
 	color: #666666;
 	min-height: 100vh;
-	overflow: hidden;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 15px;
 	font-style: normal;
@@ -1582,7 +1580,7 @@ body.suki-page-layout-boxed #page {
 
 .site-title .suki-menu-item-link {
 	position: relative;
-	display: block;
+	display: inline-block;
 }
 
 .suki-logo {

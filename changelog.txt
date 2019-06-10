@@ -1,3 +1,6 @@
+v1.0.14
+- TWEAK: Improve logo's vertical alignment CSS.
+
 v1.0.13
 - TWEAK: Improve javascript that makes header sub menu aligned properly.
 - FIX: Button and form input typography should inherit base typography.
