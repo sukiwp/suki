@@ -619,6 +619,7 @@ p.wp-block-subhead {
 	color: #ffffff;
 	background-color: #1976d2;
 	border-color: #1976d2;
+	font-family: inherit;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 600;
