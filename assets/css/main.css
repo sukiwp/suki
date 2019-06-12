@@ -1729,8 +1729,8 @@ body.suki-page-layout-boxed #page {
 .suki-header-mobile-main-bar-right {
 	-ms-flex: 1;
 	flex: 1;
-	-ms-flex-pack: flex-right;
-	justify-content: flex-right;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
 }
 
 .suki-header-section .menu {
