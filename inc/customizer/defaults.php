@@ -487,6 +487,7 @@ $add['header_mobile_main_bar_link_hover_text_color'] = '';
  * ====================================================
  */
 
+$add['header_mobile_vertical_bar_display'] = 'drawer';
 $add['header_mobile_vertical_bar_position'] = 'left';
 $add['header_mobile_vertical_bar_alignment'] = 'left';
 $add['header_mobile_vertical_bar_width'] = '300px';
@@ -723,7 +724,7 @@ $add['footer_bottom_bar_link_hover_text_color'] = '';
  * ====================================================
  */
 
-$add['footer_copyright_content'] = 'Copyright &copy; {{year}}, {{sitename}} &mdash; designed by {{themeauthor}}';
+$add['footer_copyright_content'] = 'Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}';
 
 /**
  * ====================================================

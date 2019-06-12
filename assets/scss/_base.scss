@@ -22,6 +22,7 @@ html {
 }
 
 body {
+	margin: 0;
 	background-color: $color_bg; // default
 	color: $color_text; // default
 	min-height: 100vh;
@@ -113,6 +114,7 @@ table {
 	width: 100%;
 	margin: 0 0 1.25rem;
 	border-collapse: collapse;
+	border-spacing: 0;
 
 	@include border();
 
@@ -127,15 +129,18 @@ table {
 	}
 }
 
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-audio,
+img,
 video {
 	max-width: 100%;
+	height: auto;
+}
+
+img {
+	vertical-align: middle;
+}
+
+iframe {
+	border: none;
 }
 
 pre {
@@ -197,12 +202,6 @@ sub {
 
 sup {
 	top: -0.5em;
-}
-
-img {
-	height: auto;
-	max-width: 100%;
-	vertical-align: middle;
 }
 
 svg {

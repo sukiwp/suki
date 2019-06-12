@@ -299,4 +299,10 @@ p.wp-block-subhead {
 			}
 		}
 	}
+
+	&.is-type-photo {
+		img {
+			width: 100%;
+		}
+	}
 }

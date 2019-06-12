@@ -39,6 +39,9 @@ class Suki_Compatibility_Elementor {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		// Compatibility CSS
+		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
+
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
@@ -59,6 +62,18 @@ class Suki_Compatibility_Elementor {
 	 * ====================================================
 	 */
 
+	/**	
+	 * Add compatibility CSS.
+	 *
+	 * @param string $inline_css	
+	 * @return string
+	 */	
+	public function add_compatibility_css( $inline_css ) {
+		$inline_css .= "\n/* Elementor Compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' );
+
+ 		return $inline_css;
+	}
+
 	/**
 	 * Modify Icon control: add fonts.
 	 *
@@ -68,13 +83,13 @@ class Suki_Compatibility_Elementor {
 	public function add_theme_fonts_as_options_on_font_control( $fonts ) {
 		$fonts = array();
 
-		if ( class_exists( 'Elementor\Fonts' ) ) {
+		if ( class_exists( '\Elementor\Fonts' ) ) {
 			foreach( suki_get_web_safe_fonts() as $font => $stack ) {
-				$fonts[ $font ] = Elementor\Fonts::SYSTEM;
+				$fonts[ $font ] = \Elementor\Fonts::SYSTEM;
 			}
 
 			foreach( suki_get_google_fonts() as $font => $stack ) {
-				$fonts[ $font ] = Elementor\Fonts::GOOGLE;
+				$fonts[ $font ] = \Elementor\Fonts::GOOGLE;
 			}
 		}
 
@@ -104,18 +119,28 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper() {
 		/**
+		 * Hook: wp_body_open
+		 *
+		 * `wp_body_open` is a native theme hook available since WordPress 5.2
+		 */
+		if ( function_exists( 'wp_body_open' ) ) {
+			wp_body_open();
+		} else {
+			do_action( 'wp_body_open' );
+		}
+
+		/**
 		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
-		 * @hooked suki_top_popups - 10
+		 * @hooked suki_mobile_vertical_header - 10
 		 */
 		do_action( 'suki/frontend/before_canvas' );
 		?>
-		<div id="body" class="suki-body">
-			<div id="canvas" class="suki-canvas">
-				<div id="page" class="site">
-					<div id="content" class="site-content">
-						<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
+		<div id="canvas" class="suki-canvas">
+			<div id="page" class="site">
+				<div id="content" class="site-content">
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
 		<?php
 	}
 
@@ -124,12 +149,10 @@ class Suki_Compatibility_Elementor {
 	 */
 	public function add_page_template_canvas_wrapper_end() {
 		?>
-						</article>
-					</div>
+					</article>
 				</div>
 			</div>
 		</div>
-		
 		<?php
 		/**
 		 * Hook: suki/frontend/after_canvas

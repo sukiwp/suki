@@ -5,7 +5,7 @@
 .suki-footer-widgets-bar {
 	&-inner {
 		background-color: $color_subtle; // default
-		border-width: 1px 0 0 0; // default
+		@include border( null, 1px 0 0 0 ); // default
 		padding: 60px 20px; // default
 	}
 
@@ -15,7 +15,9 @@
 }
 
 .suki-footer-widgets-bar-row {
-	@include flex( flex-start, flex-start, wrap );
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
 	margin-left: -15px; // default
 	margin-right: -15px; // default
 	margin-bottom: -40px; // default
@@ -75,12 +77,14 @@
 
 .suki-footer-bottom-bar-inner {
 	background-color: $color_subtle; // default
-	border-width: 1px 0 0 0; // default
+	@include border( null, 1px 0 0 0 ); // default
 	padding: 25px 20px; // default
 }
 
 .suki-footer-bottom-bar-row {
-	@include flex( flex-start );	
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
 	margin: 0 -12px; // default
 	white-space: nowrap;
 
@@ -91,7 +95,7 @@
 }
 
 .suki-footer-bottom-bar-column {
-	@include flex();
+	display: flex;
 
 	> * {
 		display: block;
@@ -133,7 +137,8 @@
 	padding: 0 !important;
 	
 	ul {
-		@include flex( center, center );
+		display: flex;
+		justify-content: center;
 
 		li {
 			padding: 0 12px; // default

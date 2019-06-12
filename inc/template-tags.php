@@ -205,7 +205,7 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	foreach ( $links as $link ) :
 		echo $args['before_link']; // WPCS: XSS OK
 
-		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener me nofollow"' : ' rel="me nofollow"'; ?>>
+		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK. ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
@@ -286,23 +286,34 @@ function suki_mobile_vertical_header() {
 	$elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 	$count = count( $elements );
 
-	if ( 0 < $count ) : ?>
+	if ( 1 > $count ) {
+		return;
+	}
+
+	$display = suki_get_theme_mod( 'header_mobile_vertical_bar_display' );
+	?>
 		<div id="mobile-vertical-header" class="suki-header-mobile-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array() ) ) ); ?> suki-header suki-popup" itemtype="https://schema.org/WPHeader" itemscope>
-			<div class="suki-popup-background suki-popup-close">
-				<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
-			</div>
+			<?php if ( 'drawer' === $display ) : ?>
+				<div class="suki-popup-background suki-popup-close">
+					<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+				</div>
+			<?php endif; ?>
 
 			<div class="suki-header-mobile-vertical-bar suki-header-section-vertical suki-popup-content">
 				<div class="suki-header-mobile-vertical-bar-inner suki-header-section-vertical-inner">
 					<div class="suki-header-section-vertical-column">
-						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row suki-flex-align-left">
+						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row">
 							<?php foreach ( $elements as $element ) suki_header_element( $element ); ?>
 						</div>
 					</div>
+
+					<?php if ( 'full-screen' === $display ) : ?>
+						<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
-	<?php endif;
+	<?php
 }
 endif;
 
@@ -395,7 +406,7 @@ function suki_main_header__bar( $bar ) {
 
 				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row">
 					<?php foreach ( $cols as $col ) : ?>
-						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
+						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column">
 							<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
 						</div>
 					<?php endforeach; ?>
@@ -450,7 +461,7 @@ function suki_mobile_header() {
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
 						<?php foreach ( $cols as $col ) : ?>
-							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
+							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column">
 								<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
 							</div>
 						<?php endforeach; ?>
@@ -730,20 +741,20 @@ function suki_page_title() {
 			$title = get_the_title( get_option( 'page_for_posts' ) );
 		}
 
-		elseif ( is_post_type_archive() ) {
-			$title = post_type_archive_title( '', false );
+		elseif ( is_search() ) {
+			$title = suki_title__search( false );
 		}
 
 		elseif ( is_singular() ) {
 			$title = get_the_title();
 		}
 
-		elseif ( is_archive() ) {
-			$title = get_the_archive_title();
+		elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
 		}
 
-		elseif ( is_search() ) {
-			$title = suki_title__search( false );
+		elseif ( is_archive() ) {
+			$title = get_the_archive_title();
 		}
 
 		elseif ( is_404() ) {
@@ -1020,6 +1031,7 @@ function suki_footer_element( $element ) {
 			$copyright = suki_get_theme_mod( 'footer_' . $key . '_content' );
 			$copyright = str_replace( '{{year}}', date( 'Y' ), $copyright );
 			$copyright = str_replace( '{{sitename}}', '<a href="' . esc_url( home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
+			$copyright = str_replace( '{{theme}}', '<a href="' . suki_get_theme_info( 'url' ) . '">' . suki_get_theme_info( 'name' ) . '</a>', $copyright );
 			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
 			?>
 			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">

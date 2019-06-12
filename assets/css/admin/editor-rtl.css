@@ -3,7 +3,6 @@
 }
 
 *, *:before, *:after {
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -24,6 +23,7 @@ html {
 }
 
 body {
+	margin: 0;
 	background-color: #ffffff;
 	color: #666666;
 	min-height: 100vh;
@@ -155,6 +155,7 @@ table {
 	width: 100%;
 	margin: 0 0 1.25rem;
 	border-collapse: collapse;
+	border-spacing: 0;
 	border-width: 1px;
 	border-style: solid;
 }
@@ -170,15 +171,18 @@ table th {
 	text-align: initial;
 }
 
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-audio,
+img,
 video {
 	max-width: 100%;
+	height: auto;
+}
+
+img {
+	vertical-align: middle;
+}
+
+iframe {
+	border: none;
 }
 
 pre {
@@ -199,7 +203,6 @@ a {
 	background-color: transparent;
 	text-decoration: none;
 	color: #1976d2;
-	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -245,14 +248,13 @@ sup {
 	top: -0.5em;
 }
 
-img {
-	height: auto;
-	max-width: 100%;
+svg {
 	vertical-align: middle;
 }
 
-svg {
-	vertical-align: middle;
+::-moz-selection {
+	background-color: #1976d2;
+	color: #ffffff;
 }
 
 ::selection {
@@ -261,6 +263,11 @@ svg {
 }
 
 *::-webkit-input-placeholder {
+	opacity: 0.75;
+	color: inherit;
+}
+
+*::-moz-placeholder {
 	opacity: 0.75;
 	color: inherit;
 }
@@ -446,7 +453,6 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 }
 
 .wp-block-columns > .wp-block-column {
-	-webkit-box-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
 	margin: 0 1rem 1.25rem;
@@ -613,6 +619,7 @@ p.wp-block-subhead {
 	color: #ffffff;
 	background-color: #1976d2;
 	border-color: #1976d2;
+	font-family: inherit;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 600;
@@ -620,7 +627,6 @@ p.wp-block-subhead {
 	letter-spacing: 0;
 	text-transform: none;
 	text-align: center;
-	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -654,6 +660,10 @@ p.wp-block-subhead {
 
 .wp-block-embed.alignright .suki-oembed > * {
 	margin-right: auto;
+}
+
+.wp-block-embed.is-type-photo img {
+	width: 100%;
 }
 
 html {
@@ -698,7 +708,6 @@ body.mce-content-body a[data-mce-selected] {
 	padding: 0;
 	margin: 0;
 	border-radius: 0;
-	-webkit-box-shadow: none;
 	box-shadow: none;
 	background: transparent;
 }

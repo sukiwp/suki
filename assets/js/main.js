@@ -34,12 +34,19 @@
 		 * Helper function to get element's offset.
 		 */
 		getOffset: function( $el ) {
-			var rect = $el.getBoundingClientRect();
+			if ( $el instanceof HTMLElement ) {
+				var rect = $el.getBoundingClientRect();
+
+				return {
+					top: rect.top + window.pageYOffset,
+					left: rect.left + window.pageXOffset,
+				}
+			}
 
 			return {
-				top: rect.top + window.pageYOffset,
-				left: rect.left + window.pageXOffset,
-			}
+				top: null,
+				left: null,
+			};
 		},
 
 		/**
@@ -83,8 +90,11 @@
 				for ( var i = 0; i < $submenus.length; i++ ) {
 					var $submenu = $submenus[i],
 					    $section = $submenu.closest( '.suki-header-section' ),
-					    $container = $section.classList.contains( 'suki-section-default' ) ? $submenu.closest( '.suki-wrapper' ) : $section.querySelector( '.suki-section-inner' ),
-						containerEdge = $container.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $container.getBoundingClientRect().width ),
+					    $container = $section.classList.contains( 'suki-section-contained' ) ? $section.querySelector( '.suki-section-inner' ) : $submenu.closest( '.suki-wrapper' );
+
+					$submenu.style.maxWidth = $container.offsetWidth + 'px';
+
+					var containerEdge = $container.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $container.getBoundingClientRect().width ),
 						submenuEdge = $submenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
 						isSubmenuOverflow = window.suki.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
@@ -96,6 +106,7 @@
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
 						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
+						
 					}
 
 					// Iterate to 2nd & higher level submenu.

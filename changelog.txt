@@ -1,3 +1,47 @@
+v1.0.14
+- TWEAK: Improve logo's vertical alignment CSS.
+
+v1.0.13
+- TWEAK: Improve javascript that makes header sub menu aligned properly.
+- FIX: Button and form input typography should inherit base typography.
+
+v1.0.12
+- TWEAK: Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
+- TWEAK: Improve WooCommerce 2 columns layout checkout page styles.
+- FIX: Base CSS for iframe.
+
+v1.0.11
+- NEW: Elementor compatibility CSS.
+- NEW: Brizy Integration option: disable Brizy's reset CSS.
+- NEW: Footer copyright text now supports new syntax {{theme}}.
+- TWEAK: Improve theme's CSS to be slightly slimmer.
+- TWEAK: Improve image width on any Gutenberg embed block with image type.
+
+v1.0.10
+- NEW: Brizy Integration option: use theme's content width as Brizy content width.
+- TWEAK: Improve HTML markup of WooCommerce's "added to cart" message.
+- FIX: Page header title text on products search results page should show "Search results for ...".
+
+v1.0.9
+- TWEAK: Improve mobile header menu's dropdown sign style.
+- TWEAK: Improve WooCommerce template modifications.
+- TWEAK: Improve minor WooCommerce CSS.
+- FIX: Social media links can't open in new tab.
+
+v1.0.8
+- NEW: Add the new `wp_body_open()` theme hook (WordPress 5.2 compatibility).
+- TWEAK: Remove `#body` wrapper inside the `<body>` tag.
+- TWEAK: Improve minor WooCommerce CSS.
+- TWEAK: Improve some text strings in admin pages.
+- FIX: When White Label mode is active (via Suki Pro), it should show the White Label value instead of original theme name "Suki".
+- FIX: Header mobile main bar's "spacing between elements".
+
+v1.0.7
+- FIX: Border CSS bug (grid blog post).
+
+v1.0.6
+- FIX: Border CSS bug.
+
 v1.0.5
 - TWEAK: Improve Gutenberg editor CSS.
 - TWEAK: Remove additional custom CSS for Elementor, now will use 100% Elementor default CSS.

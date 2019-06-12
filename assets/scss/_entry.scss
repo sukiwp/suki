@@ -3,7 +3,9 @@
 // -------------------------------------------------------------
 
 .suki-loop-grid {
-	@include flex( flex-start, flex-start, wrap );
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -2em;
@@ -56,7 +58,7 @@
 	}
 
 	.entry-layout-grid & {
-		border-width: 1px; // default
+		@include border( null, 1px ); // default
 		padding: 1.25em 1.5em; // default
 		background-color: $color_bg; // default
 	}
@@ -148,14 +150,6 @@ a.entry-thumbnail {
 
 	> *:last-child {
 		margin-bottom: 0;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		margin-top: 2rem;
-
-		&:first-child {
-			margin-top: 0;
-		}
 	}
 
 	blockquote {

@@ -27,7 +27,7 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Posts layout', 'suki' ),
 	'choices'     => array(
-		'default' => esc_html__( 'Default (same as Single Post page)', 'suki' ),
+		'default' => esc_html__( 'Default', 'suki' ),
 		'grid'    => esc_html__( 'Grid', 'suki' ),
 	),
 	'priority'    => 10,

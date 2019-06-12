@@ -1014,7 +1014,7 @@ $add['header_mobile_main_bar_border'] = array(
 $add['header_mobile_main_bar_items_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar .suki-header-column > *, .suki-header-mobile-main-bar .suki-header-menu .menu-item',
+		'element'  => '.suki-header-mobile-main-bar .suki-header-column > *',
 		'property' => 'padding',
 		'pattern'  => '0 $',
 	),
@@ -1026,8 +1026,8 @@ $add['header_mobile_main_bar_items_gutter'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-main-bar .menu-item',
-		'property' => 'margin',
+		'element'  => '.suki-header-mobile-main-bar .suki-header-menu .menu-item',
+		'property' => 'padding',
 		'pattern'  => '0 $',
 	),
 );
@@ -1094,6 +1094,11 @@ $add['header_mobile_vertical_bar_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-mobile-vertical-bar',
+		'property' => 'width',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical.suki-header-mobile-vertical-display-full-screen .suki-header-section-vertical-column',
 		'property' => 'width',
 	),
 );

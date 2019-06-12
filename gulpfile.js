@@ -130,17 +130,6 @@ gulp.task( 'vendors', function( done ) {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
 	/**
-	 * Main page scripts
-	 */
-
-	// Normalize.css
-	gulp.src( './node_modules/normalize.css/normalize.css' )
-		.pipe( replace( /\/\*\!/, '/*' ) )
-		.pipe( cleanCSS() )
-		.pipe( rename( { prefix: '_', extname: '.scss' } ) )
-		.pipe( gulp.dest( config.dest.scss ) );
-
-	/**
 	 * Google Fonts JSON
 	 */
 

@@ -16,6 +16,14 @@ $section = 'suki_section_entry_grid';
  * ====================================================
  */
 
+// Heading: Content
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_content', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Content', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 // Entry grid excerpt length
 $key = 'entry_grid_excerpt_length';
 $wp_customize->add_setting( $key, array(
