@@ -57,12 +57,12 @@ const gulp          = require( 'gulp' );
 // CSS
 const sass          = require( 'gulp-sass' );
 const autoprefixer  = require( 'gulp-autoprefixer' );
-const uglifycss     = require( 'gulp-uglifycss' );
+const cleanCSS 		= require( 'gulp-clean-css' );
 const mmq           = require( 'gulp-merge-media-queries' );
 const rtlcss        = require( 'gulp-rtlcss' );
 
 // JS
-const uglify        = require( 'gulp-uglify' );
+const terser = require( 'gulp-terser' );
 
 // Translation
 const wpPot         = require( 'gulp-wp-pot' );
@@ -181,7 +181,7 @@ gulp.task( 'css_min', function() {
 
 	return gulp.src( src )
 		.pipe( mmq() )
-		.pipe( uglifycss() )
+		.pipe( cleanCSS() )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( gulp.dest( config.dest.css ) );
 } );
@@ -210,7 +210,7 @@ gulp.task( 'js', function() {
 	var src = config.src.js.concat( [ '!./assets/js/**/*.min.js' ] );
 
 	return gulp.src( src )
-		.pipe( uglify().on( 'error', function( error ) {
+		.pipe( terser().on( 'error', function( error ) {
 			console.error( error ); 
 			this.emit( 'end' ); 
 		} ) )
