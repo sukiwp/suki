@@ -57,12 +57,12 @@ const gulp          = require( 'gulp' );
 // CSS
 const sass          = require( 'gulp-sass' );
 const autoprefixer  = require( 'gulp-autoprefixer' );
-const cleanCSS 		= require( 'gulp-clean-css' );
+const cleanCSS      = require( 'gulp-clean-css' );
 const mmq           = require( 'gulp-merge-media-queries' );
 const rtlcss        = require( 'gulp-rtlcss' );
 
 // JS
-const terser = require( 'gulp-terser' );
+const terser        = require( 'gulp-terser' );
 
 // Translation
 const wpPot         = require( 'gulp-wp-pot' );
