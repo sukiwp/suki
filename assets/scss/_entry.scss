@@ -3,7 +3,9 @@
 // -------------------------------------------------------------
 
 .suki-loop-grid {
-	@include flex( flex-start, flex-start, wrap );
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
 	margin-left: -15px;
 	margin-right: -15px;
 	margin-bottom: -2em;

@@ -607,7 +607,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return integer
 	 */
 	public function set_product_thumbnails_columns( $columns ) {
-		return 8;
+		return 6;
 	}
 
 	/**

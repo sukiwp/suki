@@ -604,7 +604,8 @@ li:not(.customize-info) div.customize-section-description {
 		}
 
 		.suki-builder-sortable-panel {
-			@include flex( center, flex-start, wrap );
+			display: flex;
+			flex-wrap: wrap;
 			min-height: 28px;
 			margin: 0;
 			padding: 6px 8px 8px;
@@ -926,7 +927,8 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-groups {
-				@include flex( flex-start );
+				display: flex;
+				align-items: flex-start;
 				margin: 0 -10px;
 
 				.suki-builder-group {
@@ -934,7 +936,8 @@ li:not(.customize-info) div.customize-section-description {
 				}
 
 				.suki-builder-group-horizontal {
-					@include flex( stretch, space-between, wrap );
+					display: flex;
+					flex-wrap: wrap;
 					width: 100%;
 
 					.suki-builder-location {

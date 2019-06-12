@@ -243,7 +243,10 @@ p.demo_store {
 // -------------------------------------------------------------
 
 .suki-products-filters {
-	@include flex( center, space-between, wrap );
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
 	margin: 0 -0.5em 2em;
 
 	&:empty {
@@ -261,10 +264,6 @@ p.demo_store {
 	.woocommerce-ordering {
 		margin: 0;
 	}
-
-	.suki-off-canvas-filters-button-wrapper {
-		flex-grow: 1;
-	}
 }
 
 .suki-products-selected-filters {
@@ -276,7 +275,9 @@ p.demo_store {
 }
 
 .woocommerce ul.products {
-	@include flex( flex-start, flex-start, wrap );
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
 	margin: 2em -15px 0; // default
 
 	li.product {
@@ -488,7 +489,9 @@ p.demo_store {
 }
 
 .woocommerce div.product {
-	@include flex( flex-start, space-between, wrap );
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
 
 	> *:not(.onsale) {
 		width: 100%;
@@ -513,11 +516,14 @@ p.demo_store {
 		}
 
 		.flex-control-thumbs {
-			@include flex( center, center, wrap );
-			margin: 10px -5px 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin: 5px -5px 0;
 
 			li {
-				padding: 0 5px;
+				padding: 5px;
 				float: none;
 
 				img {
@@ -526,36 +532,12 @@ p.demo_store {
 			}
 		}
 
-		&.woocommerce-product-gallery--columns-1 .flex-control-thumbs li {
-			width: 100%;
-		}
-
-		&.woocommerce-product-gallery--columns-2 .flex-control-thumbs li {
-			width: 50%;
-		}
-
-		&.woocommerce-product-gallery--columns-3 .flex-control-thumbs li {
-			width: 33.33%;
-		}
-
-		&.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
-			width: 25%;
-		}
-
-		&.woocommerce-product-gallery--columns-5 .flex-control-thumbs li {
-			width: 20%;
-		}
-
-		&.woocommerce-product-gallery--columns-6 .flex-control-thumbs li {
+		.flex-control-thumbs li {
 			width: 16.67%;
-		}
 
-		&.woocommerce-product-gallery--columns-7 .flex-control-thumbs li {
-			width: 14.2857%;
-		}
-
-		&.woocommerce-product-gallery--columns-8 .flex-control-thumbs li {
-			width: 12.25%;
+			@media screen and ( max-width: $breakpoint_500 - 1px ) {
+				width: 33.33%;
+			}
 		}
 	}
 
@@ -922,12 +904,15 @@ p.demo_store {
 				@media screen and ( max-width: $breakpoint_768 - 1px ) {
 					tr {
 						position: relative;
-						@include flex( stretch, space-between, wrap );
+						display: flex;
+						flex-wrap: wrap;
 						width: 100%;
 
 						&.cart_item {
 							td {
-								@include flex( center, flex-start, wrap );
+								display: flex;
+								align-items: center;
+								flex-wrap: wrap;
 							}
 						}
 
@@ -1247,7 +1232,8 @@ p.demo_store {
 	}
 
 	.suki-woocommerce-MyAccount-user {
-		@include flex();
+		display: flex;
+		align-items: center;
 		margin-bottom: 1.25rem;
 
 		.avatar {
@@ -1258,8 +1244,6 @@ p.demo_store {
 		}
 
 		.info {
-			width: 100%;
-
 			.name {
 				display: block;
 				font-weight: 600;
@@ -1469,7 +1453,8 @@ p.demo_store {
 	}
 
 	.woocommerce-mini-cart__buttons {
-		@include flex( flex-start );
+		display: flex;
+		align-items: flex-start;
 		margin: 0.5em -5px 0;
 
 		a {

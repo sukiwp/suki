@@ -293,12 +293,12 @@ p.demo_store a {
 .suki-products-filters {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 	-ms-flex-align: center;
 	align-items: center;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	margin: 0 -0.5em 2em;
 }
 
@@ -318,11 +318,6 @@ p.demo_store a {
 	margin: 0;
 }
 
-.suki-products-filters .suki-off-canvas-filters-button-wrapper {
-	-ms-flex-positive: 1;
-	flex-grow: 1;
-}
-
 .suki-products-selected-filters {
 	margin: -1.5em 0 2em;
 }
@@ -334,12 +329,10 @@ p.demo_store a {
 .woocommerce ul.products {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
 	-ms-flex-align: start;
 	align-items: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	margin: 2em -15px 0;
 }
 
@@ -556,12 +549,10 @@ p.demo_store a {
 .woocommerce div.product {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 	-ms-flex-align: start;
 	align-items: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .woocommerce div.product > *:not(.onsale) {
@@ -590,17 +581,17 @@ p.demo_store a {
 .woocommerce div.product div.images .flex-control-thumbs {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-ms-flex-pack: center;
-	justify-content: center;
 	-ms-flex-align: center;
 	align-items: center;
-	margin: 10px -5px 0;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin: 5px -5px 0;
 }
 
 .woocommerce div.product div.images .flex-control-thumbs li {
-	padding: 0 5px;
+	padding: 5px;
 	float: none;
 }
 
@@ -610,36 +601,14 @@ p.demo_store a {
 	backface-visibility: hidden;
 }
 
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-1 .flex-control-thumbs li {
-	width: 100%;
-}
-
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-2 .flex-control-thumbs li {
-	width: 50%;
-}
-
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-3 .flex-control-thumbs li {
-	width: 33.33%;
-}
-
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
-	width: 25%;
-}
-
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-5 .flex-control-thumbs li {
-	width: 20%;
-}
-
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-6 .flex-control-thumbs li {
+.woocommerce div.product div.images .flex-control-thumbs li {
 	width: 16.67%;
 }
 
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-7 .flex-control-thumbs li {
-	width: 14.2857%;
-}
-
-.woocommerce div.product div.images.woocommerce-product-gallery--columns-8 .flex-control-thumbs li {
-	width: 12.25%;
+@media screen and (max-width: 499px) {
+	.woocommerce div.product div.images .flex-control-thumbs li {
+		width: 33.33%;
+	}
 }
 
 .woocommerce div.product .woocommerce-tabs {
@@ -1073,21 +1042,15 @@ p.demo_store a {
 		display: flex;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-ms-flex-align: stretch;
-		align-items: stretch;
 		width: 100%;
 	}
 	.woocommerce table.cart.shop_table_responsive tr.cart_item td, .woocommerce #content table.cart.shop_table_responsive tr.cart_item td, .woocommerce-page table.cart.shop_table_responsive tr.cart_item td, .woocommerce-page #content table.cart.shop_table_responsive tr.cart_item td {
 		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		-ms-flex-pack: start;
-		justify-content: flex-start;
 		-ms-flex-align: center;
 		align-items: center;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 	.woocommerce table.cart.shop_table_responsive tr td, .woocommerce #content table.cart.shop_table_responsive tr td, .woocommerce-page table.cart.shop_table_responsive tr td, .woocommerce-page #content table.cart.shop_table_responsive tr td {
 		width: auto;
@@ -1387,10 +1350,6 @@ p.demo_store a {
 .woocommerce-account .suki-woocommerce-MyAccount-user {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 	-ms-flex-align: center;
 	align-items: center;
 	margin-bottom: 1.25rem;
@@ -1401,10 +1360,6 @@ p.demo_store a {
 	height: 60px;
 	border-radius: 50%;
 	margin-left: 15px;
-}
-
-.woocommerce-account .suki-woocommerce-MyAccount-user .info {
-	width: 100%;
 }
 
 .woocommerce-account .suki-woocommerce-MyAccount-user .info .name {
@@ -1584,10 +1539,6 @@ p.demo_store a {
 .woocommerce.widget_shopping_cart .woocommerce-mini-cart__buttons {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 	-ms-flex-align: start;
 	align-items: flex-start;
 	margin: 0.5em -5px 0;

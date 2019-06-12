@@ -532,10 +532,6 @@ li:not(.customize-info) div.customize-section-description {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-ms-flex-align: center;
-	align-items: center;
 	min-height: 28px;
 	margin: 0;
 	padding: 6px 8px 8px;
@@ -868,10 +864,6 @@ li:not(.customize-info) div.customize-section-description {
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups {
 		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
 		-ms-flex-align: start;
 		align-items: flex-start;
 		margin: 0 -10px;
@@ -886,10 +878,6 @@ li:not(.customize-info) div.customize-section-description {
 		display: flex;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		-ms-flex-align: stretch;
-		align-items: stretch;
 		width: 100%;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location,

@@ -181,17 +181,6 @@
 }
 
 // -------------------------------------------------------------
-// Flex
-// -------------------------------------------------------------
-
-@mixin flex( $align_items: center, $justify_content: space-between, $flex_wrap: nowrap ) {
-	display: flex;
-	flex-wrap: $flex_wrap;
-	justify-content: $justify_content;
-	align-items: $align_items;
-}
-
-// -------------------------------------------------------------
 // Border
 // -------------------------------------------------------------
 

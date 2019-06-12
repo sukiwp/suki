@@ -53,7 +53,8 @@ input, select, textarea {
 
 .suki-admin-form-row {
 	position: relative;
-	@include flex( flex-start );
+	display: flex;
+	align-items: flex-start;
 	margin: 0 -10px;
 	padding: 0.75em 0;
 }
@@ -297,7 +298,7 @@ input, select, textarea {
 }
 
 .suki-admin-metabox {
-	@include flex( stretch );
+	display: flex;
 
 	hr {
 		border-color: #eee;
@@ -520,7 +521,7 @@ input, select, textarea {
 	}
 
 	.suki-admin-content-row {
-		@include flex( stretch );
+		display: flex;
 
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 			display: block;

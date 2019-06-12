@@ -302,7 +302,7 @@ function suki_mobile_vertical_header() {
 			<div class="suki-header-mobile-vertical-bar suki-header-section-vertical suki-popup-content">
 				<div class="suki-header-mobile-vertical-bar-inner suki-header-section-vertical-inner">
 					<div class="suki-header-section-vertical-column">
-						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row suki-flex-align-left">
+						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row">
 							<?php foreach ( $elements as $element ) suki_header_element( $element ); ?>
 						</div>
 					</div>
@@ -406,7 +406,7 @@ function suki_main_header__bar( $bar ) {
 
 				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row">
 					<?php foreach ( $cols as $col ) : ?>
-						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
+						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column">
 							<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
 						</div>
 					<?php endforeach; ?>
@@ -461,7 +461,7 @@ function suki_mobile_header() {
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row">
 						<?php foreach ( $cols as $col ) : ?>
-							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
+							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column">
 								<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
 							</div>
 						<?php endforeach; ?>

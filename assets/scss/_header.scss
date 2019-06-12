@@ -174,14 +174,15 @@
 
 .suki-header-row {
 	position: relative;
-	@include flex();
+	display: flex;
+	justify-content: space-between;
 	white-space: nowrap;
 	height: 100%;
 	margin: 0 -12px; // default
 }
 
 .suki-header-column {
-	@include flex();
+	display: flex;
 	height: 100%;
 	max-width: 100%;
 
@@ -191,7 +192,9 @@
 	}
 
 	> * {
-		@include flex( center, inherit );
+		display: flex;
+		align-items: center;
+		justify-content: inherit;
 		height: 100%;
 		max-width: 100%;
 		padding: 0 12px; // default
@@ -201,21 +204,36 @@
 .suki-header-top-bar-left,
 .suki-header-main-bar-left,
 .suki-header-bottom-bar-left,
-.suki-header-mobile-main-bar-left,
+.suki-header-mobile-main-bar-left {
+	flex: 1;
+	justify-content: flex-start;
+}
+
+.suki-header-top-bar-center,
+.suki-header-main-bar-center,
+.suki-header-bottom-bar-center,
+.suki-header-mobile-main-bar-center {
+	justify-content: center;
+}
+
 .suki-header-top-bar-right,
 .suki-header-main-bar-right,
 .suki-header-bottom-bar-right,
 .suki-header-mobile-main-bar-right {
-	width: 100%;
+	flex: 1;
+	justify-content: flex-right;
 }
 
 .suki-header-section {
 	.menu {
-		@include flex( center, inherit );
+		display: flex;
+		align-items: center;
+		justify-content: inherit;
 		height: 100%;
 
 		> .menu-item {
-			@include flex();
+			display: flex;
+			align-items: center;
 			height: 100%;
 		}
 
@@ -283,7 +301,8 @@
 			}
 
 			.suki-menu-item-link {
-				@include flex();
+				display: flex;
+				align-items: center;
 				padding: 0.25em 0;
 			}
 
@@ -433,7 +452,8 @@
 }
 
 .suki-header-section-vertical-column {
-	@include flex();
+	display: flex;
+	justify-content: space-between;
 	flex-direction: column;
 	height: 100%;
 }
@@ -480,7 +500,8 @@
 	.suki-header-menu {
 		.menu-item {
 			position: relative;
-			@include flex( flex-start, flext-start, wrap );
+			display: flex;
+			flex-wrap: wrap;
 		}
 		
 		.sub-menu {
@@ -634,6 +655,10 @@
 
 .suki-header-menu {
 	> .menu > .menu-item > .suki-menu-item-link {
+		display: flex;
+		align-items: center;
+		height: 100%;
+
 		&:after {
 			content: "";
 			position: absolute;
@@ -645,6 +670,7 @@
 
 .suki-header-menu-highlight-underline {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+		display: block;
 		position: relative;
 
 		&:after {
@@ -659,9 +685,6 @@
 
 .suki-header-menu-highlight-background {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		@include flex();
-		height: 100%;
-
 		&:after {
 			top: 0;
 			left: 0;
@@ -673,9 +696,6 @@
 
 .suki-header-menu-highlight-border-top {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		@include flex();
-		height: 100%;
-
 		&:after {
 			top: 0;
 			left: 0;
@@ -690,9 +710,6 @@
 
 .suki-header-menu-highlight-border-bottom {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		@include flex();
-		height: 100%;
-
 		&:after {
 			bottom: 0;
 			left: 0;

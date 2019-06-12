@@ -33,10 +33,6 @@ input, select, textarea {
 	position: relative;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 	-ms-flex-align: start;
 	align-items: flex-start;
 	margin: 0 -10px;
@@ -270,12 +266,6 @@ input, select, textarea {
 .suki-admin-metabox {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-ms-flex-align: stretch;
-	align-items: stretch;
 }
 
 .suki-admin-metabox hr {
@@ -521,12 +511,6 @@ input, select, textarea {
 .suki-admin-wrap .suki-admin-content-row {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-ms-flex-align: stretch;
-	align-items: stretch;
 }
 
 @media screen and (max-width: 782px) {
