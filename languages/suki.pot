@@ -43,113 +43,113 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: header menu number.
-#: inc/class-suki.php:217, inc/template-tags.php:537
+#: inc/class-suki.php:205, inc/template-tags.php:537
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:218, inc/template-tags.php:555
+#: inc/class-suki.php:206, inc/template-tags.php:555
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:219
+#: inc/class-suki.php:207
 msgid "Footer Bottom Menu"
 msgstr ""
 
-#: inc/class-suki.php:269
+#: inc/class-suki.php:257
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: inc/class-suki.php:280
+#: inc/class-suki.php:268
 msgid "Footer Widgets Column %s"
 msgstr ""
 
-#: inc/helpers.php:434
+#: inc/helpers.php:369
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:439
+#: inc/helpers.php:374
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:444
+#: inc/helpers.php:379
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:449
+#: inc/helpers.php:384
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:454
+#: inc/helpers.php:389
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:459
+#: inc/helpers.php:394
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:464
+#: inc/helpers.php:399
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:469, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:404, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:474
+#: inc/helpers.php:409
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:479
+#: inc/helpers.php:414
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:484, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:419, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:489
+#: inc/helpers.php:424
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:494
+#: inc/helpers.php:429
 msgid "Advanced Blog"
 msgstr ""
 
-#: inc/helpers.php:499
+#: inc/helpers.php:434
 msgid "Advanced WooCommerce"
 msgstr ""
 
-#: inc/helpers.php:504
+#: inc/helpers.php:439
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:647
+#: inc/helpers.php:582
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:648
+#: inc/helpers.php:583
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:649
+#: inc/helpers.php:584
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:650
+#: inc/helpers.php:585
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:651
+#: inc/helpers.php:586
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:652
+#: inc/helpers.php:587
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""

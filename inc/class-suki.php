@@ -51,7 +51,6 @@ class Suki {
 
 		add_action( 'init', array( $this, 'setup_theme_info' ), 1 );
 
-		add_action( 'wp', array( $this, 'setup_accurate_content_width' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
@@ -169,6 +168,13 @@ class Suki {
 	}
 
 	/**
+	 * Load translations for theme's text domain.
+	 */
+	public function load_translations() {
+		load_theme_textdomain( 'suki', get_template_directory() . '/languages' );
+	}
+
+	/**
 	 * Set the content width in pixels, based on the theme's design and stylesheet.
 	 * Priority 0 to make it available to lower priority callbacks.
 	 *
@@ -178,24 +184,6 @@ class Suki {
 		global $content_width;
 
 		$content_width = intval( suki_get_theme_mod( 'container_width' ) );
-	}
-
-	/**
-	 * Set the global variable $content_width with more accurate value.
-	 *
-	 * @global integer $content_width
-	 */
-	public function setup_accurate_content_width() {
-		global $content_width;
-
-		$content_width = suki_get_content_width_by_layout( suki_get_current_page_setting( 'content_layout' ) );
-	}
-
-	/**
-	 * Load translations for theme's text domain.
-	 */
-	public function load_translations() {
-		load_theme_textdomain( 'suki', get_template_directory() . '/languages' );
 	}
 
 	/**
