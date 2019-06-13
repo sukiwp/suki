@@ -72,6 +72,9 @@
 .woocommerce input.button.alt:disabled[disabled] {
 	display: inline-block;
 	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;

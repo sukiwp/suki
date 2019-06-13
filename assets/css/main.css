@@ -41,11 +41,11 @@ body {
 }
 
 p {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	color: #333333;
 }
 
@@ -113,7 +113,7 @@ hr {
 }
 
 blockquote {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	font-size: 20px;
 	font-style: italic;
 	font-weight: 300;
@@ -136,7 +136,7 @@ blockquote cite {
 
 ul,
 ol {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	padding-left: 2rem;
 }
 
@@ -153,7 +153,7 @@ ol {
 
 table {
 	width: 100%;
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	border-collapse: collapse;
 	border-spacing: 0;
 	border-width: 1px;
@@ -187,7 +187,7 @@ iframe {
 
 pre {
 	max-width: 100%;
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	padding: 0.6rem 1.2rem;
 	overflow: auto;
 	font-size: 1em;
@@ -217,7 +217,7 @@ figure {
 }
 
 address {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 }
 
 dt {
@@ -313,6 +313,9 @@ a.button,
 a.wp-block-button__link {
 	display: inline-block;
 	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -1239,6 +1242,9 @@ p.wp-block-subhead {
 .wp-block-button__link {
 	display: inline-block;
 	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	padding: 10px 20px;
 	border-width: 1px;
 	border-style: solid;
@@ -2677,6 +2683,10 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 	border-left: none;
 	border-right-width: 0.25em;
 	border-right-style: solid;
+}
+
+.entry-layout-default .entry-header + .entry-content {
+	margin-top: 4rem;
 }
 
 .entry-excerpt {

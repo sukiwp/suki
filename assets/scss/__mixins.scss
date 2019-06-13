@@ -107,6 +107,7 @@
 @mixin button() {
 	display: inline-block;
 	cursor: pointer;
+	appearance: none;
 
 	padding: 10px 20px; // default
 	@include border(); // default
