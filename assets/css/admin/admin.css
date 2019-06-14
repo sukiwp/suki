@@ -416,6 +416,55 @@ input, select, textarea {
 	right: 0;
 }
 
+.suki-admin-welcome-panel {
+	padding: 30px;
+	margin-bottom: 4% !important;
+	border: 10px solid #fff;
+	background: #fafafa;
+	text-align: center;
+	display: none;
+}
+
+@media screen and (min-width: 1640px) {
+	.suki-admin-welcome-panel {
+		margin-bottom: 3% !important;
+	}
+}
+
+@media screen and (max-width: 1120px) {
+	.suki-admin-welcome-panel {
+		margin-bottom: 5% !important;
+	}
+}
+
+.wp-header-end ~ .suki-admin-welcome-panel {
+	display: block;
+}
+
+.suki-admin-welcome-panel > *:last-child {
+	margin-bottom: 0;
+}
+
+.suki-admin-welcome-panel .suki-admin-logo-image {
+	width: 120px;
+}
+
+.suki-admin-welcome-panel h2 {
+	font-size: 2em;
+	font-weight: 500;
+	margin: 1em 0;
+}
+
+.suki-admin-welcome-panel p {
+	font-size: 1.2em;
+	margin: 1em 0;
+}
+
+.suki-admin-welcome-panel .suki-admin-install-sites-import-plugin-button {
+	width: 250px;
+	text-align: center;
+}
+
 .suki-admin-theme-notice {
 	display: none;
 }
@@ -471,14 +520,15 @@ input, select, textarea {
 }
 
 .suki-admin-wrap .suki-admin-logo {
+	float: left;
 	font-size: 1.5em;
 	font-weight: 600;
 	line-height: 30px;
 }
 
-.suki-admin-wrap .suki-admin-logo img {
+.suki-admin-wrap .suki-admin-logo .suki-admin-logo-image {
 	vertical-align: middle;
-	max-height: 30px;
+	height: 30px;
 }
 
 .suki-admin-wrap .suki-admin-version {
@@ -489,18 +539,8 @@ input, select, textarea {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
-.suki-admin-wrap .wp-badge {
-	height: 140px;
-	width: 140px;
-	padding: 0;
-	background-color: #fff;
-	background-image: none;
-	line-height: 140px;
-}
-
-.suki-admin-wrap .wp-badge img {
-	vertical-align: middle;
-	max-width: 100px;
+.suki-admin-wrap .suki-admin-customize-button {
+	float: right;
 }
 
 .suki-admin-wrap .suki-admin-content {
@@ -568,69 +608,80 @@ input, select, textarea {
 	padding: 0;
 }
 
-.suki-admin-wrap .suki-admin-customize-button {
+.suki-admin-wrap .suki-admin-secondary .button {
 	width: 100%;
 	text-align: center;
 }
 
-.suki-admin-secondary-pro h2 {
-	position: relative;
-	padding-right: 5em;
+.suki-admin-links-list li {
+	padding: 0.25em 0;
 }
 
-.suki-admin-secondary-pro h2 span {
+.suki-admin-links-list .dashicons {
+	margin-right: 0.5em;
+}
+
+.suki-admin-links-list a {
+	text-decoration: none;
+}
+
+.suki-admin-start-customizing .suki-admin-links-list {
+	overflow: hidden;
+}
+
+.suki-admin-start-customizing .suki-admin-links-list li {
+	width: 30%;
+	float: left;
+	margin-right: 5%;
+	padding: 0.5em 0;
+}
+
+.suki-admin-start-customizing .suki-admin-links-list li:nth-child(3n+3) {
+	margin-right: 0;
+}
+
+.suki-admin-demo-sites-banner {
+	margin: -15px -15px 0 -15px;
+}
+
+.suki-admin-demo-sites-banner img {
+	width: 100%;
+	height: auto;
+}
+
+.suki-admin-pro-modules .inside {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.suki-admin-pro-modules h2 {
+	position: relative;
+	padding-right: 90px !important;
+}
+
+.suki-admin-pro-modules h2 span {
 	position: absolute;
-	top: 0;
+	top: 50%;
 	right: 0;
-	width: 4em;
-	padding: 0.75em 0;
-	margin: -0.25em 0.5em;
-	font-size: 0.75em;
+	padding: 6px 10px;
+	margin: -12px -5px 0 0;
+	font-size: 12px;
 	font-weight: bold;
+	line-height: 1;
 	text-transform: uppercase;
 	background-color: #ee5253;
 	color: #fff;
 	text-align: center;
 }
 
-.suki-admin-secondary-pro h2 span:before, .suki-admin-secondary-pro h2 span:after {
+.suki-admin-pro-modules h2 span:before {
 	content: "";
 	position: absolute;
-	top: 100%;
-	border-top: 0.75em solid #ee5253;
-}
-
-.suki-admin-secondary-pro h2 span:before {
-	left: 0;
-	border-right: 2em solid transparent;
-}
-
-.suki-admin-secondary-pro h2 span:after {
-	right: 0;
-	border-left: 2em solid transparent;
-}
-
-.suki-admin-secondary-sites-banner {
-	margin: -15px -15px 0 -15px;
-}
-
-.suki-admin-secondary-sites-banner img {
-	width: 100%;
-	height: auto;
-}
-
-.suki-admin-secondary-sites .button {
-	width: 100%;
-	text-align: center;
-}
-
-.suki-admin-secondary-links a {
-	text-decoration: none;
-}
-
-.suki-admin-pro-modules .inside {
-	margin: 0 !important;
-	padding: 0 !important;
+	top: 0;
+	right: 100%;
+	border-top: 12px solid #ee5253;
+	border-left: 12px solid transparent;
+	border-bottom: 12px solid #ee5253;
 }
 
 .suki-admin-pro-modules table {

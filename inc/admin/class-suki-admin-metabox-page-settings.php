@@ -224,7 +224,7 @@ class Suki_Admin_Metabox_Page_Settings {
 
 		// Add posts page to disabled IDs.
 		if ( 'page' === get_option( 'show_on_front' ) && $posts_page_id = get_option( 'page_for_posts' ) ) {
-			$disabled_ids[ $posts_page_id ] = '<p><a href="' . esc_attr( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_post_archive', 'url' => esc_url( get_permalink( get_option( 'page_for_posts' ) ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
+			$disabled_ids[ $posts_page_id ] = '<p><a href="' . esc_url( add_query_arg( array( 'autofocus[section]' => 'suki_section_page_settings_post_archive', 'url' => esc_url( get_permalink( get_option( 'page_for_posts' ) ) ) ), admin_url( 'customize.php' ) ) ) . '">' .  esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
 		}
 
 		// Filter to modify disabled IDs.
@@ -394,11 +394,11 @@ class Suki_Admin_Metabox_Page_Settings {
 
 				<?php if ( suki_show_pro_teaser() ) : ?>
 					<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
-						<h3><?php echo esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></h3>
+						<h3><?php echo esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ); ?></h3>
 						<p><?php echo esc_html_x( 'Enable / disable Transparent Header on this page.', 'Suki Pro upsell', 'suki' ); ?><br><?php echo esc_html_x( 'Enable / disable Sticky Header on this page.', 'Suki Pro upsell', 'suki' ); ?><br>
 							<?php echo esc_html_x( 'Enable / disable Alternate Header Colors on this page.', 'Suki Pro upsell', 'suki' ); ?><br>
 						</p>
-						<p><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+						<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
 					</div>
 				<?php endif;
 				break;
@@ -612,9 +612,9 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'preloader-screen':
 				if ( suki_show_pro_teaser() ) : ?>
 					<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
-						<h3><?php echo esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></h3>
+						<h3><?php echo esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ); ?></h3>
 						<p><?php echo esc_html_x( 'Enable / disable Preloader Screen on this page.', 'Suki Pro upsell', 'suki' ); ?></p>
-						<p><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+						<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
 					</div>
 				<?php endif;
 				break;
@@ -622,9 +622,9 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'custom-blocks':
 				if ( suki_show_pro_teaser() ) : ?>
 					<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
-						<h3><?php echo esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ); ?></h3>
+						<h3><?php echo esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ); ?></h3>
 						<p><?php echo esc_html_x( 'Insert Custom Blocks (section / element) on any part of this page (header, footer, etc.).', 'Suki Pro upsell', 'suki' ); ?></p>
-						<p><a href="<?php echo esc_url( SUKI_PRO_URL ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+						<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
 					</div>
 				<?php endif;
 				break;

@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( suki_show_pro_teaser() ) {
 	// Suki Pro link
 	$wp_customize->add_section( new Suki_Customize_Section_Pro_Link( $wp_customize, 'suki_section_pro_link', array(
-		'title'       => esc_html_x( 'Premium Modules Available', 'Suki Pro upsell', 'suki' ),
-		'url'         => SUKI_PRO_URL,
+		'title'       => esc_html_x( 'More Options Available in Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'priority'    => 0,
 	) ) );
 
@@ -253,11 +253,11 @@ $wp_customize->add_panel( $panel, array(
 			'priority'    => 90,
 		) ) );
 
-		// More Options Available on Suki Pro
+		// More Options Available
 		$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_pro_header_advanced', array(
-			'title'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+			'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 			'panel'       => $panel,
-			'url'         => SUKI_PRO_URL,
+			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
 				esc_html_x( 'More header elements', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Vertical bar (popup & permanent style)', 'Suki Pro upsell', 'suki' ),
@@ -371,11 +371,11 @@ $wp_customize->add_panel( $panel, array(
 			'priority'    => 90,
 		) ) );
 
-		// More Options Available on Suki Pro
+		// More Options Available
 		$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_pro_footer_advanced', array(
-			'title'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+			'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 			'panel'       => $panel,
-			'url'         => SUKI_PRO_URL,
+			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
 				esc_html_x( 'Dynamic widgets column width (responsive)', 'Suki Pro upsell', 'suki' ),
 			),

@@ -79,11 +79,11 @@ if ( suki_show_pro_teaser() ) {
 		'priority'    => 90,
 	) ) );
 
-	// More Options Available on Suki Pro
+	// More Options Available
 	$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_pro_woocommerce_advanced', array(
-		'title'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 		'panel'       => $panel,
-		'url'         => SUKI_PRO_URL,
+		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
 			esc_html_x( 'Product alternate hover image', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Product quick view', 'Suki Pro upsell', 'suki' ),

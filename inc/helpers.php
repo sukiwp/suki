@@ -364,80 +364,82 @@ function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
  * @return array
  */
 function suki_get_pro_modules() {
+	$url = add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_URL ) );
+
 	return apply_filters( 'suki/pro/modules', array(
 		'header-elements-plus' => array(
 			'label'   => esc_html__( 'Header Elements Plus', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-elements-plus',
+			'url'     => esc_url( $url . '#pro-header-elements-plus' ),
 			'actions' => array(),
 		),
 		'header-vertical' => array(
 			'label'   => esc_html__( 'Vertical Header', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-vertical',
+			'url'     => esc_url( $url . '#pro-header-vertical' ),
 			'actions' => array(),
 		),
 		'header-transparent' => array(
 			'label'   => esc_html__( 'Transparent Header', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-transparent',
+			'url'     => esc_url( $url . '#pro-header-transparent' ),
 			'actions' => array(),
 		),
 		'header-sticky' => array(
 			'label'   => esc_html__( 'Sticky Header', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-sticky',
+			'url'     => esc_url( $url . '#pro-header-sticky' ),
 			'actions' => array(),
 		),
 		'header-alt-colors' => array(
 			'label'   => esc_html__( 'Alternate Header Colors', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-alt-colors',
+			'url'     => esc_url( $url . '#pro-header-alt-colors' ),
 			'actions' => array(),
 		),
 		'header-mega-menu' => array(
 			'label'   => esc_html__( 'Header Mega Menu', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-header-mega-menu',
+			'url'     => esc_url( $url . '#pro-header-mega-menu' ),
 			'actions' => array(),
 		),
 		'footer-widgets-columns-width' => array(
 			'label'   => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-footer-widgets-columns-width',
+			'url'     => esc_url( $url . '#pro-footer-widgets-columns-width' ),
 			'actions' => array(),
 		),
 		'custom-blocks' => array(
 			'label'   => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-blocks',
+			'url'     => esc_url( $url . '#pro-custom-blocks' ),
 			'actions' => array(),
 		),
 		'custom-fonts' => array(
 			'label'   => esc_html__( 'Custom Fonts', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-fonts',
+			'url'     => esc_url( $url . '#pro-custom-fonts' ),
 			'actions' => array(),
 		),
 		'custom-icons' => array(
 			'label'   => esc_html__( 'Custom Icons', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-custom-icons',
+			'url'     => esc_url( $url . '#pro-custom-icons' ),
 			'actions' => array(),
 		),
 		'preloader-screen' => array(
 			'label'   => esc_html__( 'Preloader Screen', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-preloader-screen',
+			'url'     => esc_url( $url . '#pro-preloader-screen' ),
 			'actions' => array(),
 		),
 		'color-palette' => array(
 			'label'   => esc_html__( 'Color Palette', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-color-palette',
+			'url'     => esc_url( $url . '#pro-color-palette' ),
 			'actions' => array(),
 		),
 		'blog-advanced' => array(
 			'label'   => esc_html__( 'Advanced Blog', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-blog-advanced',
+			'url'     => esc_url( $url . '#pro-blog-advanced' ),
 			'actions' => array(),
 		),
 		'woocommerce-advanced' => array(
 			'label'   => esc_html__( 'Advanced WooCommerce', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-woocommerce-advanced',
+			'url'     => esc_url( $url . '#pro-woocommerce-advanced' ),
 			'actions' => array(),
 		),
 		'white-label' => array(
 			'label'   => esc_html__( 'White Label', 'suki' ),
-			'url'     => trailingslashit( SUKI_PRO_URL ) . '#module-white-label',
+			'url'     => esc_url( $url . '#pro-white-label' ),
 			'actions' => array(),
 		),
 	) );

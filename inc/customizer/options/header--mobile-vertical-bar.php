@@ -25,10 +25,10 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Display', 'suki-pro' ),
+	'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
-		'drawer'      => esc_html__( 'Drawer (slide in popup)', 'suki-pro' ),
-		'full-screen' => esc_html__( 'Full screen', 'suki-pro' ),
+		'drawer'      => esc_html__( 'Drawer (slide in popup)', 'suki' ),
+		'full-screen' => esc_html__( 'Full screen', 'suki' ),
 	),
 	'priority'    => 10,
 ) );

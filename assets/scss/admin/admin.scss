@@ -424,7 +424,57 @@ input, select, textarea {
 }
 
 // -------------------------------------------------------------
-// Suki Admin Wrap
+// Suki Welcome Panel
+// -------------------------------------------------------------
+
+.suki-admin-welcome-panel {
+	padding: 30px;
+	margin-bottom: 4% !important;
+	border: 10px solid #fff;
+	background: #fafafa;
+	text-align: center;
+
+	@media screen and ( min-width: 1640px ) {
+		margin-bottom: 3% !important;
+	}
+
+	@media screen and ( max-width: 1120px ) {
+		margin-bottom: 5% !important;
+	}
+
+	display: none;
+
+	.wp-header-end ~ & {
+		display: block;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	.suki-admin-logo-image {
+		width: 120px;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-weight: 500;
+		margin: 1em 0;
+	}
+
+	p {
+		font-size: 1.2em;
+		margin: 1em 0;
+	}
+
+	.suki-admin-install-sites-import-plugin-button {
+		width: 250px;
+		text-align: center;
+	}
+}
+
+// -------------------------------------------------------------
+// Suki Admin Page
 // -------------------------------------------------------------
 
 .suki-admin-theme-notice {
@@ -482,13 +532,14 @@ input, select, textarea {
 	}
 
 	.suki-admin-logo {
+		float: left;
 		font-size: 1.5em;
 		font-weight: 600;
 		line-height: 30px;
 
-		img {
+		.suki-admin-logo-image {
 			vertical-align: middle;
-			max-height: 30px;
+			height: 30px;
 		}
 	}
 
@@ -500,24 +551,13 @@ input, select, textarea {
 		background-color: rgba(0,0,0,0.05);
 	}
 
-	.wp-badge {
-		height: 140px;
-		width: 140px;
-		padding: 0;
-		background-color: #fff;
-		background-image: none;
-		line-height: 140px;
-
-		img {
-			vertical-align: middle;
-			max-width: 100px;
-		}
+	.suki-admin-customize-button {
+		float: right;
 	}
 
 	.suki-admin-content {
 		padding: 0 !important;
 		margin-top: 20px;
-
 	}
 
 	.suki-admin-content-row {
@@ -575,59 +615,46 @@ input, select, textarea {
 				padding: 0;
 			}
 		}
-	}
 
-	.suki-admin-customize-button {
-		width: 100%;
-		text-align: center;
+		.button {
+			width: 100%;
+			text-align: center;
+		}
 	}
 }
 
-// -------------------------------------------------------------
-// Suki Dashboard
-// -------------------------------------------------------------
+.suki-admin-links-list {
+	li {
+		padding: 0.25em 0;
+	}
 
-.suki-admin-secondary-pro {
-	h2 {
-		position: relative;
-		padding-right: 5em;
+	.dashicons {
+		margin-right: 0.5em;
+	}
 
-		span {
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 4em;
-			padding: 0.75em 0;
-			margin: -0.25em 0.5em;
-			font-size: 0.75em;
-			font-weight: bold;
-			text-transform: uppercase;
-			background-color: #ee5253;
-			color: #fff;
-			text-align: center;
+	a {
+		text-decoration: none;
+	}
+}
 
-			&:before,
-			&:after {
-				content: "";
-				position: absolute;
-				top: 100%;
-				border-top: 0.75em solid #ee5253;
-			}
+.suki-admin-start-customizing {
+	.suki-admin-links-list {
+		overflow: hidden;
 
-			&:before {
-				left: 0;
-				border-right: 2em solid transparent;
-			}
+		li {
+			width: 30%;
+			float: left;
+			margin-right: 5%;
+			padding: 0.5em 0;
 
-			&:after {
-				right: 0;
-				border-left: 2em solid transparent;
+			&:nth-child(3n+3) {
+				margin-right: 0;
 			}
 		}
 	}
 }
 
-.suki-admin-secondary-sites {
+.suki-admin-demo-sites {
 	&-banner {
 		margin: -15px -15px 0 -15px;
 
@@ -636,23 +663,42 @@ input, select, textarea {
 			height: auto;
 		}
 	}
-
-	.button {
-		width: 100%;
-		text-align: center;
-	}
-}
-
-.suki-admin-secondary-links {
-	a {
-		text-decoration: none;
-	}
 }
 
 .suki-admin-pro-modules {
 	.inside {
 		margin: 0 !important;
 		padding: 0 !important;
+	}
+
+	h2 {
+		position: relative;
+		padding-right: 90px !important;
+
+		span {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			padding: 6px 10px;
+			margin: -12px -5px 0 0;
+			font-size: 12px;
+			font-weight: bold;
+			line-height: 1;
+			text-transform: uppercase;
+			background-color: #ee5253;
+			color: #fff;
+			text-align: center;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 100%;
+				border-top: 12px solid #ee5253;
+				border-left: 12px solid transparent;
+				border-bottom: 12px solid #ee5253;
+			}
+		}
 	}
 
 	table {

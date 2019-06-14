@@ -64,92 +64,92 @@ msgstr ""
 msgid "Footer Widgets Column %s"
 msgstr ""
 
-#: inc/helpers.php:369
+#: inc/helpers.php:371
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:374
+#: inc/helpers.php:376
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:379
+#: inc/helpers.php:381
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:384
+#: inc/helpers.php:386
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:389
+#: inc/helpers.php:391
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:394
+#: inc/helpers.php:396
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:399
+#: inc/helpers.php:401
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:404, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:406, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:409
+#: inc/helpers.php:411
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:414
+#: inc/helpers.php:416
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:419, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:421, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:424
+#: inc/helpers.php:426
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:429
+#: inc/helpers.php:431
 msgid "Advanced Blog"
 msgstr ""
 
-#: inc/helpers.php:434
+#: inc/helpers.php:436
 msgid "Advanced WooCommerce"
 msgstr ""
 
-#: inc/helpers.php:439
+#: inc/helpers.php:441
 msgid "White Label"
-msgstr ""
-
-#: inc/helpers.php:582
-msgctxt "icon label"
-msgid "Search"
-msgstr ""
-
-#: inc/helpers.php:583
-msgctxt "icon label"
-msgid "Close"
 msgstr ""
 
 #: inc/helpers.php:584
 msgctxt "icon label"
-msgid "Menu"
+msgid "Search"
 msgstr ""
 
 #: inc/helpers.php:585
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Down"
+msgid "Close"
 msgstr ""
 
 #: inc/helpers.php:586
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Right"
+msgid "Menu"
 msgstr ""
 
 #: inc/helpers.php:587
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Down"
+msgstr ""
+
+#: inc/helpers.php:588
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Right"
+msgstr ""
+
+#: inc/helpers.php:589
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -313,7 +313,7 @@ msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:615, inc/admin/class-suki-admin-metabox-page-settings.php:625, inc/customizer/options/header--html.php:62, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:282, inc/customizer/options/_sections.php:258, inc/customizer/options/_sections.php:376, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:50, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:102, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
 msgctxt "Suki Pro upsell"
-msgid "More Options on Suki Pro"
+msgid "More Options Available"
 msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:398
@@ -428,72 +428,124 @@ msgctxt "Suki Pro upsell"
 msgid "Insert Custom Blocks (section / element) on any part of this page (header, footer, etc.)."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:182
-msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
+#: inc/admin/class-suki-admin.php:164
+msgid "Installing..."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:182
-msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
+#: inc/admin/class-suki-admin.php:165
+msgid "Error occured while installing the plugin"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:184
-msgid "Okay, you deserve it"
-msgstr ""
-
-#: inc/admin/class-suki-admin.php:185
-msgid "Nope, maybe later"
+#: inc/admin/class-suki-admin.php:166
+msgid "Redirecting to demo list..."
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:186
+msgid "Welcome to Suki!"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:187
+msgid "Thank you for installing Suki! Please visit the theme dashboard page to get started."
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:188
+msgid "Go To Theme Dashboard"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:215
+msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:215
+msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:217
+msgid "Okay, you deserve it"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:218
+msgid "Nope, maybe later"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:219
 msgid "I already did"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:559
-msgid "Premium Modules Available"
+#: inc/admin/class-suki-admin.php:587
+msgid "Go To Customizer"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:592
-msgid "Learn more"
+#: inc/admin/class-suki-admin.php:659
+msgid "General Typography"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:625
-msgid "Suki Homepage"
+#: inc/admin/class-suki-admin.php:664
+msgid "Page Canvas Layout"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:630
+#: inc/admin/class-suki-admin.php:669
+msgid "Content & Sidebar Layout"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:674
+msgid "Header Layout"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:679
+msgid "Footer Layout"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:684
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:691
+msgid "Customizer Quick Links"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:710
+msgid "More Features Available"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:710
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:635
-msgid "Demo Sites"
+#: inc/admin/class-suki-admin.php:743
+msgid "Learn more"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:640
+#: inc/admin/class-suki-admin.php:776
+msgid "Suki Website"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:782
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:645
-msgid "Community"
+#: inc/admin/class-suki-admin.php:788
+msgid "Users Discussion Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:650
+#: inc/admin/class-suki-admin.php:794
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:657
-msgid "Links"
+#: inc/admin/class-suki-admin.php:802
+msgid "Other Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:675
-msgid "Suki Demo Sites"
+#: inc/admin/class-suki-admin.php:823
+msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:683
-msgid "Browse and Import"
+#: inc/admin/class-suki-admin.php:828
+msgid "Browse Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:689
-msgid "Install \"Suki Sites Import\""
+#: inc/admin/class-suki-admin.php:830
+msgid "Install & Activate Plugin"
 msgstr ""
 
 #: inc/customizer/class-suki-customizer.php:419
@@ -1329,6 +1381,18 @@ msgstr ""
 msgid "Icon size"
 msgstr ""
 
+#: inc/customizer/options/header--mobile-vertical-bar.php:28
+msgid "Display"
+msgstr ""
+
+#: inc/customizer/options/header--mobile-vertical-bar.php:30
+msgid "Drawer (slide in popup)"
+msgstr ""
+
+#: inc/customizer/options/header--mobile-vertical-bar.php:31
+msgid "Full screen"
+msgstr ""
+
 #: inc/customizer/options/header--mobile-vertical-bar.php:46
 msgid "Position"
 msgstr ""
@@ -1716,7 +1780,7 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:14
 msgctxt "Suki Pro upsell"
-msgid "Premium Modules Available"
+msgid "More Options Available in Suki Pro"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:47
