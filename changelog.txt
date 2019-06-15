@@ -1,3 +1,7 @@
+v1.1.0
+- TWEAK: Improve general typography CSS for better readibility.
+- TWEAK: Improve all CSS to be compatible with old browsers (like IE11 and Safari iOS 9).
+
 v1.0.14
 - TWEAK: Improve logo's vertical alignment CSS.
 

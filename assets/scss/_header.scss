@@ -205,8 +205,12 @@
 .suki-header-main-bar-left,
 .suki-header-bottom-bar-left,
 .suki-header-mobile-main-bar-left {
-	flex: 1;
+	flex: 1 0 auto;
 	justify-content: flex-start;
+
+	.suki-header-row-with-center > & {
+		flex-basis: 0;
+	}
 }
 
 .suki-header-top-bar-center,
@@ -220,8 +224,12 @@
 .suki-header-main-bar-right,
 .suki-header-bottom-bar-right,
 .suki-header-mobile-main-bar-right {
-	flex: 1;
+	flex: 1 0 auto;
 	justify-content: flex-end;
+
+	.suki-header-row-with-center > & {
+		flex-basis: 0;
+	}
 }
 
 .suki-header-section {

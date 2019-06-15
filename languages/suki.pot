@@ -43,11 +43,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: header menu number.
-#: inc/class-suki.php:205, inc/template-tags.php:537
+#: inc/class-suki.php:205, inc/template-tags.php:559
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:206, inc/template-tags.php:555
+#: inc/class-suki.php:206, inc/template-tags.php:577
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -179,48 +179,48 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:591
+#: inc/template-tags.php:613
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:610
+#: inc/template-tags.php:632
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-tags.php:680, inc/customizer/options/header--builder.php:114
+#: inc/template-tags.php:702, inc/customizer/options/header--builder.php:114
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1362
+#: inc/template-tags.php:1395
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1363
+#: inc/template-tags.php:1396
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1407
+#: inc/template-tags.php:1440
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1408
+#: inc/template-tags.php:1441
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1425
+#: inc/template-tags.php:1458
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1431
+#: inc/template-tags.php:1464
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1458
+#: inc/template-tags.php:1491
 msgid "Comments are closed."
 msgstr ""
 

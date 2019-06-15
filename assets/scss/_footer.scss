@@ -89,33 +89,36 @@
 	white-space: nowrap;
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		display: block;
+		flex-wrap: wrap;
 		white-space: normal;
+		margin-bottom: -1em;
 	}
 }
 
 .suki-footer-bottom-bar-column {
 	display: flex;
 
-	> * {
-		display: block;
-		max-width: 100%;
-		padding: 0 12px; // default
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		width: 100%;
+		margin: 0 0 1em;
+		justify-content: center !important;
+		text-align: center;
 	}
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-		display: block;
-		text-align: center;
-		margin: 0 0 1em;
-
-		&:last-child {
-			margin: 0;
-		}
+	> * {
+		display: flex;
+		max-width: 100%;
+		padding: 0 12px; // default
 	}
 }
 
 .suki-footer-bottom-bar-left {
+	flex: 1 1 auto;
 	justify-content: flex-start;
+
+	.suki-footer-row-with-center > & {
+		flex-basis: 0;
+	}
 }
 
 .suki-footer-bottom-bar-center {
@@ -123,13 +126,11 @@
 }
 
 .suki-footer-bottom-bar-right {
+	flex: 1 1 auto;
 	justify-content: flex-end;
-}
 
-.suki-footer-bottom-bar-left,
-.suki-footer-bottom-bar-right {
-	@media screen and ( min-width: $breakpoint_1024 ) {
-		width: 100%;
+	.suki-footer-row-with-center > & {
+		flex-basis: 0;
 	}
 }
 
@@ -139,6 +140,10 @@
 	ul {
 		display: flex;
 		justify-content: center;
+
+		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			flex-wrap: wrap;
+		}
 
 		li {
 			padding: 0 12px; // default

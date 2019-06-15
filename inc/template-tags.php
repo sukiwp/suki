@@ -404,10 +404,21 @@ function suki_main_header__bar( $bar ) {
 				}
 				?>
 
-				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row">
+				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
 					<?php foreach ( $cols as $col ) : ?>
+						<?php
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
+						}
+						?>
 						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column">
-							<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_header_element( $element );
+							}
+							?>
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -459,10 +470,21 @@ function suki_mobile_header() {
 		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-default <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK. ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
-					<div class="suki-header-mobile-main-bar-row suki-header-row">
+					<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
 						<?php foreach ( $cols as $col ) : ?>
+							<?php
+							// Skip center column if it's empty
+							if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+								continue;
+							}
+							?>
 							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column">
-								<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
+								<?php
+								// Print all elements inside the column.
+								foreach ( $elements[ $col ] as $element ) {
+									suki_header_element( $element );
+								}
+								?>
 							</div>
 						<?php endforeach; ?>
 					</div>
@@ -977,10 +999,21 @@ function suki_footer_bottom() {
 	<div id="suki-footer-bottom-bar" class="suki-footer-bottom-bar site-info suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array() ) ) ); ?>">
 		<div class="suki-footer-bottom-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
-				<div class="suki-footer-bottom-bar-row suki-footer-row">
+				<div class="suki-footer-bottom-bar-row suki-footer-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-footer-row-with-center' : '' ); ?>">
 					<?php foreach ( $cols as $col ) : ?>
+						<?php
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
+						}
+						?>
 						<div class="suki-footer-bottom-bar-<?php echo esc_attr( $col ); ?> suki-footer-bottom-bar-column">
-							<?php foreach ( $elements[ $col ] as $element ) suki_footer_element( $element ); ?>
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_footer_element( $element );
+							}
+							?>
 						</div>
 					<?php endforeach; ?>
 				</div>
