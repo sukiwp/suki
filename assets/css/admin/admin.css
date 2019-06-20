@@ -656,15 +656,13 @@ input, select, textarea {
 
 .suki-admin-pro-modules h2 {
 	position: relative;
-	padding-right: 90px !important;
 }
 
 .suki-admin-pro-modules h2 span {
-	position: absolute;
-	top: 50%;
-	right: 0;
+	float: right;
+	position: relative;
 	padding: 6px 10px;
-	margin: -12px -5px 0 0;
+	margin: -2px -20px 0 30px;
 	font-size: 12px;
 	font-weight: bold;
 	line-height: 1;
