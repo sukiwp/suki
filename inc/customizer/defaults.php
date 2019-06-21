@@ -22,7 +22,7 @@ $add['google_fonts_subsets'] = array();
 
 /**
  * ====================================================
- * General Elements > Body (Base)
+ * General Typography > Body (Base)
  * ====================================================
  */
 
@@ -44,7 +44,7 @@ $add['border_color'] = $colors['border'];
 
 /**
  * ====================================================
- * General Elements > Headings
+ * General Typography > Headings
  * ====================================================
  */
 
@@ -85,7 +85,7 @@ $add['heading_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Blockquote
+ * General Typography > Blockquote
  * ====================================================
  */
 
@@ -99,7 +99,7 @@ $add['blockquote_letter_spacing'] = '';
 
 /**
  * ====================================================
- * General Elements > Form Input
+ * General Typography > Form Input
  * ====================================================
  */
 
@@ -116,7 +116,7 @@ $add['input_focus_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Button
+ * General Typography > Button
  * ====================================================
  */
 
@@ -140,7 +140,7 @@ $add['button_hover_text_color'] = $colors['white'];
 
 /**
  * ====================================================
- * General Elements > Title
+ * General Typography > Title
  * ====================================================
  */
 
@@ -157,7 +157,7 @@ $add['title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Small Title
+ * General Typography > Small Title
  * ====================================================
  */
 
@@ -174,7 +174,7 @@ $add['small_title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Meta Info
+ * General Typography > Meta Info
  * ====================================================
  */
 
@@ -530,7 +530,7 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = '';
 
 /**
  * ====================================================
- * Page Header (Title Bar)
+ * Page Header
  * ====================================================
  */
 

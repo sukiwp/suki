@@ -69,10 +69,10 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'priority'    => 170,
 ) ) );
 
-// General Elements
-$panel = 'suki_panel_global_elements';
+// General Typography
+$panel = 'suki_panel_general_typography';
 $wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'General Elements', 'suki' ),
+	'title'       => esc_html__( 'General Typography', 'suki' ),
 	'priority'    => 171,
 ) );
 
@@ -270,9 +270,10 @@ $wp_customize->add_panel( $panel, array(
 		) ) );
 	}
 
-// Page Header (Title Bar)
+// Page Header
 $wp_customize->add_section( 'suki_section_page_header', array(
-	'title'       => esc_html__( 'Page Header (Title Bar)', 'suki' ),
+	'title'       => esc_html__( 'Page Header', 'suki' ),
+	'description' => esc_html__( 'Page Header is a section located between Header and Content section and used to display the title of current page.', 'suki' ),
 	'priority'    => 174,
 ) );
 

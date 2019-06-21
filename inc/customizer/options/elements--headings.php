@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Elements > Headings
+ * Customizer settings: General Typography > Headings
  *
  * @package Suki
  **/

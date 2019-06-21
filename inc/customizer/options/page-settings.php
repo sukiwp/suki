@@ -150,15 +150,15 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 
 	/**
 	 * ====================================================
-	 * Page Header (Title Bar)
+	 * Page Header
 	 * ====================================================
 	 */
 
-	// Heading: Page Header (Title Bar)
+	// Heading: Page Header
 	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type . '_page_header', array(
 		'section'     => $section,
 		'settings'    => array(),
-		'label'       => esc_html__( 'Page Header (Title Bar)', 'suki' ),
+		'label'       => esc_html__( 'Page Header', 'suki' ),
 		'priority'    => 30,
 	) ) );
 

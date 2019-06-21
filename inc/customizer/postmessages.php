@@ -12,7 +12,7 @@ $add = array();
 
 /**
  * ====================================================
- * General Elements > Body (Base)
+ * General Typography > Body (Base)
  * ====================================================
  */
 
@@ -132,7 +132,7 @@ $add['border_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Headings
+ * General Typography > Headings
  * ====================================================
  */
 
@@ -208,7 +208,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Blockquote
+ * General Typography > Blockquote
  * ====================================================
  */
 
@@ -245,7 +245,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 /**
  * ====================================================
- * General Elements > Button
+ * General Typography > Button
  * ====================================================
  */
 
@@ -303,7 +303,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Form Input
+ * General Typography > Form Input
  * ====================================================
  */
 
@@ -349,7 +349,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Title
+ * General Typography > Title
  * ====================================================
  */
 
@@ -400,7 +400,7 @@ $add['title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Small Title
+ * General Typography > Small Title
  * ====================================================
  */
 
@@ -451,7 +451,7 @@ $add['small_title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Meta Info
+ * General Typography > Meta Info
  * ====================================================
  */
 
@@ -1202,7 +1202,7 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = array(
 
 /**
  * ====================================================
- * Page Header (Title Bar)
+ * Page Header
  * ====================================================
  */
 

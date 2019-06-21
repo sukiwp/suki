@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Elements > Button
+ * Customizer settings: General Typography > Button
  *
  * @package Suki
  **/

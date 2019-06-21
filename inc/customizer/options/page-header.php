@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Page Header (Title Bar)
+ * Customizer settings: Page Header
  *
  * @package Suki
  **/

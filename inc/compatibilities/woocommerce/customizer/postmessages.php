@@ -12,7 +12,7 @@ $add = array();
 
 /**
  * ====================================================
- * General Elements > Body (Base)
+ * General Typography > Body (Base)
  * ====================================================
  */
 
@@ -67,7 +67,7 @@ $add['subtle_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Headings
+ * General Typography > Headings
  * ====================================================
  */
 
@@ -97,7 +97,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Small Title
+ * General Typography > Small Title
  * ====================================================
  */
 
@@ -120,7 +120,7 @@ $add['small_title_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Meta Info
+ * General Typography > Meta Info
  * ====================================================
  */
 
@@ -157,7 +157,7 @@ $add['meta_link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Form Input
+ * General Typography > Form Input
  * ====================================================
  */
 
@@ -203,7 +203,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Button
+ * General Typography > Button
  * ====================================================
  */
 

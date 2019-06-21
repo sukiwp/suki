@@ -64,7 +64,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		return apply_filters( 'suki/admin/metabox/page_settings/tabs', array(
 			'content'          => esc_html__( 'Content & Sidebar', 'suki' ),
 			'header'           => esc_html__( 'Header', 'suki' ),
-			'page-header'      => esc_html__( 'Page Header (Title Bar)', 'suki' ),
+			'page-header'      => esc_html__( 'Page Header', 'suki' ),
 			'footer'           => esc_html__( 'Footer', 'suki' ),
 			'custom-blocks'    => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'preloader-screen' => esc_html__( 'Preloader Screen', 'suki' ),

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Elements > Meta
+ * Customizer settings: General Typography > Meta
  *
  * @package Suki
  **/
