@@ -51,6 +51,7 @@ input[type="week"],
 
 textarea {
 	@include input();
+	line-height: inherit;
 }
 
 select {

@@ -169,6 +169,15 @@ table th, table td {
 table th {
 	font-weight: 600;
 	text-align: initial;
+	color: #333333;
+}
+
+table th a {
+	color: #333333;
+}
+
+table th a:hover, table th a:focus {
+	color: #1976d2;
 }
 
 img,
@@ -444,7 +453,7 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 
 .entry-content > [class*="wp-block"],
 .wp-block-column > [class*="wp-block"] {
-	margin-bottom: 1.25rem;
+	margin-bottom: 1.5rem;
 }
 
 .entry-content > [class*="wp-block"]:last-child(),
@@ -455,7 +464,7 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 .wp-block-columns > .wp-block-column {
 	-ms-flex: 1;
 	flex: 1;
-	margin: 0 1rem 1.25rem;
+	margin: 0 1rem 1.5rem;
 }
 
 .wp-block-columns > .wp-block-column:first-child {
@@ -466,11 +475,15 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 	margin-left: 0;
 }
 
+.wp-block-columns > .wp-block-column > *:last-child {
+	margin-bottom: 0;
+}
+
 @media screen and (max-width: 767px) {
 	.wp-block-columns > .wp-block-column {
 		-ms-flex-preferred-size: 100%;
 		flex-basis: 100%;
-		margin: 0 0 1.25rem;
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -492,7 +505,7 @@ div.wp-block-image {
 }
 
 div.wp-block-image > figure.aligncenter {
-	margin-bottom: 1.25rem;
+	margin-bottom: 1.5rem;
 }
 
 .wp-block-quote {

@@ -197,6 +197,11 @@ $add['heading_text_color'] = array(
 		'element'  => '.nav-links .current',
 		'property' => 'color',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => 'table th',
+		'property' => 'color',
+	),
 );
 $add['heading_hover_text_color'] = array(
 	array(
