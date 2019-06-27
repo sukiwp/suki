@@ -1,0 +1,140 @@
+
+// -------------------------------------------------------------
+// Single Product
+// -------------------------------------------------------------
+
+.woocommerce div.product {
+
+	div.images {
+
+		.woocommerce-product-gallery__wrapper {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.woocommerce-product-details__short-description {
+		margin-top: 1.5em;
+
+		button {
+			font-size: 1.5em;
+		}
+	}
+
+	
+
+	#reviews {
+		#comments {
+		}
+
+		#review_form {
+			#respond {
+				
+			}
+		}
+	}
+
+}
+
+// -------------------------------------------------------------
+// Cart
+// -------------------------------------------------------------
+
+// General table
+
+
+// Cart items
+.woocommerce, .woocommerce-page {
+	&, #content {
+		table.cart {
+			
+
+			
+
+
+			&.shop_table_responsive {
+				@media screen and ( max-width: $breakpoint_768 - 1px ) {
+					tr {
+						position: relative;
+						display: flex;
+						flex-wrap: wrap;
+						width: 100%;
+
+						&.cart_item {
+							td {
+								display: flex;
+								align-items: center;
+								flex-wrap: wrap;
+							}
+						}
+
+						td {
+							width: auto;
+
+							&:only-child {
+								width: 100%;
+							}
+
+							&:before {
+								display: none;
+							}
+						}
+					}
+
+					.actions {
+						padding: 1.2rem 0.8rem;
+					}
+
+					.coupon {
+						margin-bottom: 0.3rem;
+					}
+
+					.product-remove {
+						order: 3;
+						width: 3rem;
+					}
+
+					.product-thumbnail {
+						order: 1;
+						width: 4rem;
+						padding-right: 0;
+						display: block;
+					}
+
+					.product-name {
+						order: 2;
+						width: calc( 100% - 4rem - 3rem );
+						text-align: initial !important;
+					}
+
+					.product-price {
+						order: 5;
+						position: relative;
+						white-space: nowrap;
+						flex-grow: 1;
+
+						&:before {
+							display: inline-block;
+							content: "x";
+							font-weight: inherit;
+							margin: 0 0.5rem 0 -0.8rem;
+						}
+					}
+
+					.product-quantity {
+						order: 4;
+					}
+
+					.product-subtotal {
+						order: 6;
+						flex-grow: 1;
+
+						> span {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

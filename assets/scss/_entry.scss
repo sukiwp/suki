@@ -245,7 +245,7 @@ a.more-link {
 // -------------------------------------------------------------
 
 .navigation {
-	margin: 2rem 0;
+	margin: 2rem 0 0;
 
 	.nav-links {
 		text-align: center;
@@ -427,11 +427,18 @@ a.more-link {
 
 .comment-respond {
 	padding-top: 1.5em;
-	border-top-width: 1px;
-	border-top-style: solid;
 
-	&:only-child {
-		border-top: none;
+	.comment-list ~ &,
+	.comment-list & {
+		@include border( top );
+	}
+
+	.comment:not(:last-child) & {
+		padding-bottom: 2em;
+	}
+
+	.form-submit {
+		margin-bottom: 0;
 	}
 
 	label {
@@ -448,10 +455,6 @@ a.more-link {
 			width: auto;
 			margin-left: 0.5em;
 		}
-	}
-
-	.comment-list & {
-		padding-bottom: 2em;
 	}
 }
 

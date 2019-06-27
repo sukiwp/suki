@@ -36,7 +36,7 @@
 
 .entry-content > [class*="wp-block"],
 .wp-block-column > [class*="wp-block"] {
-	margin-bottom: 1.25rem;
+	margin-bottom: 1.5rem;
 
 	&:last-child() {
 		margin-bottom: 0;
@@ -50,7 +50,7 @@
 .wp-block-columns {
 	> .wp-block-column {
 		flex: 1;
-		margin: 0 1rem 1.25rem;
+		margin: 0 1rem 1.5rem;
 
 		&:first-child {
 			margin-left: 0;
@@ -60,14 +60,16 @@
 			margin-right: 0;
 		}
 
+		> * {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
 		@media screen and ( max-width: $breakpoint_768 - 1px ) {
 			flex-basis: 100%;
-			margin: 0 0 1.25rem;
+			margin: 0 0 1.5rem;
 		}
-	}
-
-	&.alignwide {
-		
 	}
 }
 
@@ -96,7 +98,7 @@ div.wp-block-image {
 	margin-bottom: 0 !important;
 
 	> figure.aligncenter {
-		margin-bottom: 1.25rem;
+		margin-bottom: 1.5rem;
 	}
 }
 

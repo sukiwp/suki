@@ -126,6 +126,7 @@ table {
 	th {
 		font-weight: 600;
 		text-align: initial;
+		@include heading();
 	}
 }
 
