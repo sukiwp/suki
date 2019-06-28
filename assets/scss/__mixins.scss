@@ -145,7 +145,7 @@
 	border-color: $color_accent; // default
 
 	@if ( $focus ) {
-		&:not([disabled]):not(.disabled):hover, &:not([disabled]):not(.disabled):focus {
+		&:hover, &:focus {
 			color: $color_white; // default
 			background-color: $color_accent2; // default
 			border-color: $color_accent2; // default
