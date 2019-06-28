@@ -48,14 +48,16 @@
 	text-transform: none;
 }
 
-@mixin heading() {
+@mixin headingColor( $link: true ) {
 	color: $color_heading; // default
 
-	a {
-		color: $color_heading; // default
+	@if $link {
+		a {
+			color: $color_heading; // default
 
-		&:hover, &:focus {
-			color: $color_accent; // default
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
 		}
 	}
 }
@@ -67,7 +69,7 @@
 	line-height: 1.6; // default
 }
 
-@mixin input() {
+@mixin input( $color: true ) {
 	display: inline-block;
 	max-width: 100%;
 	appearance: none;
@@ -78,8 +80,9 @@
 	border-color: inherit; // default
 	border-radius: 3px; // default
 
-	color: inherit; // default
-	background-color: $color_bg; // default
+	@if $color {
+		@include inputColor();
+	}
 	
 	font-family: inherit;
 	font-size: inherit;
@@ -89,9 +92,16 @@
 	letter-spacing: inherit;
 	text-transform: inherit;
 	vertical-align: middle;
+}
 
-	&:focus {
-		background-color: $color_subtle; // default
+@mixin inputColor( $focus: true ) {
+	color: inherit; // default
+	background-color: $color_bg; // default
+
+	@if $focus {
+		&:focus {
+			background-color: $color_subtle; // default
+		}
 	}
 }
 
@@ -104,7 +114,7 @@
 	padding-right: 1.8em;
 }
 
-@mixin button() {
+@mixin button( $color: true ) {
 	display: inline-block;
 	cursor: pointer;
 	appearance: none;
@@ -113,9 +123,9 @@
 	@include border(); // default
 	border-radius: 3px; // default
 
-	color: $color_white; // default
-	background-color: $color_accent; // default
-	border-color: $color_accent; // default
+	@if $color {
+		@include buttonColor();
+	}
 
 	font-family: inherit;
 	font-size: 1rem; // default
@@ -127,24 +137,41 @@
 	text-align: center;
 
 	@include transition();
+}
 
-	&:hover, &:focus {
-		color: $color_white; // default
-		background-color: $color_accent2; // default
-		border-color: $color_accent2; // default
+@mixin buttonColor( $focus: true ) {
+	color: $color_white; // default
+	background-color: $color_accent; // default
+	border-color: $color_accent; // default
+
+	@if ( $focus ) {
+		&:not([disabled]):not(.disabled):hover, &:not([disabled]):not(.disabled):focus {
+			color: $color_white; // default
+			background-color: $color_accent2; // default
+			border-color: $color_accent2; // default
+		}
 	}
 }
 
-@mixin meta() {
+@mixin meta( $color: true ) {
 	font-size: 0.85em; // default
 	line-height: 1.7; // default
+	
+	@if $color {
+		@include metaColor();
+	}
+}
+
+@mixin metaColor( $link: true ) {
 	color: inherit; // default
 
-	a {
-		color: inherit; // default
+	@if $link {
+		a {
+			color: inherit; // default
 
-		&:hover, &:focus {
-			color: $color_accent; // default
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
 		}
 	}
 }

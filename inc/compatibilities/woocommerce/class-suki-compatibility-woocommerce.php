@@ -161,9 +161,6 @@ class Suki_Compatibility_WooCommerce {
 		// Add filter for adding class to products grid wrapper.
 		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
 
-		// Wrap star rating HTML
-		// add_filter( 'woocommerce_product_get_rating_html', array( $this, 'change_star_rating_markup' ), 10, 3 );
-
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
 
@@ -178,6 +175,9 @@ class Suki_Compatibility_WooCommerce {
 
 		// Modify "added to cart" message.
 		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_html' ), 10, 3 );
+
+		// Add plus and minus buttons to the quantity input.
+		add_action( 'suki/frontend/after_enqueue_main_js', array( $this, 'add_quantity_plus_minus_buttons_via_js' ) );
 
 		// Change product gallery thumbnail size.
 		add_filter( 'woocommerce_gallery_thumbnail_size', array( $this, 'change_gallery_thumbnail_size' ) );
@@ -411,22 +411,6 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Improve star rating HTML markup.
-	 *
-	 * @param string $html
-	 * @param float $rating
-	 * @param integer $count
-	 * @return string
-	 */
-	public function change_star_rating_markup( $html, $rating, $count ) {
-		if ( ! empty( $html ) ) {
-			$html = '<div class="suki-star-rating">' . $html . '</div>';
-		}
-
-		return $html;
-	}
-
-	/**
 	 * Mobile screen breakpoint.
 	 * 
 	 * @param string $px
@@ -482,6 +466,111 @@ class Suki_Compatibility_WooCommerce {
 		$message = preg_replace( '/(<a .*?>.*?<\/a>) (.*)/', '$2 $1', $message );
 
 		return $message;
+	}
+
+	/**
+	 * Add plus and minus buttons to the quantity input via JS.
+	 */
+	public function add_quantity_plus_minus_buttons_via_js() {
+		// Add inline JS to initiate quantity plus minus UI.
+		// This javascript uses jQuery to hook into WooCommerce event callback (WooCommerce uses jQuery).
+		ob_start();
+		?>
+		(function() {
+			'use strict';
+
+			var sukiInitWooCommerceQuantityPlusMinus = function() {
+				var $quantity_wrappers = document.querySelectorAll( '.quantity' );
+				
+				if ( 0 === $quantity_wrappers.length ) {
+					return;
+				}
+
+				var $update_cart = document.querySelector( 'button[name="update_cart"]' );
+
+				var handlePlusMinusButton = function( e ) {
+					// Prevent default handlers on click and touch event.
+					if ( 'click' === e.type || 'touchend' === e.type ) {
+						e.preventDefault();
+					}
+					// Abort if keydown is not enter or space key.
+					else if ( 'keydown' === e.type && 13 !== e.which && 32 !== e.which ) {
+						return;
+					}
+
+					var $button = e.target,
+					    $input = $button.parentElement.querySelector( '.qty' ),
+					    step = parseInt( $input.getAttribute( 'step' ) ),
+					    min = parseInt( $input.getAttribute( 'min' ) ),
+					    max = parseInt( $input.getAttribute( 'max' ) ),
+					    sign = $button.classList.contains( 'suki-qty-minus' ) ? '-' : '+';
+
+					if ( '-' === sign ) {
+						var newValue = parseInt( $input.value ) - step;
+
+						if ( min && min > newValue ) {
+							$input.value = parseInt( min );
+						} else {
+							$input.value = parseInt( newValue );
+						}
+					} else {
+						var newValue = parseInt( $input.value ) + step;
+
+						if ( max && max < newValue ) {
+							$input.value = parseInt( max );
+						} else {
+							$input.value = parseInt( newValue );
+						}
+					}
+
+					if ( $update_cart ) {
+						$update_cart.disabled = false;
+					}
+				}
+
+				for ( var i = 0; i < $quantity_wrappers.length; i++ ) {
+					if ( ! $quantity_wrappers[i].classList.contains( 'suki-qty' ) ) {
+						var $minus = document.createElement( 'span' ),
+						    $plus = document.createElement( 'span' );
+
+						$minus.innerHTML = '-';
+						$minus.classList.add( 'suki-qty-minus' );
+						$minus.classList.add( 'plain' );
+						$minus.classList.add( 'input' );
+						$minus.setAttribute( 'role', 'button' );
+						$minus.setAttribute( 'tabindex', 0 );
+						$minus.addEventListener( 'click', handlePlusMinusButton );
+						$minus.addEventListener( 'touchend', handlePlusMinusButton );
+						$minus.addEventListener( 'keydown', handlePlusMinusButton );
+						$quantity_wrappers[i].appendChild( $minus );
+
+						$plus.innerHTML = '+';
+						$plus.classList.add( 'suki-qty-plus' );
+						$plus.classList.add( 'plain' );
+						$plus.classList.add( 'input' );
+						$plus.setAttribute( 'role', 'button' );
+						$plus.setAttribute( 'tabindex', 0 );
+						$plus.addEventListener( 'click', handlePlusMinusButton );
+						$plus.addEventListener( 'touchend', handlePlusMinusButton );
+						$plus.addEventListener( 'keydown', handlePlusMinusButton );
+						$quantity_wrappers[i].appendChild( $plus );
+
+						$quantity_wrappers[i].classList.add( 'suki-qty' );
+					}
+				}
+			}
+
+			// Initiate by default.
+			sukiInitWooCommerceQuantityPlusMinus();
+
+			// Initiate whenever cart is updated.
+			jQuery( document.body ).on( 'updated_wc_div', sukiInitWooCommerceQuantityPlusMinus );
+		})();
+		<?php
+		$js = ob_get_clean();
+
+		// Add right after WooCommerce main js.
+		wp_add_inline_script( 'woocommerce', $js );
 	}
 
 	/**

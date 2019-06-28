@@ -217,12 +217,57 @@ p.demo_store,
 		}
 	}
 
-	.quantity .qty {
-		// width: 3.631em;
-		width: 4em;
-		text-align: center;
-		padding-left: 0.25em;
-		padding-right: 0.25em;
+	.cart .quantity {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+
+		.qty {
+			// width: 3.631em;
+			width: 3.5em;
+			text-align: center;
+			padding-left: 0.25em;
+			padding-right: 0.25em;
+			-moz-appearance: textfield;
+
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+		}
+
+		&.suki-qty {
+			position: relative;
+
+			.qty {
+				border-left: none;
+				border-right: none;
+				border-radius: 0;
+			}
+
+			.suki-qty-minus,
+			.suki-qty-plus {
+				position: absolute;
+				top: 0;
+				width: 1.5em;
+				padding-left: 0;
+				padding-right: 0;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.suki-qty-minus {
+				left: 0;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			.suki-qty-plus {
+				right: 0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+		}
 	}
 
 	.col2-set {
@@ -1340,7 +1385,7 @@ p.demo_store,
 						.woocommerce-review__author {
 							font-weight: 600;
 
-							@include heading();
+							@include headingColor( false );
 						}
 
 						.woocommerce-review__published-date {

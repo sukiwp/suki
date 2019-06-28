@@ -345,19 +345,19 @@ a.wp-block-button__link {
 	backface-visibility: hidden;
 }
 
-button:hover, button:focus,
-input[type="button"]:hover,
-input[type="button"]:focus,
-input[type="reset"]:hover,
-input[type="reset"]:focus,
-input[type="submit"]:hover,
-input[type="submit"]:focus,
-.button:hover,
-.button:focus,
-a.button:hover,
-a.button:focus,
-a.wp-block-button__link:hover,
-a.wp-block-button__link:focus {
+button:not([disabled]):not(.disabled):hover, button:not([disabled]):not(.disabled):focus,
+input[type="button"]:not([disabled]):not(.disabled):hover,
+input[type="button"]:not([disabled]):not(.disabled):focus,
+input[type="reset"]:not([disabled]):not(.disabled):hover,
+input[type="reset"]:not([disabled]):not(.disabled):focus,
+input[type="submit"]:not([disabled]):not(.disabled):hover,
+input[type="submit"]:not([disabled]):not(.disabled):focus,
+.button:not([disabled]):not(.disabled):hover,
+.button:not([disabled]):not(.disabled):focus,
+a.button:not([disabled]):not(.disabled):hover,
+a.button:not([disabled]):not(.disabled):focus,
+a.wp-block-button__link:not([disabled]):not(.disabled):hover,
+a.wp-block-button__link:not([disabled]):not(.disabled):focus {
 	color: #ffffff;
 	background-color: #145ea8;
 	border-color: #145ea8;
@@ -1279,7 +1279,7 @@ p.wp-block-subhead {
 	backface-visibility: hidden;
 }
 
-.wp-block-button__link:hover, .wp-block-button__link:focus {
+.wp-block-button__link:not([disabled]):not(.disabled):hover, .wp-block-button__link:not([disabled]):not(.disabled):focus {
 	color: #ffffff;
 	background-color: #145ea8;
 	border-color: #145ea8;

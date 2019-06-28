@@ -300,7 +300,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['button_hover_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, a.wp-block-button__link:hover, a.wp-block-button__link:focus',
+			'element'  => 'button:hover, button:focus, input[type="button"]:not([disabled]):not(.disabled):hover, input[type="button"]:not([disabled]):not(.disabled):focus, input[type="reset"]:not([disabled]):not(.disabled):hover, input[type="reset"]:not([disabled]):not(.disabled):focus, input[type="submit"]:not([disabled]):not(.disabled):hover, input[type="submit"]:not([disabled]):not(.disabled):focus, .button:not([disabled]):not(.disabled):hover, .button:not([disabled]):not(.disabled):focus, a.button:not([disabled]):not(.disabled):hover, a.button:not([disabled]):not(.disabled):focus, a.wp-block-button__link:not([disabled]):not(.disabled):hover, a.wp-block-button__link:not([disabled]):not(.disabled):focus',
 			'property' => $prop,
 		),
 	);

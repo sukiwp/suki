@@ -213,7 +213,7 @@ a.more-link {
 .entry-author-name {
 	font-size: 1.1em;
 	margin: 0 0 0.5em;
-	@include heading();
+	@include headingColor();
 
 	.avatar {
 		width: 80px;
@@ -379,7 +379,7 @@ a.more-link {
 }
 
 .comment-author {
-	@include heading();
+	@include headingColor();
 
 	.avatar {
 		width: 2em;

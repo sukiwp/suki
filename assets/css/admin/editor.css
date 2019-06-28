@@ -648,7 +648,7 @@ p.wp-block-subhead {
 	backface-visibility: hidden;
 }
 
-.wp-block-button__link:hover, .wp-block-button__link:focus {
+.wp-block-button__link:not([disabled]):not(.disabled):hover, .wp-block-button__link:not([disabled]):not(.disabled):focus {
 	color: #ffffff;
 	background-color: #145ea8;
 	border-color: #145ea8;
