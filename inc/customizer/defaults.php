@@ -22,7 +22,7 @@ $add['google_fonts_subsets'] = array();
 
 /**
  * ====================================================
- * General Typography > Body (Base)
+ * General Styles > Body (Base)
  * ====================================================
  */
 
@@ -44,7 +44,7 @@ $add['border_color'] = $colors['border'];
 
 /**
  * ====================================================
- * General Typography > Headings
+ * General Styles > Headings
  * ====================================================
  */
 
@@ -85,7 +85,7 @@ $add['heading_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Typography > Blockquote
+ * General Styles > Blockquote
  * ====================================================
  */
 
@@ -99,7 +99,7 @@ $add['blockquote_letter_spacing'] = '';
 
 /**
  * ====================================================
- * General Typography > Form Input
+ * General Styles > Form Input
  * ====================================================
  */
 
@@ -116,7 +116,7 @@ $add['input_focus_text_color'] = '';
 
 /**
  * ====================================================
- * General Typography > Button
+ * General Styles > Button
  * ====================================================
  */
 
@@ -140,7 +140,7 @@ $add['button_hover_text_color'] = $colors['white'];
 
 /**
  * ====================================================
- * General Typography > Title
+ * General Styles > Title
  * ====================================================
  */
 
@@ -157,7 +157,7 @@ $add['title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Typography > Small Title
+ * General Styles > Small Title
  * ====================================================
  */
 
@@ -174,7 +174,7 @@ $add['small_title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Typography > Meta Info
+ * General Styles > Meta Info
  * ====================================================
  */
 

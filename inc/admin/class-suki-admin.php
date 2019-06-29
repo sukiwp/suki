@@ -656,8 +656,8 @@ class Suki_Admin {
 	public function render_content__customizing() {
 		$menus = array(
 			array(
-				'label'  => esc_html__( 'General Typography', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_general_typography' ), admin_url( 'customize.php' ) ),
+				'label'  => esc_html__( 'General Styles', 'suki' ),
+				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_general_styles' ), admin_url( 'customize.php' ) ),
 				'icon'   => 'dashicons-editor-textcolor',
 			),
 			array(

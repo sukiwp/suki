@@ -12,7 +12,7 @@ $add = array();
 
 /**
  * ====================================================
- * General Typography > Body (Base)
+ * General Styles > Body (Base)
  * ====================================================
  */
 
@@ -132,7 +132,7 @@ $add['border_color'] = array(
 
 /**
  * ====================================================
- * General Typography > Headings
+ * General Styles > Headings
  * ====================================================
  */
 
@@ -213,7 +213,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Typography > Blockquote
+ * General Styles > Blockquote
  * ====================================================
  */
 
@@ -250,7 +250,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 /**
  * ====================================================
- * General Typography > Button
+ * General Styles > Button
  * ====================================================
  */
 
@@ -308,7 +308,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Typography > Form Input
+ * General Styles > Form Input
  * ====================================================
  */
 
@@ -354,7 +354,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Typography > Title
+ * General Styles > Title
  * ====================================================
  */
 
@@ -405,7 +405,7 @@ $add['title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Typography > Small Title
+ * General Styles > Small Title
  * ====================================================
  */
 
@@ -456,7 +456,7 @@ $add['small_title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Typography > Meta Info
+ * General Styles > Meta Info
  * ====================================================
  */
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Typography > Small Title
+ * Customizer settings: General Styles > Small Title
  *
  * @package Suki
  **/

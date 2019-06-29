@@ -184,7 +184,7 @@ class Suki_Customizer {
 		// Sections and Panels
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_sections.php' );
 
-		// General Typography
+		// General Styles
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--body.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--headings.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--blockquote.php' );

@@ -69,10 +69,10 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'priority'    => 170,
 ) ) );
 
-// General Typography
-$panel = 'suki_panel_general_typography';
+// General Styles
+$panel = 'suki_panel_general_styles';
 $wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'General Typography', 'suki' ),
+	'title'       => esc_html__( 'General Styles', 'suki' ),
 	'priority'    => 171,
 ) );
 
