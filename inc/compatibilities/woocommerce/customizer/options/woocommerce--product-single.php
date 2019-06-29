@@ -276,8 +276,8 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
-			esc_html_x( 'Enable AJAX add to cart', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More Gallery layout', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'AJAX Add To Cart', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More Gallery Layouts', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

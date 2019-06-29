@@ -85,9 +85,9 @@ if ( suki_show_pro_teaser() ) {
 		'panel'       => $panel,
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
-			esc_html_x( 'Product alternate hover image', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Product quick view', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Off-canvas filters', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Product Alternate Hover Image', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Product Quick View Popup', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Off Canvas Filters', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

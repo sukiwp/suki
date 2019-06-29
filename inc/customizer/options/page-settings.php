@@ -282,11 +282,10 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'label'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
-				esc_html_x( 'Enable / disable transparent header on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Enable / disable alternate header colors on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Enable / disable sticky header on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Enable / disable preloader screen on this page', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Insert custom portable blocks (hooks) on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Enable Transparent Header on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Enable Alternate Header colors on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Enable Sticky Header on this page', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Enable Preloader Screen on this page', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

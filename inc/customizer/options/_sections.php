@@ -145,9 +145,21 @@ $wp_customize->add_section( 'suki_section_page_container', array(
 
 // Header
 $panel = 'suki_panel_header';
+$switcher = '
+<div class="suki-responsive-switcher nav-tab-wrapper wp-clearfix">
+	<a href="#" class="nav-tab preview-desktop suki-responsive-switcher-button" data-device="desktop">
+		<span class="dashicons dashicons-desktop"></span>
+		<span>' . esc_html__( 'Desktop', 'suki' ) . '</span>
+	</a>
+	<a href="#" class="nav-tab preview-tablet preview-mobile suki-responsive-switcher-button" data-device="tablet">
+		<span class="dashicons dashicons-smartphone"></span>
+		<span>' . esc_html__( 'Tablet / Mobile', 'suki' ) . '</span>
+	</a>
+</div>
+';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
-	'description' => '<p>' . esc_html__( 'Tips: you can customize the Mobile Header by switching to tablet / mobile view.', 'suki' ) . '</p>',
+	'description' => $switcher,
 	'priority'    => 173,
 ) );
 
@@ -259,12 +271,12 @@ $wp_customize->add_panel( $panel, array(
 			'panel'       => $panel,
 			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
-				esc_html_x( 'More header elements', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Vertical bar (popup & permanent style)', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Transparent header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Alternate header colors', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Sticky header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Header mega menu', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'More Header Elements', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Vertical Header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Transparent Header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Alternate Header Colors', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Sticky Header', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Header Mega Menu', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );
@@ -378,7 +390,7 @@ $wp_customize->add_panel( $panel, array(
 			'panel'       => $panel,
 			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
-				esc_html_x( 'Dynamic widgets column width (responsive)', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Dynamic & Responsive Widgets Column Width', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

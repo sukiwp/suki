@@ -739,7 +739,7 @@ li:not(.customize-info) div.customize-section-description {
 }
 
 // -------------------------------------------------------------
-// Header Builder
+// Header & Footer Builder
 // -------------------------------------------------------------
 
 #customize-preview {
@@ -992,6 +992,49 @@ li:not(.customize-info) div.customize-section-description {
 
 		.customize-help-toggle {
 			display: none;
+		}
+	}
+}
+
+#sub-accordion-panel-suki_panel_header {
+	.customize-info {
+		.customize-panel-description {
+			.nav-tab-wrapper {
+				padding: 0;
+				display: flex;
+				margin: -12px -15px;
+				border-bottom: none;
+
+				.nav-tab {
+					flex: 1;
+					margin: 0;
+					border: none;
+					padding: 10px 15px 8px;
+					background-color: transparent;
+					@include border( bottom, 4px );
+					border-bottom-color: transparent;
+					text-align: center;
+					outline: 0;
+					box-shadow: none;
+
+					&:hover, &:focus {
+						color: #0073aa;
+					}
+
+					&:last-child {
+						border-right: none;
+					}
+
+					&.nav-tab-active {
+						color: #0073aa;
+						border-bottom-color: currentColor;
+					}
+				}
+
+				&:after {
+					display: none;
+				}
+			}
 		}
 	}
 }

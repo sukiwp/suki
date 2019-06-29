@@ -102,8 +102,7 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
-			esc_html_x( 'Change grid item\'s padding, border', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Same height grid items in a row', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Grid Item\'s Styles', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

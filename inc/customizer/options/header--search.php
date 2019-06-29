@@ -89,7 +89,7 @@ if ( suki_show_pro_teaser() ) {
 		'label'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
-			esc_html_x( 'Search mode (support WooCommerce products search)', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'WooCommerce Products Search', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

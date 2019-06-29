@@ -925,3 +925,43 @@ li:not(.customize-info) div.customize-section-description {
 #sub-accordion-panel-suki_panel_page_settings .customize-info .customize-help-toggle {
 	display: none;
 }
+
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper {
+	padding: 0;
+	display: -ms-flexbox;
+	display: flex;
+	margin: -12px -15px;
+	border-bottom: none;
+}
+
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab {
+	-ms-flex: 1;
+	flex: 1;
+	margin: 0;
+	border: none;
+	padding: 10px 15px 8px;
+	background-color: transparent;
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+	border-bottom-color: transparent;
+	text-align: center;
+	outline: 0;
+	box-shadow: none;
+}
+
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab:hover, #sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab:focus {
+	color: #0073aa;
+}
+
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab:last-child {
+	border-right: none;
+}
+
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab.nav-tab-active {
+	color: #0073aa;
+	border-bottom-color: currentColor;
+}
+
+#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper:after {
+	display: none;
+}
