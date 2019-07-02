@@ -85,9 +85,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
 		'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left', 'suki' ) : esc_html__( 'Bottom - Right', 'suki' ),
 	),
-	'limitations' => array(
-		'logo' => array( 'top_left', 'top_center', 'top_right', 'bottom_left', 'bottom_center', 'bottom_right' ),
-	),
 	'priority'    => 10,
 ) ) );
 
@@ -129,7 +126,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'limitations' => array(
 		'mobile-logo'            => array( 'mobile_vertical_top' ),
 		'mobile-menu'            => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
-		'html-1'                 => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'search-bar'             => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'search-dropdown'        => array( 'mobile_vertical_top' ),
 		'shopping-cart-link'     => array( 'mobile_vertical_top' ),

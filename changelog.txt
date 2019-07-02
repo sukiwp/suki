@@ -1,6 +1,14 @@
 v1.1.0
+- NEW: Dedicated WooCommerce integration CSS.
+- NEW: WooCommerce's quantity form input will have minus (-) and plus (+) button.
+- NEW: WooCommerce's quantity form input will have minus (-) and plus (+) button.
+- NEW: Add CSS compatibility for older browsers like IE11 and Safari iOS 9.
+- TWEAK: Allow header logo to be placed on all header sections.
+- TWEAK: Allow HTML header element to be placed on mobile header section.
 - TWEAK: Improve general typography CSS for better readibility.
-- TWEAK: Improve all CSS to be compatible with old browsers (like IE11 and Safari iOS 9).
+- TWEAK: Improve admin page styles to help first time users to get started.
+- TWEAK: Update Google Fonts list to the latest one.
+- FIX: Customizer dimensions control doesn't show the saved unit value correctly.
 
 v1.0.14
 - TWEAK: Improve logo's vertical alignment CSS.
