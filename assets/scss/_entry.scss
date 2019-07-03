@@ -248,16 +248,19 @@ a.more-link {
 	margin: 2rem 0 0;
 
 	.nav-links {
-		text-align: center;
-		@include float-container();
+		a {
+			background-color: transparent;
+			color: inherit; // default
 
-		.page-numbers {
-			display: inline-block;
-			margin: 0 0.5em;
+			&:focus, &:hover {
+				background-color: transparent;
+				color: $color_accent; // default
+				border-color: currentColor;
+			}
 		}
 
 		@media screen and ( min-width: $breakpoint_500 ) {
-			> div {
+			.nav-next, .nav-previous {
 				width: 50%;
 			}
 
@@ -272,6 +275,37 @@ a.more-link {
 				text-align: left;
 				padding-right: 20px;
 			}
+		}
+	}
+
+	&.pagination {
+		text-align: center;
+
+		.nav-links {
+			display: inline-block;
+			@include float-container();
+		}
+
+		.page-numbers {
+			display: block;
+			min-width: 2em;
+			margin-right: 0.5em;
+			padding: 0.5em;
+			float: left;
+			text-decoration: none;
+			line-height: 1;
+
+			@include border();
+			color: inherit;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.current {
+			background-color: $color_subtle; // default
+			color: $color_heading; // default
 		}
 	}
 }

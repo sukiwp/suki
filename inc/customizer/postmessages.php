@@ -74,7 +74,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
+		'element'  => '.navigation .nav-links a:hover, .navigation .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
 		'property' => 'color',
 	),
 	array(
@@ -118,7 +118,7 @@ $add['link_hover_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'pre, code, .page-header, .tagcloud a',
+		'element'  => 'pre, code, .page-header, .tagcloud a, .navigation.pagination .current',
 		'property' => 'background-color',
 	),
 );
@@ -194,7 +194,7 @@ $add['heading_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links .current',
+		'element'  => '.navigation .nav-links .current',
 		'property' => 'color',
 	),
 	array(

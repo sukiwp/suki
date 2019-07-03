@@ -1135,6 +1135,8 @@ p.demo_store,
 			border: none;
 			// margin: 1px;
 			margin: 0;
+			list-style: none;
+			@include float-container();
 
 			li {
 				// border-right: 1px solid darken($secondary, 10%);
@@ -1142,8 +1144,7 @@ p.demo_store,
 				// margin: 0;
 				margin-right: 0.5em;
 				float: left;
-				display: inline;
-				overflow: hidden;
+				// display: inline;
 
 				&:last-child {
 					margin-right: 0;

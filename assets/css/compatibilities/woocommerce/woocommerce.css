@@ -995,14 +995,22 @@ p.demo_store a,
 	clear: both;
 	border: none;
 	margin: 0;
+	list-style: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul:before, .woocommerce nav.woocommerce-pagination ul:after {
+	content: "";
+	display: table;
+}
+
+.woocommerce nav.woocommerce-pagination ul:after {
+	clear: both;
 }
 
 .woocommerce nav.woocommerce-pagination ul li {
 	padding: 0;
 	margin-right: 0.5em;
 	float: left;
-	display: inline;
-	overflow: hidden;
 }
 
 .woocommerce nav.woocommerce-pagination ul li:last-child {
