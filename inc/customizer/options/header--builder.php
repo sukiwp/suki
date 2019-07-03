@@ -61,7 +61,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Desktop Header', 'suki' ),
-	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
 	'choices'     => array(
 		'logo'                   => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
 		/* translators: %s: instance number. */
@@ -105,7 +104,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Mobile Header', 'suki' ),
-	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
 	'choices'     => array(
 		'mobile-logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Mobile Logo', 'suki' ),
 		'mobile-menu'            => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Mobile Menu', 'suki' ),

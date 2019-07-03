@@ -75,7 +75,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
-	'description' => esc_html__( 'Drag and drop the elements into the location you want. Some elements can only be added to certain locations.', 'suki' ),
 	'choices'     => array(
 		'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
 		/* translators: %s: instance number. */
