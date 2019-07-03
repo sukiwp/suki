@@ -36,11 +36,21 @@ $add['body_letter_spacing'] = '';
 
 $add['body_text_color'] = $colors['text'];
 
-$add['link_text_color'] = $colors['accent'];
-$add['link_hover_text_color'] = $colors['heading'];
-
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];
+
+/**
+ * ====================================================
+ * General Styles > Link
+ * ====================================================
+ */
+
+$add['link_font_weight'] = '';
+$add['link_font_style'] = '';
+$add['link_text_transform'] = '';
+
+$add['link_text_color'] = $colors['accent'];
+$add['link_hover_text_color'] = $colors['heading'];
 
 /**
  * ====================================================

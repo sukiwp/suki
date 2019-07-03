@@ -77,9 +77,16 @@ $wp_customize->add_panel( $panel, array(
 ) );
 
 	// Body (Base)
-	$wp_customize->add_section( 'suki_section_body', array(
+	$wp_customize->add_section( 'suki_section_base', array(
 		'title'       => esc_html__( 'Body (Base)', 'suki' ),
 		'description' => '<p>' . esc_html__( 'The global settings of body typography and colors.', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
+	// Link
+	$wp_customize->add_section( 'suki_section_link', array(
+		'title'       => esc_html__( 'Link', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );

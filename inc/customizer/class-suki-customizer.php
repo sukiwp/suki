@@ -185,14 +185,15 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_sections.php' );
 
 		// General Styles
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--body.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--headings.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--blockquote.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--form-inputs.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--buttons.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--title.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--small-title.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/elements--meta.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--base.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--link.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--headings.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--blockquote.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--form-inputs.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--buttons.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--title.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--small-title.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--meta.php' );
 
 		// Layout
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-container.php' );

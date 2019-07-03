@@ -639,20 +639,6 @@ select[multiple] {
 	outline: 0;
 }
 
-.entry-content a,
-.entry-author-content a,
-.comment-content a {
-	text-decoration: underline;
-}
-
-.entry-content .button, .entry-content .wp-block-button__link,
-.entry-author-content .button,
-.entry-author-content .wp-block-button__link,
-.comment-content .button,
-.comment-content .wp-block-button__link {
-	text-decoration: none;
-}
-
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {

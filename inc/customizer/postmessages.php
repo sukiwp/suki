@@ -66,6 +66,38 @@ $add['body_text_color'] = array(
 		'property' => 'color',
 	),
 );
+$add['subtle_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'pre, code, .page-header, .tagcloud a, .navigation.pagination .current',
+		'property' => 'background-color',
+	),
+);
+$add['border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '*',
+		'property' => 'border-color',
+	),
+);
+
+/**
+ * ====================================================
+ * General Styles > Link
+ * ====================================================
+ */
+
+foreach ( array( 'font_weight', 'font_style', 'text_transform' ) as $prop ) {
+	$property = str_replace( '_', '-', $prop );
+
+	$add['link_' . $prop ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-content a, .entry-author-content a, .comment-contenta a',
+			'property' => $property,
+		),
+	);
+}
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -113,20 +145,6 @@ $add['link_hover_text_color'] = array(
 		'type'     => 'css',
 		'element'  => 'a:hover, a:focus, .suki-toggle:hover, .suki-toggle:focus',
 		'property' => 'color',
-	),
-);
-$add['subtle_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'pre, code, .page-header, .tagcloud a, .navigation.pagination .current',
-		'property' => 'background-color',
-	),
-);
-$add['border_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '*',
-		'property' => 'border-color',
 	),
 );
 

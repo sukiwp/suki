@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$section = 'suki_section_body';
+$section = 'suki_section_base';
 
 // Body (base) text typography
 $settings = array(
@@ -44,7 +44,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 ) ) );
 
 // ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_body_colors', array(
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_base_colors', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'priority'    => 10,
@@ -53,10 +53,6 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_bo
 // Colors
 $colors = array(
 	'body_text_color'       => esc_html__( 'Text color', 'suki' ),
-	'link_text_color'       => esc_html__( 'Link text color', 'suki' ),
-	'link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
-	'border_color'          => esc_html__( 'Line / border color', 'suki' ),
-	'subtle_color'          => esc_html__( 'Subtle BG color', 'suki' ),
 );
 foreach ( $colors as $key => $label ) {
 	$wp_customize->add_setting( $key, array(
@@ -71,7 +67,28 @@ foreach ( $colors as $key => $label ) {
 	) ) );
 }
 
-// Subtle BG Color
+// Heading: Other global colors
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_other_colors', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Other global colors', 'suki' ),
+	'priority'    => 30,
+) ) );
+
+// Line / border color
+$key = 'border_color';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Line / border color', 'suki' ),
+	'priority'    => 30,
+) ) );
+
+// Subtle color
 $key = 'subtle_color';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -80,7 +97,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Subtle BG color', 'suki' ),
+	'label'       => esc_html__( 'Subtle color', 'suki' ),
 	'description' => esc_html__( 'Used on &lt;code&gt;, &lt;pre&gt;, tagclouds, and archive title.', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
