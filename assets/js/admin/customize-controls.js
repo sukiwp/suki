@@ -531,6 +531,20 @@
 	});
 	
 	/**
+	 * Suki radio image control
+	 */
+	wp.customize.controlConstructor['suki-radioimage'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this,
+			    $inputs = control.container.find( '.suki-radioimage-input' );
+
+			$inputs.on( 'change', function( e ) {
+				control.setting.set( this.value );
+			});
+		}
+	});
+	
+	/**
 	 * Suki builder control
 	 */
 	wp.customize.controlConstructor['suki-builder'] = wp.customize.SukiControl.extend({

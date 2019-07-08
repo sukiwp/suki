@@ -39,18 +39,29 @@ $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 	'choices'     => array(
-		'wide'          => esc_html__( 'Full content, no sidebar', 'suki' ),
-		'narrow'        => esc_html__( 'Narrow content, no sidebar', 'suki' ),
-		'left-sidebar'  => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
-		'right-sidebar' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+		'wide'          => array(
+			'label' => esc_html__( 'Wide', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--wide.svg',
+		),
+		'narrow'        => array(
+			'label' => esc_html__( 'Narrow', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--narrow.svg',
+		),
+		'left-sidebar'  => array(
+			'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--left-sidebar.svg',
+		),
+		'right-sidebar' => array(
+			'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--right-sidebar.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Notice overridable via page settings
 $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_override_content_layout', array(

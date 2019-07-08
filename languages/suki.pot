@@ -382,23 +382,23 @@ msgstr ""
 msgid "Full width content"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:493, inc/customizer/options/content--section.php:45, inc/customizer/options/page-settings.php:64
+#: inc/admin/class-suki-admin-metabox-page-settings.php:493, inc/customizer/options/content--section.php:44, inc/customizer/options/page-settings.php:64
 msgid "Content & sidebar layout"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:502, inc/customizer/options/content--section.php:47, inc/customizer/options/page-settings.php:67
+#: inc/admin/class-suki-admin-metabox-page-settings.php:502, inc/customizer/options/page-settings.php:67
 msgid "Full content, no sidebar"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:503, inc/customizer/options/content--section.php:48, inc/customizer/options/page-settings.php:68
+#: inc/admin/class-suki-admin-metabox-page-settings.php:503, inc/customizer/options/page-settings.php:68
 msgid "Narrow content, no sidebar"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/admin/class-suki-admin-metabox-page-settings.php:505, inc/customizer/options/content--section.php:49, inc/customizer/options/content--section.php:50, inc/customizer/options/page-settings.php:69, inc/customizer/options/page-settings.php:70
+#: inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/admin/class-suki-admin-metabox-page-settings.php:505, inc/customizer/options/content--section.php:55, inc/customizer/options/content--section.php:59, inc/customizer/options/page-settings.php:69, inc/customizer/options/page-settings.php:70
 msgid "Right sidebar"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/admin/class-suki-admin-metabox-page-settings.php:505, inc/customizer/options/content--section.php:49, inc/customizer/options/content--section.php:50, inc/customizer/options/page-settings.php:69, inc/customizer/options/page-settings.php:70
+#: inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/admin/class-suki-admin-metabox-page-settings.php:505, inc/customizer/options/content--section.php:55, inc/customizer/options/content--section.php:59, inc/customizer/options/page-settings.php:69, inc/customizer/options/page-settings.php:70
 msgid "Left sidebar"
 msgstr ""
 
@@ -548,26 +548,26 @@ msgstr ""
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:420
+#: inc/customizer/class-suki-customizer.php:421
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:423
+#: inc/customizer/class-suki-customizer.php:424
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:447
+#: inc/customizer/class-suki-customizer.php:448
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:451
+#: inc/customizer/class-suki-customizer.php:452
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:453
+#: inc/customizer/class-suki-customizer.php:454
 msgid "These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor."
 msgstr ""
 
@@ -680,7 +680,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:128, inc/customizer/custom-controls/class-suki-customize-control-typography.php:147, inc/customizer/custom-controls/class-suki-customize-control-typography.php:164, inc/customizer/options/blog--archive.php:30, inc/customizer/options/page-container.php:230, inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:66, inc/customizer/options/page-settings.php:177, inc/customizer/options/page-settings.php:210
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:128, inc/customizer/custom-controls/class-suki-customize-control-typography.php:147, inc/customizer/custom-controls/class-suki-customize-control-typography.php:164, inc/customizer/options/blog--archive.php:30, inc/customizer/options/page-container.php:235, inc/customizer/options/page-settings.php:47, inc/customizer/options/page-settings.php:66, inc/customizer/options/page-settings.php:177, inc/customizer/options/page-settings.php:210
 msgid "Default"
 msgstr ""
 
@@ -873,7 +873,7 @@ msgstr ""
 msgid "Show prev / next posts navigation"
 msgstr ""
 
-#: inc/customizer/options/content--main.php:36, inc/customizer/options/content--section.php:91, inc/customizer/options/content--sidebar.php:138, inc/customizer/options/footer--bottom-bar.php:94, inc/customizer/options/footer--widgets-bar.php:55, inc/customizer/options/general--buttons.php:22, inc/customizer/options/general--form-inputs.php:22, inc/customizer/options/header--mobile-main-bar.php:54, inc/customizer/options/header--mobile-vertical-bar.php:102, inc/customizer/options/header--top-main-bottom-bar.php:112, inc/customizer/options/page-header.php:78
+#: inc/customizer/options/content--main.php:36, inc/customizer/options/content--section.php:102, inc/customizer/options/content--sidebar.php:138, inc/customizer/options/footer--bottom-bar.php:94, inc/customizer/options/footer--widgets-bar.php:55, inc/customizer/options/general--buttons.php:22, inc/customizer/options/general--form-inputs.php:22, inc/customizer/options/header--mobile-main-bar.php:54, inc/customizer/options/header--mobile-vertical-bar.php:102, inc/customizer/options/header--top-main-bottom-bar.php:112, inc/customizer/options/page-header.php:78
 msgid "Padding"
 msgstr ""
 
@@ -910,12 +910,20 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
+#: inc/customizer/options/content--section.php:47
+msgid "Wide"
+msgstr ""
+
+#: inc/customizer/options/content--section.php:51
+msgid "Narrow"
+msgstr ""
+
 #. translators: %s: link to "Page Settings" section.
-#: inc/customizer/options/content--section.php:61
+#: inc/customizer/options/content--section.php:72
 msgid "Settings above are global default, optionally you can set different layout for each page type via %s."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:62, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:460
+#: inc/customizer/options/content--section.php:73, inc/customizer/options/page-header.php:31, inc/customizer/options/_sections.php:460
 msgid "Page Settings"
 msgstr ""
 
@@ -1480,7 +1488,7 @@ msgstr ""
 msgid "Highlight text color :active"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:29
+#: inc/customizer/options/page-container.php:28
 msgid "Page layout"
 msgstr ""
 
@@ -1488,131 +1496,131 @@ msgstr ""
 msgid "Full width"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:32
+#: inc/customizer/options/page-container.php:35
 msgid "Boxed"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:53
+#: inc/customizer/options/page-container.php:58
 msgid "Page background color"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:67
+#: inc/customizer/options/page-container.php:72
 msgid "Content Wrapper"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:80
+#: inc/customizer/options/page-container.php:85
 msgid "Content wrapper width"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:100
+#: inc/customizer/options/page-container.php:105
 msgid "Narrow content wrapper width"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:101
+#: inc/customizer/options/page-container.php:106
 msgid "Used when \"narrow content\" layout is active on page content. It should be less than the content wrapper width."
 msgstr ""
 
-#: inc/customizer/options/page-container.php:122
+#: inc/customizer/options/page-container.php:127
 msgid "Boxed Page"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:135
+#: inc/customizer/options/page-container.php:140
 msgid "Boxed page max width"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:155
+#: inc/customizer/options/page-container.php:160
 msgid "Boxed page shadow"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:175
+#: inc/customizer/options/page-container.php:180
 msgid "Outside background color"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:188
+#: inc/customizer/options/page-container.php:193
 msgid "Outside background image"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:203
+#: inc/customizer/options/page-container.php:208
 msgid "Outside background position"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:205
+#: inc/customizer/options/page-container.php:210
 msgid "Left top"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:206
+#: inc/customizer/options/page-container.php:211
 msgid "Left center"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:207
+#: inc/customizer/options/page-container.php:212
 msgid "Left bottom"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:208
+#: inc/customizer/options/page-container.php:213
 msgid "Center top"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:209
+#: inc/customizer/options/page-container.php:214
 msgid "Center center"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:210
+#: inc/customizer/options/page-container.php:215
 msgid "Center bottom"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:211
+#: inc/customizer/options/page-container.php:216
 msgid "Right top"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:212
+#: inc/customizer/options/page-container.php:217
 msgid "Right center"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:213
+#: inc/customizer/options/page-container.php:218
 msgid "Right bottom"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:228
+#: inc/customizer/options/page-container.php:233
 msgid "Outside background size"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:231
+#: inc/customizer/options/page-container.php:236
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:232
+#: inc/customizer/options/page-container.php:237
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:247
+#: inc/customizer/options/page-container.php:252
 msgid "Outside background repeat"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:249
+#: inc/customizer/options/page-container.php:254
 msgid "No repeat"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:250
+#: inc/customizer/options/page-container.php:255
 msgid "Repeat X (horizontally)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:251
+#: inc/customizer/options/page-container.php:256
 msgid "Repeat Y (vertically)"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:252
+#: inc/customizer/options/page-container.php:257
 msgid "Repeat both axis"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:267
+#: inc/customizer/options/page-container.php:272
 msgid "Outside background attachment"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:269, inc/customizer/options/page-header.php:371
+#: inc/customizer/options/page-container.php:274, inc/customizer/options/page-header.php:371
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/options/page-container.php:270, inc/customizer/options/page-header.php:372
+#: inc/customizer/options/page-container.php:275, inc/customizer/options/page-header.php:372
 msgid "Fixed"
 msgstr ""
 
