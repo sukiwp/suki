@@ -594,7 +594,7 @@ input, select, textarea {
 .suki-admin-modules {
 	&-category {
 		font-size: 12px;
-		margin: 30px -15px 15px;
+		margin: 0 -15px;
 		padding: 12px 15px;
 		text-transform: uppercase;
 		background-color: #f9f9f9;
@@ -608,7 +608,7 @@ input, select, textarea {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: stretch;
-		margin: -5px;
+		margin: 10px -5px;
 
 		.suki-admin-module {
 			position: relative;
@@ -676,7 +676,6 @@ input, select, textarea {
 					font-style: normal;
 				}
 
-				.suki-admin-module-action--default,
 				.suki-admin-module-action--activate,
 				.suki-admin-module-action--deactivate {
 					> * {
@@ -703,17 +702,6 @@ input, select, textarea {
 
 					&:before {
 						display: none;
-					}
-				}
-
-				.suki-admin-module-action--default {
-					> * {
-						background-color: #00a0d2;
-						opacity: 0.25;
-
-						&:after {
-							right: 0;
-						}
 					}
 				}
 

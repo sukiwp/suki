@@ -583,7 +583,7 @@ input, select, textarea {
 
 .suki-admin-modules-category {
 	font-size: 12px;
-	margin: 30px -15px 15px;
+	margin: 0 -15px;
 	padding: 12px 15px;
 	text-transform: uppercase;
 	background-color: #f9f9f9;
@@ -600,7 +600,7 @@ input, select, textarea {
 	flex-wrap: wrap;
 	-ms-flex-align: stretch;
 	align-items: stretch;
-	margin: -5px;
+	margin: 10px -5px;
 }
 
 .suki-admin-modules-grid .suki-admin-module {
@@ -669,7 +669,6 @@ input, select, textarea {
 	font-style: normal;
 }
 
-.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--default > *,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate > *,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate > * {
 	position: absolute;
@@ -682,7 +681,6 @@ input, select, textarea {
 	text-indent: -9999em;
 }
 
-.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--default > *:after,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate > *:after,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate > *:after {
 	content: "";
@@ -695,19 +693,9 @@ input, select, textarea {
 	background-color: #fff;
 }
 
-.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--default:before,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate:before,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate:before {
 	display: none;
-}
-
-.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--default > * {
-	background-color: #00a0d2;
-	opacity: 0.25;
-}
-
-.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--default > *:after {
-	right: 0;
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate > * {
