@@ -23,17 +23,25 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width'         => esc_html__( 'Full width content', 'suki' ),
-		'contained'          => esc_html__( 'Contained section', 'suki' ),
+		'default'    => array(
+			'label' => esc_html__( 'Default', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--default.svg',
+		),
+		'full-width' => array(
+			'label' => esc_html__( 'Full width', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--full-width.svg',
+		),
+		'contained'  => array(
+			'label' => esc_html__( 'Contained', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--contained.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Padding
 $key = 'footer_widgets_bar_padding';

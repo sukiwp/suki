@@ -22,16 +22,21 @@ $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width' => esc_html__( 'Full width content', 'suki' ),
+		'default'    => array(
+			'label' => esc_html__( 'Default', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
+		),
+		'full-width' => array(
+			'label' => esc_html__( 'Full width', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--full-width.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Content & sidebar layout
 $key = 'content_layout';
@@ -44,20 +49,20 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 	'choices'     => array(
 		'wide'          => array(
-			'label' => esc_html__( 'Wide', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--wide.svg',
+			'label' => esc_html__( 'No sidebar - Wide', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 		),
 		'narrow'        => array(
-			'label' => esc_html__( 'Narrow', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--narrow.svg',
+			'label' => esc_html__( 'No sidebar - Narrow', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
 		),
 		'left-sidebar'  => array(
 			'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--left-sidebar.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
 		),
 		'right-sidebar' => array(
 			'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--right-sidebar.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
 		),
 	),
 	'priority'    => 10,

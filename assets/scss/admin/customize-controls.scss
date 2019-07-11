@@ -592,16 +592,17 @@ li:not(.customize-info) div.customize-section-description {
 	.customize-control-content {
 		display: flex;
 		flex-wrap: wrap;
-		margin: -5px;
+		margin: -4px;
 
 		.suki-radioimage-item {
-			margin: 5px;
+			width: 25%;
 		}
 
 		label {
 			position: relative;
 			display: block;
 			box-sizing: border-box;
+			margin: 4px;
 			padding: 2px;
 			background-color: #999;
 			color: #fff;
@@ -622,9 +623,11 @@ li:not(.customize-info) div.customize-section-description {
 
 		img {
 			display: block;
+			width: 100%;
 		}
 
 		span {
+			max-width: 100%;
 			display: block;
 			padding: 4px 0 2px;
 			font-size: 11px;

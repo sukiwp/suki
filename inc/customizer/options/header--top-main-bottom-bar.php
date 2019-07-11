@@ -31,7 +31,6 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Merge inside Main Bar wrapper', 'suki' ),
-			'description' => esc_html__( 'If enabled, this section layout is limited inside the Main Bar content wrapper. &mdash; Main Bar must have at least 1 element. &mdash; You might need to make the Main Bar height bigger to accommodate this bar height.', 'suki' ),
 			'priority'    => 10,
 		) ) );
 
@@ -69,17 +68,25 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $key, array(
-		'type'        => 'select',
+	$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
-			'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-			'full-width'         => esc_html__( 'Full width content', 'suki' ),
-			'contained'          => esc_html__( 'Contained section', 'suki' ),
+			'default'    => array(
+				'label' => esc_html__( 'Default', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--default.svg',
+			),
+			'full-width' => array(
+				'label' => esc_html__( 'Full width', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--full-width.svg',
+			),
+			'contained'  => array(
+				'label' => esc_html__( 'Contained', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--contained.svg',
+			),
 		),
 		'priority'    => 10,
-	) );
+	) ) );
 
 	// Height
 	$key = 'header_' . $bar . '_height';

@@ -517,17 +517,18 @@ li:not(.customize-info) div.customize-section-description {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin: -5px;
+	margin: -4px;
 }
 
 .customize-control-suki-radioimage .customize-control-content .suki-radioimage-item {
-	margin: 5px;
+	width: 25%;
 }
 
 .customize-control-suki-radioimage .customize-control-content label {
 	position: relative;
 	display: block;
 	box-sizing: border-box;
+	margin: 4px;
 	padding: 2px;
 	background-color: #999;
 	color: #fff;
@@ -548,9 +549,11 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-radioimage .customize-control-content img {
 	display: block;
+	width: 100%;
 }
 
 .customize-control-suki-radioimage .customize-control-content span {
+	max-width: 100%;
 	display: block;
 	padding: 4px 0 2px;
 	font-size: 11px;

@@ -22,16 +22,21 @@ $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Posts layout', 'suki' ),
 	'choices'     => array(
-		'default' => esc_html__( 'Default', 'suki' ),
-		'grid'    => esc_html__( 'Grid', 'suki' ),
+		'default' => array(
+			'label' => esc_html__( 'Default', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--default.svg',
+		),
+		'grid'    => array(
+			'label' => esc_html__( 'Grid', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--grid.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Grid columns
 $key = 'blog_index_grid_columns';
