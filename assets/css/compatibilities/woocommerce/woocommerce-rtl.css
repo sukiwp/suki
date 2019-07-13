@@ -189,8 +189,7 @@ p.demo_store a,
 	position: relative;
 }
 
-.woocommerce .cart .quantity.suki-qty .suki-qty-minus,
-.woocommerce .cart .quantity.suki-qty .suki-qty-plus {
+.woocommerce .cart .quantity.suki-qty span.input {
 	position: absolute;
 	top: 0;
 	width: 1.5em;
@@ -205,9 +204,7 @@ p.demo_store a,
 	opacity: 0.5;
 }
 
-.woocommerce .cart .quantity.suki-qty .suki-qty-minus:hover, .woocommerce .cart .quantity.suki-qty .suki-qty-minus:focus,
-.woocommerce .cart .quantity.suki-qty .suki-qty-plus:hover,
-.woocommerce .cart .quantity.suki-qty .suki-qty-plus:focus {
+.woocommerce .cart .quantity.suki-qty span.input:hover, .woocommerce .cart .quantity.suki-qty span.input:focus {
 	opacity: 1;
 }
 

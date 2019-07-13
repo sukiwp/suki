@@ -240,8 +240,7 @@ p.demo_store,
 		&.suki-qty {
 			position: relative;
 
-			.suki-qty-minus,
-			.suki-qty-plus {
+			span.input {
 				position: absolute;
 				top: 0;
 				width: 1.5em;

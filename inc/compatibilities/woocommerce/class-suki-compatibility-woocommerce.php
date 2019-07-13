@@ -535,7 +535,6 @@ class Suki_Compatibility_WooCommerce {
 
 						$minus.innerHTML = '-';
 						$minus.classList.add( 'suki-qty-minus' );
-						$minus.classList.add( 'plain' );
 						$minus.classList.add( 'input' );
 						$minus.setAttribute( 'role', 'button' );
 						$minus.setAttribute( 'tabindex', 0 );
@@ -546,7 +545,6 @@ class Suki_Compatibility_WooCommerce {
 
 						$plus.innerHTML = '+';
 						$plus.classList.add( 'suki-qty-plus' );
-						$plus.classList.add( 'plain' );
 						$plus.classList.add( 'input' );
 						$plus.setAttribute( 'role', 'button' );
 						$plus.setAttribute( 'tabindex', 0 );
