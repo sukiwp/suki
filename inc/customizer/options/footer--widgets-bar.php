@@ -28,7 +28,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
 		'default'    => array(
-			'label' => esc_html__( 'Default', 'suki' ),
+			'label' => esc_html__( 'Normal', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--default.svg',
 		),
 		'full-width' => array(

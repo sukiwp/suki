@@ -430,7 +430,7 @@ function suki_get_theme_modules() {
 			),
 		),
 		'page-settings' => array(
-			'label'    => esc_html__( 'Dynamic Settings per Page', 'suki' ),
+			'label'    => esc_html__( 'Dynamic Page Settings', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(

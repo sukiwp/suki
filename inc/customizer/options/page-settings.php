@@ -18,6 +18,11 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$default = array();
 	}
 
+	// Get post type object.
+	if ( false !== strpos( $ps_type, '_singular' ) ) {
+		$post_type_obj = get_post_type_object( str_replace( '_singular', '', $ps_type ) );
+	}
+
 	/**
 	 * ====================================================
 	 * Content & Sidebar
@@ -39,17 +44,25 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $key, array(
-		'type'        => 'select',
+	$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
-			''           => esc_html__( 'Default', 'suki' ),
-			'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
-			'full-width' => esc_html__( 'Full width content', 'suki' ),
+			''           => array(
+				'label' => esc_html__( 'Default', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
+			),
+			'default'    => array(
+				'label' => esc_html__( 'Normal', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
+			),
+			'full-width' => array(
+				'label' => esc_html__( 'Full width', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/content-layout--full-width.svg',
+			),
 		),
 		'priority'    => 10,
-	) );
+	) ) );
 
 	// Content & sidebar layout
 	$subkey = 'content_layout';
@@ -58,19 +71,33 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'default'     => suki_array_value( $default, $subkey ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
-	$wp_customize->add_control( $key, array(
-		'type'        => 'select',
+	$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 		'choices'     => array(
-			''              => esc_html__( 'Default', 'suki' ),
-			'wide'          => esc_html__( 'Full content, no sidebar', 'suki' ),
-			'narrow'        => esc_html__( 'Narrow content, no sidebar', 'suki' ),
-			'left-sidebar'  => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
-			'right-sidebar' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+			''              => array(
+				'label' => esc_html__( 'Default', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
+			),
+			'wide'          => array(
+				'label' => esc_html__( 'Wide content', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+			),
+			'narrow'        => array(
+				'label' => esc_html__( 'Narrow content', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
+			),
+			'left-sidebar'  => array(
+				'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+			),
+			'right-sidebar' => array(
+				'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+				'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+			),
 		),
 		'priority'    => 10,
-	) );
+	) ) );
 
 	// Options specifically for singular page types.
 	if ( false !== strpos( $ps_type, '_singular' ) ) {
@@ -186,8 +213,6 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	$key = $option_key . '[' . $subkey . ']';
 	$choices = array();
 	if ( false !== strpos( $ps_type, '_singular' ) ) {
-		$post_type_obj = get_post_type_object( str_replace( '_singular', '', $ps_type ) );
-
 		/* translators: %s: plural post type name */
 		$choices['archive'] = sprintf( esc_html__( 'Same as %s archive', 'suki' ), $post_type_obj->labels->name );
 

@@ -27,7 +27,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
 		'default'    => array(
-			'label' => esc_html__( 'Default', 'suki' ),
+			'label' => esc_html__( 'Normal', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
 		),
 		'full-width' => array(
@@ -49,11 +49,11 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 	'choices'     => array(
 		'wide'          => array(
-			'label' => esc_html__( 'No sidebar - Wide', 'suki' ),
+			'label' => esc_html__( 'Wide content', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 		),
 		'narrow'        => array(
-			'label' => esc_html__( 'No sidebar - Narrow', 'suki' ),
+			'label' => esc_html__( 'Narrow content', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
 		),
 		'left-sidebar'  => array(

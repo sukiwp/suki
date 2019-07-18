@@ -446,12 +446,27 @@ class Suki_Customizer {
 			$page_sections[ $post_type . '_archive' ] = array(
 				/* translators: %s: post type's plural name. */
 				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
+				'description' => sprintf(
+					/* translators: %s: post type's plural name. */
+					esc_html__( 'These are default settings for main %s Archive page and the taxonomy archive page.', 'suki' ),
+					$post_type_obj->labels->name
+				) . '<br><br>' . sprintf(
+					/* translators: %s: post type's singular name. */
+					esc_html__( 'TIPS: You can specify different settings for each taxonomy via the Page Settings metabox available on the term edit page.', 'suki' ),
+					$post_type_obj->labels->singular_name
+				),
 			);
 			$page_sections[ $post_type . '_singular' ] = array(
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
-				/* translators: %s: post type's singular name. */
-				'description' => sprintf( esc_html__( 'These page settings would be used as default for all Single %1$s. You can override these settings via meta box on the %1$s editor.', 'suki' ), $post_type_obj->labels->singular_name ),
+				'description' => sprintf(
+					/* translators: %s: post type's singular name. */
+					esc_html__( 'These are default settings for all Single %s page.', 'suki' ),
+					$post_type_obj->labels->singular_name
+				) . '<br><br>' . sprintf(
+					esc_html__( 'TIPS: You can specify different settings for each %s via the Page Settings metabox available on the edit page.', 'suki' ),
+					$post_type_obj->labels->singular_name
+				),
 			);
 		}
 

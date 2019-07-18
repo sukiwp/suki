@@ -73,7 +73,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
 			'default'    => array(
-				'label' => esc_html__( 'Default', 'suki' ),
+				'label' => esc_html__( 'Normal', 'suki' ),
 				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--default.svg',
 			),
 			'full-width' => array(
