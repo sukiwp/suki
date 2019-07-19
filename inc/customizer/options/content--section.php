@@ -49,11 +49,11 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 	'choices'     => array(
 		'wide'          => array(
-			'label' => esc_html__( 'Wide content', 'suki' ),
+			'label' => esc_html__( 'Wide', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 		),
 		'narrow'        => array(
-			'label' => esc_html__( 'Narrow content', 'suki' ),
+			'label' => esc_html__( 'Narrow', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
 		),
 		'left-sidebar'  => array(

@@ -355,7 +355,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			case 'header':
 				?>
 				<div class="suki-admin-form-row">
-					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable main header', 'suki' ); ?></label></div>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Disable desktop header', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'disable_header';
@@ -363,9 +363,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
 							'choices'     => array(
-								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'0' => esc_html__( 'No', 'suki' ),
-								'1' => esc_html__( 'Yes', 'suki' ),
+								''  => esc_html__( '(Customizer)', 'suki' ),
+								'0' => esc_html__( '&#x2718; No', 'suki' ),
+								'1' => esc_html__( '&#x2714; Yes', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -382,9 +382,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
 							'choices'     => array(
-								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'0' => esc_html__( 'No', 'suki' ),
-								'1' => esc_html__( 'Yes', 'suki' ),
+								''  => esc_html__( '(Customizer)', 'suki' ),
+								'0' => esc_html__( '&#x2718; No', 'suki' ),
+								'1' => esc_html__( '&#x2714; Yes', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -414,9 +414,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
 							'choices'     => array(
-								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'0' => esc_html__( 'Disabled', 'suki' ),
-								'1' => esc_html__( 'Enabled', 'suki' ),
+								''  => esc_html__( '(Customizer)', 'suki' ),
+								'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
+								'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -477,11 +477,20 @@ class Suki_Admin_Metabox_Page_Settings {
 						$key = 'content_container';
 						Suki_Admin_Fields::render_field( array(
 							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
+							'type'        => 'radioimage',
 							'choices'     => array(
-								''                   => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-								'full-width'         => esc_html__( 'Full width content', 'suki' ),
+								''           => array(
+									'label' => esc_html__( '(Customizer)', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
+								),
+								'default'    => array(
+									'label' => esc_html__( 'Normal', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
+								),
+								'full-width' => array(
+									'label' => esc_html__( 'Full width', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-layout--full-width.svg',
+								),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -496,13 +505,28 @@ class Suki_Admin_Metabox_Page_Settings {
 						$key = 'content_layout';
 						Suki_Admin_Fields::render_field( array(
 							'name'        => $option_key . '[' . $key . ']',
-							'type'        => 'select',
+							'type'        => 'radioimage',
 							'choices'     => array(
-								''              => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'wide'          => esc_html__( 'Full content, no sidebar', 'suki' ),
-								'narrow'        => esc_html__( 'Narrow content, no sidebar', 'suki' ),
-								'left-sidebar'  => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
-								'right-sidebar' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+								''              => array(
+									'label' => esc_html__( '(Customizer)', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
+								),
+								'wide'          => array(
+									'label' => esc_html__( 'Wide', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+								),
+								'narrow'        => array(
+									'label' => esc_html__( 'Narrow', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
+								),
+								'left-sidebar'  => array(
+									'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+								),
+								'right-sidebar' => array(
+									'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+								),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -524,6 +548,8 @@ class Suki_Admin_Metabox_Page_Settings {
 					<?php endif; ?>
 				</div>
 
+				<hr>
+
 				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 					<div class="suki-admin-form-row">
 						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide post title', 'suki' ); ?></label></div>
@@ -534,9 +560,9 @@ class Suki_Admin_Metabox_Page_Settings {
 								'name'        => $option_key . '[' . $key . ']',
 								'type'        => 'select',
 								'choices'     => array(
-									''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-									'0' => esc_html__( 'No', 'suki' ),
-									'1' => esc_html__( 'Yes', 'suki' ),
+									''  => esc_html__( '(Customizer)', 'suki' ),
+									'0' => esc_html__( '&#x2718; No', 'suki' ),
+									'1' => esc_html__( '&#x2714; Yes', 'suki' ),
 								),
 								'value'       => suki_array_value( $values, $key ),
 							) );
@@ -553,9 +579,9 @@ class Suki_Admin_Metabox_Page_Settings {
 								'name'        => $option_key . '[' . $key . ']',
 								'type'        => 'select',
 								'choices'     => array(
-									''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-									'0' => esc_html__( 'No', 'suki' ),
-									'1' => esc_html__( 'Yes', 'suki' ),
+									''  => esc_html__( '(Customizer)', 'suki' ),
+									'0' => esc_html__( '&#x2718; No', 'suki' ),
+									'1' => esc_html__( '&#x2714; Yes', 'suki' ),
 								),
 								'value'       => suki_array_value( $values, $key ),
 							) );
@@ -578,9 +604,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
 							'choices'     => array(
-								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'0' => esc_html__( 'No', 'suki' ),
-								'1' => esc_html__( 'Yes', 'suki' ),
+								''  => esc_html__( '(Customizer)', 'suki' ),
+								'0' => esc_html__( '&#x2718; No', 'suki' ),
+								'1' => esc_html__( '&#x2714; Yes', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -597,9 +623,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
 							'choices'     => array(
-								''  => esc_html__( '-- Inherit from Customizer --', 'suki' ),
-								'0' => esc_html__( 'No', 'suki' ),
-								'1' => esc_html__( 'Yes', 'suki' ),
+								''  => esc_html__( '(Customizer)', 'suki' ),
+								'0' => esc_html__( '&#x2718; No', 'suki' ),
+								'1' => esc_html__( '&#x2714; Yes', 'suki' ),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );

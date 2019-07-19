@@ -244,6 +244,61 @@ input, select, textarea {
 	margin: 6px 0;
 }
 
+.suki-admin-radioimage-control {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin: -4px;
+}
+
+.suki-admin-radioimage-control .suki-admin-radioimage-control-item {
+	width: 88px;
+	margin: 0;
+}
+
+.suki-admin-radioimage-control label {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	margin: 4px;
+	padding: 2px;
+	background-color: #aaa;
+	color: #fff;
+	outline: 0;
+	border-radius: 3px;
+}
+
+.suki-admin-radioimage-control label:focus {
+	box-shadow: 0 0 5px #0073aa;
+}
+
+.suki-admin-radioimage-control input {
+	display: none;
+}
+
+.suki-admin-radioimage-control input:checked + label {
+	background-color: #0073aa;
+	color: #fff;
+}
+
+.suki-admin-radioimage-control img {
+	display: block;
+	width: 100%;
+	border-radius: 2px;
+	margin-bottom: 2px;
+}
+
+.suki-admin-radioimage-control span {
+	max-width: 100%;
+	display: block;
+	padding: 2px 0;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 14px;
+	text-align: center;
+}
+
 .suki-term-metabox-container {
 	background-color: #fff;
 	border: 1px solid #ddd;

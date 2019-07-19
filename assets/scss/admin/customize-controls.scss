@@ -596,6 +596,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.suki-radioimage-item {
 			width: 25%;
+			margin: 0;
 		}
 
 		label {
@@ -604,9 +605,10 @@ li:not(.customize-info) div.customize-section-description {
 			box-sizing: border-box;
 			margin: 4px;
 			padding: 2px;
-			background-color: #999;
+			background-color: #aaa;
 			color: #fff;
 			outline: 0;
+			border-radius: 3px;
 
 			&:focus {
 				box-shadow: 0 0 5px #0073aa;
@@ -619,18 +621,22 @@ li:not(.customize-info) div.customize-section-description {
 
 		input:checked + label {
 			background-color: #0073aa;
+			color: #fff;
 		}
 
 		img {
 			display: block;
 			width: 100%;
+			border-radius: 2px;
+			margin-bottom: 2px;
 		}
 
 		span {
 			max-width: 100%;
 			display: block;
-			padding: 4px 0 2px;
+			padding: 2px 0;
 			font-size: 11px;
+			font-weight: 500;
 			line-height: 14px;
 			text-align: center;
 		}

@@ -139,6 +139,55 @@ class Suki_Admin_Fields {
 	}
 
 	/**
+	 * Radio Image control
+	 *
+	 * @param array $args
+	 */
+	private static function render_radioimage( $args ) {
+		if ( ! isset( $args['name'] ) ) return;
+
+		$args = wp_parse_args( $args, array(
+			'value'        => '',
+			'label'        => '',
+			'choices'      => array(),
+			'class'        => '',
+		) );
+
+		if ( is_null( $args['value'] ) ) {
+			$args['value'] = '';
+		}
+		?>
+		<ul class="suki-admin-radioimage-control <?php echo esc_attr( $args['class'] ); ?>">
+			<?php
+			foreach ( $args['choices'] as $choice_value => $choice_data ) {
+				if ( ! is_array( $choice_data ) ) {
+					continue;
+				}
+
+				$choice_data = wp_parse_args( $choice_data, array(
+					'label' => '',
+					'image' => '',
+				) );
+
+				$id = $args['name'] . '--' . $choice_value;
+				?>
+				<li class="suki-admin-radioimage-control-item">
+					<input type="radio" name="<?php echo esc_attr( $args['name'] ); ?>" id="<?php echo esc_attr( $id ); ?>" <?php echo esc_attr( $choice_value === $args['value'] ? 'checked' : '' ); ?>>
+					<label for="<?php echo esc_attr( $id ); ?>">
+						<?php if ( ! empty( $choice_data['image'] ) ) : ?>
+							<img src="<?php echo esc_url( $choice_data['image'] ); ?>" alt="<?php echo esc_attr( $choice_data['label'] ); ?>">
+						<?php endif; ?>
+						<span><?php echo esc_html( $choice_data['label'] ); ?></span>
+					</label>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
+		<?php
+	}
+
+	/**
 	 * Color control
 	 *
 	 * @param array $args

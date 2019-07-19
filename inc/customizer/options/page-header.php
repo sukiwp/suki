@@ -25,11 +25,6 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Enable Page Header', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: link to "Page Settings" section. */
-		esc_html__( 'This is global default setting, optionally you can enable / disable Page Header for each page type via %s.', 'suki' ),
-		'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
-	),
 	'priority'    => 10,
 ) ) );
 

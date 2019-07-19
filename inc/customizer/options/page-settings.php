@@ -49,7 +49,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'label'       => esc_html__( 'Layout', 'suki' ),
 		'choices'     => array(
 			''           => array(
-				'label' => esc_html__( 'Default', 'suki' ),
+				'label' => esc_html__( '(Default)', 'suki' ),
 				'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
 			),
 			'default'    => array(
@@ -76,15 +76,15 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 		'choices'     => array(
 			''              => array(
-				'label' => esc_html__( 'Default', 'suki' ),
+				'label' => esc_html__( '(Default)', 'suki' ),
 				'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
 			),
 			'wide'          => array(
-				'label' => esc_html__( 'Wide content', 'suki' ),
+				'label' => esc_html__( 'Wide', 'suki' ),
 				'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 			),
 			'narrow'        => array(
-				'label' => esc_html__( 'Narrow content', 'suki' ),
+				'label' => esc_html__( 'Narrow', 'suki' ),
 				'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
 			),
 			'left-sidebar'  => array(
@@ -201,9 +201,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'section'     => $section,
 		'label'       => esc_html__( 'Page header', 'suki' ),
 		'choices'     => array(
-			''  => esc_html__( 'Default', 'suki' ),
-			'0' => esc_html__( 'Disabled', 'suki' ),
-			'1' => esc_html__( 'Enabled', 'suki' ),
+			''  => esc_html__( '(Default)', 'suki' ),
+			'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
+			'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 		),
 		'priority'    => 30,
 	) );
@@ -232,7 +232,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'section'     => $section,
 		'label'       => esc_html__( 'Page header background image', 'suki' ),
 		'choices'     => array_merge(
-			array( '' => esc_html__( 'Default', 'suki' ) ),
+			array( '' => esc_html__( '(Default)', 'suki' ) ),
 			$choices
 		),
 		'priority'    => 30,

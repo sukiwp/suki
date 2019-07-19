@@ -24,6 +24,13 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
+		foreach ( $this->choices as $choice_value => $choice_data ) {
+			$this->choices[ $choice_value ] = wp_parse_args( $choice_data, array(
+				'label' => '',
+				'image' => '',
+			) );
+		}
+
 		$this->json['name'] = $this->id;
 		$this->json['choices'] = $this->choices;
 		$this->json['value'] = $this->value();
@@ -47,7 +54,9 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 				<div class="suki-radioimage-item">
 					<input type="radio" id="{{ data.name + '--' + value }}" class="suki-radioimage-input" name="{{ data.name }}" value="{{ value }}" {{ value === data.value ? 'checked' : '' }}>
 					<label for="{{ data.name + '--' + value }}" tabindex="0">
-						<img src="{{ choice.image }}" alt="{{ choice.label }}">
+						<# if ( choice.image ) { #>
+							<img src="{{ choice.image }}" alt="{{ choice.label }}">
+						<# } #>
 						<span>{{{ choice.label }}}</span>
 					</label>
 				</div>
