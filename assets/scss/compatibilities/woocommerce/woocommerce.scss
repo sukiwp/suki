@@ -3184,7 +3184,7 @@ p.demo_store,
 		.product-thumbnail {
 			// min-width: 32px;
 			// min-width: 3rem;
-			width: 8rem;
+			width: 7rem;
 			// text-align: center;
 		}
 
@@ -3206,7 +3206,7 @@ p.demo_store,
 
 		img {
 			// width: 32px;
-			max-width: 6rem;
+			// max-width: 6rem;
 			// vertical-align: middle;
 			// box-shadow: none;
 		}
@@ -3302,12 +3302,13 @@ p.demo_store,
 
 				.product-thumbnail {
 					order: 1;
-					width: 4rem;
+					width: 5rem;
+					padding-right: 0;
 				}
 
 				.product-name {
 					order: 2;
-					width: calc( 100% - 4rem - 3rem );
+					width: calc( 100% - 5rem - 3rem );
 					text-align: unset !important;
 					flex-wrap: wrap;
 
@@ -3324,7 +3325,7 @@ p.demo_store,
 
 					&:before {
 						display: inline-block;
-						content: "x";
+						content: "×";
 						font-weight: inherit;
 						margin: 0 0.5rem 0 -0.8rem;
 					}
