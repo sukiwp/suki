@@ -628,7 +628,6 @@ li:not(.customize-info) div.customize-section-description {
 			display: block;
 			width: 100%;
 			border-radius: 2px;
-			margin-bottom: 2px;
 		}
 
 		span {
@@ -639,6 +638,10 @@ li:not(.customize-info) div.customize-section-description {
 			font-weight: 500;
 			line-height: 14px;
 			text-align: center;
+		}
+
+		img + span {
+			margin-top: 2px;
 		}
 	}
 }

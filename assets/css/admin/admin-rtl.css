@@ -286,7 +286,6 @@ input, select, textarea {
 	display: block;
 	width: 100%;
 	border-radius: 2px;
-	margin-bottom: 2px;
 }
 
 .suki-admin-radioimage-control span {
@@ -297,6 +296,10 @@ input, select, textarea {
 	font-weight: 500;
 	line-height: 14px;
 	text-align: center;
+}
+
+.suki-admin-radioimage-control img + span {
+	margin-top: 2px;
 }
 
 .suki-term-metabox-container {

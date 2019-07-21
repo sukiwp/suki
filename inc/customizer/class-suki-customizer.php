@@ -249,9 +249,9 @@ class Suki_Customizer {
 	 * Enqueue customizer preview scripts & styles.
 	 */
 	public function enqueue_preview_scripts() {
-		wp_enqueue_script( 'suki-customize-postmessages', SUKI_JS_URL . '/admin/customize-postmessages.js', array( 'customize-preview' ), SUKI_VERSION, true );
+		wp_enqueue_script( 'suki-customize-preview', SUKI_JS_URL . '/admin/customize-preview.js', array( 'customize-preview' ), SUKI_VERSION, true );
 		
-		wp_localize_script( 'suki-customize-postmessages', 'sukiCustomizerPreviewData', array(
+		wp_localize_script( 'suki-customize-preview', 'sukiCustomizerPreviewData', array(
 			'postMessages' => $this->get_setting_postmessages(),
 			'fonts'        => suki_get_all_fonts(),
 		) );

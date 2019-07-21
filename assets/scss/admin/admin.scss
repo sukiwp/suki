@@ -311,7 +311,6 @@ input, select, textarea {
 		display: block;
 		width: 100%;
 		border-radius: 2px;
-		margin-bottom: 2px;
 	}
 
 	span {
@@ -322,6 +321,10 @@ input, select, textarea {
 		font-weight: 500;
 		line-height: 14px;
 		text-align: center;
+	}
+
+	img + span {
+		margin-top: 2px;
 	}
 }
 

@@ -175,9 +175,11 @@ class Suki_Admin_Fields {
 					<input type="radio" name="<?php echo esc_attr( $args['name'] ); ?>" id="<?php echo esc_attr( $id ); ?>" <?php echo esc_attr( $choice_value === $args['value'] ? 'checked' : '' ); ?>>
 					<label for="<?php echo esc_attr( $id ); ?>">
 						<?php if ( ! empty( $choice_data['image'] ) ) : ?>
-							<img src="<?php echo esc_url( $choice_data['image'] ); ?>" alt="<?php echo esc_attr( $choice_data['label'] ); ?>">
+							<img src="<?php echo esc_url( $choice_data['image'] ); ?>">
 						<?php endif; ?>
-						<span><?php echo esc_html( $choice_data['label'] ); ?></span>
+						<?php if ( ! empty( $choice_data['label'] ) ) : ?>
+							<span><?php echo esc_html( $choice_data['label'] ); ?></span>
+						<?php endif; ?>
 					</label>
 				</li>
 				<?php

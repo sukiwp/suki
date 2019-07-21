@@ -55,9 +55,11 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 					<input type="radio" id="{{ data.name + '--' + value }}" class="suki-radioimage-input" name="{{ data.name }}" value="{{ value }}" {{ value === data.value ? 'checked' : '' }}>
 					<label for="{{ data.name + '--' + value }}" tabindex="0">
 						<# if ( choice.image ) { #>
-							<img src="{{ choice.image }}" alt="{{ choice.label }}">
+							<img src="{{ choice.image }}">
 						<# } #>
-						<span>{{{ choice.label }}}</span>
+						<# if ( choice.label ) { #>
+							<span>{{{ choice.label }}}</span>
+						<# } #>
 					</label>
 				</div>
 			<# }); #>
