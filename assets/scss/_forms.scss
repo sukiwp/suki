@@ -67,7 +67,7 @@ select[multiple] {
 // Select2
 // -------------------------------------------------------------
 
-.select2-container {
+span.select2-container {
 	display: block;
 
 	.selection {
@@ -104,23 +104,24 @@ select[multiple] {
 	.select2-dropdown {
 		@include border();
 		border-color: inherit;
+		overflow: hidden;
 
 		.select2-search {
-			padding: 6px;
+			padding: 0px;
 			@include border( bottom );
-			border-color: inherit;
 
 			.select2-search__field {
 				border: none;
 				border-radius: 0;
-				padding: 0;
+				padding: 0.5em;
 			}
 		}
 
 		.select2-results {
-			padding: 0.5em 0;
-
 			.select2-results__option {
+				padding: 0.5em;
+				line-height: normal;
+
 				&--highlighted {
 					background-color: rgba(0,0,0,0.025);
 					color: inherit;
