@@ -195,6 +195,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--title.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--small-title.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--meta.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--line-subtle.php' );
 
 		// Layout
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-container.php' );
@@ -351,8 +352,8 @@ class Suki_Customizer {
 			'text'              => '#666666',
 			'heading'           => '#333333',
 			'meta'              => '#bbbbbb',
-			'subtle'            => '#f6f6f6',
-			'border'            => '#e5e5e5',
+			'subtle'            => 'rgba(0,0,0,0.025)',
+			'border'            => 'rgba(0,0,0,0.1)',
 		) );
 	}
 

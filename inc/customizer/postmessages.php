@@ -66,6 +66,13 @@ $add['body_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
+/**
+ * ====================================================
+ * General Styles > Border & Subtle Background
+ * ====================================================
+ */
+
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',

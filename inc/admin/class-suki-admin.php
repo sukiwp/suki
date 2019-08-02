@@ -66,7 +66,7 @@ class Suki_Admin {
 
 		// Suki admin page hooks
 		add_action( 'suki/admin/dashboard/header', array( $this, 'render_admin_page__logo' ), 10 );
-		add_action( 'suki/admin/dashboard/content', array( $this, 'render_admin_page__modules' ), 20 );
+		add_action( 'suki/admin/dashboard/content', array( $this, 'render_admin_page__modules' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__links' ), 20 );
 		
@@ -628,123 +628,6 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Render pro modules table on Suki admin page.
-	 */
-	public function render_content__customizing() {
-		$menus = array(
-			array(
-				'label'  => esc_html__( 'General Styles', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_general_styles' ), admin_url( 'customize.php' ) ),
-				'icon'   => 'dashicons-editor-textcolor',
-			),
-			array(
-				'label'  => esc_html__( 'Page Canvas Layout', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[section]' => 'suki_section_page_container' ), admin_url( 'customize.php' ) ),
-				'icon'   => 'dashicons-welcome-widgets-menus',
-			),
-			array(
-				'label'  => esc_html__( 'Content & Sidebar Layout', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_content' ), admin_url( 'customize.php' ) ),
-				'icon'   => 'dashicons-feedback',
-			),
-			array(
-				'label'  => esc_html__( 'Header Layout', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_header' ), admin_url( 'customize.php' ) ),
-				'icon'   => 'dashicons-admin-generic',
-			),
-			array(
-				'label'  => esc_html__( 'Footer Layout', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_footer' ), admin_url( 'customize.php' ) ),
-				'icon'   => 'dashicons-admin-generic',
-			),
-			array(
-				'label'  => esc_html__( 'Blog Layout', 'suki' ),
-				'url'    => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_blog' ), admin_url( 'customize.php' ) ),
-				'icon'   => 'dashicons-welcome-write-blog',
-			),
-		);
-		?>
-		<div class="suki-admin-start-customizing postbox">
-			<h2 class="hndle"><?php esc_html_e( 'Customizer Quick Links', 'suki' ); ?></h2>
-			<div class="inside">
-				<ul class="suki-admin-start-customizing-col suki-admin-links-list">
-					<?php foreach ( $menus as $menu ) : ?>
-						<li><span class="dashicons <?php echo esc_attr( $menu['icon'] ); ?>"></span><a href="<?php echo esc_url( $menu['url'] ); ?>"><?php echo esc_html( $menu['label'] ); ?></a></li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Render pro modules table on Suki admin page.
-	 */
-	public function render_content__pro_modules() {
-		?>
-		<div class="suki-admin-pro-modules postbox">
-			<h2 class="hndle">
-				<?php echo wp_kses_post( apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'More Features Available', 'suki' ) . '<span>' . esc_html__( 'Suki Pro', 'suki' ) . '</span>' ) ); ?>
-			</h2>
-			<div class="inside">
-				<?php
-				/**
-				 * Hook: suki/admin/dashboard/pro_modules/before_list
-				 */
-				do_action( 'suki/admin/dashboard/pro_modules/before_list' );
-
-				/**
-				 * Pro modules list
-				 */
-
-				// Get all pro modules list.
-				$modules = suki_get_pro_modules();
-
-				// Get active modules from DB.
-				$active_modules = get_option( 'suki_pro_active_modules', array() );
-				?>
-				<table class="suki-admin-pro-table widefat plugins">
-					<tbody>
-						<?php foreach( $modules as $module_slug => $module_data ) : ?>
-							<?php if ( intval( suki_array_value( $module_data, 'hide' ) ) ) {
-								continue;
-							} ?>
-							<tr class="suki-admin-pro-table-item <?php echo esc_attr( suki_is_pro() && suki_array_value( $module_data, 'active' ) ? 'active' : 'inactive' ); ?>">
-								<th class="check-column"></th>
-								<td class="suki-admin-pro-table-item-name plugin-title column-primary">
-									<span><?php echo suki_array_value( $module_data, 'label' ); // WPCS: XSS OK ?></span>
-								</td>
-								<td class="suki-admin-pro-table-item-actions column-description desc">
-									<?php if ( ! suki_is_pro() ) : ?>
-
-										<a href="<?php echo esc_url( suki_array_value( $module_data, 'url' ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Learn more', 'suki' ); ?></a>
-
-									<?php elseif ( 0 < count( suki_array_value( $module_data, 'actions' ) ) ) : ?>
-
-										<?php
-										foreach( suki_array_value( $module_data, 'actions' ) as $action_key => $action_data ) :
-											if ( isset( $action_data['url'] ) ) :
-											?>
-												<a href="<?php echo esc_url( suki_array_value( $action_data, 'url' ) ); ?>"><?php echo suki_array_value( $action_data, 'label' ); // WPCS: XSS OK ?></a>
-											<?php else : ?>
-												<span class="suki-admin-pro-table-item-unavailable"><?php echo esc_html( $action_data['label'] ); ?></span>
-											<?php
-											endif;
-										endforeach;
-										?>
-
-									<?php endif; ?>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<?php
-	}
-
-	/**
 	 * Render modules manager on Suki admin page.
 	 */
 	public function render_admin_page__modules() {
@@ -771,7 +654,7 @@ class Suki_Admin {
 
 			// Add to collection.
 			if ( ! empty( $data['category'] ) ) {
-				$all_modules[ $data['category'] ][] = $data;
+				$all_modules[ $data['category'] ][ $module_slug ] = $data;
 			}
 		}
 
@@ -792,7 +675,7 @@ class Suki_Admin {
 
 			// Add to collection.
 			if ( ! empty( $data['category'] ) ) {
-				$all_modules[ $data['category'] ][] = $data;
+				$all_modules[ $data['category'] ][ $module_slug ] = $data;
 			}
 		}
 
@@ -809,7 +692,7 @@ class Suki_Admin {
 						continue;
 					}
 					?>
-					<h3 class="suki-admin-modules-category"><?php echo esc_html( $module_categories[ $category_slug ] ); ?></h3>
+					<h3 class="suki-admin-modules-category <?php echo esc_attr( 'suki-admin-modules-category--' . $category_slug ); ?>"><?php echo esc_html( $module_categories[ $category_slug ] ); ?></h3>
 					<ul class="suki-admin-modules-grid">
 						<?php foreach ( $category_modules as $module_slug => $module_data ) : ?>
 							<?php
@@ -817,38 +700,55 @@ class Suki_Admin {
 							if ( intval( $module_data['hide'] ) ) {
 								continue;
 							}
+
+							// Add note all pro modules "Available on Suki Pro".
+							if ( $module_data['pro'] && ! suki_is_pro() ) {
+								$module_data['actions'] = array(
+									'available-on-suki-pro' => array(
+										'label' => esc_html__( 'Available on Suki Pro', 'suki-pro' ),
+									),
+								);
+
+								$module_data['active'] = false;
+							}
+
+							// Check WooCommerce modules.
+							if ( 'woocommerce' === $category_slug && ! class_exists( 'WooCommerce' ) ) {
+								$module_data['actions'] = array(
+									'woocommerce-not-found' => array(
+										'label' => esc_html__( 'WooCommerce is not installed', 'suki-pro' ),
+									),
+								);
+
+								$module_data['active'] = false;
+							}
 							?>
-							<li class="suki-admin-module <?php echo esc_attr( ( $module_data['pro'] ? 'pro' : 'free' ) . ' ' . ( $module_data['active'] ? 'active' : 'inactive' ) ); ?>">
+							<li id="<?php echo esc_attr( 'suki-admin-module--' . $module_slug ); ?>" class="suki-admin-module <?php echo esc_attr( ( $module_data['pro'] ? 'pro' : 'free' ) . ' ' . ( $module_data['active'] ? 'active' : 'inactive' ) ); ?>">
 								<div class="suki-admin-module-inner">
 									<h4 class="suki-admin-module-name">
 										<?php if ( ! empty( $module_data['url'] ) ) : ?>
 											<a href="<?php echo esc_html( $module_data['url'] ); ?>" target="_blank" rel="noopener">
-												<?php echo esc_html( $module_data['label'] ); ?>
-												<span class="suki-admin-module-badge-pro"><?php esc_html_e( 'Pro', 'suki' ); ?></span>
+												<span><?php echo esc_html( $module_data['label'] ); ?></span>
 											</a>
 										<?php else : ?>
 											<span><?php echo esc_html( $module_data['label'] ); ?></span>
 										<?php endif; ?>
+
+										<?php if ( $module_data['pro'] ) : ?>
+											<span class="suki-admin-module-badge-pro"><?php esc_html_e( 'Pro', 'suki' ); ?></span>
+										<?php endif; ?>
 									</h4>
 
 									<div class="suki-admin-module-actions row-actions">
-										<?php if ( $module_data['pro'] && ! suki_is_pro() ) : ?>
-
-											<span class="description"><?php esc_html_e( 'Available on Suki Pro', 'suki' ); ?></span>
-
-										<?php elseif ( 0 < count( $module_data['actions'] ) ) : ?>
-
-											<?php foreach( $module_data['actions'] as $action_key => $action_data ) : ?>
-												<span class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
-													<?php if ( isset( $action_data['url'] ) ) : ?>
-														<a href="<?php echo esc_url( $action_data['url'] ); ?>"><?php echo esc_html( $action_data['label'] ); ?></a>
-													<?php else : ?>
-														<span class="description"><?php echo esc_html( $action_data['label'] ); ?></span>
-													<?php endif; ?>
-												</span>
-											<?php endforeach; ?>
-
-										<?php endif; ?>
+										<?php foreach( $module_data['actions'] as $action_key => $action_data ) : ?>
+											<span class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
+												<?php if ( isset( $action_data['url'] ) ) : ?>
+													<a href="<?php echo esc_url( $action_data['url'] ); ?>"><?php echo esc_html( $action_data['label'] ); ?></a>
+												<?php else : ?>
+													<span><?php echo esc_html( $action_data['label'] ); ?></span>
+												<?php endif; ?>
+											</span>
+										<?php endforeach; ?>
 									</div>
 								</div>
 							</li>

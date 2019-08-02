@@ -84,6 +84,13 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
+	// Border & Subtle Background
+	$wp_customize->add_section( 'suki_section_line_subtle', array(
+		'title'       => esc_html__( 'Border & Subtle Background', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
 	// Link
 	$wp_customize->add_section( 'suki_section_link', array(
 		'title'       => esc_html__( 'Link', 'suki' ),

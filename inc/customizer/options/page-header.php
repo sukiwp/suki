@@ -16,6 +16,19 @@ $section = 'suki_section_page_header';
  * ====================================================
  */
 
+// Notice Dynamic Page Settings
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_page_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . sprintf(
+		/* translators: %1$s: section name, %2$s: link to Dynamic Page Settings. */
+		esc_html__( 'You can set different %1$s setting on each page using the %2$s.', 'suki' ),
+		esc_html__( 'Page Header', 'suki' ),
+		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Dynamic Page Settings', 'suki' ) . '</a>'
+	) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Enable Page Header
 $key = 'page_header';
 $wp_customize->add_setting( $key, array(

@@ -36,6 +36,12 @@ $add['body_letter_spacing'] = '';
 
 $add['body_text_color'] = $colors['text'];
 
+/**
+ * ====================================================
+ * General Styles > Border & Subtle Background
+ * ====================================================
+ */
+
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];
 

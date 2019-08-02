@@ -649,14 +649,48 @@ input, select, textarea {
 
 .suki-admin-modules {
 	&-category {
-		font-size: 12px;
-		margin: 0 -15px;
+		margin: 25px -15px 0;
 		padding: 12px 15px;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1.4;
 		text-transform: uppercase;
+		color: inherit;
 		background-color: #f9f9f9;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
 
 		&:first-child {
+			border-top: none;
 			margin-top: -15px;
+		}
+
+		&:before {
+			font-family: "dashicons";
+			display: inline-block;
+			margin: -0.3em 0.5em -0.2em 0;
+			font-size: 1.75em;
+			font-weight: normal;
+			line-height: 1;
+			vertical-align: middle;
+			text-align: center;
+			opacity: 0.5;
+		}
+
+		&--layout:before {
+			content: "\f111";
+		}
+
+		&--assets:before {
+			content: "\f120";
+		}
+
+		&--blog:before {
+			content: "\f119";
+		}
+
+		&--woocommerce:before {
+			content: "\f174";
 		}
 	}
 
@@ -683,7 +717,7 @@ input, select, textarea {
 			&-inner {
 				position: relative;
 				height: 100%;
-				padding: 10px 40px 10px 14px;
+				padding: 10px 35px 10px 14px;
 				background-color: #fff;
 				border: 1px solid #e5e5e5;
 				box-shadow: 0 1px 1px rgba(0,0,0,0.04);
@@ -705,20 +739,23 @@ input, select, textarea {
 
 			.suki-admin-module-badge-pro {
 				display: inline-block;
-				padding: 3px 5px;
-				margin-left: 2px;
-				font-size: 8px;
-				font-weight: 500;
+				padding: 2px 4px;
+				margin: -0.25em 0 0 0.25em;
+				font-size: 9px;
+				font-weight: 400;
 				line-height: 1;
 				text-transform: uppercase;
-				background-color: #ee5253;
-				color: #fff;
+				vertical-align: middle;
+				background-color: rgba(0,0,0,0.075);
+				color: #666;
+				border-radius: 2px;
 			}
 
 			&-actions {
 				position: static;
 				min-height: 22px;
 				padding-top: 4px;
+				color: #999;
 
 				> *:not(:first-child) {
 					&:before {
@@ -727,20 +764,19 @@ input, select, textarea {
 					}
 				}
 
-				span.description {
-					color: #999;
-					font-style: normal;
-				}
-
 				.suki-admin-module-action--activate,
 				.suki-admin-module-action--deactivate {
+					position: absolute;
+					top: 0;
+					right: 0;
+					display: block;
+					margin: 12px 10px;
+
 					> * {
-						position: absolute;
-						top: 0;
-						right: 0;
-						width: 26px;
+						position: relative;
+						display: block;
+						width: 25px;
 						height: 16px;
-						margin: 11px 8px 0 0;
 						border-radius: 8px;
 						text-indent: -9999em;
 
@@ -763,7 +799,7 @@ input, select, textarea {
 
 				.suki-admin-module-action--activate {
 					> * {
-						background-color: #999;
+						background-color: #ccc;
 
 						&:after {
 							left: 0;
@@ -773,7 +809,7 @@ input, select, textarea {
 
 				.suki-admin-module-action--deactivate {
 					> * {
-						background-color: #00a0d2;
+						background-color: #46b450;
 
 						&:after {
 							right: 0;

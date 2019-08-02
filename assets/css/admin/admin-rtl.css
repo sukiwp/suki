@@ -640,15 +640,49 @@ input, select, textarea {
 }
 
 .suki-admin-modules-category {
-	font-size: 12px;
-	margin: 0 -15px;
+	margin: 25px -15px 0;
 	padding: 12px 15px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
 	text-transform: uppercase;
+	color: inherit;
 	background-color: #f9f9f9;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 }
 
 .suki-admin-modules-category:first-child {
+	border-top: none;
 	margin-top: -15px;
+}
+
+.suki-admin-modules-category:before {
+	font-family: "dashicons";
+	display: inline-block;
+	margin: -0.3em 0 -0.2em 0.5em;
+	font-size: 1.75em;
+	font-weight: normal;
+	line-height: 1;
+	vertical-align: middle;
+	text-align: center;
+	opacity: 0.5;
+}
+
+.suki-admin-modules-category--layout:before {
+	content: "\f111";
+}
+
+.suki-admin-modules-category--assets:before {
+	content: "\f120";
+}
+
+.suki-admin-modules-category--blog:before {
+	content: "\f119";
+}
+
+.suki-admin-modules-category--woocommerce:before {
+	content: "\f174";
 }
 
 .suki-admin-modules-grid {
@@ -679,7 +713,7 @@ input, select, textarea {
 .suki-admin-modules-grid .suki-admin-module-inner {
 	position: relative;
 	height: 100%;
-	padding: 10px 14px 10px 40px;
+	padding: 10px 14px 10px 35px;
 	background-color: #fff;
 	border: 1px solid #e5e5e5;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
@@ -701,20 +735,23 @@ input, select, textarea {
 
 .suki-admin-modules-grid .suki-admin-module .suki-admin-module-badge-pro {
 	display: inline-block;
-	padding: 3px 5px;
-	margin-right: 2px;
-	font-size: 8px;
-	font-weight: 500;
+	padding: 2px 4px;
+	margin: -0.25em 0.25em 0 0;
+	font-size: 9px;
+	font-weight: 400;
 	line-height: 1;
 	text-transform: uppercase;
-	background-color: #ee5253;
-	color: #fff;
+	vertical-align: middle;
+	background-color: rgba(0, 0, 0, 0.075);
+	color: #666;
+	border-radius: 2px;
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions {
 	position: static;
 	min-height: 22px;
 	padding-top: 4px;
+	color: #999;
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions > *:not(:first-child):before {
@@ -722,19 +759,21 @@ input, select, textarea {
 	margin: 0 0.25em;
 }
 
-.suki-admin-modules-grid .suki-admin-module-actions span.description {
-	color: #999;
-	font-style: normal;
+.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate,
+.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	margin: 12px 10px;
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate > *,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate > * {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 26px;
+	position: relative;
+	display: block;
+	width: 25px;
 	height: 16px;
-	margin: 11px 0 0 8px;
 	border-radius: 8px;
 	text-indent: -9999em;
 }
@@ -757,7 +796,7 @@ input, select, textarea {
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate > * {
-	background-color: #999;
+	background-color: #ccc;
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate > *:after {
@@ -765,7 +804,7 @@ input, select, textarea {
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate > * {
-	background-color: #00a0d2;
+	background-color: #46b450;
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--deactivate > *:after {

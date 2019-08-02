@@ -48,12 +48,22 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'priority'    => 60,
 ) ) );
 
+// Product Images
+$wp_customize->get_section( 'woocommerce_product_images' )->priority = 61;
+
 // Products Grid
 $wp_customize->add_section( 'woocommerce_products_grid', array(
 	'title'       => esc_html__( 'Products Grid', 'suki' ),
 	'description' => esc_html__( 'Global styles for products grid as used in main product catalog page, related products, up-sells, cross-sells, and products shortcodes.', 'suki' ),
 	'panel'       => $panel,
-	'priority'    => 61,
+	'priority'    => 62,
+) );
+
+// Other Elements
+$wp_customize->add_section( 'suki_section_woocommerce_elements', array(
+	'title'       => esc_html__( 'Other Elements', 'suki' ),
+	'panel'       => $panel,
+	'priority'    => 63,
 ) );
 
 // ------
@@ -61,16 +71,6 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'panel'       => $panel,
 	'priority'    => 70,
 ) ) );
-
-// Product Images
-$wp_customize->get_section( 'woocommerce_product_images' )->priority = 71;
-
-// Other Elements
-$wp_customize->add_section( 'suki_section_woocommerce_elements', array(
-	'title'       => esc_html__( 'Other Elements', 'suki' ),
-	'panel'       => $panel,
-	'priority'    => 72,
-) );
 
 if ( suki_show_pro_teaser() ) {
 	// ------

@@ -66,38 +66,3 @@ foreach ( $colors as $key => $label ) {
 		'priority'    => 10,
 	) ) );
 }
-
-// Heading: Other global colors
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_other_colors', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Other global colors', 'suki' ),
-	'priority'    => 30,
-) ) );
-
-// Line / border color
-$key = 'border_color';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Line / border color', 'suki' ),
-	'priority'    => 30,
-) ) );
-
-// Subtle color
-$key = 'subtle_color';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Subtle color', 'suki' ),
-	'description' => esc_html__( 'Used on &lt;code&gt;, &lt;pre&gt;, tagclouds, and archive title.', 'suki' ),
-	'priority'    => 30,
-) ) );

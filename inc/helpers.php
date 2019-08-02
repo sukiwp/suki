@@ -441,7 +441,7 @@ function suki_get_theme_modules() {
 		),
 
 		'general-styles' => array(
-			'label'    => esc_html__( 'General Styles', 'suki' ),
+			'label'    => esc_html__( 'General Typography & Colors', 'suki' ),
 			'category' => 'assets',
 			'actions'  => array(
 				'settings' => array(
@@ -560,32 +560,26 @@ function suki_get_pro_modules() {
 			'category' => 'assets',
 			'url'      => esc_url( $url . '#pro-custom-icons' ),
 		),
-		// 'color-palette' => array(
-		// 	'label'    => esc_html__( 'Color Palette', 'suki' ),
-		// 	'category' => 'assets',
-		// 	'url'      => esc_url( $url . '#pro-color-palette' ),
-		// ),
+		'color-palette' => array(
+			'label'    => esc_html__( 'Color Palette', 'suki' ),
+			'category' => 'assets',
+			'url'      => esc_url( $url . '#pro-color-palette' ),
+		),
 		'white-label' => array(
 			'label'    => esc_html__( 'White Label', 'suki' ),
 			'category' => 'assets',
 			'url'      => esc_url( $url . '#pro-white-label' ),
 		),
 
-		// 'blog-advanced' => array(
-		// 	'label'    => esc_html__( 'Advanced Blog', 'suki' ),
-		// 	'category' => 'blog',
-		// 	'url'      => esc_url( $url . '#pro-blog-advanced' ),
-		// ),
-		// 'woocommerce-advanced' => array(
-		// 	'label'    => esc_html__( 'Advanced WooCommerce', 'suki' ),
-		// 	'category' => 'woocommerce',
-		// 	'url'      => esc_url( $url . '#pro-woocommerce-advanced' ),
-		// ),
-
 		'woocommerce-plus' => array(
 			'label'    => esc_html__( 'WooCommerce Layout Plus', 'suki' ),
 			'category' => 'woocommerce',
 			'url'      => esc_url( $url . '#pro-woocommerce-styles-plus' ),
+		),
+		'woocommerce-ajax-add-to-cart' => array(
+			'label'    => esc_html__( 'WooCommerce AJAX Add To Cart', 'suki' ),
+			'category' => 'woocommerce',
+			'url'      => esc_url( $url . '#pro-woocommerce-ajax-add-to-cart' ),
 		),
 		'woocommerce-quick-view' => array(
 			'label'    => esc_html__( 'WooCommerce Quick View', 'suki' ),

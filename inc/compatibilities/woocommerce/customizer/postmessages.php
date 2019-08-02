@@ -12,7 +12,27 @@ $add = array();
 
 /**
  * ====================================================
- * General Styles > Body (Base)
+ * General Styles > Border & Subtle Background
+ * ====================================================
+ */
+
+$add['subtle_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message, .woocommerce table.shop_attributes tr:nth-child(even) th, .woocommerce table.shop_attributes tr:nth-child(even) td, #add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce ul.order_details li, .woocommerce-account ol.commentlist.notes li.note',
+		'property' => 'background-color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce table.shop_table.shop_table_responsive tr:nth-child(2n) td',
+		'property' => 'background-color',
+		'media'    => '@media screen and (max-width: 767px)',
+	),
+);
+
+/**
+ * ====================================================
+ * General Styles > Link
  * ====================================================
  */
 
@@ -48,19 +68,6 @@ $add['link_hover_text_color'] = array(
 		'type'     => 'css',
 		'element'  => '.woocommerce .woocommerce-error .button:hover, .woocommerce .woocommerce-error .button:focus, .woocommerce .woocommerce-info .button:hover, .woocommerce .woocommerce-info .button:focus, .woocommerce .woocommerce-message .button:hover, .woocommerce .woocommerce-message .button:focus',
 		'property' => 'color',
-	),
-);
-$add['subtle_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message, .woocommerce table.shop_attributes tr:nth-child(even) th, .woocommerce table.shop_attributes tr:nth-child(even) td, #add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce ul.order_details li, .woocommerce-account ol.commentlist.notes li.note',
-		'property' => 'background-color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce table.shop_table.shop_table_responsive tr:nth-child(2n) td',
-		'property' => 'background-color',
-		'media'    => '@media screen and (max-width: 767px)',
 	),
 );
 

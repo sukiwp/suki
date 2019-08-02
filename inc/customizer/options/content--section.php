@@ -16,6 +16,19 @@ $section = 'suki_section_content';
  * ====================================================
  */
 
+// Notice Dynamic Page Settings
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_content_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . sprintf(
+		/* translators: %1$s: section name, %2$s: link to Dynamic Page Settings. */
+		esc_html__( 'You can set different %1$s setting on each page using the %2$s.', 'suki' ),
+		esc_html__( 'Content Section', 'suki' ),
+		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Dynamic Page Settings', 'suki' ) . '</a>'
+	) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Layout
 $key = 'content_container';
 $wp_customize->add_setting( $key, array(
@@ -64,18 +77,6 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
 		),
-	),
-	'priority'    => 10,
-) ) );
-
-// Notice overridable via page settings
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_override_content_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'description' => sprintf(
-		/* translators: %s: link to "Page Settings" section. */
-		esc_html__( 'Settings above are global default, optionally you can set different layout for each page type via %s.', 'suki' ),
-		'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
 	),
 	'priority'    => 10,
 ) ) );
