@@ -44,12 +44,12 @@ class Suki {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 1 );
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
 		add_action( 'init', array( $this, 'setup_theme_info' ), 1 );
+		add_action( 'init', array( $this, 'check_theme_version' ), 1 );
 
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -150,7 +150,13 @@ class Suki {
 		// If current version is larger than DB version, update DB version and run migration (if any).
 		if ( version_compare( $db_version, $files_version, '<' ) ) {
 			// Run through each "to-do" migration list step by step.
-			foreach ( $this->get_migration_checkpoints( $db_version ) as $migration_version ) {
+			foreach ( $this->get_migration_checkpoints() as $migration_version ) {
+				// Skip migration checkpoints that are less than DB version.
+				// OR greater than current theme files version (to make sure the migration doesn't run while on development phase).
+				if ( version_compare( $migration_version, $db_version, '<' ) || version_compare( $migration_version, $files_version, '>' ) ) {
+					continue;
+				}
+
 				// Include migration functions.
 				$file = SUKI_INCLUDES_DIR . '/migrations/class-suki-migrate-' . $migration_version . '.php';
 
@@ -471,6 +477,7 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
+			'suki-pro' => 'Suki_Pro',
 			'contact-form-7' => 'WPCF7',
 			'elementor' => '\Elementor\Plugin',
 			'elementor-pro' => '\ElementorPro\Plugin',
@@ -483,29 +490,14 @@ class Suki {
 	/**
 	 * Return array of migration checkpoints start from specified version.
 	 *
-	 * @param string $start_from
 	 * @return array
 	 */
-	public function get_migration_checkpoints( $start_from = null ) {
-		$all_checkpoints = array(
+	public function get_migration_checkpoints() {
+		return array(
 			'0.6.0',
 			'0.7.0',
+			'1.1.0',
 		);
-
-		if ( is_null( $start_from ) ) {
-			return $all_checkpoints;
-		}else {
-			$todo_checkpoints = array();
-
-			foreach ( $all_checkpoints as $checkpoint ) {
-				// Add checkpoints to "to-do" migration list, if checkpoint is bigger than current DB version.
-				if ( version_compare( $start_from, $checkpoint, '<' ) ) {
-					$todo_checkpoints[] = $checkpoint;
-				}
-			}
-
-			return $todo_checkpoints;
-		}
 	}
 }
 
