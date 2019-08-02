@@ -94,17 +94,6 @@ $add['border_color'] = array(
  * ====================================================
  */
 
-foreach ( array( 'font_weight', 'font_style', 'text_transform' ) as $prop ) {
-	$property = str_replace( '_', '-', $prop );
-
-	$add['link_' . $prop ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.entry-content a, .entry-author-content a, .comment-contenta a',
-			'property' => $property,
-		),
-	);
-}
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',

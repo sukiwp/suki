@@ -51,10 +51,6 @@ $add['border_color'] = $colors['border'];
  * ====================================================
  */
 
-$add['link_font_weight'] = '';
-$add['link_font_style'] = '';
-$add['link_text_transform'] = '';
-
 $add['link_text_color'] = $colors['accent'];
 $add['link_hover_text_color'] = $colors['heading'];
 
