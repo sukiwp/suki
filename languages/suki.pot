@@ -64,164 +64,164 @@ msgstr ""
 msgid "Footer Widgets Column %s"
 msgstr ""
 
-#: inc/helpers.php:368
+#: inc/helpers.php:547
 msgid "Layout Modules"
 msgstr ""
 
-#: inc/helpers.php:369
+#: inc/helpers.php:548
 msgid "Assets & Branding Modules"
 msgstr ""
 
-#: inc/helpers.php:370
+#: inc/helpers.php:549
 msgid "Blog Modules"
 msgstr ""
 
-#: inc/helpers.php:371
+#: inc/helpers.php:550
 msgid "WooCommerce Integration Modules"
 msgstr ""
 
-#: inc/helpers.php:383
+#: inc/helpers.php:562
 msgid "Page Layout"
 msgstr ""
 
-#: inc/helpers.php:387, inc/helpers.php:397, inc/helpers.php:407, inc/helpers.php:417, inc/helpers.php:427, inc/helpers.php:437, inc/helpers.php:448, inc/helpers.php:458, inc/helpers.php:468, inc/helpers.php:479, inc/helpers.php:490
+#: inc/helpers.php:566, inc/helpers.php:576, inc/helpers.php:586, inc/helpers.php:596, inc/helpers.php:606, inc/helpers.php:616, inc/helpers.php:627, inc/helpers.php:637, inc/helpers.php:647, inc/helpers.php:658, inc/helpers.php:669
 msgid "Customize"
 msgstr ""
 
-#: inc/helpers.php:393, inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:182
+#: inc/helpers.php:572, inc/customizer/options/header--builder.php:31, inc/customizer/options/_sections.php:182
 msgid "Header Builder"
 msgstr ""
 
-#: inc/helpers.php:403, inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-header.php:26, inc/customizer/options/page-settings.php:188, inc/customizer/options/_sections.php:301
+#: inc/helpers.php:582, inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-header.php:26, inc/customizer/options/page-settings.php:188, inc/customizer/options/_sections.php:301
 msgid "Page Header"
 msgstr ""
 
-#: inc/helpers.php:413
+#: inc/helpers.php:592
 msgid "Content & Sidebar Layout"
 msgstr ""
 
-#: inc/helpers.php:423, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:349
+#: inc/helpers.php:602, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:349
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/helpers.php:433, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/_sections.php:467
+#: inc/helpers.php:612, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/_sections.php:467
 msgid "Dynamic Page Settings"
 msgstr ""
 
-#: inc/helpers.php:444
+#: inc/helpers.php:623
 msgid "General Typography & Colors"
 msgstr ""
 
-#: inc/helpers.php:454, inc/customizer/options/_sections.php:54
+#: inc/helpers.php:633, inc/customizer/options/_sections.php:54
 msgid "Google Fonts"
 msgstr ""
 
-#: inc/helpers.php:464, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
+#: inc/helpers.php:643, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
 msgid "Social Links"
 msgstr ""
 
-#: inc/helpers.php:475
+#: inc/helpers.php:654
 msgid "Blog Layout"
 msgstr ""
 
-#: inc/helpers.php:486
+#: inc/helpers.php:665
 msgid "WooCommerce Layout"
 msgstr ""
 
-#: inc/helpers.php:508
+#: inc/helpers.php:687
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:513
+#: inc/helpers.php:692
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:518
+#: inc/helpers.php:697
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:523
+#: inc/helpers.php:702
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:528
+#: inc/helpers.php:707
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:533
+#: inc/helpers.php:712
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:538
+#: inc/helpers.php:717
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:543, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:722, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:548, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:727, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:554
+#: inc/helpers.php:733
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:559
+#: inc/helpers.php:738
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:564
+#: inc/helpers.php:743
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:569
+#: inc/helpers.php:748
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:575
+#: inc/helpers.php:754
 msgid "WooCommerce Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:580
+#: inc/helpers.php:759
 msgid "WooCommerce AJAX Add To Cart"
 msgstr ""
 
-#: inc/helpers.php:585
+#: inc/helpers.php:764
 msgid "WooCommerce Quick View"
 msgstr ""
 
-#: inc/helpers.php:590
+#: inc/helpers.php:769
 msgid "WooCommerce Off Canvas Filters"
 msgstr ""
 
-#: inc/helpers.php:733
+#: inc/helpers.php:928
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:734
+#: inc/helpers.php:929
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:735
+#: inc/helpers.php:930
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:736
+#: inc/helpers.php:931
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:737
+#: inc/helpers.php:932
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:738
+#: inc/helpers.php:933
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:363
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:382
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -588,40 +588,40 @@ msgstr ""
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:422
+#: inc/customizer/class-suki-customizer.php:389
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:425
+#: inc/customizer/class-suki-customizer.php:392
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:449
+#: inc/customizer/class-suki-customizer.php:416
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:452
+#: inc/customizer/class-suki-customizer.php:419
 msgid "These are default settings for main %s Archive page and the taxonomy archive page."
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:456
+#: inc/customizer/class-suki-customizer.php:423
 msgid "TIPS: You can specify different settings for each taxonomy via the Page Settings metabox available on the term edit page."
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:462
+#: inc/customizer/class-suki-customizer.php:429
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:465
+#: inc/customizer/class-suki-customizer.php:432
 msgid "These are default settings for all Single %s page."
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:468
+#: inc/customizer/class-suki-customizer.php:435
 msgid "TIPS: You can specify different settings for each %s via the Page Settings metabox available on the edit page."
 msgstr ""
 
@@ -674,11 +674,11 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:134
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:153
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:136
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:155
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 

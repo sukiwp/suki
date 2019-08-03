@@ -42,12 +42,6 @@ class Suki_Customizer {
 		// Google Fonts CSS
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_frontend_google_fonts_css' ) );
 
-		// Customizer CSS
-		if ( ! is_customize_preview() ) {
-			// Add inline CSS on frontend only.
-			add_filter( 'suki/frontend/inline_css', array( $this, 'add_frontend_css' ), 20 );
-		}
-
 		// Default values, postmessages, contexts
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_setting_postmessages' ) );
@@ -83,22 +77,6 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Add frontend CSS via inline CSS.
-	 *
-	 * @param string $inline_css
-	 * @return string
-	 */
-	public function add_frontend_css( $inline_css ) {
-		$css = $this->generate_frontend_css();
-		
-		if ( '' !== trim( $css ) ) {
-			$inline_css .= "\n/* Customizer CSS */\n" . suki_minify_css_string( $css ); // WPCS: XSS OK
-		}
-
-		return $inline_css;
-	}
-
-	/**
 	 * Add default values for all Customizer settings.
 	 * Triggered via filter to allow modification by users.
 	 *
@@ -106,9 +84,9 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_setting_defaults( $defaults = array() ) {
-		include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
+		$add = include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
 
-		return $defaults;
+		return array_merge_recursive( $defaults, $add );
 	}
 
 	/**
@@ -119,9 +97,9 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_setting_postmessages( $postmessages = array() ) {
-		include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
+		$add = include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
 
-		return $postmessages;
+		return array_merge_recursive( $postmessages, $add );
 	}
 
 	/**
@@ -132,9 +110,9 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_control_contexts( $contexts = array() ) {
-		include( SUKI_INCLUDES_DIR . '/customizer/contexts.php' );
+		$add = include( SUKI_INCLUDES_DIR . '/customizer/contexts.php' );
 
-		return $contexts;
+		return array_merge_recursive( $contexts, $add );
 	}
 
 	/**
@@ -338,23 +316,12 @@ class Suki_Customizer {
 
 	/**
 	 * Return all customizer default preset value.
-	 * 
+	 * DEPRECATED: PLEASE USE 'suki_get_default_colors' function.
+	 *
 	 * @return array
 	 */
 	public function get_default_colors() {
-		return apply_filters( 'suki/dataset/default_colors', array(
-			'transparent'       => 'rgba(0,0,0,0)',
-			'white'             => '#ffffff',
-			'black'             => '#000000',
-			'accent'            => '#1976d2',
-			'accent2'           => '#145ea8',
-			'bg'                => '#ffffff',
-			'text'              => '#666666',
-			'heading'           => '#333333',
-			'meta'              => '#bbbbbb',
-			'subtle'            => 'rgba(0,0,0,0.025)',
-			'border'            => 'rgba(0,0,0,0.1)',
-		) );
+		return suki_get_default_colors();
 	}
 
 	/**
@@ -537,180 +504,6 @@ class Suki_Customizer {
 	 */
 	public function generate_active_google_fonts_embed_url() {
 		return suki_build_google_fonts_embed_url( $this->get_active_fonts( 'google_fonts' ) );
-	}
-
-	/**
-	 * Generate CSS string from customizer values.
-	 * 
-	 * @return string
-	 */
-	public function generate_frontend_css() {
-		// Get all postmessage rules.
-		$postmessages = $this->get_setting_postmessages();
-
-		// Declare empty array to hold all default values.
-		// Will be populated later, only when needed.
-		$default_values = array();
-
-		// Temporary CSS array to organize output.
-		// Media groups are defined now, for proper responsive orders.
-		$css_array = array(
-			'global' => array(),
-			'@media screen and (max-width: 1023px)' => array(),
-			'@media screen and (max-width: 499px)' => array(),
-		);
-
-		// Loop through each setting.
-		foreach ( $postmessages as $key => $rules ) {
-			// Get saved value.
-			$setting_value = get_theme_mod( $key );
-
-			// Skip this setting if value is not valid (only accepts string and number).
-			if ( ! is_numeric( $setting_value ) && ! is_string( $setting_value ) ) continue;
-
-			// Skip this setting if value is empty string.
-			if ( '' === $setting_value ) continue;
-
-			// Populate $default_values if haven't.
-			if ( empty( $default_values ) ) {
-				$default_values = $this->get_setting_defaults();
-			}
-
-			// Skip rule if value === default value.
-			if ( $setting_value === suki_array_value( $default_values, $key ) ) continue;
-
-			// Loop through each rule.
-			foreach ( $rules as $rule ) {
-				// Check rule validity, and then skip if it's not valid.
-				if ( ! $this->_check_postmessage_rule_for_css( $rule ) ) {
-					continue;
-				}
-
-				// Sanitize rule.
-				$rule = $this->_sanitize_postmessage_rule( $rule, $setting_value );
-
-				// Add to CSS array.
-				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
-			}
-		}
-
-		return suki_convert_css_array_to_string( $css_array );
-	}
-
-	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
-	 */
-
-	/**
-	 * Check a postmessage rule and return whether it's valid or not.
-	 *
-	 * @param array $rule
-	 * @return boolean
-	 */
-	private function _check_postmessage_rule_for_css( $rule ) {
-		// Check if there is no type defined, then return false.
-		if ( ! isset( $rule['type'] ) ) return false;
-
-		// Skip rule if it's not CSS related.
-		if ( ! in_array( $rule['type'], array( 'css', 'font' ) ) ) return false;
-
-		// Check if no element selector is defined, then return false.
-		if ( ! isset( $rule['element'] ) ) return false;
-
-		// Check if no property is defined, then return false.
-		if ( ! isset( $rule['property'] ) || empty( $rule['property'] ) ) return false;
-
-		// Passed all checks, return true.
-		return true;
-	}
-
-	/**
-	 * Sanitize a postmessage rule, run rule function, format original setting value and fill it into the rule.
-	 *
-	 * @param array $rule
-	 * @param mixed $setting_value
-	 * @return array
-	 */
-	private function _sanitize_postmessage_rule( $rule, $setting_value ) {
-		// Declare empty array to hold all available fonts.
-		// Will be populated later, only when needed.
-		$fonts = array();
-
-		// If "media" attribute is not specified, set it to "global".
-		if ( ! isset( $rule['media'] ) || empty( $rule['media'] ) ) $rule['media'] = 'global';
-
-		// If "pattern" attribute is not specified, set it to "$".
-		if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) $rule['pattern'] = '$';
-
-		// Check if there is function attached.
-		if ( isset( $rule['function'] ) && isset( $rule['function']['name'] ) ) {
-			// Apply function to the original value.
-			switch ( $rule['function']['name'] ) {
-				/**
-				 * Explode raw value by space (' ') as the delimiter and then return value from the specified index.
-				 *
-				 * args[0] = index of exploded array to return
-				 */
-				case 'explode_value':
-					if ( ! isset( $rule['function']['args'][0] ) ) break;
-
-					$index = $rule['function']['args'][0];
-
-					if ( ! is_numeric( $index ) ) break;
-
-					$array = explode( ' ', $setting_value );
-
-					$setting_value = isset( $array[ $index ] ) ? $array[ $index ] : '';
-					break;
-
-				/**
-				 * Scale all dimensions found in the raw value according to the specified scale amount.
-				 *
-				 * args[0] = scale amount
-				 */
-				case 'scale_dimensions':
-					if ( ! isset( $rule['function']['args'][0] ) ) break;
-
-					$scale = $rule['function']['args'][0];
-
-					if ( ! is_numeric( $scale ) ) break;
-
-					$parts = explode( ' ', $setting_value );
-					$new_parts = array();
-					foreach ( $parts as $i => $part ) {
-						$number = floatval( $part );
-						$unit = str_replace( $number, '', $part );
-
-						$new_parts[ $i ] = ( $number * $scale ) . $unit;
-					}
-
-					$setting_value = implode( ' ', $new_parts );
-					break;
-			}
-		}
-
-		// Parse value for "font" type.
-		if ( 'font' === $rule['type'] ) {
-			$chunks = explode( '|', $setting_value );
-
-			if ( 2 === count( $chunks ) ) {
-				// Populate $fonts array if haven't.
-				if ( empty( $fonts ) ) {
-					$fonts = suki_get_all_fonts();
-				}
-				$setting_value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
-			}
-		}
-
-		// Replace any $ found in the pattern to value.
-		$rule['value'] = str_replace( '$', $setting_value, $rule['pattern'] );
-
-		// Replace any $ found in the media screen to value.
-		$rule['media'] = str_replace( '$', $setting_value, $rule['media'] );
-
-		return $rule;
 	}
 }
 

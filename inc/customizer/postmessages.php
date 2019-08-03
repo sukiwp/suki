@@ -2155,4 +2155,4 @@ $add['entry_grid_footer_alignment'] = array(
 	),
 );
 
-$postmessages = array_merge_recursive( $postmessages, $add );
+return $add;

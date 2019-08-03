@@ -400,4 +400,4 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	);
 }
 
-$postmessages = array_merge_recursive( $postmessages, $add );
+return $add;

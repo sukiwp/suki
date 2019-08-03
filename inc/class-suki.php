@@ -291,9 +291,12 @@ class Suki {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
-		add_action( 'wp_head', array( $this, 'print_custom_css' ) );
 
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_page_settings_css' ), 25 );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_customizer_css' ) );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_page_settings_css' ), 25 );
+
+		// DEPRECATED: Shouldn't be used for printing dynamic CSS.
+		add_action( 'wp_head', array( $this, 'print_custom_css' ) );
 	}
 
 	/**
@@ -310,6 +313,9 @@ class Suki {
 		// Main CSS
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
+
+		// Inline CSS
+		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/dynamic_css', '' ) ) );
 
 		/**
 		 * Hook: Styles to included after main CSS
@@ -347,6 +353,7 @@ class Suki {
 
 	/**
 	 * Print inline custom CSS.
+	 * DEPRECATED: Shouldn't be used for printing dynamic CSS.
 	 */
 	public function print_custom_css() {
 		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK.
@@ -372,12 +379,27 @@ class Suki {
 	}
 
 	/**
+	 * Add dynamic CSS from customizer settings into the inline CSS.
+	 *
+	 * @param string $css
+	 * @return string
+	 */
+	public function add_customizer_css( $css ) {
+		$postmessages = include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
+		$defaults = include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
+
+		$css .= "\n/* Main Dynamic CSS */\n" . suki_convert_postmessages_array_to_css_string( $postmessages, $defaults );
+
+		return $css;
+	}
+
+	/**
 	 * Add current page settings CSS into the inline CSS.
 	 *
-	 * @param string $inline_css
+	 * @param string $css
 	 * @return string
 	 */ 
-	public function add_page_settings_css( $inline_css ) {
+	public function add_page_settings_css( $css ) {
 		$css_array = array();
 
 		$page_header_bg_image = '';
@@ -418,10 +440,10 @@ class Suki {
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 
 		if ( '' !== trim( $page_settings_css ) ) {
-			$inline_css .= "\n/* Current Page Settings CSS */\n" . suki_minify_css_string( $page_settings_css ); // WPCS: XSS OK
+			$css .= "\n/* Current Page Settings CSS */\n" . suki_minify_css_string( $page_settings_css ); // WPCS: XSS OK
 		}
 
-		return $inline_css;
+		return $css;
 	}
 
 	/**

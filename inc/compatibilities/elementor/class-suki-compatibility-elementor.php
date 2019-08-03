@@ -40,7 +40,7 @@ class Suki_Compatibility_Elementor {
 	 */
 	protected function __construct() {
 		// Compatibility CSS
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
 
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );

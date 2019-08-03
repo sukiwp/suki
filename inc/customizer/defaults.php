@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$colors = self::get_default_colors();
+$colors = suki_get_default_colors();
 
 $add = array();
 
@@ -798,4 +798,4 @@ $add['entry_grid_footer'] = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
 
-$defaults = array_merge_recursive( $defaults, $add );
+return $add;

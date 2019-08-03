@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$colors = Suki_Customizer::instance()->get_default_colors();
+$colors = suki_get_default_colors();
 
 $add = array();
 
@@ -103,4 +103,4 @@ $add['woocommerce_alt_button_hover_bg_color'] = '';
 $add['woocommerce_alt_button_hover_border_color'] = '';
 $add['woocommerce_alt_button_hover_text_color'] = '';
 
-$defaults = array_merge_recursive( $defaults, $add );
+return $add;

@@ -203,4 +203,4 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 	}
 }
 
-$contexts = array_merge_recursive( $contexts, $add );
+return $add;

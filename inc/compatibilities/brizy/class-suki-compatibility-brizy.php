@@ -43,7 +43,7 @@ class Suki_Compatibility_Brizy {
 		add_filter( 'brizy_content', array( $this, 'modify_brizy_content' ), 10, 3 );
 
 		// Add compatibility CSS.
-		add_action( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
+		add_action( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
 
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );

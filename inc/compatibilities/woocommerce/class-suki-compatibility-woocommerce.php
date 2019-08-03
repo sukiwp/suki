@@ -44,7 +44,8 @@ class Suki_Compatibility_WooCommerce {
 
 		// Compatibility CSS
 		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
-		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_action( 'suki/frontend/after_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_customizer_css' ) );
 
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
@@ -82,6 +83,24 @@ class Suki_Compatibility_WooCommerce {
 	public function enqueue_css() {
 		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/compatibilities/woocommerce/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-woocommerce', 'rtl', 'replace' );
+
+		// Inline CSS
+		wp_add_inline_style( 'suki-woocommerce', trim( apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' ) ) );
+	}
+
+	/**
+	 * Add dynamic CSS from customizer settings into the inline CSS.
+	 *
+	 * @param string $css
+	 * @return string
+	 */
+	public function add_customizer_css( $css ) {
+		$postmessages = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
+		$defaults = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php' );
+
+		$css .= "\n/* Suki WooCommerce Dynamic CSS */\n" . suki_convert_postmessages_array_to_css_string( $postmessages, $defaults );
+
+		return $css;
 	}
 
 	/**
@@ -109,9 +128,9 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_customizer_setting_defaults( $defaults = array() ) {
-		include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php' );
+		$add = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php' );
 
-		return $defaults;
+		return array_merge_recursive( $defaults, $add );
 	}
 
 	/**
@@ -121,9 +140,9 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_customizer_setting_postmessages( $postmessages = array() ) {
-		include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
+		$add = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
 
-		return $postmessages;
+		return array_merge_recursive( $postmessages, $add );
 	}
 
 	/**
