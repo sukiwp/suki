@@ -2722,10 +2722,6 @@ a.entry-thumbnail:hover, a.entry-thumbnail:focus {
 	border-left-style: solid;
 }
 
-.entry-layout-default .entry-header + .entry-content {
-	margin-top: 4rem;
-}
-
 .entry-excerpt {
 	margin: 0 0 1.25em;
 }
