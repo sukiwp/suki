@@ -84,6 +84,9 @@ class Suki {
 		// Helper functions
 		require_once( SUKI_INCLUDES_DIR . '/helpers.php' );
 
+		// Deprecated functions
+		require_once( SUKI_INCLUDES_DIR . '/deprecated.php' );
+
 		// Customizer functions
 		require_once( SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer.php' );
 
@@ -302,7 +305,7 @@ class Suki {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
 
-		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_customizer_css' ) );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_dynamic_css' ) );
 		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_page_settings_css' ), 25 );
 
 		// DEPRECATED: Shouldn't be used for printing dynamic CSS.
@@ -394,11 +397,15 @@ class Suki {
 	 * @param string $css
 	 * @return string
 	 */
-	public function add_customizer_css( $css ) {
+	public function add_dynamic_css( $css ) {
 		$postmessages = include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
 		$defaults = include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
 
-		$css .= "\n/* Main Dynamic CSS */\n" . suki_convert_postmessages_array_to_css_string( $postmessages, $defaults );
+		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages, $defaults );
+
+		if ( ! empty( $generated_css ) ) {
+			$css .= "\n/* Main Dynamic CSS */\n" . $generated_css;
+		}
 
 		return $css;
 	}
@@ -450,7 +457,7 @@ class Suki {
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 
 		if ( '' !== trim( $page_settings_css ) ) {
-			$css .= "\n/* Current Page Settings CSS */\n" . suki_minify_css_string( $page_settings_css ); // WPCS: XSS OK
+			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // WPCS: XSS OK
 		}
 
 		return $css;

@@ -55,16 +55,21 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width' => esc_html__( 'Full width content', 'suki' ),
+		'default'    => array(
+			'label' => esc_html__( 'Normal', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/page-header-layout--default.svg',
+		),
+		'full-width' => array(
+			'label' => esc_html__( 'Full width', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/page-header-layout--full-width.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Padding
 $key = 'page_header_padding';

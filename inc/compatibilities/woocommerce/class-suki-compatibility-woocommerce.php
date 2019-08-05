@@ -45,7 +45,7 @@ class Suki_Compatibility_WooCommerce {
 		// Compatibility CSS
 		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 		add_action( 'suki/frontend/after_enqueue_main_css', array( $this, 'enqueue_css' ) );
-		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_customizer_css' ) );
+		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_dynamic_css' ) );
 
 		// Customizer settings & values
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
@@ -94,11 +94,15 @@ class Suki_Compatibility_WooCommerce {
 	 * @param string $css
 	 * @return string
 	 */
-	public function add_customizer_css( $css ) {
+	public function add_dynamic_css( $css ) {
 		$postmessages = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
 		$defaults = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php' );
 
-		$css .= "\n/* Suki WooCommerce Dynamic CSS */\n" . suki_convert_postmessages_array_to_css_string( $postmessages, $defaults );
+		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages, $defaults );
+
+		if ( ! empty( $generated_css ) ) {
+			$css .= "\n/* Suki + WooCommerce Dynamic CSS */\n" . $generated_css;
+		}
 
 		return $css;
 	}

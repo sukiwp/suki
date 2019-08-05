@@ -353,6 +353,10 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 }
 
+.customize-control-suki-shadow .suki-row-item > * {
+	text-align: center;
+}
+
 .customize-control-suki-shadow .wp-picker-container {
 	display: table;
 	margin-right: auto;
@@ -409,14 +413,13 @@ li:not(.customize-info) div.customize-section-description {
 	display: block;
 }
 
-.customize-control-suki-slider .customize-control-content * {
+.customize-control-suki-slider .suki-row-item > * {
 	text-align: center;
 }
 
 .customize-control-suki-slider .suki-slider-reset {
 	font-size: 1em;
 	line-height: 1em;
-	width: auto;
 	height: auto;
 	vertical-align: middle;
 	cursor: pointer;
@@ -437,7 +440,7 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 	display: block;
 	height: 6px;
-	margin: 10px 7px 10px 12px;
+	margin: 10px 5px 10px 10px;
 	border: none;
 	border-radius: 3px;
 	background: #ccc;
@@ -449,7 +452,7 @@ li:not(.customize-info) div.customize-section-description {
 	display: inline-block;
 	height: 12px;
 	width: 12px;
-	margin: -4px -7px 0 0;
+	margin: -4px -5px 0 0;
 	border-radius: 3px;
 	background-color: #fff;
 	background-image: none;
@@ -460,14 +463,7 @@ li:not(.customize-info) div.customize-section-description {
 	background-color: #0073aa;
 }
 
-.customize-control-suki-dimensions .customize-control-content {
-	padding: 0.5em;
-	border: 1px solid #ddd;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-	background-color: #fff;
-}
-
-.customize-control-suki-dimensions .customize-control-content * {
+.customize-control-suki-dimensions .suki-row-item > * {
 	text-align: center;
 }
 
@@ -492,11 +488,11 @@ li:not(.customize-info) div.customize-section-description {
 	background-color: #fff;
 }
 
-.customize-control-suki-typography .customize-control-content .suki-row:first-child {
+.customize-control-suki-typography .suki-row:first-child {
 	margin-top: 0;
 }
 
-.customize-control-suki-typography .customize-control-content .suki-row:last-child {
+.customize-control-suki-typography .suki-row:last-child {
 	margin-bottom: 0;
 }
 

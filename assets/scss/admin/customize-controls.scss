@@ -399,6 +399,10 @@ li:not(.customize-info) div.customize-section-description {
 		position: relative;
 	}
 
+	.suki-row-item > * {
+		text-align: center;
+	}
+
 	.wp-picker-container {
 		display: table;
 		margin-left: auto;
@@ -461,16 +465,13 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-slider {
-	.customize-control-content {
-		* {
-			text-align: center;
-		}
+	.suki-row-item > * {
+		text-align: center;
 	}
 
 	.suki-slider-reset {
 		font-size: 1em;
 		line-height: 1em;
-		width: auto;
 		height: auto;
 		vertical-align: middle;
 		cursor: pointer;
@@ -494,7 +495,7 @@ li:not(.customize-info) div.customize-section-description {
 		position: relative;
 		display: block;
 		height: 6px;
-		margin: 10px 12px 10px 7px;
+		margin: 10px 10px 10px 5px;
 		border: none;
 		border-radius: 3px;
 		background: #ccc;
@@ -505,7 +506,7 @@ li:not(.customize-info) div.customize-section-description {
 			display: inline-block;
 			height: 12px;
 			width: 12px;
-			margin: -4px 0 0 -7px;
+			margin: -4px 0 0 -5px;
 			border-radius: 3px;
 			background-color: #fff;
 			background-image: none;
@@ -523,15 +524,8 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-dimensions {
-	.customize-control-content {
-		padding: 0.5em;
-		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-		background-color: #fff;
-
-		* {
-			text-align: center;
-		}
+	.suki-row-item > * {
+		text-align: center;
 	}
 
 	.suki-dimensions-unlink,
@@ -559,15 +553,15 @@ li:not(.customize-info) div.customize-section-description {
 		border: 1px solid #ddd;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 		background-color: #fff;
+	}
 
-		.suki-row {
-			&:first-child{
-				margin-top: 0;
-			}
+	.suki-row {
+		&:first-child{
+			margin-top: 0;
+		}
 
-			&:last-child {
-				margin-bottom: 0;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 

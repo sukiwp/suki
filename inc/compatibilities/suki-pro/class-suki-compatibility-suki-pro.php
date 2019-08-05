@@ -106,7 +106,11 @@ class Suki_Compatibility_Suki_Pro {
 			}
 		}
 
-		$css = "\n/* Suki Pro Dynamic CSS (fallback compatibility prior Suki Pro v1.1.0) */\n" . suki_convert_postmessages_array_to_css_string( $postmessages );
+		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages );
+
+		if ( ! empty( $generated_css ) ) {
+			$css = "\n/* Suki Pro Dynamic CSS (fallback compatibility prior Suki Pro v1.1.0) */\n" . $generated_css;
+		}
 
 		return $css;
 	}
