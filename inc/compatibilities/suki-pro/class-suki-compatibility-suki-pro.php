@@ -44,6 +44,10 @@ class Suki_Compatibility_Suki_Pro {
 			// Add legacy "woocommerce-advanced" module and hide the new modules.
 			// Use "0" priority because the legacy "woocommerce-advanced" module needs to be added before any other filters run.
 			add_filter( 'suki/pro/modules', array( $this, 'fallback_compatibility_for_legacy_woocommerce_advanced_module' ), 0 );
+
+			// Add fallback compatibility for all Suki Pro modules dynamic CSS.
+			// Since Suki v1.1.0, all dynamic CSS are printed using 'wp_add_inline_style' instead of manual printing on 'wp_head'.
+			add_filter( 'suki/frontend/inline_css', array( $this, 'fallback_compatibility_for_customizer_inline_css' ) );
 		}
 	}
 	
@@ -53,6 +57,12 @@ class Suki_Compatibility_Suki_Pro {
 	 * ====================================================
 	 */
 
+	/**
+	 * Add legacy "woocommerce-advanced" module and hide the new modules.
+	 *
+	 * @param array $modules
+	 * @return array
+	 */
 	public function fallback_compatibility_for_legacy_woocommerce_advanced_module( $modules ) {
 		$pro_active_modules = get_option( 'suki_pro_active_modules', array() );
 
@@ -73,6 +83,33 @@ class Suki_Compatibility_Suki_Pro {
 		return $modules;
 	}
 
+	/**
+	 * Add fallback compatibility for all Suki Pro modules dynamic CSS.
+	 *
+	 * @param string $css
+	 * @return string
+	 */
+	public function fallback_compatibility_for_customizer_inline_css( $css ) {
+		$postmessages = array();
+		$active_modules = get_option( 'suki_pro_active_modules', array() );
+
+		foreach ( $active_modules as $i => $module_slug ) {
+			// Skip Advanced WooCommerce module if it's activated but no WooCommerce class is found.
+			if ( 'woocommerce' === substr( $module_slug, 0, 11 ) && ! class_exists( 'WooCommerce' ) ) {
+				continue;
+			}
+
+			$postmessages_file = SUKI_PRO_DIR . 'inc/modules/' . $module_slug . '/customizer/postmessages.php';
+
+			if ( file_exists( $postmessages_file ) ) {
+				include( $postmessages_file );
+			}
+		}
+
+		$css = "\n/* Suki Pro Dynamic CSS (fallback compatibility prior Suki Pro v1.1.0) */\n" . suki_convert_postmessages_array_to_css_string( $postmessages );
+
+		return $css;
+	}
 }
 
 Suki_Compatibility_Suki_Pro::instance();

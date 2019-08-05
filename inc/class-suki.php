@@ -33,7 +33,7 @@ class Suki {
 	 *
 	 * @return Suki
 	 */
-	public static function instance() {
+	public final static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
@@ -41,9 +41,19 @@ class Suki {
 	}
 
 	/**
+	 * Class cloning (disabled)
+	 */
+	private final function __clone() {}
+
+	/**
+	 * Class unserializing (disabled)
+	 */
+	private final function __wakeup() {}
+
+	/**
 	 * Class constructor
 	 */
-	protected function __construct() {
+	private function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );

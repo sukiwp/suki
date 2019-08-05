@@ -329,7 +329,7 @@ function suki_convert_css_array_to_string( $css_array ) {
  * @param array $defaults
  * @return string
  */
-function suki_convert_postmessages_array_to_css_string( $postmessages, $defaults ) {
+function suki_convert_postmessages_array_to_css_string( $postmessages = array(), $defaults = array() ) {
 	// Temporary CSS array to organize output.
 	// Media groups are defined now, for proper responsive orders.
 	$css_array = array(
