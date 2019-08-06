@@ -614,6 +614,7 @@ class Suki_Customizer {
 					esc_html__( 'These are default settings for all Single %s page.', 'suki' ),
 					$post_type_obj->labels->singular_name
 				) . '<br><br>' . sprintf(
+					/* translators: %s: Post type's singular name. */
 					esc_html__( 'TIPS: You can specify different settings for each %s via the Page Settings metabox available on the edit page.', 'suki' ),
 					$post_type_obj->labels->singular_name
 				),

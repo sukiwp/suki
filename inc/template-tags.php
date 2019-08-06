@@ -205,7 +205,7 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	foreach ( $links as $link ) :
 		echo $args['before_link']; // WPCS: XSS OK
 
-		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK. ?>>
+		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
@@ -393,7 +393,7 @@ function suki_main_header__bar( $bar ) {
 	}
 
 	?>
-	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK. ?>>
+	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
 		<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 
@@ -467,7 +467,7 @@ function suki_mobile_header() {
 		}
 
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-default <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK. ?>>
+		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-default <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
@@ -1457,14 +1457,14 @@ function suki_comments_title() {
 					/* translators: %1$s: title. */
 					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'suki' ),
 					'<span>' . get_the_title() . '</span>'
-				);
+				); // WPCS: XSS OK
 			} else {
-				printf( // WPCS: XSS OK.
+				printf(
 					/* translators: %1$s: comment count number, %2$s: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_count, 'comments title', 'suki' ) ),
 					number_format_i18n( $comments_count ),
 					'<span>' . get_the_title() . '</span>'
-				);
+				); // WPCS: XSS OK
 			}
 			?>
 	</h2>

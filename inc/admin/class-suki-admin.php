@@ -621,7 +621,7 @@ class Suki_Admin {
 	public function render_admin_page__logo() {
 		?>
 		<div class="suki-admin-logo">
-			<?php echo apply_filters( 'suki/admin/dashboard/logo', '<img src="' . esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ) . '" alt="' . esc_attr( get_admin_page_title() ) . '">' ); ?>
+			<?php echo apply_filters( 'suki/admin/dashboard/logo', '<img src="' . esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ) . '" alt="' . esc_attr( get_admin_page_title() ) . '">' ); // WPCS: XSS OK ?>
 			<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // WPCS: XSS OK ?></span>
 		</div>
 		<?php
@@ -651,6 +651,11 @@ class Suki_Admin {
 
 			// Always make sure all free modules are active.
 			$data['active'] = true;
+
+			// Add action.
+			$data['actions']['enabled'] = array(
+				'label' => '✓',
+			);
 
 			// Add to collection.
 			if ( ! empty( $data['category'] ) ) {
@@ -705,7 +710,7 @@ class Suki_Admin {
 							if ( $module_data['pro'] && ! suki_is_pro() ) {
 								$module_data['actions'] = array(
 									'available-on-suki-pro' => array(
-										'label' => esc_html__( 'Available on Suki Pro', 'suki-pro' ),
+										'label' => esc_html__( 'Available on Suki Pro', 'suki' ),
 									),
 								);
 
@@ -716,7 +721,7 @@ class Suki_Admin {
 							if ( 'woocommerce' === $category_slug && ! class_exists( 'WooCommerce' ) ) {
 								$module_data['actions'] = array(
 									'woocommerce-not-found' => array(
-										'label' => esc_html__( 'WooCommerce is not installed', 'suki-pro' ),
+										'label' => esc_html__( 'WooCommerce is not installed', 'suki' ),
 									),
 								);
 
@@ -802,7 +807,7 @@ class Suki_Admin {
 			<div class="inside">
 				<ul class="suki-admin-links-list">
 					<?php foreach ( $menus as $menu ) : ?>
-						<li><span class="dashicons <?php echo esc_attr( $menu['icon'] ); ?>"></span><a href="<?php echo esc_url( $menu['url'] ); ?>" <?php echo $menu['newtab'] ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK. ?>><?php echo esc_html( $menu['label'] ); ?></a></li>
+						<li><span class="dashicons <?php echo esc_attr( $menu['icon'] ); ?>"></span><a href="<?php echo esc_url( $menu['url'] ); ?>" <?php echo $menu['newtab'] ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>><?php echo esc_html( $menu['label'] ); ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>

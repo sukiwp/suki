@@ -84,9 +84,6 @@ class Suki {
 		// Helper functions
 		require_once( SUKI_INCLUDES_DIR . '/helpers.php' );
 
-		// Deprecated functions
-		require_once( SUKI_INCLUDES_DIR . '/deprecated.php' );
-
 		// Customizer functions
 		require_once( SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer.php' );
 
@@ -369,7 +366,7 @@ class Suki {
 	 * DEPRECATED: Shouldn't be used for printing dynamic CSS.
 	 */
 	public function print_custom_css() {
-		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK.
+		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK
 	}
 
 	/**
