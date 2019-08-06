@@ -172,7 +172,7 @@ class Suki_Admin_Fields {
 				$id = $args['name'] . '--' . $choice_value;
 				?>
 				<li class="suki-admin-radioimage-control-item">
-					<input type="radio" name="<?php echo esc_attr( $args['name'] ); ?>" id="<?php echo esc_attr( $id ); ?>" <?php echo esc_attr( $choice_value === $args['value'] ? 'checked' : '' ); ?>>
+					<input type="radio" id="<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $choice_value ); ?>" <?php echo esc_attr( $choice_value === $args['value'] ? 'checked' : '' ); ?>>
 					<label for="<?php echo esc_attr( $id ); ?>">
 						<?php if ( ! empty( $choice_data['image'] ) ) : ?>
 							<img src="<?php echo esc_url( $choice_data['image'] ); ?>">

@@ -52,7 +52,7 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 		<div class="customize-control-content">
 			<# _.each( data.choices, function( choice, value ) { #>
 				<div class="suki-radioimage-item">
-					<input type="radio" id="{{ data.name + '--' + value }}" class="suki-radioimage-input" name="{{ data.name }}" value="{{ value }}" {{ value === data.value ? 'checked' : '' }}>
+					<input type="radio" id="{{ data.name + '--' + value }}" name="{{ data.name }}" value="{{ value }}" class="suki-radioimage-input" {{ value === data.value ? 'checked' : '' }}>
 					<label for="{{ data.name + '--' + value }}" tabindex="0">
 						<# if ( choice.image ) { #>
 							<img src="{{ choice.image }}">
