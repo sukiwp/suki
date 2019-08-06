@@ -88,7 +88,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'%' => array(
 			'min'  => 0,
 			'max'  => 10,
-			'step' => 0.01,
+			'step' => 1,
 		),
 		'px' => array(
 			'min'  => 0,

@@ -100,7 +100,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 0.01,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,
@@ -175,7 +175,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'%' => array(
 			'min'  => 25,
 			'max'  => 100,
-			'step' => 0.01,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,

@@ -128,7 +128,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 			),
 			'%' => array(
 				'min'  => 0,
-				'step' => 0.01,
+				'step' => 1,
 			),
 		),
 		'priority'    => 10,

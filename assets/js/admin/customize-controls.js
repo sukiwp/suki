@@ -31,22 +31,6 @@
 			$( input ).trigger( 'change' );
 			return;
 		}
-
-		if ( '' !== input.step ) {
-			// Validate step / increment value.
-			var split = input.step.toString().split( '.' ),
-			    decimalCount = 0;
-
-			// Detect decimal number.
-			if ( undefined !== split[1] ) {
-				decimalCount = split[1].length;
-			}
-			
-			// Check if value mod step is not 0, then round the value to nearest valid value.
-			if ( ! Number.isInteger( Number( input.value ) / Number( input.step ) ) ) {
-				input.value = Math.round( Number( input.value ) / Number( input.step ), decimalCount ) * Number( input.step );
-			}
-		}
 		
 		// Validate maximum value.
 		if ( '' !== input.max ) {
