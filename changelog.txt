@@ -1,4 +1,5 @@
 v1.1.0
+- NEW: Form input typography settings.
 - NEW: Dedicated WooCommerce integration CSS.
 - NEW: WooCommerce's quantity form input will have minus (-) and plus (+) button.
 - NEW: WooCommerce's quantity form input will have minus (-) and plus (+) button.

@@ -119,6 +119,13 @@ $add['input_padding'] = '10px 12px 10px 12px';
 $add['input_border'] = '1px 1px 1px 1px';
 $add['input_border_radius'] = '3px';
 
+$add['input_font_family'] = '';
+$add['input_font_weight'] = '';
+$add['input_font_style'] = '';
+$add['input_text_transform'] = '';
+$add['input_font_size'] = '';
+$add['input_letter_spacing'] = '';
+
 $add['input_bg_color'] = $colors['bg'];
 $add['input_border_color'] ='';
 $add['input_text_color'] = '';

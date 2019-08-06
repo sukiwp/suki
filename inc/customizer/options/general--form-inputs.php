@@ -73,6 +73,36 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 ) ) );
 
 // ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_input_typography', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 10,
+) ) );
+
+// Input typography
+$settings = array(
+	'font_family'    => 'input_font_family',
+	'font_weight'    => 'input_font_weight',
+	'font_style'     => 'input_font_style',
+	'text_transform' => 'input_text_transform',
+	'font_size'      => 'input_font_size',
+	'letter_spacing' => 'input_letter_spacing',
+);
+foreach ( $settings as $key ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
+	) );
+}
+$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'input_typography', array(
+	'settings'    => $settings,
+	'section'     => $section,
+	'label'       => esc_html__( 'Input typography', 'suki' ),
+	'priority'    => 10,
+) ) );
+
+// ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_input_colors', array(
 	'section'     => $section,
 	'settings'    => array(),
