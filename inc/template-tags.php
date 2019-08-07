@@ -772,11 +772,28 @@ function suki_page_title() {
 		}
 
 		elseif ( is_post_type_archive() ) {
-			$title = post_type_archive_title( '', false );
+			$post_type_obj = get_queried_object();
+			$title = suki_get_current_page_setting( 'page_header_title_text__post_type_archive' );
+
+			if ( ! empty( $title ) ) {
+				$title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $title );
+			} else {
+				$title = post_type_archive_title( '', false );
+			}
 		}
 
 		elseif ( is_archive() ) {
-			$title = get_the_archive_title();
+			$term_obj = get_queried_object();
+			$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
+
+			$title = suki_get_current_page_setting( 'page_header_title_text__taxonomy_archive' );
+
+			if ( ! empty( $title ) ) {
+				$title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $title );
+				$title = str_replace( '{{term}}', $term_obj->name, $title );
+			} else {
+				$title = get_the_archive_title();
+			}
 		}
 
 		elseif ( is_404() ) {
@@ -1066,6 +1083,7 @@ function suki_footer_element( $element ) {
 			$copyright = str_replace( '{{sitename}}', '<a href="' . esc_url( home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
 			$copyright = str_replace( '{{theme}}', '<a href="' . suki_get_theme_info( 'url' ) . '">' . suki_get_theme_info( 'name' ) . '</a>', $copyright );
 			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
+			$copyright = str_replace( '{{theme_author}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
 			?>
 			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
 				<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>

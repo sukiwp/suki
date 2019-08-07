@@ -35,7 +35,7 @@ $wp_customize->add_control( $key, array(
 	'type'        => 'textarea',
 	'section'     => $section,
 	'label'       => esc_html__( 'Copyright Text', 'suki' ),
-	'description' => esc_html__( 'Available tags: {{year}}, {{sitename}}, {{theme}}, {{themeauthor}}', 'suki' ),
+	'description' => esc_html__( 'Available tags: {{year}}, {{sitename}}, {{theme}}, {{theme_author}}.', 'suki' ),
 	'priority'    => 10,
 ) );
 

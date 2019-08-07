@@ -208,6 +208,61 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'priority'    => 30,
 	) );
 
+	// Options specifically for non singular page types.
+	if ( false === strpos( $ps_type, '_singular' ) ) {
+		// ------
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $ps_type . '_page_header_title_text', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'priority'    => 30,
+		) ) );
+
+		// Title text format on post type archive page
+		$subkey = 'page_header_title_text__post_type_archive';
+		$key = $option_key . '[' . $subkey . ']';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $default, $subkey ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+		) );
+		$wp_customize->add_control( $key, array(
+			'section'     => $section,
+			'label'       => sprintf(
+				/* translators: %s: post type plural name. */
+				esc_html__( 'Title format on %s archive page', 'suki' ),
+				strtolower( $post_type_obj->labels->name )
+			),
+			'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
+			'input_attrs' => array(
+				'placeholder' => '{{post_type}}',
+			),
+			'priority'    => 30,
+		) );
+
+		// Title text format on post type archive page
+		$subkey = 'page_header_title_text__taxonomy_archive';
+		$key = $option_key . '[' . $subkey . ']';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $default, $subkey ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+		) );
+		$wp_customize->add_control( $key, array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Title format on taxonomy archive page', 'suki' ),
+			'description' => esc_html__( 'Available tags: {{taxonomy}}, {{term}}.', 'suki' ),
+			'input_attrs' => array(
+				'placeholder' => '{{taxonomy}}: {{term}}',
+			),
+			'priority'    => 30,
+		) );
+	}
+
+	// ------
+	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $ps_type . '_page_header_bg', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'priority'    => 30,
+	) ) );
+
 	// Page header background image
 	$subkey = 'page_header_bg';
 	$key = $option_key . '[' . $subkey . ']';

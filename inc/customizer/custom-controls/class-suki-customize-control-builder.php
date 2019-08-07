@@ -125,7 +125,7 @@ class Suki_Customize_Control_Builder extends Suki_Customize_Control {
 
 								var limitations = undefined !== data.limitations[ item ] ? data.limitations[ item ].join( ',' ) : '';
 
-								#><li class="suki-builder-element button button-small" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
+								#><li class="suki-builder-element button button-secondary" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
 									<span>{{{ data.choices[ item ] }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 								</li><#
 							}) #>
@@ -143,7 +143,7 @@ class Suki_Customize_Control_Builder extends Suki_Customize_Control {
 						if ( 0 > data.actives.indexOf( item ) ) {
 							var limitations = undefined !== data.limitations[ item ] ? data.limitations[ item ].join( ',' ) : '';
 
-							#><li class="suki-builder-element button button-small" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
+							#><li class="suki-builder-element button button-secondary" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
 								<span>{{{ label }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 							</li><#
 						}
