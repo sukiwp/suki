@@ -599,6 +599,7 @@ p.wp-block-subhead {
 	font-size: 0.85em;
 	font-style: italic;
 	text-align: center;
+	word-break: break-all;
 }
 
 .wp-block-gallery {
