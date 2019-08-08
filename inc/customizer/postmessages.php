@@ -1329,30 +1329,6 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	}
 }
 
-$add['page_header_layout'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.suki-page-header',
-		'pattern'  => 'suki-page-header-layout-$',
-	),
-);
-
-$responsive = array(
-	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
-);
-foreach ( $responsive as $suffix => $media ) {
-	$add['page_header_layout_width' . $suffix ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-page-header-layout-left .suki-page-header-row, .suki-page-header-layout-center .suki-page-header-row, .suki-page-header-layout-right .suki-page-header-row',
-			'property' => 'max-width',
-			'media'    => $media,
-		),
-	);
-}
-
 $add['page_header_bg_color'] = array(
 	array(
 		'type'     => 'css',

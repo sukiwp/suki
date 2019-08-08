@@ -97,6 +97,7 @@
 
 .suki-footer-bottom-bar-column {
 	display: flex;
+	max-width: 100%;
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		width: 100%;

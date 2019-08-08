@@ -128,31 +128,6 @@ $add['header_mobile_elements'] = array(
 
 /**
  * ====================================================
- * Page Header
- * ====================================================
- */
-
-$add['page_header_layout_width'] = array(
-	array(
-		'setting'  => 'page_header_layout',
-		'operator' => 'in',
-		'value'    => array( 'left', 'center', 'right' ),
-	),
-);
-
-$add['breadcrumb_plugin'] =
-$add['page_header_breadcrumb_typography'] =
-$add['page_header_breadcrumb_text_color'] =
-$add['page_header_breadcrumb_link_text_color'] =
-$add['page_header_breadcrumb_link_hover_text_color'] = array(
-	array(
-		'setting'  => 'page_header_breadcrumb',
-		'value'    => 1,
-	),
-);
-
-/**
- * ====================================================
  * Footer > Bottom Bar
  * ====================================================
  */

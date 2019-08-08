@@ -19,8 +19,15 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	}
 
 	// Get post type object.
-	if ( false !== strpos( $ps_type, '_singular' ) ) {
-		$post_type_obj = get_post_type_object( str_replace( '_singular', '', $ps_type ) );
+	// First check if $ps_type is not for 404 and search page.
+	if ( ! in_array( $ps_type, array( '404', 'search' ) ) ) {
+		// Extract the post type slug from $ps_type.
+		$post_type_slug = preg_replace( '/(_singular|_archive)/', '', $ps_type );
+
+		// If found, get the post type object.
+		if ( ! empty( $post_type_slug ) ) {
+			$post_type_obj = get_post_type_object( $post_type_slug );
+		}
 	}
 
 	/**
@@ -54,11 +61,11 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			),
 			'default'    => array(
 				'label' => esc_html__( 'Normal', 'suki' ),
-				'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
+				'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
 			),
 			'full-width' => array(
 				'label' => esc_html__( 'Full width', 'suki' ),
-				'image' => SUKI_IMAGES_URL . '/customizer/content-layout--full-width.svg',
+				'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
 			),
 		),
 		'priority'    => 10,
@@ -208,7 +215,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'priority'    => 30,
 	) );
 
-	// Options specifically for non singular page types.
+	// Options specifically for non singular page types
 	if ( false === strpos( $ps_type, '_singular' ) ) {
 		// ------
 		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $ps_type . '_page_header_title_text', array(
@@ -217,43 +224,84 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'priority'    => 30,
 		) ) );
 
-		// Title text format on post type archive page
-		$subkey = 'page_header_title_text__post_type_archive';
-		$key = $option_key . '[' . $subkey . ']';
-		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-		) );
-		$wp_customize->add_control( $key, array(
-			'section'     => $section,
-			'label'       => sprintf(
-				/* translators: %s: post type plural name. */
-				esc_html__( 'Title format on %s archive page', 'suki' ),
-				strtolower( $post_type_obj->labels->name )
-			),
-			'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
-			'input_attrs' => array(
-				'placeholder' => '{{post_type}}',
-			),
-			'priority'    => 30,
-		) );
+		switch ( $ps_type ) {
+			case '404':
+				// Title text format on 404 page
+				$subkey = 'page_header_title_text__404';
+				$key = $option_key . '[' . $subkey . ']';
+				$wp_customize->add_setting( $key, array(
+					'default'     => suki_array_value( $default, $subkey ),
+					'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+				) );
+				$wp_customize->add_control( $key, array(
+					'section'     => $section,
+					'label'       => esc_html__( 'Title text', 'suki' ),
+					'input_attrs' => array(
+						'placeholder' => esc_html__( 'Oops! That page can not be found.', 'suki' ),
+					),
+					'priority'    => 30,
+				) );
+				break;
 
-		// Title text format on post type archive page
-		$subkey = 'page_header_title_text__taxonomy_archive';
-		$key = $option_key . '[' . $subkey . ']';
-		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-		) );
-		$wp_customize->add_control( $key, array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Title format on taxonomy archive page', 'suki' ),
-			'description' => esc_html__( 'Available tags: {{taxonomy}}, {{term}}.', 'suki' ),
-			'input_attrs' => array(
-				'placeholder' => '{{taxonomy}}: {{term}}',
-			),
-			'priority'    => 30,
-		) );
+			case 'search':
+				// Title text format on search page
+				$subkey = 'page_header_title_text__search';
+				$key = $option_key . '[' . $subkey . ']';
+				$wp_customize->add_setting( $key, array(
+					'default'     => suki_array_value( $default, $subkey ),
+					'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+				) );
+				$wp_customize->add_control( $key, array(
+					'section'     => $section,
+					'label'       => esc_html__( 'Title text', 'suki' ),
+					'description' => esc_html__( 'Available tags: {{keyword}}.', 'suki' ),
+					'input_attrs' => array(
+						'placeholder' => esc_html__( 'Search Results for: {{keyword}}.', 'suki' ),
+					),
+					'priority'    => 30,
+				) );
+				break;
+			
+			default:
+				// Title text format on post type archive page
+				$subkey = 'page_header_title_text__post_type_archive';
+				$key = $option_key . '[' . $subkey . ']';
+				$wp_customize->add_setting( $key, array(
+					'default'     => suki_array_value( $default, $subkey ),
+					'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+				) );
+				$wp_customize->add_control( $key, array(
+					'section'     => $section,
+					'label'       => sprintf(
+						/* translators: %s: post type plural name. */
+						esc_html__( 'Title text on %s archive page', 'suki' ),
+						strtolower( $post_type_obj->labels->name )
+					),
+					'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
+					'input_attrs' => array(
+						'placeholder' => '{{post_type}}',
+					),
+					'priority'    => 30,
+				) );
+
+				// Title text format on post type archive page
+				$subkey = 'page_header_title_text__taxonomy_archive';
+				$key = $option_key . '[' . $subkey . ']';
+				$wp_customize->add_setting( $key, array(
+					'default'     => suki_array_value( $default, $subkey ),
+					'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+				) );
+				$wp_customize->add_control( $key, array(
+					'section'     => $section,
+					'label'       => esc_html__( 'Title text on taxonomy archive page', 'suki' ),
+					'description' => esc_html__( 'Available tags: {{taxonomy}}, {{term}}.', 'suki' ),
+					'input_attrs' => array(
+						'placeholder' => '{{taxonomy}}: {{term}}',
+					),
+					'priority'    => 30,
+				) );
+				break;
+		}
 	}
 
 	// ------

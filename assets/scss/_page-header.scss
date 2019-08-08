@@ -21,85 +21,71 @@
 	}
 }
 
-.suki-page-header-layout-left-right {
+.suki-page-header-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 -1.5rem;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		flex-wrap: wrap;
+		white-space: normal;
+	}
+}
+
+.suki-page-header-column {
+	max-width: 100%;
+	padding: 0 1.5rem;
+
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		width: 100%;
+		justify-content: center !important;
+		text-align: center;
+
+		&:not(:first-child):not(.suki-page-header-column-empty) {
+			margin-top: 1rem;
+		}
+	}
+
+	> * {
+		margin: 0;
+	}
+
+	> * + * {
+		margin-top: 1rem;
+	}
+}
+
+.suki-page-header-left {
+	flex: 1 0 auto;
 	text-align: left;
 
-	@media screen and ( min-width: $breakpoint_768 ) {
-		.suki-page-header-row {
-			display: flex;
-			align-items: center;
+	.suki-page-header-row-with-center > & {
+		flex-basis: 0;
+	}
 
-			.suki-page-header-title {
-				width: 50%;
-				text-align: left;
-			}
-
-			.suki-page-header-breadcrumb {
-				width: 50%;
-				text-align: right;
-				margin: 0;
-			}
+	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		&:not(.suki-page-header-column-empty) ~ .suki-page-header-column {
+			text-align: left;
 		}
 	}
 }
 
-.suki-page-header-layout-right-left {
-	text-align: right;
-
-	@media screen and ( min-width: $breakpoint_768 ) {
-		.suki-page-header-row {
-			display: flex;
-			align-items: center;
-			flex-direction: row-reverse;
-
-			.suki-page-header-title {
-				width: 50%;
-				text-align: right;
-			}
-
-			.suki-page-header-breadcrumb {
-				width: 50%;
-				text-align: left;
-				margin: 0;
-			}
-		}
-	}
-}
-
-.suki-page-header-layout-left {
-	text-align: left;
-
-	.suki-page-header-row {
-		margin-left: 0;
-		margin-right: auto;
-	}
-}
-
-.suki-page-header-layout-center {
+.suki-page-header-center {
 	text-align: center;
-
-	.suki-page-header-row {
-		margin-left: auto;
-		margin-right: auto;
-	}
 }
 
-.suki-page-header-layout-right {
+.suki-page-header-right {
+	flex: 1 0 auto;
 	text-align: right;
 
-	.suki-page-header-row {
-		margin-left: auto;
-		margin-right: 0;
+	.suki-page-header-row-with-center > & {
+		flex-basis: 0;
 	}
-}
-
-.suki-page-header-title {
-	margin: 0;
 }
 
 .suki-page-header-breadcrumb {
 	font-size: 0.9em; // default
-	margin-top: 0.5em;
 
 	ul {
 		list-style: none;

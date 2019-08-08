@@ -704,11 +704,6 @@ function suki_header_element( $element ) {
 			</div>
 			<?php
 			break;
-
-		default:
-			// Print nothing.
-			// Other elements can be modified via filters.
-			break;
 	}
 	$html = ob_get_clean();
 
@@ -732,14 +727,38 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  */
 function suki_page_header() {
 	if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) return;
+
+	$elements = array();
+	$count = 0;
+	$cols = array( 'left', 'center', 'right' );
+
+	foreach ( $cols as $col ) {
+		$elements[ $col ] = suki_get_theme_mod( 'page_header_elements_' . $col );
+		$count += count( $elements[ $col ] );
+	}
+
+	if ( 1 > $count ) return;
 	?>
 	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
 		<div class="suki-page-header-inner suki-section-inner">
 			<div class="suki-wrapper">
-				<div class="suki-page-header-row">
-					<?php suki_page_title(); ?>
-
-					<?php suki_breadcrumb(); ?>
+				<div class="suki-page-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-page-header-row-with-center' : '' ); ?>">
+					<?php foreach ( $cols as $col ) : ?>
+						<?php
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
+						}
+						?>
+						<div class="suki-page-header-<?php echo esc_attr( $col ); ?> suki-page-header-column <?php echo esc_attr( 0 === count( $elements[ $col ] ) ? 'suki-page-header-column-empty' : '' ); ?>">
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_page_header_element( $element );
+							}
+							?>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -748,101 +767,118 @@ function suki_page_header() {
 }
 endif;
 
-if ( ! function_exists( 'suki_page_title' ) ) :
+if ( ! function_exists( 'suki_page_header_element' ) ) :
 /**
- * Render page title.
+ * Render page header element.
  */
-function suki_page_title() {
-	// If no custom title defined, use default title.
-	if ( empty( $title ) ) {
-		if ( is_home() && is_front_page() ) {
-			$title = get_bloginfo( 'description' );
-		}
-
-		elseif ( is_home() ) {
-			$title = get_the_title( get_option( 'page_for_posts' ) );
-		}
-
-		elseif ( is_search() ) {
-			$title = suki_title__search( false );
-		}
-
-		elseif ( is_singular() ) {
-			$title = get_the_title();
-		}
-
-		elseif ( is_post_type_archive() ) {
-			$post_type_obj = get_queried_object();
-			$title = suki_get_current_page_setting( 'page_header_title_text__post_type_archive' );
-
-			if ( ! empty( $title ) ) {
-				$title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $title );
-			} else {
-				$title = post_type_archive_title( '', false );
-			}
-		}
-
-		elseif ( is_archive() ) {
-			$term_obj = get_queried_object();
-			$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
-
-			$title = suki_get_current_page_setting( 'page_header_title_text__taxonomy_archive' );
-
-			if ( ! empty( $title ) ) {
-				$title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $title );
-				$title = str_replace( '{{term}}', $term_obj->name, $title );
-			} else {
-				$title = get_the_archive_title();
-			}
-		}
-
-		elseif ( is_404() ) {
-			$title = suki_title__404( false );
-		}
-
-		else {
-			$title = '<!-- No title format matched for this page -->';
-		}
+function suki_page_header_element( $element ) {
+	if ( empty( $element ) ) {
+		return;
 	}
-
-	echo '<h1 class="suki-page-header-title">' . $title . '</h1>'; // WPCS: XSS OK
-}
-endif;
-
-if ( ! function_exists( 'suki_breadcrumb' ) ) :
-/**
- * Render breadcrumb via 3rd party plugin.
- */
-function suki_breadcrumb() {
-	if ( ! intval( suki_get_theme_mod( 'page_header_breadcrumb' ) ) ) return;
 
 	ob_start();
-	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
-		case 'breadcrumb-trail':
-			if ( function_exists( 'breadcrumb_trail' ) ) {
-				breadcrumb_trail( array(
-					'show_browse' => false,
-				) );
+	switch ( $element ) {
+		case 'title':
+			$title = '';
+
+			// If no custom title defined, use default title.
+			if ( is_home() && is_front_page() ) {
+				$title = get_bloginfo( 'description' );
+			}
+
+			elseif ( is_home() ) {
+				$title = get_the_title( get_option( 'page_for_posts' ) );
+			}
+
+			elseif ( is_search() ) {
+				$title = suki_get_current_page_setting( 'page_header_title_text__search' );
+
+				if ( ! empty( $title ) ) {
+					$title = str_replace( '{{keyword}}', get_search_query(), $title );
+				} else {
+					$title = suki_title__search( false );
+				}
+			}
+
+			elseif ( is_singular() ) {
+				$title = get_the_title();
+			}
+
+			elseif ( is_post_type_archive() ) {
+				$post_type_obj = get_queried_object();
+				$title = suki_get_current_page_setting( 'page_header_title_text__post_type_archive' );
+
+				if ( ! empty( $title ) ) {
+					$title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $title );
+				} else {
+					$title = post_type_archive_title( '', false );
+				}
+			}
+
+			elseif ( is_archive() ) {
+				$term_obj = get_queried_object();
+				$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
+
+				$title = suki_get_current_page_setting( 'page_header_title_text__taxonomy_archive' );
+
+				if ( ! empty( $title ) ) {
+					$title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $title );
+					$title = str_replace( '{{term}}', $term_obj->name, $title );
+				} else {
+					$title = get_the_archive_title();
+				}
+			}
+
+			elseif ( is_404() ) {
+				$title = suki_get_current_page_setting( 'page_header_title_text__404' );
+
+				if ( empty( $title ) ) {
+					$title = suki_title__404( false );
+				}
+			}
+
+			if ( ! empty( $title ) ) {
+				echo '<h1 class="suki-page-header-title">' . $title . '</h1>'; // WPCS: XSS OK
 			}
 			break;
 
-		case 'breadcrumb-navxt':
-			if ( function_exists( 'bcn_display' ) ) {
-				bcn_display();
-			}
-			break;
+		case 'breadcrumb':
+			$breadcrumb = '';
+			switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
+				case 'breadcrumb-trail':
+					if ( function_exists( 'breadcrumb_trail' ) ) {
+						$breadcrumb = breadcrumb_trail( array(
+							'show_browse' => false,
+							'echo' => false,
+						) );
+					}
+					break;
 
-		case 'yoast-seo':
-			if ( function_exists( 'yoast_breadcrumb' ) ) {
-				yoast_breadcrumb();
+				case 'breadcrumb-navxt':
+					if ( function_exists( 'bcn_display' ) ) {
+						$breadcrumb = bcn_display( true );
+					}
+					break;
+
+				case 'yoast-seo':
+					if ( function_exists( 'yoast_breadcrumb' ) ) {
+						$breadcrumb = yoast_breadcrumb( '', '', false );
+					}
+					break;
+			}
+			
+			if ( ! empty( $breadcrumb ) ) {
+				echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // WPCS: XSS OK
 			}
 			break;
 	}
-	$breadcrumb = ob_get_clean();
-	
-	if ( ! empty( $breadcrumb ) ) {
-		echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // WPCS: XSS OK
-	}
+	$html = ob_get_clean();
+
+	// Filters to modify the final HTML tag.
+	$html = apply_filters( 'suki/frontend/page_header_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/page_header_element/' . $element, $html );
+
+	echo $html; // WPCS: XSS OK
 }
 endif;
 

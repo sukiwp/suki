@@ -495,7 +495,7 @@ li:not(.customize-info) div.customize-section-description {
 		position: relative;
 		display: block;
 		height: 6px;
-		margin: 10px 10px 10px 5px;
+		margin: 10px 14px 10px 7px;
 		border: none;
 		border-radius: 3px;
 		background: #ccc;
@@ -506,7 +506,7 @@ li:not(.customize-info) div.customize-section-description {
 			display: inline-block;
 			height: 12px;
 			width: 12px;
-			margin: -4px 0 0 -5px;
+			margin: -4px 0 0 -7px;
 			border-radius: 3px;
 			background-color: #fff;
 			background-image: none;
@@ -549,7 +549,7 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-typography {
 	.customize-control-content {
-		padding: 8px 6px;
+		padding: 5px;
 		border: 1px solid #ddd;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 		background-color: #fff;
@@ -566,7 +566,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.suki-typography-fieldset {
-		margin: 8px 0 0;
+		margin: 5px 0 0;
 
 		> * {
 			padding: 0 2px;
@@ -650,7 +650,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.suki-builder-location {
 			position: relative;
-			margin: 4px 0;
+			margin: 3px 0;
 			border: 1px solid #ddd;
 			box-shadow: 0 1px 1px rgba(0,0,0,0.04);
 			background-color: #fff;
@@ -666,7 +666,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.suki-small-label {
 			margin: 0;
-			padding: 5px 8px;
+			padding: 4px 8px;
 			border-bottom: 1px solid #ddd;
 			background-color: #f7f7f7;
 			opacity: 1;
@@ -675,16 +675,18 @@ li:not(.customize-info) div.customize-section-description {
 		.suki-builder-sortable-panel {
 			display: flex;
 			flex-wrap: wrap;
-			min-height: 28px;
+			min-height: 34px;
 			margin: 0;
-			padding: 6px 8px 8px;
+			padding: 5px;
+			padding-right: 28px;
 		}
 
 		.suki-builder-element {
 			position: relative;
 			display: inline-block;
-			white-space: nowrap;
+			margin: 3px;
 			padding: 0;
+			white-space: nowrap;
 
 			> span {
 				display: inline-block;
@@ -695,10 +697,12 @@ li:not(.customize-info) div.customize-section-description {
 		.suki-builder-element-add {
 			position: absolute;
 			bottom: 0;
-			display: inline-block;
-			vertical-align: middle;
-			outline: 0 !important;
+			right: 0;
+			margin: 0 5px 11px 0;
+			font-size: 18px;
+			line-height: 1;
 			opacity: 0.5;
+			text-decoration: none;
 			cursor: pointer;
 
 			&:hover, &:focus {
@@ -708,7 +712,7 @@ li:not(.customize-info) div.customize-section-description {
 			.dashicons {
 				width: auto;
 				height: auto;
-				font-size: 18px;
+				font-size: 1em;
 			}
 		}
 
@@ -761,7 +765,8 @@ li:not(.customize-info) div.customize-section-description {
 		.suki-builder-no-more-items {
 			display: none;
 			margin: 0;
-			padding: 0.25em 0;
+			padding: 0 5px;
+			line-height: 32px;
 			font-style: italic;
 			text-decoration: none;
 			color: #555d66;
@@ -772,34 +777,9 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 
-	.suki-builder-layout-inline {
-		.suki-builder-location .suki-builder-sortable-panel {
-			padding-right: 28px;
-		}
-
-		.suki-builder-element-add {
-			right: 0;
-			margin: 0 6px 11px 0;
-		}
-
-		.suki-builder-element {
-			margin: 2px !important;
-		}
-	}
-
 	.suki-builder-layout-block {
-		.suki-builder-location .suki-builder-sortable-panel {
-			padding-bottom: 28px;
-		}
-
-		.suki-builder-element-add {
-			left: 50%;
-			margin: 0 0 5px -9px;
-		}
-
 		.suki-builder-element {
 			width: 100%;
-			margin: 2px 0 !important;
 			display: inline-flex;
 
 			> span {
@@ -949,13 +929,12 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-sortable-panel {
-				padding: 8px !important;
+				padding-right: 5px;
 			}
 
 			.suki-builder-location {
 				position: relative;
 				box-sizing: border-box;
-				margin: 2px 0;
 
 				&[data-location*="left"] {
 					.suki-small-label {
