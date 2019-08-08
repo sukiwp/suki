@@ -27,6 +27,10 @@
 	align-items: center;
 	margin: 0 -1.5rem;
 
+	&:not(.suki-page-header-row-with-center) > .suki-page-header-column-empty {
+		display: none;
+	}
+
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		flex-wrap: wrap;
 		white-space: normal;
@@ -57,7 +61,7 @@
 }
 
 .suki-page-header-left {
-	flex: 1 0 auto;
+	flex: 1 1 auto;
 	text-align: left;
 
 	.suki-page-header-row-with-center > & {
@@ -76,7 +80,7 @@
 }
 
 .suki-page-header-right {
-	flex: 1 0 auto;
+	flex: 1 1 auto;
 	text-align: right;
 
 	.suki-page-header-row-with-center > & {

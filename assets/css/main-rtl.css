@@ -2267,6 +2267,10 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin: 0 -1.5rem;
 }
 
+.suki-page-header-row:not(.suki-page-header-row-with-center) > .suki-page-header-column-empty {
+	display: none;
+}
+
 @media screen and (max-width: 1023px) {
 	.suki-page-header-row {
 		-ms-flex-wrap: wrap;
@@ -2301,8 +2305,8 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-page-header-left {
-	-ms-flex: 1 0 auto;
-	flex: 1 0 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
 	text-align: right;
 }
 
@@ -2322,8 +2326,8 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-page-header-right {
-	-ms-flex: 1 0 auto;
-	flex: 1 0 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
 	text-align: left;
 }
 
