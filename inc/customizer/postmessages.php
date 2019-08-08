@@ -59,6 +59,14 @@ $add['body_line_height'][] = array(
 	),
 );
 
+$add['font_smoothing'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => 'body',
+		'pattern'  => 'suki-font-smoothing-$',
+	),
+);
+
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',

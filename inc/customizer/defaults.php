@@ -34,6 +34,8 @@ $add['body_font_size'] = '15px';
 $add['body_line_height'] = '1.7';
 $add['body_letter_spacing'] = '';
 
+$add['font_smoothing'] = 1;
+
 $add['body_text_color'] = $colors['text'];
 
 /**

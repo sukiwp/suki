@@ -1043,7 +1043,7 @@ msgstr ""
 msgid "Border color"
 msgstr ""
 
-#: inc/customizer/options/content--sidebar.php:333, inc/customizer/options/footer--bottom-bar.php:222, inc/customizer/options/footer--widgets-bar.php:266, inc/customizer/options/general--base.php:55, inc/customizer/options/general--buttons.php:116, inc/customizer/options/general--form-inputs.php:116, inc/customizer/options/header--mobile-vertical-bar.php:264, inc/customizer/options/header--top-main-bottom-bar.php:300, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:29
+#: inc/customizer/options/content--sidebar.php:333, inc/customizer/options/footer--bottom-bar.php:222, inc/customizer/options/footer--widgets-bar.php:266, inc/customizer/options/general--base.php:69, inc/customizer/options/general--buttons.php:116, inc/customizer/options/general--form-inputs.php:116, inc/customizer/options/header--mobile-vertical-bar.php:264, inc/customizer/options/header--top-main-bottom-bar.php:300, inc/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:91, inc/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:29
 msgid "Text color"
 msgstr ""
 
@@ -1172,6 +1172,14 @@ msgstr ""
 
 #: inc/customizer/options/general--base.php:41
 msgid "Body (base) text typography"
+msgstr ""
+
+#: inc/customizer/options/general--base.php:55
+msgid "Enable font smoothing"
+msgstr ""
+
+#: inc/customizer/options/general--base.php:56
+msgid "For Chrome, Safari, Firefox browsers (recommended)."
 msgstr ""
 
 #: inc/customizer/options/general--blockquote.php:41

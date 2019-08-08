@@ -615,6 +615,11 @@ function suki_body_classes( $classes ) {
 	// Add theme version.
 	$classes['theme_version'] = esc_attr( 'suki-ver-' . str_replace( '.', '-', SUKI_VERSION ) );
 
+	// Add font smoothing class.
+	if ( intval( suki_get_theme_mod( 'font_smoothing' ) ) ) {
+		$classes['font_smoothing'] = esc_attr( 'suki-font-smoothing' );
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'suki_body_classes' );

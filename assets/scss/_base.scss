@@ -28,9 +28,6 @@ body {
 	min-height: 100vh;
 
 	@include base(); // default
-
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	
 	overflow-wrap: break-word;
 	word-wrap: break-word;

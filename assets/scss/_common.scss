@@ -61,6 +61,11 @@
 // Typography Classes
 // -------------------------------------------------------------
 
+.suki-font-smoothing, .suki-font-smoothing-1 {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 .h1 {
 	@include h1();
 }
