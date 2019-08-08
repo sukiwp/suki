@@ -74,15 +74,15 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		'choices'     => array(
 			'default'    => array(
 				'label' => esc_html__( 'Normal', 'suki' ),
-				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--default.svg',
+				'image' => SUKI_IMAGES_URL . '/customizer/header-container--default.svg',
 			),
 			'full-width' => array(
 				'label' => esc_html__( 'Full width', 'suki' ),
-				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--full-width.svg',
+				'image' => SUKI_IMAGES_URL . '/customizer/header-container--full-width.svg',
 			),
 			'contained'  => array(
 				'label' => esc_html__( 'Contained', 'suki' ),
-				'image' => SUKI_IMAGES_URL . '/customizer/header-layout--contained.svg',
+				'image' => SUKI_IMAGES_URL . '/customizer/header-container--contained.svg',
 			),
 		),
 		'priority'    => 10,

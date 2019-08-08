@@ -67,15 +67,15 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'choices'     => array(
 		'default'    => array(
 			'label' => esc_html__( 'Normal', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--default.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-container--default.svg',
 		),
 		'full-width' => array(
 			'label' => esc_html__( 'Full width', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--full-width.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-container--full-width.svg',
 		),
 		'contained'  => array(
 			'label' => esc_html__( 'Contained', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/footer-layout--contained.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-container--contained.svg',
 		),
 	),
 	'priority'    => 10,

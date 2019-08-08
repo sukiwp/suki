@@ -485,11 +485,11 @@ class Suki_Admin_Metabox_Page_Settings {
 								),
 								'default'    => array(
 									'label' => esc_html__( 'Normal', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
+									'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
 								),
 								'full-width' => array(
 									'label' => esc_html__( 'Full width', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/content-layout--full-width.svg',
+									'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
 								),
 							),
 							'value'       => suki_array_value( $values, $key ),

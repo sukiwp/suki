@@ -41,11 +41,11 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'choices'     => array(
 		'default'    => array(
 			'label' => esc_html__( 'Normal', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--default.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
 		),
 		'full-width' => array(
 			'label' => esc_html__( 'Full width', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-layout--full-width.svg',
+			'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
 		),
 	),
 	'priority'    => 10,
