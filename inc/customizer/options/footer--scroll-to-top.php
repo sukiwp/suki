@@ -52,16 +52,6 @@ $wp_customize->add_control( new Suki_Customize_Control_MultiCheck( $wp_customize
 	'priority'    => 10,
 ) ) );
 
-// Selective Refresh
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial( 'scroll_to_top_visibility', array(
-		'selector'            => '.suki-scroll-to-top',
-		'container_inclusive' => true,
-		'render_callback'     => 'suki_scroll_to_top',
-		'fallback_refresh'    => false,
-	) );
-}
-
 // Display
 $key = 'scroll_to_top_display';
 $wp_customize->add_setting( $key, array(
