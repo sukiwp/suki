@@ -2071,6 +2071,124 @@ $add['footer_social_links_target'] = array(
 
 /**
  * ====================================================
+ * Footer > Scroll To Top
+ * ====================================================
+ */
+
+$add['scroll_to_top_display'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-scroll-to-top',
+		'pattern'  => 'suki-scroll-to-top-display-$',
+	),
+);
+$add['scroll_to_top_position'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-scroll-to-top',
+		'pattern'  => 'suki-scroll-to-top-position-$',
+	),
+);
+
+$responsive = array(
+	''         => '',
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
+);
+foreach ( $responsive as $suffix => $media ) {
+	$add['scroll_to_top_h_offset' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'margin-left',
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'margin-right',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_v_offset' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'margin-bottom',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_icon_size' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'font-size',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_padding' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'padding',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_border_radius' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'border-radius',
+			'media'    => $media,
+		),
+	);
+}
+
+$add['scroll_to_top_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top',
+		'property' => 'background-color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'background-color',
+	),
+);
+$add['scroll_to_top_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'color',
+	),
+);
+$add['scroll_to_top_hover_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'background-color',
+	),
+);
+$add['scroll_to_top_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'color',
+	),
+);
+
+/**
+ * ====================================================
  * Blog > Posts Page
  * ====================================================
  */

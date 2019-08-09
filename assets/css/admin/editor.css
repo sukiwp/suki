@@ -23,6 +23,7 @@ html {
 }
 
 body {
+	position: relative;
 	margin: 0;
 	background-color: #ffffff;
 	color: #666666;

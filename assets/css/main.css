@@ -23,6 +23,7 @@ html {
 }
 
 body {
+	position: relative;
 	margin: 0;
 	background-color: #ffffff;
 	color: #666666;
@@ -2545,6 +2546,45 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-footer-social li a {
 	vertical-align: middle;
+}
+
+.suki-scroll-to-top {
+	position: absolute;
+	bottom: 0;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: none;
+	border-radius: 40px;
+	font-size: 18px;
+	line-height: 1;
+}
+
+.suki-scroll-to-top-position-left {
+	left: 0;
+}
+
+.suki-scroll-to-top-position-right {
+	right: 0;
+}
+
+.suki-scroll-to-top-display-sticky {
+	position: fixed;
+	-webkit-transform: translate(0, 100%);
+	transform: translate(0, 100%);
+	opacity: 0;
+	transition: opacity 0.25s, -webkit-transform 0.25s;
+	transition: transform 0.25s, opacity 0.25s;
+	transition: transform 0.25s, opacity 0.25s, -webkit-transform 0.25s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.suki-scroll-to-top-display-sticky.sticky {
+	opacity: 1;
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
 }
 
 .suki-loop-grid {

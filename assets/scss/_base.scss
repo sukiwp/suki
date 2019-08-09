@@ -22,6 +22,7 @@ html {
 }
 
 body {
+	position: relative;
 	margin: 0;
 	background-color: $color_bg; // default
 	color: $color_text; // default

@@ -391,6 +391,19 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) );
 
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_scroll_to_top', array(
+		'panel'       => $panel,
+		'priority'    => 40,
+	) ) );
+
+	// Scroll To Top
+	$wp_customize->add_section( 'suki_section_scroll_to_top', array(
+		'title'       => esc_html__( 'Scroll To Top', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 40,
+	) );
+
 	if ( suki_show_pro_teaser() ) {
 		// ------
 		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_footer_advanced', array(

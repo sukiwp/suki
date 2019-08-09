@@ -124,6 +124,16 @@ function suki_template_hooks() {
 	add_action( 'suki/frontend/footer', 'suki_main_footer', 10 );
 
 	/**
+	 * suki/frontend/after_canvas hook
+	 *
+	 * @see suki_scroll_to_top()
+	 */
+
+	if ( intval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
+		add_action( 'suki/frontend/after_canvas', 'suki_scroll_to_top', 10 );
+	}
+
+	/**
 	 * ====================================================
 	 * Content default (post / page) hooks
 	 * ====================================================
@@ -480,7 +490,7 @@ function suki_walker_nav_menu_start_el( $item_output, $item, $depth, $args ) {
 	if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
 		// Only add to toggle menu.
 		if ( is_integer( strpos( $args->menu_class, 'suki-toggle-menu' ) ) ) {
-			$sign = '<button class="suki-sub-menu-toggle suki-toggle">' . suki_icon( 'submenu-down', array( 'class' => 'suki-dropdown-sign' ), false ) . '<span class="screen-reader-text">' . esc_html__( 'Expand / Collapse', 'suki' ) . '</span></button>';
+			$sign = '<button class="suki-sub-menu-toggle suki-toggle">' . suki_icon( 'chevron-down', array( 'class' => 'suki-dropdown-sign' ), false ) . '<span class="screen-reader-text">' . esc_html__( 'Expand / Collapse', 'suki' ) . '</span></button>';
 			
 			$item_output .= trim( $sign );
 		}
@@ -506,7 +516,7 @@ function suki_nav_menu_item_title( $title, $item, $args, $depth ) {
 	if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
 		// Only add to hover menu.
 		if ( is_integer( strpos( $args->menu_class, 'suki-hover-menu' ) ) ) {
-			$sign = suki_icon( 0 < $depth ? 'submenu-right' : 'submenu-down', array( 'class' => 'suki-dropdown-sign' ), false );
+			$sign = suki_icon( 0 < $depth ? 'chevron-right' : 'chevron-down', array( 'class' => 'suki-dropdown-sign' ), false );
 		}
 	}
 
@@ -805,3 +815,23 @@ function suki_footer_bottom_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'suki/frontend/footer_bottom_bar_classes', 'suki_footer_bottom_classes' );
+
+/**
+ * Add custom classes to the array of footer bottom bar classes.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_scroll_to_top_classes( $classes ) {
+	$classes['position'] = esc_attr( 'suki-scroll-to-top-position-' . suki_get_theme_mod( 'scroll_to_top_position' ) );
+	$classes['display'] = esc_attr( 'suki-scroll-to-top-display-' . suki_get_theme_mod( 'scroll_to_top_display' ) );
+
+	$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'scroll_to_top_visibility' ) );
+
+	foreach( $hide_devices as $device ) {
+		$classes['hide_on_' . $device ] = esc_attr( 'suki-hide-on-' . $device );
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/scroll_to_top_classes', 'suki_scroll_to_top_classes' );

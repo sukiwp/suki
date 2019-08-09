@@ -166,3 +166,40 @@
 		}
 	}
 }
+
+// -------------------------------------------------------------
+// Scroll to Top
+// -------------------------------------------------------------
+
+.suki-scroll-to-top {
+	position: absolute;
+	bottom: 0;
+	margin-left: 20px; // default
+	margin-right: 20px; // default
+	margin-bottom: 20px; // default
+	padding: 10px; // default
+	border: none;
+	border-radius: 40px; // default
+	font-size: 18px; // default
+	line-height: 1;
+
+	&-position-left {
+		left: 0;
+	}
+
+	&-position-right {
+		right: 0;
+	}
+
+	&-display-sticky {
+		position: fixed;
+		transform: translate( 0, 100% );
+		opacity: 0;
+		@include transition( transform, opacity );
+
+		&.sticky {
+			opacity: 1;
+			transform: translate( 0, 0 );
+		}
+	}
+}

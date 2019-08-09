@@ -452,6 +452,37 @@
 		},
 
 		/**
+		 * Function to init scroll to top.
+		 */
+		initScrollToTop: function() {
+			var $scrollToTop = document.querySelector( '.suki-scroll-to-top' );
+
+			if ( $scrollToTop ) {
+				$scrollToTop.addEventListener( 'click', function( e ) {
+					e.preventDefault();
+
+					window.scrollTo({
+						top: 0,
+						behavior: 'smooth',
+					});
+				});
+
+				if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
+					var checkStickyOffset = function() {
+						if ( window.pageYOffset > 0.5 * window.innerHeight ) {
+							$scrollToTop.classList.add( 'sticky' );
+						} else {
+							$scrollToTop.classList.remove( 'sticky' );
+						}
+					}
+
+					window.addEventListener( 'scroll', checkStickyOffset );
+					checkStickyOffset();
+				}
+			}
+		},
+
+		/**
 		 * Function that calls all init functions.
 		 */
 		initAll: function() {
@@ -462,6 +493,7 @@
 			window.suki.initDoubleTapMobileMenu();
 			window.suki.initAccordionMenu();
 			window.suki.initGlobalPopup();
+			window.suki.initScrollToTop();
 		},
 	}
 

@@ -195,6 +195,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--copyright.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
 		// Global Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--google-fonts.php' );

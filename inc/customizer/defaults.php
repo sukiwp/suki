@@ -758,6 +758,29 @@ $add['footer_social_links_target'] = 'self';
 
 /**
  * ====================================================
+ * Footer > Scroll To Top
+ * ====================================================
+ */
+
+$add['scroll_to_top'] = 0;
+$add['scroll_to_top_visibility'] = array( 'desktop', 'tablet', 'mobile' );
+
+$add['scroll_to_top_display'] = 'sticky';
+$add['scroll_to_top_position'] = 'right';
+$add['scroll_to_top_h_offset'] = '20px';
+$add['scroll_to_top_v_offset'] = '20px';
+
+$add['scroll_to_top_icon_size'] = '18px';
+$add['scroll_to_top_padding'] = '10px';
+$add['scroll_to_top_border_radius'] = '40px';
+
+$add['scroll_to_top_bg_color'] = '';
+$add['scroll_to_top_text_color'] = '';
+$add['scroll_to_top_hover_bg_color'] = '';
+$add['scroll_to_top_hover_text_color'] = '';
+
+/**
+ * ====================================================
  * Blog > Posts Page
  * ====================================================
  */

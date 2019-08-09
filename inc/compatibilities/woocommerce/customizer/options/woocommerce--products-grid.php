@@ -103,6 +103,8 @@ if ( suki_show_pro_teaser() ) {
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
 			esc_html_x( 'Grid Item\'s Styles', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Product Quick View Popup', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Alternate Hover Image', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

@@ -1,4 +1,5 @@
 v1.1.0
+- NEW: "Scroll to Top" button.
 - NEW: Form input typography settings.
 - NEW: Font smoothing typography setting.
 - NEW: Page header layout builder.

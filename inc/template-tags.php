@@ -1164,6 +1164,19 @@ function suki_footer_element( $element ) {
 }
 endif;
 
+if ( ! function_exists( 'suki_scroll_to_top' ) ) :
+/**
+ * Print scroll to top button.
+ */
+function suki_scroll_to_top() {
+	?>
+	<button class="suki-scroll-to-top <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array() ) ) ); ?>">
+		<?php suki_icon( 'chevron-up' ); ?>
+	</button>
+	<?php
+}
+endif;
+
 /**
  * ====================================================
  * Entry template functions
