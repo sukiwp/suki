@@ -488,7 +488,7 @@ function suki_get_theme_modules() {
 		),
 
 		'woocommerce' => array(
-			'label'    => esc_html__( 'WooCommerce Layout', 'suki' ),
+			'label'    => esc_html__( 'WC Layout', 'suki' ),
 			'category' => 'woocommerce',
 			'actions'  => array(
 				'settings' => array(
@@ -576,25 +576,30 @@ function suki_get_pro_modules() {
 			'url'      => esc_url( $url . '#pro-white-label' ),
 		),
 
-		'woocommerce-plus' => array(
-			'label'    => esc_html__( 'WooCommerce Layout Plus', 'suki' ),
+		'woocommerce-layout-plus' => array(
+			'label'    => esc_html__( 'WC Layout Plus', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( $url . '#pro-woocommerce-styles-plus' ),
+			'url'      => esc_url( $url . '#pro-woocommerce-layout-plus' ),
 		),
 		'woocommerce-ajax-add-to-cart' => array(
-			'label'    => esc_html__( 'WooCommerce AJAX Add To Cart', 'suki' ),
+			'label'    => esc_html__( 'WC AJAX Add To Cart', 'suki' ),
 			'category' => 'woocommerce',
 			'url'      => esc_url( $url . '#pro-woocommerce-ajax-add-to-cart' ),
 		),
 		'woocommerce-quick-view' => array(
-			'label'    => esc_html__( 'WooCommerce Quick View', 'suki' ),
+			'label'    => esc_html__( 'WC Quick View', 'suki' ),
 			'category' => 'woocommerce',
 			'url'      => esc_url( $url . '#pro-woocommerce-quick-view' ),
 		),
 		'woocommerce-off-canvas-filters' => array(
-			'label'    => esc_html__( 'WooCommerce Off Canvas Filters', 'suki' ),
+			'label'    => esc_html__( 'WC Off Canvas Filters', 'suki' ),
 			'category' => 'woocommerce',
 			'url'      => esc_url( $url . '#pro-woocommerce-off-canvas-filters' ),
+		),
+		'woocommerce-checkout-optimization' => array(
+			'label'    => esc_html__( 'WC Checkout Optimization', 'suki' ),
+			'category' => 'woocommerce',
+			'url'      => esc_url( $url . '#pro-woocommerce-checkout-optimization' ),
 		),
 
 		// 'blog-plus' => array(

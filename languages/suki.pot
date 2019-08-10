@@ -125,7 +125,7 @@ msgid "Blog Layout"
 msgstr ""
 
 #: inc/helpers.php:491
-msgid "WooCommerce Layout"
+msgid "WC Layout"
 msgstr ""
 
 #: inc/helpers.php:513
@@ -181,47 +181,51 @@ msgid "White Label"
 msgstr ""
 
 #: inc/helpers.php:580
-msgid "WooCommerce Layout Plus"
+msgid "WC Layout Plus"
 msgstr ""
 
 #: inc/helpers.php:585
-msgid "WooCommerce AJAX Add To Cart"
+msgid "WC AJAX Add To Cart"
 msgstr ""
 
 #: inc/helpers.php:590
-msgid "WooCommerce Quick View"
+msgid "WC Quick View"
 msgstr ""
 
 #: inc/helpers.php:595
-msgid "WooCommerce Off Canvas Filters"
+msgid "WC Off Canvas Filters"
 msgstr ""
 
-#: inc/helpers.php:754
+#: inc/helpers.php:600
+msgid "WC Checkout Optimization"
+msgstr ""
+
+#: inc/helpers.php:759
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:755
+#: inc/helpers.php:760
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:756
+#: inc/helpers.php:761
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:757
+#: inc/helpers.php:762
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:758
+#: inc/helpers.php:763
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:759
+#: inc/helpers.php:764
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
