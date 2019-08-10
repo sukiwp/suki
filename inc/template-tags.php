@@ -865,6 +865,18 @@ function suki_page_header_element( $element ) {
 						$breadcrumb = yoast_breadcrumb( '', '', false );
 					}
 					break;
+
+				case 'rank-math':
+					if ( function_exists( 'rank_math_get_breadcrumbs' ) ) {
+						$breadcrumb = rank_math_get_breadcrumbs();
+					}
+					break;
+
+				case 'seopress':
+					if ( function_exists( 'seopress_display_breadcrumbs' ) ) {
+						$breadcrumb = seopress_display_breadcrumbs( false );
+					}
+					break;
 			}
 			
 			if ( ! empty( $breadcrumb ) ) {
