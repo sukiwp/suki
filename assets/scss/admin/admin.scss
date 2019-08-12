@@ -695,25 +695,28 @@ input, select, textarea {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: stretch;
-		margin: -2px;
+		margin: 0;
 
 		.suki-admin-module {
+			position: relative;
 			width: 33.33%;
-			padding: 2px;
+			// padding: 2px;
 			margin: 0;
+			padding: 15px 40px 15px 15px;
+			background-color: #f9f9f9;
+			border-right: 1px solid #e5e5e5;
+			border-bottom: 1px solid #e5e5e5;
 
-			.suki-admin-module-inner {
-				position: relative;
-				height: 100%;
-				padding: 12px 40px 12px 12px;
-				border: 1px solid #e5e5e5;
-				background-color: #f9f9f9;
+			&:nth-child(3n+1) {
+				border-left: 1px solid #e5e5e5;
+			}
+
+			&:nth-child(-n+3) {
+				border-top: 1px solid #e5e5e5;
 			}
 
 			&.active {
-				.suki-admin-module-inner {
-					background-color: #fff;	
-				}
+				background-color: #fff;
 			}
 
 			&.pro {
@@ -762,14 +765,14 @@ input, select, textarea {
 					top: 0;
 					right: 0;
 					display: block;
-					margin: 13px 10px 0 0;
+					margin: 16px 10px 0 0;
 
 					> * {
 						position: relative;
 						display: block;
-						width: 25px;
+						width: 24px;
 						height: 16px;
-						border-radius: 8px;
+						border-radius: 10px;
 						font-size: 12px;
 						font-weight: 600;
 						line-height: 16px;
@@ -789,14 +792,14 @@ input, select, textarea {
 					top: 0;
 					right: 0;
 					display: block;
-					margin: 13px 10px 0 0;
+					margin: 16px 10px 0 0;
 
 					> * {
 						position: relative;
 						display: block;
-						width: 25px;
+						width: 24px;
 						height: 16px;
-						border-radius: 8px;
+						border-radius: 10px;
 						text-indent: -9999em;
 
 						&:after {
@@ -806,7 +809,7 @@ input, select, textarea {
 							width: 12px;
 							height: 12px;
 							margin: 2px;
-							border-radius: 6px;
+							border-radius: 10px;
 							background-color: #fff;
 						}
 					}

@@ -556,47 +556,47 @@ msgstr ""
 msgid "WooCommerce is not installed"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:743
+#: inc/admin/class-suki-admin.php:742
 msgid "Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:774
+#: inc/admin/class-suki-admin.php:772
 msgid "Suki Website"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:780
+#: inc/admin/class-suki-admin.php:778
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:786
+#: inc/admin/class-suki-admin.php:784
 msgid "Users Community Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:792
+#: inc/admin/class-suki-admin.php:790
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:798
+#: inc/admin/class-suki-admin.php:796
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:806
+#: inc/admin/class-suki-admin.php:804
 msgid "Other Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:827
+#: inc/admin/class-suki-admin.php:825
 msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:830
+#: inc/admin/class-suki-admin.php:828
 msgid "Kickstart your website with our pre-made demo websites in 3 steps: Import. Modify. Launch!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:833
+#: inc/admin/class-suki-admin.php:831
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:835
+#: inc/admin/class-suki-admin.php:833
 msgid "Install & Activate Plugin"
 msgstr ""
 

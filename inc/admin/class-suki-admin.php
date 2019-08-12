@@ -729,32 +729,30 @@ class Suki_Admin {
 							}
 							?>
 							<li id="<?php echo esc_attr( 'suki-admin-module--' . $module_slug ); ?>" class="suki-admin-module <?php echo esc_attr( ( $module_data['pro'] ? 'pro' : 'free' ) . ' ' . ( $module_data['active'] ? 'active' : 'inactive' ) ); ?>">
-								<div class="suki-admin-module-inner">
-									<h4 class="suki-admin-module-name">
-										<?php if ( ! empty( $module_data['url'] ) ) : ?>
-											<a href="<?php echo esc_html( $module_data['url'] ); ?>" target="_blank" rel="noopener">
-												<span><?php echo esc_html( $module_data['label'] ); ?></span>
-											</a>
-										<?php else : ?>
+								<h4 class="suki-admin-module-name">
+									<?php if ( ! empty( $module_data['url'] ) ) : ?>
+										<a href="<?php echo esc_html( $module_data['url'] ); ?>" target="_blank" rel="noopener">
 											<span><?php echo esc_html( $module_data['label'] ); ?></span>
-										<?php endif; ?>
+										</a>
+									<?php else : ?>
+										<span><?php echo esc_html( $module_data['label'] ); ?></span>
+									<?php endif; ?>
 
-										<?php if ( $module_data['pro'] ) : ?>
-											<span class="suki-admin-module-badge-pro"><?php esc_html_e( 'Pro', 'suki' ); ?></span>
-										<?php endif; ?>
-									</h4>
+									<?php if ( $module_data['pro'] ) : ?>
+										<span class="suki-admin-module-badge-pro"><?php esc_html_e( 'Pro', 'suki' ); ?></span>
+									<?php endif; ?>
+								</h4>
 
-									<div class="suki-admin-module-actions row-actions">
-										<?php foreach( $module_data['actions'] as $action_key => $action_data ) : ?>
-											<span class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
-												<?php if ( isset( $action_data['url'] ) ) : ?>
-													<a href="<?php echo esc_url( $action_data['url'] ); ?>"><?php echo esc_html( $action_data['label'] ); ?></a>
-												<?php else : ?>
-													<span><?php echo esc_html( $action_data['label'] ); ?></span>
-												<?php endif; ?>
-											</span>
-										<?php endforeach; ?>
-									</div>
+								<div class="suki-admin-module-actions row-actions">
+									<?php foreach( $module_data['actions'] as $action_key => $action_data ) : ?>
+										<span class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
+											<?php if ( isset( $action_data['url'] ) ) : ?>
+												<a href="<?php echo esc_url( $action_data['url'] ); ?>"><?php echo esc_html( $action_data['label'] ); ?></a>
+											<?php else : ?>
+												<span><?php echo esc_html( $action_data['label'] ); ?></span>
+											<?php endif; ?>
+										</span>
+									<?php endforeach; ?>
 								</div>
 							</li>
 						<?php endforeach; ?>
