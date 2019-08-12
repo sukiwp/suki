@@ -468,6 +468,7 @@
 	justify-content: space-between;
 	flex-direction: column;
 	height: 100%;
+	max-width: 100%;
 }
 
 .suki-header-section-vertical-row {
@@ -626,7 +627,7 @@
 		@include transition( transform 0.25s 0.125s );
 	}
 
-	.suki-header-section-vertical-column {
+	&-inner {
 		padding: 30px; // default
 	}
 

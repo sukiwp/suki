@@ -1986,6 +1986,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	-ms-flex-direction: column;
 	flex-direction: column;
 	height: 100%;
+	max-width: 100%;
 }
 
 .suki-header-section-vertical-row {
@@ -2139,7 +2140,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	backface-visibility: hidden;
 }
 
-.suki-header-mobile-vertical-bar .suki-header-section-vertical-column {
+.suki-header-mobile-vertical-bar-inner {
 	padding: 30px;
 }
 
