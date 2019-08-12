@@ -328,7 +328,7 @@ $add['woocommerce_single_gallery_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.summary, .woocommerce div.product div.summary',
+		'element'  => '.woocommerce #content div.product div.images ~ div.summary, .woocommerce div.product div.images ~ div.summary',
 		'property' => 'width',
 		'pattern'  => 'calc(100% - $)',
 	),
@@ -337,7 +337,7 @@ $add['woocommerce_single_gallery_width'] = array(
 $add['woocommerce_single_gallery_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.summary, .woocommerce div.product div.summary',
+		'element'  => '.woocommerce #content div.product div.images ~ div.summary, .woocommerce div.product div.images ~ div.summary',
 		'property' => 'padding-left',
 	),
 );
