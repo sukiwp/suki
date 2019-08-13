@@ -55,15 +55,105 @@
 		isVisible: function( $el ) {
 			return $el.offsetWidth > 0 && $el.offsetHeight > 0;
 		},
-	}
 
-	window.suki = {
 		/**
 		 * Function to check RTL
 		 */
 		isRTL: function() {
 			return document.body.classList.contains( 'rtl' );
 		},
+
+		/**
+		 * Function to hide an element using slideUp animation.
+		 *
+		 * source: https://w3bits.com/javascript-slidetoggle/
+		 */
+		slideUp: function( target, duration = 250 ) {
+			if ( ! target ) return;
+
+			target.style.transitionProperty = 'height, margin, padding';
+			target.style.transitionDuration = duration + 'ms';
+			target.style.height = target.offsetHeight + 'px';
+			target.offsetHeight;
+			target.style.overflow = 'hidden';
+			target.style.height = 0;
+			target.style.paddingTop = 0;
+			target.style.paddingBottom = 0;
+			target.style.marginTop = 0;
+			target.style.marginBottom = 0;
+
+			window.setTimeout( function() {
+				target.removeAttribute( 'style' );
+				// target.style.display = 'none';
+				// target.style.removeProperty( 'height' );
+				// target.style.removeProperty( 'padding-top' );
+				// target.style.removeProperty( 'padding-bottom' );
+				// target.style.removeProperty( 'margin-top' );
+				// target.style.removeProperty( 'margin-bottom' );
+				// target.style.removeProperty( 'overflow' );
+				// target.style.removeProperty( 'transition-duration' );
+				// target.style.removeProperty( 'transition-property' );
+			}, duration );
+		},
+
+		/**
+		 * Function to show an element using slideDown animation.
+		 *
+		 * source: https://w3bits.com/javascript-slidetoggle/
+		 */
+		slideDown: function( target, duration = 250 ) {
+			if ( ! target ) return;
+
+			target.style.removeProperty( 'display' );
+
+			var display = window.getComputedStyle( target ).display;
+			if ( display === 'none' ) {
+				display = 'block';
+			}
+			target.style.display = display;
+
+			var height = target.offsetHeight;
+
+			target.style.overflow = 'hidden';
+			target.style.height = 0;
+			target.style.paddingTop = 0;
+			target.style.paddingBottom = 0;
+			target.style.marginTop = 0;
+			target.style.marginBottom = 0;
+			target.offsetHeight;
+			target.style.transitionProperty = 'height, margin, padding';
+			target.style.transitionDuration = duration + 'ms';
+			target.style.height = height + 'px';
+			target.style.removeProperty( 'padding-top' );
+			target.style.removeProperty( 'padding-bottom' );
+			target.style.removeProperty( 'margin-top' );
+			target.style.removeProperty( 'margin-bottom' );
+
+			window.setTimeout( function() {
+				target.style.removeProperty( 'height' );
+				target.style.removeProperty( 'overflow' );
+				target.style.removeProperty( 'transition-duration' );
+				target.style.removeProperty( 'transition-property' );
+			}, duration );
+		},
+
+		/**
+		 * Function to toggle visibility of an element using slideUp or SlideDown animation.
+		 *
+		 * source: https://w3bits.com/javascript-slidetoggle/
+		 */
+		slideToggle: function( target, duration = 250 ) {
+			if ( ! target ) return;
+
+			if ( window.getComputedStyle( target ).display === 'none' ) {
+				return slideDown( target, duration );
+			} else {
+				return slideUp( target, duration );
+			}
+		},
+	}
+
+	window.suki = {
 
 		/**
 		 * Function to init different style of focused element on keyboard users and mouse users.
@@ -82,7 +172,7 @@
 		 * Function to init edge sub menu detection script.
 		 */
 		initDropdownMenuReposition: function() {
-			var prop = window.suki.isRTL() ? 'right' : 'left';
+			var prop = window.sukiHelper.isRTL() ? 'right' : 'left';
 
 			var calculateSubMenuEdge = function() {
 
@@ -94,9 +184,9 @@
 
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
-					var containerEdge = $container.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $container.getBoundingClientRect().width ),
-						submenuEdge = $submenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
-						isSubmenuOverflow = window.suki.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
+					var containerEdge = $container.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $container.getBoundingClientRect().width ),
+						submenuEdge = $submenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
+						isSubmenuOverflow = window.sukiHelper.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
 					// Reset inline styling.
 					$submenu.classList.remove( 'suki-sub-menu-edge' );
@@ -113,8 +203,8 @@
 					var $subsubmenus = $submenu.querySelectorAll( '.sub-menu' );
 					for ( var j = 0; j < $subsubmenus.length; j++ ) {
 						var $subsubmenu = $subsubmenus[j],
-						    subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.suki.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
-							isSubsubmenuOverflow = window.suki.isRTL() ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
+						    subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
+							isSubsubmenuOverflow = window.sukiHelper.isRTL() ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
 
 						// Apply class and left position.
 						if ( isSubsubmenuOverflow ) {
@@ -316,24 +406,29 @@
 			var clickHandler = function( e ) {
 				e.preventDefault();
 
-				var $menuItem = this.parentElement;
+				var $menuItem = this.parentElement,
+				    $subMenu = $menuItem.querySelector( '.sub-menu' );
 
 				// Menu item already has "focus" class, so collapses itself and all menu items inside.
 				if ( $menuItem.classList.contains( 'focus' ) ) {
+					window.sukiHelper.slideUp( $subMenu );
 					$menuItem.classList.remove( 'focus' );
 
 					var $insideMenuItems = $menuItem.querySelectorAll( '.menu-item.focus' );
 					for ( var i = 0; i < $insideMenuItems.length; i++ ) {
+						window.sukiHelper.slideUp( $insideMenuItems[i].querySelector( '.sub-menu' ) );
 						$insideMenuItems[i].classList.remove( 'focus' );
 					}
 				}
-				// Menu item doesn't have "focus" class yet, so collapsees all focused siblings and focuses this menu item.
+				// Menu item doesn't have "focus" class yet, so collapses all focused siblings and focuses this menu item.
 				else {
-					var $siblingMenuItems = $menuItem.parentElement.children;
+					var $siblingMenuItems = $menuItem.parentElement.querySelectorAll( '.menu-item.focus' );
 					for ( var i = 0; i < $siblingMenuItems.length; i++ ) {
+						window.sukiHelper.slideUp( $siblingMenuItems[i].querySelector( '.sub-menu' ) );
 						$siblingMenuItems[i].classList.remove( 'focus' );
 					}
 
+					window.sukiHelper.slideDown( $subMenu );
 					$menuItem.classList.add( 'focus' );
 				}
 			}

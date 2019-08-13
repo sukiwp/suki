@@ -2006,15 +2006,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-header-section-vertical .menu .sub-menu {
 	width: 100%;
 	max-width: 100%;
-	visibility: hidden;
-	opacity: 0;
 	display: none;
-}
-
-.suki-header-section-vertical .menu .menu-item.focus > .sub-menu {
-	display: block;
-	visibility: visible;
-	opacity: 1;
 }
 
 .suki-header-section-vertical .suki-header-menu .menu-item {
