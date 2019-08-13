@@ -428,10 +428,6 @@
 // -------------------------------------------------------------
 
 .suki-header-section-vertical {
-	&-inner {
-		background-color: $color_bg; // default
-	}
-
 	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
@@ -458,16 +454,19 @@
 }
 
 .suki-header-section-vertical-inner {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
+	background-color: $color_bg; // default
 }
 
 .suki-header-section-vertical-column {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	height: 100%;
+	// height: 100%;
 	max-width: 100%;
 }
 
@@ -655,11 +654,60 @@
 	}
 
 	.suki-header-section-vertical-column {
-		justify-content: center;
 		width: 300px; // default
-		margin-left: auto !important;
-		margin-right: auto !important;
 	}
+
+	&.suki-header-mobile-vertical-position-top-left .suki-header-section-vertical-column {
+		margin-bottom: auto;
+		margin-right: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-top-center .suki-header-section-vertical-column {
+		margin-bottom: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-top-right .suki-header-section-vertical-column {
+		margin-left: auto;
+		margin-bottom: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-middle-left .suki-header-section-vertical-column {
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-right: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-middle-center .suki-header-section-vertical-column {
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-middle-right .suki-header-section-vertical-column {
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-bottom-left .suki-header-section-vertical-column {
+		margin-top: auto;
+		margin-right: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-bottom-center .suki-header-section-vertical-column {
+		margin-top: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.suki-header-mobile-vertical-position-bottom-right .suki-header-section-vertical-column {
+		margin-top: auto;
+		margin-left: auto;
+	}
+
 }
 
 // -------------------------------------------------------------

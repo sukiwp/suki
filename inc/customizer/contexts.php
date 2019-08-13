@@ -102,6 +102,12 @@ $add['header_mobile_vertical_bar_position'] = array(
 		'value'    => 'full-screen',
 	),
 );
+$add['header_mobile_vertical_bar_position_full_screen'] = array(
+	array(
+		'setting'  => 'header_mobile_vertical_bar_display',
+		'value'    => 'full-screen',
+	),
+);
 
 /**
  * ====================================================
