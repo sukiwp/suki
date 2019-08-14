@@ -43,7 +43,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
 		// Compatibility CSS
-		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+		add_filter( 'woocommerce_enqueue_styles', array( $this, 'disable_original_css' ) );
 		add_action( 'suki/frontend/after_enqueue_main_css', array( $this, 'enqueue_css' ) );
 		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_dynamic_css' ) );
 
@@ -86,6 +86,20 @@ class Suki_Compatibility_WooCommerce {
 
 		// Inline CSS
 		wp_add_inline_style( 'suki-woocommerce', trim( apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' ) ) );
+	}
+
+	/**
+	 * Disable original WooCommerce CSS.
+	 *
+	 * @param array $styles
+	 * @return array
+	 */
+	public function disable_original_css( $styles ) {
+		$styles['woocommerce-layout']['src'] = false;
+		$styles['woocommerce-smallscreen']['src'] = false;
+		$styles['woocommerce-general']['src'] = false;
+		
+		return $styles;
 	}
 
 	/**

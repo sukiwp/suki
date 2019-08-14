@@ -108,7 +108,6 @@ span.select2-container {
 
 		.select2-search {
 			padding: 0px;
-			@include border( bottom );
 
 			.select2-search__field {
 				border: none;
@@ -138,11 +137,19 @@ span.select2-container {
 		border-top: none;
 		border-top-left-radius: 0 !important;
 		border-top-right-radius: 0 !important;
+
+		.select2-search {
+			border-bottom: inherit;
+		}
 	}
 
 	.select2-dropdown--above {
 		border-bottom: none;
 		border-bottom-left-radius: 0 !important;
 		border-bottom-right-radius: 0 !important;
+
+		.select2-results {
+			border-top: inherit;
+		}
 	}
 }

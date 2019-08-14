@@ -2160,8 +2160,8 @@ p.demo_store,
 			color: red;
 			// font-weight: 700;
 			// border: 0 !important;
-			// text-decoration: none;
-			visibility: hidden; // Only show optional by default.
+			text-decoration: none;
+			// visibility: hidden; // Only show optional by default.
 		}
 
 		.optional {
@@ -2184,12 +2184,12 @@ p.demo_store,
 			// line-height: normal;
 		}
 
-		textarea {
-			height: 4em;
+		// textarea {
+			// height: 4em;
 			// line-height: 1.5;
 			// display: block;
 			// box-shadow: none;
-		}
+		// }
 
 		.select2-container {
 			width: 100%;

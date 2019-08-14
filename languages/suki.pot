@@ -359,7 +359,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:386
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:400
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -687,11 +687,11 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:157
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:171
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:159
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:173
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 

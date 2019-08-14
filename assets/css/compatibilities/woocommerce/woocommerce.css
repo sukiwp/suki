@@ -1680,7 +1680,7 @@ p.demo_store a,
 
 .woocommerce form .form-row .required {
 	color: red;
-	visibility: hidden;
+	text-decoration: none;
 }
 
 .woocommerce form .form-row .optional {
@@ -1690,10 +1690,6 @@ p.demo_store a,
 .woocommerce form .form-row input.input-text,
 .woocommerce form .form-row textarea {
 	width: 100%;
-}
-
-.woocommerce form .form-row textarea {
-	height: 4em;
 }
 
 .woocommerce form .form-row .select2-container {

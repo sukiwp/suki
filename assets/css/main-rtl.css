@@ -562,8 +562,6 @@ span.select2-container .select2-dropdown {
 
 span.select2-container .select2-dropdown .select2-search {
 	padding: 0px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
 }
 
 span.select2-container .select2-dropdown .select2-search .select2-search__field {
@@ -592,10 +590,18 @@ span.select2-container .select2-dropdown--below {
 	border-top-left-radius: 0 !important;
 }
 
+span.select2-container .select2-dropdown--below .select2-search {
+	border-bottom: inherit;
+}
+
 span.select2-container .select2-dropdown--above {
 	border-bottom: none;
 	border-bottom-right-radius: 0 !important;
 	border-bottom-left-radius: 0 !important;
+}
+
+span.select2-container .select2-dropdown--above .select2-results {
+	border-top: inherit;
 }
 
 .using-keyboard *:focus {
