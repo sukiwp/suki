@@ -219,11 +219,6 @@ class Suki_Compatibility_WooCommerce {
 		// Change product gallery thumbnail size.
 		add_filter( 'woocommerce_gallery_thumbnail_size', array( $this, 'change_gallery_thumbnail_size' ) );
 
-		// Keep / remove "add to cart" button on products grid.
-		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
-			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-		}
-
 		/**
 		 * Shop page's template hooks
 		 */
@@ -329,6 +324,11 @@ class Suki_Compatibility_WooCommerce {
 			// Keep / remove products sorting filter.
 			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_sort_filter' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+			}
+
+			// Keep / remove "add to cart" button on products grid.
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
+				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 			}
 		}
 

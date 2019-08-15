@@ -253,7 +253,7 @@ p.demo_store,
 				border-radius: 0;
 				border-color: transparent;
 				background-color: transparent;
-				color: inherit;
+				// color: inherit;
 				opacity: 0.5;
 
 				&:hover, &:focus {
@@ -926,6 +926,10 @@ p.demo_store,
 				flex-direction: column;
 				@include border( null, 0 ); // default
 
+				> *:last-child {
+					margin-bottom: 0;
+				}
+
 				&.suki-text-align-left {
 					align-items: left;
 				}
@@ -981,11 +985,11 @@ p.demo_store,
 			a {
 				text-decoration: none;
 
-				color: $color_heading; // default
+				// color: $color_heading; // default
 
-				&:hover, &:focus {
-					color: $color_accent; // default
-				}
+				// &:hover, &:focus {
+				// 	color: $color_accent; // default
+				// }
 			}
 
 			a img {
@@ -1010,10 +1014,6 @@ p.demo_store,
 				margin: 0.5em 0 0;
 			}
 
-			.button {
-				margin-top: 1em;
-			}
-
 			.price {
 				// color: $highlight;
 				color: inherit;
@@ -1021,7 +1021,7 @@ p.demo_store,
 				// font-weight: normal;
 				font-weight: inherit;
 				// margin-bottom: 0.5em;
-				margin: 0.5em 0 0;
+				margin: 0.5em 0 1em;
 				// font-size: 0.857em;
 				font-size: 1em;
 
@@ -1710,6 +1710,10 @@ p.demo_store,
 		// width: 100%;
 		// border-collapse: separate;
 		// border-radius: 5px;
+
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
 
 		th {
 			// font-weight: 700;
