@@ -169,16 +169,14 @@ p.demo_store a,
 
 .woocommerce .cart .quantity {
 	display: inline-block;
-	width: 6.5em;
-	padding-left: 1.5em;
-	padding-right: 1.5em;
+	width: 5.5em;
 }
 
 .woocommerce .cart .quantity .qty {
-	width: 3.5em;
+	width: 100%;
 	text-align: center;
-	padding-left: 0.25em;
-	padding-right: 0.25em;
+	padding-left: 1.25em;
+	padding-right: 1.25em;
 	-moz-appearance: textfield;
 }
 
@@ -194,7 +192,7 @@ p.demo_store a,
 .woocommerce .cart .quantity.suki-qty span.input {
 	position: absolute;
 	top: 0;
-	width: 1.5em;
+	width: 1.25em;
 	padding-left: 0;
 	padding-right: 0;
 	text-align: center;
@@ -1370,13 +1368,11 @@ p.demo_store a,
 }
 
 .woocommerce table.shop_table th {
-	border-top: none;
 	border-left: none;
 	border-right: none;
 }
 
 .woocommerce table.shop_table td {
-	border-top: none;
 	border-left: none;
 	border-right: none;
 }
@@ -1420,9 +1416,6 @@ p.demo_store a,
 	}
 	.woocommerce table.shop_table.shop_table_responsive tr:nth-child(2n) td {
 		background-color: #f6f6f6;
-	}
-	.woocommerce table.shop_table.shop_table_responsive tr:last-child th:last-child, .woocommerce table.shop_table.shop_table_responsive tr:last-child td:last-child {
-		border-bottom: none;
 	}
 }
 
@@ -2556,7 +2549,7 @@ p.demo_store a,
 	.woocommerce-cart table.cart.shop_table_responsive .product-name {
 		-ms-flex-order: 2;
 		order: 2;
-		width: calc( 100% - 5rem - 3rem);
+		width: calc( 100% - 5rem - 2.5rem);
 		text-align: unset !important;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
@@ -2576,7 +2569,7 @@ p.demo_store a,
 		display: inline-block;
 		content: "×";
 		font-weight: inherit;
-		margin: 0 0.5rem 0 -0.8rem;
+		margin: 0 0.5rem 0 0;
 	}
 	.woocommerce-cart table.cart.shop_table_responsive .product-quantity {
 		-ms-flex-order: 4;

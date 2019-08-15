@@ -114,11 +114,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 
-	@include border();
+	@include border( top );
 
 	th, td {
-		padding: 0.75rem 1rem;
-		@include border();
+		padding: 0.75em;
+		@include border( bottom );
 	}
 
 	th {
