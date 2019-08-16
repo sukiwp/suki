@@ -59,6 +59,9 @@ class Suki_Compatibility_WooCommerce {
 		
 		// Page settings
 		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
+		
+		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
+		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
 	}
 	
 	/**
@@ -401,6 +404,47 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		return $ids;
+	}
+
+	/**
+	 * Add "Product Layout" tab on Page Settings meta box.
+	 *
+	 * @param array $tabs
+	 * @return array
+	 */ 
+	public function add_page_settings_tab__product( $tabs ) {
+		if ( 'product' === get_current_screen()->post_type ) {
+			$tabs['woocommerce-single'] = esc_html__( 'Product Layout', 'suki' );
+		}
+
+		return $tabs;
+	}
+
+	/**
+	 * Render "Product Layout" options on Page Settings meta box.
+	 *
+	 * @param WP_Post|WP_Term $obj
+	 * @param string $tab
+	 */
+	public function render_page_settings_fields__product( $obj, $tab ) {
+		if ( 'woocommerce-single' !== $tab ) {
+			return;
+		}
+
+		if ( suki_show_pro_teaser() ) : ?>
+			<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
+				<h3><?php echo esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ); ?></h3>
+				<p>
+					<?php echo esc_html_x( 'Enable / disable breadcrumb.', 'Suki Pro upsell', 'suki' ); ?><br>
+					<?php echo esc_html_x( 'Enable / disable gallery on this product page.', 'Suki Pro upsell', 'suki' ); ?><br>
+					<?php echo esc_html_x( 'Change gallery layout on this product page.', 'Suki Pro upsell', 'suki' ); ?><br>
+					<?php echo esc_html_x( 'Enable / disable product info tabs.', 'Suki Pro upsell', 'suki' ); ?><br>
+					<?php echo esc_html_x( 'Enable / disable up-sells.', 'Suki Pro upsell', 'suki' ); ?><br>
+					<?php echo esc_html_x( 'Enable / disable related products.', 'Suki Pro upsell', 'suki' ); ?>
+				</p>
+				<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+			</div>
+		<?php endif;
 	}
 	
 	/**

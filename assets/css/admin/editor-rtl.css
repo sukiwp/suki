@@ -160,7 +160,7 @@ table {
 }
 
 table th, table td {
-	padding: 0.75em;
+	padding: 0.75rem;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
