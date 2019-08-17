@@ -481,7 +481,7 @@ class Suki_Admin_Metabox_Page_Settings {
 							'choices'     => array(
 								''           => array(
 									'label' => esc_html__( '(Customizer)', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
+									'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
 								),
 								'default'    => array(
 									'label' => esc_html__( 'Normal', 'suki' ),
@@ -509,7 +509,7 @@ class Suki_Admin_Metabox_Page_Settings {
 							'choices'     => array(
 								''              => array(
 									'label' => esc_html__( '(Customizer)', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
+									'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
 								),
 								'wide'          => array(
 									'label' => esc_html__( 'Wide', 'suki' ),

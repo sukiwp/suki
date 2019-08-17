@@ -62,6 +62,8 @@ class Suki_Compatibility_WooCommerce {
 		
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
+
+		add_filter( 'suki/dataset/fallback_page_settings', array( $this, 'add_fallback_page_settings__product' ) );
 	}
 	
 	/**
@@ -341,7 +343,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_product() ) {
 			// Keep / remove breadcrumb.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_breadcrumb' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_breadcrumb' ) ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 			} else {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
@@ -349,32 +351,32 @@ class Suki_Compatibility_WooCommerce {
 			}
 
 			// Keep / remove gallery.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery' ) ) ) {
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 			}
 
 			// Keep / remove gallery zoom module.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery_zoom' ) ) ) {
 				remove_theme_support( 'wc-product-gallery-zoom' );
 			}
 
 			// Keep / remove gallery lightbox module.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery_lightbox' ) ) ) {
 				remove_theme_support( 'wc-product-gallery-lightbox' );
 			}
 
 			// Keep / remove tabs.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_tabs' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_tabs' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_up_sells' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_up_sells' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_single_related' ) ) ) {
+			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_related' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
 		}
@@ -445,6 +447,25 @@ class Suki_Compatibility_WooCommerce {
 				<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
 			</div>
 		<?php endif;
+	}
+
+	/**
+	 * Add fallback page settings value for "Product Layout" settings.
+	 *
+	 * @param array $settings
+	 * @return array
+	 */
+	public function add_fallback_page_settings__product( $settings ) {
+		$add = array(
+			'woocommerce_single_breadcrumb' => suki_get_theme_mod( 'woocommerce_single_breadcrumb' ),
+			'woocommerce_single_gallery' => suki_get_theme_mod( 'woocommerce_single_gallery' ),
+			'woocommerce_single_gallery_layout' => suki_get_theme_mod( 'woocommerce_single_gallery_layout' ),
+			'woocommerce_single_tabs' => suki_get_theme_mod( 'woocommerce_single_tabs' ),
+			'woocommerce_single_up_sells' => suki_get_theme_mod( 'woocommerce_single_up_sells' ),
+			'woocommerce_single_related' => suki_get_theme_mod( 'woocommerce_single_related' ),
+		);
+
+		return array_merge( $settings, $add );
 	}
 	
 	/**

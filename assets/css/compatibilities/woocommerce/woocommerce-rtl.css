@@ -463,6 +463,10 @@ p.demo_store a,
 	}
 }
 
+.woocommerce div.product div.summary {
+	width: 100%;
+}
+
 .woocommerce div.product div.summary ~ * {
 	width: 100%;
 }
