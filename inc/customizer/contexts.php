@@ -160,6 +160,7 @@ $add['footer_bottom_bar_merged_gap'] = array(
  */
 
 $add['blog_index_grid_columns'] =
+$add['blog_index_grid_rows_gap'] =
 $add['blog_index_grid_columns_gutter'] = array(
 	array(
 		'setting'  => 'blog_index_loop_mode',

@@ -2110,7 +2110,8 @@ p.demo_store,
 		padding: 0;
 		// margin: 0 0 6px;
 		margin: 0 0 1.5rem;
-		clear: both;
+
+		@include float-container();
 
 		&:last-child {
 			margin-bottom: 0;
@@ -2121,9 +2122,8 @@ p.demo_store,
 			opacity: 0;
 		}
 
-		&.form-row-first, &.form-row-last {
+		&-first, &-last {
 			width: 50%;
-			clear: none;
 
 			// @media screen and ( max-width: 519px ) {
 			@media screen and ( max-width: $breakpoint_500 - 1px ) {
@@ -2133,14 +2133,18 @@ p.demo_store,
 			}
 		}
 
-		&.form-row-first {
+		&-first {
 			float: left;
 			padding-right: 0.5rem;
 		}
 
-		&.form-row-last {
+		&-last {
 			float: right;
 			padding-left: 0.5rem;
+		}
+
+		&-wide {
+			clear: both;
 		}
 
 		// label {
@@ -2993,10 +2997,13 @@ p.demo_store,
 			width: auto;
 			padding: 0;
 			margin-bottom: 3rem;
+			
+			@include float-container();
 
 			&:last-child {
 				margin-bottom: 0;
 			}
+
 		}
 	}
 
