@@ -1801,6 +1801,7 @@ body.suki-page-layout-boxed #page {
 	transition: opacity 0.25s, visibility 0s 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	overflow-y: auto;
 }
 
 .suki-header-section .menu .sub-menu *:not(.button) {

@@ -196,7 +196,12 @@
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
 						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
-						
+					}
+
+					// Apply vertical max-height.
+					$submenu.style.maxHeight = 'none';
+					if ( window.innerHeight < $submenu.getBoundingClientRect().top + $submenu.getBoundingClientRect().height ) {
+						$submenu.style.maxHeight = ( window.innerHeight - $submenu.getBoundingClientRect().top ) + 'px';
 					}
 
 					// Iterate to 2nd & higher level submenu.
@@ -209,6 +214,12 @@
 						// Apply class and left position.
 						if ( isSubsubmenuOverflow ) {
 							$subsubmenu.classList.add( 'suki-sub-menu-right' );
+						}
+
+						// Apply vertical max-height.
+						$subsubmenu.style.maxHeight = 'none';
+						if ( window.innerHeight < $subsubmenu.getBoundingClientRect().top + $subsubmenu.getBoundingClientRect().height ) {
+							$subsubmenu.style.maxHeight = ( window.innerHeight - $subsubmenu.getBoundingClientRect().top ) + 'px';
 						}
 					}
 				}

@@ -259,6 +259,7 @@
 			visibility: hidden;
 			opacity: 0;
 			@include transition( opacity, visibility 0s 0.25s );
+			overflow-y: auto;
 
 			*:not(.button) {
 				border-color: inherit;
