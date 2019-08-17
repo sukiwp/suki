@@ -59,6 +59,31 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 	'priority'    => 10,
 ) ) );
 
+// Rows gap
+$key = 'blog_index_grid_rows_gap';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Rows gap', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 80,
+			'step' => 1,
+		),
+		'em' => array(
+			'min'  => 0,
+			'max'  => 6,
+			'step' => 0.05,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
 // Columns gutter
 $key = 'blog_index_grid_columns_gutter';
 $wp_customize->add_setting( $key, array(
@@ -74,6 +99,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'min'  => 0,
 			'max'  => 40,
 			'step' => 1,
+		),
+		'em' => array(
+			'min'  => 0,
+			'max'  => 3,
+			'step' => 0.05,
 		),
 	),
 	'priority'    => 10,

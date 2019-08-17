@@ -2197,16 +2197,25 @@ $add['blog_index_grid_columns'] = array(
 		'pattern'  => 'suki-loop-grid-$-columns',
 	),
 );
+$add['blog_index_grid_rows_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'margin-top',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid',
+		'property' => 'margin-top',
+		'pattern'  => '-$',
+	),
+);
 $add['blog_index_grid_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-grid > .entry',
-		'property' => 'padding-left',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry',
-		'property' => 'padding-right',
+		'property' => 'padding',
+		'pattern'  => '0 $',
 	),
 	array(
 		'type'     => 'css',

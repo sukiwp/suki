@@ -894,7 +894,9 @@ p.demo_store,
 		display: flex;
 		align-items: flex-start;
 		flex-wrap: wrap;
-		margin: -30px -15px 0; // default
+		margin-top: -30px; // default
+		margin-left: -15px; // default
+		margin-right: -15px; // default
 		// margin: 0 0 1em;
 		padding: 0;
 		list-style: none outside;
@@ -1143,7 +1145,7 @@ p.demo_store,
 
 	nav.woocommerce-pagination {
 		text-align: center;
-		margin: 2rem 0;
+		margin: 3rem 0 0;
 		clear: both;
 
 		ul {

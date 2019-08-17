@@ -1481,10 +1481,6 @@ body.suki-page-layout-boxed #page {
 	border-style: solid;
 }
 
-.site-main > *:first-child {
-	margin-top: 0;
-}
-
 .site-main > *:last-child {
 	margin-bottom: 0;
 }
@@ -2643,7 +2639,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	flex-wrap: wrap;
 	margin-right: -15px;
 	margin-left: -15px;
-	margin-bottom: -2em;
+	margin-top: -30px;
 }
 
 .suki-loop-default .entry {
@@ -2652,8 +2648,8 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-loop-grid .entry {
 	width: 100%;
+	margin-top: 30px;
 	padding: 0 15px;
-	margin-bottom: 2em;
 	border: none;
 }
 
@@ -2894,7 +2890,7 @@ a.more-link {
 }
 
 .navigation {
-	margin: 2rem 0 0;
+	margin: 3rem 0 0;
 }
 
 .navigation .nav-links a {

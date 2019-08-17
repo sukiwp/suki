@@ -297,7 +297,6 @@ $add['woocommerce_products_grid_rows_gap'] = array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products li.product',
 		'property' => 'margin-top',
-		'pattern'  => '$',
 	),
 	array(
 		'type'     => 'css',

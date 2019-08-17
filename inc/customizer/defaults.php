@@ -790,6 +790,7 @@ $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_navigation_mode'] = 'pagination';
 
 $add['blog_index_grid_columns'] = 2;
+$add['blog_index_grid_rows_gap'] = '30px';
 $add['blog_index_grid_columns_gutter'] = '15px';
 
 /**
