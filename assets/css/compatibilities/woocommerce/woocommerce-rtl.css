@@ -746,14 +746,15 @@ p.demo_store a,
 	align-items: flex-start;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin: 2em -15px 0;
+	margin: -30px -15px 0;
 	padding: 0;
 	list-style: none outside;
 	clear: both;
 }
 
 .woocommerce ul.products li.product {
-	padding: 0 15px 2rem;
+	margin-top: 30px;
+	padding: 0 15px;
 }
 
 .woocommerce ul.products li.product > *:last-child {

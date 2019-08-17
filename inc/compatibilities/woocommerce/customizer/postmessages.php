@@ -292,6 +292,21 @@ $add['woocommerce_demo_store_notice_text_color'] = array(
  * ====================================================
  */
 
+$add['woocommerce_products_grid_rows_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products li.product',
+		'property' => 'margin-top',
+		'pattern'  => '$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products',
+		'property' => 'margin-top',
+		'pattern'  => '-$',
+	),
+);
+
 $add['woocommerce_products_grid_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
@@ -302,8 +317,14 @@ $add['woocommerce_products_grid_columns_gutter'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products',
-		'property' => 'margin',
-		'pattern'  => '0 -$',
+		'property' => 'margin-left',
+		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products',
+		'property' => 'margin-right',
+		'pattern'  => '-$',
 	),
 );
 $add['woocommerce_products_grid_text_alignment'] = array(

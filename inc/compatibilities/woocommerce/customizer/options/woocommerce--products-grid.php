@@ -10,6 +10,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'woocommerce_products_grid';
 
+// Grid rows gap
+$key = 'woocommerce_products_grid_rows_gap';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Grid rows gap', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
 // Grid columns gutter
 $key = 'woocommerce_products_grid_columns_gutter';
 $wp_customize->add_setting( $key, array(

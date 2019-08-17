@@ -894,7 +894,7 @@ p.demo_store,
 		display: flex;
 		align-items: flex-start;
 		flex-wrap: wrap;
-		margin: 2em -15px 0; // default
+		margin: -30px -15px 0; // default
 		// margin: 0 0 1em;
 		padding: 0;
 		list-style: none outside;
@@ -909,8 +909,9 @@ p.demo_store,
 
 	ul.products {
 		li.product {
+			margin-top: 30px; // default
 			// margin: 0 0 2em;
-			padding: 0 15px 2rem; // default
+			padding: 0 15px; // default
 
 			> *:last-child {
 				margin-bottom: 0;

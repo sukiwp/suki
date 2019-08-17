@@ -82,6 +82,7 @@ $add['woocommerce_checkout_two_columns'] = 1;
  * ====================================================
  */
 
+$add['woocommerce_products_grid_rows_gap'] = '30px';
 $add['woocommerce_products_grid_columns_gutter'] = '15px';
 $add['woocommerce_products_grid_text_alignment'] = 'left';
 
