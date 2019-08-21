@@ -38,7 +38,6 @@ class Suki_Migrate_1_1_0 {
 	 */
 	protected function __construct() {
 		$this->convert_page_header_elements();
-		$this->split_woocommerce_advanced_module();
 	}
 
 	/**
@@ -92,24 +91,6 @@ class Suki_Migrate_1_1_0 {
 		remove_theme_mod( 'page_header_layout' );
 		remove_theme_mod( 'page_header_layout_width' );
 		remove_theme_mod( 'page_header_breadcrumb' );
-	}
-
-	/**
-	 * Split "WooCommerce Advanced" module to multiple modules.
-	 */
-	private function split_woocommerce_advanced_module() {
-		$active_modules = get_option( 'suki_pro_active_modules', array() );
-
-		if ( in_array( 'woocommerce-advanced', $active_modules ) ) {
-			// Add the separate WooCommerce modules.
-			foreach ( suki_get_pro_modules() as $module_slug => $module_data ) {
-				if ( 'woocommerce' === $module_data['category'] ) {
-					$active_modules[] = $module_slug;
-				}
-			}
-			
-			update_option( 'suki_pro_active_modules', $active_modules );
-		}
 	}
 }
 
