@@ -602,21 +602,21 @@ function suki_get_pro_modules() {
 			'url'      => esc_url( $url . '#pro-woocommerce-checkout-optimization' ),
 		),
 
-		// 'blog-plus' => array(
-		// 	'label'    => esc_html__( 'Blog Layout Plus', 'suki' ),
-		// 	'category' => 'blog',
-		// 	'url'      => esc_url( $url . '#pro-blog-plus' ),
-		// ),
+		'blog-plus' => array(
+			'label'    => esc_html__( 'Blog Layout Plus', 'suki' ),
+			'category' => 'blog',
+			'url'      => esc_url( $url . '#pro-blog-plus' ),
+		),
 		// 'blog-featured-posts' => array(
 		// 	'label'    => esc_html__( 'Blog Featured Posts', 'suki' ),
 		// 	'category' => 'blog',
 		// 	'url'      => esc_url( $url . '#pro-blog-featured-posts' ),
 		// ),
-		// 'blog-related-posts' => array(
-		// 	'label'    => esc_html__( 'Blog Related Posts', 'suki' ),
-		// 	'category' => 'blog',
-		// 	'url'      => esc_url( $url . '#pro-blog-related-posts' ),
-		// ),
+		'blog-related-posts' => array(
+			'label'    => esc_html__( 'Blog Related Posts', 'suki' ),
+			'category' => 'blog',
+			'url'      => esc_url( $url . '#pro-blog-related-posts' ),
+		),
 	) );
 }
 

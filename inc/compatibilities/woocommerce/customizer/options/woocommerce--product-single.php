@@ -234,7 +234,7 @@ $wp_customize->add_control( $key, array(
 	'type'        => 'number',
 	'section'     => $section,
 	'label'       => esc_html__( 'Max products shown', 'suki' ),
-	'description' => esc_html__( '0 = disabled; -1 = Show all.', 'suki' ),
+	'description' => esc_html__( '0 = disabled; -1 = show all.', 'suki' ),
 	'input_attrs' => array(
 		'min'  => -1,
 		'max'  => 12,

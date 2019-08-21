@@ -90,6 +90,14 @@
 	@include headingColor();
 }
 
+.title {
+	@include h1(); // default
+}
+
+.small-title {
+	@include h3(); // default
+}
+
 // -------------------------------------------------------------
 // Other Common Classes
 // -------------------------------------------------------------

@@ -272,6 +272,12 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 40,
 	) );
 
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_plus', array(
+		'panel'       => $panel,
+		'priority'    => 50,
+	) ) );
+
 	if ( suki_show_pro_teaser() ) {
 		// ------
 		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_advanced', array(
@@ -429,7 +435,7 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 ) ) );
 
 // Blog
-$panel = 'suki_section_blog';
+$panel = 'suki_panel_blog';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Blog', 'suki' ),
 	'priority'    => 181,
@@ -439,6 +445,7 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->add_section( 'suki_section_blog_index', array(
 		'title'       => esc_html__( 'Posts Page', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 10,
 	) );
 
 	// Single Post
@@ -450,24 +457,34 @@ $wp_customize->add_panel( $panel, array(
 			'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
 		) . '</p>',
 		'panel'       => $panel,
+		'priority'    => 11,
 	) );
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_entry', array(
 		'panel'       => $panel,
+		'priority'    => 12,
 	) ) );
 
 	// Post Layout: Default
 	$wp_customize->add_section( 'suki_section_entry_default', array(
 		'title'       => esc_html__( 'Post Layout: Default', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 13,
 	) );
 
 	// Post Layout: Grid
 	$wp_customize->add_section( 'suki_section_entry_grid', array(
 		'title'       => esc_html__( 'Post Layout: Grid', 'suki' ),
 		'panel'       => $panel,
+		'priority'    => 14,
 	) );
+
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_blog_plus', array(
+		'panel'       => $panel,
+		'priority'    => 20,
+	) ) );
 
 // ------
 $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_190', array(

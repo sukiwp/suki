@@ -393,7 +393,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-title, .page-title';
+	$element = '.title, .entry-title, .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['title_' . $prop ] = array(
@@ -425,14 +425,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-title, .entry-title a, .page-title, .page-title a',
+		'element'  => '.title, .title a, .entry-title, .entry-title a, .page-title, .page-title a',
 		'property' => 'color',
 	),
 );
 $add['title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-title a:hover, .entry-title a:focus, .page-title a:hover, .page-title a:focus',
+		'element'  => '.title a:hover, .title a:focus, .entry-title a:hover, .entry-title a:focus, .page-title a:hover, .page-title a:focus',
 		'property' => 'color',
 	),
 );
@@ -444,7 +444,7 @@ $add['title_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = 'legend, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
+	$element = 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['small_title_' . $prop ] = array(
@@ -476,14 +476,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['small_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'legend, .entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
+		'element'  => 'legend, .small-title, .small-title a, .entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
 		'property' => 'color',
 	),
 );
 $add['small_title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-small-title a:hover, .entry-small-title a:focus',
+		'element'  => '.small-title a:hover, .small-title a:focus, .entry-small-title a:hover, .entry-small-title a:focus',
 		'property' => 'color',
 	),
 );

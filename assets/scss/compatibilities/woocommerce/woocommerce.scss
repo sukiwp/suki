@@ -3031,7 +3031,9 @@ p.demo_store,
 			}
 
 			.checkout {
-				> * {
+				@include float-container();
+
+				#customer_details {
 					float: left;
 					width: 55%;
 				}

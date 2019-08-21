@@ -2312,7 +2312,14 @@ p.demo_store a,
 	.woocommerce-checkout.suki-woocommerce-checkout-2-columns #order_review_heading {
 		display: none;
 	}
-	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout > * {
+	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout:before, .woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout:after {
+		content: "";
+		display: table;
+	}
+	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout:after {
+		clear: both;
+	}
+	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout #customer_details {
 		float: right;
 		width: 55%;
 	}

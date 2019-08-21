@@ -188,8 +188,8 @@ a.more-link {
 
 // Author box
 .entry-author {
-	margin-top: 4em;
-	padding: 1.75em;
+	margin-top: 4rem;
+	padding: 1.75rem;
 	@include border();
 }
 
@@ -244,6 +244,8 @@ a.more-link {
 	margin: 3rem 0 0;
 
 	.nav-links {
+		@include float-container();
+		
 		a {
 			background-color: transparent;
 			color: inherit; // default
