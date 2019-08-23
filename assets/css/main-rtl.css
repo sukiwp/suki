@@ -1,5 +1,5 @@
 * {
-	border-color: #e5e5e5;
+	border-color: rgba(0, 0, 0, 0.13);
 }
 
 *, *:before, *:after {
@@ -153,10 +153,10 @@ ol {
 table {
 	width: 100%;
 	margin: 0 0 1.5rem;
-	border-collapse: collapse;
 	border-spacing: 0;
 	border-width: 1px;
 	border-style: solid;
+	border-bottom: none;
 }
 
 table th, table td {
@@ -200,11 +200,11 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 code {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 a {
@@ -415,7 +415,7 @@ input[type="time"]:focus,
 input[type="url"]:focus,
 input[type="week"]:focus,
 .input:focus {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 textarea {
@@ -446,7 +446,7 @@ textarea {
 }
 
 textarea:focus {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 select {
@@ -481,7 +481,7 @@ select {
 }
 
 select:focus {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 select[multiple] {
@@ -491,6 +491,7 @@ select[multiple] {
 
 span.select2-container {
 	display: block;
+	text-align: start;
 }
 
 span.select2-container .selection {
@@ -535,7 +536,7 @@ span.select2-container .select2-selection {
 }
 
 span.select2-container .select2-selection:focus {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 span.select2-container .select2-selection--single .select2-selection__rendered {
@@ -807,7 +808,7 @@ span.select2-container .select2-dropdown--above .select2-results {
 	margin: 0 0 4rem;
 	border-width: 1px;
 	border-style: solid;
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 .page-header > *:last-child {
@@ -860,7 +861,7 @@ span.select2-container .select2-dropdown--above .select2-results {
 	margin: 0 0 0.5em 0.5em;
 	font-size: 0.9rem !important;
 	line-height: normal;
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 	color: inherit;
 }
 
@@ -1350,7 +1351,7 @@ p.wp-block-subhead {
 }
 
 body.suki-page-layout-boxed {
-	background-color: #e5e5e5;
+	background-color: rgba(0, 0, 0, 0.13);
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1902,7 +1903,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-section .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-section .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after {
-	background-color: #e5e5e5;
+	background-color: rgba(0, 0, 0, 0.13);
 }
 
 .suki-header-top-bar {
@@ -1980,7 +1981,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-section-vertical .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-section-vertical .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after {
-	background-color: #e5e5e5;
+	background-color: rgba(0, 0, 0, 0.13);
 }
 
 .suki-header-section-vertical ul {
@@ -2305,7 +2306,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .suki-page-header-inner {
 	border-width: 0 0 1px 0;
 	border-style: solid;
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -2426,7 +2427,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-footer-widgets-bar-inner {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 	border-width: 1px 0 0 0;
 	border-style: solid;
 	padding: 60px 20px;
@@ -2496,7 +2497,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-footer-bottom-bar-inner {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 	border-width: 1px 0 0 0;
 	border-style: solid;
 	padding: 25px 20px;
@@ -2982,7 +2983,7 @@ a.more-link {
 }
 
 .navigation.pagination .current {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 	color: #333333;
 }
 

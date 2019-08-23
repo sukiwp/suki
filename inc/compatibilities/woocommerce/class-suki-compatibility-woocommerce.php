@@ -55,7 +55,7 @@ class Suki_Compatibility_WooCommerce {
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
-		add_action( 'wp', array( $this, 'modify_template_hooks_based_on_page_type' ) );
+		add_action( 'wp', array( $this, 'modify_template_hooks_after_init' ) );
 		
 		// Page settings
 		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
@@ -305,7 +305,16 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Modify filters for WooCommerce template rendering based on Customizer settings.
 	 */
-	public function modify_template_hooks_based_on_page_type() {
+	public function modify_template_hooks_after_init() {
+		/**
+		 * Global template hooks
+		 */
+
+		// Keep / remove "add to cart" button on products grid.
+		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
+			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+		}
+
 		/**
 		 * Shop page's template hooks
 		 */
@@ -329,11 +338,6 @@ class Suki_Compatibility_WooCommerce {
 			// Keep / remove products sorting filter.
 			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_sort_filter' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
-			}
-
-			// Keep / remove "add to cart" button on products grid.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
-				remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 			}
 		}
 

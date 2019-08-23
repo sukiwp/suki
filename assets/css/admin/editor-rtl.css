@@ -1,5 +1,5 @@
 * {
-	border-color: #e5e5e5;
+	border-color: rgba(0, 0, 0, 0.13);
 }
 
 *, *:before, *:after {
@@ -153,10 +153,10 @@ ol {
 table {
 	width: 100%;
 	margin: 0 0 1.5rem;
-	border-collapse: collapse;
 	border-spacing: 0;
 	border-width: 1px;
 	border-style: solid;
+	border-bottom: none;
 }
 
 table th, table td {
@@ -200,11 +200,11 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 code {
-	background-color: #f6f6f6;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 a {

@@ -565,11 +565,6 @@ function suki_get_pro_modules() {
 			'category' => 'assets',
 			'url'      => esc_url( $url . '#pro-custom-icons' ),
 		),
-		'color-palette' => array(
-			'label'    => esc_html__( 'Color Palette', 'suki' ),
-			'category' => 'assets',
-			'url'      => esc_url( $url . '#pro-color-palette' ),
-		),
 		'white-label' => array(
 			'label'    => esc_html__( 'White Label', 'suki' ),
 			'category' => 'assets',
@@ -602,16 +597,16 @@ function suki_get_pro_modules() {
 			'url'      => esc_url( $url . '#pro-woocommerce-checkout-optimization' ),
 		),
 
-		'blog-plus' => array(
+		'blog-layout-plus' => array(
 			'label'    => esc_html__( 'Blog Layout Plus', 'suki' ),
 			'category' => 'blog',
-			'url'      => esc_url( $url . '#pro-blog-plus' ),
+			'url'      => esc_url( $url . '#pro-blog-layout-plus' ),
 		),
-		// 'blog-featured-posts' => array(
-		// 	'label'    => esc_html__( 'Blog Featured Posts', 'suki' ),
-		// 	'category' => 'blog',
-		// 	'url'      => esc_url( $url . '#pro-blog-featured-posts' ),
-		// ),
+		'blog-featured-posts' => array(
+			'label'    => esc_html__( 'Blog Featured Posts', 'suki' ),
+			'category' => 'blog',
+			'url'      => esc_url( $url . '#pro-blog-featured-posts' ),
+		),
 		'blog-related-posts' => array(
 			'label'    => esc_html__( 'Blog Related Posts', 'suki' ),
 			'category' => 'blog',

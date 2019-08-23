@@ -22,12 +22,6 @@ $add['subtle_color'] = array(
 		'element'  => '.woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message, .woocommerce table.shop_attributes tr:nth-child(even) th, .woocommerce table.shop_attributes tr:nth-child(even) td, #add_payment_method #payment ul.payment_methods li, .woocommerce-cart #payment ul.payment_methods li, .woocommerce-checkout #payment ul.payment_methods li, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce ul.order_details li, .woocommerce-account ol.commentlist.notes li.note',
 		'property' => 'background-color',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce table.shop_table.shop_table_responsive tr:nth-child(2n) td',
-		'property' => 'background-color',
-		'media'    => '@media screen and (max-width: 767px)',
-	),
 );
 
 /**
