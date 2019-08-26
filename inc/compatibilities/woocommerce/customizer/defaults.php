@@ -65,6 +65,8 @@ $add['woocommerce_single_related_grid_columns'] = 4;
  * ====================================================
  */
 
+$add['woocommerce_cart_two_columns'] = 0;
+
 $add['woocommerce_cart_cross_sells'] = 1;
 $add['woocommerce_cart_cross_sells_grid_columns'] = 4;
 
@@ -74,7 +76,7 @@ $add['woocommerce_cart_cross_sells_grid_columns'] = 4;
  * ====================================================
  */
 
-$add['woocommerce_checkout_two_columns'] = 1;
+$add['woocommerce_checkout_two_columns'] = 0;
 
 /**
  * ====================================================

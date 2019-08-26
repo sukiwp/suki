@@ -72,7 +72,7 @@ $add['link_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce .cart-collaterals h2, .woocommerce .checkout h3';
+	$element = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3';
 	$property = str_replace( '_', '-', $prop);
 
 	$add['h3_' . $prop ] = array(
@@ -124,7 +124,7 @@ $add['heading_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce .cart-collaterals h2, .woocommerce .checkout h3';
+	$element = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3';
 	$property = str_replace( '_', '-', $prop);
 
 	$add['small_title_' . $prop ] = array(
@@ -157,7 +157,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['small_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .related.products h2, .woocommerce .cart-collaterals h2, .woocommerce .checkout h3',
+		'element'  => '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .related.products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3',
 		'property' => 'color',
 	),
 );
@@ -238,12 +238,22 @@ foreach ( array( 'font_size', 'letter_spacing' ) as $prop ) {
 		'property' => $property,
 		'function' => array(
 			'name' => 'scale_dimensions',
-			'args' => array( 1.15 ),
+			'args' => array( 1.2 ),
 		),
 	);
 
 	$add['button_' . $prop ] = $array;
 }
+
+$add['button_padding'] = array(
+	'type'     => 'css',
+	'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce #payment #place_order',
+	'property' => 'padding',
+	'function' => array(
+		'name' => 'scale_dimensions',
+		'args' => array( 1.4 ),
+	),
+);
 
 /**
  * ====================================================

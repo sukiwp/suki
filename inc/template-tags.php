@@ -625,28 +625,33 @@ function suki_header_element( $element ) {
 
 				if ( ! empty( $cart ) ) {
 					$count = $cart->get_cart_contents_count();
+
+					$is_dropdown = false;
+					$widget = '';
+
+					if ( 'shopping-cart-dropdown' === $element ) {
+						ob_start();
+						the_widget( 'WC_Widget_Cart', array(
+							'title'         => '',
+							'hide_if_empty' => false,
+						) );
+						$widget = ob_get_clean();
+
+						if ( ! empty( $widget ) ) {
+							$is_dropdown = true;
+						}
+					}
 					?>
-					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu <?php echo 'shopping-cart-dropdown' === $element ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
+					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 						<div class="menu-item">
-							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link <?php echo 'shopping-cart-dropdown' === $element ? esc_attr( 'suki-sub-menu-toggle suki-toggle' ) : ''; ?>">
+							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link <?php echo $is_dropdown ? esc_attr( 'suki-sub-menu-toggle suki-toggle' ) : ''; ?>">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
 							</a>
 
-							<?php if ( 'shopping-cart-dropdown' === $element ) : ?>
-								<div class="sub-menu">
-									<?php
-									add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 );
-
-									the_widget( 'WC_Widget_Cart', array(
-										'title'         => '',
-										'hide_if_empty' => false,
-									) );
-
-									remove_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 );
-									?>
-								</div>
+							<?php if ( $is_dropdown ) : ?>
+								<div class="sub-menu"><?php echo $widget; // WPCS: XSS OK ?></div>
 							<?php endif; ?>
 						</div>
 					</div>

@@ -389,10 +389,36 @@ class Suki_Compatibility_WooCommerce {
 		 * Checkout page's template hooks
 		 */
 
+		if ( is_cart() ) {
+			// Split into 2 columns.
+			if ( intval( suki_get_theme_mod( 'woocommerce_cart_two_columns' ) ) ) {
+				add_filter( 'body_class', array( $this, 'add_cart_two_columns_class' ) );
+
+				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+				add_action( 'woocommerce_before_cart_collaterals', 'woocommerce_cross_sell_display', 20 );
+
+				add_action( 'woocommerce_before_cart', array( $this, 'render_cart_2_columns_left_wrapper' ), 999 );
+				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_left_wrapper_end' ), 999 );
+
+				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_right_wrapper' ), 999 );
+				add_action( 'woocommerce_after_cart', array( $this, 'render_cart_2_columns_right_wrapper_end' ), 999 );
+			}
+		}
+
+		/**
+		 * Checkout page's template hooks
+		 */
+
 		if ( is_checkout() ) {
 			// Split into 2 columns.
 			if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
 				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
+
+				add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper' ), 1 );
+				add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper_end' ), 999 );
+
+				add_action( 'woocommerce_checkout_before_order_review_heading', array( $this, 'render_checkout_2_columns_right_wrapper' ), 1 );
+				add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_2_columns_right_wrapper_end' ), 999 );
 			}
 		}
 	}
@@ -895,6 +921,43 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
+	 * Add two columns layout class for cart page.
+	 */
+	public function add_cart_two_columns_class( $classes ) {
+		$classes[] = 'suki-woocommerce-cart-2-columns';
+
+		return $classes;
+	}
+
+	/**
+	 * Add opening 2 columns cart left columns wrapper tag.
+	 */
+	public function render_cart_2_columns_left_wrapper() {
+		?><div class="suki-woocommerce-cart-2-columns--left"><?php
+	}
+
+	/**
+	 * Add closing 2 columns cart left columns wrapper tag.
+	 */
+	public function render_cart_2_columns_left_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
+	 * Add opening 2 columns cart right columns wrapper tag.
+	 */
+	public function render_cart_2_columns_right_wrapper() {
+		?><div class="suki-woocommerce-cart-2-columns--right"><?php
+	}
+
+	/**
+	 * Add opening 2 columns cart right columns wrapper tag.
+	 */
+	public function render_cart_2_columns_right_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
 	 * Set cross-sells columns.
 	 * 
 	 * @param integer $columns Number of columns
@@ -917,6 +980,34 @@ class Suki_Compatibility_WooCommerce {
 		$classes[] = 'suki-woocommerce-checkout-2-columns';
 
 		return $classes;
+	}
+
+	/**
+	 * Add opening 2 columns checkout left columns wrapper tag.
+	 */
+	public function render_checkout_2_columns_left_wrapper() {
+		?><div class="suki-woocommerce-checkout-2-columns--left"><?php
+	}
+
+	/**
+	 * Add closing 2 columns checkout left columns wrapper tag.
+	 */
+	public function render_checkout_2_columns_left_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
+	 * Add opening 2 columns checkout right columns wrapper tag.
+	 */
+	public function render_checkout_2_columns_right_wrapper() {
+		?><div class="suki-woocommerce-checkout-2-columns--right"><?php
+	}
+
+	/**
+	 * Add opening 2 columns checkout right columns wrapper tag.
+	 */
+	public function render_checkout_2_columns_right_wrapper_end() {
+		?></div><?php
 	}
 
 	/**

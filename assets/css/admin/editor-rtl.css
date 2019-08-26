@@ -53,7 +53,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus {
-	color: #1976d2;
+	color: #0066cc;
 }
 
 h1 {
@@ -176,7 +176,7 @@ table th a {
 }
 
 table th a:hover, table th a:focus {
-	color: #1976d2;
+	color: #0066cc;
 }
 
 img,
@@ -210,7 +210,7 @@ code {
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: #1976d2;
+	color: #0066cc;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -261,12 +261,12 @@ svg {
 }
 
 ::-moz-selection {
-	background-color: #1976d2;
+	background-color: #0066cc;
 	color: #ffffff;
 }
 
 ::selection {
-	background-color: #1976d2;
+	background-color: #0066cc;
 	color: #ffffff;
 }
 
@@ -633,8 +633,8 @@ p.wp-block-subhead {
 	border-style: solid;
 	border-radius: 3px;
 	color: #ffffff;
-	background-color: #1976d2;
-	border-color: #1976d2;
+	background-color: #0066cc;
+	border-color: #0066cc;
 	font-family: inherit;
 	font-size: 1rem;
 	font-style: normal;
@@ -650,8 +650,8 @@ p.wp-block-subhead {
 
 .wp-block-button__link:hover, .wp-block-button__link:focus {
 	color: #ffffff;
-	background-color: #145ea8;
-	border-color: #145ea8;
+	background-color: #004c99;
+	border-color: #004c99;
 }
 
 .wp-block-embed .suki-oembed {
