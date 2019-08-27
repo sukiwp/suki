@@ -567,11 +567,11 @@ span.select2-container .select2-selection--multiple .select2-selection__rendered
 	padding: 0;
 	font: inherit;
 	color: inherit;
-	margin: -0.5em -0.25em -0.25em;
+	margin: -0.75em -0.25em -0.25em;
 }
 
 span.select2-container .select2-selection--multiple .select2-selection__rendered li {
-	margin: 0.25em 0 0 0.25em;
+	margin: 0.5em 0 0 0.5em;
 }
 
 span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-search {
@@ -587,6 +587,12 @@ span.select2-container .select2-selection--multiple .select2-selection__rendered
 	border: none;
 	border-radius: 0;
 	background-color: rgba(0, 0, 0, 0.03);
+}
+
+span.select2-container .select2-selection--multiple .select2-selection__choice__remove {
+	color: inherit;
+	font-weight: inherit;
+	margin-left: 0.25em;
 }
 
 span.select2-container .select2-dropdown {
@@ -881,6 +887,10 @@ span.select2-container .select2-dropdown--above .select2-results {
 	display: none;
 }
 
+.tagcloud {
+	margin-top: -0.5em;
+}
+
 .tagcloud:before, .tagcloud:after {
 	content: "";
 	display: table;
@@ -892,9 +902,9 @@ span.select2-container .select2-dropdown--above .select2-results {
 
 .tagcloud a {
 	float: right;
-	padding: 0.5em 0.5em;
-	margin: 0 0 0.5em 0.5em;
-	font-size: 0.9rem !important;
+	padding: 0.25em 0.5em;
+	margin: 0.5em 0 0 0.5em;
+	font-size: 1rem !important;
 	line-height: normal;
 	background-color: rgba(0, 0, 0, 0.03);
 	color: inherit;

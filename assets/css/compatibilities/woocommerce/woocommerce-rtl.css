@@ -997,14 +997,6 @@ p.demo_store a,
 	padding: 0.5em;
 }
 
-.woocommerce .suki-products-selected-filters {
-	margin: -1.5em 0 2em;
-}
-
-.woocommerce .suki-products-selected-filters .widget {
-	margin: 0;
-}
-
 .woocommerce nav.woocommerce-pagination {
 	text-align: center;
 	margin: 3rem 0 0;
@@ -1884,8 +1876,7 @@ p.demo_store a,
 	position: absolute;
 }
 
-.woocommerce .woocommerce-widget-layered-nav-list,
-.woocommerce .widget_layered_nav_filters ul,
+.woocommerce .widget_layered_nav ul,
 .woocommerce .widget_rating_filter ul {
 	margin: 0;
 	padding: 0;
@@ -1893,16 +1884,14 @@ p.demo_store a,
 	list-style: none;
 }
 
-.woocommerce .woocommerce-widget-layered-nav-list li,
-.woocommerce .widget_layered_nav_filters ul li,
-.woocommerce .widget_rating_filter ul li {
+.woocommerce .widget_layered_nav li,
+.woocommerce .widget_rating_filter li {
 	position: relative;
 	margin-top: 0.25em;
 }
 
-.woocommerce .woocommerce-widget-layered-nav-list li a:before,
-.woocommerce .widget_layered_nav_filters ul li a:before,
-.woocommerce .widget_rating_filter ul li a:before {
+.woocommerce .widget_layered_nav li a:before,
+.woocommerce .widget_rating_filter li a:before {
 	content: "";
 	position: relative;
 	top: -0.16em;
@@ -1920,19 +1909,56 @@ p.demo_store a,
 	border-radius: 3px;
 }
 
-.woocommerce .woocommerce-widget-layered-nav-list li.chosen a:before,
-.woocommerce .widget_layered_nav_filters ul li.chosen a:before,
-.woocommerce .widget_rating_filter ul li.chosen a:before {
+.woocommerce .widget_layered_nav li.chosen a:before,
+.woocommerce .widget_rating_filter li.chosen a:before {
 	content: "✔";
 	color: #ffffff;
 	border-color: transparent;
 	background-color: #0066cc;
 }
 
-.woocommerce .woocommerce-widget-layered-nav-dropdown__submit {
+.woocommerce .widget_layered_nav .woocommerce-widget-layered-nav-dropdown__submit {
 	margin-top: 1em;
 	padding: 0em 0.5em;
 	font: inherit;
+}
+
+.woocommerce .widget_layered_nav_filters ul {
+	margin: -0.5em 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.woocommerce .widget_layered_nav_filters ul:before, .woocommerce .widget_layered_nav_filters ul:after {
+	content: "";
+	display: table;
+}
+
+.woocommerce .widget_layered_nav_filters ul:after {
+	clear: both;
+}
+
+.woocommerce .widget_layered_nav_filters li {
+	float: right;
+	margin: 0.5em 0 0 0.5em;
+}
+
+.woocommerce .widget_layered_nav_filters li a {
+	padding: 0.25em 0.5em;
+	line-height: normal;
+	background-color: rgba(0, 0, 0, 0.03);
+	color: inherit;
+}
+
+.woocommerce .widget_layered_nav_filters li a:hover, .woocommerce .widget_layered_nav_filters li a:focus {
+	color: #0066cc;
+}
+
+.woocommerce .widget_layered_nav_filters li a:before {
+	display: inline-block;
+	content: "×";
+	font-weight: inherit;
+	margin-left: 0.25em;
 }
 
 .woocommerce .widget_price_filter .price_slider {
