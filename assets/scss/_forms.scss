@@ -85,6 +85,10 @@ span.select2-container {
 		height: auto;
 	}
 
+	&.select2-container--focus .select2-selection {
+		border-color: inherit;
+	}
+
 	.select2-selection--single {
 		.select2-selection__rendered {
 			padding-left: 0;
@@ -99,6 +103,37 @@ span.select2-container {
 
 		.select2-selection__arrow {
 			display: none;
+		}
+	}
+
+	.select2-selection--multiple {
+		border-color: inherit;
+
+		.select2-selection__rendered {
+			display: block;
+			padding: 0;
+			font: inherit;
+			color: inherit;
+			margin: -0.5em -0.25em -0.25em;
+
+			li {
+				margin: 0.25em 0.25em 0 0;
+
+				&.select2-search {
+					padding: 0.25em;
+
+					input {
+						vertical-align: bottom;
+					}
+				}
+
+				&.select2-selection__choice {
+					padding: 0.25em 0.5em;
+					border: none;
+					border-radius: 0;
+					background-color: $color_subtle; // default	
+				}
+			}
 		}
 	}
 

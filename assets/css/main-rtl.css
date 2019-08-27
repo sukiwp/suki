@@ -539,6 +539,10 @@ span.select2-container .select2-selection:focus {
 	background-color: rgba(0, 0, 0, 0.03);
 }
 
+span.select2-container.select2-container--focus .select2-selection {
+	border-color: inherit;
+}
+
 span.select2-container .select2-selection--single .select2-selection__rendered {
 	padding-right: 0;
 	padding-left: 0;
@@ -552,6 +556,37 @@ span.select2-container .select2-selection--single .select2-selection__placeholde
 
 span.select2-container .select2-selection--single .select2-selection__arrow {
 	display: none;
+}
+
+span.select2-container .select2-selection--multiple {
+	border-color: inherit;
+}
+
+span.select2-container .select2-selection--multiple .select2-selection__rendered {
+	display: block;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+	margin: -0.5em -0.25em -0.25em;
+}
+
+span.select2-container .select2-selection--multiple .select2-selection__rendered li {
+	margin: 0.25em 0 0 0.25em;
+}
+
+span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-search {
+	padding: 0.25em;
+}
+
+span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-search input {
+	vertical-align: bottom;
+}
+
+span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-selection__choice {
+	padding: 0.25em 0.5em;
+	border: none;
+	border-radius: 0;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 span.select2-container .select2-dropdown {

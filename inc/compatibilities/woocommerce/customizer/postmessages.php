@@ -56,6 +56,11 @@ $add['link_text_color'] = array(
 		'element'  => '.woocommerce-store-notice, p.demo_store',
 		'property' => 'background-color',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce .woocommerce-widget-layered-nav-list li.chosen a:before, .woocommerce .widget_layered_nav_filters ul li.chosen a:before, .woocommerce .widget_rating_filter ul li.chosen a:before',
+		'property' => 'background-color',
+	),
 );
 $add['link_hover_text_color'] = array(
 	array(
