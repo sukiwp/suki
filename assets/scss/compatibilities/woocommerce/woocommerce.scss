@@ -3113,7 +3113,7 @@ p.demo_store,
 	}
 
 	.woocommerce-terms-and-conditions-wrapper {
-		font-size: 0.85em;
+		font-size: 0.9em;
 	}
 }
 
@@ -3140,13 +3140,17 @@ p.demo_store,
 				// line-height: 2;
 				// text-align: left;
 				// margin: 0;
-				margin: 0 0 0.25em;
+				position: relative;
+				margin: 0.2em 0 0;
 				// font-weight: normal;
-				padding: 0.75em 1em;
+				padding: 0.75em 1em 0.75em 3em;
 				background-color: $color_subtle; // default
 
 				input {
-					margin: 0 1em 0 0;
+					position: absolute;
+					left: 1em;
+					top: 1em;
+					font-size: 1em; // for spacing base
 				}
 
 				img {
@@ -3166,6 +3170,7 @@ p.demo_store,
 
 				label {
 					cursor: pointer;
+					font-weight: 500;
 				}
 
 			}
@@ -3186,9 +3191,9 @@ p.demo_store,
 			// width: 100%;
 			// padding: 1em;
 			// margin: 1em 0;
-			margin: 1em 0 0;
+			margin: 0.75em 0 0;
 			// font-size: 0.92em;
-			font-size: 0.85em;
+			font-size: 0.9em;
 			// border-radius: 2px;
 			// line-height: 1.5;
 			// background-color: darken($secondary, 5%);

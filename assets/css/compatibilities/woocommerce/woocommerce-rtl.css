@@ -2406,7 +2406,7 @@ p.demo_store a,
 }
 
 .woocommerce-checkout .woocommerce-terms-and-conditions-wrapper {
-	font-size: 0.85em;
+	font-size: 0.9em;
 }
 
 .woocommerce-checkout #payment,
@@ -2435,14 +2435,18 @@ p.demo_store a,
 
 .woocommerce-checkout #payment ul.payment_methods li,
 #add_payment_method #payment ul.payment_methods li {
-	margin: 0 0 0.25em;
-	padding: 0.75em 1em;
+	position: relative;
+	margin: 0.2em 0 0;
+	padding: 0.75em 3em 0.75em 1em;
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .woocommerce-checkout #payment ul.payment_methods li input,
 #add_payment_method #payment ul.payment_methods li input {
-	margin: 0 0 0 1em;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	font-size: 1em;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li img,
@@ -2460,12 +2464,13 @@ p.demo_store a,
 .woocommerce-checkout #payment ul.payment_methods li label,
 #add_payment_method #payment ul.payment_methods li label {
 	cursor: pointer;
+	font-weight: 500;
 }
 
 .woocommerce-checkout #payment div.payment_box,
 #add_payment_method #payment div.payment_box {
-	margin: 1em 0 0;
-	font-size: 0.85em;
+	margin: 0.75em 0 0;
+	font-size: 0.9em;
 }
 
 .woocommerce-checkout #payment div.payment_box .woocommerce-SavedPaymentMethods,
