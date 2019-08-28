@@ -262,6 +262,30 @@ p.wp-block-subhead {
 }
 
 // -------------------------------------------------------------
+// Table
+// -------------------------------------------------------------
+
+.wp-block-table {
+	@include table();
+
+	&__cell-content {
+		padding: 0; // reset
+	}
+
+	&.is-style-stripes {
+		border: none;
+
+		tr:nth-child(odd) {
+			background-color: $color_subtle; // default
+		}
+
+		th, td {
+			border: none;
+		}
+	}
+}
+
+// -------------------------------------------------------------
 // Embeds
 // -------------------------------------------------------------
 

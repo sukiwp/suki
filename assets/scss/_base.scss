@@ -109,24 +109,7 @@ ol {
 }
 
 table {
-	width: 100%;
-	margin: 0 0 1.5rem;
-	// border-collapse: collapse;
-	border-spacing: 0;
-
-	@include border();
-	border-bottom: none;
-
-	th, td {
-		padding: 0.75rem;
-		@include border( bottom );
-	}
-
-	th {
-		font-weight: 600;
-		text-align: initial;
-		@include headingColor();
-	}
+	@include table();
 }
 
 img,

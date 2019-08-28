@@ -161,8 +161,10 @@ table {
 
 table th, table td {
 	padding: 0.75rem;
+	border: none;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
+	border-color: inherit;
 }
 
 table th {
@@ -652,6 +654,53 @@ p.wp-block-subhead {
 	color: #ffffff;
 	background-color: #004c99;
 	border-color: #004c99;
+}
+
+.wp-block-table {
+	width: 100%;
+	margin: 0 0 1.5rem;
+	border-spacing: 0;
+	border-width: 1px;
+	border-style: solid;
+	border-bottom: none;
+}
+
+.wp-block-table th, .wp-block-table td {
+	padding: 0.75rem;
+	border: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-color: inherit;
+}
+
+.wp-block-table th {
+	font-weight: 600;
+	text-align: initial;
+	color: #333333;
+}
+
+.wp-block-table th a {
+	color: #333333;
+}
+
+.wp-block-table th a:hover, .wp-block-table th a:focus {
+	color: #0066cc;
+}
+
+.wp-block-table__cell-content {
+	padding: 0;
+}
+
+.wp-block-table.is-style-stripes {
+	border: none;
+}
+
+.wp-block-table.is-style-stripes tr:nth-child(odd) {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.wp-block-table.is-style-stripes th, .wp-block-table.is-style-stripes td {
+	border: none;
 }
 
 .wp-block-embed .suki-oembed {
