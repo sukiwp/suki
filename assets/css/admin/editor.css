@@ -1,5 +1,5 @@
 * {
-	border-color: rgba(0, 0, 0, 0.13);
+	border-color: rgba(0, 0, 0, 0.1);
 }
 
 *, *:before, *:after {
@@ -202,11 +202,11 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: rgba(0, 0, 0, 0.03);
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 code {
-	background-color: rgba(0, 0, 0, 0.03);
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 a {
@@ -696,7 +696,7 @@ p.wp-block-subhead {
 }
 
 .wp-block-table.is-style-stripes tr:nth-child(odd) {
-	background-color: rgba(0, 0, 0, 0.03);
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .wp-block-table.is-style-stripes th, .wp-block-table.is-style-stripes td {

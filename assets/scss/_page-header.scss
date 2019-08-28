@@ -3,13 +3,13 @@
 // -------------------------------------------------------------
 
 .suki-page-header-inner {
-	@include border( null, 0 0 1px 0 ); // default
+	@include border( null, 0 ); // default
 	background-color: $color_subtle; // default
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: scroll; // default
-	padding: 80px 20px; // default
+	padding: 60px 20px; // default
 
 	&:before {
 		content: "";

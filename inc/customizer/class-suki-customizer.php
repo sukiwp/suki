@@ -502,8 +502,8 @@ class Suki_Customizer {
 			'text'              => '#666666',
 			'heading'           => '#333333',
 			'meta'              => '#bbbbbb',
-			'subtle'            => 'rgba(0,0,0,0.03)',
-			'border'            => 'rgba(0,0,0,0.13)',
+			'subtle'            => 'rgba(0,0,0,0.05)',
+			'border'            => 'rgba(0,0,0,0.1)',
 		) );
 	}
 

@@ -367,7 +367,7 @@
 
 	&-inner {
 		z-index: 30;
-		@include border( null, 0 0 1px 0 ); // default
+		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
 
@@ -384,7 +384,7 @@
 
 	&-inner {
 		z-index: 20;
-		@include border( null, 0 0 1px 0 ); // default
+		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
 
@@ -402,7 +402,7 @@
 
 	&-inner {
 		z-index: 10;
-		@include border( null, 0 0 1px 0 ); // default
+		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
 
@@ -419,7 +419,7 @@
 
 	&-inner {
 		z-index: 10;
-		@include border( null, 0 0 1px 0 ); // default
+		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
 }

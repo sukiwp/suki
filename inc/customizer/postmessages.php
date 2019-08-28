@@ -84,7 +84,7 @@ $add['body_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'pre, code, .page-header, .tagcloud a, .navigation.pagination .current, span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-selection__choice',
+		'element'  => 'pre, code, .page-header, .tagcloud a, .navigation.pagination .current, span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-selection__choice, .wp-block-table.is-style-stripes tr:nth-child(odd)',
 		'property' => 'background-color',
 	),
 );

@@ -37,6 +37,7 @@ class Suki_Migrate_1_1_0 {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		$this->migrate_default_values();
 		$this->convert_page_header_elements();
 	}
 
@@ -45,6 +46,48 @@ class Suki_Migrate_1_1_0 {
 	 * Private functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Default values changes.
+	 */
+	private function migrate_default_values() {
+		// Page Header is now enabled by default.
+		// Old = 0
+		// New = 1
+		if ( false === get_theme_mod( 'page_header' ) ) {
+			set_theme_mod( 'page_header', 0 );
+		}
+
+		// Header sections now has no border by default.
+		// Old = 0px 0px 1px 0px
+		// New = 0px 0px 0px 0px
+		$header_sections = array(
+			'header_top_bar_border',
+			'header_main_bar_border',
+			'header_bottom_bar_border',
+			'header_mobile_main_bar_border',
+
+			'page_header_border',
+		);
+		foreach ( $header_sections as $key ) {
+			if ( false === get_theme_mod( $key ) ) {
+				set_theme_mod( $key, '0px 0px 1px 0px' );
+			}
+		}
+
+		// Footer sections now has no border by default.
+		// Old = 1px 0px 0px 0px
+		// New = 0px 0px 0px 0px
+		$footer_sections = array(
+			'footer_widgets_bar_border',
+			'footer_bottom_bar_border',
+		);
+		foreach ( $footer_sections as $key ) {
+			if ( false === get_theme_mod( $key ) ) {
+				set_theme_mod( $key, '1px 0px 0px 0px' );
+			}
+		}
+	}
 
 	/**
 	 * Convert Page Header elements.
