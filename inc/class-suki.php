@@ -163,7 +163,7 @@ class Suki {
 			foreach ( $this->get_migration_checkpoints() as $migration_version ) {
 				// Skip migration checkpoints that are less than DB version.
 				// OR greater than current theme files version (to make sure the migration doesn't run while on development phase).
-				if ( version_compare( $migration_version, $db_version, '<' ) || version_compare( $migration_version, $files_version, '>' ) ) {
+				if ( version_compare( $migration_version, $db_version, '<' ) || version_compare( $migration_version, preg_replace( '/\-.*/', '', $files_version ), '>' ) ) {
 					continue;
 				}
 
