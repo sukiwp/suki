@@ -118,6 +118,27 @@ p.demo_store,
 // 	top: 32px;
 // }
 
+.woocommerce-product-search {
+	display: block;
+	position: relative;
+
+	.suki-search-icon {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin: -0.5em 0 0 0.75em;
+	}
+
+	.search-field {
+		width: 100%;
+		padding-left: 2.5em;
+	}
+
+	button[type="submit"] {
+		display: none;
+	}
+}
+
 // -------------------------------------------------------------
 // Utility classes
 // -------------------------------------------------------------
@@ -348,27 +369,6 @@ p.demo_store,
 
 		.woocommerce-form-login__rememberme {
 			display: inline-block;
-		}
-	}
-
-	.woocommerce-product-search {
-		display: block;
-		position: relative;
-
-		.suki-search-icon {
-			position: absolute;
-			top: 50%;
-			left: 0;
-			margin: -0.5em 0 0 0.75em;
-		}
-
-		.search-field {
-			width: 100%;
-			padding-left: 2.5em;
-		}
-
-		button[type="submit"] {
-			display: none;
 		}
 	}
 
@@ -2730,7 +2730,7 @@ p.demo_store,
 	// Other Widgets
 	// -------------------------------------------------------------
 
-	.woocommerce.widget_product_categories {
+	&.widget_product_categories {
 		ul {
 			position: relative;
 			list-style: none;
@@ -3040,7 +3040,7 @@ p.demo_store,
 }
 
 // -------------------------------------------------------------
-// Cart/checkout page
+// Cart & Checkout page
 // -------------------------------------------------------------
 
 .woocommerce-checkout {
