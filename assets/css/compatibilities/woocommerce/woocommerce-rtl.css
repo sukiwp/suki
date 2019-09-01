@@ -795,7 +795,6 @@ p.demo_store a,
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	margin-top: -30px;
-	margin-bottom: 30px;
 	margin-right: -15px;
 	margin-left: -15px;
 	padding: 0;
@@ -1017,7 +1016,7 @@ p.demo_store a,
 	justify-content: space-between;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin: 0 -0.5em;
+	margin: 0 -0.5em 2em;
 }
 
 .woocommerce .suki-products-filters:empty {
@@ -2358,6 +2357,11 @@ p.demo_store a,
 	margin-top: 3rem;
 }
 
+.woocommerce-checkout #order_review .product-total,
+.woocommerce-checkout #order_review tfoot td {
+	text-align: left;
+}
+
 @media screen and (min-width: 1024px) {
 	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout:before, .woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout:after {
 		content: "";
@@ -2385,10 +2389,6 @@ p.demo_store a,
 	}
 	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout #order_review table {
 		border: none;
-	}
-	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout #order_review .product-total,
-	.woocommerce-checkout.suki-woocommerce-checkout-2-columns .checkout #order_review tfoot td {
-		text-align: left;
 	}
 }
 

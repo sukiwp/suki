@@ -3078,6 +3078,13 @@ p.demo_store,
 		margin-top: 3rem;
 	}
 
+	#order_review {
+		.product-total,
+		tfoot td {
+			text-align: right;
+		}
+	}
+
 	&.suki-woocommerce-checkout-2-columns {
 		@media screen and ( min-width: $breakpoint_1024 ) {
 			.checkout {
@@ -3104,11 +3111,6 @@ p.demo_store,
 
 					table {
 						border: none;
-					}
-
-					.product-total,
-					tfoot td {
-						text-align: right;
 					}
 				}
 			}
