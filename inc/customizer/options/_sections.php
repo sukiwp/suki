@@ -42,9 +42,10 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 20,
 	) ) );
 
-	// Customizer CSS
-	$wp_customize->add_section( 'suki_section_customizer_css', array(
-		'title'       => esc_html__( 'Customizer CSS', 'suki' ),
+	// Color Palette
+	$wp_customize->add_section( 'suki_section_color_palette', array(
+		'title'       => esc_html__( 'Color Palette', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Color palette makes it easier and faster to choose colors while designing your website.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );

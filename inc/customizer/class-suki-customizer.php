@@ -198,8 +198,9 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
 		// Global Settings
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--google-fonts.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/settings--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
 
 		// Page Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );

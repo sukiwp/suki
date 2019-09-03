@@ -12,6 +12,27 @@ $add = array();
 
 /**
  * ====================================================
+ * Global Settings > Color Palette
+ * ====================================================
+ */
+
+for ( $i = 1; $i <= 8; $i++ ) {
+	$add['color_palette_' . $i ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.has-suki-color-' . $i . '-background-color',
+			'property' => 'background-color',
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.has-suki-color-' . $i . '-color',
+			'property' => 'color',
+		),
+	);
+}
+
+/**
+ * ====================================================
  * General Styles > Body (Base)
  * ====================================================
  */

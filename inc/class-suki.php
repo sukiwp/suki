@@ -252,6 +252,28 @@ class Suki {
 
 		// Gutenberg editor styles
 		add_theme_support( 'editor-styles' );
+
+		// Gutenberg editor color palette
+		if ( intval( suki_get_theme_mod( 'color_palette_in_gutenberg' ) ) ) {
+			$array = array();
+
+			for ( $i = 1; $i <= 8; $i++ ) {
+				$color = suki_get_theme_mod( 'color_palette_' . $i );
+
+				if ( empty( $color ) ) {
+					continue;
+				}
+
+				$array[] = array(
+					/* translators: %s: color index. */
+					'name'  => sprintf( esc_html__( 'Color %s', 'suki' ), $i ),
+					'slug'  => 'suki-color-' . $i,
+					'color' => $color,
+				);
+			}
+
+			add_theme_support( 'editor-color-palette', $array );
+		}
 	}
 
 	/**
