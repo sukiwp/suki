@@ -34,8 +34,8 @@
 // Global block
 // -------------------------------------------------------------
 
-.entry-content > [class*="wp-block"],
-.wp-block-column > [class*="wp-block"] {
+.entry-content > *,
+.wp-block-column > * {
 	margin-bottom: 1.5rem;
 
 	&:last-child() {
@@ -111,7 +111,7 @@ div.wp-block-image {
 // -------------------------------------------------------------
 
 .wp-block-quote {
-	padding: 0.5rem 2em;
+	padding: 0.5em 2em;
 	@include border( left, 0.25rem, solid );
 
 	&[style*="center"] {
@@ -131,18 +131,18 @@ div.wp-block-image {
 		font-style: normal;
 	}
 
-	&.is-large {
+	&.is-style-large {
 		margin: 1.5rem 0; // override gutenberg css
-		padding: 0.5rem 2rem; // override gutenberg css
+		padding: 0.5em 2em; // override gutenberg css
 
 		p {
-			font: inherit;
+			font: unset; // reset
 			font-size: 1.2em;
 		}
 
 		cite {
 			font-size: 1rem; // override gutenberg css
-			text-align: inherit;
+			text-align: unset; // reset
 		}
 	}
 }
@@ -250,20 +250,47 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-separator {
-	margin: 2.5rem 0 !important;
-	max-width: none !important;
-	border-bottom: none; // reset
-	@include border( top );
-	border-color: inherit;
+	max-width: none;
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
+
+	&.is-style-dots {
+		line-height: 0;
+
+		&:before {
+			font-family: unset; // reset
+			font-size: 2em;
+			letter-spacing: 0.75em;
+			margin-left: -0.75em;
+			color: unset; // reset
+		}
+	}
 }
 
 // -------------------------------------------------------------
 // Button
 // -------------------------------------------------------------
 
-.wp-block-button__link {
-	@include button();
+.wp-block-button {
+	&.is-style-outline {
+		a.wp-block-button__link {
+			background-color: transparent; // reset
+			border-color: transparent; // reset
+			box-shadow: inset 0 0 0 2px currentColor;
+			color: unset;
+		}
+	}
+
+	&.is-style-squared {
+		a.wp-block-button__link {
+			border-radius: 0;
+		}
+	}
 }
+
+// .wp-block-button__link {
+// 	@include button();
+// }
 
 // -------------------------------------------------------------
 // Table
