@@ -221,9 +221,6 @@ class Suki_Compatibility_WooCommerce {
 		// Add plus and minus buttons to the quantity input.
 		add_action( 'suki/frontend/after_enqueue_main_js', array( $this, 'add_quantity_plus_minus_buttons_via_js' ) );
 
-		// Change product gallery thumbnail size.
-		add_filter( 'woocommerce_gallery_thumbnail_size', array( $this, 'change_gallery_thumbnail_size' ) );
-
 		/**
 		 * Shop page's template hooks
 		 */
@@ -710,16 +707,6 @@ class Suki_Compatibility_WooCommerce {
 
 		// Add right after WooCommerce main js.
 		wp_add_inline_script( 'woocommerce', $js );
-	}
-
-	/**
-	 * Modify "added to cart" message.
-	 *
-	 * @param mixed $size
-	 * @return mixed
-	 */
-	public function change_gallery_thumbnail_size( $size ) {
-		return 'thumbnail';
 	}
 	
 	/**
