@@ -1,28 +1,36 @@
 v1.1.0
-- NEW: "Scroll to Top" button.
-- NEW: Form input typography options.
-- NEW: Font smoothing typography options.
-- NEW: Full screen mobile header drawer position options.
-- NEW: Add smooth animation for accordion menu dropdown (used in mobile header menu).
-- NEW: Revamp the Page header layout options to a drag and drop layout builder.
-- NEW: Page header title text options for post type archive page and taxonomy archive page (on Custmoizer's Dynamic Page Settings).
-- NEW: Breadcrumb integrations for [Rank Math](https://wordpress.org/plugins/seo-by-rank-math/) and [SEOPress](https://wordpress.org/plugins/wp-seopress/).
-- NEW: Dedicated WooCommerce integration CSS for smaller CSS size.
-- NEW: WooCommerce's quantity form input will have minus (-) and plus (+) button.
-- NEW: CSS compatibility for older browsers like IE11 and Safari iOS 9.
+- NEW: "Scroll to Top" feature.
+- NEW: "Color Palette" feature.
+- NEW: Option(s) to change form input typography.
+- NEW: Option(s) to enable / disable font smoothing.
+- NEW: Option(s) to change full screen mobile header drawer position.
+- NEW: Page Header drag & drop layout builder (replace the old layout option).
+- NEW: Option(s) to change Page Header title text on post type archive page and taxonomy archive page.
+- NEW: Breadcrumb integrations for [Rank Math](https://wordpress.org/plugins/seo-by-rank-math/).
+- NEW: Breadcrumb integrations for [SEOPress](https://wordpress.org/plugins/wp-seopress/).
+- NEW: Option(s) to change blog posts grid row gap.
+- NEW: WooCommerce 2 columns layout for Cart page (configurable on Customizer).
+- NEW: WooCommerce product's quantity input will automatically have minus (-) and plus (+) button.
+- NEW: Option(s) to change WooCommerce products grid row gap.
 - NEW: Add some new modules into the modules manager for Suki Pro v1.1.0.
+- TWEAK: Improve frontend's general typography CSS for better readibility and accessibility.
+- TWEAK: Improve Gutenberg CSS for new native blocks and styles.
 - TWEAK: Improve dynamic CSS placement on frontend to allow Child Theme override the styles easier.
-- TWEAK: Improve frontend's general typography CSS for better readibility.
-- TWEAK: Improve featured image size used in default post layout and grid post layout.
-- TWEAK: Improve WooCommerce cart table CSS.
-- TWEAK: Improve Suki theme dashboard page's UI.
 - TWEAK: Improve Header Builder: Allow header logo to be placed on all header sections.
 - TWEAK: Improve Header Builder: Allow HTML header element to be placed on mobile header section.
-- TWEAK: Improve some Customizer settings' UI.
-- TWEAK: Improve Customizer number field validation.
+- TWEAK: Page Header is now enabled by default (for fresh installation only).
+- TWEAK: Improve WooCommerce cart and checkout page styles.
+- TWEAK: Improve WooCommerce filter widgets styles.
+- TWEAK: WooCommerce frontend CSS is now only 1 request and 58KB in size (using theme's dedicated WooCommerce frontend CSS instead of overriding original WooCommerce CSS).
+- TWEAK: Add smooth animation for accordion menu dropdown (used in mobile header menu).
+- TWEAK: Improve featured image size used in default post layout and grid post layout.
+- TWEAK: Redesign Suki theme's dashboard page UI.
+- TWEAK: Use new radio image control on some Customizer settings UI for more intuitive experience.
 - TWEAK: Update Google Fonts list to the latest one.
 - FIX: WooCommerce select2 CSS.
+- FIX: Customizer number field validation.
 - FIX: Customizer dimensions control doesn't show the saved unit value correctly.
+- FIX: CSS fallback compatibility for older browsers like IE11 and Safari iOS 9.
 
 v1.0.14
 - TWEAK: Improve logo's vertical alignment CSS.
