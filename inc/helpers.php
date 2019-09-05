@@ -385,7 +385,7 @@ function suki_get_module_categories() {
 function suki_get_theme_modules() {
 	return array(
 		'page-container' => array(
-			'label'    => esc_html__( 'Page Layout', 'suki' ),
+			'label'    => esc_html__( 'Page Canvas Layout', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(
@@ -395,7 +395,7 @@ function suki_get_theme_modules() {
 			),
 		),
 		'header' => array(
-			'label'    => esc_html__( 'Header Builder', 'suki' ),
+			'label'    => esc_html__( 'Header Layout', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(
@@ -405,7 +405,7 @@ function suki_get_theme_modules() {
 			),
 		),
 		'page-header' => array(
-			'label'    => esc_html__( 'Page Header', 'suki' ),
+			'label'    => esc_html__( 'Page Header Layout', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(
@@ -445,6 +445,16 @@ function suki_get_theme_modules() {
 			),
 		),
 
+		'color-palette' => array(
+			'label'    => esc_html__( 'Color Palette', 'suki' ),
+			'category' => 'assets',
+			'actions'  => array(
+				'settings' => array(
+					'label' => esc_html__( 'Customize', 'suki' ),
+					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_color_palette' ), admin_url( 'customize.php' ) ),
+				),
+			),
+		),
 		'general-styles' => array(
 			'label'    => esc_html__( 'General Typography & Colors', 'suki' ),
 			'category' => 'assets',

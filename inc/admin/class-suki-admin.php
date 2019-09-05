@@ -824,7 +824,7 @@ class Suki_Admin {
 		<div class="suki-admin-demo-sites postbox">
 			<h2 class="hndle"><?php esc_html_e( 'One Click Demo Import', 'suki' ); ?></h2>
 			<div class="inside">
-				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-sites-import-banner.jpg' ); ?>" width="300" height="150"></p>
+				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-sites-import-banner.png' ); ?>" width="300" height="150"></p>
 				<p><?php esc_html_e( 'Kickstart your website with our pre-made demo websites in 3 steps: Import. Modify. Launch!', 'suki' ); ?></p>
 				<p>
 					<?php if ( is_plugin_active( 'suki-sites-import/suki-sites-import.php' ) ) : ?>
