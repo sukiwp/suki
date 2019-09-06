@@ -338,7 +338,7 @@ class Suki {
 	 */
 	public function enqueue_frontend_styles( $hook ) {
 		/**
-		 * Hook: Styles to be included before main CSS
+		 * Hook: Enqueue others before main CSS
 		 */
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
@@ -350,7 +350,7 @@ class Suki {
 		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/dynamic_css', '' ) ) );
 
 		/**
-		 * Hook: Styles to included after main CSS
+		 * Hook: Enqueue others after main CSS
 		 */
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 	}
