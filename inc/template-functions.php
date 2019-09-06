@@ -71,67 +71,37 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	/**
-	 * suki/frontend/before_canvas hook
-	 *
-	 * @see suki_skip_to_content_link()
-	 * @see suki_mobile_vertical_header()
-	 */
-
+	// Add "skip to content" link before canvas.
 	add_action( 'suki/frontend/before_canvas', 'suki_skip_to_content_link', 1 );
+	
+	// Add mobile vertical header link before canvas.
 	add_action( 'suki/frontend/before_canvas', 'suki_mobile_vertical_header', 10 );
 
-	/**
-	 * suki/frontend/header hook
-	 *
-	 * @see suki_main_header()
-	 * @see suki_mobile_header()
-	 */
-
+	// Add main header.
 	add_action( 'suki/frontend/header', 'suki_main_header', 10 );
+	
+	// Add mobile header.
 	add_action( 'suki/frontend/header', 'suki_mobile_header', 10 );
 
-	/**
-	 * suki/frontend/logo hook
-	 *
-	 * @see suki_default_logo()
-	 */
-
+	// Add default logo.
 	add_action( 'suki/frontend/logo', 'suki_default_logo', 10 );
 
-	/**
-	 * suki/frontend/mobile_logo hook
-	 *
-	 * @see suki_default_mobile_logo()
-	 */
-
+	// Add default mobile logo.
 	add_action( 'suki/frontend/mobile_logo', 'suki_default_mobile_logo', 10 );
 
-	/**
-	 * suki/frontend/after_header hook
-	 *
-	 * @see suki_page_header()
-	 */
-
+	// Add page header after header section.
 	add_action( 'suki/frontend/after_header', 'suki_page_header', 10 );
 
-	/**
-	 * suki/frontend/footer hook
-	 *
-	 * @see suki_main_footer()
-	 */
-
+	// Add main footer.
 	add_action( 'suki/frontend/footer', 'suki_main_footer', 10 );
 
-	/**
-	 * suki/frontend/after_canvas hook
-	 *
-	 * @see suki_scroll_to_top()
-	 */
+	// Add scroll to top button.
+	add_action( 'suki/frontend/after_canvas', 'suki_scroll_to_top', 10 );
 
-	if ( intval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
-		add_action( 'suki/frontend/after_canvas', 'suki_scroll_to_top', 10 );
-	}
+	// Add do_shortcode to all kind of archive description.
+	add_filter( 'term_description', 'do_shortcode' );
+	add_filter( 'get_the_post_type_description', 'do_shortcode' );
+	add_filter( 'get_the_author_description', 'do_shortcode' );
 
 	/**
 	 * ====================================================
@@ -139,23 +109,10 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	/**
-	 * suki/frontend/entry/before_header hook
-	 * 
-	 * @see suki_entry_featured_media()
-	 */
+	// Add featured media.
+	add_action( 'suki/frontend/entry/' . str_replace( '-entry-', '_', suki_get_theme_mod( 'entry_featured_media_position' ) ), 'suki_entry_featured_media', 10 );
 
-	if ( 'before-entry-header' === suki_get_theme_mod( 'entry_featured_media_position' ) ) {
-		add_action( 'suki/frontend/entry/before_header', 'suki_entry_featured_media', 10 );
-	}
-
-	/**
-	 * suki/frontend/entry/header hook
-	 * 
-	 * @see suki_entry_header_meta()
-	 * @see suki_entry_title()
-	 */
-
+	// Add entry header elements.
 	if ( ! is_singular() || ! $is_title_in_page_header ) {
 		if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
 
@@ -179,22 +136,7 @@ function suki_template_hooks() {
 		}
 	}
 
-	/**
-	 * suki/frontend/entry/after_header hook
-	 * 
-	 * @see suki_entry_featured_media()
-	 */
-
-	if ( 'after-entry-header' === suki_get_theme_mod( 'entry_featured_media_position' ) ) {
-		add_action( 'suki/frontend/entry/after_header', 'suki_entry_featured_media', 10 );
-	}
-
-	/**
-	 * suki/frontend/entry/footer hook
-	 * 
-	 * @see suki_entry_footer_meta()
-	 */
-
+	// Add entry footer elements.
 	if ( ! is_page() ) {
 		$priority = 10;
 		foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
@@ -216,12 +158,7 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	/**
-	 * suki/frontend/entry_search/header hook
-	 * 
-	 * @see suki_entry_small_title()
-	 */
-
+	// Add title to search result entry header.
 	add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
 
 	/**
@@ -230,23 +167,10 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-	/**
-	 * suki/frontend/entry_grid/before_header hook
-	 * 
-	 * @see suki_entry_featured_media()
-	 */
+	// Add featured media.
+	add_action( 'suki/frontend/entry_grid/' . str_replace( '-entry-', '_', suki_get_theme_mod( 'entry_grid_featured_media_position' ) ), 'suki_entry_grid_featured_media', 10 );
 
-	if ( 'before-entry-header' === suki_get_theme_mod( 'entry_grid_featured_media_position' ) ) {
-		add_action( 'suki/frontend/entry_grid/before_header', 'suki_entry_grid_featured_media', 10 );
-	}
-
-	/**
-	 * suki/frontend/entry_grid_header hook
-	 * 
-	 * @see suki_entry_grid_header_meta()
-	 * @see suki_entry_grid_title()
-	 */
-
+	// Add grid entry header elements.
 	$priority = 10;
 	foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
 		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
@@ -260,22 +184,7 @@ function suki_template_hooks() {
 		$priority = $priority + 10;
 	}
 
-	/**
-	 * suki/frontend/entry_grid/after_header hook
-	 * 
-	 * @see suki_entry_featured_media()
-	 */
-
-	if ( 'after-entry-header' === suki_get_theme_mod( 'entry_grid_featured_media_position' ) ) {
-		add_action( 'suki/frontend/entry_grid/after_header', 'suki_entry_grid_featured_media', 10 );
-	}
-
-	/**
-	 * suki/frontend/entry_grid/footer hook
-	 * 
-	 * @see suki_entry_grid_footer_meta()
-	 */
-
+	// Add grid entry footer elements.
 	$priority = 10;
 	foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
 		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
@@ -294,26 +203,15 @@ function suki_template_hooks() {
 	 * Comments area hooks
 	 * ====================================================
 	 */
-
 	
-	/**
-	 * suki/frontend/before_comments_list hook
-	 * 
-	 * @see suki_comments_title()
-	 * @see suki_comments_navigation()
-	 */
-
+	// Add comments title.
 	add_action( 'suki/frontend/before_comments_list', 'suki_comments_title', 10 );
+	
+	// Add comments navigation.
 	add_action( 'suki/frontend/before_comments_list', 'suki_comments_navigation', 20 );
-
-	/**
-	 * suki/frontend/after_comments_list hook
-	 * 
-	 * @see suki_comments_navigation()
-	 * @see suki_comments_closed()
-	 */
-
 	add_action( 'suki/frontend/after_comments_list', 'suki_comments_navigation', 10 );
+
+	// Add "comments closed" notice.
 	add_action( 'suki/frontend/after_comments_list', 'suki_comments_closed', 20 );
 
 	/**
@@ -323,22 +221,34 @@ function suki_template_hooks() {
 	 */
 
 	if ( is_archive() || is_home() || is_search() ) {
-		if ( ! $is_title_in_page_header ) {
-			/**
-			 * suki/frontend/before_main hook
-			 * 
-			 * @see suki_loop_navigation()
-			 */
 
-			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+		if ( is_archive() ) {
+			// Add archive header.
+			add_action( 'suki/frontend/before_main', 'suki_archive_header', 10 );
+
+			// Add archive title into archive header.
+			if ( ! $is_title_in_page_header ) {
+				add_action( 'suki/frontend/archive_header', 'suki_archive_title', 10 );
+			}
+
+			// Add archive description into archive header.
+			add_action( 'suki/frontend/archive_header', 'suki_archive_description', 20 );
 		}
 
-		/**
-		 * suki/frontend/after_main hook
-		 * 
-		 * @see suki_loop_navigation()
-		 */
+		if ( is_search() ) {
+			// Add search results header.
+			add_action( 'suki/frontend/before_main', 'suki_search_header', 10 );
 
+			// Add archive title into search results header.
+			if ( ! $is_title_in_page_header ) {
+				add_action( 'suki/frontend/search_header', 'suki_search_title', 10 );
+			}
+
+			// Add search form into archive header.
+			add_action( 'suki/frontend/search_header', 'suki_search_form', 20 );
+		}
+
+		// Add navigation after the loop.
 		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
 	}
 
@@ -348,30 +258,17 @@ function suki_template_hooks() {
 	 * ====================================================
 	 */
 
-
 	if ( is_singular() ) {
-		/**
-		 * suki/frontend/entry/before_footer hook
-		 * 
-		 * @see suki_entry_tags()
-		 */
-
+		// Add tags.
 		add_action( 'suki/frontend/entry/before_footer', 'suki_entry_tags', 10 );
 
-		/**
-		 * suki/frontend/after_main hook
-		 * 
-		 * @see suki_single_post_author_bio()
-		 * @see suki_single_post_navigation()
-		 * @see suki_entry_comments()
-		 */
+		// Add author bio.
+		add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
+		
+		// Add post navigation.
+		add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
 
-		if ( intval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
-			add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
-		}
-		if ( intval( suki_get_theme_mod( 'blog_single_navigation' ) ) ) {
-			add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
-		}
+		// Add comments.
 		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
 	}
 }

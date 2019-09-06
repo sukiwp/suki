@@ -847,15 +847,13 @@ span.select2-container .select2-dropdown--above .select2-results {
 }
 
 .page-header {
-	padding: 1.75rem;
-	margin: 0 0 4rem;
-	border-width: 1px;
-	border-style: solid;
+	padding: 2rem;
+	margin: 0 0 6rem;
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .page-header > *:last-child {
-	margin-bottom: 0 !important;
+	margin-bottom: 0;
 }
 
 .page-header .page-title {
@@ -865,6 +863,10 @@ span.select2-container .select2-dropdown--above .select2-results {
 	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
+}
+
+.page-header .archive-description > *:last-child {
+	margin-bottom: 0;
 }
 
 .search-form {

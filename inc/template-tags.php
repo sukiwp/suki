@@ -46,7 +46,9 @@ if ( ! function_exists( 'suki_inline_svg' ) ) :
  */
 function suki_inline_svg( $svg_file, $echo = true ) {
 	// Return empty if no SVG file path is provided.
-	if ( empty( $svg_file ) ) return;
+	if ( empty( $svg_file ) ) {
+		return;
+	}
 
 	// Get SVG markup.
 	global $wp_filesystem;
@@ -281,7 +283,9 @@ if ( ! function_exists( 'suki_mobile_vertical_header' ) ) :
  * Render mobile vertical header.
  */
 function suki_mobile_vertical_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) {
+		return;
+	}
 
 	$elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 	$count = count( $elements );
@@ -343,7 +347,9 @@ if ( ! function_exists( 'suki_main_header' ) ) :
  * Render main header.
  */
 function suki_main_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) {
+		return;
+	}
 
 	?>
 	<div id="header" class="suki-header-main suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
@@ -382,7 +388,9 @@ function suki_main_header__bar( $bar ) {
 		$count += count( $elements[ $col ] );
 	}
 
-	if ( 1 > $count ) return;
+	if ( 1 > $count ) {
+		return;
+	}
 
 	$attrs_array = apply_filters( 'suki/frontend/header_' . $bar . '_bar_attrs', array(
 		'data-height' => intval( suki_get_theme_mod( 'header_' . $bar . '_bar_height' ) ),
@@ -442,7 +450,9 @@ if ( ! function_exists( 'suki_mobile_header' ) ) :
  * Render mobile header.
  */
 function suki_mobile_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) {
+		return;
+	}
 
 	?>
 	<div id="mobile-header" class="suki-header-mobile suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
@@ -456,7 +466,9 @@ function suki_mobile_header() {
 			$count += count( $elements[ $col ] );
 		}
 
-		if ( 1 > $count ) return;
+		if ( 1 > $count ) {
+			return;
+		}
 
 		$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
 			'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
@@ -719,7 +731,9 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  * Render page header section.
  */
 function suki_page_header() {
-	if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) return;
+	if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
+		return;
+	}
 
 	$elements = array();
 	$count = 0;
@@ -730,7 +744,9 @@ function suki_page_header() {
 		$count += count( $elements[ $col ] );
 	}
 
-	if ( 1 > $count ) return;
+	if ( 1 > $count ) {
+		return;
+	}
 	?>
 	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
 		<div class="suki-page-header-inner suki-section-inner">
@@ -991,11 +1007,15 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) :
  * Render footer widgets area.
  */
 function suki_footer_widgets() {
-	if ( intval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) {
+		return;
+	}
 
 	$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
 
-	if ( 1 > $columns ) return;
+	if ( 1 > $columns ) {
+		return;
+	}
 
 	$print_row = 0;
 	for ( $i = 1; $i <= $columns; $i++ ) {
@@ -1039,7 +1059,9 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) :
  * Render footer bottom bar.
  */
 function suki_footer_bottom() {
-	if ( intval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) {
+		return;
+	}
 
 	$cols = array( 'left', 'center', 'right' );
 
@@ -1051,7 +1073,9 @@ function suki_footer_bottom() {
 		$count += empty( $elements[ $col ] ) ? 0 : count( $elements[ $col ] );
 	}
 
-	if ( 1 > $count ) return;
+	if ( 1 > $count ) {
+		return;
+	}
 
 	?>
 	<div id="suki-footer-bottom-bar" class="suki-footer-bottom-bar site-info suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array() ) ) ); ?>">
@@ -1174,6 +1198,9 @@ if ( ! function_exists( 'suki_scroll_to_top' ) ) :
  * Print scroll to top button.
  */
 function suki_scroll_to_top() {
+	if ( ! intval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
+		return;
+	}
 	?>
 	<button class="suki-scroll-to-top <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array() ) ) ); ?>">
 		<?php suki_icon( 'chevron-up' ); ?>
@@ -1313,7 +1340,9 @@ if ( ! function_exists( 'suki_entry_header_meta' ) ) :
  * @param string $format
  */
 function suki_entry_meta( $format ) {
-	if ( 'post' !== get_post_type() ) return;
+	if ( 'post' !== get_post_type() ) {
+		return;
+	}
 
 	$format = trim( $format );
 	$html = $format;
@@ -1418,30 +1447,83 @@ endif;
  * ====================================================
  */
 
-if ( ! function_exists( 'suki_content_header' ) ) :
+if ( ! function_exists( 'suki_archive_header' ) ) :
 /**
- * Render content header.
+ * Render archive header.
  */
-function suki_content_header() {
-	if ( is_archive() ) {
-		?>
-		<header class="page-header">
-			<?php
-			the_archive_title( '<h1 class="page-title">', '</h1>' );
-			the_archive_description( '<div class="archive-description">', '</div>' );
-			?>
-		</header>
+function suki_archive_header() {
+	?>
+	<header class="page-header">
 		<?php
-	}
+		/**
+		 * Hook: suki/frontend/archive_header
+		 *
+		 * @hooked suki_archive_title - 10
+		 * @hooked suki_archive_description - 20
+		 */
+		do_action( 'suki/frontend/archive_header' );
+		?>
+	</header>
+	<?php
+}
+endif;
 
-	elseif ( is_search() ) {
-		?>
-		<header class="page-header">
-			<h1 class="page-title"><?php suki_title__search(); ?></h1>
-			<?php get_search_form(); ?>
-		</header>
+if ( ! function_exists( 'suki_archive_title' ) ) :
+/**
+ * Render archive title.
+ */
+function suki_archive_title() {
+	the_archive_title( '<h1 class="page-title">', '</h1>' );
+}
+endif;
+
+if ( ! function_exists( 'suki_archive_description' ) ) :
+/**
+ * Render archive description.
+ */
+function suki_archive_description() {
+	the_archive_description( '<div class="archive-description">', '</div>' );
+}
+endif;
+
+if ( ! function_exists( 'suki_search_header' ) ) :
+/**
+ * Render search header.
+ */
+function suki_search_header() {
+	?>
+	<header class="page-header">
 		<?php
-	}
+		/**
+		 * Hook: suki/frontend/search_header
+		 *
+		 * @hooked suki_search_title - 10
+		 * @hooked suki_search_form - 20
+		 */
+		do_action( 'suki/frontend/search_header' );
+		?>
+	</header>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_search_title' ) ) :
+/**
+ * Render search title.
+ */
+function suki_search_title() {
+	?>
+	<h1 class="page-title"><?php suki_title__search(); ?></h1>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_search_form' ) ) :
+/**
+ * Render search form.
+ */
+function suki_search_form() {
+	get_search_form();
 }
 endif;
 
@@ -1450,7 +1532,9 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) :
  * Render posts loop navigation.
  */
 function suki_loop_navigation() {
-	if ( ! is_archive() && ! is_home() && ! is_search() ) return;
+	if ( ! is_archive() && ! is_home() && ! is_search() ) {
+		return;
+	}
 	
 	// Render posts navigation.
 	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {
@@ -1483,8 +1567,13 @@ if ( ! function_exists( 'suki_single_post_author_bio' ) ) :
  * Render author bio block in single post page.
  */
 function suki_single_post_author_bio() {
-	if ( ! is_singular( 'post' ) ) return;
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
 
+	if ( ! intval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
+		return;
+	}
 	?>
 	<div class="entry-author">
 		<div class="entry-author-body">
@@ -1506,7 +1595,13 @@ if ( ! function_exists( 'suki_single_post_navigation' ) ) :
  * Render prev / next post navigation in single post page.
  */
 function suki_single_post_navigation() {
-	if ( ! is_singular( 'post' ) ) return;
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+
+	if ( ! intval( suki_get_theme_mod( 'blog_single_navigation' ) ) ) {
+		return;
+	}
 
 	the_post_navigation( array(
 		'prev_text' => esc_html__( '%title &raquo;', 'suki' ),

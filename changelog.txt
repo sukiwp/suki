@@ -8,6 +8,7 @@ v1.1.0
 - NEW: Option(s) to change Page Header title text on post type archive page and taxonomy archive page.
 - NEW: Breadcrumb integrations for [Rank Math](https://wordpress.org/plugins/seo-by-rank-math/).
 - NEW: Breadcrumb integrations for [SEOPress](https://wordpress.org/plugins/wp-seopress/).
+- NEW: Archive description is now automatically displayed on the archive page.
 - NEW: Option(s) to change blog posts grid row gap.
 - NEW: WooCommerce 2 columns layout for Cart page (configurable on Customizer).
 - NEW: WooCommerce product's quantity input will automatically have minus (-) and plus (+) button.
