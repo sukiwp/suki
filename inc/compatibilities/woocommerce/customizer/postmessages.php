@@ -301,27 +301,30 @@ $add['woocommerce_demo_store_notice_text_color'] = array(
  * ====================================================
  */
 
-$add['woocommerce_products_grid_rows_gap'] = array(
+$add['woocommerce_products_grid_rows_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce ul.products li.product',
+		'element'  => '.woocommerce ul.products',
 		'property' => 'margin-top',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products',
-		'property' => 'margin-top',
-		'pattern'  => '-$',
+		'property' => 'margin-bottom',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products li.product',
+		'property' => 'padding-top',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products li.product',
+		'property' => 'padding-bottom',
 	),
 );
 
 $add['woocommerce_products_grid_columns_gutter'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce ul.products li.product',
-		'property' => 'padding',
-		'pattern'  => '0 $',
-	),
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products',
@@ -333,6 +336,16 @@ $add['woocommerce_products_grid_columns_gutter'] = array(
 		'element'  => '.woocommerce ul.products',
 		'property' => 'margin-right',
 		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products li.product',
+		'property' => 'padding-left',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce ul.products li.product',
+		'property' => 'padding-right',
 	),
 );
 $add['woocommerce_products_grid_text_alignment'] = array(

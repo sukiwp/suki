@@ -894,11 +894,11 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:71
-msgid "Rows gap"
+#: inc/customizer/options/blog--archive.php:71, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:22
+msgid "Rows gutter"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:96, inc/customizer/options/footer--widgets-bar.php:109
+#: inc/customizer/options/blog--archive.php:96, inc/customizer/options/footer--widgets-bar.php:109, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:47
 msgid "Columns gutter"
 msgstr ""
 
@@ -2395,14 +2395,6 @@ msgstr ""
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:280
 msgctxt "Suki Pro upsell"
 msgid "More Gallery Layouts"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:22
-msgid "Grid rows gap"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:47
-msgid "Grid columns gutter"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:73

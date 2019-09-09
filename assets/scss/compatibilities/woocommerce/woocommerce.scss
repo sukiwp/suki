@@ -950,9 +950,11 @@ p.demo_store,
 		display: flex;
 		align-items: flex-start;
 		flex-wrap: wrap;
-		margin-top: -30px; // default
+		margin-top: 15px; // default
+		margin-bottom: 15px; // default
 		margin-left: -15px; // default
 		margin-right: -15px; // default
+		margin-bottom: 0;
 		// margin: 0 0 1em;
 		padding: 0;
 		list-style: none outside;
@@ -967,9 +969,11 @@ p.demo_store,
 
 	ul.products {
 		li.product {
-			margin-top: 30px; // default
 			// margin: 0 0 2em;
-			padding: 0 15px; // default
+			padding-top: 15px; // default
+			padding-bottom: 15px; // default
+			padding-left: 15px; // default
+			padding-right: 15px; // default
 
 			> *:last-child {
 				margin-bottom: 0;
@@ -2740,11 +2744,10 @@ p.demo_store,
 			ul {
 				margin-left: 1.25em;
 			}
+		}
 
-			li {
-				position: relative;
-				margin-top: 0.25em;
-			}
+		li {
+			margin-top: 0.25em;
 		}
 	}
 

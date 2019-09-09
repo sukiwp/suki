@@ -2736,9 +2736,10 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	align-items: flex-start;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	margin-top: 15px;
+	margin-bottom: 15px;
 	margin-left: -15px;
 	margin-right: -15px;
-	margin-top: -30px;
 }
 
 .suki-loop-default .entry {
@@ -2747,8 +2748,10 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-loop-grid .entry {
 	width: 100%;
-	margin-top: 30px;
-	padding: 0 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 	border: none;
 }
 
@@ -3354,12 +3357,9 @@ a.more-link {
 
 .widget_nav_menu ul,
 .widget_categories ul,
-.widget_recent_entries ul,
-.widget_recent_comments ul,
 .widget_archive ul,
 .widget_meta ul,
-.widget_pages ul,
-.widget_rss ul {
+.widget_pages ul {
 	position: relative;
 	list-style: none;
 	padding: 0;
@@ -3368,25 +3368,27 @@ a.more-link {
 
 .widget_nav_menu ul ul,
 .widget_categories ul ul,
-.widget_recent_entries ul ul,
-.widget_recent_comments ul ul,
 .widget_archive ul ul,
 .widget_meta ul ul,
-.widget_pages ul ul,
-.widget_rss ul ul {
+.widget_pages ul ul {
 	margin-left: 1.25em;
 }
 
-.widget_nav_menu ul li,
-.widget_categories ul li,
-.widget_recent_entries ul li,
-.widget_recent_comments ul li,
-.widget_archive ul li,
-.widget_meta ul li,
-.widget_pages ul li,
-.widget_rss ul li {
-	position: relative;
+.widget_nav_menu li,
+.widget_categories li,
+.widget_archive li,
+.widget_meta li,
+.widget_pages li {
 	margin-top: 0.25em;
+}
+
+.widget_recent_entries ul,
+.widget_recent_comments ul,
+.widget_rss ul {
+	position: relative;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .widget_recent_entries li,

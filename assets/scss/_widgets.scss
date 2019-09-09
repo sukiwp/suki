@@ -64,12 +64,9 @@
 // List widgets
 .widget_nav_menu,
 .widget_categories,
-.widget_recent_entries,
-.widget_recent_comments,
 .widget_archive,
 .widget_meta,
-.widget_pages,
-.widget_rss {
+.widget_pages {
 	ul {
 		position: relative;
 		list-style: none;
@@ -79,11 +76,10 @@
 		ul {
 			margin-left: 1.25em;
 		}
+	}
 
-		li {
-			position: relative;
-			margin-top: 0.25em;
-		}
+	li {
+		margin-top: 0.25em;
 	}
 }
 
@@ -91,6 +87,13 @@
 .widget_recent_entries,
 .widget_recent_comments,
 .widget_rss {
+	ul {
+		position: relative;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
 	li {
 		@include border( bottom );
 		padding-bottom: 0.75em;
