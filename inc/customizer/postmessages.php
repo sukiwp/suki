@@ -401,7 +401,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['input_focus_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="text"]:focus, input[type="password"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, .input:hover, .input:focus, select:focus, textarea:focus, .search-field:focus, span.select2-container--focus .select2-selection',
+			'element'  => 'input[type="text"]:focus, input[type="password"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, .input:hover, .input:focus, select:focus, textarea:focus, .search-field:focus, span.select2-container.select2-container--open .select2-selection, span.select2-container.select2-container--open .select2-dropdown',
 			'property' => $prop,
 		),
 	);
@@ -2221,6 +2221,18 @@ $add['blog_index_grid_columns'] = array(
 $add['blog_index_grid_rows_gutter'] = array(
 	array(
 		'type'     => 'css',
+		'element'  => '.suki-loop-grid',
+		'property' => 'margin-top',
+		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid',
+		'property' => 'margin-bottom',
+		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
 		'element'  => '.suki-loop-grid > .entry',
 		'property' => 'padding-top',
 	),
@@ -2229,28 +2241,8 @@ $add['blog_index_grid_rows_gutter'] = array(
 		'element'  => '.suki-loop-grid > .entry',
 		'property' => 'padding-bottom',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid',
-		'property' => 'margin-top',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid',
-		'property' => 'margin-bottom',
-	),
 );
 $add['blog_index_grid_columns_gutter'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry',
-		'property' => 'padding-left',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry',
-		'property' => 'padding-right',
-	),
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-grid',
@@ -2262,6 +2254,16 @@ $add['blog_index_grid_columns_gutter'] = array(
 		'element'  => '.suki-loop-grid',
 		'property' => 'margin-right',
 		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'padding-left',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'padding-right',
 	),
 );
 

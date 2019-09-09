@@ -109,7 +109,7 @@ msgstr ""
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/helpers.php:438, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/page-header.php:95, inc/customizer/options/_sections.php:498
+#: inc/helpers.php:438, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/page-header.php:95, inc/customizer/options/_sections.php:518
 msgid "Dynamic Page Settings"
 msgstr ""
 
@@ -404,7 +404,7 @@ msgstr ""
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:641, inc/admin/class-suki-admin-metabox-page-settings.php:651, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:474, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:410, inc/customizer/options/_sections.php:291, inc/customizer/options/_sections.php:423, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:97, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:124, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
+#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:641, inc/admin/class-suki-admin-metabox-page-settings.php:651, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:474, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:410, inc/customizer/options/_sections.php:291, inc/customizer/options/_sections.php:423, inc/customizer/options/_sections.php:499, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:97, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:124, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -2208,7 +2208,17 @@ msgstr ""
 msgid "Post Layout: Grid"
 msgstr ""
 
-#: inc/customizer/options/_sections.php:499
+#: inc/customizer/options/_sections.php:503
+msgctxt "Suki Pro upsell"
+msgid "Related Posts"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:504
+msgctxt "Suki Pro upsell"
+msgid "Featured Posts"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:519
 msgid "You can set different layout settings (like Header, Page Header, Content, Sidebar, and Footer) on each different page type."
 msgstr ""
 
@@ -2318,7 +2328,7 @@ msgstr ""
 msgid "Show products sort filter"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:127, inc/compatibilities/woocommerce/customizer/options/_sections.php:90
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:127, inc/compatibilities/woocommerce/customizer/options/_sections.php:91
 msgctxt "Suki Pro upsell"
 msgid "Off Canvas Filters"
 msgstr ""
@@ -2414,7 +2424,7 @@ msgctxt "Suki Pro upsell"
 msgid "Grid Item's Styles"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:136, inc/compatibilities/woocommerce/customizer/options/_sections.php:89
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:136, inc/compatibilities/woocommerce/customizer/options/_sections.php:90
 msgctxt "Suki Pro upsell"
 msgid "Product Quick View Popup"
 msgstr ""
@@ -2454,5 +2464,15 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/_sections.php:88
 msgctxt "Suki Pro upsell"
+msgid "AJAX Add to Cart"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:89
+msgctxt "Suki Pro upsell"
 msgid "Product Alternate Hover Image"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/_sections.php:92
+msgctxt "Suki Pro upsell"
+msgid "Checkout Optimization"
 msgstr ""

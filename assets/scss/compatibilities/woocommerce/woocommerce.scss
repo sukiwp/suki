@@ -950,8 +950,8 @@ p.demo_store,
 		display: flex;
 		align-items: flex-start;
 		flex-wrap: wrap;
-		margin-top: 15px; // default
-		margin-bottom: 15px; // default
+		margin-top: -15px; // default
+		margin-bottom: -15px; // default
 		margin-left: -15px; // default
 		margin-right: -15px; // default
 		margin-bottom: 0;
@@ -1167,6 +1167,10 @@ p.demo_store,
 				width: 50%;
 			}
 		}
+	}
+
+	.woocommerce-products-header {
+		margin: 0 0 2rem;
 	}
 
 	.woocommerce-result-count {

@@ -85,8 +85,9 @@ span.select2-container {
 		height: auto;
 	}
 
-	&.select2-container--focus .select2-selection {
-		border-color: inherit;
+	&.select2-container--open .select2-selection {
+		border-color: inherit; // default
+		background-color: $color_subtle;
 	}
 
 	.select2-selection--single {
@@ -145,7 +146,7 @@ span.select2-container {
 
 	.select2-dropdown {
 		@include border();
-		border-color: inherit;
+		border-color: inherit; // default
 		overflow: hidden;
 
 		.select2-search {

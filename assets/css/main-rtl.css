@@ -541,8 +541,9 @@ span.select2-container .select2-selection:focus {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
-span.select2-container.select2-container--focus .select2-selection {
+span.select2-container.select2-container--open .select2-selection {
 	border-color: inherit;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 span.select2-container .select2-selection--single .select2-selection__rendered {
@@ -2767,6 +2768,12 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-loop-grid.suki-loop-grid-3-columns .entry {
 	width: 33.33%;
+}
+
+@media screen and (max-width: 767px) {
+	.suki-loop-grid.suki-loop-grid-3-columns .entry {
+		width: 50%;
+	}
 }
 
 .suki-loop-grid.suki-loop-grid-4-columns .entry {

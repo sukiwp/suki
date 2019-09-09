@@ -794,8 +794,8 @@ p.demo_store a,
 	align-items: flex-start;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: -15px;
+	margin-bottom: -15px;
 	margin-right: -15px;
 	margin-left: -15px;
 	margin-bottom: 0;
@@ -997,6 +997,10 @@ p.demo_store a,
 	.woocommerce ul.products.columns-6 li.product {
 		width: 50%;
 	}
+}
+
+.woocommerce .woocommerce-products-header {
+	margin: 0 0 2rem;
 }
 
 .woocommerce .woocommerce-result-count {

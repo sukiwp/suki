@@ -37,6 +37,10 @@
 
 	.suki-loop-grid.suki-loop-grid-3-columns & {
 		width: 33.33%;
+
+		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			width: 50%;
+		}
 	}
 
 	.suki-loop-grid.suki-loop-grid-4-columns & {

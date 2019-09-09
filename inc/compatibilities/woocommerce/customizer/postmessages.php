@@ -306,11 +306,13 @@ $add['woocommerce_products_grid_rows_gutter'] = array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products',
 		'property' => 'margin-top',
+		'pattern'  => '-$',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce ul.products',
 		'property' => 'margin-bottom',
+		'pattern'  => '-$',
 	),
 	array(
 		'type'     => 'css',

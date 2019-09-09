@@ -74,20 +74,22 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 
 if ( suki_show_pro_teaser() ) {
 	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_woocommerce_advanced', array(
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_pro_upsell_woocommerce', array(
 		'panel'       => $panel,
 		'priority'    => 90,
 	) ) );
 
 	// More Options Available
-	$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_pro_woocommerce_advanced', array(
+	$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_teaser_pro_upsell_woocommerce', array(
 		'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 		'panel'       => $panel,
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
+			esc_html_x( 'AJAX Add to Cart', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Product Alternate Hover Image', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Product Quick View Popup', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Off Canvas Filters', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Checkout Optimization', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );
