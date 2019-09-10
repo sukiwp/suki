@@ -518,8 +518,6 @@ span.select2-container .select2-selection {
 	border-style: solid;
 	border-color: inherit;
 	border-radius: 3px;
-	color: inherit;
-	background-color: #ffffff;
 	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
@@ -535,10 +533,6 @@ span.select2-container .select2-selection {
 	padding-left: 1.8em;
 	display: block;
 	height: auto;
-}
-
-span.select2-container .select2-selection:focus {
-	background-color: rgba(0, 0, 0, 0.05);
 }
 
 span.select2-container.select2-container--open .select2-selection {

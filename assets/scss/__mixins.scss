@@ -105,8 +105,8 @@
 	}
 }
 
-@mixin select() {
-	@include input();
+@mixin select( $color: true ) {
+	@include input( $color );
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center right;
 	background-repeat: no-repeat;

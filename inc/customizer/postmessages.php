@@ -387,7 +387,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['input_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .search-field, span.select2-container .select2-selection',
+			'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .search-field, span.select2-container .select2-selection, span.select2-container.select2-container--open .select2-dropdown',
 			'property' => $prop,
 		),
 	);
@@ -396,10 +396,18 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['input_focus_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="text"]:focus, input[type="password"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, .input:hover, .input:focus, select:focus, textarea:focus, .search-field:focus, span.select2-container.select2-container--open .select2-selection, span.select2-container.select2-container--open .select2-dropdown',
+			'element'  => 'input[type="text"]:focus, input[type="password"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, .input:hover, .input:focus, select:focus, textarea:focus, .search-field:focus, span.select2-container.select2-container--open .select2-selection',
 			'property' => $prop,
 		),
 	);
+
+	if ( 'border' === $key ) {
+		$add['input_focus_' . $key . '_color'][] = array(
+			'type'     => 'css',
+			'element'  => 'span.select2-container.select2-container--open .select2-dropdown',
+			'property' => $prop,
+		);
+	}
 }
 
 /**

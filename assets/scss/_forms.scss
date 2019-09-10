@@ -80,14 +80,14 @@ span.select2-container {
 	}
 
 	.select2-selection {
-		@include select();
+		@include select( false );
 		display: block;
 		height: auto;
 	}
 
 	&.select2-container--open .select2-selection {
 		border-color: inherit; // default
-		background-color: $color_subtle;
+		background-color: $color_subtle; // default
 	}
 
 	.select2-selection--single {
