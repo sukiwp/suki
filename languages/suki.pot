@@ -43,11 +43,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: header menu number.
-#: inc/class-suki.php:221, inc/template-tags.php:571
+#: inc/class-suki.php:221, inc/template-tags.php:565
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:222, inc/template-tags.php:589
+#: inc/class-suki.php:222, inc/template-tags.php:583
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -217,32 +217,32 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:764
+#: inc/helpers.php:758
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:765
+#: inc/helpers.php:759
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:766
+#: inc/helpers.php:760
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:767
+#: inc/helpers.php:761
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:768
+#: inc/helpers.php:762
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:769
+#: inc/helpers.php:763
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -260,60 +260,60 @@ msgid "Assign menu to this location"
 msgstr ""
 
 #. translators: %s: search query.
-#: inc/template-tags.php:235
+#: inc/template-tags.php:229
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:254, inc/customizer/options/page-settings.php:240
+#: inc/template-tags.php:248, inc/customizer/options/page-settings.php:240
 msgid "Oops! That page can not be found."
 msgstr ""
 
-#: inc/template-tags.php:276
+#: inc/template-tags.php:270
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:625
+#: inc/template-tags.php:619
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:661
+#: inc/template-tags.php:655
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-tags.php:707, inc/customizer/options/header--builder.php:109
+#: inc/template-tags.php:701, inc/customizer/options/header--builder.php:109
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1551
+#: inc/template-tags.php:1545
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1552
+#: inc/template-tags.php:1546
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1607
+#: inc/template-tags.php:1601
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1608
+#: inc/template-tags.php:1602
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1625
+#: inc/template-tags.php:1619
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1631
+#: inc/template-tags.php:1625
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1658
+#: inc/template-tags.php:1652
 msgid "Comments are closed."
 msgstr ""
 
