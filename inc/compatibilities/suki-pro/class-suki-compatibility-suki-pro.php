@@ -44,9 +44,7 @@ class Suki_Compatibility_Suki_Pro {
 		 */
 
 		// Get the main version without suffix like "dev", "alpha", "beta".
-		$version = preg_replace( '/\-.*/', '', SUKI_PRO_VERSION );
-
-		if ( defined( 'SUKI_PRO_VERSION' ) && version_compare( $version, '1.1.0', '<' ) ) {
+		if ( defined( 'SUKI_PRO_VERSION' ) && version_compare( preg_replace( '/\-.*/', '', SUKI_PRO_VERSION ), '1.1.0', '<' ) ) {
 			// Add legacy "woocommerce-advanced" module and hide the new modules.
 			// Use "0" priority because the legacy "woocommerce-advanced" module needs to be added before any other filters run.
 			add_filter( 'suki/pro/modules', array( $this, 'fallback_compatibility_for_legacy_woocommerce_advanced_module' ), 0 );

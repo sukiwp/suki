@@ -33,7 +33,7 @@ $add['subtle_color'] = array(
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus, .woocommerce ul.products li.product a.woocommerce-loop-product__link:hover, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus, .woocommerce .widget_layered_nav_filters li a:hover, .woocommerce .widget_layered_nav_filters li a:focus',
+		'element'  => '.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover, .woocommerce div.product .woocommerce-tabs ul.tabs li a:focus, .woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus, .woocommerce ul.products li.product a.woocommerce-loop-product__link:hover, .woocommerce ul.products li.product a.woocommerce-loop-product__link:focus, .woocommerce.widget_layered_nav_filters li a:hover, .woocommerce.widget_layered_nav_filters li a:focus',
 		'property' => 'color',
 	),
 	array(
@@ -58,8 +58,13 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .widget_layered_nav li.chosen a:before, .woocommerce .widget_rating_filter li.chosen a:before',
+		'element'  => '.woocommerce.widget_layered_nav li.chosen a:before, .woocommerce.widget_rating_filter li.chosen a:before',
 		'property' => 'background-color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.woocommerce.widget_price_filter .price_slider',
+		'property' => 'color',
 	),
 );
 $add['link_hover_text_color'] = array(
@@ -270,6 +275,20 @@ $add['sidebar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar .woocommerce.widget_price_filter .price_slider',
+		'property' => 'color',
+	),
+);
+
+/**
+ * ====================================================
+ * Footer > Widgets Bar
+ * ====================================================
+ */
+
+$add['footer_widgets_bar_link_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-footer-widgets-bar .woocommerce.widget_price_filter .price_slider',
 		'property' => 'color',
 	),
 );

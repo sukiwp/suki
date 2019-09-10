@@ -720,7 +720,7 @@ msgstr ""
 msgid "Error!"
 msgstr ""
 
-#: inc/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:84
+#: inc/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:82
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 

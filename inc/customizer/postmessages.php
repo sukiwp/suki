@@ -151,11 +151,6 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce.widget_price_filter .price_slider',
-		'property' => 'color',
-	),
-	array(
-		'type'     => 'css',
 		'element'  => '::selection',
 		'property' => 'background-color',
 	),
@@ -1901,11 +1896,6 @@ $add['footer_widgets_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-footer-widgets-bar a:not(.button)',
-		'property' => 'color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar .woocommerce.widget_price_filter .price_slider',
 		'property' => 'color',
 	),
 );
