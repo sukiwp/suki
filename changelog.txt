@@ -29,6 +29,8 @@ v1.1.0
 - TWEAK: Use new radio image control on some Customizer settings UI for more intuitive experience.
 - TWEAK: Update Google Fonts list to the latest one.
 - FIX: WooCommerce select2 CSS.
+- FIX: Some frontend CSS bugs.
+- FIX: Hidden search widget on search results page.
 - FIX: Customizer number field validation.
 - FIX: Customizer dimensions control doesn't show the saved unit value correctly.
 - FIX: CSS fallback compatibility for older browsers like IE11 and Safari iOS 9.
