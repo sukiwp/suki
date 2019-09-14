@@ -616,6 +616,7 @@ input, select, textarea {
 .suki-admin-content .postbox .inside {
 	margin: 15px;
 	padding: 0;
+	overflow: visible;
 }
 
 .suki-admin-content-row {
