@@ -417,6 +417,11 @@ class Suki {
 	 * @return string
 	 */
 	public function add_dynamic_css( $css ) {
+		// Skip adding dynamic CSS on customizer preview frame.
+		if ( is_customize_preview() ) {
+			return $css;
+		}
+
 		$postmessages = include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
 		$defaults = include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
 

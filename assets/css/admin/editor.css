@@ -509,6 +509,7 @@ p.has-drop-cap:not(:focus):first-letter {
 	padding: 0.5em 2em;
 	border-left-width: 0.25rem;
 	border-left-style: solid;
+	border-color: inherit;
 }
 
 .wp-block-quote[style*="center"] {

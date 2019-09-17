@@ -1199,6 +1199,7 @@ p.has-drop-cap:not(:focus):first-letter {
 	padding: 0.5em 2em;
 	border-right-width: 0.25rem;
 	border-right-style: solid;
+	border-color: inherit;
 }
 
 .wp-block-quote[style*="center"] {
@@ -2687,6 +2688,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-scroll-to-top {
 	position: absolute;
+	z-index: 99;
 	bottom: 0;
 	margin-right: 20px;
 	margin-left: 20px;

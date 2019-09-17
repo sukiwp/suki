@@ -173,6 +173,7 @@
 
 .suki-scroll-to-top {
 	position: absolute;
+	z-index: 99;
 	bottom: 0;
 	margin-left: 20px; // default
 	margin-right: 20px; // default

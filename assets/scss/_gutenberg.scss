@@ -101,6 +101,7 @@ p.has-drop-cap:not(:focus):first-letter {
 .wp-block-quote {
 	padding: 0.5em 2em;
 	@include border( left, 0.25rem, solid );
+	border-color: inherit;
 
 	&[style*="center"] {
 		padding-left: 0;
