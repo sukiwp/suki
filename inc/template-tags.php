@@ -290,7 +290,7 @@ function suki_mobile_vertical_header() {
 
 	$display = suki_get_theme_mod( 'header_mobile_vertical_bar_display' );
 	?>
-		<div id="mobile-vertical-header" class="suki-header-mobile-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array() ) ) ); ?> suki-header suki-popup" itemtype="https://schema.org/WPHeader" itemscope>
+		<div id="mobile-vertical-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array( 'suki-header-mobile-vertical', 'suki-header', 'suki-popup' ) ) ) ); ?>" itemtype="https://schema.org/WPHeader" itemscope>
 			<?php if ( 'drawer' === $display ) : ?>
 				<div class="suki-popup-background suki-popup-close">
 					<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
@@ -346,7 +346,7 @@ function suki_main_header() {
 	}
 
 	?>
-	<div id="header" class="suki-header-main suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
+	<div id="header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array( 'suki-header-main', 'suki-header' ) ) ) ); ?>">
 		<?php
 		// Top Bar (if not merged)
 		if ( ! intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
@@ -395,7 +395,7 @@ function suki_main_header__bar( $bar ) {
 	}
 
 	?>
-	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
+	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array( 'suki-header-' . $bar . '-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
 		<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 
@@ -449,7 +449,7 @@ function suki_mobile_header() {
 	}
 
 	?>
-	<div id="mobile-header" class="suki-header-mobile suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
+	<div id="mobile-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array( 'suki-header-mobile', 'suki-header' ) ) ) ); ?>">
 		<?php
 		$elements = array();
 		$count = 0;
@@ -473,7 +473,7 @@ function suki_mobile_header() {
 		}
 
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-default <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
+		<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
 					<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
@@ -742,7 +742,7 @@ function suki_page_header() {
 		return;
 	}
 	?>
-	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
+	<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array( 'suki-page-header' ) ) ) ); ?>">
 		<div class="suki-page-header-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-page-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-page-header-row-with-center' : '' ); ?>">
@@ -909,7 +909,7 @@ if ( ! function_exists( 'suki_content_open' ) ) :
  */
 function suki_content_open() {
 	?>
-	<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array() ) ) ); ?>">
+	<div id="content" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array( 'site-content', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-content-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-content-row">
@@ -1019,7 +1019,7 @@ function suki_footer_widgets() {
 		}
 	}
 	?>
-	<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
+	<div id="suki-footer-widgets-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array( 'suki-footer-widgets-bar', 'suki-footer-section', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-footer-widgets-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<?php if ( $print_row ) : ?>
@@ -1072,7 +1072,7 @@ function suki_footer_bottom() {
 	}
 
 	?>
-	<div id="suki-footer-bottom-bar" class="suki-footer-bottom-bar site-info suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array() ) ) ); ?>">
+	<div id="suki-footer-bottom-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array( 'suki-footer-bottom-bar', 'site-info', 'suki-footer-section', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-footer-bottom-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-footer-bottom-bar-row suki-footer-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-footer-row-with-center' : '' ); ?>">
@@ -1196,7 +1196,7 @@ function suki_scroll_to_top() {
 		return;
 	}
 	?>
-	<button class="suki-scroll-to-top <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array() ) ) ); ?>">
+	<button class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array( 'suki-scroll-to-top' ) ) ) ); ?>">
 		<?php suki_icon( 'chevron-up' ); ?>
 	</button>
 	<?php

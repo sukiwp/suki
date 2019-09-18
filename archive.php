@@ -30,7 +30,7 @@ do_action( 'suki/frontend/before_main' );
 if ( have_posts() ) :
 	
 	?>
-	<div id="loop" class="suki-loop <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array() ) ) ); ?>">
+	<div id="loop" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array( 'suki-loop' ) ) ) ); ?>">
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();

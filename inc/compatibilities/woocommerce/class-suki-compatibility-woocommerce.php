@@ -846,7 +846,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Add opening add to cart form's wrapper tag.
 	 */
 	public function render_add_to_cart_form_wrapper() {
-		?><div class="suki-product-add-to-cart <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array() ) ) ); ?>"><?php
+		?><div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array( 'suki-product-add-to-cart' ) ) ) ); ?>"><?php
 	}
 
 	/**
