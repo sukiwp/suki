@@ -63,8 +63,13 @@ body.suki-page-layout-boxed {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(0,0,0,0.8);
+	opacity: 0;
+	background-color: rgba(0,0,0,0.5);
 	color: $color_bg; // default
+
+	.suki-popup-active & {
+		opacity: 1;
+	}
 }
 
 .suki-toggle.suki-popup-close-icon {

@@ -198,7 +198,7 @@ msgid "WC Quick View"
 msgstr ""
 
 #: inc/helpers.php:600
-msgid "WC Off Canvas Filters"
+msgid "WC Off-Canvas Filters"
 msgstr ""
 
 #: inc/helpers.php:605
@@ -2330,7 +2330,7 @@ msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:127, inc/compatibilities/woocommerce/customizer/options/_sections.php:91
 msgctxt "Suki Pro upsell"
-msgid "Off Canvas Filters"
+msgid "Off-Canvas Filters"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:41

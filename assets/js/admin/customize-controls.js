@@ -960,7 +960,7 @@
 			var $control = $( this ),
 			    mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
 			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
-			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
+			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_middle, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
 			    $verticalLocations = $control.find( verticalSelector ),
 			    $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
 

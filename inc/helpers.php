@@ -597,7 +597,7 @@ function suki_get_pro_modules() {
 			'url'      => esc_url( $url . '#pro-woocommerce-quick-view' ),
 		),
 		'woocommerce-off-canvas-filters' => array(
-			'label'    => esc_html__( 'WC Off Canvas Filters', 'suki' ),
+			'label'    => esc_html__( 'WC Off-Canvas Filters', 'suki' ),
 			'category' => 'woocommerce',
 			'url'      => esc_url( $url . '#pro-woocommerce-off-canvas-filters' ),
 		),

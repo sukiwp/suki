@@ -88,7 +88,7 @@ if ( suki_show_pro_teaser() ) {
 			esc_html_x( 'AJAX Add to Cart', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Product Alternate Hover Image', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Product Quick View Popup', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'Off Canvas Filters', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'Off-Canvas Filters', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Checkout Optimization', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
