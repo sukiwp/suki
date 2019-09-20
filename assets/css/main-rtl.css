@@ -1156,6 +1156,10 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 	padding: 1.5rem;
 }
 
+.wp-block-columns {
+	margin-bottom: 0;
+}
+
 .wp-block-columns > .wp-block-column {
 	-ms-flex: 1;
 	flex: 1;

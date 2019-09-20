@@ -2728,10 +2728,12 @@ p.demo_store a,
 		float: none;
 		display: -ms-flexbox;
 		display: flex;
+		white-space: nowrap;
 	}
 	.woocommerce-cart table.cart.shop_table_responsive .actions .coupon input {
 		-ms-flex: 1;
 		flex: 1;
+		width: auto;
 	}
 	.woocommerce-cart table.cart.shop_table_responsive .actions > button {
 		width: 100%;

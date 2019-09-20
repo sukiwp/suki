@@ -52,6 +52,8 @@
 // -------------------------------------------------------------
 
 .wp-block-columns {
+	margin-bottom: 0;
+
 	> .wp-block-column {
 		flex: 1;
 		margin: 0 1rem 1.5rem;

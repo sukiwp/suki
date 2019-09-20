@@ -3419,7 +3419,6 @@ p.demo_store,
 				margin-right: 0.5rem;
 				// outline: 0;
 				width: 15rem;
-
 			}
 		}
 
@@ -3515,9 +3514,11 @@ p.demo_store,
 						margin-bottom: 2rem;
 						float: none;
 						display: flex;
+						white-space: nowrap;
 
 						input {
 							flex: 1;
+							width: auto;
 						}
 					}
 
