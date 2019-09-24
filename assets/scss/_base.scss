@@ -17,8 +17,6 @@
 html {
 	min-height: 100vh;
 	color: $color_text; // default
-
-	@include base(); // default
 }
 
 body {

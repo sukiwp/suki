@@ -38,7 +38,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = 'html, body';
+	$element = 'body';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['body_' . $prop ] = array(
@@ -91,7 +91,7 @@ $add['font_smoothing'] = array(
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'html, body',
+		'element'  => 'body',
 		'property' => 'color',
 	),
 );
