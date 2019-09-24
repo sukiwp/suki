@@ -1659,7 +1659,7 @@ body.suki-page-layout-boxed #page {
 
 .suki-logo .suki-logo-image img, .suki-logo .suki-logo-image svg {
 	display: block;
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 }
 
