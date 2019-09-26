@@ -38,7 +38,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = 'body';
+	$element = 'html';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['body_' . $prop ] = array(
@@ -176,41 +176,64 @@ $add['link_hover_text_color'] = array(
 
 for ( $i = 1; $i <= 4; $i++ ) {
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = 'h' . $i . ', .h' . $i;
 		$property = str_replace( '_', '-', $prop );
 
-		if ( 1 === $i ) {
-			$element .= ', .entry-title, .page-title';
-		}
+		$rules = array();
 
-		if ( 3 === $i ) {
-			$element .= ', legend, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
-		}
-
-		$add['h' . $i . '_' . $prop ] = array(
-			array(
-				'type'     => 'font_family' === $prop ? 'font' : 'css',
-				'element'  => $element,
-				'property' => $property,
-			),
+		$rules[] = array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => 'h' . $i . ', .h' . $i,
+			'property' => $property,
 		);
+
+		// Add additional rules
+		switch ( $i ) {
+			case 1:
+				// Styles that inherit h1 by default
+				$rules[] = array(
+					'type'     => 'css',
+					'element'  => '.title, .entry-title, .page-title',
+					'property' => $property,
+				);
+				break;
+
+			case 3:
+				// Styles that inherit h3 by default
+				$rules[] = array(
+					'type'     => 'css',
+					'element'  => 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title',
+					'property' => $property,
+				);
+				break;
+
+			case 4:
+				// Styles that inherit h4 by default
+				$rules[] = array(
+					'type'     => 'css',
+					'element'  => '.widget-title',
+					'property' => $property,
+				);
+				break;
+		}
+
+		$add['h' . $i . '_' . $prop ] = $rules;
+
+		// Responsive
 		if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
-			$add['h' . $i . '_' . $prop . '__tablet'] = array(
-				array(
-					'type'     => 'css',
-					'element'  => $element,
-					'property' => $property,
-					'media'    => '@media screen and (max-width: 1023px)',
-				),
-			);
-			$add['h' . $i . '_' . $prop . '__mobile'] = array(
-				array(
-					'type'     => 'css',
-					'element'  => $element,
-					'property' => $property,
-					'media'    => '@media screen and (max-width: 499px)',
-				),
-			);
+			// Tablet
+			$rules__tablet = $rules;
+			foreach ( $rules__tablet as $rule ) {
+				$rule[ 'media' ] = '@media screen and (max-width: 1023px)';
+			}
+			$add['h' . $i . '_' . $prop . '__tablet'] = $rules__tablet;
+
+
+			// Mobile
+			$rules__mobile = $rules;
+			foreach ( $rules__mobile as $rule ) {
+				$rule[ 'media' ] = '@media screen and (max-width: 499px)';
+			}
+			$add['h' . $i . '_' . $prop . '__mobile'] = $rules__mobile;
 		}
 	}
 }

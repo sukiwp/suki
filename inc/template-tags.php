@@ -1291,7 +1291,7 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
  * @param boolean $size
  */
 function suki_entry_title( $size = '' ) {
-	$class = 'small' === $size ? 'entry-small-title h3' : 'entry-title h1';
+	$class = 'small' === $size ? 'entry-small-title' : 'entry-title';
 
 	if ( is_singular() ) {
 		the_title( '<h1 class="' . $class . '">', '</h1>' );

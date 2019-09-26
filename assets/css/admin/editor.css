@@ -12,7 +12,13 @@
 
 html {
 	min-height: 100vh;
-	color: #666666;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.7;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 body {
@@ -21,13 +27,6 @@ body {
 	background-color: #ffffff;
 	color: #666666;
 	min-height: 100vh;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 15px;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1.7;
-	letter-spacing: 0;
-	text-transform: none;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 }

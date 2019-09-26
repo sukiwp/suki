@@ -183,7 +183,7 @@ class Suki_Compatibility_WooCommerce {
 			'description'   => esc_html__( 'Sidebar that replaces the default sidebar when on WooCommerce pages.', 'suki' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title h4">',
+			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
 	}

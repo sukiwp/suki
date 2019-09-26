@@ -16,7 +16,8 @@
 
 html {
 	min-height: 100vh;
-	color: $color_text; // default
+
+	@include base(); // default
 }
 
 body {
@@ -25,8 +26,6 @@ body {
 	background-color: $color_bg; // default
 	color: $color_text; // default
 	min-height: 100vh;
-
-	@include base(); // default
 	
 	overflow-wrap: break-word;
 	word-wrap: break-word;
