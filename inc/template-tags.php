@@ -912,6 +912,14 @@ function suki_content_open() {
 	<div id="content" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array( 'site-content', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-content-inner suki-section-inner">
 			<div class="suki-wrapper">
+
+				<?php
+				/**
+				 * Hook: suki/frontend/before_primary_and_sidebar
+				 */
+				do_action( 'suki/frontend/before_primary_and_sidebar' );
+				?> 
+
 				<div class="suki-content-row">
 	<?php
 }
@@ -924,6 +932,14 @@ if ( ! function_exists( 'suki_content_close' ) ) :
 function suki_content_close() {
 	?>
 				</div>
+
+				<?php
+				/**
+				 * Hook: suki/frontend/after_primary_and_sidebar
+				 */
+				do_action( 'suki/frontend/after_primary_and_sidebar' );
+				?>
+
 			</div>
 		</div>
 	</div>

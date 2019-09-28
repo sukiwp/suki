@@ -9,6 +9,7 @@ v1.1.0
 - NEW: Breadcrumb integrations for [Rank Math](https://wordpress.org/plugins/seo-by-rank-math/).
 - NEW: Breadcrumb integrations for [SEOPress](https://wordpress.org/plugins/wp-seopress/).
 - NEW: Archive description is now automatically displayed on the archive page.
+- NEW: Add new action hook `suki/frontend/before_primary_and_sidebar` and `suki/frontend/after_primary_and_sidebar`.
 - NEW: Option(s) to change blog posts grid row gap.
 - NEW: WooCommerce 2 columns layout for Cart page (configurable on Customizer).
 - NEW: WooCommerce product's quantity input will automatically have minus (-) and plus (+) button.
