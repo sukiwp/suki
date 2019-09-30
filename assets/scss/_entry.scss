@@ -97,10 +97,12 @@
 // Title
 .entry-title {
 	margin: 0 0 0.75rem;
+	@include h1(); // default
 }
 
 .entry-small-title {
 	margin: 0 0 0.25rem;
+	@include h3(); // default
 }
 
 // Meta

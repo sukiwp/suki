@@ -2823,10 +2823,22 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .entry-title {
 	margin: 0 0 0.75rem;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.3;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .entry-small-title {
 	margin: 0 0 0.25rem;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .entry-meta {
