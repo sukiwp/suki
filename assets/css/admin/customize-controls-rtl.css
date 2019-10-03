@@ -286,10 +286,23 @@ li:not(.customize-info) div.customize-section-description {
 	height: 24px;
 	border: none;
 	border-radius: 0 !important;
+	background-size: 12px 12px;
+	background-position: 100% 0, 6px 6px;
+	background-image: linear-gradient(-45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(-45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
+}
+
+.customize-control-suki-color .wp-picker-container .wp-color-result.button:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: inherit;
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
-.customize-control-suki-color .wp-picker-container .wp-color-result.button:focus {
+.customize-control-suki-color .wp-picker-container .wp-color-result.button:focus:before {
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 5px #0073aa;
 }
 
@@ -371,10 +384,23 @@ li:not(.customize-info) div.customize-section-description {
 	height: 24px;
 	border: none;
 	border-radius: 0 !important;
+	background-size: 12px 12px;
+	background-position: 100% 0, 6px 6px;
+	background-image: linear-gradient(-45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(-45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
+}
+
+.customize-control-suki-shadow .wp-picker-container .wp-color-result.button:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: inherit;
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
-.customize-control-suki-shadow .wp-picker-container .wp-color-result.button:focus {
+.customize-control-suki-shadow .wp-picker-container .wp-color-result.button:focus:before {
 	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 5px #0073aa;
 }
 
@@ -651,7 +677,6 @@ li:not(.customize-info) div.customize-section-description {
 	width: auto;
 	height: auto;
 	font-size: 1.25em;
-	line-height: inherit;
 	text-decoration: none;
 	opacity: 0.5;
 	margin: 0;

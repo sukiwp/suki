@@ -25,6 +25,7 @@
 // Widget title
 .widget-title {
 	margin: 0 0 1.25rem;
+	@include h3();
 
 	&:empty {
 		display: none;

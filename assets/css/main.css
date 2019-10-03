@@ -3335,6 +3335,12 @@ a.more-link {
 
 .widget-title {
 	margin: 0 0 1.25rem;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: none;
 }
 
 .widget-title:empty {
