@@ -20,8 +20,8 @@ $add = array();
 
 $add['color_palette_1'] = $colors['heading'];
 $add['color_palette_2'] = $colors['text'];
-$add['color_palette_3'] = $colors['meta'];
-$add['color_palette_4'] = $colors['accent'];
+$add['color_palette_3'] = $colors['accent'];
+$add['color_palette_4'] = $colors['accent2'];
 $add['color_palette_5'] = $colors['border'];
 $add['color_palette_6'] = $colors['subtle'];
 $add['color_palette_7'] = $colors['white'];

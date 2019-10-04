@@ -238,7 +238,7 @@ class Suki_Compatibility_Elementor {
 		$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'apply_color_palette_to_elementor', array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<button class="suki-apply-color-palette-to-elementor button button-secondary">' . esc_html__( 'Apply to Elementor color picker' ) . '</button><br><br>' . esc_html__( 'Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual.', 'suki' ),
+			'description' => '<button class="suki-apply-color-palette-to-elementor button button-secondary">' . esc_html__( 'Apply to Elementor color picker', 'suki' ) . '</button><br><br>' . esc_html__( 'Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual.', 'suki' ),
 			'priority'    => 30,
 		) ) );
 	}

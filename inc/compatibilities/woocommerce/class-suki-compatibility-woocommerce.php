@@ -224,7 +224,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_html' ), 10, 3 );
 
 		// Add plus and minus buttons to the quantity input.
-		add_action( 'suki/frontend/after_enqueue_main_js', array( $this, 'add_quantity_plus_minus_buttons_via_js' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_quantity_plus_minus_buttons_via_js' ) );
 
 		/**
 		 * Shop page's template hooks

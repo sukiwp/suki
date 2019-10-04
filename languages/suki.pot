@@ -709,6 +709,10 @@ msgid "Elementor Integration"
 msgstr ""
 
 #: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:241
+msgid "Apply to Elementor color picker"
+msgstr ""
+
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:241
 msgid "Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual."
 msgstr ""
 
