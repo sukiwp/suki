@@ -444,6 +444,70 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 	width: 1400px;
 }
 
+.has-suki-color-1-background-color {
+	background-color: #333333;
+}
+
+.has-suki-color-1-color {
+	color: #333333;
+}
+
+.has-suki-color-2-background-color {
+	background-color: #666666;
+}
+
+.has-suki-color-2-color {
+	color: #666666;
+}
+
+.has-suki-color-3-background-color {
+	background-color: #0066cc;
+}
+
+.has-suki-color-3-color {
+	color: #0066cc;
+}
+
+.has-suki-color-4-background-color {
+	background-color: #004c99;
+}
+
+.has-suki-color-4-color {
+	color: #004c99;
+}
+
+.has-suki-color-5-background-color {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.has-suki-color-5-color {
+	color: rgba(0, 0, 0, 0.1);
+}
+
+.has-suki-color-6-background-color {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.has-suki-color-6-color {
+	color: rgba(0, 0, 0, 0.05);
+}
+
+.has-suki-color-7-background-color {
+	background-color: #ffffff;
+}
+
+.has-suki-color-7-color {
+	color: #ffffff;
+}
+
+.has-suki-color-8-background-color {
+	background-color: #000000;
+}
+
+.has-suki-color-8-color {
+	color: #000000;
+}
+
 .entry-content > *,
 .wp-block-column > * {
 	margin-bottom: 1.5rem;
@@ -454,8 +518,12 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 	margin-bottom: 0;
 }
 
-.has-background {
-	padding: 1.5rem;
+p.has-background {
+	padding: 1.5em 2em;
+}
+
+.wp-block-group.has-background {
+	padding: 1.5em 2em;
 }
 
 .wp-block-columns {
@@ -628,8 +696,7 @@ p.wp-block-subhead {
 
 .wp-block-button.is-style-outline a.wp-block-button__link {
 	background-color: transparent;
-	border-color: transparent;
-	box-shadow: inset 0 0 0 2px currentColor;
+	border-color: currentColor;
 	color: unset;
 }
 
@@ -676,7 +743,11 @@ p.wp-block-subhead {
 	border: none;
 }
 
-.wp-block-table.is-style-stripes tr:nth-child(odd) {
+.wp-block-table.is-style-stripes table {
+	border: none;
+}
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
