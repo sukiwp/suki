@@ -67,8 +67,8 @@ class Suki_Compatibility_Brizy {
 	 */
 	public function modify_brizy_content( $content, $project, $post ) {
 		// Use theme's container width.
-		if ( '<meta ' === substr( $content, 0, 6 ) && suki_get_theme_mod( 'brizy_use_container_width' ) ) {
-			$content = preg_replace( '/(\.css-(.*?),\[data-css-\2\])\{max-width:1170px;/', '$1{max-width:' . suki_get_theme_mod( 'container_width' ) . ';', $content );
+		if ( '<meta ' === substr( $content, 0, 6 ) && intval( suki_get_theme_mod( 'brizy_use_container_width' ) ) ) {
+			$content = preg_replace( '/(\.brz \.brz-css-\w*?\{max-width: )(1170px;)/', '${1}' . suki_get_theme_mod( 'container_width' ) . ';', $content );
 		}
 
 		return $content;
@@ -87,9 +87,9 @@ class Suki_Compatibility_Brizy {
 
 		// Use theme's container width on editor.
 		if ( suki_get_theme_mod( 'brizy_use_container_width' ) && wp_style_is( 'brizy-editor', 'enqueued' ) ) {
-			$add_css .= '.brz-ed .brz-section__content[style*="--containerWidth:1170px"] { --containerWidth: ' . suki_get_theme_mod( 'container_width' ) . ' !important; }';
+			$add_css .= '.brz-ed .brz-container__wrap[style*="--containerWidth:1170px"] { --containerWidth: ' . suki_get_theme_mod( 'container_width' ) . ' !important; }';
 		}
-
+		
 		// Disable reset CSS.
 		if ( suki_get_theme_mod( 'brizy_disable_reset_css' ) ) {
 			$add_css .= '.brz .brz-root__container.brz-reset-all { all: unset; }';
