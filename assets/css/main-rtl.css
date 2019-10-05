@@ -1246,7 +1246,11 @@ p.has-background {
 	}
 }
 
-p.has-drop-cap:not(:focus):first-letter {
+.has-drop-cap:not(:focus):after {
+	display: none;
+}
+
+.has-drop-cap:not(:focus):first-letter {
 	float: right;
 	line-height: 0.9;
 	font-family: inherit;
