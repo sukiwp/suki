@@ -222,7 +222,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
 			// Tablet
 			$rules__tablet = $rules;
-			foreach ( $rules__tablet as $rule ) {
+			foreach ( $rules__tablet as &$rule ) {
 				$rule[ 'media' ] = '@media screen and (max-width: 1023px)';
 			}
 			$add['h' . $i . '_' . $prop . '__tablet'] = $rules__tablet;
@@ -230,7 +230,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 
 			// Mobile
 			$rules__mobile = $rules;
-			foreach ( $rules__mobile as $rule ) {
+			foreach ( $rules__mobile as &$rule ) {
 				$rule[ 'media' ] = '@media screen and (max-width: 499px)';
 			}
 			$add['h' . $i . '_' . $prop . '__mobile'] = $rules__mobile;
