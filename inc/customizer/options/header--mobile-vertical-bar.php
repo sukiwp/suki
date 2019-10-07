@@ -47,31 +47,7 @@ $wp_customize->add_control( $key, array(
 	'choices'     => array(
 		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-	),
-	'priority'    => 10,
-) );
-
-// Position (full screen)
-$key = 'header_mobile_vertical_bar_position_full_screen';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Full screen content position', 'suki' ),
-	'choices'     => array(
-		'top-left'      => is_rtl() ? esc_html__( 'Top Right', 'suki' ) : esc_html__( 'Top Left', 'suki' ),
-		'top-center'    => esc_html__( 'Top Center', 'suki' ),
-		'top-right'     => is_rtl() ? esc_html__( 'Top Left', 'suki' ) : esc_html__( 'Top Right', 'suki' ),
-		'middle-left'   => is_rtl() ? esc_html__( 'Middle Right', 'suki' ) : esc_html__( 'Middle Left', 'suki' ),
-		'middle-center' => esc_html__( 'Middle Center', 'suki' ),
-		'middle-right'  => is_rtl() ? esc_html__( 'Middle Left', 'suki' ) : esc_html__( 'Middle Right', 'suki' ),
-		'bottom-left'   => is_rtl() ? esc_html__( 'Bottom Right', 'suki' ) : esc_html__( 'Bottom Left', 'suki' ),
-		'bottom-center' => esc_html__( 'Middle Center', 'suki' ),
-		'bottom-right'  => is_rtl() ? esc_html__( 'Bottom Left', 'suki' ) : esc_html__( 'Bottom Right', 'suki' ),
+		'center' => esc_html__( 'Center (only for Full Screen)', 'suki' ),
 	),
 	'priority'    => 10,
 ) );

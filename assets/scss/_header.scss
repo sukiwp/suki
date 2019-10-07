@@ -612,7 +612,8 @@
 	width: 300px; // default
 	@include transition( transform );
 
-	.suki-header-mobile-vertical-position-left & {
+	.suki-header-mobile-vertical-position-left &,
+	.suki-header-mobile-vertical-position-center & {
 		left: 0;
 		transform: translate( -100%, 0 );
 	}
@@ -640,8 +641,16 @@
 			padding: 12px 0; // default
 		}
 	}
+}
 
-	.suki-header-mobile-vertical-display-full-screen & {
+.suki-header-mobile-vertical-display-full-screen {
+	width: 100%;
+
+	.suki-popup-background {
+		background-color: transparent;
+	}
+
+	.suki-header-mobile-vertical-bar {
 		width: 100% !important;
 		max-width: 100%;
 		left: 0;
@@ -649,10 +658,6 @@
 		border: none !important;
 		transform: none !important;
 	}
-}
-
-.suki-header-mobile-vertical-display-full-screen {
-	width: 100%;
 	
 	.suki-popup-close-icon {
 		color: inherit !important;
@@ -662,57 +667,18 @@
 		width: 300px; // default
 	}
 
-	&.suki-header-mobile-vertical-position-top-left .suki-header-section-vertical-column {
-		margin-bottom: auto;
+	&.suki-header-mobile-vertical-position-left .suki-header-section-vertical-column {
 		margin-right: auto;
 	}
 
-	&.suki-header-mobile-vertical-position-top-center .suki-header-section-vertical-column {
-		margin-bottom: auto;
+	&.suki-header-mobile-vertical-position-center .suki-header-section-vertical-column {
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	&.suki-header-mobile-vertical-position-top-right .suki-header-section-vertical-column {
-		margin-left: auto;
-		margin-bottom: auto;
-	}
-
-	&.suki-header-mobile-vertical-position-middle-left .suki-header-section-vertical-column {
-		margin-top: auto;
-		margin-bottom: auto;
-		margin-right: auto;
-	}
-
-	&.suki-header-mobile-vertical-position-middle-center .suki-header-section-vertical-column {
-		margin-top: auto;
-		margin-bottom: auto;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	&.suki-header-mobile-vertical-position-middle-right .suki-header-section-vertical-column {
-		margin-top: auto;
-		margin-bottom: auto;
+	&.suki-header-mobile-vertical-position-right .suki-header-section-vertical-column {
 		margin-left: auto;
 	}
-
-	&.suki-header-mobile-vertical-position-bottom-left .suki-header-section-vertical-column {
-		margin-top: auto;
-		margin-right: auto;
-	}
-
-	&.suki-header-mobile-vertical-position-bottom-center .suki-header-section-vertical-column {
-		margin-top: auto;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	&.suki-header-mobile-vertical-position-bottom-right .suki-header-section-vertical-column {
-		margin-top: auto;
-		margin-left: auto;
-	}
-
 }
 
 // -------------------------------------------------------------
