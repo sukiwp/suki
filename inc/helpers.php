@@ -659,7 +659,13 @@ function suki_get_all_fonts() {
  * @return array
  */
 function suki_get_google_fonts() {
-	$json = file_get_contents( SUKI_INCLUDES_DIR . '/lists/google-fonts.json' );
+	global $wp_filesystem;
+	if ( empty( $wp_filesystem ) ) {
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		WP_Filesystem();
+	}
+
+	$json = $wp_filesystem->get_contents( SUKI_INCLUDES_DIR . '/lists/google-fonts.json' );
 	
 	return json_decode( $json, true );
 }

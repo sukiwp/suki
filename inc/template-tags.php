@@ -51,7 +51,13 @@ function suki_inline_svg( $svg_file, $echo = true ) {
 	}
 
 	// Get SVG markup.
-	$html = file_get_contents( $svg_file );
+	global $wp_filesystem;
+	if ( empty( $wp_filesystem ) ) {
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		WP_Filesystem();
+	}
+
+	$html = $wp_filesystem->get_contents( $svg_file );
 
 	// Remove XML encoding tag.
 	// This should not be printed on inline SVG.
