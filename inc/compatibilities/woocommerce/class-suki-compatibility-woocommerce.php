@@ -63,7 +63,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
 
-		add_filter( 'suki/dataset/fallback_page_settings', array( $this, 'add_fallback_page_settings__product' ) );
+		add_filter( 'suki/dataset/fallback_page_settings', array( $this, 'add_page_settings_fallback_values__product' ) );
 	}
 	
 	/**
@@ -496,7 +496,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @param array $settings
 	 * @return array
 	 */
-	public function add_fallback_page_settings__product( $settings ) {
+	public function add_page_settings_fallback_values__product( $settings ) {
 		$add = array(
 			'woocommerce_single_breadcrumb' => suki_get_theme_mod( 'woocommerce_single_breadcrumb' ),
 			'woocommerce_single_gallery' => suki_get_theme_mod( 'woocommerce_single_gallery' ),
