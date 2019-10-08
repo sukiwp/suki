@@ -44,7 +44,7 @@
 		"del": "^5.1.0",
 		"google-fonts-complete": "^1.2.3",
 		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^7.0.0",
+		"gulp-autoprefixer": "^7.0.1",
 		"gulp-clean-css": "^4.2.0",
 		"gulp-merge-media-queries": "^0.2.1",
 		"gulp-rename": "^1.4.0",
@@ -54,7 +54,7 @@
 		"gulp-terser": "^1.2.0",
 		"gulp-watch": "^5.0.1",
 		"gulp-wp-pot": "^2.3.5",
-		"gulp-zip": "^5.0.0"
+		"gulp-zip": "^5.0.1"
 	},
 	"browserslist": [
 		"last 1 version",
