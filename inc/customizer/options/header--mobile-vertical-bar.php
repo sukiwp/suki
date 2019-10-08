@@ -16,6 +16,23 @@ $section = 'suki_section_header_mobile_vertical_bar';
  * ====================================================
  */
 
+// Display
+$key = 'header_mobile_vertical_bar_display';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Display', 'suki' ),
+	'choices'     => array(
+		'drawer'      => esc_html__( 'Drawer (slide in popup)', 'suki' ),
+		'full-screen' => esc_html__( 'Full screen', 'suki' ),
+	),
+	'priority'    => 10,
+) );
+
 // Position
 $key = 'header_mobile_vertical_bar_position';
 $wp_customize->add_setting( $key, array(
@@ -28,8 +45,9 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Position', 'suki' ),
 	'choices'     => array(
-		'left'  => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'right' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'center' => esc_html__( 'Center (only for Full Screen)', 'suki' ),
 	),
 	'priority'    => 10,
 ) );
@@ -94,7 +112,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 0.01,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,

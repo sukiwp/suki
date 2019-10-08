@@ -53,7 +53,8 @@ input, select, textarea {
 
 .suki-admin-form-row {
 	position: relative;
-	@include flex( flex-start );
+	display: flex;
+	align-items: flex-start;
 	margin: 0 -10px;
 	padding: 0.75em 0;
 }
@@ -271,6 +272,62 @@ input, select, textarea {
 	margin: 6px 0;
 }
 
+.suki-admin-radioimage-control {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -4px;
+
+	.suki-admin-radioimage-control-item {
+		width: 88px;
+		margin: 0;
+	}
+
+	label {
+		position: relative;
+		display: block;
+		box-sizing: border-box;
+		margin: 4px;
+		padding: 2px;
+		background-color: #aaa;
+		color: #fff;
+		outline: 0;
+		border-radius: 3px;
+
+		&:focus {
+			box-shadow: 0 0 5px #0073aa;
+		}
+	}
+
+	input {
+		display: none;
+	}
+
+	input:checked + label {
+		background-color: #0073aa;
+		color: #fff;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		border-radius: 2px;
+	}
+
+	span {
+		max-width: 100%;
+		display: block;
+		padding: 2px 0;
+		font-size: 11px;
+		font-weight: 500;
+		line-height: 14px;
+		text-align: center;
+	}
+
+	img + span {
+		margin-top: 2px;
+	}
+}
+
 // -------------------------------------------------------------
 // Page Settings Metabox
 // -------------------------------------------------------------
@@ -297,7 +354,7 @@ input, select, textarea {
 }
 
 .suki-admin-metabox {
-	@include flex( stretch );
+	display: flex;
 
 	hr {
 		border-color: #eee;
@@ -423,17 +480,47 @@ input, select, textarea {
 }
 
 // -------------------------------------------------------------
-// Suki Admin Wrap
+// Suki Welcome Panel
 // -------------------------------------------------------------
 
-.suki-admin-theme-notice {
-	display: none;
+.suki-admin-themes-welcome {
+	padding: 30px;
+	margin-bottom: 4% !important;
+	border: 10px solid #fff;
+	background: #fafafa;
 
-	.wp-header-end ~ & {
-		position: relative;
-		display: block;
+	@media screen and ( min-width: 1640px ) {
+		margin-bottom: 3% !important;
+	}
+
+	@media screen and ( max-width: 1120px ) {
+		margin-bottom: 5% !important;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	img {
+		width: 10em;
+		display: inline-block;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-weight: 500;
+		margin: 1em 0;
+	}
+
+	p {
+		font-size: 1.2em;
+		margin: 1em 0;
 	}
 }
+
+// -------------------------------------------------------------
+// Suki Admin Page
+// -------------------------------------------------------------
 
 .appearance_page_suki {
 	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
@@ -454,6 +541,19 @@ input, select, textarea {
 .suki-admin-wrap {
 	margin: 0 0 0 -20px;
 
+	* {
+		box-sizing: border-box;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
 	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
 		margin: 0;
 	}
@@ -461,227 +561,301 @@ input, select, textarea {
 	.notice {
 		display: block;
 	}
+}
 
-	.suki-admin-wrapper {
-		max-width: 1000px;
-		padding: 0 10px;
-		margin: 0 auto;
+.suki-admin-wrapper {
+	max-width: 1300px;
+	padding: 0 10px;
+	margin: 0 auto;
 
-		.postbox .hndle {
-			cursor: default;
+	.postbox .hndle {
+		cursor: default;
+	}
+}
+
+.suki-admin-header {
+	margin-bottom: 20px;
+	padding: 15px 0;
+	background-color: #fff;
+	border-bottom: 1px solid #e5e5e5;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+.suki-admin-logo {
+	float: left;
+	font-size: 1.5em;
+	font-weight: 600;
+	line-height: 30px;
+
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		height: 30px;
+	}
+}
+
+.suki-admin-version {
+	padding: 0.25em 0.5em;
+	margin: 0 0 0 0.5em;
+	font-size: 13px;
+	font-weight: 600;
+	background-color: rgba(0,0,0,0.05);
+}
+
+.suki-admin-links {
+	float: right;
+	overflow: hidden;
+	margin: 6px 0;
+	font-weight: 500;
+
+	li {
+		float: left;
+		margin: 0 0 0 2em;
+	}
+}
+
+.suki-admin-content {
+	padding: 0 !important;
+	margin-top: 20px;
+
+	.postbox {
+		.hndle {
+			padding: 12px 15px;
+		}
+
+		.inside {
+			margin: 15px;
+			padding: 0;
+			overflow: visible;
 		}
 	}
+}
 
-	.suki-admin-header {
-		margin-bottom: 20px;
-		padding: 15px 0;
-		background-color: #fff;
+.suki-admin-content-row {
+	display: flex;
+
+	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
+		display: block;
+	}
+}
+
+.suki-admin-primary {
+	flex: 1;
+}
+
+.suki-admin-secondary {
+	width: 250px;
+	margin-left: 20px;
+}
+
+.suki-admin-modules {
+	&-category {
+		margin: 15px -15px;
+		padding: 12px 15px;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		background-color: #f9f9f9;
+		border-top: 1px solid #e5e5e5;
 		border-bottom: 1px solid #e5e5e5;
-		box-shadow: 0 1px 1px rgba(0,0,0,0.04);
-	}
 
-	.suki-admin-logo {
-		font-size: 1.5em;
-		font-weight: 600;
-		line-height: 30px;
-
-		img {
-			vertical-align: middle;
-			max-height: 30px;
-		}
-	}
-
-	.suki-admin-version {
-		padding: 0.25em 0.5em;
-		margin: 0 0 0 0.5em;
-		font-size: 13px;
-		font-weight: 600;
-		background-color: rgba(0,0,0,0.05);
-	}
-
-	.wp-badge {
-		height: 140px;
-		width: 140px;
-		padding: 0;
-		background-color: #fff;
-		background-image: none;
-		line-height: 140px;
-
-		img {
-			vertical-align: middle;
-			max-width: 100px;
-		}
-	}
-
-	.suki-admin-content {
-		padding: 0 !important;
-		margin-top: 20px;
-
-	}
-
-	.suki-admin-content-row {
-		@include flex( stretch );
-
-		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
-			display: block;
-		}
-	}
-
-	.suki-admin-primary {
-		width: 100%;
-
-		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
-			width: auto;
+		&:first-child {
+			margin-top: -16px;
 		}
 
-		> * {
-			margin: 0 0 20px;
-		}
-
-		.postbox {
-			.hndle {
-				padding: 10px 15px;
-			}
-
-			.inside {
-				margin: 15px;
-				padding: 0;
-			}
-		}
-	}
-
-	.suki-admin-secondary {
-		min-width: 255px;
-		width: 255px;
-		margin-left: 20px;
-
-		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
-			width: auto;
-			margin-left: 0;
-		}
-
-		> * {
-			margin: 0 0 20px;
-		}
-
-		.postbox {
-			.hndle {
-				padding: 10px 15px;
-			}
-
-			.inside {
-				margin: 15px;
-				padding: 0;
-			}
-		}
-	}
-
-	.suki-admin-customize-button {
-		width: 100%;
-		text-align: center;
-	}
-}
-
-// -------------------------------------------------------------
-// Suki Dashboard
-// -------------------------------------------------------------
-
-.suki-admin-secondary-pro {
-	h2 {
-		position: relative;
-		padding-right: 5em;
-
-		span {
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 4em;
-			padding: 0.75em 0;
-			margin: -0.25em 0.5em;
-			font-size: 0.75em;
-			font-weight: bold;
-			text-transform: uppercase;
-			background-color: #ee5253;
-			color: #fff;
+		&:before {
+			font-family: "dashicons";
+			display: inline-block;
+			margin: 0 0.5em 0 0;
+			font-size: 1.5em;
+			font-weight: normal;
+			line-height: 1;
+			vertical-align: -25%;
 			text-align: center;
+			opacity: 0.5;
+		}
 
-			&:before,
-			&:after {
-				content: "";
-				position: absolute;
-				top: 100%;
-				border-top: 0.75em solid #ee5253;
+		&--layout:before {
+			content: "\f111";
+		}
+
+		&--assets:before {
+			content: "\f120";
+		}
+
+		&--blog:before {
+			content: "\f119";
+		}
+
+		&--woocommerce:before {
+			content: "\f174";
+		}
+	}
+
+	&-grid {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		margin: 0;
+
+		.suki-admin-module {
+			position: relative;
+			width: 33.33%;
+			// padding: 2px;
+			margin: 0;
+			padding: 15px 40px 15px 15px;
+			background-color: #f9f9f9;
+			border-right: 1px solid #e5e5e5;
+			border-bottom: 1px solid #e5e5e5;
+
+			&:nth-child(3n+1) {
+				border-left: 1px solid #e5e5e5;
 			}
 
-			&:before {
-				left: 0;
-				border-right: 2em solid transparent;
+			&:nth-child(-n+3) {
+				border-top: 1px solid #e5e5e5;
 			}
 
-			&:after {
-				right: 0;
-				border-left: 2em solid transparent;
+			&.active {
+				background-color: #fff;
+			}
+
+			&.pro {
+				opacity: 0.5;
+
+				.suki-admin-wrap.suki-pro-installed & {
+					opacity: 1;
+				}
+			}
+
+			&-name {
+				margin: 0;
+			}
+
+			.suki-admin-module-badge-pro {
+				display: inline-block;
+				padding: 2px 4px;
+				margin: -0.25em 0 0 0.25em;
+				font-size: 9px;
+				font-weight: 400;
+				line-height: 1;
+				text-transform: uppercase;
+				vertical-align: middle;
+				background-color: rgba(0,0,0,0.075);
+				color: #666;
+				border-radius: 2px;
+			}
+
+			&-actions {
+				position: static;
+				min-height: 22px;
+				padding-top: 4px;
+				font-size: 13px;
+				line-height: 18px;
+				color: #999;
+
+				> *:not(:first-child) {
+					&:before {
+						content: "|";
+						margin: 0 0.25em;
+					}
+				}
+
+				.suki-admin-module-action--enabled {
+					position: absolute;
+					top: 0;
+					right: 0;
+					display: block;
+					margin: 16px 10px 0 0;
+
+					> * {
+						position: relative;
+						display: block;
+						width: 24px;
+						height: 16px;
+						border-radius: 10px;
+						font-size: 12px;
+						font-weight: 600;
+						line-height: 16px;
+						background-color: #ecf7ed;
+						color: #46b450;
+						text-align: center;
+					}
+
+					&:before {
+						display: none;
+					}
+				}
+
+				.suki-admin-module-action--activate,
+				.suki-admin-module-action--deactivate {
+					position: absolute;
+					top: 0;
+					right: 0;
+					display: block;
+					margin: 16px 10px 0 0;
+
+					> * {
+						position: relative;
+						display: block;
+						width: 24px;
+						height: 16px;
+						border-radius: 10px;
+						text-indent: -9999em;
+
+						&:after {
+							content: "";
+							position: absolute;
+							top: 0;
+							width: 12px;
+							height: 12px;
+							margin: 2px;
+							border-radius: 10px;
+							background-color: #fff;
+						}
+					}
+
+					&:before {
+						display: none;
+					}
+				}
+
+				.suki-admin-module-action--activate {
+					> * {
+						background-color: #ccc;
+
+						&:after {
+							left: 0;
+						}
+					}
+				}
+
+				.suki-admin-module-action--deactivate {
+					> * {
+						background-color: #46b450;
+
+						&:after {
+							right: 0;
+						}
+					}
+				}
 			}
 		}
 	}
 }
 
-.suki-admin-secondary-sites {
-	&-banner {
-		margin: -15px -15px 0 -15px;
-
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-
-	.button {
-		width: 100%;
-		text-align: center;
+.suki-admin-demo-sites {
+	&-image {
+		margin: -15px -15px 0;
 	}
 }
 
-.suki-admin-secondary-links {
-	a {
-		text-decoration: none;
-	}
-}
-
-.suki-admin-pro-modules {
-	.inside {
-		margin: 0 !important;
-		padding: 0 !important;
+.suki-admin-links-list {
+	li {
+		padding: 0.25em 0;
 	}
 
-	table {
-		border: none;
-	}
-		
-	.inactive, .active {
-		th, td {
-			color: #555;
-			padding: 10px 15px;
-			border-top: 1px solid #e5e5e5 !important;
-			box-shadow: none !important;
-		}
-	}
-
-	.suki-admin-pro-table-item-name {
-		padding-left: 9px !important;
-		white-space: nowrap;
-	}
-	
-	.suki-admin-pro-table-item-actions {
-		width: 100%;
-		text-align: right;
-
-		> * {
-			margin-left: 1.25em;
-		}
-	}
-
-	.suki-admin-pro-table-item-unavailable {
-		opacity: 0.5;
+	.dashicons {
+		margin-right: 0.5em;
 	}
 }

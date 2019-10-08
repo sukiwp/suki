@@ -25,7 +25,6 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Merge inside Widgets Bar wrapper', 'suki' ),
-	'description' => esc_html__( 'If enabled, this section layout is limited inside the Widgets Bar content wrapper. &mdash; Widgets Bar must have at least 1 column.', 'suki' ),
 	'priority'    => 10,
 ) ) );
 
@@ -62,17 +61,25 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'            => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width'         => esc_html__( 'Full width content', 'suki' ),
-		'contained'          => esc_html__( 'Contained section', 'suki' ),
+		'default'    => array(
+			'label' => esc_html__( 'Normal', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-container--default.svg',
+		),
+		'full-width' => array(
+			'label' => esc_html__( 'Full width', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-container--full-width.svg',
+		),
+		'contained'  => array(
+			'label' => esc_html__( 'Contained', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/footer-container--contained.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Padding
 $key = 'footer_bottom_bar_padding';
@@ -103,7 +110,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 0.01,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,

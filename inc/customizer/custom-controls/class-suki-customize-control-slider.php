@@ -86,15 +86,6 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 				'unit' => $unit,
 			);
 
-			// Add reset value.
-			if ( isset( $setting->default ) ) {
-				$reset_number = '' === $value ? '' : floatval( $setting->default );
-				$reset_unit = str_replace( $reset_number, '', $setting->default );
-				
-				$this->json['inputs'][ $setting_key ]['reset_number'] = $reset_number;
-				$this->json['inputs'][ $setting_key ]['reset_unit'] = $reset_unit;
-			}
-
 			// Add to structures array.
 			$device = 'desktop';
 			if ( false !== strpos( $setting->id, '__' ) ) {
@@ -151,9 +142,6 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 								<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
 							<# }); #>
 						</select>
-					</div>
-					<div class="suki-row-item" style="width: 20px;">
-						<span class="suki-slider-reset dashicons dashicons-image-rotate" data-number="{{ data.inputs[ setting_key ].reset_number }}" data-unit="{{ data.inputs[ setting_key ].reset_unit }}" tabindex="0"></span>
 					</div>
 
 					<input type="hidden" class="suki-slider-value" value="{{ data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>

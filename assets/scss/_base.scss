@@ -16,33 +16,28 @@
 
 html {
 	min-height: 100vh;
-	color: $color_text; // default
 
 	@include base(); // default
 }
 
 body {
+	position: relative;
 	margin: 0;
 	background-color: $color_bg; // default
 	color: $color_text; // default
 	min-height: 100vh;
-
-	@include base(); // default
-
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 }
 
 p {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 1.25rem;
-	@include heading();
+	margin: 0 0 1.5rem;
+	@include headingColor();
 }
 
 h1 {
@@ -69,14 +64,14 @@ h5, h6 {
 }
 
 hr {
-	margin: 2.5rem 0;
+	margin: 1.5rem 0;
 	border: none;
 	border-color: inherit;
 	@include border( bottom );
 }
 
 blockquote {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 
 	@include blockquote();
 
@@ -97,7 +92,7 @@ blockquote {
 
 ul,
 ol {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	padding-left: 2rem;
 
 	li {
@@ -111,22 +106,7 @@ ol {
 }
 
 table {
-	width: 100%;
-	margin: 0 0 1.25rem;
-	border-collapse: collapse;
-	border-spacing: 0;
-
-	@include border();
-
-	th, td {
-		padding: 0.75rem 1rem;
-		@include border();
-	}
-
-	th {
-		font-weight: 600;
-		text-align: initial;
-	}
+	@include table();
 }
 
 img,
@@ -145,7 +125,7 @@ iframe {
 
 pre {
 	max-width: 100%;
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	padding: 0.6rem 1.2rem;
 	overflow: auto;
 	font-size: 1em;
@@ -173,7 +153,7 @@ figure {
 }
 
 address {
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 }
 
 dt {

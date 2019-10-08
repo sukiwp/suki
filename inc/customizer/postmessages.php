@@ -12,12 +12,33 @@ $add = array();
 
 /**
  * ====================================================
- * General Elements > Body (Base)
+ * Global Settings > Color Palette
+ * ====================================================
+ */
+
+for ( $i = 1; $i <= 8; $i++ ) {
+	$add['color_palette_' . $i ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.has-suki-color-' . $i . '-background-color',
+			'property' => 'background-color',
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.has-suki-color-' . $i . '-color',
+			'property' => 'color',
+		),
+	);
+}
+
+/**
+ * ====================================================
+ * General Styles > Body (Base)
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = 'html, body';
+	$element = 'html';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['body_' . $prop ] = array(
@@ -59,13 +80,49 @@ $add['body_line_height'][] = array(
 	),
 );
 
+$add['font_smoothing'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => 'body',
+		'pattern'  => 'suki-font-smoothing-$',
+	),
+);
+
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'html, body',
+		'element'  => 'body',
 		'property' => 'color',
 	),
 );
+
+/**
+ * ====================================================
+ * General Styles > Border & Subtle Background
+ * ====================================================
+ */
+
+$add['subtle_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'pre, code, .page-header, .tagcloud a, .navigation.pagination .current, span.select2-container .select2-selection--multiple .select2-selection__rendered li.select2-selection__choice, .wp-block-table.is-style-stripes tr:nth-child(odd)',
+		'property' => 'background-color',
+	),
+);
+$add['border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '*',
+		'property' => 'border-color',
+	),
+);
+
+/**
+ * ====================================================
+ * General Styles > Link
+ * ====================================================
+ */
+
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -74,7 +131,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links a:hover, .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
+		'element'  => '.navigation .nav-links a:hover, .navigation .nav-links a:focus, .tagcloud a:hover, .tagcloud a:focus, .reply:hover, .reply:focus',
 		'property' => 'color',
 	),
 	array(
@@ -90,11 +147,6 @@ $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-header-section a:not(.button):hover, .suki-header-section a:not(.button):focus, .suki-header-section .suki-toggle:hover, .suki-header-section .suki-toggle:focus, .suki-header-section .menu .sub-menu a:not(.button):hover, .suki-header-section .menu .sub-menu a:not(.button):focus, .suki-header-section .menu .sub-menu .suki-toggle:hover, .suki-header-section .menu .sub-menu .suki-toggle:focus, .suki-header-section-vertical a:not(.button):hover, .suki-header-section-vertical a:not(.button):focus, .suki-header-section-vertical .suki-toggle:hover, .suki-header-section-vertical .suki-toggle:focus, .suki-header-section-vertical .menu .sub-menu a:not(.button):hover, .suki-header-section-vertical .menu .sub-menu a:not(.button):focus, .suki-header-section-vertical .menu .sub-menu .suki-toggle:hover, .suki-header-section-vertical .menu .sub-menu .suki-toggle:focus',
-		'property' => 'color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.woocommerce.widget_price_filter .price_slider',
 		'property' => 'color',
 	),
 	array(
@@ -115,64 +167,73 @@ $add['link_hover_text_color'] = array(
 		'property' => 'color',
 	),
 );
-$add['subtle_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'pre, code, .page-header, .tagcloud a',
-		'property' => 'background-color',
-	),
-);
-$add['border_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '*',
-		'property' => 'border-color',
-	),
-);
 
 /**
  * ====================================================
- * General Elements > Headings
+ * General Styles > Headings
  * ====================================================
  */
 
 for ( $i = 1; $i <= 4; $i++ ) {
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = 'h' . $i . ', .h' . $i;
 		$property = str_replace( '_', '-', $prop );
 
-		if ( 1 === $i ) {
-			$element .= ', .entry-title, .page-title';
-		}
+		$rules = array();
 
-		if ( 3 === $i ) {
-			$element .= ', legend, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
-		}
-
-		$add['h' . $i . '_' . $prop ] = array(
-			array(
-				'type'     => 'font_family' === $prop ? 'font' : 'css',
-				'element'  => $element,
-				'property' => $property,
-			),
+		$rules[] = array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => 'h' . $i . ', .h' . $i,
+			'property' => $property,
 		);
+
+		// Add additional rules
+		switch ( $i ) {
+			case 1:
+				// Styles that inherit h1 by default
+				$rules[] = array(
+					'type'     => 'css',
+					'element'  => '.title, .entry-title, .page-title',
+					'property' => $property,
+				);
+				break;
+
+			case 3:
+				// Styles that inherit h3 by default
+				$rules[] = array(
+					'type'     => 'css',
+					'element'  => 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title',
+					'property' => $property,
+				);
+				break;
+
+			case 4:
+				// Styles that inherit h4 by default
+				$rules[] = array(
+					'type'     => 'css',
+					'element'  => '.widget-title',
+					'property' => $property,
+				);
+				break;
+		}
+
+		$add['h' . $i . '_' . $prop ] = $rules;
+
+		// Responsive
 		if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
-			$add['h' . $i . '_' . $prop . '__tablet'] = array(
-				array(
-					'type'     => 'css',
-					'element'  => $element,
-					'property' => $property,
-					'media'    => '@media screen and (max-width: 1023px)',
-				),
-			);
-			$add['h' . $i . '_' . $prop . '__mobile'] = array(
-				array(
-					'type'     => 'css',
-					'element'  => $element,
-					'property' => $property,
-					'media'    => '@media screen and (max-width: 499px)',
-				),
-			);
+			// Tablet
+			$rules__tablet = $rules;
+			foreach ( $rules__tablet as &$rule ) {
+				$rule[ 'media' ] = '@media screen and (max-width: 1023px)';
+			}
+			$add['h' . $i . '_' . $prop . '__tablet'] = $rules__tablet;
+
+
+			// Mobile
+			$rules__mobile = $rules;
+			foreach ( $rules__mobile as &$rule ) {
+				$rule[ 'media' ] = '@media screen and (max-width: 499px)';
+			}
+			$add['h' . $i . '_' . $prop . '__mobile'] = $rules__mobile;
 		}
 	}
 }
@@ -194,7 +255,12 @@ $add['heading_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.nav-links .current',
+		'element'  => '.navigation .nav-links .current',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => 'table th',
 		'property' => 'color',
 	),
 );
@@ -208,7 +274,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Elements > Blockquote
+ * General Styles > Blockquote
  * ====================================================
  */
 
@@ -245,7 +311,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 /**
  * ====================================================
- * General Elements > Button
+ * General Styles > Button
  * ====================================================
  */
 
@@ -303,36 +369,48 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Elements > Form Input
+ * General Styles > Form Input
  * ====================================================
  */
 
 $add['input_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .select2-container .select2-selection, .select2-container .select2-dropdown .select2-search, .select2-container .select2-dropdown .select2-results .select2-results__option',
+		'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, span.select2-container .select2-selection, span.select2-container .select2-dropdown .select2-search, span.select2-container .select2-dropdown .select2-results .select2-results__option',
 		'property' => 'padding',
 	),
 );
 $add['input_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .select2-container .select2-selection, .select2-container .select2-dropdown',
+		'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, span.select2-container .select2-selection, span.select2-container .select2-dropdown',
 		'property' => 'border-width',
 	),
 );
 $add['input_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .select2-container .select2-selection, .select2-container .select2-dropdown',
+		'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, span.select2-container .select2-selection, span.select2-container .select2-dropdown',
 		'property' => 'border-radius',
 	),
 );
+foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'letter_spacing' ) as $prop ) {
+	$element = 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .search-field, span.select2-container';
+	$property = str_replace( '_', '-', $prop );
+
+	$add['input_' . $prop ] = array(
+		array(
+			'type'     => 'font_family' === $prop ? 'font' : 'css',
+			'element'  => $element,
+			'property' => $property,
+		),
+	);
+}
 foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' => 'color' ) as $key => $prop ) {
 	$add['input_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .search-field, .select2-container .select2-selection',
+			'element'  => 'input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea, .search-field, span.select2-container .select2-selection, span.select2-container.select2-container--open .select2-dropdown',
 			'property' => $prop,
 		),
 	);
@@ -341,20 +419,28 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 	$add['input_focus_' . $key . '_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => 'input[type="text"]:focus, input[type="password"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, .input:hover, .input:focus, select:focus, textarea:focus, .search-field:focus, .select2-container .select2-selection:focus, .select2-container--focus .select2-selection, .select2-container--open .select2-selection, .select2-container .select2-dropdown',
+			'element'  => 'input[type="text"]:focus, input[type="password"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, .input:hover, .input:focus, select:focus, textarea:focus, .search-field:focus, span.select2-container.select2-container--open .select2-selection',
 			'property' => $prop,
 		),
 	);
+
+	if ( 'border' === $key ) {
+		$add['input_focus_' . $key . '_color'][] = array(
+			'type'     => 'css',
+			'element'  => 'span.select2-container.select2-container--open .select2-dropdown',
+			'property' => $prop,
+		);
+	}
 }
 
 /**
  * ====================================================
- * General Elements > Title
+ * General Styles > Title
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.entry-title, .page-title';
+	$element = '.title, .entry-title, .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['title_' . $prop ] = array(
@@ -386,26 +472,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-title, .entry-title a, .page-title, .page-title a',
+		'element'  => '.title, .title a, .entry-title, .entry-title a, .page-title, .page-title a',
 		'property' => 'color',
 	),
 );
 $add['title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-title a:hover, .entry-title a:focus, .page-title a:hover, .page-title a:focus',
+		'element'  => '.title a:hover, .title a:focus, .entry-title a:hover, .entry-title a:focus, .page-title a:hover, .page-title a:focus',
 		'property' => 'color',
 	),
 );
 
 /**
  * ====================================================
- * General Elements > Small Title
+ * General Styles > Small Title
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = 'legend, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
+	$element = 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['small_title_' . $prop ] = array(
@@ -437,21 +523,21 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['small_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'legend, .entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
+		'element'  => 'legend, .small-title, .small-title a, .entry-small-title, .entry-small-title a, .comments-title, .comment-reply-title, .page-header .page-title',
 		'property' => 'color',
 	),
 );
 $add['small_title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-small-title a:hover, .entry-small-title a:focus',
+		'element'  => '.small-title a:hover, .small-title a:focus, .entry-small-title a:hover, .entry-small-title a:focus',
 		'property' => 'color',
 	),
 );
 
 /**
  * ====================================================
- * General Elements > Meta Info
+ * General Styles > Meta Info
  * ====================================================
  */
 
@@ -862,24 +948,14 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 	$add['header_' . $bar . '_link_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ' a:not(.button), .suki-header-' . $slug . ' .suki-toggle',
-			'property' => 'color',
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ' .menu > .menu-item .sub-menu a:not(.button)',
+			'element'  => '.suki-header-' . $slug . ' a:not(.button), .suki-header-' . $slug . ' .suki-toggle, .suki-header-' . $slug . ' .menu > .menu-item .sub-menu a:not(.button)',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $bar . '_link_hover_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ' a:not(.button):hover, .suki-header-' . $slug . ' a:not(.button):focus, .suki-header-' . $slug . ' .suki-toggle:hover, .suki-header-' . $slug . ' .suki-toggle:focus',
-			'property' => 'color',
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ' .menu > .menu-item .sub-menu a:not(.button):hover, .suki-header-' . $slug . ' .menu > .menu-item .sub-menu a:not(.button):focus',
+			'element'  => '.suki-header-' . $slug . ' a:not(.button):hover, .suki-header-' . $slug . ' a:not(.button):focus, .suki-header-' . $slug . ' .suki-toggle:hover, .suki-header-' . $slug . ' .suki-toggle:focus, .suki-header-' . $slug . ' .menu > .menu-item .sub-menu a:not(.button):hover, .suki-header-' . $slug . ' .menu > .menu-item .sub-menu a:not(.button):focus',
 			'property' => 'color',
 		),
 	);
@@ -1096,6 +1172,11 @@ $add['header_mobile_vertical_bar_width'] = array(
 		'element'  => '.suki-header-mobile-vertical-bar',
 		'property' => 'width',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical.suki-header-mobile-vertical-display-full-screen .suki-header-section-vertical-column',
+		'property' => 'width',
+	),
 );
 $add['header_mobile_vertical_bar_padding'] = array(
 	array(
@@ -1108,9 +1189,15 @@ $add['header_mobile_vertical_bar_padding'] = array(
 $add['header_mobile_vertical_bar_items_gutter'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar .suki-header-section-vertical-row, .suki-header-mobile-vertical-bar .suki-header-section-vertical-row > *',
+		'element'  => '.suki-header-mobile-vertical-bar .suki-header-section-vertical-row > *',
 		'property' => 'padding',
 		'pattern'  => '$ 0',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-header-mobile-vertical-bar .suki-header-section-vertical-column',
+		'property' => 'margin',
+		'pattern'  => '-$ 0',
 	),
 );
 
@@ -1176,14 +1263,14 @@ $add['header_mobile_vertical_bar_text_color'] = array(
 $add['header_mobile_vertical_bar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle',
+		'element'  => '.suki-header-mobile-vertical-bar a:not(.button), .suki-header-mobile-vertical-bar .suki-toggle, .suki-header-mobile-vertical-bar .menu .sub-menu a:not(.button), .suki-header-mobile-vertical-bar .menu .sub-menu .suki-toggle',
 		'property' => 'color',
 	),
 );
 $add['header_mobile_vertical_bar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus',
+		'element'  => '.suki-header-mobile-vertical-bar a:not(.button):hover, .suki-header-mobile-vertical-bar a:not(.button):focus, .suki-header-mobile-vertical-bar .suki-toggle:hover, .suki-header-mobile-vertical-bar .suki-toggle:focus, .suki-header-mobile-vertical-bar .menu .sub-menu a:not(.button):hover, .suki-header-mobile-vertical-bar .menu .sub-menu a:not(.button):focus, .suki-header-mobile-vertical-bar .menu .sub-menu .suki-toggle:hover, .suki-header-mobile-vertical-bar .menu .sub-menu .suki-toggle:focus',
 		'property' => 'color',
 	),
 );
@@ -1197,7 +1284,7 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = array(
 
 /**
  * ====================================================
- * Page Header (Title Bar)
+ * Page Header
  * ====================================================
  */
 
@@ -1291,30 +1378,6 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			),
 		);
 	}
-}
-
-$add['page_header_layout'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.suki-page-header',
-		'pattern'  => 'suki-page-header-layout-$',
-	),
-);
-
-$responsive = array(
-	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
-);
-foreach ( $responsive as $suffix => $media ) {
-	$add['page_header_layout_width' . $suffix ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-page-header-layout-left .suki-page-header-row, .suki-page-header-layout-center .suki-page-header-row, .suki-page-header-layout-right .suki-page-header-row',
-			'property' => 'max-width',
-			'media'    => $media,
-		),
-	);
 }
 
 $add['page_header_bg_color'] = array(
@@ -1865,11 +1928,6 @@ $add['footer_widgets_bar_link_text_color'] = array(
 		'element'  => '.suki-footer-widgets-bar a:not(.button)',
 		'property' => 'color',
 	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar .woocommerce.widget_price_filter .price_slider',
-		'property' => 'color',
-	),
 );
 $add['footer_widgets_bar_link_hover_text_color'] = array(
 	array(
@@ -2051,6 +2109,124 @@ $add['footer_social_links_target'] = array(
 
 /**
  * ====================================================
+ * Footer > Scroll To Top
+ * ====================================================
+ */
+
+$add['scroll_to_top_display'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-scroll-to-top',
+		'pattern'  => 'suki-scroll-to-top-display-$',
+	),
+);
+$add['scroll_to_top_position'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-scroll-to-top',
+		'pattern'  => 'suki-scroll-to-top-position-$',
+	),
+);
+
+$responsive = array(
+	''         => '',
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
+);
+foreach ( $responsive as $suffix => $media ) {
+	$add['scroll_to_top_h_offset' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'margin-left',
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'margin-right',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_v_offset' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'margin-bottom',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_icon_size' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'font-size',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_padding' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'padding',
+			'media'    => $media,
+		),
+	);
+
+	$add['scroll_to_top_border_radius' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-scroll-to-top',
+			'property' => 'border-radius',
+			'media'    => $media,
+		),
+	);
+}
+
+$add['scroll_to_top_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top',
+		'property' => 'background-color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'background-color',
+	),
+);
+$add['scroll_to_top_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top',
+		'property' => 'color',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'color',
+	),
+);
+$add['scroll_to_top_hover_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'background-color',
+	),
+);
+$add['scroll_to_top_hover_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-scroll-to-top:hover, .suki-scroll-to-top:focus',
+		'property' => 'color',
+	),
+);
+
+/**
+ * ====================================================
  * Blog > Posts Page
  * ====================================================
  */
@@ -2062,17 +2238,31 @@ $add['blog_index_grid_columns'] = array(
 		'pattern'  => 'suki-loop-grid-$-columns',
 	),
 );
+$add['blog_index_grid_rows_gutter'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid',
+		'property' => 'margin-top',
+		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid',
+		'property' => 'margin-bottom',
+		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'padding-top',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'padding-bottom',
+	),
+);
 $add['blog_index_grid_columns_gutter'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry',
-		'property' => 'padding-left',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-grid > .entry',
-		'property' => 'padding-right',
-	),
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-grid',
@@ -2084,6 +2274,16 @@ $add['blog_index_grid_columns_gutter'] = array(
 		'element'  => '.suki-loop-grid',
 		'property' => 'margin-right',
 		'pattern'  => '-$',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'padding-left',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-grid > .entry',
+		'property' => 'padding-right',
 	),
 );
 
@@ -2131,4 +2331,4 @@ $add['entry_grid_footer_alignment'] = array(
 	),
 );
 
-$postmessages = array_merge_recursive( $postmessages, $add );
+return $add;

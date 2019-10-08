@@ -120,6 +120,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 			    units = <?php echo json_encode( $this->get_units() ); ?>;
 			#>
 
+			<# if ( data.inputs.font_family ) { #>
 			<p class="suki-typography-fieldset suki-row">
 				<label class="suki-row-item">
 					<span class="suki-small-label">{{ labels.font_family }}</span>
@@ -136,6 +137,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 					</select>
 				</label>
 			</p>
+			<# } #>
 			<p class="suki-typography-fieldset suki-row">
 				<# _.each( [ 'font_weight', 'font_style', 'text_transform' ], function( type ) { #>
 					<# if ( data.inputs[ type ] ) { #>
@@ -247,13 +249,13 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'em' => array(
 					'min' => 0,
 					'max' => 10,
-					'step' => 0.01,
+					'step' => 0.1,
 					'label' => 'em',
 				),
 				'rem' => array(
 					'min' => 0,
 					'max' => 10,
-					'step' => 0.01,
+					'step' => 0.1,
 					'label' => 'rem',
 				),
 			),
@@ -261,7 +263,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'' => array(
 					'min' => 0,
 					'max' => 10,
-					'step' => 0.01,
+					'step' => 0.1,
 					'label' => 'em',
 				),
 			),
@@ -275,7 +277,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'em' => array(
 					'min' => -2,
 					'max' => 2,
-					'step' => 0.01,
+					'step' => 0.1,
 					'label' => 'em',
 				),
 			),

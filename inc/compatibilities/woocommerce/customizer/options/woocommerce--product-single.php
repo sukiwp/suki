@@ -88,7 +88,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'%' => array(
 			'min'  => 0,
 			'max'  => 10,
-			'step' => 0.01,
+			'step' => 1,
 		),
 		'px' => array(
 			'min'  => 0,
@@ -234,7 +234,7 @@ $wp_customize->add_control( $key, array(
 	'type'        => 'number',
 	'section'     => $section,
 	'label'       => esc_html__( 'Max products shown', 'suki' ),
-	'description' => esc_html__( '0 = disabled; -1 = Show all.', 'suki' ),
+	'description' => esc_html__( '0 = disabled; -1 = show all.', 'suki' ),
 	'input_attrs' => array(
 		'min'  => -1,
 		'max'  => 12,
@@ -273,11 +273,11 @@ if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_single', array(
 		'section'     => $section,
 		'settings'    => array(),
-		'label'       => esc_html_x( 'More Options on Suki Pro', 'Suki Pro upsell', 'suki' ),
-		'url'         => SUKI_PRO_URL,
+		'label'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
+		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 		'features'    => array(
-			esc_html_x( 'Enable AJAX add to cart', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More Gallery layout', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'AJAX Add To Cart', 'Suki Pro upsell', 'suki' ),
+			esc_html_x( 'More Gallery Layouts', 'Suki Pro upsell', 'suki' ),
 		),
 		'priority'    => 90,
 	) ) );

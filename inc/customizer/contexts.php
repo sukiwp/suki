@@ -120,31 +120,6 @@ $add['header_mobile_elements'] = array(
 
 /**
  * ====================================================
- * Page Header (Title Bar)
- * ====================================================
- */
-
-$add['page_header_layout_width'] = array(
-	array(
-		'setting'  => 'page_header_layout',
-		'operator' => 'in',
-		'value'    => array( 'left', 'center', 'right' ),
-	),
-);
-
-$add['breadcrumb_plugin'] =
-$add['page_header_breadcrumb_typography'] =
-$add['page_header_breadcrumb_text_color'] =
-$add['page_header_breadcrumb_link_text_color'] =
-$add['page_header_breadcrumb_link_hover_text_color'] = array(
-	array(
-		'setting'  => 'page_header_breadcrumb',
-		'value'    => 1,
-	),
-);
-
-/**
- * ====================================================
  * Footer > Bottom Bar
  * ====================================================
  */
@@ -171,6 +146,7 @@ $add['footer_bottom_bar_merged_gap'] = array(
  */
 
 $add['blog_index_grid_columns'] =
+$add['blog_index_grid_rows_gap'] =
 $add['blog_index_grid_columns_gutter'] = array(
 	array(
 		'setting'  => 'blog_index_loop_mode',
@@ -195,4 +171,4 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 	}
 }
 
-$contexts = array_merge_recursive( $contexts, $add );
+return $add;

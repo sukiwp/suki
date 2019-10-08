@@ -75,7 +75,7 @@ class Suki_Customize_Control_Dimensions extends Suki_Customize_Control {
 				$_unit = str_replace( $_number, '', $part );
 				
 				$numbers[] = $_number;
-				if ( '' !== $_unit && '' === $unit ) {
+				if ( '' !== $_unit ) {
 					$unit = $_unit;
 				}
 			}

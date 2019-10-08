@@ -77,8 +77,6 @@ class Suki_Customizer_Sanitization {
 	 * @return integer|float
 	 */
 	public static function number( $value, $setting ) {
-		$value = floatval( $value );
-
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $setting->id );
 

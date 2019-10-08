@@ -33,7 +33,7 @@ class Suki {
 	 *
 	 * @return Suki
 	 */
-	public static function instance() {
+	public final static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
@@ -41,17 +41,26 @@ class Suki {
 	}
 
 	/**
+	 * Class cloning (disabled)
+	 */
+	private final function __clone() {}
+
+	/**
+	 * Class unserializing (disabled)
+	 */
+	private final function __wakeup() {}
+
+	/**
 	 * Class constructor
 	 */
-	protected function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'check_theme_version' ), 1 );
+	private function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
 		add_action( 'init', array( $this, 'setup_theme_info' ), 1 );
+		add_action( 'init', array( $this, 'check_theme_version' ), 1 );
 
-		add_action( 'wp', array( $this, 'setup_accurate_content_width' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
@@ -151,7 +160,13 @@ class Suki {
 		// If current version is larger than DB version, update DB version and run migration (if any).
 		if ( version_compare( $db_version, $files_version, '<' ) ) {
 			// Run through each "to-do" migration list step by step.
-			foreach ( $this->get_migration_checkpoints( $db_version ) as $migration_version ) {
+			foreach ( $this->get_migration_checkpoints() as $migration_version ) {
+				// Skip migration checkpoints that are less than DB version.
+				// OR greater than current theme files version (to make sure the migration doesn't run while on development phase).
+				if ( version_compare( $migration_version, $db_version, '<' ) || version_compare( $migration_version, preg_replace( '/\-.*/', '', $files_version ), '>' ) ) {
+					continue;
+				}
+
 				// Include migration functions.
 				$file = SUKI_INCLUDES_DIR . '/migrations/class-suki-migrate-' . $migration_version . '.php';
 
@@ -169,6 +184,13 @@ class Suki {
 	}
 
 	/**
+	 * Load translations for theme's text domain.
+	 */
+	public function load_translations() {
+		load_theme_textdomain( 'suki', get_template_directory() . '/languages' );
+	}
+
+	/**
 	 * Set the content width in pixels, based on the theme's design and stylesheet.
 	 * Priority 0 to make it available to lower priority callbacks.
 	 *
@@ -178,24 +200,6 @@ class Suki {
 		global $content_width;
 
 		$content_width = intval( suki_get_theme_mod( 'container_width' ) );
-	}
-
-	/**
-	 * Set the global variable $content_width with more accurate value.
-	 *
-	 * @global integer $content_width
-	 */
-	public function setup_accurate_content_width() {
-		global $content_width;
-
-		$content_width = suki_get_content_width_by_layout( suki_get_current_page_setting( 'content_layout' ) );
-	}
-
-	/**
-	 * Load translations for theme's text domain.
-	 */
-	public function load_translations() {
-		load_theme_textdomain( 'suki', get_template_directory() . '/languages' );
 	}
 
 	/**
@@ -248,6 +252,28 @@ class Suki {
 
 		// Gutenberg editor styles
 		add_theme_support( 'editor-styles' );
+
+		// Gutenberg editor color palette
+		if ( intval( suki_get_theme_mod( 'color_palette_in_gutenberg' ) ) ) {
+			$array = array();
+
+			for ( $i = 1; $i <= 8; $i++ ) {
+				$color = suki_get_theme_mod( 'color_palette_' . $i );
+
+				if ( empty( $color ) ) {
+					continue;
+				}
+
+				$array[] = array(
+					/* translators: %s: color index. */
+					'name'  => sprintf( esc_html__( 'Color %s', 'suki' ), $i ),
+					'slug'  => 'suki-color-' . $i,
+					'color' => $color,
+				);
+			}
+
+			add_theme_support( 'editor-color-palette', $array );
+		}
 	}
 
 	/**
@@ -270,7 +296,7 @@ class Suki {
 			'id'            => 'sidebar',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title h4">',
+			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
 
@@ -281,7 +307,7 @@ class Suki {
 				'id'            => 'footer-widgets-' . $i,
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
-				'before_title'  => '<h2 class="widget-title h4">',
+				'before_title'  => '<h2 class="widget-title">',
 				'after_title'   => '</h2>',
 			) );
 		}
@@ -297,9 +323,12 @@ class Suki {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
-		add_action( 'wp_head', array( $this, 'print_custom_css' ) );
 
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_page_settings_css' ), 25 );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_dynamic_css' ) );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_page_settings_css' ), 25 );
+
+		// DEPRECATED: Shouldn't be used for printing dynamic CSS.
+		add_action( 'wp_head', array( $this, 'print_custom_css' ) );
 	}
 
 	/**
@@ -309,7 +338,7 @@ class Suki {
 	 */
 	public function enqueue_frontend_styles( $hook ) {
 		/**
-		 * Hook: Styles to be included before main CSS
+		 * Hook: Enqueue others before main CSS
 		 */
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
@@ -317,8 +346,11 @@ class Suki {
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 
+		// Inline CSS
+		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/dynamic_css', '' ) ) );
+
 		/**
-		 * Hook: Styles to included after main CSS
+		 * Hook: Enqueue others after main CSS
 		 */
 		do_action( 'suki/frontend/after_enqueue_main_css', $hook );
 	}
@@ -353,9 +385,10 @@ class Suki {
 
 	/**
 	 * Print inline custom CSS.
+	 * DEPRECATED: Shouldn't be used for printing dynamic CSS.
 	 */
 	public function print_custom_css() {
-		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK.
+		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK
 	}
 
 	/**
@@ -378,12 +411,36 @@ class Suki {
 	}
 
 	/**
+	 * Add dynamic CSS from customizer settings into the inline CSS.
+	 *
+	 * @param string $css
+	 * @return string
+	 */
+	public function add_dynamic_css( $css ) {
+		// Skip adding dynamic CSS on customizer preview frame.
+		if ( is_customize_preview() ) {
+			return $css;
+		}
+
+		$postmessages = include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
+		$defaults = include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
+
+		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages, $defaults );
+
+		if ( ! empty( $generated_css ) ) {
+			$css .= "\n/* Main Dynamic CSS */\n" . $generated_css;
+		}
+
+		return $css;
+	}
+
+	/**
 	 * Add current page settings CSS into the inline CSS.
 	 *
-	 * @param string $inline_css
+	 * @param string $css
 	 * @return string
 	 */ 
-	public function add_page_settings_css( $inline_css ) {
+	public function add_page_settings_css( $css ) {
 		$css_array = array();
 
 		$page_header_bg_image = '';
@@ -424,10 +481,10 @@ class Suki {
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 
 		if ( '' !== trim( $page_settings_css ) ) {
-			$inline_css .= "\n/* Current Page Settings CSS */\n" . suki_minify_css_string( $page_settings_css ); // WPCS: XSS OK
+			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // WPCS: XSS OK
 		}
 
-		return $inline_css;
+		return $css;
 	}
 
 	/**
@@ -483,6 +540,7 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
+			'suki-pro' => 'Suki_Pro',
 			'contact-form-7' => 'WPCF7',
 			'elementor' => '\Elementor\Plugin',
 			'elementor-pro' => '\ElementorPro\Plugin',
@@ -495,29 +553,14 @@ class Suki {
 	/**
 	 * Return array of migration checkpoints start from specified version.
 	 *
-	 * @param string $start_from
 	 * @return array
 	 */
-	public function get_migration_checkpoints( $start_from = null ) {
-		$all_checkpoints = array(
+	public function get_migration_checkpoints() {
+		return array(
 			'0.6.0',
 			'0.7.0',
+			'1.1.0',
 		);
-
-		if ( is_null( $start_from ) ) {
-			return $all_checkpoints;
-		}else {
-			$todo_checkpoints = array();
-
-			foreach ( $all_checkpoints as $checkpoint ) {
-				// Add checkpoints to "to-do" migration list, if checkpoint is bigger than current DB version.
-				if ( version_compare( $start_from, $checkpoint, '<' ) ) {
-					$todo_checkpoints[] = $checkpoint;
-				}
-			}
-
-			return $todo_checkpoints;
-		}
 	}
 }
 

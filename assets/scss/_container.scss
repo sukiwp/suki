@@ -63,8 +63,13 @@ body.suki-page-layout-boxed {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(0,0,0,0.8);
+	opacity: 0;
+	background-color: rgba(0,0,0,0.5);
 	color: $color_bg; // default
+
+	.suki-popup-active & {
+		opacity: 1;
+	}
 }
 
 .suki-toggle.suki-popup-close-icon {
@@ -135,8 +140,7 @@ body.suki-page-layout-boxed {
 
 .suki-content-row {
 	@media screen and ( min-width: $breakpoint_1024 ) {
-		@include flex( flex-start );
-		align-items: stretch;
+		display: flex;
 		
 		.suki-content-layout-left-sidebar & {
 			flex-direction: row-reverse;
@@ -164,9 +168,9 @@ body.suki-page-layout-boxed {
 .site-main {
 	@include border( null, 0 );
 
-	> *:first-child {
-		margin-top: 0;
-	}
+	// > *:first-child {
+	// 	margin-top: 0;
+	// }
 
 	> *:last-child {
 		margin-bottom: 0;

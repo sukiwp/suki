@@ -42,7 +42,7 @@ class Suki_Compatibility_Contact_Form_7 {
 	 */
 	protected function __construct() {
 		// Compatibility CSS (via theme inline CSS)
-		add_filter( 'suki/frontend/inline_css', array( $this, 'add_compatibility_css' ) );
+		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
 	}
 	
 	/**

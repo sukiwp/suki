@@ -52,7 +52,7 @@ class Suki_Admin_Fields {
 			'class'       => 'regular-text',
 		) );
 		?>
-		<input type="text" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-text-control <?php echo esc_attr( $args['class'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+		<input type="text" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-text-control <?php echo esc_attr( $args['class'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 		<?php
 	}
 
@@ -71,7 +71,7 @@ class Suki_Admin_Fields {
 			'rows'        => 3,
 		) );
 		?>
-		<textarea id="<?php echo esc_attr( $args['id'] ); ?>" rows="<?php echo esc_attr( $args['rows'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-text-control <?php echo esc_attr( $args['class'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>><?php echo esc_html( $args['value'] ); ?></textarea>
+		<textarea id="<?php echo esc_attr( $args['id'] ); ?>" rows="<?php echo esc_attr( $args['rows'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-text-control <?php echo esc_attr( $args['class'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>><?php echo esc_html( $args['value'] ); ?></textarea>
 		<?php
 	}
 
@@ -89,7 +89,7 @@ class Suki_Admin_Fields {
 			'class'       => 'regular-text',
 		) );
 		?>
-		<input type="url" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-url-control <?php echo esc_attr( $args['class'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+		<input type="url" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-url-control <?php echo esc_attr( $args['class'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 		<?php
 	}
 
@@ -110,7 +110,7 @@ class Suki_Admin_Fields {
 			'class'       => 'small-text',
 		) );
 		?>
-		<input type="number" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-number-control <?php echo esc_attr( $args['class'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" min="<?php echo esc_attr( $args['min'] ); ?>" max="<?php echo esc_attr( $args['max'] ); ?>" step="<?php echo esc_attr( $args['step'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+		<input type="number" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-number-control <?php echo esc_attr( $args['class'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" min="<?php echo esc_attr( $args['min'] ); ?>" max="<?php echo esc_attr( $args['max'] ); ?>" step="<?php echo esc_attr( $args['step'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 		<?php
 	}
 
@@ -130,11 +130,62 @@ class Suki_Admin_Fields {
 		) );
 		?>
 		<label class="suki-admin-checkbox-control <?php echo esc_attr( $args['class'] ); ?>">
-			<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?> <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+			<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['return_value'] ); ?>" <?php checked( $args['return_value'], $args['value'] ); ?> <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 			<?php if ( ! empty( $args['label'] ) ) : ?>
-				<span><?php echo $args['label']; // WPCS: XSS OK. ?></span>
+				<span><?php echo $args['label']; // WPCS: XSS OK ?></span>
 			<?php endif; ?>
 		</label>
+		<?php
+	}
+
+	/**
+	 * Radio Image control
+	 *
+	 * @param array $args
+	 */
+	private static function render_radioimage( $args ) {
+		if ( ! isset( $args['name'] ) ) return;
+
+		$args = wp_parse_args( $args, array(
+			'value'        => '',
+			'label'        => '',
+			'choices'      => array(),
+			'class'        => '',
+		) );
+
+		if ( is_null( $args['value'] ) ) {
+			$args['value'] = '';
+		}
+		?>
+		<ul class="suki-admin-radioimage-control <?php echo esc_attr( $args['class'] ); ?>">
+			<?php
+			foreach ( $args['choices'] as $choice_value => $choice_data ) {
+				if ( ! is_array( $choice_data ) ) {
+					continue;
+				}
+
+				$choice_data = wp_parse_args( $choice_data, array(
+					'label' => '',
+					'image' => '',
+				) );
+
+				$id = $args['name'] . '--' . $choice_value;
+				?>
+				<li class="suki-admin-radioimage-control-item">
+					<input type="radio" id="<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $choice_value ); ?>" <?php echo esc_attr( $choice_value === $args['value'] ? 'checked' : '' ); ?>>
+					<label for="<?php echo esc_attr( $id ); ?>">
+						<?php if ( ! empty( $choice_data['image'] ) ) : ?>
+							<img src="<?php echo esc_url( $choice_data['image'] ); ?>">
+						<?php endif; ?>
+						<?php if ( ! empty( $choice_data['label'] ) ) : ?>
+							<span><?php echo esc_html( $choice_data['label'] ); ?></span>
+						<?php endif; ?>
+					</label>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
 		<?php
 	}
 
@@ -157,7 +208,7 @@ class Suki_Admin_Fields {
 		) );
 		?>
 		<div class="suki-admin-color-control">
-			<input type="text" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" maxlength="30" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="<?php echo esc_attr( $args['default'] ); ?>" data-show-opacity="<?php echo esc_attr( $args['alpha'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+			<input type="text" id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" maxlength="30" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="<?php echo esc_attr( $args['default'] ); ?>" data-show-opacity="<?php echo esc_attr( $args['alpha'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 		</div>
 		<?php
 	}
@@ -177,7 +228,7 @@ class Suki_Admin_Fields {
 			'class'       => '',
 		) );
 		?>
-		<select id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-select-control <?php echo esc_attr( $args['class'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+		<select id="<?php echo esc_attr( $args['id'] ); ?>" name="<?php echo esc_attr( $args['name'] ); ?>" class="suki-admin-select-control <?php echo esc_attr( $args['class'] ); ?>" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 			<?php self::select_options_markup( $args['choices'], $args['value'] ); ?>
 		</select>
 		<?php
@@ -203,7 +254,7 @@ class Suki_Admin_Fields {
 		) );
 		?>
 		<span id="<?php echo esc_attr( $args['id'] ); ?>" class="suki-admin-upload-control <?php echo esc_attr( $args['class'] ); ?>" data-title="<?php echo esc_attr( $args['frame_title'] ); ?>" data-button="<?php echo esc_attr( $args['frame_button'] ); ?>" data-library="<?php echo esc_attr( implode( ',', (array) $args['library'] ) ); ?>">
-			<input type="url" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" class="suki-admin-upload-control-text" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK. ?>>
+			<input type="url" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" class="suki-admin-upload-control-text" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // WPCS: XSS OK ?>>
 			<a href="#" class="suki-admin-upload-control-button button button-small"><span class="dashicons dashicons-upload"></span></a>
 		</span>
 		<?php
@@ -245,7 +296,7 @@ class Suki_Admin_Fields {
 		}
 
 		if ( $echo ) {
-			echo $output; // WPCS: XSS OK.
+			echo $output; // WPCS: XSS OK
 		} else {
 			return $output;
 		}

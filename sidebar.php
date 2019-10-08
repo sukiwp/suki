@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Get current page content layout, skip sidebar if not needed in the layout.
 if ( ! in_array( suki_get_current_page_setting( 'content_layout' ), array( 'left-sidebar', 'right-sidebar' ) ) ) return;
 ?>
-<aside id="secondary" class="widget-area sidebar <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/sidebar_classes', array() ) ) ); ?>" role="complementary" itemtype="https://schema.org/WPSideBar" itemscope>
+<aside id="secondary" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/sidebar_classes', array( 'widget-area', 'sidebar' ) ) ) ); ?>" role="complementary" itemtype="https://schema.org/WPSideBar" itemscope>
 	<?php
 	/**
 	 * Hook: suki/frontend/before_sidebar

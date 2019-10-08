@@ -31,15 +31,89 @@
 }
 
 // -------------------------------------------------------------
+// Color Palette
+// -------------------------------------------------------------
+
+.has-suki-color-1-background-color {
+	background-color: $color_heading;
+}
+.has-suki-color-1-color {
+	color: $color_heading;
+}
+
+.has-suki-color-2-background-color {
+	background-color: $color_text;
+}
+.has-suki-color-2-color {
+	color: $color_text;
+}
+
+.has-suki-color-3-background-color {
+	background-color: $color_accent;
+}
+.has-suki-color-3-color {
+	color: $color_accent;
+}
+
+.has-suki-color-4-background-color {
+	background-color: $color_accent2;
+}
+.has-suki-color-4-color {
+	color: $color_accent2;
+}
+
+.has-suki-color-5-background-color {
+	background-color: $color_border;
+}
+.has-suki-color-5-color {
+	color: $color_border;
+}
+
+.has-suki-color-6-background-color {
+	background-color: $color_subtle;
+}
+.has-suki-color-6-color {
+	color: $color_subtle;
+}
+
+.has-suki-color-7-background-color {
+	background-color: $color_white;
+}
+.has-suki-color-7-color {
+	color: $color_white;
+}
+
+.has-suki-color-8-background-color {
+	background-color: $color_black;
+}
+.has-suki-color-8-color {
+	color: $color_black;
+}
+
+// -------------------------------------------------------------
 // Global block
 // -------------------------------------------------------------
 
-.entry-content > [class*="wp-block"],
-.wp-block-column > [class*="wp-block"] {
-	margin-bottom: 1.25rem;
+.entry-content > *,
+.wp-block-column > * {
+	margin-bottom: 1.5rem;
 
 	&:last-child() {
 		margin-bottom: 0;
+	}
+}
+
+p.has-background {
+	padding: 1.5em 2em;
+}
+
+// -------------------------------------------------------------
+// Group
+// -------------------------------------------------------------
+
+.wp-block-group {
+	&.has-background {
+		padding: 1.5em 2em;
 	}
 }
 
@@ -48,9 +122,11 @@
 // -------------------------------------------------------------
 
 .wp-block-columns {
+	margin-bottom: 0;
+
 	> .wp-block-column {
 		flex: 1;
-		margin: 0 1rem 1.25rem;
+		margin: 0 1rem 1.5rem;
 
 		&:first-child {
 			margin-left: 0;
@@ -60,14 +136,16 @@
 			margin-right: 0;
 		}
 
+		> * {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
 		@media screen and ( max-width: $breakpoint_768 - 1px ) {
 			flex-basis: 100%;
-			margin: 0 0 1.25rem;
+			margin: 0 0 1.5rem;
 		}
-	}
-
-	&.alignwide {
-		
 	}
 }
 
@@ -75,28 +153,22 @@
 // Paragraph
 // -------------------------------------------------------------
 
-p.has-drop-cap:not(:focus):first-letter {
-	float: left;
-	line-height: 0.9;
-	font-family: inherit;
-	font-size: 3 * 1.7em; // default
-	font-style: normal;
-	font-weight: 600;
-	margin: 0 0.25em 0 0;
-	text-transform: uppercase;
-	initial-letter: 3;
-	color: $color_heading; // default
-}
+.has-drop-cap:not(:focus){
+	&:after {
+		display: none;
+	}
 
-// -------------------------------------------------------------
-// Image
-// -------------------------------------------------------------
-
-div.wp-block-image {
-	margin-bottom: 0 !important;
-
-	> figure.aligncenter {
-		margin-bottom: 1.25rem;
+	&:first-letter {
+		float: left;
+		line-height: 0.9;
+		font-family: inherit;
+		font-size: 3 * 1.7em; // default
+		font-style: normal;
+		font-weight: 600;
+		margin: 0 0.25em 0 0;
+		text-transform: uppercase;
+		initial-letter: 3;
+		color: $color_heading; // default
 	}
 }
 
@@ -105,8 +177,9 @@ div.wp-block-image {
 // -------------------------------------------------------------
 
 .wp-block-quote {
-	padding: 0.5rem 2em;
+	padding: 0.5em 2em;
 	@include border( left, 0.25rem, solid );
+	border-color: inherit;
 
 	&[style*="center"] {
 		padding-left: 0;
@@ -125,18 +198,18 @@ div.wp-block-image {
 		font-style: normal;
 	}
 
-	&.is-large {
+	&.is-style-large {
 		margin: 1.5rem 0; // override gutenberg css
-		padding: 0.5rem 2rem; // override gutenberg css
+		padding: 0.5em 2em; // override gutenberg css
 
 		p {
-			font: inherit;
+			font: unset; // reset
 			font-size: 1.2em;
 		}
 
 		cite {
 			font-size: 1rem; // override gutenberg css
-			text-align: inherit;
+			text-align: unset; // reset
 		}
 	}
 }
@@ -207,6 +280,7 @@ p.wp-block-subhead {
 		font-size: 0.85em;
 		font-style: italic;
 		text-align: center;
+		word-break: break-all;
 	}
 }
 
@@ -243,19 +317,77 @@ p.wp-block-subhead {
 // -------------------------------------------------------------
 
 .wp-block-separator {
-	margin: 2.5rem 0 !important;
-	max-width: none !important;
-	border-bottom: none; // reset
-	@include border( top );
-	border-color: inherit;
+	max-width: none;
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
+
+	&.is-style-dots {
+		line-height: 0;
+
+		&:before {
+			font-family: unset; // reset
+			font-size: 2em;
+			letter-spacing: 0.75em;
+			margin-left: -0.75em;
+			color: unset; // reset
+		}
+	}
 }
 
 // -------------------------------------------------------------
 // Button
 // -------------------------------------------------------------
 
-.wp-block-button__link {
-	@include button();
+.wp-block-button {
+	&.is-style-outline {
+		a.wp-block-button__link {
+			background-color: transparent; // reset
+			border-color: currentColor; // reset
+			// box-shadow: inset 0 0 0 2px currentColor;
+			color: unset;
+		}
+	}
+
+	// DEPRECATED in WP 5.3
+	&.is-style-squared {
+		a.wp-block-button__link {
+			border-radius: 0;
+		}
+	}
+}
+
+// .wp-block-button__link {
+// 	@include button();
+// }
+
+// -------------------------------------------------------------
+// Table
+// -------------------------------------------------------------
+
+.wp-block-table {
+	@include table();
+
+	&__cell-content {
+		padding: 0; // reset
+	}
+
+	&.is-style-stripes {
+		border: none;
+
+		table {
+			border: none;
+		}
+
+		tbody {
+			tr:nth-child(odd) {
+				background-color: $color_subtle; // default
+			}
+		}
+
+		th, td {
+			border: none;
+		}
+	}
 }
 
 // -------------------------------------------------------------

@@ -142,6 +142,38 @@
 			// Always remove the notice on current page.
 			$notice.remove();
 		});
+
+		/**
+		 * Install "Suki Sites Import" plugin.
+		 */
+
+		$( '.suki-admin-install-sites-import-plugin-button' ).on( 'click', function( e ) {
+			var $button = $( this );
+
+			$button.prop( 'disabled', 'disabled' );
+			$button.addClass( 'disabled' );
+			$button.html( SukiAdminData.strings.installing );
+
+			return $.ajax({
+				method: 'POST',
+				url: ajaxurl + '?do=suki_install_sites_import_plugin',
+				cache: false,
+				data: {
+					action: 'suki_install_sites_import_plugin',
+					plugin_slug: 'suki-sites-import',
+					_ajax_nonce: SukiAdminData.ajax_nonce,
+				},
+			})
+			.done(function( response, status, XHR ) {
+				if ( response.success ) {
+					$button.html( SukiAdminData.strings.redirecting_to_demo_list );
+
+					window.location = SukiAdminData.sitesImportPageURL;
+				} else {
+					alert( SukiAdminData.strings.error_installing_plugin );
+				}
+			});
+		});
 	});
 	
 })( jQuery );

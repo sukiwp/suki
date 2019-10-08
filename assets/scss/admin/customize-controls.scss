@@ -323,7 +323,24 @@ li:not(.customize-info) div.customize-section-description {
 			height: 24px;
 			border: none;
 			border-radius: 0 !important;
-			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+			background-size: 12px 12px;
+			background-position: 0 0, 6px 6px;
+			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				background-color: inherit;
+				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+			}
+
+			&:focus:before {
+				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 0 5px #0073aa;
+			}
 
 			&:after {
 				content: "not set";
@@ -395,6 +412,10 @@ li:not(.customize-info) div.customize-section-description {
 		position: relative;
 	}
 
+	.suki-row-item > * {
+		text-align: center;
+	}
+
 	.wp-picker-container {
 		display: table;
 		margin-left: auto;
@@ -408,7 +429,24 @@ li:not(.customize-info) div.customize-section-description {
 			height: 24px;
 			border: none;
 			border-radius: 0 !important;
-			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+			background-size: 12px 12px;
+			background-position: 0 0, 6px 6px;
+			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				background-color: inherit;
+				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+			}
+
+			&:focus:before {
+				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 0 5px #0073aa;
+			}
 		}
 
 		.wp-color-result-text {
@@ -453,16 +491,13 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-slider {
-	.customize-control-content {
-		* {
-			text-align: center;
-		}
+	.suki-row-item > * {
+		text-align: center;
 	}
 
 	.suki-slider-reset {
 		font-size: 1em;
 		line-height: 1em;
-		width: auto;
 		height: auto;
 		vertical-align: middle;
 		cursor: pointer;
@@ -486,7 +521,7 @@ li:not(.customize-info) div.customize-section-description {
 		position: relative;
 		display: block;
 		height: 6px;
-		margin: 10px 12px 10px 7px;
+		margin: 10px 14px 10px 7px;
 		border: none;
 		border-radius: 3px;
 		background: #ccc;
@@ -499,8 +534,13 @@ li:not(.customize-info) div.customize-section-description {
 			width: 12px;
 			margin: -4px 0 0 -7px;
 			border-radius: 3px;
-			background: #fff;
+			background-color: #fff;
+			background-image: none;
 			border: 1px solid #ccc;
+
+			&:focus {
+				background-color: #0073aa;
+			}
 		}
 	}
 }
@@ -510,15 +550,8 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-dimensions {
-	.customize-control-content {
-		padding: 0.5em;
-		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-		background-color: #fff;
-
-		* {
-			text-align: center;
-		}
+	.suki-row-item > * {
+		text-align: center;
 	}
 
 	.suki-dimensions-unlink,
@@ -542,24 +575,24 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-typography {
 	.customize-control-content {
-		padding: 8px 6px;
+		padding: 5px;
 		border: 1px solid #ddd;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 		background-color: #fff;
+	}
 
-		.suki-row {
-			&:first-child{
-				margin-top: 0;
-			}
+	.suki-row {
+		&:first-child{
+			margin-top: 0;
+		}
 
-			&:last-child {
-				margin-bottom: 0;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
 	.suki-typography-fieldset {
-		margin: 8px 0 0;
+		margin: 5px 0 0;
 
 		> * {
 			padding: 0 2px;
@@ -568,6 +601,68 @@ li:not(.customize-info) div.customize-section-description {
 
 	.suki-typography-size-input {
 		text-align: center;
+	}
+}
+
+// -------------------------------------------------------------
+// Radio Image Control
+// -------------------------------------------------------------
+
+.customize-control-suki-radioimage {
+	.customize-control-content {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -4px;
+
+		.suki-radioimage-item {
+			width: 25%;
+			margin: 0;
+		}
+
+		label {
+			position: relative;
+			display: block;
+			box-sizing: border-box;
+			margin: 4px;
+			padding: 2px;
+			background-color: #aaa;
+			color: #fff;
+			outline: 0;
+			border-radius: 3px;
+
+			&:focus {
+				box-shadow: 0 0 5px #0073aa;
+			}
+		}
+
+		input {
+			display: none;
+		}
+
+		input:checked + label {
+			background-color: #0073aa;
+			color: #fff;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			border-radius: 2px;
+		}
+
+		span {
+			max-width: 100%;
+			display: block;
+			padding: 2px 0;
+			font-size: 11px;
+			font-weight: 500;
+			line-height: 14px;
+			text-align: center;
+		}
+
+		img + span {
+			margin-top: 2px;
+		}
 	}
 }
 
@@ -581,7 +676,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.suki-builder-location {
 			position: relative;
-			margin: 4px 0;
+			margin: 3px 0;
 			border: 1px solid #ddd;
 			box-shadow: 0 1px 1px rgba(0,0,0,0.04);
 			background-color: #fff;
@@ -597,24 +692,27 @@ li:not(.customize-info) div.customize-section-description {
 
 		.suki-small-label {
 			margin: 0;
-			padding: 5px 8px;
+			padding: 4px 8px;
 			border-bottom: 1px solid #ddd;
 			background-color: #f7f7f7;
 			opacity: 1;
 		}
 
 		.suki-builder-sortable-panel {
-			@include flex( center, flex-start, wrap );
-			min-height: 28px;
+			display: flex;
+			flex-wrap: wrap;
+			min-height: 34px;
 			margin: 0;
-			padding: 6px 8px 8px;
+			padding: 5px;
+			padding-right: 28px;
 		}
 
 		.suki-builder-element {
 			position: relative;
 			display: inline-block;
-			white-space: nowrap;
+			margin: 3px;
 			padding: 0;
+			white-space: nowrap;
 
 			> span {
 				display: inline-block;
@@ -625,10 +723,12 @@ li:not(.customize-info) div.customize-section-description {
 		.suki-builder-element-add {
 			position: absolute;
 			bottom: 0;
-			display: inline-block;
-			vertical-align: middle;
-			outline: 0 !important;
+			right: 0;
+			margin: 0 5px 11px 0;
+			font-size: 18px;
+			line-height: 1;
 			opacity: 0.5;
+			text-decoration: none;
 			cursor: pointer;
 
 			&:hover, &:focus {
@@ -638,7 +738,7 @@ li:not(.customize-info) div.customize-section-description {
 			.dashicons {
 				width: auto;
 				height: auto;
-				font-size: 18px;
+				font-size: 1em;
 			}
 		}
 
@@ -652,7 +752,6 @@ li:not(.customize-info) div.customize-section-description {
 				width: auto;
 				height: auto;
 				font-size: 1.25em;
-				line-height: inherit;
 				text-decoration: none;
 				opacity: 0.5;
 				margin: 0;
@@ -691,8 +790,11 @@ li:not(.customize-info) div.customize-section-description {
 		.suki-builder-no-more-items {
 			display: none;
 			margin: 0;
+			padding: 0 5px;
+			line-height: 32px;
 			font-style: italic;
 			text-decoration: none;
+			color: #555d66;
 
 			&:only-child {
 				display: inline-block;
@@ -700,34 +802,9 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 
-	.suki-builder-layout-inline {
-		.suki-builder-location .suki-builder-sortable-panel {
-			padding-right: 28px;
-		}
-
-		.suki-builder-element-add {
-			right: 0;
-			margin: 0 6px 11px 0;
-		}
-
-		.suki-builder-element {
-			margin: 2px !important;
-		}
-	}
-
 	.suki-builder-layout-block {
-		.suki-builder-location .suki-builder-sortable-panel {
-			padding-bottom: 28px;
-		}
-
-		.suki-builder-element-add {
-			left: 50%;
-			margin: 0 0 5px -9px;
-		}
-
 		.suki-builder-element {
 			width: 100%;
-			margin: 2px 0 !important;
 			display: inline-flex;
 
 			> span {
@@ -738,7 +815,7 @@ li:not(.customize-info) div.customize-section-description {
 }
 
 // -------------------------------------------------------------
-// Header Builder
+// Header & Footer Builder
 // -------------------------------------------------------------
 
 #customize-preview {
@@ -877,13 +954,12 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-sortable-panel {
-				padding: 8px !important;
+				padding-right: 5px;
 			}
 
 			.suki-builder-location {
 				position: relative;
 				box-sizing: border-box;
-				margin: 2px 0;
 
 				&[data-location*="left"] {
 					.suki-small-label {
@@ -926,7 +1002,8 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-groups {
-				@include flex( flex-start );
+				display: flex;
+				align-items: flex-start;
 				margin: 0 -10px;
 
 				.suki-builder-group {
@@ -934,7 +1011,8 @@ li:not(.customize-info) div.customize-section-description {
 				}
 
 				.suki-builder-group-horizontal {
-					@include flex( stretch, space-between, wrap );
+					display: flex;
+					flex-wrap: wrap;
 					width: 100%;
 
 					.suki-builder-location {
@@ -989,6 +1067,49 @@ li:not(.customize-info) div.customize-section-description {
 
 		.customize-help-toggle {
 			display: none;
+		}
+	}
+}
+
+#sub-accordion-panel-suki_panel_header {
+	.customize-info {
+		.customize-panel-description {
+			.nav-tab-wrapper {
+				padding: 0;
+				display: flex;
+				margin: -12px -15px;
+				border-bottom: none;
+
+				.nav-tab {
+					flex: 1;
+					margin: 0;
+					border: none;
+					padding: 10px 15px 8px;
+					background-color: transparent;
+					@include border( bottom, 4px );
+					border-bottom-color: transparent;
+					text-align: center;
+					outline: 0;
+					box-shadow: none;
+
+					&:hover, &:focus {
+						color: #0073aa;
+					}
+
+					&:last-child {
+						border-right: none;
+					}
+
+					&.nav-tab-active {
+						color: #0073aa;
+						border-bottom-color: currentColor;
+					}
+				}
+
+				&:after {
+					display: none;
+				}
+			}
 		}
 	}
 }

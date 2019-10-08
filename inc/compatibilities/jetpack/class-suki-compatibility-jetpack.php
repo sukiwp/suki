@@ -74,7 +74,7 @@ class Suki_Compatibility_Jetpack {
 	 * Enqueue custom CSS.
 	 */
 	public function enqueue_css() {
-		wp_enqueue_style( 'suki-jetpack', SUKI_CSS_URL . '/compatibilities/jetpack' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki-jetpack', SUKI_CSS_URL . '/compatibilities/jetpack/jetpack' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-jetpack', 'rtl', 'replace' );
 	}
 

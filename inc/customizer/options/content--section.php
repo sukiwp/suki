@@ -16,22 +16,40 @@ $section = 'suki_section_content';
  * ====================================================
  */
 
+// Notice Dynamic Page Settings
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_content_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . sprintf(
+		/* translators: %1$s: section name, %2$s: link to Dynamic Page Settings. */
+		esc_html__( 'You can set different %1$s setting on each page using the %2$s.', 'suki' ),
+		esc_html__( 'Content Section', 'suki' ),
+		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Dynamic Page Settings', 'suki' ) . '</a>'
+	) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Layout
 $key = 'content_container';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Layout', 'suki' ),
 	'choices'     => array(
-		'default'    => esc_html__( 'Full width section, wrapped content', 'suki' ),
-		'full-width' => esc_html__( 'Full width content', 'suki' ),
+		'default'    => array(
+			'label' => esc_html__( 'Normal', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
+		),
+		'full-width' => array(
+			'label' => esc_html__( 'Full width', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Content & sidebar layout
 $key = 'content_layout';
@@ -39,27 +57,26 @@ $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
 	'choices'     => array(
-		'wide'          => esc_html__( 'Full content, no sidebar', 'suki' ),
-		'narrow'        => esc_html__( 'Narrow content, no sidebar', 'suki' ),
-		'left-sidebar'  => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
-		'right-sidebar' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
-	),
-	'priority'    => 10,
-) );
-
-// Notice overridable via page settings
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_override_content_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'description' => sprintf(
-		/* translators: %s: link to "Page Settings" section. */
-		esc_html__( 'Settings above are global default, optionally you can set different layout for each page type via %s.', 'suki' ),
-		'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Page Settings', 'suki' ) . '</a>'
+		'wide'          => array(
+			'label' => esc_html__( 'Wide', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+		),
+		'narrow'        => array(
+			'label' => esc_html__( 'Narrow', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
+		),
+		'left-sidebar'  => array(
+			'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+		),
+		'right-sidebar' => array(
+			'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+		),
 	),
 	'priority'    => 10,
 ) ) );
@@ -100,7 +117,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 0.01,
+			'step' => 1,
 		),
 	),
 	'priority'    => 10,

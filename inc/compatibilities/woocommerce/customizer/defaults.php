@@ -65,6 +65,8 @@ $add['woocommerce_single_related_grid_columns'] = 4;
  * ====================================================
  */
 
+$add['woocommerce_cart_two_columns'] = 0;
+
 $add['woocommerce_cart_cross_sells'] = 1;
 $add['woocommerce_cart_cross_sells_grid_columns'] = 4;
 
@@ -74,7 +76,7 @@ $add['woocommerce_cart_cross_sells_grid_columns'] = 4;
  * ====================================================
  */
 
-$add['woocommerce_checkout_two_columns'] = 1;
+$add['woocommerce_checkout_two_columns'] = 0;
 
 /**
  * ====================================================
@@ -82,6 +84,7 @@ $add['woocommerce_checkout_two_columns'] = 1;
  * ====================================================
  */
 
+$add['woocommerce_products_grid_rows_gutter'] = '15px';
 $add['woocommerce_products_grid_columns_gutter'] = '15px';
 $add['woocommerce_products_grid_text_alignment'] = 'left';
 
@@ -103,4 +106,4 @@ $add['woocommerce_alt_button_hover_bg_color'] = '';
 $add['woocommerce_alt_button_hover_border_color'] = '';
 $add['woocommerce_alt_button_hover_text_color'] = '';
 
-$defaults = array_merge_recursive( $defaults, $add );
+return $add;

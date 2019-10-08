@@ -23,16 +23,21 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Page layout', 'suki' ),
 	'choices'     => array(
-		'full-width' => esc_html__( 'Full width', 'suki' ),
-		'boxed'      => esc_html__( 'Boxed', 'suki' ),
+		'full-width' => array(
+			'label' => esc_html__( 'Full width', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/page-layout--full-width.svg',
+		),
+		'boxed'      => array(
+			'label' => esc_html__( 'Boxed', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/page-layout--boxed.svg',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_container_colors', array(
@@ -78,7 +83,6 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Content wrapper width', 'suki' ),
-	'description' => esc_html__( 'The maximum width of center content wrapper.', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 600,

@@ -46,16 +46,12 @@ if ( ! function_exists( 'suki_inline_svg' ) ) :
  */
 function suki_inline_svg( $svg_file, $echo = true ) {
 	// Return empty if no SVG file path is provided.
-	if ( empty( $svg_file ) ) return;
-
-	// Get SVG markup.
-	global $wp_filesystem;
-	if ( empty( $wp_filesystem ) ) {
-		require_once ABSPATH . '/wp-admin/includes/file.php';
-		WP_Filesystem();
+	if ( empty( $svg_file ) ) {
+		return;
 	}
 
-	$html = $wp_filesystem->get_contents( $svg_file );
+	// Get SVG markup.
+	$html = file_get_contents( $svg_file );
 
 	// Remove XML encoding tag.
 	// This should not be printed on inline SVG.
@@ -205,7 +201,7 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	foreach ( $links as $link ) :
 		echo $args['before_link']; // WPCS: XSS OK
 
-		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK. ?>>
+		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
@@ -281,28 +277,41 @@ if ( ! function_exists( 'suki_mobile_vertical_header' ) ) :
  * Render mobile vertical header.
  */
 function suki_mobile_vertical_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) {
+		return;
+	}
 
 	$elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 	$count = count( $elements );
 
-	if ( 0 < $count ) : ?>
-		<div id="mobile-vertical-header" class="suki-header-mobile-vertical <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array() ) ) ); ?> suki-header suki-popup" itemtype="https://schema.org/WPHeader" itemscope>
-			<div class="suki-popup-background suki-popup-close">
-				<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
-			</div>
+	if ( 1 > $count ) {
+		return;
+	}
+
+	$display = suki_get_theme_mod( 'header_mobile_vertical_bar_display' );
+	?>
+		<div id="mobile-vertical-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array( 'suki-header-mobile-vertical', 'suki-header', 'suki-popup' ) ) ) ); ?>" itemtype="https://schema.org/WPHeader" itemscope>
+			<?php if ( 'drawer' === $display ) : ?>
+				<div class="suki-popup-background suki-popup-close">
+					<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+				</div>
+			<?php endif; ?>
 
 			<div class="suki-header-mobile-vertical-bar suki-header-section-vertical suki-popup-content">
 				<div class="suki-header-mobile-vertical-bar-inner suki-header-section-vertical-inner">
 					<div class="suki-header-section-vertical-column">
-						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row suki-flex-align-left">
+						<div class="suki-header-mobile-vertical-bar-top suki-header-section-vertical-row">
 							<?php foreach ( $elements as $element ) suki_header_element( $element ); ?>
 						</div>
 					</div>
+
+					<?php if ( 'full-screen' === $display ) : ?>
+						<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
-	<?php endif;
+	<?php
 }
 endif;
 
@@ -332,10 +341,12 @@ if ( ! function_exists( 'suki_main_header' ) ) :
  * Render main header.
  */
 function suki_main_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) {
+		return;
+	}
 
 	?>
-	<div id="header" class="suki-header-main suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array() ) ) ); ?>">
+	<div id="header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_classes', array( 'suki-header-main', 'suki-header' ) ) ) ); ?>">
 		<?php
 		// Top Bar (if not merged)
 		if ( ! intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
@@ -371,7 +382,9 @@ function suki_main_header__bar( $bar ) {
 		$count += count( $elements[ $col ] );
 	}
 
-	if ( 1 > $count ) return;
+	if ( 1 > $count ) {
+		return;
+	}
 
 	$attrs_array = apply_filters( 'suki/frontend/header_' . $bar . '_bar_attrs', array(
 		'data-height' => intval( suki_get_theme_mod( 'header_' . $bar . '_bar_height' ) ),
@@ -382,7 +395,7 @@ function suki_main_header__bar( $bar ) {
 	}
 
 	?>
-	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="suki-header-<?php echo esc_attr( $bar ); ?>-bar suki-header-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK. ?>>
+	<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array( 'suki-header-' . $bar . '-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
 		<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 
@@ -393,10 +406,21 @@ function suki_main_header__bar( $bar ) {
 				}
 				?>
 
-				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row">
+				<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
 					<?php foreach ( $cols as $col ) : ?>
-						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
-							<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
+						<?php
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
+						}
+						?>
+						<div class="<?php echo esc_attr( 'suki-header-' . $bar . '-bar-' . $col ); ?> suki-header-column">
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_header_element( $element );
+							}
+							?>
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -420,10 +444,12 @@ if ( ! function_exists( 'suki_mobile_header' ) ) :
  * Render mobile header.
  */
 function suki_mobile_header() {
-	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) {
+		return;
+	}
 
 	?>
-	<div id="mobile-header" class="suki-header-mobile suki-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array() ) ) ); ?>">
+	<div id="mobile-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array( 'suki-header-mobile', 'suki-header' ) ) ) ); ?>">
 		<?php
 		$elements = array();
 		$count = 0;
@@ -434,7 +460,9 @@ function suki_mobile_header() {
 			$count += count( $elements[ $col ] );
 		}
 
-		if ( 1 > $count ) return;
+		if ( 1 > $count ) {
+			return;
+		}
 
 		$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
 			'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
@@ -445,13 +473,24 @@ function suki_mobile_header() {
 		}
 
 		?>
-		<div id="suki-header-mobile-main-bar" class="suki-header-mobile-main-bar suki-header-section suki-section suki-section-default <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array() ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK. ?>>
+		<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
 			<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 				<div class="suki-wrapper">
-					<div class="suki-header-mobile-main-bar-row suki-header-row">
+					<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
 						<?php foreach ( $cols as $col ) : ?>
-							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column <?php echo esc_attr( 'suki-flex-align-' . $col ); ?>">
-								<?php foreach ( $elements[ $col ] as $element ) suki_header_element( $element ); ?>
+							<?php
+							// Skip center column if it's empty
+							if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+								continue;
+							}
+							?>
+							<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column">
+								<?php
+								// Print all elements inside the column.
+								foreach ( $elements[ $col ] as $element ) {
+									suki_header_element( $element );
+								}
+								?>
 							</div>
 						<?php endforeach; ?>
 					</div>
@@ -586,47 +625,40 @@ function suki_header_element( $element ) {
 			break;
 
 		case 'shopping-cart-dropdown':
-			if ( class_exists( 'WooCommerce' ) ) {
-				$cart = WC()->cart;
-
-				if ( ! empty( $cart ) ) {
-					$count = $cart->get_cart_contents_count();
-					?>
-					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu suki-toggle-menu">
-						<div class="menu-item">
-							<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle">
-								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
-							</button>
-							<?php add_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
-							<div class="sub-menu">
-								<?php the_widget( 'WC_Widget_Cart', array(
-									'title'         => '',
-									'hide_if_empty' => false,
-								) ); ?>
-							</div>
-							<?php remove_filter( 'woocommerce_widget_cart_is_hidden', '__return_false', 10 ); ?>
-						</div>
-					</div>
-					<?php
-				}
-			}
-			break;
-
 		case 'shopping-cart-link':
 			if ( class_exists( 'WooCommerce' ) ) {
 				$cart = WC()->cart;
 
 				if ( ! empty( $cart ) ) {
 					$count = $cart->get_cart_contents_count();
+
+					$is_dropdown = false;
+					$widget = '';
+
+					if ( 'shopping-cart-dropdown' === $element ) {
+						ob_start();
+						the_widget( 'WC_Widget_Cart', array(
+							'title'         => '',
+							'hide_if_empty' => false,
+						) );
+						$widget = ob_get_clean();
+
+						if ( ! empty( $widget ) ) {
+							$is_dropdown = true;
+						}
+					}
 					?>
-					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu">
+					<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-shopping-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 						<div class="menu-item">
-							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
+							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link <?php echo $is_dropdown ? esc_attr( 'suki-sub-menu-toggle suki-toggle' ) : ''; ?>">
 								<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+								<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 								<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
 							</a>
+
+							<?php if ( $is_dropdown ) : ?>
+								<div class="sub-menu"><?php echo $widget; // WPCS: XSS OK ?></div>
+							<?php endif; ?>
 						</div>
 					</div>
 					<?php
@@ -650,7 +682,7 @@ function suki_header_element( $element ) {
 					);
 				}
 				?>
-				<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu suki-menu-icon">
+				<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu">
 					<?php suki_social_links( $links, array(
 						'before_link' => '<li class="menu-item">',
 						'after_link'  => '</li>',
@@ -670,11 +702,6 @@ function suki_header_element( $element ) {
 				</button>
 			</div>
 			<?php
-			break;
-
-		default:
-			// Print nothing.
-			// Other elements can be modified via filters.
 			break;
 	}
 	$html = ob_get_clean();
@@ -698,15 +725,43 @@ if ( ! function_exists( 'suki_page_header' ) ) :
  * Render page header section.
  */
 function suki_page_header() {
-	if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) return;
+	if ( ! intval( suki_get_current_page_setting( 'page_header' ) ) ) {
+		return;
+	}
+
+	$elements = array();
+	$count = 0;
+	$cols = array( 'left', 'center', 'right' );
+
+	foreach ( $cols as $col ) {
+		$elements[ $col ] = suki_get_theme_mod( 'page_header_elements_' . $col );
+		$count += count( $elements[ $col ] );
+	}
+
+	if ( 1 > $count ) {
+		return;
+	}
 	?>
-	<div class="suki-page-header <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array() ) ) ); ?>">
+	<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array( 'suki-page-header' ) ) ) ); ?>">
 		<div class="suki-page-header-inner suki-section-inner">
 			<div class="suki-wrapper">
-				<div class="suki-page-header-row">
-					<?php suki_page_title(); ?>
-
-					<?php suki_breadcrumb(); ?>
+				<div class="suki-page-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-page-header-row-with-center' : '' ); ?>">
+					<?php foreach ( $cols as $col ) : ?>
+						<?php
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
+						}
+						?>
+						<div class="suki-page-header-<?php echo esc_attr( $col ); ?> suki-page-header-column <?php echo esc_attr( 0 === count( $elements[ $col ] ) ? 'suki-page-header-column-empty' : '' ); ?>">
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_page_header_element( $element );
+							}
+							?>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -715,84 +770,130 @@ function suki_page_header() {
 }
 endif;
 
-if ( ! function_exists( 'suki_page_title' ) ) :
+if ( ! function_exists( 'suki_page_header_element' ) ) :
 /**
- * Render page title.
+ * Render page header element.
  */
-function suki_page_title() {
-	// If no custom title defined, use default title.
-	if ( empty( $title ) ) {
-		if ( is_home() && is_front_page() ) {
-			$title = get_bloginfo( 'description' );
-		}
-
-		elseif ( is_home() ) {
-			$title = get_the_title( get_option( 'page_for_posts' ) );
-		}
-
-		elseif ( is_search() ) {
-			$title = suki_title__search( false );
-		}
-
-		elseif ( is_singular() ) {
-			$title = get_the_title();
-		}
-
-		elseif ( is_post_type_archive() ) {
-			$title = post_type_archive_title( '', false );
-		}
-
-		elseif ( is_archive() ) {
-			$title = get_the_archive_title();
-		}
-
-		elseif ( is_404() ) {
-			$title = suki_title__404( false );
-		}
-
-		else {
-			$title = '<!-- No title format matched for this page -->';
-		}
+function suki_page_header_element( $element ) {
+	if ( empty( $element ) ) {
+		return;
 	}
-
-	echo '<h1 class="suki-page-header-title">' . $title . '</h1>'; // WPCS: XSS OK
-}
-endif;
-
-if ( ! function_exists( 'suki_breadcrumb' ) ) :
-/**
- * Render breadcrumb via 3rd party plugin.
- */
-function suki_breadcrumb() {
-	if ( ! intval( suki_get_theme_mod( 'page_header_breadcrumb' ) ) ) return;
 
 	ob_start();
-	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
-		case 'breadcrumb-trail':
-			if ( function_exists( 'breadcrumb_trail' ) ) {
-				breadcrumb_trail( array(
-					'show_browse' => false,
-				) );
+	switch ( $element ) {
+		case 'title':
+			$title = '';
+
+			// If no custom title defined, use default title.
+			if ( is_home() && is_front_page() ) {
+				$title = get_bloginfo( 'description' );
+			}
+
+			elseif ( is_home() ) {
+				$title = get_the_title( get_option( 'page_for_posts' ) );
+			}
+
+			elseif ( is_search() ) {
+				$title = suki_get_current_page_setting( 'page_header_title_text__search' );
+
+				if ( ! empty( $title ) ) {
+					$title = str_replace( '{{keyword}}', get_search_query(), $title );
+				} else {
+					$title = suki_title__search( false );
+				}
+			}
+
+			elseif ( is_singular() ) {
+				$title = get_the_title();
+			}
+
+			elseif ( is_post_type_archive() ) {
+				$post_type_obj = get_queried_object();
+				$title = suki_get_current_page_setting( 'page_header_title_text__post_type_archive' );
+
+				if ( ! empty( $title ) ) {
+					$title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $title );
+				} else {
+					$title = post_type_archive_title( '', false );
+				}
+			}
+
+			elseif ( is_archive() ) {
+				$term_obj = get_queried_object();
+				$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
+
+				$title = suki_get_current_page_setting( 'page_header_title_text__taxonomy_archive' );
+
+				if ( ! empty( $title ) ) {
+					$title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $title );
+					$title = str_replace( '{{term}}', $term_obj->name, $title );
+				} else {
+					$title = get_the_archive_title();
+				}
+			}
+
+			elseif ( is_404() ) {
+				$title = suki_get_current_page_setting( 'page_header_title_text__404' );
+
+				if ( empty( $title ) ) {
+					$title = suki_title__404( false );
+				}
+			}
+
+			if ( ! empty( $title ) ) {
+				echo '<h1 class="suki-page-header-title">' . $title . '</h1>'; // WPCS: XSS OK
 			}
 			break;
 
-		case 'breadcrumb-navxt':
-			if ( function_exists( 'bcn_display' ) ) {
-				bcn_display();
-			}
-			break;
+		case 'breadcrumb':
+			$breadcrumb = '';
+			switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
+				case 'breadcrumb-trail':
+					if ( function_exists( 'breadcrumb_trail' ) ) {
+						$breadcrumb = breadcrumb_trail( array(
+							'show_browse' => false,
+							'echo' => false,
+						) );
+					}
+					break;
 
-		case 'yoast-seo':
-			if ( function_exists( 'yoast_breadcrumb' ) ) {
-				yoast_breadcrumb();
+				case 'breadcrumb-navxt':
+					if ( function_exists( 'bcn_display' ) ) {
+						$breadcrumb = bcn_display( true );
+					}
+					break;
+
+				case 'yoast-seo':
+					if ( function_exists( 'yoast_breadcrumb' ) ) {
+						$breadcrumb = yoast_breadcrumb( '', '', false );
+					}
+					break;
+
+				case 'rank-math':
+					if ( function_exists( 'rank_math_get_breadcrumbs' ) ) {
+						$breadcrumb = rank_math_get_breadcrumbs();
+					}
+					break;
+
+				case 'seopress':
+					if ( function_exists( 'seopress_display_breadcrumbs' ) ) {
+						$breadcrumb = seopress_display_breadcrumbs( false );
+					}
+					break;
+			}
+			
+			if ( ! empty( $breadcrumb ) ) {
+				echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // WPCS: XSS OK
 			}
 			break;
 	}
-	$breadcrumb = ob_get_clean();
-	
-	if ( ! empty( $breadcrumb ) ) {
-		echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // WPCS: XSS OK
-	}
+	$html = ob_get_clean();
+
+	// Filters to modify the final HTML tag.
+	$html = apply_filters( 'suki/frontend/page_header_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/page_header_element/' . $element, $html );
+
+	echo $html; // WPCS: XSS OK
 }
 endif;
 
@@ -808,9 +909,17 @@ if ( ! function_exists( 'suki_content_open' ) ) :
  */
 function suki_content_open() {
 	?>
-	<div id="content" class="site-content suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array() ) ) ); ?>">
+	<div id="content" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array( 'site-content', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-content-inner suki-section-inner">
 			<div class="suki-wrapper">
+
+				<?php
+				/**
+				 * Hook: suki/frontend/before_primary_and_sidebar
+				 */
+				do_action( 'suki/frontend/before_primary_and_sidebar' );
+				?> 
+
 				<div class="suki-content-row">
 	<?php
 }
@@ -823,6 +932,14 @@ if ( ! function_exists( 'suki_content_close' ) ) :
 function suki_content_close() {
 	?>
 				</div>
+
+				<?php
+				/**
+				 * Hook: suki/frontend/after_primary_and_sidebar
+				 */
+				do_action( 'suki/frontend/after_primary_and_sidebar' );
+				?>
+
 			</div>
 		</div>
 	</div>
@@ -900,11 +1017,15 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) :
  * Render footer widgets area.
  */
 function suki_footer_widgets() {
-	if ( intval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) {
+		return;
+	}
 
 	$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
 
-	if ( 1 > $columns ) return;
+	if ( 1 > $columns ) {
+		return;
+	}
 
 	$print_row = 0;
 	for ( $i = 1; $i <= $columns; $i++ ) {
@@ -914,7 +1035,7 @@ function suki_footer_widgets() {
 		}
 	}
 	?>
-	<div id="suki-footer-widgets-bar" class="suki-footer-widgets-bar suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array() ) ) ); ?>">
+	<div id="suki-footer-widgets-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_widgets_bar_classes', array( 'suki-footer-widgets-bar', 'suki-footer-section', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-footer-widgets-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<?php if ( $print_row ) : ?>
@@ -948,7 +1069,9 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) :
  * Render footer bottom bar.
  */
 function suki_footer_bottom() {
-	if ( intval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) return;
+	if ( intval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) {
+		return;
+	}
 
 	$cols = array( 'left', 'center', 'right' );
 
@@ -960,16 +1083,29 @@ function suki_footer_bottom() {
 		$count += empty( $elements[ $col ] ) ? 0 : count( $elements[ $col ] );
 	}
 
-	if ( 1 > $count ) return;
+	if ( 1 > $count ) {
+		return;
+	}
 
 	?>
-	<div id="suki-footer-bottom-bar" class="suki-footer-bottom-bar site-info suki-footer-section suki-section <?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array() ) ) ); ?>">
+	<div id="suki-footer-bottom-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/footer_bottom_bar_classes', array( 'suki-footer-bottom-bar', 'site-info', 'suki-footer-section', 'suki-section' ) ) ) ); ?>">
 		<div class="suki-footer-bottom-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
-				<div class="suki-footer-bottom-bar-row suki-footer-row">
+				<div class="suki-footer-bottom-bar-row suki-footer-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-footer-row-with-center' : '' ); ?>">
 					<?php foreach ( $cols as $col ) : ?>
+						<?php
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
+						}
+						?>
 						<div class="suki-footer-bottom-bar-<?php echo esc_attr( $col ); ?> suki-footer-bottom-bar-column">
-							<?php foreach ( $elements[ $col ] as $element ) suki_footer_element( $element ); ?>
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_footer_element( $element );
+							}
+							?>
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -1022,6 +1158,7 @@ function suki_footer_element( $element ) {
 			$copyright = str_replace( '{{sitename}}', '<a href="' . esc_url( home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
 			$copyright = str_replace( '{{theme}}', '<a href="' . suki_get_theme_info( 'url' ) . '">' . suki_get_theme_info( 'name' ) . '</a>', $copyright );
 			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
+			$copyright = str_replace( '{{theme_author}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
 			?>
 			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
 				<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>
@@ -1063,6 +1200,22 @@ function suki_footer_element( $element ) {
 	$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
 
 	echo $html; // WPCS: XSS OK
+}
+endif;
+
+if ( ! function_exists( 'suki_scroll_to_top' ) ) :
+/**
+ * Print scroll to top button.
+ */
+function suki_scroll_to_top() {
+	if ( ! intval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
+		return;
+	}
+	?>
+	<button class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array( 'suki-scroll-to-top' ) ) ) ); ?>">
+		<?php suki_icon( 'chevron-up' ); ?>
+	</button>
+	<?php
 }
 endif;
 
@@ -1154,7 +1307,7 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
  * @param boolean $size
  */
 function suki_entry_title( $size = '' ) {
-	$class = 'small' === $size ? 'entry-small-title h3' : 'entry-title h1';
+	$class = 'small' === $size ? 'entry-small-title' : 'entry-title';
 
 	if ( is_singular() ) {
 		the_title( '<h1 class="' . $class . '">', '</h1>' );
@@ -1177,13 +1330,14 @@ function suki_entry_featured_media() {
 		return;
 	}
 
-	global $content_width;
-
 	printf( // WPCS: XSS OK
 		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
-		get_the_post_thumbnail( get_the_ID(), array( $content_width, 0 ) ),
+		get_the_post_thumbnail(
+			get_the_ID(),
+			apply_filters( 'suki/frontend/entry/thumbnail_size', 'full' )
+		),
 		is_singular() ? 'div' : 'a'
 	);
 }
@@ -1196,7 +1350,9 @@ if ( ! function_exists( 'suki_entry_header_meta' ) ) :
  * @param string $format
  */
 function suki_entry_meta( $format ) {
-	if ( 'post' !== get_post_type() ) return;
+	if ( 'post' !== get_post_type() ) {
+		return;
+	}
 
 	$format = trim( $format );
 	$html = $format;
@@ -1255,15 +1411,14 @@ function suki_entry_grid_featured_media() {
 		return;
 	}
 
-	global $content_width;
-
-	$width = ceil( intval( $content_width ) / intval( suki_get_theme_mod( 'blog_index_grid_columns' ) ) );
-
 	printf( // WPCS: XSS OK
 		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ),
-		get_the_post_thumbnail( get_the_ID(), array( $width, 0 ) ),
+		get_the_post_thumbnail(
+			get_the_ID(),
+			apply_filters( 'suki/frontend/entry_grid/thumbnail_size', 'medium_large' )
+		),
 		is_singular() ? 'div' : 'a'
 	);
 }
@@ -1302,30 +1457,83 @@ endif;
  * ====================================================
  */
 
-if ( ! function_exists( 'suki_content_header' ) ) :
+if ( ! function_exists( 'suki_archive_header' ) ) :
 /**
- * Render content header.
+ * Render archive header.
  */
-function suki_content_header() {
-	if ( is_archive() ) {
-		?>
-		<header class="page-header">
-			<?php
-			the_archive_title( '<h1 class="page-title">', '</h1>' );
-			the_archive_description( '<div class="archive-description">', '</div>' );
-			?>
-		</header>
+function suki_archive_header() {
+	?>
+	<header class="page-header">
 		<?php
-	}
+		/**
+		 * Hook: suki/frontend/archive_header
+		 *
+		 * @hooked suki_archive_title - 10
+		 * @hooked suki_archive_description - 20
+		 */
+		do_action( 'suki/frontend/archive_header' );
+		?>
+	</header>
+	<?php
+}
+endif;
 
-	elseif ( is_search() ) {
-		?>
-		<header class="page-header">
-			<h1 class="page-title"><?php suki_title__search(); ?></h1>
-			<?php get_search_form(); ?>
-		</header>
+if ( ! function_exists( 'suki_archive_title' ) ) :
+/**
+ * Render archive title.
+ */
+function suki_archive_title() {
+	the_archive_title( '<h1 class="page-title">', '</h1>' );
+}
+endif;
+
+if ( ! function_exists( 'suki_archive_description' ) ) :
+/**
+ * Render archive description.
+ */
+function suki_archive_description() {
+	the_archive_description( '<div class="archive-description">', '</div>' );
+}
+endif;
+
+if ( ! function_exists( 'suki_search_header' ) ) :
+/**
+ * Render search header.
+ */
+function suki_search_header() {
+	?>
+	<header class="page-header">
 		<?php
-	}
+		/**
+		 * Hook: suki/frontend/search_header
+		 *
+		 * @hooked suki_search_title - 10
+		 * @hooked suki_search_form - 20
+		 */
+		do_action( 'suki/frontend/search_header' );
+		?>
+	</header>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_search_title' ) ) :
+/**
+ * Render search title.
+ */
+function suki_search_title() {
+	?>
+	<h1 class="page-title"><?php suki_title__search(); ?></h1>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_search_form' ) ) :
+/**
+ * Render search form.
+ */
+function suki_search_form() {
+	get_search_form();
 }
 endif;
 
@@ -1334,7 +1542,9 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) :
  * Render posts loop navigation.
  */
 function suki_loop_navigation() {
-	if ( ! is_archive() && ! is_home() && ! is_search() ) return;
+	if ( ! is_archive() && ! is_home() && ! is_search() ) {
+		return;
+	}
 	
 	// Render posts navigation.
 	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {
@@ -1367,8 +1577,13 @@ if ( ! function_exists( 'suki_single_post_author_bio' ) ) :
  * Render author bio block in single post page.
  */
 function suki_single_post_author_bio() {
-	if ( ! is_singular( 'post' ) ) return;
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
 
+	if ( ! intval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
+		return;
+	}
 	?>
 	<div class="entry-author">
 		<div class="entry-author-body">
@@ -1390,7 +1605,13 @@ if ( ! function_exists( 'suki_single_post_navigation' ) ) :
  * Render prev / next post navigation in single post page.
  */
 function suki_single_post_navigation() {
-	if ( ! is_singular( 'post' ) ) return;
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+
+	if ( ! intval( suki_get_theme_mod( 'blog_single_navigation' ) ) ) {
+		return;
+	}
 
 	the_post_navigation( array(
 		'prev_text' => esc_html__( '%title &raquo;', 'suki' ),
@@ -1413,14 +1634,14 @@ function suki_comments_title() {
 					/* translators: %1$s: title. */
 					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'suki' ),
 					'<span>' . get_the_title() . '</span>'
-				);
+				); // WPCS: XSS OK
 			} else {
-				printf( // WPCS: XSS OK.
+				printf(
 					/* translators: %1$s: comment count number, %2$s: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_count, 'comments title', 'suki' ) ),
 					number_format_i18n( $comments_count ),
 					'<span>' . get_the_title() . '</span>'
-				);
+				); // WPCS: XSS OK
 			}
 			?>
 	</h2>

@@ -36,26 +36,6 @@
 }
 
 // -------------------------------------------------------------
-// Flexbox Classes
-// -------------------------------------------------------------
-
-.suki-flex-align-left {
-	justify-content: flex-start !important;
-}
-
-.suki-flex-align-center {
-	justify-content: center !important;
-}
-
-.suki-flex-align-right {
-	justify-content: flex-end !important;		
-}
-
-.suki-flex-align-justified {
-	justify-content: space-between !important;		
-}
-
-// -------------------------------------------------------------
 // Device Visibility Classes
 // -------------------------------------------------------------
 
@@ -81,6 +61,11 @@
 // Typography Classes
 // -------------------------------------------------------------
 
+.suki-font-smoothing, .suki-font-smoothing-1 {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 .h1 {
 	@include h1();
 }
@@ -102,7 +87,15 @@
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	@include heading();
+	@include headingColor();
+}
+
+.title {
+	@include h1(); // default
+}
+
+.small-title {
+	@include h3(); // default
 }
 
 // -------------------------------------------------------------
@@ -132,17 +125,23 @@
 }
 
 .page-header {
-	padding: 1.75rem;
-	margin: 0 0 4rem;
-	@include border();
+	padding: 2rem;
+	margin: 0 0 6rem;
+	// @include border();
 	background-color: $color_subtle; // default	
 
 	> *:last-child {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 
 	.page-title {
 		@include h3(); // default
+	}
+
+	.archive-description {
+		> *:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -169,13 +168,14 @@
 }
 
 .tagcloud {
+	margin-top: -0.5em;
 	@include float-container();
 	
 	a {
 		float: left;
-		padding: 0.5em 0.5em;
-		margin: 0 0.5em 0.5em 0;
-		font-size: 0.9rem !important;
+		padding: 0.25em 0.5em;
+		margin: 0.5em 0.5em 0 0;
+		font-size: 1rem !important;
 		line-height: normal;
 		background-color: $color_subtle; // default	
 		color: inherit;
@@ -236,13 +236,16 @@ button.suki-toggle {
 
 .suki-icon {
 	display: inline-block;
+	width: 1em;
+	height: 1em;
 	line-height: 1;
 	text-align: center;
+	vertical-align: middle;
 	
 	svg {
 		display: inline-block;
-		width: auto;
-		height: 1em;
+		width: 100%;
+		height: 100%;
 		vertical-align: top;
 
 		&:not([stroke-width]) {

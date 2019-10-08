@@ -3,10 +3,13 @@
 // -------------------------------------------------------------
 
 .suki-loop-grid {
-	@include flex( flex-start, flex-start, wrap );
-	margin-left: -15px;
-	margin-right: -15px;
-	margin-bottom: -2em;
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin-top: -15px; // default
+	margin-bottom: -15px; // default
+	margin-left: -15px; // default
+	margin-right: -15px; // default
 }
 
 // Entry
@@ -17,8 +20,10 @@
 
 	.suki-loop-grid & {
 		width: 100%;
-		padding: 0 15px;
-		margin-bottom: 2em;
+		padding-top: 15px; // default
+		padding-bottom: 15px; // default
+		padding-left: 15px; // default
+		padding-right: 15px; // default
 		border: none;
 
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
@@ -32,6 +37,10 @@
 
 	.suki-loop-grid.suki-loop-grid-3-columns & {
 		width: 33.33%;
+
+		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			width: 50%;
+		}
 	}
 
 	.suki-loop-grid.suki-loop-grid-4-columns & {
@@ -88,10 +97,12 @@
 // Title
 .entry-title {
 	margin: 0 0 0.75rem;
+	@include h1(); // default
 }
 
 .entry-small-title {
 	margin: 0 0 0.25rem;
+	@include h3(); // default
 }
 
 // Meta
@@ -186,8 +197,8 @@ a.more-link {
 
 // Author box
 .entry-author {
-	margin-top: 4em;
-	padding: 1.75em;
+	margin-top: 4rem;
+	padding: 1.75rem;
 	@include border();
 }
 
@@ -207,7 +218,7 @@ a.more-link {
 .entry-author-name {
 	font-size: 1.1em;
 	margin: 0 0 0.5em;
-	@include heading();
+	@include headingColor();
 
 	.avatar {
 		width: 80px;
@@ -239,19 +250,24 @@ a.more-link {
 // -------------------------------------------------------------
 
 .navigation {
-	margin: 2rem 0;
+	margin: 3rem 0 0;
 
 	.nav-links {
-		text-align: center;
 		@include float-container();
+		
+		a {
+			background-color: transparent;
+			color: inherit; // default
 
-		.page-numbers {
-			display: inline-block;
-			margin: 0 0.5em;
+			&:focus, &:hover {
+				background-color: transparent;
+				color: $color_accent; // default
+				border-color: currentColor;
+			}
 		}
 
 		@media screen and ( min-width: $breakpoint_500 ) {
-			> div {
+			.nav-next, .nav-previous {
 				width: 50%;
 			}
 
@@ -266,6 +282,37 @@ a.more-link {
 				text-align: left;
 				padding-right: 20px;
 			}
+		}
+	}
+
+	&.pagination {
+		text-align: center;
+
+		.nav-links {
+			display: inline-block;
+			@include float-container();
+		}
+
+		.page-numbers {
+			display: block;
+			min-width: 2em;
+			margin-right: 0.5em;
+			padding: 0.5em;
+			float: left;
+			text-decoration: none;
+			line-height: 1;
+
+			@include border();
+			color: inherit;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.current {
+			background-color: $color_subtle; // default
+			color: $color_heading; // default
 		}
 	}
 }
@@ -373,7 +420,7 @@ a.more-link {
 }
 
 .comment-author {
-	@include heading();
+	@include headingColor();
 
 	.avatar {
 		width: 2em;
@@ -421,11 +468,18 @@ a.more-link {
 
 .comment-respond {
 	padding-top: 1.5em;
-	border-top-width: 1px;
-	border-top-style: solid;
 
-	&:only-child {
-		border-top: none;
+	.comment-list ~ &,
+	.comment-list & {
+		@include border( top );
+	}
+
+	.comment:not(:last-child) & {
+		padding-bottom: 2em;
+	}
+
+	.form-submit {
+		margin-bottom: 0;
 	}
 
 	label {
@@ -442,10 +496,6 @@ a.more-link {
 			width: auto;
 			margin-left: 0.5em;
 		}
-	}
-
-	.comment-list & {
-		padding-bottom: 2em;
 	}
 }
 

@@ -31,22 +31,6 @@
 			$( input ).trigger( 'change' );
 			return;
 		}
-
-		if ( '' !== input.step ) {
-			// Validate step / increment value.
-			var split = input.step.toString().split( '.' ),
-			    decimalCount = 0;
-
-			// Detect decimal number.
-			if ( undefined !== split[1] ) {
-				decimalCount = split[1].length;
-			}
-			
-			// Check if value mod step is not 0, then round the value to nearest valid value.
-			if ( ! Number.isInteger( Number( input.value ) / Number( input.step ) ) ) {
-				input.value = Math.round( Number( input.value ) / Number( input.step ), decimalCount ) * Number( input.step );
-			}
-		}
 		
 		// Validate maximum value.
 		if ( '' !== input.max ) {
@@ -531,6 +515,20 @@
 	});
 	
 	/**
+	 * Suki radio image control
+	 */
+	wp.customize.controlConstructor['suki-radioimage'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this,
+			    $inputs = control.container.find( '.suki-radioimage-input' );
+
+			$inputs.on( 'change', function( e ) {
+				control.setting.set( this.value );
+			});
+		}
+	});
+	
+	/**
 	 * Suki builder control
 	 */
 	wp.customize.controlConstructor['suki-builder'] = wp.customize.SukiControl.extend({
@@ -962,7 +960,7 @@
 			var $control = $( this ),
 			    mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
 			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
-			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
+			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_middle, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
 			    $verticalLocations = $control.find( verticalSelector ),
 			    $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
 

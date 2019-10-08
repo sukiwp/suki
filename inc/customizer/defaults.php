@@ -8,9 +8,24 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$colors = self::get_default_colors();
+$colors = Suki_Customizer::instance()->get_default_colors();
 
 $add = array();
+
+/**
+ * ====================================================
+ * Global Settings > Color Palette
+ * ====================================================
+ */
+
+$add['color_palette_1'] = $colors['heading'];
+$add['color_palette_2'] = $colors['text'];
+$add['color_palette_3'] = $colors['accent'];
+$add['color_palette_4'] = $colors['accent2'];
+$add['color_palette_5'] = $colors['border'];
+$add['color_palette_6'] = $colors['subtle'];
+$add['color_palette_7'] = $colors['white'];
+$add['color_palette_8'] = $colors['black'];
 
 /**
  * ====================================================
@@ -22,7 +37,7 @@ $add['google_fonts_subsets'] = array();
 
 /**
  * ====================================================
- * General Elements > Body (Base)
+ * General Styles > Body (Base)
  * ====================================================
  */
 
@@ -34,17 +49,31 @@ $add['body_font_size'] = '15px';
 $add['body_line_height'] = '1.7';
 $add['body_letter_spacing'] = '';
 
+$add['font_smoothing'] = 1;
+
 $add['body_text_color'] = $colors['text'];
 
-$add['link_text_color'] = $colors['accent'];
-$add['link_hover_text_color'] = $colors['heading'];
+/**
+ * ====================================================
+ * General Styles > Border & Subtle Background
+ * ====================================================
+ */
 
 $add['subtle_color'] = $colors['subtle'];
 $add['border_color'] = $colors['border'];
 
 /**
  * ====================================================
- * General Elements > Headings
+ * General Styles > Link
+ * ====================================================
+ */
+
+$add['link_text_color'] = $colors['accent'];
+$add['link_hover_text_color'] = $colors['heading'];
+
+/**
+ * ====================================================
+ * General Styles > Headings
  * ====================================================
  */
 
@@ -85,7 +114,7 @@ $add['heading_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Blockquote
+ * General Styles > Blockquote
  * ====================================================
  */
 
@@ -99,13 +128,20 @@ $add['blockquote_letter_spacing'] = '';
 
 /**
  * ====================================================
- * General Elements > Form Input
+ * General Styles > Form Input
  * ====================================================
  */
 
 $add['input_padding'] = '10px 12px 10px 12px';
 $add['input_border'] = '1px 1px 1px 1px';
 $add['input_border_radius'] = '3px';
+
+$add['input_font_family'] = '';
+$add['input_font_weight'] = '';
+$add['input_font_style'] = '';
+$add['input_text_transform'] = '';
+$add['input_font_size'] = '';
+$add['input_letter_spacing'] = '';
 
 $add['input_bg_color'] = $colors['bg'];
 $add['input_border_color'] ='';
@@ -116,7 +152,7 @@ $add['input_focus_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Button
+ * General Styles > Button
  * ====================================================
  */
 
@@ -140,7 +176,7 @@ $add['button_hover_text_color'] = $colors['white'];
 
 /**
  * ====================================================
- * General Elements > Title
+ * General Styles > Title
  * ====================================================
  */
 
@@ -157,7 +193,7 @@ $add['title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Small Title
+ * General Styles > Small Title
  * ====================================================
  */
 
@@ -174,7 +210,7 @@ $add['small_title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Elements > Meta Info
+ * General Styles > Meta Info
  * ====================================================
  */
 
@@ -222,7 +258,7 @@ $add['header_elements_top_center'] = array();
 $add['header_elements_top_right'] = array();
 $add['header_elements_main_left'] = array( 'logo' );
 $add['header_elements_main_center'] = array();
-$add['header_elements_main_right'] = array( 'menu-1', 'shopping-cart-dropdown', 'search-dropdown' );
+$add['header_elements_main_right'] = array( 'menu-1', 'search-dropdown' );
 $add['header_elements_bottom_left'] = array();
 $add['header_elements_bottom_center'] = array();
 $add['header_elements_bottom_right'] = array();
@@ -288,7 +324,7 @@ $add['header_top_bar_merged_gap'] = '0px';
 $add['header_top_bar_container'] = 'default';
 $add['header_top_bar_height'] = '40px';
 $add['header_top_bar_padding'] = '0px 20px 0px 20px';
-$add['header_top_bar_border'] = '0px 0px 1px 0px';
+$add['header_top_bar_border'] = '0px 0px 0px 0px';
 
 $add['header_top_bar_items_gutter'] = '12px';
 
@@ -348,7 +384,7 @@ $add['header_top_bar_menu_active_highlight_text_color'] = '';
 $add['header_main_bar_container'] = 'default';
 $add['header_main_bar_height'] = '80px';
 $add['header_main_bar_padding'] = '0px 20px 0px 20px';
-$add['header_main_bar_border'] = '0px 0px 1px 0px';
+$add['header_main_bar_border'] = '0px 0px 0px 0px';
 
 $add['header_main_bar_items_gutter'] = '12px';
 
@@ -411,7 +447,7 @@ $add['header_bottom_bar_merged_gap'] = '0px';
 $add['header_bottom_bar_container'] = 'default';
 $add['header_bottom_bar_height'] = '60px';
 $add['header_bottom_bar_padding'] = '0px 20px 0px 20px';
-$add['header_bottom_bar_border'] = '0px 0px 1px 0px';
+$add['header_bottom_bar_border'] = '0px 0px 0px 0px';
 
 $add['header_bottom_bar_items_gutter'] = '12px';
 
@@ -470,7 +506,7 @@ $add['header_bottom_bar_menu_active_highlight_text_color'] = '';
 
 $add['header_mobile_main_bar_height'] = '60px';
 $add['header_mobile_main_bar_padding__tablet'] = '0px 20px 0px 20px';
-$add['header_mobile_main_bar_border'] = '0px 0px 1px 0px';
+$add['header_mobile_main_bar_border'] = '0px 0px 0px 0px';
 
 $add['header_mobile_main_bar_items_gutter'] = '12px';
 
@@ -487,6 +523,7 @@ $add['header_mobile_main_bar_link_hover_text_color'] = '';
  * ====================================================
  */
 
+$add['header_mobile_vertical_bar_display'] = 'drawer';
 $add['header_mobile_vertical_bar_position'] = 'left';
 $add['header_mobile_vertical_bar_alignment'] = 'left';
 $add['header_mobile_vertical_bar_width'] = '300px';
@@ -529,20 +566,20 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = '';
 
 /**
  * ====================================================
- * Page Header (Title Bar)
+ * Page Header
  * ====================================================
  */
 
-$add['page_header'] = 0;
+$add['page_header'] = 1;
 
 $add['page_header_container'] = 'default';
-$add['page_header_padding'] = '80px 20px 80px 20px';
-$add['page_header_border'] = '0px 0px 1px 0px';
+$add['page_header_padding'] = '60px 20px 60px 20px';
+$add['page_header_border'] = '0px 0px 0px 0px';
 
-$add['page_header_layout'] = 'center';
-$add['page_header_layout_width'] = '100%';
+$add['page_header_elements_left'] = array();
+$add['page_header_elements_center'] = array( 'title' );
+$add['page_header_elements_right'] = array();
 
-$add['page_header_breadcrumb'] = 1;
 $add['breadcrumb_plugin'] = 'breadcrumb-trail';
 
 $add['page_header_title_font_family'] = '';
@@ -656,7 +693,7 @@ $add['footer_elements_bottom_right'] = array();
 
 $add['footer_widgets_bar_container'] = 'default';
 $add['footer_widgets_bar_padding'] = '60px 20px 60px 20px';
-$add['footer_widgets_bar_border'] = '1px 0px 0px 0px';
+$add['footer_widgets_bar_border'] = '0px 0px 0px 0px';
 
 $add['footer_widgets_bar_columns_gutter'] = '15px';
 $add['footer_widgets_bar_widgets_gap'] = '40px';
@@ -700,7 +737,7 @@ $add['footer_bottom_bar_merged_gap'] = '0px';
 
 $add['footer_bottom_bar_container'] = 'default';
 $add['footer_bottom_bar_padding'] = '25px 20px 25px 20px';
-$add['footer_bottom_bar_border'] = '1px 0px 0px 0px';
+$add['footer_bottom_bar_border'] = '0px 0px 0px 0px';
 $add['footer_bottom_bar_items_gutter'] = '12px';
 
 $add['footer_bottom_bar_font_family'] = '';
@@ -736,6 +773,29 @@ $add['footer_social_links_target'] = 'self';
 
 /**
  * ====================================================
+ * Footer > Scroll To Top
+ * ====================================================
+ */
+
+$add['scroll_to_top'] = 0;
+$add['scroll_to_top_visibility'] = array( 'desktop', 'tablet', 'mobile' );
+
+$add['scroll_to_top_display'] = 'sticky';
+$add['scroll_to_top_position'] = 'right';
+$add['scroll_to_top_h_offset'] = '20px';
+$add['scroll_to_top_v_offset'] = '20px';
+
+$add['scroll_to_top_icon_size'] = '18px';
+$add['scroll_to_top_padding'] = '10px';
+$add['scroll_to_top_border_radius'] = '40px';
+
+$add['scroll_to_top_bg_color'] = '';
+$add['scroll_to_top_text_color'] = '';
+$add['scroll_to_top_hover_bg_color'] = '';
+$add['scroll_to_top_hover_text_color'] = '';
+
+/**
+ * ====================================================
  * Blog > Posts Page
  * ====================================================
  */
@@ -744,6 +804,7 @@ $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_navigation_mode'] = 'pagination';
 
 $add['blog_index_grid_columns'] = 2;
+$add['blog_index_grid_rows_gutter'] = '15px';
 $add['blog_index_grid_columns_gutter'] = '15px';
 
 /**
@@ -785,4 +846,4 @@ $add['entry_grid_footer'] = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
 
-$defaults = array_merge_recursive( $defaults, $add );
+return $add;
