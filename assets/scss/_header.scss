@@ -597,7 +597,6 @@
 
 .suki-header-mobile-vertical {
 	display: none;
-	opacity: 1; // reset popup's opacity: 0;
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
 		display: block;
@@ -643,8 +642,13 @@
 	}
 }
 
+.suki-header-mobile-vertical-display-drawer {
+	opacity: 1; // reset popup's opacity: 0;
+}
+
 .suki-header-mobile-vertical-display-full-screen {
-	width: 100%;
+	left: 0;
+	right: 0;
 
 	.suki-popup-background {
 		background-color: transparent;

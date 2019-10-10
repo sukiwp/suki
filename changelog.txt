@@ -1,3 +1,6 @@
+v1.1.1
+- FIX: Full screen mobile header drawer transition CSS.
+
 v1.1.0
 - NEW: "Scroll to Top" feature.
 - NEW: "Color Palette" feature.

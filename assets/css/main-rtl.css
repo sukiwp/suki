@@ -2257,7 +2257,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-header-mobile-vertical {
 	display: none;
-	opacity: 1;
 }
 
 @media screen and (max-width: 1023px) {
@@ -2314,8 +2313,13 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	padding: 12px 0;
 }
 
+.suki-header-mobile-vertical-display-drawer {
+	opacity: 1;
+}
+
 .suki-header-mobile-vertical-display-full-screen {
-	width: 100%;
+	right: 0;
+	left: 0;
 }
 
 .suki-header-mobile-vertical-display-full-screen .suki-popup-background {
