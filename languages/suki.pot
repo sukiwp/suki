@@ -1326,7 +1326,7 @@ msgid "Enable font smoothing"
 msgstr ""
 
 #: inc/customizer/options/general--base.php:56
-msgid "For Chrome, Safari, Firefox browsers (recommended)."
+msgid "For better font rendering on OSX browsers (recommended)."
 msgstr ""
 
 #: inc/customizer/options/general--blockquote.php:41

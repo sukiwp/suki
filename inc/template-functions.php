@@ -524,7 +524,7 @@ function suki_body_classes( $classes ) {
 
 	// Add font smoothing class.
 	if ( intval( suki_get_theme_mod( 'font_smoothing' ) ) ) {
-		$classes['font_smoothing'] = esc_attr( 'suki-font-smoothing' );
+		$classes['font_smoothing'] = esc_attr( 'suki-font-smoothing-1' );
 	}
 
 	return $classes;

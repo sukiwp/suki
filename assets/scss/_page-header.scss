@@ -46,7 +46,7 @@
 		justify-content: center !important;
 		text-align: center;
 
-		&:not(:first-child):not(.suki-page-header-column-empty) {
+		&:not(.suki-page-header-column-empty) + .suki-page-header-column:not(.suki-page-header-column-empty) {
 			margin-top: 1rem;
 		}
 	}

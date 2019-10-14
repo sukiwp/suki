@@ -2479,7 +2479,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 		justify-content: center !important;
 		text-align: center;
 	}
-	.suki-page-header-column:not(:first-child):not(.suki-page-header-column-empty) {
+	.suki-page-header-column:not(.suki-page-header-column-empty) + .suki-page-header-column:not(.suki-page-header-column-empty) {
 		margin-top: 1rem;
 	}
 }
