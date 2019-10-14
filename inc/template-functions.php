@@ -231,8 +231,10 @@ function suki_template_hooks() {
 				add_action( 'suki/frontend/archive_header', 'suki_archive_title', 10 );
 			}
 
-			// Add archive description into archive header.
-			add_action( 'suki/frontend/archive_header', 'suki_archive_description', 20 );
+			if ( '' !== trim( get_the_archive_description() ) ) {
+				// Add archive description into archive header.
+				add_action( 'suki/frontend/archive_header', 'suki_archive_description', 20 );
+			}
 		}
 
 		if ( is_search() ) {

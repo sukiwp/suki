@@ -247,11 +247,11 @@ msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-functions.php:390
+#: inc/template-functions.php:392
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:450
+#: inc/template-functions.php:452
 msgid "Search&hellip;"
 msgstr ""
 
@@ -284,36 +284,36 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/template-tags.php:1567
+#: inc/template-tags.php:1571
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1568
+#: inc/template-tags.php:1572
 msgid "Newer Posts"
 msgstr ""
 
-#: inc/template-tags.php:1623
+#: inc/template-tags.php:1627
 msgid "%title &raquo;"
 msgstr ""
 
-#: inc/template-tags.php:1624
+#: inc/template-tags.php:1628
 msgid "&laquo; %title"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1641
+#: inc/template-tags.php:1645
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1647
+#: inc/template-tags.php:1651
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1674
+#: inc/template-tags.php:1678
 msgid "Comments are closed."
 msgstr ""
 
