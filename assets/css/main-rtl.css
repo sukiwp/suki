@@ -2772,6 +2772,10 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	transform: translate(0, 0);
 }
 
+.suki-scroll-to-top .suki-icon {
+	vertical-align: top;
+}
+
 .suki-loop-grid {
 	display: -ms-flexbox;
 	display: flex;
