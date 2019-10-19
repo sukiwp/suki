@@ -824,6 +824,10 @@ function suki_page_header_element( $element ) {
 				}
 			}
 
+			elseif ( is_date() ) {
+				$title = get_the_archive_title();
+			}
+
 			elseif ( is_archive() ) {
 				$term_obj = get_queried_object();
 				$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
@@ -1468,19 +1472,19 @@ if ( ! function_exists( 'suki_archive_header' ) ) :
  * Render archive header.
  */
 function suki_archive_header() {
-	?>
-	<header class="page-header">
-		<?php
-		/**
-		 * Hook: suki/frontend/archive_header
-		 *
-		 * @hooked suki_archive_title - 10
-		 * @hooked suki_archive_description - 20
-		 */
-		do_action( 'suki/frontend/archive_header' );
-		?>
-	</header>
-	<?php
+	if ( has_action( 'suki/frontend/archive_header' ) ) : ?>
+		<header class="page-header">
+			<?php
+			/**
+			 * Hook: suki/frontend/archive_header
+			 *
+			 * @hooked suki_archive_title - 10
+			 * @hooked suki_archive_description - 20
+			 */
+			do_action( 'suki/frontend/archive_header' );
+			?>
+		</header>
+	<?php endif;
 }
 endif;
 

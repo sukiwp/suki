@@ -1,3 +1,10 @@
+v1.1.1
+- FIX: Page Header title on date archive pages.
+- FIX: Hide content header on archive pages when there is no title or description to display.
+- FIX: Page Header CSS on mobile.
+- FIX: WooCommerce products grid margin CSS.
+- FIX: Full screen mobile header drawer transition CSS.
+
 v1.1.0
 - NEW: "Scroll to Top" feature.
 - NEW: "Color Palette" feature.

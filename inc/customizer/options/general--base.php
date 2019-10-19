@@ -53,7 +53,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Enable font smoothing', 'suki' ),
-	'description' => esc_html__( 'For Chrome, Safari, Firefox browsers (recommended).', 'suki' ),
+	'description' => esc_html__( 'For better font rendering on OSX browsers (recommended).', 'suki' ),
 	'priority'    => 10,
 ) ) );
 

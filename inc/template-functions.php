@@ -231,8 +231,10 @@ function suki_template_hooks() {
 				add_action( 'suki/frontend/archive_header', 'suki_archive_title', 10 );
 			}
 
-			// Add archive description into archive header.
-			add_action( 'suki/frontend/archive_header', 'suki_archive_description', 20 );
+			if ( '' !== trim( get_the_archive_description() ) ) {
+				// Add archive description into archive header.
+				add_action( 'suki/frontend/archive_header', 'suki_archive_description', 20 );
+			}
 		}
 
 		if ( is_search() ) {
@@ -524,7 +526,7 @@ function suki_body_classes( $classes ) {
 
 	// Add font smoothing class.
 	if ( intval( suki_get_theme_mod( 'font_smoothing' ) ) ) {
-		$classes['font_smoothing'] = esc_attr( 'suki-font-smoothing' );
+		$classes['font_smoothing'] = esc_attr( 'suki-font-smoothing-1' );
 	}
 
 	return $classes;

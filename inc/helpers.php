@@ -152,7 +152,7 @@ function suki_get_current_page_setting( $key ) {
 	}
 		
 	// Time based Archive page
-	elseif ( is_year() || is_month() || is_date() || is_time() ) {
+	elseif ( is_date() ) {
 		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
 	}
 		
