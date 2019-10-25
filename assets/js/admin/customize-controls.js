@@ -558,6 +558,18 @@
 				}
 			};
 
+			// Show / hide add button.
+			control.showHideAddButton = function() {
+				var $addButton = control.builder.find( '.suki-builder-element-add' );
+
+				if ( 0 === control.builderInactive.find( '.suki-builder-element' ).length ) {
+					$addButton.hide();
+				} else {
+					$addButton.show();
+				}
+			}
+			control.showHideAddButton();
+
 			// Trigger click event on all span with tabindex using keyboard.
 			control.container.on( 'keyup', '[tabindex]', function( e ) {
 				if ( 13 == e.which || 32 == e.which ) {
@@ -592,6 +604,7 @@
 					control.builderInactive.removeClass( 'show' );
 
 					control.updateValue( $location.attr( 'data-location' ) );
+					control.showHideAddButton();
 				}
 			});
 
@@ -604,6 +617,7 @@
 
 				$element.prependTo( control.builderInactive.children( '.suki-builder-sortable-panel' ) );
 				control.updateValue( $location.attr( 'data-location' ) );
+				control.showHideAddButton();
 			});
 
 			// Initialize sortable.
@@ -613,6 +627,7 @@
 				containment: control.container,
 				update: function( e, ui ) {
 					control.updateValue( $( e.target ).parent().attr( 'data-location' ) );
+					control.showHideAddButton();
 				},
 
 				receive: function( e, ui ) {
@@ -797,7 +812,7 @@
 										break;
 
 									case 'not_in':
-										result = 0 < comparedValue.indexOf( currentValue );
+										result = 0 > comparedValue.indexOf( currentValue );
 										break;
 
 									case 'contain':
@@ -805,7 +820,7 @@
 										break;
 
 									case 'not_contain':
-										result = 0 < currentValue.indexOf( comparedValue );
+										result = 0 > currentValue.indexOf( comparedValue );
 										break;
 
 									case '!=':
