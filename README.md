@@ -33,6 +33,6 @@ Suki is licensed under the [GNU General Public License v2 or later](http://www.g
 
 ## Sponsors
 
-![](/.github/assets/browserstack-logo.svg)
+[<img src="/.github/assets/browserstack-logo.svg" width="300">](https://www.browserstack.com/)
 
 Thanks to [BrowserStack](https://www.browserstack.com/) for helping us test Suki on all browsers.
