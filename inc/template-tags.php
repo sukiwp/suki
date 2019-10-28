@@ -1267,11 +1267,11 @@ function suki_entry_meta_element( $element ) {
 			break;
 
 		case 'categories':
-			echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( ', ' ) . '</span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( esc_html_x( ', ', 'terms list separator', 'suki' ) ) . '</span>'; // WPCS: XSS OK
 			break;
 
 		case 'tags':
-			echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', ', ' ) . '</span>' ); // WPCS: XSS OK
+			echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', esc_html_x( ', ', 'terms list separator', 'suki' ) ) . '</span>' ); // WPCS: XSS OK
 			break;
 
 		case 'comments':

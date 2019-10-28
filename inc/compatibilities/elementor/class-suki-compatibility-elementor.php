@@ -270,8 +270,6 @@ class Suki_Compatibility_Elementor {
 						},
 					})
 					.done(function( response, status, XHR ) {
-						console.log( response );
-
 						if ( response.success ) {
 							alert( '<?php esc_html_e( 'Color palette applied!', 'suki' ); ?>' );
 						} else {
