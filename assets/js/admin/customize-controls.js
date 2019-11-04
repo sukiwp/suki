@@ -274,13 +274,13 @@
 
 			control.updateValue = function( e ) {
 				var values = $inputs.map(function() {
-					return $( this ).hasClass( 'color-picker-hex' ) ? ( '' === $( this ).wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $( this ).wpColorPicker( 'color' ) ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
+					return $( this ).hasClass( 'color-picker' ) ? ( '' === $( this ).wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $( this ).wpColorPicker( 'color' ) ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
 				}).get();
 
 				$value.val( values.join( ' ' ) ).trigger( 'change' );
 			}
 
-			control.container.find( '.suki-shadow-color .color-picker-hex' ).alphaColorPicker({
+			control.container.find( '.suki-shadow-color .color-picker' ).alphaColorPicker({
 				change: control.updateValue,
 				clear: control.updateValue,
 			});
