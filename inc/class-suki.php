@@ -377,6 +377,15 @@ class Suki {
 		// Main JS
 		wp_enqueue_script( 'suki', SUKI_JS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
 
+		// Localize script
+		wp_localize_script( 'suki', 'sukiConfig', apply_filters( 'suki/frontend/localize_script', array(
+			'breakpoints' => array(
+				'mobile'  => 500,
+				'tablet'  => 768,
+				'desktop' => 1024,
+			),
+		) ) );
+
 		/**
 		 * Hook: Scripts to be included after main JS
 		 */

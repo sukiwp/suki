@@ -524,11 +524,11 @@
 				if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
 					var device = 'mobile';
 
-					if ( 500 <= window.innerWidth ) {
+					if ( sukiConfig.breakpoints.mobile <= window.innerWidth ) {
 						device = 'tablet';
 					}
 
-					if ( 1024 <= window.innerWidth ) {
+					if ( sukiConfig.breakpoints.desktop <= window.innerWidth ) {
 						device = 'desktop';
 					}
 
