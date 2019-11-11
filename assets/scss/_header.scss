@@ -708,6 +708,7 @@
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		// display: block;
 		position: relative;
+		height: auto;
 
 		&:after {
 			top: 100%;

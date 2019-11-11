@@ -2376,6 +2376,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-header-menu-highlight-underline .suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 	position: relative;
+	height: auto;
 }
 
 .suki-header-menu-highlight-underline .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
