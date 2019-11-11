@@ -635,7 +635,8 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 	display: inline-block;
 	margin: 3px;
-	padding: 0;
+	padding-left: 0;
+	padding-right: 0;
 	white-space: nowrap;
 }
 
@@ -929,7 +930,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-element-add,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-element-add {
-		display: none;
+		display: none !important;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-inactive,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-inactive {
