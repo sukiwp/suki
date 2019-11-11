@@ -1,5 +1,6 @@
 v1.1.2
 - TWEAK: Improve UX of Customizer's builder control: hide add button when there is no available element left.
+- FIX: Header menu's underline highlight CSS.
 - FIX: Customizer's shadow control doesn't show Color Palette.
 
 v1.1.1
