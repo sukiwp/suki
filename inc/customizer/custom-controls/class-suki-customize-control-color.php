@@ -57,6 +57,10 @@ class Suki_Customize_Control_Color extends Suki_Customize_Control {
 	 * Render Underscore JS template for this control's content.
 	 */
 	protected function content_template() {
+		/**
+		 * Get color palette/
+		 */
+
 		$palette = array();
 
 		for ( $i = 1; $i <= 8; $i++ ) {

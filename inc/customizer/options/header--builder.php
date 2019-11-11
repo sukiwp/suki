@@ -127,7 +127,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 		'search-bar'             => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'search-dropdown'        => array( 'mobile_vertical_top' ),
 		'shopping-cart-link'     => array( 'mobile_vertical_top' ),
-		'social'                 => array( 'mobile_main_left', 'mobile_main_center', 'mobile_main_right' ),
 		'mobile-vertical-toggle' => array( 'mobile_vertical_top' ),
 	),
 	'priority'    => 10,

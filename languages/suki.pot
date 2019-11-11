@@ -284,6 +284,11 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
+#: inc/template-tags.php:1270, inc/template-tags.php:1274
+msgctxt "terms list separator"
+msgid ", "
+msgstr ""
+
 #: inc/template-tags.php:1571
 msgid "Older Posts"
 msgstr ""
@@ -345,7 +350,7 @@ msgstr ""
 msgid "Continue Reading"
 msgstr ""
 
-#: inc/admin/class-suki-admin-fields.php:211, inc/customizer/custom-controls/class-suki-customize-control-color.php:75, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:94
+#: inc/admin/class-suki-admin-fields.php:211, inc/customizer/custom-controls/class-suki-customize-control-color.php:79, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:113
 msgid "Hex / RGBA"
 msgstr ""
 
@@ -716,11 +721,11 @@ msgstr ""
 msgid "Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual."
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:276
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:274
 msgid "Color palette applied!"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:278
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:276
 msgid "Error!"
 msgstr ""
 
@@ -778,23 +783,23 @@ msgstr ""
 msgid "No more items to add"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:67
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:74
 msgid "H-Offset"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:68
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:75
 msgid "V-Offset"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:69
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:76
 msgid "Blur"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:70
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:77
 msgid "Spread"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:90
+#: inc/customizer/custom-controls/class-suki-customize-control-shadow.php:109
 msgid "Color"
 msgstr ""
 
@@ -987,8 +992,8 @@ msgstr ""
 msgid "Header meta format"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:121, inc/customizer/options/blog--entry-default.php:184, inc/customizer/options/blog--entry-grid.php:138, inc/customizer/options/blog--entry-grid.php:201
-msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
+#: inc/customizer/options/blog--entry-default.php:121, inc/customizer/options/blog--entry-grid.php:138
+msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}."
 msgstr ""
 
 #: inc/customizer/options/blog--entry-default.php:135, inc/customizer/options/blog--entry-grid.php:152
@@ -1001,6 +1006,10 @@ msgstr ""
 
 #: inc/customizer/options/blog--entry-default.php:183, inc/customizer/options/blog--entry-grid.php:200
 msgid "Footer meta format"
+msgstr ""
+
+#: inc/customizer/options/blog--entry-default.php:184, inc/customizer/options/blog--entry-grid.php:201
+msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-grid.php:23

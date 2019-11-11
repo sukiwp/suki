@@ -118,7 +118,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Header meta format', 'suki' ),
-	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
+	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}.', 'suki' ),
 	'priority'    => 20,
 ) );
 
