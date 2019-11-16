@@ -28,6 +28,11 @@ suki_primary_open();
 do_action( 'suki/frontend/before_main' );
 
 if ( have_posts() ) :
+
+	/**
+	 * Hook: suki/frontend/before_loop
+	 */
+	do_action( 'suki/frontend/before_loop' );
 	
 	?>
 	<div id="loop" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array( 'suki-loop' ) ) ) ); ?>">
@@ -42,6 +47,11 @@ if ( have_posts() ) :
 		?>
 	</div>
 	<?php
+
+	/**
+	 * Hook: suki/frontend/after_loop
+	 */
+	do_action( 'suki/frontend/after_loop' );
 
 else :
 
