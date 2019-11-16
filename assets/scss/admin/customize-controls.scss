@@ -727,7 +727,8 @@ li:not(.customize-info) div.customize-section-description {
 			position: relative;
 			display: inline-block;
 			margin: 3px;
-			padding: 0;
+			padding-left: 0;
+			padding-right: 0;
 			white-space: nowrap;
 
 			> span {
@@ -1010,7 +1011,7 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-element-add {
-				display: none;
+				display: none !important;
 			}
 
 			.suki-builder-inactive {
