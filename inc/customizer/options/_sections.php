@@ -458,33 +458,33 @@ $wp_customize->add_panel( $panel, array(
 			'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
 		) . '</p>',
 		'panel'       => $panel,
-		'priority'    => 11,
+		'priority'    => 10,
 	) );
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_entry', array(
 		'panel'       => $panel,
-		'priority'    => 12,
+		'priority'    => 20,
 	) ) );
 
 	// Post Layout: Default
 	$wp_customize->add_section( 'suki_section_entry_default', array(
 		'title'       => esc_html__( 'Post Layout: Default', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 13,
+		'priority'    => 20,
 	) );
 
 	// Post Layout: Grid
 	$wp_customize->add_section( 'suki_section_entry_grid', array(
 		'title'       => esc_html__( 'Post Layout: Grid', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 14,
+		'priority'    => 20,
 	) );
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_blog_plus', array(
 		'panel'       => $panel,
-		'priority'    => 20,
+		'priority'    => 30,
 	) ) );
 
 	if ( suki_show_pro_teaser() ) {

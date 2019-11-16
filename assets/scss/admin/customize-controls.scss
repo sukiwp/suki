@@ -90,11 +90,19 @@ li:not(.customize-info) div.customize-section-description {
 	display: block;
 }
 
+.suki-input-with-unit {
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+
 .suki-unit {
 	appearance: none;
 	padding: 0;
 	text-align: center;
 	text-align-last: center;
+
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
 }
 
 .suki-heading {
@@ -321,6 +329,7 @@ li:not(.customize-info) div.customize-section-description {
 			margin: 0;
 			width: 30px;
 			height: 24px;
+			min-height: auto; // reset
 			border: none;
 			border-radius: 0 !important;
 			background-size: 12px 12px;
@@ -427,6 +436,7 @@ li:not(.customize-info) div.customize-section-description {
 			margin: 0;
 			width: 30px;
 			height: 24px;
+			min-height: auto; // reset
 			border: none;
 			border-radius: 0 !important;
 			background-size: 12px 12px;
@@ -559,8 +569,14 @@ li:not(.customize-info) div.customize-section-description {
 		padding: 0;
 		display: none;
 		width: 100%;
-		border-radius: 0;
 		box-shadow: none;
+
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.suki-dimensions-input {
+		border-radius: 0;
 	}
 
 	[data-linked="true"] .suki-dimensions-unlink,

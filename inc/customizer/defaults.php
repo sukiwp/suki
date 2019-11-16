@@ -803,10 +803,6 @@ $add['scroll_to_top_hover_text_color'] = '';
 $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_navigation_mode'] = 'pagination';
 
-$add['blog_index_grid_columns'] = 2;
-$add['blog_index_grid_rows_gutter'] = '15px';
-$add['blog_index_grid_columns_gutter'] = '15px';
-
 /**
  * ====================================================
  * Blog > Single Post Page
@@ -836,6 +832,10 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
  * Blog > Post Layout: Grid
  * ====================================================
  */
+
+$add['blog_index_grid_columns'] = 2;
+$add['blog_index_grid_rows_gutter'] = '15px';
+$add['blog_index_grid_columns_gutter'] = '15px';
 
 $add['entry_grid_excerpt_length'] = 30;
 $add['entry_grid_featured_media_position'] = 'before-entry-header';

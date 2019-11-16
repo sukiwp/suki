@@ -2227,7 +2227,29 @@ $add['scroll_to_top_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Blog > Posts Page
+ * Blog > Post Layout: Default
+ * ====================================================
+ */
+
+$add['entry_header_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-default .entry-header',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+$add['entry_footer_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-default .entry-footer',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Post Layout: Grid
  * ====================================================
  */
 
@@ -2286,34 +2308,6 @@ $add['blog_index_grid_columns_gutter'] = array(
 		'property' => 'padding-right',
 	),
 );
-
-/**
- * ====================================================
- * Blog > Post Layout: Default
- * ====================================================
- */
-
-$add['entry_header_alignment'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.entry-layout-default .entry-header',
-		'pattern'  => 'suki-text-align-$',
-	),
-);
-
-$add['entry_footer_alignment'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.entry-layout-default .entry-footer',
-		'pattern'  => 'suki-text-align-$',
-	),
-);
-
-/**
- * ====================================================
- * Blog > Post Layout: Grid
- * ====================================================
- */
 
 $add['entry_grid_header_alignment'] = array(
 	array(

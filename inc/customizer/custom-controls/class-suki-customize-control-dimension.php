@@ -117,7 +117,7 @@ class Suki_Customize_Control_Dimension extends Suki_Customize_Control {
 			<# _.each( data.structures, function( setting_key, device ) { #>
 				<div class="suki-dimension-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
 					<div class="suki-row-item" style="width: 100%;">
-						<input class="suki-dimension-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
+						<input class="suki-dimension-input suki-input-with-unit" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
 					<div class="suki-row-item" style="width: 30px;">
 						<select class="suki-dimension-unit suki-unit">
