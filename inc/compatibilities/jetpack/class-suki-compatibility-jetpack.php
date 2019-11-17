@@ -91,9 +91,9 @@ class Suki_Compatibility_Jetpack {
 		while ( have_posts() ) {
 			the_post();
 			if ( is_search() ) :
-			    get_template_part( 'template-parts/content', 'search' );
+			    suki_get_template_part( 'entry', 'search' );
 			else :
-			    get_template_part( 'template-parts/content', suki_get_theme_mod( 'blog_index_loop_mode' ) );
+			    suki_get_template_part( 'entry', suki_get_theme_mod( 'blog_index_loop_mode' ) );
 			endif;
 		}
 	}

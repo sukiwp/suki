@@ -70,6 +70,104 @@ function suki_show_pro_teaser() {
 }
 
 /**
+ * Modified version of the original `get_template_part` function.
+ * Add filters to allow 3rd party plugins to override the template files.
+ *
+ * @param string $slug
+ * @param string $name
+ * @param array $variables
+ * @param boolean $echo
+ */
+function suki_get_template_part( $slug, $name = null, $variables = array(), $echo = true ) {
+	/**
+	 * Get fallback template file name.
+	 */
+
+	// Native WordPress action.
+	do_action( 'get_template_part_' . $slug, $slug, $name );
+
+	$templates = array();
+	if ( isset( $name ) ) {
+		$templates[] = $slug . '-' . $name . '.php';
+	}
+
+	$templates[] = $slug . '.php';
+
+	// Native WordPress action.
+	do_action( 'get_template_part', $slug, $name, $templates );
+
+	/**
+	 * Get the final template file path.
+	 */
+
+	$template_file_path = false;
+
+	// Iterate through the templates.
+	foreach ( $templates as $template ) {
+		/**
+		 * Native paths
+		 */
+
+		// Iterate through child theme paths, theme paths, and then native theme compatibilities path to check the template file.
+		if ( file_exists( STYLESHEETPATH . '/template-parts/' . $template ) ) {
+			$template_file_path = STYLESHEETPATH . '/template-parts/' . $template;
+			break;
+		} elseif ( file_exists( TEMPLATEPATH . '/template-parts/' . $template ) ) {
+			$template_file_path = TEMPLATEPATH . '/template-parts/' . $template;
+			break;
+		} elseif ( file_exists( ABSPATH . WPINC . '/theme-compat/' . $template ) ) {
+			$template_file_path = ABSPATH . WPINC . '/theme-compat/' . $template;
+			break;
+		}
+
+		/**
+		 * Custom paths
+		 */
+
+		// Allow themes or plugins to add their own paths.
+		$custom_paths = apply_filters( 'suki/frontend/template_dirs', array() );
+
+		// Sort the custom paths by key number.
+		ksort( $custom_paths );
+
+		// Iterate through the custom paths and use the path if it exists.
+		foreach ( $custom_paths as $custom_path ) {
+			if ( file_exists( $custom_path . '/' . $template ) ) {
+				$template_file_path = $custom_path . '/' . $template;
+				break;
+			}
+		}
+	}
+
+	// Abort if no valid template file found.
+	if ( empty( $template_file_path ) ) {
+		return;
+	}
+
+	/**
+	 * Pass custom variables to the template file.
+	 */
+
+	foreach ( (array) $variables as $key => $value ) {
+		set_query_var( $key, $value );
+	}
+
+	/**
+	 * Return or print the template part.
+	 */
+
+	if ( ! $echo ) {
+		ob_start();
+	}
+
+	load_template( $template_file_path, false );
+
+	if ( ! $echo ) {
+		return ob_get_clean();
+	}
+}
+
+/**
  * Wrapper function to get page setting value of the specified post ID.
  *
  * @param string $key

@@ -56,7 +56,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				/**
 				 * Header
 				 */
-				suki_header();
+				?>
+				<header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope>
+					<?php
+					/**
+					 * Hook: suki/frontend/header
+					 *
+					 * @hooked suki_main_header - 10
+					 * @hooked suki_mobile_header - 10
+					 */
+					do_action( 'suki/frontend/header' );
+					?>
+				</header>
+				<?php
 
 				/**
 				 * Hook: suki/frontend/after_header

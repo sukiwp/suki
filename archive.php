@@ -41,7 +41,7 @@ if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
 
 			// Render post content using selected layout on Customizer.
-			get_template_part( 'template-parts/content', suki_get_theme_mod( 'blog_index_loop_mode' ) );
+			suki_get_template_part( 'entry', suki_get_theme_mod( 'blog_index_loop_mode' ) );
 
 		endwhile;
 		?>
@@ -56,7 +56,7 @@ if ( have_posts() ) :
 else :
 
 	// Render no content notice.
-	get_template_part( 'template-parts/content', 'none' );
+	suki_get_template_part( 'entry', 'none' );
 
 endif;
 

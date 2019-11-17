@@ -1,14 +1,14 @@
 <?php
 /**
- * Template part for displaying search results item.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * Search results entry template.
  *
  * @package Suki
  */
 
-?>
+// Prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_search/post_classes', array( 'entry', 'entry-layout-search', 'entry-small' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php

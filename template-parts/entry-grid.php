@@ -1,14 +1,14 @@
 <?php
 /**
- * Template part for displaying post content in "Grid" layout archive page.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * Grid post entry template.
  *
  * @package Suki
  */
 
-?>
+// Prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_grid/post_classes', array( 'entry', 'entry-layout-grid', 'entry-small' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php

@@ -8,4 +8,4 @@
  */
 
 // Use same template as archive.php
-get_template_part( 'archive' );
+suki_get_template_part( 'archive' );

@@ -1,14 +1,14 @@
 <?php
 /**
- * Template part for displaying page content in page.php.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * Page entry template.
  *
  * @package Suki
  */
 
-?>
+// Prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
+?>
 <article id="page-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry/page_classes', array( 'entry', 'entry-page', 'entry-layout-default' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
