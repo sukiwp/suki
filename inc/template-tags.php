@@ -1077,8 +1077,10 @@ function suki_single_post_navigation() {
 	}
 
 	the_post_navigation( array(
-		'prev_text' => esc_html__( '%title &raquo;', 'suki' ),
-		'next_text' => esc_html__( '&laquo; %title', 'suki' ),
+		/* translators: %s: title syntax. */
+		'prev_text' => sprintf( esc_html__( '%s &raquo;', 'suki' ), '%title' ),
+		/* translators: %s: title syntax. */
+		'next_text' => sprintf( esc_html__( '&laquo; %s', 'suki' ), '%title' ),
 	) );
 }
 endif;
