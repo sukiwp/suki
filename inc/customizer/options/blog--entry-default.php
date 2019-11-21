@@ -41,7 +41,7 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 10,
 ) );
 
-// Ignore main content area padding
+// Ignore padding
 $key = 'entry_featured_media_ignore_padding';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -49,12 +49,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Ignore main content area padding', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: menu path to main content's padding setting. */
-		esc_html__( 'If you set padding on %s, enabling this option will make your featured media disregard the padding.', 'suki' ),
-		'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_main', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Main Content Area', 'suki' ) . '</a>'
-	),
+	'label'       => esc_html__( 'Ignore padding', 'suki' ),
 	'priority'    => 10,
 ) ) );
 
@@ -81,7 +76,6 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Elements to display', 'suki' ),
-	'description' => esc_html__( 'Add and move elements as you wish. Leave it blank to disable.', 'suki' ),
 	'choices'     => array(
 		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
 		'title'       => esc_html__( 'Title', 'suki' ),
@@ -109,7 +103,7 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 20,
 ) );
 
-// Header meta format
+// Header meta text
 $key = 'entry_header_meta';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -117,7 +111,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Header meta format', 'suki' ),
+	'label'       => esc_html__( 'Header meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}.', 'suki' ),
 	'priority'    => 20,
 ) );
@@ -172,7 +166,7 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 30,
 ) );
 
-// Footer meta format
+// Footer meta text
 $key = 'entry_footer_meta';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -180,7 +174,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Footer meta format', 'suki' ),
+	'label'       => esc_html__( 'Footer meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
 	'priority'    => 30,
 ) );

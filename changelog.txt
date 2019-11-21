@@ -1,3 +1,8 @@
+v1.2.0
+- NEW: Implement template inheritances using template files (via custom `get_template_part` function).
+- TWEAK: Improve string on post navigation to avoid wrong translation on the "%title" syntax.
+- FIX: Minor Customizer CSS since WordPress 5.3.
+
 v1.1.2
 - TWEAK: Improve UX of Customizer's builder control: hide add button when there is no available element left.
 - FIX: Header menu's underline highlight CSS.

@@ -18,12 +18,12 @@ input, select, textarea {
 	text-transform: uppercase;
 }
 
-#menu-appearance a[href="themes.php?page=suki"] {
+#menu-appearance .wp-submenu a[href="themes.php?page=suki"] {
 	color: #00b9eb;
 }
 
-#menu-appearance a[href^="edit.php?post_type=suki_block"]:before,
-#menu-appearance a[href^="themes.php?page=suki-"]:before {
+#menu-appearance .wp-submenu a[href^="edit.php?post_type=suki_block"]:before,
+#menu-appearance .wp-submenu a[href^="themes.php?page=suki-"]:before {
 	content: "\21B3";
 	margin-left: 0.5em;
 	opacity: 0.5;

@@ -1130,3 +1130,10 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 }
+
+[id^="accordion-section-suki_section_entry_"] {
+	.accordion-section-title:before {
+		content: "\21B3";
+		margin-right: 0.5em;
+	}
+}

@@ -449,34 +449,23 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// Single Post
-	$wp_customize->add_section( 'suki_section_blog_single', array(
-		'title'       => esc_html__( 'Single Post Page', 'suki' ),
-		'description' => '<p>' . sprintf(
-			/* translators: %s: link to "Post Layout: Default" section. */
-			esc_html__( '"Default" post layout is used as the main post layout. You can configure it on %s', 'suki' ),
-			'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>'
-		) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 10,
-	) );
-
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_entry', array(
-		'panel'       => $panel,
-		'priority'    => 20,
-	) ) );
-
 	// Post Layout: Default
 	$wp_customize->add_section( 'suki_section_entry_default', array(
 		'title'       => esc_html__( 'Post Layout: Default', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 20,
+		'priority'    => 10,
 	) );
 
 	// Post Layout: Grid
 	$wp_customize->add_section( 'suki_section_entry_grid', array(
 		'title'       => esc_html__( 'Post Layout: Grid', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
+
+	// Single Post
+	$wp_customize->add_section( 'suki_section_blog_single', array(
+		'title'       => esc_html__( 'Single Post Page', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );

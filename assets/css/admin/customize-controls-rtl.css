@@ -1055,3 +1055,8 @@ li:not(.customize-info) div.customize-section-description {
 #sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper:after {
 	display: none;
 }
+
+[id^="accordion-section-suki_section_entry_"] .accordion-section-title:before {
+	content: "\21B3";
+	margin-left: 0.5em;
+}

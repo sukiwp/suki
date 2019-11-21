@@ -647,11 +647,6 @@ function suki_get_pro_modules() {
 			'category' => 'layout',
 			'url'      => esc_url( $url . '#pro-header-mega-menu' ),
 		),
-		'sidebar-sticky' => array(
-			'label'    => esc_html__( 'Sticky Sidebar', 'suki' ),
-			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-sidebar-sticky' ),
-		),
 		'footer-widgets-columns-width' => array(
 			'label'    => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
 			'category' => 'layout',
