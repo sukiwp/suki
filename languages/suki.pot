@@ -627,41 +627,41 @@ msgstr ""
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:573
+#: inc/customizer/class-suki-customizer.php:577
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:576
+#: inc/customizer/class-suki-customizer.php:580
 msgid "404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:600
+#: inc/customizer/class-suki-customizer.php:604
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:603
+#: inc/customizer/class-suki-customizer.php:607
 msgid "These are default settings for main %s Archive page and the taxonomy archive page."
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:607
+#: inc/customizer/class-suki-customizer.php:611
 msgid "TIPS: You can specify different settings for each taxonomy via the Page Settings metabox available on the term edit page."
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:613
+#: inc/customizer/class-suki-customizer.php:617
 msgid "Single %s Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:616
+#: inc/customizer/class-suki-customizer.php:620
 msgid "These are default settings for all Single %s page."
 msgstr ""
 
 #. translators: %s: Post type's singular name.
-#: inc/customizer/class-suki-customizer.php:620
+#: inc/customizer/class-suki-customizer.php:624
 msgid "TIPS: You can specify different settings for each %s via the Page Settings metabox available on the edit page."
 msgstr ""
 
