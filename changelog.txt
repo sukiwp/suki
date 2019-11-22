@@ -2,6 +2,7 @@ v1.2.0
 - NEW: Implement template inheritances using template files (via custom `get_template_part` function).
 - TWEAK: Improve dynamic custom CSS generation performance by filtering the CSS array based on the saved theme options only.
 - TWEAK: Improve string on post navigation to avoid wrong translation on the "%title" syntax.
+- FIX: Header search dropdown bug for not showing on mobile devices.
 - FIX: Minor Customizer CSS since WordPress 5.3.
 
 v1.1.2

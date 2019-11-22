@@ -227,11 +227,11 @@
 
 			var timeout;
 			window.addEventListener( 'resize', function() {
-				var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
-				for ( var i = 0; i < $submenus.length; i++ ) {
-					$submenus[i].style[ prop ] = '';
-					$submenus[i].parentElement.classList.remove( 'focus' );
-				}
+				// var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
+				// for ( var i = 0; i < $submenus.length; i++ ) {
+				// 	$submenus[i].style[ prop ] = '';
+				// 	$submenus[i].parentElement.classList.remove( 'focus' );
+				// }
 
 				clearTimeout( timeout );
 				timeout = setTimeout( calculateSubMenuEdge, 100 );
