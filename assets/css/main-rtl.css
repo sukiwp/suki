@@ -3591,3 +3591,15 @@ a.more-link {
 	height: auto;
 	margin-right: 0.5em;
 }
+
+.suki_widget_social .suki-widget-social {
+	font-size: 1.25em;
+}
+
+.suki_widget_social .suki-widget-social a {
+	margin-right: 0.5em;
+}
+
+.suki_widget_social .suki-widget-social a:first-child {
+	margin-right: 0;
+}

@@ -54,13 +54,23 @@ class Suki {
 	 * Class constructor
 	 */
 	private function __construct() {
+		// Load translations.
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
+
+		// Set global content width.
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
+
+		// Define theme supported features.
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
-		add_action( 'init', array( $this, 'setup_theme_info' ), 1 );
+		// Setup theme info.
+		// Priority has to be set to 0 because "widgets_init" action is actually an "init" action with priority set to 1.
+		add_action( 'init', array( $this, 'setup_theme_info' ), 0 );
+
+		// Check migration.
 		add_action( 'init', array( $this, 'check_theme_version' ), 1 );
 
+		// Register sidebars and widgets.
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
@@ -74,6 +84,7 @@ class Suki {
 			add_filter( 'pre_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__get' ) );
 		}
 
+		// Include other files.
 		$this->_includes();
 	}
 
@@ -282,9 +293,7 @@ class Suki {
 	public function register_widgets() {
 		// Include custom widgets.
 		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-posts.php' );
-
-		// Register widgets.
-		register_widget( 'Suki_Widget_Posts' );
+		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-social.php' );
 	}
 	
 	/**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Class to display posts widget.
+ * Custom Posts Widget.
  *
  * @package Suki
  */
@@ -150,3 +150,5 @@ class Suki_Widget_Posts extends WP_Widget {
 		return $instance;
 	}
 }
+
+register_widget( 'Suki_Widget_Posts' );

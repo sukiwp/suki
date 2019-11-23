@@ -659,6 +659,10 @@ li:not(.customize-info) div.customize-section-description {
 	padding: 0 8px;
 }
 
+.customize-control-suki-builder .suki-builder .suki-builder-element .dashicons {
+	margin-right: 0.25em;
+}
+
 .customize-control-suki-builder .suki-builder .suki-builder-element-add {
 	position: absolute;
 	bottom: 0;

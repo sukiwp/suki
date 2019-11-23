@@ -535,6 +535,8 @@ class Suki_Admin_Metabox_Page_Settings {
 					<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 						<script type="text/javascript">
 						(function( $ ) {
+							'use strict';
+
 							$( 'body.post-php' ).on( 'change', '#suki_page_settings__content_layout', function( e ) {
 								var $tinymce = $( '#content_ifr' ).contents().find( 'body' ),
 								    inheritValue = '<?php echo esc_js( suki_get_page_setting_by_post_id( 'content_layout', $obj->ID ) ); ?>',
