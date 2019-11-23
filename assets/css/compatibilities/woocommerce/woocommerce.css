@@ -13,7 +13,7 @@
 }
 
 @font-face {
-	font-family: 'star';
+	font-family: "star";
 	src: url("../../../../../../plugins/woocommerce/assets/fonts/star.eot");
 	src: url("../../../../../../plugins/woocommerce/assets/fonts/star.eot?#iefix") format("embedded-opentype"), url("../../../../../../plugins/woocommerce/assets/fonts/star.woff") format("woff"), url("../../../../../../plugins/woocommerce/assets/fonts/star.ttf") format("truetype"), url("../../../../../../plugins/woocommerce/assets/fonts/star.svg#star") format("svg");
 	font-weight: normal;
@@ -21,7 +21,7 @@
 }
 
 @font-face {
-	font-family: 'WooCommerce';
+	font-family: "WooCommerce";
 	src: url("../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot");
 	src: url("../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix") format("embedded-opentype"), url("../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.woff") format("woff"), url("../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.ttf") format("truetype"), url("../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce") format("svg");
 	font-weight: normal;
@@ -207,21 +207,21 @@ p.demo_store a,
 	display: none;
 }
 
-.woocommerce .cart .quantity.suki-qty span.input {
+.woocommerce .cart .quantity.suki-qty .suki-qty-increment {
 	position: absolute;
-	top: 0;
-	width: 1.25em;
-	padding-left: 0;
-	padding-right: 0;
+	top: 50%;
+	width: 20%;
+	margin-top: -0.5em;
 	text-align: center;
 	cursor: pointer;
 	border-radius: 0;
 	border-color: transparent;
 	background-color: transparent;
+	line-height: 1;
 	opacity: 0.5;
 }
 
-.woocommerce .cart .quantity.suki-qty span.input:hover, .woocommerce .cart .quantity.suki-qty span.input:focus {
+.woocommerce .cart .quantity.suki-qty .suki-qty-increment:hover, .woocommerce .cart .quantity.suki-qty .suki-qty-increment:focus {
 	opacity: 1;
 }
 
@@ -2633,10 +2633,9 @@ p.demo_store a,
 	display: none;
 }
 
-.woocommerce-cart table.cart .actions .input-text {
-	float: left;
-	margin-right: 0.5rem;
+.woocommerce-cart table.cart .actions .coupon input {
 	width: 15rem;
+	margin-right: 0.5rem;
 }
 
 .woocommerce-cart table.cart input {

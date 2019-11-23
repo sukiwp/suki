@@ -677,8 +677,8 @@ class Suki_Compatibility_WooCommerce {
 						    $plus = document.createElement( 'span' );
 
 						$minus.innerHTML = '-';
+						$minus.classList.add( 'suki-qty-increment' );
 						$minus.classList.add( 'suki-qty-minus' );
-						$minus.classList.add( 'input' );
 						$minus.setAttribute( 'role', 'button' );
 						$minus.setAttribute( 'tabindex', 0 );
 						$minus.addEventListener( 'click', handlePlusMinusButton );
@@ -687,8 +687,8 @@ class Suki_Compatibility_WooCommerce {
 						$quantity_wrappers[i].appendChild( $minus );
 
 						$plus.innerHTML = '+';
+						$plus.classList.add( 'suki-qty-increment' );
 						$plus.classList.add( 'suki-qty-plus' );
-						$plus.classList.add( 'input' );
 						$plus.setAttribute( 'role', 'button' );
 						$plus.setAttribute( 'tabindex', 0 );
 						$plus.addEventListener( 'click', handlePlusMinusButton );

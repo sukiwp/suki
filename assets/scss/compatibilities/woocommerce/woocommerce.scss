@@ -46,7 +46,7 @@
 // }
 
 @font-face {
-	font-family: 'star';
+	font-family: "star";
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/star.eot');
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/star.eot?#iefix') format('embedded-opentype'),
 		url('../../../../../../plugins/woocommerce/assets/fonts/star.woff') format('woff'),
@@ -57,7 +57,7 @@
 }
 
 @font-face {
-	font-family: 'WooCommerce';
+	font-family: "WooCommerce";
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot');
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix') format('embedded-opentype'),
 		url('../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.woff') format('woff'),
@@ -271,18 +271,18 @@ p.demo_store,
 				display: none;
 			}
 
-			span.input {
+			.suki-qty-increment {
 				position: absolute;
-				top: 0;
-				width: 1.25em;
-				padding-left: 0;
-				padding-right: 0;
+				top: 50%;
+				width: 20%;
+				margin-top: -0.5em;
 				text-align: center;
 				cursor: pointer;
 				border-radius: 0;
 				border-color: transparent;
 				background-color: transparent;
 				// color: inherit;
+				line-height: 1;
 				opacity: 0.5;
 
 				&:hover, &:focus {
@@ -3407,17 +3407,20 @@ p.demo_store,
 				label {
 					display: none;
 				}
+
+				input {
+					width: 15rem;
+					margin-right: 0.5rem;
+				}
 			}
 
 			.input-text {
-				float: left;
+				// float: left;
 				// box-sizing: border-box;
 				// border: 1px solid darken($secondary, 10%);
 				// padding: 6px 6px 5px;
 				// margin: 0 4px 0 0;
-				margin-right: 0.5rem;
 				// outline: 0;
-				width: 15rem;
 			}
 		}
 
