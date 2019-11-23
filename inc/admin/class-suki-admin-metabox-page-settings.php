@@ -495,6 +495,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
+						<div class="notice notice-info notice-alt inline">
+							<p><?php esc_html_e( 'If you are using Page Builder and want a full width layout, please set the "Page Attributes > Template" to "Page Builder" or the one provided by your page builder.', 'suki' ); ?></p>
+						</div>
 					</div>
 				</div>
 
