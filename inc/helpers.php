@@ -105,18 +105,12 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 	// Iterate through the templates.
 	foreach ( $templates as $template ) {
 		/**
-		 * Native paths
+		 * Child Theme
 		 */
 
-		// Iterate through child theme paths, theme paths, and then native theme compatibilities path to check the template file.
+		// Check the template file in Child Theme.
 		if ( file_exists( STYLESHEETPATH . '/template-parts/' . $template ) ) {
 			$template_file_path = STYLESHEETPATH . '/template-parts/' . $template;
-			break;
-		} elseif ( file_exists( TEMPLATEPATH . '/template-parts/' . $template ) ) {
-			$template_file_path = TEMPLATEPATH . '/template-parts/' . $template;
-			break;
-		} elseif ( file_exists( ABSPATH . WPINC . '/theme-compat/' . $template ) ) {
-			$template_file_path = ABSPATH . WPINC . '/theme-compat/' . $template;
 			break;
 		}
 
@@ -136,6 +130,22 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 				$template_file_path = $custom_path . '/' . $template;
 				break;
 			}
+		}
+
+		/**
+		 * Parent Theme
+		 */
+
+		// Check the template file in Parent Theme.
+		if ( file_exists( TEMPLATEPATH . '/template-parts/' . $template ) ) {
+			$template_file_path = TEMPLATEPATH . '/template-parts/' . $template;
+			break;
+		}
+
+		// Last resort, check the template file in WordPress theme compatibility files (very unlikely to reach here).
+		elseif ( file_exists( ABSPATH . WPINC . '/theme-compat/' . $template ) ) {
+			$template_file_path = ABSPATH . WPINC . '/theme-compat/' . $template;
+			break;
 		}
 	}
 
