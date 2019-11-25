@@ -109,8 +109,8 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 		 */
 
 		// Check the template file in Child Theme.
-		if ( file_exists( STYLESHEETPATH . '/template-parts/' . $template ) ) {
-			$template_file_path = STYLESHEETPATH . '/template-parts/' . $template;
+		if ( file_exists( get_stylesheet_directory() . '/template-parts/' . $template ) ) {
+			$template_file_path = get_stylesheet_directory() . '/template-parts/' . $template;
 			break;
 		}
 
@@ -137,8 +137,8 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 		 */
 
 		// Check the template file in Parent Theme.
-		if ( file_exists( TEMPLATEPATH . '/template-parts/' . $template ) ) {
-			$template_file_path = TEMPLATEPATH . '/template-parts/' . $template;
+		if ( file_exists( get_template_directory() . '/template-parts/' . $template ) ) {
+			$template_file_path = get_template_directory() . '/template-parts/' . $template;
 			break;
 		}
 
