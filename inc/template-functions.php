@@ -643,8 +643,14 @@ add_filter( 'suki/frontend/content_classes', 'suki_content_classes' );
  */
 function suki_loop_classes( $classes ) {
 	$classes['mode'] = esc_attr( 'suki-loop-' . suki_get_theme_mod( 'blog_index_loop_mode' ) );
+
+	// Grid
 	if ( 'grid' == suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
 		$classes['blog_index_grid_columns'] = esc_attr( 'suki-loop-grid-' . suki_get_theme_mod( 'blog_index_grid_columns' ) . '-columns' );
+
+		if ( intval( suki_get_theme_mod( 'entry_grid_same_height' ) ) ) {
+			$classes['entry_grid_same_height'] = 'suki-loop-grid-same-height';
+		}
 	}
 
 	return $classes;
@@ -665,6 +671,21 @@ function suki_entry_thumbnail_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'suki/frontend/entry/thumbnail_classes', 'suki_entry_thumbnail_classes' );
+
+/**
+ * Add custom classes to entry grid thumbnail.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_entry_grid_thumbnail_classes( $classes ) {
+	if ( intval( suki_get_theme_mod( 'entry_grid_featured_media_ignore_padding' ) ) ) {
+		$classes['entry_grid_featured_media_ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/entry_grid/thumbnail_classes', 'suki_entry_grid_thumbnail_classes' );
 
 /**
  * Add custom classes to the array of sidebar classes.

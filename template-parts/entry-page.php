@@ -47,10 +47,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			 */
 			do_action( 'suki/frontend/entry/before_content' );
 
-			// Print the content.
+			/**
+			 * Excerpt
+			 */
+
 			the_content();
 
-			// Print content pagination, if exists.
+			// Content pagination (if exists)
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'suki' ),
 				'after'  => '</div>',

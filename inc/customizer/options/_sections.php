@@ -491,6 +491,7 @@ $wp_customize->add_panel( $panel, array(
 			'features'    => array(
 				esc_html_x( 'Related Posts', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Featured Posts', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Post Layout: List', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );

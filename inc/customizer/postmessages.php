@@ -2309,6 +2309,51 @@ $add['blog_index_grid_columns_gutter'] = array(
 	),
 );
 
+$add['entry_grid_padding'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'padding',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding:first-child',
+		'property' => 'margin-top',
+		'pattern'  => '-$ !important',
+		'function' => array(
+			'name' => 'explode_value',
+			'args' => array( 0 ), // 1st part = top
+		),
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
+		'property' => 'margin-right',
+		'pattern'  => '-$ !important',
+		'function' => array(
+			'name' => 'explode_value',
+			'args' => array( 1 ), // 2nd part = right
+		),
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
+		'property' => 'margin-left',
+		'pattern'  => '-$ !important',
+		'function' => array(
+			'name' => 'explode_value',
+			'args' => array( 3 ), // 4rd part = left
+		),
+	),
+);
+$add['entry_grid_border'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'border-width',
+	),
+);
+
 $add['entry_grid_header_alignment'] = array(
 	array(
 		'type'     => 'class',
@@ -2322,6 +2367,22 @@ $add['entry_grid_footer_alignment'] = array(
 		'type'     => 'class',
 		'element'  => '.entry-layout-grid .entry-footer',
 		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+$add['entry_grid_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'background-color',
+	),
+);
+
+$add['entry_grid_border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'border-color',
 	),
 );
 

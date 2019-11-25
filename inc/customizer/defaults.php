@@ -834,18 +834,29 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
  */
 
 $add['blog_index_grid_columns'] = 2;
-$add['blog_index_grid_rows_gutter'] = '15px';
-$add['blog_index_grid_columns_gutter'] = '15px';
+$add['blog_index_grid_rows_gutter'] = '30px';
+$add['blog_index_grid_columns_gutter'] = '20px';
+
+$add['entry_grid_padding'] = '0 0 0 0';
+$add['entry_grid_border'] = '0 0 0 0';
+$add['entry_grid_same_height'] = 0;
 
 $add['entry_grid_featured_media_position'] = 'before-entry-header';
+$add['entry_grid_featured_media_ignore_padding'] = 0;
+
 $add['entry_grid_header'] = array( 'header-meta', 'title' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
+
 $add['entry_grid_excerpt_length'] = 30;
-$add['entry_grid_read_more_text'] = 'Read more';
+$add['entry_grid_read_more_text'] = '';
 $add['entry_grid_read_more_display'] = 'text';
+
 $add['entry_grid_footer'] = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
+
+$add['entry_grid_bg_color'] = '';
+$add['entry_grid_border_color'] = '';
 
 return $add;

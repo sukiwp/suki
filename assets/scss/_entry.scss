@@ -10,6 +10,14 @@
 	margin-bottom: -15px; // default
 	margin-left: -15px; // default
 	margin-right: -15px; // default
+
+	&.suki-loop-grid-same-height {
+		align-items: stretch;
+
+		.entry-footer {
+			margin-top: auto;
+		}
+	}
 }
 
 // Entry
@@ -20,8 +28,8 @@
 
 	.suki-loop-grid & {
 		width: 100%;
-		padding-top: 15px; // default
-		padding-bottom: 15px; // default
+		padding-top: 30px; // default
+		padding-bottom: 30px; // default
 		padding-left: 15px; // default
 		padding-right: 15px; // default
 		border: none;
@@ -65,8 +73,12 @@
 	}
 
 	.entry-layout-grid & {
-		@include border( null, 1px ); // default
-		padding: 1.25em 1.5em; // default
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		@include border( null, 0 ); // default
+		padding: 0; // default
 		background-color: $color_bg; // default
 	}
 }
@@ -133,16 +145,6 @@
 	.entry-small & {
 		margin: 0 0 1rem;
 	}
-
-	.entry-layout-grid & {
-		align-self: stretch;
-		margin-left: -1.5em; // default
-		margin-right: -1.5em; // default
-
-		&:first-child {
-			margin-top: -1.25em; // default
-		}
-	}
 }
 
 // Image thumbnail with link
@@ -181,7 +183,7 @@ a.entry-thumbnail {
 	margin: 0 0 1.25em;
 
 	p {
-		margin: 0;
+		margin-bottom: 0.75em;
 	}
 }
 

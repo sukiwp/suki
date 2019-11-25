@@ -2636,6 +2636,7 @@ p.demo_store a,
 .woocommerce-cart table.cart .actions .coupon input {
 	width: 15rem;
 	margin-right: 0.5rem;
+	vertical-align: initial;
 }
 
 .woocommerce-cart table.cart input {

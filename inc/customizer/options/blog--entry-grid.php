@@ -89,6 +89,81 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 
 /**
  * ====================================================
+ * Item
+ * ====================================================
+ */
+
+// Heading: Item
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_item', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Item', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+// Padding
+$key = 'entry_grid_padding';
+$settings = array(
+	$key,
+	$key . '__tablet',
+	$key . '__mobile',
+);
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
+	) );
+}
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Padding', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'step' => 1,
+		),
+		'em' => array(
+			'min'  => 0,
+			'step' => 0.05,
+		),
+	),
+	'priority'    => 20,
+) ) );
+
+// Border
+$key = 'entry_grid_border';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Border', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'step' => 1,
+		),
+	),
+	'priority'    => 20,
+) ) );
+
+// Make items in a row to be in same height
+$key = 'entry_grid_same_height';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Same height items in a row', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+/**
+ * ====================================================
  * Featured Media
  * ====================================================
  */
@@ -98,7 +173,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Featured Media', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Featured media position
@@ -115,8 +190,20 @@ $wp_customize->add_control( $key, array(
 		'before-entry-header' => esc_html__( 'Before Post Header', 'suki' ),
 		'after-entry-header'  => esc_html__( 'After Post Header', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 30,
 ) );
+
+// Ignore padding
+$key = 'entry_grid_featured_media_ignore_padding';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Ignore padding', 'suki' ),
+	'priority'    => 30,
+) ) );
 
 /**
  * ====================================================
@@ -129,7 +216,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Post Header', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 40,
 ) ) );
 
 // Elements to display
@@ -141,13 +228,12 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Elements to display', 'suki' ),
-	'description' => esc_html__( 'Add and move elements as you wish. Leave it blank to disable.', 'suki' ),
 	'choices'     => array(
 		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
 		'title'       => esc_html__( 'Title', 'suki' ),
 	),
 	'layout'      => 'block',
-	'priority'    => 30,
+	'priority'    => 40,
 ) ) );
 
 // Alignment
@@ -166,7 +252,7 @@ $wp_customize->add_control( $key, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 50,
+	'priority'    => 40,
 ) );
 
 // Header meta text
@@ -179,7 +265,7 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Header meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}.', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 40,
 ) );
 
 /**
@@ -193,7 +279,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Content', 'suki' ),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 // Entry grid excerpt length
@@ -213,8 +299,26 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'label' => 'wrd',
 		),
 	),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
+
+// Read more
+$key = 'entry_grid_read_more_display';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Read more', 'suki' ),
+	'choices'     => array(
+		''       => esc_html__( 'None', 'suki' ),
+		'text'   => esc_html__( 'Text', 'suki' ),
+		'button' => esc_html__( 'Button', 'suki' ),
+	),
+	'priority'    => 50,
+) );
 
 // Read more text
 $key = 'entry_grid_read_more_text';
@@ -225,25 +329,10 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Read more text', 'suki' ),
-	'description' => esc_html__( 'Leave empty to disable read more link.', 'suki' ),
-	'priority'    => 40,
-) );
-
-// Read more display
-$key = 'entry_grid_read_more_display';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Read more display', 'suki' ),
-	'choices'     => array(
-		'text'   => esc_html__( 'Text', 'suki' ),
-		'button' => esc_html__( 'Button', 'suki' ),
+	'input_attrs' => array(
+		'placeholder' => esc_html__( 'Read more', 'suki' ),
 	),
-	'priority'    => 40,
+	'priority'    => 50,
 ) );
 
 /**
@@ -257,7 +346,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Post Footer', 'suki' ),
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Elements to display
@@ -273,7 +362,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 	),
 	'layout'      => 'block',
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Alignment
@@ -292,7 +381,7 @@ $wp_customize->add_control( $key, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 50,
+	'priority'    => 60,
 ) );
 
 // Footer meta text
@@ -305,5 +394,37 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Footer meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
-	'priority'    => 50,
+	'priority'    => 60,
 ) );
+
+/**
+ * ====================================================
+ * Colors
+ * ====================================================
+ */
+
+// Heading: Colors
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_grid_colors', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Colors', 'suki' ),
+	'priority'    => 80,
+) ) );
+
+// Colors
+$colors = array(
+	'entry_grid_bg_color'     => esc_html__( 'Background color', 'suki' ),
+	'entry_grid_border_color' => esc_html__( 'Border color', 'suki' ),
+);
+foreach ( $colors as $key => $label ) {
+	$wp_customize->add_setting( $key, array(
+		'default'     => suki_array_value( $defaults, $key ),
+		'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+	) );
+	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
+		'section'     => $section,
+		'label'       => $label,
+		'priority'    => 80,
+	) ) );
+}

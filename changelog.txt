@@ -1,5 +1,6 @@
 v1.2.0
 - NEW: Social links widget.
+- NEW: Additional options for Post Layout: Grid, like padding and border.
 - NEW: Implement template inheritances using template files (via custom `get_template_part` function).
 - TWEAK: Improve dynamic custom CSS generation performance by filtering the CSS array based on the saved theme options only.
 - TWEAK: Improve string on post navigation to avoid wrong translation on the "%title" syntax.
