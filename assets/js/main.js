@@ -198,12 +198,6 @@
 						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
 					}
 
-					// Apply vertical max-height.
-					$submenu.style.maxHeight = 'none';
-					if ( window.innerHeight < $submenu.getBoundingClientRect().top + $submenu.getBoundingClientRect().height ) {
-						$submenu.style.maxHeight = ( window.innerHeight - $submenu.getBoundingClientRect().top ) + 'px';
-					}
-
 					// Iterate to 2nd & higher level submenu.
 					var $subsubmenus = $submenu.querySelectorAll( '.sub-menu' );
 					for ( var j = 0; j < $subsubmenus.length; j++ ) {
