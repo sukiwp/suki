@@ -1548,12 +1548,7 @@ $add['sidebar_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar',
-		'property' => 'width',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.sidebar',
-		'property' => 'min-width',
+		'property' => 'flex-basis',
 	),
 );
 $add['sidebar_gap'] = array(
@@ -2309,43 +2304,53 @@ $add['blog_index_grid_columns_gutter'] = array(
 	),
 );
 
-$add['entry_grid_padding'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-grid .entry-wrapper',
-		'property' => 'padding',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding:first-child',
-		'property' => 'margin-top',
-		'pattern'  => '-$ !important',
-		'function' => array(
-			'name' => 'explode_value',
-			'args' => array( 0 ), // 1st part = top
-		),
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
-		'property' => 'margin-right',
-		'pattern'  => '-$ !important',
-		'function' => array(
-			'name' => 'explode_value',
-			'args' => array( 1 ), // 2nd part = right
-		),
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
-		'property' => 'margin-left',
-		'pattern'  => '-$ !important',
-		'function' => array(
-			'name' => 'explode_value',
-			'args' => array( 3 ), // 4rd part = left
-		),
-	),
+$responsive = array(
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
 );
+foreach ( $responsive as $suffix => $media ) {
+	$add['entry_grid_padding' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-wrapper',
+			'property' => 'padding',
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding:first-child',
+			'property' => 'margin-top',
+			'pattern'  => '-$ !important',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 0 ), // 1st part = top
+			),
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
+			'property' => 'margin-right',
+			'pattern'  => '-$ !important',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 1 ), // 2nd part = right
+			),
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
+			'property' => 'margin-left',
+			'pattern'  => '-$ !important',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 3 ), // 4rd part = left
+			),
+			'media'    => $media,
+		),
+	);
+}
 $add['entry_grid_border'] = array(
 	array(
 		'type'     => 'css',

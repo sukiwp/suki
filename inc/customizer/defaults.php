@@ -850,7 +850,7 @@ $add['entry_grid_header_meta'] = '{{date}}';
 
 $add['entry_grid_excerpt_length'] = 30;
 $add['entry_grid_read_more_text'] = '';
-$add['entry_grid_read_more_display'] = 'text';
+$add['entry_grid_read_more_display'] = '';
 
 $add['entry_grid_footer'] = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';

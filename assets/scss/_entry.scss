@@ -68,6 +68,8 @@
 
 // Entry wrapper
 .entry-wrapper {
+	@include border( null, 0 );
+
 	> *:last-child {
 		margin-bottom: 0;
 	}
@@ -76,10 +78,6 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-
-		@include border( null, 0 ); // default
-		padding: 0; // default
-		background-color: $color_bg; // default
 	}
 }
 

@@ -356,6 +356,8 @@ a.wp-block-button__link:focus {
 	border-color: #004c99;
 }
 
+input:not([type]),
+input[type=""],
 input[type="text"],
 input[type="password"],
 input[type="color"],
@@ -395,6 +397,8 @@ input[type="week"],
 	vertical-align: middle;
 }
 
+input:not([type]):focus,
+input[type=""]:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="color"]:focus,
@@ -1637,7 +1641,8 @@ body.suki-page-layout-boxed #page {
 }
 
 .content-area {
-	width: 100%;
+	-ms-flex: 1 0;
+	flex: 1 0;
 	min-width: 0;
 }
 
@@ -1664,8 +1669,10 @@ body.suki-page-layout-boxed #page {
 }
 
 .sidebar {
-	width: 25%;
-	min-width: 25%;
+	-ms-flex: 0 0;
+	flex: 0 0;
+	-ms-flex-preferred-size: 25%;
+	flex-basis: 25%;
 }
 
 .suki-content-layout-right-sidebar .sidebar {
@@ -1692,8 +1699,8 @@ body.suki-page-layout-boxed #page {
 
 @media screen and (max-width: 1023px) {
 	.sidebar {
-		width: auto !important;
-		min-width: auto !important;
+		-ms-flex-preferred-size: 100% !important;
+		flex-basis: 100% !important;
 		margin: 4em 0 0 0 !important;
 	}
 }
@@ -2848,6 +2855,11 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	border-bottom-style: solid;
 }
 
+.entry-wrapper {
+	border-width: 0;
+	border-style: solid;
+}
+
 .entry-wrapper > *:last-child {
 	margin-bottom: 0;
 }
@@ -2858,10 +2870,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	-ms-flex-direction: column;
 	flex-direction: column;
 	height: 100%;
-	border-width: 0;
-	border-style: solid;
-	padding: 0;
-	background-color: #ffffff;
 }
 
 .entry-header {

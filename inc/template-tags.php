@@ -854,7 +854,7 @@ if ( ! function_exists( 'suki_entry_header_meta' ) ) :
  * Print entry header meta.
  */
 function suki_entry_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_header_meta', array() ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_header_meta' ) );
 }
 endif;
 
@@ -863,7 +863,7 @@ if ( ! function_exists( 'suki_entry_footer_meta' ) ) :
  * Print entry footer meta.
  */
 function suki_entry_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_footer_meta', array() ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_footer_meta' ) );
 }
 endif;
 
@@ -903,7 +903,7 @@ if ( ! function_exists( 'suki_entry_grid_header_meta' ) ) :
  * Print entry grid header meta.
  */
 function suki_entry_grid_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_grid_header_meta', array() ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_grid_header_meta' ) );
 }
 endif;
 
@@ -912,7 +912,7 @@ if ( ! function_exists( 'suki_entry_grid_footer_meta' ) ) :
  * Print entry grid footer meta.
  */
 function suki_entry_grid_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta', array() ) );
+	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta' ) );
 }
 endif;
 
