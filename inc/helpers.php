@@ -126,9 +126,11 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 
 		// Iterate through the custom paths and use the path if it exists.
 		foreach ( $custom_paths as $custom_path ) {
-			if ( file_exists( $custom_path . '/' . $template ) ) {
-				$template_file_path = $custom_path . '/' . $template;
-				break;
+			$temp = trailingslashit( $custom_path ) . $template;
+
+			if ( file_exists( $temp ) ) {
+				$template_file_path = $temp;
+				break 2; // break from 2 iteration levels, which are the $custom path and $templates.
 			}
 		}
 
