@@ -44,9 +44,9 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 		// Sanitize unit attributes.
 		foreach ( $this->units as $key => $unit ) {
 			$this->units[ $key ] = wp_parse_args( $unit, array(
-				'min' => '',
+				'min' => 0,
 				'max' => '',
-				'step' => '',
+				'step' => 1,
 				'label' => $key,
 			) );
 		}

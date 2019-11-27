@@ -2305,6 +2305,7 @@ $add['blog_index_grid_columns_gutter'] = array(
 );
 
 $responsive = array(
+	''         => '',
 	'__tablet' => '@media screen and (max-width: 1023px)',
 	'__mobile' => '@media screen and (max-width: 499px)',
 );

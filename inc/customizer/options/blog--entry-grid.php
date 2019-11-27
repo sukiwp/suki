@@ -116,6 +116,7 @@ foreach ( $settings as $setting ) {
 	) );
 }
 $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
+	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Padding', 'suki' ),
 	'units'       => array(
