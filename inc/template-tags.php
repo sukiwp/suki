@@ -153,7 +153,7 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 		'class' => '',
 	) );
 
-	$classes = implode( ' ', array( $args['class'], 'suki-icon' ) );
+	$classes = implode( ' ', array( 'suki-icon', $args['class'] ) );
 
 	// Get SVG path.
 	$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
@@ -205,7 +205,7 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	foreach ( $links as $link ) :
 		echo $args['before_link']; // WPCS: XSS OK
 
-		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>>
+		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link <?php echo esc_attr( 'suki-social-link--' . $link['type'] ); ?>" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
@@ -704,8 +704,6 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) :
  * Print entry meta element.
  */
 function suki_entry_meta_element( $element ) {
-	global $post;
-
 	switch ( $element ) {
 		case 'date':
 			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
