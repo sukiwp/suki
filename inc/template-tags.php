@@ -725,7 +725,7 @@ function suki_entry_meta_element( $element ) {
 			break;
 
 		case 'avatar':
-			echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 24 ) . '</span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'suki/frontend/meta_avatar_size', 24 ) ) . '</span>'; // WPCS: XSS OK
 			break;
 
 		case 'categories':
