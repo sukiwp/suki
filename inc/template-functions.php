@@ -356,11 +356,7 @@ function suki_excerpt_length( $length ) {
 		return 30;
 	}
 
-	if ( 'grid' === suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
-		return intval( suki_get_theme_mod( 'entry_grid_excerpt_length' ) );
-	} else {
-		return $length;
-	}
+	return intval( suki_get_theme_mod( 'entry_' . suki_get_theme_mod( 'blog_index_loop_mode' ) . '_excerpt_length', suki_get_theme_mod( 'entry_excerpt_length', $length ) ) );
 }
 add_filter( 'excerpt_length', 'suki_excerpt_length' );
 

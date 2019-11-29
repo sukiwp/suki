@@ -246,11 +246,11 @@ msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-functions.php:392
+#: inc/template-functions.php:388
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:452
+#: inc/template-functions.php:448
 msgid "Search&hellip;"
 msgstr ""
 
