@@ -68,180 +68,180 @@ msgstr ""
 msgid "Footer Widgets Column %s"
 msgstr ""
 
-#: inc/helpers.php:483
+#: inc/helpers.php:484
 msgid "Layout Modules"
 msgstr ""
 
-#: inc/helpers.php:484
+#: inc/helpers.php:485
 msgid "Assets & Branding Modules"
 msgstr ""
 
-#: inc/helpers.php:485
+#: inc/helpers.php:486
 msgid "Blog Modules"
 msgstr ""
 
-#: inc/helpers.php:486
+#: inc/helpers.php:487
 msgid "WooCommerce Integration Modules"
 msgstr ""
 
-#: inc/helpers.php:498
+#: inc/helpers.php:499
 msgid "Page Canvas Layout"
 msgstr ""
 
-#: inc/helpers.php:502, inc/helpers.php:512, inc/helpers.php:522, inc/helpers.php:532, inc/helpers.php:542, inc/helpers.php:552, inc/helpers.php:563, inc/helpers.php:573, inc/helpers.php:583, inc/helpers.php:593, inc/helpers.php:604, inc/helpers.php:615
+#: inc/helpers.php:503, inc/helpers.php:513, inc/helpers.php:523, inc/helpers.php:533, inc/helpers.php:543, inc/helpers.php:553, inc/helpers.php:564, inc/helpers.php:574, inc/helpers.php:584, inc/helpers.php:594, inc/helpers.php:605, inc/helpers.php:616
 msgid "Customize"
 msgstr ""
 
-#: inc/helpers.php:508
+#: inc/helpers.php:509
 msgid "Header Layout"
 msgstr ""
 
-#: inc/helpers.php:518
+#: inc/helpers.php:519
 msgid "Page Header Layout"
 msgstr ""
 
-#: inc/helpers.php:528
+#: inc/helpers.php:529
 msgid "Content & Sidebar Layout"
 msgstr ""
 
-#: inc/helpers.php:538, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:356
+#: inc/helpers.php:539, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:356
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/helpers.php:548, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/page-header.php:95, inc/customizer/options/_sections.php:508
+#: inc/helpers.php:549, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/page-header.php:95, inc/customizer/options/_sections.php:508
 msgid "Dynamic Page Settings"
 msgstr ""
 
-#: inc/helpers.php:559, inc/customizer/options/_sections.php:47
+#: inc/helpers.php:560, inc/customizer/options/_sections.php:47
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:569
+#: inc/helpers.php:570
 msgid "General Typography & Colors"
 msgstr ""
 
-#: inc/helpers.php:579, inc/customizer/options/_sections.php:55
+#: inc/helpers.php:580, inc/customizer/options/_sections.php:55
 msgid "Google Fonts"
 msgstr ""
 
-#: inc/helpers.php:589, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
+#: inc/helpers.php:590, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
 msgid "Social Links"
 msgstr ""
 
-#: inc/helpers.php:600
+#: inc/helpers.php:601
 msgid "Blog Layout"
 msgstr ""
 
-#: inc/helpers.php:611
+#: inc/helpers.php:612
 msgid "WC Layout"
 msgstr ""
 
-#: inc/helpers.php:633
+#: inc/helpers.php:634
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:638
+#: inc/helpers.php:639
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:643
+#: inc/helpers.php:644
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:648
+#: inc/helpers.php:649
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:653
+#: inc/helpers.php:654
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:658
+#: inc/helpers.php:659
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:663
+#: inc/helpers.php:664
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:668, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:669, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:673, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:674, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:679
+#: inc/helpers.php:680
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:684
+#: inc/helpers.php:685
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:689
+#: inc/helpers.php:690
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:695
+#: inc/helpers.php:696
 msgid "WC Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:700
+#: inc/helpers.php:701
 msgid "WC AJAX Add To Cart"
 msgstr ""
 
-#: inc/helpers.php:705
+#: inc/helpers.php:706
 msgid "WC Quick View"
 msgstr ""
 
-#: inc/helpers.php:710
+#: inc/helpers.php:711
 msgid "WC Off-Canvas Filters"
 msgstr ""
 
-#: inc/helpers.php:715
+#: inc/helpers.php:716
 msgid "WC Checkout Optimization"
 msgstr ""
 
-#: inc/helpers.php:721
+#: inc/helpers.php:722
 msgid "Blog Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:726
+#: inc/helpers.php:727
 msgid "Blog Featured Posts"
 msgstr ""
 
-#: inc/helpers.php:731
+#: inc/helpers.php:732
 msgid "Blog Related Posts"
-msgstr ""
-
-#: inc/helpers.php:874
-msgctxt "icon label"
-msgid "Search"
 msgstr ""
 
 #: inc/helpers.php:875
 msgctxt "icon label"
-msgid "Close"
+msgid "Search"
 msgstr ""
 
 #: inc/helpers.php:876
 msgctxt "icon label"
-msgid "Menu"
+msgid "Close"
 msgstr ""
 
 #: inc/helpers.php:877
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Down"
+msgid "Menu"
 msgstr ""
 
 #: inc/helpers.php:878
 msgctxt "icon label"
-msgid "Dropdown Arrow -- Right"
+msgid "Dropdown Arrow -- Down"
 msgstr ""
 
 #: inc/helpers.php:879
+msgctxt "icon label"
+msgid "Dropdown Arrow -- Right"
+msgstr ""
+
+#: inc/helpers.php:880
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""

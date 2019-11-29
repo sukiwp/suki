@@ -122,6 +122,7 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 		$custom_paths = apply_filters( 'suki/frontend/template_dirs', array() );
 
 		// Sort the custom paths by key number.
+		// Lower key number = higher priority.
 		ksort( $custom_paths );
 
 		// Iterate through the custom paths and use the path if it exists.
