@@ -74,7 +74,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'ed
 $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'edit_entry_default', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>',
+	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>',
 	'priority'    => 20,
 ) ) );
 
