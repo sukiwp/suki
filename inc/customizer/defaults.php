@@ -820,9 +820,15 @@ $add['blog_single_navigation'] = 1;
 
 $add['entry_featured_media_position'] = 'before-entry-header';
 $add['entry_featured_media_ignore_padding'] = 0;
+
 $add['entry_header'] = array( 'header-meta', 'title' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
+
+$add['entry_excerpt_length'] = 55;
+$add['entry_read_more_text'] = '';
+$add['entry_read_more_display'] = '';
+
 $add['entry_footer'] = array( 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
 $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';

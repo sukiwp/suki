@@ -21,7 +21,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Featured Media', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
 
 // Featured media position
@@ -38,7 +38,7 @@ $wp_customize->add_control( $key, array(
 		'before-entry-header' => esc_html__( 'Before Post Header', 'suki' ),
 		'after-entry-header'  => esc_html__( 'After Post Header', 'suki' ),
 	),
-	'priority'    => 10,
+	'priority'    => 30,
 ) );
 
 // Ignore padding
@@ -50,7 +50,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Ignore padding', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
 
 /**
@@ -64,7 +64,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Post Header', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 40,
 ) ) );
 
 // Elements to display
@@ -81,7 +81,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'title'       => esc_html__( 'Title', 'suki' ),
 	),
 	'layout'      => 'block',
-	'priority'    => 20,
+	'priority'    => 40,
 ) ) );
 
 // Alignment
@@ -100,7 +100,7 @@ $wp_customize->add_control( $key, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 40,
 ) );
 
 // Header meta text
@@ -113,7 +113,74 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Header meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}.', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 40,
+) );
+
+/**
+ * ====================================================
+ * Content
+ * ====================================================
+ */
+
+// Heading: Content
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_content', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Content', 'suki' ),
+	'priority'    => 50,
+) ) );
+
+// Entry excerpt length
+$key = 'entry_excerpt_length';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Excerpt words limit', 'suki' ),
+	'units'       => array(
+		'' => array(
+			'min'  => 0,
+			'max'  => 200,
+			'step' => 1,
+			'label' => 'wrd',
+		),
+	),
+	'priority'    => 50,
+) ) );
+
+// Read more
+$key = 'entry_read_more_display';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Read more', 'suki' ),
+	'choices'     => array(
+		''       => esc_html__( 'None', 'suki' ),
+		'text'   => esc_html__( 'Text', 'suki' ),
+		'button' => esc_html__( 'Button', 'suki' ),
+	),
+	'priority'    => 50,
+) );
+
+// Read more text
+$key = 'entry_read_more_text';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+) );
+$wp_customize->add_control( $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Read more text', 'suki' ),
+	'input_attrs' => array(
+		'placeholder' => esc_html__( 'Read more', 'suki' ),
+	),
+	'priority'    => 50,
 ) );
 
 /**
@@ -127,7 +194,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Post Footer', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 60,
 ) ) );
 
 // Elements to display
@@ -143,7 +210,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 	),
 	'layout'      => 'block',
-	'priority'    => 30,
+	'priority'    => 60,
 ) ) );
 
 // Alignment
@@ -162,7 +229,7 @@ $wp_customize->add_control( $key, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 30,
+	'priority'    => 60,
 ) );
 
 // Footer meta text
@@ -175,5 +242,5 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Footer meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 60,
 ) );

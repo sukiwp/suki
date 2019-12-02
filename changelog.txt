@@ -1,7 +1,10 @@
 v1.2.0
 - NEW: Social links widget.
-- NEW: Additional options for Post Layout: Grid, like padding and border.
-- NEW: Implement template inheritances using template files (via custom `get_template_part` function).
+- NEW: Excerpt options for Post Layout: Default.
+- NEW: Excerpt options for Post Layout: Grid.
+- NEW: Additional style options for Post Layout: Grid, like padding and border.
+- NEW: Implement template inheritances using template files (via custom `get_template_part` function). Developers could easily override template files from Child Theme.
+- NEW: Filter `suki/frontend/meta_avatar_size` to change gravatar size on entry meta.
 - TWEAK: Improve dynamic custom CSS generation performance by filtering the CSS array based on the saved theme options only.
 - TWEAK: Improve string on post navigation to avoid wrong translation on the "%title" syntax.
 - TWEAK: Improve WooCommerce CSS.

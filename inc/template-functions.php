@@ -352,11 +352,26 @@ add_filter( 'the_content_more_link', 'suki_read_more' );
  * @return integer
  */
 function suki_excerpt_length( $length ) {
+	// Search page
 	if ( is_search() ) {
 		return 30;
 	}
 
-	return intval( suki_get_theme_mod( 'entry_' . suki_get_theme_mod( 'blog_index_loop_mode' ) . '_excerpt_length', suki_get_theme_mod( 'entry_excerpt_length', $length ) ) );
+	// Posts page
+	elseif ( ( is_home() || is_archive() ) && 'post' === get_post_type() ) {
+		$layout = suki_get_theme_mod( 'blog_index_loop_mode' );
+
+		if ( 'default' === $layout ) {
+			$key = 'entry_excerpt_length';
+		} else {
+			$key = 'entry_' . $layout . '_excerpt_length';
+		}
+
+		return intval( suki_get_theme_mod( $key, $length ) );
+	}
+
+	// Else
+	return $length;
 }
 add_filter( 'excerpt_length', 'suki_excerpt_length' );
 
