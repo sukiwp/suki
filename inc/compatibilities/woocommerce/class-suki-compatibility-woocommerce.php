@@ -326,6 +326,16 @@ class Suki_Compatibility_WooCommerce {
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 
+		// Keep / remove gallery zoom module.
+		if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
+			remove_theme_support( 'wc-product-gallery-zoom' );
+		}
+
+		// Keep / remove gallery lightbox module.
+		if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
+			remove_theme_support( 'wc-product-gallery-lightbox' );
+		}
+
 		/**
 		 * Shop page's template hooks
 		 */
@@ -368,16 +378,6 @@ class Suki_Compatibility_WooCommerce {
 			// Keep / remove gallery.
 			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery' ) ) ) {
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-			}
-
-			// Keep / remove gallery zoom module.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery_zoom' ) ) ) {
-				remove_theme_support( 'wc-product-gallery-zoom' );
-			}
-
-			// Keep / remove gallery lightbox module.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery_lightbox' ) ) ) {
-				remove_theme_support( 'wc-product-gallery-lightbox' );
 			}
 
 			// Keep / remove tabs.
