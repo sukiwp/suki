@@ -315,7 +315,7 @@ msgstr ""
 msgid "Page Builder (theme)"
 msgstr ""
 
-#: template-parts/entry-grid.php:65, inc/customizer/options/blog--entry-default.php:162, inc/customizer/options/blog--entry-default.php:181, inc/customizer/options/blog--entry-grid.php:315, inc/customizer/options/blog--entry-grid.php:334
+#: template-parts/entry-grid.php:65, template-parts/entry.php:74, inc/customizer/options/blog--entry-default.php:162, inc/customizer/options/blog--entry-default.php:181, inc/customizer/options/blog--entry-grid.php:315, inc/customizer/options/blog--entry-grid.php:334
 msgid "Read more"
 msgstr ""
 

@@ -62,6 +62,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			// If it's included in a posts archive page.
 			else {
 				the_excerpt();
+
+				// Read more
+				if ( '' !== suki_get_theme_mod( 'entry_read_more_display' ) ) {
+					?>
+					<p>
+						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( suki_get_theme_mod( 'entry_read_more_display' ) ); ?>">
+							<?php
+							$text = suki_get_theme_mod( 'entry_read_more_text' );
+							if ( empty( $text ) ) {
+								$text = esc_html__( 'Read more', 'suki' );
+							}
+
+							echo esc_html( $text );
+							?>
+						</a>
+					</p>
+					<?php
+				}
 			}
 			
 			/**
