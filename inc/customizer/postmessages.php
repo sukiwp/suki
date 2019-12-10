@@ -68,6 +68,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	}
 }
 
+// Font sizes
+$add['body_line_height'][] = array(
+	'type'     => 'css',
+	'element'  => '.has-medium-text-size',
+	'property' => 'line-height',
+	'pattern'  => 'calc( 0.95 * $ )',
+);
+$add['body_line_height'][] = array(
+	'type'     => 'css',
+	'element'  => '.has-large-text-size',
+	'property' => 'line-height',
+	'pattern'  => 'calc( 0.875 * $ )',
+);
+$add['body_line_height'][] = array(
+	'type'     => 'css',
+	'element'  => '.has-larger-text-size',
+	'property' => 'line-height',
+	'pattern'  => 'calc( 0.8 * $ )',
+);
+
 // Drop cap
 $add['body_line_height'][] = array(
 	'type'     => 'css',
@@ -2225,6 +2245,14 @@ $add['scroll_to_top_hover_text_color'] = array(
  * Blog > Post Layout: Default
  * ====================================================
  */
+
+$add['blog_index_default_items_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-default .entry',
+		'property' => 'margin-bottom',
+	),
+);
 
 $add['entry_header_alignment'] = array(
 	array(

@@ -659,10 +659,6 @@ class Suki_Admin_Metabox_Page_Settings {
 					</div>
 				<?php endif;
 				break;
-			
-			default:
-				# code...
-				break;
 		}
 	}
 }

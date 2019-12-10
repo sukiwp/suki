@@ -818,6 +818,8 @@ $add['blog_single_navigation'] = 1;
  * ====================================================
  */
 
+$add['blog_index_default_items_gap'] = '90px';
+
 $add['entry_featured_media_position'] = 'before-entry-header';
 $add['entry_featured_media_ignore_padding'] = 0;
 

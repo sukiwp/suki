@@ -1,5 +1,6 @@
 v1.2.0
 - NEW: Social links widget.
+- NEW: Items gap options for Post Layout: Default.
 - NEW: Excerpt options for Post Layout: Default.
 - NEW: Excerpt options for Post Layout: Grid.
 - NEW: Additional style options for Post Layout: Grid, like padding and border.

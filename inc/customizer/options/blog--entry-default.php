@@ -10,6 +10,31 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'suki_section_entry_default';
 
+// Items gap
+$key = 'blog_index_default_items_gap';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Items gap', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 300,
+			'step' => 1,
+		),
+		'em' => array(
+			'min'  => 0,
+			'max'  => 20,
+			'step' => 0.05,
+		),
+	),
+	'priority'    => 10,
+) ) );
+
 /**
  * ====================================================
  * Featured Media
