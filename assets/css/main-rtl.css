@@ -1139,6 +1139,33 @@ body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-pa
 	width: 1400px;
 }
 
+.has-small-text-size {
+	font-size: 0.85em;
+}
+
+.has-regular-text-size {
+	font-size: 1em;
+}
+
+.has-medium-text-size {
+	font-size: 1.1em;
+	line-height: calc( 0.95 * 1.7);
+}
+
+.has-large-text-size {
+	font-size: 1.25em;
+	line-height: calc( 0.875 * 1.7);
+}
+
+.has-larger-text-size {
+	font-size: 1.5em;
+	line-height: calc( 0.8 * 1.7);
+}
+
+.has-text-color a {
+	color: inherit;
+}
+
 .has-suki-color-1-background-color {
 	background-color: #333333;
 }
@@ -1219,6 +1246,18 @@ p.has-background {
 
 .wp-block-group.has-background {
 	padding: 1.5em 2em;
+}
+
+.wp-block-group__inner-container {
+	margin: 0 auto;
+}
+
+.wp-block-group__inner-container > *:first-child {
+	margin-top: 0;
+}
+
+.wp-block-group__inner-container > *:last-child {
+	margin-bottom: 0;
 }
 
 .wp-block-columns {
