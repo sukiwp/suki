@@ -51,25 +51,27 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			/**
 			 * Excerpt
 			 */
+			if ( 0 < intval( suki_get_theme_mod( 'entry_grid_excerpt_length' ) ) ) {
+				// Excerpt
+				the_excerpt();
 
-			the_excerpt();
+				// Read more
+				if ( '' !== suki_get_theme_mod( 'entry_grid_read_more_display' ) ) {
+					?>
+					<p>
+						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( suki_get_theme_mod( 'entry_grid_read_more_display' ) ); ?>">
+							<?php
+							$text = suki_get_theme_mod( 'entry_grid_read_more_text' );
+							if ( empty( $text ) ) {
+								$text = esc_html__( 'Read more', 'suki' );
+							}
 
-			// Read more
-			if ( '' !== suki_get_theme_mod( 'entry_grid_read_more_display' ) ) {
-				?>
-				<p>
-					<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( suki_get_theme_mod( 'entry_grid_read_more_display' ) ); ?>">
-						<?php
-						$text = suki_get_theme_mod( 'entry_grid_read_more_text' );
-						if ( empty( $text ) ) {
-							$text = esc_html__( 'Read more', 'suki' );
-						}
-
-						echo esc_html( $text );
-						?>
-					</a>
-				</p>
-				<?php
+							echo esc_html( $text );
+							?>
+						</a>
+					</p>
+					<?php
+				}
 			}
 
 			/**

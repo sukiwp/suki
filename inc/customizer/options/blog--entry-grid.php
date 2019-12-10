@@ -292,6 +292,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Excerpt words limit', 'suki' ),
+	'description' => esc_html__( 'Fill with 0 to disable excerpt.', 'suki' ),
 	'units'       => array(
 		'' => array(
 			'min'  => 0,
