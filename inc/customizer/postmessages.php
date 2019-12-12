@@ -629,13 +629,25 @@ $add['page_layout'] = array(
 $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #page, body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'element'  => 'body.suki-page-layout-boxed #page',
 		'property' => 'width',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => 'body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .sub-menu',
 		'property' => 'max-width',
+	),
+	// alignfull
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'property' => 'max-width',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'property' => 'left',
+		'pattern'  => 'calc( 50% - ( $ / 2 ) )',
 	),
 );
 $add['boxed_page_shadow'] = array(
@@ -648,7 +660,7 @@ $add['boxed_page_shadow'] = array(
 $add['container_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-wrapper, .suki-section-contained > .suki-section-inner, .suki-content-layout-narrow .alignwide',
+		'element'  => '.suki-wrapper, .suki-section-contained > .suki-section-inner',
 		'property' => 'width',
 	),
 	array(
@@ -656,31 +668,19 @@ $add['container_width'] = array(
 		'element'  => '.suki-header-section .menu .sub-menu',
 		'property' => 'max-width',
 	),
+	// alignwide
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-left',
-		'pattern'  => 'calc( -0.5 * $ + 50% )',
+		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+		'property' => 'left',
+		'pattern'  => 'calc( 50% - ( $ / 2 ) )',
+		'media'    => '@media screen and (min-width: $)',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-right',
-		'pattern'  => 'calc( -0.5 * $ + 50% )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-left',
-		'pattern'  => 'calc( -0.5 * 100vw + 50% )',
-		'media'    => '@media screen and (max-width: $)',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-right',
-		'pattern'  => 'calc( -0.5 * 100vw + 50% )',
-		'media'    => '@media screen and (max-width: $)',
+		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+		'property' => 'max-width',
+		'media'    => '@media screen and (min-width: $)',
 	),
 );
 $add['content_narrow_width'] = array(
@@ -1477,6 +1477,28 @@ foreach ( $responsive as $suffix => $media ) {
 			'element'  => '.suki-content-inner',
 			'property' => 'padding',
 			'media'    => $media,
+		),
+
+		// alignwide
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+			'property' => 'left',
+			'pattern'  => 'calc( 50% - 50vw + $ )',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 0 ), // 4th part = left
+			),
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+			'property' => 'max-width',
+			'pattern'  => 'calc( 100vw - ( 2 * $ ) )',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 0 ), // 4th part = left
+			),
 		),
 	);
 }
