@@ -97,7 +97,8 @@ li:not(.customize-info) div.customize-section-description {
 
 .suki-unit {
 	appearance: none;
-	padding: 0;
+	padding: 0 !important;
+	background-image: none !important;
 	text-align: center;
 	text-align-last: center;
 
