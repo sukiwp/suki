@@ -410,7 +410,7 @@ msgstr ""
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:656, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:479, inc/customizer/options/global--social.php:46, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:410, inc/customizer/options/_sections.php:291, inc/customizer/options/_sections.php:423, inc/customizer/options/_sections.php:488, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:97, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:49, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:124, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
+#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:656, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:479, inc/customizer/options/global--social.php:46, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:410, inc/customizer/options/_sections.php:291, inc/customizer/options/_sections.php:423, inc/customizer/options/_sections.php:488, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:100, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:59, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:124, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -865,7 +865,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:128, inc/customizer/custom-controls/class-suki-customize-control-typography.php:147, inc/customizer/custom-controls/class-suki-customize-control-typography.php:164, inc/customizer/options/blog--archive.php:30, inc/customizer/options/page-container.php:235
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:128, inc/customizer/custom-controls/class-suki-customize-control-typography.php:147, inc/customizer/custom-controls/class-suki-customize-control-typography.php:164, inc/customizer/options/blog--archive.php:30, inc/customizer/options/page-container.php:235, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:38, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:38
 msgid "Default"
 msgstr ""
 
@@ -1124,7 +1124,7 @@ msgstr ""
 msgid "Content Section"
 msgstr ""
 
-#: inc/customizer/options/content--section.php:40, inc/customizer/options/content--sidebar.php:23, inc/customizer/options/footer--bottom-bar.php:66, inc/customizer/options/footer--widgets-bar.php:28, inc/customizer/options/header--top-main-bottom-bar.php:73, inc/customizer/options/page-header.php:131, inc/customizer/options/page-header.php:144, inc/customizer/options/page-settings.php:56, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23
+#: inc/customizer/options/content--section.php:40, inc/customizer/options/content--sidebar.php:23, inc/customizer/options/footer--bottom-bar.php:66, inc/customizer/options/footer--widgets-bar.php:28, inc/customizer/options/header--top-main-bottom-bar.php:73, inc/customizer/options/page-header.php:131, inc/customizer/options/page-header.php:144, inc/customizer/options/page-settings.php:56, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:35, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:23, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:35, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23
 msgid "Layout"
 msgstr ""
 
@@ -2274,32 +2274,28 @@ msgstr ""
 msgid "Brizy Integration"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:35, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:35
-msgid "Use 2 columns layout"
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:42, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:42
+msgid "2 Columns"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:49
-msgid "Cross-Sells"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:61
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:64
 msgid "Show cross-sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:62
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:65
 msgid "Display cross-sells as configured on Edit Product page > Product Data > Linked Products > Cross-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:74
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:77
 msgid "Cross-sells grid columns"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:100
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:103
 msgctxt "Suki Pro upsell"
 msgid "Sticky Checkout Button on Mobile"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:52
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:62
 msgctxt "Suki Pro upsell"
 msgid "Distraction Free Mode"
 msgstr ""
