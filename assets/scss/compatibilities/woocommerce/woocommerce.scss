@@ -3035,6 +3035,10 @@ p.demo_store,
 // -------------------------------------------------------------
 
 .woocommerce-checkout {
+	.woocommerce-account-fields {
+		margin-top: 1.5rem;
+	}
+
 	#customer_details {
 		> * {
 			float: none;
@@ -3047,7 +3051,6 @@ p.demo_store,
 			&:last-child {
 				margin-bottom: 0;
 			}
-
 		}
 	}
 

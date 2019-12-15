@@ -2305,6 +2305,10 @@ p.demo_store a,
 	margin-bottom: 0;
 }
 
+.woocommerce-checkout .woocommerce-account-fields {
+	margin-top: 1.5rem;
+}
+
 .woocommerce-checkout #customer_details > * {
 	float: none;
 	width: auto;

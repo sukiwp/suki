@@ -494,6 +494,7 @@ span.select2-container {
 
 span.select2-container .selection {
 	display: block;
+	border-color: inherit;
 }
 
 span.select2-container .dropdown-wrapper {
