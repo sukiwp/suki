@@ -402,7 +402,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_cart() ) {
 			// Split into 2 columns.
-			if ( intval( suki_get_theme_mod( 'woocommerce_cart_two_columns' ) ) ) {
+			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_cart_layout' ) ) {
 				add_filter( 'body_class', array( $this, 'add_cart_two_columns_class' ) );
 
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
@@ -422,7 +422,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_checkout() ) {
 			// Split into 2 columns.
-			if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
+			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_checkout_layout' ) ) {
 				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
 
 				add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper' ), 1 );
