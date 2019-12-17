@@ -145,12 +145,45 @@ $add['footer_bottom_bar_merged_gap'] = array(
  * ====================================================
  */
 
-$add['blog_index_grid_columns'] =
-$add['blog_index_grid_rows_gap'] =
-$add['blog_index_grid_columns_gutter'] = array(
+$add['edit_entry_default'] = array(
+	array(
+		'setting'  => 'blog_index_loop_mode',
+		'value'    => 'default',
+	),
+);
+
+$add['edit_entry_grid'] = array(
 	array(
 		'setting'  => 'blog_index_loop_mode',
 		'value'    => 'grid',
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Post Layout: Default
+ * ====================================================
+ */
+
+$add['entry_read_more_text'] = array(
+	array(
+		'setting'  => 'entry_read_more_display',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Post Layout: Grid
+ * ====================================================
+ */
+
+$add['entry_grid_read_more_text'] = array(
+	array(
+		'setting'  => 'entry_grid_read_more_display',
+		'operator' => '!=',
+		'value'    => '',
 	),
 );
 

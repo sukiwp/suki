@@ -54,13 +54,23 @@ class Suki {
 	 * Class constructor
 	 */
 	private function __construct() {
+		// Load translations.
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
+
+		// Set global content width.
 		add_action( 'after_setup_theme', array( $this, 'setup_content_width' ) );
+
+		// Define theme supported features.
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
-		add_action( 'init', array( $this, 'setup_theme_info' ), 1 );
+		// Setup theme info.
+		// Priority has to be set to 0 because "widgets_init" action is actually an "init" action with priority set to 1.
+		add_action( 'init', array( $this, 'setup_theme_info' ), 0 );
+
+		// Check migration.
 		add_action( 'init', array( $this, 'check_theme_version' ), 1 );
 
+		// Register sidebars and widgets.
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
@@ -74,6 +84,7 @@ class Suki {
 			add_filter( 'pre_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__get' ) );
 		}
 
+		// Include other files.
 		$this->_includes();
 	}
 
@@ -282,9 +293,7 @@ class Suki {
 	public function register_widgets() {
 		// Include custom widgets.
 		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-posts.php' );
-
-		// Register widgets.
-		register_widget( 'Suki_Widget_Posts' );
+		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-social.php' );
 	}
 	
 	/**
@@ -377,6 +386,15 @@ class Suki {
 		// Main JS
 		wp_enqueue_script( 'suki', SUKI_JS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
 
+		// Localize script
+		wp_localize_script( 'suki', 'sukiConfig', apply_filters( 'suki/frontend/localize_script', array(
+			'breakpoints' => array(
+				'mobile'  => 500,
+				'tablet'  => 768,
+				'desktop' => 1024,
+			),
+		) ) );
+
 		/**
 		 * Hook: Scripts to be included after main JS
 		 */
@@ -428,7 +446,7 @@ class Suki {
 		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages, $defaults );
 
 		if ( ! empty( $generated_css ) ) {
-			$css .= "\n/* Main Dynamic CSS */\n" . $generated_css;
+			$css .= "\n/* Suki Dynamic CSS */\n" . $generated_css;
 		}
 
 		return $css;
@@ -560,6 +578,7 @@ class Suki {
 			'0.6.0',
 			'0.7.0',
 			'1.1.0',
+			'1.2.0',
 		);
 	}
 }

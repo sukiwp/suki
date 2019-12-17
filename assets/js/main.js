@@ -198,12 +198,6 @@
 						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
 					}
 
-					// Apply vertical max-height.
-					$submenu.style.maxHeight = 'none';
-					if ( window.innerHeight < $submenu.getBoundingClientRect().top + $submenu.getBoundingClientRect().height ) {
-						$submenu.style.maxHeight = ( window.innerHeight - $submenu.getBoundingClientRect().top ) + 'px';
-					}
-
 					// Iterate to 2nd & higher level submenu.
 					var $subsubmenus = $submenu.querySelectorAll( '.sub-menu' );
 					for ( var j = 0; j < $subsubmenus.length; j++ ) {
@@ -227,11 +221,11 @@
 
 			var timeout;
 			window.addEventListener( 'resize', function() {
-				var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
-				for ( var i = 0; i < $submenus.length; i++ ) {
-					$submenus[i].style[ prop ] = '';
-					$submenus[i].parentElement.classList.remove( 'focus' );
-				}
+				// var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
+				// for ( var i = 0; i < $submenus.length; i++ ) {
+				// 	$submenus[i].style[ prop ] = '';
+				// 	$submenus[i].parentElement.classList.remove( 'focus' );
+				// }
 
 				clearTimeout( timeout );
 				timeout = setTimeout( calculateSubMenuEdge, 100 );
@@ -524,11 +518,11 @@
 				if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
 					var device = 'mobile';
 
-					if ( 500 <= window.innerWidth ) {
+					if ( sukiConfig.breakpoints.mobile <= window.innerWidth ) {
 						device = 'tablet';
 					}
 
-					if ( 1024 <= window.innerWidth ) {
+					if ( sukiConfig.breakpoints.desktop <= window.innerWidth ) {
 						device = 'desktop';
 					}
 

@@ -40,24 +40,25 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'he
 ) ) );
 
 // Desktop Header
+$key = 'header_elements';
 $settings = array(
-	'top_left'      => 'header_elements_top_left',
-	'top_center'    => 'header_elements_top_center',
-	'top_right'     => 'header_elements_top_right',
-	'main_left'     => 'header_elements_main_left',
-	'main_center'   => 'header_elements_main_center',
-	'main_right'    => 'header_elements_main_right',
-	'bottom_left'   => 'header_elements_bottom_left',
-	'bottom_center' => 'header_elements_bottom_center',
-	'bottom_right'  => 'header_elements_bottom_right',
+	'top_left'      => $key . '_top_left',
+	'top_center'    => $key . '_top_center',
+	'top_right'     => $key . '_top_right',
+	'main_left'     => $key . '_main_left',
+	'main_center'   => $key . '_main_center',
+	'main_right'    => $key . '_main_right',
+	'bottom_left'   => $key . '_bottom_left',
+	'bottom_center' => $key . '_bottom_center',
+	'bottom_right'  => $key . '_bottom_right',
 );
-foreach ( $settings as $key ) {
-	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key ),
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, 'header_elements', array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Desktop Header', 'suki' ),
@@ -88,19 +89,20 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, '
 ) ) );
 
 // Mobile Header
+$key = 'header_mobile_elements';
 $settings = array(
-	'mobile_main_left'    => 'header_mobile_elements_main_left',
-	'mobile_main_center'  => 'header_mobile_elements_main_center',
-	'mobile_main_right'   => 'header_mobile_elements_main_right',
-	'mobile_vertical_top' => 'header_mobile_elements_vertical_top',
+	'mobile_main_left'    => $key . '_main_left',
+	'mobile_main_center'  => $key . '_main_center',
+	'mobile_main_right'   => $key . '_main_right',
+	'mobile_vertical_top' => $key . '_vertical_top',
 );
-foreach ( $settings as $key ) {
-	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key ),
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'builder' ),
 	) );
 }
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, 'header_mobile_elements', array(
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Mobile Header', 'suki' ),

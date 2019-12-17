@@ -161,7 +161,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 								<span class="suki-small-label">{{ labels[ setting_type ] }}</span>
 								<span class="suki-typography-size suki-row">
 									<span class="suki-row-item">
-										<input class="suki-typography-size-input" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
+										<input class="suki-typography-size-input suki-input-with-unit" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 									</span>
 									<span class="suki-row-item" style="width: 30px;">
 										<select class="suki-typography-size-unit suki-unit">

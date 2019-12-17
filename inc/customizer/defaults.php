@@ -803,10 +803,6 @@ $add['scroll_to_top_hover_text_color'] = '';
 $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_navigation_mode'] = 'pagination';
 
-$add['blog_index_grid_columns'] = 2;
-$add['blog_index_grid_rows_gutter'] = '15px';
-$add['blog_index_grid_columns_gutter'] = '15px';
-
 /**
  * ====================================================
  * Blog > Single Post Page
@@ -822,11 +818,19 @@ $add['blog_single_navigation'] = 1;
  * ====================================================
  */
 
+$add['blog_index_default_items_gap'] = '90px';
+
 $add['entry_featured_media_position'] = 'before-entry-header';
 $add['entry_featured_media_ignore_padding'] = 0;
+
 $add['entry_header'] = array( 'header-meta', 'title' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
+
+$add['entry_excerpt_length'] = 55;
+$add['entry_read_more_text'] = '';
+$add['entry_read_more_display'] = '';
+
 $add['entry_footer'] = array( 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
 $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
@@ -837,13 +841,30 @@ $add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comme
  * ====================================================
  */
 
-$add['entry_grid_excerpt_length'] = 30;
+$add['blog_index_grid_columns'] = 2;
+$add['blog_index_grid_rows_gutter'] = '30px';
+$add['blog_index_grid_columns_gutter'] = '20px';
+
+$add['entry_grid_padding'] = '0 0 0 0';
+$add['entry_grid_border'] = '0 0 0 0';
+$add['entry_grid_same_height'] = 0;
+
 $add['entry_grid_featured_media_position'] = 'before-entry-header';
+$add['entry_grid_featured_media_ignore_padding'] = 0;
+
 $add['entry_grid_header'] = array( 'header-meta', 'title' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
+
+$add['entry_grid_excerpt_length'] = 30;
+$add['entry_grid_read_more_text'] = '';
+$add['entry_grid_read_more_display'] = '';
+
 $add['entry_grid_footer'] = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
+
+$add['entry_grid_bg_color'] = '';
+$add['entry_grid_border_color'] = '';
 
 return $add;

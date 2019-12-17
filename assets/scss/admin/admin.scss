@@ -10,14 +10,6 @@ input, select, textarea {
 // Common Classes
 // -------------------------------------------------------------
 
-.button {
-	.dashicons {
-		margin-top: -2%;
-		margin-right: 4px;
-		vertical-align: middle;
-	}
-}
-
 .suki-beta-badge {
 	display: inline-block;
 	white-space: nowrap;
@@ -32,7 +24,7 @@ input, select, textarea {
 // Admin Menu
 // -------------------------------------------------------------
 
-#menu-appearance {
+#menu-appearance .wp-submenu {
 	a[href="themes.php?page=suki"] {
 		color: #00b9eb;
 	}
@@ -251,8 +243,6 @@ input, select, textarea {
 		margin: 1px -1px 0 0;
 		padding: 0 !important;
 		border-radius: 0;
-		height: auto !important;
-		line-height: 23px !important;
 		text-align: center;
 		box-shadow: none;
 
@@ -857,5 +847,45 @@ input, select, textarea {
 
 	.dashicons {
 		margin-right: 0.5em;
+	}
+}
+
+// -------------------------------------------------------------
+// Custom Widgets Form
+// -------------------------------------------------------------
+
+.suki-widget-social-links-select {
+	max-height: 200px;
+	overflow: scroll;
+	border: 1px solid #ccd0d4;
+	padding: 0.5em;
+
+	li {
+		position: relative;
+
+		input {
+			position: absolute;
+			margin: 0.6em 0 0 0.6em;
+		}
+
+		div {
+			padding: 0.5em 0.5em 0.5em 2.5em;
+			border: 1px dashed #ccd0d4;
+
+			span {
+				float: right;
+				opacity: 0;
+				cursor: move;
+			}
+
+			&:hover span {
+				opacity: 1;
+			}
+		}
+
+		input:checked ~ div {
+			border-style: solid;
+			background-color: #fafafa;
+		}
 	}
 }

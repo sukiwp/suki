@@ -2,12 +2,6 @@ input, select, textarea {
 	max-width: 100%;
 }
 
-.button .dashicons {
-	margin-top: -2%;
-	margin-right: 4px;
-	vertical-align: middle;
-}
-
 .suki-beta-badge {
 	display: inline-block;
 	white-space: nowrap;
@@ -18,12 +12,12 @@ input, select, textarea {
 	text-transform: uppercase;
 }
 
-#menu-appearance a[href="themes.php?page=suki"] {
+#menu-appearance .wp-submenu a[href="themes.php?page=suki"] {
 	color: #00b9eb;
 }
 
-#menu-appearance a[href^="edit.php?post_type=suki_block"]:before,
-#menu-appearance a[href^="themes.php?page=suki-"]:before {
+#menu-appearance .wp-submenu a[href^="edit.php?post_type=suki_block"]:before,
+#menu-appearance .wp-submenu a[href^="themes.php?page=suki-"]:before {
 	content: "\21B3";
 	margin-right: 0.5em;
 	opacity: 0.5;
@@ -222,8 +216,6 @@ input, select, textarea {
 	margin: 1px -1px 0 0;
 	padding: 0 !important;
 	border-radius: 0;
-	height: auto !important;
-	line-height: 23px !important;
 	text-align: center;
 	box-shadow: none;
 }
@@ -843,4 +835,40 @@ input, select, textarea {
 
 .suki-admin-links-list .dashicons {
 	margin-right: 0.5em;
+}
+
+.suki-widget-social-links-select {
+	max-height: 200px;
+	overflow: scroll;
+	border: 1px solid #ccd0d4;
+	padding: 0.5em;
+}
+
+.suki-widget-social-links-select li {
+	position: relative;
+}
+
+.suki-widget-social-links-select li input {
+	position: absolute;
+	margin: 0.6em 0 0 0.6em;
+}
+
+.suki-widget-social-links-select li div {
+	padding: 0.5em 0.5em 0.5em 2.5em;
+	border: 1px dashed #ccd0d4;
+}
+
+.suki-widget-social-links-select li div span {
+	float: right;
+	opacity: 0;
+	cursor: move;
+}
+
+.suki-widget-social-links-select li div:hover span {
+	opacity: 1;
+}
+
+.suki-widget-social-links-select li input:checked ~ div {
+	border-style: solid;
+	background-color: #fafafa;
 }

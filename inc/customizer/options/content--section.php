@@ -51,6 +51,14 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'priority'    => 10,
 ) ) );
 
+// Info
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_page_template', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'If you are using Page Builder and want a full width layout, please go to your page editor and set the "Page Attributes > Template" to "Page Builder" or the one provided by your page builder.', 'suki' ) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Content & sidebar layout
 $key = 'content_layout';
 $wp_customize->add_setting( $key, array(

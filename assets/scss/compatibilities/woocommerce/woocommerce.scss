@@ -46,7 +46,7 @@
 // }
 
 @font-face {
-	font-family: 'star';
+	font-family: "star";
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/star.eot');
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/star.eot?#iefix') format('embedded-opentype'),
 		url('../../../../../../plugins/woocommerce/assets/fonts/star.woff') format('woff'),
@@ -57,7 +57,7 @@
 }
 
 @font-face {
-	font-family: 'WooCommerce';
+	font-family: "WooCommerce";
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot');
 	src: url('../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix') format('embedded-opentype'),
 		url('../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.woff') format('woff'),
@@ -97,10 +97,10 @@ p.demo_store,
 	}
 
 	.admin-bar & {
-		top: $adminbar_height;
+		top: $adminbar_height_mobile;
 
-		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
-			top: $adminbar_height_mobile;
+		@media screen and ( min-width: $breakpoint_wordpress ) {
+			top: $adminbar_height;
 		}
 	}
 }
@@ -271,18 +271,18 @@ p.demo_store,
 				display: none;
 			}
 
-			span.input {
+			.suki-qty-increment {
 				position: absolute;
-				top: 0;
-				width: 1.25em;
-				padding-left: 0;
-				padding-right: 0;
+				top: 50%;
+				width: 20%;
+				margin-top: -0.5em;
 				text-align: center;
 				cursor: pointer;
 				border-radius: 0;
 				border-color: transparent;
 				background-color: transparent;
 				// color: inherit;
+				line-height: 1;
 				opacity: 0.5;
 
 				&:hover, &:focus {
@@ -305,27 +305,21 @@ p.demo_store,
 		@include float-container();
 
 		.col-1 {
-			float: left;
-			width: 50%;
-			padding-right: 1em;
-
-			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				width: 100%;
-				float: none;
-				padding: 0;
+			@media screen and ( min-width: $breakpoint_768 ) {
+				float: left;
+				width: 50%;
+				padding-right: 1em;
 			}
 		}
 
 		.col-2 {
-			float: right;
-			width: 50%;
-			padding-left: 1em;
+			margin-top: 2.5em;
 
-			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				width: 100%;
-				float: none;
-				padding: 0;
-				margin-top: 2.5em;
+			@media screen and ( min-width: $breakpoint_768 ) {
+				float: right;
+				width: 50%;
+				padding-left: 1em;
+				margin-top: 0;
 			}
 		}
 	}
@@ -460,10 +454,10 @@ p.demo_store,
 		div.images {
 			// margin-bottom: 2em;
 
-			width: 60%; // default
+			width: 100%;
 
-			@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-				width: 100% !important;
+			@media screen and ( min-width: $breakpoint_1024 ) {
+				width: 60%; // default
 			}
 
 			img {
@@ -555,15 +549,14 @@ p.demo_store,
 				list-style: none;
 
 				li {
-					// width: 25%;
-					width: 12.5%;
+					width: 25%;
 					// float: left;
 					padding: 5px;
 					margin: 0;
 					// list-style: none;
 
-					@media screen and ( max-width: $breakpoint_500 - 1px ) {
-						width: 25%;
+					@media screen and ( min-width: $breakpoint_500 ) {
+						width: 12.5%;
 					}
 
 					img {
@@ -581,12 +574,9 @@ p.demo_store,
 			}
 
 			~ div.summary {
-				width: 40%; // default
-				padding-left: 40px; // default
-
-				@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-					width: 100% !important;
-					padding-left: 0 !important;
+				@media screen and ( min-width: $breakpoint_1024 ) {
+					width: 40%; // default
+					padding-left: 40px; // default
 				}
 			}
 		}
@@ -974,12 +964,10 @@ p.demo_store,
 			padding-left: 15px; // default
 			padding-right: 15px; // default
 
+			width: 100%;
+
 			> *:last-child {
 				margin-bottom: 0;
-			}
-
-			@media screen and ( max-width: $breakpoint_500 - 1px ) {
-				width: 100% !important;
 			}
 
 			.suki-product-wrapper {
@@ -1123,47 +1111,53 @@ p.demo_store,
 			}
 		}
 
-		&.columns-1 li.product {
-			width: 100%;
-		}
-
 		&.columns-2 li.product {
-			width: 50%;
+			@media screen and ( min-width: $breakpoint_500 ) {
+				width: 50%;
+			}
 		}
 
 		&.columns-3 li.product {
-			width: 33.33%;
-			
-			@media screen and ( max-width: $breakpoint_768 - 1px ) {
+			@media screen and ( min-width: $breakpoint_500 ) {
 				width: 50%;
+			}
+
+			@media screen and ( min-width: $breakpoint_768 ) {
+				width: 33.33%;
 			}
 		}
 
 		&.columns-4 li.product {
-			width: 25%;
-			
-			@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			@media screen and ( min-width: $breakpoint_500 ) {
 				width: 50%;
+			}
+
+			@media screen and ( min-width: $breakpoint_1024 ) {
+				width: 25%;
 			}
 		}
 
 		&.columns-5 li.product {
-			width: 20%;
-			
-			@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			@media screen and ( min-width: $breakpoint_500 ) {
 				width: 50%;
+			}
+
+			@media screen and ( min-width: $breakpoint_1024 ) {
+				width: 20%;
 			}
 		}
 
 		&.columns-6 li.product {
-			width: 16.667%;
-			
-			@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+			@media screen and ( min-width: $breakpoint_500 ) {
+				width: 50%;
+			}
+
+			@media screen and ( min-width: $breakpoint_768 ) {
 				width: 33.33%;
 			}
-			
-			@media screen and ( max-width: $breakpoint_768 - 1px ) {
-				width: 50%;
+
+			@media screen and ( min-width: $breakpoint_1024 ) {
+				width: 16.667%;
 			}
 		}
 	}
@@ -1452,10 +1446,10 @@ p.demo_store,
 
 					.comment_container {
 						position: relative;
-						padding: 2em 0 2em 65px;
+						padding: 1.5rem 0;
 
-						@media screen and ( max-width: $breakpoint_500 - 1px ) {
-							padding: 1.5rem 0;
+						@media screen and ( min-width: $breakpoint_500 ) {
+							padding: 2em 0 2em 65px;
 						}
 					}
 
@@ -2019,25 +2013,18 @@ p.demo_store,
 			opacity: 0;
 		}
 
-		&-first, &-last {
-			width: 50%;
-
-			// @media screen and ( max-width: 519px ) {
-			@media screen and ( max-width: $breakpoint_500 - 1px ) {
-				float: none;
-				width: auto;
-				padding: 0;
+		@media screen and ( min-width: $breakpoint_500 ) {
+			&-first {
+				width: 50%;
+				float: left;
+				padding-right: 0.5rem;
 			}
-		}
 
-		&-first {
-			float: left;
-			padding-right: 0.5rem;
-		}
-
-		&-last {
-			float: right;
-			padding-left: 0.5rem;
+			&-last {
+				width: 50%;
+				float: right;
+				padding-left: 0.5rem;
+			}
 		}
 
 		&-wide {
@@ -2830,7 +2817,6 @@ p.demo_store,
 	}
 
 	.button {
-		float: right;
 		padding: 0;
 		border: none;
 		font-size: inherit;
@@ -2846,8 +2832,8 @@ p.demo_store,
 			color: $color_heading; // default
 		}
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			float: none;
+		@media screen and ( min-width: $breakpoint_768 ) {
+			float: right;
 		}
 	}
 
@@ -2905,16 +2891,18 @@ p.demo_store,
 	.woocommerce {
 
 	// 	@include clearfix();
-		display: flex;
-		flex-wrap: wrap;
+		@media screen and ( min-width: $breakpoint_768 ) {
+			display: flex;
+			flex-wrap: wrap;
+		}
 	}
 
 	.suki-woocommerce-MyAccount-sidebar {
-		width: 20%;
+		margin-bottom: 3em;
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			width: 100%;
-			margin-bottom: 3em;
+		@media screen and ( min-width: $breakpoint_768 ) {
+			width: 20%;
+			margin-bottom: 0;
 		}
 
 		a {
@@ -2972,12 +2960,9 @@ p.demo_store,
 	}
 
 	.woocommerce-MyAccount-content {
-		width: 80%;
-		padding-left: 4rem;
-
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
-			width: 100%;
-			padding-left: 0;
+		@media screen and ( min-width: $breakpoint_768 ) {
+			width: 80%;
+			padding-left: 4rem;
 		}
 	}
 
@@ -3050,6 +3035,10 @@ p.demo_store,
 // -------------------------------------------------------------
 
 .woocommerce-checkout {
+	.woocommerce-account-fields {
+		margin-top: 1.5rem;
+	}
+
 	#customer_details {
 		> * {
 			float: none;
@@ -3062,7 +3051,6 @@ p.demo_store,
 			&:last-child {
 				margin-bottom: 0;
 			}
-
 		}
 	}
 
@@ -3407,17 +3395,21 @@ p.demo_store,
 				label {
 					display: none;
 				}
+
+				input {
+					width: 15rem;
+					margin-right: 0.5rem;
+					vertical-align: initial;
+				}
 			}
 
 			.input-text {
-				float: left;
+				// float: left;
 				// box-sizing: border-box;
 				// border: 1px solid darken($secondary, 10%);
 				// padding: 6px 6px 5px;
 				// margin: 0 4px 0 0;
-				margin-right: 0.5rem;
 				// outline: 0;
-				width: 15rem;
 			}
 		}
 
@@ -3516,8 +3508,7 @@ p.demo_store,
 						white-space: nowrap;
 
 						input {
-							flex: 1;
-							width: auto;
+							width: 100%;
 						}
 					}
 
@@ -3553,13 +3544,13 @@ p.demo_store,
 		text-align: right;
 
 		a.checkout-button {
-			display: inline-block;
+			display: block;
 			margin-bottom: 0;
 			font-size: 1.2rem; // default
 			padding: 14px 28px; // default
 
-			@media screen and ( max-width: $breakpoint_1024 - 1px ) {
-				display: block;
+			@media screen and ( min-width: $breakpoint_1024 ) {
+				display: inline-block;
 			}
 		}
 	}

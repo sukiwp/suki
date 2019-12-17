@@ -28,6 +28,11 @@ suki_primary_open();
 do_action( 'suki/frontend/before_main' );
 
 if ( have_posts() ) :
+
+	/**
+	 * Hook: suki/frontend/before_loop
+	 */
+	do_action( 'suki/frontend/before_loop' );
 	
 	?>
 	<div id="loop" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/loop_classes', array( 'suki-loop' ) ) ) ); ?>">
@@ -36,17 +41,22 @@ if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
 
 			// Render post content using selected layout on Customizer.
-			get_template_part( 'template-parts/content', suki_get_theme_mod( 'blog_index_loop_mode' ) );
+			suki_get_template_part( 'entry', suki_get_theme_mod( 'blog_index_loop_mode' ) );
 
 		endwhile;
 		?>
 	</div>
 	<?php
 
+	/**
+	 * Hook: suki/frontend/after_loop
+	 */
+	do_action( 'suki/frontend/after_loop' );
+
 else :
 
 	// Render no content notice.
-	get_template_part( 'template-parts/content', 'none' );
+	suki_get_template_part( 'entry', 'none' );
 
 endif;
 

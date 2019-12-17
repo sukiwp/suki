@@ -68,6 +68,26 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	}
 }
 
+// Font sizes
+$add['body_line_height'][] = array(
+	'type'     => 'css',
+	'element'  => '.has-medium-text-size',
+	'property' => 'line-height',
+	'pattern'  => 'calc( 0.95 * $ )',
+);
+$add['body_line_height'][] = array(
+	'type'     => 'css',
+	'element'  => '.has-large-text-size',
+	'property' => 'line-height',
+	'pattern'  => 'calc( 0.875 * $ )',
+);
+$add['body_line_height'][] = array(
+	'type'     => 'css',
+	'element'  => '.has-larger-text-size',
+	'property' => 'line-height',
+	'pattern'  => 'calc( 0.8 * $ )',
+);
+
 // Drop cap
 $add['body_line_height'][] = array(
 	'type'     => 'css',
@@ -609,13 +629,25 @@ $add['page_layout'] = array(
 $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed #page, body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'element'  => 'body.suki-page-layout-boxed #page',
 		'property' => 'width',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => 'body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .sub-menu',
 		'property' => 'max-width',
+	),
+	// alignfull
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'property' => 'max-width',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'property' => 'left',
+		'pattern'  => 'calc( 50% - ( $ / 2 ) )',
 	),
 );
 $add['boxed_page_shadow'] = array(
@@ -628,7 +660,7 @@ $add['boxed_page_shadow'] = array(
 $add['container_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-wrapper, .suki-section-contained > .suki-section-inner, .suki-content-layout-narrow .alignwide',
+		'element'  => '.suki-wrapper, .suki-section-contained > .suki-section-inner',
 		'property' => 'width',
 	),
 	array(
@@ -636,31 +668,19 @@ $add['container_width'] = array(
 		'element'  => '.suki-header-section .menu .sub-menu',
 		'property' => 'max-width',
 	),
+	// alignwide
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-left',
-		'pattern'  => 'calc( -0.5 * $ + 50% )',
+		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+		'property' => 'left',
+		'pattern'  => 'calc( 50% - ( $ / 2 ) )',
+		'media'    => '@media screen and (min-width: $)',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-right',
-		'pattern'  => 'calc( -0.5 * $ + 50% )',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-left',
-		'pattern'  => 'calc( -0.5 * 100vw + 50% )',
-		'media'    => '@media screen and (max-width: $)',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-content-layout-narrow .alignwide',
-		'property' => 'margin-right',
-		'pattern'  => 'calc( -0.5 * 100vw + 50% )',
-		'media'    => '@media screen and (max-width: $)',
+		'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+		'property' => 'max-width',
+		'media'    => '@media screen and (min-width: $)',
 	),
 );
 $add['content_narrow_width'] = array(
@@ -1458,6 +1478,28 @@ foreach ( $responsive as $suffix => $media ) {
 			'property' => 'padding',
 			'media'    => $media,
 		),
+
+		// alignwide
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+			'property' => 'left',
+			'pattern'  => 'calc( 50% - 50vw + $ )',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 0 ), // 4th part = left
+			),
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-content-layout-narrow .alignwide, .suki-content-layout-wide .alignwide',
+			'property' => 'max-width',
+			'pattern'  => 'calc( 100vw - ( 2 * $ ) )',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 0 ), // 4th part = left
+			),
+		),
 	);
 }
 
@@ -1548,12 +1590,7 @@ $add['sidebar_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar',
-		'property' => 'width',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.sidebar',
-		'property' => 'min-width',
+		'property' => 'flex-basis',
 	),
 );
 $add['sidebar_gap'] = array(
@@ -2227,7 +2264,37 @@ $add['scroll_to_top_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Blog > Posts Page
+ * Blog > Post Layout: Default
+ * ====================================================
+ */
+
+$add['blog_index_default_items_gap'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-loop-default .entry',
+		'property' => 'margin-bottom',
+	),
+);
+
+$add['entry_header_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-default .entry-header',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+$add['entry_footer_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.entry-layout-default .entry-footer',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Post Layout: Grid
  * ====================================================
  */
 
@@ -2287,33 +2354,61 @@ $add['blog_index_grid_columns_gutter'] = array(
 	),
 );
 
-/**
- * ====================================================
- * Blog > Post Layout: Default
- * ====================================================
- */
-
-$add['entry_header_alignment'] = array(
+$responsive = array(
+	''         => '',
+	'__tablet' => '@media screen and (max-width: 1023px)',
+	'__mobile' => '@media screen and (max-width: 499px)',
+);
+foreach ( $responsive as $suffix => $media ) {
+	$add['entry_grid_padding' . $suffix ] = array(
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-wrapper',
+			'property' => 'padding',
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding:first-child',
+			'property' => 'margin-top',
+			'pattern'  => '-$ !important',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 0 ), // 1st part = top
+			),
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
+			'property' => 'margin-right',
+			'pattern'  => '-$ !important',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 1 ), // 2nd part = right
+			),
+			'media'    => $media,
+		),
+		array(
+			'type'     => 'css',
+			'element'  => '.entry-layout-grid .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
+			'property' => 'margin-left',
+			'pattern'  => '-$ !important',
+			'function' => array(
+				'name' => 'explode_value',
+				'args' => array( 3 ), // 4rd part = left
+			),
+			'media'    => $media,
+		),
+	);
+}
+$add['entry_grid_border'] = array(
 	array(
-		'type'     => 'class',
-		'element'  => '.entry-layout-default .entry-header',
-		'pattern'  => 'suki-text-align-$',
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'border-width',
 	),
 );
-
-$add['entry_footer_alignment'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.entry-layout-default .entry-footer',
-		'pattern'  => 'suki-text-align-$',
-	),
-);
-
-/**
- * ====================================================
- * Blog > Post Layout: Grid
- * ====================================================
- */
 
 $add['entry_grid_header_alignment'] = array(
 	array(
@@ -2328,6 +2423,22 @@ $add['entry_grid_footer_alignment'] = array(
 		'type'     => 'class',
 		'element'  => '.entry-layout-grid .entry-footer',
 		'pattern'  => 'suki-text-align-$',
+	),
+);
+
+$add['entry_grid_bg_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'background-color',
+	),
+);
+
+$add['entry_grid_border_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.entry-layout-grid .entry-wrapper',
+		'property' => 'border-color',
 	),
 );
 

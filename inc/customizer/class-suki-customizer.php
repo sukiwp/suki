@@ -345,8 +345,12 @@ class Suki_Customizer {
 			'@media screen and (max-width: 499px)' => array(),
 		);
 
+		// Intersect the whole postmessages array with saved theme mods array.
+		// This way we can optimize the iteration to only process the existing theme mods.
+		$keys = array_intersect( array_keys( $postmessages ), array_keys( get_theme_mods() ) );
+
 		// Loop through each setting.
-		foreach ( $postmessages as $key => $rules ) {
+		foreach ( $keys as $key ) {
 			// Get saved value.
 			$setting_value = get_theme_mod( $key );
 
@@ -360,7 +364,7 @@ class Suki_Customizer {
 			if ( $setting_value === suki_array_value( $defaults, $key ) ) continue;
 
 			// Loop through each rule.
-			foreach ( $rules as $rule ) {
+			foreach ( $postmessages[ $key ] as $rule ) {
 				// Check rule validity, and then skip if it's not valid.
 				if ( ! $this->check_postmessage_rule_for_css_compatibility( $rule ) ) {
 					continue;

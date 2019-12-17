@@ -249,7 +249,7 @@ class Suki_Compatibility_Elementor {
 	public function print_custom_scripts() {
 		?>
 		<script type="text/javascript">
-			(function() {
+			(function( $ ) {
 				'use strict';
 
 				$( '#customize-controls' ).on( 'click', '.suki-apply-color-palette-to-elementor', function( e ) {
@@ -280,7 +280,7 @@ class Suki_Compatibility_Elementor {
 						$button.removeClass( 'disabled' );
 					});
 				});
-			})();
+			})( jQuery );
 		</script>
 		<?php
 	}

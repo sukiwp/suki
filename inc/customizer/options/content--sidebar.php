@@ -16,6 +16,14 @@ $section = 'suki_section_sidebar';
  * ====================================================
  */
 
+// Heading: Layout
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_sidebar_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Layout', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 // Sidebar width
 $key = 'sidebar_width';
 $wp_customize->add_setting( $key, array(
@@ -77,7 +85,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Widgets', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
 
 // Widgets mode
@@ -95,7 +103,7 @@ $wp_customize->add_control( $key, array(
 		'merged'    => esc_html__( 'Merged in one box', 'suki' ),
 		'separated' => esc_html__( 'Separate boxes', 'suki' ),
 	),
-	'priority'    => 10,
+	'priority'    => 30,
 ) );
 
 // Gap between widgets
@@ -115,7 +123,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
 
 // Padding
@@ -150,7 +158,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
 
 // Border
@@ -169,7 +177,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 			'step' => 1,
 		),
 	),
-	'priority'    => 10,
+	'priority'    => 30,
 ) ) );
 
 /**
@@ -183,7 +191,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Typography', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 40,
 ) ) );
 
 // Text typography
@@ -207,7 +215,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Text typography', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 40,
 ) ) );
 
 // Text typography
@@ -239,7 +247,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Text typography', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 40,
 ) ) );
 
 // Widget title typography
@@ -271,7 +279,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Widget title typography', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 40,
 ) ) );
 
 // Widget title alignment
@@ -290,7 +298,7 @@ $wp_customize->add_control( $key, array(
 		'center' => esc_html__( 'Center', 'suki' ),
 		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 40,
 ) );
 
 // Widget title decoration
@@ -309,7 +317,7 @@ $wp_customize->add_control( $key, array(
 		'box'           => esc_html__( 'Box', 'suki' ),
 		'border-bottom' => esc_html__( 'Border bottom', 'suki' ),
 	),
-	'priority'    => 20,
+	'priority'    => 40,
 ) );
 
 /**
@@ -323,7 +331,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Colors', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 50,
 ) ) );
 
 // Colors
@@ -346,6 +354,6 @@ foreach ( $colors as $key => $label ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
-		'priority'    => 30,
+		'priority'    => 50,
 	) ) );
 }

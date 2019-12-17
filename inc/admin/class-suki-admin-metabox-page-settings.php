@@ -495,6 +495,9 @@ class Suki_Admin_Metabox_Page_Settings {
 							'value'       => suki_array_value( $values, $key ),
 						) );
 						?>
+						<div class="notice notice-info notice-alt inline">
+							<p><?php esc_html_e( 'If you are using Page Builder and want a full width layout, please set the "Page Attributes > Template" to "Page Builder" or the one provided by your page builder.', 'suki' ); ?></p>
+						</div>
 					</div>
 				</div>
 
@@ -535,6 +538,8 @@ class Suki_Admin_Metabox_Page_Settings {
 					<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
 						<script type="text/javascript">
 						(function( $ ) {
+							'use strict';
+
 							$( 'body.post-php' ).on( 'change', '#suki_page_settings__content_layout', function( e ) {
 								var $tinymce = $( '#content_ifr' ).contents().find( 'body' ),
 								    inheritValue = '<?php echo esc_js( suki_get_page_setting_by_post_id( 'content_layout', $obj->ID ) ); ?>',
@@ -653,10 +658,6 @@ class Suki_Admin_Metabox_Page_Settings {
 						<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
 					</div>
 				<?php endif;
-				break;
-			
-			default:
-				# code...
 				break;
 		}
 	}

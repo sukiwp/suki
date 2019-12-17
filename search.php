@@ -36,7 +36,7 @@ if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
 
 			// Render post content using "content-search" layout on Customizer.
-			get_template_part( 'template-parts/content', 'search' );
+			suki_get_template_part( 'entry', 'search' );
 
 		endwhile;
 		?>
@@ -46,7 +46,7 @@ if ( have_posts() ) :
 else :
 
 	// Render no content notice.
-	get_template_part( 'template-parts/content', 'none' );
+	suki_get_template_part( 'entry', 'none' );
 
 endif;
 

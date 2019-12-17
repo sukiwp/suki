@@ -231,3 +231,17 @@
 		margin-left: 0.5em;
 	}
 }
+
+.suki_widget_social {
+	.suki-widget-social {
+		font-size: 1.25em;
+
+		a {
+			margin-left: 0.5em;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+}

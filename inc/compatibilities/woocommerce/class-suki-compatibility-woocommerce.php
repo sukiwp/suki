@@ -326,6 +326,16 @@ class Suki_Compatibility_WooCommerce {
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 
+		// Keep / remove gallery zoom module.
+		if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
+			remove_theme_support( 'wc-product-gallery-zoom' );
+		}
+
+		// Keep / remove gallery lightbox module.
+		if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
+			remove_theme_support( 'wc-product-gallery-lightbox' );
+		}
+
 		/**
 		 * Shop page's template hooks
 		 */
@@ -370,16 +380,6 @@ class Suki_Compatibility_WooCommerce {
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 			}
 
-			// Keep / remove gallery zoom module.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery_zoom' ) ) ) {
-				remove_theme_support( 'wc-product-gallery-zoom' );
-			}
-
-			// Keep / remove gallery lightbox module.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery_lightbox' ) ) ) {
-				remove_theme_support( 'wc-product-gallery-lightbox' );
-			}
-
 			// Keep / remove tabs.
 			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_tabs' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
@@ -402,7 +402,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_cart() ) {
 			// Split into 2 columns.
-			if ( intval( suki_get_theme_mod( 'woocommerce_cart_two_columns' ) ) ) {
+			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_cart_layout' ) ) {
 				add_filter( 'body_class', array( $this, 'add_cart_two_columns_class' ) );
 
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
@@ -422,7 +422,7 @@ class Suki_Compatibility_WooCommerce {
 
 		if ( is_checkout() ) {
 			// Split into 2 columns.
-			if ( intval( suki_get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
+			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_checkout_layout' ) ) {
 				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
 
 				add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper' ), 1 );
@@ -677,8 +677,8 @@ class Suki_Compatibility_WooCommerce {
 						    $plus = document.createElement( 'span' );
 
 						$minus.innerHTML = '-';
+						$minus.classList.add( 'suki-qty-increment' );
 						$minus.classList.add( 'suki-qty-minus' );
-						$minus.classList.add( 'input' );
 						$minus.setAttribute( 'role', 'button' );
 						$minus.setAttribute( 'tabindex', 0 );
 						$minus.addEventListener( 'click', handlePlusMinusButton );
@@ -687,8 +687,8 @@ class Suki_Compatibility_WooCommerce {
 						$quantity_wrappers[i].appendChild( $minus );
 
 						$plus.innerHTML = '+';
+						$plus.classList.add( 'suki-qty-increment' );
 						$plus.classList.add( 'suki-qty-plus' );
-						$plus.classList.add( 'input' );
 						$plus.setAttribute( 'role', 'button' );
 						$plus.setAttribute( 'tabindex', 0 );
 						$plus.addEventListener( 'click', handlePlusMinusButton );
