@@ -371,13 +371,15 @@ input, select, textarea {
 	left: 0;
 	opacity: 0;
 	visibility: hidden;
+	z-index: 0;
 	padding: 0.5em 20px;
 }
 
 .suki-admin-metabox-panel.active {
-	position: static;
+	position: relative;
 	opacity: 1;
 	visibility: visible;
+	z-index: 1;
 }
 
 .suki-admin-metabox-panel .notice {
