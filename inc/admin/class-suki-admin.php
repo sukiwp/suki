@@ -418,37 +418,37 @@ class Suki_Admin {
 				}
 			}
 			if ( ! empty( $font_stack ) ) {
-				$css_array['global'][ $selector ]['font-family'] = $font_stack . ' !important';
+				$css_array['global'][ $selector ]['font-family'] = $font_stack;
 			}
 
 			// Font weight
 			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
 			if ( ! empty( $font_weight ) ) {
-				$css_array['global'][ $selector ]['font-weight'] = $font_weight . ' !important';
+				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
 			}
 			
 			// Font style
 			$font_style = suki_get_theme_mod( $type . '_font_style' );
 			if ( ! empty( $font_style ) ) {
-				$css_array['global'][ $selector ]['font-style'] = $font_style . ' !important';
+				$css_array['global'][ $selector ]['font-style'] = $font_style;
 			}
 			
 			// Text transform
 			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
 			if ( ! empty( $text_transform ) ) {
-				$css_array['global'][ $selector ]['text-transform'] = $text_transform . ' !important';
+				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
 			}
 
 			// Font size
 			$font_size = suki_get_theme_mod( $type . '_font_size' );
 			if ( ! empty( $font_size ) ) {
-				$css_array['global'][ $selector ]['font-size'] = $font_size . ' !important';
+				$css_array['global'][ $selector ]['font-size'] = $font_size;
 			}
 
 			// Line height
 			$line_height = suki_get_theme_mod( $type . '_line_height' );
 			if ( ! empty( $line_height ) ) {
-				$css_array['global'][ $selector ]['line-height'] = $line_height . ' !important';
+				$css_array['global'][ $selector ]['line-height'] = $line_height;
 			}
 
 			// Letter spacing
