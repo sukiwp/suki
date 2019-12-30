@@ -1446,7 +1446,7 @@ p.demo_store,
 
 					.comment_container {
 						position: relative;
-						padding: 1.5rem 0;
+						padding: 1.5em 0 1.5em 65px;
 
 						@media screen and ( min-width: $breakpoint_500 ) {
 							padding: 2em 0 2em 65px;
@@ -1484,9 +1484,13 @@ p.demo_store,
 						// background: $secondary;
 						// border: 1px solid darken($secondary, 3%);
 						// margin: 0;
-						margin-top: 2em;
+						margin-top: 1.5em;
 						// box-shadow: none;
 						border-radius: 50%;
+
+						@media screen and ( min-width: $breakpoint_500 ) {
+							margin-top: 2em;
+						}
 					}
 
 					.comment-text {
@@ -1495,9 +1499,9 @@ p.demo_store,
 						// border-radius: 4px;
 						// padding: 1em 1em 0;
 
-						.star-rating {
-							margin: 0.25em 0;
-						}
+						// .star-rating {
+						// 	margin: 0.25em 0;
+						// }
 
 						.description *:last-child {
 							margin-bottom: 0;
