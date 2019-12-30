@@ -1,5 +1,6 @@
 v1.2.2
 - FIX: WooCommerce's product review CSS on mobile devices.
+- FIX: Brizy Integration's CSS reset bug on Safari when using light text on dark background.
 
 v1.2.1
 - FIX: Theme's typography bug inside Gutenberg editor (overriding custom typography settings from 3rd party addons).

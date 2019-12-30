@@ -92,7 +92,7 @@ class Suki_Compatibility_Brizy {
 		
 		// Disable reset CSS.
 		if ( suki_get_theme_mod( 'brizy_disable_reset_css' ) ) {
-			$add_css .= '.brz .brz-root__container.brz-reset-all { all: unset; overflow: initial !important; }';
+			$add_css .= '.brz .brz-root__container.brz-reset-all { color: unset !important; font: unset !important; }';
 		}
 
 		if ( ! empty( $add_css ) ) {
