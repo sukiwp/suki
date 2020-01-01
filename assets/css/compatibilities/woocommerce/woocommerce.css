@@ -1188,7 +1188,7 @@ p.demo_store a,
 
 .woocommerce #reviews #comments ol.commentlist li .comment_container {
 	position: relative;
-	padding: 1.5rem 0;
+	padding: 1.5em 0 1.5em 65px;
 }
 
 @media screen and (min-width: 500px) {
@@ -1229,12 +1229,14 @@ p.demo_store a,
 	padding: 0;
 	width: 50px;
 	height: 50px;
-	margin-top: 2em;
+	margin-top: 1.5em;
 	border-radius: 50%;
 }
 
-.woocommerce #reviews #comments ol.commentlist li .comment-text .star-rating {
-	margin: 0.25em 0;
+@media screen and (min-width: 500px) {
+	.woocommerce #reviews #comments ol.commentlist li img.avatar {
+		margin-top: 2em;
+	}
 }
 
 .woocommerce #reviews #comments ol.commentlist li .comment-text .description *:last-child {
