@@ -609,6 +609,7 @@
 	bottom: 0;
 	max-width: calc(100% - 4rem);
 	width: 300px; // default
+	overflow-y: auto;
 	@include transition( transform );
 
 	.suki-header-mobile-vertical-position-left &,

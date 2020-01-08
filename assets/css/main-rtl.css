@@ -2325,6 +2325,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	bottom: 0;
 	max-width: calc(100% - 4rem);
 	width: 300px;
+	overflow-y: auto;
 	transition: -webkit-transform 0.25s;
 	transition: transform 0.25s;
 	transition: transform 0.25s, -webkit-transform 0.25s;
