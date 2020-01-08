@@ -1,3 +1,7 @@
+v1.2.3
+- FIX: WooCommerce's star's color CSS in the review form page.
+- FIX: WooCommerce's "My Account" page CSS for non-logged in users.
+
 v1.2.2
 - FIX: WooCommerce's product review CSS on mobile devices.
 - FIX: Brizy Integration's CSS reset bug on Safari when using light text on dark background.
