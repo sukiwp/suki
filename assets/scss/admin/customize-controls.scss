@@ -422,8 +422,25 @@ li:not(.customize-info) div.customize-section-description {
 		position: relative;
 	}
 
-	.suki-row-item > * {
-		text-align: center;
+	.suki-row-item {
+		> * {
+			text-align: center;
+		}
+
+		&.suki-shadow-v_offset .suki-shadow-input,
+		&.suki-shadow-blue .suki-shadow-input {
+			border-radius: 0;
+		}
+
+		&.suki-shadow-h_offset .suki-shadow-input {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		&.suki-shadow-spread .suki-shadow-input {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
 	}
 
 	.wp-picker-container {

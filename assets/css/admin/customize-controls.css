@@ -379,6 +379,21 @@ li:not(.customize-info) div.customize-section-description {
 	text-align: center;
 }
 
+.customize-control-suki-shadow .suki-row-item.suki-shadow-v_offset .suki-shadow-input,
+.customize-control-suki-shadow .suki-row-item.suki-shadow-blue .suki-shadow-input {
+	border-radius: 0;
+}
+
+.customize-control-suki-shadow .suki-row-item.suki-shadow-h_offset .suki-shadow-input {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.customize-control-suki-shadow .suki-row-item.suki-shadow-spread .suki-shadow-input {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
 .customize-control-suki-shadow .wp-picker-container {
 	display: table;
 	margin-left: auto;
