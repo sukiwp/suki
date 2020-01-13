@@ -406,10 +406,6 @@ function suki_page_header_element( $element ) {
 				}
 			}
 
-			elseif ( is_singular() ) {
-				$title = get_the_title();
-			}
-
 			elseif ( is_post_type_archive() ) {
 				$post_type_obj = get_queried_object();
 				$title = suki_get_current_page_setting( 'page_header_title_text__post_type_archive' );
@@ -418,10 +414,14 @@ function suki_page_header_element( $element ) {
 					$title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $title );
 				} else {
 					$title = post_type_archive_title( '', false );
+
+					if ( empty( $title ) ) {
+						$title = $post_type_obj->labels->name;
+					}
 				}
 			}
 
-			elseif ( is_date() ) {
+			elseif ( is_date() || is_author() ) {
 				$title = get_the_archive_title();
 			}
 
@@ -445,6 +445,10 @@ function suki_page_header_element( $element ) {
 				if ( empty( $title ) ) {
 					$title = suki_title__404( false );
 				}
+			}
+
+			elseif ( is_singular() ) {
+				$title = get_the_title();
 			}
 
 			if ( ! empty( $title ) ) {
