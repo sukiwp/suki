@@ -463,7 +463,7 @@ class Suki {
 
 		$page_header_bg_image = '';
 
-		if ( is_page() ) {
+		if ( is_singular( 'page' ) ) {
 			$page_header_bg = 'thumbnail';
 		} else {
 			$page_header_bg = suki_get_current_page_setting( 'page_header_bg' );

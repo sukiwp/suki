@@ -1,5 +1,6 @@
 v1.2.3
 - FIX: Header mobile drawer's overflow scrolling CSS.
+- FIX: Page header background bug when WooCommerce shop page set as front page.
 - FIX: Page header title bug when WooCommerce shop page set as front page.
 - FIX: WooCommerce's star's color CSS in the review form page.
 - FIX: WooCommerce's "My Account" page CSS for non-logged in users.
