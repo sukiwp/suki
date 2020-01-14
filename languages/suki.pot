@@ -68,180 +68,180 @@ msgstr ""
 msgid "Footer Widgets Column %s"
 msgstr ""
 
-#: inc/helpers.php:484
+#: inc/helpers.php:471
 msgid "Layout Modules"
 msgstr ""
 
-#: inc/helpers.php:485
+#: inc/helpers.php:472
 msgid "Assets & Branding Modules"
 msgstr ""
 
-#: inc/helpers.php:486
+#: inc/helpers.php:473
 msgid "Blog Modules"
 msgstr ""
 
-#: inc/helpers.php:487
+#: inc/helpers.php:474
 msgid "WooCommerce Integration Modules"
 msgstr ""
 
-#: inc/helpers.php:499
+#: inc/helpers.php:486
 msgid "Page Canvas Layout"
 msgstr ""
 
-#: inc/helpers.php:503, inc/helpers.php:513, inc/helpers.php:523, inc/helpers.php:533, inc/helpers.php:543, inc/helpers.php:553, inc/helpers.php:564, inc/helpers.php:574, inc/helpers.php:584, inc/helpers.php:594, inc/helpers.php:605, inc/helpers.php:616
+#: inc/helpers.php:490, inc/helpers.php:500, inc/helpers.php:510, inc/helpers.php:520, inc/helpers.php:530, inc/helpers.php:540, inc/helpers.php:551, inc/helpers.php:561, inc/helpers.php:571, inc/helpers.php:581, inc/helpers.php:592, inc/helpers.php:603
 msgid "Customize"
 msgstr ""
 
-#: inc/helpers.php:509
+#: inc/helpers.php:496
 msgid "Header Layout"
 msgstr ""
 
-#: inc/helpers.php:519
+#: inc/helpers.php:506
 msgid "Page Header Layout"
 msgstr ""
 
-#: inc/helpers.php:529
+#: inc/helpers.php:516
 msgid "Content & Sidebar Layout"
 msgstr ""
 
-#: inc/helpers.php:539, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:356
+#: inc/helpers.php:526, inc/customizer/options/footer--builder.php:21, inc/customizer/options/_sections.php:356
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/helpers.php:549, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/page-header.php:95, inc/customizer/options/_sections.php:508
+#: inc/helpers.php:536, inc/customizer/options/content--section.php:27, inc/customizer/options/page-header.php:27, inc/customizer/options/page-header.php:95, inc/customizer/options/_sections.php:508
 msgid "Dynamic Page Settings"
 msgstr ""
 
-#: inc/helpers.php:560, inc/customizer/options/_sections.php:47
+#: inc/helpers.php:547, inc/customizer/options/_sections.php:47
 msgid "Color Palette"
 msgstr ""
 
-#: inc/helpers.php:570
+#: inc/helpers.php:557
 msgid "General Typography & Colors"
 msgstr ""
 
-#: inc/helpers.php:580, inc/customizer/options/_sections.php:55
+#: inc/helpers.php:567, inc/customizer/options/_sections.php:55
 msgid "Google Fonts"
 msgstr ""
 
-#: inc/helpers.php:590, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
+#: inc/helpers.php:577, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
 msgid "Social Links"
 msgstr ""
 
-#: inc/helpers.php:601
+#: inc/helpers.php:588
 msgid "Blog Layout"
 msgstr ""
 
-#: inc/helpers.php:612
+#: inc/helpers.php:599
 msgid "WC Layout"
 msgstr ""
 
-#: inc/helpers.php:634
+#: inc/helpers.php:621
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:639
+#: inc/helpers.php:626
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:644
+#: inc/helpers.php:631
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:649
+#: inc/helpers.php:636
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:654
+#: inc/helpers.php:641
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:659
+#: inc/helpers.php:646
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:664
+#: inc/helpers.php:651
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:669, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:656, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:674, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:661, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:680
+#: inc/helpers.php:667
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:685
+#: inc/helpers.php:672
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:690
+#: inc/helpers.php:677
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:696
+#: inc/helpers.php:683
 msgid "WC Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:701
+#: inc/helpers.php:688
 msgid "WC AJAX Add To Cart"
 msgstr ""
 
-#: inc/helpers.php:706
+#: inc/helpers.php:693
 msgid "WC Quick View"
 msgstr ""
 
-#: inc/helpers.php:711
+#: inc/helpers.php:698
 msgid "WC Off-Canvas Filters"
 msgstr ""
 
-#: inc/helpers.php:716
+#: inc/helpers.php:703
 msgid "WC Checkout Optimization"
 msgstr ""
 
-#: inc/helpers.php:722
+#: inc/helpers.php:709
 msgid "Blog Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:727
+#: inc/helpers.php:714
 msgid "Blog Featured Posts"
 msgstr ""
 
-#: inc/helpers.php:732
+#: inc/helpers.php:719
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:875
+#: inc/helpers.php:862
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:876
+#: inc/helpers.php:863
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:877
+#: inc/helpers.php:864
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:878
+#: inc/helpers.php:865
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:879
+#: inc/helpers.php:866
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:880
+#: inc/helpers.php:867
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -271,43 +271,43 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:732, inc/template-tags.php:736
+#: inc/template-tags.php:736, inc/template-tags.php:740
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:1033
+#: inc/template-tags.php:1037
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1034
+#: inc/template-tags.php:1038
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1079
+#: inc/template-tags.php:1083
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1081
+#: inc/template-tags.php:1085
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1098
+#: inc/template-tags.php:1102
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1104
+#: inc/template-tags.php:1108
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1131
+#: inc/template-tags.php:1135
 msgid "Comments are closed."
 msgstr ""
 

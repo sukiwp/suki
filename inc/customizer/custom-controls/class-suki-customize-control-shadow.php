@@ -105,7 +105,7 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 						<input type="number" value="{{ '' !== isExcluded ? '' : data.value[ prop ] }}" class="suki-shadow-input" step="1">
 					</label>
 				<# }); #>
-				<label class="suki-row-item" style="width: 30px; vertical-align: top;">
+				<label class="suki-row-item" style="width: 30px; vertical-align: top; padding-left: 10px;">
 					<span class="suki-small-label"><?php esc_html_e( 'Color', 'suki' ); ?></span>
 				</label>
 			</div>

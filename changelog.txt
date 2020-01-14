@@ -1,3 +1,10 @@
+v1.2.3
+- FIX: Header mobile drawer's overflow scrolling CSS.
+- FIX: Page header background bug when WooCommerce shop page set as front page.
+- FIX: Page header title bug when WooCommerce shop page set as front page.
+- FIX: WooCommerce's star's color CSS in the review form page.
+- FIX: WooCommerce's "My Account" page CSS for non-logged in users.
+
 v1.2.2
 - FIX: WooCommerce's product review CSS on mobile devices.
 - FIX: Brizy Integration's CSS reset bug on Safari when using light text on dark background.

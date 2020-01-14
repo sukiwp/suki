@@ -1319,16 +1319,10 @@ p.demo_store a,
 	display: inline-block;
 	line-height: 1;
 	margin: 0;
-	color: #0066cc;
 }
 
 .woocommerce #review_form #respond p.stars span {
-	display: -ms-flexbox;
-	display: flex;
-}
-
-.woocommerce #review_form #respond p.stars a {
-	color: inherit;
+	display: inline-table;
 }
 
 .woocommerce p.stars a {
@@ -1338,6 +1332,7 @@ p.demo_store a,
 	text-indent: -999em;
 	display: inline-block;
 	text-decoration: none;
+	color: #0066cc;
 }
 
 .woocommerce p.stars a::before {
@@ -2180,7 +2175,7 @@ p.demo_store a,
 }
 
 @media screen and (min-width: 768px) {
-	.woocommerce-account .woocommerce {
+	.woocommerce-account.logged-in .woocommerce {
 		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-wrap: wrap;

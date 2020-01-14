@@ -38,7 +38,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .star-rating, .woocommerce p.stars',
+		'element'  => '.woocommerce .star-rating, .woocommerce p.stars a',
 		'property' => 'color',
 	),
 	array(
@@ -432,7 +432,7 @@ $add['woocommerce_sale_badge_text_color'] = array(
 $add['woocommerce_review_star_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce .star-rating, .woocommerce p.stars',
+		'element'  => '.woocommerce .star-rating, .woocommerce p.stars a',
 		'property' => 'color',
 	),
 );
