@@ -1,3 +1,6 @@
+v1.2.4
+- TWEAK: Improve header submenu style.
+
 v1.2.3
 - FIX: Header mobile drawer's overflow scrolling CSS.
 - FIX: Page header background bug when WooCommerce shop page set as front page.
