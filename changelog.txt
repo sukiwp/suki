@@ -1,4 +1,5 @@
 v1.2.4
+- NEW: Option to hide featured image on blog posts layout (Default and Grid layout).
 - TWEAK: Improve header submenu style.
 
 v1.2.3
