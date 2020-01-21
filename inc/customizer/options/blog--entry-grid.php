@@ -190,6 +190,7 @@ $wp_customize->add_control( $key, array(
 	'choices'     => array(
 		'before-entry-header' => esc_html__( 'Before Post Header', 'suki' ),
 		'after-entry-header'  => esc_html__( 'After Post Header', 'suki' ),
+		'disabled'            => esc_html__( 'Disabled', 'suki' ),
 	),
 	'priority'    => 30,
 ) );

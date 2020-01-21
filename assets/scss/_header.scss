@@ -4,6 +4,7 @@
 
 .site-header {
 	position: relative;
+	z-index: 99;
 }
 
 .suki-header {
@@ -242,7 +243,8 @@
 
 		.sub-menu {
 			position: absolute;
-			z-index: 40;
+			// z-index: 40;
+			z-index: 2; // higher than section and cart count
 			top: 100%;
 			left: 0;
 			padding: 1em;
@@ -253,7 +255,7 @@
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
-			@include transition( opacity, visibility 0s 0.25s );
+			@include transition(opacity, visibility 0s 0.25s);
 			overflow-y: auto;
 
 			*:not(.button) {
@@ -296,12 +298,14 @@
 		}
 
 		.suki-dropdown-sign {
-			margin-left: 0.3em;
+			margin-left: 0.4em;
 		}
 
 		.sub-menu {
 			padding: 1em 0;
-			z-index: 50;
+			// z-index: 50;
+			z-index: 3; // higher than ordinary sub menu
+			overflow-y: initial;
 
 			.menu-item {
 				padding: 0 1.25em;
@@ -310,6 +314,7 @@
 
 			.suki-menu-item-link {
 				display: flex;
+				justify-content: space-between;
 				align-items: center;
 				padding: 0.25em 0;
 			}
@@ -361,7 +366,7 @@
 	height: 40px; // default
 
 	&-inner {
-		z-index: 30;
+		// z-index: 30;
 		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
@@ -378,7 +383,7 @@
 	height: 80px; // default
 
 	&-inner {
-		z-index: 20;
+		// z-index: 20;
 		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
@@ -396,7 +401,7 @@
 	height: 60px; // default
 
 	&-inner {
-		z-index: 10;
+		// z-index: 10;
 		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}
@@ -413,7 +418,7 @@
 	height: 60px; // default
 
 	&-inner {
-		z-index: 10;
+		// z-index: 10;
 		@include border( null, 0 ); // default
 		padding: 0 20px; // default
 	}

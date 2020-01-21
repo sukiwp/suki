@@ -182,21 +182,24 @@
 					    $section = $submenu.closest( '.suki-header-section' ),
 					    $container = $section.classList.contains( 'suki-section-contained' ) ? $section.querySelector( '.suki-section-inner' ) : $submenu.closest( '.suki-wrapper' );
 
+					// Reset inline styling.
+					$submenu.classList.remove( 'suki-sub-menu-edge' );
+					$submenu.style[ prop ] = '';
+
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
 					var containerEdge = $container.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $container.getBoundingClientRect().width ),
 						submenuEdge = $submenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
 						isSubmenuOverflow = window.sukiHelper.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
-					// Reset inline styling.
-					$submenu.classList.remove( 'suki-sub-menu-edge' );
-					$submenu.style[ prop ] = '';
-
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
 						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
 					}
+
+					// Apply vertical max-height.
+					$submenu.style.maxHeight = ( window.innerHeight - $submenu.getBoundingClientRect().top ) + 'px';
 
 					// Iterate to 2nd & higher level submenu.
 					var $subsubmenus = $submenu.querySelectorAll( '.sub-menu' );
@@ -211,10 +214,7 @@
 						}
 
 						// Apply vertical max-height.
-						$subsubmenu.style.maxHeight = 'none';
-						if ( window.innerHeight < $subsubmenu.getBoundingClientRect().top + $subsubmenu.getBoundingClientRect().height ) {
-							$subsubmenu.style.maxHeight = ( window.innerHeight - $subsubmenu.getBoundingClientRect().top ) + 'px';
-						}
+						$subsubmenu.style.maxHeight = ( window.innerHeight - $subsubmenu.getBoundingClientRect().top ) + 'px';
 					}
 				}
 			}
@@ -228,7 +228,7 @@
 				// }
 
 				clearTimeout( timeout );
-				timeout = setTimeout( calculateSubMenuEdge, 100 );
+				timeout = setTimeout( calculateSubMenuEdge, 500 );
 			});
 			calculateSubMenuEdge();
 		},
