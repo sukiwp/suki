@@ -642,12 +642,14 @@ $add['boxed_page_width'] = array(
 		'type'     => 'css',
 		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'max-width',
+		'media'    => '@media screen and (min-width: $)',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'left',
 		'pattern'  => 'calc( 50% - ( $ / 2 ) )',
+		'media'    => '@media screen and (min-width: $)',
 	),
 );
 $add['boxed_page_shadow'] = array(

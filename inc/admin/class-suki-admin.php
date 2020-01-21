@@ -393,6 +393,7 @@ class Suki_Admin {
 		// Content width
 		$css_array['global']['.wp-block']['max-width'] = 'calc(' . suki_get_theme_mod( 'content_narrow_width' ) . ' + ' . '30px)';
 		$css_array['global']['.wp-block[data-align="wide"]']['max-width'] = 'calc(' . suki_get_theme_mod( 'container_width' ) . ' + ' . '30px)';
+		$css_array['global']['.wp-block[data-align="full"]']['max-width'] = 'none';
 
 		// Typography
 		$active_google_fonts = array();

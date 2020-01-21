@@ -1,6 +1,7 @@
 v1.2.4
 - NEW: Option to hide featured image on blog posts layout (Default and Grid layout).
-- TWEAK: Improve header submenu style.
+- FIX: Header submenu style.
+- FIX: Gutenberg `alignwide` and `alignfull` CSS.
 
 v1.2.3
 - FIX: Header mobile drawer's overflow scrolling CSS.
