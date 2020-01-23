@@ -1,6 +1,7 @@
 v1.2.5
 - TWEAK: Improve WooCommerce quantity increment buttons CSS (larger size, more mobile friendly).
 - TWEAK: Improve WooCommerce quantity increment buttons JS.
+- TWEAK: Allow WooCommerce product gallery width to be less than 50% (now 25% is the minimum width).
 
 v1.2.4
 - NEW: Update Google Fonts list (from 916 fonts to 977 fonts).

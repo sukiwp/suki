@@ -633,7 +633,7 @@ class Suki_Compatibility_WooCommerce {
 		(function() {
 			'use strict';
 
-			var handlePlusMinusButton = function( e ) {
+			var handleWooCommerceQuantityIncrementButtons = function( e ) {
 				// Only handle "suki-qty-increment" button.
 				if ( e.target.classList.contains( 'suki-qty-increment' ) ) {
 					// Prevent default handlers on click and touch event.
@@ -679,9 +679,9 @@ class Suki_Compatibility_WooCommerce {
 				}
 			};
 
-			document.body.addEventListener( 'click', handlePlusMinusButton );
-			document.body.addEventListener( 'touchend', handlePlusMinusButton );
-			document.body.addEventListener( 'keydown', handlePlusMinusButton );
+			document.body.addEventListener( 'click', handleWooCommerceQuantityIncrementButtons );
+			document.body.addEventListener( 'touchend', handleWooCommerceQuantityIncrementButtons );
+			document.body.addEventListener( 'keydown', handleWooCommerceQuantityIncrementButtons );
 		})();
 		<?php
 		$js = ob_get_clean();
