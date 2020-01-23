@@ -224,7 +224,8 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_html' ), 10, 3 );
 
 		// Add plus and minus buttons to the quantity input.
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_quantity_plus_minus_buttons_via_js' ) );
+		add_action( 'woocommerce_after_quantity_input_field', array( $this, 'add_quantity_plus_minus_buttons' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_quantity_plus_minus_buttons_scripts' ) );
 
 		/**
 		 * Shop page's template hooks
@@ -612,9 +613,19 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Add plus and minus buttons to the quantity input.
+	 */
+	public function add_quantity_plus_minus_buttons() {
+		?>
+		<span class="suki-qty-increment suki-qty-minus" role="button" tabindex="0">-</span>
+		<span class="suki-qty-increment suki-qty-plus" role="button" tabindex="0">+</span>
+		<?php
+	}
+
+	/**
 	 * Add plus and minus buttons to the quantity input via JS.
 	 */
-	public function add_quantity_plus_minus_buttons_via_js() {
+	public function add_quantity_plus_minus_buttons_scripts() {
 		// Add inline JS to initiate quantity plus minus UI.
 		// This javascript uses jQuery to hook into WooCommerce event callback (WooCommerce uses jQuery).
 		ob_start();
@@ -622,20 +633,14 @@ class Suki_Compatibility_WooCommerce {
 		(function() {
 			'use strict';
 
-			var sukiInitWooCommerceQuantityPlusMinus = function() {
-				var $quantity_wrappers = document.querySelectorAll( '.quantity' );
-				
-				if ( 0 === $quantity_wrappers.length ) {
-					return;
-				}
-
-				var $update_cart = document.querySelector( 'button[name="update_cart"]' );
-
-				var handlePlusMinusButton = function( e ) {
+			var handlePlusMinusButton = function( e ) {
+				// Only handle "suki-qty-increment" button.
+				if ( e.target.classList.contains( 'suki-qty-increment' ) ) {
 					// Prevent default handlers on click and touch event.
 					if ( 'click' === e.type || 'touchend' === e.type ) {
 						e.preventDefault();
 					}
+
 					// Abort if keydown is not enter or space key.
 					else if ( 'keydown' === e.type && 13 !== e.which && 32 !== e.which ) {
 						return;
@@ -666,46 +671,17 @@ class Suki_Compatibility_WooCommerce {
 						}
 					}
 
-					if ( $update_cart ) {
-						$update_cart.disabled = false;
+					var $updateCartButton = document.querySelector( 'button[name="update_cart"]' );
+					
+					if ( $updateCartButton ) {
+						$updateCartButton.disabled = false;
 					}
 				}
+			};
 
-				for ( var i = 0; i < $quantity_wrappers.length; i++ ) {
-					if ( ! $quantity_wrappers[i].classList.contains( 'suki-qty' ) ) {
-						var $minus = document.createElement( 'span' ),
-						    $plus = document.createElement( 'span' );
-
-						$minus.innerHTML = '-';
-						$minus.classList.add( 'suki-qty-increment' );
-						$minus.classList.add( 'suki-qty-minus' );
-						$minus.setAttribute( 'role', 'button' );
-						$minus.setAttribute( 'tabindex', 0 );
-						$minus.addEventListener( 'click', handlePlusMinusButton );
-						$minus.addEventListener( 'touchend', handlePlusMinusButton );
-						$minus.addEventListener( 'keydown', handlePlusMinusButton );
-						$quantity_wrappers[i].appendChild( $minus );
-
-						$plus.innerHTML = '+';
-						$plus.classList.add( 'suki-qty-increment' );
-						$plus.classList.add( 'suki-qty-plus' );
-						$plus.setAttribute( 'role', 'button' );
-						$plus.setAttribute( 'tabindex', 0 );
-						$plus.addEventListener( 'click', handlePlusMinusButton );
-						$plus.addEventListener( 'touchend', handlePlusMinusButton );
-						$plus.addEventListener( 'keydown', handlePlusMinusButton );
-						$quantity_wrappers[i].appendChild( $plus );
-
-						$quantity_wrappers[i].classList.add( 'suki-qty' );
-					}
-				}
-			}
-
-			// Initiate by default.
-			sukiInitWooCommerceQuantityPlusMinus();
-
-			// Initiate whenever cart is updated.
-			jQuery( document.body ).on( 'updated_wc_div', sukiInitWooCommerceQuantityPlusMinus );
+			document.body.addEventListener( 'click', handlePlusMinusButton );
+			document.body.addEventListener( 'touchend', handlePlusMinusButton );
+			document.body.addEventListener( 'keydown', handlePlusMinusButton );
 		})();
 		<?php
 		$js = ob_get_clean();
