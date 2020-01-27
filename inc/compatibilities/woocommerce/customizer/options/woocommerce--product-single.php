@@ -66,7 +66,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 	'label'       => esc_html__( 'Gallery column Width', 'suki' ),
 	'units'       => array(
 		'%' => array(
-			'min'  => 50,
+			'min'  => 25,
 			'max'  => 75,
 			'step' => 0.05,
 		),

@@ -190,8 +190,12 @@ p.has-background {
 		> .wp-block-column {
 			flex-basis: calc( 50% - 1rem );
 			margin-left: 1rem;
-			margin-right: 1rem;
+			margin-right: 1rem;	
+		}
+	}
 
+	@media screen and ( min-width: 600px ) and ( max-width: $breakpoint_768 ) {
+		> .wp-block-column {
 			&:nth-child(odd) {
 				margin-left: 0;
 			}

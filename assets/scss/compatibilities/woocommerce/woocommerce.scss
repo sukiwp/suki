@@ -248,6 +248,7 @@ p.demo_store,
 	.cart .quantity {
 		display: inline-block;
 		width: 5.5rem;
+		position: relative;
 
 		.qty {
 			// width: 3.631em;
@@ -264,39 +265,37 @@ p.demo_store,
 			}
 		}
 
-		&.suki-qty {
-			position: relative;
+		&.hidden > * {
+			display: none;
+		}
 
-			&.hidden > * {
-				display: none;
+		.suki-qty-increment {
+			position: absolute;
+			top: 50%;
+			display: inline-block;
+			width: 1em;
+			margin-top: -0.5em;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 0;
+			border-color: transparent;
+			background-color: transparent;
+			// color: inherit;
+			font-size: 1.25em;
+			line-height: 1;
+			opacity: 0.5;
+
+			&:hover, &:focus {
+				opacity: 1;
 			}
+		}
 
-			.suki-qty-increment {
-				position: absolute;
-				top: 50%;
-				width: 20%;
-				margin-top: -0.5em;
-				text-align: center;
-				cursor: pointer;
-				border-radius: 0;
-				border-color: transparent;
-				background-color: transparent;
-				// color: inherit;
-				line-height: 1;
-				opacity: 0.5;
+		.suki-qty-minus {
+			left: 0;
+		}
 
-				&:hover, &:focus {
-					opacity: 1;
-				}
-			}
-
-			.suki-qty-minus {
-				left: 0;
-			}
-
-			.suki-qty-plus {
-				right: 0;
-			}
+		.suki-qty-plus {
+			right: 0;
 		}
 	}
 
