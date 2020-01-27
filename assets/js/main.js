@@ -476,7 +476,7 @@
 					}, 300 );
 
 					// Save this toggle for putting back focus when popup is deactivated.
-					$clickedToggle = this;
+					$clickedToggle = $this;
 				}
 			}
 			document.addEventListener( 'click', handlePopupToggle, false );
