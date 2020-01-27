@@ -1291,6 +1291,9 @@ p.has-background {
 		margin-right: 1rem;
 		margin-left: 1rem;
 	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
 	.wp-block-columns > .wp-block-column:nth-child(odd) {
 		margin-right: 0;
 	}
