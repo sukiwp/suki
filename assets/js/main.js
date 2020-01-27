@@ -84,15 +84,6 @@
 
 			window.setTimeout( function() {
 				target.removeAttribute( 'style' );
-				// target.style.display = 'none';
-				// target.style.removeProperty( 'height' );
-				// target.style.removeProperty( 'padding-top' );
-				// target.style.removeProperty( 'padding-bottom' );
-				// target.style.removeProperty( 'margin-top' );
-				// target.style.removeProperty( 'margin-bottom' );
-				// target.style.removeProperty( 'overflow' );
-				// target.style.removeProperty( 'transition-duration' );
-				// target.style.removeProperty( 'transition-property' );
 			}, duration );
 		},
 
@@ -161,11 +152,11 @@
 		initKeyboardAndMouseFocus: function() {
 			document.body.addEventListener( 'keydown', function( e ) {
 				document.body.classList.add( 'using-keyboard' );
-			});
+			}, false );
 
 			document.body.addEventListener( 'mousedown', function( e ) {
 				document.body.classList.remove( 'using-keyboard' );
-			});
+			}, false );
 		},
 
 		/**
@@ -176,10 +167,9 @@
 
 			var calculateSubMenuEdge = function() {
 
-				var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
-				for ( var i = 0; i < $submenus.length; i++ ) {
-					var $submenu = $submenus[i],
-					    $section = $submenu.closest( '.suki-header-section' ),
+				var $submenus = Array.prototype.slice.call( document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' ) );
+				$submenus.forEach(function( $submenu ) {
+					var $section = $submenu.closest( '.suki-header-section' ),
 					    $container = $section.classList.contains( 'suki-section-contained' ) ? $section.querySelector( '.suki-section-inner' ) : $submenu.closest( '.suki-wrapper' );
 
 					// Reset inline styling.
@@ -202,10 +192,9 @@
 					$submenu.style.maxHeight = ( window.innerHeight - $submenu.getBoundingClientRect().top ) + 'px';
 
 					// Iterate to 2nd & higher level submenu.
-					var $subsubmenus = $submenu.querySelectorAll( '.sub-menu' );
-					for ( var j = 0; j < $subsubmenus.length; j++ ) {
-						var $subsubmenu = $subsubmenus[j],
-						    subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
+					var $subsubmenus = Array.prototype.slice.call( $submenu.querySelectorAll( '.sub-menu' ) );
+					$subsubmenus.forEach(function( $subsubmenu ) {
+						var subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
 							isSubsubmenuOverflow = window.sukiHelper.isRTL() ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
 
 						// Apply class and left position.
@@ -215,21 +204,15 @@
 
 						// Apply vertical max-height.
 						$subsubmenu.style.maxHeight = ( window.innerHeight - $subsubmenu.getBoundingClientRect().top ) + 'px';
-					}
-				}
+					});
+				});
 			}
 
 			var timeout;
 			window.addEventListener( 'resize', function() {
-				// var $submenus = document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' );
-				// for ( var i = 0; i < $submenus.length; i++ ) {
-				// 	$submenus[i].style[ prop ] = '';
-				// 	$submenus[i].parentElement.classList.remove( 'focus' );
-				// }
-
 				clearTimeout( timeout );
 				timeout = setTimeout( calculateSubMenuEdge, 500 );
-			});
+			}, false );
 			calculateSubMenuEdge();
 		},
 
@@ -237,12 +220,17 @@
 		 * Function to init hover menu.
 		 */
 		initMenuAccessibility: function() {
+
 			/**
 			 * Accesibility using tab button
 			 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/dropdown-menus/vanilla-js/js/dropdown.js
 			 */
-			var toggleFocus = function( e ) {
-				var $menu = this.closest( '.suki-hover-menu' ),
+			var handleMenuFocusUsingKeyboard = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
+				if ( ! $this ) return;
+
+				var $menu = $this.closest( '.suki-hover-menu' ),
 				    $current = this;
 
 				while ( $current !== $menu ) {
@@ -256,60 +244,60 @@
 					$current = $current.parentElement;
 				}
 			}
+			document.addEventListener( 'focus', handleMenuFocusUsingKeyboard, false );
+			document.addEventListener( 'blur', handleMenuFocusUsingKeyboard, false );
 
 			/**
 			 * Accesibility using arrow nav buttons
 			 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/menu-keyboard-arrow-nav/vanilla-js/js/navigation.js
 			 */
-			var keyboardNav = function( e ) {
+			var handleMenuNavigationUsingKeyboard = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
+				if ( ! $this ) return;
+
 				var key = e.which || e.keyCode;
 
 				// left key
 				if ( 37 === key ) {
 					e.preventDefault();
 
-					if ( this.parentElement.previousElementSibling ) {
-						this.parentElement.previousElementSibling.firstElementChild.focus();
+					if ( $this.parentElement.previousElementSibling ) {
+						$this.parentElement.previousElementSibling.firstElementChild.focus();
 					}
 				}
 				// right key
 				else if ( 39 === key ) {
 					e.preventDefault();
 
-					if ( this.parentElement.nextElementSibling ) {
-						this.parentElement.nextElementSibling.firstElementChild.focus();
+					if ( $this.parentElement.nextElementSibling ) {
+						$this.parentElement.nextElementSibling.firstElementChild.focus();
 					}
 				}
 				// down key
 				else if ( 40 === key ) {
 					e.preventDefault();
 
-					if ( this.nextElementSibling ) {
-						this.nextElementSibling.firstElementChild.firstElementChild.focus();
+					if ( $this.nextElementSibling ) {
+						$this.nextElementSibling.firstElementChild.firstElementChild.focus();
 					}
-					else if ( this.parentElement.nextElementSibling ) {
-						this.parentElement.nextElementSibling.firstElementChild.focus();
+					else if ( $this.parentElement.nextElementSibling ) {
+						$this.parentElement.nextElementSibling.firstElementChild.focus();
 					}
 				}
 				// up key
 				else if ( 38 === key ) {
 					e.preventDefault();
 
-					if ( this.parentElement.previousElementSibling ) {
-						this.parentElement.previousElementSibling.firstElementChild.focus();
+					if ( $this.parentElement.previousElementSibling ) {
+						$this.parentElement.previousElementSibling.firstElementChild.focus();
 					}
-					else if ( this.parentElement.parentElement.previousElementSibling ) {
-						this.parentElement.parentElement.previousElementSibling.focus();
+					else if ( $this.parentElement.parentElement.previousElementSibling ) {
+						$this.parentElement.parentElement.previousElementSibling.focus();
 					}
 				}
 			}
-
-			var $menuLinks = document.querySelectorAll( '.suki-hover-menu .menu-item > a' );
-			for ( var i = 0; i < $menuLinks.length; i++ ) {
-				$menuLinks[i].addEventListener( 'focus', toggleFocus, false );
-				$menuLinks[i].addEventListener( 'blur', toggleFocus, false );
-				$menuLinks[i].addEventListener( 'keydown', keyboardNav, false );
-			}
+			document.addEventListener( 'keydown', handleMenuNavigationUsingKeyboard, false );
 		},
 
 		/**
@@ -319,21 +307,21 @@
 			/**
 			 * Mobile Touch friendly
 			 */
-			var mobileTouch = function( e ) {
+			var handleMenuOnMobile = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-header-menu .menu-item > a' );
+				if ( ! $this ) return;
+
 				// Only enable double tap on menu item that has sub menu.
-				if ( this.parentElement.classList.contains( 'menu-item-has-children' ) ) {
-					if ( this !== document.activeElement ) {
-						this.focus();
+				if ( $this.parentElement.classList.contains( 'menu-item-has-children' ) ) {
+					if ( $this !== document.activeElement ) {
+						$this.focus();
 
 						e.preventDefault();
 					}
 				}
 			}
-
-			var $menuLinks = document.querySelectorAll( '.suki-header-menu .menu-item > a' );
-			for ( var i = 0; i < $menuLinks.length; i++ ) {
-				$menuLinks[i].addEventListener( 'touchend', mobileTouch, false );
-			}
+			document.addEventListener( 'touchend', handleMenuOnMobile, false );
 		},
 
 		/**
@@ -344,11 +332,15 @@
 			 * Click Handler
 			 */
 
-			var clickHandler = function( e ) {
+			var handleSubMenuToggle = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-header-section .suki-toggle-menu .suki-sub-menu-toggle' );
+				if ( ! $this ) return;
+				
 				e.preventDefault();
 
 				var $header = document.getElementById( 'masthead' ),
-				    $menuItem = this.parentElement;
+				    $menuItem = $this.parentElement;
 
 				// Menu item already has "focus" class, so collapses itself.
 				if ( $menuItem.classList.contains( 'focus' ) ) {
@@ -356,10 +348,10 @@
 				}
 				// Menu item doesn't have "focus" class yet, so collapses other focused menu items found in the header and focuses this menu item.
 				else {
-					var $focusedMenuItems = $header.querySelectorAll( '.menu-item.focus' );
-					for ( var i = 0; i < $focusedMenuItems.length; i++ ) {
-						$focusedMenuItems[i].classList.remove( 'focus' );
-					}
+					var $focusedMenuItems = Array.prototype.slice.call( $header.querySelectorAll( '.menu-item.focus' ) );
+					$focusedMenuItems.forEach(function( $focusedMenuItem ) {
+						$focusedMenuItem.classList.remove( 'focus' );
+					});
 
 					$menuItem.classList.add( 'focus' );
 
@@ -372,46 +364,41 @@
 					}
 				}
 			}
-
-			var $menuToggles = document.querySelectorAll( '.suki-header-section .suki-toggle-menu .suki-sub-menu-toggle' );
-			for ( var i = 0; i < $menuToggles.length; i++ ) {
-				$menuToggles[i].addEventListener( 'click', clickHandler, false );
-				$menuToggles[i].addEventListener( 'touchend', clickHandler, false );
-			}
+			document.addEventListener( 'click', handleSubMenuToggle, false );
 
 			/**
 			 * Close Handler
 			 */
 
-			var closeToggle = function( e ) {
-				// Make sure click event doesn't happen inside the toggle.
-				if ( ! e.target.closest( '.suki-toggle-menu' ) ) {
+			var handleSubMenuClose = function( e ) {
+				// Make sure click event doesn't happen inside the menu item's scope.
+				if ( ! e.target.closest( '.suki-header-section .suki-toggle-menu' ) ) {
 					var $header = document.getElementById( 'masthead' ),
 					    $focusedMenuItems;
 
 					if ( $header ) {
-						$focusedMenuItems = $header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' );
-
-						for ( var i = 0; i < $focusedMenuItems.length; i++ ) {
-							$focusedMenuItems[i].classList.remove( 'focus' );
-						}
+						var $focusedMenuItems = Array.prototype.slice.call( $header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' ) );
+						$focusedMenuItems.forEach(function( $focusedMenuItem ) {
+							$focusedMenuItem.classList.remove( 'focus' );
+						});
 					}
 				}
 			};
-
-			// Handle hover state when clicks happened outside menu items.
-			document.addEventListener( 'click', closeToggle, false );
-			document.addEventListener( 'touchend', closeToggle, false );
+			document.addEventListener( 'click', handleSubMenuClose, false );
 		},
 
 		/**
 		 * Function to init mobile menu.
 		 */
 		initAccordionMenu: function() {
-			var clickHandler = function( e ) {
+			var handleAccordionMenuToggle = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
+				if ( ! $this ) return;
+				
 				e.preventDefault();
 
-				var $menuItem = this.parentElement,
+				var $menuItem = $this.parentElement,
 				    $subMenu = $menuItem.querySelector( '.sub-menu' );
 
 				// Menu item already has "focus" class, so collapses itself and all menu items inside.
@@ -419,30 +406,25 @@
 					window.sukiHelper.slideUp( $subMenu );
 					$menuItem.classList.remove( 'focus' );
 
-					var $insideMenuItems = $menuItem.querySelectorAll( '.menu-item.focus' );
-					for ( var i = 0; i < $insideMenuItems.length; i++ ) {
-						window.sukiHelper.slideUp( $insideMenuItems[i].querySelector( '.sub-menu' ) );
-						$insideMenuItems[i].classList.remove( 'focus' );
-					}
+					var $insideMenuItems = Array.prototype.slice.call( $menuItem.querySelectorAll( '.menu-item.focus' ) );
+					$insideMenuItems.forEach(function( $insideMenuItem ) {
+						window.sukiHelper.slideUp( $insideMenuItem.querySelector( '.sub-menu' ) );
+						$insideMenuItem.classList.remove( 'focus' );
+					});
 				}
 				// Menu item doesn't have "focus" class yet, so collapses all focused siblings and focuses this menu item.
 				else {
-					var $siblingMenuItems = $menuItem.parentElement.querySelectorAll( '.menu-item.focus' );
-					for ( var i = 0; i < $siblingMenuItems.length; i++ ) {
-						window.sukiHelper.slideUp( $siblingMenuItems[i].querySelector( '.sub-menu' ) );
-						$siblingMenuItems[i].classList.remove( 'focus' );
-					}
+					var $siblingMenuItems = Array.prototype.slice.call( $menuItem.parentElement.querySelectorAll( '.menu-item.focus' ) );
+					$siblingMenuItems.forEach(function( $siblingMenuItem ) {
+						window.sukiHelper.slideUp( $siblingMenuItem.querySelector( '.sub-menu' ) );
+						$siblingMenuItem.classList.remove( 'focus' );
+					});
 
 					window.sukiHelper.slideDown( $subMenu );
 					$menuItem.classList.add( 'focus' );
 				}
 			}
-
-			var $menuToggles = document.querySelectorAll( '.suki-header-section-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
-			for ( var i = 0; i < $menuToggles.length; i++ ) {
-				$menuToggles[i].addEventListener( 'click', clickHandler, false );
-				$menuToggles[i].addEventListener( 'touchend', clickHandler, false );
-			}
+			document.addEventListener( 'click', handleAccordionMenuToggle, false );
 		},
 
 		/**
@@ -452,69 +434,76 @@
 			var $clickedToggle = null;
 
 			var deactivatePopup = function( device ) {
-				var $activePopups = document.querySelectorAll( '.suki-popup-active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) );
+				var $activePopups = Array.prototype.slice.call( document.querySelectorAll( '.suki-popup-active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) ) );
 
-				for ( var j = 0; j < $activePopups.length; j++ ) {
+				$activePopups.forEach(function( $activePopup ) {
 					// Deactivate popup.
 					$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
-					$activePopups[j].classList.remove( 'suki-popup-active' );
+					$activePopup.classList.remove( 'suki-popup-active' );
 					document.body.classList.remove( 'suki-has-popup-active' );
 
 					// Back current focus to the toggle.
-					$activePopups[j].removeAttribute( 'tabindex' );
+					$activePopup.removeAttribute( 'tabindex' );
 					$clickedToggle.focus();
+				});
+			}
+
+			// Show / hide popup when the toggle is clicked.
+			var handlePopupToggle = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-popup-toggle' );
+				if ( ! $this ) return;
+
+				e.preventDefault();
+				
+				var $target = document.querySelector( '#' + $this.getAttribute( 'data-target' ) );
+
+				// Abort if no popup target found.
+				if ( ! $target ) return;
+
+				if ( $target.classList.contains( 'suki-popup-active' ) ) {
+					deactivatePopup();
+				} else {
+					// Activate popup.
+					$this.classList.add( 'suki-popup-toggle-active' );
+					$target.classList.add( 'suki-popup-active' );
+					document.body.classList.add( 'suki-has-popup-active' );
+
+					// Put focus on popup.
+					setTimeout(function() {
+						$target.setAttribute( 'tabindex', 0 );
+						$target.focus();
+					}, 300 );
+
+					// Save this toggle for putting back focus when popup is deactivated.
+					$clickedToggle = this;
 				}
 			}
+			document.addEventListener( 'click', handlePopupToggle, false );
 
-			var $toggles = document.querySelectorAll( '.suki-popup-toggle' );
-			for ( var i = 0; i < $toggles.length; i++ ) {
-				$toggles[i].addEventListener( 'click', function( e ) {
-					e.preventDefault();
-				    
-				    var $target = document.querySelector( '#' + this.getAttribute( 'data-target' ) );
+			// Close popup when any of ".suki-popup-close" element is clicked.
+			var handlePopupClose = function( e ) {
+				// Check target element.
+				if ( ! e.target.closest( '.suki-popup-close' ) ) return;
 
-				    // Abort if no popup target found.
-				    if ( ! $target ) return;
+				e.preventDefault();
 
-				    if ( $target.classList.contains( 'suki-popup-active' ) ) {
-						deactivatePopup();
-				    } else {
-				    	// Activate popup.
-						this.classList.add( 'suki-popup-toggle-active' );
-						$target.classList.add( 'suki-popup-active' );
-						document.body.classList.add( 'suki-has-popup-active' );
-
-						// Put focus on popup.
-						setTimeout(function() {
-							$target.setAttribute( 'tabindex', 0 );
-							$target.focus();
-						}, 300 );
-
-				    	// Save this toggle for putting back focus when popup is deactivated.
-						$clickedToggle = this;
-				    }
-				}, false );
+				deactivatePopup();
 			}
+			document.addEventListener( 'click', handlePopupClose, false );
 
-			var $closes = document.querySelectorAll( '.suki-popup-close' );
-			for ( var i = 0; i < $closes.length; i++ ) {
-				$closes[i].addEventListener( 'click', function( e ) {
-					e.preventDefault();
-
-					deactivatePopup();
-				}, false );
-			}
-
-			document.body.addEventListener( 'keydown', function( e ) {
+			// Close popup using "escape" keyboard button.
+			var handlePopupEscape = function( e ) {
 				var key = e.which || e.keyCode;
 
 				if ( document.body.classList.contains( 'suki-has-popup-active' ) && 27 === key ) {
 					deactivatePopup();
 				}
-			});
+			}
+			document.addEventListener( 'keydown', handlePopupEscape, false );
 
 			// When window resize, close Active Popups based on their responsive visibility classes.
-			window.addEventListener( 'resize', function( e ) {
+			var handleResponsiveVisibility = function( e ) {
 				if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
 					var device = 'mobile';
 
@@ -528,27 +517,31 @@
 
 					deactivatePopup( device );
 				}
-			});
+			}
+			window.addEventListener( 'resize', handleResponsiveVisibility, false );
 
 			// Close popup if any hash link is clicked.
-			var $menuLinks = document.querySelectorAll( '.suki-popup a' );
-			for ( var i = 0; i < $menuLinks.length; i++ ) {
-				$menuLinks[i].addEventListener( 'click', function( e ) {
-					// Check if the link is a hash link.
-					if ( '' !== this.hash ) {
-						var pageURL = ( window.location.hostname + '/' + window.location.pathname ).replace( '/\/$/', '' ),
-						    linkURL = ( this.hostname + '/' + this.pathname ).replace( '/\/$/', '' );
+			var handleHashLinkInsidePopup = function( e ) {
+				// Check target element.
+				if ( ! e.target.closest( '.suki-popup a' ) ) return;
 
-						// Check if the hash target is on this page.
-						if ( pageURL === linkURL ) {
-							// Deactivate all popups.
-							if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
-								deactivatePopup();
-							}
+				var $link = e.target.closest( 'a' );
+
+				// Check if the link is a hash link.
+				if ( '' !== $link.hash ) {
+					var pageURL = ( window.location.hostname + '/' + window.location.pathname ).replace( '/\/$/', '' ),
+					    linkURL = ( $link.hostname + '/' + $link.pathname ).replace( '/\/$/', '' );
+
+					// Check if the hash target is on this page.
+					if ( pageURL === linkURL ) {
+						// Deactivate all popups.
+						if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
+							deactivatePopup();
 						}
 					}
-				});
+				}
 			}
+			document.addEventListener( 'click', handleHashLinkInsidePopup, false );
 		},
 
 		/**
@@ -558,14 +551,18 @@
 			var $scrollToTop = document.querySelector( '.suki-scroll-to-top' );
 
 			if ( $scrollToTop ) {
-				$scrollToTop.addEventListener( 'click', function( e ) {
+				var handleScrollToTop = function( e ) {
+					// Check target element.
+					if ( $scrollToTop !== e.target ) return;
+
 					e.preventDefault();
 
 					window.scrollTo({
 						top: 0,
 						behavior: 'smooth',
 					});
-				});
+				}
+				document.addEventListener( 'click', handleScrollToTop, false );
 
 				if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
 					var checkStickyOffset = function() {
@@ -575,8 +572,7 @@
 							$scrollToTop.classList.remove( 'sticky' );
 						}
 					}
-
-					window.addEventListener( 'scroll', checkStickyOffset );
+					window.addEventListener( 'scroll', checkStickyOffset, false );
 					checkStickyOffset();
 				}
 			}
@@ -597,6 +593,6 @@
 		},
 	}
 
-	document.addEventListener( 'DOMContentLoaded', window.suki.initAll );
+	document.addEventListener( 'DOMContentLoaded', window.suki.initAll, false );
 
 })();
