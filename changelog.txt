@@ -1,3 +1,7 @@
+v1.2.6
+- FIX: Scroll to Top javascript.
+- FIX: Javascript warning in Firefox browser.
+
 v1.2.5
 - TWEAK: Refactor all javascript's event handlers with "Event Delegation" for better performance.
 - TWEAK: Improve WooCommerce quantity increment buttons CSS (larger size, more mobile friendly).

@@ -226,6 +226,9 @@
 			 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/dropdown-menus/vanilla-js/js/dropdown.js
 			 */
 			var handleMenuFocusUsingKeyboard = function( e ) {
+				// Fix Firefox issue.
+				if ( document === e.target ) return;
+
 				// Check target element.
 				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
 				if ( ! $this ) return;
@@ -553,7 +556,7 @@
 			if ( $scrollToTop ) {
 				var handleScrollToTop = function( e ) {
 					// Check target element.
-					if ( $scrollToTop !== e.target ) return;
+					if ( ! e.target.closest( '.suki-scroll-to-top' ) ) return;
 
 					e.preventDefault();
 
