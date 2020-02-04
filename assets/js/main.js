@@ -553,7 +553,7 @@
 			if ( $scrollToTop ) {
 				var handleScrollToTop = function( e ) {
 					// Check target element.
-					if ( $scrollToTop !== e.target ) return;
+					if ( ! e.target.closest( '.suki-scroll-to-top' ) ) return;
 
 					e.preventDefault();
 
