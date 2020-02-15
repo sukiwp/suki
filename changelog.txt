@@ -1,4 +1,5 @@
 v1.2.7
+- TWEAK: Improve accesssibility supports.
 - FIX: Gutenberg columns responsive CSS.
 - FIX: Header menu hightlight CSS.
 

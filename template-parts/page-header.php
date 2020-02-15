@@ -21,7 +21,7 @@ if ( 1 > $count ) {
 	return;
 }
 ?>
-<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array( 'suki-page-header' ) ) ) ); ?>">
+<section id="page-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array( 'suki-page-header' ) ) ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Page Header', 'suki' ); ?>">
 	<div class="suki-page-header-inner suki-section-inner">
 		<div class="suki-wrapper">
 			<div class="suki-page-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-page-header-row-with-center' : '' ); ?>">
@@ -44,4 +44,4 @@ if ( 1 > $count ) {
 			</div>
 		</div>
 	</div>
-</div>
+</section>

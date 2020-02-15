@@ -9,6 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<button class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array( 'suki-scroll-to-top' ) ) ) ); ?>">
+<a href="#page" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array( 'suki-scroll-to-top' ) ) ) ); ?>">
 	<?php suki_icon( 'chevron-up' ); ?>
-</button>
+	<span class="screen-reader-text"><?php esc_html_e( 'Back to Top', 'suki' ); ?></span>
+</a>

@@ -174,7 +174,7 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	$svg = apply_filters( 'suki/frontend/svg_icon/' . $key, $svg );
 
 	// Wrap the icon with "suki-icon" span tag.
-	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
+	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '" aria-hidden="true">' . $svg . '</span>';
 
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK
@@ -619,7 +619,7 @@ function suki_footer_element( $element ) {
 		case 'menu':
 			if ( has_nav_menu( 'footer-' . $element ) ) {
 				?>
-				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
+				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" aria-label="<?php echo esc_attr( sprintf( esc_html__( 'Footer Menu %s', 'suki' ), str_replace( 'menu-', '', $element ) ) ); ?>">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'footer-' . $element,
 						'menu_class'     => 'menu',
