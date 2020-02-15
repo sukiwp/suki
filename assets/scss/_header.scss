@@ -298,6 +298,7 @@
 		}
 
 		.suki-dropdown-sign {
+			position: relative;
 			margin-left: 0.4em;
 		}
 
@@ -331,8 +332,8 @@
 			}
 
 			.suki-dropdown-sign {
-				margin-left: 0;
-				margin-right: -0.5em;
+				margin-left: 0.75em;
+				margin-right: -0.75em;
 			}
 		}
 	}
@@ -701,10 +702,10 @@
 		align-items: center;
 		height: 100%;
 
-		&:after {
+		&:before {
 			content: "";
 			position: absolute;
-			z-index: -1;
+			// z-index: -1;
 			@include transition();
 		}
 	}
@@ -716,7 +717,7 @@
 		position: relative;
 		height: auto;
 
-		&:after {
+		&:before {
 			top: 100%;
 			left: 0;
 			width: 100%;
@@ -728,7 +729,7 @@
 
 .suki-header-menu-highlight-background {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:after {
+		&:before {
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -739,7 +740,7 @@
 
 .suki-header-menu-highlight-border-top {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:after {
+		&:before {
 			top: 0;
 			left: 0;
 			right: 0;
@@ -753,7 +754,7 @@
 
 .suki-header-menu-highlight-border-bottom {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:after {
+		&:before {
 			bottom: 0;
 			left: 0;
 			right: 0;

@@ -1,3 +1,7 @@
+v1.2.7
+- FIX: Gutenberg columns responsive CSS.
+- FIX: Header menu hightlight CSS.
+
 v1.2.6
 - FIX: Scroll to Top javascript.
 - FIX: Javascript warning in Firefox browser.
