@@ -271,48 +271,43 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#. translators: %s: instance number.
-#: inc/template-tags.php:622, inc/customizer/options/footer--builder.php:81
-msgid "Footer Menu %s"
-msgstr ""
-
-#: inc/template-tags.php:736, inc/template-tags.php:740
+#: inc/template-tags.php:677, inc/template-tags.php:681
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:1037
+#: inc/template-tags.php:978
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1038
+#: inc/template-tags.php:979
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1083
+#: inc/template-tags.php:1024
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1085
+#: inc/template-tags.php:1026
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1102
+#: inc/template-tags.php:1043
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1108
+#: inc/template-tags.php:1049
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1135
+#: inc/template-tags.php:1076
 msgid "Comments are closed."
 msgstr ""
 
@@ -342,6 +337,11 @@ msgstr ""
 
 #: template-parts/entry-page.php:58, template-parts/entry-search.php:56, template-parts/entry.php:58
 msgid "Pages:"
+msgstr ""
+
+#. translators: %s: instance number.
+#: template-parts/footer-element-menu.php:16, inc/customizer/options/footer--builder.php:81
+msgid "Footer Menu %s"
 msgstr ""
 
 #: template-parts/header-element-mobile-vertical-toggle.php:19, inc/customizer/options/header--builder.php:111

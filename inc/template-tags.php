@@ -601,84 +601,25 @@ if ( ! function_exists( 'suki_footer_element' ) ) :
 /**
  * Render each footer element.
  * 
- * @param string $element
+ * @param string $slug
  */
-function suki_footer_element( $element ) {
-	if ( empty( $element ) ) {
+function suki_footer_element( $slug ) {
+	if ( empty( $slug ) ) {
 		return;
 	}
 
 	// Classify element into its type.
-	$type = preg_replace( '/-\d$/', '', $element );
+	$type = preg_replace( '/-\d$/', '', $slug );
 
-	// Convert element slug into key format.
-	$key = str_replace( '-', '_', $element );
+	// Add passing variables.
+	$variables = array( 'slug' => $slug );
 
-	ob_start();
-	switch ( $type ) {
-		case 'menu':
-			if ( has_nav_menu( 'footer-' . $element ) ) {
-				?>
-				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation" aria-label="<?php echo esc_attr( sprintf( esc_html__( 'Footer Menu %s', 'suki' ), str_replace( 'menu-', '', $element ) ) ); ?>">
-					<?php wp_nav_menu( array(
-						'theme_location' => 'footer-' . $element,
-						'menu_class'     => 'menu',
-						'container'      => false,
-						'depth'          => -1,
-					) ); ?>
-				</nav>
-				<?php
-			} else {
-				suki_unassigned_menu();
-			}
-			break;
-
-		case 'copyright':
-			$copyright = suki_get_theme_mod( 'footer_' . $key . '_content' );
-			$copyright = str_replace( '{{year}}', date( 'Y' ), $copyright );
-			$copyright = str_replace( '{{sitename}}', '<a href="' . esc_url( home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{theme}}', '<a href="' . suki_get_theme_info( 'url' ) . '">' . suki_get_theme_info( 'name' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{theme_author}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
-			?>
-			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
-				<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>
-			</div>
-			<?php
-			break;
-
-		case 'social':
-			$types = suki_get_theme_mod( 'footer_social_links', array() );
-
-			if ( ! empty( $types ) ) {
-				$target = '_' . suki_get_theme_mod( 'footer_social_links_target' );
-				$links = array();
-
-				foreach ( $types as $type ) {
-					$url = suki_get_theme_mod( 'social_' . $type );
-					$links[] = array(
-						'type'   => $type,
-						'url'    => ! empty( $url ) ? $url : '#',
-						'target' => $target,
-					);
-				}
-				?>
-				<ul class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> menu">
-					<?php suki_social_links( $links, array(
-						'before_link' => '<li class="menu-item">',
-						'after_link'  => '</li>',
-						'link_class'  => 'suki-menu-icon',
-					) ); ?>
-				</ul>
-				<?php
-			}
-			break;
-	}
-	$html = ob_get_clean();
+	// Get footer element template.
+	$html = suki_get_template_part( 'footer-element-' . $type, null, $variables, false );
 
 	// Filters to modify the final HTML tag.
-	$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
-	$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
+	$html = apply_filters( 'suki/frontend/footer_element', $html, $slug );
+	$html = apply_filters( 'suki/frontend/footer_element/' . $slug, $html );
 
 	echo $html; // WPCS: XSS OK
 }
