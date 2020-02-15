@@ -234,7 +234,7 @@ class Suki_Admin {
 	public function add_editor_css() {
 		add_editor_style( SUKI_CSS_URL . '/admin/editor' . SUKI_ASSETS_SUFFIX . '.css' );
 
-		wp_enqueue_style( 'suki-editor-google-fonts', Suki_Customizer::instance()->generate_active_google_fonts_embed_url() );
+		add_editor_style( Suki_Customizer::instance()->generate_active_google_fonts_embed_url() );
 	}
 
 	/**
@@ -394,6 +394,13 @@ class Suki_Admin {
 		$css_array['global']['.wp-block']['max-width'] = 'calc(' . suki_get_theme_mod( 'content_narrow_width' ) . ' + ' . '30px)';
 		$css_array['global']['.wp-block[data-align="wide"]']['max-width'] = 'calc(' . suki_get_theme_mod( 'container_width' ) . ' + ' . '30px)';
 		$css_array['global']['.wp-block[data-align="full"]']['max-width'] = 'none';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-family'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-weight'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-style'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['text-transform'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-size'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['line-height'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['letter-spacing'] = 'inherit';
 
 		// Typography
 		$active_google_fonts = array();

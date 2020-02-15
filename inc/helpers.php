@@ -437,7 +437,7 @@ function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
 	}
 
 	// Basic embed link.
-	$link = '//fonts.googleapis.com/css';
+	$link = ( is_ssl() ? 'https:' : 'http:' ) . '//fonts.googleapis.com/css';
 	$args = array();
 
 	// Add font families.
