@@ -12,19 +12,19 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$types = suki_get_theme_mod( 'footer_social_links', array() );
+$items = suki_get_theme_mod( 'footer_social_links', array() );
 
-if ( empty( $types ) ) {
+if ( empty( $items ) ) {
 	return;
 }
 
 $target = '_' . suki_get_theme_mod( 'footer_social_links_target' );
-$links = array();
+$attrs = array();
 
-foreach ( $types as $type ) {
-	$url = suki_get_theme_mod( 'social_' . $type );
-	$links[] = array(
-		'type'   => $type,
+foreach ( $items as $item ) {
+	$url = suki_get_theme_mod( 'social_' . $item );
+	$attrs[] = array(
+		'type'   => $item,
 		'url'    => ! empty( $url ) ? $url : '#',
 		'target' => $target,
 	);
@@ -32,7 +32,7 @@ foreach ( $types as $type ) {
 
 ?>
 <ul class="<?php echo esc_attr( 'suki-footer-' . $slug ); ?> menu">
-	<?php suki_social_links( $links, array(
+	<?php suki_social_links( $attrs, array(
 		'before_link' => '<li class="menu-item">',
 		'after_link'  => '</li>',
 		'link_class'  => 'suki-menu-icon',
