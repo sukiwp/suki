@@ -277,6 +277,7 @@ class Suki_Compatibility_Elementor {
 
 					return $.ajax({
 						method: 'POST',
+						dataType: 'JSON',
 						url: ajaxurl,
 						cache: false,
 						data: {

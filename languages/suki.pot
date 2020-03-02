@@ -764,11 +764,11 @@ msgstr ""
 msgid "Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual."
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:289
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:290
 msgid "Color palette applied!"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:291
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:292
 msgid "Error!"
 msgstr ""
 

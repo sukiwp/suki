@@ -132,6 +132,7 @@
 			// Run AJAX to set data after closing the notice.
 			$.ajax({
 				method: 'POST',
+				dataType: 'JSON',
 				url: ajaxurl,
 				data: {
 					action: 'suki_rating_notice_close',
@@ -156,6 +157,7 @@
 
 			return $.ajax({
 				method: 'POST',
+				dataType: 'JSON',
 				url: ajaxurl + '?do=suki_install_sites_import_plugin',
 				cache: false,
 				data: {
