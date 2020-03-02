@@ -34,7 +34,7 @@ foreach ( $attrs_array as $key => $value ) {
 }
 
 ?>
-<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array( 'suki-header-' . $bar . '-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
+<div id="suki-header-<?php echo esc_attr( $bar ); ?>-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_' . $bar . '_bar_classes', array( 'suki-header-' . $bar . '-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>" <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="suki-header-<?php echo esc_attr( $bar ); ?>-bar-inner suki-section-inner">
 		<div class="suki-wrapper">
 

@@ -629,8 +629,8 @@ class Suki_Admin {
 	public function render_admin_page__logo() {
 		?>
 		<div class="suki-admin-logo">
-			<?php echo apply_filters( 'suki/admin/dashboard/logo', '<img src="' . esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ) . '" alt="' . esc_attr( get_admin_page_title() ) . '">' ); // WPCS: XSS OK ?>
-			<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // WPCS: XSS OK ?></span>
+			<?php echo apply_filters( 'suki/admin/dashboard/logo', '<img src="' . esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ) . '" alt="' . esc_attr( get_admin_page_title() ) . '">' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 		</div>
 		<?php
 	}
@@ -813,7 +813,7 @@ class Suki_Admin {
 			<div class="inside">
 				<ul class="suki-admin-links-list">
 					<?php foreach ( $menus as $menu ) : ?>
-						<li><span class="dashicons <?php echo esc_attr( $menu['icon'] ); ?>"></span><a href="<?php echo esc_url( $menu['url'] ); ?>" <?php echo $menu['newtab'] ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>><?php echo esc_html( $menu['label'] ); ?></a></li>
+						<li><span class="dashicons <?php echo esc_attr( $menu['icon'] ); ?>"></span><a href="<?php echo esc_url( $menu['url'] ); ?>" <?php echo $menu['newtab'] ? ' target="_blank" rel="noopener"' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $menu['label'] ); ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>

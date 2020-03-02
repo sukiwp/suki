@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	}
 
 	?>
-	<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>" <?php echo $attrs; // WPCS: XSS OK ?>>
+	<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>" <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 		<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">

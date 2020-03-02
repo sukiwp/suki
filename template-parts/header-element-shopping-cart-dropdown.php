@@ -42,11 +42,11 @@ if ( ! empty( $widget ) ) {
 		<button class="shopping-cart-link <?php echo $is_dropdown ? esc_attr( 'suki-sub-menu-toggle suki-toggle' ) : ''; ?>" aria-expanded="false">
 			<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-			<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
+			<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 		</button>
 
 		<?php if ( $is_dropdown ) : ?>
-			<div class="sub-menu"><?php echo $widget; // WPCS: XSS OK ?></div>
+			<div class="sub-menu"><?php echo $widget; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 		<?php endif; ?>
 	</div>
 </div>

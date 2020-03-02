@@ -406,7 +406,7 @@ class Suki {
 	 * DEPRECATED: Shouldn't be used for printing dynamic CSS.
 	 */
 	public function print_custom_css() {
-		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK
+		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -499,7 +499,7 @@ class Suki {
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 
 		if ( '' !== trim( $page_settings_css ) ) {
-			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // WPCS: XSS OK
+			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		return $css;
