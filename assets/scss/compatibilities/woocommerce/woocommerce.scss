@@ -377,6 +377,7 @@ p.demo_store,
 		flex-wrap: wrap;
 
 		> * {
+			flex: 0 0 100%;
 			margin-bottom: 4rem;
 
 			&:last-child {
@@ -453,10 +454,8 @@ p.demo_store,
 		div.images {
 			// margin-bottom: 2em;
 
-			width: 100%;
-
 			@media screen and ( min-width: $breakpoint_1024 ) {
-				width: 60%; // default
+				flex-basis: 60%; // default
 			}
 
 			img {
@@ -574,7 +573,7 @@ p.demo_store,
 
 			~ div.summary {
 				@media screen and ( min-width: $breakpoint_1024 ) {
-					width: 40%; // default
+					flex-basis: 40%; // default
 					padding-left: 40px; // default
 				}
 			}
@@ -601,14 +600,9 @@ p.demo_store,
 		// 	}
 		// }
 
-		div.summary {
-			width: 100%;
-			// margin-bottom: 2em;
-
-			~ * {
-				width: 100%;
-			}
-		}
+		// div.summary {
+		// 	margin-bottom: 2em;
+		// }
 
 		div.social {
 			text-align: right;

@@ -1,4 +1,5 @@
 v1.2.8
+- TWEAK: Improve WooCommerce product CSS.
 - FIX: Elementor Pro's Theme Builder compatibility bug.
 
 v1.2.7
