@@ -303,8 +303,8 @@ class Suki {
 		register_sidebar( array(
 			'name'          => esc_html__( 'Sidebar', 'suki' ),
 			'id'            => 'sidebar',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
@@ -314,8 +314,8 @@ class Suki {
 				/* translators: %s: footer widgets column number. */
 				'name'          => sprintf( esc_html__( 'Footer Widgets Column %s', 'suki' ), $i ),
 				'id'            => 'footer-widgets-' . $i,
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</aside>',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
 				'after_title'   => '</h2>',
 			) );
@@ -406,7 +406,7 @@ class Suki {
 	 * DEPRECATED: Shouldn't be used for printing dynamic CSS.
 	 */
 	public function print_custom_css() {
-		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // WPCS: XSS OK
+		echo '<style type="text/css" id="suki-custom-css">' . "\n" . wp_strip_all_tags( apply_filters( 'suki/frontend/inline_css', '' ) ) . "\n" . '</style>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -499,7 +499,7 @@ class Suki {
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 
 		if ( '' !== trim( $page_settings_css ) ) {
-			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // WPCS: XSS OK
+			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		return $css;
@@ -561,7 +561,6 @@ class Suki {
 			'suki-pro' => 'Suki_Pro',
 			'contact-form-7' => 'WPCF7',
 			'elementor' => '\Elementor\Plugin',
-			'elementor-pro' => '\ElementorPro\Plugin',
 			'brizy' => 'Brizy_Editor',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',

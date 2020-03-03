@@ -184,6 +184,8 @@
 	font-size: 18px; // default
 	line-height: 1;
 
+	@include buttonColor();
+
 	&-position-left {
 		left: 0;
 	}

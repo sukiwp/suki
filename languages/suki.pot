@@ -271,43 +271,43 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:736, inc/template-tags.php:740
+#: inc/template-tags.php:677, inc/template-tags.php:681
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:1037
+#: inc/template-tags.php:978
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1038
+#: inc/template-tags.php:979
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1083
+#: inc/template-tags.php:1024
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1085
+#: inc/template-tags.php:1026
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1102
+#: inc/template-tags.php:1043
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1108
+#: inc/template-tags.php:1049
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1135
+#: inc/template-tags.php:1076
 msgid "Comments are closed."
 msgstr ""
 
@@ -339,6 +339,11 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
+#. translators: %s: instance number.
+#: template-parts/footer-element-menu.php:16, inc/customizer/options/footer--builder.php:81
+msgid "Footer Menu %s"
+msgstr ""
+
 #: template-parts/header-element-mobile-vertical-toggle.php:19, inc/customizer/options/header--builder.php:111
 msgid "Mobile Menu"
 msgstr ""
@@ -349,6 +354,14 @@ msgstr ""
 
 #: template-parts/header-element-shopping-cart-dropdown.php:44, template-parts/header-element-shopping-cart-link.php:31
 msgid "Shopping Cart"
+msgstr ""
+
+#: template-parts/page-header.php:24, inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-header.php:26, inc/customizer/options/page-settings.php:195, inc/customizer/options/_sections.php:308
+msgid "Page Header"
+msgstr ""
+
+#: template-parts/scroll-to-top.php:14
+msgid "Back to Top"
 msgstr ""
 
 #: inc/admin/class-suki-admin-fields.php:211, inc/customizer/custom-controls/class-suki-customize-control-color.php:79, inc/customizer/custom-controls/class-suki-customize-control-shadow.php:113
@@ -369,10 +382,6 @@ msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:66, inc/customizer/options/page-settings.php:155, inc/customizer/options/_sections.php:176
 msgid "Header"
-msgstr ""
-
-#: inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-header.php:26, inc/customizer/options/page-settings.php:195, inc/customizer/options/_sections.php:308
-msgid "Page Header"
 msgstr ""
 
 #: inc/admin/class-suki-admin-metabox-page-settings.php:68, inc/customizer/options/page-settings.php:370, inc/customizer/options/_sections.php:350
@@ -575,59 +584,59 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:691
+#: inc/admin/class-suki-admin.php:698
 msgid "Modules Manager"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:714
+#: inc/admin/class-suki-admin.php:721
 msgid "Available on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:725
+#: inc/admin/class-suki-admin.php:732
 msgid "WooCommerce is not installed"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:743
+#: inc/admin/class-suki-admin.php:750
 msgid "Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:773
+#: inc/admin/class-suki-admin.php:780
 msgid "Suki Website"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:779
+#: inc/admin/class-suki-admin.php:786
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:785
+#: inc/admin/class-suki-admin.php:792
 msgid "Users Community Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:791
+#: inc/admin/class-suki-admin.php:798
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:797
+#: inc/admin/class-suki-admin.php:804
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:805
+#: inc/admin/class-suki-admin.php:812
 msgid "Other Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:826
+#: inc/admin/class-suki-admin.php:833
 msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:829
+#: inc/admin/class-suki-admin.php:836
 msgid "Kickstart your website with our pre-made demo websites in 3 steps: Import. Modify. Launch!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:832
+#: inc/admin/class-suki-admin.php:839
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:834
+#: inc/admin/class-suki-admin.php:841
 msgid "Install & Activate Plugin"
 msgstr ""
 
@@ -743,23 +752,23 @@ msgstr ""
 msgid "Alignment"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:233
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:248
 msgid "Elementor Integration"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:241
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:256
 msgid "Apply to Elementor color picker"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:241
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:256
 msgid "Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual."
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:274
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:290
 msgid "Color palette applied!"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:276
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:292
 msgid "Error!"
 msgstr ""
 
@@ -1270,11 +1279,6 @@ msgstr ""
 
 #: inc/customizer/options/footer--builder.php:79, inc/customizer/options/footer--copyright.php:23
 msgid "Copyright"
-msgstr ""
-
-#. translators: %s: instance number.
-#: inc/customizer/options/footer--builder.php:81
-msgid "Footer Menu %s"
 msgstr ""
 
 #: inc/customizer/options/footer--builder.php:82, inc/customizer/options/header--builder.php:75, inc/customizer/options/header--builder.php:117

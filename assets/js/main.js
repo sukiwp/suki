@@ -348,6 +348,7 @@
 				// Menu item already has "focus" class, so collapses itself.
 				if ( $menuItem.classList.contains( 'focus' ) ) {
 					$menuItem.classList.remove( 'focus' );
+					$this.setAttribute( 'aria-expanded', false );
 				}
 				// Menu item doesn't have "focus" class yet, so collapses other focused menu items found in the header and focuses this menu item.
 				else {
@@ -357,6 +358,7 @@
 					});
 
 					$menuItem.classList.add( 'focus' );
+					$this.setAttribute( 'aria-expanded', true );
 
 					// Move focus to search bar (if exists).
 					var $searchBar = $menuItem.querySelector( '.search-field' );
@@ -383,6 +385,7 @@
 						var $focusedMenuItems = Array.prototype.slice.call( $header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' ) );
 						$focusedMenuItems.forEach(function( $focusedMenuItem ) {
 							$focusedMenuItem.classList.remove( 'focus' );
+							$clickedToggle.setAttribute( 'aria-expanded', false );
 						});
 					}
 				}
@@ -442,6 +445,7 @@
 				$activePopups.forEach(function( $activePopup ) {
 					// Deactivate popup.
 					$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
+					$clickedToggle.setAttribute( 'aria-expanded', false );
 					$activePopup.classList.remove( 'suki-popup-active' );
 					document.body.classList.remove( 'suki-has-popup-active' );
 
@@ -469,6 +473,7 @@
 				} else {
 					// Activate popup.
 					$this.classList.add( 'suki-popup-toggle-active' );
+					$this.setAttribute( 'aria-expanded', true );
 					$target.classList.add( 'suki-popup-active' );
 					document.body.classList.add( 'suki-has-popup-active' );
 
@@ -560,10 +565,15 @@
 
 					e.preventDefault();
 
-					window.scrollTo({
-						top: 0,
-						behavior: 'smooth',
-					});
+					var $link = e.target.closest( '.suki-scroll-to-top' ),
+					    $target = document.getElementById( $link.getAttribute( 'href' ).replace( '#', '' ) );
+
+					if ( $target ) {
+						window.scrollTo({
+							top: $target.getBoundingClientRect().top,
+							behavior: 'smooth',
+						});
+					}
 				}
 				document.addEventListener( 'click', handleScrollToTop, false );
 

@@ -49,8 +49,8 @@ class Suki_Widget_Posts extends WP_Widget {
 		if ( $query->have_posts() ) :
 			ob_start();
 
-			echo $args['before_widget']; // WPCS: XSS OK
-			echo ! empty( $title ) ? $args['before_title'] . $title . $args['after_title'] : ''; // WPCS: XSS OK
+			echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo ! empty( $title ) ? $args['before_title'] . $title . $args['after_title'] : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			?>
 			<ul>
@@ -66,7 +66,7 @@ class Suki_Widget_Posts extends WP_Widget {
 								echo get_the_post_thumbnail( $qpost->ID, apply_filters( 'suki/frontend/widget_posts_thumbnail_size', 'thumbnail' ) );
 							}
 
-							echo $title; // WPCS: XSS OK
+							echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							?>
 						</a>
 						<?php if ( $show_date ) : ?>
@@ -77,7 +77,7 @@ class Suki_Widget_Posts extends WP_Widget {
 			</ul>
 			<?php
 
-			echo $args['after_widget']; // WPCS: XSS OK
+			echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			ob_end_flush();
 		endif;

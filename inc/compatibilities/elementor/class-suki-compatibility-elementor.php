@@ -42,6 +42,9 @@ class Suki_Compatibility_Elementor {
 		// Compatibility CSS
 		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
 
+		// Disable page settings on Elementor Template post type.
+		add_filter( 'suki/admin/metabox/page_settings/ignored_post_types', array( $this, 'disable_page_settings_on_elementor_template' ) );
+
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
 
@@ -77,6 +80,18 @@ class Suki_Compatibility_Elementor {
 		$inline_css .= "\n/* Elementor Compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' );
 
  		return $inline_css;
+	}
+
+	/**
+	 * Register all template locations for Elementor Pro's Theme Builder.
+	 *
+	 * @param array $post_types
+	 * @return array
+	 */
+	public function disable_page_settings_on_elementor_template( $post_types ) {
+		$post_types[] = 'elementor_library';
+
+		return $post_types;
 	}
 
 	/**
@@ -262,6 +277,7 @@ class Suki_Compatibility_Elementor {
 
 					return $.ajax({
 						method: 'POST',
+						dataType: 'JSON',
 						url: ajaxurl,
 						cache: false,
 						data: {

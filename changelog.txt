@@ -1,3 +1,10 @@
+v1.2.7
+- TWEAK: Improve Gutenberg editor CSS.
+- TWEAK: Improve accesssibility supports.
+- FIX: Gutenberg columns responsive CSS.
+- FIX: Header menu hightlight CSS.
+- FIX: Elementor Pro's Theme Builder compatibility bug.
+
 v1.2.6
 - FIX: Scroll to Top javascript.
 - FIX: Javascript warning in Firefox browser.

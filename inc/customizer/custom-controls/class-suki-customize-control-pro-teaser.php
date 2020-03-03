@@ -35,13 +35,13 @@ class Suki_Customize_Control_Pro_Teaser extends Suki_Customize_Control {
 		if ( ! empty( $this->label ) ) : ?>
 			<div class="suki-pro-teaser">
 				<div class="wp-clearfix">
-					<h3><?php echo $this->label; // WPCS: XSS OK ?></h3>
+					<h3><?php echo $this->label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 					<a href="<?php echo esc_url( $this->url ); ?>" class="button button-small button-secondary alignright" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a>
 				</div>
 				<?php if ( ! empty( $this->features ) ) : ?>
 					<ul>
 						<?php foreach ( $this->features as $feature ) : ?>
-							<li><?php echo $feature; // WPCS: XSS OK ?></li>
+							<li><?php echo $feature; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
 						<?php endforeach; ?>
 					</ul>
 				<?php endif; ?>

@@ -43,8 +43,8 @@ class Suki_Widget_Social extends WP_Widget {
 
 		ob_start();
 
-		echo $args['before_widget']; // WPCS: XSS OK
-		echo ! empty( $title ) ? $args['before_title'] . $title . $args['after_title'] : ''; // WPCS: XSS OK
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo ! empty( $title ) ? $args['before_title'] . $title . $args['after_title'] : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		?>
 		<div class="suki-widget-social <?php echo esc_attr( 'suki-text-align-' . $alignment ); ?>">
@@ -52,7 +52,7 @@ class Suki_Widget_Social extends WP_Widget {
 		</div>
 		<?php
 
-		echo $args['after_widget']; // WPCS: XSS OK
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		ob_end_flush();
 	}

@@ -1048,7 +1048,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 	$add['header_' . $bar . '_menu_hover_highlight_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:after, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:after',
+			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:before, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:before',
 			'property' => 'background-color',
 		),
 	);
@@ -1062,7 +1062,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 	$add['header_' . $bar . '_menu_active_highlight_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link:after, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link:after',
+			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link:before, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link:before',
 			'property' => 'background-color',
 		),
 	);

@@ -29,7 +29,7 @@ $count = $cart->get_cart_contents_count();
 		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
 			<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-			<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // WPCS: XSS OK ?></span>
+			<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 		</a>
 	</div>
 </div>

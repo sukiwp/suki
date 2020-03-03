@@ -23,10 +23,10 @@ class Suki_Customize_Control_Blank extends Suki_Customize_Control {
 	 */
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
-			<span class="customize-control-title"><?php echo $this->label; // WPCS: XSS OK ?></span>
+			<span class="customize-control-title"><?php echo $this->label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 		<?php endif;
 		if ( ! empty( $this->description ) ) : ?>
-			<span class="description customize-control-description"><?php echo $this->description; // WPCS: XSS OK ?></span>
+			<span class="description customize-control-description"><?php echo $this->description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 		<?php endif;
 	}
 }

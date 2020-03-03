@@ -74,7 +74,7 @@ function suki_inline_svg( $svg_file, $echo = true ) {
 	$html = preg_replace( '/<title>.*?<\/title>/', '', $html );
 
 	if ( $echo ) {
-		echo $html; // WPCS: XSS OK
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $html;
 	}
@@ -113,7 +113,7 @@ function suki_logo( $logo_image_id = null ) {
 		}
 	}
 
-	echo $html; // WPCS: XSS OK
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 endif;
 
@@ -174,10 +174,10 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	$svg = apply_filters( 'suki/frontend/svg_icon/' . $key, $svg );
 
 	// Wrap the icon with "suki-icon" span tag.
-	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '">' . $svg . '</span>';
+	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '" aria-hidden="true">' . $svg . '</span>';
 
 	if ( $echo ) {
-		echo $html; // WPCS: XSS OK
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $html;
 	}
@@ -203,18 +203,18 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 
 	ob_start();
 	foreach ( $links as $link ) :
-		echo $args['before_link']; // WPCS: XSS OK
+		echo $args['before_link']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link <?php echo esc_attr( 'suki-social-link--' . $link['type'] ); ?>" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // WPCS: XSS OK ?>>
+		?><a href="<?php echo esc_url( $link['url'] ); ?>" class="suki-social-link <?php echo esc_attr( 'suki-social-link--' . $link['type'] ); ?>" <?php echo '_blank' === suki_array_value( $link, 'target', '_self' ) ? ' target="_blank" rel="noopener"' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php suki_icon( $link['type'], array( 'title' => $labels[ $link['type'] ], 'class' => $args['link_class'] ) ); ?>
 		</a><?php
 
-		echo $args['after_link']; // WPCS: XSS OK
+		echo $args['after_link']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	endforeach;
 	$html = ob_get_clean();
 
 	if ( $echo ) {
-		echo $html; // WPCS: XSS OK
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $html;
 	}
@@ -232,10 +232,10 @@ function suki_title__search( $echo = true ) {
 		/* translators: %s: search query. */
 		esc_html__( 'Search Results for: %s', 'suki' ),
 		'<span>' . get_search_query() . '</span>'
-	); // WPCS: XSS OK
+	); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	if ( $echo ) {
-		echo $html; // WPCS: XSS OK
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $html;
 	}
@@ -252,7 +252,7 @@ function suki_title__404( $echo = true ) {
 	$html = esc_html__( 'Oops! That page can not be found.', 'suki' );
 
 	if ( $echo ) {
-		echo $html; // WPCS: XSS OK
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $html;
 	}
@@ -350,7 +350,7 @@ function suki_header_element( $slug ) {
 	$html = apply_filters( 'suki/frontend/header_element', $html, $slug );
 	$html = apply_filters( 'suki/frontend/header_element/' . $slug, $html );
 
-	echo $html; // WPCS: XSS OK
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 endif;
 
@@ -452,7 +452,7 @@ function suki_page_header_element( $element ) {
 			}
 
 			if ( ! empty( $title ) ) {
-				echo '<h1 class="suki-page-header-title">' . $title . '</h1>'; // WPCS: XSS OK
+				echo '<h1 class="suki-page-header-title">' . $title . '</h1>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			break;
 
@@ -494,7 +494,7 @@ function suki_page_header_element( $element ) {
 			}
 			
 			if ( ! empty( $breadcrumb ) ) {
-				echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // WPCS: XSS OK
+				echo '<div class="suki-page-header-breadcrumb suki-breadcrumb">' . $breadcrumb . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			break;
 	}
@@ -504,7 +504,7 @@ function suki_page_header_element( $element ) {
 	$html = apply_filters( 'suki/frontend/page_header_element', $html, $element );
 	$html = apply_filters( 'suki/frontend/page_header_element/' . $element, $html );
 
-	echo $html; // WPCS: XSS OK
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 endif;
 
@@ -601,86 +601,27 @@ if ( ! function_exists( 'suki_footer_element' ) ) :
 /**
  * Render each footer element.
  * 
- * @param string $element
+ * @param string $slug
  */
-function suki_footer_element( $element ) {
-	if ( empty( $element ) ) {
+function suki_footer_element( $slug ) {
+	if ( empty( $slug ) ) {
 		return;
 	}
 
 	// Classify element into its type.
-	$type = preg_replace( '/-\d$/', '', $element );
+	$type = preg_replace( '/-\d$/', '', $slug );
 
-	// Convert element slug into key format.
-	$key = str_replace( '-', '_', $element );
+	// Add passing variables.
+	$variables = array( 'slug' => $slug );
 
-	ob_start();
-	switch ( $type ) {
-		case 'menu':
-			if ( has_nav_menu( 'footer-' . $element ) ) {
-				?>
-				<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope role="navigation">
-					<?php wp_nav_menu( array(
-						'theme_location' => 'footer-' . $element,
-						'menu_class'     => 'menu',
-						'container'      => false,
-						'depth'          => -1,
-					) ); ?>
-				</nav>
-				<?php
-			} else {
-				suki_unassigned_menu();
-			}
-			break;
-
-		case 'copyright':
-			$copyright = suki_get_theme_mod( 'footer_' . $key . '_content' );
-			$copyright = str_replace( '{{year}}', date( 'Y' ), $copyright );
-			$copyright = str_replace( '{{sitename}}', '<a href="' . esc_url( home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{theme}}', '<a href="' . suki_get_theme_info( 'url' ) . '">' . suki_get_theme_info( 'name' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
-			$copyright = str_replace( '{{theme_author}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
-			?>
-			<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
-				<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>
-			</div>
-			<?php
-			break;
-
-		case 'social':
-			$types = suki_get_theme_mod( 'footer_social_links', array() );
-
-			if ( ! empty( $types ) ) {
-				$target = '_' . suki_get_theme_mod( 'footer_social_links_target' );
-				$links = array();
-
-				foreach ( $types as $type ) {
-					$url = suki_get_theme_mod( 'social_' . $type );
-					$links[] = array(
-						'type'   => $type,
-						'url'    => ! empty( $url ) ? $url : '#',
-						'target' => $target,
-					);
-				}
-				?>
-				<ul class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> menu">
-					<?php suki_social_links( $links, array(
-						'before_link' => '<li class="menu-item">',
-						'after_link'  => '</li>',
-						'link_class'  => 'suki-menu-icon',
-					) ); ?>
-				</ul>
-				<?php
-			}
-			break;
-	}
-	$html = ob_get_clean();
+	// Get footer element template.
+	$html = suki_get_template_part( 'footer-element-' . $type, null, $variables, false );
 
 	// Filters to modify the final HTML tag.
-	$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
-	$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
+	$html = apply_filters( 'suki/frontend/footer_element', $html, $slug );
+	$html = apply_filters( 'suki/frontend/footer_element/' . $slug, $html );
 
-	echo $html; // WPCS: XSS OK
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 endif;
 
@@ -721,23 +662,23 @@ function suki_entry_meta_element( $element ) {
 				esc_html( get_the_modified_date() )
 			);
 
-			echo '<span class="entry-meta-date"><a href="' . esc_url( get_permalink() ) . '" class="posted-on">' . $time_string . '</a></span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-date"><a href="' . esc_url( get_permalink() ) . '" class="posted-on">' . $time_string . '</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			break;
 
 		case 'author':
-			echo '<span class="entry-meta-author author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a></span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-author author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a></span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			break;
 
 		case 'avatar':
-			echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'suki/frontend/meta_avatar_size', 24 ) ) . '</span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'suki/frontend/meta_avatar_size', 24 ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			break;
 
 		case 'categories':
-			echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( esc_html_x( ', ', 'terms list separator', 'suki' ) ) . '</span>'; // WPCS: XSS OK
+			echo '<span class="entry-meta-categories cat-links">' . get_the_category_list( esc_html_x( ', ', 'terms list separator', 'suki' ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			break;
 
 		case 'tags':
-			echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', esc_html_x( ', ', 'terms list separator', 'suki' ) ) . '</span>' ); // WPCS: XSS OK
+			echo ( '<span class="entry-meta-tags tags-links">' . get_the_tag_list( '', esc_html_x( ', ', 'terms list separator', 'suki' ) ) . '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			break;
 
 		case 'comments':
@@ -759,7 +700,7 @@ function suki_entry_tags() {
 	$tags_list = get_the_tag_list( '', '' );
 
 	if ( $tags_list ) {
-		echo '<div class="entry-tags tagcloud suki-float-container">' . $tags_list . '</div>'; // WPCS: XSS OK
+		echo '<div class="entry-tags tagcloud suki-float-container">' . $tags_list . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 endif;
@@ -806,7 +747,7 @@ function suki_entry_featured_media() {
 		return;
 	}
 
-	printf( // WPCS: XSS OK
+	printf( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
@@ -845,7 +786,7 @@ function suki_entry_meta( $format ) {
 		}
 
 		if ( '' !== trim( $html ) ) {
-			echo '<div class="entry-meta">' . $html . '</div>'; // WPCS: XSS OK
+			echo '<div class="entry-meta">' . $html . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -887,7 +828,7 @@ function suki_entry_grid_featured_media() {
 		return;
 	}
 
-	printf( // WPCS: XSS OK
+	printf( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ),
@@ -1101,14 +1042,14 @@ function suki_comments_title() {
 					/* translators: %1$s: title. */
 					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'suki' ),
 					'<span>' . get_the_title() . '</span>'
-				); // WPCS: XSS OK
+				); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				printf(
 					/* translators: %1$s: comment count number, %2$s: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_count, 'comments title', 'suki' ) ),
 					number_format_i18n( $comments_count ),
 					'<span>' . get_the_title() . '</span>'
-				); // WPCS: XSS OK
+				); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			?>
 	</h2>

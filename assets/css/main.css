@@ -1284,24 +1284,12 @@ p.has-background {
 	margin-bottom: 0;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 767px) {
 	.wp-block-columns > .wp-block-column {
-		-ms-flex-preferred-size: calc( 50% - 1rem);
-		flex-basis: calc( 50% - 1rem);
-		margin-left: 1rem;
-		margin-right: 1rem;
-	}
-}
-
-@media screen and (min-width: 600px) and (max-width: 768px) {
-	.wp-block-columns > .wp-block-column:nth-child(odd) {
+		-ms-flex-preferred-size: 100% !important;
+		flex-basis: 100% !important;
 		margin-left: 0;
-	}
-	.wp-block-columns > .wp-block-column:nth-child(even) {
 		margin-right: 0;
-	}
-	.wp-block-columns > .wp-block-column:nth-child(-n+2) {
-		margin-top: 0;
 	}
 }
 
@@ -1309,6 +1297,10 @@ p.has-background {
 	.wp-block-columns {
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
+	}
+	.wp-block-columns > .wp-block-column {
+		margin-left: 1rem;
+		margin-right: 1rem;
 	}
 }
 
@@ -2070,6 +2062,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-section .suki-header-menu .suki-dropdown-sign {
+	position: relative;
 	margin-left: 0.4em;
 }
 
@@ -2106,8 +2099,8 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .suki-header-section .suki-header-menu .sub-menu .suki-dropdown-sign {
-	margin-left: 0;
-	margin-right: -0.5em;
+	margin-left: 0.75em;
+	margin-right: -0.75em;
 }
 
 .suki-header-section .menu > .menu-item .sub-menu {
@@ -2434,10 +2427,9 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	height: 100%;
 }
 
-.suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
+.suki-header-menu > .menu > .menu-item > .suki-menu-item-link:before {
 	content: "";
 	position: absolute;
-	z-index: -1;
 	transition: all 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -2448,7 +2440,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	height: auto;
 }
 
-.suki-header-menu-highlight-underline .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
+.suki-header-menu-highlight-underline .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:before {
 	top: 100%;
 	left: 0;
 	width: 100%;
@@ -2458,14 +2450,14 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	backface-visibility: hidden;
 }
 
-.suki-header-menu-highlight-background .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
+.suki-header-menu-highlight-background .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:before {
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 }
 
-.suki-header-menu-highlight-border-top .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
+.suki-header-menu-highlight-border-top .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:before {
 	top: 0;
 	left: 0;
 	right: 0;
@@ -2477,7 +2469,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	backface-visibility: hidden;
 }
 
-.suki-header-menu-highlight-border-bottom .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:after {
+.suki-header-menu-highlight-border-bottom .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:before {
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -2813,6 +2805,15 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	border-radius: 40px;
 	font-size: 18px;
 	line-height: 1;
+	color: #ffffff;
+	background-color: #0066cc;
+	border-color: #0066cc;
+}
+
+.suki-scroll-to-top:hover, .suki-scroll-to-top:focus {
+	color: #ffffff;
+	background-color: #004c99;
+	border-color: #004c99;
 }
 
 .suki-scroll-to-top-position-left {
