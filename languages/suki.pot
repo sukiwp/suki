@@ -752,23 +752,23 @@ msgstr ""
 msgid "Alignment"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:248
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:205
 msgid "Elementor Integration"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:256
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:213
 msgid "Apply to Elementor color picker"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:256
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:213
 msgid "Pressing this button will replace the existing Elementor color picker with the colors you defined above. You can still change and edit Elementor color picker like usual."
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:290
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:247
 msgid "Color palette applied!"
 msgstr ""
 
-#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:292
+#: inc/compatibilities/elementor/class-suki-compatibility-elementor.php:249
 msgid "Error!"
 msgstr ""
 

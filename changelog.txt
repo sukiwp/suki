@@ -1,3 +1,6 @@
+v1.2.8
+- FIX: Elementor Pro's Theme Builder compatibility bug.
+
 v1.2.7
 - TWEAK: Improve Gutenberg editor CSS.
 - TWEAK: Improve accesssibility supports.
