@@ -1,3 +1,6 @@
+v1.3.0
+- FIX: Header shopping cart dropdown toggle when on Cart and Checkout pages.
+
 v1.2.8
 - TWEAK: Improve WooCommerce product CSS.
 - FIX: Elementor Pro's Theme Builder compatibility bug.

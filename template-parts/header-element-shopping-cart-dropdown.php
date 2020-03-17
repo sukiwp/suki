@@ -39,11 +39,19 @@ if ( ! empty( $widget ) ) {
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-shopping-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 	<div class="menu-item">
-		<button class="shopping-cart-link <?php echo $is_dropdown ? esc_attr( 'suki-sub-menu-toggle suki-toggle' ) : ''; ?>" aria-expanded="false">
-			<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
-			<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-		</button>
+		<?php if ( $is_dropdown ) : ?>
+			<button class="shopping-cart-link suki-sub-menu-toggle suki-toggle" aria-expanded="false">
+		<?php else: ?>
+			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link">
+		<?php endif; ?>
+				<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
+				<span class="shopping-cart-count" data-count="<?php echo esc_attr( $count ); ?>"><?php echo $count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+		<?php if ( $is_dropdown ) : ?>
+			</button>
+		<?php else: ?>
+			</a>
+		<?php endif; ?>
 
 		<?php if ( $is_dropdown ) : ?>
 			<div class="sub-menu"><?php echo $widget; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
