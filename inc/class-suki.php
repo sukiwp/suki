@@ -561,6 +561,7 @@ class Suki {
 			'suki-pro' => 'Suki_Pro',
 			'contact-form-7' => 'WPCF7',
 			'elementor' => '\Elementor\Plugin',
+			'elementor-pro' => '\ElementorPro\Plugin',
 			'brizy' => 'Brizy_Editor',
 			'jetpack' => 'Jetpack',
 			'woocommerce' => 'WooCommerce',

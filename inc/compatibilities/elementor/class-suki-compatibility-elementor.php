@@ -50,8 +50,6 @@ class Suki_Compatibility_Elementor {
 
 		// Modify Elementor page template.
 		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
-		add_action( 'elementor/page_templates/canvas/before_content', array( $this, 'add_page_template_canvas_wrapper' ) );
-		add_action( 'elementor/page_templates/canvas/after_content', array( $this, 'add_page_template_canvas_wrapper_end' ) );
 		add_action( 'elementor/page_templates/header-footer/before_content', array( $this, 'add_page_template_header_footer_wrapper' ) );
 		add_action( 'elementor/page_templates/header-footer/after_content', array( $this, 'add_page_template_header_footer_wrapper_end' ) );
 
@@ -125,7 +123,7 @@ class Suki_Compatibility_Elementor {
 	public function remove_content_wrapper_on_page_templates( $template ) {
 		// Check if Elementor page template is being used.
 		if ( false !== strpos( $template, '/elementor/' ) ) {
-			if ( false !== strpos( $template, '/header-footer.php' ) || false !== strpos( $template, '/canvas.php' ) ) {
+			if ( false !== strpos( $template, '/header-footer.php' ) ) {
 				// Remove content wrapper.
 				add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
 			}
@@ -135,58 +133,15 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
-	 * Add opening wrapper tag to Elementor Canvas page template.
-	 */
-	public function add_page_template_canvas_wrapper() {
-		/**
-		 * Hook: wp_body_open
-		 *
-		 * `wp_body_open` is a native theme hook available since WordPress 5.2
-		 */
-		if ( function_exists( 'wp_body_open' ) ) {
-			wp_body_open();
-		} else {
-			do_action( 'wp_body_open' );
-		}
-
-		/**
-		 * Hook: suki/frontend/before_canvas
-		 *
-		 * @hooked suki_skip_to_content_link - 1
-		 * @hooked suki_mobile_vertical_header - 10
-		 */
-		do_action( 'suki/frontend/before_canvas' );
-		?>
-		<div id="canvas" class="suki-canvas">
-			<div id="page" class="site">
-				<div id="content" class="site-content">
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to Elementor Canvas page template.
-	 */
-	public function add_page_template_canvas_wrapper_end() {
-		?>
-					</article>
-				</div>
-			</div>
-		</div>
-		<?php
-		/**
-		 * Hook: suki/frontend/after_canvas
-		 */
-		do_action( 'suki/frontend/after_canvas' );
-	}
-
-	/**
 	 * Add opening wrapper tag to Elementor Header & Footer (Full Width) page template.
 	 */
 	public function add_page_template_header_footer_wrapper() {
 		?>
-		<div id="content" class="site-content">
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
+		<div id="content" class="site-content suki-section">
+
+			<?php if ( is_singular() ) : ?>
+				<article id="<?php echo esc_attr( is_page() ? 'page' : 'post' ); ?>-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
+			<?php endif; ?>
 		<?php
 	}
 
@@ -194,8 +149,10 @@ class Suki_Compatibility_Elementor {
 	 * Add closing wrapper tag to Elementor Header & Footer (Full Width) page template.
 	 */
 	public function add_page_template_header_footer_wrapper_end() {
-		?>
-			</article>
+			if ( is_singular() ) : ?>
+				</article>
+			<?php endif; ?>
+
 		</div>
 		<?php
 	}
