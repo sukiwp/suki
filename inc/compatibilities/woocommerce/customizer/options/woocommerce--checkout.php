@@ -43,6 +43,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'image' => SUKI_IMAGES_URL . '/customizer/woocommerce-checkout-layout--2-columns.svg',
 		),
 	),
+	'columns'     => 2,
 	'priority'    => 20,
 ) ) );
 

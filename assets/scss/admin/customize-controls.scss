@@ -643,13 +643,31 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-radioimage {
-	.customize-control-content {
+	.suki-radioimage-list {
 		display: flex;
 		flex-wrap: wrap;
 		margin: -4px;
 
+		&.suki-radioimage-columns-2 {
+			.suki-radioimage-item {
+				flex-basis: 50%;
+			}
+		}
+
+		&.suki-radioimage-columns-3 {
+			.suki-radioimage-item {
+				flex-basis: 33.33%;
+			}
+		}
+
+		&.suki-radioimage-columns-4 {
+			.suki-radioimage-item {
+				flex-basis: 25%;
+			}
+		}
+
 		.suki-radioimage-item {
-			width: 25%;
+			flex: 0 0;
 			margin: 0;
 		}
 

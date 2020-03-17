@@ -19,6 +19,11 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 	public $type = 'suki-radioimage';
 
 	/**
+	 * @var columns
+	 */
+	public $columns = 4;
+
+	/**
 	 * Setup parameters for content rendering by Underscore JS template.
 	 */
 	public function to_json() {
@@ -34,6 +39,7 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 		$this->json['name'] = $this->id;
 		$this->json['choices'] = $this->choices;
 		$this->json['value'] = $this->value();
+		$this->json['columns'] = $this->columns;
 
 		$this->json['__link'] = $this->get_link();
 	}
@@ -50,19 +56,21 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
 		<div class="customize-control-content">
-			<# _.each( data.choices, function( choice, value ) { #>
-				<div class="suki-radioimage-item">
-					<input type="radio" id="{{ data.name + '--' + value }}" name="{{ data.name }}" value="{{ value }}" class="suki-radioimage-input" {{ value === data.value ? 'checked' : '' }}>
-					<label for="{{ data.name + '--' + value }}" tabindex="0">
-						<# if ( choice.image ) { #>
-							<img src="{{ choice.image }}">
-						<# } #>
-						<# if ( choice.label ) { #>
-							<span>{{{ choice.label }}}</span>
-						<# } #>
-					</label>
-				</div>
-			<# }); #>
+			<div class="suki-radioimage-list suki-radioimage-columns-{{ data.columns }}">
+				<# _.each( data.choices, function( choice, value ) { #>
+					<div class="suki-radioimage-item">
+						<input type="radio" id="{{ data.name + '--' + value }}" name="{{ data.name }}" value="{{ value }}" class="suki-radioimage-input" {{ value === data.value ? 'checked' : '' }}>
+						<label for="{{ data.name + '--' + value }}" tabindex="0">
+							<# if ( choice.image ) { #>
+								<img src="{{ choice.image }}">
+							<# } #>
+							<# if ( choice.label ) { #>
+								<span>{{{ choice.label }}}</span>
+							<# } #>
+						</label>
+					</div>
+				<# }); #>
+			</div>
 		</div>
 		<?php
 	}
