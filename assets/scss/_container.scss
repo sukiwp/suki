@@ -28,7 +28,7 @@ body.suki-page-layout-boxed {
 		max-width: 100%;
 
 		width: 1400px; // default
-		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.05); // default
+		box-shadow: 0px 0px 30px 0px transparentize( $color_black, 0.95 ); // default
 	}
 }
 
@@ -64,7 +64,7 @@ body.suki-page-layout-boxed {
 	bottom: 0;
 	left: 0;
 	opacity: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: transparentize( $color_black, 0.5 );
 	color: $color_bg; // default
 
 	.suki-popup-active & {

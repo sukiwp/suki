@@ -66,7 +66,14 @@ function suki_is_pro() {
  * @return boolean
  */
 function suki_show_pro_teaser() {
-	return apply_filters( 'suki/pro/show_teaser', ! suki_is_pro() );
+	$show = true;
+
+	// Automatically hide teaser when Suki Pro is installed or SUKI_HIDE_PRO_TEASER constant is set to true.
+	if ( ( defined( 'SUKI_HIDE_PRO_TEASER' ) && SUKI_HIDE_PRO_TEASER ) || suki_is_pro() ) {
+		$show = false;
+	}
+
+	return apply_filters( 'suki/pro/show_teaser', $show );
 }
 
 /**
@@ -533,7 +540,7 @@ function suki_get_theme_modules() {
 			),
 		),
 		'page-settings' => array(
-			'label'    => esc_html__( 'Dynamic Page Settings', 'suki' ),
+			'label'    => esc_html__( 'Dynamic Page Layout', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(

@@ -21,7 +21,7 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 	/**
 	 * @var columns
 	 */
-	public $columns = 4;
+	public $columns = 0;
 
 	/**
 	 * Setup parameters for content rendering by Underscore JS template.
@@ -39,7 +39,7 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 		$this->json['name'] = $this->id;
 		$this->json['choices'] = $this->choices;
 		$this->json['value'] = $this->value();
-		$this->json['columns'] = $this->columns;
+		$this->json['columns'] = empty( $this->columns ) ? min( count( $this->choices ), 4 ) : $this->columns;
 
 		$this->json['__link'] = $this->get_link();
 	}

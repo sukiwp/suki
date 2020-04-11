@@ -28,7 +28,6 @@ do_action( 'suki/frontend/before_main' );
 ?>
 <section class="error-404 not-found">
 	<div class="page-content">
-		<h1><?php esc_html_e( 'Page Not Found', 'suki' ); ?></h1>
 		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try searching?', 'suki' ); ?></p>
 		<?php get_search_form(); ?>
 	</div>

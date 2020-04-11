@@ -20,7 +20,7 @@ $section = 'suki_section_header_html';
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_header_html_1', array(
 	'section'     => $section,
 	'settings'    => array(),
-	/* translators: %s: number of HTML element. */
+	/* translators: %s: HTML element number. */
 	'label'       => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
 	'priority'    => 10,
 ) ) );
@@ -47,4 +47,27 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		'render_callback'     => 'suki_header_element__html_1',
 		'fallback_refresh'    => false,
 	) );
+}
+
+/**
+ * ====================================================
+ * Suki Pro Upsell
+ * ====================================================
+ */
+
+$features = array();
+for ( $i = 2; $i <=3; $i++ ) {
+	/* translators: %s: HTML element number. */
+	$features[] = sprintf( esc_html_x( 'HTML %s', 'Suki Pro upsell', 'suki' ), $i );
+}
+
+if ( suki_show_pro_teaser() ) {
+	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_header_html', array(
+		'section'     => $section,
+		'settings'    => array(),
+		'label'       => esc_html_x( 'More Options Available in Suki Pro', 'Suki Pro upsell', 'suki' ),
+		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
+		'features'    => $features,
+		'priority'    => 90,
+	) ) );
 }

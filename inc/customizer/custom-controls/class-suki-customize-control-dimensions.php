@@ -123,19 +123,17 @@ class Suki_Customize_Control_Dimensions extends Suki_Customize_Control {
 		<div class="customize-control-content">
 			<# _.each( data.structures, function( setting_key, device ) { #>
 				<div class="suki-dimensions-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}" data-linked="false">
-					<label class="suki-row-item" style="width: 30px;">
-						<span class="suki-small-label">&nbsp;</span>
+					<label class="suki-row-item" style="flex: 0 0 30px;">
 						<button class="suki-dimensions-link button button-secondary dashicons dashicons-editor-unlink" tabindex="0"></button>
 						<button class="suki-dimensions-unlink button button-primary dashicons dashicons-admin-links" tabindex="0"></button>
 					</label>
 					<# _.each( [ 'top', 'right', 'bottom', 'left' ], function( prop, i ) { #>
 						<label class="suki-row-item">
-							<span class="suki-small-label">{{{ prop }}}</span>
 							<input class="suki-dimensions-input" type="number" value="{{ data.inputs[ setting_key ].numbers[ i ] }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
+							<span class="suki-small-label">{{{ prop }}}</span>
 						</label>
 					<# }); #>
-					<label class="suki-row-item" style="width: 30px;">
-						<span class="suki-small-label">&nbsp;</span>
+					<label class="suki-row-item" style="flex: 0 0 30px;">
 						<select class="suki-dimensions-unit suki-unit">
 							<# _.each( data.units, function( unit_data, unit ) { #>
 								<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>

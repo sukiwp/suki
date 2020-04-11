@@ -16,15 +16,15 @@ $section = 'suki_section_content';
  * ====================================================
  */
 
-// Notice Dynamic Page Settings
+// Notice Dynamic Page Layout
 $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_content_layout', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'description' => '<div class="notice notice-info notice-alt inline"><p>' . sprintf(
-		/* translators: %1$s: section name, %2$s: link to Dynamic Page Settings. */
+		/* translators: %1$s: section name, %2$s: link to Dynamic Page Layout. */
 		esc_html__( 'You can set different %1$s setting on each page using the %2$s.', 'suki' ),
 		esc_html__( 'Content Section', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Dynamic Page Settings', 'suki' ) . '</a>'
+		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Dynamic Page Layout', 'suki' ) . '</a>'
 	) . '</p></div>',
 	'priority'    => 10,
 ) ) );

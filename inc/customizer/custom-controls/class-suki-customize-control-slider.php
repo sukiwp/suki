@@ -130,13 +130,13 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 		<div class="customize-control-content">
 			<# _.each( data.structures, function( setting_key, device ) { #>
 				<div class="suki-slider-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
-					<div class="suki-row-item" style="width: 100%;">
+					<div class="suki-row-item">
 						<div class="suki-slider-ui"></div>
 					</div>
-					<div class="suki-row-item" style="width: 50px;">
+					<div class="suki-row-item" style="flex: 0 0 50px;">
 						<input class="suki-slider-input {{ data.hide_units ? '' : 'suki-input-with-unit' }}" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
-					<div class="suki-row-item" style="width: 30px; {{ data.hide_units ? 'display: none;' : '' }}">
+					<div class="suki-row-item" style="flex: 0 0 30px; {{ data.hide_units ? 'display: none;' : '' }}">
 						<select class="suki-slider-unit suki-unit">
 							<# _.each( data.units, function( unit_data, unit ) { #>
 								<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>

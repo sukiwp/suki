@@ -94,11 +94,7 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	public static function image( $value, $setting ) {
-		$file = wp_check_filetype( $value );
-
-		if ( 0 !== strpos( $file['type'], 'image/' ) ) {
-			return '';
-		}
+		$value = self::validate_image( $value );
 
 		return $value;
 	}
@@ -234,6 +230,57 @@ class Suki_Customizer_Sanitization {
 	}
 
 	/**
+	 * Sanitize Background value.
+	 *
+	 * @param string $value
+	 * @param WP_Customize_Setting $setting
+	 * @return string
+	 */
+	public static function background( $value, $setting ) {
+		if ( '' === $value || 'inherit' === $value ) {
+			return $value;
+		}
+
+		$valid_id = preg_match( '/(.*?)_(image|attachment|repeat|size|position)/', $setting->id, $matches );
+
+		// Check if setting id is invalid, return empty string.
+		if ( ! $valid_id ) {
+			return '';
+		}
+
+		// Get element & type.
+		$control_id = $matches[1];
+		$type = $matches[2];
+
+		// Get the control object associated with the setting.
+		$control = $setting->manager->get_control( $control_id );
+
+		switch ( $type ) {
+			case 'image':
+				$attachment_id = attachment_url_to_postid( $value );
+
+				if ( ! $attachment_id ) {
+					return '';
+				}
+				break;
+
+			case 'attachment':
+			case 'repeat':
+			case 'position':
+			case 'size':
+				$choices = $control->get_choices( $type );
+
+				// Make sure the selected value in one of the available choices.
+				if ( ! array_key_exists( $value, $choices ) ) {
+					return '';
+				}
+				break;
+		}
+
+		return $value;
+	}
+
+	/**
 	 * Sanitize Shadow value.
 	 *
 	 * @param string $value
@@ -350,6 +397,23 @@ class Suki_Customizer_Sanitization {
 		} else {
 			return '';
 		}
+	}
+
+	/**
+	 * Wrapper function to validate image value.
+	 *
+	 * @param string $number
+	 * @param array $range
+	 * @return string
+	 */
+	private static function validate_image( $number ) {
+		$file = wp_check_filetype( $value );
+
+		if ( 0 !== strpos( $file['type'], 'image/' ) ) {
+			return '';
+		}
+
+		return $value;
 	}
 
 	/**

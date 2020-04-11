@@ -64,6 +64,7 @@
 	 */
 	wp.customize.sectionConstructor['suki-section-pro-teaser'] =
 	wp.customize.sectionConstructor['suki-section-pro-link'] =
+	wp.customize.sectionConstructor['suki-section-pro-locked'] =
 	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend({
 		// No events for this type of section.
 		attachEvents: function () {},
@@ -268,17 +269,10 @@
 	 */
 	wp.customize.controlConstructor['suki-shadow'] = wp.customize.SukiControl.extend({
 		ready: function() {
-			var control = this,
-			    $inputs = control.container.find( '.suki-shadow-input' ),
-			    $value = control.container.find( '.suki-shadow-value' );
+			var control = this;
 
-			control.updateValue = function( e ) {
-				var values = $inputs.map(function() {
-					return $( this ).hasClass( 'color-picker' ) ? ( '' === $( this ).wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $( this ).wpColorPicker( 'color' ) ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
-				}).get();
-
-				$value.val( values.join( ' ' ) ).trigger( 'change' );
-			}
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'updateValue' );
 
 			control.container.find( '.suki-shadow-color .color-picker' ).alphaColorPicker({
 				change: control.updateValue,
@@ -286,7 +280,25 @@
 			});
 
 			control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
-		}
+		},
+
+		updateValue: function( e ) {
+			var values = this.container.find( 'input.suki-shadow-input' ).map(function( i, el ) {
+				var $input = $( el );
+
+				if ( $input.hasClass( 'color-picker' ) ) {
+					return '' === $input.wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $input.wpColorPicker( 'color' );
+				} else if ( $input.is( 'input' ) ) {
+					return '' === $input.val() ? '0' : $input.val().toString() + 'px';
+				} else {
+					return $input.val();
+				}
+			}).get();
+
+			values.push( this.container.find( 'select.suki-shadow-input' ).val() );
+
+			this.setting( values.join( ' ' ) );
+		},
 	});
 
 	/**
@@ -296,29 +308,55 @@
 		ready: function() {
 			var control = this;
 
-			control.container.find( '.suki-dimension-fieldset' ).each(function( i, el ) {
-				var $el = $( el ),
-				    $unit = $el.find( '.suki-dimension-unit' ),
-				    $input = $el.find( '.suki-dimension-input' ),
-				    $value = $el.find( '.suki-dimension-value' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'changeUnit', 'changeNumber' );
 
-				$unit.on( 'change', function( e ) {
-					var $option = $unit.find( 'option[value="' + this.value + '"]' );
+			control.container.on( 'change', '.suki-dimension-unit', control.changeUnit );
+			control.container.on( 'change blue', '.suki-dimension-input', control.changeNumber );
 
-					$input.attr( 'min', $option.attr( 'data-min' ) );
-					$input.attr( 'max', $option.attr( 'data-max' ) );
-					$input.attr( 'step', $option.attr( 'data-step' ) );
+			// control.container.find( '.suki-dimension-fieldset' ).each(function( i, el ) {
+			// 	var $el = $( el ),
+			// 	    $unit = $el.find( '.suki-dimension-unit' ),
+			// 	    $input = $el.find( '.suki-dimension-input' ),
+			// 	    $value = $el.find( '.suki-dimension-value' );
 
-					$input.val( '' ).trigger( 'change' );
-				});
+			// 	$unit.on( 'change', function( e ) {
+			// 		var $option = $unit.find( 'option[value="' + this.value + '"]' );
 
-				$input.on( 'change blur', function( e ) {
-					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+			// 		$input.attr( 'min', $option.attr( 'data-min' ) );
+			// 		$input.attr( 'max', $option.attr( 'data-max' ) );
+			// 		$input.attr( 'step', $option.attr( 'data-step' ) );
 
-					$value.val( value ).trigger( 'change' );
-				});
-			});
-		}
+			// 		$input.val( '' ).trigger( 'change' );
+			// 	});
+
+			// 	$input.on( 'change blur', function( e ) {
+			// 		var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+
+			// 		$value.val( value ).trigger( 'change' );
+			// 	});
+			// });
+		},
+
+		changeUnit: function( e ) {
+			var $unit = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
+			    $input = $scope.find( '.suki-dimension-input' );
+
+			$input.attr( 'min', this.params.units[ $unit.val() ].min );
+			$input.attr( 'max', this.params.units[ $unit.val() ].max );
+			$input.attr( 'step', this.params.units[ $unit.val() ].step );
+
+			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' );
+		},
+
+		changeNumber: function( e ) {
+			var $input = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
+			    $unit = $scope.find( '.suki-dimension-unit' );
+
+			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString() );
+		},
 	});
 
 	/**
@@ -489,6 +527,86 @@
 					$value.val( value ).trigger( 'change' );
 				});
 			});
+		}
+	});
+	
+	/**
+	 * Suki background control
+	 */
+	 wp.customize.controlConstructor['suki-background'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this;
+
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'openMediaLibrary', 'removeImage', 'onOpenMediaLibrary', 'onSelectMediaLibrary' );
+
+			control.container.on( 'click keydown', '.upload-button', control.openMediaLibrary );
+			control.container.on( 'click keydown', '.thumbnail-image img', control.openMediaLibrary );
+			control.container.on( 'click keydown', '.remove-button', control.removeImage );
+		},
+
+		openMediaLibrary: function( e ) {
+			if ( wp.customize.utils.isKeydownButNotEnterEvent( e ) ) {
+				return;
+			}
+
+			e.preventDefault();
+
+			if ( ! this.mediaLibrary ) {
+				this.initMediaLibrary();
+			}
+
+			this.mediaLibrary.open();
+		},
+
+		initMediaLibrary: function() {
+			this.mediaLibrary = wp.media({
+				states: [
+					new wp.media.controller.Library({
+						library: wp.media.query({ type: 'image' }),
+						multiple: false,
+						date: false,
+					}),
+				],
+			});
+
+			// When a file is selected, run a callback.
+			this.mediaLibrary.on( 'select', this.onSelectMediaLibrary );
+
+			this.mediaLibrary.on( 'open', this.onOpenMediaLibrary );
+		},
+
+		onOpenMediaLibrary: function( e ) {
+			if ( this.params.attachment ) {
+				var attachment = wp.media.attachment( this.params.attachment.id );
+
+				attachment.fetch();
+
+				this.mediaLibrary.state().get( 'selection' ).add( [ attachment ] );
+			}
+		},
+
+		onSelectMediaLibrary: function( e ) {
+			var attachment = this.mediaLibrary.state().get( 'selection' ).first().toJSON();
+
+			this.params.attachment = attachment;
+
+			// Set the Customizer setting; the callback takes care of rendering.
+			this.settings.image.set( attachment.url );
+
+			this.renderContent();
+		},
+
+		removeImage: function( e ) {
+			if ( wp.customize.utils.isKeydownButNotEnterEvent( e ) ) {
+				return;
+			}
+
+			e.preventDefault();
+
+			this.params.attachment = {};
+			this.settings.image.set( '' );
+			this.renderContent(); // Not bound to setting change when emptying.
 		}
 	});
 	
@@ -907,6 +1025,27 @@
 		});
 
 		/**
+		 * Page Settings
+		 */
+		var initPagePreviewBinding = function() {
+			var lastPreviewURL = '';
+			
+			_.each( sukiCustomizerControlsData.previewContexts, function( url, key ) {
+				wp.customize.section( key, function( section ) {
+					section.expanded.bind( function( isExpanded ) {
+						if ( isExpanded ) {
+							lastPreviewURL = wp.customize.previewer.previewUrl.get();
+							wp.customize.previewer.previewUrl.set( url );
+						} else {
+							wp.customize.previewer.previewUrl.set( lastPreviewURL );
+						}
+					} );
+				} );
+			});
+		}
+		$( window ).on( 'load', initPagePreviewBinding );
+
+		/**
 		 * Init Header & Footer Builder
 		 */
 		var initHeaderFooterBuilder = function( panel ) {
@@ -915,7 +1054,7 @@
 
 			// If Header panel is expanded, add class to the body tag (for CSS styling).
 			panel.expanded.bind(function( isExpanded ) {
-				_.each(section.controls(), function( control ) {
+				_.each( section.controls(), function( control ) {
 					if ( 'resolved' === control.deferred.embedded.state() ) {
 						return;
 					}

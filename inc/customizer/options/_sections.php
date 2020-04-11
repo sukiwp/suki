@@ -13,21 +13,23 @@ if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_section( new Suki_Customize_Section_Pro_Link( $wp_customize, 'suki_section_pro_link', array(
 		'title'       => esc_html_x( 'More Options Available in Suki Pro', 'Suki Pro upsell', 'suki' ),
 		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
-		'priority'    => 0,
-	) ) );
-
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_pro_link', array(
-		'priority'    => 0,
+		'priority'    => 9999,
 	) ) );
 }
+
+// ------
+$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_global', array(
+	'title'       => esc_html__( 'Global', 'suki' ),
+	'priority'    => 0,
+) ) );
 
 // Global Settings
 $panel = 'suki_panel_global_settings';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Global Settings', 'suki' ),
-	'priority'    => 1,
+	'priority'    => 121,
 ) );
+
 	// Site Identity
 	$wp_customize->get_section( 'title_tagline' )->panel = $panel;
 	$wp_customize->get_section( 'title_tagline' )->priority = 10;
@@ -36,65 +38,47 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->get_section( 'static_front_page' )->panel = $panel;
 	$wp_customize->get_section( 'static_front_page' )->priority = 10;
 
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_global_settings', array(
-		'panel'       => $panel,
-		'priority'    => 20,
-	) ) );
-
 	// Color Palette
 	$wp_customize->add_section( 'suki_section_color_palette', array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
 		'description' => '<p>' . esc_html__( 'Color palette makes it easier and faster to choose colors while designing your website.', 'suki' ) . '</p>',
 		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
-	// Google Fonts
-	$wp_customize->add_section( 'suki_section_google_fonts', array(
-		'title'       => esc_html__( 'Google Fonts', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 20,
+		'priority'    => 10,
 	) );
 
 	// Social
 	$wp_customize->add_section( 'suki_section_social', array(
 		'title'       => esc_html__( 'Social Media Links', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Please use full URL format with http:// or https://', 'suki' ) . '</p>',
+		'description' => '<p>' . esc_html__( 'Please use full URL format with the protocol. For example: "https://" or "mailto:".', 'suki' ) . '</p>',
 		'panel'       => $panel,
-		'priority'    => 20,
+		'priority'    => 10,
 	) );
 
-// ------
-$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_170', array(
-	'priority'    => 170,
-) ) );
+	// Breadcrumb
+	$wp_customize->add_section( 'suki_section_breadcrumb', array(
+		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
 
 // General Styles
 $panel = 'suki_panel_general_styles';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'General Styles', 'suki' ),
-	'priority'    => 171,
+	'priority'    => 122,
 ) );
 
-	// Body (Base)
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_typography', array(
+		'title'       => esc_html__( 'Typography', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) ) );
+
+	// Base
 	$wp_customize->add_section( 'suki_section_base', array(
-		'title'       => esc_html__( 'Body (Base)', 'suki' ),
+		'title'       => esc_html__( 'Base', 'suki' ),
 		'description' => '<p>' . esc_html__( 'The global settings of body typography and colors.', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 10,
-	) );
-
-	// Border & Subtle Background
-	$wp_customize->add_section( 'suki_section_line_subtle', array(
-		'title'       => esc_html__( 'Border & Subtle Background', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 10,
-	) );
-
-	// Link
-	$wp_customize->add_section( 'suki_section_link', array(
-		'title'       => esc_html__( 'Link', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -152,10 +136,16 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
+// ------
+$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_layout', array(
+	'title'       => esc_html__( 'Layout', 'suki' ),
+	'priority'    => 130,
+) ) );
+
 // Page Canvas & Wrapper
-$wp_customize->add_section( 'suki_section_page_container', array(
-	'title'       => esc_html__( 'Page Canvas & Wrapper', 'suki' ),
-	'priority'    => 172,
+$wp_customize->add_section( 'suki_section_page_canvas', array(
+	'title'       => esc_html__( 'Page Canvas', 'suki' ),
+	'priority'    => 131,
 ) );
 
 // Header
@@ -175,7 +165,7 @@ $switcher = '
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Header', 'suki' ),
 	'description' => $switcher,
-	'priority'    => 173,
+	'priority'    => 132,
 ) );
 
 	// Header Builder
@@ -187,6 +177,7 @@ $wp_customize->add_panel( $panel, array(
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_bars', array(
+		'title'       => esc_html__( 'Areas', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) ) );
@@ -212,12 +203,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_mobile_bars', array(
-		'panel'       => $panel,
-		'priority'    => 20,
-	) ) );
-
 	// Mobile Main Bar
 	$wp_customize->add_section( 'suki_section_header_mobile_main_bar', array(
 		'title'       => esc_html__( 'Mobile Main Bar', 'suki' ),
@@ -234,87 +219,83 @@ $wp_customize->add_panel( $panel, array(
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_elements', array(
+		'title'       => esc_html__( 'Elements', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 30,
 	) ) );
 
 	// Logo
 	$wp_customize->add_section( 'suki_section_header_logo', array(
-		'title'       => esc_html__( 'Element: Logo', 'suki' ),
+		'title'       => esc_html__( 'Logo', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 30,
+	) );
+
+	// Menu
+	$wp_customize->add_section( 'suki_section_header_menu', array(
+		'title'       => esc_html__( 'Menu', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 30,
 	) );
 
 	// Search
 	$wp_customize->add_section( 'suki_section_header_search', array(
-		'title'       => esc_html__( 'Element: Search', 'suki' ),
+		'title'       => esc_html__( 'Search', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 30,
 	) );
 
 	// HTML
 	$wp_customize->add_section( 'suki_section_header_html', array(
-		'title'       => esc_html__( 'Element: HTML(s)', 'suki' ),
+		'title'       => esc_html__( 'HTML', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 30,
 	) );
 
-	// Social
+	// Cart
 	$wp_customize->add_section( 'suki_section_header_cart', array(
-		'title'       => esc_html__( 'Element: Shopping Cart', 'suki' ),
+		'title'       => esc_html__( 'Shopping Cart', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 30,
 	) );
 
 	// Social
 	$wp_customize->add_section( 'suki_section_header_social', array(
-		'title'       => esc_html__( 'Element: Social', 'suki' ),
+		'title'       => esc_html__( 'Social', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 30,
 	) );
 
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_plus', array(
-		'panel'       => $panel,
-		'priority'    => 50,
-	) ) );
-
 	if ( suki_show_pro_teaser() ) {
-		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_pro_upsell_header', array(
-			'panel'       => $panel,
-			'priority'    => 90,
-		) ) );
-
 		// More Options Available
 		$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_teaser_pro_upsell_header', array(
-			'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
+			'title'       => esc_html_x( 'More Options Available in Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'panel'       => $panel,
 			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
-				esc_html_x( 'More Header Elements', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'More Header Elements: Button, Contact Info', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Vertical Header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Transparent Header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Alternate Header Colors', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Sticky Header', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Header Mega Menu', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'Mega Menu', 'Suki Pro upsell', 'suki' ),
 			),
 			'priority'    => 90,
 		) ) );
 	}
 
-// Page Header
-$wp_customize->add_section( 'suki_section_page_header', array(
-	'title'       => esc_html__( 'Page Header', 'suki' ),
-	'description' => esc_html__( 'Page Header is a section located between Header and Content section and used to display the title of current page.', 'suki' ),
-	'priority'    => 174,
-) );
+// // Page Header
+// $wp_customize->add_section( 'suki_section_page_header', array(
+// 	'title'       => esc_html__( 'Page Header', 'suki' ),
+// 	'description' => esc_html__( 'Page Header is a section located between Header and Content section and used to display the title of current page.', 'suki' ),
+// 	'priority'    => 143,
+// ) );
 
 // Content & Sidebar
 $panel = 'suki_panel_content';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Content & Sidebar', 'suki' ),
-	'priority'    => 175,
+	'priority'    => 133,
 ) );
 
 	// Content Section
@@ -348,7 +329,7 @@ $wp_customize->add_panel( $panel, array(
 $panel = 'suki_panel_footer';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Footer', 'suki' ),
-	'priority'    => 176,
+	'priority'    => 134,
 ) );
 
 	// Footer Builder
@@ -360,6 +341,7 @@ $wp_customize->add_panel( $panel, array(
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_footer_bars', array(
+		'title'       => esc_html__( 'Areas', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) ) );
@@ -380,47 +362,36 @@ $wp_customize->add_panel( $panel, array(
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_footer_elements', array(
+		'title'       => esc_html__( 'Elements', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 30,
 	) ) );
 
 	// Copyright
 	$wp_customize->add_section( 'suki_section_footer_copyright', array(
-		'title'       => esc_html__( 'Element: Copyright', 'suki' ),
+		'title'       => esc_html__( 'Copyright', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 30,
 	) );
 
 	// Social
 	$wp_customize->add_section( 'suki_section_footer_social', array(
-		'title'       => esc_html__( 'Element: Social', 'suki' ),
+		'title'       => esc_html__( 'Social', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 30,
 	) );
-
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_scroll_to_top', array(
-		'panel'       => $panel,
-		'priority'    => 40,
-	) ) );
 
 	// Scroll To Top
 	$wp_customize->add_section( 'suki_section_scroll_to_top', array(
 		'title'       => esc_html__( 'Scroll To Top', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 40,
+		'priority'    => 39,
 	) );
 
 	if ( suki_show_pro_teaser() ) {
-		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_pro_upsell_footer', array(
-			'panel'       => $panel,
-			'priority'    => 90,
-		) ) );
-
 		// More Options Available
 		$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_teaser_pro_upsell_footer', array(
-			'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
+			'title'       => esc_html_x( 'More Options Available in Suki Pro', 'Suki Pro upsell', 'suki' ),
 			'panel'       => $panel,
 			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
@@ -431,103 +402,125 @@ $wp_customize->add_panel( $panel, array(
 	}
 
 // ------
-$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_180', array(
-	'priority'    => 180,
+$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_pages', array(
+	'title'       => esc_html__( 'Pages', 'suki' ),
+	'priority'    => 140,
 ) ) );
 
 // Blog
 $panel = 'suki_panel_blog';
 $wp_customize->add_panel( $panel, array(
 	'title'       => esc_html__( 'Blog', 'suki' ),
-	'priority'    => 181,
+	'priority'    => 141,
 ) );
+
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_blog_pages', array(
+		'title'       => esc_html__( 'Pages', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) ) );
 
 	// Post Index
 	$wp_customize->add_section( 'suki_section_blog_index', array(
-		'title'       => esc_html__( 'Posts Page', 'suki' ),
+		'title'       => esc_html__( 'Posts Archive Page', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
 
-	// Post Layout: Default
+	// Default
 	$wp_customize->add_section( 'suki_section_entry_default', array(
-		'title'       => esc_html__( 'Post Layout: Default', 'suki' ),
+		'title'       => esc_html__( 'Default', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
 
-	// Post Layout: Grid
+	// Grid
 	$wp_customize->add_section( 'suki_section_entry_grid', array(
-		'title'       => esc_html__( 'Post Layout: Grid', 'suki' ),
+		'title'       => esc_html__( 'Grid', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
 
-	// Single Post
+	// Single Post Page
 	$wp_customize->add_section( 'suki_section_blog_single', array(
 		'title'       => esc_html__( 'Single Post Page', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 20,
+		'priority'    => 10,
 	) );
 
+// Other Pages
+$panel = 'suki_panel_other_pages';
+$wp_customize->add_panel( $panel, array(
+	'title'       => esc_html__( 'Other Pages', 'suki' ),
+	'priority'    => 149,
+) );
+
 	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_blog_plus', array(
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_natives', array(
+		'title'       => esc_html__( 'Native Pages', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 30,
+		'priority'    => 10,
 	) ) );
 
-	if ( suki_show_pro_teaser() ) {
-		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_pro_upsell_blog', array(
-			'panel'       => $panel,
-			'priority'    => 90,
-		) ) );
+	// Static Page
+	$wp_customize->add_section( 'suki_section_page_singular', array(
+		'title'       => esc_html__( 'Static Page', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
 
-		// More Options Available
-		$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_teaser_pro_upsell_blog', array(
-			'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
-			'panel'       => $panel,
-			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
-			'features'    => array(
-				esc_html_x( 'Related Posts', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Featured Posts', 'Suki Pro upsell', 'suki' ),
-				esc_html_x( 'Post Layout: List', 'Suki Pro upsell', 'suki' ),
-			),
-			'priority'    => 90,
-		) ) );
-	}
+	// Search Results Page
+	$wp_customize->add_section( 'suki_section_page_search', array(
+		'title'       => esc_html__( 'Search Results Page', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
 
-// ------
-$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_190', array(
-	'priority'    => 190,
-) ) );
-
-// Dynamic Page Settings
-$panel = 'suki_panel_page_settings';
-$wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'Dynamic Page Settings', 'suki' ),
-	'description' => '<p>' . esc_html__( 'You can set different layout settings (like Header, Page Header, Content, Sidebar, and Footer) on each different page type.', 'suki' ) . '</p>',
-	'priority'    => 191,
-) );
+	// 404 Page
+	$wp_customize->add_section( 'suki_section_page_404', array(
+		'title'       => esc_html__( '404 Page', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) );
 
 	// Begin registering sections.
 	$i = 10;
 	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+		if ( in_array( $ps_type, array( 'post_archive', 'post_singular', 'product_archive', 'product_singular', 'page_singular', 'search', '404' ) ) ) {
+			continue;
+		}
+
+		// Get post type object.
+		// First check if $ps_type is not for 404 and search page.
+		$post_type_slug = preg_replace( '/(_singular|_archive)/', '', $ps_type );
+		$post_type_obj = get_post_type_object( $post_type_slug );
+
+		// Increment section priority.
+		$i += 10;
+
+		// Add separator 
 		if ( 0 < strpos( $ps_type, '_archive' ) ) {
-			$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_' . $i, array(
+			$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_' . $post_type_slug, array(
+				/* translators: %s: Custom post type's plural name. */
+				'title'       => $post_type_obj->labels->name,
 				'panel'       => $panel,
 				'priority'    => $i,
 			) ) );
 		}
 
-		$desc = suki_array_value( $ps_data, 'description' );
+		$description = suki_array_value( $ps_data, 'description' );
 
-		$wp_customize->add_section( 'suki_section_page_settings_' . $ps_type, array(
+		$wp_customize->add_section( suki_array_value( $ps_data, 'section' ), array(
 			'title'       => suki_array_value( $ps_data, 'title' ),
-			'description' => ! empty( $desc ) ? '<p>' . $desc . '</p>' : '',
 			'panel'       => $panel,
+			'description' => ! empty( $description ) ? '<p>' . $description . '</p>' : '',
 			'priority'    => $i,
 		) );
-
-		$i += 10;
 	}
+
+// ------
+$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_others', array(
+	'title'       => esc_html__( 'Others', 'suki' ),
+	'priority'    => 159,
+) ) );

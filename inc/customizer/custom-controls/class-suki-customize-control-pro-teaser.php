@@ -34,10 +34,9 @@ class Suki_Customize_Control_Pro_Teaser extends Suki_Customize_Control {
 	protected function render_content() {
 		if ( ! empty( $this->label ) ) : ?>
 			<div class="suki-pro-teaser">
-				<div class="wp-clearfix">
+				<a class="accordion-section-title" href="<?php echo esc_url( $this->url ); ?>" target="_blank" rel="noopener">
 					<h3><?php echo $this->label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
-					<a href="<?php echo esc_url( $this->url ); ?>" class="button button-small button-secondary alignright" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a>
-				</div>
+				</a>
 				<?php if ( ! empty( $this->features ) ) : ?>
 					<ul>
 						<?php foreach ( $this->features as $feature ) : ?>

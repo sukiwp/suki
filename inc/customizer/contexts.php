@@ -21,11 +21,7 @@ $add['boxed_page_width'] =
 $add['boxed_page_shadow'] =
 $add['hr_boxed_page_outside'] =
 $add['outside_bg_color'] =
-$add['outside_bg_image'] =
-$add['outside_bg_position'] =
-$add['outside_bg_size'] =
-$add['outside_bg_repeat'] =
-$add['outside_bg_attachment'] = array(
+$add['outside_bg'] = array(
 	array(
 		'setting'  => 'page_layout',
 		'value'    => 'boxed',
@@ -145,14 +141,14 @@ $add['footer_bottom_bar_merged_gap'] = array(
  * ====================================================
  */
 
-$add['edit_entry_default'] = array(
+$add['blank_edit_entry_default'] = array(
 	array(
 		'setting'  => 'blog_index_loop_mode',
 		'value'    => 'default',
 	),
 );
 
-$add['edit_entry_grid'] = array(
+$add['blank_edit_entry_grid'] = array(
 	array(
 		'setting'  => 'blog_index_loop_mode',
 		'value'    => 'grid',
@@ -202,6 +198,13 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 			),
 		);
 	}
+
+	$add['page_settings_' . $ps_type . '[content_container_width]'] = array(
+		array(
+			'setting'  => 'page_settings_' . $ps_type . '[content_container]',
+			'value'    => 'custom',
+		),
+	);
 }
 
 return $add;

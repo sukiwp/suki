@@ -76,18 +76,18 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
  * ====================================================
  */
 
-// Heading: Typography
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_typography', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Typography', 'suki' ),
-	'description' => sprintf(
-		/* translators: %s: link to "Body (Base)" section. */
-		esc_html__( 'Inherit typography settings from %s.', 'suki' ),
-		'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_body', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Body (Base)', 'suki' ) . '</a>'
-	),
-	'priority'    => 20,
-) ) );
+// // Heading: Typography
+// $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_typography', array(
+// 	'section'     => $section,
+// 	'settings'    => array(),
+// 	'label'       => esc_html__( 'Typography', 'suki' ),
+// 	'description' => sprintf(
+// 		/* translators: %s: link to "Base" section. */
+// 		esc_html__( 'Inherit the Base typography settings.', 'suki' ),
+// 		'<a href="' . esc_attr( add_query_arg( 'autofocus[section]', 'suki_section_body', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Base', 'suki' ) . '</a>'
+// 	),
+// 	'priority'    => 20,
+// ) ) );
 
 /**
  * ====================================================

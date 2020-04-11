@@ -308,6 +308,7 @@ p.demo_store a,
 .woocommerce div.product > * {
 	-ms-flex: 0 0 100%;
 	flex: 0 0 100%;
+	max-width: 100%;
 	margin-bottom: 4rem;
 }
 

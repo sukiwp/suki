@@ -562,7 +562,7 @@ input, select, textarea {
 	padding: 15px 0;
 	background-color: #fff;
 	border-bottom: 1px solid #e5e5e5;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .suki-admin-logo {

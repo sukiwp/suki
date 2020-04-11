@@ -23,7 +23,11 @@ class Suki_Customize_Section_Spacer extends WP_Customize_Section {
 	 */
 	protected function render_template() {
 		?>
-		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}"></li>
+		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
+			<# if ( 0 < data.title.length ) { #>
+				<h2>{{{ data.title }}}</h2>
+			<# } #>
+		</li>
 		<?php
 	}
 }

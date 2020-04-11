@@ -44,20 +44,17 @@ class Suki_Customize_Section_Pro_Teaser extends WP_Customize_Section {
 	 */
 	protected function render_template() {
 		?>
-		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
-			<div class="suki-pro-teaser">
-				<div class="wp-clearfix">
-					<h3>{{{ data.title }}}</h3>
-					<a href="{{ data.url }}" class="button button-small button-secondary alignright" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a>
-				</div>
-				<# if ( 0 < data.features.length ) { #>
-					<ul>
-						<# _.each( data.features, function( feature, i ) { #>
-							<li>{{{ feature }}}</li>
-						<# }); #>
-					</ul>
-				<# } #>
-			</div>
+		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} suki-pro-teaser">
+			<a class="accordion-section-title" href="{{ data.url }}" target="_blank" rel="noopener">
+				<h3>{{{ data.title }}}</h3>
+			</a>
+			<# if ( 0 < data.features.length ) { #>
+				<ul>
+					<# _.each( data.features, function( feature, i ) { #>
+						<li>{{{ feature }}}</li>
+					<# }); #>
+				</ul>
+			<# } #>
 		</li>
 		<?php
 	}

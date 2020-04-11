@@ -240,6 +240,10 @@
 
 				wp.customize( key, function( setting ) {
 					setting.bind(function( value ) {
+						if ( '' === value ) {
+							return;
+						}
+
 						_.each( sortedPostMessages, function( rule, type ) {
 							var functionName = 'postMessage_'.concat( type );
 							sukiCustomizer[ functionName ]( key, rule, value );

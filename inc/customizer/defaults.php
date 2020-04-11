@@ -37,7 +37,7 @@ $add['google_fonts_subsets'] = array();
 
 /**
  * ====================================================
- * General Styles > Body (Base)
+ * General Styles > Base
  * ====================================================
  */
 
@@ -49,7 +49,7 @@ $add['body_font_size'] = '15px';
 $add['body_line_height'] = '1.7';
 $add['body_letter_spacing'] = '';
 
-$add['font_smoothing'] = 1;
+$add['font_smoothing'] = 0;
 
 $add['body_text_color'] = $colors['text'];
 
@@ -274,7 +274,7 @@ $add['header_mobile_elements_vertical_top'] = array( 'search-bar', 'mobile-menu'
  * ====================================================
  */
 
-$add['header_html_1_content'] = 'Insert HTML text here';
+$add['header_html_1_content'] = esc_html__( 'Insert HTML text here', 'suki' );
 
 /**
  * ====================================================
@@ -760,7 +760,7 @@ $add['footer_bottom_bar_link_hover_text_color'] = '';
  * ====================================================
  */
 
-$add['footer_copyright_content'] = 'Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}';
+$add['footer_copyright_content'] = esc_html__( 'Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}', 'suki' );
 
 /**
  * ====================================================
@@ -833,7 +833,7 @@ $add['entry_read_more_display'] = '';
 
 $add['entry_footer'] = array( 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
-$add['entry_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
+$add['entry_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
 /**
  * ====================================================
@@ -862,9 +862,18 @@ $add['entry_grid_read_more_display'] = '';
 
 $add['entry_grid_footer'] = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
-$add['entry_grid_footer_meta'] = 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}';
+$add['entry_grid_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
 $add['entry_grid_bg_color'] = '';
 $add['entry_grid_border_color'] = '';
+
+
+/**
+ * ====================================================
+ * Other Pages > 404 Page
+ * ====================================================
+ */
+
+$add['page_settings_404']['content_layout'] = 'wide';
 
 return $add;

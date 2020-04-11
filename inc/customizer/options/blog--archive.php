@@ -38,6 +38,22 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'priority'    => 10,
 ) ) );
 
+// Edit entry default
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'blank_edit_entry_default', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
+	'priority'    => 11,
+) ) );
+
+// Edit entry grid
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'blank_edit_entry_grid', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
+	'priority'    => 11,
+) ) );
+
 // Navigation mode
 $key = 'blog_index_navigation_mode';
 $wp_customize->add_setting( $key, array(
@@ -54,34 +70,3 @@ $wp_customize->add_control( $key, array(
 	),
 	'priority'    => 15,
 ) );
-
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_blog_index_navigation', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 20,
-) ) );
-
-// Edit entry
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'edit_entry', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Edit post layout', 'suki' ),
-	'priority'    => 20,
-) ) );
-
-// Edit entry default
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'edit_entry_default', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Post Layout: Default', 'suki' ) . '</a>',
-	'priority'    => 20,
-) ) );
-
-// Edit entry grid
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'edit_entry_grid', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Post Layout: Grid', 'suki' ) . '</a>',
-	'priority'    => 20,
-) ) );

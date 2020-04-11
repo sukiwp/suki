@@ -90,55 +90,46 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<# var labels = {
-			font_family: '<?php esc_html_e( 'Font', 'suki' ); ?>',
-			font_weight: '<?php esc_html_e( 'Weight', 'suki' ); ?>',
-			font_style: '<?php esc_html_e( 'Style', 'suki' ); ?>',
-			text_transform: '<?php esc_html_e( 'Transform', 'suki' ); ?>',
-			font_size: '<?php esc_html_e( 'Size', 'suki' ); ?>',
-			line_height: '<?php esc_html_e( 'Line Height', 'suki' ); ?>',
-			letter_spacing: '<?php esc_html_e( 'Spacing', 'suki' ); ?>',
-		} #>
+		<#
+		var labels = {
+				font_family: '<?php esc_html_e( 'Font', 'suki' ); ?>',
+				font_weight: '<?php esc_html_e( 'Weight', 'suki' ); ?>',
+				font_style: '<?php esc_html_e( 'Style', 'suki' ); ?>',
+				text_transform: '<?php esc_html_e( 'Transform', 'suki' ); ?>',
+				font_size: '<?php esc_html_e( 'Size', 'suki' ); ?>',
+				line_height: '<?php esc_html_e( 'Line Height', 'suki' ); ?>',
+				letter_spacing: '<?php esc_html_e( 'Spacing', 'suki' ); ?>',
+			},
+		    choices = <?php echo json_encode( $this->get_choices() ); ?>,
+		    units = <?php echo json_encode( $this->get_units() ); ?>;
+		#>
 		<# if ( data.label ) { #>
-			<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">
-				{{{ data.label }}}
-				<# if ( data.responsive ) { #>
-					<span class="suki-responsive-switcher">
-						<# _.each( data.structures, function( setting_key, device ) { #>
-							<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
-						<# }); #>
-					</span>
-				<# } #>
-			</span>
+			<span class="customize-control-title">{{{ data.label }}}</span>
 		<# } #>
 		<# if ( data.description ) { #>
 			<span class="description customize-control-description">{{{ data.description }}}</span>
 		<# } #>
-		<div class="customize-control-content {{ data.responsive ? 'suki-responsive' : '' }}">
-			<#
-			var choices = <?php echo json_encode( $this->get_choices() ); ?>,
-			    units = <?php echo json_encode( $this->get_units() ); ?>;
-			#>
-
+		<div class="customize-control-content">
 			<# if ( data.inputs.font_family ) { #>
-			<p class="suki-typography-fieldset suki-row">
-				<label class="suki-row-item">
-					<span class="suki-small-label">{{ labels.font_family }}</span>
-					<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
-						<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
-						<# _.each( choices.font_family, function( provider_data, provider ) { #>
-							<# if ( 0 == provider_data.fonts.length ) return; #>
-							<optgroup label="{{ provider_data.label }}">
-								<# _.each( provider_data.fonts, function( label, value ) { #>
-									<option value="{{ value }}">{{{ label }}}</option>
-								<# }); #>
-							</optgroup>
-						<# }); #>
-					</select>
-				</label>
-			</p>
+				<div class="suki-typography-fieldset suki-row">
+					<label class="suki-row-item">
+						<span class="suki-small-label">{{ labels.font_family }}</span>
+						<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
+							<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
+							<# _.each( choices.font_family, function( provider_data, provider ) { #>
+								<# if ( 0 == provider_data.fonts.length ) return; #>
+								<optgroup label="{{ provider_data.label }}">
+									<# _.each( provider_data.fonts, function( label, value ) { #>
+										<option value="{{ value }}">{{{ label }}}</option>
+									<# }); #>
+								</optgroup>
+							<# }); #>
+						</select>
+					</label>
+				</div>
 			<# } #>
-			<p class="suki-typography-fieldset suki-row">
+
+			<div class="suki-typography-fieldset suki-row">
 				<# _.each( [ 'font_weight', 'font_style', 'text_transform' ], function( type ) { #>
 					<# if ( data.inputs[ type ] ) { #>
 						<label class="suki-row-item">
@@ -152,7 +143,16 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 						</label>
 					<# } #>
 				<# }); #>
-			</p>
+			</div>
+
+			<# if ( data.responsive ) { #>
+				<div class="suki-responsive-switcher">
+					<# _.each( data.structures, function( setting_key, device ) { #>
+						<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
+					<# }); #>
+				</div>
+			<# } #>
+
 			<# _.each( data.structures, function( setting_keys, device ) { #>
 				<div class="suki-typography-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
 					<# _.each( setting_keys, function( setting_key, setting_type ) { #>
@@ -163,7 +163,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 									<span class="suki-row-item">
 										<input class="suki-typography-size-input suki-input-with-unit" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 									</span>
-									<span class="suki-row-item" style="width: 30px;">
+									<span class="suki-row-item" style="flex: 0 0 30px;">
 										<select class="suki-typography-size-unit suki-unit">
 											<# _.each( units[ setting_type ], function( unit_data, unit ) { #>
 												<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>

@@ -63,19 +63,27 @@ li:not(.customize-info) div.customize-section-description {
 	margin-top: 0;
 }
 
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+#customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
+	border-top: none;
+}
+
+#accordion-section-themes + .control-section {
+	border-top: none;
+}
+
 // -------------------------------------------------------------
 // Common classes
 // -------------------------------------------------------------
 
 .suki-row {
-	display: table;
-	width: 100%;
-	table-layout: fixed;
+	display: flex;
+	align-items: flex-start;
 }
 
 .suki-row-item {
-	display: table-cell;
-	width: 100%;
+	flex: 1 0 0;
 	vertical-align: middle;
 }
 
@@ -86,7 +94,6 @@ li:not(.customize-info) div.customize-section-description {
 	line-height: 1;
 	text-transform: uppercase;
 	opacity: 0.75;
-	margin-bottom: 0.3em;
 	display: block;
 }
 
@@ -110,7 +117,7 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 	margin: 0 -12px;
 	padding: 10px 12px;
-	background-color: rgba(0,0,0,0.1);
+	background-color: transparentize( $color_black, 0.9 );
 	color: inherit;
 	outline: 0;
 	@include transition();
@@ -126,8 +133,8 @@ li:not(.customize-info) div.customize-section-description {
 // Responsive Control Handler
 // -------------------------------------------------------------
 
-.suki-responsive-title {
-	.suki-responsive-switcher {
+.suki-responsive-switcher {
+	.customize-control-title & {
 		margin-left: 0.5em;
 
 		.suki-responsive-switcher-button {
@@ -140,7 +147,46 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.dashicons {
-				font-size: 14px;
+				font-size: 15px;
+				width: auto;
+				height: auto;
+				line-height: 1;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.customize-control-content & {
+		position: relative;
+		height: 15px;
+		text-align: right;
+		margin: 10px 0 -5px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -0.5px;
+			width: calc( 100% - 60px );
+			height: 1px;
+			background-color: #ddd;
+		}
+
+		.suki-responsive-switcher-button {
+			position: relative;
+			cursor: pointer;
+			outline: 0;
+			opacity: 0.25;
+			line-height: 1;
+			vertical-align: top;
+
+			&.active {
+				opacity: 0.75;
+			}
+
+			.dashicons {
+				font-size: 15px;
 				width: auto;
 				height: auto;
 				line-height: 1;
@@ -157,7 +203,7 @@ li:not(.customize-info) div.customize-section-description {
 		display: block;
 
 		&.suki-row {
-			display: table;
+			display: flex;
 		}
 	}
 }
@@ -168,6 +214,33 @@ li:not(.customize-info) div.customize-section-description {
 
 .control-section-suki-section-spacer {
 	margin-top: 15px;
+
+	h2 {
+		position: relative;
+		display: table;
+		margin: -5px 0 0;
+		padding: 3px 10px 3px 18px;
+		color: inherit;
+		font-size: 11px;
+		line-height: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		background-color: transparentize( $color_black, 0.9 );
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: 100%;
+			top: 0;
+			border-bottom: 24px solid transparentize( $color_black, 0.9 );
+			border-right: 12px solid transparent;
+		}
+
+		.dashicons {
+			margin-right: 0.5em;
+			vertical-align: -5px;
+		}
+	}
 }
 
 // -------------------------------------------------------------
@@ -200,43 +273,44 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-.customize-control-suki-pro-teaser {
-	margin: 20px 0 12px;
-}
-
 .suki-pro-teaser {
+	margin-top: 15px;
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
 	background-color: #fff8e5;
-	margin-top: -1px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	cursor: default;
-	color: inherit;
 
-	.customize-control > & {
-		margin: 0 -12px;
-		padding: 12px 12px 12px 12px;
-	}
-
-	.accordion-section > & {
-		padding: 12px 10px 12px 18px;
-	}
-
-	h3 {
-		display: inline-block;
-		color: inherit;
-		margin: 0;
-	}
-
-	.button {
-		margin: -3px 0 0 8px;
-		font-weight: normal;
+	.customize-control-suki-pro-teaser > & {
+		margin-left: -12px;
+		margin-right: -12px;
 	}
 
 	ul {
-		margin: 0.5em 0 0;
+		margin: 0;
+		padding: 0 10px 11px 18px;
 
 		li {
 			margin: 0.25em 0;
+		}
+	}
+
+	.accordion-section-title {
+		display: block;
+		padding: 10px 10px 11px 14px !important;
+		background-color: transparent !important;
+		// color: inherit !important;
+		border-top: none !important;
+		border-bottom: none !important;
+		border-color: transparent !important;
+		text-decoration: none;
+		color: inherit !important;
+
+		&:hover, &:focus {
+			color: #007cba !important;
+		}
+
+		h3 {
+			margin: 0;
+			color: inherit !important;
 		}
 	}
 }
@@ -253,7 +327,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.tabindex:focus + .suki-heading {
-		background-color: #0073aa;
+		background-color: #007cba;
 		color: #fff;
 	}
 
@@ -301,7 +375,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	input[type="checkbox"]:checked ~ .suki-toggle-ui {
-		background-color: #0073aa;
+		background-color: #007cba;
 
 		.suki-toggle-ui-handle {
 			left: auto;
@@ -332,7 +406,7 @@ li:not(.customize-info) div.customize-section-description {
 			height: 24px;
 			min-height: auto; // reset
 			border: none;
-			border-radius: 0 !important;
+			border-radius: 3px !important;
 			background-size: 12px 12px;
 			background-position: 0 0, 6px 6px;
 			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
@@ -344,12 +418,14 @@ li:not(.customize-info) div.customize-section-description {
 				left: 0;
 				bottom: 0;
 				right: 0;
+				border-radius: 3px !important;
 				background-color: inherit;
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+				border: 1px solid #7e8993;
 			}
 
 			&:focus:before {
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 0 5px #0073aa;
+				border-color: #007cba;
+				box-shadow: 0 0 1px #007cba;
 			}
 
 			&:after {
@@ -420,26 +496,52 @@ li:not(.customize-info) div.customize-section-description {
 .customize-control-suki-shadow {
 	.customize-control-content {
 		position: relative;
+		padding-right: 30px;
 	}
 
 	.suki-row-item {
-		> * {
-			text-align: center;
+		text-align: center;
+
+		&:nth-child(n+2) {
+			margin-left: -1px;
 		}
 
-		&.suki-shadow-v_offset .suki-shadow-input,
-		&.suki-shadow-blue .suki-shadow-input {
-			border-radius: 0;
-		}
-
-		&.suki-shadow-h_offset .suki-shadow-input {
+		&:first-child .suki-shadow-input {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
 		}
 
-		&.suki-shadow-spread .suki-shadow-input {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
+		&:nth-child(n+2) .suki-shadow-input {
+			border-radius: 0;
+		}
+	}
+
+	.suki-shadow-position {
+		flex: 0 0 40px;
+
+		select {
+			padding: 0 8px !important;
+			background-image: none !important;
+		}
+	}
+
+	.suki-shadow-input {
+		text-align: center;
+
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	.suki-small-label {
+		margin-top: 0.3em;
+	}
+
+	input.suki-shadow-input {
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
 		}
 	}
 
@@ -449,14 +551,14 @@ li:not(.customize-info) div.customize-section-description {
 
 		.wp-color-result.button {
 			position: absolute !important;
-			top: 14px;
+			top: 0;
 			right: 0;
 			margin: 0;
 			width: 30px;
-			height: 24px;
+			height: 30px;
 			min-height: auto; // reset
 			border: none;
-			border-radius: 0 !important;
+			border-radius: 0 3px 3px 0 !important;
 			background-size: 12px 12px;
 			background-position: 0 0, 6px 6px;
 			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
@@ -468,12 +570,13 @@ li:not(.customize-info) div.customize-section-description {
 				left: 0;
 				bottom: 0;
 				right: 0;
+				border-radius: 0 3px 3px 0 !important;
 				background-color: inherit;
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+				box-shadow: inset 0 0 0 1px #7e8993;
 			}
 
 			&:focus:before {
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 0 5px #0073aa;
+				box-shadow: inset 0 0 0 1px #7e8993, 0 0 0 1px #007cba;
 			}
 		}
 
@@ -519,8 +622,12 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-slider {
-	.suki-row-item > * {
+	.suki-row-item {
 		text-align: center;
+
+		&:nth-child(n+2) {
+			margin-left: -1px;
+		}
 	}
 
 	.suki-slider-reset {
@@ -539,6 +646,13 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.suki-slider-input {
+		text-align: inherit;
+		
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+
 		&::-webkit-inner-spin-button, 
 		&::-webkit-outer-spin-button {
 			appearance: none;
@@ -564,11 +678,30 @@ li:not(.customize-info) div.customize-section-description {
 			border-radius: 3px;
 			background-color: #fff;
 			background-image: none;
-			border: 1px solid #ccc;
+			border: 1px solid #7e8993;
 
 			&:focus {
-				background-color: #0073aa;
+				background-color: #007cba;
 			}
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Dimension Control
+// -------------------------------------------------------------
+
+.customize-control-suki-dimension {
+	.suki-row-item {
+		&:nth-child(n+2) {
+			margin-left: -1px;
+		}
+	}
+
+	.suki-dimension-input {
+		&:focus {
+			position: relative;
+			z-index: 2;
 		}
 	}
 }
@@ -578,12 +711,18 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-dimensions {
-	.suki-row-item > * {
+	.suki-row-item {
 		text-align: center;
+
+		&:nth-child(n+2) {
+			margin-left: -1px;
+		}
 	}
 
 	.suki-dimensions-unlink,
 	.suki-dimensions-link {
+		position: relative;
+		z-index: 1;
 		padding: 0;
 		display: none;
 		width: 100%;
@@ -593,8 +732,28 @@ li:not(.customize-info) div.customize-section-description {
 		border-bottom-right-radius: 0;
 	}
 
+	.suki-small-label {
+		margin-top: 0.3em;
+	}
+
 	.suki-dimensions-input {
 		border-radius: 0;
+		text-align: inherit;
+
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
+		}
+	}
+
+	.suki-dimensions-unit {
+		position: relative;
+		z-index: 1;
 	}
 
 	[data-linked="true"] .suki-dimensions-unlink,
@@ -609,9 +768,9 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-typography {
 	.customize-control-content {
-		padding: 5px;
+		padding: 10px;
 		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
 		background-color: #fff;
 	}
 
@@ -625,16 +784,68 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 
+	.suki-typography-size {
+		.suki-row-item {
+			&:nth-child(n+2) {
+				margin-left: -1px;
+			}
+		}
+	}
+
+	.suki-small-label {
+		margin-bottom: 0.3em;
+	}
+
 	.suki-typography-fieldset {
-		margin: 5px 0 0;
+		margin: 10px -3px 0;
 
 		> * {
-			padding: 0 2px;
+			padding: 0 3px;
 		}
 	}
 
 	.suki-typography-size-input {
 		text-align: center;
+
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Background Control
+// -------------------------------------------------------------
+
+.customize-control-suki-background {
+	.customize-control-content {
+		padding: 10px;
+		border: 1px solid #ddd;
+		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+		background-color: #fff;
+	}
+
+	.suki-row {
+		&:first-child{
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.suki-small-label {
+		margin-bottom: 0.3em;
+	}
+
+	.suki-background-fieldset {
+		margin: 10px -3px 0;
+
+		> * {
+			padding: 0 3px;
+		}
 	}
 }
 
@@ -648,6 +859,17 @@ li:not(.customize-info) div.customize-section-description {
 		flex-wrap: wrap;
 		margin: -4px;
 
+		.suki-radioimage-item {
+			flex: 0 0 25%;
+			margin: 0;
+		}
+
+		&.suki-radioimage-columns-1 {
+			.suki-radioimage-item {
+				flex-basis: 100%;
+			}
+		}
+
 		&.suki-radioimage-columns-2 {
 			.suki-radioimage-item {
 				flex-basis: 50%;
@@ -658,17 +880,6 @@ li:not(.customize-info) div.customize-section-description {
 			.suki-radioimage-item {
 				flex-basis: 33.33%;
 			}
-		}
-
-		&.suki-radioimage-columns-4 {
-			.suki-radioimage-item {
-				flex-basis: 25%;
-			}
-		}
-
-		.suki-radioimage-item {
-			flex: 0 0;
-			margin: 0;
 		}
 
 		label {
@@ -683,7 +894,7 @@ li:not(.customize-info) div.customize-section-description {
 			border-radius: 3px;
 
 			&:focus {
-				box-shadow: 0 0 5px #0073aa;
+				box-shadow: 0 0 5px #007cba;
 			}
 		}
 
@@ -692,7 +903,7 @@ li:not(.customize-info) div.customize-section-description {
 		}
 
 		input:checked + label {
-			background-color: #0073aa;
+			background-color: #007cba;
 			color: #fff;
 		}
 
@@ -730,7 +941,7 @@ li:not(.customize-info) div.customize-section-description {
 			position: relative;
 			margin: 3px 0;
 			border: 1px solid #ddd;
-			box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+			box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
 			background-color: #fff;
 
 			&.disabled {
@@ -781,7 +992,7 @@ li:not(.customize-info) div.customize-section-description {
 			position: absolute;
 			bottom: 0;
 			right: 0;
-			margin: 0 5px 11px 0;
+			margin: 0 5px 14px 0;
 			font-size: 18px;
 			line-height: 1;
 			opacity: 0.5;
@@ -839,7 +1050,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.ui-sortable-placeholder {
 			visibility: visible !important;
-			background-color: rgba(0,0,0,0.1) !important;
+			background-color: transparentize( $color_black, 0.9 ) !important;
 			border-color: transparent !important;
 			box-shadow: none !important;
 		}
@@ -916,6 +1127,7 @@ li:not(.customize-info) div.customize-section-description {
 			border-top: 1px solid #ddd;
 			border-left: 1px solid #ddd;
 			transform: translateY(100%);
+			box-shadow: inset 10px 0 10px -10px transparentize( $color_black, 0.9 );
 			@include transition( all 0.2s );
 
 			.suki-has-builder-active .wp-full-overlay.expanded & {
@@ -1150,7 +1362,7 @@ li:not(.customize-info) div.customize-section-description {
 					box-shadow: none;
 
 					&:hover, &:focus {
-						color: #0073aa;
+						color: #007cba;
 					}
 
 					&:last-child {
@@ -1158,7 +1370,7 @@ li:not(.customize-info) div.customize-section-description {
 					}
 
 					&.nav-tab-active {
-						color: #0073aa;
+						color: #007cba;
 						border-bottom-color: currentColor;
 					}
 				}
@@ -1175,5 +1387,70 @@ li:not(.customize-info) div.customize-section-description {
 	.accordion-section-title:before {
 		content: "\21B3";
 		margin-right: 0.5em;
+	}
+}
+
+// -------------------------------------------------------------
+// Specific controls
+// -------------------------------------------------------------
+
+#customize-control-footer_widgets_bar {
+	@media screen and ( min-width: 1324px ) {
+		.customize-control-title {
+			display: inline-block;
+
+			&:after {
+				content: ":";
+				margin-right: 1em;
+			}
+		}
+
+		.customize-control-notifications-container {
+			display: none;
+		}
+
+		select {
+			display: inline-block;
+			width: auto;
+		}
+	}
+}
+
+#customize-control-google_fonts_subsets {
+	@media screen and ( min-width: 1324px ) {
+		ul {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			max-height: calc( 11 * 26px );
+			max-width: 100%;
+
+			li {
+				width: 50%;
+			}
+		}
+	}
+}
+
+[id^="customize-control-page_settings_"] {
+	&.customize-control-select {
+		.customize-control-title {
+			float: left;
+		}
+
+		select {
+			margin-left: 10px;
+			float: right;
+			width: 135px;
+		}
+	}
+
+	&[id*="header"] {
+		padding-left: 15px;
+		width: calc(100% - 15px);
+
+		.customize-control-title {
+			font-weight: normal;
+		}
 	}
 }

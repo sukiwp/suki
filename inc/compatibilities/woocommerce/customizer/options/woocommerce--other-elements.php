@@ -80,7 +80,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Alt Button', 'suki' ),
-	'description' => esc_html__( 'Used in single product "Add to Cart" and Checkout page.', 'suki' ),
+	'description' => esc_html__( 'Used for single product\'s "Add to Cart" button and Checkout button.', 'suki' ),
 	'priority'    => 30,
 ) ) );
 

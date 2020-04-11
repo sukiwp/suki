@@ -50,6 +50,7 @@ class Suki_Customizer {
 		// Customizer page
 		add_action( 'customize_register', array( $this, 'register_custom_controls' ), 1 );
 		add_action( 'customize_register', array( $this, 'register_settings' ) );
+		// add_action( 'customize_register', array( $this, 'move_other_sections' ), 999 ); // priority needs to be higher than 10 because "Menus" section is registered at "11" priority number.
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		if ( is_customize_preview() ) {
@@ -139,6 +140,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-typography.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-multicheck.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-radioimage.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-background.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php' );
 
 		if ( suki_show_pro_teaser() ) {
@@ -165,7 +167,6 @@ class Suki_Customizer {
 
 		// General Styles
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--base.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--link.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--headings.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--blockquote.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--form-inputs.php' );
@@ -173,15 +174,15 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--title.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--small-title.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--meta.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--line-subtle.php' );
 
 		// Layout
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-container.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/canvas.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--top-main-bottom-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--mobile-main-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--mobile-vertical-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--logo.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--menu.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--html.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--cart.php' );
@@ -199,17 +200,38 @@ class Suki_Customizer {
 
 		// Global Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
 
 		// Page Settings
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/dynamic-page-layout.php' );
+		// require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );
 
 		// Blog
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--archive.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--single.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-default.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-grid.php' );
+	}
+
+	/**
+	 * Move other sections to the bottom of Customizer panel.
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 */
+	public function move_other_sections( $wp_customize ) {
+		foreach ( $wp_customize->panels() as $key => $obj ) {
+			if ( 160 >= $obj->priority ) {
+				$obj->priority = $obj->priority + 1000;
+			}
+		}
+
+		foreach ( $wp_customize->sections() as $key => $obj ) {
+			if ( empty( $obj->panel ) && 160 >= intval( $obj->priority ) ) {
+				$obj->priority += 1000;
+			}
+		}
+
+		$wp_customize->get_section( 'custom_css' )->priority += 1000;
 	}
 
 	/**
@@ -223,6 +245,7 @@ class Suki_Customizer {
 
 		wp_localize_script( 'suki-customize-controls', 'sukiCustomizerControlsData', array(
 			'contexts' => $this->get_control_contexts(),
+			'previewContexts' => $this->get_preview_contexts(),
 		) );
 	}
 
@@ -566,6 +589,60 @@ class Suki_Customizer {
 	}
 
 	/**
+	 * Return all binding contexts between Customizer's sections and live preview frame.
+	 * 
+	 * @return array
+	 */
+	public function get_preview_contexts() {
+		$contexts = array();
+
+		// Add "Homepage Settings"
+		$contexts['static_front_page'] = esc_url( home_url() ); 
+
+		// Add "404 Page"
+		$contexts['suki_section_page_404'] = esc_url( home_url( '404' ) );
+
+		// Add "Search Page"	
+		$contexts['suki_section_page_search'] = esc_url( home_url( '?s=awesome' ) );
+
+		foreach ( $this->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			if ( in_array( $ps_type, array( '404', 'search' ) ) ) {
+				continue;
+			}
+
+			// Get post type object.
+			// First check if $ps_type is not for 404 and search page.
+			$post_type_slug = preg_replace( '/(_singular|_archive)/', '', $ps_type );
+			$post_type_obj = get_post_type_object( $post_type_slug );
+			$archive_or_singular = str_replace( $post_type_slug . '_', '', $ps_type );
+
+			if ( 'singular' === $archive_or_singular ) {
+				$sample = get_posts( array(
+					'orderby'        => 'rand',
+					'posts_per_page' => 1,
+					'post_type'      => $post_type_slug,
+				) );
+
+				if ( 0 < count( $sample ) ) {
+					$sample = $sample[0];
+
+					$contexts[ $ps_data['section'] ] = esc_url( get_permalink( $sample ) );
+				}
+			} else {
+				$contexts[ $ps_data['section'] ] = esc_url( get_post_type_archive_link( $post_type_slug ) );
+			}
+		}
+
+		// Add WooCommerce Cart Page
+		$contexts['woocommerce_cart'] = esc_url( wc_get_cart_url() );
+		
+		// Add WooCommerce Checkout Page
+		$contexts['woocommerce_checkout'] = esc_url( wc_get_checkout_url() );
+
+		return $contexts;
+	}
+
+	/**
 	 * Return all page types for page settings.
 	 * 
 	 * @return array
@@ -573,15 +650,21 @@ class Suki_Customizer {
 	public function get_all_page_settings_types() {
 		// Define sections with default page types.
 		$page_sections = array(
+			'page_singular' => array(
+				'section' => 'suki_section_page_singular',
+				'title' => esc_html__( 'Static Page - Layout', 'suki' ),
+			),
 			'search' => array(
-				'title' => esc_html__( 'Search Results Page', 'suki' ),
+				'section' => 'suki_section_page_search',
+				'title' => esc_html__( 'Search Results Page - Layout', 'suki' ),
 			),
 			'404' => array(
-				'title' => esc_html__( '404 Page', 'suki' ),
+				'section' => 'suki_section_page_404',
+				'title' => esc_html__( '404 Page - Layout', 'suki' ),
 			),
 		);
 
-		// Add custom post types to sections.
+		// Get post types.
 		$post_types = array_merge(
 			array( 'post' ),
 			get_post_types( array(
@@ -592,39 +675,79 @@ class Suki_Customizer {
 			), 'names' )
 		);
 
+		// Allow user to deactivate page settings on some specific post types through filter.
 		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
 
+		// Intersect the supported post types.
 		$post_types = array_diff( $post_types, $ignored_post_types );
 
 		foreach ( $post_types as $post_type ) {
 			$post_type_obj = get_post_type_object( $post_type );
 
-			$page_sections[ $post_type . '_archive' ] = array(
+			switch ( $post_type ) {
+				case 'post':
+					$section_archive = 'suki_section_blog_index';
+					$section_singular = 'suki_section_blog_single';
+					break;
+
+				case 'product':
+					$section_archive = 'woocommerce_product_catalog';
+					$section_singular = 'woocommerce_product_single';
+					break;
+				
+				default:
+					$section_archive = 'suki_section_page_' . $post_type . '_archive';
+					$section_singular = 'suki_section_page_' . $post_type . '_singular';
+					break;
+			}
+
+			/**
+			 * Define sections.
+			 */
+			
+			$key_archive = $post_type . '_archive';
+			$page_sections[ $key_archive ] = array(
+				'section' => $section_archive,
 				/* translators: %s: post type's plural name. */
 				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
-				'description' => sprintf(
-					/* translators: %s: post type's plural name. */
-					esc_html__( 'These are default settings for main %s Archive page and the taxonomy archive page.', 'suki' ),
-					$post_type_obj->labels->name
-				) . '<br><br>' . sprintf(
-					/* translators: %s: post type's singular name. */
-					esc_html__( 'TIPS: You can specify different settings for each taxonomy via the Page Settings metabox available on the term edit page.', 'suki' ),
-					$post_type_obj->labels->singular_name
-				),
+
+				// 'description' => sprintf(
+				// 	/* translators: %1$s: post type's plural name, %2$s: post type's singular name. */
+				// 	esc_html__( 'These are default settings for main %1$s archive page and %2$s taxonomy archive pages.', 'suki' ),
+				// 	$post_type_obj->labels->name,
+				// 	$post_type_obj->labels->singular_name
+				// ) . '<br><br>' . sprintf(
+				// 	/* translators: %s: post type's singular name. */
+				// 	esc_html__( 'TIPS: You can specify different settings for each %s taxonomy via the Page Settings metabox available on its editor page.', 'suki' ),
+				// 	$post_type_obj->labels->singular_name
+				// ),
 			);
-			$page_sections[ $post_type . '_singular' ] = array(
+
+			$key_singular = $post_type . '_singular';
+			$page_sections[ $key_singular ] = array(
+				'section' => $section_singular,
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
-				'description' => sprintf(
-					/* translators: %s: post type's singular name. */
-					esc_html__( 'These are default settings for all Single %s page.', 'suki' ),
-					$post_type_obj->labels->singular_name
-				) . '<br><br>' . sprintf(
-					/* translators: %s: Post type's singular name. */
-					esc_html__( 'TIPS: You can specify different settings for each %s via the Page Settings metabox available on the edit page.', 'suki' ),
-					$post_type_obj->labels->singular_name
-				),
+
+				// 'description' => sprintf(
+				// 	/* translators: %s: post type's singular name. */
+				// 	esc_html__( 'These are default settings for all single %s pages.', 'suki' ),
+				// 	strtolower( $post_type_obj->labels->singular_name )
+				// ) . '<br><br>' . sprintf(
+				// 	/* translators: %s: Post type's singular name. */
+				// 	esc_html__( 'TIPS: You can specify different settings for each %s via the Page Settings metabox available on its editor page.', 'suki' ),
+				// 	strtolower( $post_type_obj->labels->singular_name )
+				// ),
 			);
+		}
+
+		// Sanitize $page_sections.
+		foreach ( $page_sections as $ps_type => $ps_data ) {
+			$page_sections[ $ps_type ] = wp_parse_args( $ps_data, array(
+				'section'     => 'suki_section_page_' . $ps_type,
+				'title'       => '',
+				'description' => '',
+			) );
 		}
 
 		return $page_sections;

@@ -1,5 +1,4 @@
 // Colors
-$color_transparent: rgba(0,0,0,0);
 $color_white: #ffffff;
 $color_black: #000000;
 $color_accent: #0066cc;
@@ -7,8 +6,9 @@ $color_accent2: #004c99;
 $color_bg: #ffffff;
 $color_text: #666666;
 $color_heading: #333333;
-$color_subtle: rgba(0,0,0,0.05);
-$color_border: rgba(0,0,0,0.1);
+$color_subtle: transparentize( $color_black, 0.95 );
+$color_border: transparentize( $color_black, 0.9 );
+$color_transparent: transparentize( $color_black, 1 );
 
 // Responsive Breakpoints
 $breakpoint_1024: 1024px;

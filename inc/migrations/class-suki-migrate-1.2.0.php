@@ -39,8 +39,6 @@ class Suki_Migrate_1_2_0 {
 	protected function __construct() {
 		$this->migrate_entry_grid_defaults();
 		$this->migrate_woocommerce_options();
-
-		//woocommerce_cart_two_columns
 	}
 
 	/**

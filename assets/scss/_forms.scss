@@ -168,12 +168,12 @@ span.select2-container {
 				line-height: normal;
 
 				&--highlighted {
-					background-color: rgba(0,0,0,0.025);
+					background-color: transparentize( $color_black, 0.975 );
 					color: inherit;
 				}
 
 				&[aria-selected="true"] {
-					background-color: rgba(0,0,0,0.05);
+					background-color: transparentize( $color_black, 0.95 );
 				}
 			}
 		}

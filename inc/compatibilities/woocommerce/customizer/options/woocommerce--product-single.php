@@ -279,6 +279,6 @@ if ( suki_show_pro_teaser() ) {
 			esc_html_x( 'AJAX Add To Cart', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'More Gallery Layouts', 'Suki Pro upsell', 'suki' ),
 		),
-		'priority'    => 90,
+		'priority'    => 190,
 	) ) );
 }

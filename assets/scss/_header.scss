@@ -251,7 +251,7 @@
 			max-width: 1140px; // default
 			min-width: 100%;
 			@include border();
-			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+			box-shadow: 0 2px 10px transparentize( $color_black, 0.95 );
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
