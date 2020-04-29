@@ -68,8 +68,11 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideUp: function( target, duration = 250 ) {
-			if ( ! target ) return;
+		slideUp: function( target ) {
+			if ( ! target ) retur
+
+
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;n;
 
 			target.style.transitionProperty = 'height, margin, padding';
 			target.style.transitionDuration = duration + 'ms';
@@ -92,8 +95,10 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideDown: function( target, duration = 250 ) {
+		slideDown: function( target ) {
 			if ( ! target ) return;
+
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
 
 			target.style.removeProperty( 'display' );
 
@@ -133,8 +138,10 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideToggle: function( target, duration = 250 ) {
+		slideToggle: function( target ) {
 			if ( ! target ) return;
+
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
 
 			if ( window.getComputedStyle( target ).display === 'none' ) {
 				return slideDown( target, duration );
