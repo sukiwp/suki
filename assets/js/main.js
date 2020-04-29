@@ -460,7 +460,9 @@
 
 					// Back current focus to the toggle.
 					$activePopup.removeAttribute( 'tabindex' );
-					$clickedToggle.focus();
+					if ( document.body.classList.contains( 'using-keyboard' ) ) {
+						$clickedToggle.focus();
+					}
 				});
 			}
 
