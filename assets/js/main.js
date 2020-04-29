@@ -69,10 +69,9 @@
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
 		slideUp: function( target ) {
-			if ( ! target ) retur
+			if ( ! target ) return;
 
-
-			duration = ( typeof duration !== 'undefined' ) ? duration : 250;n;
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
 
 			target.style.transitionProperty = 'height, margin, padding';
 			target.style.transitionDuration = duration + 'ms';
@@ -376,6 +375,7 @@
 					}
 				}
 			}
+			document.addEventListener( 'click', handleSubMenuToggle, false );
 			document.addEventListener( 'click', handleSubMenuToggle, false );
 
 			/**
