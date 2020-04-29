@@ -1,5 +1,6 @@
 v1.2.9
 - FIX: Javascript error in IE 11 browser.
+- FIX: Minor CSS on "toggle buttons".
 
 v1.2.8
 - TWEAK: Improve WooCommerce product CSS.

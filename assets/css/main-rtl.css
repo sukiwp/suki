@@ -925,6 +925,7 @@ span.select2-container .select2-dropdown--above .select2-results {
 
 button.suki-toggle {
 	border: none;
+	border-radius: 0;
 	margin: 0;
 	padding: 0;
 	width: auto;
