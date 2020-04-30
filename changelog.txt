@@ -1,7 +1,8 @@
 v1.2.9
+- FIX: WooCommerce product gallery and summary width CSS.
+- FIX: Border radius on "toggle buttons".
 - FIX: Javascript error in IE 11 browser.
-- FIX: Minor CSS on "toggle buttons".
-- FIX: Click event handler of non link elements on Mobile Safari browser.
+- FIX: Click event handler of non link elements on older Mobile Safari browser.
 
 v1.2.8
 - TWEAK: Improve WooCommerce product CSS.
