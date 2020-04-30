@@ -297,17 +297,10 @@ p.demo_store a,
 .woocommerce div.product {
 	margin-bottom: 0;
 	position: relative;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
 }
 
 .woocommerce div.product > * {
-	-ms-flex: 0 0 100%;
-	flex: 0 0 100%;
+	clear: both;
 	margin-bottom: 4rem;
 }
 
@@ -379,8 +372,9 @@ p.demo_store a,
 
 @media screen and (min-width: 1024px) {
 	.woocommerce div.product div.images {
-		-ms-flex-preferred-size: 60%;
-		flex-basis: 60%;
+		float: left;
+		clear: none;
+		width: 60%;
 	}
 }
 
@@ -500,8 +494,9 @@ p.demo_store a,
 
 @media screen and (min-width: 1024px) {
 	.woocommerce div.product div.images ~ div.summary {
-		-ms-flex-preferred-size: 40%;
-		flex-basis: 40%;
+		width: 40%;
+		float: right;
+		clear: none;
 		padding-left: 40px;
 	}
 }

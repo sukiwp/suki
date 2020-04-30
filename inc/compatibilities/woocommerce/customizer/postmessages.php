@@ -387,13 +387,13 @@ $add['woocommerce_single_gallery_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce #content div.product div.images, .woocommerce div.product div.images',
-		'property' => 'flex-basis',
+		'property' => 'width',
 		'media'    => '@media screen and (min-width: 1024px)',
 	),
 	array(
 		'type'     => 'css',
 		'element'  => '.woocommerce #content div.product div.images ~ div.summary, .woocommerce div.product div.images ~ div.summary',
-		'property' => 'flex-basis',
+		'property' => 'width',
 		'pattern'  => 'calc(100% - $)',
 		'media'    => '@media screen and (min-width: 1024px)',
 	),

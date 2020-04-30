@@ -68,8 +68,10 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideUp: function( target, duration = 250 ) {
+		slideUp: function( target ) {
 			if ( ! target ) return;
+
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
 
 			target.style.transitionProperty = 'height, margin, padding';
 			target.style.transitionDuration = duration + 'ms';
@@ -92,8 +94,10 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideDown: function( target, duration = 250 ) {
+		slideDown: function( target ) {
 			if ( ! target ) return;
+
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
 
 			target.style.removeProperty( 'display' );
 
@@ -133,8 +137,10 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideToggle: function( target, duration = 250 ) {
+		slideToggle: function( target ) {
 			if ( ! target ) return;
+
+			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
 
 			if ( window.getComputedStyle( target ).display === 'none' ) {
 				return slideDown( target, duration );
@@ -370,6 +376,7 @@
 				}
 			}
 			document.addEventListener( 'click', handleSubMenuToggle, false );
+			document.addEventListener( 'touchend', handleSubMenuToggle, false );
 
 			/**
 			 * Close Handler
@@ -391,6 +398,7 @@
 				}
 			};
 			document.addEventListener( 'click', handleSubMenuClose, false );
+			document.addEventListener( 'touchend', handleSubMenuClose, false );
 		},
 
 		/**
@@ -431,6 +439,7 @@
 				}
 			}
 			document.addEventListener( 'click', handleAccordionMenuToggle, false );
+			document.addEventListener( 'touchend', handleAccordionMenuToggle, false );
 		},
 
 		/**
@@ -451,7 +460,9 @@
 
 					// Back current focus to the toggle.
 					$activePopup.removeAttribute( 'tabindex' );
-					$clickedToggle.focus();
+					if ( document.body.classList.contains( 'using-keyboard' ) ) {
+						$clickedToggle.focus();
+					}
 				});
 			}
 
@@ -488,6 +499,7 @@
 				}
 			}
 			document.addEventListener( 'click', handlePopupToggle, false );
+			document.addEventListener( 'touchend', handlePopupToggle, false );
 
 			// Close popup when any of ".suki-popup-close" element is clicked.
 			var handlePopupClose = function( e ) {
@@ -499,6 +511,7 @@
 				deactivatePopup();
 			}
 			document.addEventListener( 'click', handlePopupClose, false );
+			document.addEventListener( 'touchend', handlePopupClose, false );
 
 			// Close popup using "escape" keyboard button.
 			var handlePopupEscape = function( e ) {
@@ -550,6 +563,7 @@
 				}
 			}
 			document.addEventListener( 'click', handleHashLinkInsidePopup, false );
+			document.addEventListener( 'touchend', handleHashLinkInsidePopup, false );
 		},
 
 		/**
@@ -576,6 +590,7 @@
 					}
 				}
 				document.addEventListener( 'click', handleScrollToTop, false );
+				document.addEventListener( 'touchend', handleScrollToTop, false );
 
 				if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
 					var checkStickyOffset = function() {
