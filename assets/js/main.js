@@ -318,12 +318,15 @@
 			 */
 			var handleMenuOnMobile = function( e ) {
 				// Check target element.
-				var $this = e.target.closest( '.suki-header-menu .menu-item > a' );
+				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
 				if ( ! $this ) return;
 
+				var $menuItem = $this.parentElement;
+
 				// Only enable double tap on menu item that has sub menu and it's not a empty hash link.
-				if ( $this.parentElement.classList.contains( 'menu-item-has-children' ) && '#' !== $this.getAttribute( 'href' ) ) {
+				if ( $menuItem.classList.contains( 'menu-item-has-children' ) ) {
 					if ( $this !== document.activeElement ) {
+						document.activeElement.blur();
 						$this.focus();
 
 						e.preventDefault();
@@ -449,6 +452,8 @@
 				// Check target element.
 				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .menu-item-has-children > .suki-menu-item-link[href="#"]' );
 				if ( ! $this ) return;
+
+				e.preventDefault();
 
 				var $menuItem = $this.parentElement,
 				    $toggle = $menuItem.querySelector( '.suki-sub-menu-toggle' );
