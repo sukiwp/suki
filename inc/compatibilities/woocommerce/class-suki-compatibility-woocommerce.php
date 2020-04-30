@@ -398,7 +398,7 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		/**
-		 * Checkout page's template hooks
+		 * Cart page's template hooks
 		 */
 
 		if ( is_cart() ) {
@@ -414,6 +414,11 @@ class Suki_Compatibility_WooCommerce {
 
 				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_right_wrapper' ), 999 );
 				add_action( 'woocommerce_after_cart', array( $this, 'render_cart_2_columns_right_wrapper_end' ), 999 );
+			}
+
+			// Keep / remove cross-sells.
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_cart_cross_sells' ) ) ) {
+				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			}
 		}
 

@@ -1,5 +1,6 @@
 v1.2.9
-- FIX: WooCommerce product gallery and summary width CSS.
+- FIX: WooCommerce cart's cross sells hiding option.
+- FIX: WooCommerce product's gallery and summary width CSS.
 - FIX: Border radius on "toggle buttons".
 - FIX: Javascript error in IE 11 browser.
 - FIX: Click event handler of non link elements on older Mobile Safari browser.
