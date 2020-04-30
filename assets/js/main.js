@@ -68,7 +68,7 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideUp: function( target ) {
+		slideUp: function( target, duration ) {
 			if ( ! target ) return;
 
 			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
@@ -94,7 +94,7 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideDown: function( target ) {
+		slideDown: function( target, duration ) {
 			if ( ! target ) return;
 
 			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
@@ -137,7 +137,7 @@
 		 *
 		 * source: https://w3bits.com/javascript-slidetoggle/
 		 */
-		slideToggle: function( target ) {
+		slideToggle: function( target, duration ) {
 			if ( ! target ) return;
 
 			duration = ( typeof duration !== 'undefined' ) ? duration : 250;
@@ -321,8 +321,8 @@
 				var $this = e.target.closest( '.suki-header-menu .menu-item > a' );
 				if ( ! $this ) return;
 
-				// Only enable double tap on menu item that has sub menu.
-				if ( $this.parentElement.classList.contains( 'menu-item-has-children' ) ) {
+				// Only enable double tap on menu item that has sub menu and it's not a empty hash link.
+				if ( $this.parentElement.classList.contains( 'menu-item-has-children' ) && '#' !== $this.getAttribute( 'href' ) ) {
 					if ( $this !== document.activeElement ) {
 						$this.focus();
 
@@ -338,9 +338,8 @@
 		 */
 		initClickToggleDropdownMenu: function() {
 			/**
-			 * Click Handler
+			 * Toggle Handler
 			 */
-
 			var handleSubMenuToggle = function( e ) {
 				// Check target element.
 				var $this = e.target.closest( '.suki-header-section .suki-toggle-menu .suki-sub-menu-toggle' );
@@ -381,7 +380,6 @@
 			/**
 			 * Close Handler
 			 */
-
 			var handleSubMenuClose = function( e ) {
 				// Make sure click event doesn't happen inside the menu item's scope.
 				if ( ! e.target.closest( '.suki-header-section .suki-toggle-menu' ) ) {
@@ -405,6 +403,9 @@
 		 * Function to init mobile menu.
 		 */
 		initAccordionMenu: function() {
+			/**
+			 * Toggle Handler
+			 */
 			var handleAccordionMenuToggle = function( e ) {
 				// Check target element.
 				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
@@ -440,6 +441,24 @@
 			}
 			document.addEventListener( 'click', handleAccordionMenuToggle, false );
 			document.addEventListener( 'touchend', handleAccordionMenuToggle, false );
+
+			/**
+			 * Empty Hash Link Handler
+			 */
+			var handleAccordionMenuEmptyHashLink = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .menu-item-has-children > .suki-menu-item-link[href="#"]' );
+				if ( ! $this ) return;
+
+				var $menuItem = $this.parentElement,
+				    $toggle = $menuItem.querySelector( '.suki-sub-menu-toggle' );
+
+				// If an empty hash link is clicked, trigger the toggle click event.
+				// ref: https://gomakethings.com/how-to-simulate-a-click-event-with-javascript/
+				$toggle.click();
+			}
+			document.addEventListener( 'click', handleAccordionMenuEmptyHashLink, false );
+			document.addEventListener( 'touched', handleAccordionMenuEmptyHashLink, false );
 		},
 
 		/**
