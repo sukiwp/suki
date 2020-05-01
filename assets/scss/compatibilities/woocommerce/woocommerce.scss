@@ -372,13 +372,14 @@ p.demo_store,
 	div.product {
 		margin-bottom: 0;
 		position: relative;
-		display: flex;
-		align-items: flex-start;
-		flex-wrap: wrap;
+		// display: flex;
+		// align-items: flex-start;
+		// flex-wrap: wrap;
 
 		> * {
-			flex: 0 0 100%;
-			max-width: 100%;
+			// flex: 0 0 auto;
+			// width: 100%;
+			clear: both;
 			margin-bottom: 4rem;
 
 			&:last-child {
@@ -456,7 +457,10 @@ p.demo_store,
 			// margin-bottom: 2em;
 
 			@media screen and ( min-width: $breakpoint_1024 ) {
-				flex-basis: 60%; // default
+				// flex-basis: 60%; // default
+				float: left;
+				clear: none;
+				width: 60%; // default
 			}
 
 			img {
@@ -574,7 +578,10 @@ p.demo_store,
 
 			~ div.summary {
 				@media screen and ( min-width: $breakpoint_1024 ) {
-					flex-basis: 40%; // default
+					// flex-basis: 40%; // default
+					width: 40%; // default
+					float: right;
+					clear: none;
 					padding-left: 40px; // default
 				}
 			}

@@ -1,6 +1,17 @@
 v1.3.0
 - FIX: Header shopping cart dropdown toggle when on Cart and Checkout pages.
 
+v1.2.10
+- TWEAK: Improve mobile header dropdown behavior: clicking the menu link will also open the dropdown.
+- FIX: Mobile header dropdown bug from v1.2.9.
+
+v1.2.9
+- FIX: WooCommerce cart's cross sells hiding option.
+- FIX: WooCommerce product's gallery and summary width CSS.
+- FIX: Border radius on "toggle buttons".
+- FIX: Javascript error in IE 11 browser.
+- FIX: Click event handler of non link elements on older Mobile Safari browser.
+
 v1.2.8
 - TWEAK: Improve WooCommerce product CSS.
 - FIX: Elementor Pro's Theme Builder compatibility bug.

@@ -318,12 +318,15 @@
 			 */
 			var handleMenuOnMobile = function( e ) {
 				// Check target element.
-				var $this = e.target.closest( '.suki-header-menu .menu-item > a' );
+				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
 				if ( ! $this ) return;
 
-				// Only enable double tap on menu item that has sub menu.
-				if ( $this.parentElement.classList.contains( 'menu-item-has-children' ) ) {
+				var $menuItem = $this.parentElement;
+
+				// Only enable double tap on menu item that has sub menu and it's not a empty hash link.
+				if ( $menuItem.classList.contains( 'menu-item-has-children' ) ) {
 					if ( $this !== document.activeElement ) {
+						document.activeElement.blur();
 						$this.focus();
 
 						e.preventDefault();
@@ -338,9 +341,8 @@
 		 */
 		initClickToggleDropdownMenu: function() {
 			/**
-			 * Click Handler
+			 * Toggle Handler
 			 */
-
 			var handleSubMenuToggle = function( e ) {
 				// Check target element.
 				var $this = e.target.closest( '.suki-header-section .suki-toggle-menu .suki-sub-menu-toggle' );
@@ -376,11 +378,11 @@
 				}
 			}
 			document.addEventListener( 'click', handleSubMenuToggle, false );
+			document.addEventListener( 'touchend', handleSubMenuToggle, false );
 
 			/**
 			 * Close Handler
 			 */
-
 			var handleSubMenuClose = function( e ) {
 				// Make sure click event doesn't happen inside the menu item's scope.
 				if ( ! e.target.closest( '.suki-header-section .suki-toggle-menu' ) ) {
@@ -397,12 +399,16 @@
 				}
 			};
 			document.addEventListener( 'click', handleSubMenuClose, false );
+			document.addEventListener( 'touchend', handleSubMenuClose, false );
 		},
 
 		/**
 		 * Function to init mobile menu.
 		 */
 		initAccordionMenu: function() {
+			/**
+			 * Toggle Handler
+			 */
 			var handleAccordionMenuToggle = function( e ) {
 				// Check target element.
 				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
@@ -437,6 +443,27 @@
 				}
 			}
 			document.addEventListener( 'click', handleAccordionMenuToggle, false );
+			document.addEventListener( 'touchend', handleAccordionMenuToggle, false );
+
+			/**
+			 * Empty Hash Link Handler
+			 */
+			var handleAccordionMenuEmptyHashLink = function( e ) {
+				// Check target element.
+				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .menu-item-has-children > .suki-menu-item-link[href="#"]' );
+				if ( ! $this ) return;
+
+				e.preventDefault();
+
+				var $menuItem = $this.parentElement,
+				    $toggle = $menuItem.querySelector( '.suki-sub-menu-toggle' );
+
+				// If an empty hash link is clicked, trigger the toggle click event.
+				// ref: https://gomakethings.com/how-to-simulate-a-click-event-with-javascript/
+				$toggle.click();
+			}
+			document.addEventListener( 'click', handleAccordionMenuEmptyHashLink, false );
+			document.addEventListener( 'touched', handleAccordionMenuEmptyHashLink, false );
 		},
 
 		/**
@@ -457,7 +484,9 @@
 
 					// Back current focus to the toggle.
 					$activePopup.removeAttribute( 'tabindex' );
-					$clickedToggle.focus();
+					if ( document.body.classList.contains( 'using-keyboard' ) ) {
+						$clickedToggle.focus();
+					}
 				});
 			}
 
@@ -494,6 +523,7 @@
 				}
 			}
 			document.addEventListener( 'click', handlePopupToggle, false );
+			document.addEventListener( 'touchend', handlePopupToggle, false );
 
 			// Close popup when any of ".suki-popup-close" element is clicked.
 			var handlePopupClose = function( e ) {
@@ -505,6 +535,7 @@
 				deactivatePopup();
 			}
 			document.addEventListener( 'click', handlePopupClose, false );
+			document.addEventListener( 'touchend', handlePopupClose, false );
 
 			// Close popup using "escape" keyboard button.
 			var handlePopupEscape = function( e ) {
@@ -556,6 +587,7 @@
 				}
 			}
 			document.addEventListener( 'click', handleHashLinkInsidePopup, false );
+			document.addEventListener( 'touchend', handleHashLinkInsidePopup, false );
 		},
 
 		/**
@@ -582,6 +614,7 @@
 					}
 				}
 				document.addEventListener( 'click', handleScrollToTop, false );
+				document.addEventListener( 'touchend', handleScrollToTop, false );
 
 				if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
 					var checkStickyOffset = function() {
