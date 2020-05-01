@@ -146,8 +146,8 @@ $add['input_letter_spacing'] = '';
 $add['input_bg_color'] = $colors['bg'];
 $add['input_border_color'] ='';
 $add['input_text_color'] = '';
-$add['input_focus_bg_color'] = $colors['subtle'];
-$add['input_focus_border_color'] = '';
+$add['input_focus_bg_color'] = '';
+$add['input_focus_border_color'] = $colors['text'];
 $add['input_focus_text_color'] = '';
 
 /**
@@ -570,7 +570,7 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = '';
  * ====================================================
  */
 
-$add['page_header'] = 1;
+$add['hero'] = 1;
 
 $add['page_header_container'] = 'default';
 $add['page_header_padding'] = '60px 20px 60px 20px';
@@ -867,13 +867,22 @@ $add['entry_grid_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bu
 $add['entry_grid_bg_color'] = '';
 $add['entry_grid_border_color'] = '';
 
-
 /**
  * ====================================================
- * Other Pages > 404 Page
+ * Other Pages > Error 404 Page
  * ====================================================
  */
 
-$add['page_settings_404']['content_layout'] = 'wide';
+$add['error_404_image_width'] = '300px';
+$add['error_404_search_bar'] = 1;
+$add['page_settings_error_404']['content_container'] = 'narrow'; // required for Customizer preview
+
+/**
+ * ====================================================
+ * Other Pages > Search Page
+ * ====================================================
+ */
+
+$add['search_results_search_bar'] = 1;
 
 return $add;

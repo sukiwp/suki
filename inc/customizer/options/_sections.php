@@ -284,13 +284,6 @@ $wp_customize->add_panel( $panel, array(
 		) ) );
 	}
 
-// // Page Header
-// $wp_customize->add_section( 'suki_section_page_header', array(
-// 	'title'       => esc_html__( 'Page Header', 'suki' ),
-// 	'description' => esc_html__( 'Page Header is a section located between Header and Content section and used to display the title of current page.', 'suki' ),
-// 	'priority'    => 143,
-// ) );
-
 // Content & Sidebar
 $panel = 'suki_panel_content';
 $wp_customize->add_panel( $panel, array(
@@ -305,22 +298,23 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_content', array(
-		'panel'       => $panel,
-		'priority'    => 10,
-	) ) );
+		// Main Content Area
+		$wp_customize->add_section( 'suki_section_main', array(
+			'title'       => esc_html__( 'Main Content', 'suki' ),
+			'panel'       => $panel,
+			'priority'    => 10,
+		) );
 
-	// Main Content Area
-	$wp_customize->add_section( 'suki_section_main', array(
-		'title'       => esc_html__( 'Main Content Area', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 10,
-	) );
+		// Sidebar Area
+		$wp_customize->add_section( 'suki_section_sidebar', array(
+			'title'       => esc_html__( 'Sidebar', 'suki' ),
+			'panel'       => $panel,
+			'priority'    => 10,
+		) );
 
-	// Sidebar Area
-	$wp_customize->add_section( 'suki_section_sidebar', array(
-		'title'       => esc_html__( 'Sidebar Area', 'suki' ),
+	// Hero Section
+	$wp_customize->add_section( 'suki_section_hero', array(
+		'title'       => esc_html__( 'Hero Section', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
@@ -446,19 +440,19 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->add_section( 'suki_section_blog_single', array(
 		'title'       => esc_html__( 'Single Post Page', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 15,
 	) );
 
-// Other Pages
+// Custom Post Types & Others
 $panel = 'suki_panel_other_pages';
 $wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'Other Pages', 'suki' ),
+	'title'       => esc_html__( 'Custom Post Types & Others', 'suki' ),
 	'priority'    => 149,
 ) );
 
 	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_natives', array(
-		'title'       => esc_html__( 'Native Pages', 'suki' ),
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_others', array(
+		'title'       => esc_html__( 'Standard Pages', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) ) );
@@ -471,15 +465,15 @@ $wp_customize->add_panel( $panel, array(
 	) );
 
 	// Search Results Page
-	$wp_customize->add_section( 'suki_section_page_search', array(
+	$wp_customize->add_section( 'suki_section_search', array(
 		'title'       => esc_html__( 'Search Results Page', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
 
-	// 404 Page
-	$wp_customize->add_section( 'suki_section_page_404', array(
-		'title'       => esc_html__( '404 Page', 'suki' ),
+	// Error 404 Page
+	$wp_customize->add_section( 'suki_section_error_404', array(
+		'title'       => esc_html__( 'Error 404 Page', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );

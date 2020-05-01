@@ -1,5 +1,5 @@
 * {
-	border-color: rgba(0, 0, 0, 0.1);
+	border-color: #dee0e2;
 }
 
 *, *:before, *:after {
@@ -25,7 +25,7 @@ body {
 	position: relative;
 	margin: 0;
 	background-color: #ffffff;
-	color: #666666;
+	color: #646e78;
 	min-height: 100vh;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -37,11 +37,11 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 1.5rem;
-	color: #333333;
+	color: #28323c;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	color: #333333;
+	color: #28323c;
 }
 
 h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus {
@@ -162,11 +162,11 @@ table th, table td {
 table th {
 	font-weight: 600;
 	text-align: initial;
-	color: #333333;
+	color: #28323c;
 }
 
 table th a {
-	color: #333333;
+	color: #28323c;
 }
 
 table th a:hover, table th a:focus {
@@ -194,11 +194,11 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: #f0f3f6;
 }
 
 code {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: #f0f3f6;
 }
 
 a {
@@ -211,7 +211,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #333333;
+	color: #28323c;
 }
 
 figure {
@@ -417,7 +417,6 @@ svg {
 	height: 100%;
 }
 
-.suki-content-layout-narrow .alignwide,
 .suki-content-layout-wide .alignwide {
 	position: relative;
 	left: calc( 50% - 50vw + 20px);
@@ -426,14 +425,12 @@ svg {
 }
 
 @media screen and (min-width: 1140px) {
-	.suki-content-layout-narrow .alignwide,
 	.suki-content-layout-wide .alignwide {
 		left: calc( 50% - ( 1140px / 2 ));
 		max-width: 1140px;
 	}
 }
 
-.suki-content-layout-narrow .alignfull,
 .suki-content-layout-wide .alignfull {
 	position: relative;
 	left: calc( 50% - 50vw);
@@ -442,8 +439,7 @@ svg {
 }
 
 @media screen and (min-width: 1400px) {
-	body.suki-page-layout-boxed .suki-content-layout-narrow .alignfull, body.suki-page-layout-boxed
-	.suki-content-layout-wide .alignfull {
+	body.suki-page-layout-boxed .suki-content-layout-wide .alignfull {
 		left: calc( 50% - ( 1400px / 2 ));
 		max-width: 1400px;
 	}
@@ -477,19 +473,19 @@ svg {
 }
 
 .has-suki-color-1-background-color {
-	background-color: #333333;
+	background-color: #28323c;
 }
 
 .has-suki-color-1-color {
-	color: #333333;
+	color: #28323c;
 }
 
 .has-suki-color-2-background-color {
-	background-color: #666666;
+	background-color: #646e78;
 }
 
 .has-suki-color-2-color {
-	color: #666666;
+	color: #646e78;
 }
 
 .has-suki-color-3-background-color {
@@ -509,19 +505,19 @@ svg {
 }
 
 .has-suki-color-5-background-color {
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: #dee0e2;
 }
 
 .has-suki-color-5-color {
-	color: rgba(0, 0, 0, 0.1);
+	color: #dee0e2;
 }
 
 .has-suki-color-6-background-color {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: #f0f3f6;
 }
 
 .has-suki-color-6-color {
-	color: rgba(0, 0, 0, 0.05);
+	color: #f0f3f6;
 }
 
 .has-suki-color-7-background-color {
@@ -622,7 +618,7 @@ p.has-background {
 	margin: 0 0.25em 0 0;
 	text-transform: uppercase;
 	initial-letter: 3;
-	color: #333333;
+	color: #28323c;
 }
 
 .wp-block-quote {
@@ -780,11 +776,11 @@ p.wp-block-subhead {
 .wp-block-table th {
 	font-weight: 600;
 	text-align: initial;
-	color: #333333;
+	color: #28323c;
 }
 
 .wp-block-table th a {
-	color: #333333;
+	color: #28323c;
 }
 
 .wp-block-table th a:hover, .wp-block-table th a:focus {
@@ -804,7 +800,7 @@ p.wp-block-subhead {
 }
 
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: #f0f3f6;
 }
 
 .wp-block-table.is-style-stripes th, .wp-block-table.is-style-stripes td {

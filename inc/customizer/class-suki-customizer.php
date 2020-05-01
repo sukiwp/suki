@@ -165,6 +165,10 @@ class Suki_Customizer {
 		// Sections and Panels
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_sections.php' );
 
+		// Global Settings
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
+
 		// General Styles
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--base.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--headings.php' );
@@ -187,7 +191,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--cart.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--social.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-header.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--hero.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--main.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php' );
@@ -198,12 +202,10 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
-		// Global Settings
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
-
 		// Page Settings
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/dynamic-page-layout.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
 		// require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );
 
 		// Blog
@@ -245,7 +247,79 @@ class Suki_Customizer {
 
 		wp_localize_script( 'suki-customize-controls', 'sukiCustomizerControlsData', array(
 			'contexts' => $this->get_control_contexts(),
-			'previewContexts' => $this->get_preview_contexts(),
+			// 'previewContexts' => $this->get_preview_contexts(),
+			'headerFooterBuilderStructures' => array(
+				'header_elements' => array(
+					'vertical' => array(
+						'vertical_bar' => array(
+							'label'      => esc_html__( 'Vertical Bar', 'suki' ),
+							'locations'  => array(
+								'vertical_top',
+								'vertical_middle',
+								'vertical_bottom',
+							),
+						),
+					),
+					'horizontal' => array(
+						'top_bar' => array(
+							'label'     => esc_html__( 'Top Bar', 'suki' ),
+							'locations' => array(
+								'top_left',
+								'top_center',
+								'top_right',
+							),
+						),
+						'main_bar' => array(
+							'label'     => esc_html__( 'Main Bar', 'suki' ),
+							'locations' => array(
+								'main_left',
+								'main_center',
+								'main_right',
+							),
+						),
+						'bottom_bar' => array(
+							'label'     => esc_html__( 'Bottom Bar', 'suki' ),
+							'locations' => array(
+								'bottom_left',
+								'bottom_center',
+								'bottom_right',
+							),
+						),
+					),
+				),
+				'header_mobile_elements' => array(
+					'vertical' => array(
+						'mobile_vertical_bar' => array(
+							'label'     => esc_html__( 'Drawer / Popup', 'suki' ),
+							'locations' => array(
+								'mobile_vertical_top',
+							),
+						),
+					),
+					'horizontal' => array(
+						'mobile_main_bar' => array(
+							'label'     => esc_html__( 'Main Bar', 'suki' ),
+							'locations' => array(
+								'mobile_main_left',
+								'mobile_main_center',
+								'mobile_main_right',
+							),
+						),
+					),
+				),
+				'footer_elements' => array(
+					'horizontal' => array(
+						'bottom_bar' => array(
+							'label'     => esc_html__( 'Bottom Bar', 'suki' ),
+							'locations' => array(
+								'bottom_left',
+								'bottom_center',
+								'bottom_right',
+							),
+						),
+					),
+				),
+			),
 		) );
 	}
 
@@ -600,13 +674,13 @@ class Suki_Customizer {
 		$contexts['static_front_page'] = esc_url( home_url() ); 
 
 		// Add "404 Page"
-		$contexts['suki_section_page_404'] = esc_url( home_url( '404' ) );
+		$contexts['suki_section_error_404'] = esc_url( home_url( '404' ) );
 
 		// Add "Search Page"	
-		$contexts['suki_section_page_search'] = esc_url( home_url( '?s=awesome' ) );
+		$contexts['suki_section_search'] = esc_url( home_url( '?s=awesome' ) );
 
 		foreach ( $this->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			if ( in_array( $ps_type, array( '404', 'search' ) ) ) {
+			if ( in_array( $ps_type, array( 'error_404', 'search' ) ) ) {
 				continue;
 			}
 
@@ -652,15 +726,15 @@ class Suki_Customizer {
 		$page_sections = array(
 			'page_singular' => array(
 				'section' => 'suki_section_page_singular',
-				'title' => esc_html__( 'Static Page - Layout', 'suki' ),
+				'title' => esc_html__( 'Static Page', 'suki' ),
 			),
 			'search' => array(
-				'section' => 'suki_section_page_search',
-				'title' => esc_html__( 'Search Results Page - Layout', 'suki' ),
+				'section' => 'suki_section_search',
+				'title' => esc_html__( 'Search Results Page', 'suki' ),
 			),
-			'404' => array(
-				'section' => 'suki_section_page_404',
-				'title' => esc_html__( '404 Page - Layout', 'suki' ),
+			'error_404' => array(
+				'section' => 'suki_section_error_404',
+				'title' => esc_html__( 'Error 404 Page', 'suki' ),
 			),
 		);
 

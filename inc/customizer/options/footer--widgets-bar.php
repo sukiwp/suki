@@ -151,6 +151,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 20,
 ) ) );
 
+
+
 // Text typography
 $settings = array(
 	'font_family'    => 'footer_widgets_bar_font_family',
@@ -160,6 +162,14 @@ $settings = array(
 	'font_size'      => 'footer_widgets_bar_font_size',
 	'line_height'    => 'footer_widgets_bar_line_height',
 	'letter_spacing' => 'footer_widgets_bar_letter_spacing',
+
+	'font_size__tablet'      => 'footer_widgets_bar_font_size__tablet',
+	'line_height__tablet'    => 'footer_widgets_bar_line_height__tablet',
+	'letter_spacing__tablet' => 'footer_widgets_bar_letter_spacing__tablet',
+
+	'font_size__mobile'      => 'footer_widgets_bar_font_size__mobile',
+	'line_height__mobile'    => 'footer_widgets_bar_line_height__mobile',
+	'letter_spacing__mobile' => 'footer_widgets_bar_letter_spacing__mobile',
 );
 foreach ( $settings as $key ) {
 	$wp_customize->add_setting( $key, array(

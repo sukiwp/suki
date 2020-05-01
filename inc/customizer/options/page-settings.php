@@ -44,45 +44,8 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'priority'    => 0,
 	) ) );
 
-	// Title text format on 404 page
-	if ( '404' == $ps_type ) {
-		$subkey = 'title_text';
-		$key = $option_key . '[' . $subkey . ']';
-		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-		) );
-		$wp_customize->add_control( $key, array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Title text', 'suki' ),
-			'input_attrs' => array(
-				'placeholder' => esc_html__( 'Oops! That page can not be found.', 'suki' ),
-			),
-			'priority'    => 0,
-		) );
-	}
-
-	// Title text format on search page
-	elseif ( 'search' == $ps_type ) {
-		$subkey = 'title_text';
-		$key = $option_key . '[' . $subkey . ']';
-		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-		) );
-		$wp_customize->add_control( $key, array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Title text', 'suki' ),
-			'description' => esc_html__( 'Available tags: {{keyword}}.', 'suki' ),
-			'input_attrs' => array(
-				'placeholder' => esc_html__( 'Search Results for: {{keyword}}.', 'suki' ),
-			),
-			'priority'    => 0,
-		) );
-	}
-
 	// Title text format on archive pages
-	elseif ( false !== strpos( $ps_type, '_archive' ) ) {
+	if ( false !== strpos( $ps_type, '_archive' ) ) {
 		// Title text format on post type archive pages
 		$subkey = 'title_text';
 		$key = $option_key . '[' . $subkey . ']';

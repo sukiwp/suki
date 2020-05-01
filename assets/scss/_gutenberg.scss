@@ -3,7 +3,6 @@
 // -------------------------------------------------------------
 
 .alignwide {
-	.suki-content-layout-narrow &,
 	.suki-content-layout-wide & {
 		position: relative;
 		left: calc( 50% - 50vw + 20px ); // default
@@ -18,7 +17,6 @@
 }
 
 .alignfull {
-	.suki-content-layout-narrow &,
 	.suki-content-layout-wide & {
 		position: relative;
 		left: calc( 50% - 50vw );

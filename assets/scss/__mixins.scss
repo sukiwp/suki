@@ -100,7 +100,7 @@
 
 	@if $focus {
 		&:focus {
-			background-color: $color_subtle; // default
+			border-color: $color_text; // default
 		}
 	}
 }

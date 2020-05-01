@@ -54,16 +54,16 @@ add_filter( 'wp_resource_hints', 'suki_resource_hints', 10, 2 );
  * All template functions can be found on 'inc/template-tags.php' file.
  */
 function suki_template_hooks() {
-	$is_title_in_page_header = false;
+	// $is_title_in_page_header = false;
 
-	if ( intval( suki_get_current_page_setting( 'page_header' ) ) ) {
-		foreach ( array( 'left', 'center', 'right' ) as $pos ) {
-			if ( in_array( 'title', suki_get_theme_mod( 'page_header_elements_' . $pos, array() ) ) ) {
-				$is_title_in_page_header = true;
-				break;
-			}
-		}
-	}
+	// if ( intval( suki_get_current_page_setting( 'page_header' ) ) ) {
+	// 	foreach ( array( 'left', 'center', 'right' ) as $pos ) {
+	// 		if ( in_array( 'title', suki_get_theme_mod( 'page_header_elements_' . $pos, array() ) ) ) {
+	// 			$is_title_in_page_header = true;
+	// 			break;
+	// 		}
+	// 	}
+	// }
 
 	/**
 	 * ====================================================
@@ -112,29 +112,29 @@ function suki_template_hooks() {
 	// Add featured media.
 	add_action( 'suki/frontend/entry/' . str_replace( '-entry-', '_', suki_get_theme_mod( 'entry_featured_media_position' ) ), 'suki_entry_featured_media', 10 );
 
-	// Add entry header elements.
-	if ( ! is_singular() || ! $is_title_in_page_header ) {
-		if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
+	// // Add entry header elements.
+	// if ( ! is_singular() || ! $is_title_in_page_header ) {
+	// 	if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
 
-			if ( is_page() ) {
-				add_action( 'suki/frontend/entry/header', 'suki_entry_title', 10 );
-			} else {
-				$priority = 10;
-				foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
-					$function = 'suki_entry_' . str_replace( '-', '_', $element );
+	// 		if ( is_page() ) {
+	// 			add_action( 'suki/frontend/entry/header', 'suki_entry_title', 10 );
+	// 		} else {
+	// 			$priority = 10;
+	// 			foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
+	// 				$function = 'suki_entry_' . str_replace( '-', '_', $element );
 
-					// If function exists, attach to hook.
-					if ( function_exists( $function ) ) {
-						add_action( 'suki/frontend/entry/header', $function, $priority );
-					}
+	// 				// If function exists, attach to hook.
+	// 				if ( function_exists( $function ) ) {
+	// 					add_action( 'suki/frontend/entry/header', $function, $priority );
+	// 				}
 
-					// Increment priority number.
-					$priority = $priority + 10;
-				}
-			}
+	// 				// Increment priority number.
+	// 				$priority = $priority + 10;
+	// 			}
+	// 		}
 			
-		}
-	}
+	// 	}
+	// }
 
 	// Add entry footer elements.
 	if ( ! is_page() ) {
@@ -223,31 +223,23 @@ function suki_template_hooks() {
 	if ( is_archive() || is_home() || is_search() ) {
 
 		if ( is_archive() ) {
-			// Add archive header.
-			add_action( 'suki/frontend/before_main', 'suki_archive_header', 10 );
-
 			// Add archive title into archive header.
-			if ( ! $is_title_in_page_header ) {
-				add_action( 'suki/frontend/archive_header', 'suki_archive_title', 10 );
-			}
+			add_action( 'suki/frontend/content_header', 'suki_archive_title', 10 );
 
+			// Add archive description into archive header.
 			if ( '' !== trim( get_the_archive_description() ) ) {
-				// Add archive description into archive header.
-				add_action( 'suki/frontend/archive_header', 'suki_archive_description', 20 );
+				add_action( 'suki/frontend/content_header', 'suki_archive_description', 20 );
 			}
 		}
 
 		if ( is_search() ) {
-			// Add search results header.
-			add_action( 'suki/frontend/before_main', 'suki_search_header', 10 );
-
 			// Add archive title into search results header.
-			if ( ! $is_title_in_page_header ) {
-				add_action( 'suki/frontend/search_header', 'suki_search_title', 10 );
-			}
+			add_action( 'suki/frontend/content_header', 'suki_search_title', 10 );
 
 			// Add search form into archive header.
-			add_action( 'suki/frontend/search_header', 'suki_search_form', 20 );
+			if ( intval( suki_get_theme_mod( 'search_results_search_bar' ) ) ) {
+				add_action( 'suki/frontend/content_header', 'suki_search_form', 20 );
+			}
 		}
 
 		// Add navigation after the loop.

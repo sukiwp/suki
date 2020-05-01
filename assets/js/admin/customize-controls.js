@@ -852,156 +852,94 @@
 		});
 
 		if ( sukiCustomizerControlsData && sukiCustomizerControlsData.contexts ) {
-			/**
-			 * Active callback script (JS version)
-			 * ref: https://make.xwp.co/2016/07/24/dependently-contextual-customizer-controls/
-			 */
-			_.each( sukiCustomizerControlsData.contexts, function( rules, key ) {
-				var getSetting = function( settingName ) {
-					// Get the dependent setting.
-					switch ( settingName ) {
-						case '__device':
-							return wp.customize.previewedDevice;
-							break;
+			_.each( sukiCustomizerControlsData.contexts, function( elementRules, elementID ) {
+				var elementType = 0 == elementID.indexOf( 'suki_section' ) ? 'section' : 'control';
 
-						default:
-							return wp.customize( settingName );
-							break;
-					}
-				}
+				wp.customize[ elementType ]( elementID, function( elementObj ) {
+					_.each( elementRules, function( rule, i ) {
+						var ruleSettingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize( rule.setting );
 
-				var initContext = function( element ) {
-					// Main function returning the conditional value
-					var isDisplayed = function() {
-						var displayed = false,
-						    relation = rules['relation'];
+						var setVisibility = function( checkedValue ) {
+							var displayed = false;
 
-						// Fallback invalid relation type to "AND".
-						// Assign default displayed to true for "AND" relation type.
-						if ( 'OR' !== relation ) {
-							relation = 'AND';
-							displayed = true;
-						}
-
-						// Each rule iteration
-						_.each( rules, function( rule, i ) {
-							// Skip "relation" property.
-							if ( 'relation' == i ) return;
-
-							// If in "AND" relation and "displayed" already flagged as false, skip the rest rules.
-							if ( 'AND' == relation && false == displayed ) return;
-
-							// Skip if no setting propery found.
-							if ( undefined === rule['setting'] ) return;
-
-							var result = false,
-							    setting = getSetting( rule['setting'] );
-							
-							// Only process the rule if dependent setting is found.
-							// Otherwise leave the result to "false".
-							if ( undefined !== setting ) {
-								var operator = rule['operator'],
-								    comparedValue = rule['value'],
-								    currentValue = setting.get();
-
-								if ( undefined == operator || '=' == operator ) {
-									operator = '==';
-								}
-
-								switch ( operator ) {
-									case '>':
-										result = currentValue > comparedValue; 
-										break;
-
-									case '<':
-										result = currentValue < comparedValue; 
-										break;
-
-									case '>=':
-										result = currentValue >= comparedValue; 
-										break;
-
-									case '<=':
-										result = currentValue <= comparedValue; 
-										break;
-
-									case 'in':
-										result = 0 <= comparedValue.indexOf( currentValue );
-										break;
-
-									case 'not_in':
-										result = 0 > comparedValue.indexOf( currentValue );
-										break;
-
-									case 'contain':
-										result = 0 <= currentValue.indexOf( comparedValue );
-										break;
-
-									case 'not_contain':
-										result = 0 > currentValue.indexOf( comparedValue );
-										break;
-
-									case '!=':
-										result = comparedValue != currentValue;
-										break;
-
-									case 'empty':
-										result = 0 == currentValue.length;
-										break;
-
-									case '!empty':
-										result = 0 < currentValue.length;
-										break;
-
-									default:
-										result = comparedValue == currentValue;
-										break;
-								}
+							if ( undefined == rule.operator || '=' == rule.operator ) {
+								rule.operator = '==';
 							}
 
-							// Combine to the final result.
-							switch ( relation ) {
-								case 'OR':
-									displayed = displayed || result;
+							switch ( rule.operator ) {
+								case '>':
+									displayed = checkedValue > rule.value; 
+									break;
+
+								case '<':
+									displayed = checkedValue < rule.value; 
+									break;
+
+								case '>=':
+									displayed = checkedValue >= rule.value; 
+									break;
+
+								case '<=':
+									displayed = checkedValue <= rule.value; 
+									break;
+
+								case 'in':
+									displayed = 0 <= rule.value.indexOf( checkedValue );
+									break;
+
+								case 'not_in':
+									displayed = 0 > rule.value.indexOf( checkedValue );
+									break;
+
+								case 'contain':
+									displayed = 0 <= checkedValue.indexOf( rule.value );
+									break;
+
+								case 'not_contain':
+									displayed = 0 > checkedValue.indexOf( rule.value );
+									break;
+
+								case '!=':
+									displayed = checkedValue != rule.value;
+									break;
+
+								case 'empty':
+									displayed = 0 == checkedValue.length;
+									break;
+
+								case '!empty':
+									displayed = 0 < checkedValue.length;
 									break;
 
 								default:
-									displayed = displayed && result;
+									displayed = checkedValue == rule.value;
 									break;
 							}
-						});
 
-						return displayed;
-					};
+							var container = elementObj.container;
+							if ( 'section' === elementType ) {
+								container = elementObj.headContainer;
+							}
 
-					// Wrapper function for binding purpose
-					var setActiveState = function() {
-						element.active.set( isDisplayed() );
-					};
+							if ( displayed ) {
+								container.show();
+								container.removeClass( 'suki-context-hidden' );
+							} else {
+								container.hide();
+								container.addClass( 'suki-context-hidden' );
+							}
+						}
 
-					// Setting changes bind
-					_.each( rules, function( rule, i ) {
-						// Skip "relation" property.
-						if ( 'relation' == i ) return;
+						if ( undefined !== ruleSettingObj ) {
+							if ( '__device' !== rule.setting ) {
+								setVisibility( ruleSettingObj.get() );
+							}
 
-						var setting = getSetting( rule['setting'] );
-
-						if ( undefined !== setting ) {
 							// Bind the setting for future use.
-							setting.bind( setActiveState );
+							ruleSettingObj.bind( setVisibility );
 						}
 					});
-
-					// Initial run
-					element.active.validate = isDisplayed;
-					setActiveState();
-				};
-
-				if ( 0 == key.indexOf( 'suki_section' ) ) {
-					wp.customize.section( key, initContext );
-				} else {
-					wp.customize.control( key, initContext );
-				}
+				});
 			});
 		}
 
@@ -1043,7 +981,7 @@
 				} );
 			});
 		}
-		$( window ).on( 'load', initPagePreviewBinding );
+		initPagePreviewBinding();
 
 		/**
 		 * Init Header & Footer Builder
@@ -1112,22 +1050,59 @@
 		 */
 		var initHeaderFooterBuilderElements = function( e ) {
 			var $control = $( this ),
-			    mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
-			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
-			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_middle, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
-			    $verticalLocations = $control.find( verticalSelector ),
-			    $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
+			    controlKey = $control.find( '.customize-control-content' ).attr( 'data-name' );
 
-			if ( $verticalLocations.length ) {
-				$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' ).appendTo( $groupWrapper ).append( $verticalLocations );
+			if ( ! sukiCustomizerControlsData.headerFooterBuilderStructures[ controlKey ] ) {
+				return;
 			}
 
-			if ( $horizontalLocations.length ) {
-				$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline' ).appendTo( $groupWrapper ).append( $horizontalLocations );
-			}
+			var mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
+			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' );
+			    // verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_middle, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
+			    // $verticalLocations = $control.find( verticalSelector ),
+			    // $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
+
+			_.each( sukiCustomizerControlsData.headerFooterBuilderStructures[ controlKey ], function( areas, groupType ) {
+				var groupClassNames = 'vertical' === groupType ? 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' : 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline',
+				    $group = $( document.createElement( 'div' ) ).addClass( groupClassNames );
+
+				_.each( areas, function( areaData, areaKey ) {
+					var $area = $( document.createElement( 'div' ) ).addClass( 'suki-builder-area' ).attr( 'data-key', areaKey ),
+					    $areaLabel = $( document.createElement( 'span' ) ).addClass( 'suki-builder-area-label' ).html( areaData.label ),
+					    $areaLocations = $( document.createElement( 'div' ) ).addClass( 'suki-builder-area-locations' );
+
+					_.each( areaData.locations, function( locationID ) {
+						var $location = $control.find( '[data-location="' + locationID + '"]' );
+
+						if ( $location ) {
+							$location.appendTo( $areaLocations );
+						}
+					});
+
+					if ( 0 < $areaLocations.children().length ) {
+						$area.appendTo( $group );
+						$areaLabel.appendTo( $area );
+						$areaLocations.appendTo( $area );
+					}
+				});
+
+				if ( 0 < $group.children().length ) {
+					$group.appendTo( $groupWrapper );
+				}
+
+				// $group.appendTo( $groupWrapper ).append( $verticalLocations )
+			});
+
+			// if ( $verticalLocations.length ) {
+			// 	$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' ).appendTo( $groupWrapper ).append( $verticalLocations );
+			// }
+
+			// if ( $horizontalLocations.length ) {
+			// 	$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline' ).appendTo( $groupWrapper ).append( $horizontalLocations );
+			// }
 
 			// Make logo element has button-primary colors.
-			$control.find( '.suki-builder-element[data-value="logo"], .suki-builder-element[data-value="mobile-logo"]' ).addClass( 'button-primary' );
+			// $control.find( '.suki-builder-element[data-value="logo"], .suki-builder-element[data-value="mobile-logo"]' ).addClass( 'button-primary' );
 
 			// Element on click jump to element options.
 			$control.on( 'click', '.suki-builder-location .suki-builder-element > span', function( e ) {
@@ -1141,10 +1116,10 @@
 			});
 
 			// Group edit button on click jump to group section.
-			$control.on( 'click', '.suki-builder-group-edit', function( e ) {
+			$control.on( 'click', '.suki-builder-area-label', function( e ) {
 				e.preventDefault();
 
-				var targetKey = 'suki_section_' + ( 'footer_elements' == control.id ? 'footer' : 'header' ) + '_' + $( this ).attr( 'data-value' ).replace( '-', '_' ),
+				var targetKey = 'suki_section_' + mode + '_' + $( this ).parent().attr( 'data-key' ).replace( '-', '_' ),
 				    targetSection = wp.customize.section( targetKey );
 
 				if ( targetSection ) targetSection.focus();

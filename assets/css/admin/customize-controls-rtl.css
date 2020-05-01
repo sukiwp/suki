@@ -27,6 +27,7 @@
 	width: auto;
 	height: auto;
 	margin-top: -0.1em;
+	margin-left: 0.25em;
 	font-size: 1.2em;
 	line-height: 1;
 	vertical-align: middle;
@@ -68,6 +69,10 @@ li:not(.customize-info) div.customize-section-description {
 	display: flex;
 	-ms-flex-align: start;
 	align-items: flex-start;
+}
+
+.suki-context-hidden {
+	display: none !important;
 }
 
 .suki-row-item {
@@ -120,6 +125,65 @@ li:not(.customize-info) div.customize-section-description {
 	font-size: 13px;
 	font-weight: 600;
 	text-transform: uppercase;
+}
+
+.suki-global-default-badge {
+	position: relative;
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 2px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	vertical-align: 1px;
+	background-color: rgba(0, 0, 0, 0.1);
+	outline: none;
+	cursor: pointer;
+}
+
+.suki-global-default-badge .dashicons {
+	font-size: 1.1em;
+	width: auto;
+	height: auto;
+	line-height: 1;
+	vertical-align: -2px;
+}
+
+.suki-global-default-badge[data-tooltip]:hover:before {
+	content: "";
+	position: absolute;
+	z-index: 99;
+	top: 100%;
+	right: 50%;
+	margin-top: 2px;
+	margin-right: -5px;
+	border-bottom: 5px solid rgba(0, 0, 0, 0.8);
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+}
+
+.suki-global-default-badge[data-tooltip]:hover:after {
+	content: attr(data-tooltip);
+	position: absolute;
+	z-index: 99;
+	top: 100%;
+	right: 50%;
+	width: 200px;
+	padding: 8px 10px;
+	margin-top: 7px;
+	border-radius: 4px;
+	-webkit-transform: translateX(50%);
+	transform: translateX(50%);
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 18px;
+	text-transform: none;
+	text-align: center;
+	white-space: normal;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
 }
 
 .customize-control-title .suki-responsive-switcher {
@@ -732,6 +796,11 @@ li:not(.customize-info) div.customize-section-description {
 	z-index: 2;
 }
 
+.customize-control-suki-typography .suki-typography-size-input::-webkit-inner-spin-button, .customize-control-suki-typography .suki-typography-size-input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
 .customize-control-suki-background .customize-control-content {
 	padding: 10px;
 	border: 1px solid #ddd;
@@ -764,7 +833,7 @@ li:not(.customize-info) div.customize-section-description {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin: -4px;
+	margin: -2px;
 }
 
 .customize-control-suki-radioimage .suki-radioimage-list .suki-radioimage-item {
@@ -792,12 +861,12 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 	display: block;
 	box-sizing: border-box;
-	margin: 4px;
+	margin: 2px;
 	padding: 2px;
 	background-color: #aaa;
 	color: #fff;
 	outline: 0;
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
 .customize-control-suki-radioimage .suki-radioimage-list label:focus {
@@ -831,10 +900,6 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-radioimage .suki-radioimage-list img + span {
 	margin-top: 2px;
-}
-
-.customize-control-suki-builder .suki-builder {
-	overflow: hidden;
 }
 
 .customize-control-suki-builder .suki-builder .suki-builder-location {
@@ -971,14 +1036,21 @@ li:not(.customize-info) div.customize-section-description {
 	display: inline-block;
 }
 
+.customize-control-suki-builder .suki-builder-layout-block .suki-builder-sortable-panel {
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+}
+
 .customize-control-suki-builder .suki-builder-layout-block .suki-builder-element {
-	width: 100%;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 }
 
 .customize-control-suki-builder .suki-builder-layout-block .suki-builder-element > span {
-	width: 100%;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
 }
 
 .suki-has-builder-active .preview-desktop #customize-preview,
@@ -1020,6 +1092,10 @@ li:not(.customize-info) div.customize-section-description {
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-control:last-child,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-control:last-child {
+		margin-bottom: 0;
+	}
 	.suki-has-builder-active .wp-full-overlay.expanded #customize-controls #sub-accordion-section-suki_section_header_builder.suki-builder-active, .suki-has-builder-active .wp-full-overlay.expanded
 	#customize-controls #sub-accordion-section-suki_section_footer_builder.suki-builder-active {
 		visibility: visible;
@@ -1043,13 +1119,9 @@ li:not(.customize-info) div.customize-section-description {
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-control-suki-pro,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-control-suki-pro {
-		margin: 0 0 12px;
-	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-control-suki-pro .suki-heading,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-control-suki-pro .suki-heading {
-		margin: 0;
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-small-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-small-label {
+		display: none;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-header_builder_actions,
 	#customize-controls #sub-accordion-section-suki_section_header_builder #customize-control-footer_builder_actions,
@@ -1144,33 +1216,23 @@ li:not(.customize-info) div.customize-section-description {
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location {
 		position: relative;
 		box-sizing: border-box;
+		margin: 0;
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="left"] .suki-small-label,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="left"] .suki-small-label {
-		text-align: right;
-	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="left"] .suki-builder-sortable-panel,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="left"] .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location$="_top"] .suki-builder-sortable-panel, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location$="_left"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location$="_top"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location$="_left"] .suki-builder-sortable-panel {
 		-ms-flex-pack: start;
 		justify-content: flex-start;
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="vertical"] .suki-small-label, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="center"] .suki-small-label,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="vertical"] .suki-small-label,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="center"] .suki-small-label {
-		text-align: center;
-	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="vertical"] .suki-builder-sortable-panel, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="center"] .suki-builder-sortable-panel,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="vertical"] .suki-builder-sortable-panel,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="center"] .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location$="_middle"] .suki-builder-sortable-panel, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location$="_center"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location$="_middle"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location$="_center"] .suki-builder-sortable-panel {
 		-ms-flex-pack: center;
 		justify-content: center;
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="right"] .suki-small-label,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="right"] .suki-small-label {
-		text-align: left;
-	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location*="right"] .suki-builder-sortable-panel,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location*="right"] .suki-builder-sortable-panel {
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location$="_bottom"] .suki-builder-sortable-panel, #customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-location[data-location$="_right"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location$="_bottom"] .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-location[data-location$="_right"] .suki-builder-sortable-panel {
 		-ms-flex-pack: end;
 		justify-content: flex-end;
 	}
@@ -1180,6 +1242,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-inactive,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-inactive {
+		margin: 30px 0 0;
 		display: block !important;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups,
@@ -1188,39 +1251,106 @@ li:not(.customize-info) div.customize-section-description {
 		display: flex;
 		-ms-flex-align: start;
 		align-items: flex-start;
-		margin: 0 -10px;
+		margin: -15px -15px 0;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group {
-		padding: 0 10px;
+		box-sizing: border-box;
+		padding: 0 15px;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-area,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-area {
+		position: relative;
+		margin-top: 30px;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-area-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-area-label {
+		position: absolute;
+		bottom: 100%;
+		right: 0;
+		padding: 3px 10px;
+		margin: 0 -2px 0 0;
+		border-radius: 3px 3px 0 0;
+		background-color: #007cba;
+		color: #fff;
+		font-size: 11px;
+		font-weight: 600;
+		line-height: 16px;
+		text-transform: uppercase;
+		cursor: pointer;
+		opacity: 0;
+		visibility: hidden;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-area-label:before,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-area-label:before {
+		content: "\f111";
+		font-family: dashicons;
+		margin-left: 0.5em;
+		vertical-align: -2px;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-area:hover,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-area:hover {
+		box-shadow: 0 0 0 2px #007cba;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-area:hover .suki-builder-area-label,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-area:hover .suki-builder-area-label {
+		opacity: 1;
+		visibility: visible;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal {
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-area-locations,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-area-locations {
 		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		width: 100%;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-horizontal .suki-builder-location {
-		width: 33.33%;
+		-ms-flex: 1 0 0px;
+		flex: 1 0 0;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical {
-		width: 15%;
+		-ms-flex: 0 0 15%;
+		flex: 0 0 15%;
+		-ms-flex-item-align: stretch;
+		align-self: stretch;
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location {
-		margin: 0;
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-area,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-area {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		min-height: calc( 100% - 30px);
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:first-child {
-		margin-top: 2px;
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-area-locations,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-area-locations {
+		-ms-flex: 1 0 0px;
+		flex: 1 0 0;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: column;
+		flex-direction: column;
 	}
-	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child,
-	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-location:last-child {
-		margin-bottom: 2px;
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-area-locations > *,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-area-locations > * {
+		-ms-flex: 1 0 0px;
+		flex: 1 0 0;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-sortable-panel,
+	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-builder-groups .suki-builder-group-vertical .suki-builder-sortable-panel {
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+		-ms-flex-direction: column;
+		flex-direction: column;
 	}
 }
 
@@ -1288,6 +1418,8 @@ li:not(.customize-info) div.customize-section-description {
 	display: none;
 }
 
+[id="accordion-section-suki_section_main"] .accordion-section-title:before,
+[id="accordion-section-suki_section_sidebar"] .accordion-section-title:before,
 [id^="accordion-section-suki_section_entry_"] .accordion-section-title:before {
 	content: "\21B3";
 	margin-left: 0.5em;
@@ -1326,21 +1458,29 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-[id^="customize-control-page_settings_"].customize-control-select .customize-control-title {
+[id^="customize-control-page_settings_"].customize-control-select .customize-control-title,
+[id*="_bar_transparent_"].customize-control-select .customize-control-title,
+[id*="_bar_alt_"].customize-control-select .customize-control-title {
 	float: right;
 }
 
-[id^="customize-control-page_settings_"].customize-control-select select {
+[id^="customize-control-page_settings_"].customize-control-select select,
+[id*="_bar_transparent_"].customize-control-select select,
+[id*="_bar_alt_"].customize-control-select select {
 	margin-right: 10px;
 	float: left;
-	width: 135px;
+	width: 110px;
 }
 
-[id^="customize-control-page_settings_"][id*="header"] {
+[id^="customize-control-page_settings_"][id*="-header_"],
+[id*="_bar_transparent_"][id*="-header_"],
+[id*="_bar_alt_"][id*="-header_"] {
 	padding-right: 15px;
 	width: calc(100% - 15px);
 }
 
-[id^="customize-control-page_settings_"][id*="header"] .customize-control-title {
+[id^="customize-control-page_settings_"][id*="-header_"] .customize-control-title,
+[id*="_bar_transparent_"][id*="-header_"] .customize-control-title,
+[id*="_bar_alt_"][id*="-header_"] .customize-control-title {
 	font-weight: normal;
 }

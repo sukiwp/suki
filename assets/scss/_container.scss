@@ -111,6 +111,10 @@ body.suki-page-layout-boxed {
 	.suki-section-full-width > .suki-section-inner > & {
 		width: auto;
 	}
+
+	.suki-section-narrow > .suki-section-inner > & {
+		width: 720px; // default
+	}
 }
 
 .suki-section-contained {
@@ -176,12 +180,6 @@ body.suki-page-layout-boxed {
 	> *:last-child {
 		margin-bottom: 0;
 	}
-
-	.suki-content-layout-narrow & {
-		max-width: 720px; // default
-		margin-left: auto; // default
-		margin-right: auto; // default
-	}
 }
 
 .sidebar {
@@ -218,5 +216,42 @@ body.suki-page-layout-boxed {
 
 	.widget {
 		margin-bottom: 40px; // default
+	}
+}
+
+// -------------------------------------------------------------
+// Error 404 Page
+// -------------------------------------------------------------
+
+body.error404 {
+	.site {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.site-content {
+		flex: 1 0;
+		display: flex;
+		align-items: center;
+	}
+
+	.suki-content-inner {
+		display: flex;
+		width: 100%;
+	}
+
+	.error-404 {
+		text-align: center;
+
+		&-image {
+			display: inline-block;
+			margin: 0 0 3rem;
+			max-width: 300px; // default
+		}
+
+		&-home-button {
+			margin: 1.5rem 0 0;
+		}
 	}
 }

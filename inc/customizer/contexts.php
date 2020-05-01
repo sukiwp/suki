@@ -116,6 +116,19 @@ $add['header_mobile_elements'] = array(
 
 /**
  * ====================================================
+ * Content & Sidebar > Content Section
+ * ====================================================
+ */
+
+$add['content_container_width'] = array(
+	array(
+		'setting'  => 'content_container',
+		'value'    => 'custom',
+	),
+);
+
+/**
+ * ====================================================
  * Footer > Bottom Bar
  * ====================================================
  */
@@ -185,6 +198,26 @@ $add['entry_grid_read_more_text'] = array(
 
 /**
  * ====================================================
+ * Other Pages > Error 404
+ * ====================================================
+ */
+
+$add['error_404_image_width'] = array(
+	array(
+		'setting'  => 'error_404_image',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
+$add['error_404_home_button_text'] = array(
+	array(
+		'setting'  => 'error_404_home_button',
+		'value'    => 1,
+	),
+);
+
+/**
+ * ====================================================
  * Page Settings
  * ====================================================
  */
@@ -199,12 +232,13 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 		);
 	}
 
-	$add['page_settings_' . $ps_type . '[content_container_width]'] = array(
-		array(
-			'setting'  => 'page_settings_' . $ps_type . '[content_container]',
-			'value'    => 'custom',
-		),
-	);
+	// $add['page_settings_' . $ps_type . '[content_layout]'] = array(
+	// 	array(
+	// 		'setting'  => 'page_settings_' . $ps_type . '[content_container]',
+	// 		'operator' => '!=',
+	// 		'value'    => 'narrow',
+	// 	),
+	// );
 }
 
 return $add;

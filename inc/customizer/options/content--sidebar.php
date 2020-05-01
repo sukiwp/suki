@@ -203,30 +203,6 @@ $settings = array(
 	'font_size'      => 'sidebar_font_size',
 	'line_height'    => 'sidebar_line_height',
 	'letter_spacing' => 'sidebar_letter_spacing',
-);
-foreach ( $settings as $key ) {
-	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
-	) );
-}
-$wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize, 'sidebar_typography', array(
-	'settings'    => $settings,
-	'section'     => $section,
-	'label'       => esc_html__( 'Text typography', 'suki' ),
-	'priority'    => 40,
-) ) );
-
-// Text typography
-$settings = array(
-	'font_family'    => 'sidebar_font_family',
-	'font_weight'    => 'sidebar_font_weight',
-	'font_style'     => 'sidebar_font_style',
-	'text_transform' => 'sidebar_text_transform',
-	'font_size'      => 'sidebar_font_size',
-	'line_height'    => 'sidebar_line_height',
-	'letter_spacing' => 'sidebar_letter_spacing',
 
 	'font_size__tablet'      => 'sidebar_font_size__tablet',
 	'line_height__tablet'    => 'sidebar_line_height__tablet',

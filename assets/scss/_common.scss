@@ -124,18 +124,17 @@
 	@include h1();
 }
 
-.page-header {
-	padding: 2rem;
-	margin: 0 0 6rem;
-	// @include border();
-	background-color: $color_subtle; // default	
+.content-header {
+	.site-content & {
+		margin: 0 0 6rem;
+	}
 
 	> *:last-child {
 		margin-bottom: 0;
 	}
 
 	.page-title {
-		@include h3(); // default
+		@include h1(); // default
 	}
 
 	.archive-description {
@@ -202,6 +201,7 @@
 button.suki-toggle {
 	// reset button appearance
 	border: none;
+	border-radius: 0;
 	margin: 0;
 	padding: 0;
 	width: auto;

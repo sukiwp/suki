@@ -12,6 +12,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * ====================================================
+ * Compatibility hooks
+ * ====================================================
+ */
+
+if ( ! function_exists( 'wp_body_open' ) ) :
+/**
+ * Backward compatibility function for `wp_body_open` action hook.
+ * `wp_body_open` action hook is available since WordPress 5.2
+ */
+function wp_body_open() {
+	do_action( 'wp_body_open' );
+}
+endif;
+
+/**
+ * ====================================================
  * Global template functions
  * ====================================================
  */
@@ -221,27 +237,6 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 }
 endif;
 
-if ( ! function_exists( 'suki_title__search' ) ) :
-/**
- * Print / return HTML markup for title text for search page.
- *
- * @param boolean $echo
- */
-function suki_title__search( $echo = true ) {
-	$html = sprintf(
-		/* translators: %s: search query. */
-		esc_html__( 'Search Results for: %s', 'suki' ),
-		'<span>' . get_search_query() . '</span>'
-	); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	if ( $echo ) {
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	} else {
-		return $html;
-	}
-}
-endif;
-
 if ( ! function_exists( 'suki_title__404' ) ) :
 /**
  * Print / return HTML markup for title text for 404 page.
@@ -397,13 +392,13 @@ function suki_page_header_element( $element ) {
 			}
 
 			elseif ( is_search() ) {
-				$title = suki_get_current_page_setting( 'page_header_title_text__search' );
+				// $title = suki_get_current_page_setting( 'page_header_title_text__search' );
 
-				if ( ! empty( $title ) ) {
-					$title = str_replace( '{{keyword}}', get_search_query(), $title );
-				} else {
-					$title = suki_title__search( false );
-				}
+				// if ( ! empty( $title ) ) {
+				// 	$title = str_replace( '{{keyword}}', get_search_query(), $title );
+				// } else {
+				// 	$title = suki_title__search( false );
+				// }
 			}
 
 			elseif ( is_post_type_archive() ) {
@@ -547,6 +542,15 @@ if ( ! function_exists( 'suki_primary_close' ) ) :
  */
 function suki_primary_close() {
 	suki_get_template_part( 'content-primary-close' );
+}
+endif;
+
+if ( ! function_exists( 'suki_content_header' ) ) :
+/**
+ * Render content header.
+ */
+function suki_content_header() {
+	suki_get_template_part( 'content-header' );
 }
 endif;
 
@@ -925,7 +929,7 @@ function suki_search_header() {
 		 * Hook: suki/frontend/search_header
 		 *
 		 * @hooked suki_search_title - 10
-		 * @hooked suki_search_form - 20
+		 * @hooked get_search_form - 20
 		 */
 		do_action( 'suki/frontend/search_header' );
 		?>
@@ -940,7 +944,20 @@ if ( ! function_exists( 'suki_search_title' ) ) :
  */
 function suki_search_title() {
 	?>
-	<h1 class="page-title"><?php suki_title__search(); ?></h1>
+	<h1 class="page-title">
+		<?php
+		// Title
+		$title = suki_get_theme_mod( 'search_results_title' );
+		if ( empty( $title ) ) {
+			$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
+		}
+
+		// Parse syntax.
+		$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $title );
+
+		echo wp_kses_post( $title );
+		?>
+	</h1>
 	<?php
 }
 endif;
@@ -950,6 +967,7 @@ if ( ! function_exists( 'suki_search_form' ) ) :
  * Render search form.
  */
 function suki_search_form() {
+	// Print WordPress's default search form.
 	get_search_form();
 }
 endif;

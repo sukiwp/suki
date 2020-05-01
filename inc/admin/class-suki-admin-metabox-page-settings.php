@@ -101,7 +101,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		add_meta_box(
 			'suki_page_settings',
 			/* translators: %s: theme name. */
-			sprintf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
+			sprintf( esc_html__( 'Dynamic Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
 			'normal',
@@ -491,6 +491,10 @@ class Suki_Admin_Metabox_Page_Settings {
 									'label' => esc_html__( 'Full width', 'suki' ),
 									'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
 								),
+								'narrow'     => array(
+									'label' => esc_html__( 'Narrow', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
+								),
 							),
 							'value'       => suki_array_value( $values, $key ),
 						) );
@@ -502,7 +506,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				</div>
 
 				<div class="suki-admin-form-row">
-					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content & sidebar layout', 'suki' ); ?></label></div>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Sidebar', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'content_layout';
@@ -514,21 +518,17 @@ class Suki_Admin_Metabox_Page_Settings {
 									'label' => esc_html__( '(Customizer)', 'suki' ),
 									'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
 								),
-								'wide'          => array(
-									'label' => esc_html__( 'Wide', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
-								),
-								'narrow'        => array(
-									'label' => esc_html__( 'Narrow', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
+								'right-sidebar' => array(
+									'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
 								),
 								'left-sidebar'  => array(
-									'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
+									'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
 								),
-								'right-sidebar' => array(
-									'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
-									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+								'wide'          => array(
+									'label' => esc_html__( 'None', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 								),
 							),
 							'value'       => suki_array_value( $values, $key ),

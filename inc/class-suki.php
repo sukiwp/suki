@@ -285,6 +285,9 @@ class Suki {
 
 			add_theme_support( 'editor-color-palette', $array );
 		}
+		
+		// Add excerpt to pages.
+		add_post_type_support( 'page', 'excerpt' );
 	}
 
 	/**

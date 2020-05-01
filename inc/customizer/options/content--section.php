@@ -16,20 +16,7 @@ $section = 'suki_section_content';
  * ====================================================
  */
 
-// Notice Dynamic Page Layout
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_content_layout', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'description' => '<div class="notice notice-info notice-alt inline"><p>' . sprintf(
-		/* translators: %1$s: section name, %2$s: link to Dynamic Page Layout. */
-		esc_html__( 'You can set different %1$s setting on each page using the %2$s.', 'suki' ),
-		esc_html__( 'Content Section', 'suki' ),
-		'<a href="' . esc_url( add_query_arg( 'autofocus[panel]', 'suki_panel_page_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Dynamic Page Layout', 'suki' ) . '</a>'
-	) . '</p></div>',
-	'priority'    => 10,
-) ) );
-
-// Layout
+// Container width
 $key = 'content_container';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -37,7 +24,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Layout', 'suki' ),
+	'label'       => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page via Dynamic Page Layout settings.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Default', 'suki' ) . '</span>',
 	'choices'     => array(
 		'default'    => array(
 			'label' => esc_html__( 'Normal', 'suki' ),
@@ -47,19 +34,16 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'label' => esc_html__( 'Full width', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
 		),
+		'narrow'     => array(
+			'label' => esc_html__( 'Narrow', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
+		),
 	),
+	'columns'     => 4,
 	'priority'    => 10,
 ) ) );
 
-// Info
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_page_template', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'If you are using Page Builder and want a full width layout, please go to your page editor and set the "Page Attributes > Template" to "Page Builder" or the one provided by your page builder.', 'suki' ) . '</p></div>',
-	'priority'    => 10,
-) ) );
-
-// Content & sidebar layout
+// Sidebar position
 $key = 'content_layout';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -67,25 +51,22 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Content & sidebar layout', 'suki' ),
+	'label'       => esc_html__( 'Sidebar position', 'suki' ) . ' <span class="suki-global-default-badge" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page via Dynamic Page Layout settings.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Default', 'suki' ) . '</span>',
 	'choices'     => array(
-		'wide'          => array(
-			'label' => esc_html__( 'Wide', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
-		),
-		'narrow'        => array(
-			'label' => esc_html__( 'Narrow', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--narrow.svg',
-		),
-		'left-sidebar'  => array(
-			'label' => is_rtl() ? esc_html__( 'Right sidebar', 'suki' ) : esc_html__( 'Left sidebar', 'suki' ),
-			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
-		),
 		'right-sidebar' => array(
-			'label' => is_rtl() ? esc_html__( 'Left sidebar', 'suki' ) : esc_html__( 'Right sidebar', 'suki' ),
+			'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
 		),
+		'left-sidebar'  => array(
+			'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+		),
+		'wide'          => array(
+			'label' => esc_html__( 'None', 'suki' ),
+			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+		),
 	),
+	'columns'     => 4,
 	'priority'    => 10,
 ) ) );
 

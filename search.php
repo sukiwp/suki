@@ -45,8 +45,12 @@ if ( have_posts() ) :
 
 else :
 
-	// Render no content notice.
-	suki_get_template_part( 'entry', 'none' );
+	// Render not-found message.
+	$not_found_message = suki_get_theme_mod( 'search_results_not_found_text' );
+	if ( empty( $not_found_message ) ) {
+		$not_found_message = esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'suki' );
+	}
+	echo wp_kses_post( wpautop( $not_found_message ) );
 
 endif;
 

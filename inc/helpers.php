@@ -279,9 +279,14 @@ function suki_get_current_page_setting( $key ) {
 		}
 	}
 
-	// 404 page
+	// Error 404 page
 	elseif ( is_404() ) {
-		$settings = suki_get_theme_mod( 'page_settings_404', array() );
+		$settings = suki_get_theme_mod( 'page_settings_error_404' );
+
+		$settings = wp_parse_args( array(
+			'content_container' => 'narrow', // Error 404 page always uses Narrow layout.
+			'content_layout'    => 'wide', // Error 404 page always has no sidebar.
+		), $settings );
 	}
 
 	// Single post page (any post type)
@@ -737,10 +742,11 @@ function suki_get_pro_modules() {
  */
 function suki_get_fallback_page_settings() {
 	return apply_filters( 'suki/dataset/fallback_page_settings', array(
-		'content_container'    => suki_get_theme_mod( 'content_container', 'default' ),
-		'content_layout'       => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
-		'page_header'          => suki_get_theme_mod( 'page_header', 0 ),
-		'page_header_bg_image' => suki_get_theme_mod( 'page_header_bg_image', '' ),
+		'content_container'     => suki_get_theme_mod( 'content_container', 'default' ),
+		'content_layout'        => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
+		'content_header_layout' => suki_get_theme_mod( 'content_header_layout', 'before_main' ),
+		'page_header'           => suki_get_theme_mod( 'page_header', 0 ),
+		'page_header_bg_image'  => suki_get_theme_mod( 'page_header_bg_image', '' ),
 	) );
 }
 

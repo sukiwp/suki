@@ -116,12 +116,6 @@ $add['body_text_color'] = array(
 	),
 );
 
-/**
- * ====================================================
- * General Styles > Border & Subtle Background
- * ====================================================
- */
-
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
@@ -136,12 +130,6 @@ $add['border_color'] = array(
 		'property' => 'border-color',
 	),
 );
-
-/**
- * ====================================================
- * General Styles > Link
- * ====================================================
- */
 
 $add['link_text_color'] = array(
 	array(
@@ -221,7 +209,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 				// Styles that inherit h3 by default
 				$rules[] = array(
 					'type'     => 'css',
-					'element'  => 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title, .page-header .page-title',
+					'element'  => 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title',
 					'property' => $property,
 				);
 				break;
@@ -697,11 +685,6 @@ $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body, #page',
-		'property' => 'background-color',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-grid .entry-wrapper',
 		'property' => 'background-color',
 	),
 );

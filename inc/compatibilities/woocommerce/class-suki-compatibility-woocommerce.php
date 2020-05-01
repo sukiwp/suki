@@ -62,8 +62,11 @@ class Suki_Compatibility_WooCommerce {
 		
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
-
 		add_filter( 'suki/dataset/fallback_page_settings', array( $this, 'add_page_settings_fallback_values__product' ) );
+
+		add_filter( 'update_option_woocommerce_cart_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
+		add_filter( 'update_option_woocommerce_checkout_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
+		add_filter( 'update_option_woocommerce_myaccount_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
 	}
 	
 	/**
@@ -508,6 +511,39 @@ class Suki_Compatibility_WooCommerce {
 		);
 
 		return array_merge( $settings, $add );
+	}
+
+	/**
+	 * Set default values of Dynamic page layout settings for Cart, Checkout, and My Acount pages.
+	 *
+	 * @param integer $old_value
+	 * @param integer $value
+	 * @param string $option
+	 */
+	public function set_default_page_settings_on_woocommerce_pages( $old_value, $value, $option ) {
+		// Abort if the changed option key is not WooCommerce's cart, checkout, and myaccount page ID.
+		if ( ! in_array( $option, array( 'woocommerce_cart_page_id', 'woocommerce_checkout_page_id', 'woocommerce_myaccount_page_id' ) ) ) {
+			return;
+		}
+
+		// Get the settings, if exists.
+		$page_settings = get_post_meta( $value, '_suki_page_settings', true );
+		if ( empty( $page_settings ) ) {
+			$page_settings = array();
+		}
+
+		// If "Container Width" is not set yet, set it to the default value.
+		if ( ! isset( $page_settings['content_container'] ) ) {
+			$page_settings['content_container'] = 'woocommerce_myaccount_page_id' === $option ? 'default' : 'narrow';
+		}
+
+		// If "Container Width" is not set yet, set it to the default value.
+		if ( ! isset( $page_settings['content_layout'] ) ) {
+			$page_settings['content_layout'] = 'wide';
+		}
+
+		// Update the post meta.
+		update_post_meta( $value, '_suki_page_settings', $page_settings );
 	}
 	
 	/**

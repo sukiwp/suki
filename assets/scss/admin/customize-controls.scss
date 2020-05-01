@@ -2,6 +2,8 @@
 
 @import "../__mixins";
 
+$wp_color_primary: #007cba;
+
 // -------------------------------------------------------------
 // Basic customize control
 // -------------------------------------------------------------
@@ -34,6 +36,7 @@
 		width: auto;
 		height: auto;
 		margin-top: -0.1em;
+		margin-right: 0.25em;
 		font-size: 1.2em;
 		line-height: 1;
 		vertical-align: middle;
@@ -82,6 +85,10 @@ li:not(.customize-info) div.customize-section-description {
 	align-items: flex-start;
 }
 
+.suki-context-hidden {
+	display: none !important;
+}
+
 .suki-row-item {
 	flex: 1 0 0;
 	vertical-align: middle;
@@ -126,6 +133,66 @@ li:not(.customize-info) div.customize-section-description {
 		font-size: 13px;
 		font-weight: 600;
 		text-transform: uppercase;
+	}
+}
+
+.suki-global-default-badge {
+	position: relative;
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 2px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	vertical-align: 1px;
+	background-color: rgba(0,0,0,0.1);
+	outline: none;
+	cursor: pointer;
+
+	.dashicons {
+		font-size: 1.1em;
+		width: auto;
+		height: auto;
+		line-height: 1;
+		vertical-align: -2px;
+	}
+
+	&[data-tooltip]:hover {
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 99;
+			top: 100%;
+			left: 50%;
+			margin-top: 2px;
+			margin-left: -5px;
+			border-bottom: 5px solid rgba(0,0,0,0.8);
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+		}
+
+		&:after {
+			content: attr(data-tooltip);
+			position: absolute;
+			z-index: 99;
+			top: 100%;
+			left: 50%;
+			width: 200px;
+			padding: 8px 10px;
+			margin-top: 7px;
+			border-radius: 4px;
+			transform: translateX( -50% );
+			font-size: 13px;
+			font-weight: normal;
+			line-height: 18px;
+			text-transform: none;
+			text-align: center;
+			white-space: normal;
+			background-color: rgba(0,0,0,0.8);
+			color: #fff;
+		}
 	}
 }
 
@@ -305,7 +372,7 @@ li:not(.customize-info) div.customize-section-description {
 		color: inherit !important;
 
 		&:hover, &:focus {
-			color: #007cba !important;
+			color: $wp_color_primary !important;
 		}
 
 		h3 {
@@ -327,7 +394,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.tabindex:focus + .suki-heading {
-		background-color: #007cba;
+		background-color: $wp_color_primary;
 		color: #fff;
 	}
 
@@ -375,7 +442,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	input[type="checkbox"]:checked ~ .suki-toggle-ui {
-		background-color: #007cba;
+		background-color: $wp_color_primary;
 
 		.suki-toggle-ui-handle {
 			left: auto;
@@ -424,8 +491,8 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			&:focus:before {
-				border-color: #007cba;
-				box-shadow: 0 0 1px #007cba;
+				border-color: $wp_color_primary;
+				box-shadow: 0 0 1px $wp_color_primary;
 			}
 
 			&:after {
@@ -576,7 +643,7 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			&:focus:before {
-				box-shadow: inset 0 0 0 1px #7e8993, 0 0 0 1px #007cba;
+				box-shadow: inset 0 0 0 1px #7e8993, 0 0 0 1px $wp_color_primary;
 			}
 		}
 
@@ -681,7 +748,7 @@ li:not(.customize-info) div.customize-section-description {
 			border: 1px solid #7e8993;
 
 			&:focus {
-				background-color: #007cba;
+				background-color: $wp_color_primary;
 			}
 		}
 	}
@@ -811,6 +878,11 @@ li:not(.customize-info) div.customize-section-description {
 			position: relative;
 			z-index: 2;
 		}
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
+		}
 	}
 }
 
@@ -857,7 +929,7 @@ li:not(.customize-info) div.customize-section-description {
 	.suki-radioimage-list {
 		display: flex;
 		flex-wrap: wrap;
-		margin: -4px;
+		margin: -2px;
 
 		.suki-radioimage-item {
 			flex: 0 0 25%;
@@ -886,15 +958,15 @@ li:not(.customize-info) div.customize-section-description {
 			position: relative;
 			display: block;
 			box-sizing: border-box;
-			margin: 4px;
+			margin: 2px;
 			padding: 2px;
 			background-color: #aaa;
 			color: #fff;
 			outline: 0;
-			border-radius: 3px;
+			border-radius: 4px;
 
 			&:focus {
-				box-shadow: 0 0 5px #007cba;
+				box-shadow: 0 0 5px $wp_color_primary;
 			}
 		}
 
@@ -903,7 +975,7 @@ li:not(.customize-info) div.customize-section-description {
 		}
 
 		input:checked + label {
-			background-color: #007cba;
+			background-color: $wp_color_primary;
 			color: #fff;
 		}
 
@@ -935,7 +1007,7 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-builder {
 	.suki-builder {
-		overflow: hidden;
+		// overflow: hidden;
 
 		.suki-builder-location {
 			position: relative;
@@ -1071,12 +1143,16 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.suki-builder-layout-block {
+		.suki-builder-sortable-panel {
+			flex-direction: column;
+			flex-wrap: nowrap;
+		}
+
 		.suki-builder-element {
-			width: 100%;
 			display: inline-flex;
 
 			> span {
-				width: 100%;
+				flex: 1 0 auto;
 			}
 		}
 	}
@@ -1130,6 +1206,12 @@ li:not(.customize-info) div.customize-section-description {
 			box-shadow: inset 10px 0 10px -10px transparentize( $color_black, 0.9 );
 			@include transition( all 0.2s );
 
+			.customize-control {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
 			.suki-has-builder-active .wp-full-overlay.expanded & {
 				&.suki-builder-active {
 					visibility: visible;
@@ -1151,13 +1233,17 @@ li:not(.customize-info) div.customize-section-description {
 				}
 			}
 
-			.customize-control-suki-pro {
-				margin: 0 0 12px;
-
-				.suki-heading {
-					margin: 0;
-				}
+			.suki-small-label {
+				display: none;
 			}
+
+			// .customize-control-suki-pro {
+			// 	margin: 0 0 12px;
+
+			// 	.suki-heading {
+			// 		margin: 0;
+			// 	}
+			// }
 
 			#customize-control-header_builder_actions,
 			#customize-control-footer_builder_actions {
@@ -1229,33 +1315,24 @@ li:not(.customize-info) div.customize-section-description {
 			.suki-builder-location {
 				position: relative;
 				box-sizing: border-box;
+				margin: 0;
 
-				&[data-location*="left"] {
-					.suki-small-label {
-						text-align: left;
-					}
-
+				&[data-location$="_top"],
+				&[data-location$="_left"] {
 					.suki-builder-sortable-panel {
 						justify-content: flex-start;
 					}
 				}
 
-				&[data-location*="vertical"],
-				&[data-location*="center"] {
-					.suki-small-label {
-						text-align: center;
-					}
-
+				&[data-location$="_middle"],
+				&[data-location$="_center"] {
 					.suki-builder-sortable-panel {
 						justify-content: center;
 					}
 				}
 
-				&[data-location*="right"] {
-					.suki-small-label {
-						text-align: right;
-					}
-
+				&[data-location$="_bottom"],
+				&[data-location$="_right"] {
 					.suki-builder-sortable-panel {
 						justify-content: flex-end;
 					}
@@ -1267,41 +1344,96 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-inactive {
+				margin: 30px 0 0;
 				display: block !important;
 			}
 
 			.suki-builder-groups {
 				display: flex;
 				align-items: flex-start;
-				margin: 0 -10px;
+				margin: -15px -15px 0;
 
 				.suki-builder-group {
-					padding: 0 10px;
+					box-sizing: border-box;
+					padding: 0 15px;
+				}
+
+				.suki-builder-area {
+					position: relative;
+					margin-top: 30px;
+				}
+
+				.suki-builder-area-label {
+					position: absolute;
+					bottom: 100%;
+					left: 0;
+					padding: 3px 10px;
+					margin: 0 0 0 -2px;
+					border-radius: 3px 3px 0 0;
+					background-color: $wp_color_primary;
+					color: #fff;
+					font-size: 11px;
+					font-weight: 600;
+					line-height: 16px;
+					text-transform: uppercase;
+					cursor: pointer;
+					opacity: 0;
+					visibility: hidden;
+
+					&:before {
+						content: "\f111";
+						font-family: dashicons;
+						margin-right: 0.5em;
+						vertical-align: -2px;
+					}
+				}
+
+				.suki-builder-area:hover {
+					box-shadow: 0 0 0 2px $wp_color_primary;
+
+					.suki-builder-area-label {
+						opacity: 1;
+						visibility: visible;
+					}
 				}
 
 				.suki-builder-group-horizontal {
-					display: flex;
-					flex-wrap: wrap;
-					width: 100%;
+					flex: 1 0 auto;
+
+					.suki-builder-area-locations {
+						display: flex;
+					}
 
 					.suki-builder-location {
-						width: 33.33%;
+						flex: 1 0 0;
 					}
 				}
 
 				.suki-builder-group-vertical {
-					width: 15%;
+					flex: 0 0 15%;
+					align-self: stretch;
 
-					.suki-builder-location {
-						margin: 0;
+					.suki-builder-area {
+						display: flex;
+						flex-direction: column;
+						min-height: calc( 100% - 30px );
 
-						&:first-child {
-							margin-top: 2px;
+						&-locations {
+							flex: 1 0 0;
+							display: flex;
+							flex-direction: column;
+
+							> * {
+								flex: 1 0 0;
+								display: flex;
+								flex-direction: column;
+							}
 						}
+					}
 
-						&:last-child {
-							margin-bottom: 2px;
-						}
+					.suki-builder-sortable-panel {
+						flex: 1 0 auto;
+						flex-direction: column;
 					}
 				}
 			}
@@ -1362,7 +1494,7 @@ li:not(.customize-info) div.customize-section-description {
 					box-shadow: none;
 
 					&:hover, &:focus {
-						color: #007cba;
+						color: $wp_color_primary;
 					}
 
 					&:last-child {
@@ -1370,7 +1502,7 @@ li:not(.customize-info) div.customize-section-description {
 					}
 
 					&.nav-tab-active {
-						color: #007cba;
+						color: $wp_color_primary;
 						border-bottom-color: currentColor;
 					}
 				}
@@ -1383,6 +1515,8 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
+[id="accordion-section-suki_section_main"],
+[id="accordion-section-suki_section_sidebar"],
 [id^="accordion-section-suki_section_entry_"] {
 	.accordion-section-title:before {
 		content: "\21B3";
@@ -1432,7 +1566,9 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-[id^="customize-control-page_settings_"] {
+[id^="customize-control-page_settings_"],
+[id*="_bar_transparent_"],
+[id*="_bar_alt_"] {
 	&.customize-control-select {
 		.customize-control-title {
 			float: left;
@@ -1441,11 +1577,11 @@ li:not(.customize-info) div.customize-section-description {
 		select {
 			margin-left: 10px;
 			float: right;
-			width: 135px;
+			width: 110px;
 		}
 	}
 
-	&[id*="header"] {
+	&[id*="-header_"] {
 		padding-left: 15px;
 		width: calc(100% - 15px);
 
