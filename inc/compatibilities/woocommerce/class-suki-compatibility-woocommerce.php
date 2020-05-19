@@ -658,6 +658,7 @@ class Suki_Compatibility_WooCommerce {
 					    max = parseInt( $input.getAttribute( 'max' ) ),
 					    sign = $button.classList.contains( 'suki-qty-minus' ) ? '-' : '+';
 
+					// Adjust the input value according to the clicked button.
 					if ( '-' === sign ) {
 						var newValue = parseInt( $input.value ) - step;
 
@@ -676,11 +677,10 @@ class Suki_Compatibility_WooCommerce {
 						}
 					}
 
-					var $updateCartButton = document.querySelector( 'button[name="update_cart"]' );
-					
-					if ( $updateCartButton ) {
-						$updateCartButton.disabled = false;
-					}
+					// Trigger "change" event on the input field (use old fashioned way for IE compatibility).
+					var event = document.createEvent( 'HTMLEvents' );
+					event.initEvent( 'change', true, false);
+					$input.dispatchEvent( event );
 				}
 			};
 

@@ -1,3 +1,6 @@
+v1.2.11
+- TWEAK: Improve JS for WooCommerce quantity increment buttons for better compatibility with 3rd party plugins.
+
 v1.2.10
 - TWEAK: Improve mobile header dropdown behavior: clicking the menu link will also open the dropdown.
 - FIX: Mobile header dropdown bug from v1.2.9.
