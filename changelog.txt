@@ -1,5 +1,6 @@
 v1.2.11
-- TWEAK: Improve JS for WooCommerce quantity increment buttons for better compatibility with 3rd party plugins.
+- FIX: JS of WooCommerce quantity increment buttons for better compatibility with 3rd party plugins.
+- FIX: CSS of WooCommerce products grid AJAX add to cart loading button.
 
 v1.2.10
 - TWEAK: Improve mobile header dropdown behavior: clicking the menu link will also open the dropdown.
