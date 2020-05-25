@@ -1,7 +1,8 @@
 v1.2.11
-- FIX: WooCommerce cart's cross sells hiding option on 2 columns layout.
-- FIX: JS of WooCommerce quantity increment buttons for better compatibility with 3rd party plugins.
-- FIX: CSS of WooCommerce products grid AJAX add to cart loading button.
+- FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.
+- FIX: WooCommerce quantity increment button's Javascript for better compatibility with 3rd party plugins.
+- FIX: WooCommerce products grid's AJAX add to cart loading button CSS.
+- FIX: Remove bottom border on WooCommerce's cart table when on mobile view.
 
 v1.2.10
 - TWEAK: Improve mobile header dropdown behavior: clicking the menu link will also open the dropdown.

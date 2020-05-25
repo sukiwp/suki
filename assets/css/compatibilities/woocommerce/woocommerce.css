@@ -1408,7 +1408,7 @@ p.demo_store a,
 	.woocommerce table.shop_table.shop_table_responsive tbody th {
 		display: none;
 	}
-	.woocommerce table.shop_table.shop_table_responsive tr {
+	.woocommerce table.shop_table.shop_table_responsive tr:not(:last-child) {
 		border-bottom-width: 1px;
 		border-bottom-style: solid;
 	}

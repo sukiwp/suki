@@ -1867,7 +1867,9 @@ p.demo_store,
 				}
 
 				tr {
-					@include border( bottom );
+					&:not(:last-child) {
+						@include border( bottom );
+					}
 				}
 
 				th, td {
