@@ -788,7 +788,7 @@ function suki_entry_featured_media() {
 		return;
 	}
 
-	printf( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	printf(
 		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
@@ -796,7 +796,7 @@ function suki_entry_featured_media() {
 			get_the_ID(),
 			apply_filters( 'suki/frontend/entry/thumbnail_size', 'full' )
 		),
-		is_singular() ? 'div' : 'a'
+		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	);
 }
 endif;
@@ -869,7 +869,7 @@ function suki_entry_grid_featured_media() {
 		return;
 	}
 
-	printf( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	printf(
 		'<%s class="%s">%s</%s>',
 		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ),
@@ -877,7 +877,7 @@ function suki_entry_grid_featured_media() {
 			get_the_ID(),
 			apply_filters( 'suki/frontend/entry_grid/thumbnail_size', 'medium_large' )
 		),
-		is_singular() ? 'div' : 'a'
+		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	);
 }
 endif;
@@ -1082,15 +1082,15 @@ function suki_comments_title() {
 				printf(
 					/* translators: %1$s: title. */
 					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'suki' ),
-					'<span>' . get_the_title() . '</span>'
-				); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				);
 			} else {
 				printf(
 					/* translators: %1$s: comment count number, %2$s: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_count, 'comments title', 'suki' ) ),
-					number_format_i18n( $comments_count ),
-					'<span>' . get_the_title() . '</span>'
-				); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					number_format_i18n( $comments_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				);
 			}
 			?>
 	</h2>
