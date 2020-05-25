@@ -419,6 +419,7 @@ class Suki_Compatibility_WooCommerce {
 			// Keep / remove cross-sells.
 			if ( ! intval( suki_get_theme_mod( 'woocommerce_cart_cross_sells' ) ) ) {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+				remove_action( 'woocommerce_before_cart_collaterals', 'woocommerce_cross_sell_display', 20 ); // If 2 columns layout is enabled.
 			}
 		}
 

@@ -1,4 +1,5 @@
 v1.2.11
+- FIX: WooCommerce cart's cross sells hiding option on 2 columns layout.
 - FIX: JS of WooCommerce quantity increment buttons for better compatibility with 3rd party plugins.
 - FIX: CSS of WooCommerce products grid AJAX add to cart loading button.
 
