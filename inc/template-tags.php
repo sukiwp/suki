@@ -276,6 +276,27 @@ function suki_skip_to_content_link() {
 }
 endif;
 
+if ( ! function_exists( 'suki_header' ) ) :
+/**
+ * Render header wrapper.
+ */
+function suki_header() {
+	?>
+	<header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope>
+		<?php
+		/**
+		 * Hook: suki/frontend/header
+		 *
+		 * @hooked suki_main_header - 10
+		 * @hooked suki_mobile_header - 10
+		 */
+		do_action( 'suki/frontend/header' );
+		?>
+	</header>
+	<?php
+}
+endif;
+
 if ( ! function_exists( 'suki_mobile_vertical_header' ) ) :
 /**
  * Render mobile vertical header.
@@ -555,6 +576,26 @@ endif;
  * Footer template functions
  * ====================================================
  */
+
+if ( ! function_exists( 'suki_footer' ) ) :
+/**
+ * Render footer wrapper.
+ */
+function suki_footer() {
+	?>
+	<footer id="colophon" class="site-footer suki-footer" role="contentinfo" itemtype="https://schema.org/WPFooter" itemscope>
+		<?php
+		/**
+		 * Hook: suki/frontend/footer
+		 *
+		 * @hooked suki_main_footer - 10
+		 */
+		do_action( 'suki/frontend/footer' );
+		?>
+	</footer>
+	<?php
+}
+endif;
 
 if ( ! function_exists( 'suki_main_footer' ) ) :
 /**
