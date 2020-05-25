@@ -42,6 +42,7 @@ msgid "Suki is a free multi-purpose WordPress theme that is lightweight, fast, h
 msgstr ""
 
 #. translators: %s: number of Header Menu.
+#. translators: %s: menu number.
 #: inc/class-suki.php:232, template-parts/header-element-menu.php:16
 msgid "Header Menu %s"
 msgstr ""
@@ -55,7 +56,8 @@ msgid "Footer Bottom Menu"
 msgstr ""
 
 #. translators: %s: color index.
-#: inc/class-suki.php:280
+#. translators: %s: color number.
+#: inc/class-suki.php:280, inc/customizer/options/global--color-palette.php:31
 msgid "Color %s"
 msgstr ""
 
@@ -271,43 +273,43 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:677, inc/template-tags.php:681
+#: inc/template-tags.php:718, inc/template-tags.php:722
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:978
+#: inc/template-tags.php:1019
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:979
+#: inc/template-tags.php:1020
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1024
+#: inc/template-tags.php:1065
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1026
+#: inc/template-tags.php:1067
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1043
+#: inc/template-tags.php:1084
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1049
+#: inc/template-tags.php:1090
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1076
+#: inc/template-tags.php:1117
 msgid "Comments are closed."
 msgstr ""
 
@@ -339,6 +341,7 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
+#. translators: %s: menu number.
 #. translators: %s: instance number.
 #: template-parts/footer-element-menu.php:16, inc/customizer/options/footer--builder.php:81
 msgid "Footer Menu %s"
@@ -395,7 +398,7 @@ msgstr ""
 msgid "Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:452
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:453
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -419,7 +422,7 @@ msgstr ""
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:656, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:485, inc/customizer/options/global--social.php:46, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:410, inc/customizer/options/_sections.php:291, inc/customizer/options/_sections.php:423, inc/customizer/options/_sections.php:488, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:100, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:59, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:124, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
+#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:656, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:486, inc/customizer/options/global--social.php:46, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:410, inc/customizer/options/_sections.php:291, inc/customizer/options/_sections.php:423, inc/customizer/options/_sections.php:488, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:100, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:59, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:124, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:84
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -439,7 +442,7 @@ msgctxt "Suki Pro upsell"
 msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:648, inc/admin/class-suki-admin-metabox-page-settings.php:658, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:494, inc/customizer/custom-controls/class-suki-customize-control-pro-teaser.php:39, inc/customizer/custom-controls/class-suki-customize-section-pro-teaser.php:51
+#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:648, inc/admin/class-suki-admin-metabox-page-settings.php:658, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:495, inc/customizer/custom-controls/class-suki-customize-control-pro-teaser.php:39, inc/customizer/custom-controls/class-suki-customize-section-pro-teaser.php:51
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
@@ -784,36 +787,36 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:466
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:467
 msgid "Product Layout"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:487
-msgctxt "Suki Pro upsell"
-msgid "Enable / disable breadcrumb."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:488
 msgctxt "Suki Pro upsell"
-msgid "Enable / disable gallery on this product page."
+msgid "Enable / disable breadcrumb."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:489
 msgctxt "Suki Pro upsell"
-msgid "Change gallery layout on this product page."
+msgid "Enable / disable gallery on this product page."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:490
 msgctxt "Suki Pro upsell"
-msgid "Enable / disable product info tabs."
+msgid "Change gallery layout on this product page."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:491
 msgctxt "Suki Pro upsell"
-msgid "Enable / disable up-sells."
+msgid "Enable / disable product info tabs."
 msgstr ""
 
 #: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:492
+msgctxt "Suki Pro upsell"
+msgid "Enable / disable up-sells."
+msgstr ""
+
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:493
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
@@ -1492,23 +1495,19 @@ msgstr ""
 msgid "Title link text color :hover"
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:30
-msgid "Color %d"
-msgstr ""
-
-#: inc/customizer/options/global--color-palette.php:40
+#: inc/customizer/options/global--color-palette.php:41
 msgid "After changing colors, publish the changes and then reload this Customizer page to apply them on all color controls."
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:54
+#: inc/customizer/options/global--color-palette.php:55
 msgid "Gutenberg Integration"
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:67
+#: inc/customizer/options/global--color-palette.php:68
 msgid "Use as Gutenberg color palette"
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:68
+#: inc/customizer/options/global--color-palette.php:69
 msgid "Enabling this would replace the original Gutenberg's color palette with the colors you defined above."
 msgstr ""
 

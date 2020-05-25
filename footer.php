@@ -27,18 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				/**
 				 * Footer
 				 */
-				?>
-				<footer id="colophon" class="site-footer suki-footer" role="contentinfo" itemtype="https://schema.org/WPFooter" itemscope>
-					<?php
-					/**
-					 * Hook: suki/frontend/footer
-					 *
-					 * @hooked suki_main_footer - 10
-					 */
-					do_action( 'suki/frontend/footer' );
-					?>
-				</footer>
-				<?php
+				suki_footer();
 				
 				/**
 				 * Hook: suki/frontend/after_footer
