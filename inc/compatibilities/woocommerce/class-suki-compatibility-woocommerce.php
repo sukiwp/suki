@@ -51,6 +51,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
+		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
 
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -174,6 +175,19 @@ class Suki_Compatibility_WooCommerce {
 		$add = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php' );
 
 		return array_merge_recursive( $postmessages, $add );
+	}
+
+	/**
+	 * Add dependency contexts for some Customizer settings.
+	 * Triggered via filter to allow modification by users.
+	 *
+	 * @param array $contexts
+	 * @return array
+	 */
+	public function add_control_contexts( $contexts = array() ) {
+		$add = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/contexts.php' );
+
+		return array_merge_recursive( $contexts, $add );
 	}
 
 	/**
@@ -539,7 +553,7 @@ class Suki_Compatibility_WooCommerce {
 
 		// If "Container Width" is not set yet, set it to the default value.
 		if ( ! isset( $page_settings['content_container'] ) ) {
-			$page_settings['content_container'] = 'woocommerce_myaccount_page_id' === $option ? 'default' : 'narrow';
+			$page_settings['content_container'] = 'default';
 		}
 
 		// If "Container Width" is not set yet, set it to the default value.

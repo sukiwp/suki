@@ -10,12 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'suki_section_header_cart';
 
-/**
- * ====================================================
- * Colors
- * ====================================================
- */
-
 if ( ! class_exists( 'WooCommerce' ) ) {
 	// Notice
 	$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_header_cart', array(
@@ -25,6 +19,12 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 		'priority'    => 10,
 	) ) );
 }
+
+/**
+ * ====================================================
+ * Colors
+ * ====================================================
+ */
 
 // Colors
 $colors = array(

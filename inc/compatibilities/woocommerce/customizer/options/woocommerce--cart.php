@@ -46,6 +46,14 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'priority'    => 10,
 ) ) );
 
+// 2 columns notice
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_cart_2_columns', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'When using 2 Columns layout, it\'s recommended to set this page\'s container width to "Normal" and hide the sidebar via Dynamic Page Layout settings.', 'suki' ) . '</p></div>',
+	'priority'    => 11,
+) ) );
+
 // ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_woocommerce_cart_cross_sells', array(
 	'section'     => $section,
@@ -87,16 +95,12 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 	'priority'    => 20,
 ) ) );
 
-if ( suki_show_pro_teaser() ) {
-	
-}
-
 // Heading: Dynamic Page Layout
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_woocommerce_cart', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Dynamic Page Layout', 'suki' ),
-	'description' => '<a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'cart' ) ) ) . '">' . esc_html__( 'Available in the page editor.', 'suki' ) . '</a>',
+	'description' => esc_html__( 'The Dynamic Page Layout settings of this page is available in the page editor.', 'suki' ) . '<br><br><a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'cart' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
 	'priority'    => 100,
 ) ) );
 

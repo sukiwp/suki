@@ -247,7 +247,7 @@ class Suki_Customizer {
 
 		wp_localize_script( 'suki-customize-controls', 'sukiCustomizerControlsData', array(
 			'contexts' => $this->get_control_contexts(),
-			// 'previewContexts' => $this->get_preview_contexts(),
+			'previewContexts' => $this->get_preview_contexts(),
 			'headerFooterBuilderStructures' => array(
 				'header_elements' => array(
 					'vertical' => array(
@@ -691,14 +691,13 @@ class Suki_Customizer {
 			$archive_or_singular = str_replace( $post_type_slug . '_', '', $ps_type );
 
 			if ( 'singular' === $archive_or_singular ) {
-				$sample = get_posts( array(
-					'orderby'        => 'rand',
-					'posts_per_page' => 1,
+				$posts = get_posts( array(
+					'posts_per_page' => 10,
 					'post_type'      => $post_type_slug,
 				) );
 
-				if ( 0 < count( $sample ) ) {
-					$sample = $sample[0];
+				if ( 0 < count( $posts ) ) {
+					$sample = $posts[ rand( 0, count( $posts ) - 1 ) ];
 
 					$contexts[ $ps_data['section'] ] = esc_url( get_permalink( $sample ) );
 				}

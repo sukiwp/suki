@@ -19,8 +19,10 @@ class Suki_Admin_Fields {
 	 * Render function wrapper
 	 *
 	 * @param array $args
+	 * @param boolean $echo
+	 * @return string
 	 */
-	public static function render_field( $args ) {
+	public static function render_field( $args, $echo = true ) {
 		if ( ! isset( $args['name'] ) ) return;
 
 		$args = wp_parse_args( $args, array(
@@ -34,7 +36,15 @@ class Suki_Admin_Fields {
 
 		$function = 'render_' . $args['type'];
 		if ( method_exists( 'Suki_Admin_Fields', $function ) ) {
+			ob_start();
 			self::$function( $args );
+			$html = ob_get_clean();
+		}
+
+		if ( $echo ) {
+			echo $html; // WPCS: XSS OK
+		} else {
+			return $html;
 		}
 	}
 

@@ -54,17 +54,6 @@ add_filter( 'wp_resource_hints', 'suki_resource_hints', 10, 2 );
  * All template functions can be found on 'inc/template-tags.php' file.
  */
 function suki_template_hooks() {
-	// $is_title_in_page_header = false;
-
-	// if ( intval( suki_get_current_page_setting( 'page_header' ) ) ) {
-	// 	foreach ( array( 'left', 'center', 'right' ) as $pos ) {
-	// 		if ( in_array( 'title', suki_get_theme_mod( 'page_header_elements_' . $pos, array() ) ) ) {
-	// 			$is_title_in_page_header = true;
-	// 			break;
-	// 		}
-	// 	}
-	// }
-
 	/**
 	 * ====================================================
 	 * Global hooks
@@ -89,8 +78,11 @@ function suki_template_hooks() {
 	// Add default mobile logo.
 	add_action( 'suki/frontend/mobile_logo', 'suki_default_mobile_logo', 10 );
 
-	// Add page header after header section.
-	add_action( 'suki/frontend/after_header', 'suki_page_header', 10 );
+	// Add hero section after header section.
+	add_action( 'suki/frontend/after_header', 'suki_hero', 10 );
+
+	// Add content header before main content.
+	add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 
 	// Add main footer.
 	add_action( 'suki/frontend/footer', 'suki_main_footer', 10 );
@@ -102,6 +94,96 @@ function suki_template_hooks() {
 	add_filter( 'term_description', 'do_shortcode' );
 	add_filter( 'get_the_post_type_description', 'do_shortcode' );
 	add_filter( 'get_the_author_description', 'do_shortcode' );
+
+	/**
+	 * ====================================================
+	 * All index page hooks
+	 * ====================================================
+	 */
+
+	if ( is_archive() || is_home() || is_search() ) {
+
+		if ( is_home() || is_post_type_archive() ) {
+
+		}
+
+		if ( is_archive() ) {
+			// Add archive title into content header.
+			add_action( 'suki/frontend/content_header', 'suki_archive_title', 10 );
+
+			// Add archive description into content header.
+			if ( '' !== trim( get_the_archive_description() ) ) {
+				add_action( 'suki/frontend/content_header', 'suki_archive_description', 20 );
+			}
+		}
+
+		if ( is_search() ) {
+			// Add archive title into content header.
+			add_action( 'suki/frontend/content_header', 'suki_search_title', 10 );
+
+			// Add search form into content header.
+			if ( intval( suki_get_theme_mod( 'search_results_search_bar' ) ) ) {
+				add_action( 'suki/frontend/content_header', 'suki_search_form', 20 );
+			}
+		}
+
+		// Add navigation after the loop.
+		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
+	}
+
+	/**
+	 * ====================================================
+	 * All "singular" page hooks
+	 * ====================================================
+	 */
+
+	if ( is_singular() ) {
+		/**
+		 * Content header
+		 */
+
+		// Add singular title into content header.
+		add_action( 'suki/frontend/content_header', 'suki_singular_title', 10 );
+
+		// Add excerpt into content header.
+		if ( post_type_supports( get_post_type(), 'excerpt' ) ) {
+			add_action( 'suki/frontend/content_header', 'suki_singular_excerpt', 20 );
+		}
+
+		/**
+		 * Comments
+		 */
+
+		// Add comments.
+		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
+			
+		// Add comments title.
+		add_action( 'suki/frontend/before_comments_list', 'suki_comments_title', 10 );
+		
+		// Add comments navigation.
+		add_action( 'suki/frontend/before_comments_list', 'suki_comments_navigation', 20 );
+		add_action( 'suki/frontend/after_comments_list', 'suki_comments_navigation', 10 );
+
+		// Add "comments closed" notice.
+		add_action( 'suki/frontend/after_comments_list', 'suki_comments_closed', 20 );
+	}
+
+	/**
+	 * ====================================================
+	 * Single blog post hooks
+	 * ====================================================
+	 */
+
+	if ( is_single() ) {
+		// Add tags.
+		add_action( 'suki/frontend/entry/before_footer', 'suki_entry_tags', 10 );
+
+		// Add author bio.
+		add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
+		
+		// Add post navigation.
+		add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
+	}
 
 	/**
 	 * ====================================================
@@ -196,74 +278,6 @@ function suki_template_hooks() {
 
 		// Increment priority number.
 		$priority = $priority + 10;
-	}
-
-	/**
-	 * ====================================================
-	 * Comments area hooks
-	 * ====================================================
-	 */
-	
-	// Add comments title.
-	add_action( 'suki/frontend/before_comments_list', 'suki_comments_title', 10 );
-	
-	// Add comments navigation.
-	add_action( 'suki/frontend/before_comments_list', 'suki_comments_navigation', 20 );
-	add_action( 'suki/frontend/after_comments_list', 'suki_comments_navigation', 10 );
-
-	// Add "comments closed" notice.
-	add_action( 'suki/frontend/after_comments_list', 'suki_comments_closed', 20 );
-
-	/**
-	 * ====================================================
-	 * All index pages hooks
-	 * ====================================================
-	 */
-
-	if ( is_archive() || is_home() || is_search() ) {
-
-		if ( is_archive() ) {
-			// Add archive title into archive header.
-			add_action( 'suki/frontend/content_header', 'suki_archive_title', 10 );
-
-			// Add archive description into archive header.
-			if ( '' !== trim( get_the_archive_description() ) ) {
-				add_action( 'suki/frontend/content_header', 'suki_archive_description', 20 );
-			}
-		}
-
-		if ( is_search() ) {
-			// Add archive title into search results header.
-			add_action( 'suki/frontend/content_header', 'suki_search_title', 10 );
-
-			// Add search form into archive header.
-			if ( intval( suki_get_theme_mod( 'search_results_search_bar' ) ) ) {
-				add_action( 'suki/frontend/content_header', 'suki_search_form', 20 );
-			}
-		}
-
-		// Add navigation after the loop.
-		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
-	}
-
-	/**
-	 * ====================================================
-	 * All singular post hooks
-	 * ====================================================
-	 */
-
-	if ( is_singular() ) {
-		// Add tags.
-		add_action( 'suki/frontend/entry/before_footer', 'suki_entry_tags', 10 );
-
-		// Add author bio.
-		add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
-		
-		// Add post navigation.
-		add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
-
-		// Add comments.
-		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
 	}
 }
 add_action( 'wp', 'suki_template_hooks', 20 );

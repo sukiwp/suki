@@ -108,7 +108,7 @@ msgstr ""
 msgid "Footer Builder"
 msgstr ""
 
-#: inc/helpers.php:548, inc/customizer/options/_page-settings.php:25, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:98, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:53
+#: inc/helpers.php:548, inc/customizer/options/_page-settings.php:25, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:102, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:61
 msgid "Dynamic Page Layout"
 msgstr ""
 
@@ -246,11 +246,11 @@ msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-functions.php:395
+#: inc/template-functions.php:410
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:455
+#: inc/template-functions.php:470
 msgid "Search&hellip;"
 msgstr ""
 
@@ -258,55 +258,51 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: inc/template-tags.php:247
-msgid "Oops! That page can not be found."
-msgstr ""
-
-#: inc/template-tags.php:269
+#: inc/template-tags.php:252
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:681, inc/template-tags.php:685
+#: inc/template-tags.php:534, inc/template-tags.php:538
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:952, inc/customizer/options/page--search.php:31
+#: inc/template-tags.php:795, inc/customizer/options/page--search.php:31
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:996
+#: inc/template-tags.php:839
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:997
+#: inc/template-tags.php:840
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1042
+#: inc/template-tags.php:885
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1044
+#: inc/template-tags.php:887
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1061
+#: inc/template-tags.php:904
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1067
+#: inc/template-tags.php:910
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1094
+#: inc/template-tags.php:937
 msgid "Comments are closed."
 msgstr ""
 
@@ -364,7 +360,7 @@ msgstr ""
 msgid "Shopping Cart"
 msgstr ""
 
-#: template-parts/page-header.php:12, template-parts/__page-header.php:24, inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:260
+#: template-parts/hero.php:12, template-parts/__page-header.php:24, inc/admin/class-suki-admin-metabox-page-settings.php:67, inc/customizer/options/page-settings.php:260
 msgid "Page Header"
 msgstr ""
 
@@ -401,7 +397,7 @@ msgstr ""
 msgid "Dynamic Page Layout (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:455
+#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:469
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -431,7 +427,7 @@ msgstr ""
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:656, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:488, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:75
+#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:646, inc/admin/class-suki-admin-metabox-page-settings.php:656, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:502, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:132, inc/compatibilities/woocommerce/customizer/options/_sections.php:75
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -451,7 +447,7 @@ msgctxt "Suki Pro upsell"
 msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:648, inc/admin/class-suki-admin-metabox-page-settings.php:658, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:497
+#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:648, inc/admin/class-suki-admin-metabox-page-settings.php:658, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:511
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
@@ -668,25 +664,25 @@ msgstr ""
 msgid "Drawer / Popup"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:729, inc/customizer/options/_sections.php:462
+#: inc/customizer/class-suki-customizer.php:728, inc/customizer/options/_sections.php:462
 msgid "Static Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:733, inc/customizer/options/_sections.php:469
+#: inc/customizer/class-suki-customizer.php:732, inc/customizer/options/_sections.php:469
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:737, inc/customizer/options/_sections.php:476
+#: inc/customizer/class-suki-customizer.php:736, inc/customizer/options/_sections.php:476
 msgid "Error 404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:786
+#: inc/customizer/class-suki-customizer.php:785
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:804
+#: inc/customizer/class-suki-customizer.php:803
 msgid "Single %s Page"
 msgstr ""
 
@@ -792,44 +788,44 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:184
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:198
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:186
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:200
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:469
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:483
 msgid "Product Layout"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:490
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:504
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable breadcrumb."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:491
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:505
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable gallery on this product page."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:492
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:506
 msgctxt "Suki Pro upsell"
 msgid "Change gallery layout on this product page."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:493
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:507
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable product info tabs."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:494
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:508
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable up-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:495
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:509
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
@@ -1721,7 +1717,7 @@ msgstr ""
 msgid "\"Latin\" subset is included by default."
 msgstr ""
 
-#: inc/customizer/options/global--social.php:46, inc/customizer/options/header--html.php:68, inc/customizer/options/header--menu.php:59, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:379, inc/customizer/options/_sections.php:14, inc/customizer/options/_sections.php:272, inc/customizer/options/_sections.php:388, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:107, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:62
+#: inc/customizer/options/global--social.php:46, inc/customizer/options/header--html.php:68, inc/customizer/options/header--menu.php:59, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:379, inc/customizer/options/_sections.php:14, inc/customizer/options/_sections.php:272, inc/customizer/options/_sections.php:388, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:111, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:70
 msgctxt "Suki Pro upsell"
 msgid "More Options Available in Suki Pro"
 msgstr ""
@@ -1837,7 +1833,7 @@ msgstr ""
 msgid "Drawer (Popup)"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:24
+#: inc/customizer/options/header--cart.php:18
 msgid "Only available if WooCommerce plugin is installed and activated."
 msgstr ""
 
@@ -2325,32 +2321,40 @@ msgstr ""
 msgid "2 Columns"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:64
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:53, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:53
+msgid "When using 2 Columns layout, it's recommended to set this page's container width to \"Normal\" and hide the sidebar via Dynamic Page Layout settings."
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:72
 msgid "Show cross-sells"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:65
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:73
 msgid "Display cross-sells as configured on Edit Product page > Product Data > Linked Products > Cross-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:77
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:85
 msgid "Cross-sells grid columns"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:99, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:54
-msgid "Available in the page editor."
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:103, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:62
+msgid "The Dynamic Page Layout settings of this page is available in the page editor."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:110
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:103, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:62
+msgid "Go to Page Editor"
+msgstr ""
+
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:114
 msgctxt "Suki Pro upsell"
 msgid "Sticky checkout button on mobile"
 msgstr ""
 
 #: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:35
-msgid "Checkout form layout"
+msgid "Checkout layout"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:65
+#: inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:73
 msgctxt "Suki Pro upsell"
 msgid "Distraction Free Mode"
 msgstr ""

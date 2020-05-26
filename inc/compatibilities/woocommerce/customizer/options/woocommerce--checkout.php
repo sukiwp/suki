@@ -24,7 +24,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 20,
 ) ) );
 
-// Checkout form layout
+// Checkout layout
 $key = 'woocommerce_checkout_layout';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -32,7 +32,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Checkout form layout', 'suki' ),
+	'label'       => esc_html__( 'Checkout layout', 'suki' ),
 	'choices'     => array(
 		'default' => array(
 			'label' => esc_html__( 'Default', 'suki' ),
@@ -46,12 +46,20 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'priority'    => 20,
 ) ) );
 
+// 2 columns notice
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_checkout_2_columns', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'When using 2 Columns layout, it\'s recommended to set this page\'s container width to "Normal" and hide the sidebar via Dynamic Page Layout settings.', 'suki' ) . '</p></div>',
+	'priority'    => 11,
+) ) );
+
 // Heading: Dynamic Page Layout
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_woocommerce_checkout', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Dynamic Page Layout', 'suki' ),
-	'description' => '<a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'checkout' ) ) ) . '">' . esc_html__( 'Available in the page editor.', 'suki' ) . '</a>',
+	'description' => esc_html__( 'The Dynamic Page Layout settings of this page is available in the page editor.', 'suki' ) . '<br><br><a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'checkout' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
 	'priority'    => 100,
 ) ) );
 
