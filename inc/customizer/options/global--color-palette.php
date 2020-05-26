@@ -27,7 +27,8 @@ for ( $i = 1; $i <= 8; $i++ ) {
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
-		'label'       => sprintf( esc_html__( 'Color %d', 'suki' ), $i ),
+		/* translators: %s: color number. */
+		'label'       => sprintf( esc_html__( 'Color %s', 'suki' ), $i ),
 		'has_palette' => false,
 		'priority'    => 10,
 	) ) );

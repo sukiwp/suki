@@ -1072,26 +1072,16 @@ p.demo_store a,
 	border-color: currentColor;
 }
 
-.woocommerce a.button.loading,
-.woocommerce button.button.loading,
-.woocommerce input.button.loading,
-.woocommerce #respond input#submit.loading {
-	opacity: 0.25;
-	padding-left: 2.618em;
-}
-
 .woocommerce a.button.loading::after,
 .woocommerce button.button.loading::after,
 .woocommerce input.button.loading::after,
 .woocommerce #respond input#submit.loading::after {
-	font-family: "WooCommerce";
 	content: "\e01c";
-	vertical-align: top;
-	font-weight: 400;
-	position: absolute;
-	top: 50%;
-	margin-top: -0.5em;
-	left: 1em;
+	display: inline-block;
+	position: relative;
+	font-family: "WooCommerce";
+	margin-right: 0.5em;
+	vertical-align: bottom;
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;
 }
@@ -1100,9 +1090,9 @@ p.demo_store a,
 .woocommerce button.button.added::after,
 .woocommerce input.button.added::after,
 .woocommerce #respond input#submit.added::after {
-	font-family: "WooCommerce";
 	content: "\e017";
-	margin-right: 0.53em;
+	font-family: "WooCommerce";
+	margin-right: 0.5em;
 	vertical-align: bottom;
 }
 
@@ -1418,7 +1408,7 @@ p.demo_store a,
 	.woocommerce table.shop_table.shop_table_responsive tbody th {
 		display: none;
 	}
-	.woocommerce table.shop_table.shop_table_responsive tr {
+	.woocommerce table.shop_table.shop_table_responsive tr:not(:last-child) {
 		border-bottom-width: 1px;
 		border-bottom-style: solid;
 	}
