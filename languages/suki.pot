@@ -260,51 +260,51 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: inc/template-tags.php:252
+#: inc/template-tags.php:253
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:575, inc/template-tags.php:579
+#: inc/template-tags.php:576, inc/template-tags.php:580
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:836, inc/customizer/options/page--search.php:31
+#: inc/template-tags.php:837, inc/customizer/options/page--search.php:31
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:880
+#: inc/template-tags.php:881
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:881
+#: inc/template-tags.php:882
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:926
+#: inc/template-tags.php:927
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:928
+#: inc/template-tags.php:929
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:945
+#: inc/template-tags.php:946
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:951
+#: inc/template-tags.php:952
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:978
+#: inc/template-tags.php:979
 msgid "Comments are closed."
 msgstr ""
 
