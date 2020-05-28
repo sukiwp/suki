@@ -1,4 +1,5 @@
 v1.3.0
+- TWEAK: Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
 - FIX: Header shopping cart dropdown toggle when on Cart and Checkout pages.
 
 v1.2.11
