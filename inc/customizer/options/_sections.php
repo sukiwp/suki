@@ -39,9 +39,9 @@ $wp_customize->add_panel( $panel, array(
 	$wp_customize->get_section( 'static_front_page' )->priority = 10;
 
 	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_global_more', array(
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_global_20', array(
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 20,
 	) ) );
 
 	// Color Palette
@@ -49,14 +49,14 @@ $wp_customize->add_panel( $panel, array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
 		'description' => '<p>' . esc_html__( 'Color palette makes it easier and faster to choose colors while designing your website.', 'suki' ) . '</p>',
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 20,
 	) );
 
 	// Breadcrumb
 	$wp_customize->add_section( 'suki_section_breadcrumb', array(
 		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 20,
 	) );
 
 	// Social
@@ -64,21 +64,34 @@ $wp_customize->add_panel( $panel, array(
 		'title'       => esc_html__( 'Social Media Links', 'suki' ),
 		'description' => '<p>' . esc_html__( 'Please use full URL format with the protocol. For example: "https://" or "mailto:".', 'suki' ) . '</p>',
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 20,
 	) );
+
+	// Google Fonts
+	$wp_customize->add_section( 'suki_section_google_fonts', array(
+		'title'       => esc_html__( 'Google Fonts', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 20,
+	) );
+
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_global_30', array(
+		'panel'       => $panel,
+		'priority'    => 30,
+	) ) );
 
 	// Performance
 	$wp_customize->add_section( 'suki_section_performance', array(
 		'title'       => esc_html__( 'Performance', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 30,
 	) );
 
 	// Structured Data
 	$wp_customize->add_section( 'suki_section_schema', array(
 		'title'       => esc_html__( 'Structured Data', 'suki' ),
 		'panel'       => $panel,
-		'priority'    => 10,
+		'priority'    => 30,
 	) );
 
 // General Styles
