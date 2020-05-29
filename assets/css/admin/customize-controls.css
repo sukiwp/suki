@@ -127,31 +127,22 @@ li:not(.customize-info) div.customize-section-description {
 	text-transform: uppercase;
 }
 
-.suki-global-default-badge {
+.suki-tooltip {
 	position: relative;
-	display: inline-block;
-	padding: 3px 5px;
-	border-radius: 2px;
-	font-size: 10px;
-	font-weight: 600;
-	line-height: 1;
-	text-transform: uppercase;
-	white-space: nowrap;
-	vertical-align: 1px;
-	background-color: rgba(0, 0, 0, 0.1);
 	outline: none;
 	cursor: pointer;
 }
 
-.suki-global-default-badge .dashicons {
-	font-size: 1.1em;
+.suki-tooltip .dashicons {
+	display: inline-block;
 	width: auto;
 	height: auto;
-	line-height: 1;
-	vertical-align: -2px;
+	font-size: inherit;
+	line-height: inherit;
+	vertical-align: middle;
 }
 
-.suki-global-default-badge[data-tooltip]:hover:before {
+.suki-tooltip[data-tooltip]:hover:before {
 	content: "";
 	position: absolute;
 	z-index: 99;
@@ -164,7 +155,7 @@ li:not(.customize-info) div.customize-section-description {
 	border-right: 5px solid transparent;
 }
 
-.suki-global-default-badge[data-tooltip]:hover:after {
+.suki-tooltip[data-tooltip]:hover:after {
 	content: attr(data-tooltip);
 	position: absolute;
 	z-index: 99;
@@ -184,6 +175,27 @@ li:not(.customize-info) div.customize-section-description {
 	white-space: normal;
 	background-color: rgba(0, 0, 0, 0.8);
 	color: #fff;
+}
+
+.suki-icon-tooltip .dashicons {
+	opacity: 0.5;
+}
+
+.suki-icon-tooltip:hover .dashicons, .suki-icon-tooltip:focus .dashicons {
+	opacity: 0.8;
+}
+
+.suki-global-default-badge {
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	vertical-align: 1px;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .customize-control-title .suki-responsive-switcher {

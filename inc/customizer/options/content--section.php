@@ -24,7 +24,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page via Dynamic Page Layout settings.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Default', 'suki' ) . '</span>',
+	'label'       => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page via Dynamic Page Layout settings.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 	'choices'     => array(
 		'default'    => array(
 			'label' => esc_html__( 'Normal', 'suki' ),
@@ -51,7 +51,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Sidebar position', 'suki' ) . ' <span class="suki-global-default-badge" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page via Dynamic Page Layout settings.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Default', 'suki' ) . '</span>',
+	'label'       => esc_html__( 'Sidebar position', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page via Dynamic Page Layout settings.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 	'choices'     => array(
 		'right-sidebar' => array(
 			'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),

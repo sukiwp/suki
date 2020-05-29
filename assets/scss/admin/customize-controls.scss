@@ -136,27 +136,18 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-.suki-global-default-badge {
+.suki-tooltip {
 	position: relative;
-	display: inline-block;
-	padding: 3px 5px;
-	border-radius: 2px;
-	font-size: 10px;
-	font-weight: 600;
-	line-height: 1;
-	text-transform: uppercase;
-	white-space: nowrap;
-	vertical-align: 1px;
-	background-color: rgba(0,0,0,0.1);
 	outline: none;
 	cursor: pointer;
 
 	.dashicons {
-		font-size: 1.1em;
+		display: inline-block;
 		width: auto;
 		height: auto;
-		line-height: 1;
-		vertical-align: -2px;
+		font-size: inherit;
+		line-height: inherit;
+		vertical-align: middle;
 	}
 
 	&[data-tooltip]:hover {
@@ -194,6 +185,31 @@ li:not(.customize-info) div.customize-section-description {
 			color: #fff;
 		}
 	}
+}
+
+.suki-icon-tooltip {
+	.dashicons {
+		opacity: 0.5;
+	}
+
+	&:hover, &:focus {
+		.dashicons {
+			opacity: 0.8;
+		}		
+	}
+}
+
+.suki-global-default-badge {
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	vertical-align: 1px;
+	background-color: rgba(0,0,0,0.1);
 }
 
 // -------------------------------------------------------------

@@ -993,7 +993,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:118, inc/customizer/custom-controls/class-suki-customize-control-typography.php:138, inc/customizer/custom-controls/class-suki-customize-control-typography.php:164, inc/customizer/options/blog--archive.php:30, inc/customizer/options/content--section.php:27, inc/customizer/options/content--section.php:54, inc/customizer/options/_sections.php:460, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:38, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:38
+#: inc/customizer/custom-controls/class-suki-customize-control-typography.php:118, inc/customizer/custom-controls/class-suki-customize-control-typography.php:138, inc/customizer/custom-controls/class-suki-customize-control-typography.php:164, inc/customizer/options/blog--archive.php:30, inc/customizer/options/_sections.php:460, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:38, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:38
 msgid "Default"
 msgstr ""
 
@@ -1263,6 +1263,10 @@ msgstr ""
 
 #: inc/customizer/options/content--hero.php:27
 msgid "Enable"
+msgstr ""
+
+#: inc/customizer/options/content--hero.php:27, inc/customizer/options/content--section.php:27, inc/customizer/options/content--section.php:54, inc/customizer/options/_sections.php:22
+msgid "Global"
 msgstr ""
 
 #: inc/customizer/options/content--hero.php:28
@@ -2127,10 +2131,6 @@ msgstr ""
 
 #: inc/customizer/options/_page-settings.php:246
 msgid "Footer bottom"
-msgstr ""
-
-#: inc/customizer/options/_sections.php:22
-msgid "Global"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:50
