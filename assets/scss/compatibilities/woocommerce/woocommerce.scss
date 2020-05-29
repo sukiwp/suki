@@ -73,8 +73,8 @@
 
 p.demo_store,
 .woocommerce-store-notice {
-	position: absolute;
-	top: 0;
+	position: fixed;
+	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: 0;
@@ -96,13 +96,13 @@ p.demo_store,
 		text-decoration: underline;
 	}
 
-	.admin-bar & {
-		top: $adminbar_height_mobile;
+	// .admin-bar & {
+	// 	top: $adminbar_height_mobile;
 
-		@media screen and ( min-width: $breakpoint_wordpress ) {
-			top: $adminbar_height;
-		}
-	}
+	// 	@media screen and ( min-width: $breakpoint_wordpress ) {
+	// 		top: $adminbar_height;
+	// 	}
+	// }
 }
 
 // .screen-reader-text {

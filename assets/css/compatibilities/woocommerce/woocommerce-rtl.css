@@ -30,8 +30,8 @@
 
 p.demo_store,
 .woocommerce-store-notice {
-	position: absolute;
-	top: 0;
+	position: fixed;
+	bottom: 0;
 	right: 0;
 	left: 0;
 	margin: 0;
@@ -50,18 +50,6 @@ p.demo_store a,
 .woocommerce-store-notice a {
 	color: inherit;
 	text-decoration: underline;
-}
-
-.admin-bar p.demo_store, .admin-bar
-.woocommerce-store-notice {
-	top: 46px;
-}
-
-@media screen and (min-width: 783px) {
-	.admin-bar p.demo_store, .admin-bar
-	.woocommerce-store-notice {
-		top: 32px;
-	}
 }
 
 .woocommerce-product-search {
