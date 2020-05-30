@@ -1,4 +1,6 @@
 v1.3.0
+- NEW: Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
+- TWEAK: Update some existing social icons.
 - TWEAK: Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
 - FIX: Header shopping cart dropdown toggle when on Cart and Checkout pages.
 

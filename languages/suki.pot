@@ -218,32 +218,32 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:875
+#: inc/helpers.php:897
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:876
+#: inc/helpers.php:898
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:877
+#: inc/helpers.php:899
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:878
+#: inc/helpers.php:900
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:879
+#: inc/helpers.php:901
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:880
+#: inc/helpers.php:902
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""

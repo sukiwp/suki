@@ -843,23 +843,45 @@ function suki_get_web_safe_fonts() {
 /**
  * Return array of social media types (based on Simple Icons).
  * 
+ * @param boolean $group
  * @return array
  */
-function suki_get_social_media_types() {
+function suki_get_social_media_types( $group = false ) {
 	return apply_filters( 'suki/dataset/social_media_types', array(
+		// Social network
 		'facebook' => 'Facebook',
 		'instagram' => 'Instagram',
-		'google-plus' => 'Google Plus',
+		'google-plus' => 'Google+',
 		'linkedin' => 'LinkedIn',
 		'twitter' => 'Twitter',
 		'pinterest' => 'Pinterest',
 		'vk' => 'VK',
+
+		// Portfolio
 		'behance' => 'Behance',
 		'dribbble' => 'Dribbble',
+
+		// Publishing
 		'medium' => 'Medium',
-		'github' => 'Github',
+		'wordpress' => 'WordPress',
+
+		// Messenger
+		'messenger' => 'Messenger (Facebook Messenger)',
+		'skype' => 'Skype',
+		'slack' => 'Slack',
+		'telegram' => 'Telegram',
+		'whatsapp' => 'WhatsApp',
+
+		// Programming
+		'github' => 'GitHub',
+		'gitlab' => 'GitLab',
+		'bitbucket' => 'Bitbucket',
+
+		// Audio & Video
 		'vimeo' => 'Vimeo',
 		'youtube' => 'Youtube',
+
+		// Others
 		'rss' => 'RSS',
 	) );
 }
