@@ -364,6 +364,8 @@
 		 * Function to init toggle menu.
 		 */
 		initClickToggleDropdownMenu: function() {
+			var $clickedToggle = null;
+
 			/**
 			 * Toggle Handler
 			 */
@@ -399,6 +401,9 @@
 							$searchBar.focus();
 						}, 300 );
 					}
+
+					// Save this toggle for putting back focus when popup is deactivated.
+					$clickedToggle = $this;
 				}
 			}
 			document.addEventListener( 'click', handleSubMenuToggle, false );
