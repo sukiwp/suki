@@ -8,7 +8,8 @@ v1.3.0
 - TWEAK: Social Icons — Add hidden label on each social icon for better accessibility.
 - TWEAK: Google Fonts — Update Google Fonts list.
 - TWEAK: Customizer — Improve Customizer UI & UX.
-- FIX: Header shopping cart dropdown toggle when on Cart and Checkout pages.
+- FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
+- FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
 
 v1.2.11
 - FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.

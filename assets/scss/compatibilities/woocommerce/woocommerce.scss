@@ -2919,6 +2919,10 @@ p.demo_store,
 
 		a {
 			color: inherit;
+
+			&:hover, &:focus {
+				color: $color_accent; // default
+			}
 		}
 	}
 
@@ -2961,11 +2965,6 @@ p.demo_store,
 					display: block;
 					padding: 0.5em 0;
 					text-decoration: none !important;
-					color: $color_text; // default
-
-					&:hover, &:focus {
-						color: $color_accent; // default
-					}
 				}
 			}
 		}

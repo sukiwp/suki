@@ -2164,6 +2164,10 @@ p.demo_store a,
 	color: inherit;
 }
 
+.woocommerce-account .suki-woocommerce-MyAccount-sidebar a:hover, .woocommerce-account .suki-woocommerce-MyAccount-sidebar a:focus {
+	color: #0066cc;
+}
+
 .woocommerce-account .suki-woocommerce-MyAccount-user {
 	display: -ms-flexbox;
 	display: flex;
@@ -2208,11 +2212,6 @@ p.demo_store a,
 	display: block;
 	padding: 0.5em 0;
 	text-decoration: none !important;
-	color: #646e78;
-}
-
-.woocommerce-account .woocommerce-MyAccount-navigation ul li a:hover, .woocommerce-account .woocommerce-MyAccount-navigation ul li a:focus {
-	color: #0066cc;
 }
 
 @media screen and (min-width: 768px) {
