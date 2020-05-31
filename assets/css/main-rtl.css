@@ -3496,6 +3496,15 @@ a.more-link {
 	line-height: 1.5;
 	letter-spacing: 0;
 	text-transform: none;
+	color: #28323c;
+}
+
+.widget-title a {
+	color: #28323c;
+}
+
+.widget-title a:hover, .widget-title a:focus {
+	color: #0066cc;
 }
 
 .widget-title:empty {

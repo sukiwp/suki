@@ -661,6 +661,7 @@ $add['sidebar_widget_title_font_size'] = '';
 $add['sidebar_widget_title_line_height'] = '';
 $add['sidebar_widget_title_letter_spacing'] = '';
 
+$add['sidebar_widget_title_tag'] = 'h2';
 $add['sidebar_widget_title_alignment'] = 'left';
 $add['sidebar_widget_title_decoration'] = 'border-bottom';
 
@@ -714,6 +715,7 @@ $add['footer_widgets_bar_widget_title_font_size'] = '';
 $add['footer_widgets_bar_widget_title_line_height'] = '';
 $add['footer_widgets_bar_widget_title_letter_spacing'] = '';
 
+$add['footer_widgets_bar_widget_title_tag'] = 'h2';
 $add['footer_widgets_bar_widget_title_alignment'] = 'left';
 $add['footer_widgets_bar_widget_title_decoration'] = 'border-bottom';
 

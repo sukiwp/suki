@@ -1,7 +1,13 @@
 v1.3.0
-- NEW: Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
-- TWEAK: Update some existing social icons.
-- TWEAK: Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
+- NEW: Performance - Add new option to disable emoji scripts to improve performance.
+- NEW: Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
+- NEW: Sidebar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
+- NEW: Footer Widgets Bar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
+- TWEAK: Header — Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
+- TWEAK: Social Icons — Update some existing social icons.
+- TWEAK: Social Icons — Add hidden label on each social icon for better accessibility.
+- TWEAK: Google Fonts — Update Google Fonts list.
+- TWEAK: Customizer — Improve Customizer UI & UX.
 - FIX: Header shopping cart dropdown toggle when on Cart and Checkout pages.
 
 v1.2.11

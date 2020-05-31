@@ -308,8 +308,8 @@ class Suki {
 			'id'            => 'sidebar',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<' . suki_get_theme_mod( 'sidebar_widget_title_tag', 'h2' ) . ' class="widget-title">',
+			'after_title'   => '</' . suki_get_theme_mod( 'sidebar_widget_title_tag', 'h2' ) . '>',
 		) );
 
 		for ( $i = 1; $i <= 6; $i++ ) {
@@ -319,8 +319,8 @@ class Suki {
 				'id'            => 'footer-widgets-' . $i,
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_tag', 'h2' ) . ' class="widget-title">',
+				'after_title'   => '</' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_tag', 'h2' ) . '>',
 			) );
 		}
 	}

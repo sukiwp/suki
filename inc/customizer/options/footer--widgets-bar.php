@@ -151,8 +151,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 20,
 ) ) );
 
-
-
 // Text typography
 $settings = array(
 	'font_family'    => 'footer_widgets_bar_font_family',
@@ -216,6 +214,25 @@ $wp_customize->add_control( new Suki_Customize_Control_Typography( $wp_customize
 	'label'       => esc_html__( 'Widget title typography', 'suki' ),
 	'priority'    => 20,
 ) ) );
+
+// Widget title tag
+$key = 'footer_widgets_bar_widget_title_tag';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Widget title tag', 'suki' ),
+	'choices'     => array(
+		'h2'  => 'h2',
+		'h3'  => 'h3',
+		'h4'  => 'h4',
+		'div' => 'div',
+	),
+	'priority'    => 20,
+) );
 
 // Widget title alignment
 $key = 'footer_widgets_bar_widget_title_alignment';
