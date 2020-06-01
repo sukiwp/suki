@@ -20,6 +20,24 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 	) ) );
 }
 
+// Cart amount
+$key = 'header_cart_amount';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Cart amount', 'suki' ),
+	'choices'     => array(
+		''       => esc_html__( 'Hidden', 'suki' ),
+		'before' => esc_html__( 'Before icon', 'suki' ),
+		'after'  => esc_html__( 'After icon', 'suki' ),
+	),
+	'priority'    => 10,
+) );
+
 /**
  * ====================================================
  * Colors

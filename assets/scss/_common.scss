@@ -224,10 +224,6 @@ button.suki-toggle {
 	}
 }
 
-.suki-menu-icon {
-	font-size: 18px; // default
-}
-
 .menu, .sub-menu {
 	list-style: none;
 	margin: 0;
@@ -260,4 +256,9 @@ button.suki-toggle {
 			fill: currentColor;
 		}
 	}
+}
+
+.suki-menu-icon {
+	font-size: 18px; // default
+	vertical-align: -0.1em;
 }

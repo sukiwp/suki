@@ -946,10 +946,6 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	color: #28323c;
 }
 
-.suki-menu-icon {
-	font-size: 18px;
-}
-
 .menu, .sub-menu {
 	list-style: none;
 	margin: 0;
@@ -982,6 +978,11 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 
 .suki-icon svg:not([fill]) {
 	fill: currentColor;
+}
+
+.suki-menu-icon {
+	font-size: 18px;
+	vertical-align: -0.1em;
 }
 
 [id="wpadminbar"] {
@@ -1863,14 +1864,29 @@ body.error404 .error-404-home-button {
 	margin: 0;
 }
 
+.suki-header-shopping-cart .shopping-cart-amount {
+	margin: 0 0.5em;
+}
+
+.suki-header-shopping-cart .shopping-cart-amount:nth-child(2) {
+	margin-left: 0;
+}
+
+.suki-header-shopping-cart .shopping-cart-amount:last-child {
+	margin-right: 0;
+}
+
+.suki-header-shopping-cart .shopping-cart-icon {
+	position: relative;
+}
+
 .suki-header-shopping-cart .shopping-cart-count {
 	width: 2em;
 	height: 2em;
 	position: absolute;
-	left: 100%;
 	z-index: 1;
 	display: inline-block;
-	margin: -0.8em 0 0 -0.8em;
+	margin: -0.6em 0 0 -1.2em;
 	border-radius: 50%;
 	font-size: 0.6em;
 	text-align: center;

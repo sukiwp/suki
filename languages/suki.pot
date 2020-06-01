@@ -359,7 +359,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-parts/header-element-shopping-cart-dropdown.php:48, template-parts/header-element-shopping-cart-link.php:31, inc/customizer/options/_sections.php:290
+#: template-parts/header-element-shopping-cart-dropdown.php:45, template-parts/header-element-shopping-cart-link.php:28, inc/customizer/options/_sections.php:290
 msgid "Shopping Cart"
 msgstr ""
 
@@ -1852,11 +1852,27 @@ msgstr ""
 msgid "Only available if WooCommerce plugin is installed and activated."
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:31
+#: inc/customizer/options/header--cart.php:32
+msgid "Cart amount"
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:34
+msgid "Hidden"
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:35
+msgid "Before icon"
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:36
+msgid "After icon"
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:49
 msgid "Cart count BG color"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:32
+#: inc/customizer/options/header--cart.php:50
 msgid "Cart count text color"
 msgstr ""
 
