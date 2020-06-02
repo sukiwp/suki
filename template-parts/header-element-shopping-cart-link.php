@@ -21,15 +21,32 @@ $cart = WC()->cart;
 if ( empty( $cart ) ) {
 	return;
 }
+
+// Amount
+$amount_position = suki_get_theme_mod( 'header_cart_amount', '' );
+$amount_html = '';
+if ( '' !== $amount_position ) {
+	$classes = array();
+	$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'header_cart_amount_visibility' ) );
+	foreach( $hide_devices as $device ) {
+		$classes[] = esc_attr( 'suki-hide-on-' . $device );
+	}
+
+	ob_start();
+	?>
+	<span class="shopping-cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+	<?php
+	$amount_html = ob_get_clean();
+}
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-shopping-cart menu">
 	<div class="menu-item">
 		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link suki-menu-item-link">
 			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 
-			<?php if ( 'before' === suki_get_theme_mod( 'header_cart_amount' ) ) : ?>
-				<span class="shopping-cart-amount"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-			<?php endif; ?>
+			<?php if ( 'before' === $amount_position ) {
+				echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} ?>
 
 			<span class="shopping-cart-icon">
 				<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
@@ -37,9 +54,9 @@ if ( empty( $cart ) ) {
 
 			<span class="shopping-cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 
-			<?php if ( 'after' === suki_get_theme_mod( 'header_cart_amount' ) ) : ?>
-				<span class="shopping-cart-amount"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-			<?php endif; ?>
+			<?php if ( 'after' === $amount_position ) {
+				echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} ?>
 		</a>
 	</div>
 </div>

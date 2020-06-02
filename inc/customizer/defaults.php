@@ -300,6 +300,8 @@ $add['header_search_dropdown_width'] = '300px';
  * ====================================================
  */
 
+$add['header_cart_amount_visibility'] = array( 'desktop', 'tablet', 'mobile' );
+
 $add['header_cart_count_bg_color'] = '';
 $add['header_cart_count_text_color'] = $colors['white'];
 

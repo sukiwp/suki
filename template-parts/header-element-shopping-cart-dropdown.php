@@ -22,17 +22,34 @@ if ( empty( $cart ) ) {
 	return;
 }
 
+// Dropdown
 ob_start();
 the_widget( 'WC_Widget_Cart', array(
 	'title'         => '',
 	'hide_if_empty' => false,
 ) );
-$widget = ob_get_clean();
-
-if ( ! empty( $widget ) ) {
+$dropdown_html = ob_get_clean();
+if ( ! empty( $dropdown_html ) ) {
 	$is_dropdown = true;
 } else {
 	$is_dropdown = false;
+}
+
+// Amount
+$amount_position = suki_get_theme_mod( 'header_cart_amount', '' );
+$amount_html = '';
+if ( '' !== $amount_position ) {
+	$classes = array();
+	$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'header_cart_amount_visibility' ) );
+	foreach( $hide_devices as $device ) {
+		$classes[] = esc_attr( 'suki-hide-on-' . $device );
+	}
+
+	ob_start();
+	?>
+	<span class="shopping-cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+	<?php
+	$amount_html = ob_get_clean();
 }
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-shopping-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
@@ -44,9 +61,9 @@ if ( ! empty( $widget ) ) {
 		<?php endif; ?>
 				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 
-				<?php if ( 'before' === suki_get_theme_mod( 'header_cart_amount' ) ) : ?>
-					<span class="shopping-cart-amount"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-				<?php endif; ?>
+				<?php if ( 'before' === $amount_position ) {
+					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} ?>
 
 				<span class="shopping-cart-icon">
 					<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
@@ -54,9 +71,9 @@ if ( ! empty( $widget ) ) {
 				
 				<span class="shopping-cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 
-				<?php if ( 'after' === suki_get_theme_mod( 'header_cart_amount' ) ) : ?>
-					<span class="shopping-cart-amount"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-				<?php endif; ?>
+				<?php if ( 'after' === $amount_position ) {
+					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} ?>
 		<?php if ( $is_dropdown ) : ?>
 			</button>
 		<?php else: ?>
@@ -64,7 +81,7 @@ if ( ! empty( $widget ) ) {
 		<?php endif; ?>
 
 		<?php if ( $is_dropdown ) : ?>
-			<div class="sub-menu"><?php echo $widget; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<div class="sub-menu"><?php echo $dropdown_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 		<?php endif; ?>
 	</div>
 </div>
