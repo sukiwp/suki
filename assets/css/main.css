@@ -1603,7 +1603,7 @@ body.suki-page-layout-boxed #page {
 	bottom: 0;
 	left: 0;
 	opacity: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.25);
 	color: #ffffff;
 }
 
@@ -1865,7 +1865,7 @@ body.error404 .error-404-home-button {
 }
 
 .suki-header-shopping-cart .shopping-cart-amount {
-	margin: 0 0.5em;
+	margin: 0 0.25em 0 0.5em;
 }
 
 .suki-header-shopping-cart .shopping-cart-amount:nth-child(2) {
@@ -1912,7 +1912,7 @@ body.error404 .error-404-home-button {
 
 .suki-header-shopping-cart .sub-menu {
 	white-space: normal;
-	width: 20rem !important;
+	width: 20em;
 }
 
 .suki-header-social li.menu-item {

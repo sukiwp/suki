@@ -87,7 +87,7 @@
 	}
 
 	.shopping-cart-amount {
-		margin: 0 0.5em;
+		margin: 0 0.25em 0 0.5em;
 
 		&:nth-child(2) {
 			margin-left: 0;
@@ -132,7 +132,7 @@
 
 	.sub-menu {
 		white-space: normal;
-		width: 20rem !important;
+		width: 20em;
 	}
 }
 

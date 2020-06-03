@@ -1826,17 +1826,12 @@ p.demo_store a,
 }
 
 .woocommerce.widget_shopping_cart .buttons {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	margin: 0.5em -5px 0;
+	margin: 1em 0 0;
 }
 
 .woocommerce.widget_shopping_cart .buttons a {
-	-ms-flex: 1;
-	flex: 1;
-	margin: 0.5em 5px 0;
+	display: block;
+	margin: 0.5em 0 0;
 }
 
 .woocommerce.widget_shopping_cart .woocommerce-mini-cart__empty-message {

@@ -64,7 +64,7 @@ body.suki-page-layout-boxed {
 	bottom: 0;
 	left: 0;
 	opacity: 0;
-	background-color: transparentize( $color_black, 0.5 );
+	background-color: transparentize( $color_black, 0.75 );
 	color: $color_bg; // default
 
 	.suki-popup-active & {
