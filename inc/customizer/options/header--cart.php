@@ -24,6 +24,7 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 $key = 'header_cart_amount';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
 $wp_customize->add_control( $key, array(
@@ -42,6 +43,7 @@ $wp_customize->add_control( $key, array(
 $key = 'header_cart_amount_visibility';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_MultiCheck( $wp_customize, $key, array(
@@ -54,6 +56,35 @@ $wp_customize->add_control( new Suki_Customize_Control_MultiCheck( $wp_customize
 	),
 	'priority'    => 10,
 ) ) );
+
+// Selective Refresh
+if ( isset( $wp_customize->selective_refresh ) ) {
+	$wp_customize->selective_refresh->add_partial( 'header_cart_link', array(
+		'settings'            => array(
+			'header_cart_amount',
+			'header_cart_amount_visibility',
+		),
+		'selector'            => '.suki-header-shopping-cart-link',
+		'container_inclusive' => true,
+		'render_callback'     => function() {
+			suki_header_element( 'shopping-cart-link' );
+		},
+		'fallback_refresh'    => false,
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'header_cart_dropdown', array(
+		'settings'            => array(
+			'header_cart_amount',
+			'header_cart_amount_visibility',
+		),
+		'selector'            => '.suki-header-shopping-cart-dropdown',
+		'container_inclusive' => true,
+		'render_callback'     => function() {
+			suki_header_element( 'shopping-cart-link-dropdown' );
+		},
+		'fallback_refresh'    => false,
+	) );
+}
 
 /**
  * ====================================================
@@ -78,9 +109,3 @@ foreach ( $colors as $key => $label ) {
 		'priority'    => 20,
 	) ) );
 }
-
-/**
- * ====================================================
- * Dropdown
- * ====================================================
- */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Social links template.
+ * Header social links template.
  *
  * Passed variables:
  *

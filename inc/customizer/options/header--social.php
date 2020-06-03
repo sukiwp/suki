@@ -48,7 +48,9 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $key, array(
 		'selector'            => '.suki-header-social',
 		'container_inclusive' => true,
-		'render_callback'     => 'suki_header_element__social',
+		'render_callback'     => function() {
+			suki_header_element( 'social' );
+		},
 		'fallback_refresh'    => false,
 	) );
 }

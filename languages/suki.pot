@@ -359,7 +359,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-parts/header-element-shopping-cart-dropdown.php:62, template-parts/header-element-shopping-cart-link.php:45, inc/customizer/options/_sections.php:290
+#: template-parts/header-element-shopping-cart-dropdown.php:63, template-parts/header-element-shopping-cart-link.php:45, inc/customizer/options/_sections.php:290
 msgid "Shopping Cart"
 msgstr ""
 
@@ -1493,19 +1493,19 @@ msgstr ""
 msgid "Enable \"Scroll to Top\" button"
 msgstr ""
 
-#: inc/customizer/options/footer--scroll-to-top.php:46, inc/customizer/options/header--cart.php:49
+#: inc/customizer/options/footer--scroll-to-top.php:46, inc/customizer/options/header--cart.php:51
 msgid "Visibility"
 msgstr ""
 
-#: inc/customizer/options/footer--scroll-to-top.php:48, inc/customizer/options/header--builder.php:23, inc/customizer/options/header--cart.php:51, inc/customizer/options/_sections.php:190
+#: inc/customizer/options/footer--scroll-to-top.php:48, inc/customizer/options/header--builder.php:23, inc/customizer/options/header--cart.php:53, inc/customizer/options/_sections.php:190
 msgid "Desktop"
 msgstr ""
 
-#: inc/customizer/options/footer--scroll-to-top.php:49, inc/customizer/options/header--cart.php:52
+#: inc/customizer/options/footer--scroll-to-top.php:49, inc/customizer/options/header--cart.php:54
 msgid "Tablet"
 msgstr ""
 
-#: inc/customizer/options/footer--scroll-to-top.php:50, inc/customizer/options/header--cart.php:53
+#: inc/customizer/options/footer--scroll-to-top.php:50, inc/customizer/options/header--cart.php:55
 msgid "Mobile"
 msgstr ""
 
@@ -1563,15 +1563,15 @@ msgstr ""
 msgid "Active links"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:66, inc/customizer/options/header--social.php:66
+#: inc/customizer/options/footer--social.php:68, inc/customizer/options/header--social.php:68
 msgid "Open links in"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:68, inc/customizer/options/header--social.php:68
+#: inc/customizer/options/footer--social.php:70, inc/customizer/options/header--social.php:70
 msgid "Same tab"
 msgstr ""
 
-#: inc/customizer/options/footer--social.php:69, inc/customizer/options/header--social.php:69
+#: inc/customizer/options/footer--social.php:71, inc/customizer/options/header--social.php:71
 msgid "New tab"
 msgstr ""
 
@@ -1732,7 +1732,7 @@ msgstr ""
 msgid "If you don't use Emoji in your website at all, you can disable the default emoji scripts to improve the performance."
 msgstr ""
 
-#: inc/customizer/options/global--social.php:46, inc/customizer/options/header--html.php:68, inc/customizer/options/header--menu.php:59, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:379, inc/customizer/options/_sections.php:14, inc/customizer/options/_sections.php:305, inc/customizer/options/_sections.php:421, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:111, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:70
+#: inc/customizer/options/global--social.php:46, inc/customizer/options/header--html.php:70, inc/customizer/options/header--menu.php:59, inc/customizer/options/header--search.php:89, inc/customizer/options/page-settings.php:379, inc/customizer/options/_sections.php:14, inc/customizer/options/_sections.php:305, inc/customizer/options/_sections.php:421, inc/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:111, inc/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:70
 msgctxt "Suki Pro upsell"
 msgid "More Options Available in Suki Pro"
 msgstr ""
@@ -1852,27 +1852,27 @@ msgstr ""
 msgid "Only available if WooCommerce plugin is installed and activated."
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:32
+#: inc/customizer/options/header--cart.php:33
 msgid "Cart amount"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:34
+#: inc/customizer/options/header--cart.php:35
 msgid "Hidden"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:35
+#: inc/customizer/options/header--cart.php:36
 msgid "Before icon"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:36
+#: inc/customizer/options/header--cart.php:37
 msgid "After icon"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:66
+#: inc/customizer/options/header--cart.php:97
 msgid "Cart count BG color"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:67
+#: inc/customizer/options/header--cart.php:98
 msgid "Cart count text color"
 msgstr ""
 
@@ -1881,7 +1881,7 @@ msgid "Plain text, HTML tags, and shortcode are allowed."
 msgstr ""
 
 #. translators: %s: HTML element number.
-#: inc/customizer/options/header--html.php:61
+#: inc/customizer/options/header--html.php:63
 msgctxt "Suki Pro upsell"
 msgid "HTML %s"
 msgstr ""

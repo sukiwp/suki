@@ -980,26 +980,3 @@ function suki_comments_closed() {
 	<?php endif;
 }
 endif;
-
-/**
- * ====================================================
- * Customizer's partial refresh callback aliases
- * ====================================================
- */
-
-function suki_header_element__html_1() {
-	suki_header_element( 'html-1' );
-}
-function suki_header_element__social() {
-	suki_header_element( 'social' );
-}
-
-function suki_footer_element__logo() {
-	suki_footer_element( 'logo' );
-}
-function suki_footer_element__copyright() {
-	suki_footer_element( 'copyright' );
-}
-function suki_footer_element__social() {
-	suki_footer_element( 'social' );
-}

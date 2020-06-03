@@ -48,7 +48,9 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( 'footer_social_links', array(
 		'selector'            => '.suki-footer-social',
 		'container_inclusive' => true,
-		'render_callback'     => 'suki_footer_element__social',
+		'render_callback'     => function() {
+			suki_footer_element( 'social' );
+		},
 		'fallback_refresh'    => false,
 	) );
 }

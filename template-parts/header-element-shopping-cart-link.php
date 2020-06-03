@@ -1,6 +1,6 @@
 <?php
 /**
- * Header search dropdown template.
+ * Header shopping cart link template.
  *
  * Passed variables:
  *

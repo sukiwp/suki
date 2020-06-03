@@ -44,7 +44,9 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( $key, array(
 		'selector'            => '.suki-footer-copyright',
 		'container_inclusive' => true,
-		'render_callback'     => 'suki_footer_element__copyright',
+		'render_callback'     => function() {
+			suki_footer_element( 'copyright' );
+		},
 		'fallback_refresh'    => false,
 	) );
 }

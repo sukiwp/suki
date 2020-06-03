@@ -1,6 +1,6 @@
 <?php
 /**
- * Header search dropdown template.
+ * Header shopping cart dropdown template.
  *
  * Passed variables:
  *
@@ -59,6 +59,7 @@ if ( '' !== $amount_position ) {
 		<?php else: ?>
 			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link suki-menu-item-link">
 		<?php endif; ?>
+
 				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 
 				<?php if ( 'before' === $amount_position ) {
@@ -74,6 +75,7 @@ if ( '' !== $amount_position ) {
 				<?php if ( 'after' === $amount_position ) {
 					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				} ?>
+
 		<?php if ( $is_dropdown ) : ?>
 			</button>
 		<?php else: ?>
