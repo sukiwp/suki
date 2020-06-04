@@ -119,10 +119,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'mobile-vertical-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
 	),
 	'labels'      => array(
-		'mobile_main_left'    => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'mobile_main_center'  => esc_html__( 'Center', 'suki' ),
-		'mobile_main_right'   => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-		'mobile_vertical_top' => esc_html__( 'Drawer (Popup)', 'suki' ),
+		'mobile_main_left'    => is_rtl() ? esc_html__( 'Mobile - Right', 'suki' ) : esc_html__( 'Mobile - Left', 'suki' ),
+		'mobile_main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
+		'mobile_main_right'   => is_rtl() ? esc_html__( 'Mobile - Left', 'suki' ) : esc_html__( 'Mobile - Right', 'suki' ),
+		'mobile_vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
 	),
 	'limitations' => array(
 		'mobile-logo'            => array( 'mobile_vertical_top' ),

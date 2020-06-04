@@ -147,13 +147,6 @@
 	}
 }
 
-// Mobile drawer toggle
-.suki-header-mobile-vertical-toggle {
-	.suki-popup-toggle-active {
-		opacity: 0;
-	}
-}
-
 // -------------------------------------------------------------
 // Header Horizontal
 // -------------------------------------------------------------
@@ -445,6 +438,12 @@
 // -------------------------------------------------------------
 
 .suki-header-section-vertical {
+	display: flex;
+	flex-direction: column;
+	// width: 100%;
+	height: 100%;
+	overflow-y: auto;
+
 	a:not(.button), .suki-toggle {
 		color: $color_heading; // default
 
@@ -460,23 +459,12 @@
 			}
 		}
 	}
-}
 
-.suki-header-section-vertical {
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
-}
-
-.suki-header-section-vertical-inner {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-	overflow-y: auto;
-	background-color: $color_bg; // default
 }
 
 .suki-header-section-vertical-column {
@@ -630,7 +618,9 @@
 	bottom: 0;
 	max-width: calc(100% - 4rem);
 	width: 300px; // default
+	padding: 30px; // default
 	overflow-y: auto;
+	background-color: $color_bg; // default
 	@include transition( transform );
 
 	.suki-header-mobile-vertical-position-left &,
@@ -647,10 +637,6 @@
 	.suki-popup-active & {
 		transform: translate( 0, 0 ) !important;
 		@include transition( transform 0.25s 0.125s );
-	}
-
-	&-inner {
-		padding: 30px; // default
 	}
 
 	.suki-header-section-vertical-column {

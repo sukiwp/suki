@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Header > Mobile Drawer (Popup)
+ * Customizer settings: Header > Mobile Popup
  *
  * @package Suki
  **/
@@ -27,7 +27,7 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
-		'drawer'      => esc_html__( 'Drawer (slide in popup)', 'suki' ),
+		'drawer'      => esc_html__( 'Drawer', 'suki' ),
 		'full-screen' => esc_html__( 'Full screen', 'suki' ),
 	),
 	'priority'    => 10,

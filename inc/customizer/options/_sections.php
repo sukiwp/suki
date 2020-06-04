@@ -245,7 +245,8 @@ $wp_customize->add_panel( $panel, array(
 
 	// Mobile Drawer
 	$wp_customize->add_section( 'suki_section_header_mobile_vertical_bar', array(
-		'title'       => esc_html__( 'Mobile Drawer (Popup)', 'suki' ),
+		'title'       => esc_html__( 'Mobile Popup', 'suki' ),
+		'description' => esc_html__( 'This would appear when the "Toggle" element is clicked. Please make sure you have added the "Toggle" element into the Mobile Main Bar.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );

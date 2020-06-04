@@ -927,6 +927,10 @@
 							} else {
 								container.hide();
 								container.addClass( 'suki-context-hidden' );
+
+								if ( 'section' === elementType && elementObj.expanded() ) {
+									elementObj.collapse();
+								}
 							}
 						}
 

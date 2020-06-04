@@ -77,7 +77,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 /**
  * ====================================================
  * Header > Mobile Main Bar
- * Header > Mobile Drawer (Popup)
+ * Header > Mobile Popup
  * ====================================================
  */
 

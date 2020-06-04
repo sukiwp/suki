@@ -1152,7 +1152,7 @@ $add['header_mobile_main_bar_link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Header > Mobile Drawer (Popup)
+ * Header > Mobile Popup
  * ====================================================
  */
 
@@ -1186,7 +1186,7 @@ $add['header_mobile_vertical_bar_width'] = array(
 $add['header_mobile_vertical_bar_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar-inner',
+		'element'  => '.suki-header-mobile-vertical-bar',
 		'property' => 'padding',
 	),
 );
@@ -1247,7 +1247,7 @@ $add['header_mobile_vertical_bar_icon_size'] = array(
 $add['header_mobile_vertical_bar_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-vertical-bar-inner',
+		'element'  => '.suki-header-mobile-vertical-bar',
 		'property' => 'background-color',
 	),
 );
