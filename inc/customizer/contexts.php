@@ -92,6 +92,20 @@ $add['suki_section_header_mobile_vertical_bar'] = array(
 
 /**
  * ====================================================
+ * Header > Shopping Cart
+ * ====================================================
+ */
+
+$add['header_cart_amount_visibility'] = array(
+	array(
+		'setting'  => 'header_cart_amount',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
+
+/**
+ * ====================================================
  * Header > Header Builder
  * ====================================================
  */

@@ -39,7 +39,7 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 10,
 ) );
 
-// Visibility
+// Cart amount visibility
 $key = 'header_cart_amount_visibility';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -48,12 +48,19 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_MultiCheck( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Visibility', 'suki' ),
+	'label'       => esc_html__( 'Cart amount visibility', 'suki' ),
 	'choices'     => array(
 		'desktop' => esc_html__( 'Desktop', 'suki' ),
 		'tablet'  => esc_html__( 'Tablet', 'suki' ),
 		'mobile'  => esc_html__( 'Mobile', 'suki' ),
 	),
+	'priority'    => 10,
+) ) );
+
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_header_cart_count', array(
+	'section'     => $section,
+	'settings'    => array(),
 	'priority'    => 10,
 ) ) );
 

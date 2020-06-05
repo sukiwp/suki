@@ -1497,7 +1497,7 @@ msgstr ""
 msgid "Enable \"Scroll to Top\" button"
 msgstr ""
 
-#: inc/customizer/options/footer--scroll-to-top.php:46, inc/customizer/options/header--cart.php:51
+#: inc/customizer/options/footer--scroll-to-top.php:46
 msgid "Visibility"
 msgstr ""
 
@@ -1884,11 +1884,15 @@ msgstr ""
 msgid "After icon"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:97
+#: inc/customizer/options/header--cart.php:51
+msgid "Cart amount visibility"
+msgstr ""
+
+#: inc/customizer/options/header--cart.php:104
 msgid "Cart count BG color"
 msgstr ""
 
-#: inc/customizer/options/header--cart.php:98
+#: inc/customizer/options/header--cart.php:105
 msgid "Cart count text color"
 msgstr ""
 
