@@ -851,7 +851,7 @@ function suki_get_social_media_types( $group = false ) {
 		// Social network
 		'facebook' => 'Facebook',
 		'instagram' => 'Instagram',
-		'google-plus' => 'Google+',
+		// 'google-plus' => 'Google+',
 		'linkedin' => 'LinkedIn',
 		'twitter' => 'Twitter',
 		'pinterest' => 'Pinterest',

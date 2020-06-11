@@ -9,6 +9,7 @@ v1.3.0
 - TWEAK: Header Builder — Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
 - TWEAK: Social Icons — Update some existing social icons.
 - TWEAK: Social Icons — Add hidden label on each social icon for better accessibility.
+- TWEAK: Social Icons — Remove Google+.
 - TWEAK: Google Fonts — Update Google Fonts list.
 - TWEAK: WooCommerce — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
 - TWEAK: Customizer — Improve Customizer UI & UX.
