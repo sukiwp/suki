@@ -866,7 +866,7 @@ function suki_get_social_media_types( $group = false ) {
 		'wordpress' => 'WordPress',
 
 		// Messenger
-		'messenger' => 'Messenger (Facebook Messenger)',
+		'messenger' => 'Messenger',
 		'skype' => 'Skype',
 		'slack' => 'Slack',
 		'telegram' => 'Telegram',

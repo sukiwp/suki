@@ -28,7 +28,7 @@ foreach ( $links as $slug => $label ) {
 	) );
 	$wp_customize->add_control( $key, array(
 		'section'     => $section,
-		'label'       => $label,
+		'description' => suki_icon( $slug, array(), false ) . $label,
 		'priority'    => 10,
 	) );
 }

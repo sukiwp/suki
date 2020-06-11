@@ -43,6 +43,34 @@ $wp_color_primary: #007cba;
 	}
 }
 
+.suki-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1;
+	text-align: center;
+	vertical-align: middle;
+	
+	svg {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		vertical-align: top;
+
+		&:not([stroke-width]) {
+			stroke-width: 0;
+		}
+
+		&:not([stroke]) {
+			stroke: currentColor;
+		}
+
+		&:not([fill]) {
+			fill: currentColor;
+		}
+	}
+}
+
 #customize-theme-controls,
 #customize-outer-theme-controls {
 	.accordion-section-title {
@@ -1577,6 +1605,24 @@ li:not(.customize-info) div.customize-section-description {
 
 			li {
 				width: 50%;
+			}
+		}
+	}
+}
+
+#sub-accordion-section-suki_section_social {
+	.customize-control-text {
+		.customize-control-description {
+			font-size: 14px;
+			line-height: 1.75;
+			font-weight: 600;
+			font-style: normal;
+
+			.suki-icon {
+				width: 1.2em;
+				height: 1.2em;
+				vertical-align: 2px;
+				margin-right: 0.75em;
 			}
 		}
 	}

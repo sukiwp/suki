@@ -33,6 +33,34 @@
 	vertical-align: middle;
 }
 
+.suki-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.suki-icon svg {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+.suki-icon svg:not([stroke-width]) {
+	stroke-width: 0;
+}
+
+.suki-icon svg:not([stroke]) {
+	stroke: currentColor;
+}
+
+.suki-icon svg:not([fill]) {
+	fill: currentColor;
+}
+
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
 	border-top: 1px solid #ddd;
@@ -1468,6 +1496,20 @@ li:not(.customize-info) div.customize-section-description {
 	#customize-control-google_fonts_subsets ul li {
 		width: 50%;
 	}
+}
+
+#sub-accordion-section-suki_section_social .customize-control-text .customize-control-description {
+	font-size: 14px;
+	line-height: 1.75;
+	font-weight: 600;
+	font-style: normal;
+}
+
+#sub-accordion-section-suki_section_social .customize-control-text .customize-control-description .suki-icon {
+	width: 1.2em;
+	height: 1.2em;
+	vertical-align: 2px;
+	margin-left: 0.75em;
 }
 
 [id^="customize-control-page_settings_"].customize-control-select .customize-control-title,
