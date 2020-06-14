@@ -789,6 +789,12 @@ class Suki_Admin {
 				'newtab' => true,
 			),
 			array(
+				'label'  => esc_html__( 'Translation', 'suki' ),
+				'url'    => 'https://translate.sukiwp.com/',
+				'icon'   => 'dashicons-admin-site-alt2',
+				'newtab' => true,
+			),
+			array(
 				'label'  => esc_html__( 'Users Community Group', 'suki' ),
 				'url'    => 'https://www.facebook.com/groups/sukiwp/',
 				'icon'   => 'dashicons-groups',

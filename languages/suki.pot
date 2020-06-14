@@ -616,34 +616,38 @@ msgid "Documentation"
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:792
-msgid "Users Community Group"
+msgid "Translation"
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:798
-msgid "Follow Us on Facebook"
+msgid "Users Community Group"
 msgstr ""
 
 #: inc/admin/class-suki-admin.php:804
+msgid "Follow Us on Facebook"
+msgstr ""
+
+#: inc/admin/class-suki-admin.php:810
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:812
+#: inc/admin/class-suki-admin.php:818
 msgid "Other Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:833
+#: inc/admin/class-suki-admin.php:839
 msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:836
+#: inc/admin/class-suki-admin.php:842
 msgid "Kickstart your website with our pre-made demo websites in 3 steps: Import. Modify. Launch!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:839
+#: inc/admin/class-suki-admin.php:845
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:841
+#: inc/admin/class-suki-admin.php:847
 msgid "Install & Activate Plugin"
 msgstr ""
 
