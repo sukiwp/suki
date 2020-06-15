@@ -39,6 +39,9 @@ class Suki_Compatibility_Elementor_Pro {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		// Compatibility CSS
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_compatibility_css' ), 20 );
+
 		// Add support for Theme Builder.
 		add_action( 'elementor/theme/register_locations', array( $this, 'register_elementor_locations' ) );
 	}
@@ -48,6 +51,15 @@ class Suki_Compatibility_Elementor_Pro {
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**	
+	 * Add compatibility CSS.
+	 */	
+	public function add_compatibility_css() {
+		$css = "\n/* Elementor Pro Compatibility CSS */\n" . suki_minify_css_string( '.elementor .elementor-wc-products .woocommerce ul.products li.product { width: auto; }' );
+
+		wp_add_inline_style( 'suki', trim( $css ) );
+	}
 
 	/**
 	 * Register all template locations for Elementor Pro's Theme Builder.

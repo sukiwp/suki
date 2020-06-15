@@ -11,11 +11,13 @@ v1.3.0
 - TWEAK: Social Icons — Add hidden label on each social icon for better accessibility.
 - TWEAK: Social Icons — Remove Google+.
 - TWEAK: Google Fonts — Update Google Fonts list.
-- TWEAK: WooCommerce — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
+- TWEAK: WooCommerce compatibility — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
+- TWEAK: Elementor compatibility — Move compatibility CSS to standalone inline CSS. 
 - TWEAK: Customizer — Improve Customizer UI & UX.
 - TWEAK: Theme Dashboard — Improve theme dashboard layout for better compatibility with Suki Pro's White Label module. Now user won't see "pro" badges and links to our website on the modules manager.
 - FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
+- FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
 
 v1.2.11
 - FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.

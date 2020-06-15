@@ -40,7 +40,7 @@ class Suki_Compatibility_Elementor {
 	 */
 	protected function __construct() {
 		// Compatibility CSS
-		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_compatibility_css' ), 20 );
 
 		// Disable page settings on Elementor Template post type.
 		add_filter( 'suki/admin/metabox/page_settings/ignored_post_types', array( $this, 'disable_page_settings_on_elementor_template' ) );
@@ -70,14 +70,11 @@ class Suki_Compatibility_Elementor {
 
 	/**	
 	 * Add compatibility CSS.
-	 *
-	 * @param string $inline_css	
-	 * @return string
 	 */	
-	public function add_compatibility_css( $inline_css ) {
-		$inline_css .= "\n/* Elementor Compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' );
+	public function add_compatibility_css() {
+		$css = "\n/* Elementor Compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' );
 
- 		return $inline_css;
+		wp_add_inline_style( 'suki', trim( $css ) );
 	}
 
 	/**
