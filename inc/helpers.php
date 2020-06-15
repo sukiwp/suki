@@ -597,7 +597,7 @@ function suki_get_theme_modules() {
 		),
 
 		'blog' => array(
-			'label'    => esc_html__( 'Blog Layout', 'suki' ),
+			'label'    => esc_html__( 'Blog Layout Basic', 'suki' ),
 			'category' => 'blog',
 			'actions'  => array(
 				'settings' => array(
@@ -608,7 +608,7 @@ function suki_get_theme_modules() {
 		),
 
 		'woocommerce' => array(
-			'label'    => esc_html__( 'WC Layout', 'suki' ),
+			'label'    => esc_html__( 'WC Layout Basic', 'suki' ),
 			'category' => 'woocommerce',
 			'actions'  => array(
 				'settings' => array(
@@ -632,105 +632,85 @@ function suki_get_pro_modules() {
 		'header-elements-plus' => array(
 			'label'    => esc_html__( 'Header Elements Plus', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-header-elements-plus' ),
 		),
 		'header-vertical' => array(
 			'label'    => esc_html__( 'Vertical Header', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-header-vertical' ),
 		),
 		'header-transparent' => array(
 			'label'    => esc_html__( 'Transparent Header', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-header-transparent' ),
 		),
 		'header-sticky' => array(
 			'label'    => esc_html__( 'Sticky Header', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-header-sticky' ),
 		),
 		'header-alt-colors' => array(
 			'label'    => esc_html__( 'Alternate Header Colors', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-header-alt-colors' ),
 		),
 		'header-mega-menu' => array(
 			'label'    => esc_html__( 'Header Mega Menu', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-header-mega-menu' ),
 		),
 		'footer-widgets-columns-width' => array(
 			'label'    => esc_html__( 'Footer Widgets Columns Width', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-footer-widgets-columns-width' ),
 		),
 		'preloader-screen' => array(
 			'label'    => esc_html__( 'Preloader Screen', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-preloader-screen' ),
 		),
 		'custom-blocks' => array(
 			'label'    => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'category' => 'layout',
-			'url'      => esc_url( $url . '#pro-custom-blocks' ),
 		),
 
 		'custom-fonts' => array(
 			'label'    => esc_html__( 'Custom Fonts', 'suki' ),
 			'category' => 'assets',
-			'url'      => esc_url( $url . '#pro-custom-fonts' ),
 		),
 		'custom-icons' => array(
 			'label'    => esc_html__( 'Custom Icons', 'suki' ),
 			'category' => 'assets',
-			'url'      => esc_url( $url . '#pro-custom-icons' ),
 		),
 		'white-label' => array(
 			'label'    => esc_html__( 'White Label', 'suki' ),
 			'category' => 'assets',
-			'url'      => esc_url( $url . '#pro-white-label' ),
 		),
 
 		'woocommerce-layout-plus' => array(
 			'label'    => esc_html__( 'WC Layout Plus', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( $url . '#pro-woocommerce-layout-plus' ),
 		),
 		'woocommerce-ajax-add-to-cart' => array(
 			'label'    => esc_html__( 'WC AJAX Add To Cart', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( $url . '#pro-woocommerce-ajax-add-to-cart' ),
 		),
 		'woocommerce-quick-view' => array(
 			'label'    => esc_html__( 'WC Quick View', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( $url . '#pro-woocommerce-quick-view' ),
 		),
 		'woocommerce-off-canvas-filters' => array(
 			'label'    => esc_html__( 'WC Off-Canvas Filters', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( $url . '#pro-woocommerce-off-canvas-filters' ),
 		),
 		'woocommerce-checkout-optimization' => array(
 			'label'    => esc_html__( 'WC Checkout Optimization', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( $url . '#pro-woocommerce-checkout-optimization' ),
 		),
 
 		'blog-layout-plus' => array(
 			'label'    => esc_html__( 'Blog Layout Plus', 'suki' ),
 			'category' => 'blog',
-			'url'      => esc_url( $url . '#pro-blog-layout-plus' ),
 		),
 		'blog-featured-posts' => array(
 			'label'    => esc_html__( 'Blog Featured Posts', 'suki' ),
 			'category' => 'blog',
-			'url'      => esc_url( $url . '#pro-blog-featured-posts' ),
 		),
 		'blog-related-posts' => array(
 			'label'    => esc_html__( 'Blog Related Posts', 'suki' ),
 			'category' => 'blog',
-			'url'      => esc_url( $url . '#pro-blog-related-posts' ),
 		),
 	) );
 }

@@ -67,6 +67,7 @@ class Suki_Admin {
 		// Suki admin page hooks
 		add_action( 'suki/admin/dashboard/header', array( $this, 'render_admin_page__logo' ), 10 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_admin_page__modules' ), 10 );
+		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__suki_pro' ), 1 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__links' ), 20 );
 		
@@ -662,7 +663,7 @@ class Suki_Admin {
 
 			// Add action.
 			$data['actions']['enabled'] = array(
-				'label' => '✓',
+				'label' => esc_html__( 'Core Module', 'suki' ),
 			);
 
 			// Add to collection.
@@ -717,7 +718,7 @@ class Suki_Admin {
 							// Add note all pro modules "Available on Suki Pro".
 							if ( $module_data['pro'] && ! suki_is_pro() ) {
 								$module_data['actions'] = array(
-									'available-on-suki-pro' => array(
+									'disabled' => array(
 										'label' => esc_html__( 'Available on Suki Pro', 'suki' ),
 									),
 								);
@@ -728,7 +729,7 @@ class Suki_Admin {
 							// Check WooCommerce modules.
 							if ( 'woocommerce' === $category_slug && ! class_exists( 'WooCommerce' ) ) {
 								$module_data['actions'] = array(
-									'woocommerce-not-found' => array(
+									'disabled' => array(
 										'label' => esc_html__( 'WooCommerce is not installed', 'suki' ),
 									),
 								);
@@ -738,28 +739,20 @@ class Suki_Admin {
 							?>
 							<li id="<?php echo esc_attr( 'suki-admin-module--' . $module_slug ); ?>" class="suki-admin-module <?php echo esc_attr( ( $module_data['pro'] ? 'pro' : 'free' ) . ' ' . ( $module_data['active'] ? 'active' : 'inactive' ) ); ?>">
 								<h4 class="suki-admin-module-name">
-									<?php if ( ! empty( $module_data['url'] ) ) : ?>
-										<a href="<?php echo esc_html( $module_data['url'] ); ?>" target="_blank" rel="noopener">
-											<span><?php echo esc_html( $module_data['label'] ); ?></span>
-										</a>
-									<?php else : ?>
-										<span><?php echo esc_html( $module_data['label'] ); ?></span>
-									<?php endif; ?>
-
-									<?php if ( $module_data['pro'] ) : ?>
-										<span class="suki-admin-module-badge-pro"><?php esc_html_e( 'Pro', 'suki' ); ?></span>
-									<?php endif; ?>
+									<span><?php echo esc_html( $module_data['label'] ); ?></span>
 								</h4>
 
-								<div class="suki-admin-module-actions row-actions">
+								<div class="suki-admin-module-actions">
 									<?php foreach( $module_data['actions'] as $action_key => $action_data ) : ?>
-										<span class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
-											<?php if ( isset( $action_data['url'] ) ) : ?>
-												<a href="<?php echo esc_url( $action_data['url'] ); ?>"><?php echo esc_html( $action_data['label'] ); ?></a>
-											<?php else : ?>
+										<?php if ( isset( $action_data['url'] ) ) : ?>
+											<a href="<?php echo esc_url( $action_data['url'] ); ?>" class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
 												<span><?php echo esc_html( $action_data['label'] ); ?></span>
-											<?php endif; ?>
-										</span>
+											</a>
+										<?php else : ?>
+											<span  class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
+												<span><?php echo esc_html( $action_data['label'] ); ?></span>
+											</span>
+										<?php endif; ?>
 									<?php endforeach; ?>
 								</div>
 							</li>
@@ -828,6 +821,27 @@ class Suki_Admin {
 	}
 
 	/**
+	 * Render "Suki Pro" info box on Suki admin page's sidebar.
+	 */
+	public function render_sidebar__suki_pro() {
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			return;
+		}
+		?>
+		<div class="suki-admin-demo-pro postbox">
+			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
+			<div class="inside">
+				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-pro-banner.png' ); ?>" width="300" height="150"></p>
+				<p><?php esc_html_e( 'Get more powerful features and take your website to the next level with Suki Pro.', 'suki' ); ?></p>
+				<p>
+					<a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_URL ) ) ); ?>" class="button button-large button-secondary"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></a>
+				</p>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Render "One Click Demo Import" info box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__sites() {
@@ -839,7 +853,7 @@ class Suki_Admin {
 			<h2 class="hndle"><?php esc_html_e( 'One Click Demo Import', 'suki' ); ?></h2>
 			<div class="inside">
 				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-sites-import-banner.png' ); ?>" width="300" height="150"></p>
-				<p><?php esc_html_e( 'Kickstart your website with our pre-made demo websites in 3 steps: Import. Modify. Launch!', 'suki' ); ?></p>
+				<p><?php esc_html_e( 'Kickstart your website with our pre-made demo websites: Import. Modify. Launch!', 'suki' ); ?></p>
 				<p>
 					<?php if ( is_plugin_active( 'suki-sites-import/suki-sites-import.php' ) ) : ?>
 						<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ) ); ?>" class="button button-large button-secondary"><?php esc_html_e( 'Browse Demo Sites', 'suki' ); ?></a>

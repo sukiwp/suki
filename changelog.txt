@@ -13,6 +13,7 @@ v1.3.0
 - TWEAK: Google Fonts — Update Google Fonts list.
 - TWEAK: WooCommerce — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
 - TWEAK: Customizer — Improve Customizer UI & UX.
+- TWEAK: Theme Dashboard — Improve theme dashboard layout for better compatibility with Suki Pro's White Label module. Now user won't see "pro" badges and links to our website on the modules manager.
 - FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
 
