@@ -75,12 +75,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
-	'choices'     => array(
-		'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
-		/* translators: %s: instance number. */
-		'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
-		'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
-	),
+	'choices'     => suki_get_footer_elements(),
 	'labels'     => array(
 		'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 		'bottom_center' => esc_html__( 'Center', 'suki' ),

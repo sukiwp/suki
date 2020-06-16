@@ -333,7 +333,14 @@ if ( ! function_exists( 'suki_header_element' ) ) :
  * @param string $slug
  */
 function suki_header_element( $slug ) {
+	// Abort if element slug is empty.
 	if ( empty( $slug ) ) {
+		return;
+	}
+
+	// Abort if element is invalid and not available in the elements list.
+	$available_elements = array_merge( suki_get_header_elements(), suki_get_mobile_header_elements() );
+	if ( ! in_array( $slug, array_keys( $available_elements ) ) ) {
 		return;
 	}
 
@@ -503,7 +510,14 @@ if ( ! function_exists( 'suki_footer_element' ) ) :
  * @param string $slug
  */
 function suki_footer_element( $slug ) {
+	// Abort if element slug is empty.
 	if ( empty( $slug ) ) {
+		return;
+	}
+
+	// Abort if element is invalid and not available in the elements list.
+	$available_elements = array_merge( suki_get_footer_elements() );
+	if ( ! in_array( $slug, array_keys( $available_elements ) ) ) {
 		return;
 	}
 
