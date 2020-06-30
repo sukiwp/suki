@@ -477,10 +477,10 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 15,
 	) );
 
-// Custom Post Types & Others
+// Other Pages
 $panel = 'suki_panel_other_pages';
 $wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'Custom Post Types & Others', 'suki' ),
+	'title'       => esc_html__( 'Other Pages', 'suki' ),
 	'priority'    => 149,
 ) );
 

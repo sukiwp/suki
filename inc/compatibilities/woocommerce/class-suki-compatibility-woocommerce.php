@@ -426,11 +426,11 @@ class Suki_Compatibility_WooCommerce {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 				add_action( 'woocommerce_before_cart_collaterals', 'woocommerce_cross_sell_display', 20 );
 
-				add_action( 'woocommerce_before_cart', array( $this, 'render_cart_2_columns_left_wrapper' ), 999 );
-				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_left_wrapper_end' ), 999 );
+				add_action( 'woocommerce_before_cart', array( $this, 'render_cart_2_columns_left_wrapper' ), 99999 );
+				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_left_wrapper_end' ), 99999 );
 
-				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_right_wrapper' ), 999 );
-				add_action( 'woocommerce_after_cart', array( $this, 'render_cart_2_columns_right_wrapper_end' ), 999 );
+				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_right_wrapper' ), 99999 );
+				add_action( 'woocommerce_after_cart', array( $this, 'render_cart_2_columns_right_wrapper_end' ), 99999 );
 			}
 
 			// Keep / remove cross-sells.
@@ -449,11 +449,11 @@ class Suki_Compatibility_WooCommerce {
 			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_checkout_layout' ) ) {
 				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
 
-				add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper' ), 1 );
-				add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper_end' ), 999 );
+				add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper' ), 0 );
+				add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper_end' ), 99999 );
 
-				add_action( 'woocommerce_checkout_before_order_review_heading', array( $this, 'render_checkout_2_columns_right_wrapper' ), 1 );
-				add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_2_columns_right_wrapper_end' ), 999 );
+				add_action( 'woocommerce_checkout_before_order_review_heading', array( $this, 'render_checkout_2_columns_right_wrapper' ), 0 );
+				add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_2_columns_right_wrapper_end' ), 99999 );
 			}
 		}
 	}
