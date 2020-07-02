@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Dynamic Page Layout
+ * Customizer settings: Individual Page Layout
  *
  * @package Suki
  **/
@@ -18,11 +18,11 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$default = array();
 	}
 
-	// Heading: Dynamic Page Layout
+	// Heading: Individual Page Layout
 	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type, array(
 		'section'     => $section,
 		'settings'    => array(),
-		'label'       => esc_html__( 'Dynamic Page Layout', 'suki' ),
+		'label'       => esc_html__( 'Individual Page Layout', 'suki' ),
 		'description' => suki_array_value( $ps_data, 'description' ),
 		'priority'    => 100,
 	) ) );
@@ -49,6 +49,10 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 					'label' => esc_html__( '-- Global --', 'suki' ),
 					'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
 				),
+				'narrow'     => array(
+					'label' => esc_html__( 'Narrow', 'suki' ),
+					'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
+				),
 				'default'    => array(
 					'label' => esc_html__( 'Normal', 'suki' ),
 					'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
@@ -56,10 +60,6 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 				'full-width' => array(
 					'label' => esc_html__( 'Full width', 'suki' ),
 					'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
-				),
-				'narrow'     => array(
-					'label' => esc_html__( 'Narrow', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
 				),
 			),
 			'columns'     => 4,
@@ -81,6 +81,10 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 					'label' => esc_html__( '-- Global --', 'suki' ),
 					'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
 				),
+				'wide'          => array(
+					'label' => esc_html__( 'None', 'suki' ),
+					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+				),
 				'right-sidebar' => array(
 					'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
@@ -88,10 +92,6 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 				'left-sidebar'  => array(
 					'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
 					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
-				),
-				'wide'          => array(
-					'label' => esc_html__( 'None', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 				),
 			),
 			'columns'     => 4,

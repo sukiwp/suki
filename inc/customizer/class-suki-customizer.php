@@ -204,11 +204,10 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
-		// Page Settings
+		// Pages
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
-		// require_once( SUKI_INCLUDES_DIR . '/customizer/options/page-settings.php' );
 
 		// Blog
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--archive.php' );
@@ -785,17 +784,6 @@ class Suki_Customizer {
 				'section' => $section_archive,
 				/* translators: %s: post type's plural name. */
 				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
-
-				// 'description' => sprintf(
-				// 	/* translators: %1$s: post type's plural name, %2$s: post type's singular name. */
-				// 	esc_html__( 'These are default settings for main %1$s archive page and %2$s taxonomy archive pages.', 'suki' ),
-				// 	$post_type_obj->labels->name,
-				// 	$post_type_obj->labels->singular_name
-				// ) . '<br><br>' . sprintf(
-				// 	/* translators: %s: post type's singular name. */
-				// 	esc_html__( 'TIPS: You can specify different settings for each %s taxonomy via the Page Settings metabox available on its editor page.', 'suki' ),
-				// 	$post_type_obj->labels->singular_name
-				// ),
 			);
 
 			$key_singular = $post_type . '_singular';
@@ -803,16 +791,6 @@ class Suki_Customizer {
 				'section' => $section_singular,
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
-
-				// 'description' => sprintf(
-				// 	/* translators: %s: post type's singular name. */
-				// 	esc_html__( 'These are default settings for all single %s pages.', 'suki' ),
-				// 	strtolower( $post_type_obj->labels->singular_name )
-				// ) . '<br><br>' . sprintf(
-				// 	/* translators: %s: Post type's singular name. */
-				// 	esc_html__( 'TIPS: You can specify different settings for each %s via the Page Settings metabox available on its editor page.', 'suki' ),
-				// 	strtolower( $post_type_obj->labels->singular_name )
-				// ),
 			);
 		}
 

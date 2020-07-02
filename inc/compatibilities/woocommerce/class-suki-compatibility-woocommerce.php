@@ -474,7 +474,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Add "Product Layout" tab on Page Settings meta box.
+	 * Add "Product Layout" tab on Individual Page Layout meta box.
 	 *
 	 * @param array $tabs
 	 * @return array
@@ -488,7 +488,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Render "Product Layout" options on Page Settings meta box.
+	 * Render "Product Layout" options on Individual Page Layout meta box.
 	 *
 	 * @param WP_Post|WP_Term $obj
 	 * @param string $tab

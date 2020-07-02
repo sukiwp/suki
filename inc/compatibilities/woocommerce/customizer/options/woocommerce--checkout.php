@@ -50,16 +50,16 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_checkout_2_columns', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'When using 2 Columns layout, it\'s recommended to set this page\'s container width to "Normal" and hide the sidebar via Dynamic Page Layout settings.', 'suki' ) . '</p></div>',
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'When using 2 Columns layout, it\'s recommended to set the container width to "Normal" or "Full width" and also hide the sidebar via the "Individual Page Layout" meta box available on the page editor.', 'suki' ) . '</p></div>',
 	'priority'    => 11,
 ) ) );
 
-// Heading: Dynamic Page Layout
+// Heading: Individual Page Layout
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_woocommerce_checkout', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Dynamic Page Layout', 'suki' ),
-	'description' => esc_html__( 'The Dynamic Page Layout settings of this page is available in the page editor.', 'suki' ) . '<br><br><a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'checkout' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
+	'label'       => esc_html__( 'Individual Page Layout', 'suki' ),
+	'description' => esc_html__( 'The Individual Page Layout settings of this page is available in the page editor.', 'suki' ) . '<br><br><a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'checkout' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
 	'priority'    => 100,
 ) ) );
 

@@ -502,7 +502,7 @@ class Suki {
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 
 		if ( '' !== trim( $page_settings_css ) ) {
-			$css .= "\n/* Current Page Settings CSS */\n" . $page_settings_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$css .= "\n/* Current Page Layout CSS */\n" . $page_settings_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		return $css;

@@ -133,10 +133,11 @@ $add['header_mobile_elements'] = array(
  * ====================================================
  */
 
-$add['content_container_width'] = array(
+$add['content_layout'] = array(
 	array(
 		'setting'  => 'content_container',
-		'value'    => 'custom',
+		'operator' => '!=',
+		'value'    => 'narrow',
 	),
 );
 
@@ -231,7 +232,7 @@ $add['error_404_home_button_text'] = array(
 
 /**
  * ====================================================
- * Page Settings
+ * Individual Page Layout
  * ====================================================
  */
 
@@ -245,13 +246,13 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 		);
 	}
 
-	// $add['page_settings_' . $ps_type . '[content_layout]'] = array(
-	// 	array(
-	// 		'setting'  => 'page_settings_' . $ps_type . '[content_container]',
-	// 		'operator' => '!=',
-	// 		'value'    => 'narrow',
-	// 	),
-	// );
+	$add['page_settings_' . $ps_type . '[content_layout]'] = array(
+		array(
+			'setting'  => 'page_settings_' . $ps_type . '[content_container]',
+			'operator' => '!=',
+			'value'    => 'narrow',
+		),
+	);
 }
 
 return $add;

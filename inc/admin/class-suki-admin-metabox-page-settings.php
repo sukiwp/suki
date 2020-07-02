@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Page Settings metabox
+ * Suki Individual Page Layout metabox
  *
  * @package Suki
  */
@@ -101,7 +101,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		add_meta_box(
 			'suki_page_settings',
 			/* translators: %s: theme name. */
-			sprintf( esc_html__( 'Dynamic Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
+			sprintf( esc_html__( 'Individual Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
 			'normal',
@@ -217,8 +217,8 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * @param WP_Post $post
 	 */
 	public function render_meta_box__post( $post ) {
-		// Define an array of post IDs that will disable Page Settings meta box.
-		// The Page Settings fields would not be displayed on those disabled IDs meta box.
+		// Define an array of post IDs that will disable Individual Page Layout meta box.
+		// The Individual Page Layout fields would not be displayed on those disabled IDs meta box.
 		// Instead, The meta box would show the defined string specified on the disabled array.
 		$disabled_ids = array();
 
@@ -255,7 +255,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			<h2>
 				<?php
 				/* translators: %s: theme name. */
-				printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+				printf( esc_html__( 'Individual Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
 				?>
 			</h2>
 			<?php
@@ -283,7 +283,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				<h3>
 					<?php
 					/* translators: %s: tdeme name. */
-					printf( esc_html__( 'Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+					printf( esc_html__( 'Individual Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
 					?>
 				</h3>
 				<?php
