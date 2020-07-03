@@ -43,6 +43,14 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'priority'    => 10,
 ) ) );
 
+// Info
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_narrow_content_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Narrow content layout doesn\'t support Sidebar.', 'suki' ) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Sidebar position
 $key = 'content_layout';
 $wp_customize->add_setting( $key, array(

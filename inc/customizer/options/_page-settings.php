@@ -66,6 +66,16 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'priority'    => 110,
 		) ) );
 
+		// Info
+		$subkey = 'notice_narrow_content_layout';
+		$key = $option_key . '[' . $subkey . ']';
+		$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, $key, array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Narrow content layout doesn\'t support Sidebar.', 'suki' ) . '</p></div>',
+			'priority'    => 110,
+		) ) );
+
 		// Sidebar position
 		$subkey = 'content_layout';
 		$key = $option_key . '[' . $subkey . ']';

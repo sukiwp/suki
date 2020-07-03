@@ -343,7 +343,7 @@ li:not(.customize-info) div.customize-section-description {
 			position: absolute;
 			left: 100%;
 			top: 0;
-			border-bottom: 24px solid transparentize( $color_black, 0.9 );
+			border-bottom: 22px solid transparentize( $color_black, 0.9 );
 			border-right: 12px solid transparent;
 		}
 
@@ -1395,7 +1395,7 @@ li:not(.customize-info) div.customize-section-description {
 			.suki-builder-groups {
 				display: flex;
 				align-items: flex-start;
-				margin: -15px -15px 0;
+				margin: -10px -15px 0;
 
 				.suki-builder-group {
 					box-sizing: border-box;
@@ -1404,16 +1404,18 @@ li:not(.customize-info) div.customize-section-description {
 
 				.suki-builder-area {
 					position: relative;
-					margin-top: 30px;
+					margin-top: 28px;
+					transition: box-shadow 0.25s ease;
 				}
 
 				.suki-builder-area-label {
 					position: absolute;
 					bottom: 100%;
 					left: 0;
-					padding: 3px 10px;
-					margin: 0 0 0 -2px;
-					border-radius: 3px 3px 0 0;
+					display: table;
+					max-width: calc( 100% - 12px );
+					padding: 3px 5px 3px 10px;
+					margin: 0 auto 0 -2px;
 					background-color: $wp_color_primary;
 					color: #fff;
 					font-size: 11px;
@@ -1422,14 +1424,27 @@ li:not(.customize-info) div.customize-section-description {
 					text-transform: uppercase;
 					cursor: pointer;
 					opacity: 0;
-					visibility: hidden;
+					transition: opacity 0.25s ease;
+
+					&:after {
+						content: "";
+						position: absolute;
+						left: 100%;
+						top: 0;
+						border-bottom: 22px solid $wp_color_primary;
+						border-right: 12px solid transparent;
+					}
 
 					&:before {
 						content: "\f111";
 						font-family: dashicons;
 						margin-right: 0.5em;
-						vertical-align: -2px;
+						vertical-align: -1px;
 					}
+				}
+
+				.suki-builder-area-locations {
+					position: relative;
 				}
 
 				.suki-builder-area:hover {
@@ -1437,7 +1452,6 @@ li:not(.customize-info) div.customize-section-description {
 
 					.suki-builder-area-label {
 						opacity: 1;
-						visibility: visible;
 					}
 				}
 

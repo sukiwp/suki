@@ -4,7 +4,7 @@ v1.3.0
 - NEW: Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
 - NEW: Sidebar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
 - NEW: Footer Widgets Bar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
-- TWEAK: Header Elements — Improve header's Shopping Cart template (**If you are override this template on your Child Theme, please review the template again**).
+- TWEAK: Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
 - TWEAK: Header Elements — Allow "Shopping Cart Dropdown" inside the mobile header bar.
 - TWEAK: Header Builder — Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
 - TWEAK: Social Icons — Update some existing social icons.
