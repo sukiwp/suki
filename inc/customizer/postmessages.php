@@ -882,6 +882,12 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 			'property' => 'padding',
 			'pattern'  => '0 $',
 		),
+		array(
+			'type'     => 'css',
+			'element'  => '.suki-header-' . $slug . '.suki-header-menu-highlight-background .suki-header-menu > .menu > .menu-item > .suki-menu-item-link, .suki-header-' . $slug . '.suki-header-menu-highlight-border-top .suki-header-menu > .menu > .menu-item > .suki-menu-item-link, .suki-header-' . $slug . '.suki-header-menu-highlight-border-bottom .suki-header-menu > .menu > .menu-item > .suki-menu-item-link',
+			'property' => 'padding',
+			'pattern'  => '0 $',
+		),
 	);
 
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
@@ -1048,28 +1054,28 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 	$add['header_' . $bar . '_menu_hover_highlight_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:before, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:before',
+			'element'  => '.suki-header-' . $slug . ' .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:before, .suki-header-' . $slug . ' .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:before',
 			'property' => 'background-color',
 		),
 	);
 	$add['header_' . $bar . '_menu_hover_highlight_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus',
+			'element'  => '.suki-header-' . $slug . ' .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover, .suki-header-' . $slug . ' .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus',
 			'property' => 'color',
 		),
 	);
 	$add['header_' . $bar . '_menu_active_highlight_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link:before, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link:before',
+			'element'  => '.suki-header-' . $slug . ' .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link:before, .suki-header-' . $slug . ' .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link:before',
 			'property' => 'background-color',
 		),
 	);
 	$add['header_' . $bar . '_menu_active_highlight_text_color'] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link, .suki-header-' . $slug . ':not(.suki-header-menu-highlight-none) .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link',
+			'element'  => '.suki-header-' . $slug . ' .suki-header-menu > .menu > .current-menu-item > .suki-menu-item-link, .suki-header-' . $slug . ' .suki-header-menu > .menu > .current-menu-ancestor > .suki-menu-item-link',
 			'property' => 'color',
 		),
 	);

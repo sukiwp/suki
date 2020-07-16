@@ -370,7 +370,7 @@ $add['header_top_bar_submenu_link_text_color'] = '';
 $add['header_top_bar_submenu_link_hover_text_color'] = '';
 $add['header_top_bar_submenu_link_active_text_color'] = '';
 
-$add['header_top_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_top_bar_menu_hover_highlight_color'] = '';
 $add['header_top_bar_menu_hover_highlight_text_color'] = '';
 $add['header_top_bar_menu_active_highlight_color'] = '';
 $add['header_top_bar_menu_active_highlight_text_color'] = '';
@@ -430,7 +430,7 @@ $add['header_main_bar_submenu_link_text_color'] = '';
 $add['header_main_bar_submenu_link_hover_text_color'] = '';
 $add['header_main_bar_submenu_link_active_text_color'] = '';
 
-$add['header_main_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_main_bar_menu_hover_highlight_color'] = '';
 $add['header_main_bar_menu_hover_highlight_text_color'] = '';
 $add['header_main_bar_menu_active_highlight_color'] = '';
 $add['header_main_bar_menu_active_highlight_text_color'] = '';
@@ -493,7 +493,7 @@ $add['header_bottom_bar_submenu_link_text_color'] = '';
 $add['header_bottom_bar_submenu_link_hover_text_color'] = '';
 $add['header_bottom_bar_submenu_link_active_text_color'] = '';
 
-$add['header_bottom_bar_menu_hover_highlight_color'] = $colors['border'];
+$add['header_bottom_bar_menu_hover_highlight_color'] = '';
 $add['header_bottom_bar_menu_hover_highlight_text_color'] = '';
 $add['header_bottom_bar_menu_active_highlight_color'] = '';
 $add['header_bottom_bar_menu_active_highlight_text_color'] = '';

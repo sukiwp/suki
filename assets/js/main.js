@@ -169,7 +169,7 @@
 		 * Function to init edge sub menu detection script.
 		 */
 		initDropdownMenuReposition: function() {
-			var prop = window.sukiHelper.isRTL() ? 'right' : 'left';
+			var anchorSide = window.sukiHelper.isRTL() ? 'left' : 'right';
 
 			var calculateSubMenuEdge = function() {
 
@@ -180,18 +180,18 @@
 
 					// Reset inline styling.
 					$submenu.classList.remove( 'suki-sub-menu-edge' );
-					$submenu.style[ prop ] = '';
+					$submenu.style[ anchorSide ] = '';
 
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
-					var containerEdge = $container.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $container.getBoundingClientRect().width ),
-						submenuEdge = $submenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
+					var containerEdge = $container.getBoundingClientRect()[ anchorSide ],
+						submenuEdge = $submenu.getBoundingClientRect()[ anchorSide ],
 						isSubmenuOverflow = window.sukiHelper.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
-						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
+						$submenu.style[ anchorSide ] = 0;
 					}
 
 					// Apply vertical max-height.

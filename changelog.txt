@@ -1,3 +1,6 @@
+v1.2.12
+- TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
+
 v1.2.11
 - FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.
 - FIX: WooCommerce quantity increment button's Javascript for better compatibility with 3rd party plugins.
