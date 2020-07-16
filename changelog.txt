@@ -1,5 +1,6 @@
 v1.2.12
 - TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
+- TWEAK: Change WooCommerce product gallery "slide" transition to "fade" transition (due to Mozilla Firefox bug when using "Left" gallery layout mode from Suki Pro).
 
 v1.2.11
 - FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.
