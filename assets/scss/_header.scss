@@ -257,7 +257,7 @@
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
-			@include transition(opacity, visibility 0s 0.25s);
+			@include transition( opacity, visibility 0s 0.25s );
 			overflow-y: auto;
 
 			*:not(.button) {
@@ -651,9 +651,9 @@
 	}
 }
 
-.suki-header-mobile-vertical-display-drawer {
-	opacity: 1; // reset popup's opacity: 0;
-}
+// .suki-header-mobile-vertical-display-drawer {
+// 	opacity: 1; // reset popup's opacity: 0;
+// }
 
 .suki-header-mobile-vertical-display-full-screen {
 	left: 0;

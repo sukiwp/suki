@@ -1581,7 +1581,7 @@ body.suki-page-layout-boxed #page {
 	right: 0;
 	opacity: 0;
 	visibility: hidden;
-	transition: all 0.25s;
+	transition: opacity 0.25s, visibility 0s 0.25s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -1589,6 +1589,9 @@ body.suki-page-layout-boxed #page {
 .suki-popup.suki-popup-active {
 	opacity: 1;
 	visibility: visible;
+	transition: opacity 0.25s, visibility 0s 0s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .admin-bar .suki-popup {
@@ -1607,13 +1610,8 @@ body.suki-page-layout-boxed #page {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	opacity: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	color: #ffffff;
-}
-
-.suki-popup-active .suki-popup-background {
-	opacity: 1;
 }
 
 .suki-toggle.suki-popup-close-icon {
@@ -2369,10 +2367,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 .suki-header-mobile-vertical-bar .suki-header-section-vertical-row > * {
 	padding: 12px 0;
-}
-
-.suki-header-mobile-vertical-display-drawer {
-	opacity: 1;
 }
 
 .suki-header-mobile-vertical-display-full-screen {
