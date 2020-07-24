@@ -1,6 +1,8 @@
 v1.2.12
 - TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
 - TWEAK: Change WooCommerce product gallery "slide" transition to "fade" transition (due to Mozilla Firefox bug when using "Left" gallery layout mode from Suki Pro).
+- TWEAK: Automatically focus to search bar when header search icon is clicked, works on both desktop and mobile browsers. It also supports custom search bar from 3rd party plugins.
+- FIX: Remove JS error message when closing toggled header sub menu.
 
 v1.2.11
 - FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.

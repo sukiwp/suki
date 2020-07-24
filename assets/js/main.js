@@ -340,6 +340,8 @@
 		 * Function to init toggle menu.
 		 */
 		initClickToggleDropdownMenu: function() {
+			var $clickedToggle = null;
+
 			/**
 			 * Toggle Handler
 			 */
@@ -369,12 +371,21 @@
 					$this.setAttribute( 'aria-expanded', true );
 
 					// Move focus to search bar (if exists).
-					var $searchBar = $menuItem.querySelector( '.search-field' );
+					var $searchBar = $menuItem.querySelector( 'input[type="search"]' );
 					if ( $searchBar ) {
-						setTimeout(function() {
+						var $subMenu = $searchBar.closest( '.sub-menu' );
+
+						var focusSearchBar = function() {
 							$searchBar.focus();
-						}, 300 );
+
+							$subMenu.removeEventListener( 'transitionend', focusSearchBar );
+						}
+
+						$subMenu.addEventListener( 'transitionend', focusSearchBar );
 					}
+
+					// Save this toggle for putting back focus when popup is deactivated.
+					$clickedToggle = $this;
 				}
 			}
 			document.addEventListener( 'click', handleSubMenuToggle, false );
