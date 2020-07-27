@@ -244,14 +244,10 @@
 
 		.sub-menu {
 			position: absolute;
-			// z-index: 40;
 			z-index: 2; // higher than section and cart count
 			top: 100%;
-			// left: 0;
 			padding: 1em;
 			max-width: 1140px; // default
-			// min-width: 100%;
-			min-width: 20em;
 			@include border();
 			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 			// hover menu hide
@@ -263,10 +259,15 @@
 			*:not(.button) {
 				border-color: inherit;
 			}
+
+			> .menu-item {
+				position: relative;
+			}
 		}
 
-		&.suki-hover-menu .menu-item:hover > .sub-menu,
-		.menu-item.focus > .sub-menu {
+		&.suki-hover-menu .menu-item:hover > .sub-menu, // desktop mouse
+		.menu-item.focus > .sub-menu // keyboard tab and mobile tap
+		{
 			// hover menu show
 			visibility: visible;
 			opacity: 1;
@@ -375,10 +376,8 @@
 	}
 
 	&.suki-section-merged {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
+		flex-grow: 1;
+		flex-shrink: 0;
 	}
 }
 
@@ -389,14 +388,12 @@
 		// z-index: 20;
 		@include border( null, 0 ); // default
 		padding: 0 20px; // default
-	}
 
-	&.suki-header-main-bar-with-top-bar > .suki-section-inner > .suki-wrapper {
-		padding-top: 40px; // default
-	}
-
-	&.suki-header-main-bar-with-bottom-bar > .suki-section-inner > .suki-wrapper {
-		padding-bottom: 40px; // default
+		.suki-header-main-bar-with-top-bar > &,
+		.suki-header-main-bar-with-bottom-bar > & {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 }
 
@@ -410,10 +407,8 @@
 	}
 
 	&.suki-section-merged {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
+		flex-grow: 1;
+		flex-shrink: 0;
 	}
 }
 
@@ -711,9 +706,9 @@
 			@include transition();
 		}
 
-		&:hover {
+		&:hover, &:focus {
 			&:before {
-				background-color: $color_accent;
+				background-color: $color_accent; // default
 			}
 		}
 	}
@@ -721,13 +716,15 @@
 
 .suki-header-menu-highlight-none {
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
+		height: auto;
+
 		&:before {
 			display: none;
 		}
 	}
 
 	.suki-header-menu > .menu > .menu-item > .sub-menu {
-		margin-left: -12px;
+		margin-left: -12px; // default
 	}
 }
 
@@ -744,9 +741,9 @@
 			@include transition();
 		}
 	}
-
+	
 	.suki-header-menu > .menu > .menu-item > .sub-menu {
-		margin-left: -12px;
+		margin-left: -12px; // default
 	}
 }
 
@@ -765,9 +762,9 @@
 			height: 100%;
 		}
 
-		&:hover {
+		&:hover, &:focus {
 			&:before {
-				background-color: $color_subtle;
+				background-color: $color_subtle; // default
 			}
 		}
 	}

@@ -323,14 +323,34 @@ function suki_main_header() {
 }
 endif;
 
-if ( ! function_exists( 'suki_main_header__bar' ) ) :
+if ( ! function_exists( 'suki_main_header__top_bar' ) ) :
 /**
  * Render main header bar.
  *
- * @param string $bar
+ * @param boolean $merged
  */
-function suki_main_header__bar( $bar ) {
-	suki_get_template_part( 'header-desktop-bar', null, array( 'bar' => $bar ) );
+function suki_main_header__top_bar( $merged = false ) {
+	suki_get_template_part( 'header-desktop-top-bar', null, array( 'merged' => $merged ) );
+}
+endif;
+
+if ( ! function_exists( 'suki_main_header__main_bar' ) ) :
+/**
+ * Render main header bar.
+ */
+function suki_main_header__main_bar() {
+	suki_get_template_part( 'header-desktop-main-bar' );
+}
+endif;
+
+if ( ! function_exists( 'suki_main_header__bottom_bar' ) ) :
+/**
+ * Render main header bar.
+ *
+ * @param boolean $merged
+ */
+function suki_main_header__bottom_bar( $merged = false ) {
+	suki_get_template_part( 'header-desktop-bottom-bar', null, array( 'merged' => $merged ) );
 }
 endif;
 
