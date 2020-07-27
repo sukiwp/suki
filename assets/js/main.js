@@ -203,6 +203,9 @@
 						var subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
 							isSubsubmenuOverflow = window.sukiHelper.isRTL() ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
 
+						// Reset inline styling.
+						$subsubmenu.classList.remove( 'suki-sub-menu-right' );
+
 						// Apply class and left position.
 						if ( isSubsubmenuOverflow ) {
 							$subsubmenu.classList.add( 'suki-sub-menu-right' );
@@ -214,11 +217,7 @@
 				});
 			}
 
-			var timeout;
-			window.addEventListener( 'resize', function() {
-				clearTimeout( timeout );
-				timeout = setTimeout( calculateSubMenuEdge, 500 );
-			}, false );
+			window.addEventListener( 'resize', calculateSubMenuEdge, false );
 			calculateSubMenuEdge();
 		},
 
@@ -232,14 +231,8 @@
 			 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/dropdown-menus/vanilla-js/js/dropdown.js
 			 */
 			var handleMenuFocusUsingKeyboard = function( e ) {
-				// Fix Firefox issue.
-				if ( document === e.target ) return;
-
-				// Check target element.
-				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
-				if ( ! $this ) return;
-
-				var $menu = $this.closest( '.suki-hover-menu' ),
+				var $this = e.target,
+				    $menu = $this.closest( '.suki-hover-menu' ),
 				    $current = this;
 
 				while ( $current !== $menu ) {
@@ -253,8 +246,11 @@
 					$current = $current.parentElement;
 				}
 			}
-			document.addEventListener( 'focus', handleMenuFocusUsingKeyboard, false );
-			document.addEventListener( 'blur', handleMenuFocusUsingKeyboard, false );
+			var $menuLinks = Array.prototype.slice.call( document.querySelectorAll( '.suki-hover-menu .menu-item > a' ) );
+			$menuLinks.forEach(function( $menuLink ) {
+				$menuLink.addEventListener( 'focus', handleMenuFocusUsingKeyboard, true );
+				$menuLink.addEventListener( 'blur', handleMenuFocusUsingKeyboard, true );
+			});
 
 			/**
 			 * Accesibility using arrow nav buttons
@@ -326,10 +322,10 @@
 				// Only enable double tap on menu item that has sub menu and it's not a empty hash link.
 				if ( $menuItem.classList.contains( 'menu-item-has-children' ) ) {
 					if ( $this !== document.activeElement ) {
+						e.preventDefault(); // Prevent touchend action here (before manually set the focus) to allow focus actions below.
+
 						document.activeElement.blur();
 						$this.focus();
-
-						e.preventDefault();
 					}
 				}
 			}
@@ -376,7 +372,7 @@
 						var $subMenu = $searchBar.closest( '.sub-menu' );
 
 						var focusSearchBar = function() {
-							$searchBar.focus();
+							$searchBar.click();
 
 							$subMenu.removeEventListener( 'transitionend', focusSearchBar );
 						}
