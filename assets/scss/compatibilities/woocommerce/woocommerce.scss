@@ -3186,6 +3186,10 @@ p.demo_store,
 
 				&:only-child {
 					padding-left: 1em;
+
+					input[name="payment_method"] {
+						display: none;
+					}
 				}
 			}
 

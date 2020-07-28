@@ -2417,6 +2417,11 @@ p.demo_store a,
 	padding-right: 1em;
 }
 
+.woocommerce-checkout #payment ul.payment_methods li:only-child input[name="payment_method"],
+#add_payment_method #payment ul.payment_methods li:only-child input[name="payment_method"] {
+	display: none;
+}
+
 .woocommerce-checkout #payment div.payment_box,
 #add_payment_method #payment div.payment_box {
 	margin: 0.75em 0 0;
