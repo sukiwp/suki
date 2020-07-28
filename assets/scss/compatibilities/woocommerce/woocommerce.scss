@@ -3157,7 +3157,7 @@ p.demo_store,
 				padding: 0.75em 1em 0.75em 3em;
 				background-color: $color_subtle; // default
 
-				input {
+				input[name="payment_method"] {
 					position: absolute;
 					left: 1em;
 					top: 1em;
@@ -3184,6 +3184,9 @@ p.demo_store,
 					font-weight: 500;
 				}
 
+				&:only-child {
+					padding-left: 1em;
+				}
 			}
 
 			// li:not(.woocommerce-notice) {
@@ -3314,7 +3317,7 @@ p.demo_store,
 			// 	margin: 0 0 1em;
 			// }
 
-			p:last-child {
+			> *:last-child {
 				margin-bottom: 0;
 			}
 

@@ -7,6 +7,7 @@ v1.2.12
 - TWEAK: Deprecate `suki_main_header__bar` function and replace it with 3 new template functions: `suki_main_header__top_bar`, `suki_main_header__main_bar`, `suki_main_header__bottom_bar`.
 - FIX: Header accessibility issue when user is using keyboard to navigate the menu items.
 - FIX: JS error message when closing toggled header sub menu.
+- FIX: CSS on WooCommerce Checkout payment methods.
 - FIX: Minor CSS issue.
 
 v1.2.11

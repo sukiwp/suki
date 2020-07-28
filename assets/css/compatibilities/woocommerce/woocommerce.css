@@ -2388,8 +2388,8 @@ p.demo_store a,
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
-.woocommerce-checkout #payment ul.payment_methods li input,
-#add_payment_method #payment ul.payment_methods li input {
+.woocommerce-checkout #payment ul.payment_methods li input[name="payment_method"],
+#add_payment_method #payment ul.payment_methods li input[name="payment_method"] {
 	position: absolute;
 	left: 1em;
 	top: 1em;
@@ -2412,6 +2412,11 @@ p.demo_store a,
 #add_payment_method #payment ul.payment_methods li label {
 	cursor: pointer;
 	font-weight: 500;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li:only-child,
+#add_payment_method #payment ul.payment_methods li:only-child {
+	padding-left: 1em;
 }
 
 .woocommerce-checkout #payment div.payment_box,
@@ -2527,8 +2532,8 @@ p.demo_store a,
 	background-image: url("../../../../../../plugins/woocommerce/assets/images/icons/credit-cards/discover.svg");
 }
 
-.woocommerce-checkout #payment div.payment_box p:last-child,
-#add_payment_method #payment div.payment_box p:last-child {
+.woocommerce-checkout #payment div.payment_box > *:last-child,
+#add_payment_method #payment div.payment_box > *:last-child {
 	margin-bottom: 0;
 }
 
