@@ -85,12 +85,15 @@ gulp.task( 'theme_info', function() {
 	return gulp.src( [ config.init ] )
 		.pipe( replace( new RegExp( '((?:Plugin|Theme) Name: ).*' ), '$1' + info.title ) )
 		.pipe( replace( new RegExp( '((?:Plugin|Theme) URI: ).*' ), '$1' + info.uri ) )
-		.pipe( replace( new RegExp( '(Description: ).*' ), '$1' + info.description ) )
-		.pipe( replace( new RegExp( '(Version: ).*' ), '$1' + info.version ) )
 		.pipe( replace( new RegExp( '(Author: ).*' ), '$1' + info.author.name ) )
 		.pipe( replace( new RegExp( '(Author URI: ).*' ), '$1' + info.author.url ) )
-		.pipe( replace( new RegExp( '(Text Domain: ).*' ), '$1' + info.name ) )
+		.pipe( replace( new RegExp( '(Description: ).*' ), '$1' + info.description ) )
 		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
+		.pipe( replace( new RegExp( '(Version: ).*' ), '$1' + info.version ) )
+		.pipe( replace( new RegExp( '(Requires at least: ).*' ), '$1' + info.readme.requiresWP ) )
+		.pipe( replace( new RegExp( '(Tested up to: ).*' ), '$1' + info.readme.testedWP ) )
+		.pipe( replace( new RegExp( '(Requires PHP: ).*' ), '$1' + info.readme.requiresPHP ) )
+		.pipe( replace( new RegExp( '(Text Domain: ).*' ), '$1' + info.name ) )
 		.pipe( gulp.dest( './' ) );
 } );
 
@@ -110,6 +113,9 @@ gulp.task( 'readme_txt', function() {
 		.pipe( replace( new RegExp( '(Contributors: ).*' ), '$1' + contributors.join( ', ' ) ) )
 		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
 		.pipe( replace( new RegExp( '(Stable tag: ).*' ), '$1' + info.version ) )
+		.pipe( replace( new RegExp( '(Requires at least: ).*' ), '$1' + info.readme.requiresWP ) )
+		.pipe( replace( new RegExp( '(Tested up to: ).*' ), '$1' + info.readme.testedWP ) )
+		.pipe( replace( new RegExp( '(Requires PHP: ).*' ), '$1' + info.readme.requiresPHP ) )
 
 		.pipe( replace( new RegExp( '(\n\n).*(\n\n== Description ==)' ), '$1' + info.description + '$2' ) )
 

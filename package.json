@@ -60,5 +60,10 @@
 		"last 1 version",
 		"ie >= 10"
 	],
+	"readme": {
+		"requiresWP": "4.5",
+		"testedWP": "5.4",
+		"requiresPHP": "5.6"
+	},
 	"dependencies": {}
 }
