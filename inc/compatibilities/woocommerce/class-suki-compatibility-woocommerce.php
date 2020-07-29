@@ -240,6 +240,9 @@ class Suki_Compatibility_WooCommerce {
 		// Modify "added to cart" message.
 		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_html' ), 10, 3 );
 
+		//  Modify flexslider settings on single product page.
+		add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'change_single_product_carousel_options' ), 10, 3 );
+
 		// Add plus and minus buttons to the quantity input.
 		add_action( 'woocommerce_after_quantity_input_field', array( $this, 'add_quantity_plus_minus_buttons' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_quantity_plus_minus_buttons_scripts' ) );
@@ -666,6 +669,19 @@ class Suki_Compatibility_WooCommerce {
 		$message = preg_replace( '/(<a .*?>.*?<\/a>) (.*)/', '$2 $1', $message );
 
 		return $message;
+	}
+
+	/**
+	 * Modify flexslider settings on single product page.
+	 *
+	 * @param array $options
+	 * @return array
+	 */
+	public function change_single_product_carousel_options( $options ) {
+		$options['animation'] = 'fade';
+		$options['animationSpeed'] = 250;
+
+		return $options;
 	}
 
 	/**

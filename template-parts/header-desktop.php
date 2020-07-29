@@ -13,15 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	<?php
 	// Top Bar (if not merged)
 	if ( ! intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-		suki_main_header__bar( 'top' );
+		suki_main_header__top_bar();
 	}
 
 	// Main Bar
-	suki_main_header__bar( 'main' );
+	suki_main_header__main_bar();
 
 	// Bottom Bar (if not merged)
 	if ( ! intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-		suki_main_header__bar( 'bottom' );
+		suki_main_header__bottom_bar();
 	}
 	?>
 </div> 
