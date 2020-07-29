@@ -200,7 +200,7 @@
 		opacity: 0;
 		@include transition( transform, opacity );
 
-		&.sticky {
+		&.suki-sticky {
 			opacity: 1;
 			transform: translate( 0, 0 );
 		}

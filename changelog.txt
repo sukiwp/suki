@@ -5,6 +5,7 @@ v1.2.12
 - TWEAK: Improve HTML structure of header sections for better compatibility. 
 - TWEAK: Deprecate `header-desktop-bar.php` template part and replace it with 3 new separate template parts: `header-desktop-top-bar`, `header-desktop-main-bar`, and `header-desktop-bottom-bar`.
 - TWEAK: Deprecate `suki_main_header__bar` function and replace it with 3 new template functions: `suki_main_header__top_bar`, `suki_main_header__main_bar`, `suki_main_header__bottom_bar`.
+- TWEAK: Change CSS class for sticky "Scroll to top" button (from "sticky" to "suki-sticky") to avoid CSS conflict with sticky blog post style.
 - FIX: Header accessibility issue when user is using keyboard to navigate the menu items.
 - FIX: JS error message when closing toggled header sub menu.
 - FIX: CSS on WooCommerce Checkout payment methods.

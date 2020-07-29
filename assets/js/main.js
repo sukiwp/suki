@@ -626,9 +626,9 @@
 				if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
 					var checkStickyOffset = function() {
 						if ( window.pageYOffset > 0.5 * window.innerHeight ) {
-							$scrollToTop.classList.add( 'sticky' );
+							$scrollToTop.classList.add( 'suki-sticky' );
 						} else {
-							$scrollToTop.classList.remove( 'sticky' );
+							$scrollToTop.classList.remove( 'suki-sticky' );
 						}
 					}
 					window.addEventListener( 'scroll', checkStickyOffset, false );
