@@ -41,11 +41,12 @@ body.suki-page-layout-boxed {
 	left: 0;
 	opacity: 0;
 	visibility: hidden;
-	@include transition();
+	@include transition( opacity, visibility 0s 0.25s );
 
 	&.suki-popup-active {
 		opacity: 1;
 		visibility: visible;
+		@include transition( opacity, visibility 0s 0s );
 	}
 
 	.admin-bar & {
@@ -63,13 +64,13 @@ body.suki-page-layout-boxed {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	opacity: 0;
+	// opacity: 0;
 	background-color: rgba(0,0,0,0.5);
 	color: $color_bg; // default
 
-	.suki-popup-active & {
-		opacity: 1;
-	}
+	// .suki-popup-active & {
+	// 	opacity: 1;
+	// }
 }
 
 .suki-toggle.suki-popup-close-icon {

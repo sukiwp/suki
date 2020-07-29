@@ -169,7 +169,7 @@
 		 * Function to init edge sub menu detection script.
 		 */
 		initDropdownMenuReposition: function() {
-			var prop = window.sukiHelper.isRTL() ? 'right' : 'left';
+			var anchorSide = window.sukiHelper.isRTL() ? 'left' : 'right';
 
 			var calculateSubMenuEdge = function() {
 
@@ -180,18 +180,18 @@
 
 					// Reset inline styling.
 					$submenu.classList.remove( 'suki-sub-menu-edge' );
-					$submenu.style[ prop ] = '';
+					$submenu.style[ anchorSide ] = '';
 
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
-					var containerEdge = $container.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $container.getBoundingClientRect().width ),
-						submenuEdge = $submenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $submenu.getBoundingClientRect().width ),
+					var containerEdge = $container.getBoundingClientRect()[ anchorSide ],
+						submenuEdge = $submenu.getBoundingClientRect()[ anchorSide ],
 						isSubmenuOverflow = window.sukiHelper.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
-						$submenu.style[ prop ] = -1 * Math.abs( containerEdge - submenuEdge ).toString() + 'px';
+						$submenu.style[ anchorSide ] = 0;
 					}
 
 					// Apply vertical max-height.
@@ -202,6 +202,9 @@
 					$subsubmenus.forEach(function( $subsubmenu ) {
 						var subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( window.sukiHelper.isRTL() ? 0 : $subsubmenu.getBoundingClientRect().width ),
 							isSubsubmenuOverflow = window.sukiHelper.isRTL() ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
+
+						// Reset inline styling.
+						$subsubmenu.classList.remove( 'suki-sub-menu-right' );
 
 						// Apply class and left position.
 						if ( isSubsubmenuOverflow ) {
@@ -214,11 +217,7 @@
 				});
 			}
 
-			var timeout;
-			window.addEventListener( 'resize', function() {
-				clearTimeout( timeout );
-				timeout = setTimeout( calculateSubMenuEdge, 500 );
-			}, false );
+			window.addEventListener( 'resize', calculateSubMenuEdge, false );
 			calculateSubMenuEdge();
 		},
 
@@ -232,14 +231,8 @@
 			 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/dropdown-menus/vanilla-js/js/dropdown.js
 			 */
 			var handleMenuFocusUsingKeyboard = function( e ) {
-				// Fix Firefox issue.
-				if ( document === e.target ) return;
-
-				// Check target element.
-				var $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
-				if ( ! $this ) return;
-
-				var $menu = $this.closest( '.suki-hover-menu' ),
+				var $this = e.target,
+				    $menu = $this.closest( '.suki-hover-menu' ),
 				    $current = this;
 
 				while ( $current !== $menu ) {
@@ -253,8 +246,11 @@
 					$current = $current.parentElement;
 				}
 			}
-			document.addEventListener( 'focus', handleMenuFocusUsingKeyboard, false );
-			document.addEventListener( 'blur', handleMenuFocusUsingKeyboard, false );
+			var $menuLinks = Array.prototype.slice.call( document.querySelectorAll( '.suki-hover-menu .menu-item > a' ) );
+			$menuLinks.forEach(function( $menuLink ) {
+				$menuLink.addEventListener( 'focus', handleMenuFocusUsingKeyboard, true );
+				$menuLink.addEventListener( 'blur', handleMenuFocusUsingKeyboard, true );
+			});
 
 			/**
 			 * Accesibility using arrow nav buttons
@@ -326,10 +322,10 @@
 				// Only enable double tap on menu item that has sub menu and it's not a empty hash link.
 				if ( $menuItem.classList.contains( 'menu-item-has-children' ) ) {
 					if ( $this !== document.activeElement ) {
+						e.preventDefault(); // Prevent touchend action here (before manually set the focus) to allow focus actions below.
+
 						document.activeElement.blur();
 						$this.focus();
-
-						e.preventDefault();
 					}
 				}
 			}
@@ -340,6 +336,8 @@
 		 * Function to init toggle menu.
 		 */
 		initClickToggleDropdownMenu: function() {
+			var $clickedToggle = null;
+
 			/**
 			 * Toggle Handler
 			 */
@@ -369,12 +367,21 @@
 					$this.setAttribute( 'aria-expanded', true );
 
 					// Move focus to search bar (if exists).
-					var $searchBar = $menuItem.querySelector( '.search-field' );
+					var $searchBar = $menuItem.querySelector( 'input[type="search"]' );
 					if ( $searchBar ) {
-						setTimeout(function() {
-							$searchBar.focus();
-						}, 300 );
+						var $subMenu = $searchBar.closest( '.sub-menu' );
+
+						var focusSearchBar = function() {
+							$searchBar.click();
+
+							$subMenu.removeEventListener( 'transitionend', focusSearchBar );
+						}
+
+						$subMenu.addEventListener( 'transitionend', focusSearchBar );
 					}
+
+					// Save this toggle for putting back focus when popup is deactivated.
+					$clickedToggle = $this;
 				}
 			}
 			document.addEventListener( 'click', handleSubMenuToggle, false );
@@ -619,9 +626,9 @@
 				if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
 					var checkStickyOffset = function() {
 						if ( window.pageYOffset > 0.5 * window.innerHeight ) {
-							$scrollToTop.classList.add( 'sticky' );
+							$scrollToTop.classList.add( 'suki-sticky' );
 						} else {
-							$scrollToTop.classList.remove( 'sticky' );
+							$scrollToTop.classList.remove( 'suki-sticky' );
 						}
 					}
 					window.addEventListener( 'scroll', checkStickyOffset, false );
