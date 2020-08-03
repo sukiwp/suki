@@ -391,12 +391,22 @@ p.demo_store a,
 
 .woocommerce div.product div.images.woocommerce-product-gallery {
 	position: relative;
+	height: auto !important;
 }
 
 .woocommerce div.product div.images .woocommerce-product-gallery__wrapper {
 	transition: all cubic-bezier(0.795, -0.035, 0, 1) 0.5s;
 	margin: 0;
 	padding: 0;
+}
+
+.woocommerce div.product div.images .woocommerce-product-gallery__wrapper:before, .woocommerce div.product div.images .woocommerce-product-gallery__wrapper:after {
+	content: "";
+	display: table;
+}
+
+.woocommerce div.product div.images .woocommerce-product-gallery__wrapper:after {
+	clear: both;
 }
 
 .woocommerce div.product div.images .woocommerce-product-gallery__wrapper .zoomImg {

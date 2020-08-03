@@ -1,3 +1,6 @@
+v1.2.13
+- FIX: WooCommerce product's image gallery CSS.
+
 v1.2.12
 - TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
 - TWEAK: Change WooCommerce product gallery "slide" transition to "fade" transition (due to Mozilla Firefox bug when using "Left" gallery layout mode from Suki Pro).

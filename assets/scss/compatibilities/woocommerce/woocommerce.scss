@@ -476,12 +476,15 @@ p.demo_store,
 
 			&.woocommerce-product-gallery {
 				position: relative;
+				height: auto !important;
 			}
 
 			.woocommerce-product-gallery__wrapper {
 				transition: all cubic-bezier(0.795, -0.035, 0, 1) 0.5s;
 				margin: 0;
 				padding: 0;
+
+				@include float-container();
 			}
 
 			.woocommerce-product-gallery__wrapper .zoomImg {
