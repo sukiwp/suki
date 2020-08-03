@@ -1,6 +1,6 @@
 v1.2.13
-- FIX: Header shopping cart's count badge CSS.
-- FIX: WooCommerce product's image gallery CSS.
+- FIX: Header shopping cart's count badge CSS (bug since v1.2.12).
+- FIX: WooCommerce product's image gallery CSS (bug since v1.2.12).
 
 v1.2.12
 - TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
