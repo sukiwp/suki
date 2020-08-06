@@ -19,6 +19,10 @@ v1.3.0
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
 - FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
 
+v1.2.13
+- FIX: Header shopping cart's count badge CSS (bug since v1.2.12).
+- FIX: WooCommerce product's image gallery CSS (bug since v1.2.12).
+
 v1.2.12
 - TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
 - TWEAK: Change WooCommerce product gallery "slide" transition to "fade" transition (due to Mozilla Firefox bug when using "Left" gallery layout mode from Suki Pro).
