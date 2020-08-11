@@ -971,7 +971,7 @@ li:not(.customize-info) div.customize-section-description {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	min-height: 34px;
+	min-height: 36px;
 	margin: 0;
 	padding: 5px;
 	padding-right: 28px;

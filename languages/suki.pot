@@ -324,55 +324,55 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: inc/template-tags.php:309
+#: inc/template-tags.php:305
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:666, inc/template-tags.php:670
+#: inc/template-tags.php:662, inc/template-tags.php:666
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:927, inc/customizer/options/page--search.php:31
+#: inc/template-tags.php:923, inc/customizer/options/page--search.php:31
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:971
+#: inc/template-tags.php:967
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:972
+#: inc/template-tags.php:968
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1017
+#: inc/template-tags.php:1013
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1019
+#: inc/template-tags.php:1015
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: title.
-#: inc/template-tags.php:1036
+#: inc/template-tags.php:1032
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1042
+#: inc/template-tags.php:1038
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1069
+#: inc/template-tags.php:1065
 msgid "Comments are closed."
 msgstr ""
 
-#: page-templates/page-builder.php:3
+#: page-templates/page_builder.php:3
 msgid "Page Builder (theme)"
 msgstr ""
 
@@ -508,11 +508,11 @@ msgstr ""
 msgid "Page header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:418, inc/customizer/options/page-settings.php:277, inc/customizer/options/_page-settings.php:175, inc/customizer/options/_page-settings.php:202, inc/customizer/options/_page-settings.php:241, inc/customizer/options/_page-settings.php:259
+#: inc/admin/class-suki-admin-metabox-page-settings.php:418, inc/customizer/options/page-settings.php:277, inc/customizer/options/_page-settings.php:168, inc/customizer/options/_page-settings.php:195, inc/customizer/options/_page-settings.php:218, inc/customizer/options/_page-settings.php:259, inc/customizer/options/_page-settings.php:277
 msgid "&#x2718; Disabled"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:419, inc/customizer/options/page-settings.php:278, inc/customizer/options/_page-settings.php:174, inc/customizer/options/_page-settings.php:201, inc/customizer/options/_page-settings.php:240, inc/customizer/options/_page-settings.php:258
+#: inc/admin/class-suki-admin-metabox-page-settings.php:419, inc/customizer/options/page-settings.php:278, inc/customizer/options/_page-settings.php:167, inc/customizer/options/_page-settings.php:194, inc/customizer/options/_page-settings.php:219, inc/customizer/options/_page-settings.php:258, inc/customizer/options/_page-settings.php:276
 msgid "&#x2714; Enabled"
 msgstr ""
 
@@ -1186,7 +1186,7 @@ msgstr ""
 msgid "Header Meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:107, inc/customizer/options/blog--entry-grid.php:235, inc/customizer/options/_sections.php:130
+#: inc/customizer/options/blog--entry-default.php:107, inc/customizer/options/blog--entry-grid.php:235, inc/customizer/options/_page-settings.php:120, inc/customizer/options/_sections.php:130
 msgid "Title"
 msgstr ""
 
@@ -1406,7 +1406,7 @@ msgstr ""
 msgid "You can override this option on each individual page."
 msgstr ""
 
-#: inc/customizer/options/content--section.php:50, inc/customizer/options/_page-settings.php:75
+#: inc/customizer/options/content--section.php:50
 msgid "Narrow content layout doesn't support Sidebar."
 msgstr ""
 
@@ -1816,7 +1816,7 @@ msgstr ""
 msgid "Header Builder"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:64, inc/customizer/options/_page-settings.php:172
+#: inc/customizer/options/header--builder.php:64, inc/customizer/options/_page-settings.php:165
 msgid "Desktop Header"
 msgstr ""
 
@@ -1856,7 +1856,7 @@ msgstr ""
 msgid "Bottom - Center"
 msgstr ""
 
-#: inc/customizer/options/header--builder.php:97, inc/customizer/options/_page-settings.php:199
+#: inc/customizer/options/header--builder.php:97, inc/customizer/options/_page-settings.php:192
 msgid "Mobile Header"
 msgstr ""
 
@@ -2050,7 +2050,7 @@ msgstr ""
 msgid "Highlight text color :active"
 msgstr ""
 
-#: inc/customizer/options/hero.php:27
+#: inc/customizer/options/hero.php:27, inc/customizer/options/_page-settings.php:215
 msgid "Hero section"
 msgstr ""
 
@@ -2165,27 +2165,27 @@ msgstr ""
 msgid "Individual Page Layout"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:130
+#: inc/customizer/options/_page-settings.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:217
 msgid "-- Global --"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:127
-msgid "Content header position"
+#: inc/customizer/options/_page-settings.php:75
+msgid "Narrow content layout doesn't support sidebar."
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:134, inc/customizer/options/_sections.php:331
-msgid "Hero Section"
+#: inc/customizer/options/_page-settings.php:121, inc/customizer/options/_sections.php:65
+msgid "Breadcrumb"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:138, inc/customizer/options/_sections.php:317
-msgid "Main Content"
-msgstr ""
-
-#: inc/customizer/options/_page-settings.php:238
-msgid "Footer widgets"
+#: inc/customizer/options/_page-settings.php:133
+msgid "Content header elements"
 msgstr ""
 
 #: inc/customizer/options/_page-settings.php:256
+msgid "Footer widgets"
+msgstr ""
+
+#: inc/customizer/options/_page-settings.php:274
 msgid "Footer bottom"
 msgstr ""
 
@@ -2199,10 +2199,6 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:58
 msgid "Color palette makes it easier and faster to choose colors while designing your website."
-msgstr ""
-
-#: inc/customizer/options/_sections.php:65
-msgid "Breadcrumb"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:80
@@ -2309,6 +2305,14 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:310
 msgid "Content Section"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:317
+msgid "Main Content"
+msgstr ""
+
+#: inc/customizer/options/_sections.php:331
+msgid "Hero Section"
 msgstr ""
 
 #: inc/customizer/options/_sections.php:359

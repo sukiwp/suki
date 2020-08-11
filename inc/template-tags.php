@@ -115,16 +115,12 @@ function suki_logo( $logo_image_id = null ) {
 	if ( ! empty( $logo_image_id ) ) {
 		$mime = get_post_mime_type( $logo_image_id );
 
-		switch ( $mime ) {
-			case 'image/svg+xml':
-				$svg_file = get_attached_file( $logo_image_id );
+		if ( 'image/svg+xml' === $mime && apply_filters( 'suki/frontend/logo/use_inline_svg', false ) ) {
+			$svg_file = get_attached_file( $logo_image_id );
 
-				$logo_image = suki_inline_svg( $svg_file, false );
-				break;
-			
-			default:
-				$logo_image = wp_get_attachment_image( $logo_image_id , 'full', 0, array() );
-				break;
+			$logo_image = suki_inline_svg( $svg_file, false );
+		} else {
+			$logo_image = wp_get_attachment_image( $logo_image_id , 'full', 0, array() );
 		}
 
 		// Replace logo HTML if logo image is found.
