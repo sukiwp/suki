@@ -186,7 +186,7 @@
 					// Contained section, use section inner as the container.
 					else if ( $section.classList.contains( 'suki-section-contained' ) ) {
 						$container = $section.querySelector( '.suki-section-inner' );
-					} 
+					}
 
 					// Reset inline styling.
 					$submenu.classList.remove( 'suki-sub-menu-edge' );
@@ -196,8 +196,8 @@
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
 					var containerEdge = $container.getBoundingClientRect()[ anchorSide ],
-						submenuEdge = $submenu.getBoundingClientRect()[ anchorSide ],
-						isSubmenuOverflow = window.sukiHelper.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
+					    submenuEdge = $submenu.getBoundingClientRect()[ anchorSide ],
+					    isSubmenuOverflow = window.sukiHelper.isRTL() ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
@@ -205,10 +205,15 @@
 						$submenu.style[ anchorSide ] = 0;
 					}
 
+					// Full width mega menu, add padding to the sides.
 					if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
 						var maxContentWidth = $section.classList.contains( 'suki-section-contained' ) ? $menuItem.closest( '.suki-section-inner' ).offsetWidth : $menuItem.closest( '.suki-wrapper' ).offsetWidth,
 						    sidePadding = ( $submenu.clientWidth - maxContentWidth ) / 2;
 
+						// Move the mega menu anchor to section's anchor.
+						$submenu.style[ anchorSide ] = ( -1 * sidePadding ) + 'px';
+
+						// Add side paddings.
 						$submenu.style.paddingLeft = ( sidePadding - parseFloat( window.getComputedStyle( $submenu.firstElementChild, null ).getPropertyValue( 'padding-left' ) ) ) + 'px';
 						$submenu.style.paddingRight = ( sidePadding - parseFloat( window.getComputedStyle( $submenu.lastElementChild, null ).getPropertyValue( 'padding-left' ) ) ) + 'px';
 					}
