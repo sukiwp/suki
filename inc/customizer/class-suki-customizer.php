@@ -166,7 +166,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_sections.php' );
 
 		// Global Settings
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--performance.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--breadcrumb.php' );

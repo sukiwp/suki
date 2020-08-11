@@ -1,6 +1,5 @@
 v1.3.0
 - NEW: Header Elemets — Add new options to show Shopping Cart's amount and its responsive visibility.
-- NEW: Performance - Add new option to disable emoji scripts to improve performance.
 - NEW: Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
 - NEW: Sidebar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
 - NEW: Footer Widgets Bar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.

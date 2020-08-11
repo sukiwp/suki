@@ -44,13 +44,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 20,
 	) ) );
 
-	// Performance
-	$wp_customize->add_section( 'suki_section_performance', array(
-		'title'       => esc_html__( 'Performance', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
 	// Social
 	$wp_customize->add_section( 'suki_section_social', array(
 		'title'       => esc_html__( 'Social Media Links', 'suki' ),

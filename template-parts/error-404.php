@@ -23,23 +23,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	<h1 class="error-404-title page-title">
 		<?php
 		// Title
-		$title = suki_get_theme_mod( 'error_404_title' );
-		if ( empty( $title ) ) {
-			$title = esc_html__( 'Oops! That page can not be found', 'suki' );
+		$title_text = suki_get_theme_mod( 'error_404_title' );
+		if ( empty( $title_text ) ) {
+			$title_text = esc_html__( 'Oops! That page can not be found', 'suki' );
 		}
 
-		echo wp_kses_post( $title );
+		echo wp_kses_post( $title_text );
 		?>
 	</h1>
 
 	<?php
 	// Description
-	$description = suki_get_theme_mod( 'error_404_description' );
-	if ( empty( $description ) ) {
-		$description = esc_html__( 'It looks like nothing was found at this location. Maybe try searching?', 'suki' );
+	$description_text = suki_get_theme_mod( 'error_404_description' );
+	if ( empty( $description_text ) ) {
+		$description_text = esc_html__( 'It looks like nothing was found at this location. Maybe try searching?', 'suki' );
 	}
 
-	echo wp_kses_post( wpautop( $description ) );
+	echo wp_kses_post( wpautop( $description_text ) );
 	?>
 
 	<?php
@@ -53,11 +53,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	// Home button
 	if ( intval( suki_get_theme_mod( 'error_404_home_button' ) ) ) {
 		// Button text
-		$text = suki_get_theme_mod( 'error_404_home_button_text' );
-		if ( empty( $text ) ) {
-			$text = esc_html__( 'Back to Home', 'suki' );
+		$button_text = suki_get_theme_mod( 'error_404_home_button_text' );
+		if ( empty( $button_text ) ) {
+			$button_text = esc_html__( 'Back to Home', 'suki' );
 		}
-		?><a href="<?php echo esc_url( home_url() ); ?>" class="error-404-home-button button"><?php echo wp_kses_post( $text ); ?></a><?php
+		?><a href="<?php echo esc_url( home_url() ); ?>" class="error-404-home-button button"><?php echo wp_kses_post( $button_text ); ?></a><?php
 	}
 	?>
 </div>
