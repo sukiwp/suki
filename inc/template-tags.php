@@ -57,6 +57,10 @@ endif;
 if ( ! function_exists( 'suki_inline_svg' ) ) :
 /**
  * Print / return inline SVG HTML tags.
+ * 
+ * @param string $svg_file
+ * @param boolean $echo
+ * @return string
  */
 function suki_inline_svg( $svg_file, $echo = true ) {
 	// Return empty if no SVG file path is provided.
@@ -162,6 +166,7 @@ if ( ! function_exists( 'suki_icon' ) ) :
  * @param string $key
  * @param array $args
  * @param boolean $echo
+ * @return string
  */
 function suki_icon( $key, $args = array(), $echo = true ) {
 	$args = wp_parse_args( $args, array(
@@ -207,6 +212,7 @@ if ( ! function_exists( 'suki_social_links' ) ) :
  * @param array $links
  * @param array $args
  * @param boolean $echo
+ * @return string
  */
 function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	$labels = suki_get_social_media_types();
@@ -229,6 +235,56 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 		echo $args['after_link']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	endforeach;
 	$html = ob_get_clean();
+
+	if ( $echo ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_breadcrumb' ) ) :
+/**
+ * Print / return HTML markup for breadcrumb.
+ */
+function suki_breadcrumb( $echo = true ) {
+	$html = '';
+
+	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
+		case 'breadcrumb-trail':
+			if ( function_exists( 'breadcrumb_trail' ) ) {
+				$html = breadcrumb_trail( array(
+					'show_browse' => false,
+					'echo' => false,
+				) );
+			}
+			break;
+
+		case 'breadcrumb-navxt':
+			if ( function_exists( 'bcn_display' ) ) {
+				$html = bcn_display( true );
+			}
+			break;
+
+		case 'yoast-seo':
+			if ( function_exists( 'yoast_breadcrumb' ) ) {
+				$html = yoast_breadcrumb( '', '', false );
+			}
+			break;
+
+		case 'rank-math':
+			if ( function_exists( 'rank_math_get_breadcrumbs' ) ) {
+				$html = rank_math_get_breadcrumbs();
+			}
+			break;
+
+		case 'seopress':
+			if ( function_exists( 'seopress_display_breadcrumbs' ) ) {
+				$html = seopress_display_breadcrumbs( false );
+			}
+			break;
+	}
 
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -261,7 +317,7 @@ if ( ! function_exists( 'suki_header' ) ) :
  */
 function suki_header() {
 	?>
-	<header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope>
+	<header id="masthead" class="site-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 		<?php
 		/**
 		 * Hook: suki/frontend/header
@@ -468,7 +524,7 @@ if ( ! function_exists( 'suki_footer' ) ) :
  */
 function suki_footer() {
 	?>
-	<footer id="colophon" class="site-footer suki-footer" role="contentinfo" itemtype="https://schema.org/WPFooter" itemscope>
+	<footer id="colophon" class="site-footer suki-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
 		<?php
 		/**
 		 * Hook: suki/frontend/footer

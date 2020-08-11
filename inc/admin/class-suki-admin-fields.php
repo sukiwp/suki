@@ -42,7 +42,7 @@ class Suki_Admin_Fields {
 		}
 
 		if ( $echo ) {
-			echo $html; // WPCS: XSS OK
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $html;
 		}

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 $display = suki_get_theme_mod( 'header_mobile_vertical_bar_display' );
 ?>
-<div id="mobile-vertical-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array( 'suki-header-mobile-vertical', 'suki-header', 'suki-popup' ) ) ) ); ?>" itemtype="https://schema.org/WPHeader" itemscope>
+<div id="mobile-vertical-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_vertical_classes', array( 'suki-header-mobile-vertical', 'suki-header', 'suki-popup' ) ) ) ); ?>" itemscope itemtype="https://schema.org/WPHeader">
 	<?php if ( 'drawer' === $display ) : ?>
 		<div class="suki-popup-background suki-popup-close"></div>
 	<?php endif; ?>

@@ -167,8 +167,9 @@ class Suki_Customizer {
 
 		// Global Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--performance.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--breadcrumb.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php' );
 
 		// General Styles
@@ -443,9 +444,15 @@ class Suki_Customizer {
 			'@media screen and (max-width: 499px)' => array(),
 		);
 
+		// Get saved theme mods as an array.
+		$mods = get_theme_mods();
+		if ( empty( $mods ) ) {
+			$mods = array();
+		}
+
 		// Intersect the whole postmessages array with saved theme mods array.
 		// This way we can optimize the iteration to only process the existing theme mods.
-		$keys = array_intersect( array_keys( $postmessages ), array_keys( get_theme_mods() ) );
+		$keys = array_intersect( array_keys( $postmessages ), array_keys( $mods ) );
 
 		// Loop through each setting.
 		foreach ( $keys as $key ) {
@@ -679,33 +686,6 @@ class Suki_Customizer {
 
 		// Add "Search Page"	
 		$contexts['suki_section_search'] = esc_url( home_url( '?s=awesome' ) );
-
-		foreach ( $this->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			if ( in_array( $ps_type, array( 'error_404', 'search' ) ) ) {
-				continue;
-			}
-
-			// Get post type object.
-			// First check if $ps_type is not for 404 and search page.
-			$post_type_slug = preg_replace( '/(_singular|_archive)/', '', $ps_type );
-			$post_type_obj = get_post_type_object( $post_type_slug );
-			$archive_or_singular = str_replace( $post_type_slug . '_', '', $ps_type );
-
-			if ( 'singular' === $archive_or_singular ) {
-				$posts = get_posts( array(
-					'posts_per_page' => 10,
-					'post_type'      => $post_type_slug,
-				) );
-
-				if ( 0 < count( $posts ) ) {
-					$sample = $posts[ rand( 0, count( $posts ) - 1 ) ];
-
-					$contexts[ $ps_data['section'] ] = esc_url( get_permalink( $sample ) );
-				}
-			} else {
-				$contexts[ $ps_data['section'] ] = esc_url( get_post_type_archive_link( $post_type_slug ) );
-			}
-		}
 
 		// Add WooCommerce Cart Page
 		$contexts['woocommerce_cart'] = esc_url( wc_get_cart_url() );
