@@ -37,6 +37,7 @@ class Suki_Migrate_1_3_0 {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		$this->migrate_page_template_slug();
 		$this->migrate_page_header_title_text();
 		$this->migrate_content_layout_narrow();
 		$this->migrate_page_header_to_hero_section();
@@ -49,9 +50,28 @@ class Suki_Migrate_1_3_0 {
 	 */
 
 	/**
+	 * Migrate all pages with "page-builder" page template to "page_builder".
+	 *
+	 * Why:
+	 * "page-" is a reserved page template format (ref: https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use).
+	 * The possible bad case: If user created a page with "builder" as its slug, WordPress will mistakenly use "page-builder" page template for that page even if user didn't set the page template to "page-builder".
+	 */
+	private function migrate_page_template_slug() {
+		$posts = get_posts( array(
+			'posts_per_page' => -1,
+			'meta_key'       => '_wp_page_template',
+			'meta_value'     => 'page-templates/page-builder.php',
+		) );
+
+		foreach ( $posts as $post ) {
+			update_post_meta( $post, '_wp_page_template', 'page-templates/page_builder.php' );
+		}
+	}
+
+	/**
 	 * Migrate all page header title text option keys.
 	 *
-	 * The reason behind this migration:
+	 * Why:
 	 * The title text should affect the content header title as well not just the page header title.
 	 */
 	private function migrate_page_header_title_text() {
@@ -103,7 +123,7 @@ class Suki_Migrate_1_3_0 {
 	/**
 	 * Migrate content narrow to custom container width.
 	 *
-	 * The reason behind this migration:
+	 * Why:
 	 * It doesn't make sense when user chooses "Full width" in "Content container" option and chooses "Narrow" in the "Content and sidebar layout" option.
 	 *
 	 * The previous implementation:
