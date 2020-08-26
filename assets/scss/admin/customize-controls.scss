@@ -1666,3 +1666,17 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 }
+
+// -------------------------------------------------------------
+// Responsive Customizer Preview
+// -------------------------------------------------------------
+
+.preview-tablet .wp-full-overlay-main {
+	width: 768px;
+	height: 1024px;
+}
+
+.preview-mobile .wp-full-overlay-main {
+	width: 375px;
+	height: 812px;
+}
