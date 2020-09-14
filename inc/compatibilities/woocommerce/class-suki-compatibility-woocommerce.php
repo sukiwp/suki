@@ -52,6 +52,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
+		add_filter( 'suki/customizer/preview_contexts', array( $this, 'add_preview_contexts' ) );
 
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -188,6 +189,20 @@ class Suki_Compatibility_WooCommerce {
 		$add = include( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/contexts.php' );
 
 		return array_merge_recursive( $contexts, $add );
+	}
+
+	/**
+	 * Allow others to add more preview contexts.
+	 *
+	 * @param array $contexts
+	 * @return array
+	 */
+	public function add_preview_contexts( $contexts = array() ) {
+		// Add Customizer’s preview contexts for Cart and Checkout pages.
+		$contexts['woocommerce_cart'] = esc_url( wc_get_cart_url() );		
+		$contexts['woocommerce_checkout'] = esc_url( wc_get_checkout_url() );
+
+		return $contexts;
 	}
 
 	/**
