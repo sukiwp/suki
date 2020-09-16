@@ -382,6 +382,13 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) );
 
+	// HTML
+	$wp_customize->add_section( 'suki_section_footer_html', array(
+		'title'       => esc_html__( 'HTML', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 30,
+	) );
+
 	// Social
 	$wp_customize->add_section( 'suki_section_footer_social', array(
 		'title'       => esc_html__( 'Social', 'suki' ),
