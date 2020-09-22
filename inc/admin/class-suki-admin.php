@@ -245,6 +245,9 @@ class Suki_Admin {
 	 * @return array
 	 */
 	public function add_classic_editor_custom_css( $settings ) {
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			return;
+		}
 		// Skip Gutenberg editor page.
 		$current_screen = get_current_screen();
 		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
@@ -358,6 +361,9 @@ class Suki_Admin {
 	 * @return array
 	 */
 	public function add_classic_editor_body_class( $settings ) {
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			return;
+		}
 		// Skip Gutenberg editor page.
 		$current_screen = get_current_screen();
 		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {

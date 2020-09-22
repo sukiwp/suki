@@ -249,75 +249,75 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:666
+#: inc/admin/class-suki-admin.php:672
 msgid "Core Module"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:699
+#: inc/admin/class-suki-admin.php:705
 msgid "Modules Manager"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:722
+#: inc/admin/class-suki-admin.php:728
 msgid "Available on Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:733
+#: inc/admin/class-suki-admin.php:739
 msgid "WooCommerce is not installed"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:773
+#: inc/admin/class-suki-admin.php:779
 msgid "Suki Website"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:779
+#: inc/admin/class-suki-admin.php:785
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:785
+#: inc/admin/class-suki-admin.php:791
 msgid "Translation"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:791
+#: inc/admin/class-suki-admin.php:797
 msgid "Users Community Group"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:797
+#: inc/admin/class-suki-admin.php:803
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:803
+#: inc/admin/class-suki-admin.php:809
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:811
+#: inc/admin/class-suki-admin.php:817
 msgid "Other Links"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:832
+#: inc/admin/class-suki-admin.php:838
 msgid "Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:835
+#: inc/admin/class-suki-admin.php:841
 msgid "Get more powerful features and take your website to the next level with Suki Pro."
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:837
+#: inc/admin/class-suki-admin.php:843
 msgid "Upgrade to Suki Pro"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:853
+#: inc/admin/class-suki-admin.php:859
 msgid "One Click Demo Import"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:856
+#: inc/admin/class-suki-admin.php:862
 msgid "Kickstart your website with our pre-made demo websites: Import. Modify. Launch!"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:859
+#: inc/admin/class-suki-admin.php:865
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: inc/admin/class-suki-admin.php:861
+#: inc/admin/class-suki-admin.php:867
 msgid "Install & Activate Plugin"
 msgstr ""
 
