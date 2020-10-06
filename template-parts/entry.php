@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry/post_classes', array( 'entry', 'entry-layout-default' ) ) ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry/classes', array( 'entry', 'entry-layout-default' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**

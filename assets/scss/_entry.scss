@@ -162,7 +162,7 @@ a.entry-thumbnail {
 	}
 
 	blockquote {
-		padding: 0.5em 2em;
+		padding: 0 2em;
 		@include border( left, 0.25em, solid );
 
 		&[style*="center"] {

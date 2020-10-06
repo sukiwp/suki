@@ -551,6 +551,21 @@ function suki_body_classes( $classes ) {
 add_filter( 'body_class', 'suki_body_classes' );
 
 /**
+ * Add a class to post wrapper if the content is built using Gutenberg.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_post_class_is_gutenberg( $classes ) {
+	if ( has_blocks() ) {
+		$classes['gutenberg'] = 'suki-gutenberg-content';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'suki_post_class_is_gutenberg' );
+
+/**
  * Add custom classes to the array of mobile vertical header classes.
  *
  * @param array $classes
@@ -646,7 +661,12 @@ add_filter( 'suki/frontend/page_header_classes', 'suki_page_header_classes' );
  */
 function suki_content_classes( $classes ) {
 	$classes['container'] = esc_attr( 'suki-section-' . suki_get_current_page_setting( 'content_container' ) );
-	$classes['content_layout'] = esc_attr( 'suki-content-layout-' . suki_get_current_page_setting( 'content_layout' ) );
+
+	if ( 'narrow' === suki_get_current_page_setting( 'content_container' ) ) {
+		$classes['content_layout'] = 'suki-content-layout-wide';
+	} else {
+		$classes['content_layout'] = esc_attr( 'suki-content-layout-' . suki_get_current_page_setting( 'content_layout' ) );
+	}
 
 	return $classes;
 }

@@ -86,7 +86,7 @@ blockquote {
 	cite {
 		display: block;
 		font-size: 0.85rem;
-		opacity: 0.6;
+		opacity: 0.75;
 	}
 }
 
@@ -94,10 +94,6 @@ ul,
 ol {
 	margin: 0 0 1.5rem;
 	padding-left: 2rem;
-
-	li {
-		margin: 0;
-	}
 
 	li > & {
 		margin-top: 0;
@@ -126,7 +122,7 @@ iframe {
 pre {
 	max-width: 100%;
 	margin: 0 0 1.5rem;
-	padding: 0.6rem 1.2rem;
+	padding: 1.5em;
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
@@ -150,6 +146,18 @@ a {
 
 figure {
 	margin: 0;
+}
+
+figcaption {
+	width: 100%;
+	margin: 0.5em 0 0;
+	color: inherit;
+	font-size: 0.85em;
+	font-style: italic;
+	text-align: center;
+	word-break: break-all;
+	color: inherit;
+	opacity: 0.75;
 }
 
 address {

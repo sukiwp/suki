@@ -59,10 +59,11 @@ class Suki_Admin {
 		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
 
 		// Classic editor hooks
-		add_action( 'admin_init', array( $this, 'add_editor_css' ) );
+		// add_action( 'init', array( $this, 'add_editor_css' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_body_class' ) );
-		add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
+		// add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
 		// Suki admin page hooks
 		add_action( 'suki/admin/dashboard/header', array( $this, 'render_admin_page__logo' ), 10 );
@@ -380,6 +381,14 @@ class Suki_Admin {
 		}
 
 		return $settings;
+	}
+
+	/**
+	 * Enqueue Block Editor assets.
+	 */
+	public function enqueue_block_editor_assets() {
+		wp_enqueue_style( 'suki-editor-block', SUKI_CSS_URL . '/admin/editor-block' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_style_add_data( 'suki-editor-block', 'rtl', 'replace' );
 	}
 
 	/**

@@ -873,6 +873,14 @@ $add['entry_grid_border_color'] = '';
 
 /**
  * ====================================================
+ * Other Pages > Static Page
+ * ====================================================
+ */
+
+$add['page_settings_page_singular']['content_header_elements'] = array( 'breadcrumb', 'title' );
+
+/**
+ * ====================================================
  * Other Pages > Error 404 Page
  * ====================================================
  */

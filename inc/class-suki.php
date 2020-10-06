@@ -251,20 +251,20 @@ class Suki {
 
 		// Add theme support for selective refresh for widgets
 		add_theme_support( 'customize-selective-refresh-widgets' );
+		
+		// Add excerpt to pages.
+		add_post_type_support( 'page', 'excerpt' );
 
 		// Breadcrumb trail compatibility
 		add_theme_support( 'breadcrumb-trail' );
 
-		// Gutenberg "align-wide" compatibility
+		// Gutenberg: Block styles
+		// add_theme_support( 'wp-block-styles' );
+
+		// Gutenberg: Wide alignment
 		add_theme_support( 'align-wide' );
 
-		// Gutenberg responsive embeds
-		add_theme_support( 'responsive-embeds' );
-
-		// Gutenberg editor styles
-		add_theme_support( 'editor-styles' );
-
-		// Gutenberg editor color palette
+		// Gutenberg: Editor color palette
 		if ( intval( suki_get_theme_mod( 'color_palette_in_gutenberg' ) ) ) {
 			$array = array();
 
@@ -285,9 +285,47 @@ class Suki {
 
 			add_theme_support( 'editor-color-palette', $array );
 		}
-		
-		// Add excerpt to pages.
-		add_post_type_support( 'page', 'excerpt' );
+
+		// // Gutenberg: Font sizes
+		// add_theme_support( 'editor-font-sizes', array(
+		// 	array(
+		// 		'name' => esc_html__( 'Small', 'suki' ),
+		// 		// 'size' => 12,
+		// 		'slug' => 'small',
+		// 	),
+		// 	array(
+		// 		'name' => esc_html__( 'Normal', 'suki' ),
+		// 		// 'size' => 16,
+		// 		'slug' => 'normal',
+		// 	),
+		// 	array(
+		// 		'name' => esc_html__( 'Medium', 'suki' ),
+		// 		// 'size' => 20,
+		// 		'slug' => 'medium',
+		// 	),
+		// 	array(
+		// 		'name' => esc_html__( 'Large', 'suki' ),
+		// 		// 'size' => 26,
+		// 		'slug' => 'large',
+		// 	),
+		// 	array(
+		// 		'name' => esc_html__( 'Huge', 'suki' ),
+		// 		// 'size' => 32,
+		// 		'slug' => 'huge',
+		// 	),
+		// ) );
+
+		// Gutenberg: Editor styles
+		add_theme_support( 'editor-styles' );
+
+		// Gutenberg: Custom line height
+		add_theme_support( 'custom-line-height' );
+
+		// Gutenberg: Custom units
+		add_theme_support( 'custom-units' );
+
+		// Gutenberg: Responsive embeds
+		add_theme_support( 'responsive-embeds' );
 	}
 
 	/**
