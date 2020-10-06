@@ -4,6 +4,8 @@ v1.3.0
 - NEW: Sidebar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
 - NEW: Footer Widgets Bar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
 - NEW: Gutenberg - Add new theme supports for Gutenberg features: theme font sizes, custom line height, custom units, custom cover block padding, custom link color.
+- NEW: Footer Elements — Add new element: HTML (accepts HTML tags and shortcode).
+- NEW: WPML Compatibility - Add WPML configuration file (`wpml-config.xml`) for automatically WPML integration.
 - TWEAK: Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).
 - TWEAK: Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
 - TWEAK: Header Elements — Allow "Shopping Cart Dropdown" inside the mobile header bar.

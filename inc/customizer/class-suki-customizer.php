@@ -201,6 +201,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--copyright.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--html.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
@@ -686,11 +687,7 @@ class Suki_Customizer {
 		// Add "Search Page"	
 		$contexts['suki_section_search'] = esc_url( home_url( '?s=awesome' ) );
 
-		// Add WooCommerce Cart Page
-		$contexts['woocommerce_cart'] = esc_url( wc_get_cart_url() );
-		
-		// Add WooCommerce Checkout Page
-		$contexts['woocommerce_checkout'] = esc_url( wc_get_checkout_url() );
+		$contexts = apply_filters( 'suki/customizer/preview_contexts', $contexts );
 
 		return $contexts;
 	}
