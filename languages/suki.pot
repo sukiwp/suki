@@ -90,7 +90,7 @@ msgstr ""
 msgid "Page Canvas Layout"
 msgstr ""
 
-#: inc/helpers.php:502, inc/helpers.php:512, inc/helpers.php:522, inc/helpers.php:532, inc/helpers.php:542, inc/helpers.php:552, inc/helpers.php:563, inc/helpers.php:573, inc/helpers.php:583, inc/helpers.php:593, inc/helpers.php:604, inc/helpers.php:615
+#: inc/helpers.php:502, inc/helpers.php:512, inc/helpers.php:522, inc/helpers.php:532, inc/helpers.php:542, inc/helpers.php:552, inc/helpers.php:563, inc/helpers.php:573, inc/helpers.php:583, inc/helpers.php:593, inc/helpers.php:603, inc/helpers.php:614, inc/helpers.php:625
 msgid "Customize"
 msgstr ""
 
@@ -126,105 +126,109 @@ msgstr ""
 msgid "Google Fonts"
 msgstr ""
 
-#: inc/helpers.php:589, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
+#: inc/helpers.php:589, inc/customizer/options/_page-settings.php:121, inc/customizer/options/_sections.php:65
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/helpers.php:599, inc/customizer/options/footer--social.php:23, inc/customizer/options/header--social.php:23
 msgid "Social Links"
 msgstr ""
 
-#: inc/helpers.php:600
+#: inc/helpers.php:610
 msgid "Blog Layout Basic"
 msgstr ""
 
-#: inc/helpers.php:611
+#: inc/helpers.php:621
 msgid "WC Layout Basic"
 msgstr ""
 
-#: inc/helpers.php:633
+#: inc/helpers.php:643
 msgid "Header Elements Plus"
 msgstr ""
 
-#: inc/helpers.php:637
+#: inc/helpers.php:647
 msgid "Vertical Header"
 msgstr ""
 
-#: inc/helpers.php:641
+#: inc/helpers.php:651
 msgid "Transparent Header"
 msgstr ""
 
-#: inc/helpers.php:645
+#: inc/helpers.php:655
 msgid "Sticky Header"
 msgstr ""
 
-#: inc/helpers.php:649
+#: inc/helpers.php:659
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: inc/helpers.php:653
+#: inc/helpers.php:663
 msgid "Header Mega Menu"
 msgstr ""
 
-#: inc/helpers.php:657
+#: inc/helpers.php:667
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: inc/helpers.php:661, inc/admin/class-suki-admin-metabox-page-settings.php:70
+#: inc/helpers.php:671, inc/admin/class-suki-admin-metabox-page-settings.php:70
 msgid "Preloader Screen"
 msgstr ""
 
-#: inc/helpers.php:665, inc/admin/class-suki-admin-metabox-page-settings.php:69
+#: inc/helpers.php:675, inc/admin/class-suki-admin-metabox-page-settings.php:69
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: inc/helpers.php:670
+#: inc/helpers.php:680
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/helpers.php:674
+#: inc/helpers.php:684
 msgid "Custom Icons"
 msgstr ""
 
-#: inc/helpers.php:678
+#: inc/helpers.php:688
 msgid "White Label"
 msgstr ""
 
-#: inc/helpers.php:683
+#: inc/helpers.php:693
 msgid "WC Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:687
+#: inc/helpers.php:697
 msgid "WC AJAX Add To Cart"
 msgstr ""
 
-#: inc/helpers.php:691
+#: inc/helpers.php:701
 msgid "WC Quick View"
 msgstr ""
 
-#: inc/helpers.php:695
+#: inc/helpers.php:705
 msgid "WC Off-Canvas Filters"
 msgstr ""
 
-#: inc/helpers.php:699
+#: inc/helpers.php:709
 msgid "WC Checkout Optimization"
 msgstr ""
 
-#: inc/helpers.php:704
+#: inc/helpers.php:714
 msgid "Blog Layout Plus"
 msgstr ""
 
-#: inc/helpers.php:708
+#: inc/helpers.php:718
 msgid "Blog Featured Posts"
 msgstr ""
 
-#: inc/helpers.php:712
+#: inc/helpers.php:722
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:771, inc/customizer/options/header--logo.php:23, inc/customizer/options/_sections.php:243
+#: inc/helpers.php:781, inc/customizer/options/header--logo.php:23, inc/customizer/options/_sections.php:243
 msgid "Logo"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: Menu element number.
-#: inc/helpers.php:773, inc/customizer/options/header--menu.php:24
+#: inc/helpers.php:783, inc/customizer/options/header--menu.php:24
 msgid "Menu %s"
 msgstr ""
 
@@ -233,83 +237,83 @@ msgstr ""
 #. translators: %s: instance number.
 #. translators: %s: HTML element number.
 #. translators: %s: HTML element number.
-#: inc/helpers.php:775, inc/helpers.php:794, inc/helpers.php:815, inc/customizer/options/footer--html.php:24, inc/customizer/options/header--html.php:24
+#: inc/helpers.php:785, inc/helpers.php:804, inc/helpers.php:825, inc/customizer/options/footer--html.php:24, inc/customizer/options/header--html.php:24
 msgid "HTML %s"
 msgstr ""
 
-#: inc/helpers.php:776, inc/helpers.php:795, inc/customizer/options/header--search.php:23
+#: inc/helpers.php:786, inc/helpers.php:805, inc/customizer/options/header--search.php:23
 msgid "Search Bar"
 msgstr ""
 
-#: inc/helpers.php:777, inc/customizer/options/header--search.php:56
+#: inc/helpers.php:787, inc/customizer/options/header--search.php:56
 msgid "Search Dropdown"
 msgstr ""
 
-#: inc/helpers.php:778, inc/helpers.php:797
+#: inc/helpers.php:788, inc/helpers.php:807
 msgid "Cart Link"
 msgstr ""
 
-#: inc/helpers.php:779, inc/helpers.php:798
+#: inc/helpers.php:789, inc/helpers.php:808
 msgid "Cart Dropdown"
 msgstr ""
 
-#: inc/helpers.php:780, inc/helpers.php:799, inc/helpers.php:816, inc/customizer/options/_sections.php:278, inc/customizer/options/_sections.php:394
+#: inc/helpers.php:790, inc/helpers.php:809, inc/helpers.php:826, inc/customizer/options/_sections.php:278, inc/customizer/options/_sections.php:394
 msgid "Social"
 msgstr ""
 
-#: inc/helpers.php:791, inc/customizer/options/header--logo.php:69
+#: inc/helpers.php:801, inc/customizer/options/header--logo.php:69
 msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: inc/helpers.php:792, template-parts/header-element-mobile-vertical-toggle.php:19, inc/customizer/options/header--menu.php:36
+#: inc/helpers.php:802, template-parts/header-element-mobile-vertical-toggle.php:19, inc/customizer/options/header--menu.php:36
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/helpers.php:796
+#: inc/helpers.php:806
 msgid "Search Icon"
 msgstr ""
 
-#: inc/helpers.php:800
+#: inc/helpers.php:810
 msgid "Toggle"
 msgstr ""
 
-#: inc/helpers.php:811, inc/customizer/options/footer--copyright.php:23, inc/customizer/options/_sections.php:380
+#: inc/helpers.php:821, inc/customizer/options/footer--copyright.php:23, inc/customizer/options/_sections.php:380
 msgid "Copyright"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: menu number.
-#: inc/helpers.php:813, template-parts/footer-element-menu.php:16
+#: inc/helpers.php:823, template-parts/footer-element-menu.php:16
 msgid "Footer Menu %s"
 msgstr ""
 
-#: inc/helpers.php:933
+#: inc/helpers.php:943
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:934
+#: inc/helpers.php:944
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:935
+#: inc/helpers.php:945
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:936
+#: inc/helpers.php:946
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:937
+#: inc/helpers.php:947
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:938
+#: inc/helpers.php:948
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -326,50 +330,71 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: inc/template-tags.php:305
+#: inc/template-tags.php:387
+msgid "Page Not Found"
+msgstr ""
+
+#: inc/template-tags.php:380
+msgid "Search: %s"
+msgstr ""
+
+#: inc/template-tags.php:335
+msgid "Posts by %s"
+msgstr ""
+
+#. translators: %s: page number.
+#: inc/template-tags.php:462
+msgid " (Page %d)"
+msgstr ""
+
+#: inc/template-tags.php:483
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php:525
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:662, inc/template-tags.php:666
+#: inc/template-tags.php:882, inc/template-tags.php:886
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:923, inc/customizer/options/page--search.php:31
+#: inc/template-tags.php:1143, inc/customizer/options/page--search.php:31
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:967
+#: inc/template-tags.php:1187
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:968
+#: inc/template-tags.php:1188
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1013
+#: inc/template-tags.php:1233
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1015
+#: inc/template-tags.php:1235
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1038
+#: inc/template-tags.php:1258
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1032
+#: inc/template-tags.php:1252
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: inc/template-tags.php:1065
+#: inc/template-tags.php:1285
 msgid "Comments are closed."
 msgstr ""
 
@@ -759,15 +784,15 @@ msgstr ""
 msgid "Single %s Page"
 msgstr ""
 
-#: inc/customizer/defaults.php:277
+#: inc/customizer/defaults.php:285
 msgid "Insert HTML text here"
 msgstr ""
 
-#: inc/customizer/defaults.php:767
+#: inc/customizer/defaults.php:773
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: inc/customizer/defaults.php:840, inc/customizer/defaults.php:869
+#: inc/customizer/defaults.php:846, inc/customizer/defaults.php:875
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
@@ -1167,7 +1192,7 @@ msgstr ""
 msgid "After Post Header"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:65, inc/customizer/options/blog--entry-grid.php:193, inc/customizer/options/global--breadcrumb.php:31
+#: inc/customizer/options/blog--entry-default.php:65, inc/customizer/options/blog--entry-grid.php:193
 msgid "Disabled"
 msgstr ""
 
@@ -1754,6 +1779,10 @@ msgstr ""
 msgid "Choose the plugin you want to use to handle the breadcrumb functionality. Make sure you have installed the plugin and configured the breadcrumb feature on the plugin's settings page."
 msgstr ""
 
+#: inc/customizer/options/global--breadcrumb.php:31
+msgid "Theme's Breadcrumb"
+msgstr ""
+
 #: inc/customizer/options/global--breadcrumb.php:32
 msgid "Rank Math"
 msgstr ""
@@ -2051,10 +2080,6 @@ msgstr ""
 msgid "Highlight text color :active"
 msgstr ""
 
-#: inc/customizer/options/hero.php:27, inc/customizer/options/_page-settings.php:215
-msgid "Hero section"
-msgstr ""
-
 #: inc/customizer/options/page--error-404.php:60, inc/customizer/options/page--search.php:27
 msgid "Title text"
 msgstr ""
@@ -2172,12 +2197,12 @@ msgstr ""
 msgid "Narrow content layout doesn't support sidebar."
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:121, inc/customizer/options/_sections.php:65
-msgid "Breadcrumb"
-msgstr ""
-
 #: inc/customizer/options/_page-settings.php:133
 msgid "Content header elements"
+msgstr ""
+
+#: inc/customizer/options/_page-settings.php:215
+msgid "Hero section"
 msgstr ""
 
 #: inc/customizer/options/_page-settings.php:256

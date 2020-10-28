@@ -990,6 +990,26 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	vertical-align: -0.1em;
 }
 
+.suki-breadcrumb {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.suki-breadcrumb li {
+	display: inline-block;
+}
+
+.suki-breadcrumb li:after {
+	margin: 0 0.5em;
+	content: "\00bb";
+	opacity: 0.5;
+}
+
+.suki-breadcrumb li:last-child:after {
+	display: none;
+}
+
 [id="wpadminbar"] {
 	position: fixed !important;
 }

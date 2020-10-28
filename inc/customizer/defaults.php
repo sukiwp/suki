@@ -29,6 +29,14 @@ $add['color_palette_8'] = $colors['black'];
 
 /**
  * ====================================================
+ * Global Settings > Breadcrumb
+ * ====================================================
+ */
+
+$add['breadcrumb_plugin'] = '';
+
+/**
+ * ====================================================
  * Global Settings > Google Fonts
  * ====================================================
  */
@@ -574,42 +582,40 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = '';
 
 $add['hero'] = 1;
 
-$add['page_header_container'] = 'default';
-$add['page_header_padding'] = '60px 20px 60px 20px';
-$add['page_header_border'] = '0px 0px 0px 0px';
+$add['hero_container'] = 'default';
+$add['hero_padding'] = '60px 20px 60px 20px';
+$add['hero_border'] = '0px 0px 0px 0px';
 
-$add['page_header_elements_left'] = array();
-$add['page_header_elements_center'] = array( 'title' );
-$add['page_header_elements_right'] = array();
+$add['hero_elements_left'] = array();
+$add['hero_elements_center'] = array( 'title' );
+$add['hero_elements_right'] = array();
 
-$add['breadcrumb_plugin'] = 'breadcrumb-trail';
+$add['hero_title_font_family'] = '';
+$add['hero_title_font_weight'] = '';
+$add['hero_title_font_style'] = '';
+$add['hero_title_text_transform'] = '';
+$add['hero_title_font_size'] = '';
+$add['hero_title_line_height'] = '';
+$add['hero_title_letter_spacing'] = '';
 
-$add['page_header_title_font_family'] = '';
-$add['page_header_title_font_weight'] = '';
-$add['page_header_title_font_style'] = '';
-$add['page_header_title_text_transform'] = '';
-$add['page_header_title_font_size'] = '';
-$add['page_header_title_line_height'] = '';
-$add['page_header_title_letter_spacing'] = '';
+$add['hero_breadcrumb_font_family'] = '';
+$add['hero_breadcrumb_font_weight'] = '';
+$add['hero_breadcrumb_font_style'] = '';
+$add['hero_breadcrumb_text_transform'] = '';
+$add['hero_breadcrumb_font_size'] = '';
+$add['hero_breadcrumb_line_height'] = '';
+$add['hero_breadcrumb_letter_spacing'] = '';
 
-$add['page_header_breadcrumb_font_family'] = '';
-$add['page_header_breadcrumb_font_weight'] = '';
-$add['page_header_breadcrumb_font_style'] = '';
-$add['page_header_breadcrumb_text_transform'] = '';
-$add['page_header_breadcrumb_font_size'] = '';
-$add['page_header_breadcrumb_line_height'] = '';
-$add['page_header_breadcrumb_letter_spacing'] = '';
+$add['hero_bg_color'] = $colors['subtle'];
+$add['hero_border_color'] = '';
+$add['hero_title_text_color'] = '';
+$add['hero_breadcrumb_text_color'] = '';
+$add['hero_breadcrumb_link_text_color'] = '';
+$add['hero_breadcrumb_link_hover_text_color'] = '';
 
-$add['page_header_bg_color'] = $colors['subtle'];
-$add['page_header_border_color'] = '';
-$add['page_header_title_text_color'] = '';
-$add['page_header_breadcrumb_text_color'] = '';
-$add['page_header_breadcrumb_link_text_color'] = '';
-$add['page_header_breadcrumb_link_hover_text_color'] = '';
-
-$add['page_header_bg_image'] = '';
-$add['page_header_bg_attachment'] = 'scroll';
-$add['page_header_bg_overlay_color'] = '';
+$add['hero_bg_image'] = '';
+$add['hero_bg_attachment'] = 'scroll';
+$add['hero_bg_overlay_color'] = '';
 
 /**
  * ====================================================

@@ -262,3 +262,23 @@ button.suki-toggle {
 	font-size: 18px; // default
 	vertical-align: -0.1em;
 }
+
+.suki-breadcrumb {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline-block;
+
+		&:after {
+			margin: 0 0.5em;
+			content: "\00bb";
+			opacity: 0.5;
+		}
+
+		&:last-child:after {
+			display: none;
+		}
+	}
+}

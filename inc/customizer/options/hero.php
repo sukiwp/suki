@@ -16,17 +16,17 @@ $section = 'suki_section_hero';
  * ====================================================
  */
 
-// Hero section
-$key = 'page_header';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Hero section', 'suki' ),
-	'priority'    => 10,
-) ) );
+// // Hero section
+// $key = 'page_header';
+// $wp_customize->add_setting( $key, array(
+// 	'default'     => suki_array_value( $defaults, $key ),
+// 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+// ) );
+// $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+// 	'section'     => $section,
+// 	'label'       => esc_html__( 'Hero section', 'suki' ),
+// 	'priority'    => 10,
+// ) ) );
 
 
 

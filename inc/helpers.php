@@ -585,6 +585,16 @@ function suki_get_theme_modules() {
 				),
 			),
 		),
+		'breadcrumb' => array(
+			'label'    => esc_html__( 'Breadcrumb', 'suki' ),
+			'category' => 'assets',
+			'actions'  => array(
+				'settings' => array(
+					'label' => esc_html__( 'Customize', 'suki' ),
+					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_breadcrumb' ), admin_url( 'customize.php' ) ),
+				),
+			),
+		),
 		'social-links' => array(
 			'label'    => esc_html__( 'Social Links', 'suki' ),
 			'category' => 'assets',

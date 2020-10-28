@@ -28,7 +28,7 @@ $wp_customize->add_control( $key, array(
 	'label'       => esc_html__( 'Breadcrumb plugin', 'suki' ),
 	'description' => esc_html__( 'Choose the plugin you want to use to handle the breadcrumb functionality. Make sure you have installed the plugin and configured the breadcrumb feature on the plugin\'s settings page.', 'suki' ),
 	'choices'     => array(
-		''                 => esc_html__( 'Disabled', 'suki' ),
+		''                 => esc_html__( 'Theme\'s Breadcrumb', 'suki' ),
 		'rank-math'        => esc_html__( 'Rank Math', 'suki' ),
 		'seopress'         => esc_html__( 'SEOPress (pro version)', 'suki' ),
 		'yoast-seo'        => esc_html__( 'Yoast SEO', 'suki' ),
