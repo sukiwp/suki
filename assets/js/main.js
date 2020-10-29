@@ -177,7 +177,8 @@
 				$submenus.forEach(function( $submenu ) {
 					var $section = $submenu.closest( '.suki-header-section' ),
 					    $menuItem = $submenu.parentElement,
-					    $container = $menuItem.closest( '.suki-wrapper' );
+					    $wrapper = $menuItem.closest( '.suki-wrapper' ),
+					    $container = $wrapper;
 
 					// Full width mega menu, use section as the container.
 					if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
@@ -202,7 +203,7 @@
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
-						$submenu.style[ anchorSide ] = 0;
+						$submenu.style[ anchorSide ] = ( window.sukiHelper.isRTL() ? $container.getBoundingClientRect()[ anchorSide ] - $wrapper.getBoundingClientRect()[ anchorSide ] : $wrapper.getBoundingClientRect()[ anchorSide ] - $container.getBoundingClientRect()[ anchorSide ] ) + 'px';
 					}
 
 					if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
