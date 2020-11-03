@@ -78,12 +78,6 @@ function suki_template_hooks() {
 	// Add default mobile logo.
 	add_action( 'suki/frontend/mobile_logo', 'suki_default_mobile_logo', 10 );
 
-	// Add hero section after header section.
-	add_action( 'suki/frontend/after_header', 'suki_hero', 10 );
-
-	// Add content header before main content.
-	add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
-
 	// Add main footer.
 	add_action( 'suki/frontend/footer', 'suki_main_footer', 10 );
 
@@ -95,6 +89,11 @@ function suki_template_hooks() {
 	add_filter( 'get_the_post_type_description', 'do_shortcode' );
 	add_filter( 'get_the_author_description', 'do_shortcode' );
 
+	// Add breadcrumb to Content Header (as the very first element).
+	if ( intval( suki_get_current_page_setting( 'breadcrumb' ) ) ) {
+		add_action( 'suki/frontend/content_header', 'suki_breadcrumb', 1 );
+	}
+
 	/**
 	 * ====================================================
 	 * All index page hooks
@@ -102,20 +101,11 @@ function suki_template_hooks() {
 	 */
 
 	if ( is_archive() || is_home() || is_search() ) {
-
-		if ( is_home() || is_post_type_archive() ) {
-
-		}
-
-		if ( is_archive() ) {
-			// Add archive title into content header.
-			add_action( 'suki/frontend/content_header', 'suki_archive_title', 10 );
-
-			// Add archive description into content header.
-			if ( '' !== trim( get_the_archive_description() ) ) {
-				add_action( 'suki/frontend/content_header', 'suki_archive_description', 20 );
-			}
-		}
+		/**
+		 * ====================================================
+		 * Archive Content Header
+		 * ====================================================
+		 */
 
 		if ( is_search() ) {
 			// Add archive title into content header.
@@ -126,9 +116,106 @@ function suki_template_hooks() {
 				add_action( 'suki/frontend/content_header', 'suki_search_form', 20 );
 			}
 		}
+		else {
+			// Add archive title into content header.
+			add_action( 'suki/frontend/content_header', 'suki_archive_title', 10 );
+
+			// Add archive description into content header.
+			if ( ! is_post_type_archive() ) {
+				add_action( 'suki/frontend/content_header', 'suki_archive_description', 20 );
+			}
+		}
+
+		// Add content header before main content.
+		if ( ! is_home() ) {
+			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+		}
+
+		/**
+		 * ====================================================
+		 * Archive Loop Navigation
+		 * ====================================================
+		 */
 
 		// Add navigation after the loop.
 		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
+
+		/**
+		 * ====================================================
+		 * Entry default hooks
+		 * ====================================================
+		 */
+
+		// Add grid entry header elements.
+		$priority = 10;
+		foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
+			$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+			// If function exists, attach to hook.
+			if ( function_exists( $function ) ) {
+				add_action( 'suki/frontend/entry/header', $function, $priority );
+			}
+
+			// Increment priority number.
+			$priority = $priority + 10;
+		}
+
+		// Add grid entry footer elements.
+		$priority = 10;
+		foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
+			$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+			// If function exists, attach to hook.
+			if ( function_exists( $function ) ) {
+				add_action( 'suki/frontend/entry/footer', $function, $priority );
+			}
+
+			// Increment priority number.
+			$priority = $priority + 10;
+		}
+
+		/**
+		 * ====================================================
+		 * Entry grid hooks
+		 * ====================================================
+		 */
+
+		// Add grid entry header elements.
+		$priority = 10;
+		foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
+			$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
+
+			// If function exists, attach to hook.
+			if ( function_exists( $function ) ) {
+				add_action( 'suki/frontend/entry_grid/header', $function, $priority );
+			}
+
+			// Increment priority number.
+			$priority = $priority + 10;
+		}
+
+		// Add grid entry footer elements.
+		$priority = 10;
+		foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
+			$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
+
+			// If function exists, attach to hook.
+			if ( function_exists( $function ) ) {
+				add_action( 'suki/frontend/entry_grid/footer', $function, $priority );
+			}
+
+			// Increment priority number.
+			$priority = $priority + 10;
+		}
+
+		/**
+		 * ====================================================
+		 * Entry search hooks
+		 * ====================================================
+		 */
+
+		// Add title to search result entry header.
+		add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
 	}
 
 	/**
@@ -139,19 +226,9 @@ function suki_template_hooks() {
 
 	if ( is_singular() ) {
 		/**
-		 * Content header
-		 */
-
-		// Add singular title into content header.
-		add_action( 'suki/frontend/content_header', 'suki_singular_title', 10 );
-
-		// Add excerpt into content header.
-		if ( post_type_supports( get_post_type(), 'excerpt' ) ) {
-			add_action( 'suki/frontend/content_header', 'suki_singular_excerpt', 20 );
-		}
-
-		/**
-		 * Comments
+		 * ====================================================
+		 * Comments for all singular pages
+		 * ====================================================
 		 */
 
 		// Add comments.
@@ -166,119 +243,112 @@ function suki_template_hooks() {
 
 		// Add "comments closed" notice.
 		add_action( 'suki/frontend/after_comments_list', 'suki_comments_closed', 20 );
-	}
 
-	/**
-	 * ====================================================
-	 * Single blog post hooks
-	 * ====================================================
-	 */
+		/**
+		 * ====================================================
+		 * Static page
+		 * ====================================================
+		 */
 
-	if ( is_single() ) {
-		// Add tags.
-		add_action( 'suki/frontend/entry/before_footer', 'suki_entry_tags', 10 );
+		if ( is_page() ) {
+			// Add static page title into content header.
+			add_action( 'suki/frontend/content_header', 'suki_singular_title', 10 );
 
-		// Add author bio.
-		add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
-		
-		// Add post navigation.
-		add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
-	}
+			// Add static page title into content header.
+			add_action( 'suki/frontend/content_header', 'suki_singular_excerpt', 10 );
 
-	/**
-	 * ====================================================
-	 * Content default (post / page) hooks
-	 * ====================================================
-	 */
+			// Add post header into content header.
+			$priority = 10;
+			foreach ( suki_get_theme_mod( 'entry_page_header', array() ) as $element ) {
+				// If Hero Section is active, do not render "Title" and "Header Meta" again.
+				if ( intval( suki_get_current_page_setting( 'hero' ) ) && 'title' === $element ) {
+					continue;
+				}
 
-	// Add featured media.
-	add_action( 'suki/frontend/entry/' . str_replace( '-entry-', '_', suki_get_theme_mod( 'entry_featured_media_position' ) ), 'suki_entry_featured_media', 10 );
+				$function = 'suki_entry_' . str_replace( '-', '_', $element );
 
-	// // Add entry header elements.
-	// if ( ! is_singular() || ! $is_title_in_page_header ) {
-	// 	if ( ! intval( suki_get_current_page_setting( 'content_hide_title' ) ) ) {
+				// If function exists, attach to hook.
+				if ( function_exists( $function ) ) {
+					add_action( 'suki/frontend/entry_page/header', $function, $priority );
+				}
 
-	// 		if ( is_page() ) {
-	// 			add_action( 'suki/frontend/entry/header', 'suki_entry_title', 10 );
-	// 		} else {
-	// 			$priority = 10;
-	// 			foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
-	// 				$function = 'suki_entry_' . str_replace( '-', '_', $element );
+				// Increment priority number.
+				$priority = $priority + 10;
+			}
+		}
 
-	// 				// If function exists, attach to hook.
-	// 				if ( function_exists( $function ) ) {
-	// 					add_action( 'suki/frontend/entry/header', $function, $priority );
-	// 				}
+		/**
+		 * ====================================================
+		 * Single blog post page
+		 * ====================================================
+		 */
 
-	// 				// Increment priority number.
-	// 				$priority = $priority + 10;
-	// 			}
-	// 		}
+		elseif ( is_single() ) {
+			// Add post title into content header.
+			add_action( 'suki/frontend/content_header', 'suki_entry_title', 10 );
 			
-	// 	}
-	// }
+			// Add post meta into content header.
+			add_action( 'suki/frontend/content_header', 'suki_entry_header_meta', 20 );
 
-	// Add entry footer elements.
-	if ( ! is_page() ) {
-		$priority = 10;
-		foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
-			$function = 'suki_entry_' . str_replace( '-', '_', $element );
+			// Add post header into content header.
+			$priority = 10;
+			foreach ( suki_get_theme_mod( 'entry_single_header', array() ) as $element ) {
+				// If Hero Section is active, do not render "Title" and "Header Meta" again.
+				if ( intval( suki_get_current_page_setting( 'hero' ) ) && in_array( $element, array( 'title', 'header-meta' ) ) ) {
+					continue;
+				}
 
-			// If function exists, attach to hook.
-			if ( function_exists( $function ) ) {
-				add_action( 'suki/frontend/entry/footer', $function, $priority );
+				$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+				// If function exists, attach to hook.
+				if ( function_exists( $function ) ) {
+					add_action( 'suki/frontend/entry_single/header', $function, $priority );
+				}
+
+				// Increment priority number.
+				$priority = $priority + 10;
 			}
 
-			// Increment priority number.
-			$priority = $priority + 10;
+			// Add post footer.
+			$priority = 10;
+			foreach ( suki_get_theme_mod( 'entry_single_footer', array() ) as $element ) {
+				$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+				// If function exists, attach to hook.
+				if ( function_exists( $function ) ) {
+					add_action( 'suki/frontend/entry_single/footer', $function, $priority );
+				}
+
+				// Increment priority number.
+				$priority = $priority + 10;
+			}
+
+			// Add author bio.
+			add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
+			
+			// Add post navigation.
+			add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
+		}
+
+		/**
+		 * ====================================================
+		 * Other post types
+		 * ====================================================
+		 */
+
+		else {
+			// If Hero Section is active, add "Title" to content header.
+			// Otherwise, add "Title" to entry page's header.
+			if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
+				// Add static page title into content header.
+				add_action( 'suki/frontend/content_header', 'suki_entry_title', 10 );
+			} else {
+				// Add static page title to entry's header.
+				add_action( 'suki/frontend/entry_single/header', 'suki_entry_title', 10 );
+			}
 		}
 	}
 
-	/**
-	 * ====================================================
-	 * Content search hooks
-	 * ====================================================
-	 */
-
-	// Add title to search result entry header.
-	add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
-
-	/**
-	 * ====================================================
-	 * Content grid hooks
-	 * ====================================================
-	 */
-
-	// Add featured media.
-	add_action( 'suki/frontend/entry_grid/' . str_replace( '-entry-', '_', suki_get_theme_mod( 'entry_grid_featured_media_position' ) ), 'suki_entry_grid_featured_media', 10 );
-
-	// Add grid entry header elements.
-	$priority = 10;
-	foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
-		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
-
-		// If function exists, attach to hook.
-		if ( function_exists( $function ) ) {
-			add_action( 'suki/frontend/entry_grid/header', $function, $priority );
-		}
-
-		// Increment priority number.
-		$priority = $priority + 10;
-	}
-
-	// Add grid entry footer elements.
-	$priority = 10;
-	foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
-		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
-
-		// If function exists, attach to hook.
-		if ( function_exists( $function ) ) {
-			add_action( 'suki/frontend/entry_grid/footer', $function, $priority );
-		}
-
-		// Increment priority number.
-		$priority = $priority + 10;
-	}
 }
 add_action( 'wp', 'suki_template_hooks', 20 );
 
@@ -287,6 +357,72 @@ add_action( 'wp', 'suki_template_hooks', 20 );
  * Template rendering filters
  * ====================================================
  */
+
+/**
+ * Modify archive title based as configured in the Customizer.
+ *
+ * @param string $title
+ * @param string $original_title
+ * @param string $prefix
+ * @return string
+ */
+function suki_custom_archive_title( $title, $original_title, $prefix ) {
+	// If it's a Blog page, change the posts archive title to "Posts" replacing the default title ("Archives").
+	if ( is_home() ) {
+		$post_type_obj = get_post_type_object( 'post' );
+
+		$title = $post_type_obj->labels->name;
+	}
+
+	if ( is_post_type_archive() || is_home() ) {
+		$custom_title = suki_get_current_page_setting( 'archive_title_text' );
+
+		if ( ! empty( $custom_title ) ) {
+			$post_type_obj = get_post_type_object( get_post_type() );
+
+			$custom_title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $custom_title );
+		}
+	}
+	elseif ( is_category() || is_tag() || is_tax() ) {
+		$custom_title = suki_get_current_page_setting( 'tax_archive_title_text' );
+
+		if ( ! empty( $custom_title ) ) {
+			$term_obj = get_queried_object();
+			$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
+
+			$custom_title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $custom_title );
+			$custom_title = str_replace( '{{term}}', $term_obj->name, $custom_title );
+		}
+	}
+
+	if ( ! empty( $custom_title ) ) {
+		$title = $custom_title;
+	}
+
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'suki_custom_archive_title', 10, 3 );
+
+/**
+ * Modify archive title prefix.
+ * 
+ * @param string $prefix
+ * @return string
+ */
+function suki_archive_title_prefix( $prefix ) {
+	// Use gravatar as author archive title prefix.
+	if ( is_author() ) {
+		$prefix = '<div class="suki-author-archive-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 120, '', get_the_author_meta( 'display_name' ) ) . '</div>';
+	}
+
+	// Modify title prefix for post type archive page.
+	elseif ( is_post_type_archive() ) {
+		$prefix = '';
+	}
+
+	return $prefix;
+}
+add_filter( 'get_the_archive_title_prefix', 'suki_archive_title_prefix' );
 
 /**
  * Modify oembed HTML ouput.
@@ -641,17 +777,34 @@ function suki_header_bottom_bar_classes( $classes ) {
 add_filter( 'suki/frontend/header_bottom_bar_classes', 'suki_header_bottom_bar_classes' );
 
 /**
- * Add custom classes to the array of page header section classes.
+ * Add custom classes to the array of hero section classes.
  *
  * @param array $classes
  * @return array
  */
-function suki_page_header_classes( $classes ) {
-	$classes['container'] = esc_attr( 'suki-section-' . suki_get_theme_mod( 'page_header_container' ) );
+function suki_hero_classes( $classes ) {
+	$classes['container'] = esc_attr( 'suki-section-' . suki_get_current_page_setting( 'hero_container' ) );
+
+	$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'hero_alignment' ) );
 
 	return $classes;
 }
-add_filter( 'suki/frontend/page_header_classes', 'suki_page_header_classes' );
+add_filter( 'suki/frontend/hero_classes', 'suki_hero_classes' );
+
+/**
+ * Add custom classes to the array of content header classes.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_content_header_classes( $classes ) {
+	if ( is_archive() ) {
+		$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'blog_index_header_alignment' ) );
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/content_header_classes', 'suki_content_header_classes' );
 
 /**
  * Add custom classes to the array of content section classes.

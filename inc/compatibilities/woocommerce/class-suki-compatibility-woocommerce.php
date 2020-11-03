@@ -228,6 +228,9 @@ class Suki_Compatibility_WooCommerce {
 		 * Global template hooks
 		 */
 
+		// Change "Products" in theme's breadcrumb trails to Shop page's title.
+		add_filter( 'suki/frontend/breadcrumb_trail', array( $this, 'modify_theme_breadcrumb_trails' ) );
+
 		// Change main content (primary) wrapper.
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
@@ -492,7 +495,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Add "Product Layout" tab on Individual Page Layout meta box.
+	 * Add "Product Layout" tab on Individual Page Settings meta box.
 	 *
 	 * @param array $tabs
 	 * @return array
@@ -506,7 +509,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Render "Product Layout" options on Individual Page Layout meta box.
+	 * Render "Product Layout" options on Individual Page Settings meta box.
 	 *
 	 * @param WP_Post|WP_Term $obj
 	 * @param string $tab
@@ -589,6 +592,20 @@ class Suki_Compatibility_WooCommerce {
 	 * Global Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Change "Products" in theme's breadcrumb trails to Shop page's title.
+	 *
+	 * @param array $array
+	 * @return array
+	 */
+	public function modify_theme_breadcrumb_trails( $array ) {
+		if ( is_shop() ) {
+			$array['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
+		}
+
+		return $array;
+	}
 
 	/**
 	 * Add items count to Cart menu item.

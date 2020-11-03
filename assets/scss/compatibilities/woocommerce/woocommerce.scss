@@ -2342,10 +2342,11 @@ p.demo_store,
 
 		li {
 			// padding: 4px 0;
-			padding: 0 0 0.75em 0;
+			// padding: 0 0 0.75em 0;
 			// margin: 0;
-			margin-top: 0.75em;
-			@include border( bottom );
+			// margin-top: 0.75em;
+			// @include border( bottom );
+			margin-bottom: 1em;
 
 			// @include clearfix();
 			@include float-container();
@@ -2368,11 +2369,11 @@ p.demo_store,
 			}
 
 			img {
-				float: right;
+				float: left;
 				// margin-left: 4px;
-				margin-left: 0.5em;
+				margin-right: 1em;
 				// width: 32px;
-				width: 40px;
+				width: 3.5em;
 				height: auto;
 				box-shadow: none;
 			}
@@ -2440,6 +2441,7 @@ p.demo_store,
 
 			.amount {
 				text-decoration: inherit;
+				font-size: 0.85em;
 			}
 
 			del {
@@ -2475,14 +2477,18 @@ p.demo_store,
 
 		.cart_list li {
 			// padding-left: 2em;
-			padding-left: 1.5em;
 			position: relative;
 			padding-top: 0;
+			padding-right: 1.5em;
 
 			a.remove {
 				position: absolute;
-				top: 0;
-				left: 0;
+				top: 50%;
+				right: 0;
+				display: inline-block;
+				margin-top: -0.5em;
+				font-size: 1.2em;
+				line-height: 1;
 				// width: 1em;
 			}
 		}

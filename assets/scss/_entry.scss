@@ -28,8 +28,8 @@
 
 	.suki-loop-grid & {
 		width: 100%;
-		padding-top: 30px; // default
-		padding-bottom: 30px; // default
+		padding-top: 15px; // default
+		padding-bottom: 15px; // default
 		padding-left: 15px; // default
 		padding-right: 15px; // default
 		border: none;
@@ -81,29 +81,6 @@
 	}
 }
 
-// Entry header
-.entry-header {
-	margin: 0 0 2rem;
-
-	.entry-small & {
-		margin: 0 0 1em;
-	}
-
-	> *:last-child {
-		margin-bottom: 0;
-	}
-}
-
-// Entry footer
-.entry-footer {
-	padding-top: 1em;
-	@include border( top );
-
-	> *:last-child {
-		margin-bottom: 0;
-	}
-}
-
 // Title
 .entry-title {
 	margin: 0 0 0.75rem;
@@ -118,7 +95,7 @@
 // Meta
 .entry-meta {
 	@include meta();
-	margin: 0 0 0.25em;
+	margin: 0 0 0.5em;
 
 	.avatar {
 		display: inline-block;
@@ -128,12 +105,17 @@
 		margin-right: 0.5em;
 		border-radius: 50%;
 	}
+
+	.entry-footer & {
+		padding-top: 1em;
+		@include border( top );
+	}
 }
 
 // Basic image thumbnail
 .entry-thumbnail {
 	display: block;
-	margin: 0 0 2rem;
+	margin: 2rem 0;
 
 	> * {
 		display: block;
@@ -141,7 +123,7 @@
 	}
 
 	.entry-small & {
-		margin: 0 0 1rem;
+		margin: 1.5rem 0;
 	}
 }
 
@@ -149,6 +131,32 @@
 a.entry-thumbnail {
 	&:hover, &:focus {
 		opacity: 0.9;
+	}
+
+	@include transition( opacity );
+}
+
+// Read more link
+a.more-link {
+	white-space: nowrap;
+}
+
+// Entry header
+.entry-header {
+	margin: 0 0 2rem;
+
+	> * {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.entry-small & {
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -174,6 +182,10 @@ a.entry-thumbnail {
 			@include border( right, 0.25em, solid );
 		}
 	}
+
+	.entry-single & {
+		margin-bottom: 3rem;
+	}
 }
 
 // Excerpt
@@ -185,14 +197,22 @@ a.entry-thumbnail {
 	}
 }
 
-// Read more link
-a.more-link {
-	white-space: nowrap;
+// Entry footer
+.entry-footer {
+	> * {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 // Tags
 .entry-tags {
-	margin: 1.5em 0;
+	margin: 0 0 1.5em;
 }
 
 // Author box

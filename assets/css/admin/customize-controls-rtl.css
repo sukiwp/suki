@@ -913,22 +913,13 @@ li:not(.customize-info) div.customize-section-description {
 	box-shadow: 0 0 5px #007cba;
 }
 
-.customize-control-suki-radioimage .suki-radioimage-list input {
-	display: none;
-}
-
-.customize-control-suki-radioimage .suki-radioimage-list input:checked + label {
-	background-color: #007cba;
-	color: #fff;
-}
-
-.customize-control-suki-radioimage .suki-radioimage-list img {
+.customize-control-suki-radioimage .suki-radioimage-list label > img {
 	display: block;
 	width: 100%;
 	border-radius: 2px;
 }
 
-.customize-control-suki-radioimage .suki-radioimage-list span {
+.customize-control-suki-radioimage .suki-radioimage-list label > span {
 	max-width: 100%;
 	display: block;
 	padding: 2px 0;
@@ -938,8 +929,17 @@ li:not(.customize-info) div.customize-section-description {
 	text-align: center;
 }
 
-.customize-control-suki-radioimage .suki-radioimage-list img + span {
+.customize-control-suki-radioimage .suki-radioimage-list label > img + span {
 	margin-top: 2px;
+}
+
+.customize-control-suki-radioimage .suki-radioimage-list input {
+	display: none;
+}
+
+.customize-control-suki-radioimage .suki-radioimage-list input:checked + label {
+	background-color: #007cba;
+	color: #fff;
 }
 
 .customize-control-suki-builder .suki-builder .suki-builder-location {
@@ -984,6 +984,7 @@ li:not(.customize-info) div.customize-section-description {
 	padding-right: 0;
 	padding-left: 0;
 	white-space: nowrap;
+	cursor: move;
 }
 
 .customize-control-suki-builder .suki-builder .suki-builder-element > span {

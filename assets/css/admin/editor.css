@@ -460,6 +460,10 @@ svg {
 	padding: 1.5rem;
 }
 
+.suki-content-layout-wide .suki-gutenberg-content .entry-wrapper {
+	overflow: visible;
+}
+
 .suki-content-layout-wide .suki-gutenberg-content .entry-content {
 	position: relative;
 	width: 100vw;

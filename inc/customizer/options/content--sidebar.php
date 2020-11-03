@@ -180,6 +180,26 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 	'priority'    => 30,
 ) ) );
 
+// Border radius
+$key = 'sidebar_border_radius';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Border radius', 'suki' ),
+	'units'       => array(
+		'px' => array(
+			'min'  => 0,
+			'max'  => 40,
+			'step' => 1,
+		),
+	),
+	'priority'    => 30,
+) ) );
+
 /**
  * ====================================================
  * Typography
@@ -284,17 +304,22 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Widget title alignment', 'suki' ),
 	'choices'     => array(
-		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'center' => esc_html__( 'Center', 'suki' ),
-		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'left'   => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+		),
+		'center' => array(
+			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+		),
+		'right'  => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+		),
 	),
 	'priority'    => 40,
-) );
+) ) );
 
 // Widget title decoration
 $key = 'sidebar_widget_title_decoration';
@@ -326,6 +351,20 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Colors', 'suki' ),
+	'priority'    => 50,
+) ) );
+
+// Shadow
+$key = 'sidebar_shadow';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'shadow' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Shadow( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Shadow', 'suki' ),
+	'exclude'     => array( 'position' ),
 	'priority'    => 50,
 ) ) );
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Page header section template.
+ * Hero section template.
  *
  * @package Suki
  */
@@ -9,8 +9,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<section id="page-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_header_classes', array( 'suki-page-header' ) ) ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Page Header', 'suki' ); ?>">
-	<div class="suki-page-header-inner suki-section-inner">
+<section id="hero" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/hero_classes', array( 'suki-hero' ) ) ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
+	<div class="suki-hero-inner suki-section-inner">
 		<div class="suki-wrapper">
 			<?php
 			/**

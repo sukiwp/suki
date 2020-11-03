@@ -106,7 +106,7 @@ body.suki-page-layout-boxed {
 	@include float-container();
 
 	.suki-section-full-width > .suki-section-inner > & {
-		width: auto;
+		width: 100%;
 	}
 
 	.suki-section-narrow > .suki-section-inner > & {
@@ -128,10 +128,55 @@ body.suki-page-layout-boxed {
 }
 
 // -------------------------------------------------------------
+// Hero Section
+// -------------------------------------------------------------
+
+.suki-hero {
+	font-size: 1.1rem; // default
+
+	&-inner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@include border( null, 0 ); // default
+		background-color: $color_subtle; // default
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: scroll; // default
+		padding: 60px 20px; // default
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	.suki-wrapper {
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.entry-meta {
+		font: inherit; // reset
+	}
+}
+
+// -------------------------------------------------------------
 // Content Section
 // -------------------------------------------------------------
 
-.site-content {
+.suki-content {
 	position: relative;
 }
 

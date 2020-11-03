@@ -168,7 +168,6 @@ class Suki_Customizer {
 		// Global Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--breadcrumb.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php' );
 
 		// General Styles
@@ -197,6 +196,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--main.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--breadcrumb.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );
@@ -206,6 +206,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
 		// Pages
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--singular.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );

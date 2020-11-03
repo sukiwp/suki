@@ -59,17 +59,22 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Alignment', 'suki' ),
 	'choices'     => array(
-		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'center' => esc_html__( 'Center', 'suki' ),
-		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		'left'   => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+		),
+		'center' => array(
+			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+		),
+		'right'  => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+		),
 	),
 	'priority'    => 10,
-) );
+) ) );
 
 // Width
 $key = 'header_mobile_vertical_bar_width';

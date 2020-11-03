@@ -10,9 +10,6 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Always disable page header on this page.
-remove_action( 'suki/frontend/after_header', 'suki_page_header' );
-
 /**
  * Header
  */

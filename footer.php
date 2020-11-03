@@ -13,9 +13,12 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 				/**
-				 * Content - closing tag
+				 * Content
 				 */
 				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
+					/**
+					 * Content section - closing tag
+					 */
 					suki_content_close();
 				}
 

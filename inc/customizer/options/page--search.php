@@ -12,9 +12,17 @@ $section = 'suki_section_search';
 
 /**
  * ====================================================
- * Featured Media
+ * Content Header
  * ====================================================
  */
+
+// Heading: Content Header
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_search_results_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Content Header', 'suki' ),
+	'priority'    => 10,
+) ) );
 
 // Title text
 $key = 'search_results_title';

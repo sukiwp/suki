@@ -33,6 +33,7 @@ $add['color_palette_8'] = $colors['black'];
  * ====================================================
  */
 
+$add['breadcrumb'] = 0;
 $add['breadcrumb_plugin'] = '';
 
 /**
@@ -583,12 +584,11 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = '';
 $add['hero'] = 1;
 
 $add['hero_container'] = 'default';
+$add['hero_height'] = '';
 $add['hero_padding'] = '60px 20px 60px 20px';
 $add['hero_border'] = '0px 0px 0px 0px';
 
-$add['hero_elements_left'] = array();
-$add['hero_elements_center'] = array( 'title' );
-$add['hero_elements_right'] = array();
+$add['hero_alignment'] = 'center';
 
 $add['hero_title_font_family'] = '';
 $add['hero_title_font_weight'] = '';
@@ -597,6 +597,14 @@ $add['hero_title_text_transform'] = '';
 $add['hero_title_font_size'] = '';
 $add['hero_title_line_height'] = '';
 $add['hero_title_letter_spacing'] = '';
+
+$add['hero_description_font_family'] = '';
+$add['hero_description_font_weight'] = '';
+$add['hero_description_font_style'] = '';
+$add['hero_description_text_transform'] = '';
+$add['hero_description_font_size'] = '';
+$add['hero_description_line_height'] = '';
+$add['hero_description_letter_spacing'] = '';
 
 $add['hero_breadcrumb_font_family'] = '';
 $add['hero_breadcrumb_font_weight'] = '';
@@ -609,6 +617,9 @@ $add['hero_breadcrumb_letter_spacing'] = '';
 $add['hero_bg_color'] = $colors['subtle'];
 $add['hero_border_color'] = '';
 $add['hero_title_text_color'] = '';
+$add['hero_description_text_color'] = '';
+$add['hero_description_link_text_color'] = '';
+$add['hero_description_link_hover_text_color'] = '';
 $add['hero_breadcrumb_text_color'] = '';
 $add['hero_breadcrumb_link_text_color'] = '';
 $add['hero_breadcrumb_link_hover_text_color'] = '';
@@ -652,6 +663,7 @@ $add['sidebar_widgets_mode'] = 'merged';
 $add['sidebar_widgets_gap'] = '40px';
 $add['sidebar_padding'] = '0px 0px 0px 0px';
 $add['sidebar_border'] = '0px 0px 0px 0px';
+$add['sidebar_border_radius'] = '0px';
 
 $add['sidebar_font_family'] = '';
 $add['sidebar_font_weight'] = '';
@@ -675,6 +687,7 @@ $add['sidebar_widget_title_decoration'] = 'border-bottom';
 
 $add['sidebar_bg_color'] = '';
 $add['sidebar_border_color'] = '';
+$add['sidebar_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 $add['sidebar_text_color'] = '';
 $add['sidebar_link_text_color'] = '';
 $add['sidebar_link_hover_text_color'] = '';
@@ -811,6 +824,7 @@ $add['scroll_to_top_hover_text_color'] = '';
  */
 
 $add['blog_index_loop_mode'] = 'default';
+$add['blog_index_content_header'] = 0;
 $add['blog_index_navigation_mode'] = 'pagination';
 
 /**
@@ -818,6 +832,14 @@ $add['blog_index_navigation_mode'] = 'pagination';
  * Blog > Single Post Page
  * ====================================================
  */
+
+$add['entry_single_header'] = array( 'title', 'header-meta', 'featured-media' );
+$add['entry_single_header_alignment'] = 'left';
+$add['entry_single_header_meta'] = '{{date}}';
+
+$add['entry_single_footer'] = array( 'tags', 'footer-meta' );
+$add['entry_single_footer_alignment'] = 'left';
+$add['entry_single_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
 $add['blog_single_author_bio'] = 1;
 $add['blog_single_navigation'] = 1;
@@ -830,12 +852,14 @@ $add['blog_single_navigation'] = 1;
 
 $add['blog_index_default_items_gap'] = '90px';
 
-$add['entry_featured_media_position'] = 'before-entry-header';
-$add['entry_featured_media_ignore_padding'] = 0;
+$add['entry_padding'] = '0 0 0 0';
+$add['entry_border'] = '0 0 0 0';
+$add['entry_border_radius'] = '0px';
 
-$add['entry_header'] = array( 'header-meta', 'title' );
+$add['entry_header'] = array( 'featured-media', 'header-meta', 'title' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
+$add['entry_featured_media_ignore_padding'] = 0;
 
 $add['entry_excerpt_length'] = 55;
 $add['entry_read_more_text'] = '';
@@ -845,26 +869,31 @@ $add['entry_footer'] = array( 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
 $add['entry_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
+$add['entry_bg_color'] = '';
+$add['entry_border_color'] = '';
+$add['entry_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
+
 /**
  * ====================================================
  * Blog > Post Layout: Grid
  * ====================================================
  */
 
+$add['blog_index_header_alignment'] = 'left';
+
 $add['blog_index_grid_columns'] = 2;
-$add['blog_index_grid_rows_gutter'] = '30px';
-$add['blog_index_grid_columns_gutter'] = '20px';
+$add['blog_index_grid_rows_gutter'] = '15px';
+$add['blog_index_grid_columns_gutter'] = '15px';
 
 $add['entry_grid_padding'] = '0 0 0 0';
 $add['entry_grid_border'] = '0 0 0 0';
+$add['entry_grid_border_radius'] = '0px';
 $add['entry_grid_same_height'] = 0;
 
-$add['entry_grid_featured_media_position'] = 'before-entry-header';
-$add['entry_grid_featured_media_ignore_padding'] = 0;
-
-$add['entry_grid_header'] = array( 'header-meta', 'title' );
+$add['entry_grid_header'] = array( 'featured-media', 'header-meta', 'title' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
+$add['entry_grid_featured_media_ignore_padding'] = 0;
 
 $add['entry_grid_excerpt_length'] = 30;
 $add['entry_grid_read_more_text'] = '';
@@ -876,6 +905,7 @@ $add['entry_grid_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bu
 
 $add['entry_grid_bg_color'] = '';
 $add['entry_grid_border_color'] = '';
+$add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 
 /**
  * ====================================================
@@ -883,7 +913,8 @@ $add['entry_grid_border_color'] = '';
  * ====================================================
  */
 
-$add['page_settings_page_singular']['content_header_elements'] = array( 'breadcrumb', 'title' );
+$add['entry_page_header'] = array( 'title', 'featured-media' );
+$add['entry_page_header_alignment'] = 'left';
 
 /**
  * ====================================================

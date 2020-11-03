@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Individual Page Layout metabox
+ * Suki Individual Page Settings metabox
  *
  * @package Suki
  */
@@ -62,9 +62,9 @@ class Suki_Admin_Metabox_Page_Settings {
 	 */
 	private function get_tabs() {
 		return apply_filters( 'suki/admin/metabox/page_settings/tabs', array(
-			'content'          => esc_html__( 'Content & Sidebar', 'suki' ),
+			'content'          => esc_html__( 'Content Section', 'suki' ),
+			'hero'             => esc_html__( 'Hero Section', 'suki' ),
 			'header'           => esc_html__( 'Header', 'suki' ),
-			'page-header'      => esc_html__( 'Page Header', 'suki' ),
 			'footer'           => esc_html__( 'Footer', 'suki' ),
 			'custom-blocks'    => esc_html__( 'Custom Blocks (Hooks)', 'suki' ),
 			'preloader-screen' => esc_html__( 'Preloader Screen', 'suki' ),
@@ -101,7 +101,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		add_meta_box(
 			'suki_page_settings',
 			/* translators: %s: theme name. */
-			sprintf( esc_html__( 'Individual Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
+			sprintf( esc_html__( 'Individual Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
 			'normal',
@@ -163,10 +163,10 @@ class Suki_Admin_Metabox_Page_Settings {
 			), 'names' )
 		);
 		foreach ( $taxonomies as $taxonomy ) {
-			add_action( $taxonomy . '_add_form_fields', array( $this, 'render_meta_box__term_add' ) );
+			// add_action( $taxonomy . '_add_form_fields', array( $this, 'render_meta_box__term_add' ) );
 			add_action( $taxonomy . '_edit_form_fields', array( $this, 'render_meta_box__term_edit' ) );
 
-			add_action( 'create_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
+			// add_action( 'create_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
 			add_action( 'edit_' . $taxonomy, array( $this, 'save_term_meta_box' ), 10, 2 );
 		}
 	}
@@ -217,8 +217,8 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * @param WP_Post $post
 	 */
 	public function render_meta_box__post( $post ) {
-		// Define an array of post IDs that will disable Individual Page Layout meta box.
-		// The Individual Page Layout fields would not be displayed on those disabled IDs meta box.
+		// Define an array of post IDs that will disable Individual Page Settings meta box.
+		// The Individual Page Settings fields would not be displayed on those disabled IDs meta box.
 		// Instead, The meta box would show the defined string specified on the disabled array.
 		$disabled_ids = array();
 
@@ -255,7 +255,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			<h2>
 				<?php
 				/* translators: %s: theme name. */
-				printf( esc_html__( 'Individual Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+				printf( esc_html__( 'Individual Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
 				?>
 			</h2>
 			<?php
@@ -283,7 +283,7 @@ class Suki_Admin_Metabox_Page_Settings {
 				<h3>
 					<?php
 					/* translators: %s: tdeme name. */
-					printf( esc_html__( 'Individual Page Layout (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
+					printf( esc_html__( 'Individual Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
 					?>
 				</h3>
 				<?php
@@ -403,13 +403,13 @@ class Suki_Admin_Metabox_Page_Settings {
 				<?php endif;
 				break;
 
-			case 'page-header':
+			case 'hero':
 				?>
 				<div class="suki-admin-form-row">
-					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header', 'suki' ); ?></label></div>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hero section', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
-						$key = 'page_header';
+						$key = 'hero';
 						Suki_Admin_Fields::render_field( array(
 							'name'        => $option_key . '[' . $key . ']',
 							'type'        => 'select',
@@ -423,55 +423,45 @@ class Suki_Admin_Metabox_Page_Settings {
 						?>
 					</div>
 				</div>
-			
-				<?php if ( is_a( $obj, 'WP_Post' ) ) : ?>
-					<div class="suki-admin-form-row">
-						<div class="suki-admin-form-label"><label><?php esc_html_e( 'Page header background image', 'suki' ); ?></label></div>
-						<div class="suki-admin-form-field">
-							<?php
-							$post_type_obj = get_post_type_object( get_post_type( $obj ) );
 
-							$choices = array(
-								'' => esc_html__( 'Use global default background image as configured at Customize > Page Header.', 'suki' ),
-								'thumbnail' => esc_html__( 'Use Featured Image as background image (replace the global default background image).', 'suki' ),
-								'archive' => sprintf(
-									/* translators: %s: post type plural name. */
-									esc_html__( 'Use same background image as archive page (configured at Customize > Page Settings > %s Archive Page).', 'suki' ),
-									esc_html( $post_type_obj->labels->name )
+				<div class="suki-admin-form-row">
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Container', 'suki' ); ?></label></div>
+					<div class="suki-admin-form-field">
+						<?php
+						$key = 'hero_container';
+						Suki_Admin_Fields::render_field( array(
+							'name'        => $option_key . '[' . $key . ']',
+							'type'        => 'radioimage',
+							'choices'     => array(
+								''           => array(
+									'label' => esc_html__( '(Customizer)', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
 								),
-							);
-							?>
-							<div style="padding: 0.5em 0;">
-								<?php
-								if ( 'page' === get_post_type( $obj ) ) {
-									echo esc_html( $choices['thumbnail'] );
-								} else {
-									$page_settings = suki_get_theme_mod( 'page_settings_' . $post_type_obj->name . '_singular' );
-									$value = suki_array_value( $page_settings, 'page_header_bg' );
-
-									echo esc_html( $choices[ $value ] );
-
-									?>
-									<div class="notice notice-info notice-alt inline">
-										<p><?php printf(
-											/* translators: %s: post type singular name. */
-											esc_html__( 'TIPS: You can switch between "Use global default", "Use Featured Image", or "Use same background image as archive page" at Customize > Page Settings > Single %s Page.', 'suki' ),
-											esc_html( $post_type_obj->labels->singular_name )
-										); ?></p>
-									</div>
-									<?php
-								}
-								?>
-							</div>
-						</div>
+								'default'    => array(
+									'label' => esc_html__( 'Normal', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/hero-container--default.svg',
+								),
+								'full-width' => array(
+									'label' => esc_html__( 'Full width', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/hero-container--full-width.svg',
+								),
+								'narrow'     => array(
+									'label' => esc_html__( 'Narrow', 'suki' ),
+									'image' => SUKI_IMAGES_URL . '/customizer/hero-container--narrow.svg',
+								),
+							),
+							'value'       => suki_array_value( $values, $key ),
+						) );
+						?>
 					</div>
-				<?php endif;
+				</div>
+				<?php
 				break;
 
 			case 'content':
 				?>
 				<div class="suki-admin-form-row">
-					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content container', 'suki' ); ?></label></div>
+					<div class="suki-admin-form-label"><label><?php esc_html_e( 'Container', 'suki' ); ?></label></div>
 					<div class="suki-admin-form-field">
 						<?php
 						$key = 'content_container';

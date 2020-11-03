@@ -514,13 +514,13 @@ function suki_get_theme_modules() {
 				),
 			),
 		),
-		'page-header' => array(
-			'label'    => esc_html__( 'Page Header Layout', 'suki' ),
+		'hero' => array(
+			'label'    => esc_html__( 'Hero Section Layout', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(
 					'label' => esc_html__( 'Customize', 'suki' ),
-					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_page_header' ), admin_url( 'customize.php' ) ),
+					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_hero' ), admin_url( 'customize.php' ) ),
 				),
 			),
 		),
@@ -582,16 +582,6 @@ function suki_get_theme_modules() {
 				'settings' => array(
 					'label' => esc_html__( 'Customize', 'suki' ),
 					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_google_fonts' ), admin_url( 'customize.php' ) ),
-				),
-			),
-		),
-		'breadcrumb' => array(
-			'label'    => esc_html__( 'Breadcrumb', 'suki' ),
-			'category' => 'assets',
-			'actions'  => array(
-				'settings' => array(
-					'label' => esc_html__( 'Customize', 'suki' ),
-					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_breadcrumb' ), admin_url( 'customize.php' ) ),
 				),
 			),
 		),
@@ -661,6 +651,10 @@ function suki_get_pro_modules() {
 		),
 		'header-mega-menu' => array(
 			'label'    => esc_html__( 'Header Mega Menu', 'suki' ),
+			'category' => 'layout',
+		),
+		'sidebar-sticky' => array(
+			'label'    => esc_html__( 'Sticky Sidebar', 'suki' ),
 			'category' => 'layout',
 		),
 		'footer-widgets-columns-width' => array(
@@ -735,8 +729,11 @@ function suki_get_fallback_page_settings() {
 		'content_container'     => suki_get_theme_mod( 'content_container', 'default' ),
 		'content_layout'        => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
 		'content_header_layout' => suki_get_theme_mod( 'content_header_layout', 'before_main' ),
-		'page_header'           => suki_get_theme_mod( 'page_header', 0 ),
-		'page_header_bg_image'  => suki_get_theme_mod( 'page_header_bg_image', '' ),
+		'breadcrumb'            => suki_get_theme_mod( 'breadcrumb', 0 ),
+		'hero'                  => suki_get_theme_mod( 'hero', 0 ),
+		'hero_container'        => suki_get_theme_mod( 'hero_container', 'default' ),
+		'hero_alignment'        => suki_get_theme_mod( 'hero_alignment', 'center' ),
+		'hero_bg_image'         => suki_get_theme_mod( 'hero_bg_image', '' ),
 	) );
 }
 

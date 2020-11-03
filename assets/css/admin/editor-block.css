@@ -476,6 +476,10 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 	padding: 1.5rem;
 }
 
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper {
+	overflow: visible;
+}
+
 .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content {
 	position: relative;
 	width: 100vw;

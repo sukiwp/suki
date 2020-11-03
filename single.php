@@ -27,8 +27,8 @@ do_action( 'suki/frontend/before_main' );
 
 while ( have_posts() ) : the_post();
 
-	// Render post content using "content" layout.
-	suki_get_template_part( 'entry' );
+	// Render post content using "content-single" layout.
+	suki_get_template_part( 'entry', 'single' );
 
 endwhile;
 

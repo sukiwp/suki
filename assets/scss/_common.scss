@@ -122,11 +122,21 @@
 
 .page-title {
 	@include h1();
+
+	.suki-author-archive-avatar {
+		margin-bottom: 0.5em;
+
+		.avatar {
+			width: 5rem;
+			height: 5rem;
+			border-radius: 50%;
+		}
+	}
 }
 
 .content-header {
 	.site-content & {
-		margin: 0 0 6rem;
+		margin: 0 0 4rem;
 	}
 
 	> *:last-child {
@@ -267,9 +277,15 @@ button.suki-toggle {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	margin-bottom: 1rem;
+	font-size: 0.85em;
 
 	li {
 		display: inline-block;
+		max-width: 15em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
 
 		&:after {
 			margin: 0 0.5em;

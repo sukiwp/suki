@@ -87,7 +87,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		'selector'            => '.suki-header-shopping-cart-dropdown',
 		'container_inclusive' => true,
 		'render_callback'     => function() {
-			suki_header_element( 'shopping-cart-link-dropdown' );
+			suki_header_element( 'shopping-cart-dropdown' );
 		},
 		'fallback_refresh'    => false,
 	) );

@@ -1012,6 +1012,26 @@ li:not(.customize-info) div.customize-section-description {
 			&:focus {
 				box-shadow: 0 0 5px $wp_color_primary;
 			}
+
+			> img {
+				display: block;
+				width: 100%;
+				border-radius: 2px;
+			}
+
+			> span {
+				max-width: 100%;
+				display: block;
+				padding: 2px 0;
+				font-size: 11px;
+				font-weight: 500;
+				line-height: 14px;
+				text-align: center;
+			}
+
+			> img + span {
+				margin-top: 2px;
+			}
 		}
 
 		input {
@@ -1023,25 +1043,6 @@ li:not(.customize-info) div.customize-section-description {
 			color: #fff;
 		}
 
-		img {
-			display: block;
-			width: 100%;
-			border-radius: 2px;
-		}
-
-		span {
-			max-width: 100%;
-			display: block;
-			padding: 2px 0;
-			font-size: 11px;
-			font-weight: 500;
-			line-height: 14px;
-			text-align: center;
-		}
-
-		img + span {
-			margin-top: 2px;
-		}
 	}
 }
 
@@ -1093,6 +1094,7 @@ li:not(.customize-info) div.customize-section-description {
 			padding-left: 0;
 			padding-right: 0;
 			white-space: nowrap;
+			cursor: move;
 
 			> span {
 				display: inline-block;

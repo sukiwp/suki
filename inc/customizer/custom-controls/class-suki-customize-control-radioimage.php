@@ -49,6 +49,7 @@ class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
+		<# console.log( data.choices ); #>
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">{{{ data.label }}}</span>
 		<# } #>

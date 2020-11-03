@@ -244,7 +244,7 @@ if ( ! function_exists( 'suki_breadcrumb' ) ) :
 /**
  * Print / return HTML markup for breadcrumb.
  */
-function suki_breadcrumb( $echo = true ) {
+function suki_breadcrumb() {
 	$html = '';
 
 	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
@@ -288,89 +288,76 @@ function suki_breadcrumb( $echo = true ) {
 			 * Build breadcrumb trails.
 			 */
 
-			// Custom Post Type archive
-			if ( is_post_type_archive() || is_home() ) {
-				$post_type = get_post_type();
-
-				if ( ! is_front_page() ) {
-					$post_type_obj = get_post_type_object( $post_type );
-
-					$items['post_type_archive'] = array(
-						'label' => is_home() ? get_the_title( get_option( 'page_for_posts' ) ) : $post_type_obj->labels->name,
-						'url'   => get_post_type_archive_link( $post_type ),
-					);
-				}
-			}
-
-			// Date archive
-			elseif ( is_date() ) {
-				// Add published year info for year archive, month archive, and day archive.
-				if ( is_year() || is_month() || is_day() ) {
-					$items['year'] = array(
-						'label' => get_the_time( 'Y' ),
-						'url'   => is_year() ? '' : get_year_link( get_the_time( 'Y' ) ),
-					);
-				}
-				// Add published month info for month archive, and day archive.
-				if ( is_month() || is_day() ) {
-					$items['month'] = array(
-						'label' => get_the_time( 'F' ),
-						'url'   => is_month() ? '' : get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ),
-					);
-				}
-				// Add published day info for day archive.
-				if ( is_day() ) {
-					$items['day'] = array(
-						'label' => get_the_time( 'd' ),
-					);
-				}
-			}
-
-			// Author archive
-			elseif ( is_author() ) {
-				$author = get_userdata( get_query_var( 'author' ) );
-
-				$items['author_archive'] = array(
-					/* translators: %s: author display name. */
-					'label' => sprintf( esc_html__( 'Posts by %s', 'suki' ), $author->display_name ),
-					'url'   => get_author_posts_url( $author->ID ),
-				);
-			}
-
 			// Other kind of archives: taxonomy archive.
-			elseif ( is_archive() ) {
-				$term = get_queried_object();
-
-				$tax = get_taxonomy( $term->taxonomy );
-				$post_type = isset( $tax->object_type[0] ) ? $tax->object_type[0] : null;
+			if ( is_archive() || is_home() ) {
+				$post_type = get_post_type();
 
 				if ( ! empty( $post_type ) && get_post_type_archive_link( $post_type ) !== home_url( '/' ) ) {
 					$post_type_obj = get_post_type_object( $post_type );
 
 					$items['post_type_archive'] = array(
 						'label' => 'post' === $post_type ? get_the_title( get_option( 'page_for_posts' ) ) : $post_type_obj->labels->name,
-						'url'   => get_post_type_archive_link( $post_type ),
+						'url'   => is_post_type_archive() || is_home() ? '' : get_post_type_archive_link( $post_type ),
 					);
 				}
 
-				$parents = get_ancestors( $term->term_id, $term->taxonomy );
-
-				$i = count( $parents );
-
-				while ( $i > 0 ) {
-					$parent_term = get_term( $parents[ $i - 1 ], $term->taxonomy );
-
-					$items['term_parent__' . $i ] = array(
-						'label' => $parent_term->name,
-						'url'   => get_term_link( $parent_term, $parent_term->taxonomy ),
-					);
-
-					$i--;
+				// Date archive
+				if ( is_date() ) {
+					// Add published year info for year archive, month archive, and day archive.
+					if ( is_year() || is_month() || is_day() ) {
+						$items['year'] = array(
+							'label' => get_the_time( 'Y' ),
+							'url'   => is_year() ? '' : get_year_link( get_the_time( 'Y' ) ),
+						);
+					}
+					// Add published month info for month archive, and day archive.
+					if ( is_month() || is_day() ) {
+						$items['month'] = array(
+							'label' => get_the_time( 'F' ),
+							'url'   => is_month() ? '' : get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ),
+						);
+					}
+					// Add published day info for day archive.
+					if ( is_day() ) {
+						$items['day'] = array(
+							'label' => get_the_time( 'd' ),
+						);
+					}
 				}
 
-				$items['term'] = array(
-					'label' => $term->name,
-				);
+				// Author archive
+				elseif ( is_author() ) {
+					$author = get_userdata( get_query_var( 'author' ) );
+
+					$items['author_archive'] = array(
+						/* translators: %s: author display name. */
+						'label' => $author->display_name,
+					);
+				}
+
+				// Taxonomy archive
+				elseif ( is_category() || is_tag() || is_tax() ) {
+					$term = get_queried_object();
+					$tax = get_taxonomy( $term->taxonomy );
+					$parents = get_ancestors( $term->term_id, $term->taxonomy );
+
+					$i = count( $parents );
+
+					while ( $i > 0 ) {
+						$parent_term = get_term( $parents[ $i - 1 ], $term->taxonomy );
+
+						$items['term_parent__' . $i ] = array(
+							'label' => $parent_term->name,
+							'url'   => get_term_link( $parent_term, $parent_term->taxonomy ),
+						);
+
+						$i--;
+					}
+
+					$items['term'] = array(
+						'label' => $term->name,
+					);
+				}
 			}
 
 			// Search results page
@@ -502,11 +489,7 @@ function suki_breadcrumb( $echo = true ) {
 			break;
 	}
 
-	if ( $echo ) {
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	} else {
-		return $html;
-	}
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 endif;
 
@@ -533,7 +516,7 @@ if ( ! function_exists( 'suki_header' ) ) :
  */
 function suki_header() {
 	?>
-	<header id="masthead" class="site-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+	<header id="masthead" class="suki-header site-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 		<?php
 		/**
 		 * Hook: suki/frontend/header
@@ -664,7 +647,7 @@ if ( ! function_exists( 'suki_hero' ) ) :
  * Render page header section.
  */
 function suki_hero() {
-	if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
+	if ( ! intval( suki_get_current_page_setting( 'hero' ) ) || is_404() ) {
 		return;
 	}
 
@@ -677,6 +660,7 @@ if ( ! function_exists( 'suki_content_header' ) ) :
  * Render content header.
  */
 function suki_content_header() {
+	// Render content header inside Content section if only it hasn't been rendered (in Hero Section) before.
 	if ( ! did_action( 'suki/frontend/content_header' ) ) {
 		suki_get_template_part( 'content-header' );
 	}
@@ -1084,7 +1068,7 @@ if ( ! function_exists( 'suki_singular_title' ) ) :
  * Render singular title.
  */
 function suki_singular_title() {
-	the_title( '<h1 class="page-title">', '</h1>' );
+	the_title( '<h1 class="page-title suki-title">', '</h1>' );
 }
 endif;
 
@@ -1093,13 +1077,16 @@ if ( ! function_exists( 'suki_singular_excerpt' ) ) :
  * Render singular excerpt.
  */
 function suki_singular_excerpt() {
+	// Abort if there is no excerpt found in the page / post.
+	if ( ! has_excerpt() ) {
+		return;
+	}
+
 	ob_start();
 	the_excerpt();
 	$excerpt = ob_get_clean();
 
-	if ( ! empty( $excerpt ) ) {
-		?><div class="excerpt"><?php the_excerpt(); ?></div><?php
-	}
+	?><div class="excerpt"><?php the_excerpt(); ?></div><?php
 }
 endif;
 
@@ -1114,9 +1101,7 @@ if ( ! function_exists( 'suki_archive_title' ) ) :
  * Render archive title.
  */
 function suki_archive_title() {
-
-	// suki_get_current_page_setting( 'title' )
-	the_archive_title( '<h1 class="page-title">', '</h1>' );
+	the_archive_title( '<h1 class="page-title suki-title">', '</h1>' );
 }
 endif;
 

@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<div class="content-header">
+<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_header_classes', array( 'content-header' ) ) ) ); ?>">
 	<?php
 	/**
 	 * Hook: suki/frontend/content_header

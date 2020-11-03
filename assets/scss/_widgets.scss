@@ -97,12 +97,10 @@
 	}
 
 	li {
-		@include border( bottom );
-		padding-bottom: 0.75em;
-		margin-top: 0.75em;
+		margin-bottom: 1em;
 
-		*:last-child {
-			border-bottom: none;
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
@@ -214,22 +212,20 @@
 	}
 	
 	li {
-		@include border( bottom );
-		padding-bottom: 0.75em;
-		margin-top: 0.75em;
+		margin-bottom: 1em;
 		
 		@include float-container();
 
-		*:last-child {
-			border-bottom: none;
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
 	img {
-		float: right;
-		width: 40px;
+		float: left;
+		width: 3.5em;
 		height: auto;
-		margin-left: 0.5em;
+		margin-right: 1em;
 	}
 }
 

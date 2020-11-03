@@ -22,8 +22,6 @@ suki_primary_open();
 
 /**
  * Hook: suki/frontend/before_main
- *
- * @hooked suki_search_header - 10
  */
 do_action( 'suki/frontend/before_main' );
 

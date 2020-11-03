@@ -103,6 +103,10 @@
 // }
 
 .suki-content-layout-wide {
+	.suki-gutenberg-content .entry-wrapper {
+		overflow: visible; // reset
+	}
+
 	.suki-gutenberg-content .entry-content {
 		position: relative;
 		width: 100vw;

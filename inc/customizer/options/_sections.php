@@ -60,13 +60,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 20,
 	) );
 
-	// Breadcrumb
-	$wp_customize->add_section( 'suki_section_breadcrumb', array(
-		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
 	// Google Fonts
 	$wp_customize->add_section( 'suki_section_google_fonts', array(
 		'title'       => esc_html__( 'Google Fonts', 'suki' ),
@@ -331,6 +324,19 @@ $wp_customize->add_panel( $panel, array(
 		'title'       => esc_html__( 'Hero Section', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
+	) );
+
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_content_breadcrumb', array(
+		'panel'       => $panel,
+		'priority'    => 20,
+	) ) );
+
+	// Breadcrumb
+	$wp_customize->add_section( 'suki_section_breadcrumb', array(
+		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 20,
 	) );
 
 // Footer

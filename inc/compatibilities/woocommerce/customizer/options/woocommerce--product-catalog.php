@@ -69,7 +69,7 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_wo
 	'priority'    => 20,
 ) ) );
 
-// Page header title
+// Title
 $key = 'woocommerce_index_page_title';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -77,7 +77,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show page header title', 'suki' ),
+	'label'       => esc_html__( 'Show title', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
