@@ -1,4 +1,7 @@
 v1.3.0
+- NEW: Hero Section - Replace the former "Page Header" section.
+- NEW: Dedicated Single Post Page options (formerly uses the same layout as "Default" post layout for archives page).
+- NEW: Dedicated Single Static Page options (formerly uses the same layout as "Default" post layout for archives page).
 - NEW: Header Elemets — Add new options to show Shopping Cart's amount and its responsive visibility.
 - NEW: Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
 - NEW: Sidebar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
@@ -18,6 +21,7 @@ v1.3.0
 - TWEAK: Elementor compatibility — Move compatibility CSS to standalone inline CSS. 
 - TWEAK: Customizer — Improve Customizer UI & UX.
 - TWEAK: Theme Dashboard — Improve theme dashboard layout for better compatibility with Suki Pro's White Label module. Now user won't see "pro" badges and links to our website on the modules manager.
+- TWEAK: Deprecate "Page Header" section.
 - FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
 - FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
