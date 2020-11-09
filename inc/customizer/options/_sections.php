@@ -298,6 +298,13 @@ $wp_customize->add_panel( $panel, array(
 	'priority'    => 133,
 ) );
 
+	// ------
+	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_content_areas', array(
+		'title'       => esc_html__( 'Areas', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
+	) ) );
+
 	// Content Section
 	$wp_customize->add_section( 'suki_section_content', array(
 		'title'       => esc_html__( 'Content Section', 'suki' ),

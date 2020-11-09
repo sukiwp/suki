@@ -1,3 +1,8 @@
+#customize-theme-controls .customize-pane-child.accordion-section-content,
+#customize-theme-controls .customize-pane-child.accordion-sub-container {
+	height: 100%;
+}
+
 .customize-control {
 	position: relative;
 }

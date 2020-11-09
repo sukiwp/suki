@@ -53,11 +53,26 @@ class Suki_Compatibility_Suki_Pro {
 			// Since Suki v1.1.0, all dynamic CSS are printed using 'wp_add_inline_style' instead of manual printing on 'wp_head'.
 			add_filter( 'suki/frontend/inline_css', array( $this, 'fallback_compatibility_for_customizer_inline_css' ) );
 		}
+
+		/**
+		 * Compatibility for Suki Pro prior to v1.2.0.
+		 */
+
+		// Get the main version without suffix like "dev", "alpha", "beta".
+		if ( defined( 'SUKI_PRO_VERSION' ) && version_compare( preg_replace( '/\-.*/', '', SUKI_PRO_VERSION ), '1.2.0', '<' ) ) {
+			// Modify header bar templates to use HTML attributes for Javascript configuration.
+			// Since Suki Pro v1.2.0, HTML attributes are no longer used to define Javascript configuration.
+			// Instead, localize_script is used to define the configuration.
+			add_filter( 'suki/template_part/header-desktop-top-bar', array( $this, 'fallback_compatibility_for_header_top_bar_attributes' ) );
+			add_filter( 'suki/template_part/header-desktop-main-bar', array( $this, 'fallback_compatibility_for_header_main_bar_attributes' ) );
+			add_filter( 'suki/template_part/header-desktop-bottom-bar', array( $this, 'fallback_compatibility_for_header_bottom_bar_attributes' ) );
+			add_filter( 'suki/template_part/header-mobile', array( $this, 'fallback_compatibility_for_header_mobile_main_bar_attributes' ) );
+		}
 	}
 	
 	/**
 	 * ====================================================
-	 * Hook functions
+	 * Suki Pro 1.1.0
 	 * ====================================================
 	 */
 
@@ -117,6 +132,92 @@ class Suki_Compatibility_Suki_Pro {
 		}
 
 		return $css;
+	}
+
+	/**
+	 * ====================================================
+	 * Suki Pro 1.2.0
+	 * ====================================================
+	 */
+
+	/**
+	 * Add fallback compatibility for header top bar templates to use HTML attributes for Javascript configuration.
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	public function fallback_compatibility_for_header_top_bar_attributes( $html ) {
+		$attrs_array = apply_filters( 'suki/frontend/header_top_bar_attrs', array(
+			'data-height' => intval( suki_get_theme_mod( 'header_top_bar_height' ) ),
+		) );
+		$attrs = '';
+		foreach ( $attrs_array as $key => $value ) {
+			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+		}
+
+		$html = preg_replace( '/(<div id="suki-header-top-bar".*?)(>)/', '$1 ' . $attrs . '$2', $html );
+
+		return $html;
+	}
+
+	/**
+	 * Add fallback compatibility for header main bar templates to use HTML attributes for Javascript configuration.
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	public function fallback_compatibility_for_header_main_bar_attributes( $html ) {
+		$attrs_array = apply_filters( 'suki/frontend/header_main_bar_attrs', array(
+			'data-height' => intval( suki_get_theme_mod( 'header_main_bar_height' ) ),
+		) );
+		$attrs = '';
+		foreach ( $attrs_array as $key => $value ) {
+			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+		}
+
+		$html = preg_replace( '/(<div id="suki-header-main-bar".*?)(>)/', '$1 ' . $attrs . '$2', $html );
+
+		return $html;
+	}
+
+	/**
+	 * Add fallback compatibility for header bottom bar templates to use HTML attributes for Javascript configuration.
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	public function fallback_compatibility_for_header_bottom_bar_attributes( $html ) {
+		$attrs_array = apply_filters( 'suki/frontend/header_bottom_bar_attrs', array(
+			'data-height' => intval( suki_get_theme_mod( 'header_bottom_bar_height' ) ),
+		) );
+		$attrs = '';
+		foreach ( $attrs_array as $key => $value ) {
+			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+		}
+
+		$html = preg_replace( '/(<div id="suki-header-bottom-bar".*?)(>)/', '$1 ' . $attrs . '$2', $html );
+
+		return $html;
+	}
+
+	/**
+	 * Add fallback compatibility for header mobile main bar templates to use HTML attributes for Javascript configuration.
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	public function fallback_compatibility_for_header_mobile_main_bar_attributes( $html ) {
+		$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
+			'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
+		) );
+		$attrs = '';
+		foreach ( $attrs_array as $key => $value ) {
+			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
+		}
+
+		$html = preg_replace( '/(<div id="suki-header-mobile-main-bar".*?)(>)/', '$1 ' . $attrs . '$2', $html );
+
+		return $html;
 	}
 }
 

@@ -24,17 +24,8 @@ foreach ( $cols as $col ) {
 if ( 1 > $count ) {
 	return;
 }
-
-$attrs_array = apply_filters( 'suki/frontend/header_top_bar_attrs', array(
-	'data-height' => intval( suki_get_theme_mod( 'header_top_bar_height' ) ),
-) );
-$attrs = '';
-foreach ( $attrs_array as $key => $value ) {
-	$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
-}
-
 ?>
-<div id="suki-header-top-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_top_bar_classes', array( 'suki-header-top-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>" <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+<div id="suki-header-top-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_top_bar_classes', array( 'suki-header-top-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>">
 
 	<?php if ( $merged ) : ?>
 		<div class="suki-wrapper">

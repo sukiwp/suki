@@ -2,12 +2,14 @@ v1.3.0
 - NEW: Hero Section - Replace the former "Page Header" section.
 - NEW: Dedicated Single Post Page options (formerly uses the same layout as "Default" post layout for archives page).
 - NEW: Dedicated Single Static Page options (formerly uses the same layout as "Default" post layout for archives page).
+- NEW: Native breadcrumb module.
 - NEW: Header Elemets — Add new options to show Shopping Cart's amount and its responsive visibility.
 - NEW: Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
 - NEW: Sidebar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
 - NEW: Footer Widgets Bar - Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
 - NEW: Gutenberg - Add new theme supports for Gutenberg features: theme font sizes, custom line height, custom units, custom cover block padding, custom link color.
 - NEW: Footer Elements — Add new element: HTML (accepts HTML tags and shortcode).
+- NEW: Border radius and Box shadow options for posts layout, sidebar.
 - NEW: WPML Compatibility - Add WPML configuration file (`wpml-config.xml`) for automatic WPML integration.
 - TWEAK: Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).
 - TWEAK: Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
@@ -22,6 +24,8 @@ v1.3.0
 - TWEAK: Customizer — Improve Customizer UI & UX.
 - TWEAK: Theme Dashboard — Improve theme dashboard layout for better compatibility with Suki Pro's White Label module. Now user won't see "pro" badges and links to our website on the modules manager.
 - TWEAK: Deprecate "Page Header" section.
+- TWEAK: Implement Filters API to allow further modification on each template part's HTML markup.
+- TWEAK: Use localize scripts to define header bars JS configuration instead of using HTML tag attributes (fallback compatibilities are added for prior Suki Pro 1.2.0).
 - FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
 - FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.

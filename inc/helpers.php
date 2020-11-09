@@ -173,17 +173,24 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 	}
 
 	/**
+	 * Get the template part.
+	 */
+
+	ob_start();
+	load_template( $template_file_path, false );
+	$html = ob_get_clean();
+
+	// Allow filters to modify the HTML markup.
+	$html = apply_filters( 'suki/template_part/' . $slug . ( ! empty( $name ) ? '-' . $name : '' ), $html );
+
+	/**
 	 * Return or print the template part.
 	 */
 
-	if ( ! $echo ) {
-		ob_start();
-	}
-
-	load_template( $template_file_path, false );
-
-	if ( ! $echo ) {
-		return ob_get_clean();
+	if ( $echo ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
 	}
 }
 
