@@ -16,13 +16,13 @@ $section = 'suki_section_header_logo';
  * ====================================================
  */
 
-// Heading: Logo
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_header_logo', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Logo', 'suki' ),
-	'priority'    => 10,
-) ) );
+// // Heading: Logo
+// $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_header_logo', array(
+// 	'section'     => $section,
+// 	'settings'    => array(),
+// 	'label'       => esc_html__( 'Logo', 'suki' ),
+// 	'priority'    => 10,
+// ) ) );
 
 // Logo
 $key = 'custom_logo';
@@ -62,13 +62,13 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimension( $wp_customize,
  * ====================================================
  */
 
-// Heading: Mobile Logo
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_header_mobile_logo', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Mobile Logo', 'suki' ),
-	'priority'    => 20,
-) ) );
+// // Heading: Mobile Logo
+// $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_header_mobile_logo', array(
+// 	'section'     => $section,
+// 	'settings'    => array(),
+// 	'label'       => esc_html__( 'Mobile Logo', 'suki' ),
+// 	'priority'    => 20,
+// ) ) );
 
 // Mobile Logo
 $key = 'custom_logo_mobile';
@@ -78,7 +78,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Mobile Logo image', 'suki' ),
+	'label'       => esc_html__( 'Mobile logo image', 'suki' ),
 	'mime_type'   => 'image',
 	'priority'    => 20,
 ) ) );

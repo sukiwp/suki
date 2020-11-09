@@ -1188,6 +1188,8 @@ li:not(.customize-info) div.customize-section-description {
 	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-header_builder_actions .suki-responsive-switcher,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder #customize-control-footer_builder_actions .suki-responsive-switcher {
 		margin: 0 -20px;
+		display: block;
+		width: auto;
 		padding: 9px 20px 0;
 		border-color: #ddd;
 	}
@@ -1438,15 +1440,28 @@ li:not(.customize-info) div.customize-section-description {
 	display: none;
 }
 
-#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper {
+.customize-panel-description .nav-tab-wrapper,
+.customize-section-description .nav-tab-wrapper {
 	padding: 0;
 	display: -ms-flexbox;
 	display: flex;
-	margin: -12px -15px;
+	margin: 0 -15px -12px;
 	border-bottom: none;
 }
 
-#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab {
+.customize-panel-description .nav-tab-wrapper:only-child,
+.customize-section-description .nav-tab-wrapper:only-child {
+	border-top: none;
+	margin-top: -12px;
+}
+
+.customize-panel-description .nav-tab-wrapper:not(:first-child),
+.customize-section-description .nav-tab-wrapper:not(:first-child) {
+	border-top: 1px solid #ddd;
+}
+
+.customize-panel-description .nav-tab-wrapper .nav-tab,
+.customize-section-description .nav-tab-wrapper .nav-tab {
 	-ms-flex: 1;
 	flex: 1;
 	margin: 0;
@@ -1461,20 +1476,25 @@ li:not(.customize-info) div.customize-section-description {
 	box-shadow: none;
 }
 
-#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab:hover, #sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab:focus {
+.customize-panel-description .nav-tab-wrapper .nav-tab:hover, .customize-panel-description .nav-tab-wrapper .nav-tab:focus,
+.customize-section-description .nav-tab-wrapper .nav-tab:hover,
+.customize-section-description .nav-tab-wrapper .nav-tab:focus {
 	color: #007cba;
 }
 
-#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab:last-child {
+.customize-panel-description .nav-tab-wrapper .nav-tab:last-child,
+.customize-section-description .nav-tab-wrapper .nav-tab:last-child {
 	border-left: none;
 }
 
-#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper .nav-tab.nav-tab-active {
+.customize-panel-description .nav-tab-wrapper .nav-tab.nav-tab-active,
+.customize-section-description .nav-tab-wrapper .nav-tab.nav-tab-active {
 	color: #007cba;
 	border-bottom-color: currentColor;
 }
 
-#sub-accordion-panel-suki_panel_header .customize-info .customize-panel-description .nav-tab-wrapper:after {
+.customize-panel-description .nav-tab-wrapper:after,
+.customize-section-description .nav-tab-wrapper:after {
 	display: none;
 }
 

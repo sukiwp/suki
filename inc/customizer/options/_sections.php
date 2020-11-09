@@ -231,9 +231,23 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) ) );
 
+	$switcher = '
+	<div class="suki-responsive-switcher nav-tab-wrapper wp-clearfix">
+		<a href="#" class="nav-tab preview-desktop suki-responsive-switcher-button" data-device="desktop">
+			<span class="dashicons dashicons-desktop"></span>
+			<span>' . esc_html__( 'Desktop', 'suki' ) . '</span>
+		</a>
+		<a href="#" class="nav-tab preview-tablet preview-mobile suki-responsive-switcher-button" data-device="tablet">
+			<span class="dashicons dashicons-smartphone"></span>
+			<span>' . esc_html__( 'Tablet / Mobile', 'suki' ) . '</span>
+		</a>
+	</div>
+	';
+
 	// Logo
 	$wp_customize->add_section( 'suki_section_header_logo', array(
 		'title'       => esc_html__( 'Logo', 'suki' ),
+		'description' => $switcher,
 		'panel'       => $panel,
 		'priority'    => 30,
 	) );

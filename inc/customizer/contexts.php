@@ -85,8 +85,8 @@ $add['suki_section_header_mobile_main_bar'] =
 $add['suki_section_header_mobile_vertical_bar'] = array(
 	array(
 		'setting'  => '__device',
-		'operator' => 'in',
-		'value'    => array( 'tablet', 'mobile' ),
+		'operator' => '!=',
+		'value'    => 'desktop',
 	),
 );
 
@@ -122,8 +122,31 @@ $add['header_elements' ] = array(
 $add['header_mobile_elements'] = array(
 	array(
 		'setting'  => '__device',
-		'operator' => 'in',
-		'value'    => array( 'tablet', 'mobile' ),
+		'operator' => '!=',
+		'value'    => 'desktop',
+	),
+);
+
+/**
+ * ====================================================
+ * Header > Logo
+ * ====================================================
+ */
+
+$add['custom_logo'] =
+$add['header_logo_width'] = array(
+	array(
+		'setting'  => '__device',
+		'value'    => 'desktop',
+	),
+);
+
+$add['custom_logo_mobile'] =
+$add['header_mobile_logo_width'] = array(
+	array(
+		'setting'  => '__device',
+		'operator' => '!=',
+		'value'    => 'desktop',
 	),
 );
 

@@ -1308,6 +1308,8 @@ li:not(.customize-info) div.customize-section-description {
 
 				.suki-responsive-switcher {
 					margin: 0 -20px;
+					display: block;
+					width: auto;
 					padding: 9px 20px 0;
 					border-color: #ddd;
 
@@ -1537,45 +1539,51 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-#sub-accordion-panel-suki_panel_header {
-	.customize-info {
-		.customize-panel-description {
-			.nav-tab-wrapper {
-				padding: 0;
-				display: flex;
-				margin: -12px -15px;
-				border-bottom: none;
+.customize-panel-description,
+.customize-section-description {
+	.nav-tab-wrapper {
+		padding: 0;
+		display: flex;
+		margin: 0 -15px -12px;
+		border-bottom: none;
 
-				.nav-tab {
-					flex: 1;
-					margin: 0;
-					border: none;
-					padding: 10px 15px 8px;
-					background-color: transparent;
-					@include border( bottom, 4px );
-					border-bottom-color: transparent;
-					text-align: center;
-					outline: 0;
-					box-shadow: none;
+		&:only-child {
+			border-top: none;
+			margin-top: -12px;
+		}
 
-					&:hover, &:focus {
-						color: $wp_color_primary;
-					}
+		&:not(:first-child) {
+			border-top: 1px solid #ddd;
+		}
 
-					&:last-child {
-						border-right: none;
-					}
+		.nav-tab {
+			flex: 1;
+			margin: 0;
+			border: none;
+			padding: 10px 15px 8px;
+			background-color: transparent;
+			@include border( bottom, 4px );
+			border-bottom-color: transparent;
+			text-align: center;
+			outline: 0;
+			box-shadow: none;
 
-					&.nav-tab-active {
-						color: $wp_color_primary;
-						border-bottom-color: currentColor;
-					}
-				}
-
-				&:after {
-					display: none;
-				}
+			&:hover, &:focus {
+				color: $wp_color_primary;
 			}
+
+			&:last-child {
+				border-right: none;
+			}
+
+			&.nav-tab-active {
+				color: $wp_color_primary;
+				border-bottom-color: currentColor;
+			}
+		}
+
+		&:after {
+			display: none;
 		}
 	}
 }
