@@ -1601,6 +1601,10 @@ li:not(.customize-info) div.customize-section-description {
 // Specific controls
 // -------------------------------------------------------------
 
+#customize-control-heading_header_mobile_logo {
+	margin-top: 0;
+}
+
 #customize-control-footer_widgets_bar {
 	@media screen and ( min-width: 1324px ) {
 		.customize-control-title {

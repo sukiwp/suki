@@ -92,20 +92,6 @@ $add['suki_section_header_mobile_vertical_bar'] = array(
 
 /**
  * ====================================================
- * Header > Shopping Cart
- * ====================================================
- */
-
-$add['header_cart_amount_visibility'] = array(
-	array(
-		'setting'  => 'header_cart_amount',
-		'operator' => '!=',
-		'value'    => '',
-	),
-);
-
-/**
- * ====================================================
  * Header > Header Builder
  * ====================================================
  */
@@ -133,6 +119,7 @@ $add['header_mobile_elements'] = array(
  * ====================================================
  */
 
+$add['heading_header_logo'] =
 $add['custom_logo'] =
 $add['header_logo_width'] = array(
 	array(
@@ -141,6 +128,7 @@ $add['header_logo_width'] = array(
 	),
 );
 
+$add['heading_header_mobile_logo'] =
 $add['custom_logo_mobile'] =
 $add['header_mobile_logo_width'] = array(
 	array(
@@ -152,17 +140,17 @@ $add['header_mobile_logo_width'] = array(
 
 /**
  * ====================================================
- * Content & Sidebar > Content Section
+ * Header > Shopping Cart
  * ====================================================
  */
 
-// $add['content_layout'] = array(
-// 	array(
-// 		'setting'  => 'content_container',
-// 		'operator' => '!=',
-// 		'value'    => 'narrow',
-// 	),
-// );
+$add['header_cart_amount_visibility'] = array(
+	array(
+		'setting'  => 'header_cart_amount',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
 
 /**
  * ====================================================

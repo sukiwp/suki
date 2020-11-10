@@ -222,7 +222,7 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:785, inc/customizer/options/_sections.php:249
+#: inc/helpers.php:785, inc/customizer/options/header--logo.php:23, inc/customizer/options/_sections.php:249
 msgid "Logo"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Social"
 msgstr ""
 
-#: inc/helpers.php:805
+#: inc/helpers.php:805, inc/customizer/options/header--logo.php:69
 msgid "Mobile Logo"
 msgstr ""
 

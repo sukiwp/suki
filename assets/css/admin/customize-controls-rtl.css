@@ -1505,6 +1505,10 @@ li:not(.customize-info) div.customize-section-description {
 	margin-left: 0.5em;
 }
 
+#customize-control-heading_header_mobile_logo {
+	margin-top: 0;
+}
+
 @media screen and (min-width: 1324px) {
 	#customize-control-footer_widgets_bar .customize-control-title {
 		display: inline-block;
