@@ -693,7 +693,7 @@ add_filter( 'body_class', 'suki_body_classes' );
  * @return array
  */
 function suki_post_class_is_gutenberg( $classes ) {
-	if ( has_blocks() ) {
+	if ( is_singular() && has_blocks() ) {
 		$classes['gutenberg'] = 'suki-gutenberg-content';
 	}
 
