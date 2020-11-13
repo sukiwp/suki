@@ -222,32 +222,32 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:891
+#: inc/helpers.php:911
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:892
+#: inc/helpers.php:912
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:893
+#: inc/helpers.php:913
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:894
+#: inc/helpers.php:914
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:895
+#: inc/helpers.php:915
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:896
+#: inc/helpers.php:916
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -669,25 +669,25 @@ msgstr ""
 msgid "Mobile Main Bar"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:706, inc/customizer/options/_sections.php:510
+#: inc/customizer/class-suki-customizer.php:696, inc/customizer/options/_sections.php:510
 msgid "Static Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:710, inc/customizer/options/_sections.php:517
+#: inc/customizer/class-suki-customizer.php:700, inc/customizer/options/_sections.php:517
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:714, inc/customizer/options/_sections.php:524
+#: inc/customizer/class-suki-customizer.php:704, inc/customizer/options/_sections.php:524
 msgid "Error 404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:763
+#: inc/customizer/class-suki-customizer.php:753
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:770
+#: inc/customizer/class-suki-customizer.php:760
 msgid "Single %s Page"
 msgstr ""
 

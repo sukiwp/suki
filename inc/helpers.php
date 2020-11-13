@@ -745,6 +745,26 @@ function suki_get_fallback_page_settings() {
 }
 
 /**
+ * Return default theme colors.
+ *
+ * @return array
+ */
+function suki_get_default_colors() {
+	return apply_filters( 'suki/dataset/default_colors', array(
+		'transparent'       => 'rgba(0,0,0,0)',
+		'white'             => '#ffffff',
+		'black'             => '#000000',
+		'accent'            => '#0066cc',
+		'accent2'           => '#004c99',
+		'bg'                => '#ffffff',
+		'text'              => '#666666',
+		'heading'           => '#333333',
+		'subtle'            => 'rgba(0,0,0,0.05)',
+		'border'            => 'rgba(0,0,0,0.1)',
+	) );
+}
+
+/**
  * Return all available fonts.
  * 
  * @return array

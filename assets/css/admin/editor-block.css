@@ -15,7 +15,7 @@
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter * {
-	border-color: #dee0e2;
+	border-color: rgba(0, 0, 0, 0.1);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter *, .block-editor .editor-styles-wrapper .block-editor__typewriter *:before, .block-editor .editor-styles-wrapper .block-editor__typewriter *:after {
@@ -41,7 +41,7 @@
 	position: relative;
 	margin: 0;
 	background-color: #ffffff;
-	color: #646e78;
+	color: #666666;
 	min-height: 100vh;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -53,11 +53,11 @@
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter h1, .block-editor .editor-styles-wrapper .block-editor__typewriter h2, .block-editor .editor-styles-wrapper .block-editor__typewriter h3, .block-editor .editor-styles-wrapper .block-editor__typewriter h4, .block-editor .editor-styles-wrapper .block-editor__typewriter h5, .block-editor .editor-styles-wrapper .block-editor__typewriter h6 {
 	margin: 0 0 1.5rem;
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter h1 a, .block-editor .editor-styles-wrapper .block-editor__typewriter h2 a, .block-editor .editor-styles-wrapper .block-editor__typewriter h3 a, .block-editor .editor-styles-wrapper .block-editor__typewriter h4 a, .block-editor .editor-styles-wrapper .block-editor__typewriter h5 a, .block-editor .editor-styles-wrapper .block-editor__typewriter h6 a {
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter h1 a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter h1 a:focus, .block-editor .editor-styles-wrapper .block-editor__typewriter h2 a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter h2 a:focus, .block-editor .editor-styles-wrapper .block-editor__typewriter h3 a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter h3 a:focus, .block-editor .editor-styles-wrapper .block-editor__typewriter h4 a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter h4 a:focus, .block-editor .editor-styles-wrapper .block-editor__typewriter h5 a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter h5 a:focus, .block-editor .editor-styles-wrapper .block-editor__typewriter h6 a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter h6 a:focus {
@@ -171,11 +171,11 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 .block-editor .editor-styles-wrapper .block-editor__typewriter table th {
 	font-weight: 600;
 	text-align: initial;
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter table th a {
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter table th a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter table th a:focus {
@@ -203,11 +203,11 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: #f0f3f6;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter code {
-	background-color: #f0f3f6;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter a {
@@ -220,7 +220,7 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter a:focus {
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter figure {
@@ -529,19 +529,19 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-1-background-color {
-	background-color: #28323c;
+	background-color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-1-color {
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-2-background-color {
-	background-color: #646e78;
+	background-color: #666666;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-2-color {
-	color: #646e78;
+	color: #666666;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-3-background-color {
@@ -561,19 +561,19 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-5-background-color {
-	background-color: #dee0e2;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-5-color {
-	color: #dee0e2;
+	color: rgba(0, 0, 0, 0.1);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-6-background-color {
-	background-color: #f0f3f6;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-6-color {
-	color: #f0f3f6;
+	color: rgba(0, 0, 0, 0.05);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-suki-color-7-background-color {
@@ -665,7 +665,7 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 	margin: 0 0.25em 0 0;
 	text-transform: uppercase;
 	initial-letter: 3;
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-quote {
@@ -905,11 +905,11 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table table th {
 	font-weight: 600;
 	text-align: initial;
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table table th a {
-	color: #28323c;
+	color: #333333;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table table th a:hover, .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table table th a:focus {
@@ -929,7 +929,7 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-	background-color: #f0f3f6;
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table.is-style-stripes th, .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-table.is-style-stripes td {
