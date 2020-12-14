@@ -11,7 +11,7 @@ fieldset {
 legend {
 	@include h3();
 	margin: 0 0 1.25rem;
-	color: $color_heading; // default
+	color: $color_heading; // postmessage: heading_text_color
 }
 
 // -------------------------------------------------------------
@@ -89,8 +89,8 @@ span.select2-container {
 	}
 
 	&.select2-container--open .select2-selection {
-		border-color: inherit; // default
-		background-color: $color_subtle; // default
+		border-color: inherit; // postmessage: input_border_color
+		background-color: $color_subtle; // postmessage: input_bg_color
 	}
 
 	.select2-selection--single {
@@ -135,7 +135,7 @@ span.select2-container {
 					padding: 0.25em 0.5em;
 					border: none;
 					border-radius: 0;
-					background-color: $color_subtle; // default	
+					background-color: $color_subtle; // postmessage: subtle_color	
 				}
 			}
 		}
@@ -149,7 +149,7 @@ span.select2-container {
 
 	.select2-dropdown {
 		@include border();
-		border-color: inherit; // default
+		border-color: inherit; // postmessage: input_border_color
 		overflow: hidden;
 
 		.select2-search {

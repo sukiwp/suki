@@ -8,7 +8,7 @@
 
 .block-editor .editor-styles-wrapper {
 	.block-editor__typewriter {
-		@include base(); // default
+		@include base(); // postmessage: TODO
 
 		@import "../_base";
 
@@ -28,17 +28,17 @@
 		 */
 
 		.wp-block {
-			width: 720px; // default
+			width: 720px; // postmessage: content_narrow_width
 			max-width: 100%;
 			margin-left: auto;
 			margin-right: auto;
 
 			&[data-align="wide"] {
-				width: 1140px; // default
+				width: 1140px; // postmessage: TODO
 			}
 
 			&[data-align="full"] {
-				width: 100%; // default
+				width: 100%; // postmessage: TODO
 			}
 		}
 

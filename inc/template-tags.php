@@ -493,6 +493,21 @@ function suki_breadcrumb() {
 }
 endif;
 
+if ( ! function_exists( 'suki_title' ) ) :
+/**
+ * Render current page title.
+ */
+function suki_title() {
+	if ( is_search() ) {
+		suki_search_title();
+	}
+
+	elseif ( is_singular() ) {
+
+	}
+}
+endif;
+
 /**
  * ====================================================
  * Header template functions
@@ -641,10 +656,6 @@ if ( ! function_exists( 'suki_hero' ) ) :
  * Render page header section.
  */
 function suki_hero() {
-	if ( ! intval( suki_get_current_page_setting( 'hero' ) ) || is_404() ) {
-		return;
-	}
-
 	suki_get_template_part( 'hero' );
 }
 endif;
@@ -654,7 +665,7 @@ if ( ! function_exists( 'suki_content_header' ) ) :
  * Render content header.
  */
 function suki_content_header() {
-	// Render content header inside Content section if only it hasn't been rendered (in Hero Section) before.
+	// Render content header inside Content section if only it hasn't been rendered in Hero Section.
 	if ( ! did_action( 'suki/frontend/content_header' ) ) {
 		suki_get_template_part( 'content-header' );
 	}
@@ -694,15 +705,6 @@ if ( ! function_exists( 'suki_primary_close' ) ) :
  */
 function suki_primary_close() {
 	suki_get_template_part( 'content-primary-close' );
-}
-endif;
-
-if ( ! function_exists( 'suki_content_header' ) ) :
-/**
- * Render content header.
- */
-function suki_content_header() {
-	suki_get_template_part( 'content-header' );
 }
 endif;
 
@@ -901,13 +903,29 @@ if ( ! function_exists( 'suki_entry_title' ) ) :
  * @param boolean $size
  */
 function suki_entry_title( $size = '' ) {
-	$class = 'small' === $size ? 'entry-small-title' : 'entry-title';
-
 	if ( is_singular() ) {
-		the_title( '<h1 class="' . $class . '">', '</h1>' );
+		the_title( '<h1 class="entry-title">', '</h1>' );
 	} else {
-		the_title( sprintf( '<h2 class="' . $class . '"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+		the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 	}
+}
+endif;
+
+if ( ! function_exists( 'suki_entry_excerpt' ) ) :
+/**
+ * Render entry excerpt.
+ */
+function suki_entry_excerpt() {
+	// Abort if there is no excerpt found in the page / post.
+	if ( ! has_excerpt() ) {
+		return;
+	}
+
+	ob_start();
+	the_excerpt();
+	$excerpt = ob_get_clean();
+
+	?><div class="entry-excerpt excerpt"><?php the_excerpt(); ?></div><?php
 }
 endif;
 
@@ -937,7 +955,7 @@ function suki_entry_featured_media() {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_header_meta' ) ) :
+if ( ! function_exists( 'suki_entry_meta' ) ) :
 /**
  * Print entry meta.
  *
@@ -992,7 +1010,7 @@ if ( ! function_exists( 'suki_entry_grid_title' ) ) :
  * Print entry grid title.
  */
 function suki_entry_grid_title() {
-	suki_entry_title( 'small' );
+	suki_entry_small_title();
 }
 endif;
 
@@ -1041,40 +1059,11 @@ if ( ! function_exists( 'suki_entry_small_title' ) ) :
  * Print entry small title.
  */
 function suki_entry_small_title() {
-	suki_entry_title( 'small' );
-}
-endif;
-
-/**
- * ====================================================
- * All singular pages template functions
- * ====================================================
- */
-
-if ( ! function_exists( 'suki_singular_title' ) ) :
-/**
- * Render singular title.
- */
-function suki_singular_title() {
-	the_title( '<h1 class="page-title suki-title">', '</h1>' );
-}
-endif;
-
-if ( ! function_exists( 'suki_singular_excerpt' ) ) :
-/**
- * Render singular excerpt.
- */
-function suki_singular_excerpt() {
-	// Abort if there is no excerpt found in the page / post.
-	if ( ! has_excerpt() ) {
-		return;
+	if ( is_singular() ) {
+		the_title( '<h1 class="entry-small-title small-title">', '</h1>' );
+	} else {
+		the_title( sprintf( '<h2 class="entry-small-title small-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 	}
-
-	ob_start();
-	the_excerpt();
-	$excerpt = ob_get_clean();
-
-	?><div class="excerpt"><?php the_excerpt(); ?></div><?php
 }
 endif;
 
@@ -1089,7 +1078,7 @@ if ( ! function_exists( 'suki_archive_title' ) ) :
  * Render archive title.
  */
 function suki_archive_title() {
-	the_archive_title( '<h1 class="page-title suki-title">', '</h1>' );
+	the_archive_title( '<h1 class="page-title">', '</h1>' );
 }
 endif;
 
@@ -1098,7 +1087,9 @@ if ( ! function_exists( 'suki_archive_description' ) ) :
  * Render archive description.
  */
 function suki_archive_description() {
-	the_archive_description( '<div class="archive-description">', '</div>' );
+	if ( ! is_post_type_archive() ) {
+		the_archive_description( '<div class="archive-description">', '</div>' );
+	}
 }
 endif;
 
@@ -1111,7 +1102,7 @@ function suki_search_title() {
 	<h1 class="page-title">
 		<?php
 		// Title
-		$title = suki_get_theme_mod( 'search_results_title' );
+		$title = suki_get_theme_mod( 'search_results_title_text' );
 		if ( empty( $title ) ) {
 			$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
 		}
@@ -1171,16 +1162,21 @@ endif;
  * ====================================================
  */
 
+if ( ! function_exists( 'suki_singular_title' ) ) :
+/**
+ * Render singular title.
+ */
+function suki_singular_title() {
+	the_title( '<h1 class="page-title">', '</h1>' );
+}
+endif;
+
 if ( ! function_exists( 'suki_single_post_author_bio' ) ) :
 /**
  * Render author bio block in single post page.
  */
 function suki_single_post_author_bio() {
 	if ( ! is_singular( 'post' ) ) {
-		return;
-	}
-
-	if ( ! intval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
 		return;
 	}
 
@@ -1194,10 +1190,6 @@ if ( ! function_exists( 'suki_single_post_navigation' ) ) :
  */
 function suki_single_post_navigation() {
 	if ( ! is_singular( 'post' ) ) {
-		return;
-	}
-
-	if ( ! intval( suki_get_theme_mod( 'blog_single_navigation' ) ) ) {
 		return;
 	}
 

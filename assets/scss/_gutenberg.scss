@@ -19,13 +19,13 @@
 		}
 
 		.suki-section-narrow.suki-content-layout-wide & {
-			width: 720px; // default
+			width: 720px; // postmessage: content_narrow_width
 			margin-left: auto;
 			margin-right: auto;
 		}
 
 		.suki-section-default.suki-content-layout-wide & {
-			width: 1140px; // default
+			width: 1140px; // postmessage: container_width
 			margin-left: auto;
 			margin-right: auto;
 		}
@@ -41,68 +41,9 @@
 // Alignment
 // -------------------------------------------------------------
 
-// .alignwide {
-// 	.suki-content-layout-wide & {
-// 		position: relative;
-// 		left: calc( 50% - 50vw + 20px ); // default
-// 		max-width: calc( 100vw - ( 2 * 20px ) ); // default
-// 		width: 100vw;
-
-// 		@media screen and ( min-width: 1140px ) { // default
-// 			left: calc( 50% - ( 1140px / 2 ) ); // default
-// 			max-width: 1140px; // default
-// 		}
-// 	}
-// }
-
-// .alignfull {
-// 	.suki-content-layout-wide & {
-// 		position: relative;
-// 		left: calc( 50% - 50vw );
-// 		max-width: 100vw;
-// 		width: 100vw;
-
-// 		@media screen and ( min-width: 1400px ) { // default
-// 			body.suki-page-layout-boxed & {
-// 				left: calc( 50% - ( 1400px / 2 ) ); // default
-// 				max-width: 1400px; // default
-// 			}
-// 		}
-// 	}
-// }
-
-// .alignwide {
-// 	.suki-content-layout-wide .entry-content & {
-// 		position: relative;
-// 		left: calc( 50% - ( 1140px / 2 ) ); // default
-// 		max-width: calc( 100vw - ( 2 * 20px ) ); // default
-// 		width: 1140px;
-// 	}
-	
-// 	.suki-content-layout-wide .entry-content > & {
-// 	}
-// }
-
-// .alignfull {
-// 	.suki-content-layout-wide .entry-content & {
-// 		position: relative;
-// 		max-width: 100%;
-// 		width: 100%;
-// 	}
-
-// 	.suki-content-layout-wide .entry-content > & {
-// 		max-width: 100vw;
-// 		width: 100vw;
-// 		left: calc( 50% - 50vw );
-
-// 		body.suki-page-layout-boxed & {
-// 			left: calc( 50% - ( 1400px / 2 ) ); // default
-// 			max-width: 1400px; // default
-// 		}
-// 	}
-// }
-
 .suki-content-layout-wide {
+	max-width: 100%;
+
 	.suki-gutenberg-content .entry-wrapper {
 		overflow: visible; // reset
 	}
@@ -110,14 +51,15 @@
 	.suki-gutenberg-content .entry-content {
 		position: relative;
 		width: 100vw;
-		padding-left: 20px; // default
-		padding-right: 20px; // default
+		padding-left: 20px; // postmessage: content_padding -- left
+		padding-right: 20px; // postmessage: content_padding -- right
 		left: calc( 50% - 50vw );
 
 		body.suki-page-layout-boxed & {
-			width: 1400px; // default
-			padding-left: 20px; // default
-			padding-right: 20px; // default
+			@media screen and ( min-width: 1400px ) { // postmessage: boxed_page_width
+				width: 1400px; // postmessage: boxed_page_width
+				left: calc( 50% - ( 1400px / 2 ) ); // postmessage: boxed_page_width
+			}
 		}
 
 		> * {
@@ -126,13 +68,9 @@
 			max-width: 100%;
 		}
 
-		// @at-root .suki-section-narrow#{&} {
-		// 	color: red;
-		// }
-
 		.alignwide {
 			position: relative;
-			width: 1140px; // default
+			width: 1140px; // postmessage: container_width
 		}
 
 		.alignfull {
@@ -141,24 +79,21 @@
 		}
 
 		> .alignfull {
-			left: -20px; // default
-			max-width: calc( 100% + ( 2 * 20px ) );
+			left: -20px; // postmessage: content_padding -- left
+			max-width: calc( 100% + ( 2 * 20px ) ); // postmessage: content_padding -- left
 			width: 100vw;
-
-			body.suki-page-layout-boxed & {
-			}
 		}
 	}
 
 	&.suki-section-narrow {
 		.suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
-			width: 720px; // default
+			width: 720px; // postmessage: content_narrow_width
 		}
 	}
 
 	&.suki-section-default {
 		.suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
-			width: 1140px; // default
+			width: 1140px; // postmessage: container_width
 		}
 	}
 }
@@ -177,24 +112,24 @@ figure[class*="wp-block-"] {
 // Font Sizes
 // -------------------------------------------------------------
 
-// .has-small-text-size {
-// 	font-size: 0.85em;
-// }
-// .has-regular-text-size {
-// 	font-size: 1em;
-// }
-// .has-medium-text-size {
-// 	font-size: 1.1em;
-// 	line-height: calc( 0.95 * 1.7 ); // default
-// }
-// .has-large-text-size {
-// 	font-size: 1.25em;
-// 	line-height: calc( 0.875 * 1.7 ); // default
-// }
-// .has-larger-text-size {
-// 	font-size: 1.5em;
-// 	line-height: calc( 0.8 * 1.7 ); // default
-// }
+.has-small-text-size {
+	font-size: 0.85em;
+}
+.has-regular-text-size {
+	font-size: 1em;
+}
+.has-medium-text-size {
+	font-size: 1.2em;
+	line-height: calc( 0.9 * 1.7 ); // postmessage: body_line_height
+}
+.has-large-text-size {
+	font-size: 1.5em;
+	line-height: calc( 0.825 * 1.7 ); // postmessage: body_line_height
+}
+.has-huge-text-size {
+	font-size: 2em;
+	line-height: calc( 0.75 * 1.7 ); // postmessage: body_line_height
+}
 
 // -------------------------------------------------------------
 // Color Palette
@@ -277,7 +212,7 @@ figure[class*="wp-block-"] {
 // -------------------------------------------------------------
 
 .wp-block-cover-image, .wp-block-cover {
-	padding: 1.5rem; // default
+	padding: 1.5em;
 
 	.wp-block-cover__inner-container {
 		width: 100%; // reset
@@ -352,13 +287,13 @@ figure[class*="wp-block-"] {
 		float: left;
 		line-height: 0.9;
 		font-family: inherit;
-		font-size: 3 * 1.7em; // default
+		font-size: 3 * 1.7em; // postmessage: body_line_height
 		font-style: normal;
 		font-weight: 600;
 		margin: 0 0.25em 0 0;
 		text-transform: uppercase;
 		initial-letter: 3;
-		color: $color_heading; // default
+		color: $color_heading; // postmessage: heading_text_color
 	}
 }
 
@@ -367,6 +302,7 @@ figure[class*="wp-block-"] {
 // -------------------------------------------------------------
 
 .wp-block-quote {
+	font-size: 1em; // reset
 	padding: 0 2em;
 	@include border( left, 0.25rem, solid );
 	border-color: inherit;
@@ -423,6 +359,7 @@ figure[class*="wp-block-"] {
 	padding: 0;
 
 	blockquote {
+		font-size: 1em; // reset
 		position: relative;
 		margin: 0;
 		padding: 1.5em 2em 1.5em 4.5em;
@@ -444,9 +381,9 @@ figure[class*="wp-block-"] {
 		}
 
 		p {
-			font: inherit;
-			font-size: 1.2em;
-			color: inherit;
+			font: inherit; // reset
+			font-size: 1.2em; // postmessage: blockquote_font_size
+			color: inherit; // reset
 		}
 
 		cite {
@@ -469,7 +406,7 @@ figure[class*="wp-block-"] {
 			}
 
 			p {
-				font-size: 1.2em;
+				font-size: 1.2em; // postmessage: blockquote_font_size
 				margin-bottom: 1em;
 			}
 		}
@@ -672,7 +609,7 @@ p.wp-block-subhead {
 
 		tbody {
 			tr:nth-child(odd) {
-				background-color: $color_subtle; // default
+				background-color: $color_subtle; // postmessage: subtle_color
 			}
 		}
 

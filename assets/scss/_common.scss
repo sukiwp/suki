@@ -12,11 +12,11 @@
 }
 
 .sticky {
-	visibility: visible; // random CSS just so it's processed by SASS
+	visibility: visible; // random CSS just so it passes Theme Check requirements
 }
 
 .bypostauthor {
-	visibility: visible; // random CSS just so it's processed by SASS	
+	visibility: visible; // random CSS just so it passes Theme Check requirements	
 }
 
 // -------------------------------------------------------------
@@ -91,11 +91,11 @@
 }
 
 .title {
-	@include h1(); // default
+	@include h1();
 }
 
 .small-title {
-	@include h3(); // default
+	@include h3();
 }
 
 // -------------------------------------------------------------
@@ -104,20 +104,6 @@
 
 .suki-float-container {
 	@include float-container();
-}
-
-.nav-links {
-	a {
-		color: inherit; // default
-
-		&:hover, &:focus {
-			color: $color_accent; // default
-		}
-	}
-
-	.current {
-		color: $color_heading; // default
-	}
 }
 
 .page-title {
@@ -135,16 +121,24 @@
 }
 
 .content-header {
-	.site-content & {
-		margin: 0 0 4rem;
+	.site-main > & {
+		margin: 0 0 6rem;
 	}
 
-	> *:last-child {
-		margin-bottom: 0;
+	> * {
+		margin-bottom: 1.5rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	.page-title {
-		@include h1(); // default
+		@include h1();
+	}
+
+	.excerpt {
+		font-size: 1.1em;
 	}
 
 	.archive-description {
@@ -178,19 +172,18 @@
 
 .tagcloud {
 	margin-top: -0.5em;
-	@include float-container();
 	
 	a {
-		float: left;
+		display: inline-block;
 		padding: 0.25em 0.5em;
 		margin: 0.5em 0.5em 0 0;
 		font-size: 1rem !important;
 		line-height: normal;
-		background-color: $color_subtle; // default	
+		background-color: $color_subtle; // postmessage: subtle_color
 		color: inherit;
 
 		&:hover, &:focus {
-			color: $color_accent; // default
+			color: $color_accent; // postmessage: link_text_color
 		}
 	}
 }
@@ -222,7 +215,7 @@ button.suki-toggle {
 	text-align: inherit;
 	cursor: pointer;
 	-webkit-appearance: none;
-	color: $color_accent; // default
+	color: $color_accent; // postmessage: link_text_color
 
 	&:hover {
 		outline: 0;
@@ -230,7 +223,7 @@ button.suki-toggle {
 
 	&:hover, &:focus {
 		background: inherit;
-		color: $color_heading; // default
+		color: $color_heading; // postmessage: link_text_color
 	}
 }
 
@@ -269,7 +262,7 @@ button.suki-toggle {
 }
 
 .suki-menu-icon {
-	font-size: 18px; // default
+	font-size: 18px;
 	vertical-align: -0.1em;
 }
 
@@ -295,6 +288,281 @@ button.suki-toggle {
 
 		&:last-child:after {
 			display: none;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Comments
+// -------------------------------------------------------------
+
+.comments-area {
+	margin-top: 6em;
+}
+
+.comments-title {
+	position: relative;
+	@include h3();
+}
+
+.comment-reply-title {
+	@include h3();
+
+	small {
+		margin-left: 1em;
+		font-size: 12px;
+	}
+}
+
+.comment-list {
+	&, ul, ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		@include border( top );
+	}
+
+	> li:first-child {
+		border-top: none;
+	}
+
+	ul, ol {
+		padding-left: 1.25em;
+
+		li {
+			@include border( top );
+		}
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			padding-left: 65px;
+		}
+	}
+}
+
+.comment-body {
+	position: relative;
+	padding: 1.25em 0;
+
+	.reply {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 1.25em 0 0 0;
+
+		a {
+			font-size: 90%;
+			color: inherit;
+			
+			&:hover, &:focus {
+				color: $color_accent; // postmessage: link_text_color
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			margin-top: 2em;
+		}
+	}
+
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding: 2em 0;
+	}
+}
+
+.comment-content {
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 65px;
+	}
+
+	> * {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.comment-meta {
+	position: relative;
+	padding-right: 50px;
+	margin-bottom: 1em;
+	min-height: 50px;
+
+	@media screen and ( min-width: $breakpoint_500 ) {
+		padding-left: 65px;
+	}
+}
+
+.comment-author {
+	@include headingColor();
+
+	.avatar {
+		width: 2em;
+		height: 2em;
+		margin-right: 0.5em;
+		border-radius: 50%;
+		
+		@media screen and ( min-width: $breakpoint_500 ) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 50px;
+			width: 50px;
+		}
+	}
+
+	.fn {
+		font-weight: 600;
+	}
+
+	.says {
+		display: none;
+	}
+}
+
+.comment-metadata {
+	margin: 0.25em 0;
+
+	@include meta();
+
+	> * {
+		position: relative;
+		display: inline-block;
+
+		&:before {
+			content: "\2022";
+			margin: 0 0.5em;
+		}
+
+		&:first-child:before {
+			display: none;
+		}
+	}
+}
+
+.comment-respond {
+	padding-top: 1.5em;
+
+	.comment-list ~ &,
+	.comment-list & {
+		@include border( top );
+	}
+
+	.comment:not(:last-child) & {
+		padding-bottom: 2em;
+	}
+
+	.form-submit {
+		margin-bottom: 0;
+	}
+
+	label {
+		display: block;
+		width: 120px;
+
+		@media screen and ( min-width: $breakpoint_768 ) {
+			display: inline-block;
+		}
+	}
+
+	.comment-form-cookies-consent {
+		label {
+			width: auto;
+			margin-left: 0.5em;
+		}
+	}
+}
+
+.comment-form {
+	#comment {
+		height: 6em;
+		width: 100%;
+	}
+}
+
+// -------------------------------------------------------------
+// Navigation & pagination
+// -------------------------------------------------------------
+
+.nav-links {
+	a {
+		color: inherit;
+
+		&:hover, &:focus {
+			color: $color_accent; // postmessage: link_text_color
+		}
+	}
+
+	.current {
+		color: $color_heading; // postmessage: heading_text_color
+	}
+}
+
+.navigation {
+	margin: 3rem 0 0;
+
+	.nav-links {
+		@include float-container();
+		
+		a {
+			background-color: transparent;
+			color: inherit;
+
+			&:focus, &:hover {
+				background-color: transparent;
+				color: $color_accent; // postmessage: link_text_color
+				border-color: currentColor;
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint_500 ) {
+			.nav-next, .nav-previous {
+				width: 50%;
+			}
+
+			.nav-previous {
+				float: right;
+				text-align: right;
+				padding-left: 20px;
+			}
+
+			.nav-next {
+				float: left;
+				text-align: left;
+				padding-right: 20px;
+			}
+		}
+	}
+
+	&.pagination {
+		text-align: center;
+
+		.nav-links {
+			display: inline-block;
+			@include float-container();
+		}
+
+		.page-numbers {
+			display: block;
+			min-width: 2em;
+			margin-right: 0.5em;
+			padding: 0.5em;
+			float: left;
+			text-decoration: none;
+			line-height: 1;
+
+			@include border();
+			color: inherit;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.current {
+			background-color: $color_subtle; // postmessage: subtle_color
+			color: $color_heading; // postmessage: heading_text_color
 		}
 	}
 }

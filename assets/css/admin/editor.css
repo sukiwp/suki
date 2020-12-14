@@ -92,7 +92,7 @@ h5, h6 {
 	letter-spacing: 0;
 	text-transform: none;
 	font-size: 1rem;
-	font-weight: 600;
+	font-weight: bold;
 }
 
 hr {
@@ -105,7 +105,10 @@ hr {
 
 blockquote {
 	margin: 0 0 1.5rem;
+	font-size: 1.2em;
+	font-style: italic;
 	font-weight: 300;
+	line-height: 1.6;
 }
 
 blockquote > *:last-child {
@@ -460,6 +463,10 @@ svg {
 	padding: 1.5rem;
 }
 
+.suki-content-layout-wide {
+	max-width: 100%;
+}
+
 .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper {
 	overflow: visible;
 }
@@ -472,10 +479,11 @@ svg {
 	left: calc( 50% - 50vw);
 }
 
-body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .entry-content {
-	width: 1400px;
-	padding-left: 20px;
-	padding-right: 20px;
+@media screen and (min-width: 1400px) {
+	body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .entry-content {
+		width: 1400px;
+		left: calc( 50% - ( 1400px / 2 ));
+	}
 }
 
 .suki-content-layout-wide .suki-gutenberg-content .entry-content > * {
@@ -506,6 +514,29 @@ body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .e
 
 .suki-content-layout-wide.suki-section-default .suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
 	width: 1140px;
+}
+
+.has-small-text-size {
+	font-size: 0.85em;
+}
+
+.has-regular-text-size {
+	font-size: 1em;
+}
+
+.has-medium-text-size {
+	font-size: 1.2em;
+	line-height: calc( 0.9 * 1.7);
+}
+
+.has-large-text-size {
+	font-size: 1.5em;
+	line-height: calc( 0.825 * 1.7);
+}
+
+.has-huge-text-size {
+	font-size: 2em;
+	line-height: calc( 0.75 * 1.7);
 }
 
 .has-text-color a {
@@ -585,7 +616,7 @@ body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .e
 }
 
 .wp-block-cover-image, .wp-block-cover {
-	padding: 1.5rem;
+	padding: 1.5em;
 }
 
 .wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container {
@@ -653,6 +684,7 @@ body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .e
 }
 
 .wp-block-quote {
+	font-size: 1em;
 	padding: 0 2em;
 	border-left-width: 0.25rem;
 	border-left-style: solid;
@@ -710,6 +742,7 @@ body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .e
 }
 
 .wp-block-pullquote blockquote {
+	font-size: 1em;
 	position: relative;
 	margin: 0;
 	padding: 1.5em 2em 1.5em 4.5em;

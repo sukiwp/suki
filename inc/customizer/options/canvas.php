@@ -89,7 +89,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Narrow container width', 'suki' ),
-	'description' => esc_html__( 'Used when "Narrow" layout is enabled. It should be smaller than the "Normal" container width.', 'suki' ),
+	'description' => esc_html__( 'Used when "Narrow" content layout is enabled on the page. This value should be smaller than the "Normal" container width.', 'suki' ),
 	'units'       => array(
 		'px' => array(
 			'min'  => 600,

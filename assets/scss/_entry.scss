@@ -6,10 +6,10 @@
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	margin-top: -15px; // default
-	margin-bottom: -15px; // default
-	margin-left: -15px; // default
-	margin-right: -15px; // default
+	margin-top: -15px; // postmessage: blog_index_grid_rows_gutter
+	margin-bottom: -15px; // postmessage: blog_index_grid_rows_gutter
+	margin-left: -15px; // postmessage: blog_index_grid_columns_gutter
+	margin-right: -15px; // postmessage: blog_index_grid_columns_gutter
 
 	&.suki-loop-grid-same-height {
 		align-items: stretch;
@@ -23,15 +23,15 @@
 // Entry
 .entry {
 	.suki-loop-default & {
-		margin-bottom: 6em; // default
+		margin-bottom: 6em; // postmessage: blog_index_default_items_gap
 	}
 
 	.suki-loop-grid & {
 		width: 100%;
-		padding-top: 15px; // default
-		padding-bottom: 15px; // default
-		padding-left: 15px; // default
-		padding-right: 15px; // default
+		padding-top: 15px; // postmessage: blog_index_grid_rows_gutter
+		padding-bottom: 15px; // postmessage: blog_index_grid_rows_gutter
+		padding-left: 15px; // postmessage: blog_index_grid_columns_gutter
+		padding-right: 15px; // postmessage: blog_index_grid_columns_gutter
 		border: none;
 
 		@media screen and ( max-width: $breakpoint_500 - 1px ) {
@@ -84,12 +84,12 @@
 // Title
 .entry-title {
 	margin: 0 0 0.75rem;
-	@include h1(); // default
+	@include h1();
 }
 
 .entry-small-title {
 	margin: 0 0 0.25rem;
-	@include h3(); // default
+	@include h3();
 }
 
 // Meta
@@ -192,8 +192,12 @@ a.more-link {
 .entry-excerpt {
 	margin: 0 0 1.25em;
 
-	p {
-		margin-bottom: 0.75em;
+	> * {
+		margin: 0 0 0.75em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -262,266 +266,5 @@ a.more-link {
 .entry-author-content {
 	p {
 		margin: 0.5em 0;
-	}
-}
-
-// -------------------------------------------------------------
-// Navigation & pagination
-// -------------------------------------------------------------
-
-.navigation {
-	margin: 3rem 0 0;
-
-	.nav-links {
-		@include float-container();
-		
-		a {
-			background-color: transparent;
-			color: inherit; // default
-
-			&:focus, &:hover {
-				background-color: transparent;
-				color: $color_accent; // default
-				border-color: currentColor;
-			}
-		}
-
-		@media screen and ( min-width: $breakpoint_500 ) {
-			.nav-next, .nav-previous {
-				width: 50%;
-			}
-
-			.nav-previous {
-				float: right;
-				text-align: right;
-				padding-left: 20px;
-			}
-
-			.nav-next {
-				float: left;
-				text-align: left;
-				padding-right: 20px;
-			}
-		}
-	}
-
-	&.pagination {
-		text-align: center;
-
-		.nav-links {
-			display: inline-block;
-			@include float-container();
-		}
-
-		.page-numbers {
-			display: block;
-			min-width: 2em;
-			margin-right: 0.5em;
-			padding: 0.5em;
-			float: left;
-			text-decoration: none;
-			line-height: 1;
-
-			@include border();
-			color: inherit;
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-
-		.current {
-			background-color: $color_subtle; // default
-			color: $color_heading; // default
-		}
-	}
-}
-
-// -------------------------------------------------------------
-// Comments
-// -------------------------------------------------------------
-
-.comments-area {
-	margin-top: 6em;
-}
-
-.comments-title {
-	position: relative;
-	@include h3(); // default
-}
-
-.comment-reply-title {
-	@include h3(); // default
-
-	small {
-		margin-left: 1em;
-		font-size: 12px;
-	}
-}
-
-.comment-list {
-	&, ul, ol {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		@include border( top );
-	}
-
-	> li:first-child {
-		border-top: none;
-	}
-
-	ul, ol {
-		padding-left: 1.25em;
-
-		li {
-			@include border( top );
-		}
-
-		@media screen and ( min-width: $breakpoint_500 ) {
-			padding-left: 65px;
-		}
-	}
-}
-
-.comment-body {
-	position: relative;
-	padding: 1.25em 0;
-
-	.reply {
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 1.25em 0 0 0;
-
-		a {
-			font-size: 90%;
-			color: inherit;
-			
-			&:hover, &:focus {
-				color: $color_accent; // default
-			}
-		}
-
-		@media screen and ( min-width: $breakpoint_500 ) {
-			margin-top: 2em;
-		}
-	}
-
-	@media screen and ( min-width: $breakpoint_500 ) {
-		padding: 2em 0;
-	}
-}
-
-.comment-content {
-	@media screen and ( min-width: $breakpoint_500 ) {
-		padding-left: 65px;
-	}
-
-	> * {
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
-.comment-meta {
-	position: relative;
-	padding-right: 50px;
-	margin-bottom: 1em;
-	min-height: 50px;
-
-	@media screen and ( min-width: $breakpoint_500 ) {
-		padding-left: 65px;
-	}
-}
-
-.comment-author {
-	@include headingColor();
-
-	.avatar {
-		width: 2em;
-		height: 2em;
-		margin-right: 0.5em;
-		border-radius: 50%;
-		
-		@media screen and ( min-width: $breakpoint_500 ) {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 50px;
-			width: 50px;
-		}
-	}
-
-	.fn {
-		font-weight: 600;
-	}
-
-	.says {
-		display: none;
-	}
-}
-
-.comment-metadata {
-	margin: 0.25em 0;
-
-	@include meta();
-
-	> * {
-		position: relative;
-		display: inline-block;
-
-		&:before {
-			content: "\2022";
-			margin: 0 0.5em;
-		}
-
-		&:first-child:before {
-			display: none;
-		}
-	}
-}
-
-.comment-respond {
-	padding-top: 1.5em;
-
-	.comment-list ~ &,
-	.comment-list & {
-		@include border( top );
-	}
-
-	.comment:not(:last-child) & {
-		padding-bottom: 2em;
-	}
-
-	.form-submit {
-		margin-bottom: 0;
-	}
-
-	label {
-		display: block;
-		width: 120px;
-
-		@media screen and ( min-width: $breakpoint_768 ) {
-			display: inline-block;
-		}
-	}
-
-	.comment-form-cookies-consent {
-		label {
-			width: auto;
-			margin-left: 0.5em;
-		}
-	}
-}
-
-.comment-form {
-	#comment {
-		height: 6em;
-		width: 100%;
 	}
 }

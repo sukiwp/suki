@@ -12,44 +12,6 @@ $section = 'suki_section_blog_index';
 
 /**
  * ====================================================
- * Content Header
- * ====================================================
- */
-
-// Heading: Content Header
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_blog_index_header', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Content Header', 'suki' ),
-	'priority'    => 10,
-) ) );
-
-// Alignment
-$key = 'blog_index_header_alignment';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Alignment', 'suki' ),
-	'choices'     => array(
-		'left'   => array(
-			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
-		),
-		'center' => array(
-			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
-		),
-		'right'  => array(
-			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
-		),
-	),
-	'priority'    => 10,
-) ) );
-
-/**
- * ====================================================
  * Posts Layout
  * ====================================================
  */
@@ -59,7 +21,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Posts Layout', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 10,
 ) ) );
 
 // Posts layout
@@ -80,7 +42,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--grid.svg',
 		),
 	),
-	'priority'    => 20,
+	'priority'    => 10,
 ) ) );
 
 // Edit entry default
@@ -88,7 +50,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'bl
 	'section'     => $section,
 	'settings'    => array(),
 	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
-	'priority'    => 21,
+	'priority'    => 11,
 ) ) );
 
 // Edit entry grid
@@ -96,7 +58,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'bl
 	'section'     => $section,
 	'settings'    => array(),
 	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
-	'priority'    => 21,
+	'priority'    => 11,
 ) ) );
 
 // Navigation mode
@@ -111,7 +73,68 @@ $wp_customize->add_control( $key, array(
 	'label'       => esc_html__( 'Navigation mode', 'suki' ),
 	'choices'     => array(
 		'prev-next'  => esc_html__( 'Prev / Next buttons', 'suki' ),
-		'pagination' => esc_html__( 'Pagination (page numbers)', 'suki' ),
+		'pagination' => esc_html__( 'Page numbers', 'suki' ),
 	),
-	'priority'    => 25,
+	'priority'    => 15,
 ) );
+
+/**
+ * ====================================================
+ * Content Header
+ * ====================================================
+ */
+
+$option_prefix = 'post_archive';
+
+// Heading: Content Header
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_' . $option_prefix . '_content_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Content Header', 'suki' ),
+	'description' => esc_html__( 'This content header will appear before the posts list on all archive pages (category, tag, author, and date archives) except the main posts page.', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+// Elements
+$subkey = 'content_header';
+$key = $option_prefix . '_' . $subkey;
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
+	'section'     => $section,
+	// 'label'       => esc_html__( 'Elements', 'suki' ),
+	'choices'     => array(
+		'archive-title'       => esc_html__( 'Title', 'suki' ),
+		'archive-description' => esc_html__( 'Archive description', 'suki' ),
+		'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
+	),
+	'layout'      => 'block',
+	'priority'    => 20,
+) ) );
+
+// Alignment
+$subkey = 'content_header_alignment';
+$key = $option_prefix . '_' . $subkey;
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
+	'section'     => $section,
+	// 'label'       => esc_html__( 'Alignment', 'suki' ),
+	'choices'     => array(
+		'left'   => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+		),
+		'center' => array(
+			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+		),
+		'right'  => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+		),
+	),
+	'priority'    => 20,
+) ) );

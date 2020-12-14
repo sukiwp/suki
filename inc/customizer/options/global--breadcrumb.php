@@ -16,19 +16,6 @@ $section = 'suki_section_breadcrumb';
  * ====================================================
  */
 
-// Enable
-$key = 'breadcrumb';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Enable', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can enable or disable this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
-	'description' => esc_html__( 'Breadcrumb will be automatically added just before the page title.', 'suki' ),
-	'priority'    => 10,
-) ) );
-
 // Breadcrumb plugin
 $key = 'breadcrumb_plugin';
 $wp_customize->add_setting( $key, array(

@@ -167,6 +167,7 @@ class Suki_Customizer {
 
 		// Global Settings
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--breadcrumb.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php' );
 
@@ -196,7 +197,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--main.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--breadcrumb.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );
@@ -206,7 +206,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
 		// Pages
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--singular.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--single.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
@@ -691,12 +691,12 @@ class Suki_Customizer {
 	public function get_all_page_settings_types() {
 		// Define sections with default page types.
 		$page_sections = array(
-			'page_singular' => array(
-				'section' => 'suki_section_page_singular',
+			'page_single' => array(
+				'section' => 'suki_section_page_single',
 				'title' => esc_html__( 'Static Page', 'suki' ),
 			),
-			'search' => array(
-				'section' => 'suki_section_search',
+			'search_results' => array(
+				'section' => 'suki_section_search_results',
 				'title' => esc_html__( 'Search Results Page', 'suki' ),
 			),
 			'error_404' => array(
@@ -728,17 +728,17 @@ class Suki_Customizer {
 			switch ( $post_type ) {
 				case 'post':
 					$section_archive = 'suki_section_blog_index';
-					$section_singular = 'suki_section_blog_single';
+					$section_single = 'suki_section_blog_single';
 					break;
 
 				case 'product':
 					$section_archive = 'woocommerce_product_catalog';
-					$section_singular = 'woocommerce_product_single';
+					$section_single = 'woocommerce_product_single';
 					break;
 				
 				default:
 					$section_archive = 'suki_section_page_' . $post_type . '_archive';
-					$section_singular = 'suki_section_page_' . $post_type . '_singular';
+					$section_single = 'suki_section_page_' . $post_type . '_single';
 					break;
 			}
 
@@ -753,9 +753,9 @@ class Suki_Customizer {
 				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
 			);
 
-			$key_singular = $post_type . '_singular';
-			$page_sections[ $key_singular ] = array(
-				'section' => $section_singular,
+			$key_single = $post_type . '_single';
+			$page_sections[ $key_single ] = array(
+				'section' => $section_single,
 				/* translators: %s: post type's singular name. */
 				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
 			);

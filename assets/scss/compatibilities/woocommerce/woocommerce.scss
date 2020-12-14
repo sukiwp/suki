@@ -83,16 +83,16 @@ p.demo_store,
 	padding: 1em 0;
 	text-align: center;
 	// background-color: $primary;
-	background-color: $color_accent; // default
+	background-color: $color_accent; // postmessage: TODO
 	// color: $primarytext;
-	color: $color_white; // default
+	color: $color_white; // postmessage: TODO
 	z-index: 99998;
 	box-shadow: 0 1px 1em rgba(0, 0, 0, 0.2);
 	display: none;
 
 	a {
 		// color: $primarytext;
-		color: inherit; // default
+		color: inherit; // postmessage: TODO
 		text-decoration: underline;
 	}
 
@@ -222,7 +222,7 @@ p.demo_store,
 		// font-size: 0.92em;
 		font-size: 0.9em;
 		// color: $subtext;
-		color: inherit; // default
+		color: inherit; // postmessage: TODO
 
 		// a {
 		// 	color: $subtext;
@@ -237,10 +237,10 @@ p.demo_store,
 		}
 
 		a {
-			color: inherit; // default
+			color: inherit; // postmessage: TODO
 
 			&:hover, &:focus {
-				color: $color_heading; // default
+				color: $color_heading; // postmessage: TODO
 			}
 		}
 	}
@@ -349,8 +349,8 @@ p.demo_store,
 		z-index: 9;
 		display: inline-block;
 		padding: 0.3em;
-		background-color: $color_accent; // default
-		color: $color_white; // default
+		background-color: $color_accent; // postmessage: TODO
+		color: $color_white; // postmessage: TODO
 	}
 
 	.woocommerce-form-login {
@@ -409,7 +409,7 @@ p.demo_store,
 		span.price,
 		p.price {
 			// color: $highlight;
-			color: $color_heading; // default
+			color: $color_heading; // postmessage: TODO
 			// font-size: 1.25em;
 			font-size: 1.25rem;
 			margin: 1.5rem 0;
@@ -444,7 +444,7 @@ p.demo_store,
 
 			.woocommerce-review-link {
 				margin: 0.5rem 0 2rem;
-				@include meta(); // default
+				@include meta(); // postmessage: TODO
 			}
 
 			.star-rating {
@@ -457,10 +457,10 @@ p.demo_store,
 			// margin-bottom: 2em;
 
 			@media screen and ( min-width: $breakpoint_1024 ) {
-				// flex-basis: 60%; // default
+				// flex-basis: 60%; // postmessage: TODO
 				float: left;
 				clear: none;
-				width: 60%; // default
+				width: 60%; // postmessage: TODO
 			}
 
 			img {
@@ -581,11 +581,11 @@ p.demo_store,
 
 			~ div.summary {
 				@media screen and ( min-width: $breakpoint_1024 ) {
-					// flex-basis: 40%; // default
-					width: 40%; // default
+					// flex-basis: 40%; // postmessage: TODO
+					width: 40%; // postmessage: TODO
 					float: right;
 					clear: none;
-					padding-left: 40px; // default
+					padding-left: 40px; // postmessage: TODO
 				}
 			}
 		}
@@ -672,14 +672,14 @@ p.demo_store,
 						padding: 0.8rem 1.2rem;
 						// font-weight: 700;
 						// color: $secondarytext;
-						// color: $color_text; // default
+						// color: $color_text; // postmessage: TODO
 						color: inherit;
 						// text-decoration: none;
 						@include border( bottom, 3px );
 						border-color: transparent;
 
 						&:hover, &:focus {
-							color: $color_accent; // default
+							color: $color_accent; // postmessage: TODO
 						}
 
 						// &:hover {
@@ -695,7 +695,7 @@ p.demo_store,
 
 						a {
 							// color: inherit;
-							color: $color_heading; // default;
+							color: $color_heading; // postmessage: TODO;
 							// text-shadow: inherit;
 							border-color: currentColor;
 						}
@@ -752,7 +752,7 @@ p.demo_store,
 				// padding: 0;
 
 				> h2:first-child {
-					@include h3(); // default
+					@include h3(); // postmessage: TODO
 				}
 
 				&:first-of-type {
@@ -765,7 +765,7 @@ p.demo_store,
 			margin-top: 2rem;
 			padding-top: 1rem;
 			@include border( top );
-			@include meta(); // default
+			@include meta(); // postmessage: TODO
 
 			> * {
 				display: block;
@@ -930,7 +930,7 @@ p.demo_store,
 			}
 
 			h2 {
-				@include h3(); // default
+				@include h3(); // postmessage: TODO
 			}
 		}
 	}
@@ -944,10 +944,10 @@ p.demo_store,
 		display: flex;
 		align-items: flex-start;
 		flex-wrap: wrap;
-		margin-top: -15px; // default
-		margin-bottom: -15px; // default
-		margin-left: -15px; // default
-		margin-right: -15px; // default
+		margin-top: -15px; // postmessage: TODO
+		margin-bottom: -15px; // postmessage: TODO
+		margin-left: -15px; // postmessage: TODO
+		margin-right: -15px; // postmessage: TODO
 		// margin: 0 0 1em;
 		padding: 0;
 		list-style: none outside;
@@ -963,10 +963,10 @@ p.demo_store,
 	ul.products {
 		li.product {
 			// margin: 0 0 2em;
-			padding-top: 15px; // default
-			padding-bottom: 15px; // default
-			padding-left: 15px; // default
-			padding-right: 15px; // default
+			padding-top: 15px; // postmessage: TODO
+			padding-bottom: 15px; // postmessage: TODO
+			padding-left: 15px; // postmessage: TODO
+			padding-right: 15px; // postmessage: TODO
 
 			width: 100%;
 
@@ -978,7 +978,7 @@ p.demo_store,
 				position: relative;
 				display: flex;
 				flex-direction: column;
-				@include border( null, 0 ); // default
+				@include border( null, 0 ); // postmessage: TODO
 
 				> *:last-child {
 					margin-bottom: 0;
@@ -1039,10 +1039,10 @@ p.demo_store,
 			a {
 				text-decoration: none;
 
-				// color: $color_heading; // default
+				// color: $color_heading; // postmessage: TODO
 
 				// &:hover, &:focus {
-				// 	color: $color_accent; // default
+				// 	color: $color_accent; // postmessage: TODO
 				// }
 			}
 
@@ -1247,17 +1247,17 @@ p.demo_store,
 				}
 
 				span.current {
-					background-color: $color_subtle; // default
-					color: $color_heading; // default
+					background-color: $color_subtle; // postmessage: TODO
+					color: $color_heading; // postmessage: TODO
 				}
 
 				a {
 					background-color: transparent;
-					color: inherit; // default
+					color: inherit; // postmessage: TODO
 
 					&:focus, &:hover {
 						background-color: transparent;
-						color: $color_accent; // default
+						color: $color_accent; // postmessage: TODO
 						border-color: currentColor;;
 					}
 				}
@@ -1424,7 +1424,7 @@ p.demo_store,
 			}
 
 			.woocommerce-Reviews-title {
-				@include h3(); // default
+				@include h3(); // postmessage: TODO
 			}
 
 			// h2 {
@@ -1477,7 +1477,7 @@ p.demo_store,
 						}
 
 						.woocommerce-review__published-date {
-							@include meta(); // default
+							@include meta(); // postmessage: TODO
 						}
 					}
 
@@ -1569,7 +1569,7 @@ p.demo_store,
 		// width: 5.4em;
 		width: 5.26em;
 		font-family: "star";
-		color: $color_accent; // default
+		color: $color_accent; // postmessage: TODO
 
 		&::before {
 			content: "\73\73\73\73\73";
@@ -1641,7 +1641,7 @@ p.demo_store,
 			display: block;
 			margin: 0 0 1.5rem;
 			@include h3();
-			color: $color_heading; // default
+			color: $color_heading; // postmessage: TODO
 		}
 
 		p.stars {
@@ -1677,7 +1677,7 @@ p.demo_store,
 			text-indent: -999em;
 			display: inline-block;
 			text-decoration: none;
-			color: $color_accent; // default
+			color: $color_accent; // postmessage: TODO
 
 			&::before {
 				display: block;
@@ -1759,7 +1759,7 @@ p.demo_store,
 		tr:nth-child(even) {
 			th, td {
 				// background: rgba(0, 0, 0, 0.025);
-				background-color: $color_subtle; // default
+				background-color: $color_subtle; // postmessage: TODO
 			}
 		}
 
@@ -1909,7 +1909,7 @@ p.demo_store,
 					// &:nth-child( 2n ) {
 					// 	td {
 					// 		// background-color: rgba(0, 0, 0, 0.025);
-					// 		background-color: $color_subtle; // default
+					// 		background-color: $color_subtle; // postmessage: TODO
 					// 	}
 					// }
 
@@ -2060,7 +2060,7 @@ p.demo_store,
 
 			.description {
 				// background: #1e85be;
-				background-color: rgba(0,0,0,0.7); // default
+				background-color: rgba(0,0,0,0.7); // postmessage: TODO
 				color: #fff;
 				// border-radius: 3px;
 				// padding: 1em;
@@ -2091,7 +2091,7 @@ p.demo_store,
 					border-style: solid;
 					// border-color: #1e85be transparent transparent transparent;
 					border-color: transparent;
-					border-bottom-color: rgba(0,0,0,0.7); // default
+					border-bottom-color: rgba(0,0,0,0.7); // postmessage: TODO
 					z-index: 100;
 					display: block;
 				}
@@ -2256,7 +2256,7 @@ p.demo_store,
 			margin: 2px;
 			// padding-left: 0;
 			// list-style-type: none;
-			background-color: $color_subtle; // default
+			background-color: $color_subtle; // postmessage: TODO
 
 			strong {
 				display: block;
@@ -2553,7 +2553,7 @@ p.demo_store,
 				content: "✔";
 				color: $color_white;
 				border-color: transparent;
-				background-color: $color_accent; // default
+				background-color: $color_accent; // postmessage: TODO
 			}
 		}
 
@@ -2614,11 +2614,11 @@ p.demo_store,
 
 				padding: 0.25em 0.5em;
 				line-height: normal;
-				background-color: $color_subtle; // default	
+				background-color: $color_subtle; // postmessage: TODO	
 				color: inherit;
 
 				&:hover, &:focus {
-					color: $color_accent; // default
+					color: $color_accent; // postmessage: TODO
 				}
 
 				&:before {
@@ -2644,7 +2644,7 @@ p.demo_store,
 			margin: 0 0.5em 1.25em;
 			// display: block !important;
 			// background-color: transparent !important;
-			color: $color_accent; // default
+			color: $color_accent; // postmessage: TODO
 
 			&:before {
 				content: "";
@@ -2818,7 +2818,7 @@ p.demo_store,
 	margin: 0 0 2em;
 	position: relative;
 	// background-color: lighten($secondary, 5%);
-	background-color: $color_subtle; // default
+	background-color: $color_subtle; // postmessage: TODO
 	// color: $secondarytext;
 	// border-top: 3px solid $primary;
 	list-style: none outside;
@@ -2847,10 +2847,10 @@ p.demo_store,
 		line-height: inherit;
 		letter-spacing: inherit;
 		background-color: transparent !important;
-		color: $color_accent; // default
+		color: $color_accent; // postmessage: TODO
 
 		&:hover, &:focus {
-			color: $color_heading; // default
+			color: $color_heading; // postmessage: TODO
 		}
 
 		@media screen and ( min-width: $breakpoint_768 ) {
@@ -2932,7 +2932,7 @@ p.demo_store,
 			color: inherit;
 
 			&:hover, &:focus {
-				color: $color_accent; // default
+				color: $color_accent; // postmessage: TODO
 			}
 		}
 	}
@@ -2968,7 +2968,7 @@ p.demo_store,
 					font-weight: 600;
 
 					a {
-						color: $color_heading; // default
+						color: $color_heading; // postmessage: TODO
 					}
 				}
 
@@ -3013,7 +3013,7 @@ p.demo_store,
 		li.note {
 			padding: 1em;
 			margin-top: 4px;
-			background-color: $color_subtle; // default
+			background-color: $color_subtle; // postmessage: TODO
 
 			&:first-child {
 				margin-top: 0;
@@ -3085,8 +3085,8 @@ p.demo_store,
 	#place_order {
 		// float: none;
 		width: 100%;
-		font-size: 1.2rem; // default
-		padding: 14px 28px; // default
+		font-size: 1.2rem; // postmessage: TODO
+		padding: 14px 28px; // postmessage: TODO
 		margin-top: 1.5rem;
 	}
 
@@ -3165,7 +3165,7 @@ p.demo_store,
 				margin: 0.2em 0 0;
 				// font-weight: normal;
 				padding: 0.75em 1em 0.75em 3em;
-				background-color: $color_subtle; // default
+				background-color: $color_subtle; // postmessage: TODO
 
 				input[name="payment_method"] {
 					position: absolute;
@@ -3575,8 +3575,8 @@ p.demo_store,
 		a.checkout-button {
 			display: block;
 			margin-bottom: 0;
-			font-size: 1.2rem; // default
-			padding: 14px 28px; // default
+			font-size: 1.2rem; // postmessage: TODO
+			padding: 14px 28px; // postmessage: TODO
 
 			@media screen and ( min-width: $breakpoint_1024 ) {
 				display: inline-block;

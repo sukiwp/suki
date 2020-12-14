@@ -248,18 +248,18 @@ $add['error_404_home_button_text'] = array(
  */
 
 foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-	if ( false === strpos( $ps_type, '_singular' ) ) {
-		$add['page_settings_' . $ps_type . '[page_header_bg_image]'] = array(
-			array(
-				'setting'  => 'page_settings_' . $ps_type . '[page_header_bg]',
-				'value'    => 'custom',
-			),
-		);
-	}
+	// if ( false === strpos( $ps_type, '_single' ) ) {
+	// 	$add['page_settings_' . $ps_type . '[page_header_bg_image]'] = array(
+	// 		array(
+	// 			'setting'  => 'page_settings_' . $ps_type . '[page_header_bg]',
+	// 			'value'    => 'custom',
+	// 		),
+	// 	);
+	// }
 
-	$add['page_settings_' . $ps_type . '[content_layout]'] = array(
+	$add[$ps_type . '_content_layout'] = array(
 		array(
-			'setting'  => 'page_settings_' . $ps_type . '[content_container]',
+			'setting'  => $ps_type . '_content_container',
 			'operator' => '!=',
 			'value'    => 'narrow',
 		),

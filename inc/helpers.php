@@ -195,58 +195,47 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 }
 
 /**
- * Wrapper function to get page setting value of the specified post ID.
- *
- * @param string $key
- * @param integer $post_id
- * @return mixed
- */
-function suki_get_page_setting_by_post_id( $key, $post_id ) {
-	if ( ! is_numeric( $post_id ) ) {
-		return;
-	}
-
-	$post = get_post( $post_id );
-
-	// Abort if no post found.
-	if ( empty( $post ) ) {
-		return null;
-	}
-
-	// Get individual settings merged with global customizer settings.
-	$settings = wp_parse_args( get_post_meta( $post->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $post->post_type . '_singular', array() ) );
-
-	// Get the value.
-	$value = suki_array_value( $settings, $key, '' );
-
-	// Get fallback settings.
-	$fallback_settings = suki_get_fallback_page_settings();
-
-	// If the setting value is empty string and it has fallback value, use fallback value.
-	if ( '' === $value && array_key_exists( $key, $fallback_settings ) ) {
-		$value = suki_array_value( $fallback_settings, $key );
-	}
-
-	return $value;
-}
-
-/**
  * Wrapper function to get page setting of specified key.
  *
  * @param string $key
+ * @param mixed $default
  * @return array
  */
-function suki_get_current_page_setting( $key ) {
-	$settings = array();
-
-	// Blog posts index page
-	if ( is_home() ) {
-		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
+function suki_get_current_page_setting( $key, $default = null ) {
+	// Return null if no key specified.
+	if ( empty( $key ) ) {
+		return null;
 	}
 
+	$settings = array();
+
 	// Search page
-	elseif ( is_search() ) {
-		$settings = suki_get_theme_mod( 'page_settings_search', array() );
+	if ( is_search() ) {
+		$value = suki_get_theme_mod( 'search_results_' . $key );
+	}
+
+	// Error 404 page
+	elseif ( is_404() ) {
+		// Set content container and content layout to a fixed value.
+		$fixed_settings = array(
+			'hero'              => 0,
+			'content_container' => 'narrow', // Error 404 page always uses Narrow layout.
+			'content_layout'    => 'wide', // Error 404 page always has no sidebar.
+		);
+
+		// Use fixed settings if specified key is either "content_container" or "content_layout.
+		if ( isset( $fixed_settings[ $key ] ) ) {
+			$value = $fixed_settings[ $key ];
+		}
+		// Otherwise, use the Customizer value.
+		else {
+			$value = suki_get_theme_mod( 'error_404_' . $key );
+		}
+	}
+
+	// All kind of posts archive pages
+	elseif ( is_home() || is_category() || is_tag() || is_date() || is_author() ) {
+		$value = suki_get_theme_mod( 'post_archive_' . $key );
 	}
 
 	// Other post types index page
@@ -254,46 +243,37 @@ function suki_get_current_page_setting( $key ) {
 		$obj = get_queried_object();
 
 		if ( $obj ) {
-			$settings = suki_get_theme_mod( 'page_settings_' . $obj->name . '_archive', array() );
+			$value = suki_get_theme_mod( $obj->name . '_archive_' . $key );
+		} else {
+			$value = null;
 		}
 	}
 		
-	// Time based Archive page
-	// Author based Archive page
-	elseif ( is_date() || is_author() ) {
-		$settings = suki_get_theme_mod( 'page_settings_post_archive', array() );
-	}
-		
-	// Other archive page
-	elseif ( is_archive() ) {
+	// Custom taxonomy archive pages
+	elseif ( is_tax() ) {
 		$obj = get_queried_object();
 
 		if ( $obj ) {
-			$post_type = 'post';
-			
 			global $wp_taxonomies;
-			if ( isset( $wp_taxonomies[ $obj->taxonomy ] ) ) {
-				$post_types = $wp_taxonomies[ $obj->taxonomy ]->object_type;
-				$post_type_archive_settings = suki_get_theme_mod( 'page_settings_' . $post_types[0] . '_archive', array() );
-			}
 
-			$term_meta_settings = get_term_meta( $obj->term_id, 'suki_page_settings', true );
-			if ( '' === $term_meta_settings ) {
-				$term_meta_settings = array();
+			// Get post type.
+			$post_types = $wp_taxonomies[ $obj->taxonomy ]->object_type;
+			$post_type = $post_types[0];
+
+			// Get settings on the individual term.
+			$individual_settings = wp_parse_args( get_term_meta( $obj->term_id, 'suki_page_settings', true ), array() );
+
+			// Use individual settings if option is specified.
+			if ( isset( $individual_settings[ $key ] ) ) {
+				$value = $individual_settings[ $key ];
 			}
-			
-			$settings = wp_parse_args( $term_meta_settings, $post_type_archive_settings );
+			// Otherwise, use the Customizer value.
+			else {
+				$value = suki_get_theme_mod( $post_type . '_archive_' . $key );
+			}
+		} else {
+			$value = null;
 		}
-	}
-
-	// Error 404 page
-	elseif ( is_404() ) {
-		$settings = suki_get_theme_mod( 'page_settings_error_404' );
-
-		$settings = wp_parse_args( array(
-			'content_container' => 'narrow', // Error 404 page always uses Narrow layout.
-			'content_layout'    => 'wide', // Error 404 page always has no sidebar.
-		), $settings );
 	}
 
 	// Single post page (any post type)
@@ -301,24 +281,32 @@ function suki_get_current_page_setting( $key ) {
 		$obj = get_queried_object();
 
 		if ( $obj ) {
-			$settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), suki_get_theme_mod( 'page_settings_' . $obj->post_type . '_singular', array() ) );
+			// Get settings on the individual post.
+			$individual_settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
+
+			// Use individual settings if option is specified.
+			if ( isset( $individual_settings[ $key ] ) ) {
+				$value = $individual_settings[ $key ];
+			}
+			// Otherwise, use the Customizer value.
+			else {
+				$value = suki_get_theme_mod( $obj->post_type . '_single_' . $key );
+			}
+		} else {
+			$value = null;
 		}
 	}
 
-	// Get the value.
-	$value = suki_array_value( $settings, $key, '' );
-
-	// Get fallback settings.
-	$fallback_settings = suki_get_fallback_page_settings();
-
-	// If the setting value is empty string and it has fallback value, use fallback value.
-	if ( '' === $value && array_key_exists( $key, $fallback_settings ) ) {
-		$value = suki_array_value( $fallback_settings, $key );
+	// If the value is empty, try to use the global value.
+	if ( '' === $value || is_null( $value ) ) {
+		$value = suki_get_theme_mod( $key, $default );
 	}
 
+	// Allow developers to modify the value via filters.
 	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key );
 	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value );
 
+	// Return the final value.
 	return $value;
 }
 

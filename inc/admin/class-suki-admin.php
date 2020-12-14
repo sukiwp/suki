@@ -59,9 +59,9 @@ class Suki_Admin {
 		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
 
 		// Classic editor hooks
+		// TODO
 		// add_action( 'init', array( $this, 'add_editor_css' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
-		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_body_class' ) );
 		// add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
@@ -350,40 +350,6 @@ class Suki_Admin {
 			$settings['content_style'] = $styles . ' ';
 		} else {
 			$settings['content_style'] .= ' ' . $styles . ' ';
-		}
-
-		return $settings;
-	}
-
-	/**
-	 * Add body class to classic editor.
-	 *
-	 * @param array $settings
-	 * @return array
-	 */
-	public function add_classic_editor_body_class( $settings ) {
-		if ( ! function_exists( 'get_current_screen' ) ) {
-			return;
-		}
-		// Skip Gutenberg editor page.
-		$current_screen = get_current_screen();
-		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
-			return $settings;
-		}
-		
-		global $post;
-
-		if ( empty( $post ) ) {
-			return $settings;
-		}
-
-		$class = 'suki-editor-' . suki_get_page_setting_by_post_id( 'content_layout', $post->ID );
-
-		// Merge with existing classes or add new class.
-		if ( ! isset( $settings['body_class'] ) ) {
-			$settings['body_class'] = $class . ' ';
-		} else {
-			$settings['body_class'] .= ' ' . $class . ' ';
 		}
 
 		return $settings;

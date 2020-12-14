@@ -92,13 +92,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_error_404_home_button', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'priority'    => 10,
-) ) );
-
 // Show home button
 $key = 'error_404_home_button';
 $wp_customize->add_setting( $key, array(

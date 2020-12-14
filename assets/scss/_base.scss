@@ -3,7 +3,7 @@
 // -------------------------------------------------------------
 
 * {
-	border-color: $color_border; // default
+	border-color: $color_border; // postmessage: border_color
 
 	&, &:before, &:after {
 		box-sizing: border-box;
@@ -17,14 +17,14 @@
 html {
 	min-height: 100vh;
 
-	@include base(); // default
+	@include base();
 }
 
 body {
 	position: relative;
 	margin: 0;
-	background-color: $color_bg; // default
-	color: $color_text; // default
+	background-color: $color_bg; // postmessage: page_bg_color
+	color: $color_text; // postmessage: body_text_color
 	min-height: 100vh;
 	
 	overflow-wrap: break-word;
@@ -59,8 +59,8 @@ h4 {
 h5, h6 {
 	@include h4();
 
-	font-size: 1rem; // default
-	font-weight: 600; // default
+	font-size: 1rem;
+	font-weight: bold;
 }
 
 hr {
@@ -126,21 +126,21 @@ pre {
 	overflow: auto;
 	font-size: 1em;
 	font-family: monospace;
-	background-color: $color_subtle; // default
+	background-color: $color_subtle; // postmessage: subtle_color
 }
 
 code {
-	background-color: $color_subtle; // default
+	background-color: $color_subtle; // postmessage: subtle_color
 }
 
 a {
 	background-color: transparent;
 	text-decoration: none;
-	color: $color_accent; // default
+	color: $color_accent; // postmessage: link_text_color
 	@include transition();
 
 	&:hover, &:focus {
-		color: $color_heading; // default
+		color: $color_heading; // postmessage: link_hover_text_color
 	}
 }
 
@@ -197,8 +197,8 @@ svg {
 }
 
 ::selection {
-	background-color: $color_accent; // default
-	color: $color_bg; // default
+	background-color: $color_accent; // postmessage: link_text_color
+	color: $color_bg; // postmessage: page_bg_color
 }
 
 *::placeholder {

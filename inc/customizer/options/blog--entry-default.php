@@ -143,9 +143,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'section'     => $section,
 	// 'label'       => esc_html__( 'Elements', 'suki' ),
 	'choices'     => array(
-		'header-meta'    => esc_html__( 'Header Meta', 'suki' ),
-		'title'          => esc_html__( 'Title', 'suki' ),
-		'featured-media' => esc_html__( 'Featured Media', 'suki' ),
+		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
+		'title'       => esc_html__( 'Title', 'suki' ),
 	),
 	'layout'      => 'block',
 	'priority'    => 30,
@@ -188,6 +187,38 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 30,
 ) );
 
+/**
+ * ====================================================
+ * Featured Media
+ * ====================================================
+ */
+
+// Heading: Featured Media
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_featured_media', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Featured Media', 'suki' ),
+	'priority'    => 40,
+) ) );
+
+// Featured media
+$key = 'entry_featured_media';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	// 'label'       => esc_html__( 'Featured media', 'suki' ),
+	'choices'     => array(
+		''       => esc_html__( 'Disabled', 'suki' ),
+		'before' => esc_html__( 'Before Content Header', 'suki' ),
+		'after'  => esc_html__( 'After Content Header', 'suki' ),
+	),
+	'priority'    => 40,
+) );
+
 // Featured media ignores padding
 $key = 'entry_featured_media_ignore_padding';
 $wp_customize->add_setting( $key, array(
@@ -197,7 +228,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Featured media ignores padding', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 40,
 ) ) );
 
 /**
@@ -211,7 +242,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Entry Content', 'suki' ),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 // Entry excerpt length
@@ -232,7 +263,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'label' => 'wrd',
 		),
 	),
-	'priority'    => 40,
+	'priority'    => 50,
 ) ) );
 
 // Read more
@@ -250,7 +281,7 @@ $wp_customize->add_control( $key, array(
 		'text'   => esc_html__( 'Text', 'suki' ),
 		'button' => esc_html__( 'Button', 'suki' ),
 	),
-	'priority'    => 40,
+	'priority'    => 50,
 ) );
 
 // Read more text
@@ -265,7 +296,7 @@ $wp_customize->add_control( $key, array(
 	'input_attrs' => array(
 		'placeholder' => esc_html__( 'Read more', 'suki' ),
 	),
-	'priority'    => 40,
+	'priority'    => 50,
 ) );
 
 /**
@@ -279,7 +310,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Entry Footer', 'suki' ),
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Elements
@@ -295,7 +326,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 		'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 	),
 	'layout'      => 'block',
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Alignment
@@ -319,7 +350,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
 		),
 	),
-	'priority'    => 50,
+	'priority'    => 60,
 ) ) );
 
 // Footer meta text
@@ -332,7 +363,7 @@ $wp_customize->add_control( $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Footer meta text', 'suki' ),
 	'description' => esc_html__( 'Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}', 'suki' ),
-	'priority'    => 50,
+	'priority'    => 60,
 ) );
 
 /**

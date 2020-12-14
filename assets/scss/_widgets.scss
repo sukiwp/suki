@@ -4,7 +4,7 @@
 
 .widget {
 	position: relative;
-	margin-bottom: 40px; // default
+	margin-bottom: 40px; // postmessage: sidebar_widgets_gap, footer_widgets_bar_widgets_gap
 
 	.sidebar &:last-child {
 		margin-bottom: 0;

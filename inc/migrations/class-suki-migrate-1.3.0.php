@@ -41,6 +41,13 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_page_header_title_text();
 		$this->migrate_content_layout_narrow();
 		$this->migrate_page_header_to_hero_section();
+
+		/**
+		 * TODO:
+		 * - Migrate page settings values (array) to singular key
+		 * - Migrate blog_index_... to post_archive_...
+		 * - Migrate blog_single_... to post_single_...
+		 */
 	}
 
 	/**

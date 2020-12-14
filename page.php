@@ -32,8 +32,8 @@ do_action( 'suki/frontend/before_main' );
 
 while ( have_posts() ) : the_post();
 
-	// Render post content using "content-page" layout.
-	suki_get_template_part( 'entry', 'page' );
+	// Render post content using "entry-page" layout.
+	suki_get_template_part( 'page-entry' );
 
 endwhile;
 

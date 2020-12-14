@@ -12,12 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <section id="hero" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/hero_classes', array( 'suki-hero' ) ) ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
 	<div class="suki-hero-inner suki-section-inner">
 		<div class="suki-wrapper">
-			<?php
-			/**
-			 * Hook: suki/frontend/content_header
-			 */
-			do_action( 'suki/frontend/content_header' );
-			?>
+			<?php suki_content_header(); ?>
 		</div>
 	</div>
 </section>

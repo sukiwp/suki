@@ -108,7 +108,7 @@
 	letter-spacing: 0;
 	text-transform: none;
 	font-size: 1rem;
-	font-weight: 600;
+	font-weight: bold;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter hr {
@@ -121,7 +121,10 @@
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter blockquote {
 	margin: 0 0 1.5rem;
+	font-size: 1.2em;
+	font-style: italic;
 	font-weight: 300;
+	line-height: 1.6;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter blockquote > *:last-child {
@@ -476,6 +479,10 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 	padding: 1.5rem;
 }
 
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide {
+	max-width: 100%;
+}
+
 .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper {
 	overflow: visible;
 }
@@ -488,10 +495,11 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 	left: calc( 50% - 50vw);
 }
 
-body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content {
-	width: 1400px;
-	padding-left: 20px;
-	padding-right: 20px;
+@media screen and (min-width: 1400px) {
+	body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content {
+		width: 1400px;
+		left: calc( 50% - ( 1400px / 2 ));
+	}
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content > * {
@@ -522,6 +530,29 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide.suki-section-default .suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
 	width: 1140px;
+}
+
+.block-editor .editor-styles-wrapper .block-editor__typewriter .has-small-text-size {
+	font-size: 0.85em;
+}
+
+.block-editor .editor-styles-wrapper .block-editor__typewriter .has-regular-text-size {
+	font-size: 1em;
+}
+
+.block-editor .editor-styles-wrapper .block-editor__typewriter .has-medium-text-size {
+	font-size: 1.2em;
+	line-height: calc( 0.9 * 1.7);
+}
+
+.block-editor .editor-styles-wrapper .block-editor__typewriter .has-large-text-size {
+	font-size: 1.5em;
+	line-height: calc( 0.825 * 1.7);
+}
+
+.block-editor .editor-styles-wrapper .block-editor__typewriter .has-huge-text-size {
+	font-size: 2em;
+	line-height: calc( 0.75 * 1.7);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .has-text-color a {
@@ -601,7 +632,7 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-cover-image, .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-cover {
-	padding: 1.5rem;
+	padding: 1.5em;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-cover-image .wp-block-cover__inner-container, .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-cover .wp-block-cover__inner-container {
@@ -669,6 +700,7 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-quote {
+	font-size: 1em;
 	padding: 0 2em;
 	border-left-width: 0.25rem;
 	border-left-style: solid;
@@ -726,6 +758,7 @@ body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-pullquote blockquote {
+	font-size: 1em;
 	position: relative;
 	margin: 0;
 	padding: 1.5em 2em 1.5em 4.5em;

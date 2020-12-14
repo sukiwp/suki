@@ -10,25 +10,25 @@
 
 #page {
 	position: relative;
-	background-color: $color_bg; // default
+	background-color: $color_bg; // postmessage: page_bg_color
 	// overflow-x: hidden;
 	@include transition( transform );
 }
 
 body.suki-page-layout-boxed {
-	background-color: $color_border; // default
-	background-position: center center; // default
-	background-size: cover; // default
-	background-repeat: no-repeat; // default
-	background-attachment: fixed; // default
+	background-color: $color_border; // postmessage: outside_bg_color
+	background-position: center center; // postmessage: outside_bg_position
+	background-size: cover; // postmessage: outside_bg_size
+	background-repeat: no-repeat; // postmessage: outside_bg_repeat
+	background-attachment: fixed; // postmessage: outside_bg_attachment
 
 	#page {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 100%;
 
-		width: 1400px; // default
-		box-shadow: 0px 0px 30px 0px transparentize( $color_black, 0.95 ); // default
+		width: 1400px; // postmessage: boxed_page_width
+		box-shadow: 0px 0px 30px 0px transparentize( $color_black, 0.95 ); // postmessage: boxed_page_shadow
 	}
 }
 
@@ -66,7 +66,7 @@ body.suki-page-layout-boxed {
 	left: 0;
 	// opacity: 0;
 	background-color: rgba(0,0,0,0.5);
-	color: $color_bg; // default
+	color: $color_bg; // postmessage: page_bg_color
 }
 
 .suki-toggle.suki-popup-close-icon {
@@ -101,7 +101,7 @@ body.suki-page-layout-boxed {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 100%;
-	width: 1140px; // default
+	width: 1140px; // postmessage: container_width
 
 	@include float-container();
 
@@ -110,7 +110,7 @@ body.suki-page-layout-boxed {
 	}
 
 	.suki-section-narrow > .suki-section-inner > & {
-		width: 720px; // default
+		width: 720px; // postmessage: content_narrow_width
 	}
 }
 
@@ -118,7 +118,7 @@ body.suki-page-layout-boxed {
 	> .suki-section-inner {
 		margin-left: auto;
 		margin-right: auto;
-		width: 1140px; // default
+		width: 1140px; // postmessage: container_width
 		max-width: 100%;
 	}
 }
@@ -132,20 +132,20 @@ body.suki-page-layout-boxed {
 // -------------------------------------------------------------
 
 .suki-hero {
-	font-size: 1.1rem; // default
+	font-size: 1.1rem; // postmessage: hero_font_size
 
 	&-inner {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 
-		@include border( null, 0 ); // default
-		background-color: $color_subtle; // default
+		@include border( null, 0 );
+		background-color: $color_subtle; // postmessage: hero_bg_color
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-attachment: scroll; // default
-		padding: 60px 20px; // default
+		background-attachment: scroll; // postmessage: hero_bg_attachment
+		padding: 60px 20px; // postmessage: hero_padding
 
 		&:before {
 			content: "";
@@ -181,7 +181,7 @@ body.suki-page-layout-boxed {
 }
 
 .suki-content-inner {
-	padding: 80px 20px; // default
+	padding: 80px 20px; // postmessage: content_padding
 }
 
 .suki-content-row {
@@ -200,7 +200,6 @@ body.suki-page-layout-boxed {
 
 .content-area {
 	flex: 1 0;
-	// width: 100%; // default
 
 	// fix <pre> width on flex element
 	// ref: https://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
@@ -226,23 +225,21 @@ body.suki-page-layout-boxed {
 
 .sidebar {
 	flex: 0 0;
-	flex-basis: 25%; // default
-	// width: 25%; // default
-	// min-width: 25%; // default
+	flex-basis: 25%; // postmessage: sidebar_width
 
 	.suki-content-layout-right-sidebar & {
-		margin-left: 60px; // default
+		margin-left: 60px; // postmessage: sidebar_gap
 
 		.rtl & {
-			margin-right: 60px; // default
+			margin-right: 60px; // postmessage: sidebar_gap
 		}
 	}
 
 	.suki-content-layout-left-sidebar & {
-		margin-right: 60px; // default
+		margin-right: 60px; // postmessage: sidebar_gap
 
 		.rtl & {
-			margin-left: 60px; // default
+			margin-left: 60px; // postmessage: sidebar_gap
 		}
 	}
 
@@ -257,7 +254,7 @@ body.suki-page-layout-boxed {
 	}
 
 	.widget {
-		margin-bottom: 40px; // default
+		margin-bottom: 40px; // postmessage: sidebar_widgets_gap
 	}
 }
 
@@ -289,7 +286,7 @@ body.error404 {
 		&-image {
 			display: inline-block;
 			margin: 0 0 3rem;
-			max-width: 300px; // default
+			max-width: 300px; // postmessage: error_404_image_width
 		}
 
 		&-home-button {

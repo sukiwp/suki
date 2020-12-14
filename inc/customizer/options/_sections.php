@@ -52,6 +52,14 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 20,
 	) );
 
+	// Breadcrumb
+	$wp_customize->add_section( 'suki_section_breadcrumb', array(
+		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Breadcrumb can be enabled on each page\'s Content Header.', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 20,
+	) );
+
 	// Color Palette
 	$wp_customize->add_section( 'suki_section_color_palette', array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
@@ -347,19 +355,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_content_breadcrumb', array(
-		'panel'       => $panel,
-		'priority'    => 20,
-	) ) );
-
-	// Breadcrumb
-	$wp_customize->add_section( 'suki_section_breadcrumb', array(
-		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
 // Footer
 $panel = 'suki_panel_footer';
 $wp_customize->add_panel( $panel, array(
@@ -506,14 +501,14 @@ $wp_customize->add_panel( $panel, array(
 	) ) );
 
 	// Static Page
-	$wp_customize->add_section( 'suki_section_page_singular', array(
+	$wp_customize->add_section( 'suki_section_page_single', array(
 		'title'       => esc_html__( 'Static Page', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );
 
 	// Search Results Page
-	$wp_customize->add_section( 'suki_section_search', array(
+	$wp_customize->add_section( 'suki_section_search_results', array(
 		'title'       => esc_html__( 'Search Results Page', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
@@ -529,13 +524,13 @@ $wp_customize->add_panel( $panel, array(
 	// Begin registering sections.
 	$i = 10;
 	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-		if ( in_array( $ps_type, array( 'post_archive', 'post_singular', 'product_archive', 'product_singular', 'page_singular', 'search', '404' ) ) ) {
+		if ( in_array( $ps_type, array( 'post_archive', 'post_single', 'product_archive', 'product_single', 'page_single', 'search', '404' ) ) ) {
 			continue;
 		}
 
 		// Get post type object.
 		// First check if $ps_type is not for 404 and search page.
-		$post_type_slug = preg_replace( '/(_singular|_archive)/', '', $ps_type );
+		$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
 		$post_type_obj = get_post_type_object( $post_type_slug );
 
 		// Increment section priority.

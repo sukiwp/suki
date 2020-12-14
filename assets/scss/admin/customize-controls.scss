@@ -162,7 +162,7 @@ li:not(.customize-info) div.customize-section-description {
 	outline: 0;
 	@include transition();
 
-	span {
+	> span {
 		font-size: 13px;
 		font-weight: 600;
 		text-transform: uppercase;
@@ -218,6 +218,29 @@ li:not(.customize-info) div.customize-section-description {
 			color: #fff;
 		}
 	}
+
+	&.suki-tooltip-right {
+		&[data-tooltip]:hover {
+			&:before {
+				top: 50%;
+				left: 100%;
+				margin-left: 2px;
+				margin-top: -5px;
+				border-left: none; // reset
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+				border-right: 5px solid rgba(0,0,0,0.8);
+			}
+
+			&:after {
+				top: 50%;
+				left: 100%;
+				margin-top: 0;
+				margin-left: 7px;
+				transform: translateY( -50% );
+			}
+		}
+	}
 }
 
 .suki-icon-tooltip {
@@ -236,8 +259,6 @@ li:not(.customize-info) div.customize-section-description {
 	display: inline-block;
 	padding: 3px 5px;
 	border-radius: 3px;
-	font-size: 10px;
-	font-weight: 600;
 	line-height: 1;
 	text-transform: uppercase;
 	white-space: nowrap;
@@ -436,7 +457,7 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-heading {
-	margin: 20px 0 12px;
+	margin: 32px 0 12px;
 
 	.description {
 		margin-top: 12px;
@@ -1661,7 +1682,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-[id^="customize-control-page_settings_"],
+[id^="customize-control-heading_page_settings_"] ~ .customize-control,
 [id*="_bar_transparent_"],
 [id*="_bar_alt_"] {
 	&.customize-control-select {

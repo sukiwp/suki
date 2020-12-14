@@ -16,7 +16,7 @@
 			<key name="error_404_title" />
 			<key name="error_404_description" />
 			<key name="error_404_home_button_text" />
-			<key name="search_results_title" />
+			<key name="search_results_title_text" />
 			<key name="search_results_not_found_text" />
 			<key name="page_settings_post_archive">
 				<key name="archive_title_text" />

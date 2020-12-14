@@ -3,70 +3,70 @@
 // -------------------------------------------------------------
 
 @mixin base() {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; // default
-	font-size: 15px; // default
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; // postmessage: body_font_family
+	font-size: 15px; // postmessage: body_font_size
 	font-style: normal;
 	font-weight: normal;
-	line-height: 1.7; // default
+	line-height: 1.7; // postmessage: body_line_height
 	letter-spacing: 0;
 	text-transform: none;
 }
 
 @mixin h1() {
-	font-size: 32px; // default
+	font-size: 32px; // postmessage: h1_font_size
 	font-style: normal;
-	font-weight: 600; // default
-	line-height: 1.3; // default
+	font-weight: 600; // postmessage: h1_font_weight
+	line-height: 1.3; // postmessage: h1_line_height
 	letter-spacing: 0;
 	text-transform: none;
 }
 
 @mixin h2() {
-	font-size: 27px; // default
+	font-size: 27px; // postmessage: h2_font_size
 	font-style: normal;
-	font-weight: 600; // default
-	line-height: 1.4; // default
+	font-weight: 600; // postmessage: h2_font_weight
+	line-height: 1.4; // postmessage: h2_line_height
 	letter-spacing: 0;
 	text-transform: none;
 }
 
 @mixin h3() {
-	font-size: 22px; // default
+	font-size: 22px; // postmessage: h3_font_size
 	font-style: normal;
-	font-weight: 600; // default
-	line-height: 1.5; // default
+	font-weight: 600; // postmessage: h3_font_weight
+	line-height: 1.5; // postmessage: h3_line_height
 	letter-spacing: 0;
 	text-transform: none;
 }
 
 @mixin h4() {
-	font-size: 17px; // default
+	font-size: 17px; // postmessage: h4_font_size
 	font-style: normal;
-	font-weight: 600; // default
-	line-height: 1.6; // default
+	font-weight: 600; // postmessage: h4_font_weight
+	line-height: 1.6; // postmessage: h4_line_height
 	letter-spacing: 0;
 	text-transform: none;
 }
 
 @mixin headingColor( $link: true ) {
-	color: $color_heading; // default
+	color: $color_heading; // postmessage: heading_text_color
 
 	@if $link {
 		a {
-			color: $color_heading; // default
+			color: $color_heading; // postmessage: heading_text_color
 
 			&:hover, &:focus {
-				color: $color_accent; // default
+				color: $color_accent; // postmessage: heading_hover_text_color
 			}
 		}
 	}
 }
 
 @mixin blockquote() {
-	// font-size: 20px; // default
-	// font-style: italic; // default
-	font-weight: 300; // default
-	// line-height: 1.6; // default
+	font-size: 1.2em; // postmessage: blockquote_font_size
+	font-style: italic; // postmessage: blockquote_font_style
+	font-weight: 300; // postmessage: blockquote_font_weight
+	line-height: 1.6; // postmessage: blockquote_line_height
 }
 
 @mixin input( $color: true ) {
@@ -75,32 +75,33 @@
 	appearance: none;
 	@include transition();
 
-	padding: 10px 12px; // default
-	@include border(); // default
-	border-color: inherit; // default
-	border-radius: 3px; // default
+	padding: 10px 12px; // postmessage: input_padding
+	@include border(); // postmessage: input_border
+	border-color: inherit; // postmessage: input_border_color
+	border-radius: 3px; // postmessage: input_border_radius
 
 	@if $color {
 		@include inputColor();
 	}
 	
-	font-family: inherit; // default
-	font-size: inherit; // default
-	font-style: inherit; // default
-	font-weight: inherit; // default
-	line-height: normal;
-	letter-spacing: inherit; // default
-	text-transform: inherit; // default
+	font-family: inherit; // postmessage: input_font_family
+	font-size: inherit; // postmessage: input_font_size
+	font-style: inherit; // postmessage: input_font_style
+	font-weight: inherit; // postmessage: input_font_weight
+	line-height: normal; // postmessage: input_line_height
+	letter-spacing: inherit; // postmessage: input_letter_spacing
+	text-transform: inherit; // postmessage: input_text_transform
+
 	vertical-align: middle;
 }
 
 @mixin inputColor( $focus: true ) {
-	color: inherit; // default
-	background-color: $color_bg; // default
+	color: inherit; // postmessage: input_text_color
+	background-color: $color_bg; // postmessage: input_bg_color
 
 	@if $focus {
 		&:focus {
-			border-color: $color_text; // default
+			border-color: $color_text; // postmessage: input_border_color
 		}
 	}
 }
@@ -119,43 +120,43 @@
 	cursor: pointer;
 	appearance: none;
 
-	padding: 10px 20px; // default
-	@include border(); // default
-	border-radius: 3px; // default
+	padding: 10px 20px; // postmessage: button_padding
+	@include border(); // postmessage: button_border
+	border-radius: 3px; // postmessage: button_border_radius
 
 	@if $color {
 		@include buttonColor();
 	}
 
-	font-family: inherit; // default
-	font-size: 1rem; // default
-	font-style: normal; // default
-	font-weight: 600; // default
+	font-family: inherit; // postmessage: button_font_family
+	font-size: 1rem; // postmessage: button_font_size
+	font-style: normal; // postmessage: button_font_style
+	font-weight: 600; // postmessage: button_font_weight
 	line-height: normal;
-	letter-spacing: 0; // default
-	text-transform: none; // default
+	letter-spacing: 0; // postmessage: button_letter_spacing
+	text-transform: none; // postmessage: button_text_transform
 	text-align: center;
 
 	@include transition();
 }
 
 @mixin buttonColor( $focus: true ) {
-	color: $color_white; // default
-	background-color: $color_accent; // default
-	border-color: $color_accent; // default
+	color: $color_white; // postmessage: button_text_color
+	background-color: $color_accent; // postmessage: button_bg_color
+	border-color: $color_accent; // postmessage: button_border_color
 
 	@if ( $focus ) {
 		&:hover, &:focus {
-			color: $color_white; // default
-			background-color: $color_accent2; // default
-			border-color: $color_accent2; // default
+			color: $color_white; // postmessage: button_hover_text_color
+			background-color: $color_accent2; // postmessage: button_hover_bg_color
+			border-color: $color_accent2; // postmessage: button_hover_border_color
 		}
 	}
 }
 
 @mixin meta( $color: true ) {
-	font-size: 0.85em; // default
-	line-height: 1.7; // default
+	font-size: 0.85em; // postmessage: meta_font_size
+	line-height: 1.7; // postmessage: meta_line_height
 	
 	@if $color {
 		@include metaColor();
@@ -163,14 +164,14 @@
 }
 
 @mixin metaColor( $link: true ) {
-	color: inherit; // default
+	color: inherit; // postmessage: meta_text_color
 
 	@if $link {
 		a {
-			color: inherit; // default
+			color: inherit; // postmessage: meta_text_color
 
 			&:hover, &:focus {
-				color: $color_accent; // default
+				color: $color_accent; // postmessage: meta_hover_text_color
 			}
 		}
 	}

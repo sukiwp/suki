@@ -131,7 +131,7 @@ $add['blockquote_font_family'] = '';
 $add['blockquote_font_weight'] = 300;
 $add['blockquote_font_style'] = 'italic';
 $add['blockquote_text_transform'] = '';
-$add['blockquote_font_size'] = '20px';
+$add['blockquote_font_size'] = '1.2em';
 $add['blockquote_line_height'] = '1.6';
 $add['blockquote_letter_spacing'] = '';
 
@@ -823,6 +823,9 @@ $add['scroll_to_top_hover_text_color'] = '';
  * ====================================================
  */
 
+$add['post_archive_content_header'] = array( 'archive-title', 'archive-description' );
+$add['post_archive_content_header_alignment'] = 'left';
+
 $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_content_header'] = 0;
 $add['blog_index_navigation_mode'] = 'pagination';
@@ -833,13 +836,14 @@ $add['blog_index_navigation_mode'] = 'pagination';
  * ====================================================
  */
 
-$add['entry_single_header'] = array( 'title', 'header-meta', 'featured-media' );
-$add['entry_single_header_alignment'] = 'left';
-$add['entry_single_header_meta'] = '{{date}}';
+$add['post_single_content_header'] = array( 'entry-title', 'entry-header-meta' );
+$add['post_single_content_header_alignment'] = 'left';
+$add['post_single_content_header_meta'] = '{{date}}';
+$add['post_single_content_featured_media'] = 'after';
 
-$add['entry_single_footer'] = array( 'tags', 'footer-meta' );
-$add['entry_single_footer_alignment'] = 'left';
-$add['entry_single_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
+$add['post_single_content_footer'] = array( 'entry-tags', 'entry-footer-meta' );
+$add['post_single_content_footer_alignment'] = 'left';
+$add['post_single_content_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
 $add['blog_single_author_bio'] = 1;
 $add['blog_single_navigation'] = 1;
@@ -856,9 +860,11 @@ $add['entry_padding'] = '0 0 0 0';
 $add['entry_border'] = '0 0 0 0';
 $add['entry_border_radius'] = '0px';
 
-$add['entry_header'] = array( 'featured-media', 'header-meta', 'title' );
+$add['entry_header'] = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
+
+$add['entry_featured_media'] = 'after';
 $add['entry_featured_media_ignore_padding'] = 0;
 
 $add['entry_excerpt_length'] = 55;
@@ -879,8 +885,6 @@ $add['entry_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
  * ====================================================
  */
 
-$add['blog_index_header_alignment'] = 'left';
-
 $add['blog_index_grid_columns'] = 2;
 $add['blog_index_grid_rows_gutter'] = '15px';
 $add['blog_index_grid_columns_gutter'] = '15px';
@@ -890,9 +894,11 @@ $add['entry_grid_border'] = '0 0 0 0';
 $add['entry_grid_border_radius'] = '0px';
 $add['entry_grid_same_height'] = 0;
 
-$add['entry_grid_header'] = array( 'featured-media', 'header-meta', 'title' );
+$add['entry_grid_header'] = array( 'title', 'header-meta' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
+
+$add['entry_grid_featured_media'] = 'before';
 $add['entry_grid_featured_media_ignore_padding'] = 0;
 
 $add['entry_grid_excerpt_length'] = 30;
@@ -913,8 +919,18 @@ $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
  * ====================================================
  */
 
-$add['entry_page_header'] = array( 'title', 'featured-media' );
-$add['entry_page_header_alignment'] = 'left';
+$add['page_single_content_header'] = array( 'entry-title', 'entry-excerpt' );
+$add['page_single_content_header_alignment'] = 'left';
+
+$add['page_single_content_featured_media'] = 'after';
+
+/**
+ * ====================================================
+ * Other Pages > Search Page
+ * ====================================================
+ */
+
+$add['search_results_content_header'] = array( 'title', 'search-form' );
 
 /**
  * ====================================================
@@ -924,14 +940,5 @@ $add['entry_page_header_alignment'] = 'left';
 
 $add['error_404_image_width'] = '300px';
 $add['error_404_search_bar'] = 1;
-$add['page_settings_error_404']['content_container'] = 'narrow'; // required for Customizer preview
-
-/**
- * ====================================================
- * Other Pages > Search Page
- * ====================================================
- */
-
-$add['search_results_search_bar'] = 1;
 
 return $add;

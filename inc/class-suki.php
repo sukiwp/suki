@@ -286,34 +286,35 @@ class Suki {
 			add_theme_support( 'editor-color-palette', $array );
 		}
 
-		// // Gutenberg: Font sizes
-		// add_theme_support( 'editor-font-sizes', array(
-		// 	array(
-		// 		'name' => esc_html__( 'Small', 'suki' ),
-		// 		// 'size' => 12,
-		// 		'slug' => 'small',
-		// 	),
-		// 	array(
-		// 		'name' => esc_html__( 'Normal', 'suki' ),
-		// 		// 'size' => 16,
-		// 		'slug' => 'normal',
-		// 	),
-		// 	array(
-		// 		'name' => esc_html__( 'Medium', 'suki' ),
-		// 		// 'size' => 20,
-		// 		'slug' => 'medium',
-		// 	),
-		// 	array(
-		// 		'name' => esc_html__( 'Large', 'suki' ),
-		// 		// 'size' => 26,
-		// 		'slug' => 'large',
-		// 	),
-		// 	array(
-		// 		'name' => esc_html__( 'Huge', 'suki' ),
-		// 		// 'size' => 32,
-		// 		'slug' => 'huge',
-		// 	),
-		// ) );
+		// Gutenberg: Font sizes
+		$base_font_size = floatval( suki_get_theme_mod( 'body_font_size' ) );
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+				'name' => esc_html__( 'Small', 'suki' ),
+				'size' => 0.85 * $base_font_size,
+				'slug' => 'small',
+			),
+			array(
+				'name' => esc_html__( 'Normal', 'suki' ),
+				'size' => $base_font_size,
+				'slug' => 'regular',
+			),
+			array(
+				'name' => esc_html__( 'Medium', 'suki' ),
+				'size' => 1.2 * $base_font_size,
+				'slug' => 'medium',
+			),
+			array(
+				'name' => esc_html__( 'Large', 'suki' ),
+				'size' => 1.5 * $base_font_size,
+				'slug' => 'large',
+			),
+			array(
+				'name' => esc_html__( 'Huge', 'suki' ),
+				'size' => 2 * $base_font_size,
+				'slug' => 'huge',
+			),
+		) );
 
 		// Gutenberg: Editor styles
 		add_theme_support( 'editor-styles' );
