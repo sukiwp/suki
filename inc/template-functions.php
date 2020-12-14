@@ -129,10 +129,8 @@ function suki_template_hooks() {
 		}
 
 		// Add content header before main content.
-		if ( ! is_home() ) {
-			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
-			}
+		if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
+			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 		}
 
 		/**

@@ -8,7 +8,7 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$section = 'suki_section_post_single';
+$section = 'suki_section_blog_single';
 
 /**
  * ====================================================
@@ -151,7 +151,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Alignment', 'suki' ),
+	// 'label'       => esc_html__( 'Alignment', 'suki' ),
 	'choices'     => array(
 		'left'   => array(
 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
@@ -185,11 +185,11 @@ $wp_customize->add_control( $key, array(
  * ====================================================
  */
 
-// Heading: Other Elements
+// Heading: After Content
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_blog_single_others', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Other Elements', 'suki' ),
+	'label'       => esc_html__( 'After Content', 'suki' ),
 	'priority'    => 40,
 ) ) );
 

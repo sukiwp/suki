@@ -272,11 +272,11 @@ msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-functions.php:582
+#: inc/template-functions.php:580
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:642
+#: inc/template-functions.php:640
 msgid "Search&hellip;"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Open links in new tab"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-social.php:101, inc/customizer/options/blog--entry-default.php:162, inc/customizer/options/blog--entry-default.php:341, inc/customizer/options/blog--entry-grid.php:226, inc/customizer/options/blog--entry-grid.php:405, inc/customizer/options/blog--single.php:154, inc/customizer/options/content--hero.php:169, inc/customizer/options/header--mobile-vertical-bar.php:64, inc/customizer/options/page--single.php:54, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
+#: inc/widgets/class-suki-widget-social.php:101, inc/customizer/options/blog--entry-default.php:162, inc/customizer/options/blog--entry-default.php:341, inc/customizer/options/blog--entry-grid.php:226, inc/customizer/options/blog--entry-grid.php:405, inc/customizer/options/content--hero.php:169, inc/customizer/options/header--mobile-vertical-bar.php:64, inc/customizer/options/page--single.php:54, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
 msgid "Alignment"
 msgstr ""
 
@@ -1248,7 +1248,7 @@ msgid "Tags"
 msgstr ""
 
 #: inc/customizer/options/blog--single.php:192
-msgid "Other Elements"
+msgid "After Content"
 msgstr ""
 
 #: inc/customizer/options/blog--single.php:204
