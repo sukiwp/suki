@@ -84,19 +84,7 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * @param WP_Post $post
 	 */
 	public function add_post_meta_box( $post_type, $post ) {
-		$post_types = array_merge(
-			array( 'post', 'page' ),
-			get_post_types( array(
-				'public'             => true,
-				'publicly_queryable' => true,
-				'rewrite'            => true,
-				'_builtin'           => false,
-			), 'names' )
-		);
-
-		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
-
-		$post_types = array_diff( $post_types, $ignored_post_types );
+		$post_types = suki_get_post_types_for_page_settings();
 
 		add_meta_box(
 			'suki_page_settings',

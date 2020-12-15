@@ -941,4 +941,20 @@ $add['search_results_content_header'] = array( 'title', 'search-form' );
 $add['error_404_image_width'] = '300px';
 $add['error_404_search_bar'] = 1;
 
+/**
+ * ====================================================
+ * Other Pages > [Custom Post Types]
+ * ====================================================
+ */
+
+foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+	// Only process archives.
+	if ( preg_match( '/(_single|_archive)/', $ps_type ) ) {
+		continue;
+	}
+
+	// Extract the post type slug from $ps_type.
+	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
+}
+
 return $add;

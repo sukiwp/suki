@@ -12,19 +12,13 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	$section = suki_array_value( $ps_data, 'section' );
 	$option_prefix = $ps_type;
 
-	// Get default value (array) of the option key.
-	$default = suki_array_value( $defaults, $option_prefix, array() );
-	if ( ! is_array( $default ) ) {
-		$default = array();
-	}
+	// Extract the post type slug from $ps_type.
+	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
+	$post_type_obj = get_post_type_object( $post_type_slug );
 
 	// Heading: Page Settings
 	$title = esc_html__( 'Page Settings', 'suki' );
 	if ( false !== strpos( $ps_type, '_single' ) ) {
-		// Extract the post type slug from $ps_type.
-		$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
-		$post_type_obj = get_post_type_object( $post_type_slug );
-
 		$title .= ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . sprintf( esc_attr__( 'You can override these options on each individual %s.', 'suki' ), $post_type_obj->labels->singular_name ) . '"><span class="dashicons dashicons-admin-site-alt3"></span></span>';
 	}
 	$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_settings_' . $ps_type, array(
@@ -46,7 +40,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$subkey = 'content_container';
 		$key = $option_prefix . '_' . $subkey;
 		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
+			'default'     => suki_array_value( $defaults, $key ),
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 		) );
 		$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
@@ -78,7 +72,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$subkey = 'content_layout';
 		$key = $option_prefix . '_' . $subkey;
 		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
+			'default'     => suki_array_value( $defaults, $key ),
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 		) );
 		$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
@@ -127,7 +121,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			$subkey = 'title_text';
 			$key = $option_prefix . '_' . $subkey;
 			$wp_customize->add_setting( $key, array(
-				'default'     => suki_array_value( $default, $subkey ),
+				'default'     => suki_array_value( $defaults, $key ),
 				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 			) );
 			$wp_customize->add_control( $key, array(
@@ -143,7 +137,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			$subkey = 'tax_title_text';
 			$key = $option_prefix . '_' . $subkey;
 			$wp_customize->add_setting( $key, array(
-				'default'     => suki_array_value( $default, $subkey ),
+				'default'     => suki_array_value( $defaults, $key ),
 				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 			) );
 			$wp_customize->add_control( $key, array(
@@ -167,7 +161,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$subkey = 'hero';
 		$key = $option_prefix . '_' . $subkey;
 		$wp_customize->add_setting( $key, array(
-			'default'     => suki_array_value( $default, $subkey ),
+			'default'     => suki_array_value( $defaults, $key ),
 			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 		) );
 		$wp_customize->add_control( $key, array(
@@ -182,96 +176,45 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'priority'    => 120,
 		) );
 
-		// // Content header
-		// $subkey = 'content_header';
-		// $key = $option_prefix . '_' . $subkey;
-		// $wp_customize->add_setting( $key, array(
-		// 	'default'     => suki_array_value( $default, $subkey ),
-		// 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-		// ) );
-		// $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
-		// 	'section'     => $section,
-		// 	'label'       => esc_html__( 'Content header', 'suki' ),
-		// 	'choices'     => array(
-		// 		'' => array(
-		// 			'label' => esc_html__( '-- Global --', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
-		// 		),
-		// 		'disabled' => array(
-		// 			'label' => esc_html__( 'Disabled', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/hero--disabled.svg',
-		// 		),
-		// 		'default' => array(
-		// 			'label' => esc_html__( 'Default', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/hero--enabled.svg',
-		// 		),
-		// 		'hero' => array(
-		// 			'label' => esc_html__( 'Hero', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/hero--enabled.svg',
-		// 		),
-		// 	),
-		// 	'columns'     => 4,
-		// 	'priority'    => 120,
-		// ) ) );
+			// Container width
+			$subkey = 'hero_container';
+			$key = $option_prefix . '_' . $subkey;
+			$wp_customize->add_setting( $key, array(
+				'default'     => suki_array_value( $defaults, $key ),
+				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+			) );
+			$wp_customize->add_control( $key, array(
+				'type'        => 'select',
+				'section'     => $section,
+				'label'       => esc_html__( 'Container width', 'suki' ),
+				'choices'     => array(
+					''           => esc_html__( '-- Global --', 'suki' ),
+					'default'    => esc_html__( 'Normal', 'suki' ),
+					'full-width' => esc_html__( 'Full width', 'suki' ),
+					'narrow'     => esc_html__( 'Narrow', 'suki' ),
+				),
+				'priority'    => 120,
+			) );
 
-		// // Content header alignment
-		// $subkey = 'content_header_alignment';
-		// $key = $option_prefix . '_' . $subkey;
-		// $wp_customize->add_setting( $key, array(
-		// 	'default'     => suki_array_value( $default, $subkey ),
-		// 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-		// ) );
-		// $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
-		// 	'section'     => $section,
-		// 	'label'       => esc_html__( 'Content header alignment', 'suki' ),
-		// 	'choices'     => array(
-		// 		'' => array(
-		// 			'label' => '<span style="line-height: 20px; vertical-align: middle;">' . esc_html__( '-- Global --', 'suki' ) . '</span>',
-		// 		),
-		// 		'left'   => array(
-		// 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
-		// 		),
-		// 		'center' => array(
-		// 			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
-		// 		),
-		// 		'right'  => array(
-		// 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
-		// 		),
-		// 	),
-		// 	'priority'    => 120,
-		// ) ) );
-
-		// // Hero container width
-		// $subkey = 'hero_container';
-		// $key = $option_prefix . '_' . $subkey;
-		// $wp_customize->add_setting( $key, array(
-		// 	'default'     => suki_array_value( $default, $subkey ),
-		// 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-		// ) );
-		// $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
-		// 	'section'     => $section,
-		// 	'label'       => esc_html__( 'Hero container width', 'suki' ),
-		// 	'choices'     => array(
-		// 		'' => array(
-		// 			'label' => esc_html__( '-- Global --', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
-		// 		),
-		// 		'default'    => array(
-		// 			'label' => esc_html__( 'Normal', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/hero-container--default.svg',
-		// 		),
-		// 		'full-width' => array(
-		// 			'label' => esc_html__( 'Full width', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/hero-container--full-width.svg',
-		// 		),
-		// 		'narrow'     => array(
-		// 			'label' => esc_html__( 'Narrow', 'suki' ),
-		// 			'image' => SUKI_IMAGES_URL . '/customizer/hero-container--narrow.svg',
-		// 		),
-		// 	),
-		// 	'columns'     => 4,
-		// 	'priority'    => 120,
-		// ) ) );
+			// Alignment
+			$subkey = 'hero_alignment';
+			$key = $option_prefix . '_' . $subkey;
+			$wp_customize->add_setting( $key, array(
+				'default'     => suki_array_value( $defaults, $key ),
+				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+			) );
+			$wp_customize->add_control( $key, array(
+				'type'        => 'select',
+				'section'     => $section,
+				'label'       => esc_html__( 'Alignment', 'suki' ),
+				'choices'     => array(
+					''       => esc_html__( '-- Global --', 'suki' ),
+					'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+					'center' => esc_html__( 'Center', 'suki' ),
+					'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+				),
+				'priority'    => 120,
+			) );
 	}
 
 	/**
@@ -280,18 +223,20 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	 * ====================================================
 	 */
 
-	// ------
-	$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $ps_type . '_header', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'priority'    => 130,
-	) ) );
+	if ( 'error_404' !== $ps_type ) {
+		// ------
+		$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_page_settings_' . $ps_type . '_header', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'priority'    => 130,
+		) ) );
+	}
 
 	// Desktop header
 	$subkey = 'disable_header';
 	$key = $option_prefix . '_' . $subkey;
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $default, $subkey ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
 	$wp_customize->add_control( $key, array(
@@ -309,7 +254,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	$subkey = 'disable_mobile_header';
 	$key = $option_prefix . '_' . $subkey;
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $default, $subkey ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
 	$wp_customize->add_control( $key, array(
@@ -340,7 +285,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	$subkey = 'disable_footer_widgets';
 	$key = $option_prefix . '_' . $subkey;
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $default, $subkey ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
 	$wp_customize->add_control( $key, array(
@@ -358,7 +303,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	$subkey = 'disable_footer_bottom';
 	$key = $option_prefix . '_' . $subkey;
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $default, $subkey ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
 	$wp_customize->add_control( $key, array(

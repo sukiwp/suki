@@ -715,21 +715,54 @@ function suki_get_pro_modules() {
 }
 
 /**
+ * Return list of post types that support Page Settings.
+ * 
+ * @return array
+ */
+function suki_get_post_types_for_page_settings() {
+	$all_supported_post_types = array_merge( array( 'post' ), suki_get_public_custom_post_types() );
+
+	// Allow user to deactivate page settings on some specific post types through filter.
+	$ignored_post_types = apply_filters( 'suki/dataset/page_settings/ignored_post_types', array() );
+
+	// Intersect the supported post types.
+	return array_diff( $all_supported_post_types, $ignored_post_types );
+}
+
+/**
+ * Return all "public" custom post types.
+ * 
+ * @return array
+ */
+function suki_get_public_custom_post_types() {
+	return get_post_types( array(
+		'public'             => true,
+		'publicly_queryable' => true,
+		'rewrite'            => true,
+		'_builtin'           => false,
+	), 'names' );
+}
+
+/**
  * Return fallback values of page settings.
  * 
  * @return array
  */
 function suki_get_fallback_page_settings() {
-	return apply_filters( 'suki/dataset/fallback_page_settings', array(
-		'content_container'     => suki_get_theme_mod( 'content_container', 'default' ),
-		'content_layout'        => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
-		'content_header_layout' => suki_get_theme_mod( 'content_header_layout', 'before_main' ),
-		'breadcrumb'            => suki_get_theme_mod( 'breadcrumb', 0 ),
-		'hero'                  => suki_get_theme_mod( 'hero', 0 ),
-		'hero_container'        => suki_get_theme_mod( 'hero_container', 'default' ),
-		'hero_alignment'        => suki_get_theme_mod( 'hero_alignment', 'center' ),
-		'hero_bg_image'         => suki_get_theme_mod( 'hero_bg_image', '' ),
+	$array = apply_filters( 'suki/dataset/page_settings/fallback_values', array(
+		'content_container'        => suki_get_theme_mod( 'content_container', 'default' ),
+		'content_layout'           => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
+		'content_header'           => array( 'title' ),
+		'content_header_alignment' => array( 'left' ),
+		'hero'                     => suki_get_theme_mod( 'hero', 0 ),
+		'hero_container'           => suki_get_theme_mod( 'hero_container', 'default' ),
+		'hero_alignment'           => suki_get_theme_mod( 'hero_alignment', 'center' ),
+		'hero_bg_image'            => suki_get_theme_mod( 'hero_bg_image', '' ),
 	) );
+
+	// Compatibility filter
+	// SOON WILL BE DEPRECATED
+	return apply_filters( 'suki/dataset/fallback_page_settings', $array );
 }
 
 /**

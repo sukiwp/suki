@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		
 		if ( has_action( 'suki/frontend/single_entry/header' ) ) :
 		?>
-			<header class="entry-header <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'blog_single_content_header_alignment' ) ); ?>">
+			<header class="entry-header <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'post_single_content_header_alignment' ) ); ?>">
 				<?php
 				/**
 				 * Hook: suki/frontend/single_entry/header
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		
 		if ( has_action( 'suki/frontend/single_entry/footer' ) ) :
 		?>
-			<footer class="entry-footer <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'blog_single_content_footer_alignment' ) ); ?>">
+			<footer class="entry-footer <?php echo esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'post_single_content_footer_alignment' ) ); ?>">
 				<?php
 				/**
 				 * Hook: suki/frontend/single_entry/footer

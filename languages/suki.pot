@@ -65,7 +65,7 @@ msgstr ""
 msgid "Small"
 msgstr ""
 
-#: inc/class-suki.php:298, inc/admin/class-suki-admin-metabox-page-settings.php:441, inc/admin/class-suki-admin-metabox-page-settings.php:477, inc/customizer/custom-controls/class-suki-customize-control-typography.php:216, inc/customizer/options/content--hero.php:58, inc/customizer/options/content--section.php:34, inc/customizer/options/footer--bottom-bar.php:69, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:76, inc/customizer/options/_page-settings.php:65
+#: inc/class-suki.php:298, inc/admin/class-suki-admin-metabox-page-settings.php:429, inc/admin/class-suki-admin-metabox-page-settings.php:465, inc/customizer/custom-controls/class-suki-customize-control-typography.php:216, inc/customizer/options/content--hero.php:58, inc/customizer/options/content--section.php:34, inc/customizer/options/footer--bottom-bar.php:69, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:76, inc/customizer/options/_page-settings.php:59, inc/customizer/options/_page-settings.php:192
 msgid "Normal"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Huge"
 msgstr ""
 
-#: inc/class-suki.php:346, inc/admin/class-suki-admin-metabox-page-settings.php:499, inc/customizer/options/_page-settings.php:86, inc/customizer/options/_sections.php:325
+#: inc/class-suki.php:346, inc/admin/class-suki-admin-metabox-page-settings.php:487, inc/customizer/options/_page-settings.php:80, inc/customizer/options/_sections.php:325
 msgid "Sidebar"
 msgstr ""
 
@@ -242,32 +242,32 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:899
+#: inc/helpers.php:932
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:900
+#: inc/helpers.php:933
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:901
+#: inc/helpers.php:934
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:902
+#: inc/helpers.php:935
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:903
+#: inc/helpers.php:936
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:904
+#: inc/helpers.php:937
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
@@ -426,121 +426,121 @@ msgstr ""
 #. translators: %s: theme name.
 #. translators: %s: theme name.
 #. translators: %s: tdeme name.
-#: inc/admin/class-suki-admin-metabox-page-settings.php:104, inc/admin/class-suki-admin-metabox-page-settings.php:258, inc/admin/class-suki-admin-metabox-page-settings.php:286
+#: inc/admin/class-suki-admin-metabox-page-settings.php:92, inc/admin/class-suki-admin-metabox-page-settings.php:246, inc/admin/class-suki-admin-metabox-page-settings.php:274
 msgid "Individual Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:227, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:491
+#: inc/admin/class-suki-admin-metabox-page-settings.php:215, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:491
 msgid "Edit Page settings here"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:358
+#: inc/admin/class-suki-admin-metabox-page-settings.php:346
 msgid "Disable desktop header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:366, inc/admin/class-suki-admin-metabox-page-settings.php:385, inc/admin/class-suki-admin-metabox-page-settings.php:417, inc/admin/class-suki-admin-metabox-page-settings.php:437, inc/admin/class-suki-admin-metabox-page-settings.php:473, inc/admin/class-suki-admin-metabox-page-settings.php:508, inc/admin/class-suki-admin-metabox-page-settings.php:542, inc/admin/class-suki-admin-metabox-page-settings.php:561, inc/admin/class-suki-admin-metabox-page-settings.php:586, inc/admin/class-suki-admin-metabox-page-settings.php:605
+#: inc/admin/class-suki-admin-metabox-page-settings.php:354, inc/admin/class-suki-admin-metabox-page-settings.php:373, inc/admin/class-suki-admin-metabox-page-settings.php:405, inc/admin/class-suki-admin-metabox-page-settings.php:425, inc/admin/class-suki-admin-metabox-page-settings.php:461, inc/admin/class-suki-admin-metabox-page-settings.php:496, inc/admin/class-suki-admin-metabox-page-settings.php:530, inc/admin/class-suki-admin-metabox-page-settings.php:549, inc/admin/class-suki-admin-metabox-page-settings.php:574, inc/admin/class-suki-admin-metabox-page-settings.php:593
 msgid "(Customizer)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:367, inc/admin/class-suki-admin-metabox-page-settings.php:386, inc/admin/class-suki-admin-metabox-page-settings.php:543, inc/admin/class-suki-admin-metabox-page-settings.php:562, inc/admin/class-suki-admin-metabox-page-settings.php:587, inc/admin/class-suki-admin-metabox-page-settings.php:606
+#: inc/admin/class-suki-admin-metabox-page-settings.php:355, inc/admin/class-suki-admin-metabox-page-settings.php:374, inc/admin/class-suki-admin-metabox-page-settings.php:531, inc/admin/class-suki-admin-metabox-page-settings.php:550, inc/admin/class-suki-admin-metabox-page-settings.php:575, inc/admin/class-suki-admin-metabox-page-settings.php:594
 msgid "&#x2718; No"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:368, inc/admin/class-suki-admin-metabox-page-settings.php:387, inc/admin/class-suki-admin-metabox-page-settings.php:544, inc/admin/class-suki-admin-metabox-page-settings.php:563, inc/admin/class-suki-admin-metabox-page-settings.php:588, inc/admin/class-suki-admin-metabox-page-settings.php:607
+#: inc/admin/class-suki-admin-metabox-page-settings.php:356, inc/admin/class-suki-admin-metabox-page-settings.php:375, inc/admin/class-suki-admin-metabox-page-settings.php:532, inc/admin/class-suki-admin-metabox-page-settings.php:551, inc/admin/class-suki-admin-metabox-page-settings.php:576, inc/admin/class-suki-admin-metabox-page-settings.php:595
 msgid "&#x2714; Yes"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:377
+#: inc/admin/class-suki-admin-metabox-page-settings.php:365
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/admin/class-suki-admin-metabox-page-settings.php:620, inc/admin/class-suki-admin-metabox-page-settings.php:630, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:524, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, inc/compatibilities/woocommerce/customizer/options/_sections.php:75
+#: inc/admin/class-suki-admin-metabox-page-settings.php:385, inc/admin/class-suki-admin-metabox-page-settings.php:608, inc/admin/class-suki-admin-metabox-page-settings.php:618, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:524, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, inc/compatibilities/woocommerce/customizer/options/_sections.php:75
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:398
+#: inc/admin/class-suki-admin-metabox-page-settings.php:386
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable Transparent Header on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:398
+#: inc/admin/class-suki-admin-metabox-page-settings.php:386
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable Sticky Header on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:399
+#: inc/admin/class-suki-admin-metabox-page-settings.php:387
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:401, inc/admin/class-suki-admin-metabox-page-settings.php:622, inc/admin/class-suki-admin-metabox-page-settings.php:632, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:533
+#: inc/admin/class-suki-admin-metabox-page-settings.php:389, inc/admin/class-suki-admin-metabox-page-settings.php:610, inc/admin/class-suki-admin-metabox-page-settings.php:620, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:533
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:409, inc/customizer/options/_page-settings.php:176
+#: inc/admin/class-suki-admin-metabox-page-settings.php:397, inc/customizer/options/_page-settings.php:170
 msgid "Hero section"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:418, inc/customizer/options/_page-settings.php:180, inc/customizer/options/_page-settings.php:303, inc/customizer/options/_page-settings.php:321, inc/customizer/options/_page-settings.php:352, inc/customizer/options/_page-settings.php:370
+#: inc/admin/class-suki-admin-metabox-page-settings.php:406, inc/customizer/options/_page-settings.php:174, inc/customizer/options/_page-settings.php:248, inc/customizer/options/_page-settings.php:266, inc/customizer/options/_page-settings.php:297, inc/customizer/options/_page-settings.php:315
 msgid "&#x2718; Disabled"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:419, inc/customizer/options/_page-settings.php:179, inc/customizer/options/_page-settings.php:302, inc/customizer/options/_page-settings.php:320, inc/customizer/options/_page-settings.php:351, inc/customizer/options/_page-settings.php:369
+#: inc/admin/class-suki-admin-metabox-page-settings.php:407, inc/customizer/options/_page-settings.php:173, inc/customizer/options/_page-settings.php:247, inc/customizer/options/_page-settings.php:265, inc/customizer/options/_page-settings.php:296, inc/customizer/options/_page-settings.php:314
 msgid "&#x2714; Enabled"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:428, inc/admin/class-suki-admin-metabox-page-settings.php:464
+#: inc/admin/class-suki-admin-metabox-page-settings.php:416, inc/admin/class-suki-admin-metabox-page-settings.php:452
 msgid "Container"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:445, inc/admin/class-suki-admin-metabox-page-settings.php:481, inc/customizer/options/canvas.php:31, inc/customizer/options/content--hero.php:62, inc/customizer/options/content--section.php:38, inc/customizer/options/footer--bottom-bar.php:73, inc/customizer/options/footer--widgets-bar.php:35, inc/customizer/options/header--top-main-bottom-bar.php:80, inc/customizer/options/_page-settings.php:69
+#: inc/admin/class-suki-admin-metabox-page-settings.php:433, inc/admin/class-suki-admin-metabox-page-settings.php:469, inc/customizer/options/canvas.php:31, inc/customizer/options/content--hero.php:62, inc/customizer/options/content--section.php:38, inc/customizer/options/footer--bottom-bar.php:73, inc/customizer/options/footer--widgets-bar.php:35, inc/customizer/options/header--top-main-bottom-bar.php:80, inc/customizer/options/_page-settings.php:63, inc/customizer/options/_page-settings.php:193
 msgid "Full width"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:449, inc/admin/class-suki-admin-metabox-page-settings.php:485, inc/customizer/options/content--hero.php:66, inc/customizer/options/content--section.php:30, inc/customizer/options/_page-settings.php:61
+#: inc/admin/class-suki-admin-metabox-page-settings.php:437, inc/admin/class-suki-admin-metabox-page-settings.php:473, inc/customizer/options/content--hero.php:66, inc/customizer/options/content--section.php:30, inc/customizer/options/_page-settings.php:55, inc/customizer/options/_page-settings.php:194
 msgid "Narrow"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:493
+#: inc/admin/class-suki-admin-metabox-page-settings.php:481
 msgid "If you are using Page Builder and want a full width layout, please set the \"Page Attributes > Template\" to \"Page Builder\" or the one provided by your page builder."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:512, inc/admin/class-suki-admin-metabox-page-settings.php:516, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--builder.php:87, inc/customizer/options/footer--builder.php:89, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:97, inc/customizer/options/_page-settings.php:101
+#: inc/admin/class-suki-admin-metabox-page-settings.php:500, inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--builder.php:87, inc/customizer/options/footer--builder.php:89, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:95, inc/customizer/options/_page-settings.php:212, inc/customizer/options/_page-settings.php:214
 msgid "Left"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:512, inc/admin/class-suki-admin-metabox-page-settings.php:516, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--builder.php:87, inc/customizer/options/footer--builder.php:89, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:97, inc/customizer/options/_page-settings.php:101
+#: inc/admin/class-suki-admin-metabox-page-settings.php:500, inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--builder.php:87, inc/customizer/options/footer--builder.php:89, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:95, inc/customizer/options/_page-settings.php:212, inc/customizer/options/_page-settings.php:214
 msgid "Right"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:520, inc/customizer/custom-controls/class-suki-customize-control-typography.php:220, inc/customizer/options/blog--entry-default.php:280, inc/customizer/options/blog--entry-grid.php:344, inc/customizer/options/content--section.php:65, inc/customizer/options/content--sidebar.php:336, inc/customizer/options/footer--widgets-bar.php:273, inc/customizer/options/header--top-main-bottom-bar.php:366, inc/customizer/options/_page-settings.php:93
+#: inc/admin/class-suki-admin-metabox-page-settings.php:508, inc/customizer/custom-controls/class-suki-customize-control-typography.php:220, inc/customizer/options/blog--entry-default.php:280, inc/customizer/options/blog--entry-grid.php:344, inc/customizer/options/content--section.php:65, inc/customizer/options/content--sidebar.php:336, inc/customizer/options/footer--widgets-bar.php:273, inc/customizer/options/header--top-main-bottom-bar.php:366, inc/customizer/options/_page-settings.php:87
 msgid "None"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:534
+#: inc/admin/class-suki-admin-metabox-page-settings.php:522
 msgid "Hide post title"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:553
+#: inc/admin/class-suki-admin-metabox-page-settings.php:541
 msgid "Hide featured image"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:578
+#: inc/admin/class-suki-admin-metabox-page-settings.php:566
 msgid "Disable footer widgets"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:597
+#: inc/admin/class-suki-admin-metabox-page-settings.php:585
 msgid "Disable footer bottom"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:621
+#: inc/admin/class-suki-admin-metabox-page-settings.php:609
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable Preloader Screen on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:631
+#: inc/admin/class-suki-admin-metabox-page-settings.php:619
 msgctxt "Suki Pro upsell"
 msgid "Insert Custom Blocks (section / element) on any part of this page (header, footer, etc.)."
 msgstr ""
@@ -661,49 +661,49 @@ msgstr ""
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:258
+#: inc/customizer/class-suki-customizer.php:260
 msgid "Vertical Bar"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:268, inc/customizer/options/_sections.php:180
+#: inc/customizer/class-suki-customizer.php:270, inc/customizer/options/_sections.php:180
 msgid "Top Bar"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:276, inc/customizer/options/_sections.php:187
+#: inc/customizer/class-suki-customizer.php:278, inc/customizer/options/_sections.php:187
 msgid "Main Bar"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:284, inc/customizer/class-suki-customizer.php:316, inc/customizer/options/_sections.php:194, inc/customizer/options/_sections.php:367
+#: inc/customizer/class-suki-customizer.php:286, inc/customizer/class-suki-customizer.php:318, inc/customizer/options/_sections.php:194, inc/customizer/options/_sections.php:367
 msgid "Bottom Bar"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:296, inc/customizer/options/_sections.php:208
+#: inc/customizer/class-suki-customizer.php:298, inc/customizer/options/_sections.php:208
 msgid "Mobile Popup"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:304, inc/customizer/options/_sections.php:201
+#: inc/customizer/class-suki-customizer.php:306, inc/customizer/options/_sections.php:201
 msgid "Mobile Main Bar"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:696, inc/customizer/options/_sections.php:484
+#: inc/customizer/class-suki-customizer.php:698, inc/customizer/options/_sections.php:484
 msgid "Static Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:700, inc/customizer/options/_sections.php:491
+#: inc/customizer/class-suki-customizer.php:702, inc/customizer/options/_sections.php:491
 msgid "Search Results Page"
 msgstr ""
 
-#: inc/customizer/class-suki-customizer.php:704, inc/customizer/options/_sections.php:498
+#: inc/customizer/class-suki-customizer.php:706, inc/customizer/options/_sections.php:498
 msgid "Error 404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:753
+#: inc/customizer/class-suki-customizer.php:741
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:760
+#: inc/customizer/class-suki-customizer.php:748
 msgid "Single %s Page"
 msgstr ""
 
@@ -769,7 +769,7 @@ msgstr ""
 msgid "%s - Social Links"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-social.php:68, inc/customizer/options/footer--builder.php:88
+#: inc/widgets/class-suki-widget-social.php:68, inc/customizer/options/footer--builder.php:88, inc/customizer/options/_page-settings.php:213
 msgid "Center"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Open links in new tab"
 msgstr ""
 
-#: inc/widgets/class-suki-widget-social.php:101, inc/customizer/options/blog--entry-default.php:162, inc/customizer/options/blog--entry-default.php:341, inc/customizer/options/blog--entry-grid.php:226, inc/customizer/options/blog--entry-grid.php:405, inc/customizer/options/content--hero.php:169, inc/customizer/options/header--mobile-vertical-bar.php:64, inc/customizer/options/page--single.php:54, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
+#: inc/widgets/class-suki-widget-social.php:101, inc/customizer/options/content--hero.php:169, inc/customizer/options/header--mobile-vertical-bar.php:64, inc/customizer/options/_page-settings.php:209, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
 msgid "Alignment"
 msgstr ""
 
@@ -1091,7 +1091,7 @@ msgstr ""
 msgid "Page numbers"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:93, inc/customizer/options/blog--single.php:23, inc/customizer/options/page--search.php:23, inc/customizer/options/page--single.php:23
+#: inc/customizer/options/blog--archive.php:93, inc/customizer/options/blog--single.php:23, inc/customizer/options/cpt--archive.php:33, inc/customizer/options/cpt--single.php:33, inc/customizer/options/page--search.php:23, inc/customizer/options/page--single.php:23
 msgid "Content Header"
 msgstr ""
 
@@ -1099,15 +1099,15 @@ msgstr ""
 msgid "This content header will appear before the posts list on all archive pages (category, tag, author, and date archives) except the main posts page."
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:109, inc/customizer/options/blog--entry-default.php:147, inc/customizer/options/blog--entry-grid.php:211, inc/customizer/options/blog--single.php:38, inc/customizer/options/page--search.php:37, inc/customizer/options/page--single.php:37, inc/customizer/options/_sections.php:72
+#: inc/customizer/options/blog--archive.php:109, inc/customizer/options/blog--entry-default.php:147, inc/customizer/options/blog--entry-grid.php:211, inc/customizer/options/blog--single.php:38, inc/customizer/options/cpt--archive.php:47, inc/customizer/options/cpt--single.php:47, inc/customizer/options/page--search.php:37, inc/customizer/options/page--single.php:37, inc/customizer/options/_sections.php:72
 msgid "Title"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:110, inc/customizer/options/page--error-404.php:76
+#: inc/customizer/options/blog--archive.php:110, inc/customizer/options/cpt--archive.php:48, inc/customizer/options/page--error-404.php:76
 msgid "Description"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:111, inc/customizer/options/blog--single.php:39, inc/customizer/options/page--search.php:39, inc/customizer/options/page--single.php:39, inc/customizer/options/_sections.php:111
+#: inc/customizer/options/blog--archive.php:111, inc/customizer/options/blog--single.php:39, inc/customizer/options/cpt--archive.php:49, inc/customizer/options/cpt--single.php:48, inc/customizer/options/page--search.php:39, inc/customizer/options/page--single.php:39, inc/customizer/options/_sections.php:111
 msgid "Breadcrumb"
 msgstr ""
 
@@ -1323,7 +1323,7 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer/options/content--hero.php:55, inc/customizer/options/content--section.php:27
+#: inc/customizer/options/content--hero.php:55, inc/customizer/options/content--section.php:27, inc/customizer/options/_page-settings.php:189
 msgid "Container width"
 msgstr ""
 
@@ -2130,47 +2130,47 @@ msgstr ""
 msgid "Excerpt"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:22
+#: inc/customizer/options/_page-settings.php:20
 msgid "Page Settings"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:28
+#: inc/customizer/options/_page-settings.php:22
 msgid "You can override these options on each individual %s."
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:54
+#: inc/customizer/options/_page-settings.php:48
 msgid "Content container"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:57, inc/customizer/options/_page-settings.php:89, inc/customizer/options/_page-settings.php:178
+#: inc/customizer/options/_page-settings.php:51, inc/customizer/options/_page-settings.php:83, inc/customizer/options/_page-settings.php:172, inc/customizer/options/_page-settings.php:191, inc/customizer/options/_page-settings.php:211
 msgid "-- Global --"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:86
+#: inc/customizer/options/_page-settings.php:80
 msgid "Not available on \"Narrow\" content layout"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:135
+#: inc/customizer/options/_page-settings.php:129
 msgid "Main archive page's title"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:151
+#: inc/customizer/options/_page-settings.php:145
 msgid "Taxonomy archive page's title"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:300
+#: inc/customizer/options/_page-settings.php:245
 msgid "Desktop header"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:318
+#: inc/customizer/options/_page-settings.php:263
 msgid "Mobile header"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:349
+#: inc/customizer/options/_page-settings.php:294
 msgid "Footer widgets"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:367
+#: inc/customizer/options/_page-settings.php:312
 msgid "Footer bottom"
 msgstr ""
 

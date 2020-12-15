@@ -205,17 +205,19 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php' );
 
-		// Pages
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--single.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
-
 		// Blog
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--archive.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--single.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-default.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-grid.php' );
+
+		// Pages
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--single.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/cpt--archive.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/cpt--single.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
 	}
 
 	/**
@@ -706,21 +708,7 @@ class Suki_Customizer {
 		);
 
 		// Get post types.
-		$post_types = array_merge(
-			array( 'post' ),
-			get_post_types( array(
-				'public'             => true,
-				'publicly_queryable' => true,
-				'rewrite'            => true,
-				'_builtin'           => false,
-			), 'names' )
-		);
-
-		// Allow user to deactivate page settings on some specific post types through filter.
-		$ignored_post_types = apply_filters( 'suki/admin/metabox/page_settings/ignored_post_types', array() );
-
-		// Intersect the supported post types.
-		$post_types = array_diff( $post_types, $ignored_post_types );
+		$post_types = suki_get_post_types_for_page_settings();
 
 		foreach ( $post_types as $post_type ) {
 			$post_type_obj = get_post_type_object( $post_type );
@@ -737,8 +725,8 @@ class Suki_Customizer {
 					break;
 				
 				default:
-					$section_archive = 'suki_section_page_' . $post_type . '_archive';
-					$section_single = 'suki_section_page_' . $post_type . '_single';
+					$section_archive = 'suki_section_' . $post_type . '_archive';
+					$section_single = 'suki_section_' . $post_type . '_single';
 					break;
 			}
 

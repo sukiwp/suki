@@ -223,7 +223,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Alignment', 'suki' ),
+	// 'label'       => esc_html__( 'Alignment', 'suki' ),
 	'choices'     => array(
 		'left'   => array(
 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
@@ -402,7 +402,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Alignment', 'suki' ),
+	// 'label'       => esc_html__( 'Alignment', 'suki' ),
 	'choices'     => array(
 		'left'   => array(
 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',

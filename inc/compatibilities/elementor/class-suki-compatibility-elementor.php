@@ -43,7 +43,7 @@ class Suki_Compatibility_Elementor {
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_compatibility_css' ), 20 );
 
 		// Disable page settings on Elementor Template post type.
-		add_filter( 'suki/admin/metabox/page_settings/ignored_post_types', array( $this, 'disable_page_settings_on_elementor_template' ) );
+		add_filter( 'suki/dataset/page_settings/ignored_post_types', array( $this, 'disable_page_settings_on_elementor_template' ) );
 
 		// Add theme defined fonts to all typography settings.
 		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );

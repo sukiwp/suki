@@ -1697,6 +1697,10 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 
+}
+
+[id^="customize-control-heading_page_settings_"] ~ .customize-control {
+	&[id*="_hero_"],
 	&[id*="-header_"] {
 		padding-left: 15px;
 		width: calc(100% - 15px);
