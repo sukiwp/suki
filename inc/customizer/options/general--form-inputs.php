@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Styles > Form Input
+ * Customizer settings: Typography & Colors > Form Input
  *
  * @package Suki
  **/

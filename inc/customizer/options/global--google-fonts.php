@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Settings > Google Fonts
+ * Customizer settings: Global Modules > Google Fonts
  *
  * @package Suki
  **/

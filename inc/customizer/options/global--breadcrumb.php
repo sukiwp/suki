@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Settings > Breadcrumb
+ * Customizer settings: Global Modules > Breadcrumb
  *
  * @package Suki
  **/

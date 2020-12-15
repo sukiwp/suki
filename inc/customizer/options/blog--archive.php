@@ -107,7 +107,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	// 'label'       => esc_html__( 'Elements', 'suki' ),
 	'choices'     => array(
 		'archive-title'       => esc_html__( 'Title', 'suki' ),
-		'archive-description' => esc_html__( 'Archive description', 'suki' ),
+		'archive-description' => esc_html__( 'Description', 'suki' ),
 		'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
 	),
 	'layout'      => 'block',

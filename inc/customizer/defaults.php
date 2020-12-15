@@ -14,7 +14,7 @@ $add = array();
 
 /**
  * ====================================================
- * Global Settings > Color Palette
+ * Global Modules > Color Palette
  * ====================================================
  */
 
@@ -29,7 +29,7 @@ $add['color_palette_8'] = $colors['black'];
 
 /**
  * ====================================================
- * Global Settings > Breadcrumb
+ * Global Modules > Breadcrumb
  * ====================================================
  */
 
@@ -38,7 +38,7 @@ $add['breadcrumb_plugin'] = '';
 
 /**
  * ====================================================
- * Global Settings > Google Fonts
+ * Global Modules > Google Fonts
  * ====================================================
  */
 
@@ -46,7 +46,7 @@ $add['google_fonts_subsets'] = array();
 
 /**
  * ====================================================
- * General Styles > Base
+ * Typography & Colors > Base
  * ====================================================
  */
 
@@ -64,7 +64,7 @@ $add['body_text_color'] = $colors['text'];
 
 /**
  * ====================================================
- * General Styles > Border & Subtle Background
+ * Typography & Colors > Border & Subtle Background
  * ====================================================
  */
 
@@ -73,7 +73,7 @@ $add['border_color'] = $colors['border'];
 
 /**
  * ====================================================
- * General Styles > Link
+ * Typography & Colors > Link
  * ====================================================
  */
 
@@ -82,7 +82,7 @@ $add['link_hover_text_color'] = $colors['heading'];
 
 /**
  * ====================================================
- * General Styles > Headings
+ * Typography & Colors > Headings
  * ====================================================
  */
 
@@ -123,7 +123,7 @@ $add['heading_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Styles > Blockquote
+ * Typography & Colors > Blockquote
  * ====================================================
  */
 
@@ -137,7 +137,7 @@ $add['blockquote_letter_spacing'] = '';
 
 /**
  * ====================================================
- * General Styles > Form Input
+ * Typography & Colors > Form Input
  * ====================================================
  */
 
@@ -161,7 +161,7 @@ $add['input_focus_text_color'] = '';
 
 /**
  * ====================================================
- * General Styles > Button
+ * Typography & Colors > Button
  * ====================================================
  */
 
@@ -185,7 +185,7 @@ $add['button_hover_text_color'] = $colors['white'];
 
 /**
  * ====================================================
- * General Styles > Title
+ * Typography & Colors > Title
  * ====================================================
  */
 
@@ -202,7 +202,7 @@ $add['title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Styles > Small Title
+ * Typography & Colors > Small Title
  * ====================================================
  */
 
@@ -219,7 +219,7 @@ $add['small_title_hover_text_color'] = '';
 
 /**
  * ====================================================
- * General Styles > Meta Info
+ * Typography & Colors > Meta Info
  * ====================================================
  */
 

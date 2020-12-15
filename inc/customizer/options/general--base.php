@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: General Styles > Base
+ * Customizer settings: Typography & Colors > Base
  *
  * @package Suki
  **/

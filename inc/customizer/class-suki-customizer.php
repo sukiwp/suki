@@ -165,13 +165,13 @@ class Suki_Customizer {
 		// Sections and Panels
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_sections.php' );
 
-		// Global Settings
+		// Global Modules
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--breadcrumb.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php' );
 
-		// General Styles
+		// Typography & Colors
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--base.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--headings.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/general--blockquote.php' );

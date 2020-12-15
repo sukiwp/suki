@@ -12,7 +12,7 @@ $add = array();
 
 /**
  * ====================================================
- * Global Settings > Color Palette
+ * Global Modules > Color Palette
  * ====================================================
  */
 
@@ -33,7 +33,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
 
 /**
  * ====================================================
- * General Styles > Base
+ * Typography & Colors > Base
  * ====================================================
  */
 
@@ -173,7 +173,7 @@ $add['link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Styles > Headings
+ * Typography & Colors > Headings
  * ====================================================
  */
 
@@ -262,7 +262,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Styles > Blockquote
+ * Typography & Colors > Blockquote
  * ====================================================
  */
 
@@ -299,7 +299,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 /**
  * ====================================================
- * General Styles > Button
+ * Typography & Colors > Button
  * ====================================================
  */
 
@@ -357,7 +357,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Styles > Form Input
+ * Typography & Colors > Form Input
  * ====================================================
  */
 
@@ -423,7 +423,7 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 
 /**
  * ====================================================
- * General Styles > Title
+ * Typography & Colors > Title
  * ====================================================
  */
 
@@ -474,7 +474,7 @@ $add['title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Styles > Small Title
+ * Typography & Colors > Small Title
  * ====================================================
  */
 
@@ -525,7 +525,7 @@ $add['small_title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * General Styles > Meta Info
+ * Typography & Colors > Meta Info
  * ====================================================
  */
 

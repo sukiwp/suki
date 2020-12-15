@@ -23,71 +23,12 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'priority'    => 0,
 ) ) );
 
-// Global Settings
-$panel = 'suki_panel_global_settings';
-$wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'Global Settings', 'suki' ),
-	'priority'    => 121,
-) );
-
-	// Site Identity
-	$wp_customize->get_section( 'title_tagline' )->panel = $panel;
-	$wp_customize->get_section( 'title_tagline' )->priority = 10;
-
-	// Homepage Settings
-	$wp_customize->get_section( 'static_front_page' )->panel = $panel;
-	$wp_customize->get_section( 'static_front_page' )->priority = 10;
-
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_global_20', array(
-		'panel'       => $panel,
-		'priority'    => 20,
-	) ) );
-
-	// Social
-	$wp_customize->add_section( 'suki_section_social', array(
-		'title'       => esc_html__( 'Social Media Links', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Please use full URL format with the protocol. For example: "https://" or "mailto:".', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
-	// Breadcrumb
-	$wp_customize->add_section( 'suki_section_breadcrumb', array(
-		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Breadcrumb can be enabled on each page\'s Content Header.', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
-	// Color Palette
-	$wp_customize->add_section( 'suki_section_color_palette', array(
-		'title'       => esc_html__( 'Color Palette', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Color palette makes it easier and faster to choose colors while designing your website.', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
-	// Google Fonts
-	$wp_customize->add_section( 'suki_section_google_fonts', array(
-		'title'       => esc_html__( 'Google Fonts', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 20,
-	) );
-
-// General Styles
+// Typography & Colors
 $panel = 'suki_panel_general_styles';
 $wp_customize->add_panel( $panel, array(
-	'title'       => esc_html__( 'General Styles', 'suki' ),
-	'priority'    => 122,
+	'title'       => esc_html__( 'Typography & Colors', 'suki' ),
+	'priority'    => 121,
 ) );
-
-	// ------
-	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_typography', array(
-		'title'       => esc_html__( 'Typography', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 10,
-	) ) );
 
 	// Base
 	$wp_customize->add_section( 'suki_section_base', array(
@@ -148,6 +89,44 @@ $wp_customize->add_panel( $panel, array(
 		'description' => '<p>' . esc_html__( 'Used on Post meta, Widget meta, Comments meta, and other small info text.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
+	) );
+
+// Global Modules
+$panel = 'suki_panel_global_settings';
+$wp_customize->add_panel( $panel, array(
+	'title'       => esc_html__( 'Global Modules', 'suki' ),
+	'priority'    => 122,
+) );
+
+	// Social
+	$wp_customize->add_section( 'suki_section_social', array(
+		'title'       => esc_html__( 'Social Media Links', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Please use full URL format with the protocol. For example: "https://" or "mailto:".', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 20,
+	) );
+
+	// Breadcrumb
+	$wp_customize->add_section( 'suki_section_breadcrumb', array(
+		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Breadcrumb can be enabled on each page\'s Content Header.', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 20,
+	) );
+
+	// Google Fonts
+	$wp_customize->add_section( 'suki_section_google_fonts', array(
+		'title'       => esc_html__( 'Google Fonts', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 20,
+	) );
+
+	// Color Palette
+	$wp_customize->add_section( 'suki_section_color_palette', array(
+		'title'       => esc_html__( 'Color Palette', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Save up to 8 colors that are mostly used on your design, so you easily apply these colors to your design without remembering the color hex codes.', 'suki' ) . '</p><p>' . esc_html__( 'This is not "Global Colors", if you want to set colors for body text, heading, link, etc., please go to Global > Typography & Colors section.', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 20,
 	) );
 
 // ------
@@ -561,3 +540,9 @@ $wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 's
 	'title'       => esc_html__( 'Others', 'suki' ),
 	'priority'    => 159,
 ) ) );
+
+// Site Identity
+$wp_customize->get_section( 'title_tagline' )->priority = 160;
+
+// Homepage Settings
+$wp_customize->get_section( 'static_front_page' )->priority = 161;
