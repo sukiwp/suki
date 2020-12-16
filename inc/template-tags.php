@@ -211,7 +211,7 @@ if ( ! function_exists( 'suki_social_links' ) ) :
  * @return string
  */
 function suki_social_links( $links = array(), $args = array(), $echo = true ) {
-	$labels = suki_get_social_media_types();
+	$labels = suki_get_social_media_types( true );
 
 	$args = wp_parse_args( $args, array(
 		'before_link' => '',

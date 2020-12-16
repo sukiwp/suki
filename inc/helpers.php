@@ -878,11 +878,11 @@ function suki_get_web_safe_fonts() {
 /**
  * Return array of social media types (based on Simple Icons).
  * 
- * @param boolean $group
+ * @param boolean $sort
  * @return array
  */
-function suki_get_social_media_types( $group = false ) {
-	return apply_filters( 'suki/dataset/social_media_types', array(
+function suki_get_social_media_types( $sort = false ) {
+	$types = apply_filters( 'suki/dataset/social_media_types', array(
 		// Social network
 		'facebook' => 'Facebook',
 		'instagram' => 'Instagram',
@@ -919,6 +919,12 @@ function suki_get_social_media_types( $group = false ) {
 		// Others
 		'rss' => 'RSS',
 	) );
+
+	if ( $sort ) {
+		ksort( $types );
+	}
+
+	return $types;
 }
 
 /**
@@ -936,6 +942,6 @@ function suki_get_all_icons() {
 			'chevron-right' => esc_html_x( 'Dropdown Arrow -- Right', 'icon label', 'suki' ),
 			'shopping-cart' => esc_html_x( 'Shopping Cart', 'icon label', 'suki' ),
 		),
-		'social_icons' => suki_get_social_media_types(),
+		'social_icons' => suki_get_social_media_types( true ),
 	) );
 }

@@ -69,7 +69,7 @@ class Suki_Widget_Social extends WP_Widget {
 			'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
 		);
 
-		$social_choices = suki_get_social_media_types();
+		$social_choices = suki_get_social_media_types( true );
 		$social_keys = array_keys( $social_choices );
 		sort( $social_keys );
 
