@@ -15,7 +15,6 @@ $section = 'suki_section_page_canvas';
  * Page Layout
  * ====================================================
  */
-
 // Page layout
 $key = 'page_layout';
 $wp_customize->add_setting( $key, array(

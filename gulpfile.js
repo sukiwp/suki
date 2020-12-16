@@ -135,6 +135,15 @@ gulp.task( 'info', gulp.series( 'theme_info', 'readme_txt' ) );
 gulp.task( 'vendors', function( done ) {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
+	// html5sortable
+	gulp.src( './node_modules/html5sortable/dist/html5sortable?(.min).js' )
+		.pipe( gulp.dest( config.dest.js + '/vendors' ) );
+
+	// Change version
+	gulp.src( './inc/class-suki-admin.php', { base: './' } )
+		.pipe( replace( /(\$ver\['html5sortable'\] = )(?:.*)/g, '$1\'' + info.devDependencies['html5sortable'].replace( '^', '' ) + '\';' ) )
+		.pipe( gulp.dest( './' ) );
+
 	/**
 	 * Google Fonts JSON
 	 */

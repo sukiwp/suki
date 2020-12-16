@@ -54,7 +54,8 @@
 		"gulp-terser": "^1.4.0",
 		"gulp-watch": "^5.0.1",
 		"gulp-wp-pot": "^2.4.3",
-		"gulp-zip": "^5.0.2"
+		"gulp-zip": "^5.0.2",
+		"html5sortable": "^0.10.0"
 	},
 	"browserslist": [
 		"last 1 version",

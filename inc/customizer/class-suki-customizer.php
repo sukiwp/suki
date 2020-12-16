@@ -141,6 +141,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-multicheck.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-radioimage.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-background.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-sortable.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php' );
 
 		if ( suki_show_pro_teaser() ) {

@@ -53,6 +53,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
 		add_filter( 'suki/customizer/preview_contexts', array( $this, 'add_preview_contexts' ) );
+		add_filter( 'suki/customizer/auto_page_options/excluded_post_types', array( $this, 'exclude_from_auto_page_options' ) );
 
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -203,6 +204,16 @@ class Suki_Compatibility_WooCommerce {
 		$contexts['woocommerce_checkout'] = esc_url( wc_get_checkout_url() );
 
 		return $contexts;
+	}
+
+	/**
+	 * Exclude 'product' post type from auto page options.
+	 * 
+	 * @param array $post_types
+	 * @return array
+	 */
+	public function exclude_from_auto_page_options( $post_types ) {
+		$post_types[] = 'product';
 	}
 
 	/**

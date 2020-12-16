@@ -10,12 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 	// Only process archive pages.
-	if ( preg_match( '/_archive/', $ps_type ) ) {
+	if ( ! preg_match( '/_archive/', $ps_type ) ) {
 		continue;
 	}
 
 	// Extract the post type slug from $ps_type.
 	$post_type_slug = preg_replace( '/_archive/', '', $ps_type );
+
+	// Only process custom post types that have no dedicated options.
+	if ( in_array( $post_type_slug, apply_filters( 'suki/customizer/auto_page_options/excluded_post_types', array( 'post' ) ) ) ) {
+		continue;
+	}
 
 	$section = suki_array_value( $ps_data, 'section' );
 	$option_prefix = $ps_type;
@@ -40,7 +45,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		'default'     => suki_array_value( $defaults, $key, array( 'archive-title', 'archive-description' ) ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 	) );
-	$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
+	$wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, $key, array(
 		'section'     => $section,
 		// 'label'       => esc_html__( 'Elements', 'suki' ),
 		'choices'     => array(

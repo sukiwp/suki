@@ -144,6 +144,7 @@ class Suki_Admin {
 	public function enqueue_admin_javascripts( $hook ) {
 		// Fetched version from package.json
 		$ver = array();
+		$ver['html5sortable'] = '';
 
 		/**
 		 * Hook: Styles to be included before admin JS
@@ -152,6 +153,7 @@ class Suki_Admin {
 
 		// Register JS files
 		wp_register_script( 'alpha-color-picker', SUKI_JS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery', 'wp-color-picker' ), SUKI_VERSION, true );
+		wp_register_script( 'html5sortable', SUKI_JS_URL . '/vendors/html5sortable' . SUKI_ASSETS_SUFFIX . '.js', array(), $ver['html5sortable'], true );
 
 		// Enqueue JS files.
 		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );

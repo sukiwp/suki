@@ -645,6 +645,57 @@
 			});
 		}
 	});
+
+	/**
+	 * Suki sortable control
+	 */
+	wp.customize.controlConstructor['suki-sortable'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this,
+			    $sortable = control.container[0].querySelector( '.suki-sortable' ),
+			    $checkboxes = control.container[0].querySelectorAll( 'input[type="checkbox"]' );
+
+			control.sortable = $sortable;
+
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'updateValue' );
+
+			sortable( '#' + $sortable.id, {
+				handle: '.suki-sortable-item-handle',
+				forcePlaceholderSize: true,
+				itemSerializer: function( serializedItem, sortableContainer ) {
+					return {
+						checked: serializedItem.node.querySelector( 'input' ).checked,
+						value: serializedItem.node.dataset.value,
+					};
+				}
+			});
+
+			$sortable.addEventListener( 'sortupdate', control.updateValue, false );
+
+			$checkboxes.forEach(function( $checkbox ) {
+				$checkbox.addEventListener( 'change', control.updateValue, false );
+			});
+		},
+
+		updateValue: function( e ) {
+			// Get all items.
+			var serialized = sortable( '#' + this.sortable.id, 'serialize' );
+			
+			// Filter only checked items.
+			var checkedItems = serialized[0].items.filter( function( item ) {
+				return item.checked;
+			});
+
+			// Build value.
+			var value = [];
+			for ( var i = 0; i < checkedItems.length; i++ ) {
+				value.push( checkedItems[i].value );
+			}
+
+			this.setting.set( value );
+		},
+	});
 	
 	/**
 	 * Suki builder control

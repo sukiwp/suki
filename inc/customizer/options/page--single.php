@@ -30,7 +30,7 @@ $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 ) );
-$wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $key, array(
+$wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, $key, array(
 	'section'     => $section,
 	// 'label'       => esc_html__( 'Elements', 'suki' ),
 	'choices'     => array(

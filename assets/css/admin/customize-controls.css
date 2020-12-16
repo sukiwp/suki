@@ -965,6 +965,79 @@ li:not(.customize-info) div.customize-section-description {
 	color: #fff;
 }
 
+.customize-control-suki-sortable .suki-sortable {
+	border: 1px solid #ddd;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	background-color: #fff;
+	padding: 0 8px;
+}
+
+.customize-control-suki-sortable .suki-sortable-item {
+	margin: 8px 0;
+}
+
+.customize-control-suki-sortable .suki-sortable-item .dashicons {
+	font-size: 20px;
+	margin: 0;
+}
+
+.customize-control-suki-sortable .suki-sortable-item input {
+	display: none;
+}
+
+.customize-control-suki-sortable .suki-sortable-item-label {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	opacity: 0.6;
+	border-style: dashed;
+}
+
+.customize-control-suki-sortable .suki-sortable-item-label label {
+	-ms-flex: 0 0 20px;
+	flex: 0 0 20px;
+	margin-right: 0.75em;
+}
+
+.customize-control-suki-sortable .suki-sortable-item-label label .dashicons-visibility {
+	display: none;
+}
+
+.customize-control-suki-sortable .suki-sortable-item-label label .dashicons-hidden {
+	display: block;
+}
+
+.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label {
+	opacity: 1;
+	border-style: solid;
+}
+
+.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label label .dashicons-visibility {
+	display: block;
+}
+
+.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label label .dashicons-hidden {
+	display: none;
+}
+
+.customize-control-suki-sortable .suki-sortable-item-name {
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}
+
+.customize-control-suki-sortable .suki-sortable-item-handle {
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+.customize-control-suki-sortable .suki-sortable .sortable-placeholder {
+	margin: 0 0 0.5em;
+	border: none;
+}
+
 .customize-control-suki-builder .suki-builder .suki-builder-location {
 	position: relative;
 	margin: 3px 0;

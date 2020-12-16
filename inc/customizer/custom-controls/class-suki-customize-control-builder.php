@@ -128,7 +128,7 @@ class Suki_Customize_Control_Builder extends Suki_Customize_Control {
 								#><li class="suki-builder-element button button-secondary" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
 									<span>{{{ data.choices[ item ] }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 								</li><#
-							}) #>
+							}); #>
 						</ul>
 						<span class="suki-builder-element-add" tabindex="0">
 							<span class="dashicons dashicons-plus-alt"></span>

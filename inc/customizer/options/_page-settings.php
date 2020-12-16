@@ -167,7 +167,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$wp_customize->add_control( $key, array(
 			'type'        => 'select',
 			'section'     => $section,
-			'label'       => esc_html__( 'Hero section', 'suki' ),
+			'label'       => esc_html__( 'Hero section', 'suki' ) . ' <span class="suki-tooltip suki-tooltip-right" tabindex="0" data-tooltip="' . esc_attr__( 'When enabled, Content Header will be displayed inside Hero section.', 'suki' ) . '"><span class="dashicons dashicons-info"></span></span>',
 			'choices'     => array(
 				''  => esc_html__( '-- Global --', 'suki' ),
 				'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
