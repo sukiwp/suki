@@ -1034,7 +1034,7 @@ li:not(.customize-info) div.customize-section-description {
 }
 
 .customize-control-suki-sortable .suki-sortable .sortable-placeholder {
-	margin: 0 0 0.5em;
+	margin: 8px 0;
 	border: none;
 }
 

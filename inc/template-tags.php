@@ -987,6 +987,24 @@ function suki_entry_meta( $format ) {
 }
 endif;
 
+if ( ! function_exists( 'suki_single_entry_header_meta' ) ) :
+/**
+ * Print single entry header meta.
+ */
+function suki_single_entry_header_meta() {
+	suki_entry_meta( suki_get_theme_mod( 'post_single_content_header_meta' ) );
+}
+endif;
+
+if ( ! function_exists( 'suki_single_entry_footer_meta' ) ) :
+/**
+ * Print single entry footer meta.
+ */
+function suki_single_entry_footer_meta() {
+	suki_entry_meta( suki_get_theme_mod( 'post_single_content_footer_meta' ) );
+}
+endif;
+
 if ( ! function_exists( 'suki_entry_header_meta' ) ) :
 /**
  * Print entry header meta.

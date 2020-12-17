@@ -310,41 +310,41 @@ msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:1107, inc/customizer/options/page--search.php:57
+#: inc/template-tags.php:1125, inc/customizer/options/page--search.php:57
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:1151
+#: inc/template-tags.php:1169
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1152
+#: inc/template-tags.php:1170
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1198
+#: inc/template-tags.php:1216
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1200
+#: inc/template-tags.php:1218
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1223
+#: inc/template-tags.php:1241
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1217
+#: inc/template-tags.php:1235
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: inc/template-tags.php:1250
+#: inc/template-tags.php:1268
 msgid "Comments are closed."
 msgstr ""
 

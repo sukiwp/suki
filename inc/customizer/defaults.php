@@ -836,12 +836,12 @@ $add['blog_index_navigation_mode'] = 'pagination';
  * ====================================================
  */
 
-$add['post_single_content_header'] = array( 'entry-title', 'entry-header-meta' );
+$add['post_single_content_header'] = array( 'entry-title', 'single-entry-header-meta' );
 $add['post_single_content_header_alignment'] = 'left';
 $add['post_single_content_header_meta'] = '{{date}}';
 $add['post_single_content_featured_media'] = 'after';
 
-$add['post_single_content_footer'] = array( 'entry-tags', 'entry-footer-meta' );
+$add['post_single_content_footer'] = array( 'entry-tags', 'single-entry-footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
