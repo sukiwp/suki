@@ -69,6 +69,7 @@
 // Entry wrapper
 .entry-wrapper {
 	@include border( null, 0 );
+	overflow: hidden; // for border-radius
 
 	> *:last-child {
 		margin-bottom: 0;

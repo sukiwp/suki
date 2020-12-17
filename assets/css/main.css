@@ -2836,6 +2836,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 .entry-wrapper {
 	border-width: 0;
 	border-style: solid;
+	overflow: hidden;
 }
 
 .entry-wrapper > *:last-child {
@@ -3640,6 +3641,7 @@ p.wp-block-subhead {
 .widget {
 	position: relative;
 	margin-bottom: 40px;
+	overflow: hidden;
 }
 
 .sidebar .widget:last-child {
