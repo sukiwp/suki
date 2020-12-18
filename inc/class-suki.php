@@ -503,40 +503,39 @@ class Suki {
 	public function add_page_settings_css( $css ) {
 		$css_array = array();
 
-		$page_header_bg_image = '';
+		/**
+		 * Hero background image
+		 */
 
-		if ( is_singular( 'page' ) ) {
-			$page_header_bg = 'thumbnail';
-		} else {
-			$page_header_bg = suki_get_current_page_setting( 'page_header_bg' );
-		}
+		$hero_bg_image = '';
 
-		switch ( $page_header_bg ) {
+		$hero_bg = suki_get_current_page_setting( 'hero_bg' );
+
+		switch ( $hero_bg ) {
 			case 'thumbnail':
 				if ( has_post_thumbnail() ) {
-					$page_header_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+					$hero_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 				} else {
-					$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+					$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
 				}
-				break;
-
-			case 'archive':
-				$archive_settings = suki_get_theme_mod( 'page_settings_' . get_post_type() . '_archive', array() );
-				$page_header_bg_image = suki_array_value( $archive_settings, 'page_header_bg_image' );
 				break;
 			
 			case 'custom':
-				$page_header_bg_image = suki_get_current_page_setting( 'page_header_bg_image' );
+				$hero_bg_image = suki_get_current_page_setting( 'hero_bg_image' );
 				break;
 
 			default:
-				$page_header_bg_image = suki_get_theme_mod( 'page_header_bg_image' );
+				$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
 				break;
 		}
 
-		if ( '' !== $page_header_bg_image ) {
-			$css_array['global']['.suki-page-header-inner']['background-image'] = 'url(' . $page_header_bg_image . ')';
+		if ( '' !== $hero_bg_image ) {
+			$css_array['global']['.suki-hero-inner']['background-image'] = 'url(' . $hero_bg_image . ')';
 		}
+
+		/**
+		 * Build the final CSS.
+		 */
 
 		$page_settings_css = suki_convert_css_array_to_string( $css_array );
 

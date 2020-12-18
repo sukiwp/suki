@@ -97,6 +97,10 @@ li:not(.customize-info) div.customize-section-description {
 	border-top: none;
 }
 
+.customize-control .attachment-media-view .thumbnail-image img, .customize-control-header img {
+	width: 100%;
+}
+
 .suki-row {
 	display: -ms-flexbox;
 	display: flex;
@@ -242,6 +246,7 @@ li:not(.customize-info) div.customize-section-description {
 	display: inline-block;
 	padding: 3px 5px;
 	border-radius: 3px;
+	font-size: 10px;
 	line-height: 1;
 	text-transform: uppercase;
 	white-space: nowrap;
@@ -1647,12 +1652,14 @@ li:not(.customize-info) div.customize-section-description {
 	margin-right: 0.75em;
 }
 
+#customize-control-hero_bg_image ~ [id^="customize-control-hero_bg_"].customize-control-select .customize-control-title,
 [id^="customize-control-heading_page_settings_"] ~ .customize-control.customize-control-select .customize-control-title,
 [id*="_bar_transparent_"].customize-control-select .customize-control-title,
 [id*="_bar_alt_"].customize-control-select .customize-control-title {
 	float: left;
 }
 
+#customize-control-hero_bg_image ~ [id^="customize-control-hero_bg_"].customize-control-select select,
 [id^="customize-control-heading_page_settings_"] ~ .customize-control.customize-control-select select,
 [id*="_bar_transparent_"].customize-control-select select,
 [id*="_bar_alt_"].customize-control-select select {

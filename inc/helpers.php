@@ -757,6 +757,7 @@ function suki_get_fallback_page_settings() {
 		'hero'                     => suki_get_theme_mod( 'hero', 0 ),
 		'hero_container'           => suki_get_theme_mod( 'hero_container', 'default' ),
 		'hero_alignment'           => suki_get_theme_mod( 'hero_alignment', 'center' ),
+		'hero_bg'                  => suki_get_theme_mod( 'hero_bg', '' ),
 		'hero_bg_image'            => suki_get_theme_mod( 'hero_bg_image', '' ),
 	) );
 

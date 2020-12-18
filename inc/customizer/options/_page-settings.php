@@ -167,7 +167,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$wp_customize->add_control( $key, array(
 			'type'        => 'select',
 			'section'     => $section,
-			'label'       => esc_html__( 'Hero section', 'suki' ) . ' <span class="suki-tooltip suki-tooltip-right" tabindex="0" data-tooltip="' . esc_attr__( 'When enabled, Content Header will be displayed inside Hero section.', 'suki' ) . '"><span class="dashicons dashicons-info"></span></span>',
+			'label'       => esc_html__( 'Hero section', 'suki' ),
 			'choices'     => array(
 				''  => esc_html__( '-- Global --', 'suki' ),
 				'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
@@ -215,6 +215,42 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 				),
 				'priority'    => 120,
 			) );
+
+			// Background image
+			$subkey = 'hero_bg';
+			$key = $option_prefix . '_' . $subkey;
+			$choices = array(
+				''          => esc_html__( '-- Global --', 'suki' ),
+				'thumbnail' => esc_html__( 'Featured Image', 'suki' ),
+				'custom'    => esc_html__( 'Custom Image', 'suki' ),
+			);
+			if ( false === strpos( $ps_type, '_single' ) || post_type_supports( $post_type_slug, 'post-thumbnails' ) ) {
+				unset( $choices['thumbnail'] );
+			}
+			$wp_customize->add_setting( $key, array(
+				'default'     => suki_array_value( $defaults, $key ),
+				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+			) );
+			$wp_customize->add_control( $key, array(
+				'type'        => 'select',
+				'section'     => $section,
+				'label'       => esc_html__( 'Background image', 'suki' ),
+				'choices'     => $choices,
+				'priority'    => 120,
+			) );
+
+			// Custom background image
+			$subkey = 'hero_bg_image';
+			$key = $option_prefix . '_' . $subkey;
+			$wp_customize->add_setting( $key, array(
+				'default'     => suki_array_value( $defaults, $key ),
+				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
+			) );
+			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $key, array(
+				'section'     => $section,
+				// 'label'       => esc_html__( 'Custom background image', 'suki' ),
+				'priority'    => 120,
+			) ) );
 	}
 
 	/**

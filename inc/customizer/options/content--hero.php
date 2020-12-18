@@ -344,37 +344,25 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'priority'    => 60,
 ) ) );
 
-// Background image
-$key = 'hero_bg_image';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
-) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $key, array(
+// Default background image
+$key = 'hero_bg';
+$settings = array(
+	'image'      => $key . '_image',
+	'attachment' => $key . '_attachment',
+);
+foreach ( $settings as $setting ) {
+	$wp_customize->add_setting( $setting, array(
+		'default'     => suki_array_value( $defaults, $setting ),
+		// 'transport'   => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'background' ),
+	) );
+}
+$wp_customize->add_control( new Suki_Customize_Control_Background( $wp_customize, $key, array(
+	'settings'    => $settings,
 	'section'     => $section,
-	'label'       => esc_html__( 'Default background image', 'suki' ),
-	'description' => esc_html__( 'You can set different background image on each individual page.', 'suki' ),
-	'mime_type'   => 'image',
+	'label'       => esc_html__( 'Default background image', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can set different background image on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 	'priority'    => 60,
 ) ) );
-
-// Background attachment
-$key = 'hero_bg_attachment';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
-	'section'     => $section,
-	'label'       => esc_html__( 'Background attachment', 'suki' ),
-	'choices'     => array(
-		'scroll' => esc_html__( 'Scroll', 'suki' ),
-		'fixed'  => esc_html__( 'Fixed', 'suki' ),
-	),
-	'priority'    => 60,
-) );
 
 // Colors
 $key = 'hero_bg_overlay_color';

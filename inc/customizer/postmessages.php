@@ -692,13 +692,13 @@ $add['outside_bg_color'] = array(
 		'property' => 'background-color',
 	),
 );
-foreach ( array( 'bg_image', 'bg_position', 'bg_size', 'bg_repeat', 'bg_attachment' ) as $prop ) {
-	$add['outside_' . $prop ] = array(
+foreach ( array( 'image', 'position', 'size', 'repeat', 'attachment' ) as $prop ) {
+	$add['outside_bg_' . $prop ] = array(
 		array(
 			'type'     => 'css',
 			'element'  => 'body.suki-page-layout-boxed',
-			'property' => str_replace( 'bg_', 'background-', $prop ),
-			'pattern'  => ( 'bg_image' == $prop ) ? 'url($)' : '$',
+			'property' => 'background-' . $prop,
+			'pattern'  => 'image' == $prop ? 'url($)' : '$',
 			'media'    => '@media screen and (min-width: 1024px)',
 		),
 	);

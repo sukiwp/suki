@@ -607,7 +607,7 @@
 			this.params.attachment = {};
 			this.settings.image.set( '' );
 			this.renderContent(); // Not bound to setting change when emptying.
-		}
+		},
 	});
 	
 	/**
@@ -655,10 +655,10 @@
 			    $sortable = control.container[0].querySelector( '.suki-sortable' ),
 			    $checkboxes = control.container[0].querySelectorAll( 'input[type="checkbox"]' );
 
-			control.sortable = $sortable;
-
 			// Shortcut so that we don't have to use _.bind every time we add a callback.
 			_.bindAll( control, 'updateValue' );
+
+			control.sortable = $sortable;
 
 			sortable( '#' + $sortable.id, {
 				handle: '.suki-sortable-item-handle',

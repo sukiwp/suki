@@ -406,7 +406,7 @@ class Suki_Customizer_Sanitization {
 	 * @param array $range
 	 * @return string
 	 */
-	private static function validate_image( $number ) {
+	private static function validate_image( $value ) {
 		$file = wp_check_filetype( $value );
 
 		if ( 0 !== strpos( $file['type'], 'image/' ) ) {

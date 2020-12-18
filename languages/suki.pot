@@ -242,41 +242,41 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:938
+#: inc/helpers.php:939
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:939
+#: inc/helpers.php:940
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:940
+#: inc/helpers.php:941
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:941
+#: inc/helpers.php:942
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:942
+#: inc/helpers.php:943
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:943
+#: inc/helpers.php:944
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/template-functions.php:580
+#: inc/template-functions.php:570
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:640
+#: inc/template-functions.php:630
 msgid "Search&hellip;"
 msgstr ""
 
@@ -483,11 +483,11 @@ msgstr ""
 msgid "Hero section"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:406, inc/customizer/options/_page-settings.php:174, inc/customizer/options/_page-settings.php:248, inc/customizer/options/_page-settings.php:266, inc/customizer/options/_page-settings.php:297, inc/customizer/options/_page-settings.php:315
+#: inc/admin/class-suki-admin-metabox-page-settings.php:406, inc/customizer/options/_page-settings.php:174, inc/customizer/options/_page-settings.php:284, inc/customizer/options/_page-settings.php:302, inc/customizer/options/_page-settings.php:333, inc/customizer/options/_page-settings.php:351
 msgid "&#x2718; Disabled"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:407, inc/customizer/options/_page-settings.php:173, inc/customizer/options/_page-settings.php:247, inc/customizer/options/_page-settings.php:265, inc/customizer/options/_page-settings.php:296, inc/customizer/options/_page-settings.php:314
+#: inc/admin/class-suki-admin-metabox-page-settings.php:407, inc/customizer/options/_page-settings.php:173, inc/customizer/options/_page-settings.php:283, inc/customizer/options/_page-settings.php:301, inc/customizer/options/_page-settings.php:332, inc/customizer/options/_page-settings.php:350
 msgid "&#x2714; Enabled"
 msgstr ""
 
@@ -883,75 +883,75 @@ msgstr ""
 msgid "Change image"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:162, inc/customizer/options/content--hero.php:373
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:166
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:163, inc/customizer/options/content--hero.php:374
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:167
 msgid "Fixed"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:166
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:170
 msgid "No"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:167
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:171
 msgid "X axis"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:168
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:172
 msgid "Y axis"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:169
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:173
 msgid "Both"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:172
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:176
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:173
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:177
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:174
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:178
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:177
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:181
 msgid "Left top"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:178
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:182
 msgid "Left center"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:179
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:183
 msgid "Left bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:180
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:184
 msgid "Center top"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:181
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:185
 msgid "Center center"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:182
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:186
 msgid "Center bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:183
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:187
 msgid "Right top"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:184
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:188
 msgid "Right center"
 msgstr ""
 
-#: inc/customizer/custom-controls/class-suki-customize-control-background.php:185
+#: inc/customizer/custom-controls/class-suki-customize-control-background.php:189
 msgid "Right bottom"
 msgstr ""
 
@@ -1311,7 +1311,7 @@ msgstr ""
 msgid "You can enable or disable this option on each individual page."
 msgstr ""
 
-#: inc/customizer/options/content--hero.php:27, inc/customizer/options/content--section.php:27, inc/customizer/options/content--section.php:62, inc/customizer/options/_sections.php:22
+#: inc/customizer/options/content--hero.php:27, inc/customizer/options/content--hero.php:363, inc/customizer/options/content--section.php:27, inc/customizer/options/content--section.php:62, inc/customizer/options/_sections.php:22
 msgid "Global"
 msgstr ""
 
@@ -1379,19 +1379,15 @@ msgstr ""
 msgid "Background Image"
 msgstr ""
 
-#: inc/customizer/options/content--hero.php:355
+#: inc/customizer/options/content--hero.php:363
 msgid "Default background image"
 msgstr ""
 
-#: inc/customizer/options/content--hero.php:356
+#: inc/customizer/options/content--hero.php:363
 msgid "You can set different background image on each individual page."
 msgstr ""
 
-#: inc/customizer/options/content--hero.php:371
-msgid "Background attachment"
-msgstr ""
-
-#: inc/customizer/options/content--hero.php:388
+#: inc/customizer/options/content--hero.php:376
 msgid "Background overlay color"
 msgstr ""
 
@@ -2142,7 +2138,7 @@ msgstr ""
 msgid "Content container"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:51, inc/customizer/options/_page-settings.php:83, inc/customizer/options/_page-settings.php:172, inc/customizer/options/_page-settings.php:191, inc/customizer/options/_page-settings.php:211
+#: inc/customizer/options/_page-settings.php:51, inc/customizer/options/_page-settings.php:83, inc/customizer/options/_page-settings.php:172, inc/customizer/options/_page-settings.php:191, inc/customizer/options/_page-settings.php:211, inc/customizer/options/_page-settings.php:223
 msgid "-- Global --"
 msgstr ""
 
@@ -2158,23 +2154,31 @@ msgstr ""
 msgid "Taxonomy archive page's title"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:170
-msgid "When enabled, Content Header will be displayed inside Hero section."
+#: inc/customizer/options/_page-settings.php:224
+msgid "Featured Image"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:245
+#: inc/customizer/options/_page-settings.php:225
+msgid "Custom Image"
+msgstr ""
+
+#: inc/customizer/options/_page-settings.php:237
+msgid "Background image"
+msgstr ""
+
+#: inc/customizer/options/_page-settings.php:281
 msgid "Desktop header"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:263
+#: inc/customizer/options/_page-settings.php:299
 msgid "Mobile header"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:294
+#: inc/customizer/options/_page-settings.php:330
 msgid "Footer widgets"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:312
+#: inc/customizer/options/_page-settings.php:348
 msgid "Footer bottom"
 msgstr ""
 

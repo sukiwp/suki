@@ -102,17 +102,7 @@ function suki_template_hooks() {
 		 * ====================================================
 		 */
 
-		$elements = array();
-
-		if ( is_search() ) {
-			$elements = suki_get_theme_mod( 'search_results_content_header', array() );
-		}
-		elseif ( is_home() || is_category() || is_tag() || is_date() || is_author() ) {
-			$elements = suki_get_theme_mod( 'post_archive_content_header', array() );
-		}
-		elseif ( is_post_type_archive() ) {
-			// TODO
-		}
+		$elements = suki_get_current_page_setting( 'content_header' );
 
 		// Add content header elements.
 		$priority = 10;
@@ -833,9 +823,7 @@ add_filter( 'suki/frontend/hero_classes', 'suki_hero_classes' );
  * @return array
  */
 function suki_content_header_classes( $classes ) {
-	if ( is_archive() ) {
-		// $classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'blog_index_header_alignment' ) ); // TODO
-	}
+	$classes['alignment'] = suki_get_current_page_setting( 'content_header_alignment' );
 
 	return $classes;
 }

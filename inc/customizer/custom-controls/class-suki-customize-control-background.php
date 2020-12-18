@@ -123,27 +123,31 @@ class Suki_Customize_Control_Background extends Suki_Customize_Control {
 
 			<div class="suki-background-fieldset suki-row">
 				<# _.each( [ 'attachment', 'repeat' ], function( type ) { #>
-					<label class="suki-row-item">
-						<span class="suki-small-label">{{ labels[ type ] }}</span>
-						<select class="suki-background-input" {{{ data.inputs[ type ].__link }}}>
-							<# _.each( choices[ type ], function( label, value ) { #>
-								<option value="{{ value }}">{{{ label }}}</option>
-							<# }); #>
-						</select>
-					</label>
+					<# if ( data.inputs[ type ] ) { #>
+						<label class="suki-row-item">
+							<span class="suki-small-label">{{ labels[ type ] }}</span>
+							<select class="suki-background-input" {{{ data.inputs[ type ].__link }}}>
+								<# _.each( choices[ type ], function( label, value ) { #>
+									<option value="{{ value }}" {{{ value === data.inputs[ type ].value ? 'selected' : '' }}}>{{{ label }}}</option>
+								<# }); #>
+							</select>
+						</label>
+					<# } #>
 				<# }); #>
 			</div>
 
 			<div class="suki-background-fieldset suki-row">
 				<# _.each( [ 'size', 'position' ], function( type ) { #>
-					<label class="suki-row-item">
-						<span class="suki-small-label">{{ labels[ type ] }}</span>
-						<select class="suki-background-input" {{{ data.inputs[ type ].__link }}}>
-							<# _.each( choices[ type ], function( label, value ) { #>
-								<option value="{{ value }}">{{{ label }}}</option>
-							<# }); #>
-						</select>
-					</label>
+					<# if ( data.inputs[ type ] ) { #>
+						<label class="suki-row-item">
+							<span class="suki-small-label">{{ labels[ type ] }}</span>
+							<select class="suki-background-input" {{{ data.inputs[ type ].__link }}}>
+								<# _.each( choices[ type ], function( label, value ) { #>
+									<option value="{{ value }}" {{{ value === data.inputs[ type ].value ? 'selected' : '' }}}>{{{ label }}}</option>
+								<# }); #>
+							</select>
+						</label>
+					<# } #>
 				<# }); #>
 			</div>
 		</div>
