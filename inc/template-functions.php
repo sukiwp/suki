@@ -300,10 +300,10 @@ function suki_template_hooks() {
 			}
 
 			// Add featured media before or after content header.
-			if ( 'before' === suki_get_theme_mod( 'blog_single_content_featured_media' ) ) {
+			if ( 'before' === suki_get_theme_mod( 'post_single_content_featured_media' ) ) {
 				add_action( 'suki/frontend/single_entry/header', 'suki_entry_featured_media', 0 );
 			}
-			elseif ( 'after' === suki_get_theme_mod( 'blog_single_content_featured_media' ) ) {
+			elseif ( 'after' === suki_get_theme_mod( 'post_single_content_featured_media' ) ) {
 				add_action( 'suki/frontend/single_entry/header', 'suki_entry_featured_media', 999 );
 			}
 
@@ -879,6 +879,14 @@ add_filter( 'suki/frontend/loop_classes', 'suki_loop_classes' );
 function suki_entry_thumbnail_classes( $classes ) {
 	if ( intval( suki_get_theme_mod( 'entry_featured_media_ignore_padding' ) ) ) {
 		$classes['entry_featured_media_ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
+	}
+
+	if ( is_main_query() ) {
+		if ( is_single() && suki_get_theme_mod( 'post_single_content_featured_media_wide' ) ) {
+			$classes['wide'] = 'alignwide';
+		} elseif ( is_page() && suki_get_theme_mod( 'page_single_content_featured_media_wide' ) ) {
+			$classes['wide'] = 'alignwide';
+		}
 	}
 
 	return $classes;

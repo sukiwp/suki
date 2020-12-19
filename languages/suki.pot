@@ -57,7 +57,7 @@ msgstr ""
 
 #. translators: %s: color index.
 #. translators: %s: color number.
-#: inc/class-suki.php:280, inc/customizer/options/global--color-palette.php:30
+#: inc/class-suki.php:280, inc/customizer/options/global--color-palette.php:38
 msgid "Color %s"
 msgstr ""
 
@@ -1147,8 +1147,8 @@ msgstr ""
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}."
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:200, inc/customizer/options/blog--entry-grid.php:264, inc/customizer/options/blog--single.php:92, inc/customizer/options/page--single.php:79
-msgid "Featured Media"
+#: inc/customizer/options/blog--entry-default.php:200, inc/customizer/options/blog--entry-grid.php:264, inc/customizer/options/blog--single.php:92, inc/customizer/options/page--single.php:79, inc/customizer/options/_page-settings.php:224
+msgid "Featured Image"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-default.php:215, inc/customizer/options/blog--entry-grid.php:279, inc/customizer/options/blog--single.php:107, inc/customizer/options/page--single.php:94
@@ -1164,7 +1164,7 @@ msgid "After Content Header"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-default.php:230, inc/customizer/options/blog--entry-grid.php:294
-msgid "Featured media ignores padding"
+msgid "Featured image ignores padding"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-default.php:244, inc/customizer/options/blog--entry-grid.php:308
@@ -1195,15 +1195,15 @@ msgstr ""
 msgid "Entry Footer"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:326, inc/customizer/options/blog--entry-grid.php:390, inc/customizer/options/blog--single.php:138
+#: inc/customizer/options/blog--entry-default.php:326, inc/customizer/options/blog--entry-grid.php:390, inc/customizer/options/blog--single.php:150
 msgid "Footer Meta"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:364, inc/customizer/options/blog--entry-grid.php:428, inc/customizer/options/blog--single.php:177
+#: inc/customizer/options/blog--entry-default.php:364, inc/customizer/options/blog--entry-grid.php:428, inc/customizer/options/blog--single.php:189
 msgid "Footer meta text"
 msgstr ""
 
-#: inc/customizer/options/blog--entry-default.php:365, inc/customizer/options/blog--entry-grid.php:429, inc/customizer/options/blog--single.php:178
+#: inc/customizer/options/blog--entry-default.php:365, inc/customizer/options/blog--entry-grid.php:429, inc/customizer/options/blog--single.php:190
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
 msgstr ""
 
@@ -1239,23 +1239,31 @@ msgstr ""
 msgid "Same height items in a row"
 msgstr ""
 
-#: inc/customizer/options/blog--single.php:124
+#: inc/customizer/options/blog--single.php:122, inc/customizer/options/page--single.php:109
+msgid "Wide alignment"
+msgstr ""
+
+#: inc/customizer/options/blog--single.php:122, inc/customizer/options/page--single.php:109
+msgid "Only works on Narrow content container."
+msgstr ""
+
+#: inc/customizer/options/blog--single.php:136
 msgid "Content Footer"
 msgstr ""
 
-#: inc/customizer/options/blog--single.php:139
+#: inc/customizer/options/blog--single.php:151
 msgid "Tags"
 msgstr ""
 
-#: inc/customizer/options/blog--single.php:192
+#: inc/customizer/options/blog--single.php:204
 msgid "After Content"
 msgstr ""
 
-#: inc/customizer/options/blog--single.php:204
+#: inc/customizer/options/blog--single.php:216
 msgid "Show author bio"
 msgstr ""
 
-#: inc/customizer/options/blog--single.php:216
+#: inc/customizer/options/blog--single.php:228
 msgid "Show prev / next posts navigation"
 msgstr ""
 
@@ -1775,19 +1783,23 @@ msgstr ""
 msgid "Breadcrumb Trail"
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:40
+#: inc/customizer/options/global--color-palette.php:23
+msgid "This is not \"Global Colors\", if you want to set colors for body text, heading, link, etc., please go to Global > Typography & Colors section."
+msgstr ""
+
+#: inc/customizer/options/global--color-palette.php:48
 msgid "After changing colors, publish the changes and then reload this Customizer page."
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:54
+#: inc/customizer/options/global--color-palette.php:62
 msgid "Gutenberg Integration"
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:67
+#: inc/customizer/options/global--color-palette.php:75
 msgid "Use as Gutenberg color palette"
 msgstr ""
 
-#: inc/customizer/options/global--color-palette.php:68
+#: inc/customizer/options/global--color-palette.php:76
 msgid "Enabling this would replace the original Gutenberg's color palette with the colors you defined above."
 msgstr ""
 
@@ -2154,10 +2166,6 @@ msgstr ""
 msgid "Taxonomy archive page's title"
 msgstr ""
 
-#: inc/customizer/options/_page-settings.php:224
-msgid "Featured Image"
-msgstr ""
-
 #: inc/customizer/options/_page-settings.php:225
 msgid "Custom Image"
 msgstr ""
@@ -2244,10 +2252,6 @@ msgstr ""
 
 #: inc/customizer/options/_sections.php:127
 msgid "Save up to 8 colors that are mostly used on your design, so you easily apply these colors to your design without remembering the color hex codes."
-msgstr ""
-
-#: inc/customizer/options/_sections.php:127
-msgid "This is not \"Global Colors\", if you want to set colors for body text, heading, link, etc., please go to Global > Typography & Colors section."
 msgstr ""
 
 #: inc/customizer/options/_sections.php:140

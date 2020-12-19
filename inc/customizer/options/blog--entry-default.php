@@ -189,19 +189,19 @@ $wp_customize->add_control( $key, array(
 
 /**
  * ====================================================
- * Featured Media
+ * Featured Image
  * ====================================================
  */
 
-// Heading: Featured Media
+// Heading: Featured Image
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_featured_media', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Featured Media', 'suki' ),
+	'label'       => esc_html__( 'Featured Image', 'suki' ),
 	'priority'    => 40,
 ) ) );
 
-// Featured media
+// Featured image
 $key = 'entry_featured_media';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -210,7 +210,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	// 'label'       => esc_html__( 'Featured media', 'suki' ),
+	// 'label'       => esc_html__( 'Featured image', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),
@@ -219,7 +219,7 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 40,
 ) );
 
-// Featured media ignores padding
+// Featured image ignores padding
 $key = 'entry_featured_media_ignore_padding';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -227,7 +227,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Featured media ignores padding', 'suki' ),
+	'label'       => esc_html__( 'Featured image ignores padding', 'suki' ),
 	'priority'    => 40,
 ) ) );
 

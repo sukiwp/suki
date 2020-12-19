@@ -487,7 +487,7 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 	overflow: visible;
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper > * {
 	position: relative;
 	width: 100vw;
 	padding-right: 20px;
@@ -496,39 +496,39 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 }
 
 @media screen and (min-width: 1400px) {
-	body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content {
+	body.suki-page-layout-boxed .block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper > * {
 		width: 1400px;
 		right: calc( 50% - ( 1400px / 2 ));
 	}
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content > * {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper > * > * {
 	margin-right: auto;
 	margin-left: auto;
 	max-width: 100%;
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content .alignwide {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper > * .alignwide {
 	position: relative;
 	width: 1140px;
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content .alignfull {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper > * .alignfull {
 	position: relative;
 	width: 100%;
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-content > .alignfull {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide .suki-gutenberg-content .entry-wrapper > * > .alignfull {
 	right: -20px;
 	max-width: calc( 100% + ( 2 * 20px ));
 	width: 100vw;
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide.suki-section-narrow .suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide.suki-section-narrow .suki-gutenberg-content .entry-wrapper > * > *:not(.alignwide):not(.alignfull) {
 	width: 720px;
 }
 
-.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide.suki-section-default .suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
+.block-editor .editor-styles-wrapper .block-editor__typewriter .suki-content-layout-wide.suki-section-default .suki-gutenberg-content .entry-wrapper > * > *:not(.alignwide):not(.alignfull) {
 	width: 1140px;
 }
 

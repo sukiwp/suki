@@ -68,19 +68,19 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 
 /**
  * ====================================================
- * Featured Media
+ * Featured Image
  * ====================================================
  */
 
-// Heading: Featured Media
+// Heading: Featured Image
 $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_single_content_featured_media', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'label'       => esc_html__( 'Featured Media', 'suki' ),
+	'label'       => esc_html__( 'Featured Image', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
-// Featured media
+// Featured image
 $key = 'page_single_content_featured_media';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -89,7 +89,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	// 'label'       => esc_html__( 'Featured media', 'suki' ),
+	// 'label'       => esc_html__( 'Featured image', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),
@@ -97,3 +97,15 @@ $wp_customize->add_control( $key, array(
 	),
 	'priority'    => 20,
 ) );
+
+// Wide alignment
+$key = 'page_single_content_featured_media_wide';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Wide alignment', 'suki' ) . ' <span class="suki-tooltip suki-tooltip-bottom" tabindex="0" data-tooltip="' . esc_attr__( 'Only works on Narrow content container.', 'suki' ) . '"><span class="dashicons dashicons-info"></span></span>',
+	'priority'    => 20,
+) ) );

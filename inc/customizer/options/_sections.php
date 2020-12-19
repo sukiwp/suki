@@ -124,7 +124,7 @@ $wp_customize->add_panel( $panel, array(
 	// Color Palette
 	$wp_customize->add_section( 'suki_section_color_palette', array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Save up to 8 colors that are mostly used on your design, so you easily apply these colors to your design without remembering the color hex codes.', 'suki' ) . '</p><p>' . esc_html__( 'This is not "Global Colors", if you want to set colors for body text, heading, link, etc., please go to Global > Typography & Colors section.', 'suki' ) . '</p>',
+		'description' => '<p>' . esc_html__( 'Save up to 8 colors that are mostly used on your design, so you easily apply these colors to your design without remembering the color hex codes.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );

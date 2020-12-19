@@ -1447,31 +1447,31 @@ $add['hero_border_color'] = array(
 		'property' => 'border-color',
 	),
 );
-$add['hero_title_text_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-hero .page-title, .suki-hero .entry-title',
-		'property' => 'color',
-	),
-);
-$add['hero_description_text_color'] = array(
+$add['hero_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-hero',
 		'property' => 'color',
 	),
 );
-$add['hero_description_link_text_color'] = array(
+$add['hero_link_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-hero a',
 		'property' => 'color',
 	),
 );
-$add['hero_description_link_hover_text_color'] = array(
+$add['hero_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-hero a:hover, .suki-hero a:focus',
+		'property' => 'color',
+	),
+);
+$add['hero_title_text_color'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-hero .page-title, .suki-hero .entry-title',
 		'property' => 'color',
 	),
 );

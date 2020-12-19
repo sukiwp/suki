@@ -16,6 +16,14 @@ $section = 'suki_section_color_palette';
  * ====================================================
  */
 
+// Warning
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_color_palette_1', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-warning notice-alt inline"><p>' . esc_html__( 'This is not "Global Colors", if you want to set colors for body text, heading, link, etc., please go to Global > Typography & Colors section.', 'suki' ) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 for ( $i = 1; $i <= 8; $i++ ) {
 	// Colors
 	$key = 'color_palette_' . $i;
@@ -34,7 +42,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
 }
 
 // Info
-$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_color_palette', array(
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_color_palette_2', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'After changing colors, publish the changes and then reload this Customizer page.', 'suki' ) . '</p></div>',

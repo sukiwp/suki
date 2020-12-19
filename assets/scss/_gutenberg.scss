@@ -48,7 +48,7 @@
 		overflow: visible; // reset
 	}
 
-	.suki-gutenberg-content .entry-content {
+	.suki-gutenberg-content .entry-wrapper > * {
 		position: relative;
 		width: 100vw;
 		padding-left: 20px; // postmessage: content_padding -- left
@@ -86,13 +86,13 @@
 	}
 
 	&.suki-section-narrow {
-		.suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
+		.suki-gutenberg-content .entry-wrapper > * > *:not(.alignwide):not(.alignfull) {
 			width: 720px; // postmessage: content_narrow_width
 		}
 	}
 
 	&.suki-section-default {
-		.suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull) {
+		.suki-gutenberg-content .entry-wrapper > * > *:not(.alignwide):not(.alignfull) {
 			width: 1140px; // postmessage: container_width
 		}
 	}
