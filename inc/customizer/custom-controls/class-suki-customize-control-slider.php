@@ -101,13 +101,6 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 	}
 
 	/**
-	 * Enqueue additional control's CSS or JS scripts.
-	 */
-	public function enqueue() {
-		wp_enqueue_style( 'jquery-ui-slider' );
-	}
-
-	/**
 	 * Render Underscore JS template for this control's content.
 	 */
 	protected function content_template() {
@@ -131,7 +124,7 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 			<# _.each( data.structures, function( setting_key, device ) { #>
 				<div class="suki-slider-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
 					<div class="suki-row-item">
-						<div class="suki-slider-ui"></div>
+						<input class="suki-slider-range" type="range" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
 					<div class="suki-row-item" style="flex: 0 0 50px;">
 						<input class="suki-slider-input {{ data.hide_units ? '' : 'suki-input-with-unit' }}" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">

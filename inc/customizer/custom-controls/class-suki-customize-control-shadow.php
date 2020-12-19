@@ -102,20 +102,20 @@ class Suki_Customize_Control_Shadow extends Suki_Customize_Control {
 		<div class="customize-control-content">
 			<div class="suki-row suki-shadow-row">
 				<# var isExcluded = -1 < data.exclude.indexOf( 'position' ) ? 'style="display: none;"' : ''; #>
-				<label class="suki-row-item suki-shadow-position" {{{ isExcluded }}}>
+				<div class="suki-row-item suki-shadow-position" {{{ isExcluded }}}>
 					<select class="suki-shadow-input">
 						<option value="" {{ value === data.value.position ? 'selected' : '' }}><?php esc_html_e( 'out', 'suki' ); ?></option>
 						<option value="inset" {{ value === data.value.position ? 'selected' : '' }}><?php esc_html_e( 'in', 'suki' ); ?></option>
 					</select>
-				</label>
+				</div>
 
 				<# var inputs = <?php echo json_encode( $inputs ); ?>; #>
 				<# _.each( inputs, function( label, prop ) { #>
 					<# var isExcluded = -1 < data.exclude.indexOf( prop ) ? 'style="display: none;"' : ''; #>
-					<label class="suki-row-item suki-shadow-{{ prop }}" {{{ isExcluded }}}>
+					<div class="suki-row-item suki-shadow-{{ prop }}" {{{ isExcluded }}}>
 						<input type="number" value="{{ '' !== isExcluded ? '' : data.value[ prop ] }}" class="suki-shadow-input" step="1">
 						<span class="suki-small-label">{{{ label }}}</span>
-					</label>
+					</div>
 				<# }); #>
 			</div>
 

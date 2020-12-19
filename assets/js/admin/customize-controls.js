@@ -309,36 +309,13 @@
 			var control = this;
 
 			// Shortcut so that we don't have to use _.bind every time we add a callback.
-			_.bindAll( control, 'changeUnit', 'changeNumber' );
+			_.bindAll( control, 'onChangeUnit', 'onChangeNumber' );
 
-			control.container.on( 'change', '.suki-dimension-unit', control.changeUnit );
-			control.container.on( 'change blue', '.suki-dimension-input', control.changeNumber );
-
-			// control.container.find( '.suki-dimension-fieldset' ).each(function( i, el ) {
-			// 	var $el = $( el ),
-			// 	    $unit = $el.find( '.suki-dimension-unit' ),
-			// 	    $input = $el.find( '.suki-dimension-input' ),
-			// 	    $value = $el.find( '.suki-dimension-value' );
-
-			// 	$unit.on( 'change', function( e ) {
-			// 		var $option = $unit.find( 'option[value="' + this.value + '"]' );
-
-			// 		$input.attr( 'min', $option.attr( 'data-min' ) );
-			// 		$input.attr( 'max', $option.attr( 'data-max' ) );
-			// 		$input.attr( 'step', $option.attr( 'data-step' ) );
-
-			// 		$input.val( '' ).trigger( 'change' );
-			// 	});
-
-			// 	$input.on( 'change blur', function( e ) {
-			// 		var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
-
-			// 		$value.val( value ).trigger( 'change' );
-			// 	});
-			// });
+			control.container.on( 'change', '.suki-dimension-unit', control.onChangeUnit );
+			control.container.on( 'change blur', '.suki-dimension-input', control.onChangeNumber );
 		},
 
-		changeUnit: function( e ) {
+		onChangeUnit: function( e ) {
 			var $unit = $( e.target ),
 			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
 			    $input = $scope.find( '.suki-dimension-input' );
@@ -350,7 +327,7 @@
 			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' );
 		},
 
-		changeNumber: function( e ) {
+		onChangeNumber: function( e ) {
 			var $input = $( e.target ),
 			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
 			    $unit = $scope.find( '.suki-dimension-unit' );
@@ -366,58 +343,59 @@
 		ready: function() {
 			var control = this;
 
-			control.container.find( '.suki-slider-fieldset' ).each(function( i, el ) {
-				var $el = $( el ),
-				    $unit = $el.find( '.suki-slider-unit' ),
-				    $input = $el.find( '.suki-slider-input' ),
-				    $slider = $el.find( '.suki-slider-ui' ),
-				    $reset = $el.find( '.suki-slider-reset' ),
-				    $value = $el.find( '.suki-slider-value' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'onChangeUnit', 'onChangeNumber', 'onChangeSlider' );
 
-				$slider.slider({
-					value: $input.val(),
-					min: +$input.attr( 'min' ),
-					max: +$input.attr( 'max' ),
-					step: +$input.attr( 'step' ),
-					slide: function( e, ui ) {
-						$input.val( ui.value ).trigger( 'change' );
-					},
-				});
+			control.container.on( 'change', '.suki-slider-unit', control.onChangeUnit );
+			control.container.on( 'change blur', '.suki-slider-input', control.onChangeNumber );
+			control.container.on( 'input', '.suki-slider-range', control.onChangeSlider );
+		},
 
-				$reset.on( 'click', function( e ) {
-					var resetNumber = $( this ).attr( 'data-number' ),
-					    resetUnit = $( this ).attr( 'data-unit' );
+		onChangeUnit: function( e ) {
+			var $unit = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $input = $scope.find( '.suki-slider-input' ),
+			    $range = $scope.find( '.suki-slider-range' ),
+			    $value = $scope.find( '.suki-slider-value' );
 
-					$unit.val( resetUnit );
-					$input.val( resetNumber ).trigger( 'change' );
-					$slider.slider( 'value', resetNumber );
-				});
+			$input.attr( 'min', this.params.units[ $unit.val() ].min );
+			$input.attr( 'max', this.params.units[ $unit.val() ].max );
+			$input.attr( 'step', this.params.units[ $unit.val() ].step );
 
-				$unit.on( 'change', function( e ) {
-					var $option = $unit.find( 'option[value="' + this.value + '"]' );
+			$range.attr( 'min', this.params.units[ $unit.val() ].min );
+			$range.attr( 'max', this.params.units[ $unit.val() ].max );
+			$range.attr( 'step', this.params.units[ $unit.val() ].step );
 
-					$input.attr( 'min', $option.attr( 'data-min' ) );
-					$input.attr( 'max', $option.attr( 'data-max' ) );
-					$input.attr( 'step', $option.attr( 'data-step' ) );
+			$value.val( '' ).trigger( 'change' );
+		},
 
-					$slider.slider( 'option', {
-						min: +$input.attr( 'min' ),
-						max: +$input.attr( 'max' ),
-						step: +$input.attr( 'step' ),
-					});
+		onChangeNumber: function( e ) {
+			var $input = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $unit = $scope.find( '.suki-slider-unit' ),
+			    $range = $scope.find( '.suki-slider-range' ),
+			    $value = $scope.find( '.suki-slider-value' );
 
-					$input.val( '' ).trigger( 'change' );
-				});
+			$range.val( $input.val() );
+			
+			var value = '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString();
 
-				$input.on( 'change blur', function( e ) {
-					$slider.slider( 'value', this.value );
+			$value.val( value ).trigger( 'change' );
+		},
 
-					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+		onChangeSlider: function( e ) {
+			var $range = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $unit = $scope.find( '.suki-slider-unit' ),
+			    $input = $scope.find( '.suki-slider-input' ),
+			    $value = $scope.find( '.suki-slider-value' );
 
-					$value.val( value ).trigger( 'change' );
-				});
-			});
-		}
+			$input.val( $range.val() );
+			
+			var value = '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString();
+
+			$value.val( value ).trigger( 'change' );
+		},
 	});
 	
 	/**
@@ -527,7 +505,7 @@
 					$value.val( value ).trigger( 'change' );
 				});
 			});
-		}
+		},
 	});
 	
 	/**
