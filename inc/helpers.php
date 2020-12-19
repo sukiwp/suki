@@ -946,3 +946,31 @@ function suki_get_all_icons() {
 		'social_icons' => suki_get_social_media_types( true ),
 	) );
 }
+
+/**
+ * Return array of image sizes.
+ * 
+ * @return array
+ */
+function suki_get_all_image_sizes() {
+	$labels = array(
+		'thumbnail' => esc_html__( 'Thumbnail', 'suki' ),
+		'medium' => esc_html__( 'Medium', 'suki' ),
+		'medium_large' => esc_html__( 'Medium Large', 'suki' ),
+		'large' => esc_html__( 'Large', 'suki' ),
+	);
+
+	$sizes = array(
+		'full' => esc_html__( 'Full', 'suki' ),
+	);
+
+	foreach ( get_intermediate_image_sizes() as $slug ) {
+		if ( isset( $labels[ $slug ] ) ) {
+			$sizes[ $slug ] = $labels[ $slug ];
+		} else {
+			$sizes[ $slug ] = $slug;
+		}
+	}
+
+	return $sizes;
+}

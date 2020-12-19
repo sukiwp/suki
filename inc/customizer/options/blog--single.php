@@ -86,15 +86,15 @@ $wp_customize->add_control( $key, array(
  */
 
 // Heading: Featured Image
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_post_single_content_featured_media', array(
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_post_single_content_thumbnail', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Featured Image', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
-// Featured image
-$key = 'post_single_content_featured_media';
+// Display
+$key = 'post_single_content_thumbnail';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
@@ -102,7 +102,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	// 'label'       => esc_html__( 'Featured image', 'suki' ),
+	// 'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),
@@ -112,7 +112,7 @@ $wp_customize->add_control( $key, array(
 ) );
 
 // Wide alignment
-$key = 'post_single_content_featured_media_wide';
+$key = 'post_single_content_thumbnail_wide';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),

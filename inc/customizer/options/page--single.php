@@ -73,7 +73,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
  */
 
 // Heading: Featured Image
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_single_content_featured_media', array(
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_page_single_content_thumbnail', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Featured Image', 'suki' ),
@@ -81,7 +81,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Featured image
-$key = 'page_single_content_featured_media';
+$key = 'page_single_content_thumbnail';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
@@ -99,7 +99,7 @@ $wp_customize->add_control( $key, array(
 ) );
 
 // Wide alignment
-$key = 'page_single_content_featured_media_wide';
+$key = 'page_single_content_thumbnail_wide';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		/**
 		 * Hook: suki/frontend/entry_grid/before_header
 		 *
-		 * @hooked suki_entry_grid_featured_media - 10
+		 * @hooked suki_entry_grid_thumbnail - 10
 		 */
 		do_action( 'suki/frontend/entry_grid/before_header' );
 		

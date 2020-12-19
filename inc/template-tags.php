@@ -929,11 +929,11 @@ function suki_entry_excerpt() {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_featured_media' ) ) :
+if ( ! function_exists( 'suki_entry_thumbnail' ) ) :
 /**
  * Print post's featured media based on the specified post format.
  */
-function suki_entry_featured_media() {
+function suki_entry_thumbnail() {
 	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
 		return;
 	}
@@ -948,7 +948,7 @@ function suki_entry_featured_media() {
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
 		get_the_post_thumbnail(
 			get_the_ID(),
-			apply_filters( 'suki/frontend/entry/thumbnail_size', 'full' )
+			suki_get_theme_mod( 'entry_thumbnail_size' )
 		),
 		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	);
@@ -1032,11 +1032,11 @@ function suki_entry_grid_title() {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_grid_featured_media' ) ) :
+if ( ! function_exists( 'suki_entry_grid_thumbnail' ) ) :
 /**
  * Print entry grid featured media.
  */
-function suki_entry_grid_featured_media() {
+function suki_entry_grid_thumbnail() {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -1047,7 +1047,7 @@ function suki_entry_grid_featured_media() {
 		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ),
 		get_the_post_thumbnail(
 			get_the_ID(),
-			apply_filters( 'suki/frontend/entry_grid/thumbnail_size', 'medium_large' )
+			suki_get_theme_mod( 'entry_grid_thumbnail_size' )
 		),
 		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	);

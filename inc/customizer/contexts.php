@@ -207,6 +207,15 @@ $add['entry_read_more_text'] = array(
 	),
 );
 
+$add['entry_thumbnail_ignore_padding'] =
+$add['entry_thumbnail_size'] = array(
+	array(
+		'setting'  => 'entry_thumbnail',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
+
 /**
  * ====================================================
  * Blog > Post Layout: Grid
@@ -216,6 +225,15 @@ $add['entry_read_more_text'] = array(
 $add['entry_grid_read_more_text'] = array(
 	array(
 		'setting'  => 'entry_grid_read_more_display',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
+
+$add['entry_grid_thumbnail_ignore_padding'] =
+$add['entry_grid_thumbnail_size'] = array(
+	array(
+		'setting'  => 'entry_grid_thumbnail',
 		'operator' => '!=',
 		'value'    => '',
 	),
