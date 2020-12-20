@@ -446,7 +446,7 @@ function suki_breadcrumb() {
 
 			if ( $paged ) {
 				/* translators: %s: page number. */
-				$items[ $last_key ]['label'] .= sprintf( esc_html__( ' (Page %d)', 'suki' ), get_query_var( 'page' ), $paged );
+				$items[ $last_key ]['label'] .= sprintf( esc_html__( ' (Page %d)', 'suki' ), get_query_var( 'paged' ), $paged );
 			}
 
 			// Allow develoeprs to modify the breadcrumb trail.
