@@ -138,7 +138,7 @@ function suki_template_hooks() {
 		 * ====================================================
 		 */
 
-		// Add featured media before or after content header.
+		// Add thumbnail before or after content header.
 		if ( 'before' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
 			add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 0 );
 		}
@@ -180,7 +180,7 @@ function suki_template_hooks() {
 		 * ====================================================
 		 */
 
-		// Add featured media before or after content header.
+		// Add thumbnail before or after content header.
 		if ( 'before' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
 			add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 0 );
 		}
@@ -264,12 +264,12 @@ function suki_template_hooks() {
 				add_action( 'suki/frontend/page_entry/header', 'suki_content_header', 10 );
 			}
 
-			// Add featured media before or after content header.
+			// Add thumbnail before or after content header.
 			if ( 'before' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/page_entry/header', 'suki_entry_thumbnail', 0 );
+				add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 0 );
 			}
 			elseif ( 'after' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/page_entry/header', 'suki_entry_thumbnail', 999 );
+				add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 999 );
 			}
 
 			// Add content header elements.
@@ -299,12 +299,12 @@ function suki_template_hooks() {
 				add_action( 'suki/frontend/single_entry/header', 'suki_content_header', 10 );
 			}
 
-			// Add featured media before or after content header.
+			// Add thumbnail before or after content header.
 			if ( 'before' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/single_entry/header', 'suki_entry_thumbnail', 0 );
+				add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 0 );
 			}
 			elseif ( 'after' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/single_entry/header', 'suki_entry_thumbnail', 999 );
+				add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 999 );
 			}
 
 			// Add post header into content header.
@@ -878,15 +878,7 @@ add_filter( 'suki/frontend/loop_classes', 'suki_loop_classes' );
  */
 function suki_entry_thumbnail_classes( $classes ) {
 	if ( intval( suki_get_theme_mod( 'entry_thumbnail_ignore_padding' ) ) ) {
-		$classes['entry_thumbnail_ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
-	}
-
-	if ( is_main_query() ) {
-		if ( is_single() && suki_get_theme_mod( 'post_single_content_thumbnail_wide' ) ) {
-			$classes['wide'] = 'alignwide';
-		} elseif ( is_page() && suki_get_theme_mod( 'page_single_content_thumbnail_wide' ) ) {
-			$classes['wide'] = 'alignwide';
-		}
+		$classes['ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
 	}
 
 	return $classes;
@@ -901,12 +893,42 @@ add_filter( 'suki/frontend/entry/thumbnail_classes', 'suki_entry_thumbnail_class
  */
 function suki_entry_grid_thumbnail_classes( $classes ) {
 	if ( intval( suki_get_theme_mod( 'entry_grid_thumbnail_ignore_padding' ) ) ) {
-		$classes['entry_grid_thumbnail_ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
+		$classes['ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
 	}
 
 	return $classes;
 }
 add_filter( 'suki/frontend/entry_grid/thumbnail_classes', 'suki_entry_grid_thumbnail_classes' );
+
+/**
+ * Add custom classes to single post thumbnail.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_page_entry_thumbnail_classes( $classes ) {
+	if ( intval( suki_get_theme_mod( 'page_single_content_thumbnail_wide' ) ) ) {
+		$classes['alignwide'] = 'alignwide';
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/page_entry/thumbnail_classes', 'suki_page_entry_thumbnail_classes' );
+
+/**
+ * Add custom classes to single post thumbnail.
+ *
+ * @param array $classes
+ * @return array
+ */
+function suki_single_entry_thumbnail_classes( $classes ) {
+	if ( intval( suki_get_theme_mod( 'post_single_content_thumbnail_wide' ) ) ) {
+		$classes['alignwide'] = 'alignwide';
+	}
+
+	return $classes;
+}
+add_filter( 'suki/frontend/single_entry/thumbnail_classes', 'suki_single_entry_thumbnail_classes' );
 
 /**
  * Add custom classes to the array of sidebar classes.

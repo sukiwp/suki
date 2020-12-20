@@ -931,13 +931,9 @@ endif;
 
 if ( ! function_exists( 'suki_entry_thumbnail' ) ) :
 /**
- * Print post's featured media based on the specified post format.
+ * Print post thumbnail.
  */
 function suki_entry_thumbnail() {
-	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
-		return;
-	}
-
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -1005,6 +1001,58 @@ function suki_single_entry_footer_meta() {
 }
 endif;
 
+if ( ! function_exists( 'suki_single_entry_thumbnail' ) ) :
+/**
+ * Print post thumbnail.
+ */
+function suki_single_entry_thumbnail() {
+	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
+		return;
+	}
+
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
+	}
+
+	printf(
+		'<%s class="%s">%s</%s>',
+		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
+		esc_attr( implode( ' ', apply_filters( 'suki/frontend/single_entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
+		get_the_post_thumbnail(
+			get_the_ID(),
+			'full'
+		),
+		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	);
+}
+endif;
+
+if ( ! function_exists( 'suki_page_entry_thumbnail' ) ) :
+/**
+ * Print post thumbnail.
+ */
+function suki_page_entry_thumbnail() {
+	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
+		return;
+	}
+
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
+	}
+
+	printf(
+		'<%s class="%s">%s</%s>',
+		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
+		esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
+		get_the_post_thumbnail(
+			get_the_ID(),
+			'full'
+		),
+		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	);
+}
+endif;
+
 if ( ! function_exists( 'suki_entry_header_meta' ) ) :
 /**
  * Print entry header meta.
@@ -1034,7 +1082,7 @@ endif;
 
 if ( ! function_exists( 'suki_entry_grid_thumbnail' ) ) :
 /**
- * Print entry grid featured media.
+ * Print entry grid post thumbnail.
  */
 function suki_entry_grid_thumbnail() {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
