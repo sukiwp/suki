@@ -84,10 +84,8 @@ $wp_customize->add_control( $key, array(
  * ====================================================
  */
 
-$option_prefix = 'post_archive';
-
 // Heading: Content Header
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_' . $option_prefix . '_content_header', array(
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_post_archive_content_header', array(
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Content Header', 'suki' ),
@@ -96,8 +94,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Elements
-$subkey = 'content_header';
-$key = $option_prefix . '_' . $subkey;
+$key = 'post_archive_content_header';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
@@ -115,8 +112,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 ) ) );
 
 // Alignment
-$subkey = 'content_header_alignment';
-$key = $option_prefix . '_' . $subkey;
+$key = 'post_archive_content_header_alignment';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',

@@ -45,8 +45,6 @@ class Suki_Migrate_1_3_0 {
 		/**
 		 * TODO:
 		 * - Migrate page settings values (array) to singular key
-		 * - Migrate blog_index_... to post_archive_...
-		 * - Migrate blog_single_... to post_single_...
 		 * - Migrate featured_media... to thumbnail...
 		 */
 	}
@@ -144,12 +142,6 @@ class Suki_Migrate_1_3_0 {
 	 * - There is no longer "Narrow" option in the "Content and sidebar layout" option (because user can set the container width).
 	 */
 	private function migrate_content_layout_narrow() {
-		// Get the narrow container width value.
-		$content_narrow_width = get_theme_mod( 'content_narrow_width' );
-
-		// Deprecate "content_narrow_width" option.
-		remove_theme_mod( 'content_narrow_width' );
-
 		/**
 		 * Global settings
 		 */
@@ -160,14 +152,11 @@ class Suki_Migrate_1_3_0 {
 			set_theme_mod( 'content_layout', 'wide' );
 
 			// And then change the "content_container" value to "custom".
-			set_theme_mod( 'content_container', 'custom' );
-
-			// Also set the new "content_container_width" option value to the previously defined "content_narrow_width" option.
-			set_theme_mod( 'content_container_width', $content_narrow_width );
+			set_theme_mod( 'content_container', 'narrow' );
 		}
 
 		/**
-		 * Dynamic Page Layout
+		 * Page settings
 		 */
 
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
@@ -183,16 +172,91 @@ class Suki_Migrate_1_3_0 {
 				$mod['content_layout'] = 'wide';
 
 				// And then change the "content_container" value to "custom".
-				$mod['content_container'] = 'custom';
-
-				// Also set the new "content_container_width" option value to the previously defined "content_narrow_width" option.
-				$mod['content_container_width'] = $content_narrow_width;
+				$mod['content_container'] = 'narrow';
 			}
 
 			// Set the new values.
 			set_theme_mod( $option_key, $mod );
 		}
 	}
+
+	/**
+	 * Migrate page header settings to hero section.
+	 *
+	 * The previous implementation:
+	 * - Use "page_header_" prefix.
+	 *
+	 * The new implementation:
+	 * - Use "hero_" prefix.
+	 */
+	private function migrate_page_header_to_hero_section() {
+		/**
+		 * Global settings
+		 */
+
+		$mods = get_theme_mods();
+
+		foreach ( $mods as $key => $value ) {
+			if ( false !== strpos( $key, 'page_header_' ) ) {
+				$new_key = str_replace( 'page_header_', 'hero_', $key );
+
+				remove_theme_mod( $key );
+
+				set_theme_mod( $new_key, $value );
+			}
+		}
+
+		/**
+		 * Page settings
+		 */
+
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Define the option key.
+			$option_key = 'page_settings_' . $ps_type;
+
+			// Get the values.
+			$mod = get_theme_mod( $option_key, array() );
+
+			foreach ( $mod as $key => $value ) {
+				if ( false !== strpos( $key, 'page_header_' ) ) {
+					$new_key = str_replace( 'page_header_', 'hero_', $key );
+
+					unset( $mod[ $key ] );
+
+					$mod[ $new_key ] = $value;
+				}
+			}
+
+			// Set the new values.
+			set_theme_mod( $option_key, $mod );
+		}
+	}
+
+	/**
+	 * Migrate page settings keys from array to non array.
+	 *
+	 * The previous implementation:
+	 * - Page settings on each type is saved in an array with "page_settings_{type}[ {key} ]" key. For example: page_settings_post_single['content_layout'].
+	 *
+	 * The new implementation:
+	 * - Page settings on each type is saved in non array with "{type}_{key}". For example: post_single_content_layout.
+	 */
+	private function migrate_page_settings_keys() {
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Define the option key.
+			$option_key = 'page_settings_' . $ps_type;
+
+			// Get the values.
+			$mod = get_theme_mod( $option_key, array() );
+
+			foreach ( $mod as $key => $value ) {
+				set_theme_mod( $ps_type . '_' . $option_key );
+			}
+
+			remove_theme_mod( $option_key );
+		}
+	}
+
 }
 
 Suki_Migrate_1_3_0::instance();
