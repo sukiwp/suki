@@ -89,7 +89,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Content Header', 'suki' ),
-	'description' => esc_html__( 'This content header will appear before the posts list on all archive pages (category, tag, author, and date archives) except the main posts page.', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
@@ -132,5 +131,17 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
 		),
 	),
+	'priority'    => 20,
+) ) );
+
+// Show on main posts archive page
+$key = 'post_archive_home_content_header';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Show on main posts archive page', 'suki' ),
 	'priority'    => 20,
 ) ) );

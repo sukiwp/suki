@@ -25,7 +25,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Elements
-$key = 'post_archive_content_header';
+$key = 'post_single_content_header';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
@@ -43,7 +43,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 ) ) );
 
 // Alignment
-$key = 'post_archive_content_header_alignment';
+$key = 'post_single_content_header_alignment';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
@@ -67,7 +67,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 ) ) );
 
 // Header meta text
-$key = 'post_archive_content_header_meta';
+$key = 'post_single_content_header_meta';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
@@ -94,7 +94,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Display
-$key = 'post_archive_content_thumbnail';
+$key = 'post_single_content_thumbnail';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
@@ -112,7 +112,7 @@ $wp_customize->add_control( $key, array(
 ) );
 
 // Wide alignment
-$key = 'post_archive_content_thumbnail_wide';
+$key = 'post_single_content_thumbnail_wide';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
@@ -138,7 +138,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 ) ) );
 
 // Elements
-$key = 'post_archive_content_footer';
+$key = 'post_single_content_footer';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
@@ -155,7 +155,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 ) ) );
 
 // Alignment
-$key = 'post_archive_content_footer_alignment';
+$key = 'post_single_content_footer_alignment';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'transport'   => 'postMessage',
@@ -179,7 +179,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 ) ) );
 
 // Footer meta text
-$key = 'post_archive_content_footer_meta';
+$key = 'post_single_content_footer_meta';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),

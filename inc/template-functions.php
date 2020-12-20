@@ -91,6 +91,99 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
+	 * Post Layout: Default
+	 * ====================================================
+	 */
+
+	// Add thumbnail before or after content header.
+	if ( 'before' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
+		add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 0 );
+	}
+	elseif ( 'after' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
+		add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 999 );
+	}
+
+	// Add entry header elements.
+	$priority = 10;
+	foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
+		$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+		// If function exists, attach to hook.
+		if ( function_exists( $function ) ) {
+			add_action( 'suki/frontend/entry/header', $function, $priority );
+		}
+
+		// Increment priority number.
+		$priority = $priority + 10;
+	}
+
+	// Add entry footer elements.
+	$priority = 10;
+	foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
+		$function = 'suki_entry_' . str_replace( '-', '_', $element );
+
+		// If function exists, attach to hook.
+		if ( function_exists( $function ) ) {
+			add_action( 'suki/frontend/entry/footer', $function, $priority );
+		}
+
+		// Increment priority number.
+		$priority = $priority + 10;
+	}
+
+	/**
+	 * ====================================================
+	 * Post Layout: Grid
+	 * ====================================================
+	 */
+
+	// Add thumbnail before or after content header.
+	if ( 'before' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
+		add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 0 );
+	}
+	elseif ( 'after' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
+		add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 999 );
+	}
+
+	// Add entry grid header elements.
+	$priority = 10;
+	foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
+		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
+
+		// If function exists, attach to hook.
+		if ( function_exists( $function ) ) {
+			add_action( 'suki/frontend/entry_grid/header', $function, $priority );
+		}
+
+		// Increment priority number.
+		$priority = $priority + 10;
+	}
+
+	// Add entry grid footer elements.
+	$priority = 10;
+	foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
+		$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
+
+		// If function exists, attach to hook.
+		if ( function_exists( $function ) ) {
+			add_action( 'suki/frontend/entry_grid/footer', $function, $priority );
+		}
+
+		// Increment priority number.
+		$priority = $priority + 10;
+	}
+
+	/**
+	 * ====================================================
+	 * Search Results Item
+	 * ====================================================
+	 */
+
+	// Add title to search result entry header.
+	add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
+
+	/**
+	 * ====================================================
 	 * All index page hooks
 	 * ====================================================
 	 */
@@ -120,7 +213,13 @@ function suki_template_hooks() {
 
 		// Add content header before main content.
 		if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+			if ( is_home() ) {
+				if ( intval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) {
+					add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+				}
+			} else {
+				add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+			}
 		}
 
 		/**
@@ -131,99 +230,6 @@ function suki_template_hooks() {
 
 		// Add navigation after the loop.
 		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
-
-		/**
-		 * ====================================================
-		 * Post Layout: Default
-		 * ====================================================
-		 */
-
-		// Add thumbnail before or after content header.
-		if ( 'before' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
-			add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 0 );
-		}
-		elseif ( 'after' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
-			add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 999 );
-		}
-
-		// Add entry header elements.
-		$priority = 10;
-		foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
-			$function = 'suki_entry_' . str_replace( '-', '_', $element );
-
-			// If function exists, attach to hook.
-			if ( function_exists( $function ) ) {
-				add_action( 'suki/frontend/entry/header', $function, $priority );
-			}
-
-			// Increment priority number.
-			$priority = $priority + 10;
-		}
-
-		// Add entry footer elements.
-		$priority = 10;
-		foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
-			$function = 'suki_entry_' . str_replace( '-', '_', $element );
-
-			// If function exists, attach to hook.
-			if ( function_exists( $function ) ) {
-				add_action( 'suki/frontend/entry/footer', $function, $priority );
-			}
-
-			// Increment priority number.
-			$priority = $priority + 10;
-		}
-
-		/**
-		 * ====================================================
-		 * Post Layout: Grid
-		 * ====================================================
-		 */
-
-		// Add thumbnail before or after content header.
-		if ( 'before' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
-			add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 0 );
-		}
-		elseif ( 'after' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
-			add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 999 );
-		}
-
-		// Add entry grid header elements.
-		$priority = 10;
-		foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
-			$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
-
-			// If function exists, attach to hook.
-			if ( function_exists( $function ) ) {
-				add_action( 'suki/frontend/entry_grid/header', $function, $priority );
-			}
-
-			// Increment priority number.
-			$priority = $priority + 10;
-		}
-
-		// Add entry grid footer elements.
-		$priority = 10;
-		foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
-			$function = 'suki_entry_grid_' . str_replace( '-', '_', $element );
-
-			// If function exists, attach to hook.
-			if ( function_exists( $function ) ) {
-				add_action( 'suki/frontend/entry_grid/footer', $function, $priority );
-			}
-
-			// Increment priority number.
-			$priority = $priority + 10;
-		}
-
-		/**
-		 * ====================================================
-		 * Search Results Item
-		 * ====================================================
-		 */
-
-		// Add title to search result entry header.
-		add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
 	}
 
 	/**
@@ -400,7 +406,7 @@ function suki_custom_archive_title( $title, $original_title, $prefix ) {
 	}
 
 	if ( is_post_type_archive() || is_home() ) {
-		$custom_title = suki_get_current_page_setting( 'archive_title_text' );
+		$custom_title = suki_get_current_page_setting( 'title_text' );
 
 		if ( ! empty( $custom_title ) ) {
 			$post_type_obj = get_post_type_object( get_post_type() );
@@ -409,7 +415,7 @@ function suki_custom_archive_title( $title, $original_title, $prefix ) {
 		}
 	}
 	elseif ( is_category() || is_tag() || is_tax() ) {
-		$custom_title = suki_get_current_page_setting( 'tax_archive_title_text' );
+		$custom_title = suki_get_current_page_setting( 'tax_title_text' );
 
 		if ( ! empty( $custom_title ) ) {
 			$term_obj = get_queried_object();

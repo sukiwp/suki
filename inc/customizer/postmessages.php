@@ -2357,7 +2357,7 @@ $add['post_archive_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
 		'element'  => 'body.archive .content-header',
-		'property' => 'suki-text-align-$',
+		'pattern'  => 'suki-text-align-$',
 	),
 );
 

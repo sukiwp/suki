@@ -284,11 +284,11 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: inc/template-functions.php:570
+#: inc/template-functions.php:576
 msgid "Expand / Collapse"
 msgstr ""
 
-#: inc/template-functions.php:630
+#: inc/template-functions.php:636
 msgid "Search&hellip;"
 msgstr ""
 
@@ -1107,20 +1107,20 @@ msgstr ""
 msgid "Content Header"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:92
-msgid "This content header will appear before the posts list on all archive pages (category, tag, author, and date archives) except the main posts page."
-msgstr ""
-
-#: inc/customizer/options/blog--archive.php:106, inc/customizer/options/blog--entry-default.php:147, inc/customizer/options/blog--entry-grid.php:211, inc/customizer/options/blog--single.php:38, inc/customizer/options/cpt--archive.php:52, inc/customizer/options/cpt--single.php:52, inc/customizer/options/page--search.php:37, inc/customizer/options/page--single.php:37, inc/customizer/options/_sections.php:72
+#: inc/customizer/options/blog--archive.php:105, inc/customizer/options/blog--entry-default.php:147, inc/customizer/options/blog--entry-grid.php:211, inc/customizer/options/blog--single.php:38, inc/customizer/options/cpt--archive.php:52, inc/customizer/options/cpt--single.php:52, inc/customizer/options/page--search.php:37, inc/customizer/options/page--single.php:37, inc/customizer/options/_sections.php:72
 msgid "Title"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:107, inc/customizer/options/cpt--archive.php:53, inc/customizer/options/page--error-404.php:76
+#: inc/customizer/options/blog--archive.php:106, inc/customizer/options/cpt--archive.php:53, inc/customizer/options/page--error-404.php:76
 msgid "Description"
 msgstr ""
 
-#: inc/customizer/options/blog--archive.php:108, inc/customizer/options/blog--single.php:39, inc/customizer/options/cpt--archive.php:54, inc/customizer/options/cpt--single.php:53, inc/customizer/options/page--search.php:39, inc/customizer/options/page--single.php:39, inc/customizer/options/_sections.php:111
+#: inc/customizer/options/blog--archive.php:107, inc/customizer/options/blog--single.php:39, inc/customizer/options/cpt--archive.php:54, inc/customizer/options/cpt--single.php:53, inc/customizer/options/page--search.php:39, inc/customizer/options/page--single.php:39, inc/customizer/options/_sections.php:111
 msgid "Breadcrumb"
+msgstr ""
+
+#: inc/customizer/options/blog--archive.php:145
+msgid "Show on main posts archive page"
 msgstr ""
 
 #: inc/customizer/options/blog--entry-default.php:22
