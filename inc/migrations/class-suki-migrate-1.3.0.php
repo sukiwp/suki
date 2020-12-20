@@ -41,12 +41,9 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_page_header_title_text();
 		$this->migrate_content_layout_narrow();
 		$this->migrate_page_header_to_hero_section();
+		$this->migrate_featured_media_to_thumbnail();
 
-		/**
-		 * TODO:
-		 * - Migrate page settings values (array) to singular key
-		 * - Migrate featured_media... to thumbnail...
-		 */
+		$this->migrate_page_settings_keys();
 	}
 
 	/**
@@ -229,6 +226,33 @@ class Suki_Migrate_1_3_0 {
 
 			// Set the new values.
 			set_theme_mod( $option_key, $mod );
+		}
+	}
+
+	/**
+	 * Migrate customizer option keys "featured_media" to "thumbnail".
+	 *
+	 * The previous implementation:
+	 * - Use "featured_media" as slug.
+	 *
+	 * The new implementation:
+	 * - Use "thumbnail" as slug.
+	 */
+	private function migrate_page_settings_keys() {
+		/**
+		 * Global settings
+		 */
+
+		$mods = get_theme_mods();
+
+		foreach ( $mods as $key => $value ) {
+			if ( false !== strpos( $key, '_featured_media' ) ) {
+				$new_key = str_replace( '_featured_media', '_thumbnail', $key );
+
+				remove_theme_mod( $key );
+
+				set_theme_mod( $new_key, $value );
+			}
 		}
 	}
 
