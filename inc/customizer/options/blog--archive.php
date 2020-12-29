@@ -106,7 +106,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 		'archive-description' => esc_html__( 'Description', 'suki' ),
 		'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
 	),
-	'layout'      => 'block',
 	'priority'    => 20,
 ) ) );
 

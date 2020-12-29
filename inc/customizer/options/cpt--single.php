@@ -52,7 +52,6 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'entry-title' => esc_html__( 'Title', 'suki' ),
 			'breadcrumb'  => esc_html__( 'Breadcrumb', 'suki' ),
 		),
-		'layout'      => 'block',
 		'priority'    => 10,
 	) ) );
 

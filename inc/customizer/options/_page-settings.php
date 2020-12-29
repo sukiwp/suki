@@ -127,6 +127,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			$wp_customize->add_control( $key, array(
 				'section'     => $section,
 				'label'       => esc_html__( 'Main archive page\'s title', 'suki' ),
+				'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
 				'input_attrs' => array(
 					'placeholder' => '{{post_type}}',
 				),
@@ -143,6 +144,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			$wp_customize->add_control( $key, array(
 				'section'     => $section,
 				'label'       => esc_html__( 'Taxonomy archive page\'s title', 'suki' ),
+				'description' => esc_html__( 'Available tags: {{taxonomy}}, {{term}}.', 'suki' ),
 				'input_attrs' => array(
 					'placeholder' => '{{taxonomy}}: {{term}}',
 				),

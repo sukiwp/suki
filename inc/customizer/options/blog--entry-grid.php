@@ -210,7 +210,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
 		'title'       => esc_html__( 'Title', 'suki' ),
 	),
-	'layout'      => 'block',
 	'priority'    => 30,
 ) ) );
 
@@ -283,7 +282,7 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 40,
 ) );
 
-// Size
+// Image size
 $key = 'entry_grid_thumbnail_size';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -292,7 +291,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Size', 'suki' ),
+	'label'       => esc_html__( 'Image size', 'suki' ),
 	'choices'     => suki_get_all_image_sizes(),
 	'priority'    => 40,
 ) );
@@ -403,7 +402,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 	'choices'     => array(
 		'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 	),
-	'layout'      => 'block',
 	'priority'    => 60,
 ) ) );
 

@@ -238,7 +238,7 @@ class Suki_Migrate_1_3_0 {
 	 * The new implementation:
 	 * - Use "thumbnail" as slug.
 	 */
-	private function migrate_page_settings_keys() {
+	private function migrate_featured_media_to_thumbnail() {
 		/**
 		 * Global settings
 		 */

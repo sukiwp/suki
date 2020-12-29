@@ -38,7 +38,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 		'entry-title'       => esc_html__( 'Title', 'suki' ),
 		'breadcrumb'        => esc_html__( 'Breadcrumb', 'suki' ),
 	),
-	'layout'      => 'block',
 	'priority'    => 10,
 ) ) );
 
@@ -150,7 +149,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 		'single-entry-footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 		'entry-tags'        => esc_html__( 'Tags', 'suki' ),
 	),
-	'layout'      => 'block',
 	'priority'    => 30,
 ) ) );
 

@@ -38,7 +38,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 		'search-form'  => esc_html__( 'Search Form', 'suki' ),
 		'breadcrumb'   => esc_html__( 'Breadcrumb', 'suki' ),
 	),
-	'layout'      => 'block',
 	'priority'    => 10,
 ) ) );
 
