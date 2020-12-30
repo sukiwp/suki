@@ -69,11 +69,11 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: inc/class-suki.php:303, inc/helpers.php:958, inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
+#: inc/class-suki.php:303, inc/helpers.php:962, inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
 msgid "Medium"
 msgstr ""
 
-#: inc/class-suki.php:308, inc/helpers.php:960
+#: inc/class-suki.php:308, inc/helpers.php:964
 msgid "Large"
 msgstr ""
 
@@ -242,45 +242,45 @@ msgstr ""
 msgid "Blog Related Posts"
 msgstr ""
 
-#: inc/helpers.php:939
+#: inc/helpers.php:943
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:940
+#: inc/helpers.php:944
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:941
+#: inc/helpers.php:945
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:942
+#: inc/helpers.php:946
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:943
+#: inc/helpers.php:947
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:944
+#: inc/helpers.php:948
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/helpers.php:957
+#: inc/helpers.php:961
 msgid "Thumbnail"
 msgstr ""
 
-#: inc/helpers.php:959
+#: inc/helpers.php:963
 msgid "Medium Large"
 msgstr ""
 
-#: inc/helpers.php:964
+#: inc/helpers.php:968
 msgid "Full"
 msgstr ""
 

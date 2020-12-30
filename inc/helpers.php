@@ -720,7 +720,7 @@ function suki_get_pro_modules() {
  * @return array
  */
 function suki_get_post_types_for_page_settings() {
-	$all_supported_post_types = array_merge( array( 'post' ), suki_get_public_custom_post_types() );
+	$all_supported_post_types = array_merge( array( 'post', 'page' ), suki_get_public_custom_post_types() );
 
 	// Allow user to deactivate page settings on some specific post types through filter.
 	$ignored_post_types = apply_filters( 'suki/dataset/page_settings/ignored_post_types', array() );
@@ -735,12 +735,16 @@ function suki_get_post_types_for_page_settings() {
  * @return array
  */
 function suki_get_public_custom_post_types() {
-	return get_post_types( array(
+	$public_post_types = get_post_types( array(
 		'public'             => true,
 		'publicly_queryable' => true,
 		'rewrite'            => true,
 		'_builtin'           => false,
 	), 'names' );
+
+	$public_post_types = array_values( $public_post_types );
+
+	return $public_post_types;
 }
 
 /**
