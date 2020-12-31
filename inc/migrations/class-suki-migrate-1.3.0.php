@@ -247,6 +247,10 @@ class Suki_Migrate_1_3_0 {
 
 		foreach ( $mods as $key => $value ) {
 			if ( false !== strpos( $key, '_featured_media' ) ) {
+				if ( strpos( $key, '_featured_media_position' ) ) {
+					$key = str_replace( '_position', '', $key );
+				}
+
 				$new_key = str_replace( '_featured_media', '_thumbnail', $key );
 
 				remove_theme_mod( $key );
