@@ -1122,20 +1122,7 @@
 				if ( 0 < $group.children().length ) {
 					$group.appendTo( $groupWrapper );
 				}
-
-				// $group.appendTo( $groupWrapper ).append( $verticalLocations )
 			});
-
-			// if ( $verticalLocations.length ) {
-			// 	$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' ).appendTo( $groupWrapper ).append( $verticalLocations );
-			// }
-
-			// if ( $horizontalLocations.length ) {
-			// 	$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline' ).appendTo( $groupWrapper ).append( $horizontalLocations );
-			// }
-
-			// Make logo element has button-primary colors.
-			// $control.find( '.suki-builder-element[data-value="logo"], .suki-builder-element[data-value="mobile-logo"]' ).addClass( 'button-primary' );
 
 			// Element on click jump to element options.
 			$control.on( 'click', '.suki-builder-location .suki-builder-element > span', function( e ) {

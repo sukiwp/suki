@@ -260,13 +260,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) );
 
-	// Cart
-	$wp_customize->add_section( 'suki_section_header_cart', array(
-		'title'       => esc_html__( 'Shopping Cart', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 30,
-	) );
-
 	// Social
 	$wp_customize->add_section( 'suki_section_header_social', array(
 		'title'       => esc_html__( 'Social', 'suki' ),

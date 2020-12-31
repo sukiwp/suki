@@ -59,12 +59,12 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_fo
 ) ) );
 
 // Bottom bar elements
+$config = suki_get_footer_builder_configurations();
 $key = 'footer_elements';
-$settings = array(
-	'bottom_left'   => $key . '_bottom_left',
-	'bottom_center' => $key . '_bottom_center',
-	'bottom_right'  => $key . '_bottom_right',
-);
+$settings = array();
+foreach ( $config['locations'] as $slug => $label ) {
+	$settings[ $slug ] = $key . '_' . $slug;
+}
 foreach ( $settings as $setting ) {
 	$wp_customize->add_setting( $setting, array(
 		'default'     => suki_array_value( $defaults, $setting ),
@@ -75,19 +75,8 @@ $wp_customize->add_control( new Suki_Customize_Control_Builder( $wp_customize, $
 	'settings'    => $settings,
 	'section'     => $section,
 	'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
-	'choices'     => array(
-		'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
-		/* translators: %s: instance number. */
-		'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
-		/* translators: %s: instance number. */
-		'html-1'    => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
-		'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
-	),
-	'labels'     => array(
-		'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'bottom_center' => esc_html__( 'Center', 'suki' ),
-		'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-	),
+	'choices'     => $config['choices'],
+	'labels'      => $config['locations'],
 	'limitations' => array(),
 	'priority'    => 20,
 ) ) );

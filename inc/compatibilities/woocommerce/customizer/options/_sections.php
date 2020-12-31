@@ -8,6 +8,13 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// Header Builder -- Cart
+$wp_customize->add_section( 'suki_section_header_cart', array(
+	'title'       => esc_html__( 'Shopping Cart', 'suki' ),
+	'panel'       => 'suki_panel_header',
+	'priority'    => 30,
+) );
+
 // Panel
 $panel = 'woocommerce';
 $wp_customize->get_panel( $panel )->priority = 142;

@@ -771,6 +771,100 @@ function suki_get_fallback_page_settings() {
 }
 
 /**
+ * Return array of configuration for header builder interface in Customizer.
+ *
+ * @return array
+ */
+function suki_get_header_builder_configurations() {
+	$array = apply_filters( 'suki/dataset/header_builder_configurations', array(
+		'locations' => array(
+			'top_left'      => is_rtl() ? esc_html__( 'Top - Right', 'suki' ) : esc_html__( 'Top - Left', 'suki' ),
+			'top_center'    => esc_html__( 'Top - Center', 'suki' ),
+			'top_right'     => is_rtl() ? esc_html__( 'Top - Left', 'suki' ) : esc_html__( 'Top - Right', 'suki' ),
+			'main_left'     => is_rtl() ? esc_html__( 'Main - Right', 'suki' ) : esc_html__( 'Main - Left', 'suki' ),
+			'main_center'   => esc_html__( 'Main - Center', 'suki' ),
+			'main_right'    => is_rtl() ? esc_html__( 'Main - Left', 'suki' ) : esc_html__( 'Main - Right', 'suki' ),
+			'bottom_left'   => is_rtl() ? esc_html__( 'Bottom - Right', 'suki' ) : esc_html__( 'Bottom - Left', 'suki' ),
+			'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
+			'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left', 'suki' ) : esc_html__( 'Bottom - Right', 'suki' ),
+		),
+		'choices' => array(
+			'logo'                   => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
+			/* translators: %s: instance number. */
+			'menu-1'                 => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
+			/* translators: %s: instance number. */
+			'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+			'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
+			'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
+			'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+		),
+		'limitations' => array(),
+	) );
+
+	return $array;
+}
+
+/**
+ * Return array of configuration for mobile header builder interface in Customizer.
+ *
+ * @return array
+ */
+function suki_get_mobile_header_builder_configurations() {
+	$array = apply_filters( 'suki/dataset/mobile_header_builder_configurations', array(
+		'locations' => array(
+			'main_left'    => is_rtl() ? esc_html__( 'Mobile - Right', 'suki' ) : esc_html__( 'Mobile - Left', 'suki' ),
+			'main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
+			'main_right'   => is_rtl() ? esc_html__( 'Mobile - Left', 'suki' ) : esc_html__( 'Mobile - Right', 'suki' ),
+			'vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
+		),
+		'choices' => array(
+			'mobile-logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Mobile Logo', 'suki' ),
+			'mobile-menu'            => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Mobile Menu', 'suki' ),
+			/* translators: %s: instance number. */
+			'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+			'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
+			'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Icon', 'suki' ),
+			'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+			'mobile-vertical-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
+		),
+		'limitations' => array(
+			'mobile-logo'            => array( 'vertical_top' ),
+			'mobile-menu'            => array( 'main_left', 'main_center', 'main_right' ),
+			'search-bar'             => array( 'main_left', 'main_center', 'main_right' ),
+			'search-dropdown'        => array( 'vertical_top' ),
+			'mobile-vertical-toggle' => array( 'vertical_top' ),
+		),
+	) );
+
+	return $array;
+}
+
+/**
+ * Return array of configuration for footer builder interface in Customizer.
+ *
+ * @return array
+ */
+function suki_get_footer_builder_configurations() {
+	$array = apply_filters( 'suki/dataset/footer_builder_configurations', array(
+		'locations' => array(
+			'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+			'bottom_center' => esc_html__( 'Center', 'suki' ),
+			'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+		),
+		'choices' => array(
+			'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
+			/* translators: %s: instance number. */
+			'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
+			/* translators: %s: instance number. */
+			'html-1'    => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+			'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+		),
+	) );
+
+	return $array;
+}
+
+/**
  * Return default theme colors.
  *
  * @return array
