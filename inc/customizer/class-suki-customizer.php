@@ -734,13 +734,15 @@ class Suki_Customizer {
 			/**
 			 * Define sections.
 			 */
-			
-			$key_archive = $post_type . '_archive';
-			$page_sections[ $key_archive ] = array(
-				'section' => $section_archive,
-				/* translators: %s: post type's plural name. */
-				'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
-			);
+
+			if ( 'page' !== $post_type ) {
+				$key_archive = $post_type . '_archive';
+				$page_sections[ $key_archive ] = array(
+					'section' => $section_archive,
+					/* translators: %s: post type's plural name. */
+					'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
+				);
+			}
 
 			$key_single = $post_type . '_single';
 			$page_sections[ $key_single ] = array(

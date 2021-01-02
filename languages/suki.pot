@@ -813,12 +813,12 @@ msgid "Error 404 Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: inc/customizer/class-suki-customizer.php:742
+#: inc/customizer/class-suki-customizer.php:743
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: inc/customizer/class-suki-customizer.php:749
+#: inc/customizer/class-suki-customizer.php:751
 msgid "Single %s Page"
 msgstr ""
 
