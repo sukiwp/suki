@@ -801,6 +801,8 @@ function suki_get_header_builder_configurations() {
 		'limitations' => array(),
 	) );
 
+	ksort( $array['choices'] );
+
 	return $array;
 }
 
@@ -836,6 +838,8 @@ function suki_get_mobile_header_builder_configurations() {
 		),
 	) );
 
+	ksort( $array['choices'] );
+
 	return $array;
 }
 
@@ -860,6 +864,8 @@ function suki_get_footer_builder_configurations() {
 			'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 		),
 	) );
+
+	ksort( $array['choices'] );
 
 	return $array;
 }
