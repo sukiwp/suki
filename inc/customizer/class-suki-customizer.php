@@ -298,7 +298,7 @@ class Suki_Customizer {
 						'mobile_vertical_bar' => array(
 							'label'     => esc_html__( 'Mobile Popup', 'suki' ),
 							'locations' => array(
-								'mobile_vertical_top',
+								'vertical_top',
 							),
 						),
 					),
@@ -306,9 +306,9 @@ class Suki_Customizer {
 						'mobile_main_bar' => array(
 							'label'     => esc_html__( 'Mobile Main Bar', 'suki' ),
 							'locations' => array(
-								'mobile_main_left',
-								'mobile_main_center',
-								'mobile_main_right',
+								'main_left',
+								'main_center',
+								'main_right',
 							),
 						),
 					),
