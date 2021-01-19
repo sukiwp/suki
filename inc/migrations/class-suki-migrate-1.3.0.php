@@ -278,7 +278,7 @@ class Suki_Migrate_1_3_0 {
 			$mod = get_theme_mod( $option_key, array() );
 
 			foreach ( $mod as $key => $value ) {
-				set_theme_mod( $ps_type . '_' . $option_key );
+				set_theme_mod( $ps_type . '_' . $option_key, $value );
 			}
 
 			remove_theme_mod( $option_key );
