@@ -195,7 +195,7 @@ function suki_template_hooks() {
 		 * ====================================================
 		 */
 
-		$elements = suki_get_current_page_setting( 'content_header' );
+		$elements = suki_get_current_page_setting( 'content_header', array() );
 
 		// Add content header elements.
 		$priority = 10;

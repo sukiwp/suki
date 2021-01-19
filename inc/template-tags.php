@@ -493,21 +493,6 @@ function suki_breadcrumb() {
 }
 endif;
 
-if ( ! function_exists( 'suki_title' ) ) :
-/**
- * Render current page title.
- */
-function suki_title() {
-	if ( is_search() ) {
-		suki_search_title();
-	}
-
-	elseif ( is_singular() ) {
-
-	}
-}
-endif;
-
 /**
  * ====================================================
  * Header template functions
