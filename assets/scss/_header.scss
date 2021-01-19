@@ -358,6 +358,7 @@
 	&, .menu > .menu-item .sub-menu {
 		a:not(.button), .suki-toggle {
 			color: $color_heading; // postmessage: header_top_bar_bg_color, header_main_bar_bg_color, header_bottom_bar_bg_color, header_mobile_main_bar_bg_color
+			background-color: transparent;
 
 			&:hover, &:focus {
 				color: $color_accent; // postmessage: header_top_bar_bg_color, header_main_bar_bg_color, header_bottom_bar_bg_color, header_mobile_main_bar_bg_color
@@ -443,6 +444,7 @@
 
 	a:not(.button), .suki-toggle {
 		color: $color_heading; // postmessage: header_mobile_vertical_bar_link_text_color
+		background-color: transparent;
 
 		&:hover, &:focus {
 			color: $color_accent; // postmessage: header_mobile_vertical_bar_link_hover_text_color
