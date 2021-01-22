@@ -514,7 +514,22 @@ add_filter( 'embed_oembed_html', 'suki_oembed_wrapper', 10, 4 );
  * @return integer
  */
 function suki_read_more( $link ) {
-	return '<p class="read-more">' . $link . '</p>';
+	// Read more
+	if ( '' !== suki_get_theme_mod( 'entry_read_more_display' ) ) {
+		// Add read more class
+		$link = preg_replace( '/class="(.*?)"/', 'class="$1 ' . esc_attr( suki_get_theme_mod( 'entry_read_more_display' ) ) . '"', $link );
+
+		// Change read more text
+		$text = esc_html( suki_get_theme_mod( 'entry_read_more_text' ) );
+		if ( empty( $text ) ) {
+			$text = esc_html__( 'Read more', 'suki' );
+		}
+		$link = preg_replace( '/\(more&hellip;\)/', $text, $link );
+	} else {
+		$link = '';
+	}
+
+	return $link;
 }
 add_filter( 'the_content_more_link', 'suki_read_more' );
 
@@ -555,7 +570,7 @@ add_filter( 'excerpt_length', 'suki_excerpt_length' );
  * @return string
  */
 function suki_excerpt_more( $more ) {
-	return '&hellip;';
+	return ' &hellip;';
 }
 add_filter( 'excerpt_more', 'suki_excerpt_more' );
 

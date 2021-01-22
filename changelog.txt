@@ -10,6 +10,7 @@ v1.3.0
 - NEW: Gutenberg - Add new theme supports for Gutenberg features: theme font sizes, custom line height, custom units, custom cover block padding, custom link color.
 - NEW: Footer Elements — Add new element: HTML (accepts HTML tags and shortcode).
 - NEW: Blog - Thumbnail size option for blog post layouts.
+- NEW: Blog - "Content or excerpt" option for default post layout.
 - NEW: Customizer - Border radius and Box shadow options for posts layout, sidebar.
 - NEW: WPML Compatibility - Add WPML configuration file (`wpml-config.xml`) for automatic WPML integration.
 - TWEAK: Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).

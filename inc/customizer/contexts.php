@@ -199,6 +199,13 @@ $add['blank_edit_entry_grid'] = array(
  * ====================================================
  */
 
+$add['entry_excerpt_length'] = array(
+	array(
+		'setting'  => 'entry_content',
+		'value'    => 'excerpt',
+	),
+);
+
 $add['entry_read_more_text'] = array(
 	array(
 		'setting'  => 'entry_read_more_display',

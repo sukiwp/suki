@@ -868,6 +868,7 @@ $add['entry_thumbnail'] = 'after';
 $add['entry_thumbnail_size'] = 'full';
 $add['entry_thumbnail_ignore_padding'] = 0;
 
+$add['entry_content'] = 'content';
 $add['entry_excerpt_length'] = 55;
 $add['entry_read_more_text'] = '';
 $add['entry_read_more_display'] = '';

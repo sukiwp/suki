@@ -273,7 +273,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	// 'label'       => esc_html__( 'Display', 'suki' ),
+	'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),

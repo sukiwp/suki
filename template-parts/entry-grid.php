@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				if ( '' !== suki_get_theme_mod( 'entry_grid_read_more_display' ) ) {
 					?>
 					<p>
-						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( suki_get_theme_mod( 'entry_grid_read_more_display' ) ); ?>">
+						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="more-link <?php echo esc_attr( suki_get_theme_mod( 'entry_grid_read_more_display' ) ); ?>">
 							<?php
 							$text = suki_get_theme_mod( 'entry_grid_read_more_text' );
 							if ( empty( $text ) ) {

@@ -209,7 +209,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	// 'label'       => esc_html__( 'Display', 'suki' ),
+	'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),
@@ -257,6 +257,23 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'label'       => esc_html__( 'Entry Content', 'suki' ),
 	'priority'    => 50,
 ) ) );
+
+// Content or excerpt
+$key = 'entry_content';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Content or excerpt', 'suki' ),
+	'choices'     => array(
+		'content' => esc_html__( 'Content', 'suki' ),
+		'excerpt' => esc_html__( 'Excerpt', 'suki' ),
+	),
+	'priority'    => 50,
+) );
 
 // Entry excerpt length
 $key = 'entry_excerpt_length';
