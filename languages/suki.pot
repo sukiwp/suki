@@ -43,50 +43,50 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: inc/class-suki.php:232, template-parts/header-element-menu.php:16
+#: inc/class-suki.php:222, template-parts/header-element-menu.php:16
 msgid "Header Menu %s"
 msgstr ""
 
-#: inc/class-suki.php:233, template-parts/header-element-mobile-menu.php:16
+#: inc/class-suki.php:223, template-parts/header-element-mobile-menu.php:16
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: inc/class-suki.php:234
+#: inc/class-suki.php:224
 msgid "Footer Bottom Menu"
 msgstr ""
 
 #. translators: %s: color index.
 #. translators: %s: color number.
-#: inc/class-suki.php:280, inc/customizer/options/global--color-palette.php:38
+#: inc/class-suki.php:270, inc/customizer/options/global--color-palette.php:38
 msgid "Color %s"
 msgstr ""
 
-#: inc/class-suki.php:293
+#: inc/class-suki.php:283
 msgid "Small"
 msgstr ""
 
-#: inc/class-suki.php:298, inc/admin/class-suki-admin-metabox-page-settings.php:429, inc/admin/class-suki-admin-metabox-page-settings.php:465, inc/customizer/custom-controls/class-suki-customize-control-typography.php:216, inc/customizer/options/content--hero.php:58, inc/customizer/options/content--section.php:34, inc/customizer/options/footer--bottom-bar.php:69, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:76, inc/customizer/options/_page-settings.php:59, inc/customizer/options/_page-settings.php:194
+#: inc/class-suki.php:288, inc/admin/class-suki-admin-metabox-page-settings.php:429, inc/admin/class-suki-admin-metabox-page-settings.php:465, inc/customizer/custom-controls/class-suki-customize-control-typography.php:216, inc/customizer/options/content--hero.php:58, inc/customizer/options/content--section.php:34, inc/customizer/options/footer--bottom-bar.php:69, inc/customizer/options/footer--widgets-bar.php:31, inc/customizer/options/header--top-main-bottom-bar.php:76, inc/customizer/options/_page-settings.php:59, inc/customizer/options/_page-settings.php:194
 msgid "Normal"
 msgstr ""
 
-#: inc/class-suki.php:303, inc/helpers.php:1062, inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
+#: inc/class-suki.php:293, inc/helpers.php:1062, inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
 msgid "Medium"
 msgstr ""
 
-#: inc/class-suki.php:308, inc/helpers.php:1064
+#: inc/class-suki.php:298, inc/helpers.php:1064
 msgid "Large"
 msgstr ""
 
-#: inc/class-suki.php:313
+#: inc/class-suki.php:303
 msgid "Huge"
 msgstr ""
 
-#: inc/class-suki.php:346, inc/admin/class-suki-admin-metabox-page-settings.php:487, inc/customizer/options/_page-settings.php:80, inc/customizer/options/_sections.php:318
+#: inc/class-suki.php:336, inc/admin/class-suki-admin-metabox-page-settings.php:487, inc/customizer/options/_page-settings.php:80, inc/customizer/options/_sections.php:318
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: inc/class-suki.php:357
+#: inc/class-suki.php:347
 msgid "Footer Widgets Column %s"
 msgstr ""
 

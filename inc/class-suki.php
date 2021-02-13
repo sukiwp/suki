@@ -41,16 +41,6 @@ class Suki {
 	}
 
 	/**
-	 * Class cloning (disabled)
-	 */
-	private final function __clone() {}
-
-	/**
-	 * Class unserializing (disabled)
-	 */
-	private final function __wakeup() {}
-
-	/**
 	 * Class constructor
 	 */
 	private function __construct() {
