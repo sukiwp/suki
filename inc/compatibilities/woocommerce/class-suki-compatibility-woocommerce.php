@@ -53,8 +53,6 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
 		add_filter( 'suki/customizer/preview_contexts', array( $this, 'add_preview_contexts' ) );
-		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
-		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
 		add_filter( 'suki/customizer/auto_page_options/excluded_post_types', array( $this, 'exclude_from_auto_page_options' ) );
 
 		// Template hooks
@@ -206,44 +204,6 @@ class Suki_Compatibility_WooCommerce {
 		$contexts['woocommerce_checkout'] = esc_url( wc_get_checkout_url() );
 
 		return $contexts;
-	}
-
-	/**
-	 * Modify header builder configurations.
-	 *
-	 * @param array $config
-	 * @return array
-	 */
-	public function modify_header_builder_configurations( $config ) {
-		$config = array_merge_recursive( array(
-			'choices' => array(
-				'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
-				'shopping-cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
-			)
-		), $config );
-
-		return $config;
-	}
-
-	/**
-	 * Modify mobile header builder configurations.
-	 *
-	 * @param array $config
-	 * @return array
-	 */
-	public function modify_mobile_header_builder_configuratinos( $config ) {
-		$config = array_merge_recursive( array(
-			'choices' => array(
-				'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
-				'shopping-cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
-			),
-			'limitations' => array(
-				'shopping-cart-link'     => array( 'vertical_top' ),
-				'shopping-cart-dropdown' => array( 'vertical_top' ),
-			),
-		), $config );
-
-		return $config;
 	}
 
 	/**

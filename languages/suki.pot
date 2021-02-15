@@ -69,11 +69,11 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: inc/class-suki.php:293, inc/helpers.php:1062, inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
+#: inc/class-suki.php:293, inc/helpers.php:1068, inc/customizer/custom-controls/class-suki-customize-control-typography.php:209
 msgid "Medium"
 msgstr ""
 
-#: inc/class-suki.php:298, inc/helpers.php:1064
+#: inc/class-suki.php:298, inc/helpers.php:1070
 msgid "Large"
 msgstr ""
 
@@ -293,11 +293,11 @@ msgstr ""
 #. translators: %s: instance number.
 #. translators: %s: HTML element number.
 #. translators: %s: HTML element number.
-#: inc/helpers.php:796, inc/helpers.php:826, inc/helpers.php:863, inc/customizer/options/footer--html.php:24, inc/customizer/options/header--html.php:24
+#: inc/helpers.php:796, inc/helpers.php:828, inc/helpers.php:869, inc/customizer/options/footer--html.php:24, inc/customizer/options/header--html.php:24
 msgid "HTML %s"
 msgstr ""
 
-#: inc/helpers.php:797, inc/helpers.php:827, inc/customizer/options/header--search.php:23
+#: inc/helpers.php:797, inc/helpers.php:829, inc/customizer/options/header--search.php:23
 msgid "Search Bar"
 msgstr ""
 
@@ -305,104 +305,112 @@ msgstr ""
 msgid "Search Dropdown"
 msgstr ""
 
-#: inc/helpers.php:799, inc/helpers.php:829, inc/helpers.php:864, inc/customizer/options/_sections.php:265, inc/customizer/options/_sections.php:388
+#: inc/helpers.php:799, inc/helpers.php:831, inc/helpers.php:870, inc/customizer/options/_sections.php:265, inc/customizer/options/_sections.php:388
 msgid "Social"
 msgstr ""
 
-#: inc/helpers.php:817, inc/helpers.php:819
+#: inc/helpers.php:800, inc/helpers.php:833
+msgid "Cart Link"
+msgstr ""
+
+#: inc/helpers.php:801, inc/helpers.php:834
+msgid "Cart Dropdown"
+msgstr ""
+
+#: inc/helpers.php:819, inc/helpers.php:821
 msgid "Mobile - Right"
 msgstr ""
 
-#: inc/helpers.php:817, inc/helpers.php:819
+#: inc/helpers.php:819, inc/helpers.php:821
 msgid "Mobile - Left"
 msgstr ""
 
-#: inc/helpers.php:818
+#: inc/helpers.php:820
 msgid "Mobile - Center"
 msgstr ""
 
-#: inc/helpers.php:820
+#: inc/helpers.php:822
 msgid "Mobile - Popup"
 msgstr ""
 
-#: inc/helpers.php:823, inc/customizer/options/header--logo.php:69
+#: inc/helpers.php:825, inc/customizer/options/header--logo.php:69
 msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: inc/helpers.php:824, template-parts/header-element-mobile-vertical-toggle.php:19, inc/customizer/options/header--menu.php:36
+#: inc/helpers.php:826, template-parts/header-element-mobile-vertical-toggle.php:19, inc/customizer/options/header--menu.php:36
 msgid "Mobile Menu"
 msgstr ""
 
-#: inc/helpers.php:828
+#: inc/helpers.php:830
 msgid "Search Icon"
 msgstr ""
 
-#: inc/helpers.php:830
+#: inc/helpers.php:832
 msgid "Toggle"
 msgstr ""
 
-#: inc/helpers.php:854, inc/helpers.php:856, inc/admin/class-suki-admin-metabox-page-settings.php:500, inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:95, inc/customizer/options/_page-settings.php:214, inc/customizer/options/_page-settings.php:216
+#: inc/helpers.php:860, inc/helpers.php:862, inc/admin/class-suki-admin-metabox-page-settings.php:500, inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:95, inc/customizer/options/_page-settings.php:214, inc/customizer/options/_page-settings.php:216
 msgid "Right"
 msgstr ""
 
-#: inc/helpers.php:854, inc/helpers.php:856, inc/admin/class-suki-admin-metabox-page-settings.php:500, inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:95, inc/customizer/options/_page-settings.php:214, inc/customizer/options/_page-settings.php:216
+#: inc/helpers.php:860, inc/helpers.php:862, inc/admin/class-suki-admin-metabox-page-settings.php:500, inc/admin/class-suki-admin-metabox-page-settings.php:504, inc/widgets/class-suki-widget-social.php:67, inc/widgets/class-suki-widget-social.php:69, inc/customizer/options/content--section.php:69, inc/customizer/options/content--section.php:73, inc/customizer/options/footer--scroll-to-top.php:86, inc/customizer/options/footer--scroll-to-top.php:87, inc/customizer/options/header--mobile-vertical-bar.php:48, inc/customizer/options/header--mobile-vertical-bar.php:49, inc/customizer/options/_page-settings.php:91, inc/customizer/options/_page-settings.php:95, inc/customizer/options/_page-settings.php:214, inc/customizer/options/_page-settings.php:216
 msgid "Left"
 msgstr ""
 
-#: inc/helpers.php:855, inc/widgets/class-suki-widget-social.php:68, inc/customizer/options/_page-settings.php:215
+#: inc/helpers.php:861, inc/widgets/class-suki-widget-social.php:68, inc/customizer/options/_page-settings.php:215
 msgid "Center"
 msgstr ""
 
-#: inc/helpers.php:859, inc/customizer/options/footer--copyright.php:23, inc/customizer/options/_sections.php:374
+#: inc/helpers.php:865, inc/customizer/options/footer--copyright.php:23, inc/customizer/options/_sections.php:374
 msgid "Copyright"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: menu number.
-#: inc/helpers.php:861, template-parts/footer-element-menu.php:16
+#: inc/helpers.php:867, template-parts/footer-element-menu.php:16
 msgid "Footer Menu %s"
 msgstr ""
 
-#: inc/helpers.php:1043
+#: inc/helpers.php:1049
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:1044
+#: inc/helpers.php:1050
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: inc/helpers.php:1045
+#: inc/helpers.php:1051
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: inc/helpers.php:1046
+#: inc/helpers.php:1052
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: inc/helpers.php:1047
+#: inc/helpers.php:1053
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: inc/helpers.php:1048
+#: inc/helpers.php:1054
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: inc/helpers.php:1061
+#: inc/helpers.php:1067
 msgid "Thumbnail"
 msgstr ""
 
-#: inc/helpers.php:1063
+#: inc/helpers.php:1069
 msgid "Medium Large"
 msgstr ""
 
-#: inc/helpers.php:1068
+#: inc/helpers.php:1074
 msgid "Full"
 msgstr ""
 
@@ -553,7 +561,7 @@ msgstr ""
 msgid "Individual Page Settings (%s)"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:215, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:544
+#: inc/admin/class-suki-admin-metabox-page-settings.php:215, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:504
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -577,7 +585,7 @@ msgstr ""
 msgid "Disable mobile header"
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:385, inc/admin/class-suki-admin-metabox-page-settings.php:608, inc/admin/class-suki-admin-metabox-page-settings.php:618, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:577, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, inc/compatibilities/woocommerce/customizer/options/_sections.php:82
+#: inc/admin/class-suki-admin-metabox-page-settings.php:385, inc/admin/class-suki-admin-metabox-page-settings.php:608, inc/admin/class-suki-admin-metabox-page-settings.php:618, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:537, inc/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:276, inc/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, inc/compatibilities/woocommerce/customizer/options/_sections.php:82
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -597,7 +605,7 @@ msgctxt "Suki Pro upsell"
 msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: inc/admin/class-suki-admin-metabox-page-settings.php:389, inc/admin/class-suki-admin-metabox-page-settings.php:610, inc/admin/class-suki-admin-metabox-page-settings.php:620, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:586
+#: inc/admin/class-suki-admin-metabox-page-settings.php:389, inc/admin/class-suki-admin-metabox-page-settings.php:610, inc/admin/class-suki-admin-metabox-page-settings.php:620, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:546
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
@@ -920,52 +928,44 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:220, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:237
-msgid "Cart Link"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:221, inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:238
-msgid "Cart Dropdown"
-msgstr ""
-
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:266
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:226
 msgid "Sidebar Shop"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:268
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:228
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:558
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:518
 msgid "Product Layout"
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:579
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:539
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable breadcrumb."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:580
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:540
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable gallery on this product page."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:581
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:541
 msgctxt "Suki Pro upsell"
 msgid "Change gallery layout on this product page."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:582
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:542
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable product info tabs."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:583
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:543
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable up-sells."
 msgstr ""
 
-#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:584
+#: inc/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:544
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
@@ -1965,7 +1965,7 @@ msgid "Mobile Header"
 msgstr ""
 
 #: inc/customizer/options/header--cart.php:18
-msgid "Only available if WooCommerce plugin is installed and activated."
+msgid "Cart is only available when WooCommerce is active."
 msgstr ""
 
 #: inc/customizer/options/header--cart.php:33
