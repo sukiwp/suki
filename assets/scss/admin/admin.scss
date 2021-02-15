@@ -240,8 +240,8 @@ input, select, textarea {
 		top: 0;
 		right: 0;
 		width: 32px;
-		margin: 1px -1px 0 0;
-		padding: 0 !important;
+		margin: 0 -1px 0 0;
+		padding: 0;
 		border-radius: 0;
 		text-align: center;
 		box-shadow: none;
@@ -249,6 +249,7 @@ input, select, textarea {
 		.dashicons {
 			margin-right: 0;
 			font-size: 18px;
+			vertical-align: middle;
 		}
 
 		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
