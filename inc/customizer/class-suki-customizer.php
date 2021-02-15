@@ -192,7 +192,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--menu.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--html.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--cart.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--social.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--hero.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );

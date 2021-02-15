@@ -10,15 +10,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'suki_section_header_cart';
 
-if ( ! class_exists( 'WooCommerce' ) ) {
-	// Notice
-	$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_header_cart', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'description' => '<div class="notice notice-warning notice-alt inline"><p>' . esc_html__( 'Cart is only available when WooCommerce is active.', 'suki' ) . '</p></div>',
-		'priority'    => 10,
-	) ) );
-}
+// Anchor for Cart Link element
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'heading_header_cart_link', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 10,
+) ) );
+
+// Anchor for Cart Dropdown element
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'heading_header_cart_dropdown', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 10,
+) ) );
 
 // Cart amount
 $key = 'header_cart_amount';
@@ -71,10 +75,10 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 			'header_cart_amount',
 			'header_cart_amount_visibility',
 		),
-		'selector'            => '.suki-header-shopping-cart-link',
+		'selector'            => '.suki-header-cart-link',
 		'container_inclusive' => true,
 		'render_callback'     => function() {
-			suki_header_element( 'shopping-cart-link' );
+			suki_header_element( 'cart-link' );
 		},
 		'fallback_refresh'    => false,
 	) );
@@ -84,10 +88,10 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 			'header_cart_amount',
 			'header_cart_amount_visibility',
 		),
-		'selector'            => '.suki-header-shopping-cart-dropdown',
+		'selector'            => '.suki-header-cart-dropdown',
 		'container_inclusive' => true,
 		'render_callback'     => function() {
-			suki_header_element( 'shopping-cart-dropdown' );
+			suki_header_element( 'cart-dropdown' );
 		},
 		'fallback_refresh'    => false,
 	) );

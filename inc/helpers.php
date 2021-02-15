@@ -797,8 +797,6 @@ function suki_get_header_builder_configurations() {
 			'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
 			'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
 			'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
-			'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
-			'shopping-cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
 		),
 		'limitations' => array(),
 	) );
@@ -830,8 +828,6 @@ function suki_get_mobile_header_builder_configurations() {
 			'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Icon', 'suki' ),
 			'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
 			'mobile-vertical-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
-			'shopping-cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
-			'shopping-cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
 		),
 		'limitations' => array(
 			'mobile-logo'            => array( 'vertical_top' ),
@@ -839,8 +835,6 @@ function suki_get_mobile_header_builder_configurations() {
 			'search-bar'             => array( 'main_left', 'main_center', 'main_right' ),
 			'search-dropdown'        => array( 'vertical_top' ),
 			'mobile-vertical-toggle' => array( 'vertical_top' ),
-			'shopping-cart-link'     => array( 'vertical_top' ),
-			'shopping-cart-dropdown' => array( 'vertical_top' ),
 		),
 	) );
 
@@ -1051,7 +1045,7 @@ function suki_get_all_icons() {
 			'menu' => esc_html_x( 'Menu', 'icon label', 'suki' ),
 			'chevron-down' => esc_html_x( 'Dropdown Arrow -- Down', 'icon label', 'suki' ),
 			'chevron-right' => esc_html_x( 'Dropdown Arrow -- Right', 'icon label', 'suki' ),
-			'shopping-cart' => esc_html_x( 'Shopping Cart', 'icon label', 'suki' ),
+			'cart' => esc_html_x( 'Shopping Cart', 'icon label', 'suki' ),
 		),
 		'social_icons' => suki_get_social_media_types( true ),
 	) );

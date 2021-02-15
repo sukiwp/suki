@@ -82,12 +82,12 @@
 }
 
 // Cart
-.suki-header-shopping-cart {
+.suki-header-cart {
 	.widget {
 		margin: 0;
 	}
 
-	.shopping-cart-amount {
+	.cart-amount {
 		margin: 0 0.25em 0 0.5em;
 
 		&:nth-child(2) {
@@ -99,11 +99,11 @@
 		}
 	}
 
-	.shopping-cart-link {
+	.cart-link {
 		position: relative;
 	}
 
-	.shopping-cart-count {
+	.cart-count {
 		width: 2em;
 		height: 2em;
 		position: absolute;

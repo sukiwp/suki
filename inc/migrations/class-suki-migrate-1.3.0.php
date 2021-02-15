@@ -42,6 +42,7 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_content_layout_narrow();
 		$this->migrate_page_header_to_hero_section();
 		$this->migrate_featured_media_to_thumbnail();
+		$this->migrate_header_shopping_cart();
 
 		$this->migrate_page_settings_keys();
 	}
@@ -239,10 +240,6 @@ class Suki_Migrate_1_3_0 {
 	 * - Use "thumbnail" as slug.
 	 */
 	private function migrate_featured_media_to_thumbnail() {
-		/**
-		 * Global settings
-		 */
-
 		$mods = get_theme_mods();
 
 		foreach ( $mods as $key => $value ) {
@@ -257,6 +254,51 @@ class Suki_Migrate_1_3_0 {
 
 				set_theme_mod( $new_key, $value );
 			}
+		}
+	}
+
+	/**
+	 * Migrate header cart slug from "shopping-cart" to "cart"
+	 *
+	 * The previous implementation:
+	 * - Use "shopping-cart" slug
+	 *
+	 * The new implementation:
+	 * - Use "cart" as slug.
+	 */
+	private function migrate_header_shopping_cart() {
+		// Desktop Header		
+		$desktop_header_locations = array(
+			'top_left', 'top_center', 'top_right',
+			'main_left', 'main_center', 'main_right',
+			'bottom_left', 'bottom_center', 'bottom_right',
+		);
+		foreach ( $desktop_header_locations as $location ) {
+			$elements = suki_get_theme_mod( 'header_elements_' . $location );
+
+			foreach ( $elements as $element ) {
+				if ( 0 === strpos( $element, 'shopping-cart' ) ) {
+					$element = str_replace( 'shopping-cart', 'cart', $element );
+				}
+			}
+
+			set_theme_mod( 'header_elements_' . $location, $elements );
+		}
+
+		// Mobile Header		
+		$desktop_header_locations = array(
+			'main_left', 'main_center', 'main_right',
+		);
+		foreach ( $desktop_header_locations as $location ) {
+			$elements = suki_get_theme_mod( 'header_mobile_elements_' . $location );
+
+			foreach ( $elements as $element ) {
+				if ( 0 === strpos( $element, 'shopping-cart' ) ) {
+					$element = str_replace( 'shopping-cart', 'cart', $element );
+				}
+			}
+
+			set_theme_mod( 'header_mobile_elements_' . $location, $elements );
 		}
 	}
 

@@ -53,6 +53,8 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
 		add_filter( 'suki/customizer/preview_contexts', array( $this, 'add_preview_contexts' ) );
+		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
+		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
 		add_filter( 'suki/customizer/auto_page_options/excluded_post_types', array( $this, 'exclude_from_auto_page_options' ) );
 
 		// Template hooks
@@ -146,6 +148,7 @@ class Suki_Compatibility_WooCommerce {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 		
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/_sections.php' );
+		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/header--cart.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php' );
 		require_once( SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php' );
@@ -204,6 +207,44 @@ class Suki_Compatibility_WooCommerce {
 		$contexts['woocommerce_checkout'] = esc_url( wc_get_checkout_url() );
 
 		return $contexts;
+	}
+
+	/**
+	 * Modify header builder configurations.
+	 *
+	 * @param array $config
+	 * @return array
+	 */
+	public function modify_header_builder_configurations( $config ) {
+		$config = array_merge_recursive( array(
+			'choices' => array(
+				'cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
+				'cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
+			)
+		), $config );
+
+		return $config;
+	}
+
+	/**
+	 * Modify mobile header builder configurations.
+	 *
+	 * @param array $config
+	 * @return array
+	 */
+	public function modify_mobile_header_builder_configuratinos( $config ) {
+		$config = array_merge_recursive( array(
+			'choices' => array(
+				'cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
+				'cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
+			),
+			'limitations' => array(
+				'cart-link'     => array( 'vertical_top' ),
+				'cart-dropdown' => array( 'vertical_top' ),
+			),
+		), $config );
+
+		return $config;
 	}
 
 	/**
@@ -639,7 +680,7 @@ class Suki_Compatibility_WooCommerce {
 				} else {
 					$count = 0;
 				}
-				$title = str_replace( '{{count}}', '(<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>)', $title );
+				$title = str_replace( '{{count}}', '(<span class="cart-count" data-count="' . $count . '">' . $count . '</span>)', $title );
 			}
 		}
 
@@ -673,7 +714,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function update_header_cart( $fragments ) {
 		$count = WC()->cart->get_cart_contents_count();
-		$fragments['.shopping-cart-count'] = '<span class="shopping-cart-count" data-count="' . $count . '">' . $count . '</span>';
+		$fragments['.cart-count'] = '<span class="cart-count" data-count="' . $count . '">' . $count . '</span>';
 		
 		return $fragments;
 	}

@@ -274,7 +274,7 @@ $add['header_elements_bottom_right'] = array();
 
 $add['header_mobile_elements_main_left'] = array( 'mobile-logo' );
 $add['header_mobile_elements_main_center'] = array();
-$add['header_mobile_elements_main_right'] = array( 'shopping-cart-link', 'mobile-vertical-toggle' );
+$add['header_mobile_elements_main_right'] = array( 'mobile-vertical-toggle' );
 $add['header_mobile_elements_vertical_top'] = array( 'search-bar', 'mobile-menu' );
 
 /**

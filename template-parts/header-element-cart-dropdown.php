@@ -47,17 +47,17 @@ if ( '' !== $amount_position ) {
 
 	ob_start();
 	?>
-	<span class="shopping-cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+	<span class="cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 	<?php
 	$amount_html = ob_get_clean();
 }
 ?>
-<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-shopping-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
+<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 	<div class="menu-item">
 		<?php if ( $is_dropdown ) : ?>
-			<button class="shopping-cart-link suki-menu-item-link suki-sub-menu-toggle suki-toggle" aria-expanded="false">
+			<button class="cart-link suki-menu-item-link suki-sub-menu-toggle suki-toggle" aria-expanded="false">
 		<?php else: ?>
-			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="shopping-cart-link suki-menu-item-link">
+			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-link suki-menu-item-link">
 		<?php endif; ?>
 
 				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
@@ -66,11 +66,11 @@ if ( '' !== $amount_position ) {
 					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				} ?>
 
-				<span class="shopping-cart-icon">
-					<?php suki_icon( 'shopping-cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+				<span class="cart-icon">
+					<?php suki_icon( 'cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 				</span>
 				
-				<span class="shopping-cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+				<span class="cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 
 				<?php if ( 'after' === $amount_position ) {
 					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

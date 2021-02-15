@@ -159,7 +159,7 @@ $add['link_text_color'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-shopping-cart .shopping-cart-count', // scss: header
+		'element'  => '.suki-header-cart .cart-count', // scss: header
 		'property' => 'background-color',
 	),
 );
@@ -755,14 +755,14 @@ $add['header_search_dropdown_width'] = array(
 $add['header_cart_count_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-shopping-cart .shopping-cart-count', // scss: header
+		'element'  => '.suki-header-cart .cart-count', // scss: header
 		'property' => 'background-color',
 	),
 );
 $add['header_cart_count_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-shopping-cart .shopping-cart-count', // scss: header
+		'element'  => '.suki-header-cart .cart-count', // scss: header
 		'property' => 'color',
 	),
 );
