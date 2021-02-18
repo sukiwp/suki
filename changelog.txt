@@ -29,6 +29,7 @@ v1.3.0
 - TWEAK: Implement Filters API to allow further modification on each template part's HTML markup.
 - TWEAK: Use localize scripts to define header bars JS configuration instead of using HTML tag attributes (fallback compatibilities are added for prior Suki Pro 1.2.0).
 - FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
+- FIX: Footer — Widgets column width bug.
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
 - FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
 - FIX: Customizer Preview Frame size for Tablet and Mobile modes.

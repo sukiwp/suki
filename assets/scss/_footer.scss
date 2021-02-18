@@ -32,7 +32,7 @@
 	}
 
 	.suki-footer-widgets-bar-columns-3 & {
-		width: 33.33%;
+		width: 33.333%;
 	}
 
 	.suki-footer-widgets-bar-columns-4 & {
@@ -44,7 +44,7 @@
 	}
 
 	.suki-footer-widgets-bar-columns-6 & {
-		width: 16.67%;
+		width: 16.667%;
 	}
 
 	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
@@ -56,7 +56,7 @@
 
 		.suki-footer-widgets-bar-columns-3 &,
 		.suki-footer-widgets-bar-columns-5 & {
-			width: 33.33%;
+			width: 33.333%;
 		}
 	}
 
