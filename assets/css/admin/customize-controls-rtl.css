@@ -1675,12 +1675,12 @@ li:not(.customize-info) div.customize-section-description {
 	width: 125px;
 }
 
-[id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_hero_"], [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="-header_"] {
+[id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_archive_hero_"], [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_single_hero_"], [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_archive_header_"], [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_single_header_"] {
 	padding-right: 15px;
 	width: calc(100% - 15px);
 }
 
-[id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_hero_"] .customize-control-title, [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="-header_"] .customize-control-title {
+[id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_archive_hero_"] .customize-control-title, [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_single_hero_"] .customize-control-title, [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_archive_header_"] .customize-control-title, [id^="customize-control-heading_page_settings_"] ~ .customize-control[id*="_single_header_"] .customize-control-title {
 	font-weight: normal;
 }
 

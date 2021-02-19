@@ -1786,8 +1786,8 @@ li:not(.customize-info) div.customize-section-description {
 }
 
 [id^="customize-control-heading_page_settings_"] ~ .customize-control {
-	&[id*="_hero_"],
-	&[id*="-header_"] {
+	&[id*="_archive_hero_"], &[id*="_single_hero_"],
+	&[id*="_archive_header_"], &[id*="_single_header_"] {
 		padding-left: 15px;
 		width: calc(100% - 15px);
 
