@@ -42,7 +42,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	// Elements
 	$key = $option_prefix . '_content_header';
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key, array( 'entry-title' ) ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, $key, array(
@@ -58,7 +58,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	// Alignment
 	$key = $option_prefix . '_content_header_alignment';
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key, 'left' ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
@@ -78,4 +78,50 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		),
 		'priority'    => 10,
 	) ) );
+
+	/**
+	 * ====================================================
+	 * Featured Image
+	 * ====================================================
+	 */
+
+	if ( post_type_supports( $post_type_slug, 'thumbnail' ) ) {
+		// Heading: Featured Image
+		$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_' . $option_prefix . '_content_thumbnail', array(
+			'section'     => $section,
+			'settings'    => array(),
+			'label'       => esc_html__( 'Featured Image', 'suki' ),
+			'priority'    => 20,
+		) ) );
+
+		// Display
+		$key =  $option_prefix . '_content_thumbnail';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $defaults, $key ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+		) );
+		$wp_customize->add_control( $key, array(
+			'type'        => 'select',
+			'section'     => $section,
+			'label'       => esc_html__( 'Display', 'suki' ),
+			'choices'     => array(
+				''       => esc_html__( 'Disabled', 'suki' ),
+				'before' => esc_html__( 'Before Content Header', 'suki' ),
+				'after'  => esc_html__( 'After Content Header', 'suki' ),
+			),
+			'priority'    => 20,
+		) );
+
+		// Wide alignment
+		$key =  $option_prefix . '_content_thumbnail_wide';
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $defaults, $key ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+		) );
+		$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Wide alignment', 'suki' ) . ' <span class="suki-tooltip suki-tooltip-bottom" tabindex="0" data-tooltip="' . esc_attr__( 'Only works on Narrow content container.', 'suki' ) . '"><span class="dashicons dashicons-info"></span></span>',
+			'priority'    => 20,
+		) ) );
+	}
 }

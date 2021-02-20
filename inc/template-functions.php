@@ -271,25 +271,29 @@ function suki_template_hooks() {
 			}
 
 			// Add thumbnail before or after content header.
-			if ( 'before' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 0 );
-			}
-			elseif ( 'after' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 999 );
+			if ( ! intval( suki_get_current_page_setting( 'disable_thumbnail' ) ) ) {
+				if ( 'before' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
+					add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 0 );
+				}
+				elseif ( 'after' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
+					add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 999 );
+				}
 			}
 
 			// Add content header elements.
-			$priority = 10;
-			foreach ( suki_get_theme_mod( 'page_single_content_header', array() ) as $element ) {
-				$function = 'suki_' . str_replace( '-', '_', $element );
+			if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+				$priority = 10;
+				foreach ( suki_get_theme_mod( 'page_single_content_header', array() ) as $element ) {
+					$function = 'suki_' . str_replace( '-', '_', $element );
 
-				// If function exists, attach to hook.
-				if ( function_exists( $function ) ) {
-					add_action( 'suki/frontend/content_header', $function, $priority );
+					// If function exists, attach to hook.
+					if ( function_exists( $function ) ) {
+						add_action( 'suki/frontend/content_header', $function, $priority );
+					}
+
+					// Increment priority number.
+					$priority = $priority + 10;
 				}
-
-				// Increment priority number.
-				$priority = $priority + 10;
 			}
 		}
 
@@ -299,32 +303,36 @@ function suki_template_hooks() {
 		 * ====================================================
 		 */
 
-		elseif ( is_single() ) {
+		elseif ( is_singular( 'post' ) ) {
 			// Add content header to content section.
 			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
 				add_action( 'suki/frontend/single_entry/header', 'suki_content_header', 10 );
 			}
 
 			// Add thumbnail before or after content header.
-			if ( 'before' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 0 );
-			}
-			elseif ( 'after' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
-				add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 999 );
+			if ( ! intval( suki_get_current_page_setting( 'disable_thumbnail' ) ) ) {
+				if ( 'before' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
+					add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 0 );
+				}
+				elseif ( 'after' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
+					add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 999 );
+				}
 			}
 
 			// Add post header into content header.
-			$priority = 10;
-			foreach ( suki_get_theme_mod( 'post_single_content_header', array() ) as $element ) {
-				$function = 'suki_' . str_replace( '-', '_', $element );
+			if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+				$priority = 10;
+				foreach ( suki_get_theme_mod( 'post_single_content_header', array() ) as $element ) {
+					$function = 'suki_' . str_replace( '-', '_', $element );
 
-				// If function exists, attach to hook.
-				if ( function_exists( $function ) ) {
-					add_action( 'suki/frontend/content_header', $function, $priority );
+					// If function exists, attach to hook.
+					if ( function_exists( $function ) ) {
+						add_action( 'suki/frontend/content_header', $function, $priority );
+					}
+
+					// Increment priority number.
+					$priority = $priority + 10;
 				}
-
-				// Increment priority number.
-				$priority = $priority + 10;
 			}
 
 			// Add post footer.
@@ -365,17 +373,19 @@ function suki_template_hooks() {
 			}
 
 			// Add post header into content header.
-			$priority = 10;
-			foreach ( suki_get_theme_mod( $ps_type . '_content_header', array() ) as $element ) {
-				$function = 'suki_' . str_replace( '-', '_', $element );
+			if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+				$priority = 10;
+				foreach ( suki_get_theme_mod( get_post_type() . '_single_content_header', array() ) as $element ) {
+					$function = 'suki_' . str_replace( '-', '_', $element );
 
-				// If function exists, attach to hook.
-				if ( function_exists( $function ) ) {
-					add_action( 'suki/frontend/content_header', $function, $priority );
+					// If function exists, attach to hook.
+					if ( function_exists( $function ) ) {
+						add_action( 'suki/frontend/content_header', $function, $priority );
+					}
+
+					// Increment priority number.
+					$priority = $priority + 10;
 				}
-
-				// Increment priority number.
-				$priority = $priority + 10;
 			}
 		}
 	}

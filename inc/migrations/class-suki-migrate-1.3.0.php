@@ -43,8 +43,9 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_page_header_to_hero_section();
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
+		$this->migrate_page_settings_meta_box();
 
-		$this->migrate_page_settings_keys();
+		$this->migrate_page_settings_keys(); // should be run last.
 	}
 
 	/**
@@ -91,7 +92,7 @@ class Suki_Migrate_1_3_0 {
 				// Check if user ever filled the custom title text options.
 				if ( isset( $mod['page_header_title_text__' . $ps_type ] ) ) {
 					// Move the value to a new key.
-					set_theme_mod( $ps_type . '_title', $mod['page_header_title_text__' . $ps_type ] );
+					$mod['title'] = $mod['page_header_title_text__' . $ps_type ];
 
 					// Remove the old key.
 					unset( $mod['page_header_title_text__' . $ps_type ] );
@@ -299,6 +300,41 @@ class Suki_Migrate_1_3_0 {
 			}
 
 			set_theme_mod( 'header_mobile_elements_' . $location, $elements );
+		}
+	}
+
+	/**
+	 * Migrate some keys on page settings meta box.
+	 *
+	 * Keys to be changed:
+	 * - "content_hide_thumbnail" => "disable_thumbnail".
+	 * - "content_hide_title" => "disable_content_header".
+	 */
+	private function migrate_page_settings_meta_box() {
+		$posts = get_posts( array(
+			'posts_per_page' => -1,
+			'meta_key'       => '_suki_page_settings',
+			'meta_compare'   => 'EXISTS',
+		) );
+
+		foreach ( $posts as $post ) {
+			$value = get_post_meta( $post->ID, '_suki_page_settings', true );
+
+			// Featured Image
+			if ( isset( $value['content_hide_thumbnail'] ) ) {
+				$value['disable_thumbnail'] = $value['content_hide_thumbnail'];
+
+				unset( $value['content_hide_thumbnail'] );
+			}
+
+			// Content header
+			if ( isset( $value['content_hide_title'] ) ) {
+				$value['disable_content_header'] = $value['content_hide_title'];
+
+				unset( $value['content_hide_title'] );
+			}
+
+			update_post_meta( $post->ID, '_suki_page_settings', $value );
 		}
 	}
 

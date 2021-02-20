@@ -946,18 +946,31 @@ $add['error_404_search_bar'] = 1;
 
 /**
  * ====================================================
- * Other Pages > [Custom Post Types]
+ * Other Pages > [Custom Post Type] Archive Page
  * ====================================================
  */
 
 foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 	// Only process archives.
-	if ( preg_match( '/(_single|_archive)/', $ps_type ) ) {
-		continue;
+	if ( preg_match( '/(_archive)/', $ps_type ) ) {
+		$add[ $ps_type . '_content_header'] = array( 'archive-title', 'archive-description' );
+		$add[ $ps_type . '_content_header_alignment'] = 'left';
 	}
+}
 
-	// Extract the post type slug from $ps_type.
-	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
+/**
+ * ====================================================
+ * Other Pages > Single [Custom Post Types] Page
+ * ====================================================
+ */
+
+foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+	// Only process singular.
+	if ( preg_match( '/(_single)/', $ps_type ) ) {
+		$add[ $ps_type . '_content_header'] = array( 'entry-title' );
+		$add[ $ps_type . '_content_header_alignment'] = 'left';
+		$add[ $ps_type . '_content_thumbnail'] = 'after';
+	}
 }
 
 return $add;

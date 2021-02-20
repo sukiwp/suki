@@ -42,7 +42,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	// Elements
 	$key = $option_prefix . '_content_header';
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key, array( 'archive-title', 'archive-description' ) ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
 	) );
 	$wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, $key, array(
@@ -59,7 +59,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	// Alignment
 	$key = $option_prefix . '_content_header_alignment';
 	$wp_customize->add_setting( $key, array(
-		'default'     => suki_array_value( $defaults, $key, 'left' ),
+		'default'     => suki_array_value( $defaults, $key ),
 		'transport'   => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	) );
