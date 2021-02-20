@@ -52,6 +52,23 @@ input, select, textarea {
 	padding: 0 10px;
 }
 
+.suki-admin-form-field-device-group {
+	display: inline-block;
+	margin-right: 2em;
+}
+
+.suki-admin-form-field-device-group:first-child {
+	margin-right: 0;
+}
+
+.suki-admin-form-field-device-group > * {
+	vertical-align: middle;
+}
+
+.suki-admin-form-field-device-group select {
+	min-width: 9em;
+}
+
 .select2-container .select2-results__group {
 	padding: 6px;
 }

@@ -77,12 +77,18 @@ class Suki_Admin_Metabox_Page_Settings {
 	}
 
 	/**
+	 * ====================================================
+	 * Public functions
+	 * ====================================================
+	 */
+
+	/**
 	 * Return page settings values of the specified object (post or term object).
 	 *
 	 * @param WP_Post|WP_Term $obj
 	 * @return array
 	 */
-	private function get_values( $obj ) {
+	public function get_values( $obj ) {
 		$option_key = 'suki_page_settings';
 
 		if ( is_a( $obj, 'WP_Post' ) ) {
@@ -362,38 +368,38 @@ class Suki_Admin_Metabox_Page_Settings {
 		$values = $this->get_values( $obj );
 		?>
 		<div class="suki-admin-form-row">
-			<div class="suki-admin-form-label"><label><?php esc_html_e( 'Desktop header', 'suki' ); ?></label></div>
+			<div class="suki-admin-form-label"><label><?php esc_html_e( 'Header', 'suki' ); ?></label></div>
 			<div class="suki-admin-form-field">
-				<?php
-				$key = 'disable_header';
-				Suki_Admin_Fields::render_field( array(
-					'name'        => $option_key . '[' . $key . ']',
-					'type'        => 'select',
-					'choices'     => array(
-						''  => esc_html__( '&#x2714; Visible', 'suki' ),
-						'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
-					),
-					'value'       => suki_array_value( $values, $key ),
-				) );
-				?>
-			</div>
-		</div>
-
-		<div class="suki-admin-form-row">
-			<div class="suki-admin-form-label"><label><?php esc_html_e( 'Mobile header', 'suki' ); ?></label></div>
-			<div class="suki-admin-form-field">
-				<?php
-				$key = 'disable_mobile_header';
-				Suki_Admin_Fields::render_field( array(
-					'name'        => $option_key . '[' . $key . ']',
-					'type'        => 'select',
-					'choices'     => array(
-						''  => esc_html__( '&#x2714; Visible', 'suki' ),
-						'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
-					),
-					'value'       => suki_array_value( $values, $key ),
-				) );
-				?>
+				<label class="suki-admin-form-field-device-group">
+					<span class="dashicons dashicons-desktop"></span>
+					<?php
+					$key = 'disable_header';
+					Suki_Admin_Fields::render_field( array(
+						'name'        => $option_key . '[' . $key . ']',
+						'type'        => 'select',
+						'choices'     => array(
+							''  => esc_html__( '&#x2714; Visible', 'suki' ),
+							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						),
+						'value'       => suki_array_value( $values, $key ),
+					) );
+					?>
+				</label>
+				<label class="suki-admin-form-field-device-group">
+					<span class="dashicons dashicons-tablet"></span>
+					<?php
+					$key = 'disable_mobile_header';
+					Suki_Admin_Fields::render_field( array(
+						'name'        => $option_key . '[' . $key . ']',
+						'type'        => 'select',
+						'choices'     => array(
+							''  => esc_html__( '&#x2714; Visible', 'suki' ),
+							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						),
+						'value'       => suki_array_value( $values, $key ),
+					) );
+					?>
+				</label>
 			</div>
 		</div>
 

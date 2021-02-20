@@ -70,6 +70,23 @@ input, select, textarea {
 	padding: 0 10px;
 }
 
+.suki-admin-form-field-device-group {
+	display: inline-block;
+	margin-left: 2em;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	> * {
+		vertical-align: middle;
+	}
+
+	select {
+		min-width: 9em;
+	}
+}
+
 .select2-container {
 	.select2-results__group {
 		padding: 6px;		
