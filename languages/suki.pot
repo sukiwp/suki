@@ -422,67 +422,67 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: inc/template-tags.php:374
+#: inc/template-tags.php:381
 msgid "Page Not Found"
 msgstr ""
 
-#: inc/template-tags.php:367
+#: inc/template-tags.php:374
 msgid "Search: %s"
 msgstr ""
 
 #. translators: %s: page number.
-#: inc/template-tags.php:449
+#: inc/template-tags.php:456
 msgid " (Page %d)"
 msgstr ""
 
-#: inc/template-tags.php:470
+#: inc/template-tags.php:477
 msgid "Home"
 msgstr ""
 
-#: inc/template-tags.php:508
+#: inc/template-tags.php:515
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:841, inc/template-tags.php:845
+#: inc/template-tags.php:848, inc/template-tags.php:852
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:1158, inc/customizer/options/page--search.php:56
+#: inc/template-tags.php:1165, inc/customizer/options/page--search.php:56
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:1202
+#: inc/template-tags.php:1209
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1203
+#: inc/template-tags.php:1210
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1249
+#: inc/template-tags.php:1256
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1251
+#: inc/template-tags.php:1258
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1274
+#: inc/template-tags.php:1281
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1268
+#: inc/template-tags.php:1275
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: inc/template-tags.php:1301
+#: inc/template-tags.php:1308
 msgid "Comments are closed."
 msgstr ""
 

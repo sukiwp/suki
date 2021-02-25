@@ -2356,7 +2356,7 @@ $add['scroll_to_top_hover_text_color'] = array(
 $add['post_archive_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => 'body.archive .content-header',
+		'element'  => 'body.blog .content-header, body.category .content-header, body.tag .content-header, body.author .content-header, body.date .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2678,5 +2678,50 @@ $add['page_single_content_header_alignment'] = array(
 		'pattern'  => 'suki-text-align-$',
 	),
 );
+
+/**
+ * ====================================================
+ * Other Pages > [Custom Post Type] Archive Page
+ * ====================================================
+ */
+
+foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
+	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
+		continue;
+	}
+
+	$element = 'body.post-type-archive-' . $post_type . ' .content-header';
+	foreach ( get_object_taxonomies( $post_type ) as $tax ) {
+		$element .= ', body.tax-' . $tax . ' .content-header';
+	}
+
+	$add[ $post_type . '_archive_content_header_alignment'] = array(
+		array(
+			'type'     => 'class',
+			'element'  => $element,
+			'pattern'  => 'suki-text-align-$',
+		),
+	);
+}
+
+/**
+ * ====================================================
+ * Other Pages > Single [Custom Post Types] Page
+ * ====================================================
+ */
+
+foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
+	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
+		continue;
+	}
+
+	$add[ $post_type . '_single_content_header_alignment'] = array(
+		array(
+			'type'     => 'class',
+			'element'  => 'body.single-' . $post_type . ' .content-header',
+			'pattern'  => 'suki-text-align-$',
+		),
+	);
+}
 
 return $add;

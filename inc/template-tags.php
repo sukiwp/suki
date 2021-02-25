@@ -291,12 +291,19 @@ function suki_breadcrumb() {
 			// Other kind of archives: taxonomy archive.
 			if ( is_archive() || is_home() ) {
 				$post_type = get_post_type();
+				$post_type_obj = get_post_type_object( $post_type );
 
-				if ( ! empty( $post_type ) && get_post_type_archive_link( $post_type ) !== home_url( '/' ) ) {
-					$post_type_obj = get_post_type_object( $post_type );
-
+				// Post type archive
+				if ( 'post' === $post_type ) {
+					if ( 'page' === get_option( 'show_on_front' ) ) {
+						$items['post_type_archive'] = array(
+							'label' => get_the_title( get_option( 'page_for_posts' ) ),
+							'url'   => is_post_type_archive() || is_home() ? '' : get_post_type_archive_link( $post_type ),
+						);
+					}
+				} else {
 					$items['post_type_archive'] = array(
-						'label' => 'post' === $post_type ? get_the_title( get_option( 'page_for_posts' ) ) : $post_type_obj->labels->name,
+						'label' => $post_type_obj->labels->name,
 						'url'   => is_post_type_archive() || is_home() ? '' : get_post_type_archive_link( $post_type ),
 					);
 				}
