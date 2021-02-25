@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			// If it's included in a posts archive page.
 			else {
-				if ( 'excerpt' === suki_get_theme_mod( 'entry_excerpt' ) ) {
+				if ( 'excerpt' === suki_get_theme_mod( 'entry_content' ) ) {
 					if ( 0 < intval( suki_get_theme_mod( 'entry_excerpt_length' ) ) ) {
 						// Excerpt
 						the_excerpt();
