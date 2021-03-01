@@ -33,8 +33,9 @@ $add['color_palette_8'] = $colors['black'];
  * ====================================================
  */
 
-$add['breadcrumb'] = 0;
 $add['breadcrumb_plugin'] = '';
+$add['breadcrumb_trail_home'] = 1;
+$add['breadcrumb_trail_current_page'] = 1;
 
 /**
  * ====================================================

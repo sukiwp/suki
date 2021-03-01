@@ -12,6 +12,20 @@ $add = array();
 
 /**
  * ====================================================
+ * Global Modules > Breadcrumb
+ * ====================================================
+ */
+
+$add['breadcrumb_trail_home'] =
+$add['breadcrumb_trail_current_page'] = array(
+	array(
+		'setting'  => 'breadcrumb_plugin',
+		'value'    => '',
+	),
+);
+
+/**
+ * ====================================================
  * Page Canvas
  * ====================================================
  */

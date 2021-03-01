@@ -37,3 +37,34 @@ $wp_customize->add_control( $key, array(
 	),
 	'priority'    => 10,
 ) );
+
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_breadcrumb', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 20,
+) ) );
+
+// Show "Home" in the trail
+$key = 'breadcrumb_trail_home';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Show "Home" in the trail', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+// Show current page in the breadcrumb
+$key = 'breadcrumb_trail_current_page';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Show current page in the trail', 'suki' ),
+	'priority'    => 20,
+) ) );

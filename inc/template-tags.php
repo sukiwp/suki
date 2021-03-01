@@ -288,6 +288,14 @@ function suki_breadcrumb() {
 			 * Build breadcrumb trails.
 			 */
 
+			// Home
+			if ( intval( suki_get_theme_mod( 'breadcrumb_trail_home' ) ) ) {
+				$items['home'] = array(
+					'label' => esc_html__( 'Home', 'suki' ),
+					'url'   => home_url( '/' ),
+				);
+			}
+
 			// Other kind of archives: taxonomy archive.
 			if ( is_archive() || is_home() ) {
 				$post_type = get_post_type();
@@ -331,7 +339,6 @@ function suki_breadcrumb() {
 						);
 					}
 				}
-
 				// Author archive
 				elseif ( is_author() ) {
 					$author = get_userdata( get_query_var( 'author' ) );
@@ -341,7 +348,6 @@ function suki_breadcrumb() {
 						'label' => $author->display_name,
 					);
 				}
-
 				// Taxonomy archive
 				elseif ( is_category() || is_tag() || is_tax() ) {
 					$term = get_queried_object();
@@ -456,7 +462,12 @@ function suki_breadcrumb() {
 				$items[ $last_key ]['label'] .= sprintf( esc_html__( ' (Page %d)', 'suki' ), get_query_var( 'paged' ), $paged );
 			}
 
-			// Allow develoeprs to modify the breadcrumb trail.
+			// Remove last item in the trail if "current page" is set to hidden.
+			if ( ! intval( suki_get_theme_mod( 'breadcrumb_trail_current_page' ) ) ) {
+				unset( $items[ $last_key ] );
+			}
+
+			// Allow developers to modify the breadcrumb trail.
 			$items = apply_filters( 'suki/frontend/breadcrumb_trail', $items );
 
 			// Abort if no breadcrumb trail found.
@@ -468,15 +479,11 @@ function suki_breadcrumb() {
 			 * Render breadcrumb markup.
 			 */
 
-			$i = 1;
-
 			// Opening tag.
 			$html = '<ol class="suki-breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">';
-
-			// Always add "Home" as the first trail.
-			$html .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="' . esc_url( home_url( '/' ) ) . '"><span itemprop="name">' . esc_html__( 'Home', 'suki' ) . '</span></a><meta itemprop="position" content="' . esc_attr( $i ) . '" /></li>';
-
-			// Add other trails.
+			
+			// Build breadcrumb markup.
+			$i = 0;
 			foreach ( $items as $index => $item ) {
 				$html .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 

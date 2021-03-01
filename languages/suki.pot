@@ -422,67 +422,67 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: inc/template-tags.php:381
+#: inc/template-tags.php:294
+msgid "Home"
+msgstr ""
+
+#: inc/template-tags.php:387
 msgid "Page Not Found"
 msgstr ""
 
-#: inc/template-tags.php:374
+#: inc/template-tags.php:380
 msgid "Search: %s"
 msgstr ""
 
 #. translators: %s: page number.
-#: inc/template-tags.php:456
+#: inc/template-tags.php:462
 msgid " (Page %d)"
 msgstr ""
 
-#: inc/template-tags.php:477
-msgid "Home"
-msgstr ""
-
-#: inc/template-tags.php:515
+#: inc/template-tags.php:522
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:848, inc/template-tags.php:852
+#: inc/template-tags.php:855, inc/template-tags.php:859
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:1165, inc/customizer/options/page--search.php:56
+#: inc/template-tags.php:1172, inc/customizer/options/page--search.php:56
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: inc/template-tags.php:1209
+#: inc/template-tags.php:1216
 msgid "Older Posts"
 msgstr ""
 
-#: inc/template-tags.php:1210
+#: inc/template-tags.php:1217
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1256
+#: inc/template-tags.php:1263
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: inc/template-tags.php:1258
+#: inc/template-tags.php:1265
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: inc/template-tags.php:1281
+#: inc/template-tags.php:1288
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-tags.php:1275
+#: inc/template-tags.php:1282
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: inc/template-tags.php:1308
+#: inc/template-tags.php:1315
 msgid "Comments are closed."
 msgstr ""
 
@@ -830,15 +830,15 @@ msgstr ""
 msgid "Single %s Page"
 msgstr ""
 
-#: inc/customizer/defaults.php:286
+#: inc/customizer/defaults.php:287
 msgid "Insert HTML text here"
 msgstr ""
 
-#: inc/customizer/defaults.php:786
+#: inc/customizer/defaults.php:787
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: inc/customizer/defaults.php:846, inc/customizer/defaults.php:878, inc/customizer/defaults.php:913
+#: inc/customizer/defaults.php:847, inc/customizer/defaults.php:879, inc/customizer/defaults.php:914
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
@@ -1907,6 +1907,14 @@ msgstr ""
 
 #: inc/customizer/options/global--breadcrumb.php:36
 msgid "Breadcrumb Trail"
+msgstr ""
+
+#: inc/customizer/options/global--breadcrumb.php:56
+msgid "Show \"Home\" in the trail"
+msgstr ""
+
+#: inc/customizer/options/global--breadcrumb.php:68
+msgid "Show current page in the trail"
 msgstr ""
 
 #: inc/customizer/options/global--color-palette.php:23
