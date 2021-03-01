@@ -1851,7 +1851,7 @@ p.demo_store,
 		// 	@include border( bottom );
 		// }
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+		@media screen and ( max-width: $breakpoint_768  - 0.1px ) {
 			&.shop_table_responsive {
 				thead {
 					display: none;
@@ -3447,7 +3447,7 @@ p.demo_store,
 			vertical-align: middle;
 		}
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+		@media screen and ( max-width: $breakpoint_768  - 0.1px ) {
 			&.shop_table_responsive {
 				thead {
 					display: none;

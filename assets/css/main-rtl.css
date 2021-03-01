@@ -724,13 +724,13 @@ span.select2-container .select2-dropdown--above .select2-results {
 	}
 }
 
-@media screen and (min-width: 500px) and (max-width: 1023px) {
+@media screen and (min-width: 500px) and (max-width: 1023.9px) {
 	.suki-hide-on-tablet {
 		display: none !important;
 	}
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 499.9px) {
 	.suki-hide-on-mobile {
 		display: none !important;
 	}
@@ -1516,7 +1516,7 @@ body.suki-page-layout-boxed #page {
 	top: 32px;
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 782.9px) {
 	.admin-bar .suki-popup {
 		top: 46px;
 	}
@@ -1662,7 +1662,7 @@ body.suki-page-layout-boxed #page {
 	min-width: 0;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.content-area {
 		width: auto !important;
 		margin: 0 !important;
@@ -1707,7 +1707,7 @@ body.suki-page-layout-boxed #page {
 	border-style: solid;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.sidebar {
 		-ms-flex-preferred-size: 100% !important;
 		flex-basis: 100% !important;
@@ -1888,7 +1888,7 @@ body.error404 .error-404-home-button {
 	display: block;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-header-main {
 		display: none;
 	}
@@ -1898,7 +1898,7 @@ body.error404 .error-404-home-button {
 	display: none;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-header-mobile {
 		display: block;
 	}
@@ -2319,7 +2319,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	display: none;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-header-mobile-vertical {
 		display: block;
 	}
@@ -2574,7 +2574,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	width: 16.667%;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-footer-widgets-bar-columns-2 .suki-footer-widgets-bar-column,
 	.suki-footer-widgets-bar-columns-4 .suki-footer-widgets-bar-column,
 	.suki-footer-widgets-bar-columns-6 .suki-footer-widgets-bar-column {
@@ -2586,7 +2586,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	}
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 499.9px) {
 	.suki-footer-widgets-bar-columns-2 .suki-footer-widgets-bar-column,
 	.suki-footer-widgets-bar-columns-3 .suki-footer-widgets-bar-column,
 	.suki-footer-widgets-bar-columns-4 .suki-footer-widgets-bar-column,
@@ -2614,7 +2614,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	white-space: nowrap;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-footer-bottom-bar-row {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
@@ -2629,7 +2629,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	max-width: 100%;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-footer-bottom-bar-column {
 		width: 100%;
 		margin: 0 0 1em;
@@ -2686,7 +2686,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	justify-content: center;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.9px) {
 	.suki-footer-menu ul {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
@@ -2798,7 +2798,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	border: none;
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 499.9px) {
 	.suki-loop-grid .entry {
 		width: 100% !important;
 	}
@@ -2812,7 +2812,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	width: 33.33%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 	.suki-loop-grid.suki-loop-grid-3-columns .entry {
 		width: 50%;
 	}
@@ -2822,7 +2822,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	width: 25%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 	.suki-loop-grid.suki-loop-grid-4-columns .entry {
 		width: 50%;
 	}
@@ -3020,7 +3020,7 @@ a.more-link {
 	min-height: 80px;
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 499.9px) {
 	.entry-author-body {
 		text-align: center;
 	}

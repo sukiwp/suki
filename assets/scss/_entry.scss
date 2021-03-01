@@ -34,7 +34,7 @@
 		padding-right: 15px; // postmessage: blog_index_grid_columns_gutter
 		border: none;
 
-		@media screen and ( max-width: $breakpoint_500 - 1px ) {
+		@media screen and ( max-width: $breakpoint_500  - 0.1px ) {
 			width: 100% !important;
 		}
 	}
@@ -46,7 +46,7 @@
 	.suki-loop-grid.suki-loop-grid-3-columns & {
 		width: 33.33%;
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+		@media screen and ( max-width: $breakpoint_768  - 0.1px ) {
 			width: 50%;
 		}
 	}
@@ -54,7 +54,7 @@
 	.suki-loop-grid.suki-loop-grid-4-columns & {
 		width: 25%;
 
-		@media screen and ( max-width: $breakpoint_768 - 1px ) {
+		@media screen and ( max-width: $breakpoint_768  - 0.1px ) {
 			width: 50%;
 		}
 	}
@@ -231,7 +231,7 @@ a.more-link {
 	position: relative;
 	min-height: 80px;
 
-	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+	@media screen and ( max-width: $breakpoint_500  - 0.1px ) {
 		text-align: center;
 	}
 

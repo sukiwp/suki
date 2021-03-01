@@ -1399,7 +1399,7 @@ p.demo_store a,
 	text-decoration: none;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 	.woocommerce table.shop_table.shop_table_responsive thead {
 		display: none;
 	}
@@ -2599,7 +2599,7 @@ p.demo_store a,
 	vertical-align: middle;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 	.woocommerce-cart table.cart.shop_table_responsive thead {
 		display: none;
 	}

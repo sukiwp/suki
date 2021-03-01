@@ -243,7 +243,7 @@ input, select, textarea {
 	vertical-align: middle;
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 782.9px) {
 	.suki-admin-upload-control .suki-admin-upload-control-button {
 		height: 26px !important;
 	}
@@ -525,7 +525,7 @@ input, select, textarea {
 	margin: 1em 0;
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 782.9px) {
 	.appearance_page_suki.auto-fold #wpcontent {
 		padding-right: 0;
 	}
@@ -555,7 +555,7 @@ input, select, textarea {
 	text-decoration: none;
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 782.9px) {
 	.suki-admin-wrap {
 		margin: 0;
 	}
@@ -636,7 +636,7 @@ input, select, textarea {
 	display: flex;
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 782.9px) {
 	.suki-admin-content-row {
 		display: block;
 	}

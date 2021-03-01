@@ -47,7 +47,7 @@
 		width: 16.667%;
 	}
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 		.suki-footer-widgets-bar-columns-2 &,
 		.suki-footer-widgets-bar-columns-4 &,
 		.suki-footer-widgets-bar-columns-6 & {
@@ -60,7 +60,7 @@
 		}
 	}
 
-	@media screen and ( max-width: $breakpoint_500 - 1px ) {
+	@media screen and ( max-width: $breakpoint_500  - 0.1px ) {
 		.suki-footer-widgets-bar-columns-2 &,
 		.suki-footer-widgets-bar-columns-3 &,
 		.suki-footer-widgets-bar-columns-4 &,
@@ -88,7 +88,7 @@
 	margin: 0 -12px; // postmessage: footer_bottom_bar_items_gutter
 	white-space: nowrap;
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 		flex-wrap: wrap;
 		white-space: normal;
 		margin-bottom: -1em;
@@ -99,7 +99,7 @@
 	display: flex;
 	max-width: 100%;
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 		width: 100%;
 		margin: 0 0 1em;
 		justify-content: center !important;
@@ -142,7 +142,7 @@
 		display: flex;
 		justify-content: center;
 
-		@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+		@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 			flex-wrap: wrap;
 		}
 
