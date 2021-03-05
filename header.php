@@ -62,13 +62,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				 */
 				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
 					/**
-					 * Hero Section
-					 */
-					if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
-						suki_hero();
-					}
-
-					/**
 					 * Content Section - opening tag
 					 */
 					suki_content_open();
