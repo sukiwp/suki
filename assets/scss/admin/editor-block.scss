@@ -7,52 +7,70 @@
  */
 
 .block-editor .editor-styles-wrapper {
-	.block-editor__typewriter {
-		@include base(); // postmessage: TODO
+	@include base();
 
-		@import "../_base";
+	.block-editor__typewriter * {
+		border-color: $color_border; // postmessage: border_color
 
-		@import "../_wordpress";
-
-		@import "../_gutenberg";
-
-		.editor-post-title__block .editor-post-title__input {
-			@include h1();
-			border-color: transparent; // reset
-			border-radius: 0;
-			font-family: inherit;
+		&, &:before, &:after {
+			box-sizing: border-box;
 		}
 
-		/**
-		 * Styles to be overrided by Customizer settings.
-		 */
+		&:focus {
+			outline: 0;
+		}
+	}
 
-		.wp-block {
-			width: 100%;
-			max-width: 720px; // postmessage: content_narrow_width
-			margin-left: auto;
-			margin-right: auto;
+	@import "../_base";
 
-			&[data-align="wide"] {
-				max-width: 1140px; // postmessage: TODO
-			}
+	@import "../_wordpress";
 
-			&[data-align="full"] {
-				width: calc(100% + 20px);
-				max-width: calc(100% + 20px); // 20px = 2 x 10px (padding left & right of Gutenberg)
-			}
+	@import "../_gutenberg";
+
+	.editor-post-title__block .editor-post-title__input {
+		@include h1();
+		border-color: transparent; // reset
+		border-radius: 0;
+		font-family: inherit;
+	}
+
+	/**
+	 * Styles to be overrided by Customizer settings.
+	 */
+
+	.wp-block {
+		width: 100%;
+		max-width: 720px; // postmessage: content_narrow_width
+		margin-left: auto;
+		margin-right: auto;
+
+		&[data-align="wide"] {
+			max-width: 1140px; // postmessage: TODO
 		}
 
-		.block-editor-block-list__block[data-type="core/separator"] + .block-editor-block-list__block[data-type="core/separator"] .wp-block-separator {
+		&[data-align="full"] {
+			width: calc(100% + 20px); // 20px = 2 x 10px (padding left & right of Gutenberg)
+			max-width: calc(100% + 20px); // 20px = 2 x 10px (padding left & right of Gutenberg)
+		}
+	}
+
+	.block-editor-block-list__block[data-type="core/separator"] {
+		padding: 0;
+
+		& + .block-editor-block-list__block[data-type="core/separator"] .wp-block-separator {
 			margin-top: 0;
 		}
+	}
 
-		.wp-block-columns {
-			.wp-block, .wp-block-column {
-				width: inherit;
-				max-width: inherit;
-			}
+	.wp-block-columns {
+		.wp-block, .wp-block-column {
+			width: inherit;
+			max-width: inherit;
 		}
+	}
+
+	.block-list-appender {
+		margin-top: -1.5rem;
 	}
 }
 

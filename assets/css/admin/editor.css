@@ -1,15 +1,3 @@
-* {
-	border-color: rgba(0, 0, 0, 0.1);
-}
-
-*, *:before, *:after {
-	box-sizing: border-box;
-}
-
-*:focus {
-	outline: 0;
-}
-
 html {
 	min-height: 100vh;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -19,6 +7,18 @@ html {
 	line-height: 1.7;
 	letter-spacing: 0;
 	text-transform: none;
+}
+
+html * {
+	border-color: rgba(0, 0, 0, 0.1);
+}
+
+html *, html *:before, html *:after {
+	box-sizing: border-box;
+}
+
+html *:focus {
+	outline: 0;
 }
 
 body {
