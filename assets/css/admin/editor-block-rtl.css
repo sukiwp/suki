@@ -1024,20 +1024,26 @@ li > .block-editor .editor-styles-wrapper .block-editor__typewriter ul, li >
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block {
-	width: 720px;
-	max-width: 100%;
+	width: 100%;
+	max-width: 720px;
 	margin-right: auto;
 	margin-left: auto;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block[data-align="wide"] {
-	width: 1140px;
+	max-width: 1140px;
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block[data-align="full"] {
-	width: 100%;
+	width: calc(100% + 20px);
+	max-width: calc(100% + 20px);
 }
 
 .block-editor .editor-styles-wrapper .block-editor__typewriter .block-editor-block-list__block[data-type="core/separator"] + .block-editor-block-list__block[data-type="core/separator"] .wp-block-separator {
 	margin-top: 0;
+}
+
+.block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-columns .wp-block, .block-editor .editor-styles-wrapper .block-editor__typewriter .wp-block-columns .wp-block-column {
+	width: inherit;
+	max-width: inherit;
 }

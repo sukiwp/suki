@@ -28,22 +28,30 @@
 		 */
 
 		.wp-block {
-			width: 720px; // postmessage: content_narrow_width
-			max-width: 100%;
+			width: 100%;
+			max-width: 720px; // postmessage: content_narrow_width
 			margin-left: auto;
 			margin-right: auto;
 
 			&[data-align="wide"] {
-				width: 1140px; // postmessage: TODO
+				max-width: 1140px; // postmessage: TODO
 			}
 
 			&[data-align="full"] {
-				width: 100%; // postmessage: TODO
+				width: calc(100% + 20px);
+				max-width: calc(100% + 20px); // 20px = 2 x 10px (padding left & right of Gutenberg)
 			}
 		}
 
 		.block-editor-block-list__block[data-type="core/separator"] + .block-editor-block-list__block[data-type="core/separator"] .wp-block-separator {
 			margin-top: 0;
+		}
+
+		.wp-block-columns {
+			.wp-block, .wp-block-column {
+				width: inherit;
+				max-width: inherit;
+			}
 		}
 	}
 }
