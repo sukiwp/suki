@@ -26,12 +26,18 @@
 
 .alignleft {
 	// display: inline-block;
+	/*rtl:ignore*/
 	float: left;
+	
+	/*rtl:ignore*/
+	text-align: left;
+	
 	margin: 0 1.25em 0 0;
 }
 
 .alignright {
 	// display: inline-block;
+	/*rtl:ignore*/
 	float: right;
 	margin: 0 0 0 1.25em;
 }
@@ -40,6 +46,8 @@
 	display: block;
 	clear: both;
 	margin: 0 auto;
+	float: none;
+	text-align: center;
 }
 
 // -------------------------------------------------------------
