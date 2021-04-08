@@ -26,18 +26,6 @@
 	outline: 0;
 }
 
-.block-editor .editor-styles-wrapper * {
-	border-color: rgba(0, 0, 0, 0.1);
-}
-
-.block-editor .editor-styles-wrapper *, .block-editor .editor-styles-wrapper *:before, .block-editor .editor-styles-wrapper *:after {
-	box-sizing: border-box;
-}
-
-.block-editor .editor-styles-wrapper *:focus {
-	outline: 0;
-}
-
 .block-editor .editor-styles-wrapper html {
 	min-height: 100vh;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -47,6 +35,18 @@
 	line-height: 1.7;
 	letter-spacing: 0;
 	text-transform: none;
+}
+
+.block-editor .editor-styles-wrapper html * {
+	border-color: rgba(0, 0, 0, 0.1);
+}
+
+.block-editor .editor-styles-wrapper html *, .block-editor .editor-styles-wrapper html *:before, .block-editor .editor-styles-wrapper html *:after {
+	box-sizing: border-box;
+}
+
+.block-editor .editor-styles-wrapper html *:focus {
+	outline: 0;
 }
 
 .block-editor .editor-styles-wrapper body {
