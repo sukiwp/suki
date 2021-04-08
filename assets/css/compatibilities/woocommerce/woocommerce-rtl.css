@@ -1497,7 +1497,6 @@ p.demo_store a,
 }
 
 .woocommerce form .form-row [placeholder]:focus::-webkit-input-placeholder {
-	-webkit-transition: opacity 0.5s 0.5s ease;
 	transition: opacity 0.5s 0.5s ease;
 	opacity: 0;
 }
