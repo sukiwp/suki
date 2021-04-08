@@ -2,22 +2,22 @@
 // Global
 // -------------------------------------------------------------
 
-* {
-	border-color: $color_border; // postmessage: border_color
-
-	&, &:before, &:after {
-		box-sizing: border-box;
-	}
-
-	&:focus {
-		outline: 0;
-	}
-}
-
 html {
 	min-height: 100vh;
 
 	@include base();
+
+	* {
+		border-color: $color_border; // postmessage: border_color
+
+		&, &:before, &:after {
+			box-sizing: border-box;
+		}
+
+		&:focus {
+			outline: 0;
+		}
+	}
 }
 
 body {

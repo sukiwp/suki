@@ -166,6 +166,10 @@ a.more-link {
 	margin: 0 0 2rem;
 	@include float-container();
 
+	&:last-child {
+		margin-bottom: 0 !important;
+	}
+
 	> *:last-child {
 		margin-bottom: 0;
 	}
@@ -213,12 +217,12 @@ a.more-link {
 			margin-bottom: 0;
 		}
 	}
+
+	.tagcloud {
+		margin: 0 0 1.5em;
+	}
 }
 
-// Tags
-.entry-tags {
-	margin: 0 0 1.5em;
-}
 
 // Author box
 .entry-author {

@@ -96,6 +96,7 @@ class Suki_Compatibility_WooCommerce {
 	public function enqueue_css() {
 		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/compatibilities/woocommerce/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-woocommerce', 'rtl', 'replace' );
+		wp_style_add_data( 'suki-woocommerce', 'suffix', SUKI_ASSETS_SUFFIX );
 
 		// Inline CSS
 		wp_add_inline_style( 'suki-woocommerce', trim( apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' ) ) );

@@ -386,6 +386,7 @@ class Suki {
 		// Main CSS
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
+		wp_style_add_data( 'suki', 'suffix', SUKI_ASSETS_SUFFIX );
 
 		// Inline CSS
 		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/dynamic_css', '' ) ) );

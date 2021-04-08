@@ -359,6 +359,10 @@ li:not(.customize-info) div.customize-section-description {
 	vertical-align: -5px;
 }
 
+.control-section-suki-section-pro-link {
+	margin-top: 15px;
+}
+
 #customize-theme-controls .control-section-suki-section-pro-link .accordion-section-title {
 	display: block;
 	background-color: #ee5253;

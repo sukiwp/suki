@@ -251,20 +251,16 @@ figure[class*="wp-block-"] {
 				margin-bottom: 0;
 			}	
 		}
-	}
 
-	@media screen and ( min-width: 600px ) and ( max-width: 781px ) {
-		.wp-block-column {
+		@media screen and ( min-width: 600px ) and ( max-width: 781px ) {
 			flex-basis: calc( 50% - 1rem ) !important;
 
 			&:nth-child(even) {
 				margin-left: 2rem;
 			}
 		}
-	}
 
-	@media screen and ( min-width: 782px ) {
-		.wp-block-column {
+		@media screen and ( min-width: 782px ) {
 			margin-bottom: 0;
 
 			&:not(:first-child) {

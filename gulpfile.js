@@ -189,10 +189,22 @@ gulp.task( 'css_sass', function() {
 } );
 
 /**
+ * Task: Make RTL CSS files.
+ */
+gulp.task( 'css_rtl', function() {
+	var src = config.src.css.concat( [ '!./assets/css/**/*.min.css', '!./assets/css/**/*-rtl.css' ] );
+
+	return gulp.src( src )
+		.pipe( rtlcss() )
+		.pipe( rename( { suffix: '-rtl' } ) )
+		.pipe( gulp.dest( config.dest.css ) );
+} );
+
+/**
  * Task: Minify CSS files.
  */
 gulp.task( 'css_min', function() {
-	var src = config.src.css.concat( [ '!./assets/css/**/*.min.css', '!./assets/css/**/*-rtl.css' ] );
+	var src = config.src.css.concat( [ '!./assets/css/**/*.min.css' ] );
 
 	return gulp.src( src )
 		.pipe( mmq() )
@@ -202,21 +214,9 @@ gulp.task( 'css_min', function() {
 } );
 
 /**
- * Task: Make RTL CSS files.
- */
-gulp.task( 'css_rtl', function() {
-	var src = config.src.css.concat( [ '!./assets/css/**/*-rtl.css' ] );
-
-	return gulp.src( src )
-		.pipe( rtlcss() )
-		.pipe( rename( { suffix: '-rtl' } ) )
-		.pipe( gulp.dest( config.dest.css ) );
-} );
-
-/**
  * Task: Run group of tasks regarding CSS files in sequence.
  */
-gulp.task( 'css', gulp.series( 'css_sass', 'css_min', 'css_rtl' ) );
+gulp.task( 'css', gulp.series( 'css_sass', 'css_rtl', 'css_min' ) );
 
 /**
  * Task: Minify JS files.

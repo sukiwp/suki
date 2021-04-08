@@ -129,6 +129,7 @@ class Suki_Admin {
 		// Enqueue CSS files
 		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
+		wp_style_add_data( 'suki-admin', 'suffix', SUKI_ASSETS_SUFFIX );
 
 		/**
 		 * Hook: Styles to be included after admin CSS
@@ -363,6 +364,7 @@ class Suki_Admin {
 	public function enqueue_block_editor_assets() {
 		wp_enqueue_style( 'suki-editor-block', SUKI_CSS_URL . '/admin/editor-block' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-editor-block', 'rtl', 'replace' );
+		wp_style_add_data( 'suki-editor-block', 'suffix', SUKI_ASSETS_SUFFIX );
 	}
 
 	/**
