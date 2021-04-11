@@ -34,6 +34,7 @@ v1.3.0
 - FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
 - FIX: Customizer Preview Frame size for Tablet and Mobile modes.
 - FIX: CSS Media Query bugs on Windows browsers - Now Windows browsers will show correct breakpoints.
+- FIX: RTL CSS issue and file naming.
 
 v1.2.13
 - FIX: Header shopping cart's count badge CSS (bug since v1.2.12).

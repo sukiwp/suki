@@ -38,7 +38,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'%' => array(
 			'min'  => 15,
 			'max'  => 40,
-			'step' => 1,
+			'step' => 0.01,
 		),
 		'px' => array(
 			'min'  => 150,
@@ -63,7 +63,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'%' => array(
 			'min'  => 0,
 			'max'  => 10,
-			'step' => 1,
+			'step' => 0.01,
 		),
 		'px' => array(
 			'min'  => 0,
@@ -151,11 +151,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'em' => array(
 			'min'  => 0,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 1,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 30,

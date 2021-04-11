@@ -249,13 +249,13 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'em' => array(
 					'min' => 0,
 					'max' => 10,
-					'step' => 0.1,
+					'step' => 0.01,
 					'label' => 'em',
 				),
 				'rem' => array(
 					'min' => 0,
 					'max' => 10,
-					'step' => 0.1,
+					'step' => 0.01,
 					'label' => 'rem',
 				),
 			),
@@ -263,7 +263,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'' => array(
 					'min' => 0,
 					'max' => 10,
-					'step' => 0.1,
+					'step' => 0.01,
 					'label' => 'em',
 				),
 			),
@@ -277,7 +277,7 @@ class Suki_Customize_Control_Typography extends Suki_Customize_Control {
 				'em' => array(
 					'min' => -2,
 					'max' => 2,
-					'step' => 0.1,
+					'step' => 0.01,
 					'label' => 'em',
 				),
 			),

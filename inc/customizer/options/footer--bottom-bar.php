@@ -106,11 +106,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'em' => array(
 			'min'  => 0,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 1,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 10,
