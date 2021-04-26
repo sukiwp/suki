@@ -154,8 +154,6 @@ li:not(.customize-info) div.customize-section-description {
 	color: inherit;
 	outline: 0;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-heading > span {
@@ -476,8 +474,6 @@ li:not(.customize-info) div.customize-section-description {
 	border-radius: 15px;
 	background-color: #fff;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .customize-control-suki-toggle input[type="checkbox"]:checked ~ .suki-toggle-ui {
@@ -1242,8 +1238,6 @@ li:not(.customize-info) div.customize-section-description {
 		transform: translateY(100%);
 		box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.1);
 		transition: all 0.2s;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .customize-control:last-child,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .customize-control:last-child {
@@ -1269,8 +1263,6 @@ li:not(.customize-info) div.customize-section-description {
 		visibility: visible;
 		opacity: 1;
 		transition: opacity 0.2s 0.2s;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
 	}
 	#customize-controls #sub-accordion-section-suki_section_header_builder .suki-small-label,
 	#customize-controls #sub-accordion-section-suki_section_footer_builder .suki-small-label {

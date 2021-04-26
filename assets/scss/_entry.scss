@@ -84,12 +84,12 @@
 
 // Title
 .entry-title {
-	margin: 0 0 0.75rem;
+	margin: 0 0 1rem;
 	@include h1();
 }
 
 .entry-small-title {
-	margin: 0 0 0.25rem;
+	margin: 0 0 0.5rem;
 	@include h3();
 }
 

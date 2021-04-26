@@ -35,6 +35,7 @@ v1.3.0
 - FIX: Customizer Preview Frame size for Tablet and Mobile modes.
 - FIX: CSS Media Query bugs on Windows browsers - Now Windows browsers will show correct breakpoints.
 - FIX: RTL CSS issue and file naming.
+- FIX: Blurred text rendering.
 
 v1.2.13
 - FIX: Header shopping cart's count badge CSS (bug since v1.2.12).

@@ -202,8 +202,6 @@ a {
 	text-decoration: none;
 	color: #0066cc;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 a:hover, a:focus {
@@ -342,8 +340,6 @@ a.wp-block-button__link {
 	text-transform: none;
 	text-align: center;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 button:hover, button:focus,
@@ -386,8 +382,6 @@ input[type="week"],
 	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 	padding: 10px 12px;
 	border-width: 1px;
 	border-style: solid;
@@ -431,8 +425,6 @@ textarea {
 	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 	padding: 10px 12px;
 	border-width: 1px;
 	border-style: solid;
@@ -462,8 +454,6 @@ select {
 	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 	padding: 10px 12px;
 	border-width: 1px;
 	border-style: solid;
@@ -516,8 +506,6 @@ span.select2-container .select2-selection {
 	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 	padding: 10px 12px;
 	border-width: 1px;
 	border-style: solid;
@@ -1463,8 +1451,6 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	transition: -webkit-transform 0.25s;
 	transition: transform 0.25s;
 	transition: transform 0.25s, -webkit-transform 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 #page {
@@ -1473,8 +1459,6 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	transition: -webkit-transform 0.25s;
 	transition: transform 0.25s;
 	transition: transform 0.25s, -webkit-transform 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 body.suki-page-layout-boxed {
@@ -1503,16 +1487,12 @@ body.suki-page-layout-boxed #page {
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.25s, visibility 0s 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-popup.suki-popup-active {
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 0.25s, visibility 0s 0s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .admin-bar .suki-popup {
@@ -1776,8 +1756,6 @@ body.error404 .error-404-home-button {
 .suki-logo {
 	display: block;
 	transition: color 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-logo .suki-logo-image {
@@ -1918,8 +1896,6 @@ body.error404 .error-404-home-button {
 .suki-header-section .suki-section-inner {
 	height: inherit;
 	transition: background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-row {
@@ -2025,8 +2001,6 @@ body.error404 .error-404-home-button {
 	visibility: hidden;
 	opacity: 0;
 	transition: opacity 0.25s, visibility 0s 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 	overflow-y: auto;
 }
 
@@ -2043,8 +2017,6 @@ body.error404 .error-404-home-button {
 	visibility: visible;
 	opacity: 1;
 	transition: opacity 0.25s, visibility 0s 0s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-section.suki-section-full-width .menu .sub-menu {
@@ -2340,8 +2312,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	transition: -webkit-transform 0.25s;
 	transition: transform 0.25s;
 	transition: transform 0.25s, -webkit-transform 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-mobile-vertical-position-left .suki-header-mobile-vertical-bar,
@@ -2363,8 +2333,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	transition: -webkit-transform 0.25s 0.125s;
 	transition: transform 0.25s 0.125s;
 	transition: transform 0.25s 0.125s, -webkit-transform 0.25s 0.125s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-mobile-vertical-bar .suki-header-section-vertical-column {
@@ -2427,8 +2395,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	content: "";
 	position: absolute;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:hover:before, .suki-header-menu > .menu > .menu-item > .suki-menu-item-link:focus:before {
@@ -2457,8 +2423,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	width: 100%;
 	height: 0.15em;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-menu-highlight-underline .suki-header-menu > .menu > .menu-item > .sub-menu {
@@ -2500,8 +2464,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	height: 0.2em;
 	margin: 0 auto;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-menu-highlight-border-bottom .suki-header-menu > .menu > .menu-item {
@@ -2520,8 +2482,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	height: 0.2em;
 	margin: 0 auto;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-header-mobile-vertical-position-right .suki-toggle.suki-popup-close-icon {
@@ -2752,8 +2712,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	transition: opacity 0.25s, -webkit-transform 0.25s;
 	transition: transform 0.25s, opacity 0.25s;
 	transition: transform 0.25s, opacity 0.25s, -webkit-transform 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 .suki-scroll-to-top-display-sticky.suki-sticky {
@@ -2857,7 +2815,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .entry-title {
-	margin: 0 0 0.75rem;
+	margin: 0 0 1rem;
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 600;
@@ -2867,7 +2825,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 }
 
 .entry-small-title {
-	margin: 0 0 0.25rem;
+	margin: 0 0 0.5rem;
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 600;
@@ -2922,8 +2880,6 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 
 a.entry-thumbnail {
 	transition: opacity 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 a.entry-thumbnail:hover, a.entry-thumbnail:focus {

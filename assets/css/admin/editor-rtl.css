@@ -202,8 +202,6 @@ a {
 	text-decoration: none;
 	color: #0066cc;
 	transition: all 0.25s;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 
 a:hover, a:focus {
