@@ -38,6 +38,7 @@ class Suki_Migrate_1_3_0 {
 	 */
 	protected function __construct() {
 		$this->migrate_page_template_slug();
+		$this->migrate_page_settings_404();
 		$this->migrate_page_header_title_text();
 		$this->migrate_content_layout_narrow();
 		$this->migrate_page_header_to_hero_section();
@@ -71,6 +72,17 @@ class Suki_Migrate_1_3_0 {
 		foreach ( $posts as $post ) {
 			update_post_meta( $post, '_wp_page_template', 'page-templates/page_builder.php' );
 		}
+	}
+
+	/**
+	 * Migrate "page_settings_404" to "page_settings_error_404"
+	 */
+	private function migrate_page_settings_404() {
+		$error_404 = get_theme_mod( 'page_settings_404', array() );
+
+		set_theme_mod( 'page_settings_error_404', $error_404 );
+
+		remove_theme_mod( 'page_settings_404' );
 	}
 
 	/**
@@ -195,6 +207,7 @@ class Suki_Migrate_1_3_0 {
 
 		$mods = get_theme_mods();
 
+		// Replace old option keys.
 		foreach ( $mods as $key => $value ) {
 			if ( false !== strpos( $key, 'page_header_' ) ) {
 				$new_key = str_replace( 'page_header_', 'hero_', $key );
@@ -204,6 +217,9 @@ class Suki_Migrate_1_3_0 {
 				set_theme_mod( $new_key, $value );
 			}
 		}
+
+		// Remove global page header toggle option.
+		remove_theme_mod( 'page_header' );
 
 		/**
 		 * Page settings
@@ -228,6 +244,52 @@ class Suki_Migrate_1_3_0 {
 
 			// Set the new values.
 			set_theme_mod( $option_key, $mod );
+		}
+
+		/**
+		 * Hero elements
+		 */
+
+		$locations = array(
+			'left', 'center', 'right',
+		);
+
+		$alignment = 'left';
+		$has_title = false;
+		$has_breadcrumb = false;
+
+		foreach ( $locations as $location ) {
+			$elements = suki_get_theme_mod( 'hero_elements_' . $location, array() );
+
+			if ( in_array( 'title', $elements ) ) {
+				$has_title = true;
+				$alignment = $location;
+			}
+
+			if ( in_array( 'breadcrumb', $elements ) ) {
+				$has_breadcrumb = true;
+			}
+		}
+
+		// Build new elements that will be applied on all pages.
+		$new_elements = array();
+
+		if ( $has_title ) {
+			$new_elements[] = 'title';
+		}
+
+		if ( $has_breadcrumb ) {
+			$new_elements[] = 'breadcrumb';
+		}
+
+		// Assign the elements to all new pages.
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Skip error 404 page.
+			if ( 'error_404' == $ps_type ) {
+				continue;
+			}
+
+			set_theme_mod( $ps_type . '_content_header', $new_elements );
 		}
 	}
 
@@ -277,7 +339,7 @@ class Suki_Migrate_1_3_0 {
 		foreach ( $desktop_header_locations as $location ) {
 			$elements = suki_get_theme_mod( 'header_elements_' . $location );
 
-			foreach ( $elements as $element ) {
+			foreach ( $elements as &$element ) {
 				if ( 0 === strpos( $element, 'shopping-cart' ) ) {
 					$element = str_replace( 'shopping-cart', 'cart', $element );
 				}
@@ -293,7 +355,7 @@ class Suki_Migrate_1_3_0 {
 		foreach ( $desktop_header_locations as $location ) {
 			$elements = suki_get_theme_mod( 'header_mobile_elements_' . $location );
 
-			foreach ( $elements as $element ) {
+			foreach ( $elements as &$element ) {
 				if ( 0 === strpos( $element, 'shopping-cart' ) ) {
 					$element = str_replace( 'shopping-cart', 'cart', $element );
 				}
@@ -356,7 +418,7 @@ class Suki_Migrate_1_3_0 {
 			$mod = get_theme_mod( $option_key, array() );
 
 			foreach ( $mod as $key => $value ) {
-				set_theme_mod( $ps_type . '_' . $option_key, $value );
+				set_theme_mod( $ps_type . '_' . $key, $value );
 			}
 
 			remove_theme_mod( $option_key );
