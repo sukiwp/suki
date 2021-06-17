@@ -7,34 +7,35 @@
 const info = require( './package.json' );
 
 const config = {
-	init: 'style.css',
+	init: info.data.initFile,
 	src: {
 		scss: [ './assets/scss/**/*.scss' ],
 		css: [ './assets/css/**/*.css', '!./assets/css/vendors/*' ],
 		js: [ './assets/js/**/*.js', '!./assets/js/vendors/*' ],
 		pot: [ './**/*.php', '!./__build/**/*.php', '!./__bak/**/*.php' ],
 		build: [
-			'./*',
-			'./assets/css/**/*',
-			'./assets/icons/**/*',
-			'./assets/images/**/*',
-			'./assets/js/**/*',
-			'./inc/**/*',
-			'./languages/**/*',
-			'./page-templates/**/*',
-			'./template-parts/**/*',
+			'./**/*',
 
-			// exclude files and folders
+			// Exclude OS files
 			'!**/Thumbs.db',
 			'!**/.DS_Store',
+			'!./.DS_Store',
+
+			// Exclude SCSS files
+			'!**/scss/**',
+
+			// Exclude development folders and files
 			'!./.gitignore',
+			'!./composer.json',
+			'!./composer.lock',
+			'!./vendor/**',
 			'!./package*.json',
+			'!./node_modules/**',
 			'!./gulpfile.js',
-			'!./node_modules',
+			'!./*phpcs.xml*',
 			'!./README.md',
 			'!./LICENSE.md',
-			'!./__build',
-			'!./__bak',
+			'!./__**/**',
 		],
 	},
 	dest: {
@@ -76,50 +77,49 @@ const watch         = require( 'gulp-watch' );
 const zip           = require( 'gulp-zip' );
 
 /**
- * Task: Change theme info (style.css file header) based on package.json values.
+ * Task: Change plugin / theme info based on package.json values.
  */
-gulp.task( 'theme_info', function() {
+gulp.task( 'init_file', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
-	// Change plugin / theme info
 	return gulp.src( [ config.init ] )
 		.pipe( replace( new RegExp( '((?:Plugin|Theme) Name: ).*' ), '$1' + info.title ) )
 		.pipe( replace( new RegExp( '((?:Plugin|Theme) URI: ).*' ), '$1' + info.uri ) )
 		.pipe( replace( new RegExp( '(Author: ).*' ), '$1' + info.author.name ) )
 		.pipe( replace( new RegExp( '(Author URI: ).*' ), '$1' + info.author.url ) )
 		.pipe( replace( new RegExp( '(Description: ).*' ), '$1' + info.description ) )
-		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
 		.pipe( replace( new RegExp( '(Version: ).*' ), '$1' + info.version ) )
-		.pipe( replace( new RegExp( '(Requires at least: ).*' ), '$1' + info.readme.requiresWP ) )
-		.pipe( replace( new RegExp( '(Tested up to: ).*' ), '$1' + info.readme.testedWP ) )
-		.pipe( replace( new RegExp( '(Requires PHP: ).*' ), '$1' + info.readme.requiresPHP ) )
+		.pipe( replace( new RegExp( '(Requires at least: ).*' ), '$1' + info.data.requiresWPVersion ) )
+		.pipe( replace( new RegExp( '(Tested up to: ).*' ), '$1' + info.data.testedWPVersion ) )
+		.pipe( replace( new RegExp( '(Requires PHP: ).*' ), '$1' + info.data.requiresPHPVersion ) )
+		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
 		.pipe( replace( new RegExp( '(Text Domain: ).*' ), '$1' + info.name ) )
+
+		.pipe( replace( new RegExp( '(\'' + info.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION\', \').*?(\'.*)' ), '$1' + info.version + '$2' ) )
+
 		.pipe( gulp.dest( './' ) );
 } );
 
 /**
  * Task: Change info on readme.txt based on package.json values.
  */
-gulp.task( 'readme_txt', function() {
+gulp.task( 'readme_file', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
 	var contributors = info.contributors.map(function( contributor ) {
 		return contributor.name;
 	});
 
-	// Change theme version on eadme.txt
 	return gulp.src( [ './readme.txt' ] )
 		.pipe( replace( new RegExp( '(===).*(===)' ), '$1 ' + info.title + ' $2' ) )
 		.pipe( replace( new RegExp( '(Contributors: ).*' ), '$1' + contributors.join( ', ' ) ) )
-		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
 		.pipe( replace( new RegExp( '(Stable tag: ).*' ), '$1' + info.version ) )
-		.pipe( replace( new RegExp( '(Requires at least: ).*' ), '$1' + info.readme.requiresWP ) )
-		.pipe( replace( new RegExp( '(Tested up to: ).*' ), '$1' + info.readme.testedWP ) )
-		.pipe( replace( new RegExp( '(Requires PHP: ).*' ), '$1' + info.readme.requiresPHP ) )
+		.pipe( replace( new RegExp( '(Requires at least: ).*' ), '$1' + info.data.requiresWPVersion ) )
+		.pipe( replace( new RegExp( '(Tested up to: ).*' ), '$1' + info.data.testedWPVersion ) )
+		.pipe( replace( new RegExp( '(Requires PHP: ).*' ), '$1' + info.data.requiresPHPVersion ) )
+		.pipe( replace( new RegExp( '(Tags: ).*' ), '$1' + info.keywords.join( ', ' ) ) )
 
 		.pipe( replace( new RegExp( '(\n\n).*(\n\n== Description ==)' ), '$1' + info.description + '$2' ) )
-
-		.pipe( replace( new RegExp( '(== Description ==\n\n).*(\n\n)' ), '$1' + info.description + '$2' ) )
 
 		.pipe( gulp.dest( './' ) );
 } );
@@ -127,7 +127,7 @@ gulp.task( 'readme_txt', function() {
 /**
  * Wrapper Task: Set theme info files.
  */
-gulp.task( 'info', gulp.series( 'theme_info', 'readme_txt' ) );
+gulp.task( 'info', gulp.series( 'init_file', 'readme_file' ) );
 
 /**
  * Task: Copy vendor assets.

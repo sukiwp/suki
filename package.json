@@ -61,10 +61,11 @@
 		"last 1 version",
 		"ie >= 10"
 	],
-	"readme": {
-		"requiresWP": "4.5",
-		"testedWP": "5.4",
-		"requiresPHP": "5.6"
-	},
-	"dependencies": {}
+	"dependencies": {},
+	"data": {
+		"initFile": "style.css",
+		"requiresWPVersion": "4.5",
+		"testedWPVersion": "5.4",
+		"requiresPHPVersion": "5.6"
+	}
 }
