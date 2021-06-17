@@ -1608,6 +1608,11 @@ li:not(.customize-info) div.customize-section-description {
 	margin-top: 0;
 }
 
+#customize-control-heading_header_cart_link,
+#customize-control-heading_header_cart_dropdown {
+	margin-bottom: 0;
+}
+
 @media screen and (min-width: 1324px) {
 	#customize-control-footer_widgets_bar .customize-control-title {
 		display: inline-block;
@@ -1769,6 +1774,10 @@ li:not(.customize-info) div.customize-section-description {
 	margin-right: 10px;
 	float: left;
 	width: 125px;
+}
+
+.modal-open #TB_overlay, .modal-open #TB_window {
+	z-index: 500001;
 }
 
 .preview-tablet .wp-full-overlay-main {

@@ -1713,6 +1713,11 @@ li:not(.customize-info) div.customize-section-description {
 	margin-top: 0;
 }
 
+#customize-control-heading_header_cart_link,
+#customize-control-heading_header_cart_dropdown {
+	margin-bottom: 0;
+}
+
 #customize-control-footer_widgets_bar {
 	@media screen and ( min-width: 1324px ) {
 		.customize-control-title {
@@ -1827,6 +1832,13 @@ li:not(.customize-info) div.customize-section-description {
 		margin-left: 10px;
 		float: right;
 		width: 125px;
+	}
+}
+
+// Thickbox modal z-index (for Mega Menu settings popup on Suki Pro)
+.modal-open {
+	#TB_overlay, #TB_window {
+		z-index: 500001;
 	}
 }
 
