@@ -13,7 +13,7 @@ v1.3.0
 - NEW: Blog - "Content or excerpt" option for default post layout.
 - NEW: Customizer - Border radius and Box shadow options for posts layout, sidebar.
 - NEW: WPML Compatibility - Add WPML configuration file (`wpml-config.xml`) for automatic WPML integration.
-- NEW: Page Template: Page Builder with Container - Page template for page builders that doesn't have their own content container functionalities, such as WP Bakery, Site Origin, etc.
+- NEW: Page Template: Page Builder with Container - Page template for page builders that doesn't have their own content container functionalities, such as Visual Composer, Site Origin, etc.
 - TWEAK: Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).
 - TWEAK: Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
 - TWEAK: Header Elements — Allow "Shopping Cart Dropdown" inside the mobile header bar.

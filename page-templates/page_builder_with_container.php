@@ -3,7 +3,7 @@
  * Template Name: Page Builder with Container (Theme)
  *
  * Page template for Page Builder plugins that doesn't have their own content container / wrapper functionalities, for example:
- * - WP Bakery
+ * - Visual Composer
  * - Site Origin
  *
  * The template use theme's default container.
