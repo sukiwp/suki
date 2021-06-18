@@ -1,9 +1,12 @@
 <?php
 /**
- * Template Name: Page Builder (theme)
+ * Template Name: Page Builder Full Width (Theme)
  *
- * Page template for displaying content built by Page Builder plugins, such as Elementor, Brizy, etc.
- * The template doesn't use default theme's content container, you can specify the container for each section on the Page Builder.
+ * Page template for Page Builder plugins that have their own content container / wrapper functionalities, for example:
+ * - Elementor
+ * - Brizy
+ *
+ * The template doesn't use theme's default container, you can specify the container for each section on the Page Builder.
  *
  * @package Suki
  */
