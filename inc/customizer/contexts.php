@@ -287,14 +287,14 @@ $add['error_404_home_button_text'] = array(
  */
 
 foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-	$add[$ps_type . '_hero_bg_image'] = array(
+	$add[ $ps_type . '_hero_bg_image'] = array(
 		array(
 			'setting'  => $ps_type . '_hero_bg',
 			'value'    => 'custom',
 		),
 	);
 
-	$add[$ps_type . '_content_layout'] = array(
+	$add[ $ps_type . '_content_layout'] = array(
 		array(
 			'setting'  => $ps_type . '_content_container',
 			'operator' => '!=',

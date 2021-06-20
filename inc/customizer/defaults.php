@@ -824,7 +824,7 @@ $add['scroll_to_top_hover_text_color'] = '';
  * ====================================================
  */
 
-$add['post_archive_content_header'] = array( 'archive-title', 'archive-description' );
+$add['post_archive_content_header'] = array( 'title', 'archive-description' );
 $add['post_archive_content_header_alignment'] = 'left';
 
 $add['blog_index_loop_mode'] = 'default';
@@ -837,12 +837,12 @@ $add['blog_index_navigation_mode'] = 'pagination';
  * ====================================================
  */
 
-$add['post_single_content_header'] = array( 'entry-title', 'single-entry-header-meta' );
+$add['post_single_content_header'] = array( 'title', 'post-header-meta' );
 $add['post_single_content_header_alignment'] = 'left';
 $add['post_single_content_header_meta'] = '{{date}}';
 $add['post_single_content_thumbnail'] = 'after';
 
-$add['post_single_content_footer'] = array( 'entry-tags', 'single-entry-footer-meta' );
+$add['post_single_content_footer'] = array( 'tags', 'post-footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
@@ -857,17 +857,12 @@ $add['blog_single_navigation'] = 1;
 
 $add['blog_index_default_items_gap'] = '90px';
 
-$add['entry_padding'] = '0 0 0 0';
-$add['entry_border'] = '0 0 0 0';
-$add['entry_border_radius'] = '0px';
-
 $add['entry_header'] = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
 
 $add['entry_thumbnail'] = 'after';
 $add['entry_thumbnail_size'] = 'full';
-$add['entry_thumbnail_ignore_padding'] = 0;
 
 $add['entry_content'] = 'content';
 $add['entry_excerpt_length'] = 55;
@@ -923,7 +918,7 @@ $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
  * ====================================================
  */
 
-$add['page_single_content_header'] = array( 'entry-title', 'entry-excerpt' );
+$add['page_single_content_header'] = array( 'title', 'excerpt' );
 $add['page_single_content_header_alignment'] = 'left';
 
 $add['page_single_content_thumbnail'] = 'after';
@@ -935,6 +930,7 @@ $add['page_single_content_thumbnail'] = 'after';
  */
 
 $add['search_results_content_header'] = array( 'title', 'search-form' );
+$add['search_results_content_header_alignment'] = 'left';
 
 /**
  * ====================================================
@@ -954,7 +950,7 @@ $add['error_404_search_bar'] = 1;
 foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 	// Only process archives.
 	if ( preg_match( '/(_archive)/', $ps_type ) ) {
-		$add[ $ps_type . '_content_header'] = array( 'archive-title', 'archive-description' );
+		$add[ $ps_type . '_content_header'] = array( 'title', 'archive-description' );
 		$add[ $ps_type . '_content_header_alignment'] = 'left';
 	}
 }
@@ -968,7 +964,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 	// Only process singular.
 	if ( preg_match( '/(_single)/', $ps_type ) ) {
-		$add[ $ps_type . '_content_header'] = array( 'entry-title' );
+		$add[ $ps_type . '_content_header'] = array( 'title' );
 		$add[ $ps_type . '_content_header_alignment'] = 'left';
 		$add[ $ps_type . '_content_thumbnail'] = 'after';
 	}

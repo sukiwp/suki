@@ -29,94 +29,10 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'em' => array(
 			'min'  => 0,
 			'max'  => 20,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 10,
-) ) );
-
-/**
- * ====================================================
- * Entry Wrapper
- * ====================================================
- */
-
-// Heading: Entry Wrapper
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_entry_item', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Entry Wrapper', 'suki' ),
-	'priority'    => 20,
-) ) );
-
-// Padding
-$key = 'entry_padding';
-$settings = array(
-	$key,
-	$key . '__tablet',
-	$key . '__mobile',
-);
-foreach ( $settings as $setting ) {
-	$wp_customize->add_setting( $setting, array(
-		'default'     => suki_array_value( $defaults, $setting ),
-		'transport'   => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
-	) );
-}
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
-	'settings'    => $settings,
-	'section'     => $section,
-	'label'       => esc_html__( 'Padding', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'step' => 1,
-		),
-		'em' => array(
-			'min'  => 0,
-			'step' => 0.05,
-		),
-	),
-	'priority'    => 20,
-) ) );
-
-// Border
-$key = 'entry_border';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimensions' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Border', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'step' => 1,
-		),
-	),
-	'priority'    => 20,
-) ) );
-
-// Border radius
-$key = 'entry_border_radius';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Border radius', 'suki' ),
-	'units'       => array(
-		'px' => array(
-			'min'  => 0,
-			'max'  => 40,
-			'step' => 1,
-		),
-	),
-	'priority'    => 20,
 ) ) );
 
 /**
@@ -209,7 +125,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Display', 'suki' ),
+	// 'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),
@@ -217,6 +133,19 @@ $wp_customize->add_control( $key, array(
 	),
 	'priority'    => 40,
 ) );
+
+// Wide alignment
+$key = 'entry_thumbnail_wide';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Wide alignment on Narrow container', 'suki' ),
+	'description' => esc_attr__( 'When the section container is set to Narrow, make the Featured Image wide.', 'suki' ),
+	'priority'    => 40,
+) ) );
 
 // Image size
 $key = 'entry_thumbnail_size';
@@ -231,18 +160,6 @@ $wp_customize->add_control( $key, array(
 	'choices'     => suki_get_all_image_sizes(),
 	'priority'    => 40,
 ) );
-
-// Ignore padding
-$key = 'entry_thumbnail_ignore_padding';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Ignore padding', 'suki' ),
-	'priority'    => 40,
-) ) );
 
 /**
  * ====================================================

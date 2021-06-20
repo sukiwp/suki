@@ -96,12 +96,7 @@ function suki_template_hooks() {
 	 */
 
 	// Add thumbnail before or after content header.
-	if ( 'before' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
-		add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 0 );
-	}
-	elseif ( 'after' === suki_get_theme_mod( 'entry_thumbnail' ) ) {
-		add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 999 );
-	}
+	add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 'before' === suki_get_theme_mod( 'entry_thumbnail' ) ? 0 : 999 );
 
 	// Add entry header elements.
 	$priority = 10;
@@ -138,12 +133,7 @@ function suki_template_hooks() {
 	 */
 
 	// Add thumbnail before or after content header.
-	if ( 'before' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
-		add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 0 );
-	}
-	elseif ( 'after' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ) {
-		add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 999 );
-	}
+	add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 'before' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ? 0 : 999 );
 
 	// Add entry grid header elements.
 	$priority = 10;
@@ -184,7 +174,7 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * All index page hooks
+	 * All archive page hooks
 	 * ====================================================
 	 */
 
@@ -224,12 +214,12 @@ function suki_template_hooks() {
 
 		/**
 		 * ====================================================
-		 * Archive Loop Navigation
+		 * Archive Navigation
 		 * ====================================================
 		 */
 
 		// Add navigation after the loop.
-		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
+		add_action( 'suki/frontend/after_main', 'suki_archive_navigation', 10 );
 	}
 
 	/**
@@ -246,7 +236,7 @@ function suki_template_hooks() {
 		 */
 
 		// Add comments.
-		add_action( 'suki/frontend/after_main', 'suki_entry_comments', 20 );
+		add_action( 'suki/frontend/after_main', 'suki_comments', 20 );
 			
 		// Add comments title.
 		add_action( 'suki/frontend/before_comments_list', 'suki_comments_title', 10 );
@@ -272,12 +262,7 @@ function suki_template_hooks() {
 
 			// Add thumbnail before or after content header.
 			if ( ! intval( suki_get_current_page_setting( 'disable_thumbnail' ) ) ) {
-				if ( 'before' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
-					add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 0 );
-				}
-				elseif ( 'after' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ) {
-					add_action( 'suki/frontend/page_entry/header', 'suki_page_entry_thumbnail', 999 );
-				}
+				add_action( 'suki/frontend/page_entry/header', 'suki_thumbnail', 'before' === suki_get_theme_mod( 'page_single_content_thumbnail' ) ? 0 : 999 );
 			}
 
 			// Add content header elements.
@@ -311,12 +296,7 @@ function suki_template_hooks() {
 
 			// Add thumbnail before or after content header.
 			if ( ! intval( suki_get_current_page_setting( 'disable_thumbnail' ) ) ) {
-				if ( 'before' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
-					add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 0 );
-				}
-				elseif ( 'after' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ) {
-					add_action( 'suki/frontend/single_entry/header', 'suki_single_entry_thumbnail', 999 );
-				}
+				add_action( 'suki/frontend/single_entry/header', 'suki_thumbnail', 'before' === suki_get_theme_mod( 'post_single_content_thumbnail' ) ? 0 : 999 );
 			}
 
 			// Add post header into content header.
@@ -351,12 +331,12 @@ function suki_template_hooks() {
 
 			// Add author bio.
 			if ( intval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
-				add_action( 'suki/frontend/after_main', 'suki_single_post_author_bio', 10 );
+				add_action( 'suki/frontend/after_main', 'suki_post_author_bio', 10 );
 			}
 			
 			// Add post navigation.
 			if ( intval( suki_get_theme_mod( 'blog_single_navigation' ) ) ) {
-				add_action( 'suki/frontend/after_main', 'suki_single_post_navigation', 15 );
+				add_action( 'suki/frontend/after_main', 'suki_post_navigation', 15 );
 			}
 		}
 
@@ -544,7 +524,18 @@ function suki_read_more( $link ) {
 add_filter( 'the_content_more_link', 'suki_read_more' );
 
 /**
- * Modify blog post's excerpt character limit.
+ * Set blog post's excerpt words limit to unlimited, used on Content Header.
+ * 
+ * @param integer $length
+ * @return integer
+ */
+function suki_excerpt_length_full( $length ) {
+	return 999999; // Show full excerpt text.
+}
+// This filter will be triggered on `suki_excerpt` function.
+
+/**
+ * Set blog post's excerpt words limit according to the displayed post layout.
  * 
  * @param integer $length
  * @return integer
@@ -552,7 +543,7 @@ add_filter( 'the_content_more_link', 'suki_read_more' );
 function suki_excerpt_length( $length ) {
 	// Search page
 	if ( is_search() ) {
-		return 30;
+		return 30; // Fixed value for search results
 	}
 
 	// Posts page
@@ -659,7 +650,7 @@ add_filter( 'nav_menu_link_attributes', 'suki_nav_menu_link_attributes', 10, 4 )
  */
 function suki_get_search_form_add_icon( $form ) {
 	$form = preg_replace( '/placeholder="(.*?)"/', 'placeholder="' . esc_attr__( 'Search&hellip;', 'suki' ) . '"', $form );
-	$form = preg_replace( '/<\/form>/', suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ) . '</form>', $form );
+	$form = preg_replace( '/<input type="search"(.*?)>/', '$0' . suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ), $form );
 
 	return $form;
 }
@@ -841,8 +832,6 @@ add_filter( 'suki/frontend/header_bottom_bar_classes', 'suki_header_bottom_bar_c
 function suki_hero_classes( $classes ) {
 	$classes['container'] = esc_attr( 'suki-section-' . suki_get_current_page_setting( 'hero_container' ) );
 
-	$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'hero_alignment' ) );
-
 	return $classes;
 }
 add_filter( 'suki/frontend/hero_classes', 'suki_hero_classes' );
@@ -854,7 +843,11 @@ add_filter( 'suki/frontend/hero_classes', 'suki_hero_classes' );
  * @return array
  */
 function suki_content_header_classes( $classes ) {
-	$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ) );
+	if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
+		$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'hero_alignment' ) );
+	} else {
+		$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ) );
+	}
 
 	return $classes;
 }
@@ -908,8 +901,8 @@ add_filter( 'suki/frontend/loop_classes', 'suki_loop_classes' );
  * @return array
  */
 function suki_entry_thumbnail_classes( $classes ) {
-	if ( intval( suki_get_theme_mod( 'entry_thumbnail_ignore_padding' ) ) ) {
-		$classes['ignore_padding'] = 'suki-entry-thumbnail-ignore-padding';
+	if ( intval( suki_get_theme_mod( 'entry_thumbnail_wide' ) ) ) {
+		$classes['alignwide'] = 'alignwide';
 	}
 
 	return $classes;
@@ -930,36 +923,6 @@ function suki_entry_grid_thumbnail_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'suki/frontend/entry_grid/thumbnail_classes', 'suki_entry_grid_thumbnail_classes' );
-
-/**
- * Add custom classes to single post thumbnail.
- *
- * @param array $classes
- * @return array
- */
-function suki_page_entry_thumbnail_classes( $classes ) {
-	if ( intval( suki_get_theme_mod( 'page_single_content_thumbnail_wide' ) ) ) {
-		$classes['alignwide'] = 'alignwide';
-	}
-
-	return $classes;
-}
-add_filter( 'suki/frontend/page_entry/thumbnail_classes', 'suki_page_entry_thumbnail_classes' );
-
-/**
- * Add custom classes to single post thumbnail.
- *
- * @param array $classes
- * @return array
- */
-function suki_single_entry_thumbnail_classes( $classes ) {
-	if ( intval( suki_get_theme_mod( 'post_single_content_thumbnail_wide' ) ) ) {
-		$classes['alignwide'] = 'alignwide';
-	}
-
-	return $classes;
-}
-add_filter( 'suki/frontend/single_entry/thumbnail_classes', 'suki_single_entry_thumbnail_classes' );
 
 /**
  * Add custom classes to the array of sidebar classes.

@@ -25,7 +25,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Enable', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can enable or disable this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
-	'description' => esc_html__( 'If enabled, title, breadcrumb, and meta info are moved inside Hero Section.', 'suki' ),
+	'description' => esc_html__( 'When enabled, content header will be moved into the Hero section.', 'suki' ),
 	'priority'    => 10,
 ) ) );
 
@@ -52,7 +52,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Container width', 'suki' ),
+	'label'       => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 	'choices'     => array(
 		'default'    => array(
 			'label' => esc_html__( 'Normal', 'suki' ),
@@ -65,6 +65,30 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 		'narrow'     => array(
 			'label' => esc_html__( 'Narrow', 'suki' ),
 			'image' => SUKI_IMAGES_URL . '/customizer/hero-container--narrow.svg',
+		),
+	),
+	'priority'    => 20,
+) ) );
+
+// Alignment
+$key = 'hero_alignment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Alignment', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
+	'choices'     => array(
+		'left'   => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+		),
+		'center' => array(
+			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+		),
+		'right'  => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
 		),
 	),
 	'priority'    => 20,
@@ -97,7 +121,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'vh' => array(
 			'min'  => 0,
 			'max'  => 100,
-			'step' => 0.5,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 20,
@@ -128,11 +152,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'em' => array(
 			'min'  => 0,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 		'%' => array(
 			'min'  => 0,
-			'step' => 1,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 20,
@@ -152,30 +176,6 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		'px' => array(
 			'min'  => 0,
 			'step' => 1,
-		),
-	),
-	'priority'    => 20,
-) ) );
-
-// Alignment
-$key = 'hero_alignment';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Alignment', 'suki' ),
-	'choices'     => array(
-		'left'   => array(
-			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
-		),
-		'center' => array(
-			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
-		),
-		'right'  => array(
-			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
 		),
 	),
 	'priority'    => 20,

@@ -57,7 +57,7 @@ endif;
 /**
  * Hook: suki/frontend/after_main
  * 
- * @hooked suki_loop_navigation - 10
+ * @hooked suki_archive_navigation - 10
  */
 do_action( 'suki/frontend/after_main' );
 

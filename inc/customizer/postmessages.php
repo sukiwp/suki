@@ -126,7 +126,7 @@ $add['subtle_color'] = array(
 $add['border_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '*', // scss: base
+		'element'  => 'html *', // scss: base
 		'property' => 'border-color',
 	),
 );
@@ -402,6 +402,14 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 			'property' => $prop,
 		),
 	);
+
+	if ( 'text' == $key ) {
+		$add['input_' . $key . '_color'][] = array(
+			'type'     => 'css',
+			'element'  => '.search-field + .suki-search-icon',
+			'property' => $prop,
+		);
+	}
 }
 foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' => 'color' ) as $key => $prop ) {
 	$add['input_focus_' . $key . '_color'] = array(
@@ -416,6 +424,14 @@ foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' 
 		$add['input_focus_' . $key . '_color'][] = array(
 			'type'     => 'css',
 			'element'  => 'span.select2-container.select2-container--open .select2-dropdown', // scss: forms
+			'property' => $prop,
+		);
+	}
+
+	if ( 'text' == $key ) {
+		$add['input_focus_' . $key . '_color'][] = array(
+			'type'     => 'css',
+			'element'  => '.search-field:focus + .suki-search-icon',
 			'property' => $prop,
 		);
 	}
@@ -675,7 +691,7 @@ $add['content_narrow_width'] = array(
 $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body, #page, .suki-popup-background', // scss: base, container
+		'element'  => 'body, #page', // scss: base, container
 		'property' => 'background-color',
 	),
 	array(
@@ -1335,7 +1351,7 @@ $add['hero_border'] = array(
 $add['hero_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => '.suki-hero',
+		'element'  => '.suki-hero .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2356,7 +2372,7 @@ $add['scroll_to_top_hover_text_color'] = array(
 $add['post_archive_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => 'body.blog .content-header, body.category .content-header, body.tag .content-header, body.author .content-header, body.date .content-header',
+		'element'  => 'body.blog #primary .content-header, body.category #primary .content-header, body.tag #primary .content-header, body.author #primary .content-header, body.date #primary .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2372,69 +2388,6 @@ $add['blog_index_default_items_gap'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-default .entry', // scss: entry
 		'property' => 'margin-bottom',
-	),
-);
-
-$responsive = array(
-	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
-);
-foreach ( $responsive as $suffix => $media ) {
-	$add['entry_padding' . $suffix ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.entry-layout-default .entry-wrapper',
-			'property' => 'padding',
-			'media'    => $media,
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding:first-child',
-			'property' => 'margin-top',
-			'pattern'  => '-$ !important',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 0 ), // 1st part = top
-			),
-			'media'    => $media,
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
-			'property' => 'margin-right',
-			'pattern'  => '-$ !important',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 1 ), // 2nd part = right
-			),
-			'media'    => $media,
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.entry-layout-default .entry-thumbnail.suki-entry-thumbnail-ignore-padding',
-			'property' => 'margin-left',
-			'pattern'  => '-$ !important',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 3 ), // 4rd part = left
-			),
-			'media'    => $media,
-		),
-	);
-}
-$add['entry_border'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-default .entry-wrapper',
-		'property' => 'border-width',
-	),
-);
-$add['entry_border_radius'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-default .entry-wrapper',
-		'property' => 'border-radius',
 	),
 );
 
@@ -2652,7 +2605,7 @@ $add['entry_grid_shadow'] = array(
 $add['post_single_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => '.entry-single .entry-header',
+		'element'  => 'body.single-post #primary .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2674,7 +2627,14 @@ $add['post_single_content_footer_alignment'] = array(
 $add['page_single_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => '.entry-page .entry-header',
+		'element'  => 'body.page #primary .content-header',
+		'pattern'  => 'suki-text-align-$',
+	),
+);
+$add['page_single_content_header_alignment'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => 'body.page #primary .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2690,9 +2650,9 @@ foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
 		continue;
 	}
 
-	$element = 'body.post-type-archive-' . $post_type . ' .content-header';
+	$element = 'body.post-type-archive-' . $post_type . ' #primary .content-header';
 	foreach ( get_object_taxonomies( $post_type ) as $tax ) {
-		$element .= ', body.tax-' . $tax . ' .content-header';
+		$element .= ', body.tax-' . $tax . ' #primary .content-header';
 	}
 
 	$add[ $post_type . '_archive_content_header_alignment'] = array(
@@ -2718,7 +2678,7 @@ foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
 	$add[ $post_type . '_single_content_header_alignment'] = array(
 		array(
 			'type'     => 'class',
-			'element'  => 'body.single-' . $post_type . ' .content-header',
+			'element'  => 'body.single-' . $post_type . ' #primary .content-header',
 			'pattern'  => 'suki-text-align-$',
 		),
 	);

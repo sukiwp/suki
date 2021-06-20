@@ -50,7 +50,7 @@ class Suki_Customizer {
 		// Customizer page
 		add_action( 'customize_register', array( $this, 'register_custom_controls' ), 1 );
 		add_action( 'customize_register', array( $this, 'register_settings' ) );
-		// add_action( 'customize_register', array( $this, 'move_other_sections' ), 999 ); // priority needs to be higher than 10 because "Menus" section is registered at "11" priority number.
+		add_action( 'customize_register', array( $this, 'move_other_sections' ), 999 ); // priority needs to be higher than 10 because "Menus" section is registered at "11" priority number.
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		if ( is_customize_preview() ) {
@@ -215,8 +215,6 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--single.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/cpt--archive.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/cpt--single.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
 	}
 
@@ -226,19 +224,19 @@ class Suki_Customizer {
 	 * @param WP_Customize_Manager $wp_customize
 	 */
 	public function move_other_sections( $wp_customize ) {
-		foreach ( $wp_customize->panels() as $key => $obj ) {
-			if ( 160 >= $obj->priority ) {
-				$obj->priority = $obj->priority + 1000;
+		$sections = array( 'title_tagline', 'colors', 'header_image', 'background_image', 'nav_menus', 'widgets', 'static_front_page' );
+
+		foreach ( $sections as $i => $key ) {
+			if ( in_array( $key, array( 'nav_menus', 'widgets' ) ) ) {
+				$obj = $wp_customize->get_panel( $key );
+			} else {
+				$obj = $wp_customize->get_section( $key );
+			}
+
+			if ( $obj ) {
+				$obj->priority = 160 + $i;
 			}
 		}
-
-		foreach ( $wp_customize->sections() as $key => $obj ) {
-			if ( empty( $obj->panel ) && 160 >= intval( $obj->priority ) ) {
-				$obj->priority += 1000;
-			}
-		}
-
-		$wp_customize->get_section( 'custom_css' )->priority += 1000;
 	}
 
 	/**
@@ -247,6 +245,7 @@ class Suki_Customizer {
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'suki-customize-controls', SUKI_CSS_URL . '/admin/customize-controls.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-customize-controls', 'rtl', 'replace' );
+		wp_style_add_data( 'suki-customize-controls', 'suffix', SUKI_ASSETS_SUFFIX );
 		
 		wp_enqueue_script( 'suki-customize-controls', SUKI_JS_URL . '/admin/customize-controls.js', array( 'customize-controls' ), SUKI_VERSION, true );
 
@@ -678,7 +677,7 @@ class Suki_Customizer {
 		$contexts['suki_section_error_404'] = esc_url( home_url( '404' ) );
 
 		// Add "Search Page"	
-		$contexts['suki_section_search'] = esc_url( home_url( '?s=awesome' ) );
+		$contexts['suki_section_search_results'] = esc_url( home_url( '?s=awesome' ) );
 
 		$contexts = apply_filters( 'suki/customizer/preview_contexts', $contexts );
 

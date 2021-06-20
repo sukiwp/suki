@@ -10,6 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
 <div id="content" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_classes', array( 'suki-content', 'site-content', 'suki-section' ) ) ) ); ?>">
+
+	<?php
+	/**
+	 * Hero Section
+	 */
+
+	if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
+		suki_hero();
+	}
+	?>
+
 	<div class="suki-content-inner suki-section-inner">
 		<div class="suki-wrapper">
 

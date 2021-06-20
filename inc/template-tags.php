@@ -240,6 +240,92 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 }
 endif;
 
+if ( ! function_exists( 'suki_title' ) ) :
+/**
+ * Render title.
+ */
+function suki_title() {
+	if ( is_singular() ) {
+		the_title( '<h1 class="entry-title page-title">', '</h1>' );
+	}
+	elseif ( is_search() ) {
+		?>
+		<h1 class="page-title">
+			<?php
+			// Title
+			$title = suki_get_theme_mod( 'search_results_title_text' );
+			if ( empty( $title ) ) {
+				$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
+			}
+
+			// Parse syntax.
+			$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $title );
+
+			echo wp_kses_post( $title );
+			?>
+		</h1>
+		<?php
+	} else {
+		the_archive_title( '<h1 class="page-title">', '</h1>' );
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_excerpt' ) ) :
+/**
+ * Render excerpt.
+ */
+function suki_excerpt() {
+	// Abort if there is no excerpt found in the page / post.
+	if ( ! has_excerpt() ) {
+		return;
+	}
+
+	// Set the excerpt length to unlimited via filter.
+	add_filter( 'excerpt_length', 'suki_excerpt_length_full', 999 );
+
+	ob_start();
+	the_excerpt();
+	$excerpt = ob_get_clean();
+	
+	// Remove the filter as it will be used only on this part.
+	remove_filter( 'excerpt_length', 'suki_excerpt_length_full', 999 );
+
+	?><div class="entry-excerpt excerpt"><?php the_excerpt(); ?></div><?php
+}
+endif;
+
+if ( ! function_exists( 'suki_thumbnail' ) ) :
+/**
+ * Print thumbnail.
+ */
+function suki_thumbnail() {
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		return;
+	}
+
+	// Add CSS class.
+	$classes = array( 'entry-thumbnail' );
+
+	// Add "alignwide" if defined.
+	if ( intval( suki_get_theme_mod( get_post_type() . '_single_content_thumbnail_wide' ) ) ) {
+		$classes[] = 'alignwide';
+	}
+
+	// Render the markup.
+	printf(
+		'<%s class="%s">%s</%s>',
+		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
+		esc_attr( implode( ' ', $classes ) ),
+		get_the_post_thumbnail(
+			get_the_ID(),
+			'full'
+		),
+		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	);
+}
+endif;
+
 if ( ! function_exists( 'suki_breadcrumb' ) ) :
 /**
  * Print / return HTML markup for breadcrumb.
@@ -504,6 +590,16 @@ function suki_breadcrumb() {
 	}
 
 	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+endif;
+
+if ( ! function_exists( 'suki_search_form' ) ) :
+/**
+ * Render search form.
+ */
+function suki_search_form() {
+	// Print WordPress's default search form.
+	get_search_form();
 }
 endif;
 
@@ -818,7 +914,189 @@ endif;
 
 /**
  * ====================================================
- * Entry template functions
+ * Archive pages template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_archive_description' ) ) :
+/**
+ * Render archive description.
+ */
+function suki_archive_description() {
+	if ( ! is_post_type_archive() ) {
+		the_archive_description( '<div class="archive-description">', '</div>' );
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_archive_navigation' ) ) :
+/**
+ * Render posts loop navigation.
+ */
+function suki_archive_navigation() {
+	if ( ! is_archive() && ! is_home() && ! is_search() ) {
+		return;
+	}
+	
+	// Render posts navigation.
+	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {
+		case 'pagination':
+			the_posts_pagination( array(
+				'mid_size'  => 3,
+				'prev_text' => '&laquo;',
+				'next_text' => '&raquo;',
+			) );
+			break;
+		
+		default:
+			the_posts_navigation( array(
+				'prev_text' => esc_html__( 'Older Posts', 'suki' ) . ' &raquo;',
+				'next_text' => '&laquo; ' . esc_html__( 'Newer Posts', 'suki' ),
+			) );
+			break;
+	}
+}
+endif;
+
+/**
+ * ====================================================
+ * Single post template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_post_tags' ) ) :
+/**
+ * Print tags links.
+ */
+function suki_post_tags() {
+	$tags_list = get_the_tag_list( '', '' );
+
+	if ( $tags_list ) {
+		echo '<div class="tagcloud">' . $tags_list . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_post_header_meta' ) ) :
+/**
+ * Print single entry header meta.
+ */
+function suki_post_header_meta() {
+	suki_entry_meta( suki_get_theme_mod( 'post_single_content_header_meta' ) );
+}
+endif;
+
+if ( ! function_exists( 'suki_post_footer_meta' ) ) :
+/**
+ * Print single entry footer meta.
+ */
+function suki_post_footer_meta() {
+	suki_entry_meta( suki_get_theme_mod( 'post_single_content_footer_meta' ) );
+}
+endif;
+
+if ( ! function_exists( 'suki_post_author_bio' ) ) :
+/**
+ * Render author bio block in single post page.
+ */
+function suki_post_author_bio() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+
+	suki_get_template_part( 'blog-author-bio' );
+}
+endif;
+
+if ( ! function_exists( 'suki_post_navigation' ) ) :
+/**
+ * Render prev / next post navigation in single post page.
+ */
+function suki_post_navigation() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+
+	the_post_navigation( array(
+		/* translators: %s: title syntax. */
+		'prev_text' => sprintf( esc_html__( '%s &raquo;', 'suki' ), '%title' ),
+		/* translators: %s: title syntax. */
+		'next_text' => sprintf( esc_html__( '&laquo; %s', 'suki' ), '%title' ),
+	) );
+}
+endif;
+
+/**
+ * ====================================================
+ * Comments template functions
+ * ====================================================
+ */
+
+if ( ! function_exists( 'suki_comments' ) ) :
+/**
+ * Print comments block in single post page.
+ */
+function suki_comments() {
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) {
+		comments_template();
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_comments_title' ) ) :
+/**
+ * Render comments title.
+ */
+function suki_comments_title() {
+	?>
+	<h2 class="comments-title">
+		<?php
+			$comments_count = get_comments_number();
+			if ( '1' === $comments_count ) {
+				printf(
+					/* translators: %1$s: title. */
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'suki' ),
+					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				);
+			} else {
+				printf(
+					/* translators: %1$s: comment count number, %2$s: title. */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_count, 'comments title', 'suki' ) ),
+					number_format_i18n( $comments_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				);
+			}
+			?>
+	</h2>
+	<?php
+}
+endif;
+
+if ( ! function_exists( 'suki_comments_navigation' ) ) :
+/**
+ * Render comments navigation.
+ */
+function suki_comments_navigation() {
+	the_comments_navigation();
+}
+endif;
+
+if ( ! function_exists( 'suki_comments_closed' ) ) :
+/**
+ * Render comments closed message.
+ */
+function suki_comments_closed() {
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() ) : ?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'suki' ); ?></p>
+	<?php endif;
+}
+endif;
+
+/**
+ * ====================================================
+ * Default Post Layout template functions
  * ====================================================
  */
 
@@ -870,31 +1148,6 @@ function suki_entry_meta_element( $element ) {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_tags' ) ) :
-/**
- * Print tags links.
- */
-function suki_entry_tags() {
-	$tags_list = get_the_tag_list( '', '' );
-
-	if ( $tags_list ) {
-		echo '<div class="entry-tags tagcloud suki-float-container">' . $tags_list . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_comments' ) ) :
-/**
- * Print comments block in single post page.
- */
-function suki_entry_comments() {
-	// If comments are open or we have at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
-}
-endif;
-
 if ( ! function_exists( 'suki_entry_title' ) ) :
 /**
  * Print entry title on each post.
@@ -907,6 +1160,15 @@ function suki_entry_title( $size = '' ) {
 	} else {
 		the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 	}
+}
+endif;
+
+if ( ! function_exists( 'suki_entry_small_title' ) ) :
+/**
+ * Print entry small title.
+ */
+function suki_entry_small_title() {
+	the_title( sprintf( '<h2 class="entry-small-title small-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 }
 endif;
 
@@ -982,76 +1244,6 @@ function suki_entry_meta( $format ) {
 }
 endif;
 
-if ( ! function_exists( 'suki_single_entry_header_meta' ) ) :
-/**
- * Print single entry header meta.
- */
-function suki_single_entry_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'post_single_content_header_meta' ) );
-}
-endif;
-
-if ( ! function_exists( 'suki_single_entry_footer_meta' ) ) :
-/**
- * Print single entry footer meta.
- */
-function suki_single_entry_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'post_single_content_footer_meta' ) );
-}
-endif;
-
-if ( ! function_exists( 'suki_single_entry_thumbnail' ) ) :
-/**
- * Print post thumbnail.
- */
-function suki_single_entry_thumbnail() {
-	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
-		return;
-	}
-
-	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-		return;
-	}
-
-	printf(
-		'<%s class="%s">%s</%s>',
-		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
-		esc_attr( implode( ' ', apply_filters( 'suki/frontend/single_entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
-		get_the_post_thumbnail(
-			get_the_ID(),
-			'full'
-		),
-		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	);
-}
-endif;
-
-if ( ! function_exists( 'suki_page_entry_thumbnail' ) ) :
-/**
- * Print post thumbnail.
- */
-function suki_page_entry_thumbnail() {
-	if ( intval( suki_get_current_page_setting( 'content_hide_thumbnail' ) ) ) {
-		return;
-	}
-
-	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-		return;
-	}
-
-	printf(
-		'<%s class="%s">%s</%s>',
-		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
-		esc_attr( implode( ' ', apply_filters( 'suki/frontend/page_entry/thumbnail_classes', array( 'entry-thumbnail' ) ) ) ),
-		get_the_post_thumbnail(
-			get_the_ID(),
-			'full'
-		),
-		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	);
-}
-endif;
-
 if ( ! function_exists( 'suki_entry_header_meta' ) ) :
 /**
  * Print entry header meta.
@@ -1070,6 +1262,12 @@ function suki_entry_footer_meta() {
 }
 endif;
 
+/**
+ * ====================================================
+ * Grid Post Layout template functions
+ * ====================================================
+ */
+
 if ( ! function_exists( 'suki_entry_grid_title' ) ) :
 /**
  * Print entry grid title.
@@ -1084,20 +1282,15 @@ if ( ! function_exists( 'suki_entry_grid_thumbnail' ) ) :
  * Print entry grid post thumbnail.
  */
 function suki_entry_grid_thumbnail() {
-	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+	if ( ! has_post_thumbnail() ) {
 		return;
 	}
 
-	printf(
-		'<%s class="%s">%s</%s>',
-		is_singular() ? 'div' : 'a href="' . esc_url( get_the_permalink() ) . '"',
-		esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ),
-		get_the_post_thumbnail(
-			get_the_ID(),
-			suki_get_theme_mod( 'entry_grid_thumbnail_size' )
-		),
-		is_singular() ? 'div' : 'a' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	);
+	?>
+	<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/entry_grid/thumbnail_classes', array( 'entry-thumbnail', 'entry-grid-thumbnail' ) ) ) ); ?>">
+		<?php the_post_thumbnail( suki_get_theme_mod( 'entry_grid_thumbnail_size' ) ); ?>
+	</a>
+	<?php
 }
 endif;
 
@@ -1112,207 +1305,9 @@ endif;
 
 if ( ! function_exists( 'suki_entry_grid_footer_meta' ) ) :
 /**
- * Print entry grid footer meta.
+ * Print entry grid footer meta. 
  */
 function suki_entry_grid_footer_meta() {
 	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta' ) );
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_small_title' ) ) :
-/**
- * Print entry small title.
- */
-function suki_entry_small_title() {
-	if ( is_singular() ) {
-		the_title( '<h1 class="entry-small-title small-title">', '</h1>' );
-	} else {
-		the_title( sprintf( '<h2 class="entry-small-title small-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-	}
-}
-endif;
-
-/**
- * ====================================================
- * All index pages template functions
- * ====================================================
- */
-
-if ( ! function_exists( 'suki_archive_title' ) ) :
-/**
- * Render archive title.
- */
-function suki_archive_title() {
-	the_archive_title( '<h1 class="page-title">', '</h1>' );
-}
-endif;
-
-if ( ! function_exists( 'suki_archive_description' ) ) :
-/**
- * Render archive description.
- */
-function suki_archive_description() {
-	if ( ! is_post_type_archive() ) {
-		the_archive_description( '<div class="archive-description">', '</div>' );
-	}
-}
-endif;
-
-if ( ! function_exists( 'suki_search_title' ) ) :
-/**
- * Render search title.
- */
-function suki_search_title() {
-	?>
-	<h1 class="page-title">
-		<?php
-		// Title
-		$title = suki_get_theme_mod( 'search_results_title_text' );
-		if ( empty( $title ) ) {
-			$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
-		}
-
-		// Parse syntax.
-		$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $title );
-
-		echo wp_kses_post( $title );
-		?>
-	</h1>
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'suki_search_form' ) ) :
-/**
- * Render search form.
- */
-function suki_search_form() {
-	// Print WordPress's default search form.
-	get_search_form();
-}
-endif;
-
-if ( ! function_exists( 'suki_loop_navigation' ) ) :
-/**
- * Render posts loop navigation.
- */
-function suki_loop_navigation() {
-	if ( ! is_archive() && ! is_home() && ! is_search() ) {
-		return;
-	}
-	
-	// Render posts navigation.
-	switch ( suki_get_theme_mod( 'blog_index_navigation_mode' ) ) {
-		case 'pagination':
-			the_posts_pagination( array(
-				'mid_size'  => 3,
-				'prev_text' => '&laquo;',
-				'next_text' => '&raquo;',
-			) );
-			break;
-		
-		default:
-			the_posts_navigation( array(
-				'prev_text' => esc_html__( 'Older Posts', 'suki' ) . ' &raquo;',
-				'next_text' => '&laquo; ' . esc_html__( 'Newer Posts', 'suki' ),
-			) );
-			break;
-	}
-}
-endif;
-
-/**
- * ====================================================
- * Single post template functions
- * ====================================================
- */
-
-if ( ! function_exists( 'suki_singular_title' ) ) :
-/**
- * Render singular title.
- */
-function suki_singular_title() {
-	the_title( '<h1 class="page-title">', '</h1>' );
-}
-endif;
-
-if ( ! function_exists( 'suki_single_post_author_bio' ) ) :
-/**
- * Render author bio block in single post page.
- */
-function suki_single_post_author_bio() {
-	if ( ! is_singular( 'post' ) ) {
-		return;
-	}
-
-	suki_get_template_part( 'blog-author-bio' );
-}
-endif;
-
-if ( ! function_exists( 'suki_single_post_navigation' ) ) :
-/**
- * Render prev / next post navigation in single post page.
- */
-function suki_single_post_navigation() {
-	if ( ! is_singular( 'post' ) ) {
-		return;
-	}
-
-	the_post_navigation( array(
-		/* translators: %s: title syntax. */
-		'prev_text' => sprintf( esc_html__( '%s &raquo;', 'suki' ), '%title' ),
-		/* translators: %s: title syntax. */
-		'next_text' => sprintf( esc_html__( '&laquo; %s', 'suki' ), '%title' ),
-	) );
-}
-endif;
-
-if ( ! function_exists( 'suki_comments_title' ) ) :
-/**
- * Render comments title.
- */
-function suki_comments_title() {
-	?>
-	<h2 class="comments-title">
-		<?php
-			$comments_count = get_comments_number();
-			if ( '1' === $comments_count ) {
-				printf(
-					/* translators: %1$s: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'suki' ),
-					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
-			} else {
-				printf(
-					/* translators: %1$s: comment count number, %2$s: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_count, 'comments title', 'suki' ) ),
-					number_format_i18n( $comments_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				);
-			}
-			?>
-	</h2>
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'suki_comments_navigation' ) ) :
-/**
- * Render comments navigation.
- */
-function suki_comments_navigation() {
-	the_comments_navigation();
-}
-endif;
-
-if ( ! function_exists( 'suki_comments_closed' ) ) :
-/**
- * Render comments closed message.
- */
-function suki_comments_closed() {
-	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() ) : ?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'suki' ); ?></p>
-	<?php endif;
 }
 endif;

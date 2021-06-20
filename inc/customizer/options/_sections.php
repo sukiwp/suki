@@ -30,9 +30,9 @@ $wp_customize->add_panel( $panel, array(
 	'priority'    => 121,
 ) );
 
-	// Base
+	// Base Text
 	$wp_customize->add_section( 'suki_section_base', array(
-		'title'       => esc_html__( 'Base', 'suki' ),
+		'title'       => esc_html__( 'Base Text', 'suki' ),
 		'description' => '<p>' . esc_html__( 'The global settings of body typography and colors.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
@@ -109,7 +109,6 @@ $wp_customize->add_panel( $panel, array(
 	// Breadcrumb
 	$wp_customize->add_section( 'suki_section_breadcrumb', array(
 		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Breadcrumb can be enabled on each page\'s Content Header.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );
@@ -124,7 +123,7 @@ $wp_customize->add_panel( $panel, array(
 	// Color Palette
 	$wp_customize->add_section( 'suki_section_color_palette', array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Save up to 8 colors that are mostly used on your design, so you easily apply these colors to your design without remembering the color hex codes.', 'suki' ) . '</p>',
+		'description' => '<p>' . esc_html__( 'Save up to 8 colors that you frequently use while customizing your website.', 'suki' ) . '</p><p>' . esc_html__( 'These colors don\'t represent global colors (text, heading, border, etc.). To configure Global Colors, please navigate to Typography & Colors section.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );
@@ -529,13 +528,7 @@ $wp_customize->add_panel( $panel, array(
 	}
 
 // ------
-$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_others', array(
-	'title'       => esc_html__( 'Others', 'suki' ),
+$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_core', array(
+	'title'       => esc_html__( 'Core', 'suki' ),
 	'priority'    => 159,
 ) ) );
-
-// Site Identity
-$wp_customize->get_section( 'title_tagline' )->priority = 160;
-
-// Homepage Settings
-$wp_customize->get_section( 'static_front_page' )->priority = 161;

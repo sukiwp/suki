@@ -56,7 +56,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'em' => array(
 			'min'  => 0,
 			'max'  => 3,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 10,
@@ -81,7 +81,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 		'em' => array(
 			'min'  => 0,
 			'max'  => 3,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 10,
@@ -126,7 +126,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Dimensions( $wp_customize
 		),
 		'em' => array(
 			'min'  => 0,
-			'step' => 0.05,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 20,
@@ -273,7 +273,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	'label'       => esc_html__( 'Display', 'suki' ),
+	// 'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),

@@ -527,7 +527,7 @@ class Suki_Admin_Metabox_Page_Settings {
 							'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
 						),
 						'wide'          => array(
-							'label' => esc_html__( 'None', 'suki' ),
+							'label' => esc_html__( 'Disabled', 'suki' ),
 							'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
 						),
 					),
@@ -549,6 +549,24 @@ class Suki_Admin_Metabox_Page_Settings {
 		$values = $this->get_values( $obj );
 		?>
 		<div class="suki-admin-form-row">
+			<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content header', 'suki' ); ?></label></div>
+			<div class="suki-admin-form-field">
+				<?php
+				$key = 'disable_content_header';
+				Suki_Admin_Fields::render_field( array(
+					'name'        => $option_key . '[' . $key . ']',
+					'type'        => 'select',
+					'choices'     => array(
+						''  => esc_html__( '&#x2714; Visible', 'suki' ),
+						'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+					),
+					'value'       => suki_array_value( $values, $key ),
+				) );
+				?>
+			</div>
+		</div>
+
+		<div class="suki-admin-form-row">
 			<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hero section', 'suki' ); ?></label></div>
 			<div class="suki-admin-form-field">
 				<?php
@@ -567,66 +585,8 @@ class Suki_Admin_Metabox_Page_Settings {
 			</div>
 		</div>
 
-		<div class="suki-admin-form-row">
-			<div class="suki-admin-form-label"></div>
-			<div class="suki-admin-form-field">
-				<?php
-				$key = 'hero_container';
-				Suki_Admin_Fields::render_field( array(
-					'name'        => $option_key . '[' . $key . ']',
-					'type'        => 'radioimage',
-					'choices'     => array(
-						''           => array(
-							'label' => esc_html__( '(Customizer)', 'suki' ),
-							'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
-						),
-						'default'    => array(
-							'label' => esc_html__( 'Normal', 'suki' ),
-							'image' => SUKI_IMAGES_URL . '/customizer/hero-container--default.svg',
-						),
-						'full-width' => array(
-							'label' => esc_html__( 'Full width', 'suki' ),
-							'image' => SUKI_IMAGES_URL . '/customizer/hero-container--full-width.svg',
-						),
-						'narrow'     => array(
-							'label' => esc_html__( 'Narrow', 'suki' ),
-							'image' => SUKI_IMAGES_URL . '/customizer/hero-container--narrow.svg',
-						),
-					),
-					'value'       => suki_array_value( $values, $key ),
-				) );
-				?>
-			</div>
-		</div>
-
-		<hr>
-
 		<?php if ( is_a( $obj, 'WP_Post' ) ) {
 			$post_type = get_post_type( $obj );
-
-			/**
-			 * Disable content header.
-			 */
-
-			?>
-			<div class="suki-admin-form-row">
-				<div class="suki-admin-form-label"><label><?php esc_html_e( 'Content header', 'suki' ); ?></label></div>
-				<div class="suki-admin-form-field">
-					<?php
-					$key = 'disable_content_header';
-					Suki_Admin_Fields::render_field( array(
-						'name'        => $option_key . '[' . $key . ']',
-						'type'        => 'select',
-						'choices'     => array(
-							''  => esc_html__( '&#x2714; Visible', 'suki' ),
-							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
-						),
-						'value'       => suki_array_value( $values, $key ),
-					) );
-					?>
-				</div>
-			</div>
-			<?php
 			
 			/**
 			 * Disable thumbnail.
@@ -688,67 +648,6 @@ class Suki_Admin_Metabox_Page_Settings {
 			</div>
 			<?php
 		endif;
-	}
-
-	/**
-	 * Render standard page settings meta box fields.
-	 *
-	 * @param WP_Post|WP_Term $obj
-	 * @param string $tab
-	 */
-	public function render_options__standard( $obj, $tab ) {
-		$option_key = 'suki_page_settings';
-
-		if ( is_a( $obj, 'WP_Post' ) ) {
-			$values = get_post_meta( $obj->ID, '_' . $option_key, true );
-		} elseif ( is_a( $obj, 'WP_Term' ) ) {
-			$values = get_term_meta( $obj->term_id, $option_key, true );
-		} else {
-			$values = array();
-		}
-
-		switch ( $tab ) {
-			
-
-			case 'hero':
-				?>
-
-
-		<?php 
-		if ( is_a( $obj, 'WP_Post' ) ) :
-			
-
-			var_dump( $content_header_elements );
-			?>
-			<div class="suki-admin-form-row">
-				<div class="suki-admin-form-label"><label><?php esc_html_e( 'Hide post title', 'suki' ); ?></label></div>
-				<div class="suki-admin-form-field">
-					<?php
-					$key = 'content_hide_title';
-					Suki_Admin_Fields::render_field( array(
-						'name'        => $option_key . '[' . $key . ']',
-						'type'        => 'select',
-						'choices'     => array(
-							''  => esc_html__( '(Customizer)', 'suki' ),
-							'0' => esc_html__( '&#x2718; No', 'suki' ),
-							'1' => esc_html__( '&#x2714; Yes', 'suki' ),
-						),
-						'value'       => suki_array_value( $values, $key ),
-					) );
-					?>
-				</div>
-			</div>
-
-			
-		<?php endif; ?>
-
-				
-				<?php
-				break;
-
-			case 'content':
-				break;
-		}
 	}
 }
 
