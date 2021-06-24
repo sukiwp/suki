@@ -982,25 +982,24 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	margin-bottom: 1rem;
+	display: block;
+}
+
+.content-header .suki-breadcrumb {
 	font-size: 0.85em;
 }
 
-.suki-breadcrumb li {
+.suki-breadcrumb > * {
 	display: inline-block;
-	max-width: 15em;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
 }
 
-.suki-breadcrumb li:after {
+.suki-breadcrumb > *:after {
 	margin: 0 0.5em;
 	content: "\00bb";
 	opacity: 0.5;
 }
 
-.suki-breadcrumb li:last-child:after {
+.suki-breadcrumb > *:last-child:after {
 	display: none;
 }
 

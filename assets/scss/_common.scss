@@ -270,15 +270,14 @@ button.suki-toggle {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	margin-bottom: 1rem;
-	font-size: 0.85em;
+	display: block;
 
-	li {
+	.content-header & {
+		font-size: 0.85em;
+	}
+
+	> * {
 		display: inline-block;
-		max-width: 15em;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
 
 		&:after {
 			margin: 0 0.5em;

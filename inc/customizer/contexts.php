@@ -16,6 +16,15 @@ $add = array();
  * ====================================================
  */
 
+$add['notice_breadcrumb_plugin'] = array(
+	array(
+		'setting'  => 'breadcrumb_plugin',
+		'operator' => '!=',
+		'value'    => '',
+	),
+);
+
+$add['hr_breadcrumb'] =
 $add['breadcrumb_trail_home'] =
 $add['breadcrumb_trail_current_page'] = array(
 	array(

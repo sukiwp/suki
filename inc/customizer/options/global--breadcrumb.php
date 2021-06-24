@@ -26,7 +26,7 @@ $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
 	'label'       => esc_html__( 'Breadcrumb module', 'suki' ),
-	'description' => esc_html__( 'Choose whether to use theme\'s breadcrumb or other breadcrumb modules from supported 3rd party plugins. If you use 3rd party plugin, make sure you have installed and configured the plugin correctly. Otherwise, the breadcrumb might not show properly.', 'suki' ),
+	'description' => esc_html__( 'Choose whether to use theme\'s breadcrumb or other breadcrumb modules from supported 3rd party plugins.', 'suki' ),
 	'choices'     => array(
 		''                 => esc_html__( 'Theme\'s Breadcrumb', 'suki' ),
 		'rank-math'        => esc_html__( 'Rank Math', 'suki' ),
@@ -37,6 +37,14 @@ $wp_customize->add_control( $key, array(
 	),
 	'priority'    => 10,
 ) );
+
+// Info
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_breadcrumb_plugin', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Please make sure you have installed the plugin and configured the breadcrumb in the plugin\'s settings page. Otherwise, the breadcrumb might not show properly.', 'suki' ) . '</p></div>',
+	'priority'    => 20,
+) ) );
 
 // ------
 $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_breadcrumb', array(

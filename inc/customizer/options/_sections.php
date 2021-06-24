@@ -109,6 +109,7 @@ $wp_customize->add_panel( $panel, array(
 	// Breadcrumb
 	$wp_customize->add_section( 'suki_section_breadcrumb', array(
 		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Breadcrumb can be enabled on 2 locations:', 'suki' ) . '</p><ul><li>' . esc_html__( 'Header (visible globally)', 'suki' ) . '</li><li>' . esc_html__( 'Content Header (per page type)', 'suki' ) . '</li></ul>',
 		'panel'       => $panel,
 		'priority'    => 20,
 	) );

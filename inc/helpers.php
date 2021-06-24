@@ -789,14 +789,15 @@ function suki_get_header_builder_configurations() {
 			'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left', 'suki' ) : esc_html__( 'Bottom - Right', 'suki' ),
 		),
 		'choices' => array(
-			'logo'                   => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
+			'logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
 			/* translators: %s: instance number. */
-			'menu-1'                 => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
+			'menu-1'          => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
 			/* translators: %s: instance number. */
-			'html-1'                 => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
-			'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
-			'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
-			'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+			'html-1'          => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+			'search-bar'      => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
+			'search-dropdown' => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
+			'social'          => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+			'breadcrumb'      => '<span class="dashicons dashicons-networking"></span>' . esc_html__( 'Breadcrumb', 'suki' ),
 		),
 		'limitations' => array(),
 	) );
