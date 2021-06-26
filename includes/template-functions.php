@@ -51,7 +51,7 @@ add_filter( 'wp_resource_hints', 'suki_resource_hints', 10, 2 );
 
 /**
  * Attach template functions into the proper template hooks.
- * All template functions can be found on 'inc/template-tags.php' file.
+ * All template functions can be found on 'includes/template-tags.php' file.
  */
 function suki_template_hooks() {
 	/**

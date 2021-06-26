@@ -149,7 +149,7 @@
 		});
 
 		/**
-		 * Install "Suki Sites Import" plugin.
+		 * "Suki Sites Import" plugin installation from theme's dashboard page.
 		 */
 
 		$( '.suki-admin-install-sites-import-plugin-button' ).on( 'click', function( e ) {

@@ -45,24 +45,24 @@ class Suki_Admin {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// General admin hooks on every admin pages
+		// Add admin menu, CSS, and JS.
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
-
+		
+		// Theme dashboard notification.
 		add_action( 'admin_notices', array( $this, 'add_theme_welcome' ), 999 );
 
+		// Rating and review notification.
 		add_action( 'admin_notices', array( $this, 'add_rating_notice' ) );
 		add_action( 'wp_ajax_suki_rating_notice_close', array( $this, 'ajax_dismiss_rating_notice' ) );
 		add_action( 'after_switch_theme', array( $this, 'reset_rating_notice_flag' ) );
-
+		
+		// Suki Sites Import plugin installation from theme's dashboard page.
 		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
 
-		// Classic editor hooks
-		// TODO
-		// add_action( 'init', array( $this, 'add_editor_css' ) );
+		// Editor styles
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
-		// add_filter( 'block_editor_settings', array( $this, 'add_gutenberg_custom_css' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
 		// Suki admin page hooks
@@ -679,7 +679,7 @@ class Suki_Admin {
 		}
 
 		?>
-		<div class="suki-admin-modules postbox" action="" method="POST">
+		<div class="suki-admin-modules postbox">
 			<h2 class="hndle">
 				<?php echo wp_kses_post( apply_filters( 'suki/pro/modules/list_heading', esc_html__( 'Modules Manager', 'suki' ) ) ); ?>
 			</h2>

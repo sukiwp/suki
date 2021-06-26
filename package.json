@@ -61,7 +61,6 @@
 		"last 1 version",
 		"ie >= 10"
 	],
-	"dependencies": {},
 	"data": {
 		"initFile": "style.css",
 		"requiresWPVersion": "4.5",

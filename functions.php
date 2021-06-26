@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * ====================================================
  */
 
-define( 'SUKI_INCLUDES_DIR', get_template_directory() . '/inc' );
+define( 'SUKI_INCLUDES_DIR', get_template_directory() . '/includes' );
 
 define( 'SUKI_IMAGES_URL', get_template_directory_uri() . '/assets/images' );
 

@@ -118,7 +118,11 @@ class Suki_Compatibility_Suki_Pro {
 				continue;
 			}
 
-			$postmessages_file = SUKI_PRO_DIR . 'inc/modules/' . $module_slug . '/customizer/postmessages.php';
+			if ( defined( 'SUKI_PRO_INCLUDES_DIR' ) ) {
+				$postmessages_file = trailingslashit( SUKI_PRO_INCLUDES_DIR ) . 'modules/' . $module_slug . '/customizer/postmessages.php';
+			} else {
+				$postmessages_file = trailingslashit( SUKI_PRO_DIR ) . 'inc/modules/' . $module_slug . '/customizer/postmessages.php';
+			}
 
 			if ( file_exists( $postmessages_file ) ) {
 				include( $postmessages_file );

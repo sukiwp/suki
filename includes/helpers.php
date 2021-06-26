@@ -530,7 +530,7 @@ function suki_get_theme_modules() {
 			),
 		),
 		'footer' => array(
-			'label'    => esc_html__( 'Footer Builder', 'suki' ),
+			'label'    => esc_html__( 'Footer Layout', 'suki' ),
 			'category' => 'layout',
 			'actions'  => array(
 				'settings' => array(
@@ -621,8 +621,6 @@ function suki_get_theme_modules() {
  * @return array
  */
 function suki_get_pro_modules() {
-	$url = add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_URL ) );
-
 	return apply_filters( 'suki/pro/modules', array(
 		'header-elements-plus' => array(
 			'label'    => esc_html__( 'Header Elements Plus', 'suki' ),
@@ -678,6 +676,19 @@ function suki_get_pro_modules() {
 			'category' => 'assets',
 		),
 
+		'blog-layout-plus' => array(
+			'label'    => esc_html__( 'Blog Layout Plus', 'suki' ),
+			'category' => 'blog',
+		),
+		'blog-featured-posts' => array(
+			'label'    => esc_html__( 'Blog Featured Posts', 'suki' ),
+			'category' => 'blog',
+		),
+		'blog-related-posts' => array(
+			'label'    => esc_html__( 'Blog Related Posts', 'suki' ),
+			'category' => 'blog',
+		),
+
 		'woocommerce-layout-plus' => array(
 			'label'    => esc_html__( 'WC Layout Plus', 'suki' ),
 			'category' => 'woocommerce',
@@ -697,19 +708,6 @@ function suki_get_pro_modules() {
 		'woocommerce-checkout-optimization' => array(
 			'label'    => esc_html__( 'WC Checkout Optimization', 'suki' ),
 			'category' => 'woocommerce',
-		),
-
-		'blog-layout-plus' => array(
-			'label'    => esc_html__( 'Blog Layout Plus', 'suki' ),
-			'category' => 'blog',
-		),
-		'blog-featured-posts' => array(
-			'label'    => esc_html__( 'Blog Featured Posts', 'suki' ),
-			'category' => 'blog',
-		),
-		'blog-related-posts' => array(
-			'label'    => esc_html__( 'Blog Related Posts', 'suki' ),
-			'category' => 'blog',
 		),
 	) );
 }
