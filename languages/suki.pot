@@ -554,7 +554,7 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:73, includes/customizer/options/_page-settings.php:253, includes/customizer/options/_sections.php:320
+#: includes/admin/class-suki-admin-metabox-page-settings.php:73, includes/customizer/options/_sections.php:320
 msgid "Footer"
 msgstr ""
 
@@ -569,11 +569,11 @@ msgstr ""
 msgid "Edit Page settings here"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:381, includes/admin/class-suki-admin-metabox-page-settings.php:396, includes/admin/class-suki-admin-metabox-page-settings.php:435, includes/admin/class-suki-admin-metabox-page-settings.php:453, includes/admin/class-suki-admin-metabox-page-settings.php:560, includes/admin/class-suki-admin-metabox-page-settings.php:606, includes/customizer/options/_page-settings.php:217, includes/customizer/options/_page-settings.php:243, includes/customizer/options/_page-settings.php:269, includes/customizer/options/_page-settings.php:287
+#: includes/admin/class-suki-admin-metabox-page-settings.php:381, includes/admin/class-suki-admin-metabox-page-settings.php:396, includes/admin/class-suki-admin-metabox-page-settings.php:435, includes/admin/class-suki-admin-metabox-page-settings.php:453, includes/admin/class-suki-admin-metabox-page-settings.php:560, includes/admin/class-suki-admin-metabox-page-settings.php:606, includes/customizer/options/_page-settings.php:209, includes/customizer/options/_page-settings.php:227, includes/customizer/options/_page-settings.php:252, includes/customizer/options/_page-settings.php:270
 msgid "&#x2714; Visible"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:382, includes/admin/class-suki-admin-metabox-page-settings.php:397, includes/admin/class-suki-admin-metabox-page-settings.php:436, includes/admin/class-suki-admin-metabox-page-settings.php:454, includes/admin/class-suki-admin-metabox-page-settings.php:561, includes/admin/class-suki-admin-metabox-page-settings.php:607, includes/customizer/options/_page-settings.php:218, includes/customizer/options/_page-settings.php:244, includes/customizer/options/_page-settings.php:270, includes/customizer/options/_page-settings.php:288
+#: includes/admin/class-suki-admin-metabox-page-settings.php:382, includes/admin/class-suki-admin-metabox-page-settings.php:397, includes/admin/class-suki-admin-metabox-page-settings.php:436, includes/admin/class-suki-admin-metabox-page-settings.php:454, includes/admin/class-suki-admin-metabox-page-settings.php:561, includes/admin/class-suki-admin-metabox-page-settings.php:607, includes/customizer/options/_page-settings.php:210, includes/customizer/options/_page-settings.php:228, includes/customizer/options/_page-settings.php:253, includes/customizer/options/_page-settings.php:271
 msgid "&#x2718; Hidden"
 msgstr ""
 
@@ -602,11 +602,11 @@ msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:427, includes/customizer/options/_page-settings.php:267
+#: includes/admin/class-suki-admin-metabox-page-settings.php:427, includes/customizer/options/_page-settings.php:250
 msgid "Footer widgets"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:445, includes/customizer/options/_page-settings.php:285
+#: includes/admin/class-suki-admin-metabox-page-settings.php:445, includes/customizer/options/_page-settings.php:268
 msgid "Footer bottom"
 msgstr ""
 
@@ -1398,7 +1398,7 @@ msgstr ""
 msgid "Featured Image"
 msgstr ""
 
-#: includes/customizer/options/blog--single.php:104, includes/customizer/options/footer--scroll-to-top.php:65, includes/customizer/options/header--mobile-vertical-bar.php:28, includes/customizer/options/page--single.php:91, includes/customizer/options/_cpt.php:154, includes/customizer/options/_page-settings.php:215, includes/customizer/options/_page-settings.php:241
+#: includes/customizer/options/blog--single.php:104, includes/customizer/options/footer--scroll-to-top.php:65, includes/customizer/options/header--mobile-vertical-bar.php:28, includes/customizer/options/page--single.php:91, includes/customizer/options/_cpt.php:154
 msgid "Display"
 msgstr ""
 
@@ -1980,11 +1980,11 @@ msgstr ""
 msgid "Header Builder"
 msgstr ""
 
-#: includes/customizer/options/header--builder.php:58, includes/customizer/options/_page-settings.php:201
+#: includes/customizer/options/header--builder.php:58, includes/customizer/options/_page-settings.php:207
 msgid "Desktop Header"
 msgstr ""
 
-#: includes/customizer/options/header--builder.php:80, includes/customizer/options/_page-settings.php:227
+#: includes/customizer/options/header--builder.php:80, includes/customizer/options/_page-settings.php:225
 msgid "Mobile Header"
 msgstr ""
 
