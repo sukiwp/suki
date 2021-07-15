@@ -842,6 +842,7 @@ input, select, textarea {
 	visibility: visible;
 }
 
+.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--unavailable,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--disabled,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--enabled,
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--activate,
@@ -853,6 +854,10 @@ input, select, textarea {
 	margin-top: -1px;
 	border-radius: 10px;
 	background-color: #dddddd;
+}
+
+.suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--unavailable:before {
+	content: "\f335";
 }
 
 .suki-admin-modules-grid .suki-admin-module-actions .suki-admin-module-action--disabled:before {

@@ -844,6 +844,7 @@ input, select, textarea {
 					}
 				}
 
+				.suki-admin-module-action--unavailable,
 				.suki-admin-module-action--disabled,
 				.suki-admin-module-action--enabled,
 				.suki-admin-module-action--activate,
@@ -855,6 +856,12 @@ input, select, textarea {
 					margin-top: -1px;
 					border-radius: 10px;
 					background-color: #dddddd;
+				}
+
+				.suki-admin-module-action--unavailable {
+					&:before {
+						content: "\f335";
+					}
 				}
 
 				.suki-admin-module-action--disabled {
