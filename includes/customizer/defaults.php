@@ -55,7 +55,7 @@ $add['body_font_family'] = 'web_safe_fonts|Default System Font';
 $add['body_font_weight'] = '';
 $add['body_font_style'] = '';
 $add['body_text_transform'] = '';
-$add['body_font_size'] = '15px';
+$add['body_font_size'] = '16px';
 $add['body_line_height'] = '1.7';
 $add['body_letter_spacing'] = '';
 
@@ -115,7 +115,7 @@ $add['h4_font_family'] = '';
 $add['h4_font_weight'] = 600;
 $add['h4_font_style'] = '';
 $add['h4_text_transform'] = '';
-$add['h4_font_size'] = '17px';
+$add['h4_font_size'] = '18px';
 $add['h4_line_height'] = '1.6';
 $add['h4_letter_spacing'] = '';
 

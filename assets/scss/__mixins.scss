@@ -4,7 +4,7 @@
 
 @mixin base() {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; // postmessage: body_font_family
-	font-size: 15px; // postmessage: body_font_size
+	font-size: 16px; // postmessage: body_font_size
 	font-style: normal;
 	font-weight: normal;
 	line-height: 1.7; // postmessage: body_line_height
@@ -40,7 +40,7 @@
 }
 
 @mixin h4() {
-	font-size: 17px; // postmessage: h4_font_size
+	font-size: 18px; // postmessage: h4_font_size
 	font-style: normal;
 	font-weight: 600; // postmessage: h4_font_weight
 	line-height: 1.6; // postmessage: h4_line_height

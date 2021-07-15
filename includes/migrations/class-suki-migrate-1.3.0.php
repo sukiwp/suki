@@ -37,6 +37,7 @@ class Suki_Migrate_1_3_0 {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		$this->migrate_default_typography();
 		$this->migrate_page_template_slug();
 		$this->migrate_page_settings_404();
 		$this->migrate_page_header_title_text();
@@ -54,6 +55,17 @@ class Suki_Migrate_1_3_0 {
 	 * Private functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Migrate default typography.
+	 *
+	 * Installed theme will use the former default typography.
+	 * New typography will only be applied to new installation.
+	 */
+	private function migrate_default_typography() {
+		set_theme_mod( 'base_font_size', '16px' );
+		set_theme_mod( 'h4_font_size', '18px' );
+	}
 
 	/**
 	 * Migrate all pages with "page-builder" page template to "page_builder".

@@ -57,8 +57,6 @@ h4 {
 }
 
 h5, h6 {
-	@include h4();
-
 	font-size: 1rem;
 	font-weight: bold;
 }

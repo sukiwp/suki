@@ -208,6 +208,7 @@ function suki_get_current_page_setting( $key, $default = null ) {
 	}
 
 	$settings = array();
+	$value = null;
 
 	// Search page
 	if ( is_search() ) {
