@@ -2160,7 +2160,7 @@ msgstr ""
 
 #. translators: %s: post type's plural name.
 #: includes/customizer/options/_cpt.php:103
-msgid "Main %s Page"
+msgid "%s page title"
 msgstr ""
 
 #: includes/customizer/options/_page-settings.php:26, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:102, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:61

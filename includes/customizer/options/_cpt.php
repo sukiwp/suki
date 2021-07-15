@@ -100,7 +100,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$wp_customize->add_control( $key, array(
 			'section'     => $section,
 			/* translators: %s: post type's plural name. */
-			'label'       => sprintf( esc_html__( 'Main %s Page', 'suki' ), $post_type_obj->labels->name ),
+			'label'       => sprintf( esc_html__( '%s page title', 'suki' ), $post_type_obj->labels->name ),
 			'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
 			'input_attrs' => array(
 				'placeholder' => '{{post_type}}',

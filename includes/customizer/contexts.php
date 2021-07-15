@@ -387,6 +387,25 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 			'value'    => 'narrow',
 		),
 	);
+
+	// Only process archives.
+	if ( preg_match( '/(_archive)/', $ps_type ) ) {
+		$add[ $ps_type . '_title_text'] = array(
+			array(
+				'setting'  => $ps_type . '_content_header',
+				'operator' => 'contain',
+				'value'    => 'title',
+			),
+		);
+		$add[ $ps_type . '_tax_title_text'] = array(
+			array(
+				'setting'  => $ps_type . '_content_header',
+				'operator' => 'contain',
+				'value'    => 'title',
+			),
+		);
+	}
+
 }
 
 return $add;
