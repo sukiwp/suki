@@ -193,6 +193,7 @@ function suki_icon( $key, $args = array(), $echo = true ) {
 	// Wrap the icon with "suki-icon" span tag.
 	$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '" aria-hidden="true">' . $svg . '</span>';
 
+	// Render or return the HTML markup.
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
@@ -232,66 +233,12 @@ function suki_social_links( $links = array(), $args = array(), $echo = true ) {
 	endforeach;
 	$html = ob_get_clean();
 
+	// Render or return the HTML markup.
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $html;
 	}
-}
-endif;
-
-if ( ! function_exists( 'suki_title' ) ) :
-/**
- * Render title.
- */
-function suki_title() {
-	if ( is_singular() ) {
-		the_title( '<h1 class="entry-title page-title">', '</h1>' );
-	}
-	elseif ( is_search() ) {
-		?>
-		<h1 class="page-title">
-			<?php
-			// Title
-			$title = suki_get_theme_mod( 'search_results_title_text' );
-			if ( empty( $title ) ) {
-				$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
-			}
-
-			// Parse syntax.
-			$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $title );
-
-			echo wp_kses_post( $title );
-			?>
-		</h1>
-		<?php
-	} else {
-		the_archive_title( '<h1 class="page-title">', '</h1>' );
-	}
-}
-endif;
-
-if ( ! function_exists( 'suki_excerpt' ) ) :
-/**
- * Render excerpt.
- */
-function suki_excerpt() {
-	// Abort if there is no excerpt found in the page / post.
-	if ( ! has_excerpt() ) {
-		return;
-	}
-
-	// Set the excerpt length to unlimited via filter.
-	add_filter( 'excerpt_length', 'suki_excerpt_length_full', 999 );
-
-	ob_start();
-	the_excerpt();
-	$excerpt = ob_get_clean();
-	
-	// Remove the filter as it will be used only on this part.
-	remove_filter( 'excerpt_length', 'suki_excerpt_length_full', 999 );
-
-	?><div class="entry-excerpt excerpt"><?php the_excerpt(); ?></div><?php
 }
 endif;
 
@@ -329,59 +276,76 @@ endif;
 if ( ! function_exists( 'suki_breadcrumb' ) ) :
 /**
  * Print / return HTML markup for breadcrumb.
+ *
+ * @param boolean $echo
+ * @return string
  */
-function suki_breadcrumb() {
+function suki_breadcrumb( $echo = true ) {
 	$html = '';
 
-	switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
-		case 'breadcrumb-trail':
-			if ( function_exists( 'breadcrumb_trail' ) ) {
-				$html = breadcrumb_trail( array(
-					'show_browse' => false,
-					'echo' => false,
-				) );
-			}
-			break;
+	// Allow breadcrumb markup modification before using the normal procedures.
+	$html = apply_filters( 'suki/frontend/breadcrumb', $html );
 
-		case 'breadcrumb-navxt':
-			if ( function_exists( 'bcn_display' ) ) {
-				$html = bcn_display( true );
-			}
-			break;
-
-		case 'yoast-seo':
-			if ( function_exists( 'yoast_breadcrumb' ) ) {
-				$html = yoast_breadcrumb( '', '', false );
-			}
-			break;
-
-		case 'rank-math':
-			if ( function_exists( 'rank_math_get_breadcrumbs' ) ) {
-				$html = rank_math_get_breadcrumbs();
-			}
-			break;
-
-		case 'seopress':
-			if ( function_exists( 'seopress_display_breadcrumbs' ) ) {
-				$html = seopress_display_breadcrumbs( false );
-			}
-			break;
-
-		default:
-			$html = suki_breadcrumb_native();
-
-			break;
+	// If markup is still empty, proceed to the normal procedures.
+	if ( empty( $html ) ) {
+		// Get breadcrumb markup based on the breadcrumb module mode.
+		switch ( suki_get_theme_mod( 'breadcrumb_plugin', '' ) ) {
+			case 'breadcrumb-trail':
+				if ( function_exists( 'breadcrumb_trail' ) ) {
+					$html = breadcrumb_trail( array(
+						'show_browse' => false,
+						'echo' => false,
+					) );
+				}
+				break;
+	
+			case 'breadcrumb-navxt':
+				if ( function_exists( 'bcn_display' ) ) {
+					$html = bcn_display( true );
+				}
+				break;
+	
+			case 'yoast-seo':
+				if ( function_exists( 'yoast_breadcrumb' ) ) {
+					$html = yoast_breadcrumb( '', '', false );
+				}
+				break;
+	
+			case 'rank-math':
+				if ( function_exists( 'rank_math_get_breadcrumbs' ) ) {
+					$html = rank_math_get_breadcrumbs();
+				}
+				break;
+	
+			case 'seopress':
+				if ( function_exists( 'seopress_display_breadcrumbs' ) ) {
+					$html = seopress_display_breadcrumbs( false );
+				}
+				break;
+	
+			default:
+				$html = suki_breadcrumb_native( false );
+				break;
+		}
 	}
 
-	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	// Render or return the HTML markup.
+	if ( $echo ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
+	}
 }
 endif;
 
 if ( ! function_exists( 'suki_breadcrumb_native' ) ) :
 /**
  * Render theme's native breadcrumb.
+ *
+ * @param boolean $echo
+ * @return string
  */
-function suki_breadcrumb_native() {
+function suki_breadcrumb_native( $echo = true ) {
 	$items = array();
 
 	/**
@@ -600,17 +564,12 @@ function suki_breadcrumb_native() {
 	// Closing tag.
 	$html .= '</ol>';
 
-	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-}
-endif;
-
-if ( ! function_exists( 'suki_search_form' ) ) :
-/**
- * Render search form.
- */
-function suki_search_form() {
-	// Print WordPress's default search form.
-	get_search_form();
+	// Render or return the HTML markup.
+	if ( $echo ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
+	}
 }
 endif;
 
@@ -726,26 +685,26 @@ if ( ! function_exists( 'suki_header_element' ) ) :
 /**
  * Wrapper function to print HTML markup for all header element.
  * 
- * @param string $slug
+ * @param string $element
  */
-function suki_header_element( $slug ) {
+function suki_header_element( $element ) {
 	// Abort if element slug is empty.
-	if ( empty( $slug ) ) {
+	if ( empty( $element ) ) {
 		return;
 	}
 
 	// Classify element into its type.
-	$type = preg_replace( '/-\d$/', '', $slug );
+	$type = preg_replace( '/-\d$/', '', $element );
 
 	// Add passing variables.
-	$variables = array( 'slug' => $slug );
+	$variables = array( 'element' => $element, 'slug' => $element ); // $slug is fallback attribute name used prior Suki v1.3.
 
 	// Get header element template.
 	$html = suki_get_template_part( 'header-element-' . $type, null, $variables, false );
 
 	// Filters to modify the final HTML tag.
-	$html = apply_filters( 'suki/frontend/header_element', $html, $slug );
-	$html = apply_filters( 'suki/frontend/header_element/' . $slug, $html );
+	$html = apply_filters( 'suki/frontend/header_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/header_element/' . $element, $html );
 
 	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
@@ -771,10 +730,86 @@ if ( ! function_exists( 'suki_content_header' ) ) :
  * Render content header.
  */
 function suki_content_header() {
-	// Render content header inside Content section if only it hasn't been rendered in Hero Section.
-	if ( ! did_action( 'suki/frontend/content_header' ) ) {
-		suki_get_template_part( 'content-header' );
+	// Abort if disable content header option is checked on the current loaded page.
+	if ( intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+		return;
 	}
+
+	suki_get_template_part( 'content-header' );
+}
+endif;
+
+if ( ! function_exists( 'suki_content_header_element' ) ) :
+/**
+ * Render content header element.
+ * 
+ * @param string $element
+ */
+function suki_content_header_element( $element ) {
+	// Abort if element slug is empty.
+	if ( empty( $element ) ) {
+		return;
+	}
+
+	$html = '';
+
+	switch ( $element ) {
+		case 'title':
+			// Singular pages
+			if ( is_singular() ) {
+				ob_start();
+				the_title( '<h1 class="entry-title page-title">', '</h1>' );
+				$html = ob_get_clean();
+			}
+			// Search results page
+			elseif ( is_search() ) {
+				// Get title format.
+				$title = suki_get_theme_mod( 'search_results_title_text' );
+				if ( empty( $title ) ) {
+					$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
+				}
+		
+				// Parse title format.
+				$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $title );
+		
+				$html = '<h1 class="page-title">' . $title . '</h1>';
+			}
+			// Archive pages
+			else {
+				ob_start();
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				$html = ob_get_clean();
+			}
+			break;
+		
+		case 'archive-description':
+			if ( ! is_post_type_archive() ) {
+				ob_start();
+				the_archive_description( '<div class="archive-description">', '</div>' );
+				$html = ob_get_clean();
+			}
+			break;
+
+		case 'breadcrumb':
+			$html = suki_breadcrumb( false );
+			break;
+		
+		case 'search-form':
+			$html = get_search_form( array( 'echo' => false ) );
+			break;
+		
+		case 'post-header-meta':
+			ob_start();
+			suki_post_header_meta();
+			$html = ob_get_clean();
+			break;
+	}
+
+	// Filters to modify the final HTML tag.
+	$html = apply_filters( 'suki/frontend/content_header_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/content_header_element/' . $element, $html );
+
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 endif;
 
@@ -885,26 +920,26 @@ if ( ! function_exists( 'suki_footer_element' ) ) :
 /**
  * Render each footer element.
  * 
- * @param string $slug
+ * @param string $element
  */
-function suki_footer_element( $slug ) {
+function suki_footer_element( $element ) {
 	// Abort if element slug is empty.
-	if ( empty( $slug ) ) {
+	if ( empty( $element ) ) {
 		return;
 	}
 
 	// Classify element into its type.
-	$type = preg_replace( '/-\d$/', '', $slug );
+	$type = preg_replace( '/-\d$/', '', $element );
 
 	// Add passing variables.
-	$variables = array( 'slug' => $slug );
+	$variables = array( 'element' => $element, 'slug' => $element ); // $slug is fallback attribute name used prior Suki v1.3.
 
 	// Get footer element template.
 	$html = suki_get_template_part( 'footer-element-' . $type, null, $variables, false );
 
 	// Filters to modify the final HTML tag.
-	$html = apply_filters( 'suki/frontend/footer_element', $html, $slug );
-	$html = apply_filters( 'suki/frontend/footer_element/' . $slug, $html );
+	$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
 
 	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
@@ -928,17 +963,6 @@ endif;
  * Archive pages template functions
  * ====================================================
  */
-
-if ( ! function_exists( 'suki_archive_description' ) ) :
-/**
- * Render archive description.
- */
-function suki_archive_description() {
-	if ( ! is_post_type_archive() ) {
-		the_archive_description( '<div class="archive-description">', '</div>' );
-	}
-}
-endif;
 
 if ( ! function_exists( 'suki_archive_navigation' ) ) :
 /**
@@ -974,6 +998,38 @@ endif;
  * Single post template functions
  * ====================================================
  */
+
+if ( ! function_exists( 'suki_post_single_content_footer_element' ) ) :
+/**
+ * Render single post content footer element.
+ * 
+ * @param string $element
+ */
+function suki_post_single_content_footer_element( $element ) {
+	// Abort if element slug is empty.
+	if ( empty( $element ) ) {
+		return;
+	}
+
+	$html = '';
+
+	switch ( $element ) {
+		case 'tags':
+			suki_post_tags();
+			break;
+		
+		case 'footer-meta':
+			suki_post_footer_meta();
+			break;
+	}
+
+	// Filters to modify the final HTML tag.
+	$html = apply_filters( 'suki/frontend/post_content/footer_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/post_content/footer_element/' . $element, $html );
+
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+endif;
 
 if ( ! function_exists( 'suki_post_tags' ) ) :
 /**
@@ -1107,13 +1163,118 @@ endif;
 
 /**
  * ====================================================
- * Default Post Layout template functions
+ * Entry header & footer template functions
  * ====================================================
  */
+
+if ( ! function_exists( 'suki_entry_header_footer_element' ) ) :
+/**
+ * Print entry header & footer element.
+ *
+ * @param string $element
+ * @param string $layout
+ */
+function suki_entry_header_footer_element( $element, $layout = 'default' ) {
+	// Set fallback layout to "default".
+	if ( empty( $layout ) ) {
+		$layout = 'default';
+	}
+
+	// Abort if element slug is empty.
+	if ( empty( $element ) ) {
+		return;
+	}
+
+	$html = '';
+
+	switch ( $element ) {
+		case 'title':
+			if ( 'default' == $layout ) {
+				suki_entry_title();
+			} else {
+				suki_entry_small_title();
+			}
+			break;
+		
+		case 'header-meta':
+			suki_entry_meta( suki_get_theme_mod( 'entry_' . ( 'default' == $layout ? '' : $layout . '_' ) . 'header_meta' ) );
+			break;
+			break;
+		
+		case 'footer-meta':
+			suki_entry_meta( suki_get_theme_mod( 'entry_' . ( 'default' == $layout ? '' : $layout . '_' ) . 'footer_meta' ) );
+			break;
+	}
+
+	// Filters to modify the final HTML tag.
+	$html = apply_filters( 'suki/frontend/entry_header_footer_element', $html, $element );
+	$html = apply_filters( 'suki/frontend/entry_header_footer_element/' . $element, $html );
+
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+endif;
+
+if ( ! function_exists( 'suki_entry_title' ) ) :
+/**
+ * Print entry title on each post.
+ *
+ * @param boolean $size
+ */
+function suki_entry_title( $size = '' ) {
+	if ( is_singular() ) {
+		the_title( '<h1 class="entry-title">', '</h1>' );
+	} else {
+		the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+	}
+}
+endif;
+
+if ( ! function_exists( 'suki_entry_small_title' ) ) :
+/**
+ * Print entry small title.
+ */
+function suki_entry_small_title() {
+	the_title( sprintf( '<h2 class="entry-small-title small-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+}
+endif;
+
+if ( ! function_exists( 'suki_entry_meta' ) ) :
+/**
+ * Print entry meta.
+ *
+ * @param string $format
+ */
+function suki_entry_meta( $format ) {
+	if ( 'post' !== get_post_type() ) {
+		return;
+	}
+
+	$format = trim( $format );
+	$html = $format;
+
+	if ( ! empty( $format ) ) {
+		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
+
+		foreach ( $matches as $match ) {
+			ob_start();
+			suki_entry_meta_element( $match[1] );
+			$meta = ob_get_clean();
+
+			$html = str_replace( $match[0], $meta, $html );
+		}
+
+		if ( '' !== trim( $html ) ) {
+			echo '<div class="entry-meta">' . $html . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+}
+endif;
 
 if ( ! function_exists( 'suki_entry_meta_element' ) ) :
 /**
  * Print entry meta element.
+ *
+ * @param string $element
  */
 function suki_entry_meta_element( $element ) {
 	switch ( $element ) {
@@ -1159,29 +1320,11 @@ function suki_entry_meta_element( $element ) {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_title' ) ) :
 /**
- * Print entry title on each post.
- *
- * @param boolean $size
+ * ====================================================
+ * Default Post Layout template functions
+ * ====================================================
  */
-function suki_entry_title( $size = '' ) {
-	if ( is_singular() ) {
-		the_title( '<h1 class="entry-title">', '</h1>' );
-	} else {
-		the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-	}
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_small_title' ) ) :
-/**
- * Print entry small title.
- */
-function suki_entry_small_title() {
-	the_title( sprintf( '<h2 class="entry-small-title small-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-}
-endif;
 
 if ( ! function_exists( 'suki_entry_excerpt' ) ) :
 /**
@@ -1223,70 +1366,11 @@ function suki_entry_thumbnail() {
 }
 endif;
 
-if ( ! function_exists( 'suki_entry_meta' ) ) :
-/**
- * Print entry meta.
- *
- * @param string $format
- */
-function suki_entry_meta( $format ) {
-	if ( 'post' !== get_post_type() ) {
-		return;
-	}
-
-	$format = trim( $format );
-	$html = $format;
-
-	if ( ! empty( $format ) ) {
-		preg_match_all( '/{{(.*?)}}/', $format, $matches, PREG_SET_ORDER );
-
-		foreach ( $matches as $match ) {
-			ob_start();
-			suki_entry_meta_element( $match[1] );
-			$meta = ob_get_clean();
-
-			$html = str_replace( $match[0], $meta, $html );
-		}
-
-		if ( '' !== trim( $html ) ) {
-			echo '<div class="entry-meta">' . $html . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
-	}
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_header_meta' ) ) :
-/**
- * Print entry header meta.
- */
-function suki_entry_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_header_meta' ) );
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_footer_meta' ) ) :
-/**
- * Print entry footer meta.
- */
-function suki_entry_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_footer_meta' ) );
-}
-endif;
-
 /**
  * ====================================================
  * Grid Post Layout template functions
  * ====================================================
  */
-
-if ( ! function_exists( 'suki_entry_grid_title' ) ) :
-/**
- * Print entry grid title.
- */
-function suki_entry_grid_title() {
-	suki_entry_small_title();
-}
-endif;
 
 if ( ! function_exists( 'suki_entry_grid_thumbnail' ) ) :
 /**
@@ -1302,23 +1386,5 @@ function suki_entry_grid_thumbnail() {
 		<?php the_post_thumbnail( suki_get_theme_mod( 'entry_grid_thumbnail_size' ) ); ?>
 	</a>
 	<?php
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_grid_header_meta' ) ) :
-/**
- * Print entry grid header meta.
- */
-function suki_entry_grid_header_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_grid_header_meta' ) );
-}
-endif;
-
-if ( ! function_exists( 'suki_entry_grid_footer_meta' ) ) :
-/**
- * Print entry grid footer meta. 
- */
-function suki_entry_grid_footer_meta() {
-	suki_entry_meta( suki_get_theme_mod( 'entry_grid_footer_meta' ) );
 }
 endif;

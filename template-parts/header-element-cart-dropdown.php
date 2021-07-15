@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -52,7 +52,7 @@ if ( '' !== $amount_position ) {
 	$amount_html = ob_get_clean();
 }
 ?>
-<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
+<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 	<div class="menu-item">
 		<?php if ( $is_dropdown ) : ?>
 			<button class="cart-link suki-menu-item-link suki-sub-menu-toggle suki-toggle" aria-expanded="false">

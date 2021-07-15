@@ -714,11 +714,19 @@ function suki_get_pro_modules() {
 
 /**
  * Return list of post types that support Page Settings.
- * 
+ *
+ * @param boolean $include_native_post_types
  * @return array
  */
-function suki_get_post_types_for_page_settings() {
-	$all_supported_post_types = array_merge( array( 'post', 'page' ), suki_get_public_custom_post_types() );
+function suki_get_post_types_for_page_settings( $include_native_post_types = true ) {
+	$native_post_types = array( 'post', 'page' );
+	$custom_post_types = suki_get_public_custom_post_types();
+
+	if ( $include_native_post_types ) {
+		$all_supported_post_types = array_merge( $native_post_types, $custom_post_types );
+	} else {
+		$all_supported_post_types = $custom_post_types;
+	}
 
 	// Allow user to deactivate page settings on some specific post types through filter.
 	$ignored_post_types = apply_filters( 'suki/dataset/page_settings/ignored_post_types', array() );

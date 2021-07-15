@@ -241,9 +241,6 @@ class Suki {
 
 		// Add theme support for selective refresh for widgets
 		add_theme_support( 'customize-selective-refresh-widgets' );
-		
-		// Add excerpt to pages.
-		add_post_type_support( 'page', 'excerpt' );
 
 		// Breadcrumb trail compatibility
 		add_theme_support( 'breadcrumb-trail' );

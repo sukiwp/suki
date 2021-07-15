@@ -842,7 +842,7 @@ $add['post_single_content_header_alignment'] = 'left';
 $add['post_single_content_header_meta'] = '{{date}}';
 $add['post_single_content_thumbnail'] = 'after';
 
-$add['post_single_content_footer'] = array( 'tags', 'post-footer-meta' );
+$add['post_single_content_footer'] = array( 'post-footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 

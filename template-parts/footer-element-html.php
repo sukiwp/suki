@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Footer element slug.
+ * @type string $element Footer element.
  *
  * @package Suki
  */
@@ -13,6 +13,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<div class="<?php echo esc_attr( 'suki-footer-' . $slug ); ?>">
-	<div><?php echo do_shortcode( suki_get_theme_mod( 'footer_' . str_replace( '-', '_', $slug ) . '_content' ) ); ?></div>
+<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
+	<div><?php echo do_shortcode( suki_get_theme_mod( 'footer_' . str_replace( '-', '_', $element ) . '_content' ) ); ?></div>
 </div>

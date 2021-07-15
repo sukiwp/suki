@@ -100,7 +100,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Individual Page Settings', 'suki' ),
-	'description' => esc_html__( 'The Individual Page Settings settings of this page is available in the page editor.', 'suki' ) . '<br><br><a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'cart' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
+	'description' => '<a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'cart' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
 	'priority'    => 100,
 ) ) );
 

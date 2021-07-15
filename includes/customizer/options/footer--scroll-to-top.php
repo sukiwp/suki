@@ -228,10 +228,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 	'priority'    => 10,
 ) ) );
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_scroll_to_top_colors', array(
+// Heading: Colors
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_scroll_to_top_colors', array(
 	'section'     => $section,
 	'settings'    => array(),
+	'label'       => esc_html__( 'Colors', 'suki' ),
 	'priority'    => 10,
 ) ) );
 

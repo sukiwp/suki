@@ -23,8 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_search/header
-				 *
-				 * @hooked suki_entry_search_title - 10
 				 */
 				do_action( 'suki/frontend/entry_search/header' );
 				?>

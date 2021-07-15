@@ -218,19 +218,6 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 30,
 	) ) );
 
-	$switcher = '
-	<div class="suki-responsive-switcher nav-tab-wrapper wp-clearfix">
-		<a href="#" class="nav-tab preview-desktop suki-responsive-switcher-button" data-device="desktop">
-			<span class="dashicons dashicons-desktop"></span>
-			<span>' . esc_html__( 'Desktop', 'suki' ) . '</span>
-		</a>
-		<a href="#" class="nav-tab preview-tablet preview-mobile suki-responsive-switcher-button" data-device="tablet">
-			<span class="dashicons dashicons-smartphone"></span>
-			<span>' . esc_html__( 'Tablet / Mobile', 'suki' ) . '</span>
-		</a>
-	</div>
-	';
-
 	// Logo
 	$wp_customize->add_section( 'suki_section_header_logo', array(
 		'title'       => esc_html__( 'Logo', 'suki' ),
@@ -274,7 +261,7 @@ $wp_customize->add_panel( $panel, array(
 			'panel'       => $panel,
 			'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
 			'features'    => array(
-				esc_html_x( 'More Header Elements: Button, Contact Info', 'Suki Pro upsell', 'suki' ),
+				esc_html_x( 'More Header Elements', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Vertical Header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Transparent Header', 'Suki Pro upsell', 'suki' ),
 				esc_html_x( 'Alternate Header Colors', 'Suki Pro upsell', 'suki' ),
@@ -467,7 +454,7 @@ $wp_customize->add_panel( $panel, array(
 
 	// ------
 	$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_page_settings_others', array(
-		'title'       => esc_html__( 'Standard Pages', 'suki' ),
+		'title'       => esc_html__( 'Default Pages', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) ) );

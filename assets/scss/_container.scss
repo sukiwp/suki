@@ -170,6 +170,12 @@ body.suki-page-layout-boxed {
 	.entry-meta {
 		font: inherit; // reset
 	}
+
+	.content-header {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 // -------------------------------------------------------------

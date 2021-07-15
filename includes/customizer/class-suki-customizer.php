@@ -216,6 +216,7 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/page--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_page-settings.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/_cpt.php' );
 	}
 
 	/**
@@ -690,12 +691,8 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_all_page_settings_types() {
-		// Define sections with default page types.
+		// Define sections for non post type pages.
 		$page_sections = array(
-			'page_single' => array(
-				'section' => 'suki_section_page_single',
-				'title' => esc_html__( 'Static Page', 'suki' ),
-			),
 			'search_results' => array(
 				'section' => 'suki_section_search_results',
 				'title' => esc_html__( 'Search Results Page', 'suki' ),

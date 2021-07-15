@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -39,7 +39,7 @@ if ( '' !== $amount_position ) {
 	$amount_html = ob_get_clean();
 }
 ?>
-<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-cart menu">
+<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-cart menu">
 	<div class="menu-item">
 		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-link suki-menu-item-link">
 			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>

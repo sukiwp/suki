@@ -55,7 +55,9 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/customizer/preview_contexts', array( $this, 'add_preview_contexts' ) );
 		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
 		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
-		add_filter( 'suki/customizer/auto_page_options/excluded_post_types', array( $this, 'exclude_from_auto_page_options' ) );
+		add_filter( 'suki/dataset/product_single_content_header_elements', array( $this, 'modify_content_header_elements_choices_on_product_single_page' ) );
+		add_filter( 'suki/customizer/enable_auto_options_on_product_archive', '__return_false' );
+		add_filter( 'suki/customizer/enable_auto_options_on_product_single', '__return_false' );
 
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -249,15 +251,21 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Exclude 'product' post type from auto page options.
+	 * Modify content header elements for WooCommerce archive and singular pages.
 	 * 
-	 * @param array $post_types
+	 * @param array $choices
 	 * @return array
 	 */
-	public function exclude_from_auto_page_options( $post_types ) {
-		$post_types[] = 'product';
+	public function modify_content_header_elements_choices_on_product_single_page( $choices ) {
+		// Add product rating.
+		$choices['product-rating'] = esc_html__( 'Product rating', 'suki' );
 
-		return $post_types;
+		// Remove excerpt.
+		if ( isset( $choices['excerpt'] ) ) {
+			unset( $choices['excerpt'] );
+		}
+
+		return $choices;
 	}
 
 	/**
@@ -283,20 +291,19 @@ class Suki_Compatibility_WooCommerce {
 		 * Global template hooks
 		 */
 
+		// Remove breadcrumb from its original position.
+		// It might be readded via Content Header.
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+
+		// Remove "woocommerce_output_all_notices" from its original position.
+		// "woocommerce_output_all_notices" is added via hard code on the theme's "archive-content.php" template.
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+
 		// Change "Products" in theme's breadcrumb trails to Shop page's title.
 		add_filter( 'suki/frontend/breadcrumb_trail', array( $this, 'modify_theme_breadcrumb_trails' ) );
 
-		// Change main content (primary) wrapper.
-		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-		add_action( 'woocommerce_before_main_content', 'suki_primary_open' );
-		add_action( 'woocommerce_after_main_content', 'suki_primary_close' );
-
 		// Add count to Cart menu item.
 		add_filter( 'nav_menu_item_title', array( $this, 'add_count_to_cart_menu_item' ), 10, 4 );
-
-		// Add filter for adding class to products grid wrapper.
-		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
@@ -304,58 +311,33 @@ class Suki_Compatibility_WooCommerce {
 		// Add cart fragments.
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'update_header_cart' ) );
 
-		// Product search form widget
-		add_filter( 'get_product_search_form', array( $this, 'add_icon_to_product_search_widget' ) );
-
 		// Add text alignment class on products loop.
 		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
 
 		// Modify "added to cart" message.
 		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_html' ), 10, 3 );
 
-		//  Modify flexslider settings on single product page.
+		// Modify flexslider settings on single product page.
 		add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'change_single_product_carousel_options' ), 10, 3 );
 
 		// Add plus and minus buttons to the quantity input.
 		add_action( 'woocommerce_after_quantity_input_field', array( $this, 'add_quantity_plus_minus_buttons' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_quantity_plus_minus_buttons_scripts' ) );
 
+		// Modify Content Header element.
+		add_filter( 'suki/frontend/content_header_element', array( $this, 'modify_content_header_elements' ), 10, 2 );
+
 		/**
 		 * Shop page's template hooks
 		 */
 
-		// Add wrapper to products grid filters.
-		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper' ), 11 );
-		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper_end' ), 999 );
-
-		// Add wrapper to products grid item.
-		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
-		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
-
-		// Reposition sale badge on products grid item.
+		// Move sale badge position to before thumbnail because we need to add a link wrapper to the product thumbnail later.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 2 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 1 );
 
-		// Reposition product image and wrap it with custom <div>.
-		if ( defined( 'SUKI_PRO_VERSION' ) && version_compare( preg_replace( '/\-.*/', '', SUKI_PRO_VERSION ), '1.1.0', '<' ) ) {
-			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
-			add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper' ), 2 );
-			add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 5 );
-			add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_thumbnail', 10 );
-			add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_close', 15 );
-			add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 20 );
-		} else {
-			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper' ), 1 );
-			add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 9 );
-			add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 19 );
-			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 999 );
-		}
-
-		// Wrap the title with link.
-		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
-		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 1 );
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
+		// Add a link wrapper to the product thumbnail.
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 9 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 19 );
 
 		// Products loop
 		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
@@ -365,22 +347,19 @@ class Suki_Compatibility_WooCommerce {
 		 * Product page's template hooks
 		 */
 
-		// Add a new filter to add additional classes to single product wrapper.
-		add_action( 'woocommerce_before_single_product', array( $this, 'add_single_product_class' ) );
+		// Remove "woocommerce_output_all_notices" from its original position.
+		// "woocommerce_output_all_notices" is added via hard code on the theme's "content-single-product.php" template.
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
 
 		// Add class to single product gallery for single image or multiple images.
 		add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_single_product_gallery_class' ) );
 
-		// Move sale badge
+		// Move sale badge position to after images for better CSS handling based on the thumbnail layout.
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 		add_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 21 );
 
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );
-
-		// Add wrapper to single product add to cart form.
-		add_filter( 'woocommerce_before_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper' ) );
-		add_filter( 'woocommerce_after_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper_end' ) );
 
 		// Related products
 		add_filter( 'woocommerce_related_products_args', array( $this, 'set_related_products_args' ) );
@@ -397,14 +376,6 @@ class Suki_Compatibility_WooCommerce {
 
 		// Cross sells columns
 		add_filter( 'woocommerce_cross_sells_columns', array( $this, 'set_cart_page_cross_sells_columns' ) );
-
-		/**
-		 * My Account page's template hooks
-		 */
-
-		// Add account avatar and name into side navigation.
-		add_filter( 'woocommerce_before_account_navigation', array( $this, 'render_account_sidebar_wrapper' ), 1 );
-		add_filter( 'woocommerce_after_account_navigation', array( $this, 'render_account_sidebar_wrapper_end' ), 999 );
 	}
 
 	/**
@@ -435,15 +406,17 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_shop() || is_product_taxonomy() ) {
-			// Keep / remove page title.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_page_title' ) ) ) {
-				add_filter( 'woocommerce_show_page_title', '__return_false' );
-			}
+			// TODO
+			// // Keep / remove page title.
+			// if ( ! intval( suki_get_theme_mod( 'woocommerce_index_page_title' ) ) ) {
+			// 	add_filter( 'woocommerce_show_page_title', '__return_false' );
+			// }
 
-			// Keep / remove breadcrumb.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_breadcrumb' ) ) ) {
-				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-			}
+			// TODO
+			// // Keep / remove breadcrumb.
+			// if ( ! intval( suki_get_theme_mod( 'woocommerce_index_breadcrumb' ) ) ) {
+			// 	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+			// }
 
 			// Keep / remove products count filter.
 			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_results_count' ) ) ) {
@@ -461,12 +434,16 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_product() ) {
-			// Keep / remove breadcrumb.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_breadcrumb' ) ) ) {
-				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-			} else {
-				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 1 );
+			// Keep / remove title on summary column.
+			// Remove if title is active in Content Header.
+			if ( in_array( 'title', suki_get_current_page_setting( 'content_header' ) ) ) {
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+			}
+			
+			// Keep / remove rating on summary column.
+			// Remove if rating is active in Content Header.
+			if ( in_array( 'product-rating', suki_get_current_page_setting( 'content_header' ) ) ) {
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 			}
 
 			// Keep / remove gallery.
@@ -495,19 +472,10 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_cart() ) {
-			// Split into 2 columns.
-			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_cart_layout' ) ) {
-				add_filter( 'body_class', array( $this, 'add_cart_two_columns_class' ) );
+			add_filter( 'suki/frontend/woocommerce/cart_classes', array( $this, 'add_cart_classes' ) );
 
-				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
-				add_action( 'woocommerce_before_cart_collaterals', 'woocommerce_cross_sell_display', 20 );
-
-				add_action( 'woocommerce_before_cart', array( $this, 'render_cart_2_columns_left_wrapper' ), 99999 );
-				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_left_wrapper_end' ), 99999 );
-
-				add_action( 'woocommerce_before_cart_collaterals', array( $this, 'render_cart_2_columns_right_wrapper' ), 99999 );
-				add_action( 'woocommerce_after_cart', array( $this, 'render_cart_2_columns_right_wrapper_end' ), 99999 );
-			}
+			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+			add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display', 10 );
 
 			// Keep / remove cross-sells.
 			if ( ! intval( suki_get_theme_mod( 'woocommerce_cart_cross_sells' ) ) ) {
@@ -521,16 +489,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_checkout() ) {
-			// Split into 2 columns.
-			if ( '2-columns' === suki_get_theme_mod( 'woocommerce_checkout_layout' ) ) {
-				add_filter( 'body_class', array( $this, 'add_checkout_two_columns_class' ) );
-
-				add_action( 'woocommerce_checkout_before_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper' ), 0 );
-				add_action( 'woocommerce_checkout_after_customer_details', array( $this, 'render_checkout_2_columns_left_wrapper_end' ), 99999 );
-
-				add_action( 'woocommerce_checkout_before_order_review_heading', array( $this, 'render_checkout_2_columns_right_wrapper' ), 0 );
-				add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_2_columns_right_wrapper_end' ), 99999 );
-			}
+			add_filter( 'suki/frontend/woocommerce/checkout_classes', array( $this, 'add_checkout_classes' ) );
 		}
 	}
 
@@ -689,18 +648,6 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Improve products loop wrapper HTML markup.
-	 *
-	 * @param string $html
-	 * @return string
-	 */
-	public function change_loop_start_markup( $html ) {
-		$html = preg_replace( '/(class=".*?)"/', '$1 ' . implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_classes', array() ) ) . '"', $html );
-
-		return $html;
-	}
-
-	/**
 	 * Mobile screen breakpoint.
 	 * 
 	 * @param string $px
@@ -718,18 +665,6 @@ class Suki_Compatibility_WooCommerce {
 		$fragments['.cart-count'] = '<span class="cart-count" data-count="' . $count . '">' . $count . '</span>';
 		
 		return $fragments;
-	}
-
-	/**
-	 * Add SVG icon to product search widget HTML.
-	 *
-	 * @param string $from
-	 * @return string
-	 */
-	public function add_icon_to_product_search_widget( $form ) {
-		$form = preg_replace( '/<\/form>/', suki_icon( 'search', array( 'class' => 'suki-search-icon' ), false ) . '</form>', $form );
-
-		return $form;
 	}
 
 	/**
@@ -848,54 +783,42 @@ class Suki_Compatibility_WooCommerce {
 		// Add right after WooCommerce main js.
 		wp_add_inline_script( 'woocommerce', $js );
 	}
+
+	/**
+	 * Modify content header elements markup.
+	 * 
+	 * @param string $html
+	 * @param string $element
+	 * @return array
+	 */
+	public function modify_content_header_elements( $html, $element ) {
+		// Abort if current loaded page is not a WooCommerce page.
+		if ( ! is_woocommerce() ) {
+			return $html;
+		}
+
+		switch( $element ) {
+			case 'title':
+				if ( ! is_product() ) {
+					$html = preg_replace( '/(<h1 .*?>)(.*?)(<\/h1>)/', '$1' . woocommerce_page_title( false ) . '$3', $html );
+				}
+				break;
+				
+			case 'product-rating':
+				ob_start();
+				woocommerce_template_single_rating();
+				$html = ob_get_clean();
+				break;
+		}
+
+		return $html;
+	}
 	
 	/**
 	 * ====================================================
 	 * Shop Page Hook functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Add opening products filters wrapper tag.
-	 */
-	public function render_loop_filters_wrapper() {
-		?><div class="suki-products-filters"><?php
-	}
-
-	/**
-	 * Add closing products filters wrapper tag.
-	 */
-	public function render_loop_filters_wrapper_end() {
-		?></div><?php
-	}
-
-	/**
-	 * Add opening product wrapper tag to products loop item.
-	 */
-	public function render_loop_item_wrapper() {
-		?><div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_classes', array( 'suki-product-wrapper' ) ) ) ); ?>"><?php
-	}
-
-	/**
-	 * Add closing product wrapper tag to products loop item.
-	 */
-	public function render_loop_item_wrapper_end() {
-		?></div><?php
-	}
-
-	/**
-	 * Add opening product image wrapper tag.
-	 */
-	public function render_loop_product_thumbnail_wrapper() {
-		?><div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array( 'suki-product-thumbnail' ) ) ) ); ?>"><?php
-	}
-
-	/**
-	 * Add closing product image wrapper tag.
-	 */
-	public function render_loop_product_thumbnail_wrapper_end() {
-		?></div><?php
-	}
 
 	/**
 	 * Set products loop posts per page.
@@ -924,32 +847,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add some classes on single product wrapper on single product template.
-	 *
-	 * @param array $classes
-	 * @param array $class
-	 * @param integer $post_id
-	 * @return array
-	 */
-	public function add_single_product_class() {
-		add_filter( 'post_class', array( $this, 'add_single_product_class_filter' ), 10, 3 );
-	}
-
-	/**
-	 * Add some classes on single product wrapper via filter.
-	 *
-	 * @param array $classes
-	 * @param array $class
-	 * @param integer $post_id
-	 * @return array
-	 */
-	public function add_single_product_class_filter( $classes, $class, $post_id ) {
-		$classes = apply_filters( 'suki/frontend/woocommerce/single_product_classes', $classes );
-		
-		return $classes;
-	}
-
-	/**
 	 * Add class on single product gallery whether it contains single image or multiple images.
 	 *
 	 * @param array $classes
@@ -975,20 +872,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_product_thumbnails_columns( $columns ) {
 		return 8;
-	}
-
-	/**
-	 * Add opening add to cart form's wrapper tag.
-	 */
-	public function render_add_to_cart_form_wrapper() {
-		?><div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array( 'suki-product-add-to-cart' ) ) ) ); ?>"><?php
-	}
-
-	/**
-	 * Add closing add to cart form's wrapper tag.
-	 */
-	public function render_add_to_cart_form_wrapper_end() {
-		?></div><?php
 	}
 
 	/**
@@ -1057,40 +940,14 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add two columns layout class for cart page.
+	 * Add classes for cart page.
 	 */
-	public function add_cart_two_columns_class( $classes ) {
-		$classes[] = 'suki-woocommerce-cart-2-columns';
+	public function add_cart_classes( $classes ) {
+		if ( '2-columns' === suki_get_theme_mod( 'woocommerce_cart_layout' ) ) {
+			$classes[] = 'suki-woocommerce-cart-2-columns';
+		}
 
 		return $classes;
-	}
-
-	/**
-	 * Add opening 2 columns cart left columns wrapper tag.
-	 */
-	public function render_cart_2_columns_left_wrapper() {
-		?><div class="suki-woocommerce-cart-2-columns--left"><?php
-	}
-
-	/**
-	 * Add closing 2 columns cart left columns wrapper tag.
-	 */
-	public function render_cart_2_columns_left_wrapper_end() {
-		?></div><?php
-	}
-
-	/**
-	 * Add opening 2 columns cart right columns wrapper tag.
-	 */
-	public function render_cart_2_columns_right_wrapper() {
-		?><div class="suki-woocommerce-cart-2-columns--right"><?php
-	}
-
-	/**
-	 * Add opening 2 columns cart right columns wrapper tag.
-	 */
-	public function render_cart_2_columns_right_wrapper_end() {
-		?></div><?php
 	}
 
 	/**
@@ -1110,69 +967,14 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add two columns layout class for checkout page.
+	 * Add classes for checkout page.
 	 */
-	public function add_checkout_two_columns_class( $classes ) {
-		$classes[] = 'suki-woocommerce-checkout-2-columns';
+	public function add_checkout_classes( $classes ) {
+		if ( '2-columns' === suki_get_theme_mod( 'woocommerce_checkout_layout' ) ) {
+			$classes[] = 'suki-woocommerce-checkout-2-columns';
+		}
 
 		return $classes;
-	}
-
-	/**
-	 * Add opening 2 columns checkout left columns wrapper tag.
-	 */
-	public function render_checkout_2_columns_left_wrapper() {
-		?><div class="suki-woocommerce-checkout-2-columns--left"><?php
-	}
-
-	/**
-	 * Add closing 2 columns checkout left columns wrapper tag.
-	 */
-	public function render_checkout_2_columns_left_wrapper_end() {
-		?></div><?php
-	}
-
-	/**
-	 * Add opening 2 columns checkout right columns wrapper tag.
-	 */
-	public function render_checkout_2_columns_right_wrapper() {
-		?><div class="suki-woocommerce-checkout-2-columns--right"><?php
-	}
-
-	/**
-	 * Add opening 2 columns checkout right columns wrapper tag.
-	 */
-	public function render_checkout_2_columns_right_wrapper_end() {
-		?></div><?php
-	}
-
-	/**
-	 * ====================================================
-	 * My Account Page Hook functions
-	 * ====================================================
-	 */
-
-	/**
-	 * Add opening wrapper tag to wrap account sidebar.
-	 */
-	public function render_account_sidebar_wrapper() {
-		$user = wp_get_current_user();
-		?>
-		<div class="suki-woocommerce-MyAccount-sidebar">
-			<div class="suki-woocommerce-MyAccount-user">
-				<?php echo get_avatar( $user->user_ID, 60 ); ?>
-				<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
-			</div>
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to wrap account sidebar.
-	 */
-	public function render_account_sidebar_wrapper_end() {
-		?>
-		</div>
-		<?php
 	}
 }
 

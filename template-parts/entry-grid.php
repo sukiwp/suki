@@ -14,8 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		<?php
 		/**
 		 * Hook: suki/frontend/entry_grid/before_header
-		 *
-		 * @hooked suki_entry_grid_thumbnail - 10
 		 */
 		do_action( 'suki/frontend/entry_grid/before_header' );
 		
@@ -25,9 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_grid/header
-				 *
-				 * @hooked suki_entry_grid_header_meta - 10
-				 * @hooked suki_entry_grid_title - 20
 				 */
 				do_action( 'suki/frontend/entry_grid/header' );
 				?>
@@ -93,8 +88,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_grid/footer
-				 * 
-				 * @hooked suki_entry_grid_footer_meta - 10
 				 */
 				do_action( 'suki/frontend/entry_grid/footer' );
 				?>

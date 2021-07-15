@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -13,6 +13,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?>">
+<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
 	<?php suki_breadcrumb(); ?>
 </div>

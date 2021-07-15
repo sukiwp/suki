@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -13,9 +13,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<nav class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-menu site-navigation" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php esc_attr_e( 'Mobile Header Menu', 'suki' ); ?>">
+<nav class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-menu site-navigation" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php esc_attr_e( 'Mobile Header Menu', 'suki' ); ?>">
 	<?php wp_nav_menu( array(
-		'theme_location' => 'header-' . $slug,
+		'theme_location' => 'header-' . $element,
 		'menu_class'     => 'menu suki-toggle-menu',
 		'container'      => false,
 		'fallback_cb'    => 'suki_unassigned_menu',

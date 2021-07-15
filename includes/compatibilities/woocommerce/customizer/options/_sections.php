@@ -62,6 +62,13 @@ $wp_customize->add_section( 'suki_section_woocommerce_elements', array(
 	'priority'    => 21,
 ) );
 
+// Breadcrumb
+$wp_customize->add_section( 'woocommerce_breadcrumb', array(
+	'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+	'panel'       => $panel,
+	'priority'    => 21,
+) );
+
 // Products Grid
 $wp_customize->add_section( 'woocommerce_products_grid', array(
 	'title'       => esc_html__( 'Products Grid', 'suki' ),

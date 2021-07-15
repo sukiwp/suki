@@ -12,6 +12,33 @@ $section = 'suki_section_woocommerce_elements';
 
 /**
  * ====================================================
+ * Breadcrumb
+ * ====================================================
+ */
+
+// Heading: Breadcrumb
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_elements_breadcrumb', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Breadcrumb', 'suki' ),
+	'priority'    => 10,
+) ) );
+
+// Cross-sells
+$key = 'woocommerce_breadcrumb_use_theme_module';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Integrate with theme\'s breadcrumb module', 'suki' ),
+    'description' => esc_html__( 'When enabled, the theme\'s breadcrumb module will replace the WooCommerce\'s original breadcrumb.', 'suki' ),
+	'priority'    => 10,
+) ) );
+
+/**
+ * ====================================================
  * Sale Badge
  * ====================================================
  */
@@ -21,7 +48,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Sale badge', 'suki' ),
-	'priority'    => 10,
+	'priority'    => 20,
 ) ) );
 
 // Colors
@@ -38,7 +65,7 @@ foreach ( $colors as $key => $label ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
-		'priority'    => 10,
+		'priority'    => 20,
 	) ) );
 }
 
@@ -53,7 +80,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Review star', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 // Review star color
@@ -66,7 +93,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Rating (&#9733;) color', 'suki' ),
-	'priority'    => 20,
+	'priority'    => 30,
 ) ) );
 
 /**
@@ -81,7 +108,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'settings'    => array(),
 	'label'       => esc_html__( 'Alt Button', 'suki' ),
 	'description' => esc_html__( 'Used for single product\'s "Add to Cart" button and Checkout button.', 'suki' ),
-	'priority'    => 30,
+	'priority'    => 40,
 ) ) );
 
 // Colors
@@ -102,6 +129,6 @@ foreach ( $colors as $key => $label ) {
 	$wp_customize->add_control( new Suki_Customize_Control_Color( $wp_customize, $key, array(
 		'section'     => $section,
 		'label'       => $label,
-		'priority'    => 30,
+		'priority'    => 40,
 	) ) );
 }

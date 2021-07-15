@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type boolean $merged whether it's a merged header bar.
+ * @type boolean $merged Whether it's a merged header bar.
  *
  * @package Suki
  */
@@ -35,25 +35,25 @@ if ( 1 > $count ) {
 			<div class="suki-wrapper">
 	<?php endif; ?>
 
-			<div class="suki-header-top-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
-				<?php foreach ( $cols as $col ) : ?>
-					<?php
-					// Skip center column if it's empty
-					if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
-						continue;
-					}
-					?>
-					<div class="<?php echo esc_attr( 'suki-header-top-bar-' . $col ); ?> suki-header-column">
+				<div class="suki-header-top-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
+					<?php foreach ( $cols as $col ) : ?>
 						<?php
-						// Print all elements inside the column.
-						foreach ( $elements[ $col ] as $element ) {
-							suki_header_element( $element );
+						// Skip center column if it's empty
+						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
+							continue;
 						}
 						?>
-					</div>
-				<?php endforeach; ?>
-			</div>
+						<div class="<?php echo esc_attr( 'suki-header-top-bar-' . $col ); ?> suki-header-column">
+							<?php
+							// Print all elements inside the column.
+							foreach ( $elements[ $col ] as $element ) {
+								suki_header_element( $element );
+							}
+							?>
+						</div>
+					<?php endforeach; ?>
+				</div>
 
+			</div>
 		</div>
-	</div>
 </div>

@@ -106,48 +106,6 @@
 	@include float-container();
 }
 
-.page-title {
-	@include h1();
-
-	.suki-author-archive-avatar {
-		margin-bottom: 0.5em;
-
-		.avatar {
-			width: 5rem;
-			height: 5rem;
-			border-radius: 50%;
-		}
-	}
-}
-
-.content-header {
-	.site-main > & {
-		margin: 0 0 6rem;
-	}
-
-	> * {
-		margin-bottom: 1.5rem;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-
-	.page-title {
-		@include h1();
-	}
-
-	.excerpt {
-		font-size: 1.1em;
-	}
-
-	.archive-description {
-		> *:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
 .search-form {
 	display: block;
 	position: relative;
@@ -272,22 +230,59 @@ button.suki-toggle {
 	padding: 0;
 	display: block;
 
-	.content-header & {
-		font-size: 0.85em;
-	}
-
 	> * {
 		display: inline-block;
 
 		&:after {
 			margin: 0 0.5em;
-			content: "\00bb";
+			content: "\203a";
 			opacity: 0.5;
 		}
 
 		&:last-child:after {
 			display: none;
 		}
+	}
+}
+
+
+.page-title {
+	@include h1();
+
+	.suki-author-archive-avatar {
+		margin-bottom: 0.5em;
+
+		.avatar {
+			width: 5rem;
+			height: 5rem;
+			border-radius: 50%;
+		}
+	}
+}
+
+.content-header {
+	.site-main > & {
+		margin: 0 0 6rem;
+	}
+
+	.suki-breadcrumb {
+		font-size: 0.85em;
+		margin-bottom: 1rem;
+	}
+
+	.excerpt {
+		font-size: 1.1em;
+	}
+
+	.page-description, .term-description, // WooCommerce archive description
+	.archive-description {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	> * {
+		margin-bottom: 1.5rem;
 	}
 }
 

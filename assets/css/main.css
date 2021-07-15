@@ -813,54 +813,6 @@ span.select2-container .select2-dropdown--above .select2-results {
 	clear: both;
 }
 
-.page-title {
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 1.3;
-	letter-spacing: 0;
-	text-transform: none;
-}
-
-.page-title .suki-author-archive-avatar {
-	margin-bottom: 0.5em;
-}
-
-.page-title .suki-author-archive-avatar .avatar {
-	width: 5rem;
-	height: 5rem;
-	border-radius: 50%;
-}
-
-.site-main > .content-header {
-	margin: 0 0 6rem;
-}
-
-.content-header > * {
-	margin-bottom: 1.5rem;
-}
-
-.content-header > *:last-child {
-	margin-bottom: 0;
-}
-
-.content-header .page-title {
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 1.3;
-	letter-spacing: 0;
-	text-transform: none;
-}
-
-.content-header .excerpt {
-	font-size: 1.1em;
-}
-
-.content-header .archive-description > *:last-child {
-	margin-bottom: 0;
-}
-
 .search-form {
 	display: block;
 	position: relative;
@@ -985,22 +937,59 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	display: block;
 }
 
-.content-header .suki-breadcrumb {
-	font-size: 0.85em;
-}
-
 .suki-breadcrumb > * {
 	display: inline-block;
 }
 
 .suki-breadcrumb > *:after {
 	margin: 0 0.5em;
-	content: "\00bb";
+	content: "\203a";
 	opacity: 0.5;
 }
 
 .suki-breadcrumb > *:last-child:after {
 	display: none;
+}
+
+.page-title {
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.3;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.page-title .suki-author-archive-avatar {
+	margin-bottom: 0.5em;
+}
+
+.page-title .suki-author-archive-avatar .avatar {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+}
+
+.site-main > .content-header {
+	margin: 0 0 6rem;
+}
+
+.content-header .suki-breadcrumb {
+	font-size: 0.85em;
+	margin-bottom: 1rem;
+}
+
+.content-header .excerpt {
+	font-size: 1.1em;
+}
+
+.content-header .page-description > *:last-child, .content-header .term-description > *:last-child,
+.content-header .archive-description > *:last-child {
+	margin-bottom: 0;
+}
+
+.content-header > * {
+	margin-bottom: 1.5rem;
 }
 
 .comments-area {
@@ -1616,6 +1605,10 @@ body.suki-page-layout-boxed #page {
 
 .suki-hero .entry-meta {
 	font: inherit;
+}
+
+.suki-hero .content-header > *:last-child {
+	margin-bottom: 0;
 }
 
 .suki-content {
@@ -2748,7 +2741,7 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin-top: auto;
 }
 
-.suki-loop-default .entry {
+.entry {
 	margin-bottom: 6em;
 }
 

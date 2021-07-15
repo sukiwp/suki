@@ -21,7 +21,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, '
 	'section'     => $section,
 	'settings'    => array(),
 	'label'       => esc_html__( 'Posts Layout', 'suki' ),
-	'priority'    => 0,
+	'priority'    => 10,
 ) ) );
 
 // Posts layout
@@ -42,7 +42,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--grid.svg',
 		),
 	),
-	'priority'    => 0,
+	'priority'    => 10,
 ) ) );
 
 // Edit entry default
@@ -50,7 +50,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'bl
 	'section'     => $section,
 	'settings'    => array(),
 	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
-	'priority'    => 1,
+	'priority'    => 11,
 ) ) );
 
 // Edit entry grid
@@ -58,7 +58,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'bl
 	'section'     => $section,
 	'settings'    => array(),
 	'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
-	'priority'    => 1,
+	'priority'    => 11,
 ) ) );
 
 // Navigation mode
@@ -75,7 +75,7 @@ $wp_customize->add_control( $key, array(
 		'prev-next'  => esc_html__( 'Prev / Next buttons', 'suki' ),
 		'pagination' => esc_html__( 'Page numbers', 'suki' ),
 	),
-	'priority'    => 5,
+	'priority'    => 19,
 ) );
 
 /**
@@ -84,11 +84,92 @@ $wp_customize->add_control( $key, array(
  * ====================================================
  */
 
-// ------
-$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_' . $ps_type . '_content_header_on_home', array(
+// Heading: Content Header
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_post_archive_content_header', array(
 	'section'     => $section,
 	'settings'    => array(),
-	'priority'    => 19,
+	'label'       => esc_html__( 'Content Header', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+// Elements
+$key = 'post_archive_content_header';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, $key, array(
+	'section'     => $section,
+	// 'label'       => esc_html__( 'Elements', 'suki' ),
+	'choices'     => apply_filters( 'suki/dataset/post_archive_content_header_elements', array(
+		'title'               => esc_html__( 'Title', 'suki' ),
+		'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
+		'archive-description' => esc_html__( 'Taxonomy Description', 'suki' ),
+	) ),
+	'priority'    => 20,
+) ) );
+
+// Alignment
+$key = 'post_archive_content_header_alignment';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
+	'section'     => $section,
+	// 'label'       => esc_html__( 'Alignment', 'suki' ),
+	'choices'     => array(
+		'left'   => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+		),
+		'center' => array(
+			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+		),
+		'right'  => array(
+			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+		),
+	),
+	'priority'    => 20,
+) ) );
+
+// Title text format on post type archive pages
+$key = 'post_archive_title_text';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+) );
+$wp_customize->add_control( $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Blog page title', 'suki' ),
+	'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
+	'input_attrs' => array(
+		'placeholder' => '{{post_type}}',
+	),
+	'priority'    => 20,
+) );
+
+// Title text format on taxonomy archive pages
+$key = 'post_archive_tax_title_text';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+) );
+$wp_customize->add_control( $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Taxonomy archive page title', 'suki' ),
+	'description' => esc_html__( 'Available tags: {{taxonomy}}, {{term}}.', 'suki' ),
+	'input_attrs' => array(
+		'placeholder' => '{{taxonomy}}: {{term}}',
+	),
+	'priority'    => 20,
+) );
+
+// ------
+$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_post_archive_home_content_header', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'priority'    => 20,
 ) ) );
 
 // Show on main posts archive page
@@ -99,6 +180,6 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show on main posts archive page', 'suki' ),
-	'priority'    => 19,
+	'label'       => esc_html__( 'Show content header on Blog page', 'suki' ),
+	'priority'    => 20,
 ) ) );

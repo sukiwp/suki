@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> suki-header-search menu suki-toggle-menu">
+<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-search menu suki-toggle-menu">
 	<div class="menu-item">
 		<button class="suki-sub-menu-toggle suki-toggle" aria-expanded="false">
 			<?php suki_icon( 'search', array( 'class' => 'suki-menu-icon' ) ); ?>

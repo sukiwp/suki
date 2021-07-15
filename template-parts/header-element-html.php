@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -13,6 +13,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<div class="<?php echo esc_attr( 'suki-header-' . $slug ); ?>">
-	<div><?php echo do_shortcode( suki_get_theme_mod( 'header_' . str_replace( '-', '_', $slug ) . '_content' ) ); ?></div>
+<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
+	<div><?php echo do_shortcode( suki_get_theme_mod( 'header_' . str_replace( '-', '_', $element ) . '_content' ) ); ?></div>
 </div>

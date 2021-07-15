@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Footer element slug.
+ * @type string $element Footer element.
  *
  * @package Suki
  */
@@ -20,6 +20,6 @@ $copyright = str_replace( '{{themeauthor}}', '<a href="' . suki_get_theme_info( 
 $copyright = str_replace( '{{theme_author}}', '<a href="' . suki_get_theme_info( 'author_url' ) . '">' . suki_get_theme_info( 'author' ) . '</a>', $copyright );
 
 ?>
-<div class="<?php echo esc_attr( 'suki-footer-' . $slug ); ?>">
+<div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
 	<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>
 </div>

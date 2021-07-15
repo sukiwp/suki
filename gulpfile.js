@@ -140,7 +140,7 @@ gulp.task( 'vendors', function( done ) {
 		.pipe( gulp.dest( config.dest.js + '/vendors' ) );
 
 	// Change version
-	gulp.src( './inc/class-suki-admin.php', { base: './' } )
+	gulp.src( './includes/class-suki-admin.php', { base: './' } )
 		.pipe( replace( /(\$ver\['html5sortable'\] = )(?:.*)/g, '$1\'' + info.devDependencies['html5sortable'].replace( '^', '' ) + '\';' ) )
 		.pipe( gulp.dest( './' ) );
 
@@ -164,7 +164,7 @@ gulp.task( 'vendors', function( done ) {
 		googleFonts[ font.family ] = '"' + font.family + '", ' + fallback;
 	}
 
-	fs.writeFile( './inc/lists/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
+	fs.writeFile( './includes/lists/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
 		if ( error ) {
 			console.log( error );
 		}

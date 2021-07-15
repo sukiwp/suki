@@ -198,7 +198,7 @@ $add['footer_bottom_bar_merged_gap'] = array(
 
 /**
  * ====================================================
- * Blog > Posts Page
+ * Blog > Posts Archive Page
  * ====================================================
  */
 
@@ -213,6 +213,37 @@ $add['blank_edit_entry_grid'] = array(
 	array(
 		'setting'  => 'blog_index_loop_mode',
 		'value'    => 'grid',
+	),
+);
+
+$add['post_archive_title_text'] =
+$add['post_archive_tax_title_text'] = array(
+	array(
+		'setting'  => 'post_archive_content_header',
+		'operator' => 'contain',
+		'value'    => 'title',	
+	),
+);
+
+/**
+ * ====================================================
+ * Blog > Single Post Page
+ * ====================================================
+ */
+
+$add['post_single_content_header_meta'] = array(
+	array(
+		'setting'  => 'post_single_content_header',
+		'operator' => 'contain',
+		'value'    => 'post-header-meta',	
+	),
+);
+
+$add['post_single_content_footer_meta'] = array(
+	array(
+		'setting'  => 'post_single_content_footer',
+		'operator' => 'contain',
+		'value'    => 'post-footer-meta',	
 	),
 );
 
@@ -246,6 +277,22 @@ $add['entry_thumbnail_size'] = array(
 	),
 );
 
+$add['entry_header_meta'] = array(
+	array(
+		'setting'  => 'entry_header',
+		'operator' => 'contain',
+		'value'    => 'header-meta',	
+	),
+);
+
+$add['entry_footer_meta'] = array(
+	array(
+		'setting'  => 'entry_footer',
+		'operator' => 'contain',
+		'value'    => 'footer-meta',	
+	),
+);
+
 /**
  * ====================================================
  * Blog > Post Layout: Grid
@@ -266,6 +313,36 @@ $add['entry_grid_thumbnail_size'] = array(
 		'setting'  => 'entry_grid_thumbnail',
 		'operator' => '!=',
 		'value'    => '',
+	),
+);
+
+$add['entry_grid_header_meta'] = array(
+	array(
+		'setting'  => 'entry_grid_header',
+		'operator' => 'contain',
+		'value'    => 'header-meta',	
+	),
+);
+
+$add['entry_grid_footer_meta'] = array(
+	array(
+		'setting'  => 'entry_grid_footer',
+		'operator' => 'contain',
+		'value'    => 'footer-meta',	
+	),
+);
+
+/**
+ * ====================================================
+ * Other Pages > Search Results
+ * ====================================================
+ */
+
+$add['search_results_title_text'] = array(
+	array(
+		'setting'  => 'search_results_content_header',
+		'operator' => 'contain',
+		'value'    => 'title',	
 	),
 );
 

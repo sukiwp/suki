@@ -10,6 +10,20 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $section = 'suki_section_error_404';
 
+/**
+ * ====================================================
+ * Layout
+ * ====================================================
+ */
+
+// Heading: Layout
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_error_404_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Layout', 'suki' ),
+	'priority'    => 10,
+) ) );
+
 // Image
 $key = 'error_404_image';
 $wp_customize->add_setting( $key, array(
@@ -80,7 +94,7 @@ $wp_customize->add_control( $key, array(
 	),
 ) );
 
-// Show search bar
+// Search bar
 $key = 'error_404_search_bar';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -92,7 +106,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
 	'priority'    => 10,
 ) ) );
 
-// Show home button
+// Show "Back to Home" button
 $key = 'error_404_home_button';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -100,7 +114,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show home button', 'suki' ),
+	'label'       => esc_html__( 'Show "Back to Home" button', 'suki' ),
 	'priority'    => 10,
 ) ) );
 
