@@ -2540,11 +2540,11 @@ msgstr ""
 msgid "Grid columns"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:158
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:134
 msgid "Show products count"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:170
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:146
 msgid "Show products sort filter"
 msgstr ""
 

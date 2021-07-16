@@ -46,8 +46,9 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
 		$this->migrate_page_settings_meta_box();
-
 		$this->migrate_page_settings_keys(); // should be run last.
+
+		$this->migrate_woocommerce_index_settings();
 	}
 
 	/**
@@ -433,6 +434,36 @@ class Suki_Migrate_1_3_0 {
 
 			remove_theme_mod( $option_key );
 		}
+	}
+
+	/**
+	 * Migrate page settings keys from array to non array.
+	 *
+	 * The previous implementation:
+	 * - Page settings on each type is saved in an array with "page_settings_{type}[ {key} ]" key. For example: page_settings_post_single['content_layout'].
+	 *
+	 * The new implementation:
+	 * - Page settings on each type is saved in non array with "{type}_{key}". For example: post_single_content_layout.
+	 */
+	private function migrate_woocommerce_index_settings() {
+		/**
+		 * Products archive page content header.
+		 */
+
+		$elements = array();
+
+		if ( intval( get_theme_mod( 'woocommerce_index_page_breadcrumb', 1 ) ) ) {
+			$elements[] = 'breadcrumb';
+		}
+
+		if ( intval( get_theme_mod( 'woocommerce_index_page_title', 1 ) ) ) {
+			$elements[] = 'title';
+		}
+
+		set_theme_mod( 'product_archive_content_header', $elements );
+
+		remove_theme_mod( 'woocommerce_index_page_breadcrumb' );
+		remove_theme_mod( 'woocommerce_index_page_title' );
 	}
 
 }
