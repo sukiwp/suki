@@ -855,7 +855,7 @@ $add['blog_single_navigation'] = 1;
  * ====================================================
  */
 
-$add['blog_index_default_items_gap'] = '4rem';
+$add['blog_index_default_items_gap'] = '6rem';
 
 $add['entry_header'] = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';

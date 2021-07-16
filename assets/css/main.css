@@ -987,7 +987,7 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 }
 
 .comments-area {
-	margin-top: 6em;
+	margin-top: 3rem;
 }
 
 .comments-title {
@@ -2735,8 +2735,8 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin-top: auto;
 }
 
-.entry {
-	margin-bottom: 4rem;
+.entry.entry-layout-default {
+	margin-bottom: 6rem;
 }
 
 .suki-loop-grid .entry {
@@ -2961,7 +2961,7 @@ a.more-link {
 }
 
 .entry-author {
-	margin-top: 4rem;
+	margin-top: 3rem;
 	padding: 1.75rem;
 	border-width: 1px;
 	border-style: solid;
