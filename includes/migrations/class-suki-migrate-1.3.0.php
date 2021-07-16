@@ -290,9 +290,7 @@ class Suki_Migrate_1_3_0 {
 			$new_elements[] = 'breadcrumb';
 		}
 
-		if ( $has_title ) {
-			$new_elements[] = 'title';
-		}
+		$new_elements[] = 'title';
 
 		// Assign the elements to all new pages.
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
