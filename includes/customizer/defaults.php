@@ -842,7 +842,7 @@ $add['post_single_content_header_alignment'] = 'left';
 $add['post_single_content_header_meta'] = '{{date}}';
 $add['post_single_content_thumbnail'] = 'after';
 
-$add['post_single_content_footer'] = array( 'post-footer-meta' );
+$add['post_single_content_footer'] = array( 'tags', 'post-footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
@@ -855,7 +855,7 @@ $add['blog_single_navigation'] = 1;
  * ====================================================
  */
 
-$add['blog_index_default_items_gap'] = '90px';
+$add['blog_index_default_items_gap'] = '4rem';
 
 $add['entry_header'] = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';
@@ -918,7 +918,7 @@ $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
  * ====================================================
  */
 
-$add['page_single_content_header'] = array( 'title', 'excerpt' );
+$add['page_single_content_header'] = array( 'title' );
 $add['page_single_content_header_alignment'] = 'left';
 
 $add['page_single_content_thumbnail'] = 'after';

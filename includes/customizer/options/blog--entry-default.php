@@ -31,6 +31,11 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'max'  => 20,
 			'step' => 0.01,
 		),
+		'rem' => array(
+			'min'  => 0,
+			'max'  => 20,
+			'step' => 0.01,
+		),
 	),
 	'priority'    => 10,
 ) ) );
@@ -125,7 +130,7 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( $key, array(
 	'type'        => 'select',
 	'section'     => $section,
-	// 'label'       => esc_html__( 'Display', 'suki' ),
+	'label'       => esc_html__( 'Display', 'suki' ),
 	'choices'     => array(
 		''       => esc_html__( 'Disabled', 'suki' ),
 		'before' => esc_html__( 'Before Content Header', 'suki' ),
@@ -143,7 +148,6 @@ $wp_customize->add_setting( $key, array(
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Wide alignment on Narrow container', 'suki' ),
-	'description' => esc_attr__( 'When the section container is set to Narrow, make the Featured Image wide.', 'suki' ),
 	'priority'    => 40,
 ) ) );
 

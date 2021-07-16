@@ -1018,7 +1018,7 @@ function suki_post_single_content_footer_element( $element ) {
 			suki_post_tags();
 			break;
 		
-		case 'footer-meta':
+		case 'post-footer-meta':
 			suki_post_footer_meta();
 			break;
 	}
