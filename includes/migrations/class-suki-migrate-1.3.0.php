@@ -39,14 +39,15 @@ class Suki_Migrate_1_3_0 {
 	protected function __construct() {
 		$this->migrate_default_typography();
 		$this->migrate_page_template_slug();
-		$this->migrate_page_settings_404();
-		$this->migrate_page_header_title_text();
-		$this->migrate_content_layout_narrow();
-		$this->migrate_page_header_to_hero_section();
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
+		
+		$this->migrate_page_settings_keys();
+		$this->migrate_content_layout_narrow();
+		$this->migrate_page_header_title_text();
+		$this->migrate_page_header_to_hero_section();
+
 		$this->migrate_page_settings_meta_box();
-		$this->migrate_page_settings_keys(); // should be run last.
 
 		$this->migrate_woocommerce_index_settings();
 	}
@@ -84,223 +85,6 @@ class Suki_Migrate_1_3_0 {
 
 		foreach ( $posts as $post ) {
 			update_post_meta( $post, '_wp_page_template', 'page-templates/page_builder.php' );
-		}
-	}
-
-	/**
-	 * Migrate "page_settings_404" to "page_settings_error_404"
-	 */
-	private function migrate_page_settings_404() {
-		$error_404 = get_theme_mod( 'page_settings_404', array() );
-
-		set_theme_mod( 'page_settings_error_404', $error_404 );
-
-		remove_theme_mod( 'page_settings_404' );
-	}
-
-	/**
-	 * Migrate all page header title text option keys.
-	 *
-	 * Why:
-	 * The title text should affect the content header title as well not just the page header title.
-	 */
-	private function migrate_page_header_title_text() {
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Define the option key.
-			$option_key = 'page_settings_' . $ps_type;
-
-			// Get the values.
-			$mod = get_theme_mod( $option_key, array() );
-
-			// Process title text for 404 and search page.
-			if ( in_array( $ps_type, array( 'search', 'error_404' ) ) ) {
-				// Check if user ever filled the custom title text options.
-				if ( isset( $mod['page_header_title_text__' . $ps_type ] ) ) {
-					// Move the value to a new key.
-					$mod['title'] = $mod['page_header_title_text__' . $ps_type ];
-
-					// Remove the old key.
-					unset( $mod['page_header_title_text__' . $ps_type ] );
-				}
-			}
-			
-			// Process title text for archive pages.
-			elseif ( 0 < strpos( $ps_type, '_archive' ) ) {
-				// Check if user ever filled the custom title text options.
-				if ( isset( $mod['page_header_title_text__post_type_archive'] ) ) {
-					// Move the value to a new key.
-					$mod['title_text'] = $mod['page_header_title_text__post_type_archive'];
-
-					// Remove the old key.
-					unset( $mod['page_header_title_text__post_type_archive'] );
-				}
-
-				// Check if user ever filled the custom title text options.
-				if ( isset( $mod['page_header_title_text__taxonomy_archive'] ) ) {
-					// Move the value to a new key.
-					$mod['tax_title_text'] = $mod['page_header_title_text__taxonomy_archive'];
-
-					// Remove the old key.
-					unset( $mod['page_header_title_text__taxonomy_archive'] );
-				}
-			}
-
-			// Save the new values.
-			set_theme_mod( $option_key, $mod );
-		}
-	}
-
-	/**
-	 * Migrate content narrow to custom container width.
-	 *
-	 * Why:
-	 * It doesn't make sense when user chooses "Full width" in "Content container" option and chooses "Narrow" in the "Content and sidebar layout" option.
-	 *
-	 * The previous implementation:
-	 * - User choose between "Wrapped" and "Full width" in the "Content container" option.
-	 * - User choose "Narrow" in the "Content and sidebar layout" option.
-	 *
-	 * The new implementation:
-	 * - User choose between "Wrapped", "Full width", and the new "Custom" option in the "Content container" option.
-	 * - Custom means user can manually input the container width.
-	 * - There is no longer "Narrow" option in the "Content and sidebar layout" option (because user can set the container width).
-	 */
-	private function migrate_content_layout_narrow() {
-		/**
-		 * Global settings
-		 */
-
-		// If the selected value of "content_layout" is "narrow".
-		if ( 'narrow' === get_theme_mod( 'content_layout' ) ) {
-			// Change it to "wide".
-			set_theme_mod( 'content_layout', 'wide' );
-
-			// And then change the "content_container" value to "custom".
-			set_theme_mod( 'content_container', 'narrow' );
-		}
-
-		/**
-		 * Page settings
-		 */
-
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Define the option key.
-			$option_key = 'page_settings_' . $ps_type;
-
-			// Get the values.
-			$mod = get_theme_mod( $option_key, array() );
-
-			// If the selected value of "content_layout" is "narrow".
-			if ( isset( $mod['content_layout'] ) && 'narrow' === $mod['content_layout'] ) {
-				// Change it to "wide".
-				$mod['content_layout'] = 'wide';
-
-				// And then change the "content_container" value to "custom".
-				$mod['content_container'] = 'narrow';
-			}
-
-			// Set the new values.
-			set_theme_mod( $option_key, $mod );
-		}
-	}
-
-	/**
-	 * Migrate page header settings to hero section.
-	 *
-	 * The previous implementation:
-	 * - Use "page_header_" prefix.
-	 *
-	 * The new implementation:
-	 * - Use "hero_" prefix.
-	 */
-	private function migrate_page_header_to_hero_section() {
-		/**
-		 * Global settings
-		 */
-
-		$mods = get_theme_mods();
-
-		// Replace old option keys.
-		foreach ( $mods as $key => $value ) {
-			if ( false !== strpos( $key, 'page_header_' ) ) {
-				$new_key = str_replace( 'page_header_', 'hero_', $key );
-
-				remove_theme_mod( $key );
-
-				set_theme_mod( $new_key, $value );
-			}
-		}
-
-		// Remove global page header toggle option.
-		remove_theme_mod( 'page_header' );
-
-		/**
-		 * Page settings
-		 */
-
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Define the option key.
-			$option_key = 'page_settings_' . $ps_type;
-
-			// Get the values.
-			$mod = get_theme_mod( $option_key, array() );
-
-			foreach ( $mod as $key => $value ) {
-				if ( false !== strpos( $key, 'page_header_' ) ) {
-					$new_key = str_replace( 'page_header_', 'hero_', $key );
-
-					unset( $mod[ $key ] );
-
-					$mod[ $new_key ] = $value;
-				}
-			}
-
-			// Set the new values.
-			set_theme_mod( $option_key, $mod );
-		}
-
-		/**
-		 * Hero elements
-		 */
-
-		$locations = array(
-			'left', 'center', 'right',
-		);
-
-		$alignment = 'left';
-		$has_title = false;
-		$has_breadcrumb = false;
-
-		foreach ( $locations as $location ) {
-			$elements = suki_get_theme_mod( 'hero_elements_' . $location, array() );
-
-			if ( in_array( 'breadcrumb', $elements ) ) {
-				$has_breadcrumb = true;
-			}
-
-			if ( in_array( 'title', $elements ) ) {
-				$has_title = true;
-				$alignment = $location;
-			}
-		}
-
-		// Build new elements that will be applied on all pages.
-		$new_elements = array();
-		
-		if ( $has_breadcrumb ) {
-			$new_elements[] = 'breadcrumb';
-		}
-
-		$new_elements[] = 'title';
-
-		// Assign the elements to all new pages.
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Skip error 404 page.
-			if ( 'error_404' == $ps_type ) {
-				continue;
-			}
-
-			set_theme_mod( $ps_type . '_content_header', $new_elements );
 		}
 	}
 
@@ -377,6 +161,266 @@ class Suki_Migrate_1_3_0 {
 	}
 
 	/**
+	 * Migrate page settings keys from array to non array.
+	 *
+	 * The previous implementation:
+	 * - Page settings on each type is saved in an array with "page_settings_{type}[ {key} ]" key. For example: page_settings_post_single['content_layout'].
+	 * - For search results page, use "search" as slug.
+	 * - For error 404 page, use "404" as slug.
+	 *
+	 * The new implementation:
+	 * - Page settings on each type is saved in non array with "{type}_{key}". For example: post_single_content_layout.
+	 * - For search results page, use "search_results" as slug.
+	 * - For error 404 page, use "error_404" as slug.
+	 */
+	private function migrate_page_settings_keys() {
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Define the option key.
+			switch ( $ps_type ) {
+				case 'search_results':
+					$old_option_key = 'page_settings_search';
+					break;
+
+				case 'error_404':
+					$old_option_key = 'page_settings_404';
+					break;
+				
+				default:
+					$old_option_key = 'page_settings_' . $ps_type;
+					break;
+			}
+
+			// Get the values.
+			$mod = get_theme_mod( $old_option_key, array() );
+
+			foreach ( $mod as $key => $value ) {
+				set_theme_mod( $ps_type . '_' . $key, $value );
+			}
+
+			remove_theme_mod( $old_option_key );
+		}
+	}
+
+	/**
+	 * Migrate content narrow to custom container width.
+	 *
+	 * Why:
+	 * It doesn't make sense when user chooses "Full width" in "Content container" option and chooses "Narrow" in the "Content and sidebar layout" option.
+	 *
+	 * The previous implementation:
+	 * - User choose between "Wrapped" and "Full width" in the "Content container" option.
+	 * - User choose "Narrow" in the "Content and sidebar layout" option.
+	 *
+	 * The new implementation:
+	 * - User choose between "Wrapped", "Full width", and the new "Custom" option in the "Content container" option.
+	 * - Custom means user can manually input the container width.
+	 * - There is no longer "Narrow" option in the "Content and sidebar layout" option (because user can set the container width).
+	 */
+	private function migrate_content_layout_narrow() {
+		/**
+		 * Global settings
+		 */
+
+		// If the selected value of "content_layout" is "narrow".
+		if ( 'narrow' === get_theme_mod( 'content_layout' ) ) {
+			// Change it to "wide".
+			set_theme_mod( 'content_layout', 'wide' );
+
+			// And then change the "content_container" value to "custom".
+			set_theme_mod( 'content_container', 'narrow' );
+		}
+
+		/**
+		 * Page settings
+		 */
+
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Get the values.
+			$content_layout = get_theme_mod( $ps_type . '_content_layout' );
+
+			// If the selected value of "content_layout" is "narrow".
+			if ( 'narrow' === $content_layout ) {
+				// Change it to "wide".
+				set_theme_mod( $ps_type . '_content_layout', 'wide' );
+				
+				// And then set the "content_container" value to "narrow".
+				set_theme_mod( $ps_type . '_content_container', 'narrow' );
+			}
+		}
+	}
+
+	/**
+	 * Migrate all page header title text option keys.
+	 *
+	 * Why:
+	 * The title text should affect the content header title as well not just the page header title.
+	 */
+	private function migrate_page_header_title_text() {
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Process search page title text.
+			if ( 'search_results' === $ps_type ) {
+				// Check if user has filled the custom title text options.
+				$title_text = get_theme_mod( $ps_type . '_page_header_title_text__search' );
+
+				if ( false !== $title_text ) {
+					// Set new option.
+					set_theme_mod( $ps_type . '_title_text', $title_text );
+	
+					// Remove old option.
+					remove_theme_mod( $ps_type . '_page_header_title_text__search' );
+				}
+			}
+
+			// Process error 404 title text.
+			elseif ( 'error_404' === $ps_type ) {
+				// Check if user has filled the custom title text options.
+				$title_text = get_theme_mod( $ps_type . '_page_header_title_text__404' );
+
+				if ( false !== $title_text ) {
+					// Set new option.
+					set_theme_mod( $ps_type . '_title_text', $title_text );
+	
+					// Remove old option.
+					remove_theme_mod( $ps_type . '_page_header_title_text__404' );
+				}
+			}
+
+			// Process title text for archive pages.
+			elseif ( 0 < strpos( $ps_type, '_archive' ) ) {
+				// Check if user has filled the custom title text options.
+				$title_text = get_theme_mod( $ps_type . '_page_header_title_text__post_type_archive' );
+
+				if ( false !== $title_text ) {
+					// Set new option.
+					set_theme_mod( $ps_type . '_title_text', $title_text );
+					
+					// Remove old option.
+					remove_theme_mod( $ps_type . '_page_header_title_text__post_type_archive' );
+				}
+				
+				// Check if user ever filled the custom tax title text options.
+				$tax_title_text = get_theme_mod( $ps_type . 'page_header_title_text__taxonomy_archive' );
+
+				if ( false !== $tax_title_text ) {
+					// Set new option.
+					set_theme_mod( $ps_type . '_tax_title_text', $tax_title_text );
+					
+					// Remove old option.
+					remove_theme_mod( $ps_type . 'page_header_title_text__taxonomy_archive' );
+				}
+			}
+		}
+	}
+
+	/**
+	 * Migrate page header settings to hero section.
+	 *
+	 * The previous implementation:
+	 * - Use "page_header_" prefix.
+	 *
+	 * The new implementation:
+	 * - Use "hero_" prefix.
+	 */
+	private function migrate_page_header_to_hero_section() {
+		/**
+		 * Global settings
+		 */
+
+		$mods = get_theme_mods();
+
+		// Replace old option keys.
+		foreach ( $mods as $key => $value ) {
+			if ( false !== strpos( $key, 'page_header_' ) ) {
+				$new_key = str_replace( 'page_header_', 'hero_', $key );
+
+				remove_theme_mod( $key );
+
+				set_theme_mod( $new_key, $value );
+			}
+		}
+
+		// Remove global page header toggle option.
+		remove_theme_mod( 'page_header' );
+
+		/**
+		 * Page settings
+		 */
+
+		$subkeys = array(
+			'page_header',
+			'page_header_bg',
+			'page_header_bg_image',
+		);
+
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			foreach ( $subkeys as $subkey ) {
+				// Check if user has configured the option.
+				$value = get_theme_mod( $ps_type . '_' . $subkey );
+
+				if ( false !== $value ) {
+					set_theme_mod( $ps_type . '_' . str_replace( 'page_header', 'hero', $subkey ), $value );
+				}
+			}
+		}
+
+		/**
+		 * Hero elements
+		 *
+		 * Use "hero" in the option key, because we have already changed "page_header" to "hero".
+		 */
+
+		$locations = array(
+			'left', 'center', 'right',
+		);
+
+		$alignment = 'left';
+		$has_title = false;
+		$has_breadcrumb = false;
+
+		foreach ( $locations as $location ) {
+			$elements = get_theme_mod( 'hero_elements_' . $location, array() );
+
+			if ( in_array( 'breadcrumb', $elements ) ) {
+				$has_breadcrumb = true;
+			}
+
+			if ( in_array( 'title', $elements ) ) {
+				$alignment = $location;
+			}
+
+			remove_theme_mod( 'hero_elements_' . $location );
+		}
+
+		// Assign the elements to all new pages.
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Skip error 404 page.
+			if ( 'error_404' == $ps_type ) {
+				continue;
+			}
+
+			// Build new elements that will be applied on all pages.
+			$new_elements = array();
+			
+			// Add breadcrumb or not.
+			if ( $has_breadcrumb ) {
+				$new_elements[] = 'breadcrumb';
+			}
+
+			// Always add title by default.
+			$new_elements[] = 'title';
+
+			// Add search form on search results page.
+			if ( 'search_results' == $ps_type ) {
+				$new_elements[] = 'search-form';
+			}
+
+			set_theme_mod( $ps_type . '_content_header', $new_elements );
+
+			set_theme_mod( $ps_type . '_content_header_alignment', $alignment );
+		}
+	}
+
+	/**
 	 * Migrate some keys on page settings meta box.
 	 *
 	 * Keys to be changed:
@@ -420,31 +464,6 @@ class Suki_Migrate_1_3_0 {
 	 * The new implementation:
 	 * - Page settings on each type is saved in non array with "{type}_{key}". For example: post_single_content_layout.
 	 */
-	private function migrate_page_settings_keys() {
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Define the option key.
-			$option_key = 'page_settings_' . $ps_type;
-
-			// Get the values.
-			$mod = get_theme_mod( $option_key, array() );
-
-			foreach ( $mod as $key => $value ) {
-				set_theme_mod( $ps_type . '_' . $key, $value );
-			}
-
-			remove_theme_mod( $option_key );
-		}
-	}
-
-	/**
-	 * Migrate page settings keys from array to non array.
-	 *
-	 * The previous implementation:
-	 * - Page settings on each type is saved in an array with "page_settings_{type}[ {key} ]" key. For example: page_settings_post_single['content_layout'].
-	 *
-	 * The new implementation:
-	 * - Page settings on each type is saved in non array with "{type}_{key}". For example: post_single_content_layout.
-	 */
 	private function migrate_woocommerce_index_settings() {
 		/**
 		 * Products archive page content header.
@@ -465,7 +484,6 @@ class Suki_Migrate_1_3_0 {
 		remove_theme_mod( 'woocommerce_index_page_breadcrumb' );
 		remove_theme_mod( 'woocommerce_index_page_title' );
 	}
-
 }
 
 Suki_Migrate_1_3_0::instance();
