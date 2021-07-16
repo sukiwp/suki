@@ -434,6 +434,11 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_product() ) {
+			// Setup post data for rating in Content Header.
+			add_action( 'suki/frontend/content_header', function() {
+				wc_setup_product_data( get_queried_object() );
+			} );
+
 			// Keep / remove title on summary column.
 			// Remove if title is active in Content Header.
 			if ( in_array( 'title', suki_get_current_page_setting( 'content_header' ) ) ) {

@@ -329,6 +329,9 @@ function suki_breadcrumb( $echo = true ) {
 		}
 	}
 
+	// Wrap with "suki-breadcrumb" div.
+	$html = '<div class="suki-breadcrumb">' . $html . '</div>';
+
 	// Render or return the HTML markup.
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -544,7 +547,7 @@ function suki_breadcrumb_native( $echo = true ) {
 	 */
 
 	// Opening tag.
-	$html = '<ol class="suki-breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">';
+	$html = '<ol class="suki-breadcrumb-native" itemscope itemtype="https://schema.org/BreadcrumbList">';
 	
 	// Build breadcrumb markup.
 	$i = 0;

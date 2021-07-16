@@ -924,24 +924,24 @@ button.suki-toggle:hover, button.suki-toggle:focus {
 	vertical-align: -0.1em;
 }
 
-.suki-breadcrumb {
+.suki-breadcrumb-native {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: block;
 }
 
-.suki-breadcrumb > * {
+.suki-breadcrumb-native > * {
 	display: inline-block;
 }
 
-.suki-breadcrumb > *:after {
+.suki-breadcrumb-native > *:after {
 	margin: 0 0.5em;
 	content: "\203a";
 	opacity: 0.5;
 }
 
-.suki-breadcrumb > *:last-child:after {
+.suki-breadcrumb-native > *:last-child:after {
 	display: none;
 }
 

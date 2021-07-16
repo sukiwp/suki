@@ -426,66 +426,66 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: includes/template-tags.php:358
+#: includes/template-tags.php:361
 msgid "Home"
 msgstr ""
 
-#: includes/template-tags.php:451
+#: includes/template-tags.php:454
 msgid "Page Not Found"
 msgstr ""
 
-#: includes/template-tags.php:444
+#: includes/template-tags.php:447
 msgid "Search: %s"
 msgstr ""
 
 #. translators: %s: page number.
-#: includes/template-tags.php:526
+#: includes/template-tags.php:529
 msgid " (Page %d)"
 msgstr ""
 
-#: includes/template-tags.php:588
+#: includes/template-tags.php:591
 msgid "Skip to content"
 msgstr ""
 
-#: includes/template-tags.php:769, includes/customizer/options/page--search.php:110
+#: includes/template-tags.php:772, includes/customizer/options/page--search.php:110
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: includes/template-tags.php:988
+#: includes/template-tags.php:991
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags.php:989
+#: includes/template-tags.php:992
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1089
+#: includes/template-tags.php:1092
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1091
+#: includes/template-tags.php:1094
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: includes/template-tags.php:1132
+#: includes/template-tags.php:1135
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/template-tags.php:1126
+#: includes/template-tags.php:1129
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: includes/template-tags.php:1159
+#: includes/template-tags.php:1162
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/template-tags.php:1305, includes/template-tags.php:1309
+#: includes/template-tags.php:1308, includes/template-tags.php:1312
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
@@ -565,7 +565,7 @@ msgstr ""
 msgid "Individual Page Settings (%s)"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:246, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:505
+#: includes/admin/class-suki-admin-metabox-page-settings.php:246, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:510
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -577,7 +577,7 @@ msgstr ""
 msgid "&#x2718; Hidden"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:408, includes/admin/class-suki-admin-metabox-page-settings.php:628, includes/admin/class-suki-admin-metabox-page-settings.php:645, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:538, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:313, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, includes/compatibilities/woocommerce/customizer/options/_sections.php:89
+#: includes/admin/class-suki-admin-metabox-page-settings.php:408, includes/admin/class-suki-admin-metabox-page-settings.php:628, includes/admin/class-suki-admin-metabox-page-settings.php:645, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:543, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:313, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, includes/compatibilities/woocommerce/customizer/options/_sections.php:89
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -597,7 +597,7 @@ msgctxt "Suki Pro upsell"
 msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:412, includes/admin/class-suki-admin-metabox-page-settings.php:630, includes/admin/class-suki-admin-metabox-page-settings.php:647, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:547
+#: includes/admin/class-suki-admin-metabox-page-settings.php:412, includes/admin/class-suki-admin-metabox-page-settings.php:630, includes/admin/class-suki-admin-metabox-page-settings.php:647, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:552
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
@@ -984,36 +984,36 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:519
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:524
 msgid "Product Layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:540
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:545
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable breadcrumb."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:541
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:546
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable gallery on this product page."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:542
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:547
 msgctxt "Suki Pro upsell"
 msgid "Change gallery layout on this product page."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:543
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:548
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable product info tabs."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:544
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:549
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable up-sells."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:545
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:550
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
