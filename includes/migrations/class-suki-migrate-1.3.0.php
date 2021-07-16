@@ -273,25 +273,25 @@ class Suki_Migrate_1_3_0 {
 		foreach ( $locations as $location ) {
 			$elements = suki_get_theme_mod( 'hero_elements_' . $location, array() );
 
+			if ( in_array( 'breadcrumb', $elements ) ) {
+				$has_breadcrumb = true;
+			}
+
 			if ( in_array( 'title', $elements ) ) {
 				$has_title = true;
 				$alignment = $location;
-			}
-
-			if ( in_array( 'breadcrumb', $elements ) ) {
-				$has_breadcrumb = true;
 			}
 		}
 
 		// Build new elements that will be applied on all pages.
 		$new_elements = array();
+		
+		if ( $has_breadcrumb ) {
+			$new_elements[] = 'breadcrumb';
+		}
 
 		if ( $has_title ) {
 			$new_elements[] = 'title';
-		}
-
-		if ( $has_breadcrumb ) {
-			$new_elements[] = 'breadcrumb';
 		}
 
 		// Assign the elements to all new pages.
