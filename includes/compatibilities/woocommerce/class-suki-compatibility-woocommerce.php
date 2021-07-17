@@ -549,7 +549,7 @@ class Suki_Compatibility_WooCommerce {
 					<?php echo esc_html_x( 'Enable / disable up-sells.', 'Suki Pro upsell', 'suki' ); ?><br>
 					<?php echo esc_html_x( 'Enable / disable related products.', 'Suki Pro upsell', 'suki' ); ?>
 				</p>
-				<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
+				<p><a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-page-settings-metabox', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_WEBSITE_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
 			</div>
 		<?php endif;
 	}

@@ -819,7 +819,7 @@ class Suki_Admin {
 				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-pro-banner.png' ); ?>" width="300" height="150"></p>
 				<p><?php esc_html_e( 'Get more powerful features and take your website to the next level with Suki Pro.', 'suki' ); ?></p>
 				<p>
-					<a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_URL ) ) ); ?>" class="button button-large button-secondary"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></a>
+					<a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_WEBSITE_URL ) ) ); ?>" class="button button-large button-secondary"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></a>
 				</p>
 			</div>
 		</div>

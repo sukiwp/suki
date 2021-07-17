@@ -88,7 +88,7 @@ if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_section( new Suki_Customize_Section_Pro_Teaser( $wp_customize, 'suki_section_teaser_pro_upsell_woocommerce', array(
 		'title'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
 		'panel'       => $panel,
-		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
+		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_WEBSITE_URL ) ),
 		'features'    => array(
 			esc_html_x( 'AJAX Add to Cart', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Product Alternate Hover Image', 'Suki Pro upsell', 'suki' ),

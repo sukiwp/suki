@@ -99,7 +99,7 @@ class Suki_Compatibility_Suki_Pro {
 		$modules['woocommerce-advanced'] = array(
 			'label'    => esc_html__( 'WooCommerce Advanced (Legacy)', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_URL ) ) ),
+			'url'      => esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_WEBSITE_URL ) ) ),
 		);
 
 		return $modules;

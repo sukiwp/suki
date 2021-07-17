@@ -37,7 +37,7 @@ class Suki_Migrate_1_3_0 {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		$this->migrate_default_typography();
+		$this->preserve_old_typography_styles();
 		$this->migrate_page_template_slug();
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
@@ -64,9 +64,9 @@ class Suki_Migrate_1_3_0 {
 	 * Installed theme will use the former default typography.
 	 * New typography will only be applied to new installation.
 	 */
-	private function migrate_default_typography() {
-		set_theme_mod( 'base_font_size', '16px' );
-		set_theme_mod( 'h4_font_size', '18px' );
+	private function preserve_old_typography_styles() {
+		set_theme_mod( 'base_font_size', '15px' );
+		set_theme_mod( 'h4_font_size', '17px' );
 	}
 
 	/**
@@ -134,29 +134,37 @@ class Suki_Migrate_1_3_0 {
 		foreach ( $desktop_header_locations as $location ) {
 			$elements = suki_get_theme_mod( 'header_elements_' . $location );
 
+			$has_cart = false;
 			foreach ( $elements as &$element ) {
 				if ( 0 === strpos( $element, 'shopping-cart' ) ) {
 					$element = str_replace( 'shopping-cart', 'cart', $element );
+					$has_cart = true;
 				}
 			}
-
-			set_theme_mod( 'header_elements_' . $location, $elements );
+			
+			if ( $has_cart ) {
+				set_theme_mod( 'header_elements_' . $location, $elements );
+			}
 		}
-
+		
 		// Mobile Header		
 		$desktop_header_locations = array(
 			'main_left', 'main_center', 'main_right',
 		);
 		foreach ( $desktop_header_locations as $location ) {
 			$elements = suki_get_theme_mod( 'header_mobile_elements_' . $location );
-
+			
+			$has_cart = false;
 			foreach ( $elements as &$element ) {
 				if ( 0 === strpos( $element, 'shopping-cart' ) ) {
 					$element = str_replace( 'shopping-cart', 'cart', $element );
+					$has_cart = true;
 				}
 			}
 
-			set_theme_mod( 'header_mobile_elements_' . $location, $elements );
+			if ( $has_cart ) {
+				set_theme_mod( 'header_mobile_elements_' . $location, $elements );
+			}
 		}
 	}
 
@@ -183,7 +191,7 @@ class Suki_Migrate_1_3_0 {
 				$old_option_key = 'page_settings_404';
 			}
 			elseif ( 0 < strpos( $ps_type, '_single' ) ) {
-				$old_option_key = 'page_settings_' . str_replace( '_single', 'singular', $ps_type );
+				$old_option_key = 'page_settings_' . str_replace( '_single', '_singular', $ps_type );
 			}
 			else {
 				$old_option_key = 'page_settings_' . $ps_type;
@@ -372,7 +380,7 @@ class Suki_Migrate_1_3_0 {
 			'left', 'center', 'right',
 		);
 
-		$alignment = 'left';
+		$alignment = '';
 		$has_title = false;
 		$has_breadcrumb = false;
 
@@ -393,29 +401,37 @@ class Suki_Migrate_1_3_0 {
 		// Assign the elements to all new pages.
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 			// Skip error 404 page.
+			// There is no hero section in the new error 404 page.
 			if ( 'error_404' == $ps_type ) {
 				continue;
 			}
 
-			// Build new elements that will be applied on all pages.
-			$new_elements = array();
-			
-			// Add breadcrumb or not.
-			if ( $has_breadcrumb ) {
-				$new_elements[] = 'breadcrumb';
-			}
-
-			// Always add title by default.
-			$new_elements[] = 'title';
-
-			// Add search form on search results page.
+			// Skip search results page.
+			// Use the new content header's default because it's the same structure in older version.
+			// It's set to "title" and "search-form".
 			if ( 'search_results' == $ps_type ) {
-				$new_elements[] = 'search-form';
+				continue;
+			}
+			
+			// Skip archive page.
+			// Use the new content header's default because it's the same structure in older version.
+			// It's set to "title" and "archive-description".
+			if ( 0 < strpos( $ps_type, '_archive' ) ) {
+				continue;
 			}
 
-			set_theme_mod( $ps_type . '_content_header', $new_elements );
+			// Add breadcrumb.
+			if ( $has_breadcrumb ) {
+				set_theme_mod( $ps_type . '_content_header', array_merge(
+					array( 'breadcrumb' ),
+					suki_get_theme_mod( $ps_type . '_content_header', array() )
+				) );
+			}
 
-			set_theme_mod( $ps_type . '_content_header_alignment', $alignment );
+			// Set hero alignment.
+			if ( '' !== $alignment ) {
+				set_theme_mod( $ps_type . '_hero_alignment', $alignment );
+			}
 		}
 	}
 

@@ -44,7 +44,7 @@ if ( suki_show_pro_teaser() ) {
 		'section'     => $section,
 		'settings'    => array(),
 		'label'       => esc_html_x( 'More Options Available in Suki Pro', 'Suki Pro upsell', 'suki' ),
-		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_URL ) ),
+		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_WEBSITE_URL ) ),
 		'features'    => array(
 			esc_html_x( 'Replace default social icons with custom icons', 'Suki Pro upsell', 'suki' ),
 			esc_html_x( 'Add more (custom) social icons', 'Suki Pro upsell', 'suki' ),
