@@ -443,7 +443,9 @@ class Suki_Migrate_1_3_0 {
 	 * - "content_hide_title" => "disable_content_header".
 	 */
 	private function migrate_page_settings_meta_box() {
+		// Get all posts in any post type that already have page settings configured.
 		$posts = get_posts( array(
+			'post_type'      => 'any',
 			'posts_per_page' => -1,
 			'meta_key'       => '_suki_page_settings',
 			'meta_compare'   => 'EXISTS',
@@ -452,20 +454,21 @@ class Suki_Migrate_1_3_0 {
 		foreach ( $posts as $post ) {
 			$value = get_post_meta( $post->ID, '_suki_page_settings', true );
 
-			// Featured Image
+			// Featured Image.
 			if ( isset( $value['content_hide_thumbnail'] ) ) {
 				$value['disable_thumbnail'] = $value['content_hide_thumbnail'];
 
 				unset( $value['content_hide_thumbnail'] );
 			}
 
-			// Content header
+			// Content header.
 			if ( isset( $value['content_hide_title'] ) ) {
 				$value['disable_content_header'] = $value['content_hide_title'];
 
 				unset( $value['content_hide_title'] );
 			}
 
+			// Update post meta.
 			update_post_meta( $post->ID, '_suki_page_settings', $value );
 		}
 	}
