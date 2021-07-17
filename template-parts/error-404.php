@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	<h1 class="error-404-title page-title">
 		<?php
 		// Title
-		$title_text = suki_get_theme_mod( 'error_404_title' );
+		$title_text = suki_get_theme_mod( 'error_404_title_text' );
 		if ( empty( $title_text ) ) {
 			$title_text = esc_html__( 'Oops! That page can not be found', 'suki' );
 		}

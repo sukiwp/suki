@@ -176,18 +176,17 @@ class Suki_Migrate_1_3_0 {
 	private function migrate_page_settings_keys() {
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 			// Define the option key.
-			switch ( $ps_type ) {
-				case 'search_results':
-					$old_option_key = 'page_settings_search';
-					break;
-
-				case 'error_404':
-					$old_option_key = 'page_settings_404';
-					break;
-				
-				default:
-					$old_option_key = 'page_settings_' . $ps_type;
-					break;
+			if ( 'search_results' === $ps_type ) {
+				$old_option_key = 'page_settings_search';
+			}
+			elseif ( 'error_404' === $ps_type ) {
+				$old_option_key = 'page_settings_404';
+			}
+			elseif ( 0 < strpos( $ps_type, '_single' ) ) {
+				$old_option_key = 'page_settings_' . str_replace( '_single', 'singular', $ps_type );
+			}
+			else {
+				$old_option_key = 'page_settings_' . $ps_type;
 			}
 
 			// Get the values.
