@@ -306,14 +306,14 @@ class Suki_Migrate_1_3_0 {
 				}
 				
 				// Check if user ever filled the custom tax title text options.
-				$tax_title_text = get_theme_mod( $ps_type . 'page_header_title_text__taxonomy_archive' );
+				$tax_title_text = get_theme_mod( $ps_type . '_page_header_title_text__taxonomy_archive' );
 
 				if ( false !== $tax_title_text ) {
 					// Set new option.
 					set_theme_mod( $ps_type . '_tax_title_text', $tax_title_text );
 					
 					// Remove old option.
-					remove_theme_mod( $ps_type . 'page_header_title_text__taxonomy_archive' );
+					remove_theme_mod( $ps_type . '_page_header_title_text__taxonomy_archive' );
 				}
 			}
 		}
