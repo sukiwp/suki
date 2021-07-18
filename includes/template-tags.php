@@ -724,6 +724,11 @@ if ( ! function_exists( 'suki_hero' ) ) :
  * Render page header section.
  */
 function suki_hero() {
+	// Abort if disable content header option is checked on the current loaded page.
+	if ( intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+		return;
+	}
+
 	suki_get_template_part( 'hero' );
 }
 endif;

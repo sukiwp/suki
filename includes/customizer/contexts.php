@@ -388,7 +388,7 @@ foreach( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type 
 		),
 	);
 
-	// Only process archives.
+	// Archives.
 	if ( preg_match( '/(_archive)/', $ps_type ) ) {
 		$add[ $ps_type . '_title_text'] = array(
 			array(

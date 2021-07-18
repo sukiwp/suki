@@ -39,7 +39,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
 		),
 	),
-	'columns'     => 4,
+	'columns'     => 3,
 	'priority'    => 10,
 ) ) );
 
@@ -51,7 +51,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'no
 	'priority'    => 10,
 ) ) );
 
-// Sidebar position
+// Sidebar
 $key = 'content_layout';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -59,7 +59,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Sidebar position', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
+	'label'       => esc_html__( 'Sidebar', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 	'choices'     => array(
 		'wide'          => array(
 			'label' => esc_html__( 'None', 'suki' ),
@@ -74,7 +74,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
 		),
 	),
-	'columns'     => 4,
+	'columns'     => 3,
 	'priority'    => 10,
 ) ) );
 

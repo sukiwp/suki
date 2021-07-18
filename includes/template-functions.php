@@ -316,13 +316,19 @@ add_action( 'wp', 'suki_template_hooks', 20 );
  * @return string
  */
 function suki_custom_archive_title( $title, $original_title, $prefix ) {
-	// If it's a Blog page, change the posts archive title to "Posts" replacing the default title ("Archives").
+	// Set default title for Blog page.
 	if ( is_home() ) {
-		$post_type_obj = get_post_type_object( 'post' );
-
-		$title = $post_type_obj->labels->name;
+		// If blog page is also the front page, use tagline
+		if ( is_front_page() ) {
+			$title = get_bloginfo( 'description' );
+		}
+		// If blog page is set to static page, use the static page title.
+		else {
+			$title = get_the_title( get_option( 'page_for_posts' ) );
+		}
 	}
 
+	// Fetch custom title that is configured from Customizer.
 	if ( is_post_type_archive() || is_home() ) {
 		$custom_title = suki_get_current_page_setting( 'title_text' );
 
@@ -344,6 +350,7 @@ function suki_custom_archive_title( $title, $original_title, $prefix ) {
 		}
 	}
 
+	// If custom title is detected, use it.
 	if ( ! empty( $custom_title ) ) {
 		$title = $custom_title;
 	}

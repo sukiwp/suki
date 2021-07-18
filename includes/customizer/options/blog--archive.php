@@ -42,6 +42,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--grid.svg',
 		),
 	),
+	'columns'     => 3,
 	'priority'    => 10,
 ) ) );
 

@@ -81,7 +81,7 @@ msgstr ""
 msgid "Huge"
 msgstr ""
 
-#: includes/class-suki.php:333, includes/admin/class-suki-admin-metabox-page-settings.php:509, includes/customizer/options/_page-settings.php:77, includes/customizer/options/_sections.php:305
+#: includes/class-suki.php:333, includes/admin/class-suki-admin-metabox-page-settings.php:509, includes/customizer/options/content--section.php:62, includes/customizer/options/_page-settings.php:77, includes/customizer/options/_sections.php:305
 msgid "Sidebar"
 msgstr ""
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Social"
 msgstr ""
 
-#: includes/helpers.php:807, includes/customizer/options/blog--archive.php:106, includes/customizer/options/blog--single.php:38, includes/customizer/options/page--search.php:68, includes/customizer/options/page--single.php:38, includes/customizer/options/_cpt.php:46, includes/customizer/options/_sections.php:111, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:23, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:38, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:38, includes/compatibilities/woocommerce/customizer/options/_sections.php:67
+#: includes/helpers.php:807, includes/customizer/options/blog--archive.php:107, includes/customizer/options/blog--single.php:38, includes/customizer/options/page--search.php:68, includes/customizer/options/page--single.php:38, includes/customizer/options/_cpt.php:46, includes/customizer/options/_sections.php:111, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:23, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:38, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:38, includes/compatibilities/woocommerce/customizer/options/_sections.php:67
 msgid "Breadcrumb"
 msgstr ""
 
@@ -410,15 +410,15 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: includes/template-functions.php:443, template-parts/entry-grid.php:61, template-parts/entry.php:72, includes/customizer/options/blog--entry-default.php:229, includes/customizer/options/blog--entry-default.php:248, includes/customizer/options/blog--entry-grid.php:355, includes/customizer/options/blog--entry-grid.php:374
+#: includes/template-functions.php:450, template-parts/entry-grid.php:61, template-parts/entry.php:72, includes/customizer/options/blog--entry-default.php:229, includes/customizer/options/blog--entry-default.php:248, includes/customizer/options/blog--entry-grid.php:355, includes/customizer/options/blog--entry-grid.php:374
 msgid "Read more"
 msgstr ""
 
-#: includes/template-functions.php:520
+#: includes/template-functions.php:527
 msgid "Expand / Collapse"
 msgstr ""
 
-#: includes/template-functions.php:580
+#: includes/template-functions.php:587
 msgid "Search&hellip;"
 msgstr ""
 
@@ -447,45 +447,45 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: includes/template-tags.php:772, includes/customizer/options/page--search.php:110
+#: includes/template-tags.php:777, includes/customizer/options/page--search.php:110
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: includes/template-tags.php:991
+#: includes/template-tags.php:996
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags.php:992
+#: includes/template-tags.php:997
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1092
+#: includes/template-tags.php:1097
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1094
+#: includes/template-tags.php:1099
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: includes/template-tags.php:1135
+#: includes/template-tags.php:1140
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/template-tags.php:1129
+#: includes/template-tags.php:1134
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: includes/template-tags.php:1162
+#: includes/template-tags.php:1167
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/template-tags.php:1308, includes/template-tags.php:1312
+#: includes/template-tags.php:1313, includes/template-tags.php:1317
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
@@ -546,7 +546,7 @@ msgstr ""
 msgid "Content & Sidebar"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:71, includes/customizer/options/blog--archive.php:91, includes/customizer/options/blog--single.php:23, includes/customizer/options/page--search.php:53, includes/customizer/options/page--single.php:23, includes/customizer/options/_cpt.php:39, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:23
+#: includes/admin/class-suki-admin-metabox-page-settings.php:71, includes/customizer/options/blog--archive.php:92, includes/customizer/options/blog--single.php:23, includes/customizer/options/page--search.php:53, includes/customizer/options/page--single.php:23, includes/customizer/options/_cpt.php:39, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:23, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:23
 msgid "Content Header"
 msgstr ""
 
@@ -1242,51 +1242,51 @@ msgstr ""
 msgid "Grid"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:52
+#: includes/customizer/options/blog--archive.php:53
 msgid "Edit Post Layout: Default"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:60
+#: includes/customizer/options/blog--archive.php:61
 msgid "Edit Post Layout: Grid"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:73
+#: includes/customizer/options/blog--archive.php:74
 msgid "Navigation mode"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:75
+#: includes/customizer/options/blog--archive.php:76
 msgid "Prev / Next buttons"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:76
+#: includes/customizer/options/blog--archive.php:77
 msgid "Page numbers"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:105, includes/customizer/options/blog--entry-default.php:68, includes/customizer/options/blog--entry-grid.php:211, includes/customizer/options/blog--single.php:37, includes/customizer/options/page--search.php:67, includes/customizer/options/page--single.php:37, includes/customizer/options/_cpt.php:45, includes/customizer/options/_sections.php:72, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:37, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:37
+#: includes/customizer/options/blog--archive.php:106, includes/customizer/options/blog--entry-default.php:68, includes/customizer/options/blog--entry-grid.php:211, includes/customizer/options/blog--single.php:37, includes/customizer/options/page--search.php:67, includes/customizer/options/page--single.php:37, includes/customizer/options/_cpt.php:45, includes/customizer/options/_sections.php:72, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:37, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:37
 msgid "Title"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:107, includes/customizer/options/_cpt.php:50
+#: includes/customizer/options/blog--archive.php:108, includes/customizer/options/_cpt.php:50
 msgid "Taxonomy Description"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:144
+#: includes/customizer/options/blog--archive.php:145
 msgid "Blog page title"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:145, includes/customizer/options/_cpt.php:104
+#: includes/customizer/options/blog--archive.php:146, includes/customizer/options/_cpt.php:104
 msgid "Available tags: {{post_type}}."
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:160, includes/customizer/options/_cpt.php:120
+#: includes/customizer/options/blog--archive.php:161, includes/customizer/options/_cpt.php:120
 msgid "Taxonomy archive page title"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:161, includes/customizer/options/_cpt.php:121
+#: includes/customizer/options/blog--archive.php:162, includes/customizer/options/_cpt.php:121
 msgid "Available tags: {{taxonomy}}, {{term}}."
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:183
+#: includes/customizer/options/blog--archive.php:184
 msgid "Show content header on Blog page"
 msgstr ""
 
@@ -1600,10 +1600,6 @@ msgstr ""
 
 #: includes/customizer/options/content--section.php:50, includes/customizer/options/_page-settings.php:63
 msgid "Narrow content layout doesn't support Sidebar."
-msgstr ""
-
-#: includes/customizer/options/content--section.php:62
-msgid "Sidebar position"
 msgstr ""
 
 #: includes/customizer/options/content--sidebar.php:36, includes/customizer/options/header--mobile-vertical-bar.php:88
