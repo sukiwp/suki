@@ -1174,7 +1174,9 @@ p.demo_store,
 	}
 
 	.woocommerce-products-header {
-		margin: 0 0 2rem;
+		> *:last-child {
+			margin: 0 0 3rem;
+		}
 	}
 
 	.woocommerce-result-count {
@@ -1196,7 +1198,7 @@ p.demo_store,
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		margin: 0 -0.5em 2em;
+		margin: -0.5em -0.5em 2em;
 
 		&:empty {
 			display: none;

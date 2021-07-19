@@ -967,8 +967,8 @@ p.demo_store a,
 	}
 }
 
-.woocommerce .woocommerce-products-header {
-	margin: 0 0 2rem;
+.woocommerce .woocommerce-products-header > *:last-child {
+	margin: 0 0 3rem;
 }
 
 .woocommerce .woocommerce-result-count {
@@ -992,7 +992,7 @@ p.demo_store a,
 	justify-content: space-between;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin: 0 -0.5em 2em;
+	margin: -0.5em -0.5em 2em;
 }
 
 .woocommerce .suki-products-filters:empty {
