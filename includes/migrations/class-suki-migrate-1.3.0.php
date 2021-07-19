@@ -42,12 +42,12 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
 		
-		$this->migrate_page_settings_keys();
-		$this->migrate_content_layout_narrow();
-		$this->migrate_page_header_title_text();
-		$this->migrate_page_header_to_hero_section();
+		$this->migrate_customizer_page_settings_keys();
+		$this->migrate_customizer_page_header_title_text();
+		$this->migrate_customizer_page_header_to_hero_section();
+		$this->migrate_customizer_content_layout_narrow();
 
-		$this->migrate_page_settings_meta_box();
+		$this->migrate_meta_box_all_settings();
 
 		$this->migrate_woocommerce_index_settings();
 	}
@@ -181,7 +181,7 @@ class Suki_Migrate_1_3_0 {
 	 * - For search results page, use "search_results" as slug.
 	 * - For error 404 page, use "error_404" as slug.
 	 */
-	private function migrate_page_settings_keys() {
+	private function migrate_customizer_page_settings_keys() {
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 			// Define the option key.
 			if ( 'search_results' === $ps_type ) {
@@ -209,60 +209,12 @@ class Suki_Migrate_1_3_0 {
 	}
 
 	/**
-	 * Migrate content narrow to custom container width.
-	 *
-	 * Why:
-	 * It doesn't make sense when user chooses "Full width" in "Content container" option and chooses "Narrow" in the "Content and sidebar layout" option.
-	 *
-	 * The previous implementation:
-	 * - User choose between "Wrapped" and "Full width" in the "Content container" option.
-	 * - User choose "Narrow" in the "Content and sidebar layout" option.
-	 *
-	 * The new implementation:
-	 * - User choose between "Wrapped", "Full width", and the new "Custom" option in the "Content container" option.
-	 * - Custom means user can manually input the container width.
-	 * - There is no longer "Narrow" option in the "Content and sidebar layout" option (because user can set the container width).
-	 */
-	private function migrate_content_layout_narrow() {
-		/**
-		 * Global settings
-		 */
-
-		// If the selected value of "content_layout" is "narrow".
-		if ( 'narrow' === get_theme_mod( 'content_layout' ) ) {
-			// Change it to "wide".
-			set_theme_mod( 'content_layout', 'wide' );
-
-			// And then change the "content_container" value to "custom".
-			set_theme_mod( 'content_container', 'narrow' );
-		}
-
-		/**
-		 * Page settings
-		 */
-
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Get the values.
-			$content_layout = get_theme_mod( $ps_type . '_content_layout' );
-
-			// If the selected value of "content_layout" is "narrow".
-			if ( 'narrow' === $content_layout ) {
-				// Change it to "wide".
-				set_theme_mod( $ps_type . '_content_layout', 'wide' );
-				
-				// And then set the "content_container" value to "narrow".
-				set_theme_mod( $ps_type . '_content_container', 'narrow' );
-			}
-		}
-	}
-
-	/**
 	 * Migrate all page header title text option keys.
 	 *
 	 * Why:
 	 * The title text should affect the content header title as well not just the page header title.
 	 */
-	private function migrate_page_header_title_text() {
+	private function migrate_customizer_page_header_title_text() {
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 			// Process search page title text.
 			if ( 'search_results' === $ps_type ) {
@@ -328,7 +280,7 @@ class Suki_Migrate_1_3_0 {
 	 * The new implementation:
 	 * - Use "hero_" prefix.
 	 */
-	private function migrate_page_header_to_hero_section() {
+	private function migrate_customizer_page_header_to_hero_section() {
 		/**
 		 * Global settings
 		 */
@@ -436,13 +388,62 @@ class Suki_Migrate_1_3_0 {
 	}
 
 	/**
+	 * Migrate content narrow to custom container width.
+	 *
+	 * Why:
+	 * It doesn't make sense when user chooses "Full width" in "Content container" option and chooses "Narrow" in the "Content and sidebar layout" option.
+	 *
+	 * The previous implementation:
+	 * - User choose between "Wrapped" and "Full width" in the "Content container" option.
+	 * - User choose "Narrow" in the "Content and sidebar layout" option.
+	 *
+	 * The new implementation:
+	 * - User choose between "Wrapped", "Full width", and the new "Custom" option in the "Content container" option.
+	 * - Custom means user can manually input the container width.
+	 * - There is no longer "Narrow" option in the "Content and sidebar layout" option (because user can set the container width).
+	 */
+	private function migrate_customizer_content_layout_narrow() {
+		/**
+		 * Global settings
+		 */
+
+		// If the selected value of "content_layout" is "narrow".
+		if ( 'narrow' === get_theme_mod( 'content_layout' ) ) {
+			// Change it to "wide".
+			set_theme_mod( 'content_layout', 'wide' );
+
+			// And then change the "content_container" value to "custom".
+			set_theme_mod( 'content_container', 'narrow' );
+		}
+
+		/**
+		 * Page settings
+		 */
+
+		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			// Get the values.
+			$content_layout = get_theme_mod( $ps_type . '_content_layout' );
+
+			// If the selected value of "content_layout" is "narrow".
+			if ( 'narrow' === $content_layout ) {
+				// Change it to "wide".
+				set_theme_mod( $ps_type . '_content_layout', 'wide' );
+				
+				// And then set the "content_container" value to "narrow".
+				set_theme_mod( $ps_type . '_content_container', 'narrow' );
+			}
+		}
+	}
+
+	/**
 	 * Migrate some keys on page settings meta box.
 	 *
 	 * Keys to be changed:
 	 * - "content_hide_thumbnail" => "disable_thumbnail".
 	 * - "content_hide_title" => "disable_content_header".
+	 * - "page_header" => "hero".
 	 */
-	private function migrate_page_settings_meta_box() {
+	private function migrate_meta_box_all_settings_settings() {
 		// Get all posts in any post type that already have page settings configured.
 		$posts = get_posts( array(
 			'post_type'      => 'any',
@@ -466,6 +467,19 @@ class Suki_Migrate_1_3_0 {
 				$value['disable_content_header'] = $value['content_hide_title'];
 
 				unset( $value['content_hide_title'] );
+			}
+
+			// Hero section.
+			if ( isset( $value['page_header'] ) ) {
+				$value['hero'] = $value['page_header'];
+
+				unset( $value['page_header'] );
+			}
+
+			// Narrow content container.
+			if ( isset( $value['content_layout'] ) && 'narrow' === $value['content_layout'] ) {
+				$value['content_layout'] = 'wide';
+				$value['content_container'] = 'narrow';
 			}
 
 			// Update post meta.
