@@ -47,7 +47,7 @@ $add['google_fonts_subsets'] = array();
 
 /**
  * ====================================================
- * Typography & Colors > Base
+ * Typography & Colors > Base Typography & Colors
  * ====================================================
  */
 
@@ -589,8 +589,6 @@ $add['hero_height'] = '';
 $add['hero_padding'] = '60px 20px 60px 20px';
 $add['hero_border'] = '0px 0px 0px 0px';
 
-$add['hero_alignment'] = 'center';
-
 $add['hero_title_font_family'] = '';
 $add['hero_title_font_weight'] = '';
 $add['hero_title_font_style'] = '';
@@ -641,7 +639,7 @@ $add['content_padding'] = '80px 20px 80px 20px';
 
 /**
  * ====================================================
- * Content & Sidebar > Main Content Area
+ * Content & Sidebar > Main Column
  * ====================================================
  */
 
@@ -653,7 +651,7 @@ $add['content_main_border_color'] = '';
 
 /**
  * ====================================================
- * Content & Sidebar > Sidebar Area
+ * Content & Sidebar > Sidebar
  * ====================================================
  */
 
@@ -825,7 +823,7 @@ $add['scroll_to_top_hover_text_color'] = '';
  */
 
 $add['post_archive_content_header'] = array( 'title', 'archive-description' );
-$add['post_archive_content_header_alignment'] = 'left';
+$add['post_archive_content_header_alignment'] = 'center';
 
 $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_content_header'] = 0;
@@ -838,7 +836,7 @@ $add['blog_index_navigation_mode'] = 'pagination';
  */
 
 $add['post_single_content_header'] = array( 'title', 'post-header-meta' );
-$add['post_single_content_header_alignment'] = 'left';
+$add['post_single_content_header_alignment'] = 'center';
 $add['post_single_content_header_meta'] = '{{date}}';
 $add['post_single_content_thumbnail'] = 'after';
 
@@ -919,7 +917,7 @@ $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
  */
 
 $add['page_single_content_header'] = array( 'title' );
-$add['page_single_content_header_alignment'] = 'left';
+$add['page_single_content_header_alignment'] = 'center';
 
 $add['page_single_content_thumbnail'] = 'after';
 
@@ -930,7 +928,7 @@ $add['page_single_content_thumbnail'] = 'after';
  */
 
 $add['search_results_content_header'] = array( 'title', 'search-form' );
-$add['search_results_content_header_alignment'] = 'left';
+$add['search_results_content_header_alignment'] = 'center';
 
 /**
  * ====================================================
@@ -951,7 +949,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	// Only process archives.
 	if ( preg_match( '/(_archive)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title', 'archive-description' );
-		$add[ $ps_type . '_content_header_alignment'] = 'left';
+		$add[ $ps_type . '_content_header_alignment'] = 'center';
 	}
 }
 
@@ -965,7 +963,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	// Only process singular.
 	if ( preg_match( '/(_single)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title' );
-		$add[ $ps_type . '_content_header_alignment'] = 'left';
+		$add[ $ps_type . '_content_header_alignment'] = 'center';
 		$add[ $ps_type . '_content_thumbnail'] = 'after';
 	}
 }

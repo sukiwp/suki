@@ -430,7 +430,7 @@ class Suki_Migrate_1_3_0 {
 
 			// Set hero alignment.
 			if ( '' !== $alignment ) {
-				set_theme_mod( $ps_type . '_hero_alignment', $alignment );
+				set_theme_mod( $ps_type . '_content_header_alignment', $alignment );
 			}
 		}
 	}

@@ -46,6 +46,11 @@ $wp_color_primary: #007cba;
 		line-height: 1;
 		vertical-align: middle;
 	}
+
+	&.suki-button-full {
+		width: 100%;
+		text-align: center;
+	}
 }
 
 .suki-icon {
@@ -1817,7 +1822,6 @@ li:not(.customize-info) div.customize-section-description {
 [id$="_header_mobile_transparent"].customize-control-select,
 [id$="_header_mobile_sticky"].customize-control-select,
 [id$="_hero_container"].customize-control-select,
-[id$="_hero_alignment"].customize-control-select,
 [id$="_hero_bg"].customize-control-select,
 [id$="_hero_bg_image"] {
 	padding-left: 15px;

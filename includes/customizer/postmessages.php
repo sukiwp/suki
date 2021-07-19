@@ -33,7 +33,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
 
 /**
  * ====================================================
- * Typography & Colors > Base
+ * Typography & Colors > Base Typography & Colors
  * ====================================================
  */
 
@@ -1348,13 +1348,6 @@ $add['hero_border'] = array(
 		'property' => 'border-width',
 	),
 );
-$add['hero_alignment'] = array(
-	array(
-		'type'     => 'class',
-		'element'  => '.suki-hero .content-header',
-		'pattern'  => 'suki-text-align-$',
-	),
-);
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
 	$element = '.suki-hero .page-title, .suki-hero .entry-title';
@@ -1591,7 +1584,7 @@ foreach ( $responsive as $suffix => $media ) {
 
 /**
  * ====================================================
- * Content & Sidebar > Main Content Area
+ * Content & Sidebar > Main Column
  * ====================================================
  */
 
@@ -2372,7 +2365,7 @@ $add['scroll_to_top_hover_text_color'] = array(
 $add['post_archive_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => 'body.blog #primary .content-header, body.category #primary .content-header, body.tag #primary .content-header, body.author #primary .content-header, body.date #primary .content-header',
+		'element'  => 'body.blog .content-header, body.category .content-header, body.tag .content-header, body.author .content-header, body.date .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2605,7 +2598,7 @@ $add['entry_grid_shadow'] = array(
 $add['post_single_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => 'body.single-post #primary .content-header',
+		'element'  => 'body.single-post .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2627,14 +2620,21 @@ $add['post_single_content_footer_alignment'] = array(
 $add['page_single_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => 'body.page #primary .content-header',
+		'element'  => 'body.page .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
-$add['page_single_content_header_alignment'] = array(
+
+/**
+ * ====================================================
+ * Other Pages > Search Results Page
+ * ====================================================
+ */
+
+$add['search_results_content_header_alignment'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => 'body.page #primary .content-header',
+		'element'  => 'body.search-results:not(.archive) .content-header',
 		'pattern'  => 'suki-text-align-$',
 	),
 );
@@ -2650,9 +2650,9 @@ foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
 		continue;
 	}
 
-	$element = 'body.post-type-archive-' . $post_type . ' #primary .content-header';
+	$element = 'body.post-type-archive-' . $post_type . ' .content-header';
 	foreach ( get_object_taxonomies( $post_type ) as $tax ) {
-		$element .= ', body.tax-' . $tax . ' #primary .content-header';
+		$element .= ', body.tax-' . $tax . ' .content-header';
 	}
 
 	$add[ $post_type . '_archive_content_header_alignment'] = array(
@@ -2678,7 +2678,7 @@ foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
 	$add[ $post_type . '_single_content_header_alignment'] = array(
 		array(
 			'type'     => 'class',
-			'element'  => 'body.single-' . $post_type . ' #primary .content-header',
+			'element'  => 'body.single-' . $post_type . ' .content-header',
 			'pattern'  => 'suki-text-align-$',
 		),
 	);

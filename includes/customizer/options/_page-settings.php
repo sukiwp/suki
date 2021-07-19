@@ -110,68 +110,48 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'priority'    => 120,
 		) );
 
-			// Container width
-			$subkey = 'hero_container';
-			$key = $option_prefix . '_' . $subkey;
-			$wp_customize->add_setting( $key, array(
-				'default'     => suki_array_value( $defaults, $key ),
-				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-			) );
-			$wp_customize->add_control( $key, array(
-				'type'        => 'select',
-				'section'     => $section,
-				'label'       => esc_html__( 'Container width', 'suki' ),
-				'choices'     => array(
-					''           => esc_html__( '-- Global --', 'suki' ),
-					'default'    => esc_html__( 'Normal', 'suki' ),
-					'full-width' => esc_html__( 'Full width', 'suki' ),
-					'narrow'     => esc_html__( 'Narrow', 'suki' ),
-				),
-				'priority'    => 120,
-			) );
+		// Container
+		$subkey = 'hero_container';
+		$key = $option_prefix . '_' . $subkey;
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $defaults, $key ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+		) );
+		$wp_customize->add_control( $key, array(
+			'type'        => 'select',
+			'section'     => $section,
+			'label'       => esc_html__( 'Container', 'suki' ),
+			'choices'     => array(
+				''           => esc_html__( '-- Global --', 'suki' ),
+				'default'    => esc_html__( 'Normal', 'suki' ),
+				'full-width' => esc_html__( 'Full width', 'suki' ),
+				'narrow'     => esc_html__( 'Narrow', 'suki' ),
+			),
+			'priority'    => 120,
+		) );
 
-			// Alignment
-			$subkey = 'hero_alignment';
-			$key = $option_prefix . '_' . $subkey;
-			$wp_customize->add_setting( $key, array(
-				'default'     => suki_array_value( $defaults, $key ),
-				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-			) );
-			$wp_customize->add_control( $key, array(
-				'type'        => 'select',
-				'section'     => $section,
-				'label'       => esc_html__( 'Alignment', 'suki' ),
-				'choices'     => array(
-					''       => esc_html__( '-- Global --', 'suki' ),
-					'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-					'center' => esc_html__( 'Center', 'suki' ),
-					'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-				),
-				'priority'    => 120,
-			) );
-
-			// Background image
-			$subkey = 'hero_bg';
-			$key = $option_prefix . '_' . $subkey;
-			$choices = array(
-				''          => esc_html__( '-- Global --', 'suki' ),
-				'thumbnail' => esc_html__( 'Feat. Image', 'suki' ),
-				'custom'    => esc_html__( 'Custom Image', 'suki' ),
-			);
-			if ( false === strpos( $ps_type, '_single' ) || post_type_supports( $post_type_slug, 'post-thumbnails' ) ) {
-				unset( $choices['thumbnail'] );
-			}
-			$wp_customize->add_setting( $key, array(
-				'default'     => suki_array_value( $defaults, $key ),
-				'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-			) );
-			$wp_customize->add_control( $key, array(
-				'type'        => 'select',
-				'section'     => $section,
-				'label'       => esc_html__( 'Background image', 'suki' ),
-				'choices'     => $choices,
-				'priority'    => 120,
-			) );
+		// Background image
+		$subkey = 'hero_bg';
+		$key = $option_prefix . '_' . $subkey;
+		$choices = array(
+			''          => esc_html__( '-- Global --', 'suki' ),
+			'thumbnail' => esc_html__( 'Feat. Image', 'suki' ),
+			'custom'    => esc_html__( 'Custom Image', 'suki' ),
+		);
+		if ( false === strpos( $ps_type, '_single' ) || post_type_supports( $post_type_slug, 'post-thumbnails' ) ) {
+			unset( $choices['thumbnail'] );
+		}
+		$wp_customize->add_setting( $key, array(
+			'default'     => suki_array_value( $defaults, $key ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+		) );
+		$wp_customize->add_control( $key, array(
+			'type'        => 'select',
+			'section'     => $section,
+			'label'       => esc_html__( 'Background image', 'suki' ),
+			'choices'     => $choices,
+			'priority'    => 120,
+		) );
 
 			// Custom background image
 			$subkey = 'hero_bg_image';

@@ -38,6 +38,11 @@
 	vertical-align: middle;
 }
 
+.button.suki-button-full {
+	width: 100%;
+	text-align: center;
+}
+
 .suki-icon {
 	display: inline-block;
 	width: 1em;
@@ -1710,7 +1715,6 @@ li:not(.customize-info) div.customize-section-description {
 [id$="_header_mobile_transparent"].customize-control-select,
 [id$="_header_mobile_sticky"].customize-control-select,
 [id$="_hero_container"].customize-control-select,
-[id$="_hero_alignment"].customize-control-select,
 [id$="_hero_bg"].customize-control-select,
 [id$="_hero_bg_image"] {
 	padding-right: 15px;
@@ -1739,7 +1743,6 @@ li:not(.customize-info) div.customize-section-description {
 [id$="_header_mobile_transparent"].customize-control-select .customize-control-title,
 [id$="_header_mobile_sticky"].customize-control-select .customize-control-title,
 [id$="_hero_container"].customize-control-select .customize-control-title,
-[id$="_hero_alignment"].customize-control-select .customize-control-title,
 [id$="_hero_bg"].customize-control-select .customize-control-title,
 [id$="_hero_bg_image"] .customize-control-title {
 	font-weight: normal;
@@ -1768,7 +1771,6 @@ li:not(.customize-info) div.customize-section-description {
 [id$="_header_mobile_transparent"].customize-control-select select,
 [id$="_header_mobile_sticky"].customize-control-select select,
 [id$="_hero_container"].customize-control-select select,
-[id$="_hero_alignment"].customize-control-select select,
 [id$="_hero_bg"].customize-control-select select,
 [id$="_hero_bg_image"] select {
 	margin-right: 10px;

@@ -193,10 +193,10 @@ class Suki_Customizer {
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--html.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--search.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/header--social.php' );
-		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--hero.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--section.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--main.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php' );
+		require_once( SUKI_INCLUDES_DIR . '/customizer/options/content--hero.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--builder.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php' );
 		require_once( SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php' );

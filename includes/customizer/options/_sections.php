@@ -30,9 +30,9 @@ $wp_customize->add_panel( $panel, array(
 	'priority'    => 121,
 ) );
 
-	// Base Text
+	// Base Typography & Colors
 	$wp_customize->add_section( 'suki_section_base', array(
-		'title'       => esc_html__( 'Base Text', 'suki' ),
+		'title'       => esc_html__( 'Base Typography & Colors', 'suki' ),
 		'description' => '<p>' . esc_html__( 'The global settings of body typography and colors.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
@@ -293,9 +293,9 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-		// Main Content Area
+		// Main Column
 		$wp_customize->add_section( 'suki_section_main', array(
-			'title'       => esc_html__( 'Main Content', 'suki' ),
+			'title'       => esc_html__( 'Main Column', 'suki' ),
 			'panel'       => $panel,
 			'priority'    => 10,
 		) );
@@ -310,6 +310,7 @@ $wp_customize->add_panel( $panel, array(
 	// Hero Section
 	$wp_customize->add_section( 'suki_section_hero', array(
 		'title'       => esc_html__( 'Hero Section', 'suki' ),
+		'description' => esc_html__( 'A section between header and content section to display the page\'s content header (title, breadcrumb, etc.) with a background image.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	) );

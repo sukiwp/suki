@@ -778,11 +778,7 @@ add_filter( 'suki/frontend/hero_classes', 'suki_hero_classes' );
  * @return array
  */
 function suki_content_header_classes( $classes ) {
-	if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
-		$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'hero_alignment' ) );
-	} else {
-		$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ) );
-	}
+	$classes['alignment'] = esc_attr( 'suki-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ) );
 
 	return $classes;
 }

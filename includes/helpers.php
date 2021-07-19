@@ -210,8 +210,8 @@ function suki_get_current_page_setting( $key, $default = null ) {
 	$settings = array();
 	$value = null;
 
-	// Search page
-	if ( is_search() ) {
+	// Search results page and not archive (WooCommerce search results page is considered as archive).
+	if ( is_search() && ! is_archive() ) {
 		$value = suki_get_theme_mod( 'search_results_' . $key );
 	}
 
@@ -764,10 +764,8 @@ function suki_get_fallback_page_settings() {
 		'content_container'        => suki_get_theme_mod( 'content_container', 'default' ),
 		'content_layout'           => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
 		'content_header'           => array( 'title' ),
-		'content_header_alignment' => array( 'left' ),
-		'hero'                     => suki_get_theme_mod( 'hero', 0 ),
+		'content_header_alignment' => 'center',
 		'hero_container'           => suki_get_theme_mod( 'hero_container', 'default' ),
-		'hero_alignment'           => suki_get_theme_mod( 'hero_alignment', 'center' ),
 		'hero_bg'                  => suki_get_theme_mod( 'hero_bg', '' ),
 		'hero_bg_image'            => suki_get_theme_mod( 'hero_bg_image', '' ),
 	) );

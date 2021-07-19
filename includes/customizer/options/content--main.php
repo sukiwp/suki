@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content & Sidebar > Main Content Area
+ * Customizer settings: Content & Sidebar > Main Column
  *
  * @package Suki
  **/
@@ -12,9 +12,17 @@ $section = 'suki_section_main';
 
 /**
  * ====================================================
- * Main Content Area
+ * Layout
  * ====================================================
  */
+
+// Heading: Layout
+$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_content_main_layout', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'label'       => esc_html__( 'Layout', 'suki' ),
+	'priority'    => 10,
+) ) );
 
 // Padding
 $key = 'content_main_padding';
