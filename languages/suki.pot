@@ -1942,11 +1942,11 @@ msgid "Please make sure you have installed the plugin and configured the breadcr
 msgstr ""
 
 #: includes/customizer/options/global--breadcrumb.php:64
-msgid "Show \"Home\" in the trail"
+msgid "Include \"Home\" as the first item"
 msgstr ""
 
 #: includes/customizer/options/global--breadcrumb.php:76
-msgid "Show current page in the trail"
+msgid "Include current page as the last item"
 msgstr ""
 
 #: includes/customizer/options/global--color-palette.php:47

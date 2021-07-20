@@ -53,7 +53,7 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_br
 	'priority'    => 20,
 ) ) );
 
-// Show "Home" in the trail
+// Include "Home" as the first item
 $key = 'breadcrumb_trail_home';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -61,11 +61,11 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show "Home" in the trail', 'suki' ),
+	'label'       => esc_html__( 'Include "Home" as the first item', 'suki' ),
 	'priority'    => 20,
 ) ) );
 
-// Show current page in the breadcrumb
+// Include current page as the last item
 $key = 'breadcrumb_trail_current_page';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -73,6 +73,6 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Show current page in the trail', 'suki' ),
+	'label'       => esc_html__( 'Include current page as the last item', 'suki' ),
 	'priority'    => 20,
 ) ) );

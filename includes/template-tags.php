@@ -537,8 +537,8 @@ function suki_breadcrumb_native( $echo = true ) {
 	// Allow developers to modify the breadcrumb trail.
 	$items = apply_filters( 'suki/frontend/breadcrumb_trail', $items );
 
-	// Abort if no breadcrumb trail found.
-	if ( empty( $items ) ) {
+	// Abort if no breadcrumb trail found or only 1 item in the trail.
+	if ( 1 >= count( $items ) ) {
 		return;
 	}
 
