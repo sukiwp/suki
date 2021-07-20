@@ -443,7 +443,7 @@ class Suki_Migrate_1_3_0 {
 	 * - "content_hide_title" => "disable_content_header".
 	 * - "page_header" => "hero".
 	 */
-	private function migrate_meta_box_all_settings_settings() {
+	private function migrate_meta_box_all_settings() {
 		// Get all posts in any post type that already have page settings configured.
 		$posts = get_posts( array(
 			'post_type'      => 'any',
