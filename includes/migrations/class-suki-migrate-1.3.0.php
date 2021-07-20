@@ -65,7 +65,7 @@ class Suki_Migrate_1_3_0 {
 	 * New typography will only be applied to new installation.
 	 */
 	private function preserve_old_typography_styles() {
-		set_theme_mod( 'base_font_size', '15px' );
+		set_theme_mod( 'body_font_size', '15px' );
 		set_theme_mod( 'h4_font_size', '17px' );
 	}
 
