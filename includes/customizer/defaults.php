@@ -839,7 +839,7 @@ $add['blog_index_navigation_mode'] = 'pagination';
 $add['post_single_content_header'] = array( 'title', 'post-header-meta' );
 $add['post_single_content_header_alignment'] = 'center';
 $add['post_single_content_header_meta'] = '{{date}}';
-$add['post_single_content_thumbnail'] = 'after';
+$add['post_single_content_thumbnail_position'] = 'before';
 
 $add['post_single_content_footer'] = array( 'tags', 'post-footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
@@ -860,7 +860,7 @@ $add['entry_header'] = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';
 $add['entry_header_meta'] = '{{date}}';
 
-$add['entry_thumbnail'] = 'after';
+$add['entry_thumbnail_position'] = 'before';
 $add['entry_thumbnail_size'] = 'full';
 
 $add['entry_content'] = 'content';
@@ -895,7 +895,7 @@ $add['entry_grid_header'] = array( 'title', 'header-meta' );
 $add['entry_grid_header_alignment'] = 'left';
 $add['entry_grid_header_meta'] = '{{date}}';
 
-$add['entry_grid_thumbnail'] = 'before';
+$add['entry_grid_thumbnail_position'] = 'before';
 $add['entry_grid_thumbnail_size'] = 'medium_large';
 $add['entry_grid_thumbnail_ignore_padding'] = 0;
 
@@ -920,7 +920,7 @@ $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 $add['page_single_content_header'] = array( 'title' );
 $add['page_single_content_header_alignment'] = 'center';
 
-$add['page_single_content_thumbnail'] = 'after';
+$add['page_single_content_thumbnail_position'] = 'before';
 
 /**
  * ====================================================
@@ -965,7 +965,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	if ( preg_match( '/(_single)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title' );
 		$add[ $ps_type . '_content_header_alignment'] = 'center';
-		$add[ $ps_type . '_content_thumbnail'] = 'after';
+		$add[ $ps_type . '_content_thumbnail_position'] = 'before';
 	}
 }
 

@@ -108,7 +108,7 @@ function suki_template_hooks() {
 	 */
 
 	// Add thumbnail before or after content header.
-	add_action( 'suki/frontend/entry/header', 'suki_entry_thumbnail', 'before' === suki_get_theme_mod( 'entry_thumbnail' ) ? 0 : 999 );
+	add_action( 'suki/frontend/entry/' . suki_get_theme_mod( 'entry_thumbnail_position' ) . '_header', 'suki_entry_thumbnail', 10 );
 
 	// Add entry header elements.
 	$priority = 10;
@@ -141,7 +141,7 @@ function suki_template_hooks() {
 	 */
 
 	// Add thumbnail before or after content header.
-	add_action( 'suki/frontend/entry_grid/header', 'suki_entry_grid_thumbnail', 'before' === suki_get_theme_mod( 'entry_grid_thumbnail' ) ? 0 : 999 );
+	add_action( 'suki/frontend/entry_grid/' . suki_get_theme_mod( 'entry_grid_thumbnail_position' ) . '_header', 'suki_entry_grid_thumbnail', 10 );
 
 	// Add entry grid header elements.
 	$priority = 10;
@@ -250,7 +250,7 @@ function suki_template_hooks() {
 
 			// Add thumbnail before or after content header.
 			if ( ! intval( suki_get_current_page_setting( 'disable_thumbnail' ) ) && post_type_supports( 'page', 'thumbnail' ) ) {
-				add_action( 'suki/frontend/page_content/' . suki_get_theme_mod( 'page_single_content_thumbnail' ) . '_header', 'suki_thumbnail', 10 );
+				add_action( 'suki/frontend/page_content/' . suki_get_theme_mod( 'page_single_content_thumbnail_position' ) . '_header', 'suki_thumbnail', 10 );
 			}
 		}
 
@@ -268,7 +268,7 @@ function suki_template_hooks() {
 
 			// Add thumbnail before or after content header.
 			if ( ! intval( suki_get_current_page_setting( 'disable_thumbnail' ) ) && post_type_supports( get_post_type(), 'thumbnail' ) ) {
-				add_action( 'suki/frontend/post_content/' . suki_get_theme_mod( get_post_type() . '_single_content_thumbnail' ) . '_header', 'suki_thumbnail', 10 );
+				add_action( 'suki/frontend/post_content/' . suki_get_theme_mod( get_post_type() . '_single_content_thumbnail_position' ) . '_header', 'suki_thumbnail', 10 );
 			}
 
 			// Single post page.

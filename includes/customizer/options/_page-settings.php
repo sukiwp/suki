@@ -138,7 +138,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			'thumbnail' => esc_html__( 'Feat. Image', 'suki' ),
 			'custom'    => esc_html__( 'Custom Image', 'suki' ),
 		);
-		if ( false === strpos( $ps_type, '_single' ) || post_type_supports( $post_type_slug, 'post-thumbnails' ) ) {
+		if ( false === strpos( $ps_type, '_single' ) || ! post_type_supports( $post_type_slug, 'thumbnail' ) ) {
 			unset( $choices['thumbnail'] );
 		}
 		$wp_customize->add_setting( $key, array(

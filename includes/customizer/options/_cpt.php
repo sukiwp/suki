@@ -142,7 +142,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		) ) );
 	
 		// Display
-		$subkey = 'content_thumbnail';
+		$subkey = 'content_thumbnail_position';
 		$key = $option_prefix . '_' . $subkey;
 		$wp_customize->add_setting( $key, array(
 			'default'     => suki_array_value( $defaults, $key ),

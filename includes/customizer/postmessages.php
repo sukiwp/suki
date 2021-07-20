@@ -1175,7 +1175,7 @@ $add['header_mobile_main_bar_link_hover_text_color'] = array(
 $add['header_mobile_vertical_bar_position'] = array(
 	array(
 		'type'     => 'class',
-		'element'  => '.suki-header-mobile-vertical',
+		'element'  => '.suki-header-mobile-vertical:not(.suki-header-mobile-vertical-display-full-screen)',
 		'pattern'  => 'suki-header-mobile-vertical-position-$',
 	),
 );

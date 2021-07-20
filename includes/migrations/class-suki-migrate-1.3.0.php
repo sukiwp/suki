@@ -41,6 +41,7 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_page_template_slug();
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
+		$this->migrate_header_mobile_vertical_bar_full_screen_position();
 		
 		$this->migrate_customizer_page_settings_keys();
 		$this->migrate_customizer_page_header_title_text();
@@ -93,24 +94,28 @@ class Suki_Migrate_1_3_0 {
 	 *
 	 * The previous implementation:
 	 * - Use "featured_media" as slug.
+	 * - Use "-entry-header" suffix in the value.
 	 *
 	 * The new implementation:
 	 * - Use "thumbnail" as slug.
+	 * - Remove "-entry-header" suffix in the value.
 	 */
 	private function migrate_featured_media_to_thumbnail() {
 		$mods = get_theme_mods();
 
 		foreach ( $mods as $key => $value ) {
 			if ( false !== strpos( $key, '_featured_media' ) ) {
-				if ( strpos( $key, '_featured_media_position' ) ) {
-					$key = str_replace( '_position', '', $key );
-				}
+				// Replace "featured_media" with "thumbnail".
+				$new_key = str_replace( 'featured_media', 'thumbnail', $key );
 
-				$new_key = str_replace( '_featured_media', '_thumbnail', $key );
+				// Remove "-entry-header" in the value.
+				$new_value = str_replace( '-entry-header', '', $value );
 
+				// Save the new option.
+				set_theme_mod( $new_key, $new_value );
+
+				// Remove the old option.
 				remove_theme_mod( $key );
-
-				set_theme_mod( $new_key, $value );
 			}
 		}
 	}
@@ -165,6 +170,25 @@ class Suki_Migrate_1_3_0 {
 			if ( $has_cart ) {
 				set_theme_mod( 'header_mobile_elements_' . $location, $elements );
 			}
+		}
+	}
+
+	/**
+	 * Split header mobile vertical bar position
+	 *
+	 * The previous implementation:
+	 * - Full screen mode doesn't have dedicated option for "position", and only use the "header_mobile_vertical_bar_position" option.
+	 *
+	 * The new implementation:
+	 * - Full screen mode has dedicated option for "position", named "header_mobile_vertical_bar_full_screen_position".
+	 */
+	private function migrate_header_mobile_vertical_bar_full_screen_position() {
+		// Copy value from "header_mobile_vertical_bar_position" option. 
+		set_theme_mod( 'header_mobile_vertical_bar_full_screen_position', get_theme_mod( 'header_mobile_vertical_bar_position' ) );
+		
+		// If "header_mobile_vertical_bar_position" is set to "center", change to "left".
+		if ( 'center' === get_theme_mod( 'header_mobile_vertical_bar_position' ) ) {
+			set_theme_mod( 'header_mobile_vertical_bar_position', 'left' );
 		}
 	}
 

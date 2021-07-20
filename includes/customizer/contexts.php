@@ -286,7 +286,7 @@ $add['entry_read_more_text'] = array(
 $add['entry_thumbnail_ignore_padding'] =
 $add['entry_thumbnail_size'] = array(
 	array(
-		'setting'  => 'entry_thumbnail',
+		'setting'  => 'entry_thumbnail_position',
 		'operator' => '!=',
 		'value'    => '',
 	),
@@ -325,7 +325,7 @@ $add['entry_grid_read_more_text'] = array(
 $add['entry_grid_thumbnail_ignore_padding'] =
 $add['entry_grid_thumbnail_size'] = array(
 	array(
-		'setting'  => 'entry_grid_thumbnail',
+		'setting'  => 'entry_grid_thumbnail_position',
 		'operator' => '!=',
 		'value'    => '',
 	),
