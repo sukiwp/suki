@@ -113,6 +113,21 @@ $add['suki_section_header_mobile_vertical_bar'] = array(
 	),
 );
 
+$add['header_mobile_vertical_bar_full_screen_position'] = array(
+	array(
+		'setting'  => 'header_mobile_vertical_bar_display',
+		'value'    => 'full-screen',
+	),
+);
+
+$add['header_mobile_vertical_bar_position'] = array(
+	array(
+		'setting'  => 'header_mobile_vertical_bar_display',
+		'operator' => '!=',
+		'value'    => 'full-screen',
+	),
+);
+
 /**
  * ====================================================
  * Header > Header Builder

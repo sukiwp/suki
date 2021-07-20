@@ -1179,6 +1179,14 @@ $add['header_mobile_vertical_bar_position'] = array(
 		'pattern'  => 'suki-header-mobile-vertical-position-$',
 	),
 );
+
+$add['header_mobile_vertical_bar_full_screen_position'] = array(
+	array(
+		'type'     => 'class',
+		'element'  => '.suki-header-mobile-vertical.suki-header-mobile-vertical-display-full-screen',
+		'pattern'  => 'suki-header-mobile-vertical-position-$',
+	),
+);
 $add['header_mobile_vertical_bar_alignment'] = array(
 	array(
 		'type'     => 'class',

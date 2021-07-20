@@ -33,6 +33,14 @@ $wp_customize->add_control( $key, array(
 	'priority'    => 10,
 ) );
 
+// Info
+$wp_customize->add_control( new Suki_Customize_Control_Blank( $wp_customize, 'notice_header_mobile_trigger', array(
+	'section'     => $section,
+	'settings'    => array(),
+	'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Make sure you have included the "Toggle" element to open the mobile popup panel.', 'suki' ) . '</p></div>',
+	'priority'    => 10,
+) ) );
+
 // Position
 $key = 'header_mobile_vertical_bar_position';
 $wp_customize->add_setting( $key, array(
@@ -40,17 +48,50 @@ $wp_customize->add_setting( $key, array(
 	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'select',
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Position', 'suki' ),
 	'choices'     => array(
-		'left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-		'right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-		'center' => esc_html__( 'Center (only for Full Screen)', 'suki' ),
+		'left' => array(
+			'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+			'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup--left.svg',
+		),
+		'right' => array(
+			'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+			'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup--right.svg',
+		),
 	),
+	'columns'     => 3,
 	'priority'    => 10,
+) ) );
+
+// Position
+$key = 'header_mobile_vertical_bar_full_screen_position';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
+$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Position', 'suki' ),
+	'choices'     => array(
+		'left' => array(
+			'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+			'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--left.svg',
+		),
+		'center' => array(
+			'label' => esc_html__( 'Center', 'suki' ),
+			'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--center.svg',
+		),
+		'right' => array(
+			'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+			'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--right.svg',
+		),
+	),
+	'columns'     => 3,
+	'priority'    => 10,
+) ) );
 
 // Alignment
 $key = 'header_mobile_vertical_bar_alignment';
