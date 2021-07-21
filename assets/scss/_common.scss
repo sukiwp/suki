@@ -225,24 +225,24 @@ button.suki-toggle {
 }
 
 .suki-breadcrumb {
-	&-native {
+	ul, ol {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: block;
-	
-		> * {
-			display: inline-block;
-	
-			&:after {
-				margin: 0 0.5em;
-				content: "\203a";
-				opacity: 0.5;
-			}
-	
-			&:last-child:after {
-				display: none;
-			}
+	}
+
+	li {
+		display: inline-block;
+
+		&:after {
+			margin: 0 0.5em;
+			content: "\203a";
+			opacity: 0.5;
+		}
+
+		&:last-child:after {
+			display: none;
 		}
 	}
 }
