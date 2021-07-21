@@ -327,6 +327,9 @@ class Suki_Compatibility_WooCommerce {
 		// Modify Content Header element.
 		add_filter( 'suki/frontend/content_header_element', array( $this, 'modify_content_header_elements' ), 10, 2 );
 
+		// Modify page title.
+		add_filter( 'woocommerce_page_title', array( $this, 'modify_page_title' ) );
+
 		/**
 		 * Shop page's template hooks
 		 */
@@ -817,6 +820,41 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		return $html;
+	}
+
+	/**
+	 * Modify page title text.
+	 * 
+	 * @param string $page_title
+	 * @return string
+	 */
+	public function modify_page_title( $page_title ) {
+		if ( is_shop() ) {
+			$custom_title = suki_get_current_page_setting( 'title_text' );
+
+			if ( ! empty( $custom_title ) ) {
+				$post_type_obj = get_post_type_object( 'product' );
+
+				$custom_title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $custom_title );
+
+				$page_title = $custom_title;
+			}
+		}
+		elseif ( is_tax() ) {
+			$custom_title = suki_get_current_page_setting( 'tax_title_text' );
+
+			if ( ! empty( $custom_title ) ) {
+				$term_obj = get_queried_object();
+				$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
+
+				$custom_title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $custom_title );
+				$custom_title = str_replace( '{{term}}', $term_obj->name, $custom_title );
+
+				$page_title = $custom_title;
+			}			
+		}
+		
+		return $page_title;
 	}
 	
 	/**

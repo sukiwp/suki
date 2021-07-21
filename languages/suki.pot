@@ -565,7 +565,7 @@ msgstr ""
 msgid "Individual Page Settings (%s)"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:246, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:510
+#: includes/admin/class-suki-admin-metabox-page-settings.php:246, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:513
 msgid "Edit Page settings here"
 msgstr ""
 
@@ -577,7 +577,7 @@ msgstr ""
 msgid "&#x2718; Hidden"
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:408, includes/admin/class-suki-admin-metabox-page-settings.php:628, includes/admin/class-suki-admin-metabox-page-settings.php:645, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:543, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:313, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, includes/compatibilities/woocommerce/customizer/options/_sections.php:89
+#: includes/admin/class-suki-admin-metabox-page-settings.php:408, includes/admin/class-suki-admin-metabox-page-settings.php:628, includes/admin/class-suki-admin-metabox-page-settings.php:645, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:546, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:313, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:137, includes/compatibilities/woocommerce/customizer/options/_sections.php:89
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -597,7 +597,7 @@ msgctxt "Suki Pro upsell"
 msgid "Enable / disable Alternate Header Colors on this page."
 msgstr ""
 
-#: includes/admin/class-suki-admin-metabox-page-settings.php:412, includes/admin/class-suki-admin-metabox-page-settings.php:630, includes/admin/class-suki-admin-metabox-page-settings.php:647, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:552
+#: includes/admin/class-suki-admin-metabox-page-settings.php:412, includes/admin/class-suki-admin-metabox-page-settings.php:630, includes/admin/class-suki-admin-metabox-page-settings.php:647, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:555
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""
@@ -984,36 +984,36 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:524
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:527
 msgid "Product Layout"
-msgstr ""
-
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:545
-msgctxt "Suki Pro upsell"
-msgid "Enable / disable breadcrumb."
-msgstr ""
-
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:546
-msgctxt "Suki Pro upsell"
-msgid "Enable / disable gallery on this product page."
-msgstr ""
-
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:547
-msgctxt "Suki Pro upsell"
-msgid "Change gallery layout on this product page."
 msgstr ""
 
 #: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:548
 msgctxt "Suki Pro upsell"
-msgid "Enable / disable product info tabs."
+msgid "Enable / disable breadcrumb."
 msgstr ""
 
 #: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:549
 msgctxt "Suki Pro upsell"
-msgid "Enable / disable up-sells."
+msgid "Enable / disable gallery on this product page."
 msgstr ""
 
 #: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:550
+msgctxt "Suki Pro upsell"
+msgid "Change gallery layout on this product page."
+msgstr ""
+
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:551
+msgctxt "Suki Pro upsell"
+msgid "Enable / disable product info tabs."
+msgstr ""
+
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:552
+msgctxt "Suki Pro upsell"
+msgid "Enable / disable up-sells."
+msgstr ""
+
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:553
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
@@ -1274,15 +1274,15 @@ msgstr ""
 msgid "Blog page title"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:146, includes/customizer/options/_cpt.php:104
+#: includes/customizer/options/blog--archive.php:146, includes/customizer/options/_cpt.php:104, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:76
 msgid "Available tags: {{post_type}}."
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:161, includes/customizer/options/_cpt.php:120
+#: includes/customizer/options/blog--archive.php:161, includes/customizer/options/_cpt.php:120, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:91
 msgid "Taxonomy archive page title"
 msgstr ""
 
-#: includes/customizer/options/blog--archive.php:162, includes/customizer/options/_cpt.php:121
+#: includes/customizer/options/blog--archive.php:162, includes/customizer/options/_cpt.php:121, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:92
 msgid "Available tags: {{taxonomy}}, {{term}}."
 msgstr ""
 
@@ -1510,7 +1510,7 @@ msgstr ""
 msgid "Global"
 msgstr ""
 
-#: includes/customizer/options/content--hero.php:41, includes/customizer/options/content--main.php:23, includes/customizer/options/content--sidebar.php:50, includes/customizer/options/footer--bottom-bar.php:66, includes/customizer/options/footer--widgets-bar.php:28, includes/customizer/options/header--top-main-bottom-bar.php:73, includes/customizer/options/page--error-404.php:23, includes/customizer/options/_sections.php:134, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:77
+#: includes/customizer/options/content--hero.php:41, includes/customizer/options/content--main.php:23, includes/customizer/options/content--sidebar.php:50, includes/customizer/options/footer--bottom-bar.php:66, includes/customizer/options/footer--widgets-bar.php:28, includes/customizer/options/header--top-main-bottom-bar.php:73, includes/customizer/options/page--error-404.php:23, includes/customizer/options/_sections.php:134, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:109
 msgid "Layout"
 msgstr ""
 
@@ -2520,23 +2520,27 @@ msgstr ""
 msgid "Used for single product's \"Add to Cart\" button and Checkout button."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:90
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:75
+msgid "Shop page title"
+msgstr ""
+
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:122
 msgid "Max products per page"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:91
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:123
 msgid "Empty / 0 = disabled; -1 = Show all."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:107
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:139
 msgid "Grid columns"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:134
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:166
 msgid "Show products count"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:146
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:178
 msgid "Show products sort filter"
 msgstr ""
 

@@ -12,6 +12,21 @@ $add = array();
 
 /**
  * ====================================================
+ * WooCommerce > Products Catalog Page
+ * ====================================================
+ */
+
+$add['product_archive_title_text'] =
+$add['product_archive_tax_title_text'] = array(
+	array(
+		'setting'  => 'product_archive_content_header',
+		'operator' => 'contain',
+		'value'    => 'title',
+	),
+);
+
+/**
+ * ====================================================
  * WooCommerce > Cart Page
  * ====================================================
  */
