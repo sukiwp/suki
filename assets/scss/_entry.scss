@@ -120,7 +120,7 @@
 // Basic image thumbnail
 .entry-thumbnail {
 	display: block;
-	margin: 2rem 0;
+	margin: 0 0 1.5rem;
 
 	&:first-child {
 		margin-top: 0;
@@ -133,10 +133,6 @@
 	> * {
 		display: block;
 		width: 100%;
-	}
-
-	.entry-small & {
-		margin: 1.5rem 0;
 	}
 }
 
@@ -175,11 +171,15 @@ a.more-link {
 
 // Content
 .entry-content {
-	margin: 0 0 2rem;
+	margin: 2rem 0;
 	@include float-container();
 
+	&:first-child {
+		margin-top: 0;
+	}
+
 	&:last-child {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 
 	> *:last-child {
@@ -199,15 +199,11 @@ a.more-link {
 			@include border( right, 0.25em, solid );
 		}
 	}
-
-	.entry-single & {
-		margin-bottom: 3rem;
-	}
 }
 
 // Excerpt
 .entry-excerpt {
-	margin: 0 0 1.25em;
+	margin: 0 0 1.5em;
 
 	> * {
 		margin: 0 0 0.75em;
