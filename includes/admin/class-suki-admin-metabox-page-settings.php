@@ -124,7 +124,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			array( $this, 'render_meta_box__post' ),
 			$post_types,
 			'normal',
-			'high'
+			apply_filters( 'suki/admin/metabox/page_settings/priority', 'high' )
 		);
 	}
 
