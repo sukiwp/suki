@@ -50,7 +50,7 @@ class Suki_Migrate_1_3_0 {
 
 		$this->migrate_meta_box_all_settings();
 
-		$this->migrate_woocommerce_index_settings();
+		$this->migrate_woocommerce_settings();
 	}
 
 	/**
@@ -137,7 +137,7 @@ class Suki_Migrate_1_3_0 {
 			'bottom_left', 'bottom_center', 'bottom_right',
 		);
 		foreach ( $desktop_header_locations as $location ) {
-			$elements = suki_get_theme_mod( 'header_elements_' . $location );
+			$elements = get_theme_mod( 'header_elements_' . $location, array() );
 
 			$has_cart = false;
 			foreach ( $elements as &$element ) {
@@ -157,7 +157,7 @@ class Suki_Migrate_1_3_0 {
 			'main_left', 'main_center', 'main_right',
 		);
 		foreach ( $desktop_header_locations as $location ) {
-			$elements = suki_get_theme_mod( 'header_mobile_elements_' . $location );
+			$elements = get_theme_mod( 'header_mobile_elements_' . $location, array() );
 			
 			$has_cart = false;
 			foreach ( $elements as &$element ) {
@@ -388,19 +388,12 @@ class Suki_Migrate_1_3_0 {
 			if ( 'search_results' == $ps_type ) {
 				continue;
 			}
-			
-			// Skip archive page.
-			// Use the new content header's default because it's the same structure in older version.
-			// It's set to "title" and "archive-description".
-			if ( 0 < strpos( $ps_type, '_archive' ) ) {
-				continue;
-			}
 
-			// Add breadcrumb.
+			// Add breadcrumb if specified.
 			if ( $has_breadcrumb ) {
 				set_theme_mod( $ps_type . '_content_header', array_merge(
 					array( 'breadcrumb' ),
-					suki_get_theme_mod( $ps_type . '_content_header', array() )
+					suki_get_theme_mod( $ps_type . '_content_header', array() ) // Get default value
 				) );
 			}
 
@@ -520,7 +513,7 @@ class Suki_Migrate_1_3_0 {
 	 * The new implementation:
 	 * - Page settings on each type is saved in non array with "{type}_{key}". For example: post_single_content_layout.
 	 */
-	private function migrate_woocommerce_index_settings() {
+	private function migrate_woocommerce_settings() {
 		/**
 		 * Products archive page content header.
 		 */
@@ -535,10 +528,26 @@ class Suki_Migrate_1_3_0 {
 			$elements[] = 'title';
 		}
 
+		$elements[] = 'archive-description';
+
 		set_theme_mod( 'product_archive_content_header', $elements );
 
 		remove_theme_mod( 'woocommerce_index_page_breadcrumb' );
 		remove_theme_mod( 'woocommerce_index_page_title' );
+
+		/**
+		 * Single product page content header.
+		 */
+
+		$elements = array();
+
+		if ( intval( get_theme_mod( 'woocommerce_single_breadcrumb', 1 ) ) ) {
+			$elements[] = 'breadcrumb';
+		}
+
+		set_theme_mod( 'product_single_content_header', $elements );
+
+		remove_theme_mod( 'woocommerce_single_breadcrumb' );
 	}
 }
 

@@ -27,6 +27,8 @@ $add['woocommerce_demo_store_notice_text_color'] = '';
  * ====================================================
  */
 
+$add['product_single_content_header'] = array( 'title', 'archive-description' );
+
 $add['woocommerce_index_posts_per_page'] = 12;
 $add['woocommerce_index_grid_columns'] = 4;
 
