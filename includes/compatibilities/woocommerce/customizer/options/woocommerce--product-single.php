@@ -62,7 +62,7 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
 		),
 	),
-	'priority'    => 20,
+	'priority'    => 10,
 ) ) );
 
 /**
