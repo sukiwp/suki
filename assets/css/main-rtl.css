@@ -2859,6 +2859,14 @@ body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .
 	margin: 2rem 0;
 }
 
+.entry-thumbnail:first-child {
+	margin-top: 0;
+}
+
+.entry-thumbnail:last-child {
+	margin-bottom: 0;
+}
+
 .entry-thumbnail > * {
 	display: block;
 	width: 100%;
