@@ -38,6 +38,14 @@ $add['notice_cart_2_columns'] = array(
 	),
 );
 
+$add['woocommerce_cart_cross_sells_position'] =
+$add['woocommerce_cart_cross_sells_grid_columns'] = array(
+	array(
+		'setting'  => 'woocommerce_cart_cross_sells',
+		'value'    => 1,
+	),
+);
+
 /**
  * ====================================================
  * WooCommerce > Checkout Page

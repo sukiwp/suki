@@ -73,6 +73,7 @@ $add['woocommerce_single_related_grid_columns'] = 4;
 $add['woocommerce_cart_layout'] = '2-columns';
 
 $add['woocommerce_cart_cross_sells'] = 1;
+$add['woocommerce_cart_cross_sells_position'] = 'after_cart_table';
 $add['woocommerce_cart_cross_sells_grid_columns'] = 4;
 
 /**

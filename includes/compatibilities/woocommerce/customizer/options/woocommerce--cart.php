@@ -74,6 +74,23 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
 	'priority'    => 20,
 ) ) );
 
+// Cross-sells position
+$key = 'woocommerce_cart_cross_sells_position';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+) );
+$wp_customize->add_control( $key, array(
+	'type'        => 'select',
+	'section'     => $section,
+	'label'       => esc_html__( 'Cross-sells position', 'suki' ),
+	'choices'     => array(
+		'after_cart_table' => esc_html__( 'Before cart total', 'suki' ),
+		'after_cart'       => esc_html__( 'After cart total', 'suki' ),
+	),
+	'priority'    => 20,
+) );
+
 // Cross-sells grid columns
 $key = 'woocommerce_cart_cross_sells_grid_columns';
 $wp_customize->add_setting( $key, array(

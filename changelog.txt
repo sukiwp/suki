@@ -1,7 +1,8 @@
 v1.3.0
+- NEW: Content Header — Introducing "Content Header", per-page configurable set of page title, breadcrumb, and other elements.
 - NEW: Hero Section — Replace the former "Page Header" section.
-- NEW: Dedicated Single Post Page options (formerly uses the same layout as "Default" post layout for archives page).
-- NEW: Dedicated Single Static Page options (formerly uses the same layout as "Default" post layout for archives page).
+- NEW: Blog - Add new dedicated Single Post Page options (formerly uses the same layout as "Default" post layout for archives page).
+- NEW: Page - Add new dedicated Single Static Page options (formerly uses the same layout as "Default" post layout for archives page).
 - NEW: Breadcrumb — Theme's native breadcrumb.
 - NEW: Header Elements — Add Breadcrumb element to Header.
 - NEW: Header Elements — Add new options to show Shopping Cart's amount and its responsive visibility.
@@ -13,8 +14,9 @@ v1.3.0
 - NEW: Blog — Thumbnail size option for blog post layouts.
 - NEW: Blog — "Content or excerpt" option for default post layout.
 - NEW: Customizer — Border radius and Box shadow options for posts layout, sidebar.
+- NEW: WooCommerce compatibility - Add new option to change the cart cross sells position.
 - NEW: WPML Compatibility — Add WPML configuration file (`wpml-config.xml`) for automatic WPML integration.
-- NEW: Page Template: Page Builder with Container — Page template for page builders that doesn't have their own content container functionalities, such as Visual Composer, Site Origin, etc.
+- NEW: Page Template - Page Builder with Container — Page template for page builders that doesn't have their own content container functionalities, such as Visual Composer, Site Origin, etc.
 - TWEAK: Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).
 - TWEAK: Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
 - TWEAK: Header Elements — Allow "Shopping Cart Dropdown" inside the mobile header bar.
@@ -23,6 +25,7 @@ v1.3.0
 - TWEAK: Social Icons — Add hidden label on each social icon for better accessibility.
 - TWEAK: Social Icons — Remove Google+.
 - TWEAK: Google Fonts — Update Google Fonts list.
+- TWEAK: WooCommerce compatibility — Improve template modifications via hooks.
 - TWEAK: WooCommerce compatibility — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
 - TWEAK: Elementor compatibility — Move compatibility CSS to standalone inline CSS. 
 - TWEAK: Customizer — Improve Customizer UI & UX.
@@ -30,6 +33,7 @@ v1.3.0
 - TWEAK: Deprecate "Page Header" section.
 - TWEAK: Implement Filters API to allow further modification on each template part's HTML markup.
 - TWEAK: Use localize scripts to define header bars JS configuration instead of using HTML tag attributes (fallback compatibilities are added for prior Suki Pro 1.2.0).
+- TWEAK: A lot of CSS improvements.
 - FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
 - FIX: Footer — Widgets column width bug.
 - FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
