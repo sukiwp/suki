@@ -456,8 +456,8 @@ p.demo_store,
 			}
 		}
 
-		div.images {
-			// margin-bottom: 2em;
+		.suki-product-gallery {
+			position: relative;
 
 			@media screen and ( min-width: $breakpoint_1024 ) {
 				// flex-basis: 60%; // postmessage: TODO
@@ -465,6 +465,20 @@ p.demo_store,
 				clear: none;
 				width: 60%; // postmessage: TODO
 			}
+
+			~ div.summary {
+				@media screen and ( min-width: $breakpoint_1024 ) {
+					// flex-basis: 40%; // postmessage: TODO
+					width: 40%; // postmessage: TODO
+					float: right;
+					clear: none;
+					padding-left: 40px; // postmessage: TODO
+				}
+			}
+		}
+
+		div.images {
+			// margin-bottom: 2em;
 
 			img {
 				display: block;
@@ -579,16 +593,6 @@ p.demo_store,
 							opacity: 1;
 						}
 					}
-				}
-			}
-
-			~ div.summary {
-				@media screen and ( min-width: $breakpoint_1024 ) {
-					// flex-basis: 40%; // postmessage: TODO
-					width: 40%; // postmessage: TODO
-					float: right;
-					clear: none;
-					padding-left: 40px; // postmessage: TODO
 				}
 			}
 		}

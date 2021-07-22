@@ -51,23 +51,16 @@ do_action( 'woocommerce_before_main_content' );
 <?php
 if ( woocommerce_product_loop() ) {
 
-	woocommerce_output_all_notices();
-	
-	if ( has_action( 'woocommerce_before_shop_loop' ) ) {
-		?>
-		<div class="suki-woocommerce-before-shop-loop suki-products-filters">
-			<?php
-			/**
-			 * Hook: woocommerce_before_shop_loop.
-			 *
-			 * @hooked woocommerce_result_count - 20
-			 * @hooked woocommerce_catalog_ordering - 30
-			 */
-			do_action( 'woocommerce_before_shop_loop' );
-			?>
-		</div>
-		<?php
-	}
+	/**
+	 * Hook: woocommerce_before_shop_loop.
+	 *
+	 * @hooked woocommerce_output_all_notices - 10
+	 * @hooked Suki_Compatibility_WooCommerce::render_loop_filters_wrapper() - 11
+	 * @hooked woocommerce_result_count - 20
+	 * @hooked woocommerce_catalog_ordering - 30
+	 * @hooked Suki_Compatibility_WooCommerce::render_loop_filters_wrapper_end() - 999
+	 */
+	do_action( 'woocommerce_before_shop_loop' );
 
 	woocommerce_product_loop_start();
 

@@ -351,11 +351,24 @@ p.demo_store a,
 	margin-left: 0.5em;
 }
 
+.woocommerce div.product .suki-product-gallery {
+	position: relative;
+}
+
 @media screen and (min-width: 1024px) {
-	.woocommerce div.product div.images {
+	.woocommerce div.product .suki-product-gallery {
 		float: right;
 		clear: none;
 		width: 60%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.woocommerce div.product .suki-product-gallery ~ div.summary {
+		width: 40%;
+		float: left;
+		clear: none;
+		padding-right: 40px;
 	}
 }
 
@@ -481,15 +494,6 @@ p.demo_store a,
 
 .woocommerce div.product div.images .flex-control-thumbs li img.flex-active, .woocommerce div.product div.images .flex-control-thumbs li img:hover {
 	opacity: 1;
-}
-
-@media screen and (min-width: 1024px) {
-	.woocommerce div.product div.images ~ div.summary {
-		width: 40%;
-		float: left;
-		clear: none;
-		padding-right: 40px;
-	}
 }
 
 .woocommerce div.product div.social {

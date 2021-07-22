@@ -16,10 +16,10 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-woocommerce_output_all_notices();
-
 /**
  * Hook: woocommerce_before_single_product.
+ *
+ * @hooked woocommerce_output_all_notices - 10
  */
 do_action( 'woocommerce_before_single_product' );
 
@@ -36,6 +36,7 @@ if ( post_password_required() ) {
 	 * Available elements:
 	 * - Breadcrumb
 	 * - Title
+	 * - Rating
 	 */
 	if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
 		suki_content_header();
@@ -46,8 +47,10 @@ if ( post_password_required() ) {
 	/**
 	 * Hook: woocommerce_before_single_product_summary.
 	 *
+	 * @hooked Suki_Compatibility_WooCommerce::render_product_gallery_wrapper - 19
 	 * @hooked woocommerce_show_product_images - 20
      * @hooked woocommerce_show_product_sale_flash - 21
+	 * @hooked Suki_Compatibility_WooCommerce::render_product_gallery_wrapper_end - 29
 	 */
 	do_action( 'woocommerce_before_single_product_summary' );
 	?>

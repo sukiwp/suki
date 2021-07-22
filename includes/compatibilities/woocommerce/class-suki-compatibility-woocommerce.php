@@ -295,10 +295,6 @@ class Suki_Compatibility_WooCommerce {
 		// It might be readded via Content Header.
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
-		// Remove "woocommerce_output_all_notices" from its original position.
-		// "woocommerce_output_all_notices" is added via hard code on the theme's "archive-content.php" template.
-		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
-
 		// Change "Products" in theme's breadcrumb trails to Shop page's title.
 		add_filter( 'suki/frontend/breadcrumb_trail', array( $this, 'modify_theme_breadcrumb_trails' ) );
 
@@ -334,13 +330,29 @@ class Suki_Compatibility_WooCommerce {
 		 * Shop page's template hooks
 		 */
 
-		// Move sale badge position to before thumbnail because we need to add a link wrapper to the product thumbnail later.
+		// Remove the original link wrapper.
+		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+
+		// Add wrapper to products grid filters.
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper' ), 11 );
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper_end' ), 999 );
+
+		// Move sale badge position to before thumbnail because we need to add a link wrapper to the product thumbnail.
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 1 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 2 );
+
+		// Add product thumbnail wrapper.
+		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper' ), 1 );
+		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 999 );
 
 		// Add a link wrapper to the product thumbnail.
 		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 9 );
 		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 19 );
+
+		// Add a link wrapper to the product title.
+		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 1 );
+		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
 
 		// Products loop
 		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
@@ -350,9 +362,9 @@ class Suki_Compatibility_WooCommerce {
 		 * Product page's template hooks
 		 */
 
-		// Remove "woocommerce_output_all_notices" from its original position.
-		// "woocommerce_output_all_notices" is added via hard code on the theme's "content-single-product.php" template.
-		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+		// Add wrapper to products grid filters.
+		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper' ), 19 );
+		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper_end' ), 29 );
 
 		// Add class to single product gallery for single image or multiple images.
 		add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_single_product_gallery_class' ) );
@@ -363,6 +375,10 @@ class Suki_Compatibility_WooCommerce {
 
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );
+
+		// Add wrapper to single product add to cart form.
+		add_filter( 'woocommerce_before_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper' ) );
+		add_filter( 'woocommerce_after_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper_end' ) );
 
 		// Related products
 		add_filter( 'woocommerce_related_products_args', array( $this, 'set_related_products_args' ) );
@@ -864,6 +880,34 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
+	 * Add opening products filters wrapper tag.
+	 */
+	public function render_loop_filters_wrapper() {
+		?><div class="suki-products-filters"><?php
+	}
+
+	/**
+	 * Add closing products filters wrapper tag.
+	 */
+	public function render_loop_filters_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
+	 * Add opening product image wrapper tag.
+	 */
+	public function render_loop_product_thumbnail_wrapper() {
+		?><div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array( 'suki-product-thumbnail' ) ) ) ); ?>"><?php
+	}
+
+	/**
+	 * Add closing product image wrapper tag.
+	 */
+	public function render_loop_product_thumbnail_wrapper_end() {
+		?></div><?php
+	}
+
+	/**
 	 * Set products loop posts per page.
 	 * 
 	 * @param integer $posts_per_page
@@ -888,6 +932,20 @@ class Suki_Compatibility_WooCommerce {
 	 * Product Page Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Add opening products gallery tag.
+	 */
+	public function render_product_gallery_wrapper() {
+		?><div class="suki-product-gallery"><?php
+	}
+
+	/**
+	 * Add closing products gallery tag.
+	 */
+	public function render_product_gallery_wrapper_end() {
+		?></div><?php
+	}
 
 	/**
 	 * Add class on single product gallery whether it contains single image or multiple images.
@@ -915,6 +973,20 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_product_thumbnails_columns( $columns ) {
 		return 8;
+	}
+
+	/**
+	 * Add opening add to cart form's wrapper tag.
+	 */
+	public function render_add_to_cart_form_wrapper() {
+		?><div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array( 'suki-product-add-to-cart' ) ) ) ); ?>"><?php
+	}
+
+	/**
+	 * Add closing add to cart form's wrapper tag.
+	 */
+	public function render_add_to_cart_form_wrapper_end() {
+		?></div><?php
 	}
 
 	/**
