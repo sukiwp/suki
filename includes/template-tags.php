@@ -806,7 +806,7 @@ function suki_content_header_element( $element ) {
 			$html = get_search_form( array( 'echo' => false ) );
 			break;
 		
-		case 'post-header-meta':
+		case 'header-meta':
 			ob_start();
 			suki_post_header_meta();
 			$html = ob_get_clean();
@@ -1026,7 +1026,7 @@ function suki_post_single_content_footer_element( $element ) {
 			suki_post_tags();
 			break;
 		
-		case 'post-footer-meta':
+		case 'footer-meta':
 			suki_post_footer_meta();
 			break;
 	}

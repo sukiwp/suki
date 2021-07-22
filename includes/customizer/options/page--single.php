@@ -34,9 +34,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 	'section'     => $section,
 	// 'label'       => esc_html__( 'Elements', 'suki' ),
 	'choices'     => apply_filters( 'suki/dataset/page_single_content_header_elements', array(
-		'title'            => esc_html__( 'Title', 'suki' ),
-		'breadcrumb'       => esc_html__( 'Breadcrumb', 'suki' ),
-		'post-header-meta' => esc_html__( 'Header Meta', 'suki' ),
+		'title'       => esc_html__( 'Title', 'suki' ),
+		'breadcrumb'  => esc_html__( 'Breadcrumb', 'suki' ),
+		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
 	) ),
 	'priority'    => 10,
 ) ) );

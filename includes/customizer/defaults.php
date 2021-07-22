@@ -836,12 +836,12 @@ $add['blog_index_navigation_mode'] = 'pagination';
  * ====================================================
  */
 
-$add['post_single_content_header'] = array( 'title', 'post-header-meta' );
-$add['post_single_content_header_alignment'] = 'center';
+$add['post_single_content_header'] = array( 'title', 'header-meta' );
+$add['post_single_content_header_alignment'] = 'left';
 $add['post_single_content_header_meta'] = '{{date}}';
 $add['post_single_content_thumbnail_position'] = 'before';
 
-$add['post_single_content_footer'] = array( 'tags', 'post-footer-meta' );
+$add['post_single_content_footer'] = array( 'tags', 'footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
@@ -871,10 +871,6 @@ $add['entry_read_more_display'] = '';
 $add['entry_footer'] = array( 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
 $add['entry_footer_meta'] = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
-
-$add['entry_bg_color'] = '';
-$add['entry_border_color'] = '';
-$add['entry_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 
 /**
  * ====================================================

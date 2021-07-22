@@ -830,7 +830,7 @@ msgstr ""
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:846, includes/customizer/defaults.php:873, includes/customizer/defaults.php:908
+#: includes/customizer/defaults.php:846, includes/customizer/defaults.php:873, includes/customizer/defaults.php:904
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
@@ -920,7 +920,7 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:243, includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:252, includes/customizer/options/blog--entry-default.php:329, includes/customizer/options/blog--entry-grid.php:455, includes/customizer/options/content--hero.php:279, includes/customizer/options/content--main.php:110, includes/customizer/options/content--sidebar.php:380, includes/customizer/options/footer--bottom-bar.php:214, includes/customizer/options/footer--scroll-to-top.php:235, includes/customizer/options/footer--widgets-bar.php:290, includes/customizer/options/header--mobile-main-bar.php:155, includes/customizer/options/header--mobile-vertical-bar.php:303, includes/customizer/options/header--top-main-bottom-bar.php:292
+#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:243, includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:252, includes/customizer/options/blog--entry-grid.php:455, includes/customizer/options/content--hero.php:279, includes/customizer/options/content--main.php:110, includes/customizer/options/content--sidebar.php:380, includes/customizer/options/footer--bottom-bar.php:214, includes/customizer/options/footer--scroll-to-top.php:235, includes/customizer/options/footer--widgets-bar.php:290, includes/customizer/options/header--mobile-main-bar.php:155, includes/customizer/options/header--mobile-vertical-bar.php:303, includes/customizer/options/header--top-main-bottom-bar.php:292
 msgid "Colors"
 msgstr ""
 
@@ -1382,18 +1382,6 @@ msgstr ""
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
 msgstr ""
 
-#: includes/customizer/options/blog--entry-default.php:335, includes/customizer/options/blog--entry-grid.php:461, includes/customizer/options/content--hero.php:285, includes/customizer/options/content--sidebar.php:400, includes/customizer/options/footer--bottom-bar.php:220, includes/customizer/options/footer--scroll-to-top.php:241, includes/customizer/options/footer--widgets-bar.php:296, includes/customizer/options/general--buttons.php:114, includes/customizer/options/general--form-inputs.php:114, includes/customizer/options/header--mobile-main-bar.php:161, includes/customizer/options/header--mobile-vertical-bar.php:309, includes/customizer/options/header--top-main-bottom-bar.php:298, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:116, includes/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
-msgid "Background color"
-msgstr ""
-
-#: includes/customizer/options/blog--entry-default.php:336, includes/customizer/options/blog--entry-grid.php:462, includes/customizer/options/content--hero.php:286, includes/customizer/options/content--sidebar.php:401, includes/customizer/options/footer--bottom-bar.php:221, includes/customizer/options/footer--widgets-bar.php:297, includes/customizer/options/general--buttons.php:115, includes/customizer/options/general--form-inputs.php:115, includes/customizer/options/header--mobile-main-bar.php:162, includes/customizer/options/header--mobile-vertical-bar.php:310, includes/customizer/options/header--top-main-bottom-bar.php:299, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:117
-msgid "Border color"
-msgstr ""
-
-#: includes/customizer/options/blog--entry-default.php:360, includes/customizer/options/blog--entry-grid.php:486, includes/customizer/options/content--sidebar.php:393
-msgid "Shadow"
-msgstr ""
-
 #: includes/customizer/options/blog--entry-grid.php:28, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:225, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:291
 msgid "Columns"
 msgstr ""
@@ -1428,6 +1416,18 @@ msgstr ""
 
 #: includes/customizer/options/blog--entry-grid.php:307
 msgid "Ignore padding"
+msgstr ""
+
+#: includes/customizer/options/blog--entry-grid.php:461, includes/customizer/options/content--hero.php:285, includes/customizer/options/content--sidebar.php:400, includes/customizer/options/footer--bottom-bar.php:220, includes/customizer/options/footer--scroll-to-top.php:241, includes/customizer/options/footer--widgets-bar.php:296, includes/customizer/options/general--buttons.php:114, includes/customizer/options/general--form-inputs.php:114, includes/customizer/options/header--mobile-main-bar.php:161, includes/customizer/options/header--mobile-vertical-bar.php:309, includes/customizer/options/header--top-main-bottom-bar.php:298, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:116, includes/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:28
+msgid "Background color"
+msgstr ""
+
+#: includes/customizer/options/blog--entry-grid.php:462, includes/customizer/options/content--hero.php:286, includes/customizer/options/content--sidebar.php:401, includes/customizer/options/footer--bottom-bar.php:221, includes/customizer/options/footer--widgets-bar.php:297, includes/customizer/options/general--buttons.php:115, includes/customizer/options/general--form-inputs.php:115, includes/customizer/options/header--mobile-main-bar.php:162, includes/customizer/options/header--mobile-vertical-bar.php:310, includes/customizer/options/header--top-main-bottom-bar.php:299, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:117
+msgid "Border color"
+msgstr ""
+
+#: includes/customizer/options/blog--entry-grid.php:486, includes/customizer/options/content--sidebar.php:393
+msgid "Shadow"
 msgstr ""
 
 #: includes/customizer/options/blog--single.php:91, includes/customizer/options/page--single.php:78, includes/customizer/options/_cpt.php:140

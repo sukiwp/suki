@@ -2408,30 +2408,6 @@ $add['entry_footer_alignment'] = array(
 	),
 );
 
-$add['entry_bg_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-default .entry-wrapper',
-		'property' => 'background-color',
-	),
-);
-
-$add['entry_border_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-default .entry-wrapper',
-		'property' => 'border-color',
-	),
-);
-
-$add['entry_shadow'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => '.entry-layout-default .entry-wrapper',
-		'property' => 'box-shadow',
-	),
-);
-
 /**
  * ====================================================
  * Blog > Post Layout: Grid

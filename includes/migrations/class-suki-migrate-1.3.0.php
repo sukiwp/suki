@@ -42,6 +42,7 @@ class Suki_Migrate_1_3_0 {
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
 		$this->migrate_header_mobile_vertical_bar_full_screen_position();
+		$this->migrate_entry_default_to_post_single();
 		
 		$this->migrate_customizer_page_settings_keys();
 		$this->migrate_customizer_page_header_title_text();
@@ -194,6 +195,35 @@ class Suki_Migrate_1_3_0 {
 		// If "header_mobile_vertical_bar_position" is set to "center", change to "left".
 		if ( 'center' === get_theme_mod( 'header_mobile_vertical_bar_position' ) ) {
 			set_theme_mod( 'header_mobile_vertical_bar_position', 'left' );
+		}
+	}
+
+	/**
+	 * Copy the existing settings of Post Layout: Default to the new Single Post Page settings.
+	 *
+	 * The previous implementation:
+	 * - There is no dedicated Single Post Page settings, it automatically inherits from the Post Layout: Default settings.
+	 *
+	 * The new implementation:
+	 * - There are dedicated settings for Single Post Page, we will copy the previous configured Post Layout: Default settings to these new settings.
+	 */
+	private function migrate_entry_default_to_post_single() {
+		$keys = array(
+			'entry_header'             => 'post_single_content_header',
+			'entry_header_alignment'   => 'post_single_content_header_alignment',
+			'entry_header_meta'        => 'post_single_content_header_meta',
+			'entry_thumbnail_position' => 'post_single_content_thumbnail_position',
+			'entry_footer'             => 'post_single_content_footer',
+			'entry_footer_alignment'   => 'post_single_content_footer_alignment',
+			'entry_footer_meta'        => 'post_single_content_footer_meta',
+		);
+
+		foreach ( $keys as $key ) {
+			$value = get_theme_mod( $key );
+
+			if ( false !== $value ) {
+				set_theme_mod( str_replace( 'entry_', 'post_single_content_', $key ), $value );
+			}
 		}
 	}
 

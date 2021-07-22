@@ -250,7 +250,7 @@ $add['post_single_content_header_meta'] = array(
 	array(
 		'setting'  => 'post_single_content_header',
 		'operator' => 'contain',
-		'value'    => 'post-header-meta',	
+		'value'    => 'header-meta',	
 	),
 );
 
@@ -258,7 +258,7 @@ $add['post_single_content_footer_meta'] = array(
 	array(
 		'setting'  => 'post_single_content_footer',
 		'operator' => 'contain',
-		'value'    => 'post-footer-meta',	
+		'value'    => 'footer-meta',	
 	),
 );
 
