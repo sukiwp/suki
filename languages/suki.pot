@@ -69,11 +69,11 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: includes/class-suki.php:290, includes/helpers.php:1068, includes/customizer/custom-controls/class-suki-customize-control-typography.php:209
+#: includes/class-suki.php:290, includes/helpers.php:1062, includes/customizer/custom-controls/class-suki-customize-control-typography.php:209
 msgid "Medium"
 msgstr ""
 
-#: includes/class-suki.php:295, includes/helpers.php:1070
+#: includes/class-suki.php:295, includes/helpers.php:1064
 msgid "Large"
 msgstr ""
 
@@ -368,45 +368,45 @@ msgstr ""
 msgid "Footer Menu %s"
 msgstr ""
 
-#: includes/helpers.php:1049
+#: includes/helpers.php:1043
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: includes/helpers.php:1050
+#: includes/helpers.php:1044
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: includes/helpers.php:1051
+#: includes/helpers.php:1045
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: includes/helpers.php:1052
+#: includes/helpers.php:1046
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: includes/helpers.php:1053
+#: includes/helpers.php:1047
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: includes/helpers.php:1054
+#: includes/helpers.php:1048
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: includes/helpers.php:1067
+#: includes/helpers.php:1061
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/helpers.php:1069
+#: includes/helpers.php:1063
 msgid "Medium Large"
 msgstr ""
 
-#: includes/helpers.php:1074
+#: includes/helpers.php:1068
 msgid "Full"
 msgstr ""
 
@@ -426,66 +426,66 @@ msgstr ""
 msgid "Assign menu to this location"
 msgstr ""
 
-#: includes/template-tags.php:361
+#: includes/template-tags.php:355
 msgid "Home"
 msgstr ""
 
-#: includes/template-tags.php:454
+#: includes/template-tags.php:448
 msgid "Page Not Found"
 msgstr ""
 
-#: includes/template-tags.php:447
+#: includes/template-tags.php:441
 msgid "Search: %s"
 msgstr ""
 
 #. translators: %s: page number.
-#: includes/template-tags.php:529
+#: includes/template-tags.php:523
 msgid " (Page %d)"
 msgstr ""
 
-#: includes/template-tags.php:591
+#: includes/template-tags.php:585
 msgid "Skip to content"
 msgstr ""
 
-#: includes/template-tags.php:777, includes/customizer/options/page--search.php:110
+#: includes/template-tags.php:771, includes/customizer/options/page--search.php:110
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: includes/template-tags.php:996
+#: includes/template-tags.php:990
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags.php:997
+#: includes/template-tags.php:991
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1097
+#: includes/template-tags.php:1091
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1099
+#: includes/template-tags.php:1093
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: includes/template-tags.php:1140
+#: includes/template-tags.php:1134
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/template-tags.php:1134
+#: includes/template-tags.php:1128
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: includes/template-tags.php:1167
+#: includes/template-tags.php:1161
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/template-tags.php:1313, includes/template-tags.php:1317
+#: includes/template-tags.php:1307, includes/template-tags.php:1311
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
