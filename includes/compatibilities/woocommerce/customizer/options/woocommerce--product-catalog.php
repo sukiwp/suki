@@ -64,22 +64,6 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
 	'priority'    => 20,
 ) ) );
 
-// Title text format on post type archive pages
-$key = 'product_archive_title_text';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-) );
-$wp_customize->add_control( $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Shop page title', 'suki' ),
-	'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
-	'input_attrs' => array(
-		'placeholder' => get_the_title( wc_get_page_id( 'shop' ) ),
-	),
-	'priority'    => 20,
-) );
-
 // Title text format on taxonomy archive pages
 $key = 'product_archive_tax_title_text';
 $wp_customize->add_setting( $key, array(

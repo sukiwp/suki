@@ -845,19 +845,8 @@ class Suki_Compatibility_WooCommerce {
 	 * @return string
 	 */
 	public function modify_page_title( $page_title ) {
-		if ( is_shop() ) {
-			$custom_title = suki_get_current_page_setting( 'title_text' );
-
-			if ( ! empty( $custom_title ) ) {
-				$post_type_obj = get_post_type_object( 'product' );
-
-				$custom_title = str_replace( '{{post_type}}', $post_type_obj->labels->name, $custom_title );
-
-				$page_title = $custom_title;
-			}
-		}
-		elseif ( is_tax() ) {
-			$custom_title = suki_get_current_page_setting( 'tax_title_text' );
+		if ( is_tax() ) {
+			$custom_title = suki_get_theme_mod( 'product_archive_tax_title_text' );
 
 			if ( ! empty( $custom_title ) ) {
 				$term_obj = get_queried_object();
