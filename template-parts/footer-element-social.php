@@ -4,7 +4,7 @@
  *
  * Passed variables:
  *
- * @type string $slug Footer element slug.
+ * @type string $element Footer element.
  *
  * @package Suki
  */
@@ -31,7 +31,7 @@ foreach ( $items as $item ) {
 }
 
 ?>
-<ul class="<?php echo esc_attr( 'suki-footer-' . $slug ); ?> menu">
+<ul class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> menu">
 	<?php suki_social_links( $attrs, array(
 		'before_link' => '<li class="menu-item">',
 		'after_link'  => '</li>',

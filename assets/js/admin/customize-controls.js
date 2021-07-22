@@ -64,6 +64,7 @@
 	 */
 	wp.customize.sectionConstructor['suki-section-pro-teaser'] =
 	wp.customize.sectionConstructor['suki-section-pro-link'] =
+	wp.customize.sectionConstructor['suki-section-pro-locked'] =
 	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend({
 		// No events for this type of section.
 		attachEvents: function () {},
@@ -268,17 +269,10 @@
 	 */
 	wp.customize.controlConstructor['suki-shadow'] = wp.customize.SukiControl.extend({
 		ready: function() {
-			var control = this,
-			    $inputs = control.container.find( '.suki-shadow-input' ),
-			    $value = control.container.find( '.suki-shadow-value' );
+			var control = this;
 
-			control.updateValue = function( e ) {
-				var values = $inputs.map(function() {
-					return $( this ).hasClass( 'color-picker' ) ? ( '' === $( this ).wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $( this ).wpColorPicker( 'color' ) ) : ( '' === this.value ? '0' : this.value.toString() + 'px' );
-				}).get();
-
-				$value.val( values.join( ' ' ) ).trigger( 'change' );
-			}
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'updateValue' );
 
 			control.container.find( '.suki-shadow-color .color-picker' ).alphaColorPicker({
 				change: control.updateValue,
@@ -286,7 +280,25 @@
 			});
 
 			control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
-		}
+		},
+
+		updateValue: function( e ) {
+			var values = this.container.find( 'input.suki-shadow-input' ).map(function( i, el ) {
+				var $input = $( el );
+
+				if ( $input.hasClass( 'color-picker' ) ) {
+					return '' === $input.wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $input.wpColorPicker( 'color' );
+				} else if ( $input.is( 'input' ) ) {
+					return '' === $input.val() ? '0' : $input.val().toString() + 'px';
+				} else {
+					return $input.val();
+				}
+			}).get();
+
+			values.push( this.container.find( 'select.suki-shadow-input' ).val() );
+
+			this.setting( values.join( ' ' ) );
+		},
 	});
 
 	/**
@@ -296,29 +308,32 @@
 		ready: function() {
 			var control = this;
 
-			control.container.find( '.suki-dimension-fieldset' ).each(function( i, el ) {
-				var $el = $( el ),
-				    $unit = $el.find( '.suki-dimension-unit' ),
-				    $input = $el.find( '.suki-dimension-input' ),
-				    $value = $el.find( '.suki-dimension-value' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'onChangeUnit', 'onChangeNumber' );
 
-				$unit.on( 'change', function( e ) {
-					var $option = $unit.find( 'option[value="' + this.value + '"]' );
+			control.container.on( 'change', '.suki-dimension-unit', control.onChangeUnit );
+			control.container.on( 'change blur', '.suki-dimension-input', control.onChangeNumber );
+		},
 
-					$input.attr( 'min', $option.attr( 'data-min' ) );
-					$input.attr( 'max', $option.attr( 'data-max' ) );
-					$input.attr( 'step', $option.attr( 'data-step' ) );
+		onChangeUnit: function( e ) {
+			var $unit = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
+			    $input = $scope.find( '.suki-dimension-input' );
 
-					$input.val( '' ).trigger( 'change' );
-				});
+			$input.attr( 'min', this.params.units[ $unit.val() ].min );
+			$input.attr( 'max', this.params.units[ $unit.val() ].max );
+			$input.attr( 'step', this.params.units[ $unit.val() ].step );
 
-				$input.on( 'change blur', function( e ) {
-					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' );
+		},
 
-					$value.val( value ).trigger( 'change' );
-				});
-			});
-		}
+		onChangeNumber: function( e ) {
+			var $input = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
+			    $unit = $scope.find( '.suki-dimension-unit' );
+
+			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString() );
+		},
 	});
 
 	/**
@@ -328,58 +343,59 @@
 		ready: function() {
 			var control = this;
 
-			control.container.find( '.suki-slider-fieldset' ).each(function( i, el ) {
-				var $el = $( el ),
-				    $unit = $el.find( '.suki-slider-unit' ),
-				    $input = $el.find( '.suki-slider-input' ),
-				    $slider = $el.find( '.suki-slider-ui' ),
-				    $reset = $el.find( '.suki-slider-reset' ),
-				    $value = $el.find( '.suki-slider-value' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'onChangeUnit', 'onChangeNumber', 'onChangeSlider' );
 
-				$slider.slider({
-					value: $input.val(),
-					min: +$input.attr( 'min' ),
-					max: +$input.attr( 'max' ),
-					step: +$input.attr( 'step' ),
-					slide: function( e, ui ) {
-						$input.val( ui.value ).trigger( 'change' );
-					},
-				});
+			control.container.on( 'change', '.suki-slider-unit', control.onChangeUnit );
+			control.container.on( 'change blur', '.suki-slider-input', control.onChangeNumber );
+			control.container.on( 'input', '.suki-slider-range', control.onChangeSlider );
+		},
 
-				$reset.on( 'click', function( e ) {
-					var resetNumber = $( this ).attr( 'data-number' ),
-					    resetUnit = $( this ).attr( 'data-unit' );
+		onChangeUnit: function( e ) {
+			var $unit = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $input = $scope.find( '.suki-slider-input' ),
+			    $range = $scope.find( '.suki-slider-range' ),
+			    $value = $scope.find( '.suki-slider-value' );
 
-					$unit.val( resetUnit );
-					$input.val( resetNumber ).trigger( 'change' );
-					$slider.slider( 'value', resetNumber );
-				});
+			$input.attr( 'min', this.params.units[ $unit.val() ].min );
+			$input.attr( 'max', this.params.units[ $unit.val() ].max );
+			$input.attr( 'step', this.params.units[ $unit.val() ].step );
 
-				$unit.on( 'change', function( e ) {
-					var $option = $unit.find( 'option[value="' + this.value + '"]' );
+			$range.attr( 'min', this.params.units[ $unit.val() ].min );
+			$range.attr( 'max', this.params.units[ $unit.val() ].max );
+			$range.attr( 'step', this.params.units[ $unit.val() ].step );
 
-					$input.attr( 'min', $option.attr( 'data-min' ) );
-					$input.attr( 'max', $option.attr( 'data-max' ) );
-					$input.attr( 'step', $option.attr( 'data-step' ) );
+			$value.val( '' ).trigger( 'change' );
+		},
 
-					$slider.slider( 'option', {
-						min: +$input.attr( 'min' ),
-						max: +$input.attr( 'max' ),
-						step: +$input.attr( 'step' ),
-					});
+		onChangeNumber: function( e ) {
+			var $input = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $unit = $scope.find( '.suki-slider-unit' ),
+			    $range = $scope.find( '.suki-slider-range' ),
+			    $value = $scope.find( '.suki-slider-value' );
 
-					$input.val( '' ).trigger( 'change' );
-				});
+			$range.val( $input.val() );
+			
+			var value = '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString();
 
-				$input.on( 'change blur', function( e ) {
-					$slider.slider( 'value', this.value );
+			$value.val( value ).trigger( 'change' );
+		},
 
-					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
+		onChangeSlider: function( e ) {
+			var $range = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $unit = $scope.find( '.suki-slider-unit' ),
+			    $input = $scope.find( '.suki-slider-input' ),
+			    $value = $scope.find( '.suki-slider-value' );
 
-					$value.val( value ).trigger( 'change' );
-				});
-			});
-		}
+			$input.val( $range.val() );
+			
+			var value = '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString();
+
+			$value.val( value ).trigger( 'change' );
+		},
 	});
 	
 	/**
@@ -489,7 +505,87 @@
 					$value.val( value ).trigger( 'change' );
 				});
 			});
-		}
+		},
+	});
+	
+	/**
+	 * Suki background control
+	 */
+	 wp.customize.controlConstructor['suki-background'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this;
+
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'openMediaLibrary', 'removeImage', 'onOpenMediaLibrary', 'onSelectMediaLibrary' );
+
+			control.container.on( 'click keydown', '.upload-button', control.openMediaLibrary );
+			control.container.on( 'click keydown', '.thumbnail-image img', control.openMediaLibrary );
+			control.container.on( 'click keydown', '.remove-button', control.removeImage );
+		},
+
+		openMediaLibrary: function( e ) {
+			if ( wp.customize.utils.isKeydownButNotEnterEvent( e ) ) {
+				return;
+			}
+
+			e.preventDefault();
+
+			if ( ! this.mediaLibrary ) {
+				this.initMediaLibrary();
+			}
+
+			this.mediaLibrary.open();
+		},
+
+		initMediaLibrary: function() {
+			this.mediaLibrary = wp.media({
+				states: [
+					new wp.media.controller.Library({
+						library: wp.media.query({ type: 'image' }),
+						multiple: false,
+						date: false,
+					}),
+				],
+			});
+
+			// When a file is selected, run a callback.
+			this.mediaLibrary.on( 'select', this.onSelectMediaLibrary );
+
+			this.mediaLibrary.on( 'open', this.onOpenMediaLibrary );
+		},
+
+		onOpenMediaLibrary: function( e ) {
+			if ( this.params.attachment ) {
+				var attachment = wp.media.attachment( this.params.attachment.id );
+
+				attachment.fetch();
+
+				this.mediaLibrary.state().get( 'selection' ).add( [ attachment ] );
+			}
+		},
+
+		onSelectMediaLibrary: function( e ) {
+			var attachment = this.mediaLibrary.state().get( 'selection' ).first().toJSON();
+
+			this.params.attachment = attachment;
+
+			// Set the Customizer setting; the callback takes care of rendering.
+			this.settings.image.set( attachment.url );
+
+			this.renderContent();
+		},
+
+		removeImage: function( e ) {
+			if ( wp.customize.utils.isKeydownButNotEnterEvent( e ) ) {
+				return;
+			}
+
+			e.preventDefault();
+
+			this.params.attachment = {};
+			this.settings.image.set( '' );
+			this.renderContent(); // Not bound to setting change when emptying.
+		},
 	});
 	
 	/**
@@ -526,6 +622,57 @@
 				control.setting.set( this.value );
 			});
 		}
+	});
+
+	/**
+	 * Suki sortable control
+	 */
+	wp.customize.controlConstructor['suki-sortable'] = wp.customize.SukiControl.extend({
+		ready: function() {
+			var control = this,
+			    $sortable = control.container[0].querySelector( '.suki-sortable' ),
+			    $checkboxes = control.container[0].querySelectorAll( 'input[type="checkbox"]' );
+
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'updateValue' );
+
+			control.sortable = $sortable;
+
+			sortable( '#' + $sortable.id, {
+				handle: '.suki-sortable-item-handle',
+				forcePlaceholderSize: true,
+				itemSerializer: function( serializedItem, sortableContainer ) {
+					return {
+						checked: serializedItem.node.querySelector( 'input' ).checked,
+						value: serializedItem.node.dataset.value,
+					};
+				}
+			});
+
+			$sortable.addEventListener( 'sortupdate', control.updateValue, false );
+
+			$checkboxes.forEach(function( $checkbox ) {
+				$checkbox.addEventListener( 'change', control.updateValue, false );
+			});
+		},
+
+		updateValue: function( e ) {
+			// Get all items.
+			var serialized = sortable( '#' + this.sortable.id, 'serialize' );
+			
+			// Filter only checked items.
+			var checkedItems = serialized[0].items.filter( function( item ) {
+				return item.checked;
+			});
+
+			// Build value.
+			var value = [];
+			for ( var i = 0; i < checkedItems.length; i++ ) {
+				value.push( checkedItems[i].value );
+			}
+
+			this.setting.set( value );
+		},
 	});
 	
 	/**
@@ -734,156 +881,98 @@
 		});
 
 		if ( sukiCustomizerControlsData && sukiCustomizerControlsData.contexts ) {
-			/**
-			 * Active callback script (JS version)
-			 * ref: https://make.xwp.co/2016/07/24/dependently-contextual-customizer-controls/
-			 */
-			_.each( sukiCustomizerControlsData.contexts, function( rules, key ) {
-				var getSetting = function( settingName ) {
-					// Get the dependent setting.
-					switch ( settingName ) {
-						case '__device':
-							return wp.customize.previewedDevice;
-							break;
+			_.each( sukiCustomizerControlsData.contexts, function( elementRules, elementID ) {
+				var elementType = 0 == elementID.indexOf( 'suki_section' ) ? 'section' : 'control';
 
-						default:
-							return wp.customize( settingName );
-							break;
-					}
-				}
+				wp.customize[ elementType ]( elementID, function( elementObj ) {
+					_.each( elementRules, function( rule, i ) {
+						var ruleSettingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize( rule.setting );
 
-				var initContext = function( element ) {
-					// Main function returning the conditional value
-					var isDisplayed = function() {
-						var displayed = false,
-						    relation = rules['relation'];
+						var setVisibility = function( checkedValue ) {
+							var displayed = false;
 
-						// Fallback invalid relation type to "AND".
-						// Assign default displayed to true for "AND" relation type.
-						if ( 'OR' !== relation ) {
-							relation = 'AND';
-							displayed = true;
-						}
-
-						// Each rule iteration
-						_.each( rules, function( rule, i ) {
-							// Skip "relation" property.
-							if ( 'relation' == i ) return;
-
-							// If in "AND" relation and "displayed" already flagged as false, skip the rest rules.
-							if ( 'AND' == relation && false == displayed ) return;
-
-							// Skip if no setting propery found.
-							if ( undefined === rule['setting'] ) return;
-
-							var result = false,
-							    setting = getSetting( rule['setting'] );
-							
-							// Only process the rule if dependent setting is found.
-							// Otherwise leave the result to "false".
-							if ( undefined !== setting ) {
-								var operator = rule['operator'],
-								    comparedValue = rule['value'],
-								    currentValue = setting.get();
-
-								if ( undefined == operator || '=' == operator ) {
-									operator = '==';
-								}
-
-								switch ( operator ) {
-									case '>':
-										result = currentValue > comparedValue; 
-										break;
-
-									case '<':
-										result = currentValue < comparedValue; 
-										break;
-
-									case '>=':
-										result = currentValue >= comparedValue; 
-										break;
-
-									case '<=':
-										result = currentValue <= comparedValue; 
-										break;
-
-									case 'in':
-										result = 0 <= comparedValue.indexOf( currentValue );
-										break;
-
-									case 'not_in':
-										result = 0 > comparedValue.indexOf( currentValue );
-										break;
-
-									case 'contain':
-										result = 0 <= currentValue.indexOf( comparedValue );
-										break;
-
-									case 'not_contain':
-										result = 0 > currentValue.indexOf( comparedValue );
-										break;
-
-									case '!=':
-										result = comparedValue != currentValue;
-										break;
-
-									case 'empty':
-										result = 0 == currentValue.length;
-										break;
-
-									case '!empty':
-										result = 0 < currentValue.length;
-										break;
-
-									default:
-										result = comparedValue == currentValue;
-										break;
-								}
+							if ( undefined == rule.operator || '=' == rule.operator ) {
+								rule.operator = '==';
 							}
 
-							// Combine to the final result.
-							switch ( relation ) {
-								case 'OR':
-									displayed = displayed || result;
+							switch ( rule.operator ) {
+								case '>':
+									displayed = checkedValue > rule.value; 
+									break;
+
+								case '<':
+									displayed = checkedValue < rule.value; 
+									break;
+
+								case '>=':
+									displayed = checkedValue >= rule.value; 
+									break;
+
+								case '<=':
+									displayed = checkedValue <= rule.value; 
+									break;
+
+								case 'in':
+									displayed = 0 <= rule.value.indexOf( checkedValue );
+									break;
+
+								case 'not_in':
+									displayed = 0 > rule.value.indexOf( checkedValue );
+									break;
+
+								case 'contain':
+									displayed = 0 <= checkedValue.indexOf( rule.value );
+									break;
+
+								case 'not_contain':
+									displayed = 0 > checkedValue.indexOf( rule.value );
+									break;
+
+								case '!=':
+									displayed = checkedValue != rule.value;
+									break;
+
+								case 'empty':
+									displayed = 0 == checkedValue.length;
+									break;
+
+								case '!empty':
+									displayed = 0 < checkedValue.length;
 									break;
 
 								default:
-									displayed = displayed && result;
+									displayed = checkedValue == rule.value;
 									break;
 							}
-						});
 
-						return displayed;
-					};
+							var container = elementObj.container;
+							if ( 'section' === elementType ) {
+								container = elementObj.headContainer;
+							}
 
-					// Wrapper function for binding purpose
-					var setActiveState = function() {
-						element.active.set( isDisplayed() );
-					};
+							if ( displayed ) {
+								container.show();
+								container.removeClass( 'suki-context-hidden' );
+							} else {
+								container.hide();
+								container.addClass( 'suki-context-hidden' );
 
-					// Setting changes bind
-					_.each( rules, function( rule, i ) {
-						// Skip "relation" property.
-						if ( 'relation' == i ) return;
+								if ( 'section' === elementType && elementObj.expanded() ) {
+									elementObj.collapse();
+								}
+							}
+						}
 
-						var setting = getSetting( rule['setting'] );
+						if ( undefined !== ruleSettingObj ) {
+							if ( '__device' !== rule.setting ) {
+								setVisibility( ruleSettingObj.get() );
+							}
 
-						if ( undefined !== setting ) {
 							// Bind the setting for future use.
-							setting.bind( setActiveState );
+							ruleSettingObj.bind( setVisibility );
 						}
 					});
-
-					// Initial run
-					element.active.validate = isDisplayed;
-					setActiveState();
-				};
-
-				if ( 0 == key.indexOf( 'suki_section' ) ) {
-					wp.customize.section( key, initContext );
-				} else {
-					wp.customize.control( key, initContext );
-				}
+				});
 			});
 		}
 
@@ -907,6 +996,27 @@
 		});
 
 		/**
+		 * Page Settings
+		 */
+		var initPagePreviewBinding = function() {
+			var lastPreviewURL = '';
+			
+			_.each( sukiCustomizerControlsData.previewContexts, function( url, key ) {
+				wp.customize.section( key, function( section ) {
+					section.expanded.bind( function( isExpanded ) {
+						if ( isExpanded ) {
+							lastPreviewURL = wp.customize.previewer.previewUrl.get();
+							wp.customize.previewer.previewUrl.set( url );
+						} else {
+							wp.customize.previewer.previewUrl.set( lastPreviewURL );
+						}
+					} );
+				} );
+			});
+		}
+		initPagePreviewBinding();
+
+		/**
 		 * Init Header & Footer Builder
 		 */
 		var initHeaderFooterBuilder = function( panel ) {
@@ -915,7 +1025,7 @@
 
 			// If Header panel is expanded, add class to the body tag (for CSS styling).
 			panel.expanded.bind(function( isExpanded ) {
-				_.each(section.controls(), function( control ) {
+				_.each( section.controls(), function( control ) {
 					if ( 'resolved' === control.deferred.embedded.state() ) {
 						return;
 					}
@@ -973,22 +1083,46 @@
 		 */
 		var initHeaderFooterBuilderElements = function( e ) {
 			var $control = $( this ),
-			    mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
-			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' ),
-			    verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_middle, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
-			    $verticalLocations = $control.find( verticalSelector ),
-			    $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
+			    controlKey = $control.find( '.customize-control-content' ).attr( 'data-name' );
 
-			if ( $verticalLocations.length ) {
-				$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' ).appendTo( $groupWrapper ).append( $verticalLocations );
+			if ( ! sukiCustomizerControlsData.headerFooterBuilderStructures[ controlKey ] ) {
+				return;
 			}
 
-			if ( $horizontalLocations.length ) {
-				$( document.createElement( 'div' ) ).addClass( 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline' ).appendTo( $groupWrapper ).append( $horizontalLocations );
-			}
+			var mode = 0 <= $control.attr( 'id' ).indexOf( 'header' ) ? 'header' : 'footer',
+			    $groupWrapper = $control.find( '.suki-builder-locations' ).addClass( 'suki-builder-groups' );
+			    // verticalSelector = '.suki-builder-location-vertical_top, .suki-builder-location-vertical_middle, .suki-builder-location-vertical_bottom, .suki-builder-location-mobile_vertical_top',
+			    // $verticalLocations = $control.find( verticalSelector ),
+			    // $horizontalLocations = $control.find( '.suki-builder-location' ).not( verticalSelector );
 
-			// Make logo element has button-primary colors.
-			$control.find( '.suki-builder-element[data-value="logo"], .suki-builder-element[data-value="mobile-logo"]' ).addClass( 'button-primary' );
+			_.each( sukiCustomizerControlsData.headerFooterBuilderStructures[ controlKey ], function( areas, groupType ) {
+				var groupClassNames = 'vertical' === groupType ? 'suki-builder-group suki-builder-group-vertical suki-builder-layout-block' : 'suki-builder-group suki-builder-group-horizontal suki-builder-layout-inline',
+				    $group = $( document.createElement( 'div' ) ).addClass( groupClassNames );
+
+				_.each( areas, function( areaData, areaKey ) {
+					var $area = $( document.createElement( 'div' ) ).addClass( 'suki-builder-area' ).attr( 'data-key', areaKey ),
+					    $areaLabel = $( document.createElement( 'span' ) ).addClass( 'suki-builder-area-label' ).html( areaData.label ),
+					    $areaLocations = $( document.createElement( 'div' ) ).addClass( 'suki-builder-area-locations' );
+
+					_.each( areaData.locations, function( locationID ) {
+						var $location = $control.find( '[data-location="' + locationID + '"]' );
+
+						if ( $location ) {
+							$location.appendTo( $areaLocations );
+						}
+					});
+
+					if ( 0 < $areaLocations.children().length ) {
+						$area.appendTo( $group );
+						$areaLabel.appendTo( $area );
+						$areaLocations.appendTo( $area );
+					}
+				});
+
+				if ( 0 < $group.children().length ) {
+					$group.appendTo( $groupWrapper );
+				}
+			});
 
 			// Element on click jump to element options.
 			$control.on( 'click', '.suki-builder-location .suki-builder-element > span', function( e ) {
@@ -1002,10 +1136,10 @@
 			});
 
 			// Group edit button on click jump to group section.
-			$control.on( 'click', '.suki-builder-group-edit', function( e ) {
+			$control.on( 'click', '.suki-builder-area-label', function( e ) {
 				e.preventDefault();
 
-				var targetKey = 'suki_section_' + ( 'footer_elements' == control.id ? 'footer' : 'header' ) + '_' + $( this ).attr( 'data-value' ).replace( '-', '_' ),
+				var targetKey = 'suki_section_' + mode + '_' + $( this ).parent().attr( 'data-key' ).replace( '-', '_' ),
 				    targetSection = wp.customize.section( targetKey );
 
 				if ( targetSection ) targetSection.focus();

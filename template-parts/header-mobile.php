@@ -23,17 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	if ( 1 > $count ) {
 		return;
 	}
-
-	$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
-		'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
-	) );
-	$attrs = '';
-	foreach ( $attrs_array as $key => $value ) {
-		$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
-	}
-
 	?>
-	<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>" <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>">
 		<div class="suki-header-mobile-main-bar-inner suki-section-inner">
 			<div class="suki-wrapper">
 				<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">

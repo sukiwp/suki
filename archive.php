@@ -55,15 +55,15 @@ if ( have_posts() ) :
 
 else :
 
-	// Render no content notice.
-	suki_get_template_part( 'entry', 'none' );
+	// Render not-found message.
+	esc_html_e( 'Nothing found.', 'suki' );
 
 endif;
 
 /**
  * Hook: suki/frontend/after_main
  * 
- * @hooked suki_loop_navigation - 10
+ * @hooked suki_archive_navigation - 10
  */
 do_action( 'suki/frontend/after_main' );
 

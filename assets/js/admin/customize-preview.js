@@ -19,99 +19,102 @@
 			    css = '',
 			    cssArray = {};
 
-			// Create <style> tag if doesn't exist.
-			if ( 0 === $style.length ) {
-				$style = $( document.createElement( 'style' ) );
-				$style.attr( 'id', styleID );
-				$style.attr( 'type', 'text/css' );
+			if ( '' !== newValue ) {
+				// Create <style> tag if doesn't exist.
+				if ( 0 === $style.length ) {
+					$style = $( document.createElement( 'style' ) );
+					$style.attr( 'id', styleID );
+					$style.attr( 'type', 'text/css' );
 
-				// Append <style> tag to <head>.
-				$style.appendTo( $( 'head' ) );
-			}
+					// Append <style> tag to <head>.
+					$style.appendTo( $( 'head' ) );
+				}
 
-			_.each( rules, function( rule ) {
-				var value = newValue,
-				    formattedValue;
+				_.each( rules, function( rule ) {
+					var value = newValue,
+					    formattedValue;
 
-				if ( rule['function'] && rule['function']['name'] ) {
+					if ( rule['function'] && rule['function']['name'] ) {
 
-					switch ( rule['function']['name'] ) {
+						switch ( rule['function']['name'] ) {
 
-						case 'explode_value':
-							if ( undefined === rule['function']['args'][0] ) break;
+							case 'explode_value':
+								if ( undefined === rule['function']['args'][0] ) break;
 
-							var index = rule['function']['args'][0];
+								var index = rule['function']['args'][0];
 
-							if ( isNaN( index ) ) break;
+								if ( isNaN( index ) ) break;
 
-							var array = value.split( ' ' );
+								var array = value.split( ' ' );
 
-							value = undefined !== array[ index ] ? array[ index ] : '';
-							break;
+								value = undefined !== array[ index ] ? array[ index ] : '';
+								break;
 
-						case 'scale_dimensions':
-							if ( undefined === rule['function']['args'][0] ) break;
+							case 'scale_dimensions':
+								if ( undefined === rule['function']['args'][0] ) break;
 
-							var scale = rule['function']['args'][0];
+								var scale = rule['function']['args'][0];
 
-							if ( isNaN( scale ) ) break;
+								if ( isNaN( scale ) ) break;
 
-							var parts = value.split( ' ' ),
-							    newParts = [];
-							_.each( parts, function( part, i ) {
-								var number = parseFloat( part ),
-								    unit = part.replace( number, '' );
+								var parts = value.split( ' ' ),
+								    newParts = [];
+								_.each( parts, function( part, i ) {
+									var number = parseFloat( part ),
+									    unit = part.replace( number, '' );
 
-								newParts[ i ] = ( number * scale ).toString() + unit;
+									newParts[ i ] = ( number * scale ).toString() + unit;
+								});
+
+								// Build new value.
+								value = newParts.join( ' ' );
+								break;
+						}
+					}
+					
+					if ( undefined == rule['element'] || undefined == rule['property'] ) return;
+					rule['media'] = rule['media'] || 'global';
+					rule['pattern'] = rule['pattern'] || '$';
+
+					// Check if "key" attribute is defined and value is an assosiative array.
+					if ( 'object' == typeof value ) {
+						if ( undefined !== rule['key'] && undefined !== value[ rule['key'] ] ) {
+							// Fetch the property value using the key from setting value.
+							formattedValue = rule['pattern'].replace( '$', value[ rule['key'] ] );
+						} else {
+							var concat_value = [];
+							_.each( value, function( valueItem, key ) {
+								concat_value.push( rule['pattern'].replace( '$', valueItem ) );
 							});
-
-							// Build new value.
-							value = newParts.join( ' ' );
-							break;
-					}
-				}
-				
-				if ( undefined == rule['element'] || undefined == rule['property'] ) return;
-				rule['media'] = rule['media'] || 'global';
-				rule['pattern'] = rule['pattern'] || '$';
-
-				// Check if "key" attribute is defined and value is an assosiative array.
-				if ( 'object' == typeof value ) {
-					if ( undefined !== rule['key'] && undefined !== value[ rule['key'] ] ) {
-						// Fetch the property value using the key from setting value.
-						formattedValue = rule['pattern'].replace( '$', value[ rule['key'] ] );
+							formattedValue = concat_value.join( ' ' );
+						}
 					} else {
-						var concat_value = [];
-						_.each( value, function( valueItem, key ) {
-							concat_value.push( rule['pattern'].replace( '$', valueItem ) );
-						});
-						formattedValue = concat_value.join( ' ' );
+						// Define new value based on the specified pattern.
+						formattedValue = rule['pattern'].replace( '$', value );
 					}
-				} else {
-					// Define new value based on the specified pattern.
-					formattedValue = rule['pattern'].replace( '$', value );
-				}
 
-				// Define properties.
-				if ( undefined == cssArray[ rule['media'] ] ) cssArray[ rule['media'] ] = {};
-				if ( undefined == cssArray[ rule['media'] ][ rule['element' ] ] ) cssArray[ rule['media'] ][ rule['element' ] ] = {};
+					// Define properties.
+					if ( undefined == cssArray[ rule['media'] ] ) cssArray[ rule['media'] ] = {};
+					if ( undefined == cssArray[ rule['media'] ][ rule['element' ] ] ) cssArray[ rule['media'] ][ rule['element' ] ] = {};
 
-				// Save the value into a formatted array.
-				cssArray[ rule['media'] ][ rule['element'] ][ rule['property'] ] = formattedValue;
-			});
-
-			// Loop into the sorted array to build CSS string.
-			_.each( cssArray, function( elements, media ) {
-				if ( 'global' !== media ) css += media + '{';
-				_.each( elements, function( properties, element ) {
-					css += element + '{';
-					_.each( properties, function( value, property ) {
-						css += property + ':' + value + ';';
-					});
-					css += '}';
+					// Save the value into a formatted array.
+					cssArray[ rule['media'] ][ rule['element'] ][ rule['property'] ] = formattedValue;
 				});
-				if ( 'global' !== media ) css += '}';
-			});
+
+				// Loop into the sorted array to build CSS string.
+				_.each( cssArray, function( elements, media ) {
+					if ( 'global' !== media ) css += media + '{';
+					_.each( elements, function( properties, element ) {
+						css += element + '{';
+						_.each( properties, function( value, property ) {
+							css += property + ':' + value + ';';
+						});
+						css += '}';
+					});
+					if ( 'global' !== media ) css += '}';
+				});
+
+			}
 
 			// Add CSS string to <style> tag.
 			$style.html( css );

@@ -68,8 +68,8 @@
 
 		// Dependency fields
 		$body.on( 'change', '.suki-admin-dependent-field', function() {
-			var $select = $( this ),
-			    $settings = $( '[data-dependency="' + $select.attr( 'name' ) + '"]' ),
+			var $field = $( this ),
+			    $settings = $( '[data-dependency="' + $field.attr( 'name' ) + '"]' ),
 			    value = this.value;
 
 			$settings.hide();
@@ -141,11 +141,15 @@
 			});
 
 			// Always remove the notice on current page.
-			$notice.remove();
+			$notice.fadeTo( 100, 0, function() {
+				$notice.slideUp( 100, function() {
+					$notice.remove();
+				});
+			});
 		});
 
 		/**
-		 * Install "Suki Sites Import" plugin.
+		 * "Suki Sites Import" plugin installation from theme's dashboard page.
 		 */
 
 		$( '.suki-admin-install-sites-import-plugin-button' ).on( 'click', function( e ) {

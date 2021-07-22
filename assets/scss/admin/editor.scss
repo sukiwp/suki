@@ -18,11 +18,11 @@ html {
 
 body.mce-content-body {
 	position: relative;
-	max-width: 100%; // default
+	max-width: 100%; // postmessage: TODO
 	min-height: auto; // reset
 	margin: 0;
 	padding: 1rem !important;
-	background-color: $color_bg; // default
+	background-color: $color_bg; // postmessage: TODO
 
 	@include float-container();
 
@@ -70,10 +70,10 @@ body.mce-content-body {
 // }
 
 .wp-block {
-	max-width: calc( 720px + 30px ); // default
+	max-width: calc( 720px + 30px ); // postmessage: content_narrow_width
 
 	&[data-align="wide"] {
-		max-width: calc( 1140px + 30px ); // default
+		max-width: calc( 1140px + 30px ); // postmessage: TODO
 	}
 
 	&[data-align="full"] {

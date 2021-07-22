@@ -23,7 +23,7 @@ suki_primary_open();
 /**
  * Hook: suki/frontend/before_main
  *
- * @hooked suki_search_header - 10
+ * @hooked suki_content_header - 10
  */
 do_action( 'suki/frontend/before_main' );
 
@@ -45,15 +45,19 @@ if ( have_posts() ) :
 
 else :
 
-	// Render no content notice.
-	suki_get_template_part( 'entry', 'none' );
+	// Render not-found message.
+	$not_found_message = suki_get_theme_mod( 'search_results_not_found_text' );
+	if ( empty( $not_found_message ) ) {
+		$not_found_message = esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'suki' );
+	}
+	echo wp_kses_post( wpautop( $not_found_message ) );
 
 endif;
 
 /**
  * Hook: suki/frontend/after_main
  * 
- * @hooked suki_loop_navigation - 10
+ * @hooked suki_archive_navigation - 10
  */
 do_action( 'suki/frontend/after_main' );
 

@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_search/post_classes', array( 'entry', 'entry-layout-search', 'entry-small' ) ) ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_search/classes', array( 'entry', 'entry-layout-search', 'entry-small' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**
@@ -23,8 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_search/header
-				 *
-				 * @hooked suki_entry_search_title - 10
 				 */
 				do_action( 'suki/frontend/entry_search/header' );
 				?>

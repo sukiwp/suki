@@ -9,13 +9,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry/post_classes', array( 'entry', 'entry-layout-default' ) ) ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry/classes', array( 'entry', 'entry-layout-default' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**
 		 * Hook: suki/frontend/entry/before_header
-		 *
-		 * @hooked suki_entry_featured_media - 10
 		 */
 		do_action( 'suki/frontend/entry/before_header' );
 		
@@ -25,9 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry/header
-				 *
-				 * @hooked suki_entry_header_meta - 10
-				 * @hooked suki_entry_title - 20
 				 */
 				do_action( 'suki/frontend/entry/header' );
 				?>
@@ -61,27 +56,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			// If it's included in a posts archive page.
 			else {
-				if ( 0 < intval( suki_get_theme_mod( 'entry_excerpt_length' ) ) ) {
-					// Excerpt
-					the_excerpt();
+				if ( 'excerpt' === suki_get_theme_mod( 'entry_content' ) ) {
+					if ( 0 < intval( suki_get_theme_mod( 'entry_excerpt_length' ) ) ) {
+						// Excerpt
+						the_excerpt();
 
-					// Read more
-					if ( '' !== suki_get_theme_mod( 'entry_read_more_display' ) ) {
-						?>
-						<p>
-							<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( suki_get_theme_mod( 'entry_read_more_display' ) ); ?>">
-								<?php
-								$text = suki_get_theme_mod( 'entry_read_more_text' );
-								if ( empty( $text ) ) {
-									$text = esc_html__( 'Read more', 'suki' );
-								}
+						// Read more
+						if ( '' !== suki_get_theme_mod( 'entry_read_more_display' ) ) {
+							?>
+							<p>
+								<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="more-link <?php echo esc_attr( suki_get_theme_mod( 'entry_read_more_display' ) ); ?>">
+									<?php
+									$text = suki_get_theme_mod( 'entry_read_more_text' );
+									if ( empty( $text ) ) {
+										$text = esc_html__( 'Read more', 'suki' );
+									}
 
-								echo esc_html( $text );
-								?>
-							</a>
-						</p>
-						<?php
+									echo esc_html( $text );
+									?>
+								</a>
+							</p>
+							<?php
+						}
 					}
+				} else {
+					// Print the content.
+					the_content();
 				}
 			}
 			
@@ -104,8 +104,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry/footer
-				 * 
-				 * @hooked suki_entry_footer_meta - 10
 				 */
 				do_action( 'suki/frontend/entry/footer' );
 				?>

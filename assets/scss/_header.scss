@@ -32,7 +32,7 @@
 
 	.suki-logo-image {
 		display: block;
-		width: 100px; // default
+		width: 100px; // postmessage: header_logo_width, header_mobile_logo_width
 		line-height: 1;
 
 		img, svg {
@@ -59,13 +59,13 @@
 .suki-header-search-bar {
 	.search-form {
 		display: inline-block;
-		width: 300px; // default
+		width: 300px; // postmessage: header_search_bar_width
 	}
 }
 .suki-header-search-dropdown {
 	.sub-menu {
 		padding: 0 !important;
-		width: 300px; // default
+		width: 300px; // postmessage: header_search_dropdown_width
 	}
 
 	.search-field {
@@ -82,30 +82,41 @@
 }
 
 // Cart
-.suki-header-shopping-cart {
+.suki-header-cart {
 	.widget {
 		margin: 0;
 	}
 
-	.shopping-cart-link {
+	.cart-amount {
+		margin: 0 0.25em 0 0.5em;
+
+		&:nth-child(2) {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.cart-link {
 		position: relative;
 	}
 
-	.shopping-cart-count {
+	.cart-count {
 		width: 2em;
 		height: 2em;
 		position: absolute;
-		left: 100%;
 		z-index: 1;
 		display: inline-block;
-		margin: -0.8em 0 0 -0.8em;
+		margin: -0.6em 0 0 -1.2em;
 		border-radius: 50%;
 		font-size: 0.6em;
 		text-align: center;
 		line-height: 2;
 		letter-spacing: 0; /* reset */
-		background-color: $color_accent; // default
-		color: $color_white; // default
+		background-color: $color_accent; // postmessage: header_cart_count_bg_color
+		color: $color_white; // postmessage: header_cart_count_text_color
 		animation: suki-pulse 0.5s 1;
 
 		strong {
@@ -122,7 +133,7 @@
 
 	.sub-menu {
 		white-space: normal;
-		width: 20rem !important;
+		width: 20em;
 	}
 }
 
@@ -137,13 +148,6 @@
 	}
 }
 
-// Mobile drawer toggle
-.suki-header-mobile-vertical-toggle {
-	.suki-popup-toggle-active {
-		opacity: 0;
-	}
-}
-
 // -------------------------------------------------------------
 // Header Horizontal
 // -------------------------------------------------------------
@@ -152,7 +156,7 @@
 	position: relative;
 	display: block;
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 		display: none;
 	}
 }
@@ -160,7 +164,7 @@
 .suki-header-mobile {
 	display: none;
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 		display: block;
 	}
 }
@@ -184,7 +188,7 @@
 	justify-content: space-between;
 	white-space: nowrap;
 	height: 100%;
-	margin: 0 -12px; // default
+	margin: 0 -12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 }
 
 .suki-header-column {
@@ -198,7 +202,7 @@
 		justify-content: inherit;
 		height: 100%;
 		max-width: 100%;
-		padding: 0 12px; // default
+		padding: 0 12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 	}
 }
 
@@ -251,9 +255,9 @@
 			z-index: 2; // higher than section and cart count
 			top: 100%;
 			padding: 1em;
-			max-width: 1140px; // default
+			max-width: 1140px; // postmessage: container_width
 			@include border();
-			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+			box-shadow: 0 2px 10px transparentize( $color_black, 0.95 );
 			// hover menu hide
 			visibility: hidden;
 			opacity: 0;
@@ -282,10 +286,10 @@
 	&.suki-section-full-width {
 		.menu {
 			.sub-menu {
-				max-width: 100vw; // default
+				max-width: 100vw;
 
 				body.suki-page-layout-boxed & {
-					max-width: 1400px; // default
+					max-width: 1400px; // postmessage: boxed_page_width
 				}
 			}
 		}
@@ -301,7 +305,7 @@
 		padding: 0 !important;
 
 		.menu-item {
-			padding: 0 12px; // default
+			padding: 0 12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 		}
 
 		.suki-dropdown-sign {
@@ -348,15 +352,16 @@
 
 .suki-header-section {
 	.menu > .menu-item .sub-menu {
-		background-color: $color_bg; // default
+		background-color: $color_bg; // postmessage: header_top_bar_bg_color, header_main_bar_bg_color, header_bottom_bar_bg_color, header_mobile_main_bar_bg_color
 	}
 
 	&, .menu > .menu-item .sub-menu {
 		a:not(.button), .suki-toggle {
-			color: $color_heading; // default
+			color: $color_heading; // postmessage: header_top_bar_bg_color, header_main_bar_bg_color, header_bottom_bar_bg_color, header_mobile_main_bar_bg_color
+			background-color: transparent;
 
 			&:hover, &:focus {
-				color: $color_accent; // default
+				color: $color_accent; // postmessage: header_top_bar_bg_color, header_main_bar_bg_color, header_bottom_bar_bg_color, header_mobile_main_bar_bg_color
 			}
 		}
 	}
@@ -364,19 +369,19 @@
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
 		&:hover, &:focus {
 			&:after {
-				background-color: $color_border; // default
+				background-color: $color_border; // postmessage: header_top_bar_menu_hover_highlight_color, header_main_bar_menu_hover_highlight_color, header_bottom_bar_menu_hover_highlight_color, header_mobile_main_bar_menu_hover_highlight_color
 			}
 		}
 	}
 }
 
 .suki-header-top-bar {
-	height: 40px; // default
+	height: 40px; // postmessage: header_top_bar_height
 
 	&-inner {
 		// z-index: 30;
-		@include border( null, 0 ); // default
-		padding: 0 20px; // default
+		@include border( null, 0 ); // postmessage: header_top_bar_border
+		padding: 0 20px; // postmessage: header_top_bar_padding
 	}
 
 	&.suki-section-merged {
@@ -386,12 +391,12 @@
 }
 
 .suki-header-main-bar {
-	height: 80px; // default
+	height: 80px; // postmessage: header_main_bar_height
 
 	&-inner {
 		// z-index: 20;
-		@include border( null, 0 ); // default
-		padding: 0 20px; // default
+		@include border( null, 0 ); // postmessage: header_main_bar_border
+		padding: 0 20px; // postmessage: header_main_bar_padding
 
 		.suki-header-main-bar-with-top-bar > &,
 		.suki-header-main-bar-with-bottom-bar > & {
@@ -402,12 +407,12 @@
 }
 
 .suki-header-bottom-bar {
-	height: 60px; // default
+	height: 60px; // postmessage: header_bottom_bar_height
 
 	&-inner {
 		// z-index: 10;
-		@include border( null, 0 ); // default
-		padding: 0 20px; // default
+		@include border( null, 0 ); // postmessage: header_bottom_bar_border
+		padding: 0 20px; // postmessage: header_bottom_bar_padding
 	}
 
 	&.suki-section-merged {
@@ -417,12 +422,12 @@
 }
 
 .suki-header-mobile-main-bar {
-	height: 60px; // default
+	height: 60px; // postmessage: header_mobile_main_bar_height
 
 	&-inner {
 		// z-index: 10;
-		@include border( null, 0 ); // default
-		padding: 0 20px; // default
+		@include border( null, 0 ); // postmessage: header_mobile_main_bar_border
+		padding: 0 20px; // postmessage: header_mobile_main_bar_padding
 	}
 }
 
@@ -431,38 +436,26 @@
 // -------------------------------------------------------------
 
 .suki-header-section-vertical {
+	display: flex;
+	flex-direction: column;
+	// width: 100%;
+	height: 100%;
+	overflow-y: auto;
+
 	a:not(.button), .suki-toggle {
-		color: $color_heading; // default
+		color: $color_heading; // postmessage: header_mobile_vertical_bar_link_text_color
+		background-color: transparent;
 
 		&:hover, &:focus {
-			color: $color_accent; // default
+			color: $color_accent; // postmessage: header_mobile_vertical_bar_link_hover_text_color
 		}
 	}
 
-	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		&:hover, &:focus {
-			&:after {
-				background-color: $color_border; // default
-			}
-		}
-	}
-}
-
-.suki-header-section-vertical {
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
-}
-
-.suki-header-section-vertical-inner {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-	overflow-y: auto;
-	background-color: $color_bg; // default
 }
 
 .suki-header-section-vertical-column {
@@ -605,7 +598,7 @@
 .suki-header-mobile-vertical {
 	display: none;
 
-	@media screen and ( max-width: $breakpoint_1024 - 1px ) {
+	@media screen and ( max-width: $breakpoint_1024  - 0.1px ) {
 		display: block;
 	}
 }
@@ -615,8 +608,10 @@
 	top: 0;
 	bottom: 0;
 	max-width: calc(100% - 4rem);
-	width: 300px; // default
+	width: 300px; // postmessage: header_mobile_vertical_bar_width
+	padding: 30px; // postmessage: header_mobile_vertical_bar_padding
 	overflow-y: auto;
+	background-color: $color_bg; // postmessage: header_mobile_vertical_bar_bg_color
 	@include transition( transform );
 
 	.suki-header-mobile-vertical-position-left &,
@@ -635,17 +630,13 @@
 		@include transition( transform 0.25s 0.125s );
 	}
 
-	&-inner {
-		padding: 30px; // default
-	}
-
 	.suki-header-section-vertical-column {
-		margin: -12px 0; // default
+		margin: -12px 0; // postmessage: header_mobile_vertical_bar_items_gutter
 	}
 
 	.suki-header-section-vertical-row {
 		> * {
-			padding: 12px 0; // default
+			padding: 12px 0; // postmessage: header_mobile_vertical_bar_items_gutter
 		}
 	}
 }
@@ -676,7 +667,7 @@
 	}
 
 	.suki-header-section-vertical-column {
-		width: 300px; // default
+		width: 300px; // postmessage: header_mobile_vertical_bar_width
 	}
 
 	&.suki-header-mobile-vertical-position-left .suki-header-section-vertical-column {
@@ -712,7 +703,7 @@
 
 		&:hover, &:focus {
 			&:before {
-				background-color: $color_accent; // default
+				background-color: $color_subtle; // postmessage: // postmessage: header_top_bar_menu_hover_highlight_color, header_main_bar_menu_hover_highlight_color, header_bottom_bar_menu_hover_highlight_color, header_mobile_main_bar_menu_hover_highlight_color
 			}
 		}
 	}
@@ -728,7 +719,7 @@
 	}
 
 	.suki-header-menu > .menu > .menu-item > .sub-menu {
-		margin-left: -12px; // default
+		margin-left: -12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 	}
 }
 
@@ -747,7 +738,7 @@
 	}
 	
 	.suki-header-menu > .menu > .menu-item > .sub-menu {
-		margin-left: -12px; // default
+		margin-left: -12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 	}
 }
 
@@ -757,7 +748,7 @@
 	}
 
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		padding: 0 12px; // default
+		padding: 0 12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 
 		&:before {
 			top: 0;
@@ -768,7 +759,7 @@
 
 		&:hover, &:focus {
 			&:before {
-				background-color: $color_subtle; // default
+				background-color: $color_subtle; // postmessage: header_top_bar_menu_hover_highlight_color, header_main_bar_menu_hover_highlight_color, header_bottom_bar_menu_hover_highlight_color, header_mobile_main_bar_menu_hover_highlight_color
 			}
 		}
 	}
@@ -780,7 +771,7 @@
 	}
 
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		padding: 0 12px; // default
+		padding: 0 12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 
 		&:before {
 			top: 0;
@@ -800,7 +791,7 @@
 	}
 
 	.suki-header-menu > .menu > .menu-item > .suki-menu-item-link {
-		padding: 0 12px; // default
+		padding: 0 12px; // postmessage: header_top_bar_items_gutter, header_main_bar_items_gutter, header_bottom_bar_items_gutter, header_mobile_main_bar_items_gutter
 
 		&:before {
 			bottom: 0;

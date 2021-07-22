@@ -9,13 +9,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_grid/post_classes', array( 'entry', 'entry-layout-grid', 'entry-small' ) ) ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_grid/classes', array( 'entry', 'entry-layout-grid', 'entry-small' ) ) ); ?> role="article">
 	<div class="entry-wrapper">
 		<?php
 		/**
 		 * Hook: suki/frontend/entry_grid/before_header
-		 *
-		 * @hooked suki_entry_grid_featured_media - 10
 		 */
 		do_action( 'suki/frontend/entry_grid/before_header' );
 		
@@ -25,9 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_grid/header
-				 *
-				 * @hooked suki_entry_grid_header_meta - 10
-				 * @hooked suki_entry_grid_title - 20
 				 */
 				do_action( 'suki/frontend/entry_grid/header' );
 				?>
@@ -59,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				if ( '' !== suki_get_theme_mod( 'entry_grid_read_more_display' ) ) {
 					?>
 					<p>
-						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="<?php echo esc_attr( suki_get_theme_mod( 'entry_grid_read_more_display' ) ); ?>">
+						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="more-link <?php echo esc_attr( suki_get_theme_mod( 'entry_grid_read_more_display' ) ); ?>">
 							<?php
 							$text = suki_get_theme_mod( 'entry_grid_read_more_text' );
 							if ( empty( $text ) ) {
@@ -93,8 +88,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<?php
 				/**
 				 * Hook: suki/frontend/entry_grid/footer
-				 * 
-				 * @hooked suki_entry_grid_footer_meta - 10
 				 */
 				do_action( 'suki/frontend/entry_grid/footer' );
 				?>

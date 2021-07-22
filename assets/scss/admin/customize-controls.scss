@@ -2,6 +2,13 @@
 
 @import "../__mixins";
 
+$wp_color_primary: #007cba;
+
+#customize-theme-controls .customize-pane-child.accordion-section-content,
+#customize-theme-controls .customize-pane-child.accordion-sub-container {
+	height: 100%;
+}
+
 // -------------------------------------------------------------
 // Basic customize control
 // -------------------------------------------------------------
@@ -11,7 +18,7 @@
 
 	select {
 		margin: 0;
-		line-height: 18px;
+		line-height: 28px;
 	}
 
 	.notice {
@@ -34,9 +41,43 @@
 		width: auto;
 		height: auto;
 		margin-top: -0.1em;
+		margin-right: 0.25em;
 		font-size: 1.2em;
 		line-height: 1;
 		vertical-align: middle;
+	}
+
+	&.suki-button-full {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.suki-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1;
+	text-align: center;
+	vertical-align: middle;
+	
+	svg {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		vertical-align: top;
+
+		&:not([stroke-width]) {
+			stroke-width: 0;
+		}
+
+		&:not([stroke]) {
+			stroke: currentColor;
+		}
+
+		&:not([fill]) {
+			fill: currentColor;
+		}
 	}
 }
 
@@ -63,19 +104,35 @@ li:not(.customize-info) div.customize-section-description {
 	margin-top: 0;
 }
 
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+#customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
+	border-top: none;
+}
+
+#accordion-section-themes + .control-section {
+	border-top: none;
+}
+
+.customize-control .attachment-media-view .thumbnail-image img, .customize-control-header img {
+	width: 100%;
+}
+
 // -------------------------------------------------------------
 // Common classes
 // -------------------------------------------------------------
 
 .suki-row {
-	display: table;
-	width: 100%;
-	table-layout: fixed;
+	display: flex;
+	align-items: flex-start;
+}
+
+.suki-context-hidden {
+	display: none !important;
 }
 
 .suki-row-item {
-	display: table-cell;
-	width: 100%;
+	flex: 1 0 0;
 	vertical-align: middle;
 }
 
@@ -86,7 +143,6 @@ li:not(.customize-info) div.customize-section-description {
 	line-height: 1;
 	text-transform: uppercase;
 	opacity: 0.75;
-	margin-bottom: 0.3em;
 	display: block;
 }
 
@@ -110,24 +166,122 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 	margin: 0 -12px;
 	padding: 10px 12px;
-	background-color: rgba(0,0,0,0.1);
+	background-color: transparentize( $color_black, 0.9 );
 	color: inherit;
 	outline: 0;
 	@include transition();
 
-	span {
+	> span {
 		font-size: 13px;
 		font-weight: 600;
 		text-transform: uppercase;
 	}
 }
 
+.suki-tooltip {
+	position: relative;
+	outline: none;
+	cursor: pointer;
+
+	.dashicons {
+		display: inline-block;
+		width: auto;
+		height: auto;
+		font-size: inherit;
+		line-height: inherit;
+		vertical-align: middle;
+	}
+
+	&[data-tooltip]:hover {
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 99;
+			top: 100%;
+			left: 50%;
+			margin-top: 2px;
+			margin-left: -5px;
+			border-bottom: 5px solid rgba(0,0,0,0.8);
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+		}
+
+		&:after {
+			content: attr(data-tooltip);
+			position: absolute;
+			z-index: 99;
+			top: 100%;
+			left: 50%;
+			width: 200px;
+			padding: 8px 10px;
+			margin-top: 7px;
+			border-radius: 4px;
+			transform: translateX( -50% );
+			font-size: 13px;
+			font-weight: normal;
+			line-height: 18px;
+			text-transform: none;
+			text-align: center;
+			white-space: normal;
+			background-color: rgba(0,0,0,0.8);
+			color: #fff;
+		}
+	}
+
+	&.suki-tooltip-right {
+		&[data-tooltip]:hover {
+			&:before {
+				top: 50%;
+				left: 100%;
+				margin-left: 2px;
+				margin-top: -5px;
+				border-left: none; // reset
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+				border-right: 5px solid rgba(0,0,0,0.8);
+			}
+
+			&:after {
+				top: 50%;
+				left: 100%;
+				margin-top: 0;
+				margin-left: 7px;
+				transform: translateY( -50% );
+			}
+		}
+	}
+}
+
+.suki-icon-tooltip {
+	.dashicons {
+		opacity: 0.5;
+	}
+
+	&:hover, &:focus {
+		.dashicons {
+			opacity: 0.8;
+		}		
+	}
+}
+
+.suki-global-default-badge {
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-size: 10px;
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	vertical-align: 1px;
+	background-color: rgba(0,0,0,0.1);
+}
+
 // -------------------------------------------------------------
 // Responsive Control Handler
 // -------------------------------------------------------------
 
-.suki-responsive-title {
-	.suki-responsive-switcher {
+.suki-responsive-switcher {
+	.customize-control-title & {
 		margin-left: 0.5em;
 
 		.suki-responsive-switcher-button {
@@ -140,7 +294,46 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.dashicons {
-				font-size: 14px;
+				font-size: 15px;
+				width: auto;
+				height: auto;
+				line-height: 1;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.customize-control-content & {
+		position: relative;
+		height: 15px;
+		text-align: right;
+		margin: 10px 0 -5px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -0.5px;
+			width: calc( 100% - 60px );
+			height: 1px;
+			background-color: #ddd;
+		}
+
+		.suki-responsive-switcher-button {
+			position: relative;
+			cursor: pointer;
+			outline: 0;
+			opacity: 0.25;
+			line-height: 1;
+			vertical-align: top;
+
+			&.active {
+				opacity: 0.75;
+			}
+
+			.dashicons {
+				font-size: 15px;
 				width: auto;
 				height: auto;
 				line-height: 1;
@@ -157,7 +350,7 @@ li:not(.customize-info) div.customize-section-description {
 		display: block;
 
 		&.suki-row {
-			display: table;
+			display: flex;
 		}
 	}
 }
@@ -168,6 +361,33 @@ li:not(.customize-info) div.customize-section-description {
 
 .control-section-suki-section-spacer {
 	margin-top: 15px;
+
+	h2 {
+		position: relative;
+		display: table;
+		margin: -5px 0 0;
+		padding: 3px 10px 3px 18px;
+		color: inherit;
+		font-size: 11px;
+		line-height: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		background-color: transparentize( $color_black, 0.9 );
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: 100%;
+			top: 0;
+			border-bottom: 22px solid transparentize( $color_black, 0.9 );
+			border-right: 12px solid transparent;
+		}
+
+		.dashicons {
+			margin-right: 0.5em;
+			vertical-align: -5px;
+		}
+	}
 }
 
 // -------------------------------------------------------------
@@ -175,6 +395,8 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .control-section-suki-section-pro-link {
+	margin-top: 15px;
+
 	#customize-theme-controls & .accordion-section-title {
 		display: block;
 		background-color: #ee5253;
@@ -200,43 +422,44 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-.customize-control-suki-pro-teaser {
-	margin: 20px 0 12px;
-}
-
 .suki-pro-teaser {
+	margin-top: 15px;
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
 	background-color: #fff8e5;
-	margin-top: -1px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	cursor: default;
-	color: inherit;
 
-	.customize-control > & {
-		margin: 0 -12px;
-		padding: 12px 12px 12px 12px;
-	}
-
-	.accordion-section > & {
-		padding: 12px 10px 12px 18px;
-	}
-
-	h3 {
-		display: inline-block;
-		color: inherit;
-		margin: 0;
-	}
-
-	.button {
-		margin: -3px 0 0 8px;
-		font-weight: normal;
+	.customize-control-suki-pro-teaser > & {
+		margin-left: -12px;
+		margin-right: -12px;
 	}
 
 	ul {
-		margin: 0.5em 0 0;
+		margin: 0;
+		padding: 0 10px 11px 18px;
 
 		li {
 			margin: 0.25em 0;
+		}
+	}
+
+	.accordion-section-title {
+		display: block;
+		padding: 10px 10px 11px 14px !important;
+		background-color: transparent !important;
+		// color: inherit !important;
+		border-top: none !important;
+		border-bottom: none !important;
+		border-color: transparent !important;
+		text-decoration: none;
+		color: inherit !important;
+
+		&:hover, &:focus {
+			color: $wp_color_primary !important;
+		}
+
+		h3 {
+			margin: 0;
+			color: inherit !important;
 		}
 	}
 }
@@ -246,14 +469,14 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-heading {
-	margin: 20px 0 12px;
+	margin: 32px 0 12px;
 
 	.description {
 		margin-top: 12px;
 	}
 
 	.tabindex:focus + .suki-heading {
-		background-color: #0073aa;
+		background-color: $wp_color_primary;
 		color: #fff;
 	}
 
@@ -301,7 +524,7 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	input[type="checkbox"]:checked ~ .suki-toggle-ui {
-		background-color: #0073aa;
+		background-color: $wp_color_primary;
 
 		.suki-toggle-ui-handle {
 			left: auto;
@@ -332,7 +555,7 @@ li:not(.customize-info) div.customize-section-description {
 			height: 24px;
 			min-height: auto; // reset
 			border: none;
-			border-radius: 0 !important;
+			border-radius: 3px !important;
 			background-size: 12px 12px;
 			background-position: 0 0, 6px 6px;
 			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
@@ -344,12 +567,14 @@ li:not(.customize-info) div.customize-section-description {
 				left: 0;
 				bottom: 0;
 				right: 0;
+				border-radius: 3px !important;
 				background-color: inherit;
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+				border: 1px solid #7e8993;
 			}
 
 			&:focus:before {
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 0 5px #0073aa;
+				border-color: $wp_color_primary;
+				box-shadow: 0 0 1px $wp_color_primary;
 			}
 
 			&:after {
@@ -420,26 +645,56 @@ li:not(.customize-info) div.customize-section-description {
 .customize-control-suki-shadow {
 	.customize-control-content {
 		position: relative;
+		padding-right: 30px;
 	}
 
 	.suki-row-item {
-		> * {
-			text-align: center;
+		text-align: center;
+
+		&:nth-child(n+2) {
+			margin-left: -1px;
 		}
 
-		&.suki-shadow-v_offset .suki-shadow-input,
-		&.suki-shadow-blue .suki-shadow-input {
-			border-radius: 0;
-		}
-
-		&.suki-shadow-h_offset .suki-shadow-input {
+		&:first-child .suki-shadow-input {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
 		}
 
-		&.suki-shadow-spread .suki-shadow-input {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
+		&:nth-child(n+2) .suki-shadow-input {
+			border-radius: 0;
+		}
+	}
+
+	.suki-shadow-position {
+		flex: 0 0 40px;
+
+		select {
+			padding: 0 !important;
+			text-align: center;
+			text-align-last: center;
+			background-image: none !important;
+		}
+	}
+
+	.suki-shadow-input {
+		text-align: center;
+
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	.suki-small-label {
+		margin-top: 0.3em;
+	}
+
+	input.suki-shadow-input {
+		-moz-appearance: textfield;
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
 		}
 	}
 
@@ -449,14 +704,14 @@ li:not(.customize-info) div.customize-section-description {
 
 		.wp-color-result.button {
 			position: absolute !important;
-			top: 14px;
+			top: 0;
 			right: 0;
 			margin: 0;
 			width: 30px;
-			height: 24px;
+			height: 30px;
 			min-height: auto; // reset
 			border: none;
-			border-radius: 0 !important;
+			border-radius: 0 3px 3px 0 !important;
 			background-size: 12px 12px;
 			background-position: 0 0, 6px 6px;
 			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
@@ -468,12 +723,13 @@ li:not(.customize-info) div.customize-section-description {
 				left: 0;
 				bottom: 0;
 				right: 0;
+				border-radius: 0 3px 3px 0 !important;
 				background-color: inherit;
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+				box-shadow: inset 0 0 0 1px #7e8993;
 			}
 
 			&:focus:before {
-				box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 0 5px #0073aa;
+				box-shadow: inset 0 0 0 1px #7e8993, 0 0 0 1px $wp_color_primary;
 			}
 		}
 
@@ -519,56 +775,86 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-slider {
-	.suki-row-item > * {
-		text-align: center;
+	.suki-row-item:first-child {
+		padding: 5px 10px 5px 0;
 	}
 
-	.suki-slider-reset {
-		font-size: 1em;
-		line-height: 1em;
-		height: auto;
-		vertical-align: middle;
-		cursor: pointer;
-		outline: 0;
-		opacity: 0.5;
+	.suki-slider-range {
+		width: 100%;
+		margin: 0;
+		-webkit-appearance: none;
+		outline: none;
+		height: 8px;
+		background-color: #ccc;
+		border-radius: 4px;
 
-		&:hover,
-		&:focus {
-			opacity: 1;
+		&::-webkit-slider-thumb {
+			height: 16px;
+			width: 16px;
+			border: none;
+			border-radius: 8px;
+			background-color: $wp_color_primary;
+			cursor: pointer;
+			-webkit-appearance: none;
 		}
+
+		&::-moz-range-thumb {
+			height: 16px;
+			width: 16px;
+			border: none;
+			border-radius: 8px;
+			background-color: $wp_color_primary;
+			cursor: pointer;
+			-webkit-appearance: none;
+		}
+
+		&::-ms-thumb {
+			height: 16px;
+			width: 16px;
+			border: none;
+			border-radius: 8px;
+			background-color: $wp_color_primary;
+			cursor: pointer;
+			-webkit-appearance: none;
+		}
+
 	}
 
 	.suki-slider-input {
+		text-align: center;
+		-moz-appearance: textfield;
+
 		&::-webkit-inner-spin-button, 
 		&::-webkit-outer-spin-button {
 			appearance: none;
 		}
+		
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
 	}
 
-	.suki-slider-ui {
-		position: relative;
-		display: block;
-		height: 6px;
-		margin: 10px 14px 10px 7px;
-		border: none;
-		border-radius: 3px;
-		background: #ccc;
+	.suki-slider-unit {
+		margin-left: -1px;
+	}
+}
 
-		.ui-slider-handle {
-			position: absolute;
-			top: 0;
-			display: inline-block;
-			height: 12px;
-			width: 12px;
-			margin: -4px 0 0 -7px;
-			border-radius: 3px;
-			background-color: #fff;
-			background-image: none;
-			border: 1px solid #ccc;
+// -------------------------------------------------------------
+// Dimension Control
+// -------------------------------------------------------------
 
-			&:focus {
-				background-color: #0073aa;
-			}
+.customize-control-suki-dimension {
+	.suki-row-item {
+		&:nth-child(n+2) {
+			margin-left: -1px;
+		}
+	}
+
+	.suki-dimension-input {
+		&:focus {
+			position: relative;
+			z-index: 2;
 		}
 	}
 }
@@ -578,12 +864,18 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-dimensions {
-	.suki-row-item > * {
+	.suki-row-item {
 		text-align: center;
+
+		&:nth-child(n+2) {
+			margin-left: -1px;
+		}
 	}
 
 	.suki-dimensions-unlink,
 	.suki-dimensions-link {
+		position: relative;
+		z-index: 1;
 		padding: 0;
 		display: none;
 		width: 100%;
@@ -593,8 +885,28 @@ li:not(.customize-info) div.customize-section-description {
 		border-bottom-right-radius: 0;
 	}
 
+	.suki-small-label {
+		margin-top: 0.3em;
+	}
+
 	.suki-dimensions-input {
 		border-radius: 0;
+		text-align: inherit;
+
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
+		}
+	}
+
+	.suki-dimensions-unit {
+		position: relative;
+		z-index: 1;
 	}
 
 	[data-linked="true"] .suki-dimensions-unlink,
@@ -609,9 +921,9 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-typography {
 	.customize-control-content {
-		padding: 5px;
+		padding: 10px;
 		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
 		background-color: #fff;
 	}
 
@@ -625,16 +937,73 @@ li:not(.customize-info) div.customize-section-description {
 		}
 	}
 
+	.suki-typography-size {
+		.suki-row-item {
+			&:nth-child(n+2) {
+				margin-left: -1px;
+			}
+		}
+	}
+
+	.suki-small-label {
+		margin-bottom: 0.3em;
+	}
+
 	.suki-typography-fieldset {
-		margin: 5px 0 0;
+		margin: 10px -3px 0;
 
 		> * {
-			padding: 0 2px;
+			padding: 0 3px;
 		}
 	}
 
 	.suki-typography-size-input {
 		text-align: center;
+
+		&:focus {
+			position: relative;
+			z-index: 2;
+		}
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
+		}
+	}
+}
+
+// -------------------------------------------------------------
+// Background Control
+// -------------------------------------------------------------
+
+.customize-control-suki-background {
+	.customize-control-content {
+		padding: 10px;
+		border: 1px solid #ddd;
+		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+		background-color: #fff;
+	}
+
+	.suki-row {
+		&:first-child{
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.suki-small-label {
+		margin-bottom: 0.3em;
+	}
+
+	.suki-background-fieldset {
+		margin: 10px -3px 0;
+
+		> * {
+			padding: 0 3px;
+		}
 	}
 }
 
@@ -643,29 +1012,67 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-radioimage {
-	.customize-control-content {
+	.suki-radioimage-list {
 		display: flex;
 		flex-wrap: wrap;
-		margin: -4px;
+		margin: -2px;
 
 		.suki-radioimage-item {
-			width: 25%;
+			flex: 0 0 25%;
 			margin: 0;
+		}
+
+		&.suki-radioimage-columns-1 {
+			.suki-radioimage-item {
+				flex-basis: 100%;
+			}
+		}
+
+		&.suki-radioimage-columns-2 {
+			.suki-radioimage-item {
+				flex-basis: 50%;
+			}
+		}
+
+		&.suki-radioimage-columns-3 {
+			.suki-radioimage-item {
+				flex-basis: 33.33%;
+			}
 		}
 
 		label {
 			position: relative;
 			display: block;
 			box-sizing: border-box;
-			margin: 4px;
+			margin: 2px;
 			padding: 2px;
 			background-color: #aaa;
 			color: #fff;
 			outline: 0;
-			border-radius: 3px;
+			border-radius: 4px;
 
 			&:focus {
-				box-shadow: 0 0 5px #0073aa;
+				box-shadow: 0 0 5px $wp_color_primary;
+			}
+
+			> img {
+				display: block;
+				width: 100%;
+				border-radius: 2px;
+			}
+
+			> span {
+				max-width: 100%;
+				display: block;
+				padding: 2px 0;
+				font-size: 11px;
+				font-weight: 500;
+				line-height: 14px;
+				text-align: center;
+			}
+
+			> img + span {
+				margin-top: 2px;
 			}
 		}
 
@@ -674,28 +1081,85 @@ li:not(.customize-info) div.customize-section-description {
 		}
 
 		input:checked + label {
-			background-color: #0073aa;
+			background-color: $wp_color_primary;
 			color: #fff;
 		}
 
-		img {
-			display: block;
-			width: 100%;
-			border-radius: 2px;
+	}
+}
+
+// -------------------------------------------------------------
+// Sortable Control
+// -------------------------------------------------------------
+
+.customize-control-suki-sortable {
+	.suki-sortable {
+		border: 1px solid #ddd;
+		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+		background-color: #fff;
+		padding: 0 8px;
+
+		&-item {
+			margin: 8px 0;
+
+			.dashicons {
+				font-size: 20px;
+				margin: 0;
+			}
+
+			input {
+				display: none;
+			}
+
+			&-label {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				opacity: 0.6;
+				border-style: dashed;
+
+				label {
+					flex: 0 0 20px;
+					margin-right: 0.75em;
+
+					.dashicons-visibility {
+						display: none;
+					}
+
+					.dashicons-hidden {
+						display: block;
+					}
+				}
+			}
+
+			input:checked ~ .suki-sortable-item-label {
+				opacity: 1;
+				border-style: solid;
+
+				label {
+					.dashicons-visibility {
+						display: block;
+					}
+
+					.dashicons-hidden {
+						display: none;
+					}
+				}
+			}
+
+			&-name {
+				flex: 1 1 auto;
+			}
+
+			&-handle {
+				flex: 0 0 auto;
+				margin: 0;
+			}
 		}
 
-		span {
-			max-width: 100%;
-			display: block;
-			padding: 2px 0;
-			font-size: 11px;
-			font-weight: 500;
-			line-height: 14px;
-			text-align: center;
-		}
-
-		img + span {
-			margin-top: 2px;
+		.sortable-placeholder {
+			margin: 8px 0;
+			border: none;
 		}
 	}
 }
@@ -706,13 +1170,13 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-builder {
 	.suki-builder {
-		overflow: hidden;
+		// overflow: hidden;
 
 		.suki-builder-location {
 			position: relative;
 			margin: 3px 0;
 			border: 1px solid #ddd;
-			box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+			box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
 			background-color: #fff;
 
 			&.disabled {
@@ -735,7 +1199,7 @@ li:not(.customize-info) div.customize-section-description {
 		.suki-builder-sortable-panel {
 			display: flex;
 			flex-wrap: wrap;
-			min-height: 34px;
+			min-height: 36px;
 			margin: 0;
 			padding: 5px;
 			padding-right: 28px;
@@ -748,6 +1212,7 @@ li:not(.customize-info) div.customize-section-description {
 			padding-left: 0;
 			padding-right: 0;
 			white-space: nowrap;
+			cursor: move;
 
 			> span {
 				display: inline-block;
@@ -763,7 +1228,7 @@ li:not(.customize-info) div.customize-section-description {
 			position: absolute;
 			bottom: 0;
 			right: 0;
-			margin: 0 5px 11px 0;
+			margin: 0 5px 14px 0;
 			font-size: 18px;
 			line-height: 1;
 			opacity: 0.5;
@@ -821,7 +1286,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.ui-sortable-placeholder {
 			visibility: visible !important;
-			background-color: rgba(0,0,0,0.1) !important;
+			background-color: transparentize( $color_black, 0.9 ) !important;
 			border-color: transparent !important;
 			box-shadow: none !important;
 		}
@@ -842,12 +1307,16 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.suki-builder-layout-block {
+		.suki-builder-sortable-panel {
+			flex-direction: column;
+			flex-wrap: nowrap;
+		}
+
 		.suki-builder-element {
-			width: 100%;
 			display: inline-flex;
 
 			> span {
-				width: 100%;
+				flex: 1 0 auto;
 			}
 		}
 	}
@@ -898,7 +1367,14 @@ li:not(.customize-info) div.customize-section-description {
 			border-top: 1px solid #ddd;
 			border-left: 1px solid #ddd;
 			transform: translateY(100%);
+			box-shadow: inset 10px 0 10px -10px transparentize( $color_black, 0.9 );
 			@include transition( all 0.2s );
+
+			.customize-control {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
 
 			.suki-has-builder-active .wp-full-overlay.expanded & {
 				&.suki-builder-active {
@@ -921,13 +1397,17 @@ li:not(.customize-info) div.customize-section-description {
 				}
 			}
 
-			.customize-control-suki-pro {
-				margin: 0 0 12px;
-
-				.suki-heading {
-					margin: 0;
-				}
+			.suki-small-label {
+				display: none;
 			}
+
+			// .customize-control-suki-pro {
+			// 	margin: 0 0 12px;
+
+			// 	.suki-heading {
+			// 		margin: 0;
+			// 	}
+			// }
 
 			#customize-control-header_builder_actions,
 			#customize-control-footer_builder_actions {
@@ -941,6 +1421,8 @@ li:not(.customize-info) div.customize-section-description {
 
 				.suki-responsive-switcher {
 					margin: 0 -20px;
+					display: block;
+					width: auto;
 					padding: 9px 20px 0;
 					border-color: #ddd;
 
@@ -999,33 +1481,24 @@ li:not(.customize-info) div.customize-section-description {
 			.suki-builder-location {
 				position: relative;
 				box-sizing: border-box;
+				margin: 0;
 
-				&[data-location*="left"] {
-					.suki-small-label {
-						text-align: left;
-					}
-
+				&[data-location$="_top"],
+				&[data-location$="_left"] {
 					.suki-builder-sortable-panel {
 						justify-content: flex-start;
 					}
 				}
 
-				&[data-location*="vertical"],
-				&[data-location*="center"] {
-					.suki-small-label {
-						text-align: center;
-					}
-
+				&[data-location$="_middle"],
+				&[data-location$="_center"] {
 					.suki-builder-sortable-panel {
 						justify-content: center;
 					}
 				}
 
-				&[data-location*="right"] {
-					.suki-small-label {
-						text-align: right;
-					}
-
+				&[data-location$="_bottom"],
+				&[data-location$="_right"] {
 					.suki-builder-sortable-panel {
 						justify-content: flex-end;
 					}
@@ -1037,41 +1510,110 @@ li:not(.customize-info) div.customize-section-description {
 			}
 
 			.suki-builder-inactive {
+				margin: 30px 0 0;
 				display: block !important;
 			}
 
 			.suki-builder-groups {
 				display: flex;
 				align-items: flex-start;
-				margin: 0 -10px;
+				margin: -10px -15px 0;
 
 				.suki-builder-group {
-					padding: 0 10px;
+					box-sizing: border-box;
+					padding: 0 15px;
+				}
+
+				.suki-builder-area {
+					position: relative;
+					margin-top: 28px;
+					transition: box-shadow 0.25s ease;
+				}
+
+				.suki-builder-area-label {
+					position: absolute;
+					bottom: 100%;
+					left: 0;
+					display: table;
+					max-width: calc( 100% - 12px );
+					padding: 3px 5px 3px 10px;
+					margin: 0 auto 0 -2px;
+					background-color: $wp_color_primary;
+					color: #fff;
+					font-size: 11px;
+					font-weight: 600;
+					line-height: 16px;
+					text-transform: uppercase;
+					cursor: pointer;
+					opacity: 0;
+					transition: opacity 0.25s ease;
+
+					&:after {
+						content: "";
+						position: absolute;
+						left: 100%;
+						top: 0;
+						border-bottom: 22px solid $wp_color_primary;
+						border-right: 12px solid transparent;
+					}
+
+					&:before {
+						content: "\f111";
+						font-family: dashicons;
+						margin-right: 0.5em;
+						vertical-align: -1px;
+					}
+				}
+
+				.suki-builder-area-locations {
+					position: relative;
+				}
+
+				.suki-builder-area:hover {
+					box-shadow: 0 0 0 2px $wp_color_primary;
+
+					.suki-builder-area-label {
+						opacity: 1;
+					}
 				}
 
 				.suki-builder-group-horizontal {
-					display: flex;
-					flex-wrap: wrap;
-					width: 100%;
+					flex: 1 0 auto;
+
+					.suki-builder-area-locations {
+						display: flex;
+					}
 
 					.suki-builder-location {
-						width: 33.33%;
+						flex: 1 0 0;
 					}
 				}
 
 				.suki-builder-group-vertical {
-					width: 15%;
+					flex: 0 0 15%;
+					align-self: stretch;
 
-					.suki-builder-location {
-						margin: 0;
+					.suki-builder-area {
+						display: flex;
+						flex-direction: column;
+						min-height: calc( 100% - 30px );
 
-						&:first-child {
-							margin-top: 2px;
+						&-locations {
+							flex: 1 0 0;
+							display: flex;
+							flex-direction: column;
+
+							> * {
+								flex: 1 0 0;
+								display: flex;
+								flex-direction: column;
+							}
 						}
+					}
 
-						&:last-child {
-							margin-bottom: 2px;
-						}
+					.suki-builder-sortable-panel {
+						flex: 1 0 auto;
+						flex-direction: column;
 					}
 				}
 			}
@@ -1110,52 +1652,210 @@ li:not(.customize-info) div.customize-section-description {
 	}
 }
 
-#sub-accordion-panel-suki_panel_header {
-	.customize-info {
-		.customize-panel-description {
-			.nav-tab-wrapper {
-				padding: 0;
-				display: flex;
-				margin: -12px -15px;
-				border-bottom: none;
+.customize-panel-description,
+.customize-section-description {
+	.nav-tab-wrapper {
+		padding: 0;
+		display: flex;
+		margin: 0 -15px -12px;
+		border-bottom: none;
 
-				.nav-tab {
-					flex: 1;
-					margin: 0;
-					border: none;
-					padding: 10px 15px 8px;
-					background-color: transparent;
-					@include border( bottom, 4px );
-					border-bottom-color: transparent;
-					text-align: center;
-					outline: 0;
-					box-shadow: none;
+		&:only-child {
+			border-top: none;
+			margin-top: -12px;
+		}
 
-					&:hover, &:focus {
-						color: #0073aa;
-					}
+		&:not(:first-child) {
+			border-top: 1px solid #ddd;
+		}
 
-					&:last-child {
-						border-right: none;
-					}
+		.nav-tab {
+			flex: 1;
+			margin: 0;
+			border: none;
+			padding: 10px 15px 8px;
+			background-color: transparent;
+			@include border( bottom, 4px );
+			border-bottom-color: transparent;
+			text-align: center;
+			outline: 0;
+			box-shadow: none;
 
-					&.nav-tab-active {
-						color: #0073aa;
-						border-bottom-color: currentColor;
-					}
-				}
-
-				&:after {
-					display: none;
-				}
+			&:hover, &:focus {
+				color: $wp_color_primary;
 			}
+
+			&:last-child {
+				border-right: none;
+			}
+
+			&.nav-tab-active {
+				color: $wp_color_primary;
+				border-bottom-color: currentColor;
+			}
+		}
+
+		&:after {
+			display: none;
 		}
 	}
 }
 
+[id="accordion-section-suki_section_main"],
+[id="accordion-section-suki_section_sidebar"],
 [id^="accordion-section-suki_section_entry_"] {
 	.accordion-section-title:before {
 		content: "\21B3";
 		margin-right: 0.5em;
 	}
+}
+
+// -------------------------------------------------------------
+// Specific controls
+// -------------------------------------------------------------
+
+#customize-control-heading_header_mobile_logo {
+	margin-top: 0;
+}
+
+#customize-control-heading_header_cart_link,
+#customize-control-heading_header_cart_dropdown {
+	margin-bottom: 0;
+}
+
+#customize-control-footer_widgets_bar {
+	@media screen and ( min-width: 1324px ) {
+		.customize-control-title {
+			display: inline-block;
+
+			&:after {
+				content: ":";
+				margin-right: 1em;
+			}
+		}
+
+		.customize-control-notifications-container {
+			display: none;
+		}
+
+		select {
+			display: inline-block;
+			width: auto;
+		}
+	}
+}
+
+#customize-control-google_fonts_subsets {
+	@media screen and ( min-width: 1324px ) {
+		ul {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			max-height: calc( 11 * 26px );
+			max-width: 100%;
+
+			li {
+				width: 50%;
+			}
+		}
+	}
+}
+
+#sub-accordion-section-suki_section_social {
+	.customize-control-text {
+		.customize-control-description {
+			font-size: 14px;
+			line-height: 1.75;
+			font-weight: 600;
+			font-style: normal;
+
+			.suki-icon {
+				width: 1.2em;
+				height: 1.2em;
+				vertical-align: 2px;
+				margin-right: 0.75em;
+			}
+		}
+	}
+}
+
+[id$="_content_container"].customize-control-select,
+[id$="_content_layout"].customize-control-select,
+[id$="_hero"].customize-control-select,
+[id$="_disable_header"].customize-control-select,
+[id$="_disable_mobile_header"].customize-control-select,
+[id$="_disable_footer_widgets"].customize-control-select,
+[id$="_disable_footer_bottom"].customize-control-select,
+[id$="_preloader_screen"].customize-control-select,
+[id*="_bar_transparent_"].customize-control-select,
+[id*="_bar_alt_"].customize-control-select {
+	.customize-control-title {
+		float: left;
+	}
+
+	select {
+		margin-left: 10px;
+		float: right;
+		width: 125px;
+	}
+}
+
+[id$="_bar_transparent_bg_color"].customize-control-suki-color,
+[id$="_bar_transparent_border_color"].customize-control-suki-color,
+[id$="_bar_alt_bg_color"].customize-control-suki-color,
+[id$="_bar_alt_border_color"].customize-control-suki-color,
+[id$="_bar_alt_text_color"].customize-control-suki-color,
+[id$="_bar_alt_link_text_color"].customize-control-suki-color,
+[id$="_bar_alt_link_hover_text_color"].customize-control-suki-color,
+[id$="_bar_alt_link_active_text_color"].customize-control-suki-color,
+[id$="_bar_alt_menu_hover_highlight_color"].customize-control-suki-color,
+[id$="_bar_alt_menu_hover_highlight_text_color"].customize-control-suki-color,
+[id$="_bar_alt_menu_active_highlight_color"].customize-control-suki-color,
+[id$="_bar_alt_menu_active_highlight_text_color"].customize-control-suki-color,
+[id$="_bar_alt_transparent_bg_color"].customize-control-suki-color,
+[id$="_bar_alt_transparent_border_color"].customize-control-suki-color,
+[id$="_sidebar_sticky"].customize-control-select,
+[id$="_header_alt_colors"].customize-control-select,
+[id$="_header_transparent"].customize-control-select,
+[id$="_header_sticky"].customize-control-select,
+[id$="_header_mobile_alt_colors"].customize-control-select,
+[id$="_header_mobile_transparent"].customize-control-select,
+[id$="_header_mobile_sticky"].customize-control-select,
+[id$="_hero_container"].customize-control-select,
+[id$="_hero_bg"].customize-control-select,
+[id$="_hero_bg_image"] {
+	padding-left: 15px;
+	width: calc(100% - 15px);
+
+	.customize-control-title {
+		font-weight: normal;
+		float: left;
+	}
+
+	select {
+		margin-left: 10px;
+		float: right;
+		width: 125px;
+	}
+}
+
+// Thickbox modal z-index (for Mega Menu settings popup on Suki Pro)
+.modal-open {
+	#TB_overlay, #TB_window {
+		z-index: 500001;
+	}
+}
+
+// -------------------------------------------------------------
+// Responsive Customizer Preview
+// -------------------------------------------------------------
+
+.preview-tablet .wp-full-overlay-main {
+	width: 768px;
+	height: 1024px;
+}
+
+.preview-mobile .wp-full-overlay-main {
+	width: 375px;
+	height: 812px;
 }

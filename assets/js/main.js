@@ -176,12 +176,24 @@
 				var $submenus = Array.prototype.slice.call( document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' ) );
 				$submenus.forEach(function( $submenu ) {
 					var $section = $submenu.closest( '.suki-header-section' ),
-					    $container = $section.classList.contains( 'suki-section-contained' ) ? $section.querySelector( '.suki-section-inner' ) : $submenu.closest( '.suki-wrapper' );
+					    $menuItem = $submenu.parentElement,
+					    $wrapper = $menuItem.closest( '.suki-wrapper' ),
+					    $container = $wrapper;
+
+					// Full width mega menu, use section as the container.
+					if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
+						$container = $section;
+					}
+					// Contained section, use section inner as the container.
+					else if ( $section.classList.contains( 'suki-section-contained' ) ) {
+						$container = $section.querySelector( '.suki-section-inner' );
+					} 
 
 					// Reset inline styling.
 					$submenu.classList.remove( 'suki-sub-menu-edge' );
 					$submenu.style[ anchorSide ] = '';
 
+					// Set "max-width" based on container's width.
 					$submenu.style.maxWidth = $container.offsetWidth + 'px';
 
 					var containerEdge = $container.getBoundingClientRect()[ anchorSide ],
@@ -191,11 +203,24 @@
 					// Apply class and left position.
 					if ( isSubmenuOverflow ) {
 						$submenu.classList.add( 'suki-sub-menu-edge' );
-						$submenu.style[ anchorSide ] = 0;
+						$submenu.style[ anchorSide ] = ( window.sukiHelper.isRTL() ? $container.getBoundingClientRect()[ anchorSide ] - $wrapper.getBoundingClientRect()[ anchorSide ] : $wrapper.getBoundingClientRect()[ anchorSide ] - $container.getBoundingClientRect()[ anchorSide ] ) + 'px';
+					}
+
+					if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
+						var maxContentWidth = $section.classList.contains( 'suki-section-contained' ) ? $menuItem.closest( '.suki-section-inner' ).offsetWidth : $menuItem.closest( '.suki-wrapper' ).offsetWidth,
+						    sidePadding = ( $submenu.clientWidth - maxContentWidth ) / 2;
+
+						$submenu.style.paddingLeft = ( sidePadding - parseFloat( window.getComputedStyle( $submenu.firstElementChild, null ).getPropertyValue( 'padding-left' ) ) ) + 'px';
+						$submenu.style.paddingRight = ( sidePadding - parseFloat( window.getComputedStyle( $submenu.lastElementChild, null ).getPropertyValue( 'padding-left' ) ) ) + 'px';
 					}
 
 					// Apply vertical max-height.
 					$submenu.style.maxHeight = ( window.innerHeight - $submenu.getBoundingClientRect().top ) + 'px';
+
+					// If this is a mega menu, there is no need to reposition the subsubmenus.
+					if ( $menuItem.classList.contains( 'suki-mega-menu' ) ) {
+						return;
+					}
 
 					// Iterate to 2nd & higher level submenu.
 					var $subsubmenus = Array.prototype.slice.call( $submenu.querySelectorAll( '.sub-menu' ) );

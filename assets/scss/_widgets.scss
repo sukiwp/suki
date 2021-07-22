@@ -4,7 +4,8 @@
 
 .widget {
 	position: relative;
-	margin-bottom: 40px; // default
+	margin-bottom: 40px; // postmessage: sidebar_widgets_gap, footer_widgets_bar_widgets_gap
+	overflow: hidden; // for border-radius
 
 	.sidebar &:last-child {
 		margin-bottom: 0;
@@ -26,6 +27,7 @@
 .widget-title {
 	margin: 0 0 1.25rem;
 	@include h3();
+	@include headingColor();
 
 	&:empty {
 		display: none;
@@ -96,12 +98,10 @@
 	}
 
 	li {
-		@include border( bottom );
-		padding-bottom: 0.75em;
-		margin-top: 0.75em;
+		margin-bottom: 1em;
 
-		*:last-child {
-			border-bottom: none;
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
@@ -213,22 +213,20 @@
 	}
 	
 	li {
-		@include border( bottom );
-		padding-bottom: 0.75em;
-		margin-top: 0.75em;
+		margin-bottom: 1em;
 		
 		@include float-container();
 
-		*:last-child {
-			border-bottom: none;
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
 	img {
-		float: right;
-		width: 40px;
+		float: left;
+		width: 3.5em;
 		height: auto;
-		margin-left: 0.5em;
+		margin-right: 1em;
 	}
 }
 

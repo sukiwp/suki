@@ -1,10 +1,10 @@
 <?php
 /**
- * Social links template.
+ * Header social links template.
  *
  * Passed variables:
  *
- * @type string $slug Header element slug.
+ * @type string $element Header element.
  *
  * @package Suki
  */
@@ -27,7 +27,7 @@ if ( ! empty( $items ) ) {
 		);
 	}
 	?>
-	<ul class="<?php echo esc_attr( 'suki-header-' . $slug ); ?> menu">
+	<ul class="<?php echo esc_attr( 'suki-header-' . $element ); ?> menu">
 		<?php suki_social_links( $attrs, array(
 			'before_link' => '<li class="menu-item">',
 			'after_link'  => '</li>',

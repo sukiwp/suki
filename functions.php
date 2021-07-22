@@ -16,19 +16,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * ====================================================
  */
 
-define( 'SUKI_INCLUDES_DIR', get_template_directory() . '/inc' );
+define( 'SUKI_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' );
 
-define( 'SUKI_IMAGES_URL', get_template_directory_uri() . '/assets/images' );
+define( 'SUKI_IMAGES_URL', trailingslashit( get_template_directory_uri() ) . 'assets/images' );
 
-define( 'SUKI_CSS_URL', get_template_directory_uri() . '/assets/css' );
+define( 'SUKI_CSS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/css' );
 
-define( 'SUKI_JS_URL', get_template_directory_uri() . '/assets/js' );
+define( 'SUKI_JS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/js' );
 
 define( 'SUKI_VERSION', wp_get_theme( get_template() )->get( 'Version' ) );
 
 define( 'SUKI_ASSETS_SUFFIX', SCRIPT_DEBUG ? '' : '.min' );
 
-define( 'SUKI_PRO_URL', esc_url( 'https://sukiwp.com/pro/' ) );
+define( 'SUKI_PRO_WEBSITE_URL', esc_url( 'https://sukiwp.com/pro/' ) );
 
 /**
  * ====================================================

@@ -1,0 +1,27 @@
+<wpml-config>
+	<custom-fields>
+ 		<custom-field action="copy">_suki_page_settings</custom-field>
+ 	</custom-fields>
+	<admin-texts>
+		<key name="theme_mods_suki">
+			<key name="header_html_1_content" />
+			<key name="footer_html_1_content" />
+			<key name="footer_copyright_content" />
+			<key name="entry_header_meta" />
+			<key name="entry_read_more_text" />
+			<key name="entry_footer_meta" />
+			<key name="entry_grid_header_meta" />
+			<key name="entry_grid_read_more_text" />
+			<key name="entry_grid_footer_meta" />
+			<key name="error_404_title" />
+			<key name="error_404_description" />
+			<key name="error_404_home_button_text" />
+			<key name="search_results_title_text" />
+			<key name="search_results_not_found_text" />
+			<key name="post_single_header_meta" />
+			<key name="post_single_footer_meta" />
+			<key name="*_archive_title_text" />
+			<key name="*_archive_tax_title_text" />
+		</key>
+	</admin-texts>
+</wpml-config>

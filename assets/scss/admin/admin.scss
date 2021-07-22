@@ -14,7 +14,7 @@ input, select, textarea {
 	display: inline-block;
 	white-space: nowrap;
 	padding: 0.4em;
-	background-color: rgba(0,0,0,0.1);
+	background-color: transparentize( $color_black, 0.9 );
 	font-size: 0.85em;
 	line-height: 1;
 	text-transform: uppercase;
@@ -68,6 +68,23 @@ input, select, textarea {
 	display: block;
 	width: 100%;
 	padding: 0 10px;
+}
+
+.suki-admin-form-field-device-group {
+	display: inline-block;
+	margin-left: 2em;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	> * {
+		vertical-align: middle;
+	}
+
+	select {
+		min-width: 9em;
+	}
 }
 
 .select2-container {
@@ -127,11 +144,11 @@ input, select, textarea {
 
 				&.select2-results__option--highlighted {
 					color: inherit;
-					background-color: rgba(0,0,0,0.05);
+					background-color: transparentize( $color_black, 0.95 );
 				}
 
 				&[aria-selected=true] {
-					background-color: rgba(0,0,0,0.1) !important;
+					background-color: transparentize( $color_black, 0.9 ) !important;
 				}
 			}
 
@@ -155,7 +172,7 @@ input, select, textarea {
 			height: 24px;
 			border: none;
 			border-radius: 0 !important;
-			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+			box-shadow: inset 0 0 0 1px transparentize( $color_black, 0.85 );
 
 			&:after {
 				content: "not set";
@@ -240,8 +257,8 @@ input, select, textarea {
 		top: 0;
 		right: 0;
 		width: 32px;
-		margin: 1px -1px 0 0;
-		padding: 0 !important;
+		margin: 0 -1px 0 0;
+		padding: 0;
 		border-radius: 0;
 		text-align: center;
 		box-shadow: none;
@@ -249,9 +266,10 @@ input, select, textarea {
 		.dashicons {
 			margin-right: 0;
 			font-size: 18px;
+			vertical-align: middle;
 		}
 
-		@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
+		@media screen and ( max-width: $breakpoint_wordpress  - 0.1px ) {
 			height: 26px !important;
 		}
 	}
@@ -319,7 +337,7 @@ input, select, textarea {
 }
 
 // -------------------------------------------------------------
-// Page Settings Metabox
+// Individual Page Settings Metabox
 // -------------------------------------------------------------
 
 .suki-term-metabox-container {
@@ -515,7 +533,7 @@ input, select, textarea {
 // -------------------------------------------------------------
 
 .appearance_page_suki {
-	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
+	@media screen and ( max-width: $breakpoint_wordpress  - 0.1px ) {
 		&.auto-fold #wpcontent {
 			padding-left: 0;
 		}
@@ -546,7 +564,7 @@ input, select, textarea {
 		text-decoration: none;
 	}
 
-	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
+	@media screen and ( max-width: $breakpoint_wordpress  - 0.1px ) {
 		margin: 0;
 	}
 
@@ -556,7 +574,7 @@ input, select, textarea {
 }
 
 .suki-admin-wrapper {
-	max-width: 1300px;
+	max-width: 1000px;
 	padding: 0 10px;
 	margin: 0 auto;
 
@@ -570,7 +588,7 @@ input, select, textarea {
 	padding: 15px 0;
 	background-color: #fff;
 	border-bottom: 1px solid #e5e5e5;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+	box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
 }
 
 .suki-admin-logo {
@@ -591,7 +609,7 @@ input, select, textarea {
 	margin: 0 0 0 0.5em;
 	font-size: 13px;
 	font-weight: 600;
-	background-color: rgba(0,0,0,0.05);
+	background-color: transparentize( $color_black, 0.95 );
 }
 
 .suki-admin-links {
@@ -626,7 +644,7 @@ input, select, textarea {
 .suki-admin-content-row {
 	display: flex;
 
-	@media screen and ( max-width: $breakpoint_wordpress - 1px ) {
+	@media screen and ( max-width: $breakpoint_wordpress  - 0.1px ) {
 		display: block;
 	}
 }
@@ -636,7 +654,7 @@ input, select, textarea {
 }
 
 .suki-admin-secondary {
-	width: 250px;
+	width: 300px;
 	margin-left: 20px;
 }
 
@@ -668,11 +686,11 @@ input, select, textarea {
 		}
 
 		&--layout:before {
-			content: "\f111";
+			content: "\f538";
 		}
 
 		&--assets:before {
-			content: "\f120";
+			content: "\f309";
 		}
 
 		&--blog:before {
@@ -692,32 +710,39 @@ input, select, textarea {
 
 		.suki-admin-module {
 			position: relative;
-			width: 33.33%;
 			// padding: 2px;
 			margin: 0;
-			padding: 15px 40px 15px 15px;
+			padding: 15px 75px 15px 15px;
 			background-color: #f9f9f9;
 			border-right: 1px solid #e5e5e5;
 			border-bottom: 1px solid #e5e5e5;
 
-			&:nth-child(3n+1) {
-				border-left: 1px solid #e5e5e5;
+			.suki-admin-primary:last-child & {
+				width: 33.33%;
+
+				&:nth-child(3n+1) {
+					border-left: 1px solid #e5e5e5;
+				}
+
+				&:nth-child(-n+3) {
+					border-top: 1px solid #e5e5e5;
+				}
 			}
 
-			&:nth-child(-n+3) {
-				border-top: 1px solid #e5e5e5;
+			.suki-admin-primary:not(:last-child) & {
+				width: 50%;
+
+				&:nth-child(2n+1) {
+					border-left: 1px solid #e5e5e5;
+				}
+
+				&:nth-child(-n+2) {
+					border-top: 1px solid #e5e5e5;
+				}
 			}
 
 			&.active {
 				background-color: #fff;
-			}
-
-			&.pro {
-				opacity: 0.5;
-
-				.suki-admin-wrap.suki-pro-installed & {
-					opacity: 1;
-				}
 			}
 
 			&-name {
@@ -733,102 +758,161 @@ input, select, textarea {
 				line-height: 1;
 				text-transform: uppercase;
 				vertical-align: middle;
-				background-color: rgba(0,0,0,0.075);
+				background-color: transparentize( $color_black, 0.925 );
 				color: #666;
 				border-radius: 2px;
 			}
 
-			&-actions {
-				position: static;
-				min-height: 22px;
-				padding-top: 4px;
-				font-size: 13px;
-				line-height: 18px;
-				color: #999;
+			.suki-admin-module-action--settings {
+				opacity: 0;
+			}
 
-				> *:not(:first-child) {
+			&:hover {
+				.suki-admin-module-action--settings {
+					opacity: 0.5;
+				}
+			}
+
+			&-actions {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				margin: 1px 0;
+				color: #999;
+				display: flex;
+
+				> a {
+					color: inherit;
+					opacity: 0.5;
+					cursor: pointer;
+
+					&:hover, &:focus {
+						opacity: 1 !important;
+					}
+				}
+
+				> * {
+					position: relative;
+					z-index: 2;
+					margin-left: 8px;
+					display: inline-block;
+					text-align: center;
+
 					&:before {
-						content: "|";
-						margin: 0 0.25em;
+						font-family: "dashicons";
+						font-size: 16px;
+						width: 16px;
+						height: 16px;
+						display: inline-block;
+						line-height: 1;
+						vertical-align: top;
+					}
+
+					span {
+						position: absolute;
+						bottom: 100%;
+						left: 50%;
+						margin-bottom: 10px;
+						padding: 4px 7px;
+						border-radius: 3px;
+						background-color: rgba(0,0,0,0.8);
+						color: #fff;
+						font-size: 12px;
+						font-weight: normal;
+						line-height: 18px;
+						text-transform: none;
+						white-space: nowrap;
+						transform: translateX(-50%);
+						opacity: 0;
+						visibility: hidden;
+
+						&:before {
+							content: "";
+							position: absolute;
+							top: 100%;
+							left: 50%;
+							margin-left: -5px;
+							border-top: 5px solid rgba(0,0,0,0.8);
+							border-left: 5px solid transparent;
+							border-right: 5px solid transparent;
+						}
+					}
+
+					&:hover span {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+
+				.suki-admin-module-action--unavailable,
+				.suki-admin-module-action--disabled,
+				.suki-admin-module-action--enabled,
+				.suki-admin-module-action--activate,
+				.suki-admin-module-action--deactivate {
+					opacity: 1;
+					width: 30px;
+					height: 18px;
+					padding: 1px;
+					margin-top: -1px;
+					border-radius: 10px;
+					background-color: #dddddd;
+				}
+
+				.suki-admin-module-action--unavailable {
+					&:before {
+						content: "\f335";
+					}
+				}
+
+				.suki-admin-module-action--disabled {
+					&:before {
+						content: "\f160";
+					}
+				}
+
+				.suki-admin-module-action--settings {
+					&:before {
+						content: "\f111";
 					}
 				}
 
 				.suki-admin-module-action--enabled {
-					position: absolute;
-					top: 0;
-					right: 0;
-					display: block;
-					margin: 16px 10px 0 0;
-
-					> * {
-						position: relative;
-						display: block;
-						width: 24px;
-						height: 16px;
-						border-radius: 10px;
-						font-size: 12px;
-						font-weight: 600;
-						line-height: 16px;
-						background-color: #ecf7ed;
-						color: #46b450;
-						text-align: center;
-					}
+					background-color: lighten(#46b450, 40);
+					color: #46b450;
 
 					&:before {
-						display: none;
-					}
-				}
-
-				.suki-admin-module-action--activate,
-				.suki-admin-module-action--deactivate {
-					position: absolute;
-					top: 0;
-					right: 0;
-					display: block;
-					margin: 16px 10px 0 0;
-
-					> * {
-						position: relative;
-						display: block;
-						width: 24px;
-						height: 16px;
-						border-radius: 10px;
-						text-indent: -9999em;
-
-						&:after {
-							content: "";
-							position: absolute;
-							top: 0;
-							width: 12px;
-							height: 12px;
-							margin: 2px;
-							border-radius: 10px;
-							background-color: #fff;
-						}
-					}
-
-					&:before {
-						display: none;
+						content: "\f147";
 					}
 				}
 
 				.suki-admin-module-action--activate {
-					> * {
-						background-color: #ccc;
+					background-color: #ccc;
 
-						&:after {
-							left: 0;
-						}
+					&:before {
+						content: "";
+						position: absolute;
+						width: 12px;
+						height: 12px;
+						border-radius: 6px;
+						top: 3px;
+						left: 3px;
+						background-color: #fff;
 					}
 				}
 
 				.suki-admin-module-action--deactivate {
-					> * {
-						background-color: #46b450;
+					background-color: #46b450;
+					color: #fff;
 
-						&:after {
-							right: 0;
-						}
+					&:before {
+						content: "";
+						position: absolute;
+						width: 12px;
+						height: 12px;
+						border-radius: 6px;
+						top: 3px;
+						right: 3px;
+						background-color: #fff;
 					}
 				}
 			}
