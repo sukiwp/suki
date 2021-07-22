@@ -37,7 +37,7 @@ class Suki_Migrate_1_3_0 {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		$this->preserve_old_typography_styles();
+		$this->preserve_old_default_typography_styles();
 		$this->migrate_page_template_slug();
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
@@ -65,9 +65,14 @@ class Suki_Migrate_1_3_0 {
 	 * Installed theme will use the former default typography.
 	 * New typography will only be applied to new installation.
 	 */
-	private function preserve_old_typography_styles() {
-		set_theme_mod( 'body_font_size', '15px' );
-		set_theme_mod( 'h4_font_size', '17px' );
+	private function preserve_old_default_typography_styles() {
+		if ( false === get_theme_mod( 'body_font_size' ) ) {
+			set_theme_mod( 'body_font_size', '15px' );
+		}
+
+		if ( false === get_theme_mod( 'h4_font_size' ) ) {
+			set_theme_mod( 'h4_font_size', '17px' );
+		}
 	}
 
 	/**
