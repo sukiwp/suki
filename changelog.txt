@@ -1,3 +1,6 @@
+v1.3.1
+- FIX: WooCommerce - Content header issue on Shop page.
+
 v1.3.0
 - NEW: Content Header — Introducing "Content Header", per-page configurable set of page title, breadcrumb, and other elements.
 - NEW: Hero Section — Replace the former "Page Header" section.

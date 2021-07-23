@@ -971,6 +971,10 @@ p.demo_store a,
 	}
 }
 
+.woocommerce .woocommerce-products-header .content-header {
+	margin-bottom: 2rem;
+}
+
 .woocommerce .woocommerce-products-header > *:last-child {
 	margin: 0 0 3rem;
 }

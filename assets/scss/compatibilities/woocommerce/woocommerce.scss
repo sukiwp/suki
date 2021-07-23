@@ -1178,6 +1178,10 @@ p.demo_store,
 	}
 
 	.woocommerce-products-header {
+		.content-header {
+			margin-bottom: 2rem;
+		}
+
 		> *:last-child {
 			margin: 0 0 3rem;
 		}

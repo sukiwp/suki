@@ -469,7 +469,7 @@ class Suki_Compatibility_WooCommerce {
 			// Add Content Header.
 			// AVailable elements: title, breadcrumb.
 			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'woocommerce_taxonomy_archive_description', 'suki_content_header', 1 );
+				add_action( 'woocommerce_archive_description', 'suki_content_header', 1 );
 			}
 
 			// Keep / remove products count filter.
