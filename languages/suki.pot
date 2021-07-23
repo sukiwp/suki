@@ -856,26 +856,30 @@ msgid "Random"
 msgstr ""
 
 #: includes/widgets/class-suki-widget-posts.php:102
+msgid "** Since WordPress 5.8, we strongly suggest you to replace this widget with the \"Posts\" block."
+msgstr ""
+
+#: includes/widgets/class-suki-widget-posts.php:105
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-posts.php:106
+#: includes/widgets/class-suki-widget-posts.php:109
 msgid "Number of posts to show:"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-posts.php:110
+#: includes/widgets/class-suki-widget-posts.php:113
 msgid "Sort By:"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-posts.php:120
+#: includes/widgets/class-suki-widget-posts.php:123
 msgid "Query from All Categories?"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-posts.php:124
+#: includes/widgets/class-suki-widget-posts.php:127
 msgid "or Choose Specific Categories:"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-posts.php:134
+#: includes/widgets/class-suki-widget-posts.php:137
 msgid "Display post date?"
 msgstr ""
 
@@ -885,14 +889,18 @@ msgid "%s - Social Links"
 msgstr ""
 
 #: includes/widgets/class-suki-widget-social.php:81
+msgid "** Since WordPress 5.8, we strongly suggest you to replace this widget with the \"Social Icons\" block."
+msgstr ""
+
+#: includes/widgets/class-suki-widget-social.php:84
 msgid "Social links to display:"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-social.php:97
+#: includes/widgets/class-suki-widget-social.php:100
 msgid "Open links in new tab"
 msgstr ""
 
-#: includes/widgets/class-suki-widget-social.php:101, includes/customizer/options/header--mobile-vertical-bar.php:105, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
+#: includes/widgets/class-suki-widget-social.php:104, includes/customizer/options/header--mobile-vertical-bar.php:105, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:86
 msgid "Alignment"
 msgstr ""
 
