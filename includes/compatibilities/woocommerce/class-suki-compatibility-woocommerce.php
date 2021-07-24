@@ -844,6 +844,8 @@ class Suki_Compatibility_WooCommerce {
 				break;
 				
 			case 'product-rating':
+				wc_setup_product_data( get_queried_object() );
+
 				ob_start();
 				woocommerce_template_single_rating();
 				$html = ob_get_clean();
