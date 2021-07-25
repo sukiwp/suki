@@ -481,13 +481,9 @@ $wp_customize->add_panel( $panel, array(
 		'priority'    => 10,
 	) );
 
-	// Begin registering sections.
+	// Begin registering sections for custom post types.
 	$i = 10;
-	foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-		if ( in_array( $ps_type, array( 'post_archive', 'post_single', 'product_archive', 'product_single', 'page_single', 'search', '404' ) ) ) {
-			continue;
-		}
-
+	foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
 		// Get post type object.
 		// First check if $ps_type is not for 404 and search page.
 		$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
@@ -495,6 +491,11 @@ $wp_customize->add_panel( $panel, array(
 
 		// Increment section priority.
 		$i += 10;
+
+		// Skip section creation if it already exists.
+		if ( $wp_customize->get_section( suki_array_value( $ps_data, 'section' ) ) ) {
+			continue;
+		}
 
 		// Add separator 
 		if ( 0 < strpos( $ps_type, '_archive' ) ) {

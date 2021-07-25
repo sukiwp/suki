@@ -56,8 +56,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
 		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
 		add_filter( 'suki/dataset/product_single_content_header_elements', array( $this, 'modify_content_header_elements_choices_on_product_single_page' ) );
-		add_filter( 'suki/customizer/enable_auto_options_on_product_archive', '__return_false' );
-		add_filter( 'suki/customizer/enable_auto_options_on_product_single', '__return_false' );
+		add_filter( 'suki/dataset/custom_page_settings_types', array( $this, 'modify_custom_page_settings_types' ) );
 
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -266,6 +265,22 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		return $choices;
+	}
+
+	/**
+	 * Modify post type data for page settings.
+	 * 
+	 * @param array $data
+	 * @return array
+	 */
+	public function modify_custom_page_settings_types( $data ) {
+		$data['product_archive']['section'] = 'woocommerce_product_catalog';
+		$data['product_archive']['auto_options'] = false;
+		
+		$data['product_single']['section'] = 'woocommerce_product_single';
+		$data['product_single']['auto_options'] = false;
+
+		return $data;
 	}
 
 	/**

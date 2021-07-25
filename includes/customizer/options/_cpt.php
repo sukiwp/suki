@@ -8,17 +8,12 @@
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
 	$section = suki_array_value( $ps_data, 'section' );
 	$option_prefix = $ps_type;
 
-	// Abort if it's on detault pages which already have their own options.
-	if ( in_array( $ps_type, array( 'post_archive', 'post_single', 'page_single', 'search_results', 'error_404' ) ) ) {
-		continue;
-	}
-
 	// Abort if the post type has their own options.
-	if ( ! apply_filters( 'suki/customizer/enable_auto_options_on_' . $ps_type, true ) ) {
+	if ( ! suki_array_value( $ps_data, 'auto_options', true ) ) {
 		continue;
 	}
 

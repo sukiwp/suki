@@ -716,42 +716,37 @@ function suki_get_pro_modules() {
 /**
  * Return list of post types that support Page Settings.
  *
- * @param boolean $include_native_post_types
+ * @param string $context
  * @return array
  */
-function suki_get_post_types_for_page_settings( $include_native_post_types = true ) {
+function suki_get_post_types_for_page_settings( $context = 'all' ) {
+	// Native post types
 	$native_post_types = array( 'post', 'page' );
-	$custom_post_types = suki_get_public_custom_post_types();
 
-	if ( $include_native_post_types ) {
-		$all_supported_post_types = array_merge( $native_post_types, $custom_post_types );
-	} else {
-		$all_supported_post_types = $custom_post_types;
-	}
-
-	// Allow user to deactivate page settings on some specific post types through filter.
-	$ignored_post_types = apply_filters( 'suki/dataset/page_settings/ignored_post_types', array() );
-
-	// Intersect the supported post types.
-	return array_diff( $all_supported_post_types, $ignored_post_types );
-}
-
-/**
- * Return all "public" custom post types.
- * 
- * @return array
- */
-function suki_get_public_custom_post_types() {
-	$public_post_types = get_post_types( array(
+	// Custom post types
+	$custom_post_types = get_post_types( array(
 		'public'             => true,
 		'publicly_queryable' => true,
 		'rewrite'            => true,
 		'_builtin'           => false,
 	), 'names' );
+	$custom_post_types = array_values( $custom_post_types );
 
-	$public_post_types = array_values( $public_post_types );
+	switch ( $context ) {
+		case 'custom':
+			$return = $custom_post_types;
+			break;
 
-	return $public_post_types;
+		case 'native':
+			$return = $native_post_types;
+			break;
+
+		default:
+			$return = array_merge( $native_post_types, $custom_post_types );
+			break;
+	}
+
+	return $return;
 }
 
 /**

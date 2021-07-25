@@ -1549,7 +1549,6 @@ foreach ( $responsive as $suffix => $media ) {
 			'property' => 'padding',
 			'media'    => $media,
 		),
-
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
@@ -2629,11 +2628,7 @@ $add['search_results_content_header_alignment'] = array(
  * ====================================================
  */
 
-foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
-	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
-		continue;
-	}
-
+foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $post_type ) {
 	$element = 'body.post-type-archive-' . $post_type . ' .content-header';
 	foreach ( get_object_taxonomies( $post_type ) as $tax ) {
 		$element .= ', body.tax-' . $tax . ' .content-header';
@@ -2654,11 +2649,7 @@ foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
  * ====================================================
  */
 
-foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
-	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
-		continue;
-	}
-
+foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $post_type ) {
 	$add[ $post_type . '_single_content_header_alignment'] = array(
 		array(
 			'type'     => 'class',

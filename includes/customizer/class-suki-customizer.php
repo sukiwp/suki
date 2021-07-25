@@ -687,76 +687,86 @@ class Suki_Customizer {
 
 	/**
 	 * Return all page types for page settings.
-	 * 
+	 *
+	 * @param string $context
 	 * @return array
 	 */
-	public function get_all_page_settings_types() {
-		// Define sections for non post type pages.
-		$page_sections = array(
+	public function get_all_page_settings_types( $context = 'all' ) {
+		// Non post type pages.
+		$non_post_types = array(
 			'search_results' => array(
-				'section' => 'suki_section_search_results',
-				'title' => esc_html__( 'Search Results Page', 'suki' ),
+				'section'      => 'suki_section_search_results',
+				'title'        => esc_html__( 'Search Results Page', 'suki' ),
+				'auto_options' => false,
 			),
 			'error_404' => array(
-				'section' => 'suki_section_error_404',
-				'title' => esc_html__( 'Error 404 Page', 'suki' ),
+				'section'      => 'suki_section_error_404',
+				'title'        => esc_html__( 'Error 404 Page', 'suki' ),
+				'auto_options' => false,
 			),
 		);
 
-		// Get post types.
-		$post_types = suki_get_post_types_for_page_settings();
+		// Native post types.
+		$native_post_types = array(
+			'page_single' => array(
+				'section'      => 'suki_section_page_single',
+				'title'        => esc_html__( 'Static Page', 'suki' ),
+				'auto_options' => false,
+			),
+			'post_archive' => array(
+				'section'      => 'suki_section_blog_index',
+				'title'        => esc_html__( 'Posts Archive Page', 'suki' ),
+				'auto_options' => false,
+			),
+			'post_single' => array(
+				'section'      => 'suki_section_blog_single',
+				'title'        => esc_html__( 'Single Post Page', 'suki' ),
+				'auto_options' => false,
+			),
+		);
 
-		foreach ( $post_types as $post_type ) {
-			$post_type_obj = get_post_type_object( $post_type );
+		// Custom post types.
+		$custom_post_types = array();
+		foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $cpt ) {
+			$cpt_obj = get_post_type_object( $cpt );
 
-			switch ( $post_type ) {
-				case 'post':
-					$section_archive = 'suki_section_blog_index';
-					$section_single = 'suki_section_blog_single';
-					break;
-
-				case 'product':
-					$section_archive = 'woocommerce_product_catalog';
-					$section_single = 'woocommerce_product_single';
-					break;
-				
-				default:
-					$section_archive = 'suki_section_' . $post_type . '_archive';
-					$section_single = 'suki_section_' . $post_type . '_single';
-					break;
-			}
-
-			/**
-			 * Define sections.
-			 */
-
-			if ( 'page' !== $post_type ) {
-				$key_archive = $post_type . '_archive';
-				$page_sections[ $key_archive ] = array(
-					'section' => $section_archive,
-					/* translators: %s: post type's plural name. */
-					'title' => sprintf( esc_html__( '%s Archive Page', 'suki' ), $post_type_obj->labels->name ),
-				);
-			}
-
-			$key_single = $post_type . '_single';
-			$page_sections[ $key_single ] = array(
-				'section' => $section_single,
-				/* translators: %s: post type's singular name. */
-				'title' => sprintf( esc_html__( 'Single %s Page', 'suki' ), $post_type_obj->labels->singular_name ),
+			$custom_post_types[ $cpt . '_archive'] = array(
+				'section'      => 'suki_section_' . $cpt . '_archive',
+				/* translators: %s: post type's plural name. */
+				'title'        => sprintf( esc_html__( '%s Archive Page', 'suki' ), $cpt_obj->labels->name ),
+				'auto_options' => true,
+			);
+			$custom_post_types[ $cpt . '_single'] = array(
+				'section'      => 'suki_section_' . $cpt . '_single',
+				'title'        => sprintf( esc_html__( 'Single %s Page', 'suki' ), $cpt_obj->labels->singular_name ),
+				'auto_options' => true,
 			);
 		}
+		$custom_post_types = apply_filters( 'suki/dataset/custom_page_settings_types', $custom_post_types );
 
-		// Sanitize $page_sections.
-		foreach ( $page_sections as $ps_type => $ps_data ) {
-			$page_sections[ $ps_type ] = wp_parse_args( $ps_data, array(
-				'section'     => 'suki_section_page_' . $ps_type,
-				'title'       => '',
-				'description' => '',
-			) );
+		switch ( $context ) {
+			case 'custom':
+				$return = $custom_post_types;
+				break;
+
+			case 'native':
+				$return = $native_post_types;
+				break;
+
+			case 'others':
+				$return = $non_post_types;
+				break;
+			
+			default:
+				$return = array_merge(
+					$non_post_types,
+					$native_post_types,
+					$custom_post_types
+				);
+				break;
 		}
 
-		return $page_sections;
+		return $return;
 	}
 	
 	/**

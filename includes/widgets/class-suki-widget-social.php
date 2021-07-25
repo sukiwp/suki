@@ -112,8 +112,6 @@ class Suki_Widget_Social extends WP_Widget {
 			(function( $ ) {
 				'use strict';
 
-				alert('halo');
-
 				$( '#<?php echo esc_attr( $this->get_field_id( 'links' ) ); ?>' ).sortable();
 			})( jQuery );
 		</script>
