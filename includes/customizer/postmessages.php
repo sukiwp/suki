@@ -1553,6 +1553,7 @@ foreach ( $responsive as $suffix => $media ) {
 			'type'     => 'css',
 			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
 			'property' => 'padding-left',
+			'media'    => $media,
 			'function' => array(
 				'name' => 'explode_value',
 				'args' => array( 3 ), // 4th part = left
@@ -1562,6 +1563,7 @@ foreach ( $responsive as $suffix => $media ) {
 			'type'     => 'css',
 			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
 			'property' => 'padding-right',
+			'media'    => $media,
 			'function' => array(
 				'name' => 'explode_value',
 				'args' => array( 1 ), // 2nd part = right
@@ -1571,6 +1573,7 @@ foreach ( $responsive as $suffix => $media ) {
 			'type'     => 'css',
 			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content > .alignfull', // scss: gutenberg
 			'property' => 'left',
+			'media'    => $media,
 			'function' => array(
 				'name' => 'explode_value',
 				'args' => array( 3 ), // 4th part = left
@@ -1580,6 +1583,7 @@ foreach ( $responsive as $suffix => $media ) {
 			'type'     => 'css',
 			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content > .alignfull', // scss: gutenberg
 			'property' => 'max-width',
+			'media'    => $media,
 			'pattern'  => 'calc( 100% + ( 2 * $ ) )',
 			'function' => array(
 				'name' => 'explode_value',
