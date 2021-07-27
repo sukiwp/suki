@@ -545,7 +545,6 @@ p.demo_store a,
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
-	display: inline-block;
 	position: relative;
 	margin: 0 0 -1px;
 	float: right;
