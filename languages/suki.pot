@@ -81,12 +81,12 @@ msgstr ""
 msgid "Huge"
 msgstr ""
 
-#: includes/class-suki.php:333, includes/admin/class-suki-admin-metabox-page-settings.php:509, includes/customizer/options/content--sidebar.php:21, includes/customizer/options/_page-settings.php:77, includes/customizer/options/_sections.php:305
+#: includes/class-suki.php:336, includes/admin/class-suki-admin-metabox-page-settings.php:509, includes/customizer/options/content--sidebar.php:21, includes/customizer/options/_page-settings.php:77, includes/customizer/options/_sections.php:305
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: includes/class-suki.php:344
+#: includes/class-suki.php:347
 msgid "Footer Widgets Column %s"
 msgstr ""
 

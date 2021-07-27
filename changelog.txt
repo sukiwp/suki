@@ -1,6 +1,8 @@
 v1.3.1
+- NEW: Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).
 - FIX: WooCommerce - Content header issue on Shop page.
 - FIX: Page Settings - Default values on custom post types.
+- FIX: Gutenberg CSS.
 - FIX: Content padding's dynamic CSS bug.
 
 v1.3.0
