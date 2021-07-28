@@ -1262,6 +1262,10 @@ p.demo_store a,
 	right: 0;
 }
 
+.woocommerce .woocommerce-product-rating {
+	margin-bottom: 1em;
+}
+
 .woocommerce .woocommerce-product-rating .woocommerce-review-link {
 	font-size: 0.85em;
 	line-height: 1.7;
