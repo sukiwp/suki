@@ -20,6 +20,7 @@ $section = 'suki_section_breadcrumb';
 $key = 'breadcrumb_plugin';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 ) );
 $wp_customize->add_control( $key, array(
@@ -57,6 +58,7 @@ $wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_br
 $key = 'breadcrumb_trail_home';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
@@ -69,10 +71,24 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
 $key = 'breadcrumb_trail_current_page';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
 	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
 	'label'       => esc_html__( 'Include current page as the last item', 'suki' ),
+	'priority'    => 20,
+) ) );
+
+// Hide if home or current page is the only item in the trail
+$key = 'breadcrumb_hide_when_only_home_or_current';
+$wp_customize->add_setting( $key, array(
+	'default'     => suki_array_value( $defaults, $key ),
+	'transport'   => 'postMessage',
+	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+) );
+$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
+	'section'     => $section,
+	'label'       => esc_html__( 'Hide if home or current page is the only item in the trail', 'suki' ),
 	'priority'    => 20,
 ) ) );

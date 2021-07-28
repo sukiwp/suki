@@ -430,62 +430,62 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: includes/template-tags.php:448
+#: includes/template-tags.php:443
 msgid "Page Not Found"
 msgstr ""
 
-#: includes/template-tags.php:441
+#: includes/template-tags.php:436
 msgid "Search: %s"
 msgstr ""
 
 #. translators: %s: page number.
-#: includes/template-tags.php:523
+#: includes/template-tags.php:519
 msgid " (Page %d)"
 msgstr ""
 
-#: includes/template-tags.php:585
+#: includes/template-tags.php:589
 msgid "Skip to content"
 msgstr ""
 
-#: includes/template-tags.php:771, includes/customizer/options/page--search.php:110
+#: includes/template-tags.php:775, includes/customizer/options/page--search.php:110
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
-#: includes/template-tags.php:990
+#: includes/template-tags.php:994
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags.php:991
+#: includes/template-tags.php:995
 msgid "Newer Posts"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1091
+#: includes/template-tags.php:1095
 msgid "%s &raquo;"
 msgstr ""
 
 #. translators: %s: title syntax.
-#: includes/template-tags.php:1093
+#: includes/template-tags.php:1097
 msgid "&laquo; %s"
 msgstr ""
 
 #. translators: %1$s: comment count number, %2$s: title.
-#: includes/template-tags.php:1134
+#: includes/template-tags.php:1138
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/template-tags.php:1128
+#: includes/template-tags.php:1132
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: includes/template-tags.php:1161
+#: includes/template-tags.php:1165
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/template-tags.php:1307, includes/template-tags.php:1311
+#: includes/template-tags.php:1311, includes/template-tags.php:1315
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""
@@ -833,15 +833,15 @@ msgstr ""
 msgid "Single %s Page"
 msgstr ""
 
-#: includes/customizer/defaults.php:287
+#: includes/customizer/defaults.php:288
 msgid "Insert HTML text here"
 msgstr ""
 
-#: includes/customizer/defaults.php:786
+#: includes/customizer/defaults.php:787
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:846, includes/customizer/defaults.php:873, includes/customizer/defaults.php:904
+#: includes/customizer/defaults.php:847, includes/customizer/defaults.php:874, includes/customizer/defaults.php:905
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
@@ -1924,48 +1924,52 @@ msgstr ""
 msgid "Title link text color :hover"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:28
+#: includes/customizer/options/global--breadcrumb.php:29
 msgid "Breadcrumb module"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:29
+#: includes/customizer/options/global--breadcrumb.php:30
 msgid "Choose whether to use the theme's default breadcrumb or other breadcrumb modules from supported 3rd party plugins."
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:31
+#: includes/customizer/options/global--breadcrumb.php:32
 msgid "Theme's default"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:32
+#: includes/customizer/options/global--breadcrumb.php:33
 msgid "Rank Math"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:33
+#: includes/customizer/options/global--breadcrumb.php:34
 msgid "SEOPress (pro version)"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:34
+#: includes/customizer/options/global--breadcrumb.php:35
 msgid "Yoast SEO"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:35
+#: includes/customizer/options/global--breadcrumb.php:36
 msgid "Breadcrumb NavXT"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:36
+#: includes/customizer/options/global--breadcrumb.php:37
 msgid "Breadcrumb Trail"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:45
+#: includes/customizer/options/global--breadcrumb.php:46
 msgid "Please make sure you have installed the plugin and configured the breadcrumb in the plugin's settings page. Otherwise, the breadcrumb might not show properly."
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:64
+#: includes/customizer/options/global--breadcrumb.php:66
 msgid "Include \"Home\" as the first item"
 msgstr ""
 
-#: includes/customizer/options/global--breadcrumb.php:76
+#: includes/customizer/options/global--breadcrumb.php:79
 msgid "Include current page as the last item"
+msgstr ""
+
+#: includes/customizer/options/global--breadcrumb.php:92
+msgid "Hide if home or current page is the only item in the trail"
 msgstr ""
 
 #: includes/customizer/options/global--color-palette.php:47

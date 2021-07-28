@@ -362,17 +362,12 @@ function suki_breadcrumb_native( $echo = true ) {
 		$post_type = get_post_type();
 		$post_type_obj = get_post_type_object( $post_type );
 
-		// Post type archive
-		if ( 'post' === $post_type ) {
-			if ( 'page' === get_option( 'show_on_front' ) ) {
-				$items['post_type_archive'] = array(
-					'label' => get_the_title( get_option( 'page_for_posts' ) ),
-					'url'   => is_post_type_archive() || is_home() ? '' : get_post_type_archive_link( $post_type ),
-				);
-			}
-		} else {
+		// Add post type archive page if it's not same with home page.
+		if ( trailingslashit( get_post_type_archive_link( $post_type ) ) !== home_url( '/' ) ) {
+			$post_type_obj = get_post_type_object( $post_type );
+
 			$items['post_type_archive'] = array(
-				'label' => $post_type_obj->labels->name,
+				'label' => 'post' === $post_type ? get_the_title( get_option( 'page_for_posts' ) ) : $post_type_obj->labels->name,
 				'url'   => is_post_type_archive() || is_home() ? '' : get_post_type_archive_link( $post_type ),
 			);
 		}
@@ -458,7 +453,8 @@ function suki_breadcrumb_native( $echo = true ) {
 
 			// Post type archive link for Post and other CPT.
 			if ( is_single() ) {
-				if ( get_post_type_archive_link( $post_type ) !== home_url( '/' ) ) {
+				// Add post type archive page if it's not same with home page.
+				if ( trailingslashit( get_post_type_archive_link( $post_type ) ) !== home_url( '/' ) ) {
 					$post_type_obj = get_post_type_object( $post_type );
 
 					$items['post_type_archive'] = array(
@@ -531,9 +527,17 @@ function suki_breadcrumb_native( $echo = true ) {
 	// Allow developers to modify the breadcrumb trail.
 	$items = apply_filters( 'suki/frontend/breadcrumb_trail', $items );
 
-	// Abort if no breadcrumb trail found or only 1 item in the trail.
-	if ( 1 >= count( $items ) ) {
+	// Abort if there is no trail.
+	if ( empty( $items ) ) {
 		return;
+	}
+
+	// Abort if breadcrumb trail only contain 1 item and the "Hide if home or current page is the only item in the trail" mode is enabled.
+	if ( 1 == count( $items ) && intval( suki_get_theme_mod( 'breadcrumb_hide_when_only_home_or_current' ) ) ) {
+		// If home or current page (doesn't contain URL).
+		if ( 'home' === array_key_first( $items ) || ! isset( $items[0]['url'] ) ) {
+			return;
+		}
 	}
 
 	/**
