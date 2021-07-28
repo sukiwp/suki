@@ -674,7 +674,7 @@ $add['content_narrow_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-section-narrow > .suki-section-inner > .suki-wrapper', // scss: container
-		'property' => 'max-width',
+		'property' => 'width',
 	),
 	array(
 		'type'     => 'css',
