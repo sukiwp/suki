@@ -545,7 +545,6 @@ p.demo_store a,
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
-	display: inline-block;
 	position: relative;
 	margin: 0 0 -1px;
 	float: right;
@@ -971,6 +970,10 @@ p.demo_store a,
 	}
 }
 
+.woocommerce .woocommerce-products-header .content-header {
+	margin-bottom: 2rem;
+}
+
 .woocommerce .woocommerce-products-header > *:last-child {
 	margin: 0 0 3rem;
 }
@@ -1257,6 +1260,10 @@ p.demo_store a,
 	top: 0;
 	position: absolute;
 	right: 0;
+}
+
+.woocommerce .woocommerce-product-rating {
+	margin-bottom: 1em;
 }
 
 .woocommerce .woocommerce-product-rating .woocommerce-review-link {

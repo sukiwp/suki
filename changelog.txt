@@ -1,3 +1,12 @@
+v1.3.1
+- NEW: Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).
+- NEW: Breadcrumb - Add new option: "Hide if home or current page is the only item" mode.
+- FIX: Breadcrumb - Bug on singular pages.
+- FIX: WooCommerce - Content header issue on Shop page.
+- FIX: Page Settings - Default values on custom post types.
+- FIX: Gutenberg CSS.
+- FIX: Some dynamic CSS bugs.
+
 v1.3.0
 - NEW: Content Header — Introducing "Content Header", per-page configurable set of page title, breadcrumb, and other elements.
 - NEW: Hero Section — Replace the former "Page Header" section.

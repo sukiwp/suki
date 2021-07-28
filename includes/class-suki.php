@@ -314,6 +314,9 @@ class Suki {
 
 		// Gutenberg: Responsive embeds
 		add_theme_support( 'responsive-embeds' );
+
+		// Gutenberg: Custom spacing
+		add_theme_support( 'custom-spacing' );
 	}
 
 	/**

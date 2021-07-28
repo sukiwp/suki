@@ -36,6 +36,7 @@ $add['color_palette_8'] = $colors['black'];
 $add['breadcrumb_plugin'] = '';
 $add['breadcrumb_trail_home'] = 1;
 $add['breadcrumb_trail_current_page'] = 1;
+$add['breadcrumb_hide_when_only_home_or_current'] = 0;
 
 /**
  * ====================================================
@@ -942,9 +943,9 @@ $add['error_404_search_bar'] = 1;
  * ====================================================
  */
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
 	// Only process archives.
-	if ( preg_match( '/(_archive)/', $ps_type ) ) {
+	if ( 0 < strpos( '/(_archive)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title', 'archive-description' );
 		$add[ $ps_type . '_content_header_alignment'] = 'center';
 	}
@@ -956,9 +957,9 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
  * ====================================================
  */
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
 	// Only process singular.
-	if ( preg_match( '/(_single)/', $ps_type ) ) {
+	if ( 0 < strpos( '/(_single)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title' );
 		$add[ $ps_type . '_content_header_alignment'] = 'center';
 		$add[ $ps_type . '_content_thumbnail_position'] = 'before';

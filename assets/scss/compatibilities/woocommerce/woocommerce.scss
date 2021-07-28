@@ -664,7 +664,7 @@ p.demo_store,
 				li {
 					// border: 1px solid darken($secondary, 10%);
 					// background-color: $secondary;
-					display: inline-block;
+					// display: inline-block;
 					position: relative;
 					// z-index: 0;
 					// border-radius: 4px 4px 0 0;
@@ -1178,6 +1178,10 @@ p.demo_store,
 	}
 
 	.woocommerce-products-header {
+		.content-header {
+			margin-bottom: 2rem;
+		}
+
 		> *:last-child {
 			margin: 0 0 3rem;
 		}
@@ -1612,6 +1616,8 @@ p.demo_store,
 	}
 
 	.woocommerce-product-rating {
+		margin-bottom: 1em;
+
 		// 	@include clearfix();
 		// 	line-height: 2;
 		// 	display: block;

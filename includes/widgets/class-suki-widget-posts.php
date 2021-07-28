@@ -98,6 +98,9 @@ class Suki_Widget_Posts extends WP_Widget {
 		$category       = isset( $instance['category'] ) ? $instance['category'] : array();
 		$show_date      = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
 		?>
+		<?php if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) : ?>
+			<p style="color: var(--wp-admin-theme-color);"><?php esc_html_e( '** Since WordPress 5.8, we strongly suggest you to replace this widget with the "Posts" block.', 'suki' ); ?></p>
+		<?php endif; ?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'suki' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">

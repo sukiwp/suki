@@ -621,18 +621,11 @@ $add['boxed_page_width'] = array(
 		'element'  => 'body.suki-page-layout-boxed .suki-header-section.suki-section-full-width .menu .sub-menu', // scss: header
 		'property' => 'max-width',
 	),
+	// alignfull
 	array(
 		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
-		'property' => 'width',
-		'media'    => '@media screen and (min-width: $)',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
-		'property' => 'left',
-		'pattern'  => 'calc( 50% - ( $ / 2 ) )',
-		'media'    => '@media screen and (min-width: $)',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'property' => 'max-width',
 	),
 );
 $add['boxed_page_shadow'] = array(
@@ -656,17 +649,17 @@ $add['container_width'] = array(
 	// alignwide
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > *', // scss: gutenberg
-		'property' => 'width',
+		'element'  => '.suki-content-layout-wide .alignwide', // scss: gutenberg
+		'property' => 'max-width',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content .alignwide', // scss: gutenberg
-		'property' => 'width',
+		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *.alignwide', // scss: gutenberg
+		'property' => 'max-width',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-wide.suki-section-default .suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull)', // scss: gutenberg
+		'element'  => '.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > *:not(.alignwide):not(.alignfull)', // scss: gutenberg
 		'property' => 'width',
 	),
 );
@@ -674,16 +667,11 @@ $add['content_narrow_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-section-narrow > .suki-section-inner > .suki-wrapper', // scss: container
-		'property' => 'max-width',
-	),
-	array(
-		'type'     => 'css',
-		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *', // scss: gutenberg
 		'property' => 'width',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-layout-wide.suki-section-narrow .suki-gutenberg-content .entry-content > *:not(.alignwide):not(.alignfull)', // scss: gutenberg
+		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *:not(.alignwide):not(.alignfull)', // scss: gutenberg
 		'property' => 'width',
 	),
 );
@@ -1548,44 +1536,6 @@ foreach ( $responsive as $suffix => $media ) {
 			'element'  => '.suki-content-inner', // scss: container
 			'property' => 'padding',
 			'media'    => $media,
-		),
-
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
-			'property' => 'padding-left',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 3 ), // 4th part = left
-			),
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content', // scss: gutenberg
-			'property' => 'padding-right',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 1 ), // 2nd part = right
-			),
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content > .alignfull', // scss: gutenberg
-			'property' => 'left',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 3 ), // 4th part = left
-			),
-		),
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-content-layout-wide .suki-gutenberg-content .entry-content > .alignfull', // scss: gutenberg
-			'property' => 'max-width',
-			'pattern'  => 'calc( 100% + ( 2 * $ ) )',
-			'function' => array(
-				'name' => 'explode_value',
-				'args' => array( 3 ), // 4th part = left --- assumed that right padding is same with left padding 
-			),
 		),
 	);
 }
@@ -2629,11 +2579,7 @@ $add['search_results_content_header_alignment'] = array(
  * ====================================================
  */
 
-foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
-	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
-		continue;
-	}
-
+foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $post_type ) {
 	$element = 'body.post-type-archive-' . $post_type . ' .content-header';
 	foreach ( get_object_taxonomies( $post_type ) as $tax ) {
 		$element .= ', body.tax-' . $tax . ' .content-header';
@@ -2654,11 +2600,7 @@ foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
  * ====================================================
  */
 
-foreach ( suki_get_post_types_for_page_settings() as $post_type ) {
-	if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
-		continue;
-	}
-
+foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $post_type ) {
 	$add[ $post_type . '_single_content_header_alignment'] = array(
 		array(
 			'type'     => 'class',

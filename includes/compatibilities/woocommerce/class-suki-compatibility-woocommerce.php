@@ -56,8 +56,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
 		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
 		add_filter( 'suki/dataset/product_single_content_header_elements', array( $this, 'modify_content_header_elements_choices_on_product_single_page' ) );
-		add_filter( 'suki/customizer/enable_auto_options_on_product_archive', '__return_false' );
-		add_filter( 'suki/customizer/enable_auto_options_on_product_single', '__return_false' );
+		add_filter( 'suki/dataset/custom_page_settings_types', array( $this, 'modify_custom_page_settings_types' ) );
 
 		// Template hooks
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -269,6 +268,22 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Modify post type data for page settings.
+	 * 
+	 * @param array $data
+	 * @return array
+	 */
+	public function modify_custom_page_settings_types( $data ) {
+		$data['product_archive']['section'] = 'woocommerce_product_catalog';
+		$data['product_archive']['auto_options'] = false;
+		
+		$data['product_single']['section'] = 'woocommerce_product_single';
+		$data['product_single']['auto_options'] = false;
+
+		return $data;
+	}
+
+	/**
 	 * Register additional sidebar for WooCommerce.
 	 */
 	public function register_sidebars() {
@@ -469,7 +484,7 @@ class Suki_Compatibility_WooCommerce {
 			// Add Content Header.
 			// AVailable elements: title, breadcrumb.
 			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'woocommerce_taxonomy_archive_description', 'suki_content_header', 1 );
+				add_action( 'woocommerce_archive_description', 'suki_content_header', 1 );
 			}
 
 			// Keep / remove products count filter.
@@ -844,6 +859,8 @@ class Suki_Compatibility_WooCommerce {
 				break;
 				
 			case 'product-rating':
+				wc_setup_product_data( get_queried_object() );
+
 				ob_start();
 				woocommerce_template_single_rating();
 				$html = ob_get_clean();
@@ -861,7 +878,9 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function modify_theme_breadcrumb_trails( $array ) {
 		if ( is_shop() ) {
-			$array['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
+			if ( isset( $array['post_type_archive'] ) ) {
+				$array['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
+			}
 		}
 
 		return $array;
