@@ -1969,7 +1969,7 @@ msgid "Include current page as the last item"
 msgstr ""
 
 #: includes/customizer/options/global--breadcrumb.php:92
-msgid "Hide if home or current page is the only item in the trail"
+msgid "Hide if home or current page is the only item"
 msgstr ""
 
 #: includes/customizer/options/global--color-palette.php:47

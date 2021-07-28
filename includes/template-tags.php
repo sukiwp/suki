@@ -532,7 +532,7 @@ function suki_breadcrumb_native( $echo = true ) {
 		return;
 	}
 
-	// Abort if breadcrumb trail only contain 1 item and the "Hide if home or current page is the only item in the trail" mode is enabled.
+	// Abort if breadcrumb trail only contain 1 item and the "Hide if home or current page is the only item" mode is enabled.
 	if ( 1 == count( $items ) && intval( suki_get_theme_mod( 'breadcrumb_hide_when_only_home_or_current' ) ) ) {
 		// If home or current page (doesn't contain URL).
 		if ( 'home' === array_key_first( $items ) || ! isset( $items[0]['url'] ) ) {

@@ -80,7 +80,7 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
 	'priority'    => 20,
 ) ) );
 
-// Hide if home or current page is the only item in the trail
+// Hide if home or current page is the only item
 $key = 'breadcrumb_hide_when_only_home_or_current';
 $wp_customize->add_setting( $key, array(
 	'default'     => suki_array_value( $defaults, $key ),
@@ -89,7 +89,7 @@ $wp_customize->add_setting( $key, array(
 ) );
 $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
 	'section'     => $section,
-	'label'       => esc_html__( 'Hide if home or current page is the only item in the trail', 'suki' ),
+	'label'       => esc_html__( 'Hide if home or current page is the only item', 'suki' ),
 	'priority'    => 20,
 ) ) );
 

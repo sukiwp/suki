@@ -1,6 +1,6 @@
 v1.3.1
 - NEW: Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).
-- NEW: Breadcrumb - Add new option: "Hide if home or current page is the only item in the trail" mode.
+- NEW: Breadcrumb - Add new option: "Hide if home or current page is the only item" mode.
 - FIX: Breadcrumb - Bug on singular pages.
 - FIX: WooCommerce - Content header issue on Shop page.
 - FIX: Page Settings - Default values on custom post types.
