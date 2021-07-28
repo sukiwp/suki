@@ -654,7 +654,12 @@ $add['container_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > *', // scss: gutenberg
+		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *.alignwide', // scss: gutenberg
+		'property' => 'max-width',
+	),
+	array(
+		'type'     => 'css',
+		'element'  => '.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > *:not(.alignwide):not(.alignfull)', // scss: gutenberg
 		'property' => 'width',
 	),
 );
@@ -666,7 +671,7 @@ $add['content_narrow_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *', // scss: gutenberg
+		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *:not(.alignwide):not(.alignfull)', // scss: gutenberg
 		'property' => 'width',
 	),
 );

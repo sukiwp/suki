@@ -3027,50 +3027,6 @@ a.more-link {
 	margin: 0.5em 0;
 }
 
-.entry-content > * {
-	margin: 1.5rem 0;
-}
-
-.entry-content > *:first-child {
-	margin-top: 0;
-}
-
-.entry-content > *:last-child {
-	margin-bottom: 0;
-}
-
-[class$="__inner-container"] {
-	margin-bottom: 0;
-	max-width: 100%;
-}
-
-[class$="__inner-container"] > * {
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 100%;
-	margin: 1.5rem 0;
-}
-
-[class$="__inner-container"] > *:first-child {
-	margin-top: 0;
-}
-
-[class$="__inner-container"] > *:last-child {
-	margin-bottom: 0;
-}
-
-.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > * {
-	width: 720px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > * {
-	width: 1140px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .has-background {
 	padding: 1.5rem;
 }
@@ -3107,16 +3063,69 @@ body.suki-page-layout-boxed .suki-content-layout-wide .alignfull {
 	max-width: 1400px;
 }
 
-.suki-content-layout-wide .alignfull .alignwide,
+.suki-content-layout-wide .alignfull .alignwide {
+	right: auto;
+	-webkit-transform: none;
+	transform: none;
+}
+
 .suki-content-layout-wide .alignfull .alignfull {
 	right: auto;
 	-webkit-transform: none;
 	transform: none;
-	width: 100%;
+	max-width: 100%;
 }
 
-.suki-content-layout-wide .alignfull .alignfull {
+.entry-content > * {
+	margin: 1.5rem 0;
+}
+
+.entry-content > *:first-child {
+	margin-top: 0;
+}
+
+.entry-content > *:last-child {
+	margin-bottom: 0;
+}
+
+[class$="__inner-container"] {
+	margin-bottom: 0;
 	max-width: 100%;
+}
+
+[class$="__inner-container"] > * {
+	max-width: 100%;
+	margin: 1.5rem 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+[class$="__inner-container"] > *:first-child {
+	margin-top: 0;
+}
+
+[class$="__inner-container"] > *:last-child {
+	margin-bottom: 0;
+}
+
+.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
+	width: 720px;
+}
+
+.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *.alignwide {
+	min-width: 1140px;
+}
+
+.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
+	width: 1140px;
+}
+
+.suki-section-default.suki-content-layout-wide [class$="__inner-container"] > *.alignwide {
+	min-width: auto;
+}
+
+.suki-section-full-width.suki-content-layout-wide [class$="__inner-container"] > * {
+	width: 100%;
 }
 
 .has-small-text-size {

@@ -448,50 +448,6 @@ li > .block-editor .editor-styles-wrapper ul, li >
 	height: 100%;
 }
 
-.block-editor .editor-styles-wrapper .entry-content > * {
-	margin: 1.5rem 0;
-}
-
-.block-editor .editor-styles-wrapper .entry-content > *:first-child {
-	margin-top: 0;
-}
-
-.block-editor .editor-styles-wrapper .entry-content > *:last-child {
-	margin-bottom: 0;
-}
-
-.block-editor .editor-styles-wrapper [class$="__inner-container"] {
-	margin-bottom: 0;
-	max-width: 100%;
-}
-
-.block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 100%;
-	margin: 1.5rem 0;
-}
-
-.block-editor .editor-styles-wrapper [class$="__inner-container"] > *:first-child {
-	margin-top: 0;
-}
-
-.block-editor .editor-styles-wrapper [class$="__inner-container"] > *:last-child {
-	margin-bottom: 0;
-}
-
-.suki-section-narrow.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
-	width: 720px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.suki-section-default.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
-	width: 1140px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .block-editor .editor-styles-wrapper .has-background {
 	padding: 1.5rem;
 }
@@ -528,16 +484,69 @@ body.suki-page-layout-boxed .suki-content-layout-wide .block-editor .editor-styl
 	max-width: 1400px;
 }
 
-.suki-content-layout-wide .block-editor .editor-styles-wrapper .alignfull .alignwide,
+.suki-content-layout-wide .block-editor .editor-styles-wrapper .alignfull .alignwide {
+	right: auto;
+	-webkit-transform: none;
+	transform: none;
+}
+
 .suki-content-layout-wide .block-editor .editor-styles-wrapper .alignfull .alignfull {
 	right: auto;
 	-webkit-transform: none;
 	transform: none;
-	width: 100%;
+	max-width: 100%;
 }
 
-.suki-content-layout-wide .block-editor .editor-styles-wrapper .alignfull .alignfull {
+.block-editor .editor-styles-wrapper .entry-content > * {
+	margin: 1.5rem 0;
+}
+
+.block-editor .editor-styles-wrapper .entry-content > *:first-child {
+	margin-top: 0;
+}
+
+.block-editor .editor-styles-wrapper .entry-content > *:last-child {
+	margin-bottom: 0;
+}
+
+.block-editor .editor-styles-wrapper [class$="__inner-container"] {
+	margin-bottom: 0;
 	max-width: 100%;
+}
+
+.block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
+	max-width: 100%;
+	margin: 1.5rem 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.block-editor .editor-styles-wrapper [class$="__inner-container"] > *:first-child {
+	margin-top: 0;
+}
+
+.block-editor .editor-styles-wrapper [class$="__inner-container"] > *:last-child {
+	margin-bottom: 0;
+}
+
+.suki-section-narrow.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
+	width: 720px;
+}
+
+.suki-section-narrow.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *.alignwide {
+	min-width: 1140px;
+}
+
+.suki-section-default.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
+	width: 1140px;
+}
+
+.suki-section-default.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *.alignwide {
+	min-width: auto;
+}
+
+.suki-section-full-width.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
+	width: 100%;
 }
 
 .block-editor .editor-styles-wrapper .has-small-text-size {
