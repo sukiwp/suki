@@ -92,3 +92,19 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
 	'label'       => esc_html__( 'Hide if home or current page is the only item in the trail', 'suki' ),
 	'priority'    => 20,
 ) ) );
+
+// Selective Refresh
+if ( isset( $wp_customize->selective_refresh ) ) {
+	$wp_customize->selective_refresh->add_partial( 'breadcrumb', array(
+		'settings'            => array(
+			'breadcrumb_plugin',
+			'breadcrumb_trail_home',
+			'breadcrumb_trail_current_page',
+			'breadcrumb_hide_when_only_home_or_current',
+		),
+		'selector'            => '.suki-breadcrumb',
+		'container_inclusive' => true,
+		'render_callback'     => 'suki_breadcrumb',
+		'fallback_refresh'    => true,
+	) );
+}
