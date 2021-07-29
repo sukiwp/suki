@@ -134,12 +134,19 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$subkey = 'hero_bg';
 		$key = $option_prefix . '_' . $subkey;
 		$choices = array(
-			''          => esc_html__( '-- Global --', 'suki' ),
-			'thumbnail' => esc_html__( 'Feat. Image', 'suki' ),
-			'custom'    => esc_html__( 'Custom Image', 'suki' ),
+			''       => esc_html__( '-- Global --', 'suki' ),
+			'custom' => esc_html__( 'Custom', 'suki' ),
 		);
-		if ( false === strpos( $ps_type, '_single' ) || ! post_type_supports( $post_type_slug, 'thumbnail' ) ) {
-			unset( $choices['thumbnail'] );
+		if ( false !== strpos( $ps_type, '_single' ) ) {
+			if ( 'page_single' !== $ps_type ) {
+				/* translators: %s: plural post type name */
+				$choices['archive'] = sprintf( esc_html__( 'Same as archive', 'suki' ), $post_type_obj->labels->name );
+			}
+
+			if ( post_type_supports( $post_type_obj->name, 'thumbnail' ) ) {
+				/* translators: %s: singular post type name */
+				$choices['thumbnail'] = sprintf( esc_html__( 'Featured image', 'suki' ), $post_type_obj->labels->singular_name );
+			}
 		}
 		$wp_customize->add_setting( $key, array(
 			'default'     => suki_array_value( $defaults, $key ),
