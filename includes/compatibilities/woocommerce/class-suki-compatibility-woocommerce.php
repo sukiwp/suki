@@ -1280,7 +1280,7 @@ class Suki_Compatibility_WooCommerce {
 		<div class="suki-woocommerce-MyAccount">
 			<div class="suki-woocommerce-MyAccount-sidebar">
 				<div class="suki-woocommerce-MyAccount-user">
-					<?php echo get_avatar( $user->user_ID, 60 ); ?>
+					<?php echo get_avatar( $user->ID, 60 ); ?>
 					<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
 				</div>
 		<?php

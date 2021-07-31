@@ -1,5 +1,6 @@
 v1.3.2
 - FIX: Hero - Hero section background mode on single post type pages.
+- FIX: WooCommerce - Account page's avatar bug, not showing user's defined gravatar.
 - FIX: Gutenberg CSS.
 
 v1.3.1
