@@ -410,15 +410,15 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: includes/template-functions.php:450, template-parts/entry-grid.php:61, template-parts/entry.php:72, includes/customizer/options/blog--entry-default.php:229, includes/customizer/options/blog--entry-default.php:248, includes/customizer/options/blog--entry-grid.php:355, includes/customizer/options/blog--entry-grid.php:374
+#: includes/template-functions.php:458, template-parts/entry-grid.php:61, template-parts/entry.php:72, includes/customizer/options/blog--entry-default.php:229, includes/customizer/options/blog--entry-default.php:248, includes/customizer/options/blog--entry-grid.php:355, includes/customizer/options/blog--entry-grid.php:374
 msgid "Read more"
 msgstr ""
 
-#: includes/template-functions.php:527
+#: includes/template-functions.php:535
 msgid "Expand / Collapse"
 msgstr ""
 
-#: includes/template-functions.php:587
+#: includes/template-functions.php:595
 msgid "Search&hellip;"
 msgstr ""
 
