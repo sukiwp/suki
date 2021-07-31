@@ -1,5 +1,6 @@
 v1.3.2
 - FIX: Hero - Hero section background mode on single post type pages.
+- FIX: Gutenberg CSS.
 
 v1.3.1
 - NEW: Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).

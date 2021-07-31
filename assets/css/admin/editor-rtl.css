@@ -854,6 +854,11 @@ p.wp-block-subhead {
 	border-top-width: 0;
 }
 
+.wp-block-separator.has-background {
+	padding: 0;
+	border-color: currentColor;
+}
+
 .wp-block-button.is-style-outline a.wp-block-button__link {
 	background-color: transparent;
 	border-color: currentColor;

@@ -550,6 +550,11 @@ p.wp-block-subhead {
 	&.is-style-wide {
 		border-top-width: 0; // reset
 	}
+
+	&.has-background {
+		padding: 0; // reset;
+		border-color: currentColor;
+	}
 }
 
 // -------------------------------------------------------------

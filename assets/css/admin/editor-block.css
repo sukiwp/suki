@@ -885,6 +885,11 @@ body.suki-page-layout-boxed .suki-content-layout-wide .block-editor .editor-styl
 	border-top-width: 0;
 }
 
+.block-editor .editor-styles-wrapper .wp-block-separator.has-background {
+	padding: 0;
+	border-color: currentColor;
+}
+
 .block-editor .editor-styles-wrapper .wp-block-button.is-style-outline a.wp-block-button__link {
 	background-color: transparent;
 	border-color: currentColor;
