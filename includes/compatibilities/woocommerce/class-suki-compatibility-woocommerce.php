@@ -877,7 +877,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function modify_theme_breadcrumb_trails( $array ) {
-		if ( is_shop() ) {
+		if ( is_woocommerce() ) {
 			if ( isset( $array['post_type_archive'] ) ) {
 				$array['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
 			}
