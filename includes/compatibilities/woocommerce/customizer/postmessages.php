@@ -386,13 +386,13 @@ $add['woocommerce_products_grid_text_alignment'] = array(
 $add['woocommerce_single_gallery_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.images, .woocommerce div.product div.images',
+		'element'  => '.woocommerce #content div.product .suki-woocommerce-single-gallery, .woocommerce div.product .suki-woocommerce-single-gallery',
 		'property' => 'width',
 		'media'    => '@media screen and (min-width: 1024px)',
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.images ~ div.summary, .woocommerce div.product div.images ~ div.summary',
+		'element'  => '.woocommerce #content div.product .suki-woocommerce-single-gallery ~ div.summary, .woocommerce div.product .suki-woocommerce-single-gallery ~ div.summary',
 		'property' => 'width',
 		'pattern'  => 'calc(100% - $)',
 		'media'    => '@media screen and (min-width: 1024px)',
@@ -402,7 +402,7 @@ $add['woocommerce_single_gallery_width'] = array(
 $add['woocommerce_single_gallery_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.woocommerce #content div.product div.images ~ div.summary, .woocommerce div.product div.images ~ div.summary',
+		'element'  => '.woocommerce #content div.product .suki-woocommerce-single-gallery ~ div.summary, .woocommerce div.product .suki-woocommerce-single-gallery ~ div.summary',
 		'property' => 'padding-left',
 		'media'    => '@media screen and (min-width: 1024px)',
 	),

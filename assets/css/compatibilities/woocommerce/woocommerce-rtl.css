@@ -351,12 +351,12 @@ p.demo_store a,
 	margin-left: 0.5em;
 }
 
-.woocommerce div.product .suki-woocommerc-single-gallery {
+.woocommerce div.product .suki-woocommerce-single-gallery {
 	position: relative;
 }
 
 @media screen and (min-width: 1024px) {
-	.woocommerce div.product .suki-woocommerc-single-gallery {
+	.woocommerce div.product .suki-woocommerce-single-gallery {
 		float: right;
 		clear: none;
 		width: 60%;
@@ -364,7 +364,7 @@ p.demo_store a,
 }
 
 @media screen and (min-width: 1024px) {
-	.woocommerce div.product .suki-woocommerc-single-gallery ~ div.summary {
+	.woocommerce div.product .suki-woocommerce-single-gallery ~ div.summary {
 		width: 40%;
 		float: left;
 		clear: none;

@@ -1048,7 +1048,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Add opening products gallery tag.
 	 */
 	public function render_product_gallery_wrapper() {
-		?><div class="suki-woocommerc-single-gallery"><?php
+		?><div class="suki-woocommerce-single-gallery"><?php
 	}
 
 	/**
