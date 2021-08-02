@@ -662,7 +662,7 @@ $add['container_width'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-content-layout-wide .alignwide', // scss: gutenberg
 		'property' => 'left',
-		'property' => 'calc( 50% - min( ( $ / 2 ), 50vw - 20px ) );',
+		'pattern'  => 'calc( 50% - min( ( $ / 2 ), 50vw - 20px ) );',
 	),
 	array(
 		'type'     => 'css',
