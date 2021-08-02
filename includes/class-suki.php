@@ -500,22 +500,41 @@ class Suki {
 
 		$hero_bg_image = '';
 
+		// Get current page's hero background mode.
 		$hero_bg = suki_get_current_page_setting( 'hero_bg' );
 
 		switch ( $hero_bg ) {
 			case 'thumbnail':
+				// If post has thumbnail, use the thumbnail.
 				if ( has_post_thumbnail() ) {
 					$hero_bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-				} else {
+				}
+
+				// If featured image is not set, fallback to global background image.
+				if ( empty( $hero_bg_image ) ) {
+					$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
+				}
+				break;
+			
+			case 'archive':
+				// Try to get the archive page's hero custom background image.
+				if ( 'custom' === suki_get_theme_mod( get_post_type() . '_archive_hero_bg' ) ) {
+					$hero_bg_image = suki_get_theme_mod( get_post_type() . '_archive_hero_bg_image' );
+				}
+
+				// If archive page's hero background custom background image is not set, fallback to global background image.
+				if ( empty( $hero_bg_image ) ) {
 					$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
 				}
 				break;
 			
 			case 'custom':
+				// Use custom background image.
 				$hero_bg_image = suki_get_current_page_setting( 'hero_bg_image' );
 				break;
 
 			default:
+				// Use global background image.
 				$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
 				break;
 		}
