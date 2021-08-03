@@ -877,7 +877,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function modify_theme_breadcrumb_trails( $array ) {
-		if ( is_shop() ) {
+		if ( is_woocommerce() ) {
 			if ( isset( $array['post_type_archive'] ) ) {
 				$array['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
 			}
@@ -1048,7 +1048,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Add opening products gallery tag.
 	 */
 	public function render_product_gallery_wrapper() {
-		?><div class="suki-woocommerc-single-gallery"><?php
+		?><div class="suki-woocommerce-single-gallery"><?php
 	}
 
 	/**
@@ -1280,7 +1280,7 @@ class Suki_Compatibility_WooCommerce {
 		<div class="suki-woocommerce-MyAccount">
 			<div class="suki-woocommerce-MyAccount-sidebar">
 				<div class="suki-woocommerce-MyAccount-user">
-					<?php echo get_avatar( $user->user_ID, 60 ); ?>
+					<?php echo get_avatar( $user->ID, 60 ); ?>
 					<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
 				</div>
 		<?php

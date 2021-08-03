@@ -726,7 +726,7 @@ function suki_hero() {
 	if ( intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
 		return;
 	}
-
+	
 	suki_get_template_part( 'hero' );
 }
 endif;

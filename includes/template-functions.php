@@ -191,11 +191,13 @@ function suki_template_hooks() {
 
 		// Add content header before main content.
 		if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-			if ( is_home() ) {
-				if ( intval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) {
-					add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+			// Only add if content header is not disabled.
+			if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+				// Abort if content header is not allowed in Blog page.
+				if ( is_home() && ! intval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) {
+					return;
 				}
-			} else {
+				
 				add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 			}
 		}
@@ -245,7 +247,10 @@ function suki_template_hooks() {
 		if ( is_page() ) {
 			// Add content header to content section.
 			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'suki/frontend/page_content/header', 'suki_content_header', 10 );
+				// Only add if content header is not disabled.
+				if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+					add_action( 'suki/frontend/page_content/header', 'suki_content_header', 10 );
+				}
 			}
 
 			// Add thumbnail before or after content header.
@@ -263,7 +268,10 @@ function suki_template_hooks() {
 		else {
 			// Add content header to content section.
 			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'suki/frontend/post_content/header', 'suki_content_header', 10 );
+				// Only add if content header is not disabled.
+				if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+					add_action( 'suki/frontend/post_content/header', 'suki_content_header', 10 );
+				}
 			}
 
 			// Add thumbnail before or after content header.

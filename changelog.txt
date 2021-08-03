@@ -1,3 +1,10 @@
+v1.3.2
+- TWEAK: Breadcrumb - Improve breadcrumb on WooCommerce product pages, it will automatically detect "Shop" page title and use it in the breadcrumb.
+- FIX: Hero - Hero section background mode on single post type pages.
+- FIX: WooCommerce - Account page's avatar bug, not showing user's defined gravatar.
+- FIX: WooCommerce - Product gallery width option.
+- FIX: Gutenberg CSS.
+
 v1.3.1
 - NEW: Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).
 - NEW: Breadcrumb - Add new option: "Hide if home or current page is the only item" mode.

@@ -627,6 +627,12 @@ $add['boxed_page_width'] = array(
 		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
 		'property' => 'max-width',
 	),
+	array(
+		'type'     => 'css',
+		'element'  => 'body.suki-page-layout-boxed .suki-content-layout-wide .alignfull',
+		'property' => 'left',
+		'pattern'  => 'calc( 50% - min( $ / 2, 50vw ) )',
+	),
 );
 $add['boxed_page_shadow'] = array(
 	array(
@@ -654,8 +660,9 @@ $add['container_width'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-section-narrow.suki-content-layout-wide [class$="__inner-container"] > *.alignwide', // scss: gutenberg
-		'property' => 'max-width',
+		'element'  => '.suki-content-layout-wide .alignwide', // scss: gutenberg
+		'property' => 'left',
+		'pattern'  => 'calc( 50% - min( ( $ / 2 ), 50vw - 20px ) );',
 	),
 	array(
 		'type'     => 'css',

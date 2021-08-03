@@ -126,7 +126,7 @@ class Suki_Customize_Control_Slider extends Suki_Customize_Control {
 					<div class="suki-row-item">
 						<input class="suki-slider-range" type="range" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
-					<div class="suki-row-item" style="flex: 0 0 50px;">
+					<div class="suki-row-item" style="flex: 0 0 55px;">
 						<input class="suki-slider-input {{ data.hide_units ? '' : 'suki-input-with-unit' }}" type="number" value="{{ data.inputs[ setting_key ].number }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
 					</div>
 					<div class="suki-row-item" style="flex: 0 0 30px; {{ data.hide_units ? 'display: none;' : '' }}">
