@@ -1,3 +1,6 @@
+v1.3.3
+- FIX: WooCommerce - Fix theme's breadcrumb for WooCommerce product pages.
+
 v1.3.2
 - TWEAK: Breadcrumb - Improve breadcrumb on WooCommerce product pages, it will automatically detect "Shop" page title and use it in the breadcrumb.
 - FIX: Hero - Hero section background mode on single post type pages.

@@ -217,12 +217,12 @@ p.demo_store,
 	.woocommerce-breadcrumb {
 
 		// @include clearfix();
-		margin: 0 0 1em;
-		padding: 0;
+		// margin: 0 0 1em;
+		// padding: 0;
 		// font-size: 0.92em;
-		font-size: 0.9em;
+		// font-size: 0.9em;
 		// color: $subtext;
-		color: inherit; // postmessage: TODO
+		// color: inherit; // postmessage: TODO
 
 		// a {
 		// 	color: $subtext;
@@ -232,17 +232,17 @@ p.demo_store,
 			margin: 0 0.5em;
 
 			&:before {
-				content: "\00BB";
+				content: "\203a";
 			}
 		}
 
-		a {
-			color: inherit; // postmessage: TODO
+		// a {
+		// 	color: inherit; // postmessage: TODO
 
-			&:hover, &:focus {
-				color: $color_heading; // postmessage: TODO
-			}
-		}
+		// 	&:hover, &:focus {
+		// 		color: $color_heading; // postmessage: TODO
+		// 	}
+		// }
 	}
 
 	.cart .quantity {

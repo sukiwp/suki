@@ -825,7 +825,7 @@ $add['scroll_to_top_hover_text_color'] = '';
  */
 
 $add['post_archive_content_header'] = array( 'title', 'archive-description' );
-$add['post_archive_content_header_alignment'] = 'center';
+$add['post_archive_content_header_alignment'] = 'left';
 
 $add['blog_index_loop_mode'] = 'default';
 $add['blog_index_content_header'] = 0;
@@ -915,7 +915,7 @@ $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
  */
 
 $add['page_single_content_header'] = array( 'title' );
-$add['page_single_content_header_alignment'] = 'center';
+$add['page_single_content_header_alignment'] = 'left';
 
 $add['page_single_content_thumbnail_position'] = 'before';
 
@@ -926,7 +926,7 @@ $add['page_single_content_thumbnail_position'] = 'before';
  */
 
 $add['search_results_content_header'] = array( 'title', 'search-form' );
-$add['search_results_content_header_alignment'] = 'center';
+$add['search_results_content_header_alignment'] = 'left';
 
 /**
  * ====================================================
@@ -947,7 +947,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 	// Only process archives.
 	if ( 0 < strpos( '/(_archive)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title', 'archive-description' );
-		$add[ $ps_type . '_content_header_alignment'] = 'center';
+		$add[ $ps_type . '_content_header_alignment'] = 'left';
 	}
 }
 
@@ -961,7 +961,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 	// Only process singular.
 	if ( 0 < strpos( '/(_single)/', $ps_type ) ) {
 		$add[ $ps_type . '_content_header'] = array( 'title' );
-		$add[ $ps_type . '_content_header_alignment'] = 'center';
+		$add[ $ps_type . '_content_header_alignment'] = 'left';
 		$add[ $ps_type . '_content_thumbnail_position'] = 'before';
 	}
 }
