@@ -58,7 +58,7 @@ class Suki {
 		add_action( 'init', array( $this, 'setup_theme_info' ), 0 );
 
 		// Check migration.
-		add_action( 'wp_loaded', array( $this, 'check_theme_version' ), 999 );
+		add_action( 'init', array( $this, 'check_theme_version' ), 1 );
 
 		// Register sidebars and widgets.
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
