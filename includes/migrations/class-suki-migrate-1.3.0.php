@@ -37,23 +37,21 @@ class Suki_Migrate_1_3_0 {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		add_action( 'wp_loaded', function() {
-			$this->preserve_old_default_typography_styles();
-			$this->migrate_page_template_slug();
-			$this->migrate_featured_media_to_thumbnail();
-			$this->migrate_header_shopping_cart();
-			$this->migrate_header_mobile_vertical_bar_full_screen_position();
-			$this->migrate_entry_default_to_post_single();
-			
-			$this->migrate_customizer_page_settings_keys();
-			$this->migrate_customizer_page_header_title_text();
-			$this->migrate_customizer_page_header_to_hero_section();
-			$this->migrate_customizer_content_layout_narrow();
-	
-			$this->migrate_meta_box_all_settings();
-	
-			$this->migrate_woocommerce_settings();
-		}, 999 );
+		$this->preserve_old_default_typography_styles();
+		$this->migrate_page_template_slug();
+		$this->migrate_featured_media_to_thumbnail();
+		$this->migrate_header_shopping_cart();
+		$this->migrate_header_mobile_vertical_bar_full_screen_position();
+		$this->migrate_entry_default_to_post_single();
+		
+		$this->migrate_customizer_page_settings_keys();
+		$this->migrate_customizer_page_header_title_text();
+		$this->migrate_customizer_page_header_to_hero_section();
+		$this->migrate_customizer_content_layout_narrow();
+
+		$this->migrate_meta_box_all_settings();
+
+		$this->migrate_woocommerce_settings();
 	}
 
 	/**

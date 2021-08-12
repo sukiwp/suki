@@ -57,8 +57,8 @@ class Suki {
 		// Priority has to be set to 0 because "widgets_init" action is actually an "init" action with priority set to 1.
 		add_action( 'init', array( $this, 'setup_theme_info' ), 0 );
 
-		// Check migration.
-		add_action( 'init', array( $this, 'check_theme_version' ), 1 );
+		// Check version and migration.
+		add_action( 'init', array( $this, 'check_theme_version_and_migrations' ), 999 ); // set priority to "999" to allow plugin's "init" to run before the migration.
 
 		// Register sidebars and widgets.
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
@@ -143,9 +143,9 @@ class Suki {
 	}
 
 	/**
-	 * Check theme version and add hook to do some actions when version changed.
+	 * Check theme and apply migrations.
 	 */
-	public function check_theme_version() {
+	public function check_theme_version_and_migrations() {
 		// Get theme version info from DB
 		$db_version = get_option( 'suki_theme_version', false );
 		$files_version = $this->get_info( 'version' );
@@ -157,7 +157,7 @@ class Suki {
 			// Skip migration and version update, because this is new installation.
 			return;
 		}
-
+		
 		// If current version is larger than DB version, update DB version and run migration (if any).
 		if ( version_compare( $db_version, $files_version, '<' ) ) {
 			// Run through each "to-do" migration list step by step.
