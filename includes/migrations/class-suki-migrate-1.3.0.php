@@ -85,13 +85,14 @@ class Suki_Migrate_1_3_0 {
 	 */
 	private function migrate_page_template_slug() {
 		$posts = get_posts( array(
+			'post_type'      => 'any',
 			'posts_per_page' => -1,
 			'meta_key'       => '_wp_page_template',
 			'meta_value'     => 'page-templates/page-builder.php',
 		) );
 
 		foreach ( $posts as $post ) {
-			update_post_meta( $post, '_wp_page_template', 'page-templates/page_builder.php' );
+			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/page_builder.php' );
 		}
 	}
 

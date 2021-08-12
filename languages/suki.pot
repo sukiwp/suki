@@ -43,50 +43,50 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:222, template-parts/header-element-menu.php:16
+#: includes/class-suki.php:235, template-parts/header-element-menu.php:16
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:223, template-parts/header-element-mobile-menu.php:16
+#: includes/class-suki.php:236, template-parts/header-element-mobile-menu.php:16
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: includes/class-suki.php:224
+#: includes/class-suki.php:237
 msgid "Footer Bottom Menu"
 msgstr ""
 
 #. translators: %s: color index.
 #. translators: %s: color number.
-#: includes/class-suki.php:267, includes/customizer/options/global--color-palette.php:37
+#: includes/class-suki.php:280, includes/customizer/options/global--color-palette.php:37
 msgid "Color %s"
 msgstr ""
 
-#: includes/class-suki.php:280
+#: includes/class-suki.php:293
 msgid "Small"
 msgstr ""
 
-#: includes/class-suki.php:285, includes/admin/class-suki-admin-metabox-page-settings.php:487, includes/customizer/custom-controls/class-suki-customize-control-typography.php:216, includes/customizer/options/content--hero.php:57, includes/customizer/options/content--section.php:34, includes/customizer/options/footer--bottom-bar.php:69, includes/customizer/options/footer--widgets-bar.php:31, includes/customizer/options/header--top-main-bottom-bar.php:76, includes/customizer/options/_page-settings.php:53, includes/customizer/options/_page-settings.php:126
+#: includes/class-suki.php:298, includes/admin/class-suki-admin-metabox-page-settings.php:487, includes/customizer/custom-controls/class-suki-customize-control-typography.php:216, includes/customizer/options/content--hero.php:57, includes/customizer/options/content--section.php:34, includes/customizer/options/footer--bottom-bar.php:69, includes/customizer/options/footer--widgets-bar.php:31, includes/customizer/options/header--top-main-bottom-bar.php:76, includes/customizer/options/_page-settings.php:53, includes/customizer/options/_page-settings.php:126
 msgid "Normal"
 msgstr ""
 
-#: includes/class-suki.php:290, includes/helpers.php:1036, includes/customizer/custom-controls/class-suki-customize-control-typography.php:209
+#: includes/class-suki.php:303, includes/helpers.php:1036, includes/customizer/custom-controls/class-suki-customize-control-typography.php:209
 msgid "Medium"
 msgstr ""
 
-#: includes/class-suki.php:295, includes/helpers.php:1038
+#: includes/class-suki.php:308, includes/helpers.php:1038
 msgid "Large"
 msgstr ""
 
-#: includes/class-suki.php:300
+#: includes/class-suki.php:313
 msgid "Huge"
 msgstr ""
 
-#: includes/class-suki.php:336, includes/admin/class-suki-admin-metabox-page-settings.php:509, includes/customizer/options/content--sidebar.php:21, includes/customizer/options/_page-settings.php:77, includes/customizer/options/_sections.php:305
+#: includes/class-suki.php:349, includes/admin/class-suki-admin-metabox-page-settings.php:509, includes/customizer/options/content--sidebar.php:21, includes/customizer/options/_page-settings.php:77, includes/customizer/options/_sections.php:305
 msgid "Sidebar"
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: includes/class-suki.php:347
+#: includes/class-suki.php:360
 msgid "Footer Widgets Column %s"
 msgstr ""
 
@@ -490,12 +490,12 @@ msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: page-templates/page_builder.php:3
-msgid "Page Builder Full Width (Theme)"
+#: page-templates/suki-page-builder-with-container.php:3
+msgid "[Theme] Page Builder with Container"
 msgstr ""
 
-#: page-templates/page_builder_with_container.php:3
-msgid "Page Builder with Container (Theme)"
+#: page-templates/suki-page-builder.php:3
+msgid "[Theme] Page Builder"
 msgstr ""
 
 #: template-parts/entry-search.php:54, template-parts/entry.php:53, template-parts/page-content.php:54, template-parts/post-content.php:51

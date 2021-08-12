@@ -68,6 +68,19 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
+		// add_filter( 'theme_templates', function( $post_templates, $wp_theme_obj, $post, $post_type ) {
+		// 	$post_templates[ $post_type ]['suki-page-builder'] = $post_templates[ $post_type ]['page-templates/suki-page-builder.php'];
+		// 	unset( $post_templates[ $post_type ]['page-templates/suki-page-builder.php'] );
+
+		// 	$post_templates[ $post_type ]['suki-page-builder-with-container'] = $post_templates[ $post_type ]['page-templates/suki-page-builder-with-container.php'];
+		// 	unset( $post_templates[ $post_type ]['page-templates/suki-page-builder-with-container.php'] );
+
+		// 	return $post_templates;
+		// }, 10, 4 );
+		// add_filter( 'template_include', function( $template ) {
+
+		// });
+
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
 			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
@@ -631,6 +644,7 @@ class Suki {
 			'1.1.0',
 			'1.2.0',
 			'1.3.0',
+			'1.3.3',
 		);
 	}
 }
