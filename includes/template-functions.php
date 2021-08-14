@@ -193,12 +193,10 @@ function suki_template_hooks() {
 		if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
 			// Only add if content header is not disabled.
 			if ( ! intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
-				// Abort if content header is not allowed in Blog page.
-				if ( is_home() && ! intval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) {
-					return;
+				// Add content header on non blog page OR if "Show content header on blog page" option is enabled.
+				if ( ! is_home() || intval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) {
+					add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 				}
-				
-				add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 			}
 		}
 

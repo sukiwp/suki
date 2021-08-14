@@ -1,4 +1,5 @@
 v1.3.3
+- FIX: Blog - Pagination now showing.
 - FIX: WooCommerce - Fix theme's breadcrumb for WooCommerce product pages.
 - FIX: Migration - Fix version migration.
 
