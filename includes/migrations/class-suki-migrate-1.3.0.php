@@ -38,7 +38,7 @@ class Suki_Migrate_1_3_0 {
 	 */
 	protected function __construct() {
 		$this->preserve_old_default_typography_styles();
-		$this->migrate_page_template_slug();
+		// $this->migrate_page_template_slug();
 		$this->migrate_featured_media_to_thumbnail();
 		$this->migrate_header_shopping_cart();
 		$this->migrate_header_mobile_vertical_bar_full_screen_position();
@@ -83,18 +83,18 @@ class Suki_Migrate_1_3_0 {
 	 * "page-" is a reserved page template format (ref: https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use).
 	 * The possible bad case: If user created a page with "builder" as its slug, WordPress will mistakenly use "page-builder" page template for that page even if user didn't set the page template to "page-builder".
 	 */
-	private function migrate_page_template_slug() {
-		$posts = get_posts( array(
-			'post_type'      => 'any',
-			'posts_per_page' => -1,
-			'meta_key'       => '_wp_page_template',
-			'meta_value'     => 'page-templates/page-builder.php',
-		) );
+	// private function migrate_page_template_slug() {
+	// 	$posts = get_posts( array(
+	// 		'post_type'      => 'any',
+	// 		'posts_per_page' => -1,
+	// 		'meta_key'       => '_wp_page_template',
+	// 		'meta_value'     => 'page-templates/page-builder.php',
+	// 	) );
 
-		foreach ( $posts as $post ) {
-			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/page_builder.php' );
-		}
-	}
+	// 	foreach ( $posts as $post ) {
+	// 		update_post_meta( $post->ID, '_wp_page_template', 'page-templates/page_builder.php' );
+	// 	}
+	// }
 
 	/**
 	 * Migrate customizer option keys "featured_media" to "thumbnail".

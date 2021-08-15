@@ -47,7 +47,7 @@ class Suki_Migrate_1_3_3 {
 	 */
 
 	/**
-	 * Migrate all pages with "page_builder" page template to "suki-page-builder".
+	 * Migrate all pages with "page_builder" page template to "page-builder".
 	 */
 	private function migrate_page_template_slug() {
 		$posts = get_posts( array(
@@ -57,7 +57,7 @@ class Suki_Migrate_1_3_3 {
 			'meta_value'     => 'page-templates/page_builder.php',
 		) );
 		foreach ( $posts as $post ) {
-			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/suki-page-builder.php' );
+			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/page-builder.php' );
 		}
 
 		$posts = get_posts( array(
@@ -67,7 +67,7 @@ class Suki_Migrate_1_3_3 {
 			'meta_value'     => 'page-templates/page_builder_with_container.php',
 		) );
 		foreach ( $posts as $post ) {
-			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/suki-page-builder-with-container.php' );
+			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/page-builder-with-container.php' );
 		}
 	}
 }

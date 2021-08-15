@@ -490,11 +490,11 @@ msgctxt "terms list separator"
 msgid ", "
 msgstr ""
 
-#: page-templates/suki-page-builder-with-container.php:3
+#: page-templates/page-builder-with-container.php:3
 msgid "[Theme] Page Builder with Container"
 msgstr ""
 
-#: page-templates/suki-page-builder.php:3
+#: page-templates/page-builder.php:3
 msgid "[Theme] Page Builder"
 msgstr ""
 
