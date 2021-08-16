@@ -47,7 +47,7 @@ class Suki_Migrate_1_3_3 {
 	 */
 
 	/**
-	 * Migrate all pages with "page_builder" page template to "page-builder".
+	 * Revert the page template values on all pages, from "page_builder" to "page-builder".
 	 */
 	private function migrate_page_template_slug() {
 		$posts = get_posts( array(
