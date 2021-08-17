@@ -146,27 +146,12 @@ p.demo_store a,
 	margin-top: 0.75em;
 }
 
-.woocommerce .woocommerce-breadcrumb {
-	margin: 0 0 1em;
-	padding: 0;
-	font-size: 0.9em;
-	color: inherit;
-}
-
 .woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter {
 	margin: 0 0.5em;
 }
 
 .woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter:before {
-	content: "\00BB";
-}
-
-.woocommerce .woocommerce-breadcrumb a {
-	color: inherit;
-}
-
-.woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus {
-	color: #333333;
+	content: "\203a";
 }
 
 .woocommerce .cart .quantity {

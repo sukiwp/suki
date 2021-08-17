@@ -57,8 +57,8 @@ class Suki {
 		// Priority has to be set to 0 because "widgets_init" action is actually an "init" action with priority set to 1.
 		add_action( 'init', array( $this, 'setup_theme_info' ), 0 );
 
-		// Check migration.
-		add_action( 'wp_loaded', array( $this, 'check_theme_version' ), 999 );
+		// Check version and migration.
+		add_action( 'init', array( $this, 'check_theme_version_and_migrations' ), 999 ); // set priority to "999" to allow plugin's "init" to run before the migration.
 
 		// Register sidebars and widgets.
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
@@ -67,6 +67,19 @@ class Suki {
 		// Declare 'wp_enqueue_scripts' action on 'init' hook to make sure all plugins' scripts has been enqueued before theme scripts.
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
+
+		// add_filter( 'theme_templates', function( $post_templates, $wp_theme_obj, $post, $post_type ) {
+		// 	$post_templates[ $post_type ]['suki-page-builder'] = $post_templates[ $post_type ]['page-templates/suki-page-builder.php'];
+		// 	unset( $post_templates[ $post_type ]['page-templates/suki-page-builder.php'] );
+
+		// 	$post_templates[ $post_type ]['suki-page-builder-with-container'] = $post_templates[ $post_type ]['page-templates/suki-page-builder-with-container.php'];
+		// 	unset( $post_templates[ $post_type ]['page-templates/suki-page-builder-with-container.php'] );
+
+		// 	return $post_templates;
+		// }, 10, 4 );
+		// add_filter( 'template_include', function( $template ) {
+
+		// });
 
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
@@ -143,9 +156,9 @@ class Suki {
 	}
 
 	/**
-	 * Check theme version and add hook to do some actions when version changed.
+	 * Check theme and apply migrations.
 	 */
-	public function check_theme_version() {
+	public function check_theme_version_and_migrations() {
 		// Get theme version info from DB
 		$db_version = get_option( 'suki_theme_version', false );
 		$files_version = $this->get_info( 'version' );
@@ -157,7 +170,7 @@ class Suki {
 			// Skip migration and version update, because this is new installation.
 			return;
 		}
-
+		
 		// If current version is larger than DB version, update DB version and run migration (if any).
 		if ( version_compare( $db_version, $files_version, '<' ) ) {
 			// Run through each "to-do" migration list step by step.
@@ -631,6 +644,7 @@ class Suki {
 			'1.1.0',
 			'1.2.0',
 			'1.3.0',
+			'1.3.3',
 		);
 	}
 }

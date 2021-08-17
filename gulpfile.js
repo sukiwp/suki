@@ -312,6 +312,10 @@ gulp.task( 'default', gulp.series( 'build', 'watch' ) );
 gulp.task( 'zip', function() {
 	var info = JSON.parse( fs.readFileSync( './package.json' ) );
 
+	if ( info.version.endsWith( 'dev' ) ) {
+		info.version = info.version.replace( 'dev', 'dev-' + Date.now() );
+	}
+
 	return gulp.src( config.dest.build + '/**/*', { buffer: false, base: config.dest.build + '/../' } )
 		.pipe( zip( info.name + '-' + info.version + '.zip' ) )
 		.pipe( gulp.dest( config.dest.zip ) );

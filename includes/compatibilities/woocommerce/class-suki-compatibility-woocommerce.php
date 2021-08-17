@@ -68,7 +68,6 @@ class Suki_Compatibility_WooCommerce {
 		
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
-		add_filter( 'suki/dataset/fallback_page_settings', array( $this, 'add_page_settings_fallback_values__product' ) );
 
 		add_filter( 'update_option_woocommerce_cart_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
 		add_filter( 'update_option_woocommerce_checkout_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
@@ -330,15 +329,20 @@ class Suki_Compatibility_WooCommerce {
 		// Modify page title.
 		add_filter( 'woocommerce_page_title', array( $this, 'modify_page_title' ) );
 
+		// Modify original WooCommerce breadcrumb configuration.
+		add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'modify_breadcrumb_defaults' ) );
+		
+		// Whether to use theme's breadcrumb or WooCommerce original breadcrumb.
+		add_filter( 'suki/frontend/breadcrumb', array( $this, 'modify_breadcrumb_html' ) );
+
+		// Change "Products" in theme's breadcrumb trails to Shop page's title.
+		add_filter( 'suki/frontend/breadcrumb_trail', array( $this, 'modify_theme_breadcrumb_trails' ) );
+
 		// Add text alignment class on products loop.
 		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
 
 		// Modify Content Header element.
 		add_filter( 'suki/frontend/content_header_element', array( $this, 'modify_content_header_elements' ), 10, 2 );
-
-		// Change "Products" in theme's breadcrumb trails to Shop page's title.
-		add_filter( 'suki/frontend/breadcrumb_trail', array( $this, 'modify_theme_breadcrumb_trails' ) );
-
 
 		/**
 		 * Global template hooks
@@ -646,25 +650,6 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Add fallback page settings value for "Product Layout" settings.
-	 *
-	 * @param array $settings
-	 * @return array
-	 */
-	public function add_page_settings_fallback_values__product( $settings ) {
-		$add = array(
-			'woocommerce_single_breadcrumb' => suki_get_theme_mod( 'woocommerce_single_breadcrumb' ),
-			'woocommerce_single_gallery' => suki_get_theme_mod( 'woocommerce_single_gallery' ),
-			'woocommerce_single_gallery_layout' => suki_get_theme_mod( 'woocommerce_single_gallery_layout' ),
-			'woocommerce_single_tabs' => suki_get_theme_mod( 'woocommerce_single_tabs' ),
-			'woocommerce_single_up_sells' => suki_get_theme_mod( 'woocommerce_single_up_sells' ),
-			'woocommerce_single_related' => suki_get_theme_mod( 'woocommerce_single_related' ),
-		);
-
-		return array_merge( $settings, $add );
-	}
-
-	/**
 	 * Set default values of Dynamic page layout settings for Cart, Checkout, and My Acount pages.
 	 *
 	 * @param integer $old_value
@@ -827,6 +812,89 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
+	 * Modify breadcrumb.
+	 *
+	 * @param array $defaults
+	 * @return array
+	 */
+	public function modify_breadcrumb_defaults( $defaults ) {
+		$defaults['delimiter'] = '<span class="suki-woocommerce-breadcrumb-delimiter"></span>';
+
+		return $defaults;
+	}
+
+	/**
+	 * Modify breadcrumb.
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	public function modify_breadcrumb_html( $html ) {
+		// Make sure it's WooCommerce page
+		if ( is_woocommerce() ) {
+			// If user chose not to use theme's breadcrumb, use WooCommerce breadcrumb.
+			if ( ! intval( suki_get_theme_mod( 'woocommerce_breadcrumb_use_theme_module' ) ) ) {
+				ob_start();
+				woocommerce_breadcrumb();
+				$html = ob_get_clean();
+			}
+		}
+
+		return $html;
+	}
+
+	/**
+	 * Change "Products" in theme's breadcrumb trails to Shop page's title.
+	 *
+	 * @param array $items
+	 * @return array
+	 */
+	public function modify_theme_breadcrumb_trails( $items ) {
+		// Make sure it's WooCommerce page.
+		if ( is_woocommerce() ) {
+			// If there's archive page in the trail, change it.
+			if ( isset( $items['post_type_archive'] ) ) {
+				$items['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
+			}
+
+			// Build product categories trails.
+			$cat_items = array();
+			$cats = get_the_terms( get_the_ID(), 'product_cat' );
+
+			$main_term = get_term( $cats[0], 'product_cat' );
+			$parents = get_ancestors( $main_term->term_id, 'product_cat' );
+
+			$i = count( $parents );
+
+			while ( $i > 0 ) {
+				$parent_term = get_term( $parents[ $i - 1 ], 'product_cat' );
+				
+				$cat_items['term_parent__' . $i ] = array(
+					'label' => $parent_term->name,
+					'url'   => get_term_link( $parent_term ),
+				);
+				
+				$i--;
+			}
+
+			$cat_items['term'] = array(
+				'label' => $main_term->name,
+				'url'   => get_category_link( $main_term ),
+			);
+
+			// Insert the product categories into trails.
+			$offset = array_search( 'post', array_keys( $items ) );
+			$items = array_merge (
+				array_slice( $items, 0, $offset ),
+				$cat_items,
+				array_slice( $items, $offset, null )
+			);
+		}
+
+		return $items;
+	}
+
+	/**
 	 * Add text alignment class on loop start tag.
 	 *
 	 * @param array $classes
@@ -868,22 +936,6 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		return $html;
-	}
-
-	/**
-	 * Change "Products" in theme's breadcrumb trails to Shop page's title.
-	 *
-	 * @param array $array
-	 * @return array
-	 */
-	public function modify_theme_breadcrumb_trails( $array ) {
-		if ( is_woocommerce() ) {
-			if ( isset( $array['post_type_archive'] ) ) {
-				$array['post_type_archive']['label'] = get_the_title( wc_get_page_id( 'shop' ) );
-			}
-		}
-
-		return $array;
 	}
 
 	/**

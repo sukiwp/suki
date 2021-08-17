@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page Builder Full Width (Theme)
+ * Template Name: [Theme] Page Builder
  *
  * Page template for Page Builder plugins that have their own content container / wrapper functionalities, for example:
  * - Elementor

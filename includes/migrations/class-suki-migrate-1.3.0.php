@@ -85,13 +85,14 @@ class Suki_Migrate_1_3_0 {
 	 */
 	private function migrate_page_template_slug() {
 		$posts = get_posts( array(
+			'post_type'      => 'any',
 			'posts_per_page' => -1,
 			'meta_key'       => '_wp_page_template',
 			'meta_value'     => 'page-templates/page-builder.php',
 		) );
 
 		foreach ( $posts as $post ) {
-			update_post_meta( $post, '_wp_page_template', 'page-templates/page_builder.php' );
+			update_post_meta( $post->ID, '_wp_page_template', 'page-templates/page_builder.php' );
 		}
 	}
 
@@ -387,54 +388,60 @@ class Suki_Migrate_1_3_0 {
 		 * Use "hero" in the option key, because we have already changed "page_header" to "hero".
 		 */
 
-		$locations = array(
-			'left', 'center', 'right',
-		);
-
-		$alignment = '';
-		$has_title = false;
-		$has_breadcrumb = false;
-
-		foreach ( $locations as $location ) {
-			$elements = get_theme_mod( 'hero_elements_' . $location, array() );
-
-			if ( in_array( 'breadcrumb', $elements ) ) {
-				$has_breadcrumb = true;
+		if ( intval( get_theme_mod( 'hero' ) ) ) {
+			$locations = array(
+				'left', 'center', 'right',
+			);
+	
+			$alignment = '';
+			$has_title = false;
+			$has_breadcrumb = false;
+	
+			foreach ( $locations as $location ) {
+				$elements = get_theme_mod( 'hero_elements_' . $location, array() );
+	
+				if ( in_array( 'breadcrumb', $elements ) ) {
+					$has_breadcrumb = true;
+				}
+	
+				if ( in_array( 'title', $elements ) ) {
+					$alignment = $location;
+				}
+	
+				remove_theme_mod( 'hero_elements_' . $location );
 			}
-
-			if ( in_array( 'title', $elements ) ) {
-				$alignment = $location;
+	
+			// Assign the elements to all new pages.
+			foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+				// Skip error 404 page.
+				// There is no hero section in the new error 404 page.
+				if ( 'error_404' == $ps_type ) {
+					continue;
+				}
+	
+				// Skip search results page.
+				// Use the new content header's default because it's the same structure in older version.
+				// It's set to "title" and "search-form".
+				if ( 'search_results' == $ps_type ) {
+					continue;
+				}
+	
+				// Add breadcrumb if specified.
+				if ( $has_breadcrumb ) {
+					set_theme_mod( $ps_type . '_content_header', array_merge(
+						array( 'breadcrumb' ),
+						suki_get_theme_mod( $ps_type . '_content_header', array() ) // Get default value
+					) );
+				}
+	
+				// Set hero alignment.
+				if ( '' !== $alignment ) {
+					set_theme_mod( $ps_type . '_content_header_alignment', $alignment );
+				}
 			}
-
-			remove_theme_mod( 'hero_elements_' . $location );
-		}
-
-		// Assign the elements to all new pages.
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			// Skip error 404 page.
-			// There is no hero section in the new error 404 page.
-			if ( 'error_404' == $ps_type ) {
-				continue;
-			}
-
-			// Skip search results page.
-			// Use the new content header's default because it's the same structure in older version.
-			// It's set to "title" and "search-form".
-			if ( 'search_results' == $ps_type ) {
-				continue;
-			}
-
-			// Add breadcrumb if specified.
-			if ( $has_breadcrumb ) {
-				set_theme_mod( $ps_type . '_content_header', array_merge(
-					array( 'breadcrumb' ),
-					suki_get_theme_mod( $ps_type . '_content_header', array() ) // Get default value
-				) );
-			}
-
-			// Set hero alignment.
-			if ( '' !== $alignment ) {
-				set_theme_mod( $ps_type . '_content_header_alignment', $alignment );
+		} else {
+			foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+				set_theme_mod( $ps_type . '_content_header_alignment', 'left' );
 			}
 		}
 	}

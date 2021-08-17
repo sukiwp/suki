@@ -488,18 +488,16 @@ function suki_breadcrumb_native( $echo = true ) {
 			}
 
 			// Ancestors Trails for Page and other CPT.
-			else {
-				$ancestors = get_post_ancestors( get_post() );
-				$i = count( $ancestors );
+			$ancestors = get_post_ancestors( get_post() );
+			$i = count( $ancestors );
 
-				while ( $i > 0 ) {
-					$items['post_parent__' . $i ] = array(
-						'label' => get_the_title( $ancestors[ $i - 1 ] ),
-						'url'   => get_permalink( $ancestors[ $i - 1 ] ),
-					);
+			while ( $i > 0 ) {
+				$items['post_parent__' . $i ] = array(
+					'label' => get_the_title( $ancestors[ $i - 1 ] ),
+					'url'   => get_permalink( $ancestors[ $i - 1 ] ),
+				);
 
-					$i--;
-				}
+				$i--;
 			}
 		}
 

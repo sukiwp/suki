@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page Builder with Container (Theme)
+ * Template Name: [Theme] Page Builder with Container
  *
  * Page template for Page Builder plugins that doesn't have their own content container / wrapper functionalities, for example:
  * - Visual Composer

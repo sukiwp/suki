@@ -750,27 +750,6 @@ function suki_get_post_types_for_page_settings( $context = 'all' ) {
 }
 
 /**
- * Return fallback values of page settings.
- * 
- * @return array
- */
-function suki_get_fallback_page_settings() {
-	$array = apply_filters( 'suki/dataset/page_settings/fallback_values', array(
-		'content_container'        => suki_get_theme_mod( 'content_container', 'default' ),
-		'content_layout'           => suki_get_theme_mod( 'content_layout', 'right-sidebar' ),
-		'content_header'           => array( 'title' ),
-		'content_header_alignment' => 'center',
-		'hero_container'           => suki_get_theme_mod( 'hero_container', 'default' ),
-		'hero_bg'                  => suki_get_theme_mod( 'hero_bg', '' ),
-		'hero_bg_image'            => suki_get_theme_mod( 'hero_bg_image', '' ),
-	) );
-
-	// Compatibility filter
-	// SOON WILL BE DEPRECATED
-	return apply_filters( 'suki/dataset/fallback_page_settings', $array );
-}
-
-/**
  * Return array of configuration for header builder interface in Customizer.
  *
  * @return array
