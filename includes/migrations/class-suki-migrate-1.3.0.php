@@ -210,13 +210,13 @@ class Suki_Migrate_1_3_0 {
 	 */
 	private function migrate_entry_default_to_post_single() {
 		$keys = array(
-			'entry_header'             => 'post_single_content_header',
-			'entry_header_alignment'   => 'post_single_content_header_alignment',
-			'entry_header_meta'        => 'post_single_content_header_meta',
-			'entry_thumbnail_position' => 'post_single_content_thumbnail_position',
-			'entry_footer'             => 'post_single_content_footer',
-			'entry_footer_alignment'   => 'post_single_content_footer_alignment',
-			'entry_footer_meta'        => 'post_single_content_footer_meta',
+			'entry_header',
+			'entry_header_alignment',
+			'entry_header_meta',
+			'entry_thumbnail_position',
+			'entry_footer',
+			'entry_footer_alignment',
+			'entry_footer_meta',
 		);
 
 		foreach ( $keys as $key ) {
@@ -349,17 +349,14 @@ class Suki_Migrate_1_3_0 {
 
 		// Replace old option keys.
 		foreach ( $mods as $key => $value ) {
-			if ( false !== strpos( $key, 'page_header_' ) ) {
-				$new_key = str_replace( 'page_header_', 'hero_', $key );
+			if ( 0 === strpos( $key, 'page_header' ) ) {
+				$new_key = str_replace( 'page_header', 'hero', $key );
 
 				remove_theme_mod( $key );
 
 				set_theme_mod( $new_key, $value );
 			}
 		}
-
-		// Remove global page header toggle option.
-		remove_theme_mod( 'page_header' );
 
 		/**
 		 * Page settings
