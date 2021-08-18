@@ -363,7 +363,7 @@ function suki_breadcrumb_native( $echo = true ) {
 		$post_type_obj = get_post_type_object( $post_type );
 
 		// Add post type archive page if it's not same with home page.
-		if ( trailingslashit( get_post_type_archive_link( $post_type ) ) !== home_url( '/' ) ) {
+		if ( is_home() && ! is_front_page() ) {
 			$post_type_obj = get_post_type_object( $post_type );
 
 			$items['post_type_archive'] = array(
