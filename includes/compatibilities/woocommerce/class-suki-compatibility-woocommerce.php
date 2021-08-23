@@ -527,7 +527,9 @@ class Suki_Compatibility_WooCommerce {
 
 			// Keep / remove gallery.
 			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery' ) ) ) {
+				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper' ), 19 );
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper_end' ), 29 );
 			}
 
 			// Keep / remove tabs.
