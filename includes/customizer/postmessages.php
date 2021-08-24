@@ -194,7 +194,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 			case 1:
 				// Styles that inherit h1 by default
 				$rules[] = array(
-					'type'     => 'css',
+					'type'     => 'font_family' === $prop ? 'font' : 'css',
 					'element'  => '.title, .entry-title, .page-title', // scss: common, entry
 					'property' => $property,
 				);
@@ -203,7 +203,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 			case 3:
 				// Styles that inherit h3 by default
 				$rules[] = array(
-					'type'     => 'css',
+					'type'     => 'font_family' === $prop ? 'font' : 'css',
 					'element'  => 'legend, .small-title, .entry-small-title, .comments-title, .comment-reply-title', // scss: forms, common, entry
 					'property' => $property,
 				);
@@ -212,7 +212,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 			case 4:
 				// Styles that inherit h4 by default
 				$rules[] = array(
-					'type'     => 'css',
+					'type'     => 'font_family' === $prop ? 'font' : 'css',
 					'element'  => '.widget_block > [class^="wp-block-"] > h2:first-child, .widget_block > [class^="wp-block-"] > h3:first-child, .widget_block > [class^="wp-block-"] > h4:first-child, .widget_block > [class^="wp-block-"] > h5:first-child, .widget_block > [class^="wp-block-"] > h6:first-child, .widget-title', // scss: widgets
 					'property' => $property,
 				);

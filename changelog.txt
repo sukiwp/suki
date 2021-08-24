@@ -4,6 +4,7 @@ v1.3.5
 - FIX: Breadcrumb - Error on blog front page.
 - FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce product page.
 - FIX: WooCommerce - Disabled product gallery still takes space in the layout.
+- FIX: Dynamic CSS - Headings typography settings CSS.
 
 v1.3.4
 - FIX: WooCommerce - Fix theme's breadcrumb for WooCommerce product and archive pages.
