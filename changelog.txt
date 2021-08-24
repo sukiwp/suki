@@ -2,6 +2,7 @@ v1.3.5
 - NEW: WooCommerce - Styles for WooCommerce widget blocks: Price Filter and Attribute Filter.
 - FIX: Migration - Fix version migration.
 - FIX: Breadcrumb - Error on blog front page.
+- FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce product page.
 - FIX: WooCommerce - Disabled product gallery still takes space in the layout.
 
 v1.3.4

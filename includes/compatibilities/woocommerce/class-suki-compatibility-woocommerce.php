@@ -861,36 +861,45 @@ class Suki_Compatibility_WooCommerce {
 
 			// Build product categories trails on single product page.
 			if ( is_product() ) {
-				$cat_items = array();
-				$cats = get_the_terms( get_the_ID(), 'product_cat' );
-
-				$main_term = get_term( $cats[0], 'product_cat' );
-				$parents = get_ancestors( $main_term->term_id, 'product_cat' );
-
-				$i = count( $parents );
-
-				while ( $i > 0 ) {
-					$parent_term = get_term( $parents[ $i - 1 ], 'product_cat' );
-					
-					$cat_items['term_parent__' . $i ] = array(
-						'label' => $parent_term->name,
-						'url'   => get_term_link( $parent_term ),
-					);
-					
-					$i--;
-				}
-
-				$cat_items['term'] = array(
-					'label' => $main_term->name,
-					'url'   => get_category_link( $main_term ),
+				$terms = wc_get_product_terms(
+					get_the_ID(),
+					'product_cat',
+					array(
+						'orderby' => 'parent',
+						'order'   => 'DESC',
+					)
 				);
+
+				if ( $terms ) {
+					$main_term = $terms[0];
+					$parents = get_ancestors( $main_term->term_id, 'product_cat' );
 	
-				// Insert the product categories into trails.
-				$items = array_merge (
-					array_slice( $items, 0, count( $items ) - 1 ),
-					$cat_items,
-					array_slice( $items, count( $items ) - 1, null )
-				);
+					// Add parent categories.
+					$i = count( $parents );
+					while ( $i > 0 ) {
+						$parent_term = get_term( $parents[ $i - 1 ], 'product_cat' );
+						
+						$cat_items['term_parent__' . $i ] = array(
+							'label' => $parent_term->name,
+							'url'   => get_term_link( $parent_term ),
+						);
+						
+						$i--;
+					}
+
+					// Add direct main category.
+					$cat_items['term'] = array(
+						'label' => $main_term->name,
+						'url'   => get_category_link( $main_term ),
+					);
+		
+					// Insert the product categories into trails.
+					$items = array_merge (
+						array_slice( $items, 0, count( $items ) - 1 ),
+						$cat_items,
+						array_slice( $items, count( $items ) - 1, null )
+					);
+				}
 			}
 		}
 
