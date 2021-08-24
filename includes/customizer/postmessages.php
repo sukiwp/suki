@@ -213,7 +213,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 				// Styles that inherit h4 by default
 				$rules[] = array(
 					'type'     => 'css',
-					'element'  => '.widget-title', // scss: widgets
+					'element'  => '.widget_block > [class^="wp-block-"] > h2:first-child, .widget_block > [class^="wp-block-"] > h3:first-child, .widget_block > [class^="wp-block-"] > h4:first-child, .widget_block > [class^="wp-block-"] > h5:first-child, .widget_block > [class^="wp-block-"] > h6:first-child, .widget-title', // scss: widgets
 					'property' => $property,
 				);
 				break;
@@ -1738,7 +1738,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 }
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.sidebar .widget-title';
+	$element = '.sidebar .widget_block > [class^="wp-block-"] > h2:first-child, .sidebar .widget_block > [class^="wp-block-"] > h3:first-child, .sidebar .widget_block > [class^="wp-block-"] > h4:first-child, .sidebar .widget_block > [class^="wp-block-"] > h5:first-child, .sidebar .widget_block > [class^="wp-block-"] > h6:first-child, .sidebar .widget-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['sidebar_widget_title_' . $prop ] = array(
@@ -1830,21 +1830,21 @@ $add['sidebar_link_hover_text_color'] = array(
 $add['sidebar_widget_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar .widget-title',
+		'element'  => '.sidebar .widget_block > [class^="wp-block-"] > h2:first-child, .sidebar .widget_block > [class^="wp-block-"] > h3:first-child, .sidebar .widget_block > [class^="wp-block-"] > h4:first-child, .sidebar .widget_block > [class^="wp-block-"] > h5:first-child, .sidebar .widget_block > [class^="wp-block-"] > h6:first-child, .sidebar .widget-title',
 		'property' => 'color',
 	),
 );
 $add['sidebar_widget_title_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar.suki-widget-title-decoration-box .widget-title',
+		'element'  => '.sidebar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h2:first-child, .sidebar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h3:first-child, .sidebar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h4:first-child, .sidebar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h5:first-child, .sidebar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h6:first-child, .sidebar.suki-widget-title-decoration-box .widget-title',
 		'property' => 'background-color',
 	),
 );
 $add['sidebar_widget_title_border_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar .widget-title',
+		'element'  => '.sidebar .widget_block > [class^="wp-block-"] > h2:first-child, .sidebar .widget_block > [class^="wp-block-"] > h3:first-child, .sidebar .widget_block > [class^="wp-block-"] > h4:first-child, .sidebar .widget_block > [class^="wp-block-"] > h5:first-child, .sidebar .widget_block > [class^="wp-block-"] > h6:first-child, .sidebar .widget-title',
 		'property' => 'border-color',
 	),
 );
@@ -1951,7 +1951,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 }
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.suki-footer-widgets-bar .widget-title';
+	$element = '.suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h2:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h3:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h4:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h5:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h6:first-child, .suki-footer-widgets-bar .widget-title';
 	$property = str_replace( '_', '-', $prop );
 
 	$add['footer_widgets_bar_widget_title_' . $prop ] = array(
@@ -2035,21 +2035,21 @@ $add['footer_widgets_bar_link_hover_text_color'] = array(
 $add['footer_widgets_bar_widget_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar .widget-title',
+		'element'  => '.suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h2:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h3:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h4:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h5:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h6:first-child, .suki-footer-widgets-bar .widget-title',
 		'property' => 'color',
 	),
 );
 $add['footer_widgets_bar_widget_title_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar.suki-widget-title-decoration-box .widget-title',
+		'element'  => '.suki-footer-widgets-bar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h2:first-child, .suki-footer-widgets-bar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h3:first-child, .suki-footer-widgets-bar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h4:first-child, .suki-footer-widgets-bar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h5:first-child, .suki-footer-widgets-bar.suki-widget-title-decoration-box .widget_block > [class^="wp-block-"] > h6:first-child, .suki-footer-widgets-bar.suki-widget-title-decoration-box .widget-title',
 		'property' => 'background-color',
 	),
 );
 $add['footer_widgets_bar_widget_title_border_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar .widget-title',
+		'element'  => '.suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h2:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h3:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h4:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h5:first-child, .suki-footer-widgets-bar .widget_block > [class^="wp-block-"] > h6:first-child, .suki-footer-widgets-bar .widget-title',
 		'property' => 'border-color',
 	),
 );

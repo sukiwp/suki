@@ -24,6 +24,11 @@
 }
 
 // Widget title
+.widget_block > [class^="wp-block-"] > h2:first-child,
+.widget_block > [class^="wp-block-"] > h3:first-child,
+.widget_block > [class^="wp-block-"] > h4:first-child,
+.widget_block > [class^="wp-block-"] > h5:first-child,
+.widget_block > [class^="wp-block-"] > h6:first-child,
 .widget-title {
 	margin: 0 0 1.25rem;
 	@include h3();
