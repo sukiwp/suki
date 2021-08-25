@@ -232,7 +232,8 @@ input, select, textarea {
 	width: 32px;
 	margin: 0 0 0 -1px;
 	padding: 0;
-	border-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 	text-align: center;
 	box-shadow: none;
 }

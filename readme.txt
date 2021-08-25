@@ -1,7 +1,7 @@
 === Suki ===
 Contributors: sukiwp
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 Requires at least: 4.5
 Tested up to: 5.4
 License: GNU General Public License v2 or later

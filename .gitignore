@@ -1,12 +1,16 @@
-# Node modules
-node_modules
-
 # OS files
 .DS_Store
 Thumbs.db
 
+# Node JS
+node_modules
+
+# Composer
+composer.phar
+vendor
+
+# Editor
+.vscode
+
 # Build files
 __build
-
-# Private backup
-__bak
