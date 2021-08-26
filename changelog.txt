@@ -1,6 +1,7 @@
 v1.3.6
 - NEW: Template hooks - Before Hero (suki/frontend/before_hero).
 - NEW: Template hooks - After Hero (suki/frontend/after_hero).
+- FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce archive page.
 
 v1.3.5
 - NEW: WooCommerce - Styles for WooCommerce widget blocks: Price Filter and Attribute Filter.
