@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				 */
 				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
 					/**
-					 * Content Section - opening tag
+					 * Content - opening tag
 					 */
 					suki_content_open();
 				}

@@ -522,7 +522,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-parts/hero.php:12, includes/customizer/options/_sections.php:312
+#: template-parts/hero.php:17, includes/customizer/options/_sections.php:312
 msgid "Hero Section"
 msgstr ""
 
