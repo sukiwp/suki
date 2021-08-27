@@ -357,8 +357,23 @@ function suki_breadcrumb_native( $echo = true ) {
 		);
 	}
 
+	// Search results page
+	if ( is_search() ) {
+		$items['search'] = array(
+			/* translators: %s: search keyword. */
+			'label' => sprintf( esc_html__( 'Search: %s', 'suki' ), get_search_query() ),
+		);
+	}
+
+	// 404 page
+	elseif ( is_404() ) {
+		$items['404'] = array(
+			'label' => esc_html__( 'Page Not Found', 'suki' ),
+		);
+	}
+
 	// Other kind of archives: taxonomy archive.
-	if ( is_archive() || is_home() ) {
+	elseif ( is_archive() || is_home() ) {
 		$post_type = get_post_type();
 		$post_type_obj = get_post_type_object( $post_type );
 
@@ -427,21 +442,6 @@ function suki_breadcrumb_native( $echo = true ) {
 				'label' => $term->name,
 			);
 		}
-	}
-
-	// Search results page
-	elseif ( is_search() ) {
-		$items['search'] = array(
-			/* translators: %s: search keyword. */
-			'label' => sprintf( esc_html__( 'Search: %s', 'suki' ), get_search_query() ),
-		);
-	}
-
-	// 404 page
-	elseif ( is_404() ) {
-		$items['404'] = array(
-			'label' => esc_html__( 'Page Not Found', 'suki' ),
-		);
 	}
 
 	// All singular types

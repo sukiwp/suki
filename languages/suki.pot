@@ -430,11 +430,11 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: includes/template-tags.php:443
+#: includes/template-tags.php:371
 msgid "Page Not Found"
 msgstr ""
 
-#: includes/template-tags.php:436
+#: includes/template-tags.php:364
 msgid "Search: %s"
 msgstr ""
 
