@@ -371,6 +371,10 @@ class Suki_Compatibility_WooCommerce {
 		// It might be readded via Content Header.
 		add_filter( 'woocommerce_show_page_title', '__return_false' );
 
+		// Remove archive description from its original position.
+		// It might be readded via Content Header.
+		remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+
 		// Remove the original link wrapper.
 		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
@@ -937,10 +941,17 @@ class Suki_Compatibility_WooCommerce {
 					$html = preg_replace( '/(<h1 .*?>)(.*?)(<\/h1>)/', '$1' . woocommerce_page_title( false ) . '$3', $html );
 				}
 				break;
+			
+			case 'archive-description':
+				ob_start();
+				woocommerce_taxonomy_archive_description();
+				$html = ob_get_clean();
+				break;
 				
 			case 'product-rating':
 				wc_setup_product_data( get_queried_object() );
 
+				
 				ob_start();
 				woocommerce_template_single_rating();
 				$html = ob_get_clean();

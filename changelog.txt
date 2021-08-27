@@ -1,6 +1,7 @@
 v1.3.6
 - NEW: Template hooks - Before Hero (suki/frontend/before_hero).
 - NEW: Template hooks - After Hero (suki/frontend/after_hero).
+- NEW: WooCommerce - Add product taxonomy description as Content Header element.
 - FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce archive page.
 - FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce search results page.
 
