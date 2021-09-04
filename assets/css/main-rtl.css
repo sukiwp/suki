@@ -2172,7 +2172,6 @@ body.error404 .error-404-home-button {
 	justify-content: space-between;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	min-height: 100%;
 	max-width: 100%;
 	-ms-flex: 1;
 	flex: 1;
@@ -2182,7 +2181,6 @@ body.error404 .error-404-home-button {
 	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
-	max-height: 100%;
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
