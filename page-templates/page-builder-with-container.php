@@ -21,6 +21,16 @@ get_header();
 
 ?>
 <div id="content" class="site-content">
+
+	<?php
+	/**
+	 * Hero
+	 */
+	if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
+		suki_hero();
+	}
+	?>
+
 	<div class="suki-wrapper">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
 			<?php
