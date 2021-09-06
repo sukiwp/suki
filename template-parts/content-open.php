@@ -13,9 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 	<?php
 	/**
-	 * Hero Section
+	 * Hero
 	 */
-
 	if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
 		suki_hero();
 	}

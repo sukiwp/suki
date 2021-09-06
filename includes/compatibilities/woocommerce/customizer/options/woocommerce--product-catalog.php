@@ -34,8 +34,9 @@ $wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, 
 	'section'     => $section,
 	// 'label'       => esc_html__( 'Elements', 'suki' ),
 	'choices'     => apply_filters( 'suki/dataset/product_archive_content_header_elements', array(
-		'title'      => esc_html__( 'Title', 'suki' ),
-		'breadcrumb' => esc_html__( 'Breadcrumb', 'suki' ),
+		'title'               => esc_html__( 'Title', 'suki' ),
+		'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
+		'archive-description' => esc_html__( 'Taxonomy Description', 'suki' ),
 	) ),
 	'priority'    => 20,
 ) ) );
