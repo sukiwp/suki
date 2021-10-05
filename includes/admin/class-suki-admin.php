@@ -83,9 +83,11 @@ class Suki_Admin {
 
 		// Only include metabox on post add/edit page and term add/edit page.
 		global $pagenow;
-		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
+		
+        //disable metabox
+        /*if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
 			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
-		}
+		}*/
 	}
 
 	/**

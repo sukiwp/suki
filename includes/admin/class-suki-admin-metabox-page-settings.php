@@ -165,7 +165,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		}
 
 		// Update the meta field in the database.
-		update_post_meta( $post_id, '_suki_page_settings', $sanitized );
+		//update_post_meta( $post_id, '_suki_page_settings', $sanitized );
 	}
 
 	/**
@@ -649,6 +649,7 @@ class Suki_Admin_Metabox_Page_Settings {
 			<?php
 		endif;
 	}
+    
 }
 
 Suki_Admin_Metabox_Page_Settings::instance();

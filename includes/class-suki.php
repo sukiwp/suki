@@ -121,6 +121,8 @@ class Suki {
 		if ( is_admin() ) {
 			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin.php' );
 		}
+
+        require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox.php' );
 	}
 
 	/**
