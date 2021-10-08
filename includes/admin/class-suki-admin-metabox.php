@@ -15,9 +15,9 @@ if (! defined('ABSPATH')) {
 class Suki_Metabox {
 
     public function __construct() {
-        add_action( 'init', array( $this,'suki_metabox_plugin_setup' ));
-        add_action( 'init', array( $this,'suki_register_meta' ));
-        add_filter( 'rest_prepare_suki_block', array( $this,'filter_suki_block_json' ), 10, 3);
+        add_action( 'init', array( $this, 'suki_metabox_plugin_setup' ));
+        add_action( 'init', array( $this, 'suki_register_meta' ));
+        add_filter( 'rest_prepare_suki_block', array( $this, 'filter_suki_block_json' ), 10, 3);
     }
 
     public function suki_metabox_plugin_setup() {
@@ -78,6 +78,9 @@ class Suki_Metabox {
                         'content_layout'         => array(
                             'type' => 'string',
                         ),
+                        'sticky_sidebar'         => array(
+                            'type' => 'string',
+                        ),
                         'disable_content_header' => array(
                             'type' => 'string',
                         ),
@@ -91,6 +94,24 @@ class Suki_Metabox {
                             'type' => 'string',
                         ),
                         'disable_mobile_header'  => array(
+                            'type' => 'string',
+                        ),
+                        'header_transparent'  => array(
+                            'type' => 'string',
+                        ),
+                        'header_mobile_transparent'  => array(
+                            'type' => 'string',
+                        ),
+                        'header_sticky'  => array(
+                            'type' => 'string',
+                        ),
+                        'header_mobile_sticky'  => array(
+                            'type' => 'string',
+                        ),
+                        'header_alt_colors'  => array(
+                            'type' => 'string',
+                        ),
+                        'header_mobile_alt_colors'  => array(
                             'type' => 'string',
                         ),
                         'disable_footer_widgets' => array(
@@ -110,6 +131,7 @@ class Suki_Metabox {
     }
 
     public function filter_suki_block_json( $data, $post, $context ) {
+
         $post_meta = get_post_meta( $post->ID, '_suki_block_settings', true );
     
         if ($post_meta) {
