@@ -1,0 +1,110 @@
+.suki {
+    &-metabox {
+        &-panel {
+            &-flex {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                align-content: stretch;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            &-grid {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                align-content: stretch;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            &-row {
+                width: 100%;
+                label {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                ul {
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    align-content: stretch;
+                    & > li {
+                        width: 50%;
+                        padding: 2px;
+                        .box {
+                            display: block !important;
+                            width: 100%;
+                            height: auto !important;
+                            padding: 2px;
+                            box-sizing: border-box;
+                            background-color: #aaa;
+                            color: #fff;
+                            outline: 0;
+                            border-radius: 3px;
+                            span {
+                                max-width: 100%;
+                                display: block;
+                                padding: 2px 0;
+                                font-size: 11px;
+                                font-weight: 500;
+                                line-height: 14px;
+                                text-align: center;
+                            }
+                            &.active {
+                                background-color: #0073aa;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-no-margin-x {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+}
+
+.tabel-custom-block {
+    width: 100%;
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-collapse: collapse;
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 0.75em 1em;
+        }
+        th {
+            background-color: #fafafa;
+            text-align: initial;
+            font-weight: initial;
+            border: 1px solid #eee;
+        }
+    }
+}
+
+.interface-complementary-area-header {
+    button {
+        display: none;
+    }
+}
+.w {
+    &-50 {
+        display: inline-block;
+        width: 50%;
+    }
+}

@@ -45,7 +45,7 @@ class Suki_Metabox {
 
         wp_register_style(
             'suki-metabox-editor-style',
-            SUKI_JS_URL .'/admin/metabox/editor.css',
+            SUKI_CSS_URL .'/admin/sidebar.css',
             array( 'wp-edit-blocks' )
         );
 

@@ -1,0 +1,1 @@
+import './metbox-page-settings/index.js';
