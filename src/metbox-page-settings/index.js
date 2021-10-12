@@ -29,8 +29,16 @@ function checkModule(module, array) {
     }
 }
 
+function removeEmptyOrNull(obj) {
+    Object.keys(obj).forEach(k =>
+        (obj[k] && typeof obj[k] === 'object') && removeEmptyOrNull(obj[k]) ||
+        (!obj[k] && obj[k] !== undefined) && delete obj[k]
+    );
+    return obj;
+}
+
 let PluginMetaFields = (props) => {
-    var pageSettings = props.suki_page_settings;
+    var pageSettings = removeEmptyOrNull(props.suki_page_settings);
     var sukiPro = suki_metabox_globals.suki_pro;
     var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
     var moduleHeaderAltColors = checkModule('header-alt-colors', sukiPro);
@@ -91,7 +99,7 @@ let PluginMetaFields = (props) => {
                             <Button
                                 className={classnames(
                                     "box",
-                                    classNameContentContainer === '' ? 'active' : ''
+                                    classNameContentContainer === undefined ? 'active' : ''
                                 )}
                                 onClick={() => props.onChangeMetaBox('', 'content_container', pageSettings)}
                             >
@@ -152,7 +160,7 @@ let PluginMetaFields = (props) => {
                             <Button
                                 className={classnames(
                                     "box",
-                                    classNameContentLayout === '' ? 'active' : ''
+                                    classNameContentLayout === undefined ? 'active' : ''
                                 )}
                                 onClick={() => props.onChangeMetaBox('', 'content_layout', pageSettings)}
                             >
@@ -747,26 +755,8 @@ PluginMetaFields = withDispatch(
                 let metas = oldMeta;
 
                 metas = {
-                    content_container: '',
-                    content_layout: '',
-                    sticky_sidebar: '',
-                    disable_content_header: '',
-                    hero: '',
-                    disable_thumbnail: '',
-                    disable_header: '',
-                    disable_mobile_header: '',
-                    header_transparent: '',
-                    header_mobile_transparent: '',
-                    header_sticky: '',
-                    header_mobile_sticky: '',
-                    header_alt_colors: '',
-                    header_mobile_alt_colors: '',
-                    disable_footer_widgets: '',
-                    disable_footer_bottom: '',
-                    preloader_screen: '',
                     ...metas,
                 };
-
 
                 metas[prop] = value;
 
