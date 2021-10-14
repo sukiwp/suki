@@ -37,9 +37,9 @@ function removeEmptyOrNull(obj) {
     return obj;
 }
 
-let PluginMetaFields = (props) => {
+let MetaBoxPageSettings = (props) => {
     var pageSettings = removeEmptyOrNull(props.suki_page_settings);
-    var sukiPro = suki_metabox_globals.suki_pro;
+    var sukiPro = suki_metabox_page_settings_globals.suki_pro;
     var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
     var moduleHeaderAltColors = checkModule('header-alt-colors', sukiPro);
     var moduleHeaderElementsPlus = checkModule('header-elements-plus', sukiPro);
@@ -732,7 +732,7 @@ let PluginMetaFields = (props) => {
     )
 }
 
-PluginMetaFields = withSelect(
+MetaBoxPageSettings = withSelect(
     (select) => {
 
         return {
@@ -745,9 +745,9 @@ PluginMetaFields = withSelect(
             }
         }
     }
-)(PluginMetaFields);
+)(MetaBoxPageSettings);
 
-PluginMetaFields = withDispatch(
+MetaBoxPageSettings = withDispatch(
     (dispatch) => {
         return {
             onChangeMetaBox: (value, prop, oldMeta) => {
@@ -766,11 +766,11 @@ PluginMetaFields = withDispatch(
             }
         }
     }
-)(PluginMetaFields);
+)(MetaBoxPageSettings);
 
-registerPlugin('suki-metabox', {
+registerPlugin('suki-metabox-page-settings', {
     render: () => {
-        var postTypes = suki_metabox_globals.post_types;
+        var postTypes = suki_metabox_page_settings_globals.post_types_for_page_settings;
         var CurrentPostType = wp.data.select('core/editor').getCurrentPostType();
 
 
@@ -778,17 +778,17 @@ registerPlugin('suki-metabox', {
             return (
                 <>
                     <PluginSidebarMoreMenuItem
-                        target="suki-metabox"
+                        target="suki-metabox-page-settings"
                         icon={settings}
                     >
                         {__('Theme Page Settings', 'suki-theme')}
                     </PluginSidebarMoreMenuItem>
                     <PluginSidebar
-                        name="suki-metabox"
+                        name="suki-metabox-page-settings"
                         title={__('Theme Page Settings', 'suki-theme')}
                         icon={settings}
                     >
-                        <PluginMetaFields />
+                        <MetaBoxPageSettings />
                     </PluginSidebar>
                 </>
             )

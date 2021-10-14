@@ -1,1 +1,1 @@
-import './metbox-page-settings/index.js';
+import './metabox-page-settings/index.js';

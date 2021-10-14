@@ -72,6 +72,8 @@ class Suki_Admin {
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__links' ), 20 );
 		
+        add_action( 'current_screen', array( $this,'check_editor_type') );
+
 		$this->_includes();
 	}
 
@@ -83,12 +85,28 @@ class Suki_Admin {
 
 		// Only include metabox on post add/edit page and term add/edit page.
 		global $pagenow;
-		
-        //disable metabox
-        /*if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
-			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
-		}*/
+
+        if ( ! function_exists( 'is_plugin_active' ) ) {
+            include_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+
+        if ( empty( suki_get_editor_active() ) ) {
+            if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
+                require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
+            }
+        }
+
 	}
+
+    /**
+	 * Return displays the meta box in the sidebar
+	 *
+	 * @return string
+	 */
+    function check_editor_type($current_screen) {
+
+    }
+
 
 	/**
 	 * ====================================================

@@ -95,6 +95,7 @@ class Suki {
 	 * Include additional files.
 	 */
 	private function _includes() {
+
 		// Helper functions
 		require_once( SUKI_INCLUDES_DIR . '/helpers.php' );
 
@@ -122,7 +123,7 @@ class Suki {
 			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin.php' );
 		}
 
-        require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox.php' );
+        require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings-sidebar.php' );
 	}
 
 	/**
@@ -649,6 +650,7 @@ class Suki {
 			'1.3.3',
 		);
 	}
+    
 }
 
 Suki::instance();

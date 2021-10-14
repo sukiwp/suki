@@ -30,10 +30,10 @@ var settings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)
 
 /***/ }),
 
-/***/ "./src/metbox-page-settings/hook_action.js":
-/*!*************************************************!*\
-  !*** ./src/metbox-page-settings/hook_action.js ***!
-  \*************************************************/
+/***/ "./src/metabox-page-settings/hook_action.js":
+/*!**************************************************!*\
+  !*** ./src/metabox-page-settings/hook_action.js ***!
+  \**************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -128,10 +128,10 @@ function hookAction(text) {
 
 /***/ }),
 
-/***/ "./src/metbox-page-settings/icon.js":
-/*!******************************************!*\
-  !*** ./src/metbox-page-settings/icon.js ***!
-  \******************************************/
+/***/ "./src/metabox-page-settings/icon.js":
+/*!*******************************************!*\
+  !*** ./src/metabox-page-settings/icon.js ***!
+  \*******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -549,10 +549,10 @@ function getIcon(icon) {
 
 /***/ }),
 
-/***/ "./src/metbox-page-settings/index.js":
-/*!*******************************************!*\
-  !*** ./src/metbox-page-settings/index.js ***!
-  \*******************************************/
+/***/ "./src/metabox-page-settings/index.js":
+/*!********************************************!*\
+  !*** ./src/metabox-page-settings/index.js ***!
+  \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -571,11 +571,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _hook_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hook_action */ "./src/metbox-page-settings/hook_action.js");
+/* harmony import */ var _hook_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hook_action */ "./src/metabox-page-settings/hook_action.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/settings.js");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./icon */ "./src/metbox-page-settings/icon.js");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./icon */ "./src/metabox-page-settings/icon.js");
 
 
 
@@ -611,9 +611,9 @@ function removeEmptyOrNull(obj) {
   return obj;
 }
 
-var PluginMetaFields = function PluginMetaFields(props) {
+var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
   var pageSettings = removeEmptyOrNull(props.suki_page_settings);
-  var sukiPro = suki_metabox_globals.suki_pro;
+  var sukiPro = suki_metabox_page_settings_globals.suki_pro;
   var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
   var moduleHeaderAltColors = checkModule('header-alt-colors', sukiPro);
   var moduleHeaderElementsPlus = checkModule('header-elements-plus', sukiPro);
@@ -1161,7 +1161,7 @@ var PluginMetaFields = function PluginMetaFields(props) {
   }))));
 };
 
-PluginMetaFields = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withSelect)(function (select) {
+MetaBoxPageSettings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withSelect)(function (select) {
   return {
     suki_custom_blocks: select('core').getEntityRecords('postType', 'suki_block'),
     suki_page_settings: select('core/editor').getEditedPostAttribute('meta')['_suki_page_settings'],
@@ -1169,8 +1169,8 @@ PluginMetaFields = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withSelect)(f
       return value;
     }
   };
-})(PluginMetaFields);
-PluginMetaFields = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withDispatch)(function (dispatch) {
+})(MetaBoxPageSettings);
+MetaBoxPageSettings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withDispatch)(function (dispatch) {
   return {
     onChangeMetaBox: function onChangeMetaBox(value, prop, oldMeta) {
       var metas = oldMeta;
@@ -1184,21 +1184,21 @@ PluginMetaFields = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withDispatch)
       });
     }
   };
-})(PluginMetaFields);
-(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_5__.registerPlugin)('suki-metabox', {
+})(MetaBoxPageSettings);
+(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_5__.registerPlugin)('suki-metabox-page-settings', {
   render: function render() {
-    var postTypes = suki_metabox_globals.post_types;
+    var postTypes = suki_metabox_page_settings_globals.post_types_for_page_settings;
     var CurrentPostType = wp.data.select('core/editor').getCurrentPostType();
 
     if (postTypes.indexOf(CurrentPostType) > -1) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_6__.PluginSidebarMoreMenuItem, {
-        target: "suki-metabox",
+        target: "suki-metabox-page-settings",
         icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"]
       }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Theme Page Settings', 'suki-theme')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_6__.PluginSidebar, {
-        name: "suki-metabox",
+        name: "suki-metabox-page-settings",
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Theme Page Settings', 'suki-theme'),
         icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__["default"]
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(PluginMetaFields, null)));
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(MetaBoxPageSettings, null)));
     } else {
       return '';
     }
@@ -1484,7 +1484,7 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _metbox_page_settings_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./metbox-page-settings/index.js */ "./src/metbox-page-settings/index.js");
+/* harmony import */ var _metabox_page_settings_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./metabox-page-settings/index.js */ "./src/metabox-page-settings/index.js");
 
 }();
 /******/ })()
