@@ -17,7 +17,6 @@ class Suki_Metabox_Page_Settings_Sidebar {
     public function __construct() {
         add_action( 'init', array( $this, 'suki_metabox_page_settings_setup' ));
         add_action( 'init', array( $this, 'suki_register_meta_page_settings' ));
-        add_filter( 'rest_prepare_suki_block', array( $this, 'filter_suki_block_json' ), 10, 3);
     }
 
     public function suki_metabox_page_settings_setup() {
@@ -43,19 +42,21 @@ class Suki_Metabox_Page_Settings_Sidebar {
         );
     
         wp_enqueue_script( 'suki-metabox-page-settings-editor-script' );
-
+        
         wp_register_style(
             'suki-metabox-page-settings-editor-style',
             SUKI_CSS_URL .'/admin/sidebar.css',
             array( 'wp-edit-blocks' )
         );
 
+        wp_enqueue_style( 'suki-metabox-page-settings-editor-style' );
+
         register_block_type(
             'suki-metabox-page-settings',
             array(
-            'script' => 'suki-metabox-page-settings-editor-script',
-            'style'  => 'suki-metabox-page-settings-editor-style',
-        )
+                'script' => 'suki-metabox-page-settings-editor-script',
+                'style'  => 'suki-metabox-page-settings-editor-style',
+            )
         );
     }
 
@@ -131,16 +132,6 @@ class Suki_Metabox_Page_Settings_Sidebar {
         );
     }
 
-    public function filter_suki_block_json( $data, $post, $context ) {
-
-        $post_meta = get_post_meta( $post->ID, '_suki_block_settings', true );
-    
-        if ($post_meta) {
-            $data->data['meta'] = $post_meta;
-        }
-    
-        return $data;
-    }
 }
 
 new Suki_Metabox_Page_Settings_Sidebar();

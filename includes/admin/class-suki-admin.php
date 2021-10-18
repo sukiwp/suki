@@ -90,9 +90,11 @@ class Suki_Admin {
             include_once ABSPATH . 'wp-admin/includes/plugin.php';
         }
 
-        if ( empty( suki_get_editor_active() ) ) {
-            if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
-                require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
+        if (in_array($pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ))) {
+            if (empty(suki_get_editor_active())) {
+                require_once(SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php');
+            } else {
+                require_once(SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings-sidebar.php');
             }
         }
 

@@ -30,104 +30,6 @@ var settings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)
 
 /***/ }),
 
-/***/ "./src/metabox-page-settings/hook_action.js":
-/*!**************************************************!*\
-  !*** ./src/metabox-page-settings/hook_action.js ***!
-  \**************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ hookAction; }
-/* harmony export */ });
-function hookAction(text) {
-  switch (text) {
-    case 'suki/frontend/before_canvas':
-      return 'Before Page Canvas';
-
-    case 'suki/frontend/after_canvas':
-      return 'After Page Canvas';
-
-    case 'suki/frontend/header':
-      return 'Replace Header (Desktop & Mobile Header)';
-
-    case 'suki/frontend/before_header':
-      return 'Before Header';
-
-    case 'suki/frontend/after_header':
-      return 'After Header';
-
-    case 'suki/frontend/before_primary_and_sidebar':
-      return 'Before Main Content & Sidebar';
-
-    case 'suki/frontend/before_primary_and_sidebar':
-      return 'After Main Content & Sidebar';
-
-    case 'suki/frontend/before_main':
-      return 'Before Main Content';
-
-    case 'suki/frontend/after_main':
-      return 'After Main Content';
-
-    case 'suki/frontend/before_sidebar':
-      return 'Before Sidebar';
-
-    case 'suki/frontend/after_sidebar':
-      return 'After Sidebar';
-
-    case 'suki/frontend/entry/before_header':
-      return 'Before Post Entry Header';
-
-    case 'suki/frontend/entry/header':
-      return 'Post Entry Header';
-
-    case 'suki/frontend/entry/after_header':
-      return 'After Post Entry Header';
-
-    case 'suki/frontend/entry/before_content':
-      return 'Before Post Entry Content';
-
-    case 'suki/frontend/entry/after_content':
-      return 'After Post Entry Content';
-
-    case 'suki/frontend/entry/before_footer':
-      return 'Before Post Entry Footer';
-
-    case 'suki/frontend/entry/footer':
-      return 'Post Entry Footer';
-
-    case 'suki/frontend/entry/after_footer':
-      return 'After Post Entry Footer';
-
-    case 'suki/frontend/before_comments':
-      return 'Before Comments Section';
-
-    case 'suki/frontend/before_comments_list':
-      return 'Before Comments List';
-
-    case 'suki/frontend/after_comments_list':
-      return 'After Comments List';
-
-    case 'suki/frontend/after_comments':
-      return 'After Comments Section';
-
-    case 'suki/frontend/footer':
-      return 'Replace Footer (Widgets & Bottom Bar)';
-
-    case 'suki/frontend/before_footer':
-      return 'Before Footer';
-
-    case 'suki/frontend/after_footer':
-      return 'After Footer';
-
-    default:
-      return 'Attached Hook, Not Register';
-  }
-}
-
-/***/ }),
-
 /***/ "./src/metabox-page-settings/icon.js":
 /*!*******************************************!*\
   !*** ./src/metabox-page-settings/icon.js ***!
@@ -571,10 +473,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _hook_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hook_action */ "./src/metabox-page-settings/hook_action.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/settings.js");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./icon */ "./src/metabox-page-settings/icon.js");
 
 
@@ -612,11 +515,11 @@ function removeEmptyOrNull(obj) {
 }
 
 var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
+  console.log(props);
   var pageSettings = removeEmptyOrNull(props.suki_page_settings);
   var sukiPro = suki_metabox_page_settings_globals.suki_pro;
   var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
   var moduleHeaderAltColors = checkModule('header-alt-colors', sukiPro);
-  var moduleHeaderElementsPlus = checkModule('header-elements-plus', sukiPro);
   var moduleHeaderSticky = checkModule('header-sticky', sukiPro);
   var moduleSidebarSticky = checkModule('sidebar-sticky', sukiPro);
   var moduleCustomBlocks = checkModule('custom-blocks', sukiPro);
@@ -625,39 +528,23 @@ var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
   if (pageSettings) {
     var classNameContentContainer = pageSettings.content_container;
     var classNameContentLayout = pageSettings.content_layout;
-    var classNameStickySidebar = pageSettings.sticky_sidebar;
     var classNameDisableContentHeader = pageSettings.disable_content_header;
     var classNameHero = pageSettings.hero;
     var classNameDisableThumbnail = pageSettings.disable_thumbnail;
     var classNameDisableHeader = pageSettings.disable_header;
     var classNameDisableMobileHeader = pageSettings.disable_mobile_header;
-    var classNameHeaderTransparent = pageSettings.header_transparent;
-    var classNameHeaderMobileTransparent = pageSettings.header_mobile_transparent;
-    var classNameHeaderSticky = pageSettings.header_sticky;
-    var classNameHeaderMobileSticky = pageSettings.header_mobile_sticky;
-    var classNameHeaderAltColors = pageSettings.header_alt_colors;
-    var classNameHeaderMobileAltColors = pageSettings.header_mobile_alt_colors;
     var classNameDisableFooterWidgets = pageSettings.disable_footer_widgets;
     var classNameDisableFooterBottom = pageSettings.disable_footer_bottom;
-    var classNamePreloaderScreen = pageSettings.preloader_screen;
   } else {
     var classNameContentContainer = '';
     var classNameContentLayout = '';
-    var classNameStickySidebar = '';
     var classNameDisableContentHeader = '';
     var classNameHero = '';
     var classNameDisableThumbnail = '';
     var classNameDisableHeader = '';
     var classNameDisableMobileHeader = '';
-    var classNameHeaderTransparent = '';
-    var classNameHeaderMobileTransparent = '';
-    var classNameHeaderSticky = '';
-    var classNameHeaderMobileSticky = '';
-    var classNameHeaderAltColors = '';
-    var classNameHeaderMobileAltColors = '';
     var classNameDisableFooterWidgets = '';
     var classNameDisableFooterBottom = '';
-    var classNamePreloaderScreen = '';
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.PanelBody, {
@@ -711,24 +598,7 @@ var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
     onClick: function onClick() {
       return props.onChangeMetaBox('wide', 'content_layout', pageSettings);
     }
-  }, (0,_icon__WEBPACK_IMPORTED_MODULE_10__["default"])('content-sidebar-wide'), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled", "suki-theme")))))), moduleSidebarSticky === true && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "suki-metabox-panel-flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Sticky sidebar", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-    value: classNameStickySidebar,
-    onChange: function onChange(value) {
-      return props.onChangeMetaBox(value, 'sticky_sidebar', pageSettings);
-    },
-    options: [{
-      value: "",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-    }, {
-      value: "0",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Disabled", "suki-theme")
-    }, {
-      value: "1",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✔ Enabled", "suki-theme")
-    }]
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.PanelBody, {
+  }, (0,_icon__WEBPACK_IMPORTED_MODULE_10__["default"])('content-sidebar-wide'), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Disabled", "suki-theme")))))), moduleSidebarSticky === true && (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__.applyFilters)("suki.page.setting.sidebar.sticky", props)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Content Header", "suki-theme"),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
@@ -879,217 +749,7 @@ var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
           value: "1",
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Hidden", "suki-theme")
         }]
-      })))))), moduleHeaderTransparent === true && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          display: 'block',
-          marginBottom: '5px'
-        }
-      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Transparent header", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-meta-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "w-50"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-metabox-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          width: '20px',
-          height: '25px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-        icon: "desktop"
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        style: {
-          width: '100%',
-          paddingLeft: '5px',
-          paddingRight: '5px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-        value: classNameHeaderTransparent,
-        onChange: function onChange(value) {
-          return props.onChangeMetaBox(value, 'header_transparent', pageSettings);
-        },
-        options: [{
-          value: "",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-        }, {
-          value: "0",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Disabled", "suki-theme")
-        }, {
-          value: "1",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✔ Enabled", "suki-theme")
-        }]
-      })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "w-50"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-metabox-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          width: '20px',
-          height: '25px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-        icon: "tablet"
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        style: {
-          width: '100%',
-          paddingLeft: '5px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-        value: classNameHeaderMobileTransparent,
-        onChange: function onChange(value) {
-          return props.onChangeMetaBox(value, 'header_mobile_transparent', pageSettings);
-        },
-        options: [{
-          value: "",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-        }, {
-          value: "0",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Disabled", "suki-theme")
-        }, {
-          value: "1",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✔ Enabled", "suki-theme")
-        }]
-      })))))), moduleHeaderSticky === true && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          display: 'block',
-          marginBottom: '5px'
-        }
-      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Sticky header", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-meta-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "w-50"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-metabox-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          width: '20px',
-          height: '25px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-        icon: "desktop"
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        style: {
-          width: '100%',
-          paddingLeft: '5px',
-          paddingRight: '5px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-        value: classNameHeaderSticky,
-        onChange: function onChange(value) {
-          return props.onChangeMetaBox(value, 'header_sticky', pageSettings);
-        },
-        options: [{
-          value: "",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-        }, {
-          value: "0",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Disabled", "suki-theme")
-        }, {
-          value: "1",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✔ Enabled", "suki-theme")
-        }]
-      })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "w-50"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-metabox-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          width: '20px',
-          height: '25px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-        icon: "tablet"
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        style: {
-          width: '100%',
-          paddingLeft: '5px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-        value: classNameHeaderMobileSticky,
-        onChange: function onChange(value) {
-          return props.onChangeMetaBox(value, 'header_mobile_sticky', pageSettings);
-        },
-        options: [{
-          value: "",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-        }, {
-          value: "0",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Disabled", "suki-theme")
-        }, {
-          value: "1",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✔ Enabled", "suki-theme")
-        }]
-      })))))), moduleHeaderAltColors === true && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          display: 'block',
-          marginBottom: '5px'
-        }
-      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Colors", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-meta-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "w-50"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-metabox-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          width: '20px',
-          height: '25px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-        icon: "desktop"
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        style: {
-          width: '100%',
-          paddingLeft: '5px',
-          paddingRight: '5px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-        value: classNameHeaderAltColors,
-        onChange: function onChange(value) {
-          return props.onChangeMetaBox(value, 'header_alt_colors', pageSettings);
-        },
-        options: [{
-          value: "",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-        }, {
-          value: "0",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("○ Primary", "suki-theme")
-        }, {
-          value: "1",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("● Alternate", "suki-theme")
-        }]
-      })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "w-50"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        className: "suki-metabox-panel-flex"
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", {
-        style: {
-          width: '20px',
-          height: '25px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.Icon, {
-        icon: "tablet"
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        style: {
-          width: '100%',
-          paddingLeft: '5px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-        value: classNameHeaderMobileAltColors,
-        onChange: function onChange(value) {
-          return props.onChangeMetaBox(value, 'header_mobile_alt_colors', pageSettings);
-        },
-        options: [{
-          value: "",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-        }, {
-          value: "0",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("○ Primary", "suki-theme")
-        }, {
-          value: "1",
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("● Alternate", "suki-theme")
-        }]
-      })))))));
+      })))))), moduleHeaderTransparent === true && (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__.applyFilters)("suki.page.setting.header.transparent", props), moduleHeaderSticky === true && (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__.applyFilters)("suki.page.setting.header.sticky", props), moduleHeaderAltColors === true && (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__.applyFilters)("suki.page.setting.header.color", props));
     }
   }()), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Footer", "suki-theme"),
@@ -1122,61 +782,20 @@ var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
       value: "1",
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("✘ Hidden", "suki-theme")
     }]
-  }))), moduleCustomBlocks === true && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Custom Blocks (Hooks)", "suki-theme"),
-    initialOpen: false
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "tabel-custom-block"
-  }, props.suki_custom_blocks && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("table", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("thead", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("tr", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("th", {
-    width: "70%"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Title", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("th", {
-    width: "30%"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Attached Hook", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("th", {
-    width: "100px"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Priority", "suki-theme")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("tbody", null, props.suki_custom_blocks.map(function (post) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("tr", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("td", null, post.title.rendered), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("td", null, (0,_hook_action__WEBPACK_IMPORTED_MODULE_8__["default"])(post.meta.hook_action)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("td", null, post.meta.hook_priority ? post.meta.hook_priority : '10'));
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("NOTE: Blocks that were added via shortcode are not included in the above list.", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("a", {
-    href: "/wp-admin/edit.php?post_type=suki_block",
-    className: "button button-secondary"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Add or Manage Custom Blocks", "suki-theme"))))), modulePreloaderScreen === true && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Preloader Screen", "suki-theme"),
-    initialOpen: false
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "suki-metabox-panel-flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("label", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Preloader Screen", "suki-theme")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
-    value: classNamePreloaderScreen,
-    onChange: function onChange(value) {
-      return props.onChangeMetaBox(value, 'preloader_screen', pageSettings);
-    },
-    options: [{
-      value: "",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("(Customizer)", "suki-theme")
-    }, {
-      value: "0",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("No", "suki-theme")
-    }, {
-      value: "1",
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)("Yes", "suki-theme")
-    }]
-  }))));
+  }))), moduleCustomBlocks === true && (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__.applyFilters)("suki.page.setting.custom.block", props), modulePreloaderScreen === true && (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_9__.applyFilters)("suki.page.setting.preloader.screen", props));
 };
 
-MetaBoxPageSettings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withSelect)(function (select) {
+MetaBoxPageSettings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_8__.withSelect)(function (select) {
   return {
-    suki_custom_blocks: select('core').getEntityRecords('postType', 'suki_block'),
-    suki_page_settings: select('core/editor').getEditedPostAttribute('meta')['_suki_page_settings'],
-    getMetaBox: function getMetaBox(value) {
-      return value;
-    }
+    suki_page_settings: select('core/editor').getEditedPostAttribute('meta')['_suki_page_settings']
   };
 })(MetaBoxPageSettings);
-MetaBoxPageSettings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_9__.withDispatch)(function (dispatch) {
+MetaBoxPageSettings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_8__.withDispatch)(function (dispatch) {
   return {
     onChangeMetaBox: function onChangeMetaBox(value, prop, oldMeta) {
       var metas = oldMeta;
       metas = _objectSpread({}, metas);
       metas[prop] = value;
-      console.log(metas);
       dispatch('core/editor').editPost({
         meta: {
           _suki_page_settings: metas
@@ -1315,6 +934,17 @@ module.exports = window["wp"]["editPost"];
 
 "use strict";
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/hooks":
+/*!*******************************!*\
+  !*** external ["wp","hooks"] ***!
+  \*******************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = window["wp"]["hooks"];
 
 /***/ }),
 
