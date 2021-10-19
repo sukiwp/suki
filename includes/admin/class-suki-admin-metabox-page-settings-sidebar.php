@@ -21,43 +21,46 @@ class Suki_Metabox_Page_Settings_Sidebar {
 
     public function suki_metabox_page_settings_setup() {
 
-        $asset_file = include( get_template_directory().'/assets/js/admin/metabox/index.asset.php' );
+        global $pagenow;
+        if (in_array($pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ))) {
+            $asset_file = include(get_template_directory().'/assets/js/admin/metabox/index.asset.php');
     
-        wp_register_script(
-            'suki-metabox-page-settings-editor-script',
-            SUKI_JS_URL .'/admin/metabox/index.js',
-            $asset_file['dependencies'],
-            $asset_file['version']
-        );
+            wp_register_script(
+                'suki-metabox-page-settings-editor-script',
+                SUKI_JS_URL .'/admin/metabox/index.js',
+                $asset_file['dependencies'],
+                $asset_file['version']
+            );
 
-        $post_types_for_page_settings = suki_get_post_types_for_page_settings();
+            $post_types_for_page_settings = suki_get_post_types_for_page_settings();
     
-        wp_localize_script(
-            'suki-metabox-page-settings-editor-script',
-            'suki_metabox_page_settings_globals',
-            [
-                'suki_pro'   => get_option( 'suki_pro_active_modules' ),
+            wp_localize_script(
+                'suki-metabox-page-settings-editor-script',
+                'suki_metabox_page_settings_globals',
+                [
+                'suki_pro'   => get_option('suki_pro_active_modules'),
                 'post_types_for_page_settings' => $post_types_for_page_settings,
             ]
-        );
+            );
     
-        wp_enqueue_script( 'suki-metabox-page-settings-editor-script' );
+            wp_enqueue_script('suki-metabox-page-settings-editor-script');
         
-        wp_register_style(
-            'suki-metabox-page-settings-editor-style',
-            SUKI_CSS_URL .'/admin/sidebar.css',
-            array( 'wp-edit-blocks' )
-        );
+            wp_register_style(
+                'suki-metabox-page-settings-editor-style',
+                SUKI_CSS_URL .'/admin/sidebar.css',
+                array( 'wp-edit-blocks' )
+            );
 
-        wp_enqueue_style( 'suki-metabox-page-settings-editor-style' );
+            wp_enqueue_style('suki-metabox-page-settings-editor-style');
 
-        register_block_type(
-            'suki-metabox-page-settings',
-            array(
+            register_block_type(
+                'suki-metabox-page-settings',
+                array(
                 'script' => 'suki-metabox-page-settings-editor-script',
                 'style'  => 'suki-metabox-page-settings-editor-style',
             )
-        );
+            );
+        }
     }
 
     public function suki_register_meta_page_settings() {
