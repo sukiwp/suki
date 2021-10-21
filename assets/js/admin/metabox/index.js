@@ -515,7 +515,6 @@ function removeEmptyOrNull(obj) {
 }
 
 var MetaBoxPageSettings = function MetaBoxPageSettings(props) {
-  console.log(props);
   var pageSettings = removeEmptyOrNull(props.suki_page_settings);
   var sukiPro = suki_metabox_page_settings_globals.suki_pro;
   var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
