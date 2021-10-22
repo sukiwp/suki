@@ -34,13 +34,18 @@ class Suki_Metabox_Page_Settings_Sidebar {
 
             $post_types_for_page_settings = suki_get_post_types_for_page_settings();
     
+            $post_id = $_GET['post'];
+            $post_meta = get_post_meta( $post_id, '_suki_page_settings', true );
+
+
             wp_localize_script(
                 'suki-metabox-page-settings-editor-script',
                 'suki_metabox_page_settings_globals',
                 [
-                'suki_pro'   => get_option('suki_pro_active_modules'),
-                'post_types_for_page_settings' => $post_types_for_page_settings,
-            ]
+                    'suki_pro'   => get_option('suki_pro_active_modules'),
+                    'post_types_for_page_settings' => $post_types_for_page_settings,
+                    'post_meta' => $post_meta,
+                ]
             );
     
             wp_enqueue_script('suki-metabox-page-settings-editor-script');
@@ -84,49 +89,49 @@ class Suki_Metabox_Page_Settings_Sidebar {
                                 'type' => 'string',
                             ),
                             'sticky_sidebar'         => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'disable_content_header' => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'hero'                   => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'disable_thumbnail'      => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'disable_header'         => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'disable_mobile_header'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'header_transparent'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'header_mobile_transparent'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'header_sticky'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'header_mobile_sticky'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'header_alt_colors'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'header_mobile_alt_colors'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'disable_footer_widgets' => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'disable_footer_bottom'  => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                             'preloader_screen'       => array(
-                                'type' => 'string',
+                                'type' => 'number',
                             ),
                         ),
                     ),

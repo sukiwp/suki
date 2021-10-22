@@ -34,17 +34,14 @@ function checkModule(module, array) {
     }
 }
 
-function removeEmptyOrNull(obj) {
-    Object.keys(obj).forEach(k =>
-        (obj[k] && typeof obj[k] === 'object') && removeEmptyOrNull(obj[k]) ||
-        (!obj[k] && obj[k] !== undefined) && delete obj[k]
-    );
-    return obj;
-}
-
 let MetaBoxPageSettings = (props) => {
-    
-    var pageSettings = removeEmptyOrNull(props.suki_page_settings);
+
+    if(props.suki_page_settings) {
+        var pageSettings = props.suki_page_settings;
+    } else {
+        var pageSettings = suki_metabox_page_settings_globals.post_meta;
+    }
+
     var sukiPro = suki_metabox_page_settings_globals.suki_pro;
     var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
     var moduleHeaderAltColors = checkModule('header-alt-colors', sukiPro);
@@ -476,6 +473,10 @@ MetaBoxPageSettings = withDispatch(
         }
     }
 )(MetaBoxPageSettings);
+
+/*MetaBoxPageSettings = () => {
+    return 'testing';
+}*/
 
 registerPlugin('suki-metabox-page-settings', {
     render: () => {

@@ -115,6 +115,7 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * @param WP_Post $post
 	 */
 	public function add_post_meta_box( $post_type, $post ) {
+
 		$post_types = suki_get_post_types_for_page_settings();
 
 		add_meta_box(
@@ -165,7 +166,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		}
 
 		// Update the meta field in the database.
-		//update_post_meta( $post_id, '_suki_page_settings', $sanitized );
+		update_post_meta( $post_id, '_suki_page_settings', $sanitized );
 	}
 
 	/**

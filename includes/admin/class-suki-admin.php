@@ -72,8 +72,6 @@ class Suki_Admin {
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__links' ), 20 );
 		
-        add_action( 'current_screen', array( $this,'check_editor_type') );
-
 		$this->_includes();
 	}
 
@@ -98,16 +96,6 @@ class Suki_Admin {
 
         //require_once(SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings-sidebar.php');
 	}
-
-    /**
-	 * Return displays the meta box in the sidebar
-	 *
-	 * @return string
-	 */
-    function check_editor_type($current_screen) {
-
-    }
-
 
 	/**
 	 * ====================================================
