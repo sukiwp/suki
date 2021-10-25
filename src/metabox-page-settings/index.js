@@ -24,6 +24,7 @@ import {
 
 import getIcon from './icon';
 
+
 function checkModule(module, array) {
     {
         if (array.indexOf(module) !== -1) {
@@ -36,11 +37,13 @@ function checkModule(module, array) {
 
 let MetaBoxPageSettings = (props) => {
 
-    if(props.suki_page_settings) {
+    if (props.suki_page_settings) {
         var pageSettings = props.suki_page_settings;
     } else {
         var pageSettings = suki_metabox_page_settings_globals.post_meta;
     }
+
+    //console.log(pageSettings);
 
     var sukiPro = suki_metabox_page_settings_globals.suki_pro;
     var moduleHeaderTransparent = checkModule('header-transparent', sukiPro);
@@ -85,7 +88,7 @@ let MetaBoxPageSettings = (props) => {
                             <Button
                                 className={classnames(
                                     "box",
-                                    classNameContentContainer === undefined ? 'active' : ''
+                                    classNameContentContainer === undefined || classNameContentContainer === '' ? 'active' : ''
                                 )}
                                 onClick={() => props.onChangeMetaBox('', 'content_container', pageSettings)}
                             >
@@ -146,7 +149,7 @@ let MetaBoxPageSettings = (props) => {
                             <Button
                                 className={classnames(
                                     "box",
-                                    classNameContentLayout === undefined ? 'active' : ''
+                                    classNameContentLayout === undefined || classNameContentLayout === '' ? 'active' : ''
                                 )}
                                 onClick={() => props.onChangeMetaBox('', 'content_layout', pageSettings)}
                             >
@@ -466,17 +469,120 @@ MetaBoxPageSettings = withDispatch(
                     ...metas,
                 };
 
-                metas[prop] = value;
+                metas[prop] = `${value}`;
 
-                dispatch('core/editor').editPost({ meta: { _suki_page_settings: metas } })
+                let data = {};
+                for (let x in metas) {
+                    //console.log(x + " - " + metas[x] + " - " + empty(metas[x]))
+                    if(x === 'content_container'){
+                        if(metas[x] !== false) {
+                            data['content_container'] = metas['content_container'];
+                        }
+                    }
+
+                    if(x === 'content_layout'){
+                        if(metas[x] !== false) {
+                            data['content_layout'] = metas['content_layout'];
+                        }
+                    }
+
+                    if(x === 'sticky_sidebar'){
+                        console.log('metas' + metas['sticky_sidebar']);
+                        if(metas[x] !== '' || metas[x] === 0) {
+                            data['sticky_sidebar'] = parseInt(metas['sticky_sidebar']);
+                        }
+                    }
+
+                    if(x === 'disable_content_header'){
+                        if(metas[x] !== '') {
+                            data['disable_content_header'] = parseInt(metas['disable_content_header']);
+                        }
+                    }
+
+                    if(x === 'hero'){
+                        if(metas[x] !== '') {
+                            data['hero'] = parseInt(metas['hero']);
+                        }
+                    }
+
+                    if(x === 'disable_thumbnail'){
+                        if(metas[x] !== '') {
+                            data['disable_thumbnail'] = parseInt(metas['disable_thumbnail']);
+                        }
+                    }
+
+                    if(x === 'disable_header'){
+                        if(metas[x] !== '') {
+                            data['disable_header'] = parseInt(metas['disable_header']);
+                        }
+                    }
+
+                    if(x === 'disable_mobile_header'){
+                        if(metas[x] !== '') {
+                            data['disable_mobile_header'] = parseInt(metas['disable_mobile_header']);
+                        }
+                    }
+
+                    if(x === 'header_transparent'){
+                        if(metas[x] !== '') {
+                            data['header_transparent'] = parseInt(metas['header_transparent']);
+                        }
+                    }
+
+                    if(x === 'header_mobile_transparent'){
+                        if(metas[x] !== '') {
+                            data['header_mobile_transparent'] = parseInt(metas['header_mobile_transparent']);
+                        }
+                    }
+
+                    if(x === 'header_sticky'){
+                        if(metas[x] !== '') {
+                            data['header_sticky'] = parseInt(metas['header_sticky']);
+                        }
+                    }
+
+                    if(x === 'header_mobile_sticky'){
+                        if(metas[x] !== '') {
+                            data['header_mobile_sticky'] = parseInt(metas['header_mobile_sticky']);
+                        }
+                    }
+
+                    if(x === 'header_alt_colors'){
+                        if(metas[x] !== '') {
+                            data['header_alt_colors'] = parseInt(metas['header_alt_colors']);
+                        }
+                    }
+
+                    if(x === 'header_mobile_alt_colors'){
+                        if(metas[x] !== '') {
+                            data['header_mobile_alt_colors'] = parseInt(metas['header_mobile_alt_colors']);
+                        }
+                    }
+
+                    if(x === 'disable_footer_widgets'){
+                        if(metas[x] !== '') {
+                            data['disable_footer_widgets'] = parseInt(metas['disable_footer_widgets']);
+                        }
+                    }
+
+                    if(x === 'disable_footer_bottom'){
+                        if(metas[x] !== '') {
+                            data['disable_footer_bottom'] = parseInt(metas['disable_footer_bottom']);
+                        }
+                    }
+
+                    if(x === 'preloader_screen'){
+                        if(metas[x] !== '') {
+                            data['preloader_screen'] = parseInt(metas['preloader_screen']);
+                        }
+                    }
+
+                    dispatch('core/editor').editPost({ meta: { _suki_page_settings: data } })
+                }
             }
         }
     }
 )(MetaBoxPageSettings);
-
-/*MetaBoxPageSettings = () => {
-    return 'testing';
-}*/
 
 registerPlugin('suki-metabox-page-settings', {
     render: () => {

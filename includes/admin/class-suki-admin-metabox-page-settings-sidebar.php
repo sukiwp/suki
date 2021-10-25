@@ -34,9 +34,14 @@ class Suki_Metabox_Page_Settings_Sidebar {
 
             $post_types_for_page_settings = suki_get_post_types_for_page_settings();
     
-            $post_id = $_GET['post'];
-            $post_meta = get_post_meta( $post_id, '_suki_page_settings', true );
+            
+            if(empty($_GET['post'])) {
+                $post_id = 0;
+            } else {
+                $post_id = $_GET['post'];
+            }
 
+            $post_meta = get_post_meta( $post_id, '_suki_page_settings', true );
 
             wp_localize_script(
                 'suki-metabox-page-settings-editor-script',
