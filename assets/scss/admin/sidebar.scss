@@ -108,3 +108,55 @@
         width: 50%;
     }
 }
+
+.components {
+    &-panel {
+        &__display {
+            &__block {
+                display: block;
+            }
+            &__flex {
+                display: flex;
+                &_row {
+                    flex-direction: row;
+                }
+                &_column {
+                    flex-direction: column;
+                }
+                &_justify_content {
+                    &__start {
+                        justify-content: flex-start;
+                    }
+                    &__between {
+                        justify-content: space-between;
+                    }
+                }
+                &_align_items {
+                    &__stretch {
+                        align-items: stretch;
+                    }
+                    &__center {
+                        align-items: center;
+                    }
+                }
+                &_align_content {
+                    &__stretch {
+                        align-content: stretch;
+                    }
+                    &__center {
+                        align-content: center;
+                    }
+                }
+            }
+        }
+    }
+    &-input {
+        &-control {
+            &__select {
+                &_group {
+                    
+                }
+            }
+        }
+    }
+}
