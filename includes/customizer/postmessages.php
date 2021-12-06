@@ -2107,7 +2107,7 @@ $add['footer_bottom_bar_items_gutter'] = array(
 	),
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-bottom-bar .suki-footer-column > *', // scss: footer
+		'element'  => '.suki-footer-bottom-bar .suki-footer-bottom-bar-column > *', // scss: footer
 		'property' => 'padding',
 		'pattern'  => '0 $',
 	),
