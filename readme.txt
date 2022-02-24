@@ -1,4 +1,4 @@
-=== Suki 2.0 ===
+=== Suki ===
 Contributors: sukiwp
 Tags: two-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Stable tag: 2.0.0-dev

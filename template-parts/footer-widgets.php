@@ -10,12 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
+
+// Abort if no column defined.
+if ( 1 > $columns ) {
+	return;
+}
+
 ?>
 <div class="<?php suki_element_class( 'footer_widgets_bar', array( 'suki-footer-widgets-bar', 'suki-block-container' ) ); ?>">
 	<div class="<?php suki_element_class( 'footer_widgets_bar_inner', array( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ), 'suki-footer-row', 'wp-block-columns' ) ); ?>">
 		<?php
-		$columns = suki_get_theme_mod( 'footer_widgets_bar', 0 );
-
 		for ( $i = 1; $i <= $columns; $i++ ) {
 			?>
 			<div class="suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column wp-block-column">
@@ -28,12 +33,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 		}
 		?>
-
-		<?php
-		// Bottom Bar (if merged).
-		if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
-			suki_footer_bottom();
-		}
-		?>
 	</div>
+
+	<?php
+	// Bottom Bar (if merged).
+	if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+		suki_footer_bottom();
+	}
+	?>
 </div>

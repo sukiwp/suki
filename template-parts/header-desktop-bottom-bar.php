@@ -12,14 +12,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $elements = array();
 $columns  = array( 'left', 'center', 'right' );
+$count    = 0;
 
 // Fetch elements on all columns.
 foreach ( $columns as $column ) {
 	$elements[ $column ] = suki_get_theme_mod( 'header_elements_bottom_' . $column, array() );
+
+	$count += count( $elements[ $column ] );
 }
 
 // Abort if no element found in this section.
-if ( 1 > count( $elements, COUNT_RECURSIVE ) ) {
+if ( 1 > $count ) {
 	return;
 }
 

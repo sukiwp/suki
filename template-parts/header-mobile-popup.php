@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $elements = suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() );
 
 // Abort if no element found in this section.
-if ( 1 > count( $elements, COUNT_RECURSIVE ) ) {
+if ( 1 > count( $elements ) ) {
 	return;
 }
 
