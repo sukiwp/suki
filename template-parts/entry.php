@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				'
 				<!-- wp:post-excerpt {
-					"moreText":"' . esc_js( suki_get_theme_mod( 'entry_grid_read_more_text' ) ) . '"
+					"moreText":"' . esc_js( suki_get_theme_mod( 'entry_read_more_text' ) ) . '"
 				} /-->
 				'
 			);

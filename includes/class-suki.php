@@ -100,6 +100,9 @@ class Suki {
 		require_once SUKI_INCLUDES_DIR . '/template-actions.php';
 		require_once SUKI_INCLUDES_DIR . '/template-filters.php';
 
+		// Deprecated functions & hooks.
+		require_once SUKI_INCLUDES_DIR . '/deprecated.php';
+
 		// Plugins compatibility functions.
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.

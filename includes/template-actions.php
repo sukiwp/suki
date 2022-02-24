@@ -165,7 +165,7 @@ function suki_template_hooks() {
 		if ( is_singular( 'post' ) ) {
 			// Add author bio.
 			if ( boolval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
-				add_action( 'suki/frontend/after_main', 'suki_singular_author_bio', 10 );
+				add_action( 'suki/frontend/after_main', 'suki_author_bio', 10 );
 			}
 
 			// Add post navigation.
@@ -174,7 +174,7 @@ function suki_template_hooks() {
 			}
 
 			// Add comments.
-			add_action( 'suki/frontend/after_main', 'suki_singular_comments', 20 );
+			add_action( 'suki/frontend/after_main', 'suki_comments', 20 );
 		}
 	}
 
