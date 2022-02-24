@@ -1,0 +1,23 @@
+/**
+ * Table
+ */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid var(--border-color);
+	margin: var(--wp--style--block-gap) 0;
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+}
+
+th, td {
+	padding: 0.5rem 0.75rem;
+	border: 1px solid;
+	border-color: inherit;
+}
+
+th {
+	font-weight: 700;
+}

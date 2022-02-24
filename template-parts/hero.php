@@ -6,7 +6,14 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Abort if Hero section doesn't have hooked actions.
+if ( ! has_action( 'suki/frontend/hero' ) ) {
+	return;
+}
 
 /**
  * Hook: suki/frontend/before_hero
@@ -14,13 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 do_action( 'suki/frontend/before_hero' );
 
 ?>
-<section id="hero" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/hero_classes', array( 'suki-hero' ) ) ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
-	<div class="suki-hero-inner suki-section-inner">
-		<div class="suki-wrapper">
-			<?php suki_get_template_part( 'content-header' ) ?>
-		</div>
-	</div>
-</section>
+<div id="hero" class="<?php suki_element_class( 'hero', array( 'suki-hero', 'suki-block-container' ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
+	<?php
+	/**
+	 * Hook: suki/frontend/hero
+	 *
+	 * @see suki_content_header() [10]
+	 */
+	do_action( 'suki/frontend/hero' );
+	?>
+</div>
 <?php
 
 /**

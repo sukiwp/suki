@@ -12,7 +12,9 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Remove content wrapper on this page template.
 add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
@@ -20,7 +22,7 @@ add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
 get_header();
 
 ?>
-<div id="content" class="site-content">
+<div id="content" class="suki-content site-content">
 
 	<?php
 	/**
@@ -34,12 +36,12 @@ get_header();
 	<div class="suki-wrapper">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
 			<?php
-			while ( have_posts() ) :
+			while ( have_posts() ) {
 				the_post();
 
 				// Print the content.
 				the_content();
-			endwhile;
+			}
 			?>
 		</article>
 	</div>

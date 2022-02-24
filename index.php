@@ -1,58 +1,81 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * Fallback global page template.
  *
  * @package Suki
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
- * Header
+ * Header template
  */
 get_header();
 
 /**
- * Primary - opening tag
+ * Hero
  */
-suki_primary_open();
+suki_hero();
+
+/**
+ * Content wrapper template -- Open
+ */
+suki_content_open();
 
 /**
  * Hook: suki/frontend/before_main
+ *
+ * @see suki_archive_header() [10]
  */
 do_action( 'suki/frontend/before_main' );
 
-while ( have_posts() ) : the_post();
+/**
+ * Main content
+ */
+if ( have_posts() ) {
+	/**
+	 * Query loop
+	 */
+	?>
+	<div class="<?php suki_element_class( 'loop', array( 'wp-block-post-template', 'suki-loop', 'suki-has-margin-block__300' ) ); ?>">
+		<?php
+		while ( have_posts() ) {
+			the_post();
 
-	// Render post content using "content" layout.
-	suki_get_template_part( 'entry' );
+			/**
+			 * Entry template
+			 */
+			suki_get_template_part( 'entry', suki_get_current_page_setting( 'loop_layout', 'default' ) );
+		}
+		?>
+	</div>
+	<?php
 
-endwhile;
+} else {
+	/**
+	 * No items found.
+	 */
+	?>
+	<p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p>
+	<?php
+}
 
 /**
  * Hook: suki/frontend/after_main
+ *
+ * @see suki_archive_navigation() [10]
  */
 do_action( 'suki/frontend/after_main' );
 
 /**
- * Primary - closing tag
+ * Content wrapper template -- Close
  */
-suki_primary_close();
+suki_content_close();
 
 /**
- * Sidebar
- */
-get_sidebar();
-
-/**
- * Footer
+ * Footer template
  */
 get_footer();

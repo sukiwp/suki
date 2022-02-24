@@ -6,19 +6,24 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 $elements = suki_get_current_page_setting( 'content_header', array() );
 
-if ( empty( $elements ) ) {
+// Abort if there is no element.
+if ( 1 > count( $elements ) ) {
 	return;
 }
+
 ?>
-<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/content_header_classes', array( 'content-header' ) ) ) ); ?>">
+<div class="<?php suki_element_class( 'content_header', array( 'suki-content-header' ) ); ?>">
 	<?php
-	/**
-	 * Hook: suki/frontend/content_header
-	 */
-	do_action( 'suki/frontend/content_header' );
+	// Render content header elements.
+	foreach ( $elements as $element ) {
+		suki_content_header_element( $element );
+	}
 	?>
 </div>
+<?php

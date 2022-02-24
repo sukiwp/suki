@@ -6,85 +6,68 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters( 'suki/frontend/entry_search/classes', array( 'entry', 'entry-layout-search', 'entry-small' ) ) ); ?> role="article">
-	<div class="entry-wrapper">
-		<?php
-		/**
-		 * Hook: suki/frontend/entry_search/before_header
-		 */
-		do_action( 'suki/frontend/entry_search/before_header' );
-		
-		if ( has_action( 'suki/frontend/entry_search/header' ) ) :
-		?>
-			<header class="entry-header">
-				<?php
-				/**
-				 * Hook: suki/frontend/entry_search/header
-				 */
-				do_action( 'suki/frontend/entry_search/header' );
-				?>
-			</header>
-		<?php
-		endif;
+<article class="<?php suki_post_class( array( 'wp-block-post', 'entry', 'entry-layout-default' ) ); ?>">
+	<?php
+	/**
+	 * Hook: suki/frontend/entry_search/before_header
+	 */
+	do_action( 'suki/frontend/entry_search/before_header' );
 
-		/**
-		 * Hook: suki/frontend/entry_search/after_header
-		 */
-		do_action( 'suki/frontend/entry_search/after_header' );
+	if ( has_action( 'suki/frontend/entry_search/header' ) ) {
 		?>
-
-		<div class="entry-content entry-excerpt">
+		<header class="entry-header">
 			<?php
 			/**
-			 * Hook: suki/frontend/entry_search/before_content
+			 * Hook: suki/frontend/entry_search/header
 			 */
-			do_action( 'suki/frontend/entry_search/before_content' );
-
-			/**
-			 * Excerpt
-			 */
-
-			the_excerpt();
-
-			// Content pagination (if exists)
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'suki' ),
-				'after'  => '</div>',
-			) );
-			
-			/**
-			 * Hook: suki/frontend/entry_search/after_content
-			 */
-			do_action( 'suki/frontend/entry_search/after_content' );
+			do_action( 'suki/frontend/entry_search/header' );
 			?>
-		</div>
-
+		</header>
 		<?php
-		/**
-		 * Hook: suki/frontend/entry_search/before_footer
-		 */
-		do_action( 'suki/frontend/entry_search/before_footer' );
-		
-		if ( has_action( 'suki/frontend/entry_search/footer' ) ) :
-		?>
-			<footer class="entry-footer">
-				<?php
-				/**
-				 * Hook: suki/frontend/entry_search/footer
-				 */
-				do_action( 'suki/frontend/entry_search/footer' );
-				?>
-			</footer>
-		<?php
-		endif;
+	}
 
-		/**
-		 * Hook: suki/frontend/entry_search/after_footer
-		 */
-		do_action( 'suki/frontend/entry_search/after_footer' );
+	/**
+	 * Hook: suki/frontend/entry_search/after_header
+	 */
+	do_action( 'suki/frontend/entry_search/after_header' );
+
+	/**
+	 * Main content - excerpt
+	 */
+	echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		'
+		<!-- wp:post-excerpt {
+			"moreText":"' . esc_js( suki_get_theme_mod( 'entry_grid_read_more_text' ) ) . '"
+		} /-->
+		'
+	);
+
+	/**
+	 * Hook: suki/frontend/entry_search/before_footer
+	 */
+	do_action( 'suki/frontend/entry_search/before_footer' );
+
+	if ( has_action( 'suki/frontend/entry_search/footer' ) ) {
 		?>
-	</div>
+		<footer class="entry-footer">
+			<?php
+			/**
+			 * Hook: suki/frontend/entry_search/footer
+			 */
+			do_action( 'suki/frontend/entry_search/footer' );
+			?>
+		</footer>
+		<?php
+	}
+
+	/**
+	 * Hook: suki/frontend/entry_search/after_footer
+	 */
+	do_action( 'suki/frontend/entry_search/after_footer' );
+	?>
 </article>

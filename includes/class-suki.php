@@ -1,11 +1,18 @@
 <?php
 /**
  * Suki theme class.
+ *
+ * @package Suki
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Main class of the theme.
+ */
 class Suki {
 
 	/**
@@ -20,7 +27,7 @@ class Suki {
 	 *
 	 * @var array
 	 */
-	private $_info;
+	private $info;
 
 	/**
 	 * ====================================================
@@ -33,7 +40,7 @@ class Suki {
 	 *
 	 * @return Suki
 	 */
-	public final static function instance() {
+	final public static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
@@ -68,19 +75,6 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
-		// add_filter( 'theme_templates', function( $post_templates, $wp_theme_obj, $post, $post_type ) {
-		// 	$post_templates[ $post_type ]['suki-page-builder'] = $post_templates[ $post_type ]['page-templates/suki-page-builder.php'];
-		// 	unset( $post_templates[ $post_type ]['page-templates/suki-page-builder.php'] );
-
-		// 	$post_templates[ $post_type ]['suki-page-builder-with-container'] = $post_templates[ $post_type ]['page-templates/suki-page-builder-with-container.php'];
-		// 	unset( $post_templates[ $post_type ]['page-templates/suki-page-builder-with-container.php'] );
-
-		// 	return $post_templates;
-		// }, 10, 4 );
-		// add_filter( 'template_include', function( $template ) {
-
-		// });
-
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
 			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
@@ -88,38 +82,39 @@ class Suki {
 		}
 
 		// Include other files.
-		$this->_includes();
+		$this->include_files();
 	}
 
 	/**
 	 * Include additional files.
 	 */
-	private function _includes() {
-		// Helper functions
-		require_once( SUKI_INCLUDES_DIR . '/helpers.php' );
+	private function include_files() {
+		// Helper functions.
+		require_once SUKI_INCLUDES_DIR . '/helpers.php';
 
-		// Customizer functions
-		require_once( SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer.php' );
+		// Customizer functions.
+		require_once SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer.php';
 
-		// Template functions & hooks
-		require_once( SUKI_INCLUDES_DIR . '/template-tags.php' );
-		require_once( SUKI_INCLUDES_DIR . '/template-functions.php' );
+		// Template functions & hooks.
+		require_once SUKI_INCLUDES_DIR . '/template-tags.php';
+		require_once SUKI_INCLUDES_DIR . '/template-actions.php';
+		require_once SUKI_INCLUDES_DIR . '/template-filters.php';
 
-		// Plugins compatibility functions
+		// Plugins compatibility functions.
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.
 			if ( class_exists( $plugin_class ) ) {
 				$compatibility_file = SUKI_INCLUDES_DIR . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php';
 
 				if ( file_exists( $compatibility_file ) ) {
-					require_once( $compatibility_file );
+					require_once $compatibility_file;
 				}
 			}
 		}
 
-		// Admin page functions
+		// Admin page functions.
 		if ( is_admin() ) {
-			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin.php' );
+			require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin.php';
 		}
 	}
 
@@ -133,34 +128,37 @@ class Suki {
 	 * Set theme info based on header data in style.css file.
 	 */
 	public function setup_theme_info() {
-		// Extract theme data from style.css
-		$info = get_file_data( get_template_directory() . '/style.css', array(
-			'name'        => 'Theme Name',
-			'url'         => 'Theme URI',
-			'description' => 'Description',
-			'author'      => 'Author',
-			'author_url'  => 'Author URI',
-			'version'     => 'Version',
-			'template'    => 'Template',
-			'status'      => 'Status',
-			'tags'        => 'Tags',
-			'text_domain' => 'Text Domain',
-			'domain_path' => 'Domain Path',
-		) );
+		// Extract theme data from style.css.
+		$info = get_file_data(
+			get_template_directory() . '/style.css',
+			array(
+				'name'        => 'Theme Name',
+				'url'         => 'Theme URI',
+				'description' => 'Description',
+				'author'      => 'Author',
+				'author_url'  => 'Author URI',
+				'version'     => 'Version',
+				'template'    => 'Template',
+				'status'      => 'Status',
+				'tags'        => 'Tags',
+				'text_domain' => 'Text Domain',
+				'domain_path' => 'Domain Path',
+			)
+		);
 
 		// Add screenshot to theme data.
 		$info['screenshot'] = esc_url( get_template_directory_uri() . '/screenshot.png' );
 
-		// Assign to class $_info property.
-		$this->_info = apply_filters( 'suki/theme_info', $info );
+		// Assign to class $info property.
+		$this->info = apply_filters( 'suki/theme_info', $info );
 	}
 
 	/**
 	 * Check theme and apply migrations.
 	 */
 	public function check_theme_version_and_migrations() {
-		// Get theme version info from DB
-		$db_version = get_option( 'suki_theme_version', false );
+		// Get theme version info from DB.
+		$db_version    = get_option( 'suki_theme_version', false );
 		$files_version = $this->get_info( 'version' );
 
 		// If no version info found in DB, then create the info.
@@ -170,7 +168,7 @@ class Suki {
 			// Skip migration and version update, because this is new installation.
 			return;
 		}
-		
+
 		// If current version is larger than DB version, update DB version and run migration (if any).
 		if ( version_compare( $db_version, $files_version, '<' ) ) {
 			// Run through each "to-do" migration list step by step.
@@ -182,10 +180,10 @@ class Suki {
 				}
 
 				// Include migration functions.
-				$file = SUKI_INCLUDES_DIR . '/migrations/class-suki-migrate-' . $migration_version . '.php';
+				$file = SUKI_INCLUDES_DIR . '/migrations/class-suki-migrate-' . str_replace( '.', '-', $migration_version ) . '.php';
 
 				if ( file_exists( $file ) ) {
-					include( $file );
+					include $file;
 				}
 
 				// Update DB version to migrated version.
@@ -220,116 +218,134 @@ class Suki {
 	 * Registers support for various WordPress features.
 	 */
 	public function add_theme_supports() {
-		// Add default posts and comments RSS feed links to head
+		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
-		// Enable support for document <title> tag generated by WordPress itself
+		// Enable support for document <title> tag generated by WordPress itself.
 		add_theme_support( 'title-tag' );
 
-		// Enable support for Post thumbnails on posts and pages
+		// Enable support for Post thumbnails on posts and pages.
 		add_theme_support( 'post-thumbnails' );
 
-		// Register menus
-		register_nav_menus( array(
-			/* translators: %s: number of Header Menu. */
-			'header-menu-1' => sprintf( esc_html__( 'Header Menu %s', 'suki' ), 1 ),
-			'header-mobile-menu' => esc_html__( 'Mobile Header Menu', 'suki' ),
-			'footer-menu-1' => esc_html__( 'Footer Bottom Menu', 'suki' ),
-		) );
+		// Register menus.
+		register_nav_menus(
+			array(
+				/* translators: %s: number of Header Menu. */
+				'header-menu-1'      => sprintf( esc_html__( 'Header Menu %s', 'suki' ), 1 ),
+				'header-mobile-menu' => esc_html__( 'Mobile Header Menu', 'suki' ),
+				'footer-menu-1'      => esc_html__( 'Footer Bottom Menu', 'suki' ),
+			)
+		);
 
-		// Enable HTML5 tags for search form, comment form, and comments
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+		// Enable HTML5 tags for search form, comment form, and comments.
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 
-		// Enable custom logo
-		add_theme_support( 'custom-logo', array(
-			'flex-height' => true,
-			'flex-width'  => true,
-		) );
+		// Enable custom logo.
+		add_theme_support(
+			'custom-logo',
+			array(
+				'flex-height' => true,
+				'flex-width'  => true,
+			)
+		);
 
-		// Add theme support for selective refresh for widgets
+		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		// Breadcrumb trail compatibility
+		// Breadcrumb trail compatibility.
 		add_theme_support( 'breadcrumb-trail' );
 
-		// Gutenberg: Block styles
-		// add_theme_support( 'wp-block-styles' );
+		/**
+		 * Gutenberg supports.
+		 */
 
-		// Gutenberg: Wide alignment
-		add_theme_support( 'align-wide' );
+		// Gutenberg: Block styles.
+		// add_theme_support( 'wp-block-styles' );.
 
-		// Gutenberg: Editor color palette
-		if ( intval( suki_get_theme_mod( 'color_palette_in_gutenberg' ) ) ) {
-			$array = array();
+		// Gutenberg: Wide alignment.
+		// add_theme_support( 'align-wide' );
 
-			for ( $i = 1; $i <= 8; $i++ ) {
-				$color = suki_get_theme_mod( 'color_palette_' . $i );
+		// Gutenberg: Color palettes.
+		// if ( intval( suki_get_theme_mod( 'color_palette_in_gutenberg' ) ) ) {
+		// 	$array = array();
 
-				if ( empty( $color ) ) {
-					continue;
-				}
+		// 	for ( $i = 1; $i <= 8; $i++ ) {
+		// 		$color = suki_get_theme_mod( 'color_palette_' . $i );
 
-				$array[] = array(
-					/* translators: %s: color index. */
-					'name'  => sprintf( esc_html__( 'Color %s', 'suki' ), $i ),
-					'slug'  => 'suki-color-' . $i,
-					'color' => $color,
-				);
-			}
+		// 		if ( empty( $color ) ) {
+		// 			continue;
+		// 		}
 
-			add_theme_support( 'editor-color-palette', $array );
-		}
+		// 		$array[] = array(
+		// 			/* translators: %s: color index. */
+		// 			'name'  => sprintf( esc_html__( 'Color %s', 'suki' ), $i ),
+		// 			'slug'  => 'suki-color-' . $i,
+		// 			'color' => $color,
+		// 		);
+		// 	}
 
-		// Gutenberg: Font sizes
-		$base_font_size = floatval( suki_get_theme_mod( 'body_font_size' ) );
-		add_theme_support( 'editor-font-sizes', array(
-			array(
-				'name' => esc_html__( 'Small', 'suki' ),
-				'size' => 0.85 * $base_font_size,
-				'slug' => 'small',
-			),
-			array(
-				'name' => esc_html__( 'Normal', 'suki' ),
-				'size' => $base_font_size,
-				'slug' => 'regular',
-			),
-			array(
-				'name' => esc_html__( 'Medium', 'suki' ),
-				'size' => 1.2 * $base_font_size,
-				'slug' => 'medium',
-			),
-			array(
-				'name' => esc_html__( 'Large', 'suki' ),
-				'size' => 1.5 * $base_font_size,
-				'slug' => 'large',
-			),
-			array(
-				'name' => esc_html__( 'Huge', 'suki' ),
-				'size' => 2 * $base_font_size,
-				'slug' => 'huge',
-			),
-		) );
+		// 	add_theme_support( 'editor-color-palette', $array );
+		// }
 
-		// Gutenberg: Editor styles
-		add_theme_support( 'editor-styles' );
+		// Gutenberg: Gradient presets.
+		// add_theme_support( 'editor-gradient-presets, array() );.
 
-		// Gutenberg: Custom line height
-		add_theme_support( 'custom-line-height' );
+		// Gutenberg: Font sizes.
+		// $base_font_size = floatval( suki_get_theme_mod( 'body_font_size' ) );
+		// add_theme_support(
+		// 	'editor-font-sizes',
+		// 	array(
+		// 		array(
+		// 			'name' => esc_html__( 'Small', 'suki' ),
+		// 			'size' => 0.85 * $base_font_size,
+		// 			'slug' => 'small',
+		// 		),
+		// 		array(
+		// 			'name' => esc_html__( 'Normal', 'suki' ),
+		// 			'size' => $base_font_size,
+		// 			'slug' => 'regular',
+		// 		),
+		// 		array(
+		// 			'name' => esc_html__( 'Medium', 'suki' ),
+		// 			'size' => 1.2 * $base_font_size,
+		// 			'slug' => 'medium',
+		// 		),
+		// 		array(
+		// 			'name' => esc_html__( 'Large', 'suki' ),
+		// 			'size' => 1.5 * $base_font_size,
+		// 			'slug' => 'large',
+		// 		),
+		// 		array(
+		// 			'name' => esc_html__( 'Huge', 'suki' ),
+		// 			'size' => 2 * $base_font_size,
+		// 			'slug' => 'huge',
+		// 		),
+		// 	)
+		// );
 
-		// Gutenberg: Custom units
-		add_theme_support( 'custom-units' );
+		// Gutenberg: Custom line height.
+		// add_theme_support( 'custom-line-height' );
 
-		// Gutenberg: Responsive embeds
+		// Gutenberg: Custom units.
+		// add_theme_support( 'custom-units', array( 'px', 'em', 'rem', 'vh', 'vw' ) );
+
+		// Gutenberg: Editor styles.
+		// add_theme_support( 'editor-styles' );
+
+		// Gutenberg: Responsive embeds.
 		add_theme_support( 'responsive-embeds' );
 
-		// Gutenberg: Custom spacing
-		add_theme_support( 'custom-spacing' );
+		// Gutenberg: Custom spacing.
+		// add_theme_support( 'custom-spacing' );
 	}
 
 	/**
@@ -337,40 +353,44 @@ class Suki {
 	 */
 	public function register_widgets() {
 		// Include custom widgets.
-		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-posts.php' );
-		require_once( SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-social.php' );
+		require_once SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-posts.php';
+		require_once SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-social.php';
 	}
-	
+
 	/**
 	 * Register theme sidebars (widget area).
 	 */
 	public function register_sidebars() {
-		register_sidebar( array(
-			'name'          => esc_html__( 'Sidebar', 'suki' ),
-			'id'            => 'sidebar',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<' . suki_get_theme_mod( 'sidebar_widget_title_tag', 'h2' ) . ' class="widget-title">',
-			'after_title'   => '</' . suki_get_theme_mod( 'sidebar_widget_title_tag', 'h2' ) . '>',
-		) );
-
-		for ( $i = 1; $i <= 6; $i++ ) {
-			register_sidebar( array(
-				/* translators: %s: footer widgets column number. */
-				'name'          => sprintf( esc_html__( 'Footer Widgets Column %s', 'suki' ), $i ),
-				'id'            => 'footer-widgets-' . $i,
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Sidebar', 'suki' ),
+				'id'            => 'sidebar',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_tag', 'h2' ) . ' class="widget-title">',
-				'after_title'   => '</' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_tag', 'h2' ) . '>',
-			) );
+				'before_title'  => '<' . suki_get_theme_mod( 'sidebar_widget_title_tag', 'h2' ) . ' class="widget-title">',
+				'after_title'   => '</' . suki_get_theme_mod( 'sidebar_widget_title_tag', 'h2' ) . '>',
+			)
+		);
+
+		for ( $i = 1; $i <= 6; $i++ ) {
+			register_sidebar(
+				array(
+					/* translators: %s: footer widgets column number. */
+					'name'          => sprintf( esc_html__( 'Footer Widgets Column %s', 'suki' ), $i ),
+					'id'            => 'footer-widgets-' . $i,
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_tag', 'h2' ) . ' class="widget-title">',
+					'after_title'   => '</' . suki_get_theme_mod( 'footer_widgets_bar_widget_title_tag', 'h2' ) . '>',
+				)
+			);
 		}
 	}
 
 	/**
 	 * Enqueue frontend scripts.
 	 *
-	 * @param string $hook
+	 * @param string $hook Hook name.
 	 */
 	public function handle_frontend_scripts( $hook ) {
 		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
@@ -388,7 +408,7 @@ class Suki {
 	/**
 	 * Enqueue frontend styles.
 	 *
-	 * @param string $hook
+	 * @param string $hook Hook name.
 	 */
 	public function enqueue_frontend_styles( $hook ) {
 		/**
@@ -396,13 +416,15 @@ class Suki {
 		 */
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
-		// Main CSS
+		// Main CSS.
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 		wp_style_add_data( 'suki', 'suffix', SUKI_ASSETS_SUFFIX );
 
-		// Inline CSS
+		// Inline CSS.
 		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/dynamic_css', '' ) ) );
+
+		wp_dequeue_style( 'wp-block-library' );
 
 		/**
 		 * Hook: Enqueue others after main CSS
@@ -413,13 +435,13 @@ class Suki {
 	/**
 	 * Enqueue frontend javascripts.
 	 *
-	 * @param string $hook
+	 * @param string $hook Hook name.
 	 */
 	public function enqueue_frontend_javascripts( $hook ) {
-		// Fetched version from package.json
+		// Fetched version from package.json.
 		$ver = array();
 
-		// Comment reply (WordPress)
+		// Comment reply (WordPress).
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
@@ -429,17 +451,24 @@ class Suki {
 		 */
 		do_action( 'suki/frontend/before_enqueue_main_js', $hook );
 
-		// Main JS
+		// Main JS.
 		wp_enqueue_script( 'suki', SUKI_JS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
 
-		// Localize script
-		wp_localize_script( 'suki', 'sukiConfig', apply_filters( 'suki/frontend/localize_script', array(
-			'breakpoints' => array(
-				'mobile'  => 500,
-				'tablet'  => 768,
-				'desktop' => 1024,
-			),
-		) ) );
+		// Localize script.
+		wp_localize_script(
+			'suki',
+			'sukiConfig',
+			apply_filters(
+				'suki/frontend/localize_script',
+				array(
+					'breakpoints' => array(
+						'mobile'  => 500,
+						'tablet'  => 768,
+						'desktop' => 1024,
+					),
+				)
+			)
+		);
 
 		/**
 		 * Hook: Scripts to be included after main JS
@@ -458,8 +487,8 @@ class Suki {
 	/**
 	 * Add 'defer' attribute to some scripts.
 	 *
-	 * @param string $tag
-	 * @param string $handle
+	 * @param string $tag    Script tag.
+	 * @param string $handle Script handle.
 	 * @return string
 	 */
 	public function add_defer_attribute_to_scripts( $tag, $handle ) {
@@ -477,7 +506,7 @@ class Suki {
 	/**
 	 * Add dynamic CSS from customizer settings into the inline CSS.
 	 *
-	 * @param string $css
+	 * @param string $css CSS string.
 	 * @return string
 	 */
 	public function add_dynamic_css( $css ) {
@@ -486,8 +515,8 @@ class Suki {
 			return $css;
 		}
 
-		$postmessages = include( SUKI_INCLUDES_DIR . '/customizer/postmessages.php' );
-		$defaults = include( SUKI_INCLUDES_DIR . '/customizer/defaults.php' );
+		$postmessages = include SUKI_INCLUDES_DIR . '/customizer/postmessages.php';
+		$defaults     = include SUKI_INCLUDES_DIR . '/customizer/defaults.php';
 
 		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages, $defaults );
 
@@ -501,9 +530,9 @@ class Suki {
 	/**
 	 * Add current page settings CSS into the inline CSS.
 	 *
-	 * @param string $css
+	 * @param string $css CSS string.
 	 * @return string
-	 */ 
+	 */
 	public function add_page_settings_css( $css ) {
 		$css_array = array();
 
@@ -528,7 +557,7 @@ class Suki {
 					$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
 				}
 				break;
-			
+
 			case 'archive':
 				// Try to get the archive page's hero custom background image.
 				if ( 'custom' === suki_get_theme_mod( get_post_type() . '_archive_hero_bg' ) ) {
@@ -540,7 +569,7 @@ class Suki {
 					$hero_bg_image = suki_get_theme_mod( 'hero_bg_image' );
 				}
 				break;
-			
+
 			case 'custom':
 				// Use custom background image.
 				$hero_bg_image = suki_get_current_page_setting( 'hero_bg_image' );
@@ -572,11 +601,11 @@ class Suki {
 	/**
 	 * Intercept saving mods on Child Theme and save it to Parent Theme instead.
 	 *
-	 * @param array $value
-	 * @param array $old_value
+	 * @param array $value     Value.
+	 * @param array $old_value Old value.
 	 * @return array
 	 */
-	function child_use_parent_mods__set( $value, $old_value ) {
+	public function child_use_parent_mods__set( $value, $old_value ) {
 		// Update parent theme mods.
 		update_option( 'theme_mods_' . get_template(), $value );
 
@@ -587,10 +616,10 @@ class Suki {
 	/**
 	 * Intercept retrieving mods on Child Theme and return Parent Theme's mods instead.
 	 *
-	 * @param array $default
+	 * @param array $default Default value.
 	 * @return array
 	 */
-	function child_use_parent_mods__get( $default ) {
+	public function child_use_parent_mods__get( $default ) {
 		// Return parent theme mods.
 		return get_option( 'theme_mods_' . get_template(), $default );
 	}
@@ -604,12 +633,12 @@ class Suki {
 	/**
 	 * Return theme info from style.css file header.
 	 *
-	 * @param string $key
+	 * @param string $key Key of requested theme info.
 	 * @return string
 	 */
 	public function get_info( $key ) {
-		if ( isset( $this->_info[ $key ] ) ) {
-			return $this->_info[ $key ];
+		if ( isset( $this->info[ $key ] ) ) {
+			return $this->info[ $key ];
 		}
 
 		return false;
@@ -622,13 +651,13 @@ class Suki {
 	 */
 	public function get_compatible_plugins() {
 		return array(
-			'suki-pro' => 'Suki_Pro',
+			'suki-pro'       => 'Suki_Pro',
 			'contact-form-7' => 'WPCF7',
-			'elementor' => '\Elementor\Plugin',
-			'elementor-pro' => '\ElementorPro\Plugin',
-			'brizy' => 'Brizy_Editor',
-			'jetpack' => 'Jetpack',
-			'woocommerce' => 'WooCommerce',
+			'elementor'      => '\Elementor\Plugin',
+			'elementor-pro'  => '\ElementorPro\Plugin',
+			'brizy'          => 'Brizy_Editor',
+			'jetpack'        => 'Jetpack',
+			'woocommerce'    => 'WooCommerce',
 		);
 	}
 

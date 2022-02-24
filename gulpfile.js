@@ -9,7 +9,7 @@ const info = require( './package.json' );
 const config = {
 	init: info.data.initFile,
 	src: {
-		scss: [ './assets/scss/**/*.scss' ],
+		sass: [ './sass/**/*.scss' ],
 		css: [ './assets/css/**/*.css', '!./assets/css/vendors/*' ],
 		js: [ './assets/js/**/*.js', '!./assets/js/vendors/*' ],
 		pot: [ './**/*.php', '!./__build/**/*.php', '!./__bak/**/*.php' ],
@@ -22,7 +22,7 @@ const config = {
 			'!./.DS_Store',
 
 			// Exclude SCSS files
-			'!**/scss/**',
+			'!**/sass/**',
 
 			// Exclude development folders and files
 			'!./.gitignore',
@@ -39,10 +39,8 @@ const config = {
 		],
 	},
 	dest: {
-		scss: './assets/scss',
 		css: './assets/css',
 		js: './assets/js',
-		icons: './assets/icons',
 		pot: './languages',
 		build: './__build/' + info.name,
 		zip: './__build/zip',
@@ -56,7 +54,7 @@ const config = {
 const gulp          = require( 'gulp' );
 
 // CSS
-const sass          = require( 'gulp-sass' );
+const sass          = require( 'gulp-sass' )( require( 'sass' ) );
 const autoprefixer  = require( 'gulp-autoprefixer' );
 const cleanCSS      = require( 'gulp-clean-css' );
 const mmq           = require( 'gulp-merge-media-queries' );
@@ -140,7 +138,7 @@ gulp.task( 'vendors', function( done ) {
 		.pipe( gulp.dest( config.dest.js + '/vendors' ) );
 
 	// Change version
-	gulp.src( './includes/class-suki-admin.php', { base: './' } )
+	gulp.src( './includes/admin/class-suki-admin.php', { base: './' } )
 		.pipe( replace( /(\$ver\['html5sortable'\] = )(?:.*)/g, '$1\'' + info.devDependencies['html5sortable'].replace( '^', '' ) + '\';' ) )
 		.pipe( gulp.dest( './' ) );
 
@@ -177,7 +175,7 @@ gulp.task( 'vendors', function( done ) {
  * Task: Convert SASS to CSS files.
  */
 gulp.task( 'css_sass', function() {
-	return gulp.src( config.src.scss )
+	return gulp.src( config.src.sass )
 		.pipe( sass( {
 			outputStyle: 'expanded',
 			indentType: 'tab',
@@ -263,7 +261,7 @@ gulp.task( 'watch', function() {
 		gulp.task( 'pot' )();
 	} );
 
-	watch( config.src.scss, function() {
+	watch( config.src.sass, function() {
 		gulp.task( 'css' )();
 	} );
 

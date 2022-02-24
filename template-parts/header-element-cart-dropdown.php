@@ -10,7 +10,9 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if ( ! class_exists( 'WooCommerce' ) ) {
 	return;
@@ -22,12 +24,17 @@ if ( empty( $cart ) ) {
 	return;
 }
 
-// Dropdown
+/**
+ * Build cart dropdown HTML.
+ */
 ob_start();
-the_widget( 'WC_Widget_Cart', array(
-	'title'         => '',
-	'hide_if_empty' => false,
-) );
+the_widget(
+	'WC_Widget_Cart',
+	array(
+		'title'         => '',
+		'hide_if_empty' => false,
+	)
+);
 $dropdown_html = ob_get_clean();
 if ( ! empty( $dropdown_html ) ) {
 	$is_dropdown = true;
@@ -35,13 +42,19 @@ if ( ! empty( $dropdown_html ) ) {
 	$is_dropdown = false;
 }
 
-// Amount
+/**
+ * Build cart amount HTML.
+ */
 $amount_position = suki_get_theme_mod( 'header_cart_amount', '' );
+
 $amount_html = '';
+
 if ( '' !== $amount_position ) {
 	$classes = array();
+
 	$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'header_cart_amount_visibility' ) );
-	foreach( $hide_devices as $device ) {
+
+	foreach ( $hide_devices as $device ) {
 		$classes[] = esc_attr( 'suki-hide-on-' . $device );
 	}
 
@@ -54,33 +67,48 @@ if ( '' !== $amount_position ) {
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-header-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 	<div class="menu-item">
-		<?php if ( $is_dropdown ) : ?>
+		<?php
+		if ( $is_dropdown ) {
+			?>
 			<button class="cart-link suki-menu-item-link suki-sub-menu-toggle suki-toggle" aria-expanded="false">
-		<?php else: ?>
+			<?php
+		} else {
+			?>
 			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-link suki-menu-item-link">
-		<?php endif; ?>
-
+			<?php
+		}
+		?>
 				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 
-				<?php if ( 'before' === $amount_position ) {
+				<?php
+				if ( 'before' === $amount_position ) {
 					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				} ?>
+				}
+				?>
 
 				<span class="cart-icon">
 					<?php suki_icon( 'cart', array( 'class' => 'suki-menu-icon' ) ); ?>
 				</span>
-				
+
 				<span class="cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 
-				<?php if ( 'after' === $amount_position ) {
+				<?php
+				if ( 'after' === $amount_position ) {
 					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				} ?>
+				}
+				?>
 
-		<?php if ( $is_dropdown ) : ?>
+		<?php
+		if ( $is_dropdown ) {
+			?>
 			</button>
-		<?php else: ?>
+			<?php
+		} else {
+			?>
 			</a>
-		<?php endif; ?>
+			<?php
+		}
+		?>
 
 		<?php if ( $is_dropdown ) : ?>
 			<div class="sub-menu"><?php echo $dropdown_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>

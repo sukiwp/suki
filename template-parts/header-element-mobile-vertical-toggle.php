@@ -10,11 +10,13 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
-	<button class="suki-popup-toggle suki-toggle" data-target="mobile-vertical-header" aria-expanded="false">
+	<button class="suki-popup-toggle suki-toggle" data-target="mobile-header-popup" aria-expanded="false">
 		<?php suki_icon( 'menu', array( 'class' => 'suki-menu-icon' ) ); ?>
 		<span class="screen-reader-text"><?php esc_html_e( 'Mobile Menu', 'suki' ); ?></span>
 	</button>

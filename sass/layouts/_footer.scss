@@ -1,0 +1,131 @@
+/**
+ * Footer
+ */
+
+.suki-footer {
+	--items-gap: 1.5em; // CUSTOMIZER - Configurable on each header section
+	--columns-gap: var(--items-gap); // --columns-gap is used by header row (.wp-block-columns)
+}
+
+.suki-footer-widgets-bar {
+	--background-color: var(--color--base-2);
+
+	padding: 4rem var(--wp--style--block-gap); // CUSTOMIZER
+
+	// Color declarations
+	background-color: var(--background-color);
+	color: var(--text-color);
+	border-color: var(--border-color);
+}
+
+.suki-footer-bottom-bar {
+	--background-color: var(--color--base-2);
+	
+	padding: 1.5rem var(--wp--style--block-gap); // CUSTOMIZER
+
+	// Color declarations
+	background-color: var(--background-color);
+	color: var(--text-color);
+	border-color: var(--border-color);
+}
+
+/**
+ * Footer row and column
+ */
+
+.suki-footer-row {
+	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+		flex-wrap: wrap;
+	}
+}
+
+.suki-footer-column {
+	display: flex; // Custom flex layout
+	flex-direction: column;
+	align-items: center;
+	gap: inherit; // Use parent row's --columns-gap
+
+	> * {
+		display: flex;
+		align-items: center; // All children is vertically center aligned
+		justify-content: center;
+		text-align: center;
+		margin: 0;
+	}
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		flex-direction: row;
+		white-space: nowrap;
+
+		&-left {
+			flex: 1 1 50%;
+			justify-content: flex-start;
+			text-align: left;
+		}
+		
+		&-center {
+			flex: 0 1 auto;
+			justify-content: center;
+			text-align: center;
+		}
+		
+		&-right {
+			flex: 1 1 50%;
+			justify-content: flex-end;
+			text-align: right;
+		}
+	}
+
+	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+		justify-content: center;
+		flex-basis: 100% !important; // Use !important to override default wp-block-columns behavior
+	}
+}
+
+/**
+ * Scroll to top
+ */
+
+.suki-scroll-to-top {
+	position: absolute;
+	z-index: 99;
+	bottom: 0;
+	margin-inline: var(--wp--style--block-gap); // CUSTOMIZER
+	margin-block: var(--wp--style--block-gap); // CUSTOMIZER
+	padding: calc( 0.75 * var(--wp--style--block-gap) ); // CUSTOMIZER
+	border-radius: 40px; // CUSTOMIZER
+	font-size: 1.15em; // CUSTOMIZER
+	line-height: 1;
+
+	background-color: var(--button--background-color); // CUSTOMIZER
+	color: var(--button--text-color); // CUSTOMIZER
+
+	&:hover, &:focus {
+		background-color: var(--button--background-color--focus); // CUSTOMIZER
+		color: var(--button--text-color--focus); // CUSTOMIZER
+	}
+
+	&-position-left {
+		left: 0;
+	}
+
+	&-position-right {
+		right: 0;
+	}
+
+	&-display-sticky {
+		position: fixed;
+		transform: translate( 0, 100% );
+		opacity: 0;
+		transition: transform var(--transition-duration), opacity var(--transition-duration);
+
+		&.suki-sticky {
+			opacity: 1;
+			transform: translate( 0, 0 );
+		}
+	}
+
+	.suki-icon {
+		vertical-align: top;
+	}
+}

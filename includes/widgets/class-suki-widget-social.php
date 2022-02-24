@@ -5,21 +5,31 @@
  * @package Suki
  */
 
+/**
+ * Social widget class.
+ */
 class Suki_Widget_Social extends WP_Widget {
-
-	function __construct() {
+	/**
+	 * Class constructor
+	 */
+	public function __construct() {
 		parent::__construct(
 			'suki_widget_social',
 			/* translators: %s: theme name. */
 			sprintf( esc_html__( '%s - Social Links', 'suki' ), suki_get_theme_info( 'name' ) ),
 			array(
-				'classname' => 'suki_widget_social',
-				// 'description' => esc_html__( 'Social links', 'suki' ),
+				'classname'                   => 'suki_widget_social',
 				'customize_selective_refresh' => true,
 			)
 		);
 	}
 
+	/**
+	 * Render widget function.
+	 *
+	 * @param array $args     Array of arguments.
+	 * @param array $instance Array of widget instance data.
+	 */
 	public function widget( $args, $instance ) {
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
@@ -57,6 +67,11 @@ class Suki_Widget_Social extends WP_Widget {
 		ob_end_flush();
 	}
 
+	/**
+	 * Widget form.
+	 *
+	 * @param array $instance Array of widget instance data.
+	 */
 	public function form( $instance ) {
 		$title     = isset( $instance['title'] ) ? sanitize_text_field( $instance['title'] ) : '';
 		$alignment = isset( $instance['alignment'] ) ? sanitize_key( $instance['alignment'] ) : 'center';
@@ -70,7 +85,7 @@ class Suki_Widget_Social extends WP_Widget {
 		);
 
 		$social_choices = suki_get_social_media_types( true );
-		$social_keys = array_keys( $social_choices );
+		$social_keys    = array_keys( $social_choices );
 		sort( $social_keys );
 
 		if ( ! empty( $links ) ) {
@@ -85,7 +100,7 @@ class Suki_Widget_Social extends WP_Widget {
 			<ul id="<?php echo esc_attr( $this->get_field_id( 'links' ) ); ?>" class="suki-widget-social-links-select">
 				<?php foreach ( $social_keys as $social_key ) : ?>
 					<li>
-						<input class="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'links--' . $social_key ) ); ?>" type="checkbox" <?php checked( in_array( $social_key, $links ) ); ?> name="<?php echo esc_attr( $this->get_field_name( 'links' ) ); ?>[]" value="<?php echo esc_attr( $social_key ); ?>">
+						<input class="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'links--' . $social_key ) ); ?>" type="checkbox" <?php checked( in_array( $social_key, $links, true ) ); ?> name="<?php echo esc_attr( $this->get_field_name( 'links' ) ); ?>[]" value="<?php echo esc_attr( $social_key ); ?>">
 						<div>
 							<?php echo esc_html( $social_choices[ $social_key ] ); ?>
 							<span class="dashicons dashicons-menu"></span>
@@ -118,8 +133,14 @@ class Suki_Widget_Social extends WP_Widget {
 		<?php
 	}
 
+	/**
+	 * Update widget callback.
+	 *
+	 * @param array $new_instance New widget instance data.
+	 * @param array $old_instance Old widget instance data.
+	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance              = $old_instance;
+		$instance = $old_instance;
 
 		$instance['title']     = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['alignment'] = isset( $new_instance['alignment'] ) ? sanitize_key( $new_instance['alignment'] ) : 'center';

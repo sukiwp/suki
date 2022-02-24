@@ -1,0 +1,57 @@
+/**
+ * Global
+ */
+
+* {
+	// Set box sizing on all elements and pseudo elements
+	&,
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+	
+	// Remove outline for mouse users
+	&:focus {
+		outline: none;
+	}
+
+	// // Set border color
+	// &,
+	// &:before,
+	// &:after {
+	// 	border-color: var(--border-color);
+	// }
+}
+
+html {
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	font-style: var(--font-style);
+	font-weight: var(--font-weight);
+	line-height: var(--line-height);
+	letter-spacing: var(--letter-spacing);
+	text-transform: var(--text-transform);
+
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0; // Reset
+
+	background-color: var(--background-color);
+	color: var(--text-color);
+
+	min-height: 100vh; // full screen height page
+	overflow-x: hidden;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+::selection {
+	background-color: var(--color--primary); // invert text and background color
+	color: var(--color--base); // invert text and background color
+}
+
+*::placeholder {
+	opacity: 0.75;
+}

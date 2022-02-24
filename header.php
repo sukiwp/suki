@@ -1,25 +1,29 @@
 <?php
 /**
- * The header for our theme.
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * Header template.
  *
  * @package Suki
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 
-		<?php wp_head(); ?>
+		<?php
+		/**
+		 * Hook: wp_head
+		 */
+		wp_head();
+		?>
 	</head>
 
 	<body <?php body_class(); ?>>
@@ -33,36 +37,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 * Hook: suki/frontend/before_canvas
 		 *
 		 * @hooked suki_skip_to_content_link - 1
-		 * @hooked suki_mobile_vertical_header - 10
 		 */
 		do_action( 'suki/frontend/before_canvas' );
 		?>
 
-		<div id="canvas" class="suki-canvas">
-			<div id="page" class="site">
+		<div id="page" class="suki-canvas site">
 
-				<?php
-				/**
-				 * Hook: suki/frontend/before_header
-				 */
-				do_action( 'suki/frontend/before_header' );
-
-				/**
-				 * Header
-				 */
-				suki_header();
-
-				/**
-				 * Hook: suki/frontend/after_header
-				 */
-				do_action( 'suki/frontend/after_header' );
-
-				/**
-				 * Content
-				 */
-				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
-					/**
-					 * Content - opening tag
-					 */
-					suki_content_open();
-				}
+			<?php
+			/**
+			 * Header
+			 */
+			suki_header();

@@ -1,0 +1,98 @@
+/**
+ * Block: Comments, archives, categories, pages list
+ */
+
+.wp-block-latest-comments,
+.wp-block-archives,
+.wp-block-categories,
+.wp-block-page-list {
+	list-style: none;
+	margin: var(--wp--style--block-gap) 0;
+	padding: 0;
+
+	display: grid;
+	gap: 0.5em;
+}
+
+.wp-block-latest-comments {
+	&:where(.has-dates) {
+		gap: 1.25em;
+	}
+
+	&:where(.has-avatars, .has-excerpts) {
+		gap: 1.5em;
+	}
+
+	&__comment {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	&__comment-avatar {
+		flex-shrink: 0;
+		flex-basis: 3rem;
+		border-radius: 9999px;
+		outline: red;
+
+		& + * {
+			flex-grow: 1;
+		}
+	}
+	
+	&__comment-date {
+		display: block;
+		@extend %meta;
+	}
+	
+	&__comment-excerpt {
+		margin-top: calc(0.5 * var(--wp--style--block-gap));
+
+		> * {
+			margin-block: 0.75em;
+		}
+
+		.widget & {
+			font-size: var(--wp--preset--font-size--small);
+			line-height: var(--wp--custom--line-height--small);
+		}
+	}
+}
+
+.wp-block-archives-dropdown {
+	label {
+		display: block;
+	}
+}
+
+/**
+ * Block: Calendar
+ */
+
+.wp-block-calendar {
+	text-align: center;
+
+	caption {
+		margin-bottom: 0.5em;
+	}
+
+	:where(th, td) {
+		padding: 0.25em 0.5em;
+	}
+}
+
+/**
+ * Block: Tag cloud
+ */
+
+.wp-block-tag-cloud {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	row-gap: 0.5em;
+	column-gap: 0.75em;
+
+	a {
+		@include reverse-link-color();
+	}
+}

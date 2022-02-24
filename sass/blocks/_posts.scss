@@ -1,0 +1,278 @@
+/**
+ * Block: Latest posts
+ */
+
+.wp-block-latest-posts {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: var(--wp--style--block-gap);
+
+	li {
+		@include float-container();
+
+		> a {
+			display: table;
+		}
+	}
+
+	&__featured-image {
+		margin-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+
+		a {
+			display: inline-block;
+		}
+
+		img {
+			width: 100%; // Set width because WP use max-width to apply image size from the block settings
+		}
+
+		&.alignleft {
+			/*rtl:ignore*/
+			margin-right: calc( 0.5 * var(--wp--style--block-gap) ) !important; // Use !important because WP generates inline CSS for alignleft (margin-right: 2em) which has high specificity
+		}
+		
+		&.alignright {
+			/*rtl:ignore*/
+			margin-left: calc( 0.5 * var(--wp--style--block-gap) ) !important; // Use !important because WP generates inline CSS for alignright (margin-left: 2em) which has high specificity
+		}
+
+		&.aligncenter {
+			text-align: center;
+			margin-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+		}
+	}
+
+	&__post-author {
+		display: inline-block;
+
+		@extend %meta;
+		
+		& + time {
+			&:before {
+				content: "–";
+				margin: 0 0.5em;
+			}
+		}
+	}
+	
+	&__post-date {
+		display: inline-block;
+		
+		@extend %meta;
+	}
+
+	&__post-excerpt {
+		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+
+		.widget & {
+			margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+			font-size: var(--wp--preset--font-size--small);
+			line-height: var(--wp--custom--line-height--small);
+		}
+	}
+
+	&.is-grid {
+		--gap: var(--wp--style--block-gap);
+
+		display: grid;
+		gap: var(--gap);
+
+		@media screen and ( min-width: $breakpoint-phone ) {
+			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 2, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			&:where(.columns-3, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 3, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			&.columns-4 {
+				grid-template-columns: repeat( 4, 1fr );
+			}
+
+			&.columns-5 {
+				grid-template-columns: repeat( 5, 1fr );
+			}
+
+			&.columns-6 {
+				grid-template-columns: repeat( 6, 1fr );
+			}
+		}
+
+	}
+}
+
+/**
+ * Block: Post author
+ */
+
+.wp-block-post-author {
+	display: grid;
+	grid-auto-flow: row;
+	gap: var(--wp--style--block-gap);
+	margin: var(--wp--style--block-gap) 0;
+	text-align: center;
+	
+	@media screen and ( min-width: $breakpoint-phone ) {
+		grid-auto-flow: column;
+		text-align: initial;
+	}
+
+	&__avatar {
+		flex-shrink: 0;
+
+		.avatar {
+			border-radius: 9999px;
+		}
+	}
+
+	&__content {
+		flex-grow: 1;
+	}
+
+	&__byline {
+		margin-top: 0;
+		margin-bottom: 0;
+
+		@extend %meta;
+	}
+
+	&__name {
+		@extend %small-title;
+		margin: 0;
+	}
+
+	&__bio {
+		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+	}
+
+	@extend %has-background-padding;
+}
+
+/**
+ * Block: Query
+ */
+
+.wp-block-query {
+	@extend %has-background-padding;
+}
+
+.wp-block-post-template {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	display: grid;
+	gap: calc( 3 * var(--wp--style--block-gap) );
+
+	> .wp-block-post + .wp-block-post {
+		margin-top: 0; // Reset WordPress generated CSS
+	}
+
+	&.is-flex-container {
+		gap: var(--wp--style--block-gap);
+
+		@media screen and ( min-width: $breakpoint-phone ) {
+			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 2, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			&:where(.columns-3, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 3, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			&.columns-4 {
+				grid-template-columns: repeat( 4, 1fr );
+			}
+
+			&.columns-5 {
+				grid-template-columns: repeat( 5, 1fr );
+			}
+
+			&.columns-6 {
+				grid-template-columns: repeat( 6, 1fr );
+			}
+		}
+	}
+}
+
+.wp-block-post {
+	@extend %block-container;
+}
+
+/**
+ * Block: Post element
+ */
+
+.wp-block-post-date {
+	&.has-background {
+		padding: 0.25em 0.5em;
+	}
+}
+
+.wp-block-post-featured-image {
+	img {
+		width: 100%;
+	}
+
+	@extend %alignfull-ignore-padding;
+}
+
+.wp-block-post-excerpt {
+	@extend %has-background-padding;
+}
+
+/**
+ * Block: Query pagination
+ */
+
+.wp-block-query-pagination {
+	@extend %has-background-padding;
+	@extend %alignleft-alignright-max-width;
+
+	&-numbers {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.75em;
+	}
+
+	&-previous,
+	&-next {
+		&.has-background {
+			padding: 0.25em 0.5em;
+		}
+	}
+
+	&-previous-arrow {
+		margin-right: 0.5em;
+	}
+
+	&-next-arrow {
+		margin-left: 0.5em;
+	}
+}
+
+/**
+ * Previous and next navigation
+ */
+
+.wp-block-post-navigation-link {
+	a[rel="prev"]:before {
+		content: "« ";
+	}
+
+	a[rel="next"]:after {
+		content: " »";
+	}
+}

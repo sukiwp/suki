@@ -8,8 +8,13 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Jetpack compatibility class.
+ */
 class Suki_Compatibility_Jetpack {
 
 	/**
@@ -44,7 +49,7 @@ class Suki_Compatibility_Jetpack {
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 	}
-	
+
 	/**
 	 * ====================================================
 	 * Hook functions
@@ -56,15 +61,18 @@ class Suki_Compatibility_Jetpack {
 	 */
 	public function setup_theme() {
 		// Add theme support for Infinite Scroll.
-		// ref: https://jetpack.com/support/infinite-scroll/
-		add_theme_support( 'infinite-scroll', array(
-			'type'           => 'click',
-			'container'      => 'loop',
-			'footer'         => 'page',
-			'footer_widgets' => array( 'footer-widgets-1', 'footer-widgets-2', 'footer-widgets-3', 'footer-widgets-4', 'footer-widgets-5', 'footer-widgets-6' ),
-			'wrapper'        => false,
-			'render'         => array( $this, 'render_infinite_scroll' ),
-		) );
+		// ref: https://jetpack.com/support/infinite-scroll/.
+		add_theme_support(
+			'infinite-scroll',
+			array(
+				'type'           => 'click',
+				'container'      => 'loop',
+				'footer'         => 'page',
+				'footer_widgets' => array( 'footer-widgets-1', 'footer-widgets-2', 'footer-widgets-3', 'footer-widgets-4', 'footer-widgets-5', 'footer-widgets-6' ),
+				'wrapper'        => false,
+				'render'         => array( $this, 'render_infinite_scroll' ),
+			)
+		);
 
 		// Add theme support for Responsive Videos.
 		add_theme_support( 'jetpack-responsive-videos' );
@@ -91,11 +99,11 @@ class Suki_Compatibility_Jetpack {
 	public function render_infinite_scroll() {
 		while ( have_posts() ) {
 			the_post();
-			if ( is_search() ) :
-			    suki_get_template_part( 'entry', 'search' );
-			else :
-			    suki_get_template_part( 'entry', suki_get_theme_mod( 'blog_index_loop_mode' ) );
-			endif;
+			if ( is_search() ) {
+				suki_get_template_part( 'entry', 'search' );
+			} else {
+				suki_get_template_part( 'entry', suki_get_theme_mod( 'blog_index_loop_mode' ) );
+			}
 		}
 	}
 }

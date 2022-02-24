@@ -1,0 +1,30 @@
+/**
+ * Page Canvas
+ */
+
+.suki-canvas {
+	--canvas-size: 100vw;
+	--full-size: var(--canvas-size);
+	
+	display: flex;
+	flex-direction: column;
+	width: min( 100%, var(--canvas-size) );
+	min-height: inherit; // full screen height page
+	background-color: var(--color--base); // CUSTOMIZER: page_bg_color
+}
+
+.suki-page-layout-boxed {
+	background-color: var(--color--base-3); // CUSTOMIZER: outside_bg_color
+	background-position: center center; // CUSTOMIZER: outside_bg_position
+	background-size: cover; // CUSTOMIZER: outside_bg_size
+	background-repeat: no-repeat; // CUSTOMIZER: outside_bg_repeat
+	background-attachment: fixed; // CUSTOMIZER: outside_bg_attachment
+
+	.suki-canvas {
+		--canvas-size: 1400px; // CUSTOMIZER
+		
+		margin-left: auto;
+		margin-right: auto;
+		box-shadow: 0px 0px 2rem 0px rgba(0,0,0,0.05); // CUSTOMIZER: boxed_page_shadow
+	}
+}

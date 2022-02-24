@@ -5,29 +5,42 @@
  * @package Suki
  */
 
+/**
+ * Posts widget class.
+ */
 class Suki_Widget_Posts extends WP_Widget {
-
-	function __construct() {
+	/**
+	 * Class constructor
+	 */
+	public function __construct() {
 		parent::__construct(
 			'suki_widget_posts',
 			/* translators: %s: theme name. */
 			sprintf( esc_html__( '%s - Posts with Featured Image', 'suki' ), suki_get_theme_info( 'name' ) ),
 			array(
-				'classname' => 'suki_widget_posts',
-				'description' => esc_html__( 'Posts list with thumbnail images', 'suki' ),
+				'classname'                   => 'suki_widget_posts',
+				'description'                 => esc_html__( 'Posts list with thumbnail images', 'suki' ),
 				'customize_selective_refresh' => true,
 			)
 		);
 	}
 
+	/**
+	 * Render widget function.
+	 *
+	 * @param array $args     Array of arguments.
+	 * @param array $instance Array of widget instance data.
+	 */
 	public function widget( $args, $instance ) {
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
 
-		$cats = get_categories();
+		$cats             = get_categories();
 		$category_default = array();
-		foreach ( $cats as $cat ) $category_default[] = $cat->term_id;
+		foreach ( $cats as $cat ) {
+			$category_default[] = $cat->term_id;
+		}
 
 		$title          = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) : '';
 		$number         = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
@@ -42,7 +55,10 @@ class Suki_Widget_Posts extends WP_Widget {
 			'ignore_sticky_posts' => 1,
 			'orderby'             => $orderby,
 		);
-		if ( ! $all_categories ) $query_args['cat'] = implode( ',', $category );
+
+		if ( ! $all_categories ) {
+			$query_args['cat'] = implode( ',', $category );
+		}
 
 		$query = new WP_Query( $query_args );
 
@@ -83,6 +99,11 @@ class Suki_Widget_Posts extends WP_Widget {
 		endif;
 	}
 
+	/**
+	 * Widget form.
+	 *
+	 * @param array $instance Array of widget instance data.
+	 */
 	public function form( $instance ) {
 		$cats = get_categories();
 
@@ -127,7 +148,7 @@ class Suki_Widget_Posts extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php esc_html_e( 'or Choose Specific Categories:', 'suki' ); ?></label>
 			<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'category' ) ); ?>[]" multiple>
 				<?php foreach ( $cats as $cat ) : ?>
-					<option value="<?php echo esc_attr( $cat->term_id ); ?>" <?php echo ( in_array( $cat->term_id, (array) $category ) ? 'selected' : '' ); ?>><?php echo esc_html( $cat->name ); ?></option>
+					<option value="<?php echo esc_attr( $cat->term_id ); ?>" <?php echo ( in_array( $cat->term_id, (array) $category, true ) ? 'selected' : '' ); ?>><?php echo esc_html( $cat->name ); ?></option>
 				<?php endforeach; ?>
 			</select>
 		</p>
@@ -140,8 +161,14 @@ class Suki_Widget_Posts extends WP_Widget {
 		<?php
 	}
 
+	/**
+	 * Update widget callback.
+	 *
+	 * @param array $new_instance New widget instance data.
+	 * @param array $old_instance Old widget instance data.
+	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance                   = $old_instance;
+		$instance = $old_instance;
 
 		$instance['title']          = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['number']         = isset( $new_instance['number'] ) ? absint( $new_instance['number'] ) : 5;

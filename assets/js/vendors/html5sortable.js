@@ -656,7 +656,6 @@ var sortable = (function () {
    * @param {sortable} sortableContainer a valid sortableContainer
    * @param {boolean} enable enable or disable event
    */
-  // export default (sortableContainer: sortable, enable: boolean) => {
   var enableHoverClass = (function (sortableContainer, enable) {
       if (typeof store(sortableContainer).getConfig('hoverClass') === 'string') {
           var hoverClasses_1 = store(sortableContainer).getConfig('hoverClass').split(' ');
@@ -667,11 +666,11 @@ var sortable = (function () {
                   if (event.buttons === 0) {
                       filter(sortableContainer.children, store(sortableContainer).getConfig('items')).forEach(function (item) {
                           var _a, _b;
-                          if (item !== event.target) {
-                              (_a = item.classList).remove.apply(_a, hoverClasses_1);
+                          if (item === event.target || item.contains(event.target)) {
+                              (_a = item.classList).add.apply(_a, hoverClasses_1);
                           }
                           else {
-                              (_b = item.classList).add.apply(_b, hoverClasses_1);
+                              (_b = item.classList).remove.apply(_b, hoverClasses_1);
                           }
                       });
                   }
@@ -808,6 +807,8 @@ var sortable = (function () {
       var opts = addData(sortableElement, 'opts') || {};
       var items = filter(sortableElement.children, opts.items);
       var handles = getHandles(items, opts.handle);
+      // disable adding hover class
+      enableHoverClass(sortableElement, false);
       // remove event handlers & data from sortable
       removeEventListener(sortableElement, 'dragover');
       removeEventListener(sortableElement, 'dragenter');
@@ -835,6 +836,8 @@ var sortable = (function () {
       addAttribute(sortableElement, 'aria-dropeffect', 'move');
       addData(sortableElement, '_disabled', 'false');
       addAttribute(handles, 'draggable', 'true');
+      // enable hover class
+      enableHoverClass(sortableElement, true);
       // @todo: remove this fix
       // IE FIX for ghost
       // can be disabled as it has the side effect that other events
@@ -869,6 +872,7 @@ var sortable = (function () {
       addData(sortableElement, '_disabled', 'true');
       addAttribute(handles, 'draggable', 'false');
       removeEventListener(handles, 'mousedown');
+      enableHoverClass(sortableElement, false);
   };
   /**
    * Reload the sortable
@@ -959,8 +963,6 @@ var sortable = (function () {
           enableSortable(sortableElement);
           addAttribute(listItems, 'role', 'option');
           addAttribute(listItems, 'aria-grabbed', 'false');
-          // enable hover class
-          enableHoverClass(sortableElement, true);
           /*
            Handle drag events on draggable items
            Handle is set at the sortableElement level as it will bubble up
@@ -1069,8 +1071,10 @@ var sortable = (function () {
               if (dragging.getAttribute('aria-copied') === 'true' && addData(dragging, 'dropped') !== 'true') {
                   dragging.remove();
               }
-              dragging.style.display = dragging.oldDisplay;
-              delete dragging.oldDisplay;
+              if (dragging.oldDisplay !== undefined) {
+                  dragging.style.display = dragging.oldDisplay;
+                  delete dragging.oldDisplay;
+              }
               var visiblePlaceholder = Array.from(stores.values()).map(function (data) { return data.placeholder; })
                   .filter(function (placeholder) { return placeholder instanceof HTMLElement; })
                   .filter(isInDom)[0];
@@ -1112,10 +1116,19 @@ var sortable = (function () {
                   .filter(function (placeholder) { return placeholder instanceof HTMLElement; })
                   // only elements in DOM
                   .filter(isInDom)[0];
-              // attach element after placeholder
-              insertAfter(visiblePlaceholder, dragging);
-              // remove placeholder from dom
-              visiblePlaceholder.remove();
+              if (visiblePlaceholder) {
+                  visiblePlaceholder.replaceWith(dragging);
+                  // to avoid flickering restoring element display immediately after replacing placeholder
+                  if (dragging.oldDisplay !== undefined) {
+                      dragging.style.display = dragging.oldDisplay;
+                      delete dragging.oldDisplay;
+                  }
+              }
+              else {
+                  // set the dropped value to 'false' to delete copied dragging at the time of 'dragend'
+                  addData(dragging, 'dropped', 'false');
+                  return;
+              }
               /*
                * Fires Custom Event - 'sortstop'
                */
@@ -1260,7 +1273,7 @@ var sortable = (function () {
                   return;
               }
               var options = addData(sortableElement, 'opts');
-              if (parseInt(options.maxItems) && filter(sortableElement.children, addData(sortableElement, 'items')).length >= parseInt(options.maxItems) && dragging.parentElement !== sortableElement) {
+              if (parseInt(options.maxItems) && filter(sortableElement.children, addData(sortableElement, 'items')).length > parseInt(options.maxItems) && dragging.parentElement !== sortableElement) {
                   return;
               }
               e.preventDefault();

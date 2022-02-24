@@ -1,0 +1,18 @@
+/**
+ * Social links
+ */
+
+.suki-social-links {
+	// Reset
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	gap: 0.75em;
+
+	a {
+		line-height: 1;
+		vertical-align: middle;
+	}
+}

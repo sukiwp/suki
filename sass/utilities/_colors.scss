@@ -1,0 +1,44 @@
+/**
+ * Additional CSS rules for Gutenberg color classes
+ */
+
+.has-background {
+	background-color: var(--background-color);
+}
+
+.has-text-color {
+	color: var(--text-color);
+
+	:where(h1, h2, h3, h4, h5, h6) {
+		color: var(--text-color);
+	}
+}
+
+.has-link-color {
+	a {
+		color: var(--link-color);
+	}
+}
+
+.has-border-color {
+	border-color: var(--border-color);
+	
+	* {
+		border-color: var(--border-color);
+	}
+}
+
+$types: ( "background-color", "color", "border-color" );
+$colors: ( "black", "white", "cyan-bluish-gray", "pale-pink", "vivid-red", "luminous-vivid-orange", "luminous-vivid-amber", "light-green-cyan", "vivid-green-cyan", "pale-cyan-blue", "vivid-cyan-blue", "vivid-purple" );
+
+@each $type in $types {
+	@each $color in $colors {
+		.has-#{$color}-#{$type} {
+			@if color == $type {
+				--text-#{$type}: var(--wp--preset--color--#{$color});
+			} @else {
+				--#{$type}: var(--wp--preset--color--#{$color});
+			}
+		}
+	}
+}

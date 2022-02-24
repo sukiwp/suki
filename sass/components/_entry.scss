@@ -1,0 +1,63 @@
+/**
+ * Post entry
+ */
+
+.entry {
+	--padding-top: 0; // CUSTOMIZER
+	--padding-right: 0; // CUSTOMIZER
+	--padding-bottom: 0; // CUSTOMIZER
+	--padding-left: 0; // CUSTOMIZER
+
+	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+
+	> * {
+		margin-block: calc( 1.5 * var(--wp--style--block-gap) );
+	}
+}
+
+.entry-small {
+	> * {
+		margin-block: calc( 0.75 * var(--wp--style--block-gap) );
+	}
+}
+
+.entry-header,
+.entry-footer {
+	> * {
+		margin-block: calc( 0.5 * var(--wp--style--block-gap) );
+
+		.entry-small & {
+			margin-block: calc( 0.25 * var(--wp--style--block-gap) );
+		}
+	}
+}
+
+.entry-meta {
+	> * {
+		display: inline-block;
+	}
+
+	.entry-footer & {
+		padding-top: calc( 0.5 * var(--wp--style--block-gap) );
+		border-top: 1px solid var(--border-color);
+	}
+}
+
+.entry-author {
+	&:where(:not(.has-background)) {
+		border: 1px solid var(--border-color);
+	}
+}
+
+.suki-ignore-padding {
+	margin-left: calc( -1 * var(--padding-left) );
+	margin-right: calc( -1 * var(--padding-right) );
+
+	&:first-child {
+		margin-top: calc( -1 * var(--padding-top) );
+	}
+
+	&:last-child {
+		margin-bottom: calc( -1 * var(--padding-bottom) );
+	}
+}

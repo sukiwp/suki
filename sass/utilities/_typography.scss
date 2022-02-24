@@ -1,0 +1,40 @@
+/**
+ * Gutenberg font sizes classes 
+ * Automatically apply line height too
+ */
+
+ $sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
+ @each $size in $sizes {
+	 .has-#{$size}-font-size {
+		 line-height: var(--wp--custom--line-height--#{$size});
+	 }
+ }
+
+/**
+ * Typography classes
+ */
+
+@for $i from 1 through 6 {
+	.suki-h#{$i} {
+		@extend h#{$i};
+	}
+}
+
+.suki-title {
+	@extend %title;
+}
+
+.suki-small-title {
+	@extend %small-title;
+}
+
+.suki-meta {
+	@extend %meta;
+}
+
+.suki-reverse-link-color {
+	&:is(a),
+	a {
+		@include reverse-link-color();
+	}
+}

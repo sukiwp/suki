@@ -1,0 +1,10 @@
+/**
+ * Additional utility classes for Columns block
+ */
+
+.wp-block-columns {
+	// Reverse columns order on mobile
+	&.is-reversed-on-mobile {
+		flex-direction: row-reverse;
+	}
+}

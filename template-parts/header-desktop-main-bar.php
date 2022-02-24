@@ -6,58 +6,53 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 $elements = array();
-$count = 0;
-$cols = array( 'left', 'center', 'right' );
+$columns  = array( 'left', 'center', 'right' );
 
-foreach ( $cols as $col ) {
-	$elements[ $col ] = suki_get_theme_mod( 'header_elements_main_' . $col, array() );
-	$count += count( $elements[ $col ] );
+// Fetch elements on all columns.
+foreach ( $columns as $column ) {
+	$elements[ $column ] = suki_get_theme_mod( 'header_elements_main_' . $column, array() );
 }
 
-if ( 1 > $count ) {
+// Abort if no element found in this section.
+if ( 1 > count( $elements, COUNT_RECURSIVE ) ) {
 	return;
 }
+
 ?>
-<div id="suki-header-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_main_bar_classes', array( 'suki-header-main-bar', 'suki-header-section', 'suki-section' ) ) ) ); ?>">
-	<div class="suki-header-main-bar-inner suki-section-inner">
-
+<div class="<?php suki_element_class( 'header_main_bar', array( 'suki-header-main-bar', 'suki-header-section', 'suki-block-container' ) ); ?>">
+	<div class="<?php suki_element_class( 'header_main_bar_inner', array( 'suki-header-row', 'wp-block-columns', 'is-not-stacked-on-mobile' ) ); ?>">
 		<?php
-		// Top Bar (if merged).
+		// Header Top Bar (if merged).
 		if ( intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-			suki_main_header__top_bar( true );
+			suki_header_desktop__top_bar( true );
 		}
-		?>
 
-		<div class="suki-wrapper">
-			<div class="suki-header-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
-				<?php foreach ( $cols as $col ) : ?>
-					<?php
-					// Skip center column if it's empty
-					if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
-						continue;
-					}
-					?>
-					<div class="<?php echo esc_attr( 'suki-header-main-bar-' . $col ); ?> suki-header-column">
-						<?php
-						// Print all elements inside the column.
-						foreach ( $elements[ $col ] as $element ) {
-							suki_header_element( $element );
-						}
-						?>
-					</div>
-				<?php endforeach; ?>
+		foreach ( $columns as $column ) {
+			// Skip center column if it's empty.
+			if ( 'center' === $column && 0 === count( $elements[ $column ] ) ) {
+				continue;
+			}
+			?>
+			<div class="<?php echo esc_attr( 'suki-header-column-' . $column . ' suki-header-column wp-block-column' ); ?>">
+				<?php
+				// Print elements.
+				foreach ( $elements[ $column ] as $element ) {
+					suki_header_element( $element );
+				}
+				?>
 			</div>
-		</div>
+			<?php
+		}
 
-		<?php
-		// Bottom Bar (if merged).
+		// Header Bottom Bar (if merged).
 		if ( intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-			suki_main_header__bottom_bar( true );
+			suki_header_desktop__bottom_bar( true );
 		}
 		?>
-
 	</div>
 </div>

@@ -6,8 +6,13 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Suki Pro compatibility class.
+ */
 class Suki_Compatibility_Suki_Pro {
 
 	/**
@@ -72,7 +77,7 @@ class Suki_Compatibility_Suki_Pro {
 			add_action( 'customize_register', array( $this, 'fallback_compatibility_1_2_0__page_settings_customizer_controls' ), 999999 );
 		}
 	}
-	
+
 	/**
 	 * ====================================================
 	 * Suki Pro 1.1.0
@@ -82,7 +87,7 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Add legacy "woocommerce-advanced" module and hide the new modules.
 	 *
-	 * @param array $modules
+	 * @param array $modules Modules array.
 	 * @return array
 	 */
 	public function fallback_compatibility_1_1_0__legacy_woocommerce_advanced_module( $modules ) {
@@ -99,7 +104,16 @@ class Suki_Compatibility_Suki_Pro {
 		$modules['woocommerce-advanced'] = array(
 			'label'    => esc_html__( 'WooCommerce Advanced (Legacy)', 'suki' ),
 			'category' => 'woocommerce',
-			'url'      => esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_WEBSITE_URL ) ) ),
+			'url'      => esc_url(
+				add_query_arg(
+					array(
+						'utm_source'   => 'suki-dashboard',
+						'utm_medium'   => 'learn-more',
+						'utm_campaign' => 'theme-pro-modules-list',
+					),
+					trailingslashit( SUKI_PRO_WEBSITE_URL )
+				)
+			),
 		);
 
 		return $modules;
@@ -108,11 +122,11 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Add fallback compatibility for all Suki Pro modules dynamic CSS.
 	 *
-	 * @param string $css
+	 * @param string $css CSS string.
 	 * @return string
 	 */
 	public function fallback_compatibility_1_1_0__for_customizer_inline_css( $css ) {
-		$postmessages = array();
+		$postmessages   = array();
 		$active_modules = get_option( 'suki_pro_active_modules', array() );
 
 		foreach ( $active_modules as $i => $module_slug ) {
@@ -128,7 +142,7 @@ class Suki_Compatibility_Suki_Pro {
 			}
 
 			if ( file_exists( $postmessages_file ) ) {
-				include( $postmessages_file );
+				include $postmessages_file;
 			}
 		}
 
@@ -150,13 +164,17 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Add fallback compatibility for header top bar templates to use HTML attributes for Javascript configuration.
 	 *
-	 * @param string $html
+	 * @param string $html HTML text.
 	 * @return string
 	 */
 	public function fallback_compatibility_1_2_0__header_top_bar_attributes( $html ) {
-		$attrs_array = apply_filters( 'suki/frontend/header_top_bar_attrs', array(
-			'data-height' => intval( suki_get_theme_mod( 'header_top_bar_height' ) ),
-		) );
+		$attrs_array = apply_filters(
+			'suki/frontend/header_top_bar_attrs',
+			array(
+				'data-height' => intval( suki_get_theme_mod( 'header_top_bar_height' ) ),
+			)
+		);
+
 		$attrs = '';
 		foreach ( $attrs_array as $key => $value ) {
 			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
@@ -170,13 +188,17 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Add fallback compatibility for header main bar templates to use HTML attributes for Javascript configuration.
 	 *
-	 * @param string $html
+	 * @param string $html HTML text.
 	 * @return string
 	 */
 	public function fallback_compatibility_1_2_0__header_main_bar_attributes( $html ) {
-		$attrs_array = apply_filters( 'suki/frontend/header_main_bar_attrs', array(
-			'data-height' => intval( suki_get_theme_mod( 'header_main_bar_height' ) ),
-		) );
+		$attrs_array = apply_filters(
+			'suki/frontend/header_main_bar_attrs',
+			array(
+				'data-height' => intval( suki_get_theme_mod( 'header_main_bar_height' ) ),
+			)
+		);
+
 		$attrs = '';
 		foreach ( $attrs_array as $key => $value ) {
 			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
@@ -190,13 +212,17 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Add fallback compatibility for header bottom bar templates to use HTML attributes for Javascript configuration.
 	 *
-	 * @param string $html
+	 * @param string $html HTML text.
 	 * @return string
 	 */
 	public function fallback_compatibility_1_2_0__header_bottom_bar_attributes( $html ) {
-		$attrs_array = apply_filters( 'suki/frontend/header_bottom_bar_attrs', array(
-			'data-height' => intval( suki_get_theme_mod( 'header_bottom_bar_height' ) ),
-		) );
+		$attrs_array = apply_filters(
+			'suki/frontend/header_bottom_bar_attrs',
+			array(
+				'data-height' => intval( suki_get_theme_mod( 'header_bottom_bar_height' ) ),
+			)
+		);
+
 		$attrs = '';
 		foreach ( $attrs_array as $key => $value ) {
 			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
@@ -210,13 +236,17 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Add fallback compatibility for header mobile main bar templates to use HTML attributes for Javascript configuration.
 	 *
-	 * @param string $html
+	 * @param string $html HTML text.
 	 * @return string
 	 */
 	public function fallback_compatibility_1_2_0__header_mobile_main_bar_attributes( $html ) {
-		$attrs_array = apply_filters( 'suki/frontend/header_mobile_main_bar_attrs', array(
-			'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
-		) );
+		$attrs_array = apply_filters(
+			'suki/frontend/header_mobile_main_bar_attrs',
+			array(
+				'data-height' => intval( suki_get_theme_mod( 'header_mobile_main_bar_height' ) ),
+			)
+		);
+
 		$attrs = '';
 		foreach ( $attrs_array as $key => $value ) {
 			$attrs .= ' ' . $key . '="' . esc_attr( $value ) . '"';
@@ -230,7 +260,7 @@ class Suki_Compatibility_Suki_Pro {
 	/**
 	 * Adjust Suki Pro's Page Settings customizer controls for new "Individual Page Settings" structures since Suki theme v1.2.0.
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customizer Manager object.
 	 */
 	public function fallback_compatibility_1_2_0__page_settings_customizer_controls( $wp_customize ) {
 		/**
@@ -238,86 +268,92 @@ class Suki_Compatibility_Suki_Pro {
 		 */
 
 		$subkeys = array(
-			'header_alt_colors' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Colors', 'suki' ),
-				'choices'     => array(
+			'header_alt_colors'         => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Colors', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '&#x25cb; Primary', 'suki' ),
 					'1' => esc_html__( '&#x25cf; Alternate', 'suki' ),
 				),
-				'priority'    => 131,
+				'priority' => 131,
 			),
-			'header_mobile_alt_colors' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Colors', 'suki' ),
-				'choices'     => array(
+			'header_mobile_alt_colors'  => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Colors', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '&#x25cb; Primary', 'suki' ),
 					'1' => esc_html__( '&#x25cf; Alternate', 'suki' ),
 				),
-				'priority'    => 141,
+				'priority' => 141,
 			),
-			'header_transparent' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Transparent', 'suki' ),
-				'choices'     => array(
+			'header_transparent'        => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Transparent', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '-- Global --', 'suki' ),
 					'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
 					'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 				),
-				'priority'    => 132,
+				'priority' => 132,
 			),
 			'header_mobile_transparent' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Transparent', 'suki' ),
-				'choices'     => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Transparent', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '-- Global --', 'suki' ),
 					'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
 					'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 				),
-				'priority'    => 142,
+				'priority' => 142,
 			),
-			'header_sticky' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Sticky', 'suki' ),
-				'choices'     => array(
+			'header_sticky'             => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Sticky', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '-- Global --', 'suki' ),
 					'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
 					'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 				),
-				'priority'    => 133,
+				'priority' => 133,
 			),
-			'header_mobile_sticky' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Sticky', 'suki' ),
-				'choices'     => array(
+			'header_mobile_sticky'      => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Sticky', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '-- Global --', 'suki' ),
 					'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
 					'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 				),
-				'priority'    => 143,
+				'priority' => 143,
 			),
-			'preloader_screen' => array(
-				'type'        => 'select',
-				'label'       => esc_html__( 'Preloader screen', 'suki' ),
-				'choices'     => array(
+			'preloader_screen'          => array(
+				'type'     => 'select',
+				'label'    => esc_html__( 'Preloader screen', 'suki' ),
+				'choices'  => array(
 					''  => esc_html__( '-- Global --', 'suki' ),
 					'0' => esc_html__( '&#x2718; Disabled', 'suki' ),
 					'1' => esc_html__( '&#x2714; Enabled', 'suki' ),
 				),
-				'priority'    => 160,
+				'priority' => 160,
 			),
 		);
 
 		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
 			$section = suki_array_value( $ps_data, 'section' );
-	
+
 			// ------
-			$wp_customize->add_control( new Suki_Customize_Control_HR( $wp_customize, 'hr_' . $ps_type . '_preloader_screen', array(
-				'section'     => $section,
-				'settings'    => array(),
-				'priority'    => 160,
-			) ) );
-		
+			$wp_customize->add_control(
+				new Suki_Customize_Control_HR(
+					$wp_customize,
+					'hr_' . $ps_type . '_preloader_screen',
+					array(
+						'section'  => $section,
+						'settings' => array(),
+						'priority' => 160,
+					)
+				)
+			);
+
 			foreach ( $subkeys as $subkey => $detail ) {
 				$old_key = 'page_settings_' . $ps_type . '[' . $subkey . ']';
 				$new_key = $ps_type . '_' . $subkey;
@@ -330,16 +366,23 @@ class Suki_Compatibility_Suki_Pro {
 				$defaults = Suki_Customizer::instance()->get_setting_defaults();
 
 				// Add new setting and control.
-				$wp_customize->add_setting( $new_key, array(
-					'default'     => suki_array_value( $defaults, $new_key ),
-					'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-				) );
-				$wp_customize->add_control( $new_key, array_merge(
-					$detail,
+				$wp_customize->add_setting(
+					$new_key,
 					array(
-						'section' => $section,
+						'default'           => suki_array_value( $defaults, $new_key ),
+						'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 					)
-				) );
+				);
+
+				$wp_customize->add_control(
+					$new_key,
+					array_merge(
+						$detail,
+						array(
+							'section' => $section,
+						)
+					)
+				);
 			}
 		}
 
@@ -356,36 +399,42 @@ class Suki_Compatibility_Suki_Pro {
 		if ( ! empty( $section ) ) {
 			$wp_customize->remove_section( 'suki_section_spacer_header_plus' );
 		}
-		
+
 		$section = $wp_customize->get_section( 'suki_section_header_button' );
 		if ( ! empty( $section ) ) {
-			$section->title = esc_html__( 'Button', 'suki' );
+			$section->title    = esc_html__( 'Button', 'suki' );
 			$section->priority = 35;
 		}
-		
+
 		$section = $wp_customize->get_section( 'suki_section_header_contact' );
 		if ( ! empty( $section ) ) {
-			$section->title = esc_html__( 'Contact Info', 'suki' );
+			$section->title    = esc_html__( 'Contact Info', 'suki' );
 			$section->priority = 35;
 		}
-		
+
 		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_header_advanced', array(
-			'title'       => esc_html__( 'Advanced', 'suki' ),
-			'panel'       => 'suki_panel_header',
-			'priority'    => 40,
-		) ) );
-		
+		$wp_customize->add_section(
+			new Suki_Customize_Section_Spacer(
+				$wp_customize,
+				'suki_section_spacer_header_advanced',
+				array(
+					'title'    => esc_html__( 'Advanced', 'suki' ),
+					'panel'    => 'suki_panel_header',
+					'priority' => 40,
+				)
+			)
+		);
+
 		$section = $wp_customize->get_section( 'suki_section_header_transparent' );
 		if ( ! empty( $section ) ) {
 			$section->priority = 41;
 		}
-		
+
 		$section = $wp_customize->get_section( 'suki_section_header_alt_colors' );
 		if ( ! empty( $section ) ) {
 			$section->priority = 42;
 		}
-		
+
 		$section = $wp_customize->get_section( 'suki_section_header_sticky' );
 		if ( ! empty( $section ) ) {
 			$section->priority = 43;
@@ -397,16 +446,22 @@ class Suki_Compatibility_Suki_Pro {
 
 		$section = $wp_customize->get_section( 'suki_section_entry_list' );
 		if ( ! empty( $section ) ) {
-			$section->title = esc_html__( 'List', 'suki' );
+			$section->title    = esc_html__( 'List', 'suki' );
 			$section->priority = 11;
 		}
 
 		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_blog_advanced', array(
-			'title'       => esc_html__( 'Advanced', 'suki' ),
-			'panel'       => 'suki_panel_blog',
-			'priority'    => 30,
-		) ) );
+		$wp_customize->add_section(
+			new Suki_Customize_Section_Spacer(
+				$wp_customize,
+				'suki_section_spacer_blog_advanced',
+				array(
+					'title'    => esc_html__( 'Advanced', 'suki' ),
+					'panel'    => 'suki_panel_blog',
+					'priority' => 30,
+				)
+			)
+		);
 
 		$section = $wp_customize->get_section( 'suki_section_blog_related_posts' );
 		if ( ! empty( $section ) ) {
@@ -423,11 +478,17 @@ class Suki_Compatibility_Suki_Pro {
 		 */
 
 		// ------
-		$wp_customize->add_section( new Suki_Customize_Section_Spacer( $wp_customize, 'suki_section_spacer_woocommerce_advanced', array(
-			'title'       => esc_html__( 'Advanced', 'suki' ),
-			'panel'       => 'woocommerce',
-			'priority'    => 40,
-		) ) );
+		$wp_customize->add_section(
+			new Suki_Customize_Section_Spacer(
+				$wp_customize,
+				'suki_section_spacer_woocommerce_advanced',
+				array(
+					'title'    => esc_html__( 'Advanced', 'suki' ),
+					'panel'    => 'woocommerce',
+					'priority' => 40,
+				)
+			)
+		);
 	}
 }
 

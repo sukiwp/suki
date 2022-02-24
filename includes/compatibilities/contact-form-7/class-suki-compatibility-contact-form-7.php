@@ -2,14 +2,17 @@
 /**
  * Plugin compatibility: Contact Form 7
  *
- * @link https://jetpack.me/
- *
  * @package Suki
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Contact Form 7 compatibility class.
+ */
 class Suki_Compatibility_Contact_Form_7 {
 
 	/**
@@ -41,10 +44,10 @@ class Suki_Compatibility_Contact_Form_7 {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Compatibility CSS (via theme inline CSS)
+		// Compatibility CSS (via theme inline CSS).
 		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
 	}
-	
+
 	/**
 	 * ====================================================
 	 * Hook functions
@@ -54,7 +57,7 @@ class Suki_Compatibility_Contact_Form_7 {
 	/**
 	 * Add compatibility CSS via inline CSS.
 	 *
-	 * @param string $inline_css
+	 * @param string $inline_css Inline CSS string.
 	 * @return string
 	 */
 	public function add_compatibility_css( $inline_css ) {

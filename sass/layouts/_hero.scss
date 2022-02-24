@@ -1,0 +1,10 @@
+/**
+ * Hero section
+ */
+
+.suki-hero {
+	--background-color: var(--color--base-2);
+	
+	padding: 4rem var(--wp--style--block-gap); // CUSTOMIZER
+	background-color: var(--background-color); // CUSTOMIZER
+}

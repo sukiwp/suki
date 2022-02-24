@@ -6,8 +6,13 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Admin class.
+ */
 class Suki_Admin {
 	/**
 	 * Singleton instance
@@ -15,13 +20,6 @@ class Suki_Admin {
 	 * @var Suki_Admin
 	 */
 	private static $instance;
-
-	/**
-	 * Parent menu slug of all theme pages
-	 *
-	 * @var string
-	 */
-	private $_menu_id = 'suki';
 
 	/**
 	 * ====================================================
@@ -45,11 +43,15 @@ class Suki_Admin {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		/**
+		 * Actions and filters
+		 */
+
 		// Add admin menu, CSS, and JS.
 		add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
-		
+
 		// Theme dashboard notification.
 		add_action( 'admin_notices', array( $this, 'add_theme_welcome' ), 999 );
 
@@ -57,34 +59,31 @@ class Suki_Admin {
 		add_action( 'admin_notices', array( $this, 'add_rating_notice' ) );
 		add_action( 'wp_ajax_suki_rating_notice_close', array( $this, 'ajax_dismiss_rating_notice' ) );
 		add_action( 'after_switch_theme', array( $this, 'reset_rating_notice_flag' ) );
-		
+
 		// Suki Sites Import plugin installation from theme's dashboard page.
 		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
 
-		// Editor styles
+		// Editor styles.
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
-		// Suki admin page hooks
+		// Suki admin page hooks.
 		add_action( 'suki/admin/dashboard/header', array( $this, 'render_admin_page__logo' ), 10 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_admin_page__modules' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__suki_pro' ), 1 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 10 );
 		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__links' ), 20 );
-		
-		$this->_includes();
-	}
 
-	/**
-	 * Include additional files.
-	 */
-	private function _includes() {
-		require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php' );
+		/**
+		 * Include more files.
+		 */
+
+		require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php';
 
 		// Only include metabox on post add/edit page and term add/edit page.
 		global $pagenow;
-		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ) ) ) {
-			require_once( SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php' );
+		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ), true ) ) {
+			require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php';
 		}
 	}
 
@@ -115,7 +114,7 @@ class Suki_Admin {
 	/**
 	 * Enqueue admin styles.
 	 *
-	 * @param string $hook
+	 * @param string $hook Hook name.
 	 */
 	public function enqueue_admin_styles( $hook ) {
 		/**
@@ -123,10 +122,10 @@ class Suki_Admin {
 		 */
 		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
 
-		// Register CSS files
+		// Register CSS files.
 		wp_register_style( 'alpha-color-picker', SUKI_CSS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.css', array( 'wp-color-picker' ), SUKI_VERSION );
 
-		// Enqueue CSS files
+		// Enqueue CSS files.
 		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
 		wp_style_add_data( 'suki-admin', 'suffix', SUKI_ASSETS_SUFFIX );
@@ -140,19 +139,20 @@ class Suki_Admin {
 	/**
 	 * Enqueue admin javascripts.
 	 *
-	 * @param string $hook
+	 * @param string $hook Hook name.
 	 */
 	public function enqueue_admin_javascripts( $hook ) {
-		// Fetched version from package.json
+		// Fetched version from package.json.
 		$ver = array();
-		$ver['html5sortable'] = '';
+
+		$ver['html5sortable'] = '0.13.3';
 
 		/**
 		 * Hook: Styles to be included before admin JS
 		 */
 		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
 
-		// Register JS files
+		// Register JS files.
 		wp_register_script( 'alpha-color-picker', SUKI_JS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery', 'wp-color-picker' ), SUKI_VERSION, true );
 		wp_register_script( 'html5sortable', SUKI_JS_URL . '/vendors/html5sortable' . SUKI_ASSETS_SUFFIX . '.js', array(), $ver['html5sortable'], true );
 
@@ -160,15 +160,19 @@ class Suki_Admin {
 		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );
 
 		// Send data to main JS file.
-		wp_localize_script( 'suki-admin', 'SukiAdminData', array(
-			'ajax_nonce'         => wp_create_nonce( 'suki' ),
-			'sitesImportPageURL' => esc_url( add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ) ),
-			'strings'            => array(
-				'installing'               => esc_html__( 'Installing...', 'suki' ),
-				'error_installing_plugin'  => esc_html__( 'Error occured while installing the plugin', 'suki' ),
-				'redirecting_to_demo_list' => esc_html__( 'Redirecting to demo list...', 'suki' ),
-			),
-		) );
+		wp_localize_script(
+			'suki-admin',
+			'SukiAdminData',
+			array(
+				'ajax_nonce'         => wp_create_nonce( 'suki' ),
+				'sitesImportPageURL' => esc_url( add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ) ),
+				'strings'            => array(
+					'installing'               => esc_html__( 'Installing...', 'suki' ),
+					'error_installing_plugin'  => esc_html__( 'Error occured while installing the plugin', 'suki' ),
+					'redirecting_to_demo_list' => esc_html__( 'Redirecting to demo list...', 'suki' ),
+				),
+			)
+		);
 
 		/**
 		 * Hook: Styles to be included after admin JS
@@ -245,7 +249,7 @@ class Suki_Admin {
 	/**
 	 * Add custom CSS to classic editor.
 	 *
-	 * @param array $settings
+	 * @param array $settings Settings array.
 	 * @return array
 	 */
 	public function add_classic_editor_custom_css( $settings ) {
@@ -268,25 +272,25 @@ class Suki_Admin {
 			'global' => array(),
 		);
 
-		// TinyMCE HTML
+		// TinyMCE HTML.
 		$css_array['global']['html']['background-color'] = '#fcfcfc';
 
-		// Typography
+		// Typography.
+		$fonts               = suki_get_all_fonts();
 		$active_google_fonts = array();
-		$typography_types = array(
-			'body' => 'body',
+		$typography_types    = array(
+			'body'       => 'body',
 			'blockquote' => 'blockquote',
-			'h1' => 'h1',
-			'h2' => 'h2',
-			'h3' => 'h3',
-			'h4' => 'h4',
+			'h1'         => 'h1',
+			'h2'         => 'h2',
+			'h3'         => 'h3',
+			'h4'         => 'h4',
 		);
-		$fonts = suki_get_all_fonts();
 
 		foreach ( $typography_types as $type => $selector ) {
-			// Font Family
+			// Font Family.
 			$font_family = suki_get_theme_mod( $type . '_font_family' );
-			$font_stack = $font_family;
+			$font_stack  = $font_family;
 			if ( '' !== $font_family && 'inherit' !== $font_family ) {
 				$chunks = explode( '|', $font_family );
 				if ( 2 === count( $chunks ) ) {
@@ -297,55 +301,45 @@ class Suki_Admin {
 				$css_array['global'][ $selector ]['font-family'] = $font_stack;
 			}
 
-			// Font weight
+			// Font weight.
 			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
 			if ( ! empty( $font_weight ) ) {
 				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
 			}
-			
-			// Font style
+
+			// Font style.
 			$font_style = suki_get_theme_mod( $type . '_font_style' );
 			if ( ! empty( $font_style ) ) {
 				$css_array['global'][ $selector ]['font-style'] = $font_style;
 			}
-			
-			// Text transform
+
+			// Text transform.
 			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
 			if ( ! empty( $text_transform ) ) {
 				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
 			}
 
-			// Font size
+			// Font size.
 			$font_size = suki_get_theme_mod( $type . '_font_size' );
 			if ( ! empty( $font_size ) ) {
 				$css_array['global'][ $selector ]['font-size'] = $font_size;
 			}
 
-			// Line height
+			// Line height.
 			$line_height = suki_get_theme_mod( $type . '_line_height' );
 			if ( ! empty( $line_height ) ) {
 				$css_array['global'][ $selector ]['line-height'] = $line_height;
 			}
 
-			// Letter spacing
+			// Letter spacing.
 			$letter_spacing = suki_get_theme_mod( $type . '_letter_spacing' );
 			if ( ! empty( $letter_spacing ) ) {
 				$css_array['global'][ $selector ]['letter-spacing'] = $letter_spacing;
 			}
 		}
 
-		// Content wrapper width for content layout with sidebar
-		// $css_array['global']['body.suki-editor-left-sidebar']['width'] =
-		// $css_array['global']['body.suki-editor-right-sidebar']['width'] = 'calc(' . suki_get_content_width_by_layout() . 'px + 2rem)';
-
-		// // Content wrapper width for narrow content layout
-		// $css_array['global']['body.suki-editor-narrow']['width'] = 'calc(' . suki_get_content_width_by_layout( 'narrow' ) . 'px + 2rem)';
-
-		// // Content wrapper width for full content layout
-		// $css_array['global']['body.suki-editor-wide']['width'] = 'calc(' . suki_get_content_width_by_layout( 'wide' ) . 'px + 2rem)';
-
 		// Build CSS string.
-		// $styles = str_replace( '"', '\"', suki_convert_css_array_to_string( $css_array ) );
+		// $styles = str_replace( '"', '\"', suki_convert_css_array_to_string( $css_array ) );.
 		$styles = wp_slash( suki_convert_css_array_to_string( $css_array ) );
 
 		// Merge with existing styles or add new styles.
@@ -370,41 +364,42 @@ class Suki_Admin {
 	/**
 	 * Add custom CSS to Gutenberg editor.
 	 *
-	 * @param array $settings
+	 * @param array $settings Settings array.
 	 * @return array
 	 */
 	public function add_gutenberg_custom_css( $settings ) {
 		$css_array = array();
 
-		// Content width
-		$css_array['global']['.wp-block']['max-width'] = 'calc(' . suki_get_theme_mod( 'content_narrow_width' ) . ' + ' . '30px)';
-		$css_array['global']['.wp-block[data-align="wide"]']['max-width'] = 'calc(' . suki_get_theme_mod( 'container_width' ) . ' + ' . '30px)';
+		// Content width.
+		$css_array['global']['.wp-block']['max-width']                    = 'calc(' . suki_get_theme_mod( 'content_narrow_width' ) . ' + 30px)';
+		$css_array['global']['.wp-block[data-align="wide"]']['max-width'] = 'calc(' . suki_get_theme_mod( 'container_width' ) . ' + 30px)';
 		$css_array['global']['.wp-block[data-align="full"]']['max-width'] = 'none';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-family'] = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-weight'] = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-style'] = 'inherit';
+
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-family']    = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-weight']    = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-style']     = 'inherit';
 		$css_array['global']['.editor-post-title__block .editor-post-title__input']['text-transform'] = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-size'] = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['line-height'] = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-size']      = 'inherit';
+		$css_array['global']['.editor-post-title__block .editor-post-title__input']['line-height']    = 'inherit';
 		$css_array['global']['.editor-post-title__block .editor-post-title__input']['letter-spacing'] = 'inherit';
 
-		// Typography
+		// Typography.
+		$fonts               = suki_get_all_fonts();
 		$active_google_fonts = array();
-		$typography_types = array(
-			'body' => 'body',
+		$typography_types    = array(
+			'body'       => 'body',
 			'blockquote' => 'blockquote',
-			'h1' => 'h1, .editor-post-title__block .editor-post-title__input',
-			'h2' => 'h2',
-			'h3' => 'h3',
-			'h4' => 'h4',
-			'title' => '.editor-post-title__block .editor-post-title__input',
+			'h1'         => 'h1, .editor-post-title__block .editor-post-title__input',
+			'h2'         => 'h2',
+			'h3'         => 'h3',
+			'h4'         => 'h4',
+			'title'      => '.editor-post-title__block .editor-post-title__input',
 		);
-		$fonts = suki_get_all_fonts();
 
 		foreach ( $typography_types as $type => $selector ) {
-			// Font Family
+			// Font Family.
 			$font_family = suki_get_theme_mod( $type . '_font_family' );
-			$font_stack = $font_family;
+			$font_stack  = $font_family;
 			if ( '' !== $font_family && 'inherit' !== $font_family ) {
 				$chunks = explode( '|', $font_family );
 				if ( 2 === count( $chunks ) ) {
@@ -415,44 +410,44 @@ class Suki_Admin {
 				$css_array['global'][ $selector ]['font-family'] = $font_stack;
 			}
 
-			// Font weight
+			// Font weight.
 			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
 			if ( ! empty( $font_weight ) ) {
 				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
 			}
-			
-			// Font style
+
+			// Font style.
 			$font_style = suki_get_theme_mod( $type . '_font_style' );
 			if ( ! empty( $font_style ) ) {
 				$css_array['global'][ $selector ]['font-style'] = $font_style;
 			}
-			
-			// Text transform
+
+			// Text transform.
 			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
 			if ( ! empty( $text_transform ) ) {
 				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
 			}
 
-			// Font size
+			// Font size.
 			$font_size = suki_get_theme_mod( $type . '_font_size' );
 			if ( ! empty( $font_size ) ) {
 				$css_array['global'][ $selector ]['font-size'] = $font_size;
 			}
 
-			// Line height
+			// Line height.
 			$line_height = suki_get_theme_mod( $type . '_line_height' );
 			if ( ! empty( $line_height ) ) {
 				$css_array['global'][ $selector ]['line-height'] = $line_height;
 			}
 
-			// Letter spacing
+			// Letter spacing.
 			$letter_spacing = suki_get_theme_mod( $type . '_letter_spacing' );
 			if ( ! empty( $letter_spacing ) ) {
 				$css_array['global'][ $selector ]['letter-spacing'] = $letter_spacing;
 			}
 		}
 
-		// Relative heading margin top
+		// Relative heading margin top.
 		$css_array['global']['h1, h2, h3, h4, h5, h6']['margin-top'] = 'calc( 2 * ' . suki_get_theme_mod( 'body_font_size' ) . ') !important';
 
 		// Add to settings array.
@@ -473,9 +468,11 @@ class Suki_Admin {
 	 * AJAX callback to dismiss rating notice.
 	 */
 	public function ajax_dismiss_rating_notice() {
+		check_ajax_referer( 'suki', '_ajax_nonce' );
+
 		$repeat_after = ( isset( $_REQUEST['repeat_after'] ) ) ? intval( $_REQUEST['repeat_after'] ) : false;
 
-		if ( -1 == $repeat_after ) {
+		if ( -1 === $repeat_after ) {
 			// Dismiss rating notice forever.
 			update_option( 'suki_rating_notice_is_dismissed', 1 );
 		} else {
@@ -500,29 +497,29 @@ class Suki_Admin {
 
 		if ( ! file_exists( WP_PLUGIN_DIR . '/' . $path ) ) {
 			if ( ! function_exists( 'plugins_api' ) ) {
-				require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+				require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 			}
 			if ( ! class_exists( 'WP_Upgrader' ) ) {
-				require_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+				require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 			}
 
 			$api = plugins_api(
 				'plugin_information',
 				array(
-					'slug' => 'suki-sites-import',
+					'slug'   => 'suki-sites-import',
 					'fields' => array(
 						'short_description' => false,
-						'sections' => false,
-						'requires' => false,
-						'rating' => false,
-						'ratings' => false,
-						'downloaded' => false,
-						'last_updated' => false,
-						'added' => false,
-						'tags' => false,
-						'compatibility' => false,
-						'homepage' => false,
-						'donate_link' => false,
+						'sections'          => false,
+						'requires'          => false,
+						'rating'            => false,
+						'ratings'           => false,
+						'downloaded'        => false,
+						'last_updated'      => false,
+						'added'             => false,
+						'tags'              => false,
+						'compatibility'     => false,
+						'homepage'          => false,
+						'donate_link'       => false,
 					),
 				)
 			);
@@ -545,7 +542,7 @@ class Suki_Admin {
 				wp_send_json_error();
 			}
 		}
-		
+
 		wp_send_json_success();
 	}
 
@@ -626,19 +623,23 @@ class Suki_Admin {
 	 */
 	public function render_admin_page__modules() {
 		$all_modules = array();
+
 		$module_categories = suki_get_module_categories();
 
 		// Fetch free modules.
 		foreach ( suki_get_theme_modules() as $module_slug => $module_data ) {
-			$data = wp_parse_args( $module_data, array(
-				'label'    => '',
-				'url'      => '',
-				'category' => '',
-				'actions'  => array(),
-				'hide'     => false,
-				'pro'      => false,
-				'active'   => true,
-			) );
+			$data = wp_parse_args(
+				$module_data,
+				array(
+					'label'    => '',
+					'url'      => '',
+					'category' => '',
+					'actions'  => array(),
+					'hide'     => false,
+					'pro'      => false,
+					'active'   => true,
+				)
+			);
 
 			// Always flag all free modules as FREE.
 			$data['pro'] = false;
@@ -659,15 +660,18 @@ class Suki_Admin {
 
 		// Fetch pro modules.
 		foreach ( suki_get_pro_modules() as $module_slug => $module_data ) {
-			$data = wp_parse_args( $module_data, array(
-				'label'    => '',
-				'url'      => '',
-				'category' => '',
-				'actions'  => array(),
-				'hide'     => false,
-				'pro'      => true,
-				'active'   => false,
-			) );
+			$data = wp_parse_args(
+				$module_data,
+				array(
+					'label'    => '',
+					'url'      => '',
+					'category' => '',
+					'actions'  => array(),
+					'hide'     => false,
+					'pro'      => true,
+					'active'   => false,
+				)
+			);
 
 			// Always flag all free modules as PRO.
 			$data['pro'] = true;
@@ -728,7 +732,7 @@ class Suki_Admin {
 								</h4>
 
 								<div class="suki-admin-module-actions">
-									<?php foreach( $module_data['actions'] as $action_key => $action_data ) : ?>
+									<?php foreach ( $module_data['actions'] as $action_key => $action_data ) : ?>
 										<?php if ( isset( $action_data['url'] ) ) : ?>
 											<a href="<?php echo esc_url( $action_data['url'] ); ?>" class="<?php echo esc_attr( 'suki-admin-module-action--' . $action_key ); ?>">
 												<span><?php echo esc_html( $action_data['label'] ); ?></span>
@@ -753,44 +757,47 @@ class Suki_Admin {
 	 * Render links box on Suki admin page's sidebar.
 	 */
 	public function render_sidebar__links() {
-		$menus = apply_filters( 'suki/admin/dashboard/menu', array(
+		$menus = apply_filters(
+			'suki/admin/dashboard/menu',
 			array(
-				'label'  => esc_html__( 'Suki Website', 'suki' ),
-				'url'    => 'https://sukiwp.com/',
-				'icon'   => 'dashicons-admin-home',
-				'newtab' => true,
-			),
-			array(
-				'label'  => esc_html__( 'Documentation', 'suki' ),
-				'url'    => 'https://docs.sukiwp.com/',
-				'icon'   => 'dashicons-book-alt',
-				'newtab' => true,
-			),
-			array(
-				'label'  => esc_html__( 'Translation', 'suki' ),
-				'url'    => 'https://translate.sukiwp.com/',
-				'icon'   => 'dashicons-admin-site-alt2',
-				'newtab' => true,
-			),
-			array(
-				'label'  => esc_html__( 'Users Community Group', 'suki' ),
-				'url'    => 'https://www.facebook.com/groups/sukiwp/',
-				'icon'   => 'dashicons-groups',
-				'newtab' => true,
-			),
-			array(
-				'label'  => esc_html__( 'Follow Us on Facebook', 'suki' ),
-				'url'    => 'https://www.facebook.com/sukiwp/',
-				'icon'   => 'dashicons-facebook',
-				'newtab' => true,
-			),
-			array(
-				'label'  => esc_html__( 'Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;', 'suki' ),
-				'url'    => 'https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post',
-				'icon'   => 'dashicons-star-filled',
-				'newtab' => true,
-			),
-		) );
+				array(
+					'label'  => esc_html__( 'Suki Website', 'suki' ),
+					'url'    => 'https://sukiwp.com/',
+					'icon'   => 'dashicons-admin-home',
+					'newtab' => true,
+				),
+				array(
+					'label'  => esc_html__( 'Documentation', 'suki' ),
+					'url'    => 'https://docs.sukiwp.com/',
+					'icon'   => 'dashicons-book-alt',
+					'newtab' => true,
+				),
+				array(
+					'label'  => esc_html__( 'Translation', 'suki' ),
+					'url'    => 'https://translate.sukiwp.com/',
+					'icon'   => 'dashicons-admin-site-alt2',
+					'newtab' => true,
+				),
+				array(
+					'label'  => esc_html__( 'Users Community Group', 'suki' ),
+					'url'    => 'https://www.facebook.com/groups/sukiwp/',
+					'icon'   => 'dashicons-groups',
+					'newtab' => true,
+				),
+				array(
+					'label'  => esc_html__( 'Follow Us on Facebook', 'suki' ),
+					'url'    => 'https://www.facebook.com/sukiwp/',
+					'icon'   => 'dashicons-facebook',
+					'newtab' => true,
+				),
+				array(
+					'label'  => esc_html__( 'Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;', 'suki' ),
+					'url'    => 'https://wordpress.org/support/theme/suki/reviews/?rate=5#new-post',
+					'icon'   => 'dashicons-star-filled',
+					'newtab' => true,
+				),
+			)
+		);
 		?>
 		<div class="suki-admin-other-links postbox">
 			<h2 class="hndle"><?php esc_html_e( 'Other Links', 'suki' ); ?></h2>
@@ -819,7 +826,14 @@ class Suki_Admin {
 				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-pro-banner.png' ); ?>" width="300" height="150"></p>
 				<p><?php esc_html_e( 'Get more powerful features and take your website to the next level with Suki Pro.', 'suki' ); ?></p>
 				<p>
-					<a href="<?php echo esc_url( add_query_arg( array( 'utm_source' => 'suki-dashboard', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-pro-modules-list' ), trailingslashit( SUKI_PRO_WEBSITE_URL ) ) ); ?>" class="button button-large button-secondary"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></a>
+					<?php
+					$url_args = array(
+						'utm_source'   => 'suki-dashboard',
+						'utm_medium'   => 'learn-more',
+						'utm_campaign' => 'theme-pro-modules-list',
+					);
+					?>
+					<a href="<?php echo esc_url( add_query_arg( $url_args, trailingslashit( SUKI_PRO_WEBSITE_URL ) ) ); ?>" class="button button-large button-secondary"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></a>
 				</p>
 			</div>
 		</div>

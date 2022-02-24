@@ -1,0 +1,21 @@
+/**
+ * Breadcrumb
+ */
+
+.suki-breadcrumb {
+	--breadcrumb--separator: "\203a";
+
+	ul, ol {
+		list-style: none;
+		display: inline-flex;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		&:not(:last-child):after {
+			content: var(--breadcrumb--separator);
+			margin: 0 0.5em;
+		}
+	}
+}

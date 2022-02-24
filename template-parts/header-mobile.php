@@ -6,46 +6,17 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 ?>
-<div id="mobile-header" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_classes', array( 'suki-header-mobile', 'suki-header' ) ) ) ); ?>">
+<div id="mobile-header" class="<?php suki_element_class( 'header_mobile', array( 'suki-header-mobile', 'suki-hide-on-desktop' ) ); ?>">
 	<?php
-	$elements = array();
-	$count = 0;
-	$cols = array( 'left', 'center', 'right' );
+	// Mobile Header Main Bar.
+	suki_header_mobile__main_bar();
 
-	foreach ( $cols as $col ) {
-		$elements[ $col ] = suki_get_theme_mod( 'header_mobile_elements_main_' . $col, array() );
-		$count += count( $elements[ $col ] );
-	}
-
-	if ( 1 > $count ) {
-		return;
-	}
+	// Mobile Header Popup.
+	suki_header_mobile__popup();
 	?>
-	<div id="suki-header-mobile-main-bar" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-section', 'suki-section-default' ) ) ) ); ?>">
-		<div class="suki-header-mobile-main-bar-inner suki-section-inner">
-			<div class="suki-wrapper">
-				<div class="suki-header-mobile-main-bar-row suki-header-row <?php echo esc_attr( ( 0 < count( $elements['center'] ) ) ? 'suki-header-row-with-center' : '' ); ?>">
-					<?php foreach ( $cols as $col ) : ?>
-						<?php
-						// Skip center column if it's empty
-						if ( 'center' === $col && 0 === count( $elements[ $col ] ) ) {
-							continue;
-						}
-						?>
-						<div class="<?php echo esc_attr( 'suki-header-mobile-main-bar-' . $col ); ?> suki-header-column">
-							<?php
-							// Print all elements inside the column.
-							foreach ( $elements[ $col ] as $element ) {
-								suki_header_element( $element );
-							}
-							?>
-						</div>
-					<?php endforeach; ?>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>

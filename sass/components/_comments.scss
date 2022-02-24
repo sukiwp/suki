@@ -1,0 +1,158 @@
+/**
+ * Comments
+ */
+
+#comments {
+	@extend %small-title;
+}
+
+.commentlist, .commentlist .children {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	display: grid;
+	gap: calc( 1.5 * var(--wp--style--block-gap) );
+}
+
+.commentlist {
+	margin: var(--wp--style--block-gap) 0;
+}
+
+.commentlist .children {
+	padding-left: 4rem;
+}
+
+.comment {
+	display: grid;
+	gap: calc( 1.5 * var(--wp--style--block-gap) );
+
+	&-body {
+		position: relative;
+		padding-left: 4rem;
+	
+		> * {
+			margin-block: calc( 0.5 * var(--wp--style--block-gap) );
+
+			@include remove-margin-top-for-first-child();
+			@include remove-margin-bottom-for-last-child();
+		}
+	}
+	
+	&-author {
+		.avatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3rem;
+			height: 3rem;
+			border-radius: 9999px;
+		}
+	}
+	
+	&-meta {
+		a {
+			@include reverse-link-color();
+		}
+	}
+	
+	&-metadata {
+		display: inline-flex;
+		@extend %meta;
+		
+		> * + * {
+			&:before {
+				content: "–";
+				margin: 0 0.5em;
+			}
+		}
+	
+		.edit-link {
+			a {
+				&:before {
+					content: "✎ ";
+				}
+			}
+		}
+	}
+	
+	&-content {
+		> * {
+			margin-block: calc( 0.5 * var(--wp--style--block-gap) );
+		}
+	}
+	
+	.reply {
+		@extend %meta;
+	
+		a {
+			@include reverse-link-color();
+	
+			&:before {
+				content: "↪ ";
+			}
+		}
+	}
+	
+	&-respond {
+		position: relative;
+		margin: var(--wp--style--block-gap) 0;
+
+		:where(.comment-form-comment, .comment-form-author, .comment-form-email, .comment-form-url) {
+			label {
+				display: block;
+			}
+		}
+
+		textarea {
+			height: 6em;
+			width: 100%;
+		}
+
+		.logged-in-as {
+			@extend %meta;
+		}
+
+		.comment & {
+			margin-top: 0;
+			margin-left: 4rem;
+			margin-bottom: var(--wp--style--block-gap);
+		}
+	}
+	
+	&-reply-title {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		@extend %small-title;
+	
+		small {
+			@extend %meta;
+			margin-left: auto;
+	
+			a {
+				&:before {
+					content: "✕ ";
+				}
+			}
+		}
+	}
+}
+
+.comments-area .navigation { // Used in comments navigation
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--wp--style--block-gap);
+	margin: var(--wp--style--block-gap) 0;
+
+	> * {
+		margin: 0;
+		float: none !important; // Reset
+	}
+
+	a {
+		display: inline-block;
+		margin-block: calc( 0.5 * var(--wp--style--block-gap));
+	}
+}

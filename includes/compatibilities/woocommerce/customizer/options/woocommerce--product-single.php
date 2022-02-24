@@ -6,9 +6,11 @@
  **/
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-$section = 'woocommerce_product_single'; // Assumed
+$section = 'woocommerce_product_single'; // Assumed.
 
 /**
  * ====================================================
@@ -16,54 +18,79 @@ $section = 'woocommerce_product_single'; // Assumed
  * ====================================================
  */
 
-// Heading: Content Header
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_product_single_content_header', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Content Header', 'suki' ),
-	'priority'    => 10,
-) ) );
+// Heading: Content Header.
+$wp_customize->add_control(
+	new Suki_Customize_Control_Heading(
+		$wp_customize,
+		'heading_product_single_content_header',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Content Header', 'suki' ),
+			'priority' => 10,
+		)
+	)
+);
 
-// Elements
+// Elements.
 $key = 'product_single_content_header';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Sortable( $wp_customize, $key, array(
-	'section'     => $section,
-	// 'label'       => esc_html__( 'Elements', 'suki' ),
-	'choices'     => apply_filters( 'suki/dataset/product_single_content_header_elements', array(
-		'title'          => esc_html__( 'Title', 'suki' ),
-		'breadcrumb'     => esc_html__( 'Breadcrumb', 'suki' ),
-		'product-rating' => esc_html__( 'Rating', 'suki' ),
-	) ),
-	'priority'    => 10,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'multiselect' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Sortable(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'choices'  => apply_filters(
+				'suki/dataset/product_single_content_header_elements',
+				array(
+					'title'          => esc_html__( 'Title', 'suki' ),
+					'breadcrumb'     => esc_html__( 'Breadcrumb', 'suki' ),
+					'product-rating' => esc_html__( 'Rating', 'suki' ),
+				)
+			),
+			'priority' => 10,
+		)
+	)
+);
 
-// Alignment
+// Alignment.
 $key = 'product_single_content_header_alignment';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize, $key, array(
-	'section'     => $section,
-	// 'label'       => esc_html__( 'Alignment', 'suki' ),
-	'choices'     => array(
-		'left'   => array(
-			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
-		),
-		'center' => array(
-			'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
-		),
-		'right'  => array(
-			'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
-		),
-	),
-	'priority'    => 10,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_RadioImage(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'choices'  => array(
+				'left'   => array(
+					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+				),
+				'center' => array(
+					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+				),
+				'right'  => array(
+					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+				),
+			),
+			'priority' => 10,
+		)
+	)
+);
 
 /**
  * ====================================================
@@ -71,94 +98,145 @@ $wp_customize->add_control( new Suki_Customize_Control_RadioImage( $wp_customize
  * ====================================================
  */
 
-// Heading: Gallery
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_single_gallery', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Gallery', 'suki' ),
-	'priority'    => 20,
-) ) );
+// Heading: Gallery.
+$wp_customize->add_control(
+	new Suki_Customize_Control_Heading(
+		$wp_customize,
+		'heading_woocommerce_single_gallery',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Gallery', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
 
-// Show gallery
+// Show gallery.
 $key = 'woocommerce_single_gallery';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Show gallery', 'suki' ),
-	'priority'    => 20,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Toggle(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Show gallery', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
 
-// Gallery column width
+// Gallery column width.
 $key = 'woocommerce_single_gallery_width';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Gallery column Width', 'suki' ),
-	'units'       => array(
-		'%' => array(
-			'min'  => 25,
-			'max'  => 75,
-			'step' => 0.01,
-		),
-	),
-	'priority'    => 20,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Slider(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Gallery column Width', 'suki' ),
+			'units'    => array(
+				'%' => array(
+					'min'  => 25,
+					'max'  => 75,
+					'step' => 0.01,
+				),
+			),
+			'priority' => 20,
+		)
+	)
+);
 
-// Gallery column gap
+// Gallery column gap.
 $key = 'woocommerce_single_gallery_gap';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'transport'   => 'postMessage',
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Gap with summary column', 'suki' ),
-	'units'       => array(
-		'%' => array(
-			'min'  => 0,
-			'max'  => 10,
-			'step' => 0.01,
-		),
-		'px' => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
-		),
-	),
-	'priority'    => 20,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Slider(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Gap with summary column', 'suki' ),
+			'units'    => array(
+				'%'  => array(
+					'min'  => 0,
+					'max'  => 10,
+					'step' => 0.01,
+				),
+				'px' => array(
+					'min'  => 0,
+					'max'  => 100,
+					'step' => 1,
+				),
+			),
+			'priority' => 20,
+		)
+	)
+);
 
-// Enable zoom
+// Enable zoom.
 $key = 'woocommerce_single_gallery_zoom';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Enable zoom', 'suki' ),
-	'priority'    => 20,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Toggle(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Enable zoom', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
 
-// Enable lightbox
+// Enable lightbox.
 $key = 'woocommerce_single_gallery_lightbox';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Enable lightbox', 'suki' ),
-	'priority'    => 20,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Toggle(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Enable lightbox', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
 
 /**
  * ====================================================
@@ -166,26 +244,40 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
  * ====================================================
  */
 
-// Heading: Tabs
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_single_tabs', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Tabs', 'suki' ),
-	'priority'    => 40,
-) ) );
+// Heading: Tabs.
+$wp_customize->add_control(
+	new Suki_Customize_Control_Heading(
+		$wp_customize,
+		'heading_woocommerce_single_tabs',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Tabs', 'suki' ),
+			'priority' => 40,
+		)
+	)
+);
 
-// Show tabs
+// Show tabs.
 $key = 'woocommerce_single_tabs';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Show tabs', 'suki' ),
-	'priority'    => 40,
-) ) );
-
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Toggle(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Show tabs', 'suki' ),
+			'priority' => 40,
+		)
+	)
+);
 
 /**
  * ====================================================
@@ -193,46 +285,70 @@ $wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $k
  * ====================================================
  */
 
-// Heading: Up-Sells
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_single_up_sells', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Up-Sells', 'suki' ),
-	'priority'    => 50,
-) ) );
+// Heading: Up-Sells.
+$wp_customize->add_control(
+	new Suki_Customize_Control_Heading(
+		$wp_customize,
+		'heading_woocommerce_single_up_sells',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Up-Sells', 'suki' ),
+			'priority' => 50,
+		)
+	)
+);
 
-// Show up-sells
+// Show up-sells.
 $key = 'woocommerce_single_up_sells';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Show up-sells', 'suki' ),
-	'description' => esc_html__( 'Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells.', 'suki' ),
-	'priority'    => 50,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Toggle(
+		$wp_customize,
+		$key,
+		array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Show up-sells', 'suki' ),
+			'description' => esc_html__( 'Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells.', 'suki' ),
+			'priority'    => 50,
+		)
+	)
+);
 
-// Up-sells columns
+// Up-sells columns.
 $key = 'woocommerce_single_up_sells_grid_columns';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Columns', 'suki' ),
-	'units'       => array(
-		'' => array(
-			'min'  => 1,
-			'max'  => 6,
-			'step' => 1,
-			'label' => 'col',
-		),
-	),
-	'priority'    => 50,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Slider(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Columns', 'suki' ),
+			'units'    => array(
+				'' => array(
+					'min'   => 1,
+					'max'   => 6,
+					'step'  => 1,
+					'label' => 'col',
+				),
+			),
+			'priority' => 50,
+		)
+	)
+);
 
 /**
  * ====================================================
@@ -240,65 +356,95 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
  * ====================================================
  */
 
-// Heading: Related Products
-$wp_customize->add_control( new Suki_Customize_Control_Heading( $wp_customize, 'heading_woocommerce_single_related', array(
-	'section'     => $section,
-	'settings'    => array(),
-	'label'       => esc_html__( 'Related Products', 'suki' ),
-	'priority'    => 60,
-) ) );
+// Heading: Related Products.
+$wp_customize->add_control(
+	new Suki_Customize_Control_Heading(
+		$wp_customize,
+		'heading_woocommerce_single_related',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Related Products', 'suki' ),
+			'priority' => 60,
+		)
+	)
+);
 
-// Show related products
+// Show related products.
 $key = 'woocommerce_single_related';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Toggle( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Show related products', 'suki' ),
-	'description' => esc_html__( 'Display linked products and similar products within same categories or tags. Products that have been displayed on "Up-sells" section will not be included.', 'suki' ),
-	'priority'    => 60,
-) ) );
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Toggle(
+		$wp_customize,
+		$key,
+		array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Show related products', 'suki' ),
+			'description' => esc_html__( 'Display linked products and similar products within same categories or tags. Products that have been displayed on "Up-sells" section will not be included.', 'suki' ),
+			'priority'    => 60,
+		)
+	)
+);
 
-// Related products posts per page
+// Related products posts per page.
 $key = 'woocommerce_single_related_posts_per_page';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
-) );
-$wp_customize->add_control( $key, array(
-	'type'        => 'number',
-	'section'     => $section,
-	'label'       => esc_html__( 'Max products shown', 'suki' ),
-	'description' => esc_html__( '0 = disabled; -1 = show all.', 'suki' ),
-	'input_attrs' => array(
-		'min'  => -1,
-		'max'  => 12,
-		'step' => 1,
-	),
-	'priority'    => 60,
-) );
-
-// Related products columns
-$key = 'woocommerce_single_related_grid_columns';
-$wp_customize->add_setting( $key, array(
-	'default'     => suki_array_value( $defaults, $key ),
-	'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-) );
-$wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $key, array(
-	'section'     => $section,
-	'label'       => esc_html__( 'Columns', 'suki' ),
-	'units'       => array(
-		'' => array(
-			'min'  => 1,
-			'max'  => 6,
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
+	)
+);
+$wp_customize->add_control(
+	$key,
+	array(
+		'type'        => 'number',
+		'section'     => $section,
+		'label'       => esc_html__( 'Max products shown', 'suki' ),
+		'description' => esc_html__( '0 = disabled; -1 = show all.', 'suki' ),
+		'input_attrs' => array(
+			'min'  => -1,
+			'max'  => 12,
 			'step' => 1,
-			'label' => 'col',
 		),
-	),
-	'priority'    => 60,
-) ) );
+		'priority'    => 60,
+	)
+);
+
+// Related products columns.
+$key = 'woocommerce_single_related_grid_columns';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Control_Slider(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Columns', 'suki' ),
+			'units'    => array(
+				'' => array(
+					'min'   => 1,
+					'max'   => 6,
+					'step'  => 1,
+					'label' => 'col',
+				),
+			),
+			'priority' => 60,
+		)
+	)
+);
 
 /**
  * ====================================================
@@ -307,15 +453,30 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
  */
 
 if ( suki_show_pro_teaser() ) {
-	$wp_customize->add_control( new Suki_Customize_Control_Pro_Teaser( $wp_customize, 'pro_teaser_woocommerce_single', array(
-		'section'     => $section,
-		'settings'    => array(),
-		'label'       => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
-		'url'         => esc_url( add_query_arg( array( 'utm_source' => 'suki-customizer', 'utm_medium' => 'learn-more', 'utm_campaign' => 'theme-upsell' ), SUKI_PRO_WEBSITE_URL ) ),
-		'features'    => array(
-			esc_html_x( 'AJAX Add To Cart', 'Suki Pro upsell', 'suki' ),
-			esc_html_x( 'More Gallery Layouts', 'Suki Pro upsell', 'suki' ),
-		),
-		'priority'    => 190,
-	) ) );
+	$wp_customize->add_control(
+		new Suki_Customize_Control_Pro_Teaser(
+			$wp_customize,
+			'pro_teaser_woocommerce_single',
+			array(
+				'section'  => $section,
+				'settings' => array(),
+				'label'    => esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ),
+				'url'      => esc_url(
+					add_query_arg(
+						array(
+							'utm_source'   => 'suki-customizer',
+							'utm_medium'   => 'learn-more',
+							'utm_campaign' => 'theme-upsell',
+						),
+						SUKI_PRO_WEBSITE_URL
+					)
+				),
+				'features' => array(
+					esc_html_x( 'AJAX Add To Cart', 'Suki Pro upsell', 'suki' ),
+					esc_html_x( 'More Gallery Layouts', 'Suki Pro upsell', 'suki' ),
+				),
+				'priority' => 190,
+			)
+		)
+	);
 }

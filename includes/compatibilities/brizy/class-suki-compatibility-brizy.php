@@ -6,8 +6,13 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Brizy compatibility class.
+ */
 class Suki_Compatibility_Brizy {
 
 	/**
@@ -45,10 +50,10 @@ class Suki_Compatibility_Brizy {
 		// Add compatibility CSS.
 		add_action( 'suki/frontend/dynamic_css', array( $this, 'add_compatibility_css' ) );
 
-		// Customizer settings & values
+		// Customizer settings & values.
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
 	}
-	
+
 	/**
 	 * ====================================================
 	 * Hook functions
@@ -60,9 +65,9 @@ class Suki_Compatibility_Brizy {
 	 * Modify generated Brizy content:
 	 * - Replace default (fixed) 1170px content width with theme content container (wrapper) width.
 	 *
-	 * @param string $content
-	 * @param Brizy_Editor_Project $project
-	 * @param WP_Post $post
+	 * @param string               $content Content string.
+	 * @param Brizy_Editor_Project $project Brizy project object.
+	 * @param WP_Post              $post    Post object.
 	 * @return string
 	 */
 	public function modify_brizy_content( $content, $project, $post ) {
@@ -74,14 +79,14 @@ class Suki_Compatibility_Brizy {
 		return $content;
 	}
 
-	/**	
+	/**
 	 * Add compatibility CSS
 	 * - Replace default (fixed) 1170px content width with theme content container (wrapper) width.
 	 * - Disable Brizy's reset CSS.
 	 *
-	 * @param string $inline_css	
+	 * @param string $inline_css Inline CSS string.
 	 * @return string
-	 */	
+	 */
 	public function add_compatibility_css( $inline_css ) {
 		$add_css = '';
 
@@ -89,7 +94,7 @@ class Suki_Compatibility_Brizy {
 		if ( suki_get_theme_mod( 'brizy_use_container_width' ) && wp_style_is( 'brizy-editor', 'enqueued' ) ) {
 			$add_css .= '.brz-ed .brz-container__wrap[style*="--containerWidth:1170px"] { --containerWidth: ' . suki_get_theme_mod( 'container_width' ) . ' !important; }';
 		}
-		
+
 		// Disable reset CSS.
 		if ( suki_get_theme_mod( 'brizy_disable_reset_css' ) ) {
 			$add_css .= '.brz .brz-root__container.brz-reset-all { color: unset !important; font: unset !important; }';
@@ -99,19 +104,18 @@ class Suki_Compatibility_Brizy {
 			$inline_css .= "\n/* Brizy Compatibility CSS */\n" . suki_minify_css_string( $add_css );
 		}
 
- 		return $inline_css;
+		return $inline_css;
 	}
 
 	/**
 	 * Register customizer sections, settings, and controls.
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customizer Manager object.
 	 */
 	public function register_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
-		
-		require_once( SUKI_INCLUDES_DIR . '/compatibilities/brizy/customizer/options/_sections.php' );
-		require_once( SUKI_INCLUDES_DIR . '/compatibilities/brizy/customizer/options/brizy.php' );
+
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/brizy/customizer/options/brizy.php';
 	}
 }
 

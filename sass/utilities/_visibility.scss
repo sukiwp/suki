@@ -1,0 +1,31 @@
+/**
+ * Visibility classes
+ */
+
+.suki-hide-on-tablet {
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		display: none; // Hide on tablet
+	}
+}
+
+.suki-hide-on-desktop {
+	@media screen and ( min-width: $breakpoint-desktop ) {
+		display: none; // Hide on desktop
+	}
+}
+
+.suki-show-on-tablet {
+	display: none; // Hide on mobile
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		display: revert; // Show on tablet
+	}
+}
+
+.suki-show-on-desktop {
+	display: none; // Hide on mobile
+
+	@media screen and ( min-width: $breakpoint-desktop ) {
+		display: revert; // Show on desktop
+	}
+}

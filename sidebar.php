@@ -1,35 +1,30 @@
 <?php
 /**
- * The sidebar containing the main widget area.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * Global sidebar template.
  *
  * @package Suki
+ * @since 2.0.0 Remove `sidebar-inner` wrapping tag and add `aria-label`.
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-// Check current page's content container. Skip sidebar if it's a "narrow" layout.
-if ( 'narrow' === suki_get_current_page_setting( 'content_container' ) ) return;
-
-// Check current page's content layout. Skip sidebar if not needed in the layout.
-if ( ! in_array( suki_get_current_page_setting( 'content_layout' ), array( 'left-sidebar', 'right-sidebar' ) ) ) return;
 ?>
-<aside id="secondary" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/sidebar_classes', array( 'widget-area', 'sidebar' ) ) ) ); ?>" role="complementary" itemscope itemtype="https://schema.org/WPSideBar">
+<aside id="secondary" class="<?php suki_element_class( 'sidebar', array( 'widget-area', 'sidebar' ) ); ?>" aria-label="<?php esc_attr_e( 'Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
 	<?php
 	/**
 	 * Hook: suki/frontend/before_sidebar
 	 */
 	do_action( 'suki/frontend/before_sidebar' );
-	
-	if ( is_active_sidebar( 'sidebar' ) ) :
-	?>
-		<div class="sidebar-inner">
-			<?php dynamic_sidebar( 'sidebar' ); ?>
-		</div>
-	<?php
-	endif;
+
+	/**
+	 * Sidebar elements.
+	 */
+	if ( is_active_sidebar( 'sidebar' ) ) {
+		dynamic_sidebar( 'sidebar' );
+	}
 
 	/**
 	 * Hook: suki/frontend/after_sidebar

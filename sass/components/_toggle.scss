@@ -1,0 +1,29 @@
+/**
+ * Toggle button
+ */
+
+.suki-toggle {
+	// Reset
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+
+	font: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	cursor: pointer;
+
+	// Use link color
+	color: var(--link-color);
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		color: var(--link-color--focus);
+	}
+}

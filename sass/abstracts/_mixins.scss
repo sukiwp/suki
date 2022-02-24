@@ -1,0 +1,82 @@
+// Float container
+@mixin float-container() {
+	&::before,
+	&::after {
+		content: "";
+		display: table;
+	}
+
+	&::after {
+		clear: both;
+	}
+}
+
+// Remove top margin of an element if it's the first child
+@mixin remove-margin-top-for-first-child( $important: true ) {
+	&:first-child {
+		@if $important {
+			margin-top: 0 !important;
+		} @else {
+			margin-top: 0;
+		}
+	}
+}
+
+// Remove bottom margin of an element if it's the last child
+@mixin remove-margin-bottom-for-last-child( $important: true ) {
+	&:last-child {
+		@if $important {
+			margin-bottom: 0 !important;
+		} @else {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Hide element
+@mixin hide( $transition: true ) {
+	opacity: 0;
+	visibility: hidden;
+
+	@if $transition {
+		transition: opacity var(--transition-duration), visibility 0s var(--transition-duration); // hide transition
+	} @else {
+		transition: none;
+	}
+}
+
+// Show element
+@mixin show( $transition: true ) {
+	opacity: 1;
+	visibility: visible;
+
+	@if $transition {
+		transition: opacity var(--transition-duration), visibility 0s; // show transition
+	} @else {
+		transition: none;
+	}
+}
+
+// Reverse link color
+@mixin reverse-link-color() {
+	color: inherit;
+
+	&:hover, &:focus {
+		color: var(--link-color);
+	}
+}
+
+// Admin bar top offset
+@mixin admin-bar-top-offset() {
+	top: 0;
+
+	.admin-bar & {
+		@media screen and ( min-width: $adminbar-breakpoint-sticky ) {
+			top: $adminbar-height-mobile;
+		}
+	
+		@media screen and ( min-width: $adminbar-breakpoint ) {
+			top: $adminbar-height;
+		}
+	}
+}

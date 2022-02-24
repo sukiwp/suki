@@ -1,0 +1,156 @@
+/**
+ * Block text elements
+ */
+
+p {
+	margin: var(--wp--style--block-gap) 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: var(--heading-color);
+	margin: var(--wp--style--block-gap) 0;
+
+	a {
+		@include reverse-link-color();
+	}
+}
+
+// For element after headings, remove the top margin. We will use the heading's margin bottom
+:where(h1, h2, h3, h4, h5, h6) + :where(h1, h2, h3, h4, h5, h6) {
+	margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+}
+
+h1 {
+	font-family: var(--h1--font-family);
+	font-size: var(--h1--font-size);
+	font-style: var(--h1--font-style);
+	font-weight: var(--h1--font-weight);
+	line-height: var(--h1--line-height);
+	letter-spacing: var(--h1--letter-spacing);
+	text-transform: var(--h1--text-transform);
+}
+
+h2 {
+	font-family: var(--h2--font-family);
+	font-size: var(--h2--font-size);
+	font-style: var(--h2--font-style);
+	font-weight: var(--h2--font-weight);
+	line-height: var(--h2--line-height);
+	letter-spacing: var(--h2--letter-spacing);
+	text-transform: var(--h2--text-transform);
+}
+
+h3 {
+	font-family: var(--h3--font-family);
+	font-size: var(--h3--font-size);
+	font-style: var(--h3--font-style);
+	font-weight: var(--h3--font-weight);
+	line-height: var(--h3--line-height);
+	letter-spacing: var(--h3--letter-spacing);
+	text-transform: var(--h3--text-transform);
+}
+
+h4 {
+	font-family: var(--h4--font-family);
+	font-size: var(--h4--font-size);
+	font-style: var(--h4--font-style);
+	font-weight: var(--h4--font-weight);
+	line-height: var(--h4--line-height);
+	letter-spacing: var(--h4--letter-spacing);
+	text-transform: var(--h4--text-transform);
+}
+
+h5 {
+	font-family: var(--h5--font-family);
+	font-size: var(--h5--font-size);
+	font-style: var(--h5--font-style);
+	font-weight: var(--h5--font-weight);
+	line-height: var(--h5--line-height);
+	letter-spacing: var(--h5--letter-spacing);
+	text-transform: var(--h5--text-transform);
+}
+
+h6 {
+	font-family: var(--h6--font-family);
+	font-size: var(--h6--font-size);
+	font-style: var(--h6--font-style);
+	font-weight: var(--h6--font-weight);
+	line-height: var(--h6--line-height);
+	letter-spacing: var(--h6--letter-spacing);
+	text-transform: var(--h6--text-transform);
+}
+
+ul, ol {
+	margin: var(--wp--style--block-gap) 0;
+	padding-left: var(--wp--style--block-gap);
+
+	overflow-wrap: break-word;
+
+	ul, ol {
+		margin: 0;
+	}
+}
+
+pre {
+	margin: var(--wp--style--block-gap) 0;
+	font-size: 1rem;
+	font-family: monospace;
+}
+
+blockquote {
+	margin: var(--wp--style--block-gap) 0;
+
+	> * {
+		margin-block: var(--wp--style--block-gap);
+
+		@include remove-margin-top-for-first-child();
+		@include remove-margin-bottom-for-last-child();
+	}
+}
+
+:where( p, h1, h2, h3, h4, h5, h6, pre, blockquote ) {
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+}
+
+/**
+ * Inline text elements
+ */
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+	transition: color var(--transition-duration);
+	
+	&:hover,
+	&:focus {
+		color: var(--link-color--focus);
+		text-decoration: underline;
+	}
+}
+
+kbd {
+	background-color: var(--text-color);
+	color: var(--background-color);
+	border-radius: 0.25em;
+	font-family: monospace;
+	font-size: inherit;
+	padding: 0.15em 0.3em;
+}
+
+code {
+	background-color: var(--subtle-background-color);
+	color: var(--text-color);
+	font-family: monospace;
+	font-size: inherit;
+	padding: 0.15em 0.3em;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+cite {
+	display: block;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: var(--wp--custom--line-height--small);
+	opacity: 0.75;
+}

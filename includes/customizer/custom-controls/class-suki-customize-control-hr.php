@@ -6,23 +6,29 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_HR' ) ) :
-/**
- * Horizontal line control class
- */
-class Suki_Customize_Control_HR extends Suki_Customize_Control {
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_HR' ) ) {
 	/**
-	 * @var string
+	 * Horizontal line control class
 	 */
-	public $type = 'suki-hr';
+	class Suki_Customize_Control_HR extends Suki_Customize_Control {
+		/**
+		 * Control type.
+		 *
+		 * @var string
+		 */
+		public $type = 'suki-hr';
 
-	/**
-	 * Render control's content
-	 */
-	protected function render_content() {
-		?><hr><?php
+		/**
+		 * Render control's content
+		 */
+		protected function render_content() {
+			?>
+			<hr>
+			<?php
+		}
 	}
 }
-endif;

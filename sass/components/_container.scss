@@ -1,0 +1,22 @@
+/**
+ * Block container
+ */
+
+.suki-block-container {
+	@extend %block-container;
+}
+
+/**
+ * Section layout
+ */
+
+// (Default) Wide mode: narrow alignment is always wide
+.suki-section-default {
+	--content-size: var(--wide-size);
+}
+
+// Full width mode: narrow and wide alignments are always full width
+.suki-section-full-width {
+	--content-size: auto;
+	--wide-size: auto;
+}

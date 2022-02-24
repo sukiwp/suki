@@ -1,14 +1,14 @@
 <?php
 /**
- * Suki functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * Suki theme's functions.php file.
  *
  * @package Suki
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * ====================================================
@@ -36,4 +36,4 @@ define( 'SUKI_PRO_WEBSITE_URL', esc_url( 'https://sukiwp.com/pro/' ) );
  * ====================================================
  */
 
-require_once( SUKI_INCLUDES_DIR . '/class-suki.php' );
+require_once SUKI_INCLUDES_DIR . '/class-suki.php';

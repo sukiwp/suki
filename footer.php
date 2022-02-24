@@ -1,44 +1,32 @@
 <?php
 /**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * Footer template.
  *
  * @package Suki
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-				/**
-				 * Content
-				 */
-				if ( apply_filters( 'suki/frontend/show_content_wrapper', true ) ) {
-					/**
-					 * Content - closing tag
-					 */
-					suki_content_close();
-				}
+?>
+			<?php
+			/**
+			 * Hook: suki/frontend/before_footer
+			 */
+			do_action( 'suki/frontend/before_footer' );
 
-				/**
-				 * Hook: suki/frontend/before_footer
-				 */
-				do_action( 'suki/frontend/before_footer' );
+			/**
+			 * Footer
+			 */
+			suki_footer();
 
-				/**
-				 * Footer
-				 */
-				suki_footer();
-				
-				/**
-				 * Hook: suki/frontend/after_footer
-				 */
-				do_action( 'suki/frontend/after_footer' );
-				?>
-				
-			</div>
+			/**
+			 * Hook: suki/frontend/after_footer
+			 */
+			do_action( 'suki/frontend/after_footer' );
+			?>
 		</div>
 
 		<?php
@@ -46,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		 * Hook: suki/frontend/after_canvas
 		 */
 		do_action( 'suki/frontend/after_canvas' );
-		
+
 		/**
 		 * Hook: wp_footer
 		 */

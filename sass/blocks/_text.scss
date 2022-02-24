@@ -1,0 +1,13 @@
+/**
+ * Block: Paragraph, headings, list
+ */
+
+:where( p, h1, h2, h3, h4, h5, h6, ul, ol ) {
+	@extend %has-background-padding;
+}
+
+:where( ul, ol ) {
+	&.has-background {
+		padding-left: calc( 2 * var(--wp--style--block-gap) );
+	}
+}

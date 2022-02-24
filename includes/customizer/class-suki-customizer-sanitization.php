@@ -6,14 +6,19 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+/**
+ * Customizer Sanitization class
+ */
 class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Text value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function text( $value, $setting ) {
@@ -23,14 +28,14 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Select value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function select( $value, $setting ) {
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $setting->id );
-		
+
 		// If the input is a valid key, return it;
 		// otherwise, return the default.
 		return array_key_exists( $value, $control->choices ) ? $value : '';
@@ -39,8 +44,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Textarea value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function textarea( $value, $setting ) {
@@ -50,8 +55,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Toggle value
 	 *
-	 * @param mixed $value
-	 * @param WP_Customize_Setting $setting
+	 * @param mixed                $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return integer
 	 */
 	public static function toggle( $value, $setting ) {
@@ -61,8 +66,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Color value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function color( $value, $setting ) {
@@ -72,8 +77,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Number value
 	 *
-	 * @param integer|float $value
-	 * @param WP_Customize_Setting $setting
+	 * @param integer|float        $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return integer|float
 	 */
 	public static function number( $value, $setting ) {
@@ -89,8 +94,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Image URL value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function image( $value, $setting ) {
@@ -102,8 +107,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Slider value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function dimension( $value, $setting ) {
@@ -122,8 +127,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Dimensions value
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function dimensions( $value, $setting ) {
@@ -131,7 +136,7 @@ class Suki_Customizer_Sanitization {
 		if ( '' === trim( $value ) ) {
 			return '';
 		}
-		
+
 		// Get control ID, support for reponsive control.
 		$control_id = preg_replace( '/__(tablet|mobile)/', '', $setting->id );
 
@@ -159,8 +164,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Typography value.
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function typography( $value, $setting ) {
@@ -177,7 +182,7 @@ class Suki_Customizer_Sanitization {
 
 		// Get element & type.
 		$control_id = $matches[1] . '_typography';
-		$type = $matches[2];
+		$type       = $matches[2];
 
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $control_id );
@@ -214,13 +219,13 @@ class Suki_Customizer_Sanitization {
 					return '';
 				}
 				break;
-			
+
 			case 'font_size':
 			case 'line_height':
 			case 'letter_spacing':
 				$units = $control->get_units( $type );
 
-				// Validate dimension
+				// Validate dimension.
 				$value = self::validate_dimension( $value, $units );
 
 				break;
@@ -232,8 +237,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Background value.
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function background( $value, $setting ) {
@@ -250,7 +255,7 @@ class Suki_Customizer_Sanitization {
 
 		// Get element & type.
 		$control_id = $matches[1];
-		$type = $matches[2];
+		$type       = $matches[2];
 
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $control_id );
@@ -283,8 +288,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Shadow value.
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function shadow( $value, $setting ) {
@@ -299,10 +304,10 @@ class Suki_Customizer_Sanitization {
 		foreach ( $props as $i => $prop ) {
 			switch ( $i ) {
 				case 4:
-					// Validate
+					// Validate.
 					$props[ $i ] = self::validate_color( $props[ $i ] );
 					break;
-				
+
 				default:
 					// Validate dimension.
 					$props[ $i ] = self::validate_dimension( $props[ $i ], array( 'px' => array() ) );
@@ -316,14 +321,14 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Builder value.
 	 *
-	 * @param array $value
-	 * @param WP_Customize_Setting $setting
+	 * @param array                $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return array
 	 */
 	public static function multiselect( $value, $setting ) {
 		// Ensure input is an array.
 		$value = (array) $value;
-		
+
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $setting->id );
 
@@ -332,15 +337,15 @@ class Suki_Customizer_Sanitization {
 				unset( $value[ $i ] );
 			}
 		}
-		
+
 		return array_values( $value );
 	}
 
 	/**
 	 * Sanitize HTML value.
 	 *
-	 * @param string $value
-	 * @param WP_Customize_Setting $setting
+	 * @param string               $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return string
 	 */
 	public static function html( $value, $setting ) {
@@ -350,12 +355,12 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Builder value.
 	 *
-	 * @param array $value
-	 * @param WP_Customize_Setting $setting
+	 * @param array                $value   Setting value.
+	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return array
 	 */
 	public static function builder( $value, $setting ) {
-		// Ensure input is an array
+		// Ensure input is an array.
 		$value = (array) $value;
 
 		$valid_id = preg_match( '/(.*?)_((?:top|main|bottom|vertical).*)/', $setting->id, $matches );
@@ -367,8 +372,8 @@ class Suki_Customizer_Sanitization {
 
 		// Get element & type.
 		$control_id = $matches[1];
-		$location = $matches[2];
-		
+		$location   = $matches[2];
+
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $control_id );
 
@@ -381,14 +386,14 @@ class Suki_Customizer_Sanitization {
 				unset( $value[ $i ] );
 			}
 		}
-		
+
 		return array_values( $value );
 	}
-	
+
 	/**
 	 * Wrapper function to validate color value.
 	 *
-	 * @param string $color
+	 * @param string $color Color value.
 	 * @return string
 	 */
 	private static function validate_color( $color ) {
@@ -402,8 +407,7 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Wrapper function to validate image value.
 	 *
-	 * @param string $number
-	 * @param array $range
+	 * @param string $value Image value.
 	 * @return string
 	 */
 	private static function validate_image( $value ) {
@@ -419,8 +423,8 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Wrapper function to validate number value.
 	 *
-	 * @param string $number
-	 * @param array $range
+	 * @param string $number Number value.
+	 * @param array  $range  Number range.
 	 * @return string
 	 */
 	private static function validate_number( $number, $range ) {
@@ -429,8 +433,8 @@ class Suki_Customizer_Sanitization {
 		}
 
 		$step = empty( $range['step'] ) ? 1 : $range['step'];
-		$min = empty( $range['min'] ) ? $number : $range['min'];
-		$max = empty( $range['max'] ) ? $number : $range['max'];
+		$min  = empty( $range['min'] ) ? $number : $range['min'];
+		$max  = empty( $range['max'] ) ? $number : $range['max'];
 
 		if ( preg_match( '/\d*?\.(\d*)/', $step, $matches ) ) {
 			$decimal_count = strlen( $matches[1] );
@@ -459,14 +463,14 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Wrapper function to validate dimension (number + unit) value.
 	 *
-	 * @param string $dimension
-	 * @param array $available_units
+	 * @param string $dimension       Dimension value.
+	 * @param array  $available_units Dimension units.
 	 * @return string
 	 */
 	private static function validate_dimension( $dimension, $available_units ) {
 		// Explode value to number and unit.
 		$dimension_number = floatval( $dimension );
-		$dimension_unit = str_replace( $dimension_number, '', $dimension );
+		$dimension_unit   = str_replace( $dimension_number, '', $dimension );
 
 		// Check if no number found, then return empty string (without unit).
 		if ( $dimension_unit === $dimension ) {

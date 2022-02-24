@@ -175,9 +175,9 @@
 
 				var $submenus = Array.prototype.slice.call( document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' ) );
 				$submenus.forEach(function( $submenu ) {
-					var $section = $submenu.closest( '.suki-header-section' ),
+					var $section = $submenu.closest( '.suki-header' ),
 					    $menuItem = $submenu.parentElement,
-					    $wrapper = $menuItem.closest( '.suki-wrapper' ),
+					    $wrapper = $menuItem.closest( '.suki-header-row' ),
 					    $container = $wrapper;
 
 					// Full width mega menu, use section as the container.
@@ -370,7 +370,7 @@
 				// Check target element.
 				var $this = e.target.closest( '.suki-header-section .suki-toggle-menu .suki-sub-menu-toggle' );
 				if ( ! $this ) return;
-				
+
 				e.preventDefault();
 
 				var $header = document.getElementById( 'masthead' ),
@@ -417,7 +417,7 @@
 			 */
 			var handleSubMenuClose = function( e ) {
 				// Make sure click event doesn't happen inside the menu item's scope.
-				if ( ! e.target.closest( '.suki-header-section .suki-toggle-menu' ) ) {
+				if ( ! e.target.closest( '.suki-header .suki-toggle-menu' ) ) {
 					var $header = document.getElementById( 'masthead' ),
 					    $focusedMenuItems;
 
@@ -455,7 +455,7 @@
 				if ( $menuItem.classList.contains( 'focus' ) ) {
 					window.sukiHelper.slideUp( $subMenu );
 					$menuItem.classList.remove( 'focus' );
-
+					
 					var $insideMenuItems = Array.prototype.slice.call( $menuItem.querySelectorAll( '.menu-item.focus' ) );
 					$insideMenuItems.forEach(function( $insideMenuItem ) {
 						window.sukiHelper.slideUp( $insideMenuItem.querySelector( '.sub-menu' ) );

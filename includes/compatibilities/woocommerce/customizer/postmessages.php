@@ -6,7 +6,9 @@
  **/
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 $add = array();
 
@@ -67,6 +69,7 @@ $add['link_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
 $add['link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -82,10 +85,10 @@ $add['link_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3';
-	$property = str_replace( '_', '-', $prop);
+	$element  = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3';
+	$property = str_replace( '_', '-', $prop );
 
-	$add['h3_' . $prop ] = array(
+	$add[ 'h3_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
 			'element'  => $element,
@@ -93,8 +96,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
-	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
-		$add['h3_' . $prop . '__tablet'] = array(
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
+		$add[ 'h3_' . $prop . '__tablet' ] = array(
 			array(
 				'type'     => 'css',
 				'element'  => $element,
@@ -102,7 +105,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
-		$add['h3_' . $prop . '__mobile'] = array(
+
+		$add[ 'h3_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
 				'element'  => $element,
@@ -112,6 +116,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
+
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -119,6 +124,7 @@ $add['heading_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
 $add['heading_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -134,10 +140,10 @@ $add['heading_hover_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3';
-	$property = str_replace( '_', '-', $prop);
+	$element  = '.woocommerce div.product .woocommerce-tabs .panel > h2:first-child, .woocommerce div.product .woocommerce-tabs #reviews #comments > h2, .woocommerce div.product .products h2, .woocommerce-cart .cross-sells h2, .woocommerce-cart .cart_totals h2, .woocommerce .checkout h3';
+	$property = str_replace( '_', '-', $prop );
 
-	$add['small_title_' . $prop ] = array(
+	$add[ 'small_title_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
 			'element'  => $element,
@@ -145,8 +151,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
-	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
-		$add['small_title_' . $prop . '__tablet'] = array(
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
+		$add[ 'small_title_' . $prop . '__tablet' ] = array(
 			array(
 				'type'     => 'css',
 				'element'  => $element,
@@ -154,7 +160,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
-		$add['small_title_' . $prop . '__mobile'] = array(
+		$add[ 'small_title_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
 				'element'  => $element,
@@ -179,10 +185,10 @@ $add['small_title_text_color'] = array(
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element = '.woocommerce div.product .woocommerce-product-rating, .woocommerce div.product .product_meta, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date, .woocommerce-account ol.commentlist.notes li.note p.meta';
-	$property = str_replace( '_', '-', $prop);
+	$element  = '.woocommerce div.product .woocommerce-product-rating, .woocommerce div.product .product_meta, .woocommerce #reviews #comments ol.commentlist li .comment-text .woocommerce-review__published-date, .woocommerce-account ol.commentlist.notes li.note p.meta';
+	$property = str_replace( '_', '-', $prop );
 
-	$add['meta_' . $prop ] = array(
+	$add[ 'meta_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
 			'element'  => $element,
@@ -190,8 +196,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
-	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ) ) ) {
-		$add['meta_' . $prop . '__tablet'] = array(
+	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
+		$add[ 'meta_' . $prop . '__tablet' ] = array(
 			array(
 				'type'     => 'css',
 				'element'  => $element,
@@ -199,7 +205,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
-		$add['meta_' . $prop . '__mobile'] = array(
+		$add[ 'meta_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
 				'element'  => $element,
@@ -209,6 +215,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
+
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -216,6 +223,7 @@ $add['meta_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
 $add['meta_link_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -223,6 +231,7 @@ $add['meta_link_text_color'] = array(
 		'property' => 'color',
 	),
 );
+
 $add['meta_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -239,9 +248,10 @@ $add['meta_link_hover_text_color'] = array(
 
 foreach ( array( 'font_size', 'letter_spacing' ) as $prop ) {
 	$property = str_replace( '_', '-', $prop );
+
 	$array = array();
 
-	// Large button
+	// Large button.
 	$array[] = array(
 		'type'     => 'css',
 		'element'  => '.woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce #payment #place_order',
@@ -252,7 +262,7 @@ foreach ( array( 'font_size', 'letter_spacing' ) as $prop ) {
 		),
 	);
 
-	$add['button_' . $prop ] = $array;
+	$add[ 'button_' . $prop ] = $array;
 }
 
 $add['button_padding'] = array(
@@ -306,6 +316,7 @@ $add['woocommerce_demo_store_notice_bg_color'] = array(
 		'property' => 'background-color',
 	),
 );
+
 $add['woocommerce_demo_store_notice_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -369,11 +380,12 @@ $add['woocommerce_products_grid_columns_gutter'] = array(
 		'property' => 'padding-right',
 	),
 );
+
 $add['woocommerce_products_grid_text_alignment'] = array(
 	array(
-		'type'     => 'class',
-		'element'  => '.woocommerce ul.products li.product .suki-product-wrapper',
-		'pattern'  => 'suki-text-align-$',
+		'type'    => 'class',
+		'element' => '.woocommerce ul.products li.product .suki-product-wrapper',
+		'pattern' => 'suki-text-align-$',
 	),
 );
 
@@ -421,6 +433,7 @@ $add['woocommerce_sale_badge_bg_color'] = array(
 		'property' => 'background-color',
 	),
 );
+
 $add['woocommerce_sale_badge_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -437,32 +450,29 @@ $add['woocommerce_review_star_color'] = array(
 	),
 );
 
-foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' => 'color' ) as $key => $prop ) {
-	$add['woocommerce_alt_button_' . $key . '_color'] = array(
+$props = array(
+	'bg'     => 'background-color',
+	'border' => 'border-color',
+	'text'   => 'color',
+);
+
+foreach ( $props as $key => $prop ) {
+	$add[ 'woocommerce_alt_button_' . $key . '_color' ] = array(
 		array(
 			'type'     => 'css',
 			'element'  => '.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce .button.checkout',
 			'property' => $prop,
 		),
-		// array(
-		// 	'type'     => 'css',
-		// 	'element'  => '.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce a.button.alt.disabled, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled[disabled], .woocommerce button.button.alt.disabled, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled[disabled], .woocommerce input.button.alt.disabled, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled[disabled]',
-		// 	'property' => $prop,
-		// ),
 	);
 }
-foreach ( array( 'bg' => 'background-color', 'border' => 'border-color', 'text' => 'color' ) as $key => $prop ) {
-	$add['woocommerce_alt_button_hover_' . $key . '_color'] = array(
-				array(
+
+foreach ( $props as $key => $prop ) {
+	$add[ 'woocommerce_alt_button_hover_' . $key . '_color' ] = array(
+		array(
 			'type'     => 'css',
 			'element'  => '.woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:hover, woocommerce a.button.alt:focus, .woocommerce button.button.alt:hover, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:hover, .woocommerce input.button.alt:focus, .woocommerce .button.checkout:hover, .woocommerce .button.checkout:focus',
 			'property' => $prop,
 		),
-		// array(
-		// 	'type'     => 'css',
-		// 	'element'  => '.woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt.disabled:focus, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled:focus, .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce #respond input#submit.alt:disabled[disabled]:focus, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt.disabled:focus, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled:focus, .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce a.button.alt:disabled[disabled]:focus, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt.disabled:focus, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled:focus, .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt:disabled[disabled]:focus, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt.disabled:focus, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled:focus, .woocommerce input.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt:disabled[disabled]:focus',
-		// 	'property' => $prop,
-		// ),
 	);
 }
 

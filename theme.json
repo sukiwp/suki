@@ -1,0 +1,123 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"slug": "base",
+					"color": "var(--color--base)",
+					"name": "Base"
+				},
+				{
+					"slug": "base-2",
+					"color": "var(--color--base-2)",
+					"name": "Base 2"
+				},
+				{
+					"slug": "base-3",
+					"color": "var(--color--base-3)",
+					"name": "Base 3"
+				},
+				{
+					"slug": "contrast",
+					"color": "var(--color--contrast)",
+					"name": "Contrast"
+				},
+				{
+					"slug": "contrast-2",
+					"color": "var(--color--contrast-2)",
+					"name": "Contrast 2"
+				},
+				{
+					"slug": "primary",
+					"color": "var(--color--primary)",
+					"name": "Primary"
+				}
+			],
+			"custom": true,
+			"link": true,
+			"duotone": [],
+			"customDuotone": false,
+			"gradients": [],
+			"customGradient": false
+		},
+		"typography": {
+			"fontFamilies": [],
+			"fontSizes": [
+				{
+					"name": "Small",
+					"slug": "small",
+					"size": "var(--meta--font-size)"
+				},
+				{
+					"name": "Normal",
+					"slug": "normal",
+					"size": "var(--base--font-size)"
+				},
+				{
+					"name": "Medium",
+					"slug": "medium",
+					"size": "var(--h4--font-size)"
+				},
+				{
+					"name": "Large",
+					"slug": "large",
+					"size": "var(--h3--font-size)"
+				},
+				{
+					"name": "Extra Large",
+					"slug": "extra-large",
+					"size": "var(--h2--font-size)"
+				},
+				{
+					"name": "Huge",
+					"slug": "huge",
+					"size": "var(--h1--font-size);"
+				}
+			],
+			"fontStyle": true,
+			"fontWeight": true,
+			"letterSpacing": true,
+			"lineHeight": true,
+			"textDecoration": true,
+            "textTransform": true,
+			"customFontSize": true,
+			"dropCap": true
+		},
+		"layout": {
+			"contentSize": "var(--content-size)",
+			"wideSize": "var(--wide-size)"
+		},
+		"spacing": {
+			"blockGap": true,
+			"padding": true,
+			"margin": true,
+			"units": [ "px", "em", "rem", "vh", "vw" ]
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"custom": {
+			"line-height": {
+				"small": "var(--meta--line-height)",
+				"normal": "var(--base--line-height)",
+				"medium": "var(--h4--line-height)",
+				"large": "var(--h3--line-height)",
+				"extra-large": "var(--h2--line-height)",
+				"huge": "var(--h1--line-height)"
+			}
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "var(--element-gap)"
+		}
+	},
+	"customTemplates": [],
+	"templateParts": []
+}

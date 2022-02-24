@@ -1,0 +1,9 @@
+/**
+ * Block: Group
+ */
+
+.wp-block-group {
+	@extend %has-background-padding;
+
+	@extend %alignfull-ignore-padding;
+}

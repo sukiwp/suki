@@ -1,0 +1,43 @@
+/**
+ * Block: Separator
+ */
+
+.wp-block-separator {
+	width: 6rem;
+	margin: calc(1.5 * var(--wp--style--block-gap)) auto;
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+
+	&:where( .has-text-color, .has-background ) {
+		--border-color: currentColor;
+	}
+
+	// Default style
+	&:not([class*="is-style-"]), &.is-style-default {
+		border-bottom-width: 0.2rem;
+	}
+
+	// Wide line style
+	&.is-style-wide {
+		width: auto;
+	}
+
+	// Dots style
+	&.is-style-dots {
+		border: none;
+		width: 4.5rem;
+		height: 0.35rem;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-image: radial-gradient(var(--border-color) 15%, transparent 15%);
+			background-repeat: repeat;
+			background-size: 1.5rem 1.5rem;
+			background-position: center;
+		}
+	}
+}

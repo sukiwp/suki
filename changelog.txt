@@ -1,5 +1,5 @@
-v1.3.7
-- FIX: Minor CSS.
+v2.0.0
+- MAJOR UPDATE: If you have developed Child Theme or plugin to extend older version of Suki, please read this documentation: ... and review your codes.
 
 v1.3.6
 - NEW: Template hooks - Before Hero (suki/frontend/before_hero).

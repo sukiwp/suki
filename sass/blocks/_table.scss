@@ -1,0 +1,105 @@
+/**
+ * Block: Table
+ */
+
+.wp-block-table {
+	margin: var(--wp--style--block-gap) 0;
+	overflow-x: auto;
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin: 0; // Reset
+
+		&,
+		> *,
+		tr,
+		th,
+		td {
+			border-width: 1px; // default
+		}
+	}
+	
+	thead {
+		th, td {
+			border-bottom-width: 0.2rem;
+		}
+	}
+	
+	tfoot {
+		th, td {
+			border-top-width: 0.2rem;
+		}
+	}
+
+	.has-border-color {
+		> *,
+		tr,
+		th,
+		td {
+			border-color: inherit;
+		}
+	}
+	
+	table[style*=border-style] {
+		> *,
+		tr,
+		th,
+		td {
+			border-style: inherit;
+		}
+	}
+	
+	table[style*=border-width] {
+		> *,
+		tr,
+		th,
+		td {
+			border-width: inherit;
+		}
+	}
+
+	.has-fixed-layout {
+		table-layout: fixed;
+
+		th, td {
+			word-break: break-word;
+		}
+	}
+
+	&.alignleft,
+	&.aligncenter,
+	&.alignright {
+		display: table;
+		width: auto;
+		max-width: calc( ( var(--content-size) / 2 ) - ( var(--wp--style--block-gap) / 2 ) );; // Fix value, only overrideable via custom CSS
+
+		th, td {
+			word-break: break-word;
+		}
+	}
+
+	// Stripes style
+	&.is-style-stripes {
+		tbody {
+			tr {
+				&:nth-child(odd) {
+					background-color: var(--subtle-background-color);
+				}
+			}
+		}
+
+		.has-background {
+			tbody {
+				tr {
+					&:nth-child(odd) {
+						background-color: rgba(255,255,255,0.2);
+					}
+				}
+			}
+		}
+	}
+}

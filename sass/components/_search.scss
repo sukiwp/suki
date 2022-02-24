@@ -1,0 +1,25 @@
+/**
+ * Search form
+ */
+
+.search-form {
+	display: block;
+	position: relative;
+	max-width: 100%;
+
+	.suki-search-icon {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		margin: -0.5em 0 0 0.75em;
+	}
+
+	.search-field {
+		width: 100%;
+		padding-left: 2.5em;
+	}
+
+	> label + input[type="submit"] {
+		display: none;
+	}
+}

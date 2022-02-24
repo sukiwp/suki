@@ -137,6 +137,7 @@
 				data: {
 					action: 'suki_rating_notice_close',
 					repeat_after: repeat,
+					_ajax_nonce: SukiAdminData.ajax_nonce,
 				},
 			});
 

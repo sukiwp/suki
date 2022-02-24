@@ -10,7 +10,9 @@
  */
 
 // Prevent direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">

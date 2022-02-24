@@ -1,0 +1,30 @@
+/**
+ * Block: Preformatted
+ */
+
+.wp-block-preformatted {
+	white-space: pre-wrap;
+}
+
+/**
+ * Block: Verse
+ */
+
+.wp-block-verse {
+	font-family: inherit; // Use inherited font family
+	white-space: pre-wrap;
+	overflow: auto;
+}
+
+/**
+ * Block: Code
+ */
+
+.wp-block-code {	
+	code {
+		padding: 1em 1.5em;
+		background-color: var(--subtle-background-color);
+		background-color: revert;
+		padding: revert;
+	}
+}
