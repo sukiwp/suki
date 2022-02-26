@@ -1,10 +1,61 @@
 /**
- * Widget
+ * Widgets
  */
 
-.widget {
-	margin: calc( 1.5 * var(--wp--style--block-gap) ) 0;
+.widget-area {
+	display: grid;
+	align-content: start;
+	gap: calc( 1.5 * var(--wp--style--block-gap) );
+}
 
-	@include remove-margin-top-for-first-child();
-	@include remove-margin-bottom-for-last-child();
+.widget {
+	> * {
+		@include remove-margin-top-for-first-child();
+		@include remove-margin-bottom-for-last-child();
+	}
+}
+
+// List widgets
+.widget_nav_menu,
+.widget_categories,
+.widget_archive,
+.widget_meta,
+.widget_pages {
+	@extend %widget-list;
+}
+
+// Posts widgets
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_rss {
+	@extend %widget-list;
+
+	gap: calc( 0.75 * var(--wp--style--block-gap) );
+}
+
+.widget_rss {
+	.rssSummary {
+		font-size: 10px;
+		margin: 0.5em 0;
+	}
+
+	cite {
+		display: block;
+		font-size: 0.85em;
+
+		&:before {
+			content: "-";
+			margin-right: 0.5em;
+		}
+	}
+
+	.rsswidget img {
+		display: inline-block;
+		margin-right: 0.5em;
+	}
+}
+
+// Calendar widget
+.widget_calendar {
+	@extend %widget-calendar;
 }

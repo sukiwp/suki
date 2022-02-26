@@ -11,7 +11,7 @@
 	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
 
 	> * {
-		margin-block: calc( 1.5 * var(--wp--style--block-gap) );
+		margin-block: calc( 1.25 * var(--wp--style--block-gap) );
 	}
 }
 

@@ -147,3 +147,26 @@
 		padding: var(--wp--style--block-gap);
 	}
 }
+
+// Widget list
+%widget-list {
+	list-style: none;
+	margin: var(--wp--style--block-gap) 0;
+	padding: 0;
+
+	display: grid;
+	gap: 0.25em;
+}
+
+// Widget calendar
+%widget-calendar {
+	text-align: center;
+
+	caption {
+		margin-bottom: 0.5em;
+	}
+
+	:where(th, td) {
+		padding: 0.25em 0.5em;
+	}
+}

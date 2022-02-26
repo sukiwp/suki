@@ -1,26 +1,125 @@
 /**
- * Block: Comments, archives, categories, pages list
+ * Block: Latest posts, latest comments, archives, categories, pages list, RSS
  */
 
-.wp-block-latest-comments,
 .wp-block-archives,
 .wp-block-categories,
 .wp-block-page-list {
-	list-style: none;
-	margin: var(--wp--style--block-gap) 0;
-	padding: 0;
+	@extend %widget-list;
+}
 
-	display: grid;
-	gap: 0.5em;
+.wp-block-latest-posts {
+	@extend %widget-list;
+
+	&:where(.has-author, .has-dates) {
+		gap: calc( 0.75 * var(--wp--style--block-gap) );
+	}
+
+	li {
+		@include float-container();
+
+		a {
+			display: flex;
+		}
+	}
+
+	&__featured-image {
+		margin-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+
+		a {
+			display: inline-block;
+		}
+
+		img {
+			width: 100%; // Set width because WP use max-width to apply image size from the block settings
+		}
+
+		&.alignleft {
+			/*rtl:ignore*/
+			margin-right: calc( 0.5 * var(--wp--style--block-gap) ) !important; // Use !important because WP generates inline CSS for alignleft (margin-right: 2em) which has high specificity
+		}
+		
+		&.alignright {
+			/*rtl:ignore*/
+			margin-left: calc( 0.5 * var(--wp--style--block-gap) ) !important; // Use !important because WP generates inline CSS for alignright (margin-left: 2em) which has high specificity
+		}
+
+		&.aligncenter {
+			text-align: center;
+			margin-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+		}
+	}
+
+	&__post-author {
+		display: inline;
+		@extend %meta;
+		
+		& + .wp-block-latest-posts__post-date {
+			&:before {
+				content: "–";
+				margin: 0 0.5em;
+			}
+		}
+	}
+	
+	&__post-date {
+		display: inline;
+		@extend %meta;
+	}
+
+	&__post-excerpt {
+		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+
+		li:not(:last-child) > & {
+			margin-bottom: calc( 0.25 * var(--wp--style--block-gap) );
+		}
+		
+		.widget & {
+			font-size: var(--wp--preset--font-size--small);
+			line-height: var(--wp--custom--line-height--small);
+		}
+	}
+
+	&.is-grid {
+		--gap: var(--wp--style--block-gap);
+
+		display: grid;
+		gap: var(--gap);
+
+		@media screen and ( min-width: $breakpoint-phone ) {
+			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 2, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			&:where(.columns-3, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 3, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			&.columns-4 {
+				grid-template-columns: repeat( 4, 1fr );
+			}
+
+			&.columns-5 {
+				grid-template-columns: repeat( 5, 1fr );
+			}
+
+			&.columns-6 {
+				grid-template-columns: repeat( 6, 1fr );
+			}
+		}
+
+	}
 }
 
 .wp-block-latest-comments {
-	&:where(.has-dates) {
-		gap: 1.25em;
-	}
+	@extend %widget-list;
 
-	&:where(.has-avatars, .has-excerpts) {
-		gap: 1.5em;
+	&:where(.has-dates, .has-avatars, .has-excerpts) {
+		gap: calc( 0.75 * var(--wp--style--block-gap) );
 	}
 
 	&__comment {
@@ -48,8 +147,12 @@
 	&__comment-excerpt {
 		margin-top: calc(0.5 * var(--wp--style--block-gap));
 
+		li:not(:last-child) > article > & {
+			margin-bottom: calc( 0.25 * var(--wp--style--block-gap) );
+		}
+
 		> * {
-			margin-block: 0.75em;
+			margin: 0;
 		}
 
 		.widget & {
@@ -65,20 +168,56 @@
 	}
 }
 
+.wp-block-rss {
+	@extend %widget-list;
+
+	li {
+		> a {
+			display: inline-block;
+
+			&:only-child {
+				margin-bottom: calc( -0.25 * var(--wp--style--block-gap) );
+			}
+		}
+	}
+
+	&__item-publish-date {
+		display: inline;
+		@extend %meta;
+		
+		& + .wp-block-rss__item-author {
+			&:before {
+				content: "–";
+				margin: 0 0.5em;
+			}
+		}
+	}
+	
+	&__item-author {
+		display: inline;
+		@extend %meta;
+	}
+
+	&__item-excerpt {
+		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+
+		li:not(:last-child) > & {
+			margin-bottom: calc( 0.75 * var(--wp--style--block-gap) );
+		}
+
+		.widget & {
+			font-size: var(--wp--preset--font-size--small);
+			line-height: var(--wp--custom--line-height--small);
+		}
+	}
+}
+
 /**
  * Block: Calendar
  */
 
 .wp-block-calendar {
-	text-align: center;
-
-	caption {
-		margin-bottom: 0.5em;
-	}
-
-	:where(th, td) {
-		padding: 0.25em 0.5em;
-	}
+	@extend %widget-calendar;
 }
 
 /**

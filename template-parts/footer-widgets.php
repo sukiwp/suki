@@ -23,7 +23,7 @@ if ( 1 > $columns ) {
 		<?php
 		for ( $i = 1; $i <= $columns; $i++ ) {
 			?>
-			<div class="suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column wp-block-column">
+			<div class="suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column wp-block-column widget-area">
 				<?php
 				if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
 					dynamic_sidebar( 'footer-widgets-' . $i );

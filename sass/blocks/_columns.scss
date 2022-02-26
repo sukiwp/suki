@@ -47,13 +47,13 @@
 
 	@extend %has-background-padding;
 
-	> * {
-		margin-top: var(--wp--style--block-gap);
-		margin-bottom: var(--wp--style--block-gap);
+	// > * {
+	// 	margin-top: var(--wp--style--block-gap);
+	// 	margin-bottom: var(--wp--style--block-gap);
 	
-		@include remove-margin-top-for-first-child();
-		@include remove-margin-bottom-for-last-child();
-	}
+	// 	@include remove-margin-top-for-first-child();
+	// 	@include remove-margin-bottom-for-last-child();
+	// }
 
 	&[style*="flex-basis"] {
 		flex-grow: 0; // Disable grow if specific column's width is set
