@@ -20,17 +20,13 @@
 .widget_categories,
 .widget_archive,
 .widget_meta,
-.widget_pages {
-	@extend %widget-list;
-}
-
-// Posts widgets
+.widget_pages,
 .widget_recent_entries,
 .widget_recent_comments,
 .widget_rss {
-	@extend %widget-list;
-
-	gap: calc( 0.75 * var(--wp--style--block-gap) );
+	ul {
+		@extend %widget-list;
+	}
 }
 
 .widget_rss {

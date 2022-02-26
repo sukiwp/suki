@@ -126,13 +126,14 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 
 .wp-block-rss, .wp-block-latest-comments, .wp-block-latest-posts, .wp-block-archives,
 .wp-block-categories,
-.wp-block-page-list, .widget_recent_entries,
-.widget_recent_comments,
-.widget_rss, .widget_nav_menu,
-.widget_categories,
-.widget_archive,
-.widget_meta,
-.widget_pages {
+.wp-block-page-list, .widget_nav_menu ul,
+.widget_categories ul,
+.widget_archive ul,
+.widget_meta ul,
+.widget_pages ul,
+.widget_recent_entries ul,
+.widget_recent_comments ul,
+.widget_rss ul {
 	list-style: none;
 	margin: var(--wp--style--block-gap) 0;
 	padding: 0;
@@ -2216,12 +2217,6 @@ hr:last-child {
 }
 .widget > *:last-child {
 	margin-bottom: 0 !important;
-}
-
-.widget_recent_entries,
-.widget_recent_comments,
-.widget_rss {
-	gap: calc(0.75 * var(--wp--style--block-gap));
 }
 
 .widget_rss .rssSummary {
