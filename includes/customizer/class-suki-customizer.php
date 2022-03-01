@@ -44,9 +44,6 @@ class Suki_Customizer {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Google Fonts CSS.
-		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_frontend_google_fonts_css' ) );
-
 		// Default values, outputs, contexts.
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
 		add_filter( 'suki/customizer/setting_outputs', array( $this, 'add_setting_outputs' ) );
@@ -70,17 +67,6 @@ class Suki_Customizer {
 	 * Hook functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Enqueue Google Fonts CSS on frontend.
-	 */
-	public function enqueue_frontend_google_fonts_css() {
-		// Customizer Google Fonts.
-		$google_fonts_url = $this->generate_active_google_fonts_embed_url();
-		if ( ! empty( $google_fonts_url ) ) {
-			wp_enqueue_style( 'suki-google-fonts', $google_fonts_url, array(), SUKI_VERSION );
-		}
-	}
 
 	/**
 	 * Add default values for all Customizer settings.
@@ -174,7 +160,6 @@ class Suki_Customizer {
 		// Global Modules.
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--social.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php';
 
 		// Typography & Colors.
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--base.php';
@@ -868,19 +853,35 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Return Google Fonts embed link from Customizer typography options.
-	 *
-	 * @return string
-	 */
-	public function generate_active_google_fonts_embed_url() {
-		return suki_build_google_fonts_embed_url( $this->get_active_fonts( 'google_fonts' ) );
-	}
-
-	/**
 	 * ====================================================
 	 * Deprecated functions
 	 * ====================================================
 	 */
+
+	/**
+	 * [DEPRECATED]
+	 * Enqueue Google Fonts CSS on frontend.
+	 */
+	public function enqueue_frontend_google_fonts_css() {
+		_deprecated_function( __METHOD__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->enqueue_css' );
+
+		if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
+			Suki_Module_Google_Fonts::instance()->enqueue_css();
+		}
+	}
+
+	/**
+	 * [DEPRECATED]
+	 * Return Google Fonts embed link from Customizer typography options.
+	 */
+	public function generate_active_google_fonts_embed_url() {
+		_deprecated_function( __METHOD__, '2.0.0' );
+
+		if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
+			$fonts = $this->get_active_fonts( 'google_fonts' );
+			return Suki_Module_Google_Fonts::instance()->generate_embed_url( $fonts );
+		}
+	}
 
 	/**
 	 * [DEPRECATED]

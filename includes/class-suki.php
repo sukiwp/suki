@@ -106,6 +106,7 @@ class Suki {
 		// Load modules.
 		require_once SUKI_INCLUDES_DIR . '/modules/class-suki-module.php';
 
+		require_once SUKI_INCLUDES_DIR . '/modules/google-fonts/class-suki-module-google-fonts.php';
 		require_once SUKI_INCLUDES_DIR . '/modules/breadcrumb/class-suki-module-breadcrumb.php';
 
 		// Load plugin compatibilities.

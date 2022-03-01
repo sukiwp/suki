@@ -162,16 +162,6 @@ $wp_customize->add_section(
 	)
 );
 
-// > Google Fonts.
-$wp_customize->add_section(
-	'suki_section_google_fonts',
-	array(
-		'title'    => esc_html__( 'Google Fonts', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 20,
-	)
-);
-
 // > Color Palette.
 $wp_customize->add_section(
 	'suki_section_color_palette',

@@ -436,36 +436,6 @@ function suki_convert_css_array_to_string( $css_array, $minify = true ) {
 }
 
 /**
- * Build Google Fonts embed URL from specified fonts
- *
- * @param array $google_fonts Array of Google Fonts families.
- * @return string
- */
-function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
-	if ( empty( $google_fonts ) ) {
-		return '';
-	}
-
-	// Basic embed link.
-	$link = ( is_ssl() ? 'https:' : 'http:' ) . '//fonts.googleapis.com/css';
-	$args = array();
-
-	// Add font families.
-	$families = array();
-	foreach ( $google_fonts as $name ) {
-		// Add font family and all variants.
-		$families[] = str_replace( ' ', '+', $name ) . ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i';
-	}
-	$args['family'] = implode( '|', $families );
-
-	// Add font subsets.
-	$subsets        = array_merge( array( 'latin' ), suki_get_theme_mod( 'google_fonts_subsets', array() ) );
-	$args['subset'] = implode( ',', $subsets );
-
-	return esc_attr( add_query_arg( $args, $link ) );
-}
-
-/**
  * ====================================================
  * Data set functions
  * ====================================================
@@ -809,52 +779,7 @@ function suki_get_all_fonts() {
 		array(
 			'web_safe_fonts' => suki_get_web_safe_fonts(),
 			'custom_fonts'   => array(),
-			'google_fonts'   => suki_get_google_fonts(),
 		)
-	);
-}
-
-/**
- * Return array of selected Google Fonts list.
- * Selected fonts are configurable from Appearance > Suki > Settings > Fonts page.
- *
- * @return array
- */
-function suki_get_google_fonts() {
-	$json = file_get_contents( SUKI_INCLUDES_DIR . '/lists/google-fonts.json' );
-
-	return json_decode( $json, true );
-}
-
-/**
- * Return array of Google Fonts subsets.
- *
- * @return array
- */
-function suki_get_google_fonts_subsets() {
-	return array(
-		// 'latin' always chosen by default
-		'latin-ext'    => 'Latin Extended',
-		'arabic'       => 'Arabic',
-		'bengali'      => 'Bengali',
-		'cyrillic'     => 'Cyrillic',
-		'cyrillic-ext' => 'Cyrillic Extended',
-		'devaganari'   => 'Devaganari',
-		'greek'        => 'Greek',
-		'greek-ext'    => 'Greek Extended',
-		'gujarati'     => 'Gujarati',
-		'gurmukhi'     => 'Gurmukhi',
-		'hebrew'       => 'Hebrew',
-		'kannada'      => 'Kannada',
-		'khmer'        => 'Khmer',
-		'malayalam'    => 'Malayalam',
-		'myanmar'      => 'Myanmar',
-		'oriya'        => 'Oriya',
-		'sinhala'      => 'Sinhala',
-		'tamil'        => 'Tamil',
-		'telugu'       => 'Telugu',
-		'thai'         => 'Thai',
-		'vietnamese'   => 'Vietnamese',
 	);
 }
 

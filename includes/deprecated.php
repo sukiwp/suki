@@ -19,6 +19,46 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
+ * Build Google Fonts embed URL from specified fonts
+ *
+ * @param array $google_fonts Array of Google Fonts families.
+ * @return string
+ */
+function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
+	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->generate_embed_url' );
+
+	if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
+		return Suki_Module_Google_Fonts::instance()->generate_embed_url( $google_fonts );
+	}
+}
+
+/**
+ * Return array of selected Google Fonts list.
+ *
+ * @return array
+ */
+function suki_get_google_fonts() {
+	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->get_fonts_list' );
+
+	if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
+		return Suki_Module_Google_Fonts::instance()->get_fonts_list();
+	}
+}
+
+/**
+ * Return array of Google Fonts subsets.
+ *
+ * @return array
+ */
+function suki_get_google_fonts_subsets() {
+	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->get_subsets' );
+
+	if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
+		return Suki_Module_Google_Fonts::instance()->get_subsets();
+	}
+}
+
+/**
  * Rename `suki_main_header` to `suki_header_desktop`.
  */
 function suki_main_header() {

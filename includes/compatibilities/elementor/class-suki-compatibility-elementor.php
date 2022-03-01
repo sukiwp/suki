@@ -108,9 +108,9 @@ class Suki_Compatibility_Elementor {
 				$fonts[ $font ] = \Elementor\Fonts::SYSTEM;
 			}
 
-			foreach ( suki_get_google_fonts() as $font => $stack ) {
-				$fonts[ $font ] = \Elementor\Fonts::GOOGLE;
-			}
+			// foreach ( suki_get_google_fonts() as $font => $stack ) {
+			// 	$fonts[ $font ] = \Elementor\Fonts::GOOGLE;
+			// }
 		}
 
 		return $fonts;

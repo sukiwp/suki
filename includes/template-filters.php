@@ -24,30 +24,6 @@ add_filter( 'get_the_author_description', 'do_shortcode' );
 
 /**
  * ====================================================
- * Google Fonts filters
- * ====================================================
- */
-
-/**
- * Add preconnect for Google Fonts embed fonts.
- *
- * @param array  $urls          Array of URLs.
- * @param string $relation_type Relation type.
- * @return array $urls
- */
-function suki_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'suki-google-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
-		$urls[] = array(
-			'href' => 'https://fonts.gstatic.com',
-			'crossorigin',
-		);
-	}
-	return $urls;
-}
-add_filter( 'wp_resource_hints', 'suki_resource_hints', 10, 2 );
-
-/**
- * ====================================================
  * Archive title filters
  * ====================================================
  */
