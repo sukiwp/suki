@@ -47,9 +47,9 @@ class Suki_Customizer {
 		// Google Fonts CSS.
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_frontend_google_fonts_css' ) );
 
-		// Default values, postmessages, contexts.
+		// Default values, outputs, contexts.
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_setting_defaults' ) );
-		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_setting_postmessages' ) );
+		add_filter( 'suki/customizer/setting_outputs', array( $this, 'add_setting_outputs' ) );
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
 
 		// Customizer page.
@@ -96,16 +96,16 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Add postmessage rules for some Customizer settings.
+	 * Add output rules for some Customizer settings.
 	 * Triggered via filter to allow modification by users.
 	 *
-	 * @param array $postmessages Post messages array.
+	 * @param array $outputs Post messages array.
 	 * @return array
 	 */
-	public function add_setting_postmessages( $postmessages = array() ) {
-		$add = include SUKI_INCLUDES_DIR . '/customizer/postmessages.php';
+	public function add_setting_outputs( $outputs = array() ) {
+		$add = include SUKI_INCLUDES_DIR . '/customizer/outputs.php';
 
-		return array_merge_recursive( $postmessages, $add );
+		return array_merge_recursive( $outputs, $add );
 	}
 
 	/**
@@ -173,7 +173,6 @@ class Suki_Customizer {
 
 		// Global Modules.
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--social.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--breadcrumb.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--google-fonts.php';
 
@@ -347,7 +346,7 @@ class Suki_Customizer {
 			'suki-customize-preview',
 			'sukiCustomizerPreviewData',
 			array(
-				'postMessages' => $this->get_setting_postmessages(),
+				'postMessages' => $this->get_setting_outputs(),
 				'fonts'        => suki_get_all_fonts(),
 			)
 		);
@@ -364,11 +363,11 @@ class Suki_Customizer {
 		 * Print saved theme_mods CSS.
 		 */
 
-		$postmessages   = $this->get_setting_postmessages();
+		$outputs        = $this->get_setting_outputs();
 		$default_values = $this->get_setting_defaults();
 
 		// Loop through each setting.
-		foreach ( $postmessages as $key => $rules ) {
+		foreach ( $outputs as $key => $rules ) {
 			// Get saved value.
 			$setting_value = get_theme_mod( $key );
 
@@ -385,12 +384,12 @@ class Suki_Customizer {
 			if ( $setting_value !== $default_value && '' !== $setting_value ) {
 				foreach ( $rules as $rule ) {
 					// Check rule validity, and then skip if it's not valid.
-					if ( ! $this->check_postmessage_rule_for_css_compatibility( $rule ) ) {
+					if ( ! $this->check_output_rule_for_css_compatibility( $rule ) ) {
 						continue;
 					}
 
 					// Sanitize rule.
-					$rule = $this->sanitize_postmessage_rule_value( $rule, $setting_value );
+					$rule = $this->sanitize_output_rule_value( $rule, $setting_value );
 
 					// Add to CSS array.
 					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
@@ -432,26 +431,26 @@ class Suki_Customizer {
 	 */
 
 	/**
-	 * Build CSS string from Customizer's postmessages.
+	 * Build CSS string from Customizer's outputs.
 	 *
-	 * @param array $postmessages Post messages array.
-	 * @param array $defaults     Default values array.
+	 * @param array $outputs  Outputs array.
+	 * @param array $defaults Default values array.
 	 * @return string
 	 */
-	public function convert_postmessages_to_css_string( $postmessages = array(), $defaults = array() ) {
-		$css_array = $this->convert_postmessages_to_css_array( $postmessages, $defaults );
+	public function convert_outputs_to_css_string( $outputs = array(), $defaults = array() ) {
+		$css_array = $this->convert_outputs_to_css_array( $outputs, $defaults );
 
 		return suki_convert_css_array_to_string( $css_array );
 	}
 
 	/**
-	 * Convert Customizer's postmessages array to CSS array.
+	 * Convert Customizer's outputs array to CSS array.
 	 *
-	 * @param array $postmessages Post messages array.
+	 * @param array $outputs Post messages array.
 	 * @param array $defaults     Default values array.
 	 * @return string
 	 */
-	public function convert_postmessages_to_css_array( $postmessages = array(), $defaults = array() ) {
+	public function convert_outputs_to_css_array( $outputs = array(), $defaults = array() ) {
 		// Temporary CSS array to organize output.
 		// Media groups are defined now, for proper responsive orders.
 		$css_array = array(
@@ -466,9 +465,9 @@ class Suki_Customizer {
 			$mods = array();
 		}
 
-		// Intersect the whole postmessages array with saved theme mods array.
+		// Intersect the whole outputs array with saved theme mods array.
 		// This way we can optimize the iteration to only process the existing theme mods.
-		$keys = array_intersect( array_keys( $postmessages ), array_keys( $mods ) );
+		$keys = array_intersect( array_keys( $outputs ), array_keys( $mods ) );
 
 		// Loop through each setting.
 		foreach ( $keys as $key ) {
@@ -491,14 +490,14 @@ class Suki_Customizer {
 			}
 
 			// Loop through each rule.
-			foreach ( $postmessages[ $key ] as $rule ) {
+			foreach ( $outputs[ $key ] as $rule ) {
 				// Check rule validity, and then skip if it's not valid.
-				if ( ! $this->check_postmessage_rule_for_css_compatibility( $rule ) ) {
+				if ( ! $this->check_output_rule_for_css_compatibility( $rule ) ) {
 					continue;
 				}
 
 				// Sanitize rule.
-				$rule = $this->sanitize_postmessage_rule_value( $rule, $setting_value );
+				$rule = $this->sanitize_output_rule_value( $rule, $setting_value );
 
 				// Add to CSS array.
 				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
@@ -509,12 +508,12 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Check a postmessage rule and return whether it's valid or not.
+	 * Check a output rule and return whether it's valid or not.
 	 *
-	 * @param array $rule Post message rule.
+	 * @param array $rule Output rule.
 	 * @return boolean
 	 */
-	public function check_postmessage_rule_for_css_compatibility( $rule ) {
+	public function check_output_rule_for_css_compatibility( $rule ) {
 		// Check if there is no type defined, then return false.
 		if ( ! isset( $rule['type'] ) ) {
 			return false;
@@ -540,13 +539,13 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Sanitize a postmessage rule, run rule function, format original setting value and fill it into the rule.
+	 * Sanitize a output rule, run rule function, format original setting value and fill it into the rule.
 	 *
-	 * @param array $rule          Post message rule.
+	 * @param array $rule          Output rule.
 	 * @param mixed $setting_value Setting value.
 	 * @return array
 	 */
-	public function sanitize_postmessage_rule_value( $rule, $setting_value ) {
+	public function sanitize_output_rule_value( $rule, $setting_value ) {
 		// Declare empty array to hold all available fonts.
 		// Will be populated later, only when needed.
 		$fonts = array();
@@ -651,12 +650,12 @@ class Suki_Customizer {
 	}
 
 	/**
-	 * Return all customizer setting postmessages.
+	 * Return all customizer setting outputs.
 	 *
 	 * @return array
 	 */
-	public function get_setting_postmessages() {
-		return apply_filters( 'suki/customizer/setting_postmessages', array() );
+	public function get_setting_outputs() {
+		return apply_filters( 'suki/customizer/setting_outputs', array() );
 	}
 
 	/**
@@ -875,6 +874,93 @@ class Suki_Customizer {
 	 */
 	public function generate_active_google_fonts_embed_url() {
 		return suki_build_google_fonts_embed_url( $this->get_active_fonts( 'google_fonts' ) );
+	}
+
+	/**
+	 * ====================================================
+	 * Deprecated functions
+	 * ====================================================
+	 */
+
+	/**
+	 * [DEPRECATED]
+	 * Add output rules for some Customizer settings.
+	 * Triggered via filter to allow modification by users.
+	 *
+	 * @param array $postmessages Outputs array.
+	 * @return array
+	 */
+	public function add_setting_postmessages( $postmessages = array() ) {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::add_setting_outputs' );
+
+		return add_setting_outputs( $postmessages );
+	}
+
+	/**
+	 * [DEPRECATED]
+	 * Build CSS string from Customizer's outputs.
+	 *
+	 * @param array $outputs  Outputs array.
+	 * @param array $defaults Default values array.
+	 * @return string
+	 */
+	public function convert_postmessages_to_css_string( $outputs = array(), $defaults = array() ) {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::convert_outputs_to_css_string' );
+
+		return $this->convert_outputs_to_css_string( $outputs, $defaults );
+	}
+
+	/**
+	 * [DEPRECATED]
+	 * Convert Customizer's outputs array to CSS array.
+	 *
+	 * @param array $postmessages Outputs array.
+	 * @param array $defaults     Default values array.
+	 * @return string
+	 */
+	public function convert_postmessages_to_css_array( $postmessages = array(), $defaults = array() ) {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::convert_outputs_to_css_array' );
+
+		return $this->convert_outputs_to_css_array( $postmessages, $defaults );
+	}
+
+	/**
+	 * [DEPRECATED]
+	 * Check a output rule and return whether it's valid or not.
+	 *
+	 * @param array $rule Output rule.
+	 * @return boolean
+	 */
+	public function check_postmessage_rule_for_css_compatibility( $rule ) {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::check_output_rule_for_css_compatibility' );
+
+		return $this->check_output_rule_for_css_compatibility( $rule );
+	}
+
+	/**
+	 * [DEPRECATED]
+	 * Sanitize a output rule, run rule function, format original setting value and fill it into the rule.
+	 *
+	 * @param array $rule          Output rule.
+	 * @param mixed $setting_value Setting value.
+	 * @return array
+	 */
+	public function sanitize_postmessage_rule_value( $rule, $setting_value ) {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::sanitize_output_rule_value' );
+
+		return $this->sanitize_output_rule_value( $rule, $setting_value );
+	}
+
+	/**
+	 * [DEPRECATED]
+	 * Return all customizer setting outputs.
+	 *
+	 * @return array
+	 */
+	public function get_setting_postmessages() {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::get_setting_outputs' );
+
+		return $this->get_setting_outputs();
 	}
 }
 

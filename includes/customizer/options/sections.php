@@ -162,17 +162,6 @@ $wp_customize->add_section(
 	)
 );
 
-// > Breadcrumb.
-$wp_customize->add_section(
-	'suki_section_breadcrumb',
-	array(
-		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Breadcrumb can be enabled on 2 locations:', 'suki' ) . '</p><ul><li>' . esc_html__( 'Header (visible globally)', 'suki' ) . '</li><li>' . esc_html__( 'Content Header (per page type)', 'suki' ) . '</li></ul>',
-		'panel'       => $panel,
-		'priority'    => 20,
-	)
-);
-
 // > Google Fonts.
 $wp_customize->add_section(
 	'suki_section_google_fonts',
@@ -467,7 +456,7 @@ $wp_customize->add_section(
 	'suki_section_hero',
 	array(
 		'title'       => esc_html__( 'Hero Section', 'suki' ),
-		'description' => esc_html__( 'A section between header and content section to display the page\'s content header (title, breadcrumb, etc.) with a background image.', 'suki' ),
+		'description' => esc_html__( 'A section between header and content section that displays Content Header.', 'suki' ),
 		'panel'       => $panel,
 		'priority'    => 10,
 	)

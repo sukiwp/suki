@@ -46,8 +46,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 
 	// Elements.
 	$elements = array(
-		'title'      => esc_html__( 'Title', 'suki' ),
-		'breadcrumb' => esc_html__( 'Breadcrumb', 'suki' ),
+		'title' => esc_html__( 'Title', 'suki' ),
 	);
 	// Archive elements.
 	if ( false !== strpos( $ps_type, '_archive' ) ) {

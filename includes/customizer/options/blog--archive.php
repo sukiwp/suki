@@ -153,7 +153,6 @@ $wp_customize->add_control(
 				'suki/dataset/post_archive_content_header_elements',
 				array(
 					'title'               => esc_html__( 'Title', 'suki' ),
-					'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
 					'archive-description' => esc_html__( 'Taxonomy Description', 'suki' ),
 				)
 			),

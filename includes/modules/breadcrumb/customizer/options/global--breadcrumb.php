@@ -10,11 +10,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$panel   = 'suki_panel_global_settings';
 $section = 'suki_section_breadcrumb';
 
 /**
  * ====================================================
- * Breadcrumb
+ * Sections
+ * ====================================================
+ */
+
+// Section: Global Modules > Breadcrumb.
+$wp_customize->add_section(
+	$section,
+	array(
+		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Breadcrumb can be added on 2 locations:', 'suki' ) . '</p><ul><li>' . esc_html__( 'Header (visible globally)', 'suki' ) . '</li><li>' . esc_html__( 'Content Header (per page type)', 'suki' ) . '</li></ul>',
+		'panel'       => $panel,
+		'priority'    => 20,
+	)
+);
+
+/**
+ * ====================================================
+ * Options
  * ====================================================
  */
 
@@ -139,6 +157,12 @@ $wp_customize->add_control(
 		)
 	)
 );
+
+/**
+ * ====================================================
+ * Selective Refresh
+ * ====================================================
+ */
 
 // Selective Refresh.
 if ( isset( $wp_customize->selective_refresh ) ) {

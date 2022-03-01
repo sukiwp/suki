@@ -922,10 +922,6 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 				}
 				break;
 
-			case 'breadcrumb':
-				$html = suki_breadcrumb( false );
-				break;
-
 			case 'search-form':
 				$html = get_search_form( array( 'echo' => false ) );
 				break;

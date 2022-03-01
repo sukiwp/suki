@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer & Front-End modification rules.
+ * Customizer setting outputs.
  *
  * @package Suki
  **/

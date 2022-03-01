@@ -93,7 +93,6 @@ $wp_customize->add_control(
 				'suki/dataset/search_results_content_header_elements',
 				array(
 					'title'       => esc_html__( 'Title', 'suki' ),
-					'breadcrumb'  => esc_html__( 'Breadcrumb', 'suki' ),
 					'search-form' => esc_html__( 'Search Form', 'suki' ),
 				)
 			),
