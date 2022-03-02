@@ -4372,6 +4372,15 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 }
 
 /**
+ * Error 404
+ */
+body.error404 .site-main {
+	display: grid;
+	place-content: center;
+	min-height: 50vh;
+}
+
+/**
  * Footer
  */
 .suki-footer {

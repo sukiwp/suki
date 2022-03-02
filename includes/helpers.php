@@ -226,115 +226,42 @@ function suki_get_current_page_setting( $key, $default = null ) {
 		return null;
 	}
 
-	$settings = array();
-	$value    = null;
-
-	// Search results page and not archive (WooCommerce search results page is considered as archive).
-	if ( is_search() && ! is_archive() ) {
-		$value = suki_get_theme_mod( 'search_results_' . $key );
-	}
-
-	// Error 404 page.
+	// Get the page type.
 	if ( is_404() ) {
-		// Set content container and content layout to a fixed value.
-		$fixed_settings = array(
-			'hero'              => 0,
-			'content_container' => 'narrow', // Error 404 page always uses Narrow layout.
-			'content_layout'    => 'wide', // Error 404 page always has no sidebar.
-		);
-
-		// Use fixed settings if specified key is either "content_container" or "content_layout.
-		// Otherwise, use the Customizer value.
-		if ( isset( $fixed_settings[ $key ] ) ) {
-			$value = $fixed_settings[ $key ];
-		} else {
-			$value = suki_get_theme_mod( 'error_404_' . $key );
-		}
+		$page_type = 'error_404';
+	} elseif ( is_search() && ! is_archive() ) { // WooCommerce search results page is considered as archive.
+		$page_type = 'search_results';
+	} elseif ( is_singular() ) {
+		$page_type = get_queried_object()->post_type . '_single';
+	} elseif ( is_archive() ) {
+		$page_type = get_query_var( 'post_type' ) . '_archive';
 	}
 
-	// All kind of posts archive pages.
-	if ( is_home() || is_category() || is_tag() || is_date() || is_author() ) {
-		$value = suki_get_theme_mod( 'post_archive_' . $key );
-	}
-
-	// Other post types index page.
-	if ( is_post_type_archive() && ! is_home() ) {
-		$obj = get_queried_object();
-
-		if ( $obj ) {
-			$value = suki_get_theme_mod( $obj->name . '_archive_' . $key );
-		} else {
-			$value = null;
-		}
-	}
-
-	// Custom taxonomy archive pages.
-	if ( is_tax() ) {
-		$obj = get_queried_object();
-
-		if ( $obj ) {
-			global $wp_taxonomies;
-
-			// Get post type.
-			$post_types = $wp_taxonomies[ $obj->taxonomy ]->object_type;
-			$post_type  = $post_types[0];
-
-			// Get settings on the individual term.
-			$individual_settings = wp_parse_args( get_term_meta( $obj->term_id, 'suki_page_settings', true ), array() );
-
-			// Use individual settings if option is specified.
-			// Otherwise, use the Customizer value.
-			if ( isset( $individual_settings[ $key ] ) ) {
-				$value = $individual_settings[ $key ];
-			} else {
-				$value = suki_get_theme_mod( $post_type . '_archive_' . $key );
-			}
-		} else {
-			$value = null;
-		}
-	}
-
-	// Single post page (any post type).
-	if ( is_singular() ) {
-		$obj = get_queried_object();
-
-		if ( $obj ) {
-			// Get settings on the individual post.
-			$individual_settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
-
-			// Use individual settings if option is specified.
-			// Otherwise, use the Customizer value.
-			if ( isset( $individual_settings[ $key ] ) ) {
-				$value = $individual_settings[ $key ];
-			} else {
-				$value = suki_get_theme_mod( $obj->post_type . '_single_' . $key );
-			}
-		} else {
-			$value = null;
-		}
-	}
-
-	// If the value is empty, try to use the global value.
-	if ( '' === $value || is_null( $value ) ) {
-		$value = suki_get_theme_mod( $key, $default );
-	}
+	// Get the value from Customizer's Individual Page Settings.
+	$value = suki_get_theme_mod( $page_type . '_' . $key );
 
 	/**
 	 * Filter: suki/page_settings/setting_value
 	 *
-	 * @param mixed  $value Setting value.
-	 * @param string $key   Setting key.
+	 * @param mixed  $value     Setting value.
+	 * @param string $key       Setting key.
+	 * @param string $page_type Page type.
 	 */
-	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key );
+	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key, $page_type );
 
 	/**
 	 * Filter: suki/page_settings/setting_value/{$key}
 	 *
-	 * @param mixed  $value Setting value.
+	 * @param mixed  $value     Setting value.
+	 * @param string $page_type Page type.
 	 */
-	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value );
+	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value, $page_type );
 
-	// Return the final value.
+	// Last fallback, if the value is empty, try to use the global value.
+	if ( '' === $value || is_null( $value ) ) {
+		$value = suki_get_theme_mod( $key, $default );
+	}
+
 	return $value;
 }
 
@@ -692,15 +619,15 @@ function suki_get_header_builder_configurations() {
 		'suki/dataset/header_builder_configurations',
 		array(
 			'locations'   => array(
-				'top_left'      => is_rtl() ? esc_html__( 'Top - Right', 'suki' ) : esc_html__( 'Top - Left', 'suki' ),
+				'top_left'      => esc_html__( 'Top - Left', 'suki' ),
 				'top_center'    => esc_html__( 'Top - Center', 'suki' ),
-				'top_right'     => is_rtl() ? esc_html__( 'Top - Left', 'suki' ) : esc_html__( 'Top - Right', 'suki' ),
-				'main_left'     => is_rtl() ? esc_html__( 'Main - Right', 'suki' ) : esc_html__( 'Main - Left', 'suki' ),
+				'top_right'     => esc_html__( 'Top - Right', 'suki' ),
+				'main_left'     => esc_html__( 'Main - Left', 'suki' ),
 				'main_center'   => esc_html__( 'Main - Center', 'suki' ),
-				'main_right'    => is_rtl() ? esc_html__( 'Main - Left', 'suki' ) : esc_html__( 'Main - Right', 'suki' ),
-				'bottom_left'   => is_rtl() ? esc_html__( 'Bottom - Right', 'suki' ) : esc_html__( 'Bottom - Left', 'suki' ),
+				'main_right'    => esc_html__( 'Main - Right', 'suki' ),
+				'bottom_left'   => esc_html__( 'Bottom - Left', 'suki' ),
 				'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
-				'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left', 'suki' ) : esc_html__( 'Bottom - Right', 'suki' ),
+				'bottom_right'  => esc_html__( 'Bottom - Right', 'suki' ),
 			),
 			'choices'     => array(
 				'logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
@@ -726,19 +653,19 @@ function suki_get_header_builder_configurations() {
  *
  * @return array
  */
-function suki_get_mobile_header_builder_configurations() {
+function suki_get_header_mobile_builder_configurations() {
 	/**
-	 * Filter: suki/dataset/mobile_header_builder_configurations
+	 * Filter: suki/dataset/header_mobile_builder_configurations
 	 *
 	 * @param array $config Configurations array.
 	 */
 	$config = apply_filters(
-		'suki/dataset/mobile_header_builder_configurations',
+		'suki/dataset/header_mobile_builder_configurations',
 		array(
 			'locations'   => array(
-				'main_left'    => is_rtl() ? esc_html__( 'Mobile - Right', 'suki' ) : esc_html__( 'Mobile - Left', 'suki' ),
+				'main_left'    => esc_html__( 'Mobile - Left', 'suki' ),
 				'main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
-				'main_right'   => is_rtl() ? esc_html__( 'Mobile - Left', 'suki' ) : esc_html__( 'Mobile - Right', 'suki' ),
+				'main_right'   => esc_html__( 'Mobile - Right', 'suki' ),
 				'vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
 			),
 			'choices'     => array(

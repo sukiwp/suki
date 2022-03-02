@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="error-404 not-found page-content">
+<div class="error-404 not-found has-text-align-center">
 	<?php
 	// Image.
 	$image = suki_get_theme_mod( 'error_404_image' );
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	?>
 
-	<h1 class="error-404-title page-title">
+	<h1 class="error-404-title suki-title">
 		<?php
 		// Title.
 		$title_text = suki_get_theme_mod( 'error_404_title_text' );

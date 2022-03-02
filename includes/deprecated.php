@@ -19,10 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Build Google Fonts embed URL from specified fonts
+ * Replace `suki_build_google_fonts_embed_url` with `Suki_Module_Google_Fonts::instance()->generate_embed_url`.
  *
  * @param array $google_fonts Array of Google Fonts families.
- * @return string
  */
 function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
 	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->generate_embed_url' );
@@ -34,8 +33,6 @@ function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
 
 /**
  * Return array of selected Google Fonts list.
- *
- * @return array
  */
 function suki_get_google_fonts() {
 	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->get_fonts_list' );
@@ -46,9 +43,7 @@ function suki_get_google_fonts() {
 }
 
 /**
- * Return array of Google Fonts subsets.
- *
- * @return array
+ * Replace `suki_get_google_fonts_subsets` with `Suki_Module_Google_Fonts::instance()->get_subsets`.
  */
 function suki_get_google_fonts_subsets() {
 	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->get_subsets' );
@@ -59,10 +54,9 @@ function suki_get_google_fonts_subsets() {
 }
 
 /**
- * Return list of post types that support Page Settings.
+ * Replace `suki_get_post_types_for_page_settings` with `suki_get_public_post_types`.
  *
  * @param string $context Context of returned values.
- * @return array
  */
 function suki_get_post_types_for_page_settings( $context = 'all' ) {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_get_public_post_types' );
@@ -71,7 +65,7 @@ function suki_get_post_types_for_page_settings( $context = 'all' ) {
 }
 
 /**
- * Rename `suki_main_header` to `suki_header_desktop`.
+ * Replace `suki_main_header` with `suki_header_desktop`.
  */
 function suki_main_header() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_header_desktop' );
@@ -80,7 +74,7 @@ function suki_main_header() {
 }
 
 /**
- * Rename `suki_main_header__top_bar` to `suki_header_desktop__top_bar`.
+ * Replace `suki_main_header__top_bar` with `suki_header_desktop__top_bar`.
  */
 function suki_main_header__top_bar() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_header_desktop__top_bar' );
@@ -89,7 +83,7 @@ function suki_main_header__top_bar() {
 }
 
 /**
- * Rename `suki_main_header__main_bar` to `suki_header_desktop__main_bar`.
+ * Replace `suki_main_header__main_bar` with `suki_header_desktop__main_bar`.
  */
 function suki_main_header__main_bar() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_header_desktop__main_bar' );
@@ -98,7 +92,7 @@ function suki_main_header__main_bar() {
 }
 
 /**
- * Rename `suki_main_header__bottom_bar` to `suki_header_desktop__bottom_bar`.
+ * Replace `suki_main_header__bottom_bar` with `suki_header_desktop__bottom_bar`.
  */
 function suki_main_header__bottom_bar() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_header_desktop__bottom_bar' );
@@ -107,7 +101,7 @@ function suki_main_header__bottom_bar() {
 }
 
 /**
- * Rename `suki_mobile_header` to `suki_header_mobile`.
+ * Replace `suki_mobile_header` with `suki_header_mobile`.
  */
 function suki_mobile_header() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_header_mobile' );
@@ -116,7 +110,7 @@ function suki_mobile_header() {
 }
 
 /**
- * Rename `suki_mobile_vertical_header` to `suki_header_mobile__popup`.
+ * Replace `suki_mobile_vertical_header` with `suki_header_mobile__popup`.
  */
 function suki_mobile_vertical_header() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_header_mobile__popup' );
@@ -125,7 +119,7 @@ function suki_mobile_vertical_header() {
 }
 
 /**
- * Rename `suki_default_mobile_logo` to `suki_default_logo_mobile`.
+ * Replace `suki_default_mobile_logo` with `suki_default_logo_mobile`.
  */
 function suki_default_mobile_logo() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_default_logo_mobile' );
@@ -134,7 +128,7 @@ function suki_default_mobile_logo() {
 }
 
 /**
- * Rename `suki_post_single_content_footer_element` to `suki_content_footer_element`.
+ * Replace `suki_post_single_content_footer_element` with `suki_content_footer_element`.
  */
 function suki_post_single_content_footer_element() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_content_footer_element' );
@@ -176,7 +170,7 @@ function suki_post_header_meta() {
 }
 
 /**
- * Rename `suki_thumbnail` to `suki_singular_thumbnail`.
+ * Replace `suki_thumbnail` with `suki_singular_thumbnail`.
  */
 function suki_thumbnail() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_singular_thumbnail' );
@@ -185,7 +179,7 @@ function suki_thumbnail() {
 }
 
 /**
- * Rename `suki_post_author_bio` to `suki_author_bio`.
+ * Replace `suki_post_author_bio` with `suki_author_bio`.
  */
 function suki_post_author_bio() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_author_bio' );
@@ -194,7 +188,7 @@ function suki_post_author_bio() {
 }
 
 /**
- * Rename `suki_post_navigation` to `suki_singular_navigation`.
+ * Replace `suki_post_navigation` with `suki_singular_navigation`.
  */
 function suki_post_navigation() {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_singular_navigation' );
@@ -266,4 +260,32 @@ function suki_entry_excerpt() {
 	);
 }
 
+/**
+ * Replace `suki_breadcrumb` with `Suki_Module_Breadcrumb::instance()->render_html`.
+ *
+ * @param boolean $echo Render or return.
+ */
+function suki_breadcrumb( $echo = true ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'Suki_Module_Breadcrumb::instance()->render_html' );
 
+	if ( boolval( $echo ) ) {
+		Suki_Module_Breadcrumb::instance()->render_html();
+	} else {
+		Suki_Module_Breadcrumb::instance()->get_html();
+	}
+}
+
+/**
+ * Replace `suki_breadcrumb_native` with `Suki_Module_Breadcrumb::instance()->generate_html__builtin`.
+ *
+ * @param boolean $echo Render or return.
+ */
+function suki_breadcrumb_native( $echo = true ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'Suki_Module_Breadcrumb::instance()->generate_html__builtin' );
+
+	if ( boolval( $echo ) ) {
+		echo Suki_Module_Breadcrumb::instance()->generate_html__builtin(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		Suki_Module_Breadcrumb::instance()->generate_html__builtin();
+	}
+}

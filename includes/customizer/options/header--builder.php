@@ -81,7 +81,7 @@ $wp_customize->add_control(
 );
 
 // Mobile Header.
-$config   = suki_get_mobile_header_builder_configurations();
+$config   = suki_get_header_mobile_builder_configurations();
 $key      = 'header_mobile_elements';
 $settings = array();
 foreach ( $config['locations'] as $slug => $label ) {
