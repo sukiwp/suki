@@ -468,46 +468,4 @@ $add['error_404_home_button_text'] = array(
 	),
 );
 
-/**
- * ====================================================
- * Individual Page Settings
- * ====================================================
- */
-
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-	$add[ $ps_type . '_hero_bg_image' ] = array(
-		array(
-			'setting' => $ps_type . '_hero_bg',
-			'value'   => 'custom',
-		),
-	);
-
-	$add[ $ps_type . '_content_layout' ] = array(
-		array(
-			'setting'  => $ps_type . '_content_container',
-			'operator' => '!=',
-			'value'    => 'narrow',
-		),
-	);
-
-	// Archives.
-	if ( preg_match( '/(_archive)/', $ps_type ) ) {
-		$add[ $ps_type . '_title_text' ] = array(
-			array(
-				'setting'  => $ps_type . '_content_header',
-				'operator' => 'contain',
-				'value'    => 'title',
-			),
-		);
-
-		$add[ $ps_type . '_tax_title_text' ] = array(
-			array(
-				'setting'  => $ps_type . '_content_header',
-				'operator' => 'contain',
-				'value'    => 'title',
-			),
-		);
-	}
-}
-
 return $add;

@@ -48,26 +48,31 @@ if ( ! function_exists( 'suki_element_class' ) ) {
 	/**
 	 * Print element classes from specified default classes array and classes added via the provided filter.
 	 *
-	 * @param string       $context Element context.
+	 * @param string       $element Element key.
 	 * @param string|array $classes Classes array.
-	 * @param boolean      $echo    Print or return.
+	 * @param boolean      $echo    Render or return.
 	 * @return string
 	 */
-	function suki_element_class( $context, $classes = array(), $echo = true ) {
+	function suki_element_class( $element, $classes = array(), $echo = true ) {
 		// Build filter tag.
-		$filter = 'suki/frontend/' . str_replace( '-', '_', $context ) . '_classes';
+		$filter = 'suki/frontend/' . str_replace( '-', '_', $element ) . '_classes';
 
 		// Convert string parameter $classes to array.
 		if ( is_string( $classes ) ) {
 			$classes = explode( ' ', $classes );
 		}
 
-		// Filter to modify classes array.
+		/**
+		 * Filter: suki/frontend/{$element}_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
 		$classes = apply_filters( $filter, $classes );
 
 		// Convert array to string.
 		$classes_string = implode( ' ', $classes );
 
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo esc_attr( $classes_string );
 		} else {
@@ -83,7 +88,7 @@ if ( ! function_exists( 'suki_post_class' ) ) {
 	 * @uses suki_element_class()
 	 *
 	 * @param string|array $classes Classes array.
-	 * @param boolean      $echo    Print or return.
+	 * @param boolean      $echo    Render or return.
 	 * @return string
 	 */
 	function suki_post_class( $classes = array(), $echo = true ) {
@@ -92,7 +97,7 @@ if ( ! function_exists( 'suki_post_class' ) ) {
 			$classes = explode( ' ', $classes );
 		}
 
-		// Print classes via `suki_element_class` function.
+		// Render or return classes via `suki_element_class` function.
 		return suki_element_class( 'post_' . get_the_ID(), array_merge( get_post_class(), $classes ), $echo );
 	}
 }
@@ -102,7 +107,7 @@ if ( ! function_exists( 'suki_inline_svg' ) ) {
 	 * Print / return inline SVG HTML tags.
 	 *
 	 * @param string  $svg_file SVG file path.
-	 * @param boolean $echo     Print or return the HTML tags.
+	 * @param boolean $echo     Render or return.
 	 * @return string
 	 */
 	function suki_inline_svg( $svg_file, $echo = true ) {
@@ -130,6 +135,7 @@ if ( ! function_exists( 'suki_inline_svg' ) ) {
 		// Site name would be added as a screen reader text to represent the logo.
 		$html = preg_replace( '/<title>.*?<\/title>/', '', $html );
 
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -143,7 +149,7 @@ if ( ! function_exists( 'suki_logo' ) ) {
 	 * Print HTML markup for specified site logo.
 	 *
 	 * @param integer $logo_image_id Logo image ID.
-	 * @param boolean $echo          Print or return the HTML tags.
+	 * @param boolean $echo          Render or return the HTML tags.
 	 * @return string
 	 */
 	function suki_logo( $logo_image_id = null, $echo = true ) {
@@ -154,7 +160,15 @@ if ( ! function_exists( 'suki_logo' ) ) {
 		if ( ! empty( $logo_image_id ) ) {
 			$mime = get_post_mime_type( $logo_image_id );
 
-			if ( 'image/svg+xml' === $mime && apply_filters( 'suki/frontend/logo/use_inline_svg', false ) ) {
+			/**
+			 * Filter: suki/frontend/logo/use_inline_svg
+			 *
+			 * @param boolean $use_inline_svg Use inline or not.
+			 */
+			$use_inline_svg = apply_filters( 'suki/frontend/logo/use_inline_svg', false );
+
+			// Build logo image tag.
+			if ( 'image/svg+xml' === $mime && $use_inline_svg ) {
 				$logo_image = suki_inline_svg( get_attached_file( $logo_image_id ), false );
 			} else {
 				$logo_image = wp_get_attachment_image(
@@ -173,6 +187,7 @@ if ( ! function_exists( 'suki_logo' ) ) {
 			}
 		}
 
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -209,7 +224,7 @@ if ( ! function_exists( 'suki_icon' ) ) {
 	 *
 	 * @param string  $key  Icon slug.
 	 * @param array   $args Array of parameters.
-	 * @param boolean $echo Print or return the HTML tags.
+	 * @param boolean $echo Render or return the HTML tags.
 	 * @return string
 	 */
 	function suki_icon( $key, $args = array(), $echo = true ) {
@@ -226,8 +241,19 @@ if ( ! function_exists( 'suki_icon' ) ) {
 		// Get SVG path.
 		$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
 
-		// Allow modification via filter.
+		/**
+		 * Filter: suki/frontend/svg_icon_path
+		 *
+		 * @param string $path SVG icon path.
+		 * @param string $key  Icon key.
+		 */
 		$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
+
+		/**
+		 * Filter: suki/frontend/svg_icon_path/{$key}
+		 *
+		 * @param string $path SVG icon path.
+		 */
 		$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
 
 		// Get SVG markup.
@@ -237,14 +263,25 @@ if ( ! function_exists( 'suki_icon' ) ) {
 			$svg = suki_inline_svg( get_template_directory() . '/assets/icons/_fallback.svg', false ); // Fallback SVG markup.
 		}
 
-		// Allow modification via filter.
+		/**
+		 * Filter: suki/frontend/svg_icon
+		 *
+		 * @param string $path SVG icon HTML markup.
+		 * @param string $key  Icon key.
+		 */
 		$svg = apply_filters( 'suki/frontend/svg_icon', $svg, $key );
+
+		/**
+		 * Filter: suki/frontend/svg_icon/{$key}
+		 *
+		 * @param string $path SVG icon HTML markup.
+		 */
 		$svg = apply_filters( 'suki/frontend/svg_icon/' . $key, $svg );
 
 		// Wrap the icon with "suki-icon" span tag.
 		$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '" aria-hidden="true">' . $svg . '</span>';
 
-		// Render or return the HTML markup.
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -259,7 +296,7 @@ if ( ! function_exists( 'suki_social_links' ) ) {
 	 *
 	 * @param array   $links Array of social link slugs.
 	 * @param array   $args  Array of parameters.
-	 * @param boolean $echo  Print or return the HTML tags.
+	 * @param boolean $echo  Render or return the HTML tags.
 	 * @return string
 	 */
 	function suki_social_links( $links = array(), $args = array(), $echo = true ) {
@@ -295,7 +332,7 @@ if ( ! function_exists( 'suki_social_links' ) ) {
 		}
 		$html = ob_get_clean();
 
-		// Render or return the HTML markup.
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -308,13 +345,17 @@ if ( ! function_exists( 'suki_breadcrumb' ) ) {
 	/**
 	 * Print / return HTML markup for breadcrumb.
 	 *
-	 * @param boolean $echo Print or return the HTML tags.
+	 * @param boolean $echo Render or return the HTML tags.
 	 * @return string
 	 */
 	function suki_breadcrumb( $echo = true ) {
 		$html = '';
 
-		// Allow breadcrumb markup modification before using the normal procedures.
+		/**
+		 * Filter: suki/frontend/breadcrumb
+		 *
+		 * @param string $html HTML markup.
+		 */
 		$html = apply_filters( 'suki/frontend/breadcrumb', $html );
 
 		// If markup is still empty, proceed to the normal procedures.
@@ -365,7 +406,7 @@ if ( ! function_exists( 'suki_breadcrumb' ) ) {
 		// Wrap with "suki-breadcrumb" div.
 		$html = '<div class="suki-breadcrumb">' . $html . '</div>';
 
-		// Render or return the HTML markup.
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -378,7 +419,7 @@ if ( ! function_exists( 'suki_breadcrumb_native' ) ) {
 	/**
 	 * Render theme's native breadcrumb.
 	 *
-	 * @param boolean $echo Print or return the HTML tags.
+	 * @param boolean $echo Render or return the HTML tags.
 	 * @return string
 	 */
 	function suki_breadcrumb_native( $echo = true ) {
@@ -570,7 +611,11 @@ if ( ! function_exists( 'suki_breadcrumb_native' ) ) {
 			unset( $items[ $last_key ] );
 		}
 
-		// Allow developers to modify the breadcrumb trail.
+		/**
+		 * Filter: suki/frontend/breadcrumb_trail
+		 *
+		 * @param array $items Breadcrumb trail array.
+		 */
 		$items = apply_filters( 'suki/frontend/breadcrumb_trail', $items );
 
 		// Abort if there is no trail.
@@ -611,7 +656,7 @@ if ( ! function_exists( 'suki_breadcrumb_native' ) ) {
 		// Closing tag.
 		$html .= '</ol>';
 
-		// Render or return the HTML markup.
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -760,8 +805,6 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 		/**
 		 * Filter: suki/frontend/header_element
 		 *
-		 * Filters the HTML markup.
-		 *
 		 * @param string $html    HTML markup.
 		 * @param string $element Element slug.
 		 */
@@ -769,8 +812,6 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 
 		/**
 		 * Filter: suki/frontend/header_element/{$element}
-		 *
-		 * Filters the HTML markup.
 		 *
 		 * @param string $html HTML markup.
 		 */
@@ -931,8 +972,19 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 				break;
 		}
 
-		// Filters to modify the final HTML tag.
+		/**
+		 * Filter: suki/frontend/content_header_element
+		 *
+		 * @param string $html    HTML markup.
+		 * @param string $element Element slug.
+		 */
 		$html = apply_filters( 'suki/frontend/content_header_element', $html, $element );
+
+		/**
+		 * Filter: suki/frontend/content_header_element/{$element}
+		 *
+		 * @param string $html HTML markup.
+		 */
 		$html = apply_filters( 'suki/frontend/content_header_element/' . $element, $html );
 
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -971,8 +1023,19 @@ if ( ! function_exists( 'suki_content_footer_element' ) ) {
 				break;
 		}
 
-		// Filters to modify the final HTML tag.
+		/**
+		 * Filter: suki/frontend/content_footer_element
+		 *
+		 * @param string $html    HTML markup.
+		 * @param string $element Element slug.
+		 */
 		$html = apply_filters( 'suki/frontend/content_footer_element', $html, $element );
+
+		/**
+		 * Filter: suki/frontend/content_footer_element/{$element}
+		 *
+		 * @param string $html HTML markup.
+		 */
 		$html = apply_filters( 'suki/frontend/content_footer_element/' . $element, $html );
 
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1149,8 +1212,19 @@ if ( ! function_exists( 'suki_footer_element' ) ) {
 		// Get footer element template.
 		$html = suki_get_template_part( 'footer-element-' . $type, null, $variables, false );
 
-		// Filters to modify the final HTML tag.
+		/**
+		 * Filter: suki/frontend/footer_element
+		 *
+		 * @param string $html    HTML markup.
+		 * @param string $element Element slug.
+		 */
 		$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
+
+		/**
+		 * Filter: suki/frontend/footer_element/{$element}
+		 *
+		 * @param string $html HTML markup.
+		 */
 		$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
 
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1380,8 +1454,19 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 				break;
 		}
 
-		// Filters to modify the final HTML tag.
+		/**
+		 * Filter: suki/frontend/entry_header_footer_element
+		 *
+		 * @param string $html    HTML markup.
+		 * @param string $element Element slug.
+		 */
 		$html = apply_filters( 'suki/frontend/entry_header_footer_element', $html, $element );
+
+		/**
+		 * Filter: suki/frontend/entry_header_footer_element/{$element}
+		 *
+		 * @param string $html HTML markup.
+		 */
 		$html = apply_filters( 'suki/frontend/entry_header_footer_element/' . $element, $html );
 
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1425,7 +1510,7 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 			$html = '<div class="entry-meta suki-meta suki-reverse-link-color">' . $html . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
-		// Render or return the HTML markup.
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
@@ -1469,7 +1554,16 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 				break;
 
 			case 'avatar':
-				$html = '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'suki/frontend/meta_avatar_size', 24 ) ) . '</span>';
+				$avatar_size = 2 * suki_get_theme_mod( 'meta_font_size' );
+
+				/**
+				 * Filter: suki/frontend/meta_avatar_size
+				 *
+				 * @param integer $avatar_size
+				 */
+				$avatar_size = apply_filters( 'suki/frontend/meta_avatar_size', $avatar_size );
+
+				$html = '<span class="entry-meta-author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), $avatar_size ) . '</span>';
 				break;
 
 			case 'categories':
@@ -1495,7 +1589,7 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 				break;
 		}
 
-		// Render or return the HTML markup.
+		// Render or return.
 		if ( boolval( $echo ) ) {
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {

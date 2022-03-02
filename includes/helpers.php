@@ -75,7 +75,14 @@ function suki_show_pro_teaser() {
 		$show = false;
 	}
 
-	return apply_filters( 'suki/pro/show_teaser', $show );
+	/**
+	 * Filter: suki/pro/show_teaser
+	 *
+	 * @param boolean $show Show Suki Pro teaser message or not.
+	 */
+	$show = apply_filters( 'suki/pro/show_teaser', $show );
+
+	return $show;
 }
 
 /**
@@ -127,8 +134,14 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 		 * Custom paths
 		 */
 
-		// Allow themes or plugins to add their own paths.
-		$custom_paths = apply_filters( 'suki/frontend/template_dirs', array() );
+		$custom_paths = array();
+
+		/**
+		 * Filter: suki/frontend/template_dirs
+		 *
+		 * @param array $custom_paths Custom paths array.
+		 */
+		$custom_paths = apply_filters( 'suki/frontend/template_dirs', $custom_paths );
 
 		// Sort the custom paths by key number.
 		// Lower key number = higher priority.
@@ -185,13 +198,14 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 	// Build filter name.
 	$filter = $slug . ( ! empty( $name ) ? '-' . $name : '' );
 
-	// Allow filters to modify the HTML markup.
+	/**
+	 * Filter: suki/template_part/{$filter}
+	 *
+	 * @param string $html HTML markup.
+	 */
 	$html = apply_filters( 'suki/template_part/' . $filter, $html );
 
-	/**
-	 * Return or print the template part.
-	 */
-
+	// Render or return.
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
@@ -305,8 +319,19 @@ function suki_get_current_page_setting( $key, $default = null ) {
 		$value = suki_get_theme_mod( $key, $default );
 	}
 
-	// Allow developers to modify the value via filters.
+	/**
+	 * Filter: suki/page_settings/setting_value
+	 *
+	 * @param mixed  $value Setting value.
+	 * @param string $key   Setting key.
+	 */
 	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key );
+
+	/**
+	 * Filter: suki/page_settings/setting_value/{$key}
+	 *
+	 * @param mixed  $value Setting value.
+	 */
 	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value );
 
 	// Return the final value.
@@ -336,11 +361,13 @@ function suki_get_theme_mod( $key, $default = null ) {
 
 /**
  * Minify CSS string.
- * ref: https://github.com/GaryJones/Simple-PHP-CSS-Minification
- * modified:
+ *
+ * Modification:
  * - add: rem to units
  * - add: remove space after (
  * - remove: remove space before (
+ *
+ * @link https://github.com/GaryJones/Simple-PHP-CSS-Minification
  *
  * @param array $css Unminified CSS string.
  * @return string
@@ -447,8 +474,13 @@ function suki_convert_css_array_to_string( $css_array, $minify = true ) {
  * @return array
  */
 function suki_get_module_categories() {
-	return apply_filters(
-		'suki/module_categories',
+	/**
+	 * Filter: suki/dataset/module_categories
+	 *
+	 * @param array $categories Module categories.
+	 */
+	$categories = apply_filters(
+		'suki/dataset/module_categories',
 		array(
 			'layout'      => esc_html__( 'Layout Modules', 'suki' ),
 			'assets'      => esc_html__( 'Assets & Branding Modules', 'suki' ),
@@ -456,13 +488,15 @@ function suki_get_module_categories() {
 			'woocommerce' => esc_html__( 'WooCommerce Integration Modules', 'suki' ),
 		)
 	);
+
+	return $categories;
 }
 
 /**
  * Return array of default Suki theme modules.
  *
  * Optional theme modules:
- * - Individual Page Layout
+ * - Individual Page Settings
  * - Breadcrumb
  * - Google Fonts
  *
@@ -471,7 +505,7 @@ function suki_get_module_categories() {
 function suki_get_theme_modules() {
 	return array(
 		'page-settings' => array(
-			'label'    => esc_html__( 'Individual Page Layout', 'suki' ),
+			'label'    => esc_html__( 'Individual Page Settings', 'suki' ),
 			'category' => 'layout',
 		),
 		'breadcrumb'    => array(
@@ -503,7 +537,12 @@ function suki_get_theme_modules() {
  * @return array
  */
 function suki_get_pro_modules() {
-	return apply_filters(
+	/**
+	 * Filter: suki/pro/modules
+	 *
+	 * @param array $pro_modules Pro modules.
+	 */
+	$pro_modules = apply_filters(
 		'suki/pro/modules',
 		array(
 			'header-elements-plus'              => array(
@@ -595,15 +634,17 @@ function suki_get_pro_modules() {
 			),
 		)
 	);
+
+	return $pro_modules;
 }
 
 /**
- * Return list of post types that support Page Settings.
+ * Return list of public post types.
  *
- * @param string $context Context of returned values.
+ * @param string $context Return context: native or custom or all post types.
  * @return array
  */
-function suki_get_post_types_for_page_settings( $context = 'all' ) {
+function suki_get_public_post_types( $context = 'all' ) {
 	// Native post types.
 	$native_post_types = array( 'post', 'page' );
 
@@ -642,7 +683,12 @@ function suki_get_post_types_for_page_settings( $context = 'all' ) {
  * @return array
  */
 function suki_get_header_builder_configurations() {
-	$array = apply_filters(
+	/**
+	 * Filter: suki/dataset/header_builder_configurations
+	 *
+	 * @param array $config Configurations array.
+	 */
+	$config = apply_filters(
 		'suki/dataset/header_builder_configurations',
 		array(
 			'locations'   => array(
@@ -670,9 +716,9 @@ function suki_get_header_builder_configurations() {
 		)
 	);
 
-	ksort( $array['choices'] );
+	ksort( $config['choices'] );
 
-	return $array;
+	return $config;
 }
 
 /**
@@ -681,7 +727,12 @@ function suki_get_header_builder_configurations() {
  * @return array
  */
 function suki_get_mobile_header_builder_configurations() {
-	$array = apply_filters(
+	/**
+	 * Filter: suki/dataset/mobile_header_builder_configurations
+	 *
+	 * @param array $config Configurations array.
+	 */
+	$config = apply_filters(
 		'suki/dataset/mobile_header_builder_configurations',
 		array(
 			'locations'   => array(
@@ -710,9 +761,9 @@ function suki_get_mobile_header_builder_configurations() {
 		)
 	);
 
-	ksort( $array['choices'] );
+	ksort( $config['choices'] );
 
-	return $array;
+	return $config;
 }
 
 /**
@@ -721,7 +772,12 @@ function suki_get_mobile_header_builder_configurations() {
  * @return array
  */
 function suki_get_footer_builder_configurations() {
-	$array = apply_filters(
+	/**
+	 * Filter: suki/dataset/footer_builder_configurations
+	 *
+	 * @param array $config Configurations array.
+	 */
+	$config = apply_filters(
 		'suki/dataset/footer_builder_configurations',
 		array(
 			'locations' => array(
@@ -740,9 +796,9 @@ function suki_get_footer_builder_configurations() {
 		)
 	);
 
-	ksort( $array['choices'] );
+	ksort( $config['choices'] );
 
-	return $array;
+	return $config;
 }
 
 /**
@@ -751,7 +807,12 @@ function suki_get_footer_builder_configurations() {
  * @return array
  */
 function suki_get_default_colors() {
-	return apply_filters(
+	/**
+	 * Filter: suki/dataset/default_colors
+	 *
+	 * @param array $colors Colors array.
+	 */
+	$colors = apply_filters(
 		'suki/dataset/default_colors',
 		array(
 			'transparent' => 'rgba(0,0,0,0)',
@@ -766,6 +827,8 @@ function suki_get_default_colors() {
 			'border'      => 'rgba(0,0,0,0.1)',
 		)
 	);
+
+	return $colors;
 }
 
 /**
@@ -774,13 +837,20 @@ function suki_get_default_colors() {
  * @return array
  */
 function suki_get_all_fonts() {
-	return apply_filters(
+	/**
+	 * Filter: suki/dataset/all_fonts
+	 *
+	 * @param array $fonts Fonts array.
+	 */
+	$fonts = apply_filters(
 		'suki/dataset/all_fonts',
 		array(
 			'web_safe_fonts' => suki_get_web_safe_fonts(),
 			'custom_fonts'   => array(),
 		)
 	);
+
+	return $fonts;
 }
 
 /**
@@ -789,7 +859,12 @@ function suki_get_all_fonts() {
  * @return array
  */
 function suki_get_web_safe_fonts() {
-	return apply_filters(
+	/**
+	 * Filter: suki/dataset/web_safe_fonts
+	 *
+	 * @param array $fonts Fonts array.
+	 */
+	$fonts = apply_filters(
 		'suki/dataset/web_safe_fonts',
 		array(
 			// System.
@@ -811,6 +886,8 @@ function suki_get_web_safe_fonts() {
 			'Lucida Console'      => "'Lucida Console', Monaco, monospace",
 		)
 	);
+
+	return $fonts;
 }
 
 /**
@@ -820,7 +897,12 @@ function suki_get_web_safe_fonts() {
  * @return array
  */
 function suki_get_social_media_types( $sort = false ) {
-	$types = apply_filters(
+	/**
+	 * Filter: suki/dataset/social_media_types
+	 *
+	 * @param array $fonts Social media array.
+	 */
+	$social_types = apply_filters(
 		'suki/dataset/social_media_types',
 		array(
 			// Social network.
@@ -861,10 +943,10 @@ function suki_get_social_media_types( $sort = false ) {
 	);
 
 	if ( $sort ) {
-		ksort( $types );
+		ksort( $social_types );
 	}
 
-	return $types;
+	return $social_types;
 }
 
 /**
@@ -873,7 +955,12 @@ function suki_get_social_media_types( $sort = false ) {
  * @return array
  */
 function suki_get_all_icons() {
-	return apply_filters(
+	/**
+	 * Filter: suki/dataset/all_icons
+	 *
+	 * @param array $icons Icons array.
+	 */
+	$icons = apply_filters(
 		'suki/dataset/all_icons',
 		array(
 			'theme_icons'  => array(
@@ -887,6 +974,8 @@ function suki_get_all_icons() {
 			'social_icons' => suki_get_social_media_types( true ),
 		)
 	);
+
+	return $icons;
 }
 
 /**

@@ -623,7 +623,7 @@ $wp_customize->add_section(
 
 // > Post Index.
 $wp_customize->add_section(
-	'suki_section_blog_index',
+	'suki_section_post_archive',
 	array(
 		'title'    => esc_html__( 'Posts Archive Page', 'suki' ),
 		'panel'    => $panel,
@@ -653,7 +653,7 @@ $wp_customize->add_section(
 
 // > Single Post Page.
 $wp_customize->add_section(
-	'suki_section_blog_single',
+	'suki_section_post_single',
 	array(
 		'title'    => esc_html__( 'Single Post Page', 'suki' ),
 		'panel'    => $panel,
@@ -716,22 +716,22 @@ $wp_customize->add_section(
 
 // > Custom Post Types
 $i = 10;
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
+foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_key => $page_type_data ) {
 	// Get post type object..
-	// First check if $ps_type is not for 404 and search page..
-	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
+	// First check if $page_type_key is not for 404 and search page..
+	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $page_type_key );
 	$post_type_obj  = get_post_type_object( $post_type_slug );
 
 	// Increment section priority..
 	$i += 10;
 
 	// Skip section creation if it already exists..
-	if ( $wp_customize->get_section( suki_array_value( $ps_data, 'section' ) ) ) {
+	if ( $wp_customize->get_section( suki_array_value( $page_type_data, 'section' ) ) ) {
 		continue;
 	}
 
 	// Add separator .
-	if ( 0 < strpos( $ps_type, '_archive' ) ) {
+	if ( 0 < strpos( $page_type_key, '_archive' ) ) {
 		$wp_customize->add_section(
 			new Suki_Customize_Section_Spacer(
 				$wp_customize,
@@ -746,12 +746,12 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 		);
 	}
 
-	$description = suki_array_value( $ps_data, 'description' );
+	$description = suki_array_value( $page_type_data, 'description' );
 
 	$wp_customize->add_section(
-		suki_array_value( $ps_data, 'section' ),
+		suki_array_value( $page_type_data, 'section' ),
 		array(
-			'title'       => suki_array_value( $ps_data, 'title' ),
+			'title'       => suki_array_value( $page_type_data, 'title' ),
 			'panel'       => $panel,
 			'description' => ! empty( $description ) ? '<p>' . $description . '</p>' : '',
 			'priority'    => $i,

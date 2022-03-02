@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$section = 'suki_section_blog_index';
+$section = 'suki_section_post_archive';
 
 /**
  * ====================================================

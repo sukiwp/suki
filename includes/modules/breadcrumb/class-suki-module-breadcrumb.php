@@ -40,8 +40,8 @@ class Suki_Module_Breadcrumb extends Suki_Module {
 		 */
 
 		// Add breadcrumb as Content Header elements on all page types (Customizer).
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			add_filter( 'suki/dataset/' . $ps_type . '_content_header_elements', array( $this, 'add_content_header_elements' ) );
+		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
+			add_filter( 'suki/dataset/' . $page_type_key . '_content_header_elements', array( $this, 'add_content_header_elements' ) );
 		}
 
 		// Add breadcrumb as Header Builder elements (Customizer).

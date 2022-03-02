@@ -10,18 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
-	$section = suki_array_value( $ps_data, 'section' );
+foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_key => $page_type_data ) {
+	$section = suki_array_value( $page_type_data, 'section' );
 
-	$option_prefix = $ps_type;
+	$option_prefix = $page_type_key;
 
 	// Abort if the post type has their own options.
-	if ( ! suki_array_value( $ps_data, 'auto_options', true ) ) {
+	if ( ! suki_array_value( $page_type_data, 'auto_options', true ) ) {
 		continue;
 	}
 
-	// Extract the post type slug from $ps_type.
-	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
+	// Extract the post type slug from $page_type_key.
+	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $page_type_key );
 	$post_type_obj  = get_post_type_object( $post_type_slug );
 
 	/**
@@ -34,7 +34,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 	$wp_customize->add_control(
 		new Suki_Customize_Control_Heading(
 			$wp_customize,
-			'heading_' . $ps_type . '_content_header',
+			'heading_' . $page_type_key . '_content_header',
 			array(
 				'section'  => $section,
 				'settings' => array(),
@@ -49,7 +49,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 		'title' => esc_html__( 'Title', 'suki' ),
 	);
 	// Archive elements.
-	if ( false !== strpos( $ps_type, '_archive' ) ) {
+	if ( false !== strpos( $page_type_key, '_archive' ) ) {
 		$elements['archive-description'] = esc_html__( 'Taxonomy Description', 'suki' );
 	}
 	$subkey = 'content_header';
@@ -67,7 +67,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 			$key,
 			array(
 				'section'  => $section,
-				'choices'  => apply_filters( 'suki/dataset/' . $ps_type . '_content_header_elements', $elements ),
+				'choices'  => apply_filters( 'suki/dataset/' . $page_type_key . '_content_header_elements', $elements ),
 				'priority' => 20,
 			)
 		)
@@ -107,7 +107,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 	);
 
 	// Title text format on archive pages.
-	if ( false !== strpos( $ps_type, '_archive' ) ) {
+	if ( false !== strpos( $page_type_key, '_archive' ) ) {
 
 		// Title text format on post type archive pages.
 		$subkey = 'title_text';
@@ -163,12 +163,12 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
 	 * ====================================================
 	 */
 
-	if ( strpos( $ps_type, '_single' ) && post_type_supports( $post_type_slug, 'thumbnail' ) ) {
+	if ( strpos( $page_type_key, '_single' ) && post_type_supports( $post_type_slug, 'thumbnail' ) ) {
 		// Heading: Featured Image.
 		$wp_customize->add_control(
 			new Suki_Customize_Control_Heading(
 				$wp_customize,
-				'heading_' . $ps_type . '_content_thumbnail',
+				'heading_' . $page_type_key . '_content_thumbnail',
 				array(
 					'section'  => $section,
 					'settings' => array(),

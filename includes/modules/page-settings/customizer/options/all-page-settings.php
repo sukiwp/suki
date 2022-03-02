@@ -10,14 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-	$section = suki_array_value( $ps_data, 'section' );
+foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key => $page_type_data ) {
+	// Get Customizer section name.
+	$section = suki_array_value( $page_type_data, 'section' );
 
-	$option_prefix = $ps_type;
+	// Set option key prefix to the page type name.
+	$option_prefix = $page_type_key;
 
-	// Extract the post type slug from $ps_type.
-	$post_type_slug = preg_replace( '/(_single|_archive)/', '', $ps_type );
-	$post_type_obj  = get_post_type_object( $post_type_slug );
+	// Extract the post type slug from $page_type_key.
+	if ( ! in_array( $page_type_key, array( 'search_results', 'error_404' ), true ) ) {
+		$post_type_slug = preg_replace( '/(_single|_archive)/', '', $page_type_key );
+		$post_type_obj  = get_post_type_object( $post_type_slug );
+	}
 
 	/**
 	 * ====================================================
@@ -27,14 +31,14 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 
 	// Heading: Individual Page Settings.
 	$heading = esc_html__( 'Individual Page Settings', 'suki' );
-	if ( false !== strpos( $ps_type, '_single' ) ) {
+	if ( false !== strpos( $page_type_key, '_single' ) ) {
 		/* translators: %s: Custom Post Type singular name. */
 		$heading .= ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . sprintf( esc_attr__( 'You can override these options on each individual %s.', 'suki' ), $post_type_obj->labels->singular_name ) . '"><span class="dashicons dashicons-admin-site-alt3"></span></span>';
 	}
 	$wp_customize->add_control(
 		new Suki_Customize_Control_Heading(
 			$wp_customize,
-			'heading_' . $ps_type . '_page_settings',
+			'heading_' . $page_type_key . '_page_settings',
 			array(
 				'section'  => $section,
 				'settings' => array(),
@@ -44,7 +48,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		)
 	);
 
-	if ( 'error_404' !== $ps_type ) {
+	if ( 'error_404' !== $page_type_key ) {
 
 		// Content container.
 		$subkey = 'content_container';
@@ -116,7 +120,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$wp_customize->add_control(
 			new Suki_Customize_Control_HR(
 				$wp_customize,
-				'hr_' . $ps_type . '_hero',
+				'hr_' . $page_type_key . '_hero',
 				array(
 					'section'  => $section,
 					'settings' => array(),
@@ -184,8 +188,8 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 			''       => esc_html__( '-- Global --', 'suki' ),
 			'custom' => esc_html__( 'Custom', 'suki' ),
 		);
-		if ( false !== strpos( $ps_type, '_single' ) ) {
-			if ( 'page_single' !== $ps_type ) {
+		if ( false !== strpos( $page_type_key, '_single' ) ) {
+			if ( 'page_single' !== $page_type_key ) {
 				/* translators: %s: plural post type name */
 				$choices['archive'] = sprintf( esc_html__( 'Same as archive', 'suki' ), $post_type_obj->labels->name );
 			}
@@ -238,7 +242,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 		$wp_customize->add_control(
 			new Suki_Customize_Control_HR(
 				$wp_customize,
-				'hr_' . $ps_type . '_header',
+				'hr_' . $page_type_key . '_header',
 				array(
 					'section'  => $section,
 					'settings' => array(),
@@ -300,7 +304,7 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type
 	$wp_customize->add_control(
 		new Suki_Customize_Control_HR(
 			$wp_customize,
-			'hr_' . $ps_type . '_footer',
+			'hr_' . $page_type_key . '_footer',
 			array(
 				'section'  => $section,
 				'settings' => array(),

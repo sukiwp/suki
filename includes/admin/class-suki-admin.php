@@ -79,12 +79,6 @@ class Suki_Admin {
 		 */
 
 		require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php';
-
-		// Only include metabox on post add/edit page and term add/edit page.
-		global $pagenow;
-		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ), true ) ) {
-			require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-metabox-page-settings.php';
-		}
 	}
 
 	/**

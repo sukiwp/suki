@@ -259,23 +259,23 @@ class Suki_Migrate_1_3_0 {
 	 * - For error 404 page, use "error_404" as slug.
 	 */
 	private function migrate_customizer_page_settings_keys() {
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
 			// Define the option key.
-			if ( 'search_results' === $ps_type ) {
+			if ( 'search_results' === $page_type_key ) {
 				$old_option_key = 'page_settings_search';
-			} elseif ( 'error_404' === $ps_type ) {
+			} elseif ( 'error_404' === $page_type_key ) {
 				$old_option_key = 'page_settings_404';
-			} elseif ( 0 < strpos( $ps_type, '_single' ) ) {
-				$old_option_key = 'page_settings_' . str_replace( '_single', '_singular', $ps_type );
+			} elseif ( 0 < strpos( $page_type_key, '_single' ) ) {
+				$old_option_key = 'page_settings_' . str_replace( '_single', '_singular', $page_type_key );
 			} else {
-				$old_option_key = 'page_settings_' . $ps_type;
+				$old_option_key = 'page_settings_' . $page_type_key;
 			}
 
 			// Get the values.
 			$mod = get_theme_mod( $old_option_key, array() );
 
 			foreach ( $mod as $key => $value ) {
-				set_theme_mod( $ps_type . '_' . $key, $value );
+				set_theme_mod( $page_type_key . '_' . $key, $value );
 			}
 
 			remove_theme_mod( $old_option_key );
@@ -289,57 +289,57 @@ class Suki_Migrate_1_3_0 {
 	 * The title text should affect the content header title as well not just the page header title.
 	 */
 	private function migrate_customizer_page_header_title_text() {
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
 			// Process search page title text.
-			if ( 'search_results' === $ps_type ) {
+			if ( 'search_results' === $page_type_key ) {
 				// Check if user has filled the custom title text options.
-				$title_text = get_theme_mod( $ps_type . '_page_header_title_text__search' );
+				$title_text = get_theme_mod( $page_type_key . '_page_header_title_text__search' );
 
 				if ( false !== $title_text ) {
 					// Set new option.
-					set_theme_mod( $ps_type . '_title_text', $title_text );
+					set_theme_mod( $page_type_key . '_title_text', $title_text );
 
 					// Remove old option.
-					remove_theme_mod( $ps_type . '_page_header_title_text__search' );
+					remove_theme_mod( $page_type_key . '_page_header_title_text__search' );
 				}
 			}
 
 			// Process error 404 title text.
-			if ( 'error_404' === $ps_type ) {
+			if ( 'error_404' === $page_type_key ) {
 				// Check if user has filled the custom title text options.
-				$title_text = get_theme_mod( $ps_type . '_page_header_title_text__404' );
+				$title_text = get_theme_mod( $page_type_key . '_page_header_title_text__404' );
 
 				if ( false !== $title_text ) {
 					// Set new option.
-					set_theme_mod( $ps_type . '_title_text', $title_text );
+					set_theme_mod( $page_type_key . '_title_text', $title_text );
 
 					// Remove old option.
-					remove_theme_mod( $ps_type . '_page_header_title_text__404' );
+					remove_theme_mod( $page_type_key . '_page_header_title_text__404' );
 				}
 			}
 
 			// Process title text for archive pages.
-			if ( 0 < strpos( $ps_type, '_archive' ) ) {
+			if ( 0 < strpos( $page_type_key, '_archive' ) ) {
 				// Check if user has filled the custom title text options.
-				$title_text = get_theme_mod( $ps_type . '_page_header_title_text__post_type_archive' );
+				$title_text = get_theme_mod( $page_type_key . '_page_header_title_text__post_type_archive' );
 
 				if ( false !== $title_text ) {
 					// Set new option.
-					set_theme_mod( $ps_type . '_title_text', $title_text );
+					set_theme_mod( $page_type_key . '_title_text', $title_text );
 
 					// Remove old option.
-					remove_theme_mod( $ps_type . '_page_header_title_text__post_type_archive' );
+					remove_theme_mod( $page_type_key . '_page_header_title_text__post_type_archive' );
 				}
 
 				// Check if user ever filled the custom tax title text options.
-				$tax_title_text = get_theme_mod( $ps_type . '_page_header_title_text__taxonomy_archive' );
+				$tax_title_text = get_theme_mod( $page_type_key . '_page_header_title_text__taxonomy_archive' );
 
 				if ( false !== $tax_title_text ) {
 					// Set new option.
-					set_theme_mod( $ps_type . '_tax_title_text', $tax_title_text );
+					set_theme_mod( $page_type_key . '_tax_title_text', $tax_title_text );
 
 					// Remove old option.
-					remove_theme_mod( $ps_type . '_page_header_title_text__taxonomy_archive' );
+					remove_theme_mod( $page_type_key . '_page_header_title_text__taxonomy_archive' );
 				}
 			}
 		}
@@ -382,13 +382,13 @@ class Suki_Migrate_1_3_0 {
 			'page_header_bg_image',
 		);
 
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
 			foreach ( $subkeys as $subkey ) {
 				// Check if user has configured the option.
-				$value = get_theme_mod( $ps_type . '_' . $subkey );
+				$value = get_theme_mod( $page_type_key . '_' . $subkey );
 
 				if ( false !== $value ) {
-					set_theme_mod( $ps_type . '_' . str_replace( 'page_header', 'hero', $subkey ), $value );
+					set_theme_mod( $page_type_key . '_' . str_replace( 'page_header', 'hero', $subkey ), $value );
 				}
 			}
 		}
@@ -425,39 +425,39 @@ class Suki_Migrate_1_3_0 {
 			}
 
 			// Assign the elements to all new pages.
-			foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+			foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
 				// Skip error 404 page.
 				// There is no hero section in the new error 404 page.
-				if ( 'error_404' === $ps_type ) {
+				if ( 'error_404' === $page_type_key ) {
 					continue;
 				}
 
 				// Skip search results page.
 				// Use the new content header's default because it's the same structure in older version.
 				// It's set to "title" and "search-form".
-				if ( 'search_results' === $ps_type ) {
+				if ( 'search_results' === $page_type_key ) {
 					continue;
 				}
 
 				// Add breadcrumb if specified.
 				if ( $has_breadcrumb ) {
 					set_theme_mod(
-						$ps_type . '_content_header',
+						$page_type_key . '_content_header',
 						array_merge(
 							array( 'breadcrumb' ),
-							suki_get_theme_mod( $ps_type . '_content_header', array() ) // Get default value.
+							suki_get_theme_mod( $page_type_key . '_content_header', array() ) // Get default value.
 						)
 					);
 				}
 
 				// Set hero alignment.
 				if ( '' !== $alignment ) {
-					set_theme_mod( $ps_type . '_content_header_alignment', $alignment );
+					set_theme_mod( $page_type_key . '_content_header_alignment', $alignment );
 				}
 			}
 		} else {
-			foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-				set_theme_mod( $ps_type . '_content_header_alignment', 'left' );
+			foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
+				set_theme_mod( $page_type_key . '_content_header_alignment', 'left' );
 			}
 		}
 	}
@@ -495,17 +495,17 @@ class Suki_Migrate_1_3_0 {
 		 * Page settings
 		 */
 
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
+		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
 			// Get the values.
-			$content_layout = get_theme_mod( $ps_type . '_content_layout' );
+			$content_layout = get_theme_mod( $page_type_key . '_content_layout' );
 
 			// If the selected value of "content_layout" is "narrow".
 			if ( 'narrow' === $content_layout ) {
 				// Change it to "wide".
-				set_theme_mod( $ps_type . '_content_layout', 'wide' );
+				set_theme_mod( $page_type_key . '_content_layout', 'wide' );
 
 				// And then set the "content_container" value to "narrow".
-				set_theme_mod( $ps_type . '_content_container', 'narrow' );
+				set_theme_mod( $page_type_key . '_content_container', 'narrow' );
 			}
 		}
 	}

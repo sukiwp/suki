@@ -338,14 +338,14 @@ class Suki_Compatibility_Suki_Pro {
 			),
 		);
 
-		foreach ( Suki_Customizer::instance()->get_all_page_settings_types() as $ps_type => $ps_data ) {
-			$section = suki_array_value( $ps_data, 'section' );
+		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
+			$section = suki_array_value( $page_type_data, 'section' );
 
 			// ------
 			$wp_customize->add_control(
 				new Suki_Customize_Control_HR(
 					$wp_customize,
-					'hr_' . $ps_type . '_preloader_screen',
+					'hr_' . $page_type_key . '_preloader_screen',
 					array(
 						'section'  => $section,
 						'settings' => array(),
@@ -355,8 +355,8 @@ class Suki_Compatibility_Suki_Pro {
 			);
 
 			foreach ( $subkeys as $subkey => $detail ) {
-				$old_key = 'page_settings_' . $ps_type . '[' . $subkey . ']';
-				$new_key = $ps_type . '_' . $subkey;
+				$old_key = 'page_settings_' . $page_type_key . '[' . $subkey . ']';
+				$new_key = $page_type_key . '_' . $subkey;
 
 				// Delete old setting and control.
 				$wp_customize->remove_control( $old_key );

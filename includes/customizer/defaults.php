@@ -595,11 +595,11 @@ $add['error_404_search_bar']  = 1;
  * ====================================================
  */
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
+foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_key => $page_type_data ) {
 	// Only process archives.
-	if ( 0 < strpos( '/(_archive)/', $ps_type ) ) {
-		$add[ $ps_type . '_content_header' ]           = array( 'title', 'archive-description' );
-		$add[ $ps_type . '_content_header_alignment' ] = 'left';
+	if ( 0 < strpos( '/(_archive)/', $page_type_key ) ) {
+		$add[ $page_type_key . '_content_header' ]           = array( 'title', 'archive-description' );
+		$add[ $page_type_key . '_content_header_alignment' ] = 'left';
 	}
 }
 
@@ -609,12 +609,12 @@ foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) a
  * ====================================================
  */
 
-foreach ( Suki_Customizer::instance()->get_all_page_settings_types( 'custom' ) as $ps_type => $ps_data ) {
+foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_key => $page_type_data ) {
 	// Only process singular.
-	if ( 0 < strpos( '/(_single)/', $ps_type ) ) {
-		$add[ $ps_type . '_content_header' ]             = array( 'title' );
-		$add[ $ps_type . '_content_header_alignment' ]   = 'left';
-		$add[ $ps_type . '_content_thumbnail_position' ] = 'before';
+	if ( 0 < strpos( '/(_single)/', $page_type_key ) ) {
+		$add[ $page_type_key . '_content_header' ]             = array( 'title' );
+		$add[ $page_type_key . '_content_header_alignment' ]   = 'left';
+		$add[ $page_type_key . '_content_thumbnail_position' ] = 'before';
 	}
 }
 

@@ -61,7 +61,7 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
 		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
 		add_filter( 'suki/dataset/product_single_content_header_elements', array( $this, 'modify_content_header_elements_choices_on_product_single_page' ) );
-		add_filter( 'suki/dataset/custom_page_settings_types', array( $this, 'modify_custom_page_settings_types' ) );
+		add_filter( 'suki/dataset/customizer_page_types/custom', array( $this, 'modify_custom_page_settings_types' ) );
 
 		// Template hooks.
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );

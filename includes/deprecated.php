@@ -59,6 +59,18 @@ function suki_get_google_fonts_subsets() {
 }
 
 /**
+ * Return list of post types that support Page Settings.
+ *
+ * @param string $context Context of returned values.
+ * @return array
+ */
+function suki_get_post_types_for_page_settings( $context = 'all' ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_get_public_post_types' );
+
+	return suki_get_public_post_types( $context );
+}
+
+/**
  * Rename `suki_main_header` to `suki_header_desktop`.
  */
 function suki_main_header() {

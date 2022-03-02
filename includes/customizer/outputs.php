@@ -2719,7 +2719,7 @@ $add['search_results_content_header_alignment'] = array(
  * ====================================================
  */
 
-foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $pt ) {
+foreach ( suki_get_public_post_types( 'custom' ) as $pt ) {
 	$element = 'body.post-type-archive-' . $pt . ' .content-header';
 
 	foreach ( get_object_taxonomies( $pt ) as $pt_tax ) {
@@ -2741,7 +2741,7 @@ foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $pt ) {
  * ====================================================
  */
 
-foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $pt ) {
+foreach ( suki_get_public_post_types( 'custom' ) as $pt ) {
 	$add[ $pt . '_single_content_header_alignment' ] = array(
 		array(
 			'type'    => 'class',

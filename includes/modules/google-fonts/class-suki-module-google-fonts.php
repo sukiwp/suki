@@ -57,7 +57,7 @@ class Suki_Module_Google_Fonts extends Suki_Module {
 
 		// Load Google Fonts locally.
 		if ( boolval( suki_get_theme_mod( 'google_fonts_local' ) ) ) {
-			require_once SUKI_INCLUDES_DIR . '/modules/google-fonts/class-suki-google-fonts-local.php';
+			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-google-fonts-local.php';
 
 			// Change Google Fonts URL to local self-hosted URL.
 			add_filter( 'suki/frontend/google_fonts_url', array( $this, 'use_local_google_fonts_url' ), 999 );
@@ -161,7 +161,7 @@ class Suki_Module_Google_Fonts extends Suki_Module {
 	 * @return array
 	 */
 	public function get_fonts_list() {
-		$google_fonts = include SUKI_INCLUDES_DIR . '/modules/google-fonts/google-fonts-list.php';
+		$google_fonts = include trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/google-fonts-list.php';
 
 		/**
 		 * Filter: suki/dataset/google_fonts

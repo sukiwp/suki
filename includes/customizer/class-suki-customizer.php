@@ -204,7 +204,6 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/page--single.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/page--search.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/auto-page-settings.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/auto-custom-post-types.php';
 	}
 
@@ -640,7 +639,14 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_setting_outputs() {
-		return apply_filters( 'suki/customizer/setting_outputs', array() );
+		/**
+		 * Filter: suki/customizer/setting_outputs
+		 *
+		 * @param array $outputs Setting output rules.
+		 */
+		$outputs = apply_filters( 'suki/customizer/setting_outputs', array() );
+
+		return $outputs;
 	}
 
 	/**
@@ -649,7 +655,14 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_control_contexts() {
-		return apply_filters( 'suki/customizer/control_contexts', array() );
+		/**
+		 * Filter: suki/customizer/control_contexts
+		 *
+		 * @param array $contexts Control dependency rules.
+		 */
+		$contexts = apply_filters( 'suki/customizer/control_contexts', array() );
+
+		return $contexts;
 	}
 
 	/**
@@ -658,7 +671,14 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_setting_defaults() {
-		return apply_filters( 'suki/customizer/setting_defaults', array() );
+		/**
+		 * Filter: suki/customizer/setting_defaults
+		 *
+		 * @param array $defaults Setting default values.
+		 */
+		$defaults = apply_filters( 'suki/customizer/setting_defaults', array() );
+
+		return $defaults;
 	}
 
 	/**
@@ -681,7 +701,19 @@ class Suki_Customizer {
 			$value = $default;
 		}
 
+		/**
+		 * Filter: suki/customizer/setting_value
+		 *
+		 * @param mixed  $value Setting value.
+		 * @param string $key   Setting key.
+		 */
 		$value = apply_filters( 'suki/customizer/setting_value', $value, $key );
+
+		/**
+		 * Filter: suki/customizer/setting_value/{$key}
+		 *
+		 * @param mixed  $value Setting value.
+		 */
 		$value = apply_filters( 'suki/customizer/setting_value/' . $key, $value );
 
 		return $value;
@@ -704,92 +736,101 @@ class Suki_Customizer {
 		// Add "Search Page".
 		$contexts['suki_section_search_results'] = esc_url( home_url( '?s=awesome' ) );
 
+		/**
+		 * Filter: suki/customizer/preview_contexts
+		 *
+		 * @param array $contexts Customizer preview contexts.
+		 */
 		$contexts = apply_filters( 'suki/customizer/preview_contexts', $contexts );
 
 		return $contexts;
 	}
 
 	/**
-	 * Return all page types for page settings.
+	 * Return all page types data.
 	 *
-	 * @param string $context Context.
+	 * @param string $context Context of returned types.
 	 * @return array
 	 */
-	public function get_all_page_settings_types( $context = 'all' ) {
+	public function get_page_types( $context = 'all' ) {
 		// Non post type pages.
-		$non_post_types = array(
+		$other_types = array(
 			'search_results' => array(
-				'section'      => 'suki_section_search_results',
-				'title'        => esc_html__( 'Search Results Page', 'suki' ),
-				'auto_options' => false,
+				'section'          => 'suki_section_search_results',
+				'title'            => esc_html__( 'Search Results Page', 'suki' ),
+				'add_auto_options' => false,
 			),
 			'error_404'      => array(
-				'section'      => 'suki_section_error_404',
-				'title'        => esc_html__( 'Error 404 Page', 'suki' ),
-				'auto_options' => false,
+				'section'          => 'suki_section_error_404',
+				'title'            => esc_html__( 'Error 404 Page', 'suki' ),
+				'add_auto_options' => false,
 			),
 		);
 
 		// Native post types.
-		$native_post_types = array(
+		$native_types = array(
 			'page_single'  => array(
-				'section'      => 'suki_section_page_single',
-				'title'        => esc_html__( 'Static Page', 'suki' ),
-				'auto_options' => false,
+				'section'          => 'suki_section_page_single',
+				'title'            => esc_html__( 'Static Page', 'suki' ),
+				'add_auto_options' => false,
 			),
 			'post_archive' => array(
-				'section'      => 'suki_section_blog_index',
-				'title'        => esc_html__( 'Posts Archive Page', 'suki' ),
-				'auto_options' => false,
+				'section'          => 'suki_section_post_archive',
+				'title'            => esc_html__( 'Posts Archive Page', 'suki' ),
+				'add_auto_options' => false,
 			),
 			'post_single'  => array(
-				'section'      => 'suki_section_blog_single',
-				'title'        => esc_html__( 'Single Post Page', 'suki' ),
-				'auto_options' => false,
+				'section'          => 'suki_section_post_single',
+				'title'            => esc_html__( 'Single Post Page', 'suki' ),
+				'add_auto_options' => false,
 			),
 		);
 
 		// Custom post types.
-		$custom_post_types = array();
-		foreach ( suki_get_post_types_for_page_settings( 'custom' ) as $cpt ) {
+		$custom_types = array();
+		foreach ( suki_get_public_post_types( 'custom' ) as $cpt ) {
 			$cpt_obj = get_post_type_object( $cpt );
 
-			$custom_post_types[ $cpt . '_archive' ] = array(
-				'section'      => 'suki_section_' . $cpt . '_archive',
+			$custom_types[ $cpt . '_archive' ] = array(
+				'section'          => 'suki_section_' . $cpt . '_archive',
 				/* translators: %s: post type's plural name. */
-				'title'        => sprintf( esc_html__( '%s Archive Page', 'suki' ), $cpt_obj->labels->name ),
-				'auto_options' => true,
+				'title'            => sprintf( esc_html__( '%s Archive Page', 'suki' ), $cpt_obj->labels->name ),
+				'add_auto_options' => true,
 			);
-			$custom_post_types[ $cpt . '_single' ]  = array(
-				'section'      => 'suki_section_' . $cpt . '_single',
+			$custom_types[ $cpt . '_single' ]  = array(
+				'section'          => 'suki_section_' . $cpt . '_single',
 				/* translators: %s: post type's singular name. */
-				'title'        => sprintf( esc_html__( 'Single %s Page', 'suki' ), $cpt_obj->labels->singular_name ),
-				'auto_options' => true,
+				'title'            => sprintf( esc_html__( 'Single %s Page', 'suki' ), $cpt_obj->labels->singular_name ),
+				'add_auto_options' => true,
 			);
 		}
 
-		// Filters to modify custom post types array.
-		$custom_post_types = apply_filters( 'suki/dataset/custom_page_settings_types', $custom_post_types );
+		/**
+		 * Filter: suki/dataset/customizer_page_types/custom
+		 *
+		 * Allow to modify Customizer page types for custom post types.
+		 *
+		 * @param array $custom_types Customizer page types for custom post types.
+		 * @return array
+		 */
+		$custom_types = apply_filters( 'suki/dataset/customizer_page_types/custom', $custom_types );
 
+		// Build the return data.
 		switch ( $context ) {
 			case 'custom':
-				$return = $custom_post_types;
+				$return = $custom_types;
 				break;
 
 			case 'native':
-				$return = $native_post_types;
+				$return = $native_types;
 				break;
 
 			case 'others':
-				$return = $non_post_types;
+				$return = $other_types;
 				break;
 
 			default:
-				$return = array_merge(
-					$non_post_types,
-					$native_post_types,
-					$custom_post_types
-				);
+				$return = array_merge( $other_types, $native_types, $custom_types );
 				break;
 		}
 
@@ -860,6 +901,19 @@ class Suki_Customizer {
 
 	/**
 	 * [DEPRECATED]
+	 * Return all page types data.
+	 *
+	 * @param string $context Context of returned types.
+	 * @return array
+	 */
+	public function get_all_page_settings_types( $context = 'all' ) {
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance->get_page_types' );
+
+		return $this->get_page_types( $context );
+	}
+
+	/**
+	 * [DEPRECATED]
 	 * Enqueue Google Fonts CSS on frontend.
 	 */
 	public function enqueue_frontend_google_fonts_css() {
@@ -892,7 +946,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function add_setting_postmessages( $postmessages = array() ) {
-		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::add_setting_outputs' );
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance()->add_setting_outputs' );
 
 		return add_setting_outputs( $postmessages );
 	}
@@ -906,7 +960,7 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function convert_postmessages_to_css_string( $outputs = array(), $defaults = array() ) {
-		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::convert_outputs_to_css_string' );
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance()->convert_outputs_to_css_string' );
 
 		return $this->convert_outputs_to_css_string( $outputs, $defaults );
 	}
@@ -920,7 +974,7 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function convert_postmessages_to_css_array( $postmessages = array(), $defaults = array() ) {
-		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::convert_outputs_to_css_array' );
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance()->convert_outputs_to_css_array' );
 
 		return $this->convert_outputs_to_css_array( $postmessages, $defaults );
 	}
@@ -933,7 +987,7 @@ class Suki_Customizer {
 	 * @return boolean
 	 */
 	public function check_postmessage_rule_for_css_compatibility( $rule ) {
-		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::check_output_rule_for_css_compatibility' );
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance()->check_output_rule_for_css_compatibility' );
 
 		return $this->check_output_rule_for_css_compatibility( $rule );
 	}
@@ -947,7 +1001,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function sanitize_postmessage_rule_value( $rule, $setting_value ) {
-		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::sanitize_output_rule_value' );
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance()->sanitize_output_rule_value' );
 
 		return $this->sanitize_output_rule_value( $rule, $setting_value );
 	}
@@ -959,7 +1013,7 @@ class Suki_Customizer {
 	 * @return array
 	 */
 	public function get_setting_postmessages() {
-		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::get_setting_outputs' );
+		_deprecated_function( __METHOD__, '2.0.0', __CLASS__ . '::instance()->get_setting_outputs' );
 
 		return $this->get_setting_outputs();
 	}
