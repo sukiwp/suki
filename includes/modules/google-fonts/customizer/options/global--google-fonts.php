@@ -52,7 +52,7 @@ $wp_customize->add_control(
 			'section'     => $section,
 			'label'       => esc_html__( 'Font subsets', 'suki' ),
 			'description' => esc_html__( '"Latin" subset is included by default.', 'suki' ),
-			'choices'     => Suki_Module_Google_Fonts::instance()->get_subsets(),
+			'choices'     => Suki_Google_Fonts::instance()->get_subsets(),
 			'priority'    => 10,
 		)
 	)

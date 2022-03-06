@@ -917,10 +917,10 @@ class Suki_Customizer {
 	 * Enqueue Google Fonts CSS on frontend.
 	 */
 	public function enqueue_frontend_google_fonts_css() {
-		_deprecated_function( __METHOD__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->enqueue_css' );
+		_deprecated_function( __METHOD__, '2.0.0', 'Suki_Google_Fonts::instance()->enqueue_css' );
 
-		if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
-			Suki_Module_Google_Fonts::instance()->enqueue_css();
+		if ( class_exists( 'Suki_Google_Fonts' ) ) {
+			Suki_Google_Fonts::instance()->enqueue_css();
 		}
 	}
 
@@ -931,9 +931,9 @@ class Suki_Customizer {
 	public function generate_active_google_fonts_embed_url() {
 		_deprecated_function( __METHOD__, '2.0.0' );
 
-		if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
+		if ( class_exists( 'Suki_Google_Fonts' ) ) {
 			$fonts = $this->get_active_fonts( 'google_fonts' );
-			return Suki_Module_Google_Fonts::instance()->generate_embed_url( $fonts );
+			return Suki_Google_Fonts::instance()->generate_embed_url( $fonts );
 		}
 	}
 

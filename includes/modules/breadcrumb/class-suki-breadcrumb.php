@@ -59,9 +59,6 @@ class Suki_Breadcrumb extends Suki_Module {
 		// Add Customizer dependency control contexts.
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_customizer_control_contexts' ) );
 
-		// Add template parts directory.
-		add_filter( 'suki/frontend/template_dirs', array( $this, 'add_template_dir' ) );
-
 		/**
 		 * Frontend
 		 */
@@ -458,18 +455,6 @@ class Suki_Breadcrumb extends Suki_Module {
 		$add = include trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/contexts.php';
 
 		return array_merge_recursive( $contexts, $add );
-	}
-
-	/**
-	 * Add template parts directory
-	 *
-	 * @param array $dirs Directories array.
-	 * @return array
-	 */
-	public function add_template_dir( $dirs ) {
-		$dirs[] = trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/template-parts';
-
-		return $dirs;
 	}
 }
 

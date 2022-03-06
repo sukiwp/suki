@@ -16,5 +16,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
-	<?php Suki_Module_Breadcrumb::instance()->render_html(); ?>
+	<?php Suki_Breadcrumb::instance()->render_html(); ?>
 </div>

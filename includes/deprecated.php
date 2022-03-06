@@ -19,15 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Replace `suki_build_google_fonts_embed_url` with `Suki_Module_Google_Fonts::instance()->generate_embed_url`.
+ * Replace `suki_build_google_fonts_embed_url` with `Suki_Google_Fonts::instance()->generate_embed_url`.
  *
  * @param array $google_fonts Array of Google Fonts families.
  */
 function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
-	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->generate_embed_url' );
+	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Google_Fonts::instance()->generate_embed_url' );
 
-	if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
-		return Suki_Module_Google_Fonts::instance()->generate_embed_url( $google_fonts );
+	if ( class_exists( 'Suki_Google_Fonts' ) ) {
+		return Suki_Google_Fonts::instance()->generate_embed_url( $google_fonts );
 	}
 }
 
@@ -35,21 +35,21 @@ function suki_build_google_fonts_embed_url( $google_fonts = array() ) {
  * Return array of selected Google Fonts list.
  */
 function suki_get_google_fonts() {
-	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->get_fonts_list' );
+	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Google_Fonts::instance()->get_fonts_list' );
 
-	if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
-		return Suki_Module_Google_Fonts::instance()->get_fonts_list();
+	if ( class_exists( 'Suki_Google_Fonts' ) ) {
+		return Suki_Google_Fonts::instance()->get_fonts_list();
 	}
 }
 
 /**
- * Replace `suki_get_google_fonts_subsets` with `Suki_Module_Google_Fonts::instance()->get_subsets`.
+ * Replace `suki_get_google_fonts_subsets` with `Suki_Google_Fonts::instance()->get_subsets`.
  */
 function suki_get_google_fonts_subsets() {
-	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Module_Google_Fonts::instance()->get_subsets' );
+	_deprecated_argument( __FUNCTION__, '2.0.0', 'Suki_Google_Fonts::instance()->get_subsets' );
 
-	if ( class_exists( 'Suki_Module_Google_Fonts' ) ) {
-		return Suki_Module_Google_Fonts::instance()->get_subsets();
+	if ( class_exists( 'Suki_Google_Fonts' ) ) {
+		return Suki_Google_Fonts::instance()->get_subsets();
 	}
 }
 
@@ -261,31 +261,31 @@ function suki_entry_excerpt() {
 }
 
 /**
- * Replace `suki_breadcrumb` with `Suki_Module_Breadcrumb::instance()->render_html`.
+ * Replace `suki_breadcrumb` with `Suki_Breadcrumb::instance()->render_html`.
  *
  * @param boolean $echo Render or return.
  */
 function suki_breadcrumb( $echo = true ) {
-	_deprecated_function( __FUNCTION__, '2.0.0', 'Suki_Module_Breadcrumb::instance()->render_html' );
+	_deprecated_function( __FUNCTION__, '2.0.0', 'Suki_Breadcrumb::instance()->render_html' );
 
 	if ( boolval( $echo ) ) {
-		Suki_Module_Breadcrumb::instance()->render_html();
+		Suki_Breadcrumb::instance()->render_html();
 	} else {
-		Suki_Module_Breadcrumb::instance()->get_html();
+		Suki_Breadcrumb::instance()->get_html();
 	}
 }
 
 /**
- * Replace `suki_breadcrumb_native` with `Suki_Module_Breadcrumb::instance()->generate_html__builtin`.
+ * Replace `suki_breadcrumb_native` with `Suki_Breadcrumb::instance()->generate_html__builtin`.
  *
  * @param boolean $echo Render or return.
  */
 function suki_breadcrumb_native( $echo = true ) {
-	_deprecated_function( __FUNCTION__, '2.0.0', 'Suki_Module_Breadcrumb::instance()->generate_html__builtin' );
+	_deprecated_function( __FUNCTION__, '2.0.0', 'Suki_Breadcrumb::instance()->generate_html__builtin' );
 
 	if ( boolval( $echo ) ) {
-		echo Suki_Module_Breadcrumb::instance()->generate_html__builtin(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo Suki_Breadcrumb::instance()->generate_html__builtin(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
-		Suki_Module_Breadcrumb::instance()->generate_html__builtin();
+		Suki_Breadcrumb::instance()->generate_html__builtin();
 	}
 }

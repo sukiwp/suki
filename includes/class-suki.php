@@ -306,19 +306,26 @@ class Suki {
 	 */
 	public function enqueue_frontend_styles( $hook ) {
 		/**
+		 * Remove the default block CSS from WordPress
+		 */
+		wp_dequeue_style( 'wp-block-library' );
+
+		/**
 		 * Hook: Enqueue others before main CSS
 		 */
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
 
-		// Main CSS.
+		/**
+		 * Main CSS
+		 */
 		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 		wp_style_add_data( 'suki', 'suffix', SUKI_ASSETS_SUFFIX );
 
-		// Inline CSS.
+		/**
+		 * Inline CSS
+		 */
 		wp_add_inline_style( 'suki', trim( apply_filters( 'suki/frontend/dynamic_css', '' ) ) );
-
-		wp_dequeue_style( 'wp-block-library' );
 
 		/**
 		 * Hook: Enqueue others after main CSS
