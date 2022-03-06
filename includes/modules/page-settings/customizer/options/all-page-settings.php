@@ -277,7 +277,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 	);
 
 	// Mobile Header.
-	$subkey = 'disable_mobile_header';
+	$subkey = 'disable_header_mobile';
 	$key    = $option_prefix . '_' . $subkey;
 	$wp_customize->add_setting(
 		$key,

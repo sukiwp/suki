@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Individual Page Settings module class.
  */
-class Suki_Module_Page_Settings extends Suki_Module {
+class Suki_Page_Settings extends Suki_Module {
 	/**
 	 * Module name
 	 *
@@ -52,7 +52,7 @@ class Suki_Module_Page_Settings extends Suki_Module {
 		// Only include metabox on post add/edit page and term add/edit page.
 		global $pagenow;
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ), true ) ) {
-			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-admin-metabox-page-settings.php';
+			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-page-settings-meta-box.php';
 		}
 
 		/**
@@ -158,4 +158,4 @@ class Suki_Module_Page_Settings extends Suki_Module {
 	}
 }
 
-Suki_Module_Page_Settings::instance();
+Suki_Page_Settings::instance();

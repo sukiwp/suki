@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Google Fonts module class.
  */
-class Suki_Module_Google_Fonts extends Suki_Module {
+class Suki_Google_Fonts extends Suki_Module {
 	/**
 	 * Module name
 	 *
@@ -239,4 +239,4 @@ class Suki_Module_Google_Fonts extends Suki_Module {
 	}
 }
 
-Suki_Module_Google_Fonts::instance();
+Suki_Google_Fonts::instance();

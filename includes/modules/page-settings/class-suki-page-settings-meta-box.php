@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Page Settings Meta Box class.
  */
-class Suki_Admin_Metabox_Page_Settings {
+class Suki_Page_Settings_Meta_Box {
 	/**
 	 * Singleton instance
 	 *
-	 * @var Suki_Admin_Metabox_Page_Settings
+	 * @var Suki_Page_Settings_Meta_Box
 	 */
 	private static $instance;
 
@@ -30,7 +30,7 @@ class Suki_Admin_Metabox_Page_Settings {
 	/**
 	 * Get singleton instance.
 	 *
-	 * @return Suki_Admin_Metabox_Page_Settings
+	 * @return Suki_Page_Settings_Meta_Box
 	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
@@ -43,9 +43,11 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * Class constructor
 	 */
 	protected function __construct() {
+		// Register meta.
+		add_action( 'init', array( $this, 'register_meta' ) );
+
 		// Post meta box.
-		add_action( 'add_meta_boxes', array( $this, 'add_post_meta_box' ), 10, 2 );
-		add_action( 'save_post', array( $this, 'save_post_meta_box' ) );
+		add_action( 'admin_init', array( $this, 'init_post_meta_boxes' ) );
 
 		// Term meta box.
 		add_action( 'admin_init', array( $this, 'init_term_meta_boxes' ) );
@@ -111,10 +113,164 @@ class Suki_Admin_Metabox_Page_Settings {
 	}
 
 	/**
+	 * Return all fields structures.
+	 *
+	 * @return array
+	 */
+	public function get_structures() {
+		$structures = array(
+			'content' => array(
+				'title'  => esc_html__( 'Content & Sidebar', 'suki' ),
+				'fields' => array(
+					'content_container' => array(
+						'type'    => 'select',
+						'label'   => esc_html__( 'Container', 'suki' ),
+						/**
+						 * Choices
+						 *
+						 * @todo Migrate values.
+						 */
+						'choices' => array(
+							''           => esc_html__( '(Inherit from Customizer)', 'suki' ),
+							'narrow'     => esc_html__( 'Normal', 'suki' ),
+							'default'    => esc_html__( 'Wide', 'suki' ),
+							'full-width' => esc_html__( 'Full', 'suki' ),
+						),
+					),
+					'content_layout'    => array(
+						'type'    => 'select',
+						'label'   => esc_html__( 'Sidebar', 'suki' ),
+						/**
+						 * Choices
+						 *
+						 * @todo Migrate values.
+						 */
+						'choices' => array(
+							''              => esc_html__( '(Inherit from Customizer)', 'suki' ),
+							'wide'          => esc_html__( 'None', 'suki' ),
+							'left-sidebar'  => esc_html__( 'Left Sidebar', 'suki' ),
+							'right-sidebar' => esc_html__( 'Right Sidebar', 'suki' ),
+						),
+					),
+				),
+			),
+			'header'  => array(
+				'title'  => esc_html__( 'Header', 'suki' ),
+				'fields' => array(
+					'disable_header'        => array(
+						'type'    => 'select',
+						'label'   => '<span class="dashicons dashicons-desktop"></span>' . esc_html__( 'Desktop header', 'suki' ),
+						'choices' => array(
+							''  => esc_html__( '&#x2714; Visible', 'suki' ),
+							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						),
+					),
+					'disable_header_mobile' => array(
+						'type'    => 'select',
+						'label'   => '<span class="dashicons dashicons-tablet"></span>' . esc_html__( 'Mobile header', 'suki' ),
+						'choices' => array(
+							''  => esc_html__( '&#x2714; Visible', 'suki' ),
+							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						),
+					),
+				),
+			),
+			'footer'  => array(
+				'title'  => esc_html__( 'Footer', 'suki' ),
+				'fields' => array(
+					'disable_footer_widgets' => array(
+						'type'    => 'select',
+						'label'   => esc_html__( 'Footer widgets', 'suki' ),
+						'choices' => array(
+							''  => esc_html__( '&#x2714; Visible', 'suki' ),
+							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						),
+					),
+					'disable_footer_bottom'  => array(
+						'type'    => 'select',
+						'label'   => esc_html__( 'Footer bottom', 'suki' ),
+						'choices' => array(
+							''  => esc_html__( '&#x2714; Visible', 'suki' ),
+							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						),
+					),
+				),
+			),
+		);
+
+		/**
+		 * Filter: suki/page_settings/structures
+		 *
+		 * @param array $structures Fields structures.
+		 */
+		apply_filters( 'suki/page_settings/structures', $structures );
+
+		return $structures;
+	}
+
+	/**
+	 * Return array of fields schema for REST API meta schema.
+	 *
+	 * @return array
+	 */
+	public function get_fields_rest_schema() {
+		$schema = array();
+
+		foreach ( $this->get_structures() as $group_key => $group_data ) {
+			foreach ( $group_data['fields'] as $field_key => $field_data ) {
+				switch ( $field_data['type'] ) {
+					default:
+						$type = 'string';
+						break;
+				}
+
+				$schema[ $field_key ] = array(
+					'type' => $type,
+				);
+			}
+		}
+
+		return $schema;
+	}
+
+	/**
 	 * ====================================================
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Register meta data for posts and terms.
+	 */
+	public function register_meta() {
+		foreach ( suki_get_public_post_types() as $post_type ) {
+			register_post_meta(
+				$post_type,
+				'_suki_page_settings',
+				array(
+					'type'          => 'object', // Associative array requires JSON format.
+					'single'        => true,
+					'default'       => array(),
+					'auth_callback' => function () {
+						return current_user_can( 'edit_posts' );
+					},
+					'show_in_rest'  => array(
+						'schema' => array(
+							'type'       => 'object',
+							'properties' => $this->get_fields_rest_schema(),
+						),
+					),
+				)
+			);
+		}
+	}
+
+	/**
+	 * Initialize meta box on all public post types.
+	 */
+	public function init_post_meta_boxes() {
+		add_action( 'add_meta_boxes', array( $this, 'add_post_meta_box' ), 10, 2 );
+	}
 
 	/**
 	 * Add page settings meta box to post edit page.
@@ -123,17 +279,17 @@ class Suki_Admin_Metabox_Page_Settings {
 	 * @param WP_Post $post      Post object.
 	 */
 	public function add_post_meta_box( $post_type, $post ) {
-		$post_types = suki_get_public_post_types();
-
 		add_meta_box(
 			'suki_page_settings',
 			/* translators: %s: theme name. */
 			sprintf( esc_html__( 'Individual Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
 			array( $this, 'render_meta_box__post' ),
-			$post_types,
+			suki_get_public_post_types(),
 			'normal',
 			apply_filters( 'suki/admin/metabox/page_settings/priority', 'high' )
 		);
+
+		add_action( 'save_post', array( $this, 'save_post_meta_box' ) );
 	}
 
 	/**
@@ -267,7 +423,7 @@ class Suki_Admin_Metabox_Page_Settings {
 		$disabled_ids = array();
 
 		// Add posts page to disabled IDs.
-		if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) === $posts_page_id ) {
+		if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) === $post->ID ) {
 			$disabled_ids[ $posts_page_id ] = '<p><a href="' . esc_url(
 				add_query_arg(
 					array(
@@ -729,4 +885,4 @@ class Suki_Admin_Metabox_Page_Settings {
 	}
 }
 
-Suki_Admin_Metabox_Page_Settings::instance();
+Suki_Page_Settings_Meta_Box::instance();

@@ -142,32 +142,6 @@ gulp.task( 'vendors', function( done ) {
 		.pipe( replace( /(\$ver\['html5sortable'\] = )(?:.*)/g, '$1\'' + info.devDependencies['html5sortable'].replace( '^', '' ) + '\';' ) )
 		.pipe( gulp.dest( './' ) );
 
-	/**
-	 * Google Fonts JSON
-	 */
-
-	var rawGoogleFonts = JSON.parse( fs.readFileSync( './node_modules/google-fonts-complete/api-response.json' ) ),
-		googleFonts = {};
-
-	for ( var i = 0; i < rawGoogleFonts.length; i++ ) {
-		var font = rawGoogleFonts[ i ];
-
-		var fallback = font.category;
-		if ( 'handwriting' === font.category ) {
-			fallback = 'cursive';
-		} else if ( 'display' === font.category ) {
-			fallback = 'fantasy';
-		}
-
-		googleFonts[ font.family ] = '"' + font.family + '", ' + fallback;
-	}
-
-	fs.writeFile( './includes/lists/google-fonts.json', JSON.stringify( googleFonts ), function( error ) {
-		if ( error ) {
-			console.log( error );
-		}
-	});
-
 	done();
 } );
 

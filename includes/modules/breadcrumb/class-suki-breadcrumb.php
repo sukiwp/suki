@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Breadcrumb module class.
  */
-class Suki_Module_Breadcrumb extends Suki_Module {
+class Suki_Breadcrumb extends Suki_Module {
 	/**
 	 * Module name
 	 *
@@ -473,4 +473,4 @@ class Suki_Module_Breadcrumb extends Suki_Module {
 	}
 }
 
-Suki_Module_Breadcrumb::instance();
+Suki_Breadcrumb::instance();

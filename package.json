@@ -44,8 +44,8 @@
 		}
 	],
 	"devDependencies": {
+		"@wordpress/scripts": "^22.0.1",
 		"del": "^6.0.0",
-		"google-fonts-complete": "^2.1.1",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",

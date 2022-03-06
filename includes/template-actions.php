@@ -255,4 +255,4 @@ function suki_template_hooks() {
 		add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
 	}
 }
-add_action( 'wp', 'suki_template_hooks', 20 );
+add_action( 'template_redirect', 'suki_template_hooks', 20 );
