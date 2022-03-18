@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content & Sidebar > Main Column
+ * Customizer settings: Content > Main Content
  *
  * @package Suki
  **/
@@ -58,15 +58,19 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 0,
-					'step' => 1,
-				),
-				'em' => array(
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
-				'%'  => array(
+				'px'  => array(
+					'min'  => 0,
+					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
@@ -94,9 +98,17 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Border', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,

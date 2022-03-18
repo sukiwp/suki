@@ -1,8 +1,50 @@
 /**
+ * Inline text elements
+ */
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+	transition: color var(--transition-duration);
+	
+	&:hover,
+	&:focus {
+		color: var(--link-color--focus);
+		text-decoration: underline;
+	}
+}
+
+kbd {
+	background-color: var(--text-color);
+	color: var(--background-color);
+	border-radius: 0.25em;
+	font-family: monospace;
+	font-size: inherit;
+	padding: 0.15em 0.3em;
+}
+
+code {
+	background-color: var(--subtle-background-color);
+	color: var(--text-color);
+	font-family: monospace;
+	font-size: inherit;
+	padding: 0.15em 0.3em;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+cite {
+	display: block;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: var(--wp--custom--line-height--small);
+	opacity: 0.75;
+}
+
+/**
  * Block text elements
  */
 
-p {
+ p {
 	margin: var(--wp--style--block-gap) 0;
 }
 
@@ -11,7 +53,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin: var(--wp--style--block-gap) 0;
 
 	a {
-		@include reverse-link-color();
+		color: inherit;
+
+		&:focus, &:hover {
+			color: var(--heading-color--focus);
+		}
 	}
 }
 
@@ -111,46 +157,4 @@ blockquote {
 :where( p, h1, h2, h3, h4, h5, h6, pre, blockquote ) {
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
-}
-
-/**
- * Inline text elements
- */
-
-a {
-	color: var(--link-color);
-	text-decoration: none;
-	transition: color var(--transition-duration);
-	
-	&:hover,
-	&:focus {
-		color: var(--link-color--focus);
-		text-decoration: underline;
-	}
-}
-
-kbd {
-	background-color: var(--text-color);
-	color: var(--background-color);
-	border-radius: 0.25em;
-	font-family: monospace;
-	font-size: inherit;
-	padding: 0.15em 0.3em;
-}
-
-code {
-	background-color: var(--subtle-background-color);
-	color: var(--text-color);
-	font-family: monospace;
-	font-size: inherit;
-	padding: 0.15em 0.3em;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-cite {
-	display: block;
-	font-size: var(--wp--preset--font-size--small);
-	line-height: var(--wp--custom--line-height--small);
-	opacity: 0.75;
 }

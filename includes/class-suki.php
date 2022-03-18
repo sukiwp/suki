@@ -68,7 +68,7 @@ class Suki {
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 
 		// Register sidebars and widgets.
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+		// add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Set theme info.

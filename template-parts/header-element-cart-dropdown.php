@@ -102,6 +102,9 @@ if ( '' !== $amount_position ) {
 		if ( $is_dropdown ) {
 			?>
 			</button>
+			<div class="sub-menu">
+				<?php echo $dropdown_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</div>
 			<?php
 		} else {
 			?>
@@ -109,9 +112,5 @@ if ( '' !== $amount_position ) {
 			<?php
 		}
 		?>
-
-		<?php if ( $is_dropdown ) : ?>
-			<div class="sub-menu"><?php echo $dropdown_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
-		<?php endif; ?>
 	</div>
 </div>

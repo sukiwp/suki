@@ -117,7 +117,7 @@ foreach ( $settings as $setting ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
@@ -125,14 +125,20 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Minimal height', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 1000,
 					'step' => 1,
 				),
-				'vh' => array(
+				'em'  => array(
 					'min'  => 0,
-					'max'  => 100,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'vh'  => array(
+					'min'  => 0,
 					'step' => 0.01,
 				),
 			),
@@ -167,15 +173,19 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 0,
-					'step' => 1,
-				),
-				'em' => array(
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
-				'%'  => array(
+				'px'  => array(
+					'min'  => 0,
+					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
@@ -203,9 +213,17 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Border', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 20,

@@ -26,7 +26,7 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	color: var(--input--text-color--focus);
 }
 
-.wp-block-file__button, .wp-block-button__link, :where(button, input[type="button"], input[type="reset"], input[type="submit"], .button) {
+.wp-block-file__button, .wp-block-button__link, button, input[type=button], input[type=reset], input[type=submit], .button {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -52,16 +52,14 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	text-align: center;
 	transition: all var(--transition-duration);
 }
-.wp-block-file__button:hover, .wp-block-button__link:hover, :hover:where(button, input[type="button"], input[type="reset"], input[type="submit"], .button), .wp-block-file__button:focus, .wp-block-button__link:focus, :focus:where(button, input[type="button"], input[type="reset"], input[type="submit"], .button) {
+.wp-block-file__button:hover, .wp-block-button__link:hover, button:hover, input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover, .button:hover, .wp-block-file__button:focus, .wp-block-button__link:focus, button:focus, input[type=button]:focus, input[type=reset]:focus, input[type=submit]:focus, .button:focus {
 	border-color: var(--button--border-color--focus, var(--button--border-color));
 	background-color: var(--button--background-color--focus, var(--button--background-color));
 	color: var(--button--text-color--focus);
 	text-decoration: none;
 }
 
-.wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
-	--text-color: var(--color--contrast-3);
-	color: var(--text-color);
+.suki-title, .wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
 	font-family: var(--meta--font-family);
 	font-size: var(--meta--font-size);
 	font-style: var(--meta--font-style);
@@ -71,14 +69,14 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	text-transform: var(--meta--text-transform);
 }
 
-.suki-title {
-	font-family: var(--title--font-family);
-	font-size: var(--title--font-size);
-	font-style: var(--title--font-style);
-	font-weight: var(--title--font-weight);
-	line-height: var(--title--line-height);
-	letter-spacing: var(--title--letter-spacing);
-	text-transform: var(--title--text-transform);
+.suki-title, .wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
+	color: var(--meta--text-color);
+}
+.suki-title a, .wp-block-post-author__byline a, .wp-block-rss__item-author a, .wp-block-rss__item-publish-date a, .wp-block-latest-comments__comment-date a, .wp-block-latest-posts__post-date a, .wp-block-latest-posts__post-author a, .comment-reply-title small a, .comment-respond .logged-in-as a, .comment .reply a, .comment-metadata a, .suki-meta a {
+	color: inherit;
+}
+.suki-title a:focus, .wp-block-post-author__byline a:focus, .wp-block-rss__item-author a:focus, .wp-block-rss__item-publish-date a:focus, .wp-block-latest-comments__comment-date a:focus, .wp-block-latest-posts__post-date a:focus, .wp-block-latest-posts__post-author a:focus, .comment-reply-title small a:focus, .comment-respond .logged-in-as a:focus, .comment .reply a:focus, .comment-metadata a:focus, .suki-meta a:focus, .suki-title a:hover, .wp-block-post-author__byline a:hover, .wp-block-rss__item-author a:hover, .wp-block-rss__item-publish-date a:hover, .wp-block-latest-comments__comment-date a:hover, .wp-block-latest-posts__post-date a:hover, .wp-block-latest-posts__post-author a:hover, .comment-reply-title small a:hover, .comment-respond .logged-in-as a:hover, .comment .reply a:hover, .comment-metadata a:hover, .suki-meta a:hover {
+	color: var(--meta--text-color--focus);
 }
 
 .suki-logo, .wp-block-post-author__name, .comment-reply-title, #comments, .suki-small-title {
@@ -89,6 +87,16 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	line-height: var(--small-title--line-height);
 	letter-spacing: var(--small-title--letter-spacing);
 	text-transform: var(--small-title--text-transform);
+}
+
+.suki-logo, .wp-block-post-author__name, .comment-reply-title, #comments, .suki-small-title {
+	color: var(--small-title--text-color);
+}
+.suki-logo a, .wp-block-post-author__name a, .comment-reply-title a, #comments a, .suki-small-title a {
+	color: inherit;
+}
+.suki-logo a:focus, .wp-block-post-author__name a:focus, .comment-reply-title a:focus, #comments a:focus, .suki-small-title a:focus, .suki-logo a:hover, .wp-block-post-author__name a:hover, .comment-reply-title a:hover, #comments a:hover, .suki-small-title a:hover {
+	color: var(--small-title--text-color--focus);
 }
 
 .wp-block-post, .suki-block-container {
@@ -155,66 +163,50 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	/**
 	 * Color palette variables
 	 */
-	--color--primary: #0055cc;
-	--color--contrast: #222222;
-	--color--contrast-2: #444444;
-	--color--contrast-3: #666666;
-	--color--base: #ffffff;
-	--color--base-2: #f3f3f3;
-	--color--base-3: #cccccc;
+	--color-palette-1: #222222;
+	--color-palette-2: #444444;
+	--color-palette-3: #666666;
+	--color-palette-4: #0055cc;
+	--color-palette-5: #004099;
+	--color-palette-6: #cccccc;
+	--color-palette-7: #f3f3f3;
+	--color-palette-8: #ffffff;
+	/**
+	 * Assign scope variables
+	 */
+	--text-color: var(--color-palette-2);
+	--border-color: var(--color-palette-6);
+	--background-color: var(--color-palette-8);
+	--subtle-background-color: var(--color-palette-7);
+	--heading-color: var(--color-palette-1, var(--text-color));
+	--heading-color--focus: var(--link-color);
+	--meta-color: var(--color-palette-3, var(--text-color));
+	--link-color: var(--color-palette-4);
+	--link-color--focus: var(--color-palette-5, inherit);
 	/**
 	 * Typography variables
 	 */
 	--base--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	--base--font-size: 100%;
-	--base--font-style: normal;
-	--base--font-weight: 400;
 	--base--line-height: 1.7;
-	--base--letter-spacing: 0;
-	--base--text-transform: none;
-	--h1--font-family: revert;
 	--h1--font-size: 2.4rem;
-	--h1--font-style: revert;
-	--h1--font-weight: 700;
+	--h1--font-weight: 600;
 	--h1--line-height: 1.3;
-	--h1--letter-spacing: revert;
-	--h1--text-transform: revert;
-	--h2--font-family: revert;
 	--h2--font-size: 1.8rem;
-	--h2--font-style: revert;
-	--h2--font-weight: 700;
+	--h2--font-weight: 600;
 	--h2--line-height: 1.4;
-	--h2--letter-spacing: revert;
-	--h2--text-transform: revert;
-	--h3--font-family: revert;
 	--h3--font-size: 1.5rem;
-	--h3--font-style: revert;
-	--h3--font-weight: 700;
+	--h3--font-weight: 600;
 	--h3--line-height: 1.5;
-	--h3--letter-spacing: revert;
-	--h3--text-transform: revert;
-	--h4--font-family: revert;
 	--h4--font-size: 1.25rem;
-	--h4--font-style: revert;
-	--h4--font-weight: 700;
+	--h4--font-weight: 600;
 	--h4--line-height: 1.6;
-	--h4--letter-spacing: revert;
-	--h4--text-transform: revert;
-	--h5--font-family: revert;
 	--h5--font-size: 1.1rem;
-	--h5--font-style: revert;
-	--h5--font-weight: 700;
+	--h5--font-weight: 600;
 	--h5--line-height: 1.7;
-	--h5--letter-spacing: revert;
-	--h5--text-transform: revert;
-	--h6--font-family: revert;
 	--h6--font-size: 1rem;
-	--h6--font-style: revert;
-	--h6--font-weight: 700;
+	--h6--font-weight: 600;
 	--h6--line-height: 1.7;
-	--h6--letter-spacing: revert;
-	--h6--text-transform: revert;
-	--h5--text-transform: revert;
 	--title--font-family: var(--h1--font-family);
 	--title--font-size: var(--h1--font-size);
 	--title--font-style: var(--h1--font-style);
@@ -222,6 +214,8 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	--title--line-height: var(--h1--line-height);
 	--title--letter-spacing: var(--h1--letter-spacing);
 	--title--text-transform: var(--h1--text-transform);
+	--title--text-color: var(--heading-color);
+	--title--text-color--focus: var(--heading-color--focus);
 	--small-title--font-family: var(--h3--font-family);
 	--small-title--font-size: var(--h3--font-size);
 	--small-title--font-style: var(--h3--font-style);
@@ -229,60 +223,27 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	--small-title--line-height: var(--h3--line-height);
 	--small-title--letter-spacing: var(--h3--letter-spacing);
 	--small-title--text-transform: var(--h3--text-transform);
-	--meta--font-family: inherit;
+	--small-title--text-color: var(--heading-color);
+	--small-title--text-color--focus: var(--heading-color--focus);
 	--meta--font-size: 0.9rem;
-	--meta--font-style: normal;
-	--meta--font-weight: normal;
 	--meta--line-height: 1.6;
-	--meta--letter-spacing: 0;
-	--meta--text-transform: none;
+	--meta--text-color: var(--meta-color);
 	--input--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
 	--input--border-radius: 0.1875rem;
 	--input--border-width: 1px;
-	--input--border-color: var(--color--base-3);
-	--input--background-color: var(--color--base);
-	--input--text-color: var(--color--contrast-2);
-	--input--border-color--focus: var(--color--contrast-2);
-	--input--background-color--focus: revert;
-	--input--text-color--focus: revert;
-	--input--font-family: revert;
-	--input--font-size: revert;
-	--input--font-style: revert;
-	--input--font-weight: revert;
-	--input--letter-spacing: revert;
-	--input--text-transform: revert;
-	--button--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
+	--input--border-color: var(--color-palette-6);
+	--input--background-color: var(--color-palette-8);
+	--input--text-color: var(--color-palette-2);
+	--input--border-color--focus: var(--color-palette-2);
+	--button--padding: 0.625rem 1rem 0.625rem 1rem;
 	--button--border-radius: 0.1875rem;
 	--button--border-width: 1px;
-	--button--border-color: var(--color--primary);
-	--button--background-color: var(--color--primary);
-	--button--text-color: var(--color--base);
-	--button--border-color--focus: var(--color--contrast);
-	--button--background-color--focus: var(--color--contrast);
-	--button--text-color--focus: var(--color--base);
-	--button--font-family: revert;
-	--button--font-size: revert;
-	--button--font-style: revert;
-	--button--font-weight: revert;
-	--button--letter-spacing: revert;
-	--button--text-transform: revert;
-	/**
-	 * Assign scope variables
-	 */
-	--text-color: var(--color--contrast);
-	--border-color: var(--color--base-3);
-	--background-color: var(--color--base);
-	--subtle-background-color: var(--color--base-2, var(--background-color));
-	--heading-color: var(--text-color);
-	--link-color: var(--color--primary);
-	--link-color--focus: var(--color--contrast);
-	--font-family: var(--base--font-family);
-	--font-size: var(--base--font-size);
-	--font-style: var(--base--font-style);
-	--font-weight: var(--base--font-weight);
-	--line-height: var(--base--line-height);
-	--letter-spacing: var(--base--letter-spacing);
-	--text-transform: var(--base--text-transform);
+	--button--border-color: var(--color-palette-4);
+	--button--background-color: var(--color-palette-4);
+	--button--text-color: var(--color-palette-8);
+	--button--border-color--focus: var(--color-palette-5);
+	--button--background-color--focus: var(--color-palette-5);
+	--button--text-color--focus: var(--color-palette-8);
 	/**
 	 * Other variables
 	 */
@@ -303,13 +264,13 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 }
 
 html {
-	font-family: var(--font-family);
-	font-size: var(--font-size);
-	font-style: var(--font-style);
-	font-weight: var(--font-weight);
-	line-height: var(--line-height);
-	letter-spacing: var(--letter-spacing);
-	text-transform: var(--text-transform);
+	font-family: var(--base--font-family);
+	font-size: var(--base--font-size);
+	font-style: var(--base--font-style);
+	font-weight: var(--base--font-weight);
+	line-height: var(--base--line-height);
+	letter-spacing: var(--base--letter-spacing);
+	text-transform: var(--base--text-transform);
 	overflow-x: hidden;
 }
 
@@ -324,8 +285,8 @@ body {
 }
 
 ::selection {
-	background-color: var(--color--primary);
-	color: var(--color--base);
+	background-color: var(--color-palette-4);
+	color: var(--color-palette-8);
 }
 
 *:-ms-input-placeholder {
@@ -333,6 +294,45 @@ body {
 }
 
 *::placeholder {
+	opacity: 0.75;
+}
+
+/**
+ * Inline text elements
+ */
+a {
+	color: var(--link-color);
+	text-decoration: none;
+	transition: color var(--transition-duration);
+}
+a:hover, a:focus {
+	color: var(--link-color--focus);
+	text-decoration: underline;
+}
+
+kbd {
+	background-color: var(--text-color);
+	color: var(--background-color);
+	border-radius: 0.25em;
+	font-family: monospace;
+	font-size: inherit;
+	padding: 0.15em 0.3em;
+}
+
+code {
+	background-color: var(--subtle-background-color);
+	color: var(--text-color);
+	font-family: monospace;
+	font-size: inherit;
+	padding: 0.15em 0.3em;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+cite {
+	display: block;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: var(--wp--custom--line-height--small);
 	opacity: 0.75;
 }
 
@@ -350,8 +350,8 @@ h1, .suki-h1, h2, .suki-h2, h3, .suki-h3, h4, .suki-h4, h5, .suki-h5, h6, .suki-
 h1 a, .suki-h1 a, h2 a, .suki-h2 a, h3 a, .suki-h3 a, h4 a, .suki-h4 a, h5 a, .suki-h5 a, h6 a, .suki-h6 a {
 	color: inherit;
 }
-h1 a:hover, .suki-h1 a:hover, h1 a:focus, .suki-h1 a:focus, h2 a:hover, .suki-h2 a:hover, h2 a:focus, .suki-h2 a:focus, h3 a:hover, .suki-h3 a:hover, h3 a:focus, .suki-h3 a:focus, h4 a:hover, .suki-h4 a:hover, h4 a:focus, .suki-h4 a:focus, h5 a:hover, .suki-h5 a:hover, h5 a:focus, .suki-h5 a:focus, h6 a:hover, .suki-h6 a:hover, h6 a:focus, .suki-h6 a:focus {
-	color: var(--link-color);
+h1 a:focus, .suki-h1 a:focus, h1 a:hover, .suki-h1 a:hover, h2 a:focus, .suki-h2 a:focus, h2 a:hover, .suki-h2 a:hover, h3 a:focus, .suki-h3 a:focus, h3 a:hover, .suki-h3 a:hover, h4 a:focus, .suki-h4 a:focus, h4 a:hover, .suki-h4 a:hover, h5 a:focus, .suki-h5 a:focus, h5 a:hover, .suki-h5 a:hover, h6 a:focus, .suki-h6 a:focus, h6 a:hover, .suki-h6 a:hover {
+	color: var(--heading-color--focus);
 }
 
 :where(h1, h2, h3, h4, h5, h6) + :where(h1, h2, h3, h4, h5, h6) {
@@ -451,45 +451,6 @@ blockquote > *:last-child {
 }
 :where(p, h1, h2, h3, h4, h5, h6, pre, blockquote):last-child {
 	margin-bottom: 0 !important;
-}
-
-/**
- * Inline text elements
- */
-a {
-	color: var(--link-color);
-	text-decoration: none;
-	transition: color var(--transition-duration);
-}
-a:hover, a:focus {
-	color: var(--link-color--focus);
-	text-decoration: underline;
-}
-
-kbd {
-	background-color: var(--text-color);
-	color: var(--background-color);
-	border-radius: 0.25em;
-	font-family: monospace;
-	font-size: inherit;
-	padding: 0.15em 0.3em;
-}
-
-code {
-	background-color: var(--subtle-background-color);
-	color: var(--text-color);
-	font-family: monospace;
-	font-size: inherit;
-	padding: 0.15em 0.3em;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-cite {
-	display: block;
-	font-size: var(--wp--preset--font-size--small);
-	line-height: var(--wp--custom--line-height--small);
-	opacity: 0.75;
 }
 
 /**
@@ -2045,7 +2006,7 @@ hr:last-child {
 .search-form {
 	display: block;
 	position: relative;
-	max-width: 100%;
+	width: 100%;
 }
 .search-form .suki-search-icon {
 	position: absolute;
@@ -2212,12 +2173,6 @@ hr:last-child {
 /**
  * Widgets
  */
-.widget-area {
-	display: grid;
-	align-content: start;
-	gap: calc(1.5 * var(--wp--style--block-gap));
-}
-
 .widget > *:first-child {
 	margin-top: 0 !important;
 }
@@ -2301,7 +2256,7 @@ hr:last-child {
 .wp-block-columns {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--wp--style--block-gap);
+	gap: calc(1.5 * var(--wp--style--block-gap));
 }
 .wp-block-columns.are-vertically-aligned-top {
 	align-items: flex-start;
@@ -2621,8 +2576,8 @@ hr:last-child {
  * Block: Quote
  */
 .wp-block-quote {
-	padding: 0.5rem 1.5rem;
-	font-size: var(--h4--font-size);
+	padding: 0 1.5rem;
+	font-size: 1.25rem;
 	line-height: var(--h4--line-height);
 	border-left: 0.25rem solid currentColor;
 }
@@ -3901,11 +3856,11 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 	flex-direction: column;
 	width: min(100%, var(--canvas-size));
 	min-height: inherit;
-	background-color: var(--color--base);
+	background-color: var(--color-palette-8);
 }
 
 .suki-page-layout-boxed {
-	background-color: var(--color--base-3);
+	background-color: var(--color-palette-6);
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -3919,10 +3874,122 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 }
 
 /**
- * Header
+ * Desktop header
  */
-.suki-header .suki-icon {
-	font-size: 1.15em;
+.suki-header-top-bar {
+	--items-gap: var(--wp--style--block-gap);
+	--height: 50px;
+	--background-color: var(--color-palette-7);
+	--link-color: var(--color-palette-1);
+	--link-color--focus: var(--color-palette-4);
+	height: var(--height);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 0 20px;
+}
+
+.suki-header-main-bar {
+	--items-gap: var(--wp--style--block-gap);
+	--height: 90px;
+	--background-color: var(--color-palette-8);
+	--link-color: var(--color-palette-1);
+	--link-color--focus: var(--color-palette-4);
+	height: var(--height);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 0 20px;
+}
+
+.suki-header-bottom-bar {
+	--items-gap: var(--wp--style--block-gap);
+	--height: 50px;
+	--background-color: var(--color-palette-1);
+	--text-color: var(--color-palette-6);
+	--heading-color: var(--color-palette-8);
+	--link-color: var(--color-palette-8);
+	--link-color--focus: var(--color-palette-6);
+	height: var(--height);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 0 var(--wp--style--block-gap);
+}
+
+/**
+* Mobile header
+*/
+.suki-header-mobile-main-bar {
+	--items-gap: var(--wp--style--block-gap);
+	--height: 60px;
+	--background-color: var(--color-palette-8);
+	--link-color: var(--color-palette-1);
+	--link-color--focus: var(--color-palette-4);
+	height: var(--height);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 0 20px;
+}
+
+.suki-header-mobile-vertical {
+	--items-gap: var(--wp--style--block-gap);
+	--width: 300px;
+	--background-color: var(--color-palette-8);
+	--link-color: var(--color-palette-1);
+	--link-color--focus: var(--color-palette-4);
+}
+.suki-header-mobile-vertical-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: min(var(--width), 100% - 3rem);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	gap: var(--items-gap);
+	padding: 30px;
+	will-change: transform;
+	transition: transform var(--transition-duration);
+	transform: translate(-100%, 0);
+}
+.suki-popup-active .suki-header-mobile-vertical-bar {
+	transition: transform var(--transition-duration) calc(0.5 * var(--transition-duration));
+	transform: translate(0, 0) !important;
+}
+.suki-header-mobile-vertical .suki-popup-close-icon {
+	position: absolute;
+	top: var(--wp--style--block-gap);
+	right: var(--wp--style--block-gap);
+	color: white;
+	opacity: 0.75;
+}
+.suki-header-mobile-vertical .suki-popup-close-icon:hover, .suki-header-mobile-vertical .suki-popup-close-icon:focus {
+	opacity: 1;
+}
+.suki-header-mobile-vertical-position-right .suki-header-mobile-vertical-bar {
+	left: auto;
+	right: 0;
+	transform: translate(100%, 0);
+	transition: transform var(--transition-duration);
+}
+.suki-header-mobile-vertical-position-right .suki-popup-close-icon {
+	right: auto;
+	left: var(--wp--style--block-gap);
+}
+.suki-header-mobile-vertical-display-full-screen .suki-header-mobile-vertical-bar {
+	transform: revert;
+	transition: revert;
+	width: 100vw;
+}
+.suki-header-mobile-vertical-display-full-screen .suki-popup-close-icon {
+	color: var(--text-color);
+}
+.suki-header-mobile-vertical.has-text-align-left {
+	--flex-align: flex-start;
+}
+.suki-header-mobile-vertical.has-text-align-center {
+	--flex-align: center;
+}
+.suki-header-mobile-vertical.has-text-align-right {
+	--flex-align: flex-end;
 }
 
 /**
@@ -3989,125 +4056,6 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 .suki-header-vertical-row-bottom {
 	flex: 1 1 50%;
 	justify-content: flex-end;
-}
-
-/**
- * Desktop header
- */
-.suki-header-top-bar {
-	--items-gap: var(--wp--style--block-gap);
-	--height: 50px;
-	--background-color: var(--color--base-2);
-	--link-color: var(--color--contrast);
-	--link-color--focus: var(--color--primary);
-	height: var(--height);
-	background-color: var(--background-color);
-	color: var(--text-color);
-	padding: 0 var(--wp--style--block-gap);
-}
-
-.suki-header-main-bar {
-	--items-gap: var(--wp--style--block-gap);
-	--height: 90px;
-	--background-color: var(--color--base);
-	--link-color: var(--color--contrast);
-	--link-color--focus: var(--color--primary);
-	height: var(--height);
-	background-color: var(--background-color);
-	color: var(--text-color);
-	padding: 0 var(--wp--style--block-gap);
-}
-
-.suki-header-bottom-bar {
-	--items-gap: var(--wp--style--block-gap);
-	--height: 50px;
-	--background-color: var(--color--contrast);
-	--text-color: var(--color--base-3);
-	--heading-color: var(--color--base);
-	--link-color: var(--color--base);
-	--link-color--focus: var(--color--base-3);
-	height: var(--height);
-	background-color: var(--background-color);
-	color: var(--text-color);
-	padding: 0 var(--wp--style--block-gap);
-}
-
-/**
-* Mobile header
-*/
-.suki-header-mobile-main-bar {
-	--items-gap: var(--wp--style--block-gap);
-	--height: 60px;
-	--background-color: var(--color--base);
-	--link-color: var(--color--contrast);
-	--link-color--focus: var(--color--primary);
-	height: var(--height);
-	background-color: var(--background-color);
-	color: var(--text-color);
-	padding: 0 var(--wp--style--block-gap);
-}
-
-.suki-header-mobile-vertical {
-	--items-gap: var(--wp--style--block-gap);
-	--width: 300px;
-	--background-color: var(--color--base);
-	--link-color: var(--color--contrast);
-	--link-color--focus: var(--color--primary);
-}
-.suki-header-mobile-vertical-bar {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: min(var(--width), 100% - 3rem);
-	background-color: var(--background-color);
-	color: var(--text-color);
-	gap: var(--items-gap);
-	padding: var(--wp--style--block-gap);
-	will-change: transform;
-	transition: transform var(--transition-duration);
-	transform: translate(-100%, 0);
-}
-.suki-popup-active .suki-header-mobile-vertical-bar {
-	transition: transform var(--transition-duration) calc(0.5 * var(--transition-duration));
-	transform: translate(0, 0) !important;
-}
-.suki-header-mobile-vertical .suki-popup-close-icon {
-	position: absolute;
-	top: var(--wp--style--block-gap);
-	right: var(--wp--style--block-gap);
-	color: white;
-	opacity: 0.75;
-}
-.suki-header-mobile-vertical .suki-popup-close-icon:hover, .suki-header-mobile-vertical .suki-popup-close-icon:focus {
-	opacity: 1;
-}
-.suki-header-mobile-vertical-position-right .suki-header-mobile-vertical-bar {
-	left: auto;
-	right: 0;
-	transform: translate(100%, 0);
-	transition: transform var(--transition-duration);
-}
-.suki-header-mobile-vertical-position-right .suki-popup-close-icon {
-	right: auto;
-	left: var(--wp--style--block-gap);
-}
-.suki-header-mobile-vertical-display-full-screen .suki-header-mobile-vertical-bar {
-	transform: revert;
-	transition: revert;
-	width: 100vw;
-}
-.suki-header-mobile-vertical-display-full-screen .suki-popup-close-icon {
-	color: var(--text-color);
-}
-.suki-header-mobile-vertical.has-text-align-left {
-	--flex-align: flex-start;
-}
-.suki-header-mobile-vertical.has-text-align-center {
-	--flex-align: center;
-}
-.suki-header-mobile-vertical.has-text-align-right {
-	--flex-align: flex-end;
 }
 
 /**
@@ -4204,15 +4152,10 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 }
 
 /**
- * Header element: Logo
+ * Menu icon
  */
-.suki-logo {
-	width: 100px;
-}
-.suki-logo img, .suki-logo svg {
-	display: block;
-	width: 100%;
-	height: auto;
+.suki-menu-icon {
+	font-size: var(--menu-icon-size, 1.15em);
 }
 
 /**
@@ -4223,6 +4166,22 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 }
 .suki-header-section .menu > .menu-item {
 	height: 100%;
+}
+
+.suki-header-menu :is(.suki-menu-item-link, .suki-toggle) > * {
+	position: relative;
+}
+.suki-header-menu :is(.suki-menu-item-link, .suki-toggle):hover, .suki-header-menu :is(.suki-menu-item-link, .suki-toggle):focus {
+	color: var(--menu-hover-highlight-text-color, var(--link-color--focus));
+}
+.suki-header-menu :is(.suki-menu-item-link, .suki-toggle):hover:before, .suki-header-menu :is(.suki-menu-item-link, .suki-toggle):focus:before {
+	color: var(--menu-hover-highlight-background-color, transparent);
+}
+.suki-header-menu :is(.current-menu-item, .current-menu-ancestor) :is(.suki-menu-item-link, .suki-toggle):not(:hover, :focus) {
+	color: var(--menu-active-highlight-text-color, var(--menu-hover-highlight-text-color, var(--link-color)));
+}
+.suki-header-menu :is(.current-menu-item, .current-menu-ancestor) :is(.suki-menu-item-link, .suki-toggle):before {
+	color: var(--menu-active-highlight-background-color, var(--menu-hover-highlight-background-color, transparent));
 }
 
 .suki-header-section-vertical .suki-toggle-menu {
@@ -4255,6 +4214,18 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 }
 
 /**
+ * Header element: Logo
+ */
+.suki-logo {
+	width: 100px;
+}
+.suki-logo img, .suki-logo svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/**
  * Header element: Search form
  */
 .suki-header-search-bar .search-form {
@@ -4279,6 +4250,9 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 /**
  * Header element: Cart
  */
+.suki-header-cart .widget {
+	margin: 0;
+}
 .suki-header-cart .cart-amount {
 	margin: 0 0.25em 0 0.5em;
 }
@@ -4288,13 +4262,45 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 .suki-header-cart .cart-amount:last-child {
 	margin-right: 0;
 }
+.suki-header-cart .cart-link {
+	position: relative;
+}
+.suki-header-cart .cart-count {
+	width: 2em;
+	height: 2em;
+	position: absolute;
+	z-index: 1;
+	display: inline-block;
+	margin: -0.6em 0 0 -1.2em;
+	border-radius: 50%;
+	font-size: 0.6em;
+	text-align: center;
+	line-height: 2;
+	letter-spacing: 0;
+	background-color: var(--color-palette-4);
+	color: var(--color-palette-8);
+	animation: suki-pulse 0.5s 1;
+}
+.suki-header-cart .cart-count strong {
+	display: inline-block;
+	font-size: 0.5em;
+	line-height: 2;
+	vertical-align: top;
+}
+.suki-header-cart .cart-count[data-count="0"] {
+	display: none;
+}
+.suki-header-cart .sub-menu {
+	white-space: normal;
+	width: 20em;
+}
 
 /**
  * Hero section
  */
 .suki-hero {
-	--background-color: var(--color--base-2);
-	padding: 4rem var(--wp--style--block-gap);
+	--background-color: var(--color-palette-7);
+	padding: 60px 20px;
 	background-color: var(--background-color);
 }
 
@@ -4302,7 +4308,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
  * Content & sidebar
  */
 .suki-content {
-	padding: 4rem var(--wp--style--block-gap);
+	padding: 80px 20px;
 	flex-grow: 1;
 }
 
@@ -4314,17 +4320,16 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 }
 
 .suki-content-row {
-	--sidebar-width: 25%;
-	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) );
 	display: flex;
 	flex-direction: column;
-	gap: var(--sidebar-gap);
+	gap: calc(2 * var(--wp--style--block-gap));
 }
 @media screen and (min-width: 1024px) {
 	.suki-content-row {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
+		align-items: flex-start;
 	}
 	.suki-content-layout-left-sidebar .suki-content-row {
 		flex-direction: row-reverse;
@@ -4337,11 +4342,16 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 	}
 }
 
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: calc(1.5 * var(--wp--style--block-gap));
+}
 @media screen and (min-width: 1024px) {
 	.sidebar {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: var(--sidebar-width);
+		flex-basis: 25%;
 	}
 }
 
@@ -4374,31 +4384,31 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 /**
  * Error 404
  */
-body.error404 .site-main {
-	display: grid;
-	place-content: center;
-	min-height: 50vh;
+.error404 .site-content {
+	display: flex;
+	align-items: center;
 }
 
 /**
  * Footer
  */
-.suki-footer {
-	--items-gap: 1.5em;
-	--columns-gap: var(--items-gap);
-}
-
 .suki-footer-widgets-bar {
-	--background-color: var(--color--base-2);
-	padding: 4rem var(--wp--style--block-gap);
+	--background-color: var(--color-palette-7);
+	padding: 60px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	border-color: var(--border-color);
 }
+.suki-footer-widgets-bar-column {
+	display: flex;
+	flex-direction: column;
+	gap: calc(1.5 * var(--wp--style--block-gap));
+}
 
 .suki-footer-bottom-bar {
-	--background-color: var(--color--base-2);
-	padding: 1.5rem var(--wp--style--block-gap);
+	--items-gap: var(--wp--style--block-gap);
+	--background-color: var(--color-palette-7);
+	padding: 25px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
 	border-color: var(--border-color);
@@ -4416,7 +4426,6 @@ body.error404 .site-main {
 .suki-footer-column {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	gap: inherit;
 }
 .suki-footer-column > * {

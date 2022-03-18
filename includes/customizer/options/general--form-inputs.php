@@ -30,11 +30,15 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
 					'step' => 0.5,
 				),
-				'em' => array(
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
@@ -62,9 +66,17 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Border', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,
@@ -83,17 +95,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Border radius', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 40,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,

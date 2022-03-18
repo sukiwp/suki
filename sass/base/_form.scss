@@ -33,6 +33,6 @@ select {
  * Button
  */
 
- :where(button, input[type="button"], input[type="reset"], input[type="submit"], .button) {
+button, input[type="button"], input[type="reset"], input[type="submit"], .button {
 	@extend %button;
 }

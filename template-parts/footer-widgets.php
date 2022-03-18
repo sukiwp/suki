@@ -19,11 +19,11 @@ if ( 1 > $columns ) {
 
 ?>
 <div class="<?php suki_element_class( 'footer_widgets_bar', array( 'suki-footer-widgets-bar', 'suki-block-container' ) ); ?>">
-	<div class="<?php suki_element_class( 'footer_widgets_bar_inner', array( 'suki-footer-widgets-bar-columns-' . suki_get_theme_mod( 'footer_widgets_bar' ), 'suki-footer-row', 'wp-block-columns' ) ); ?>">
+	<div class="<?php suki_element_class( 'footer_widgets_bar_inner', array( 'suki-footer-widgets-bar-columns-' . $columns, 'suki-footer-widgets-bar-columns', 'wp-block-columns' ) ); ?>">
 		<?php
 		for ( $i = 1; $i <= $columns; $i++ ) {
 			?>
-			<div class="suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column wp-block-column widget-area">
+			<div class="suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-bar-column wp-block-column">
 				<?php
 				if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
 					dynamic_sidebar( 'footer-widgets-' . $i );

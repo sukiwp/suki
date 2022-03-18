@@ -23,7 +23,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
@@ -32,17 +32,14 @@ $wp_customize->add_control(
 			'units'    => array(
 				'px'  => array(
 					'min'  => 0,
-					'max'  => 300,
 					'step' => 1,
 				),
 				'em'  => array(
 					'min'  => 0,
-					'max'  => 20,
 					'step' => 0.01,
 				),
 				'rem' => array(
 					'min'  => 0,
-					'max'  => 20,
 					'step' => 0.01,
 				),
 			),
@@ -287,7 +284,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
@@ -297,7 +294,6 @@ $wp_customize->add_control(
 			'units'       => array(
 				'' => array(
 					'min'   => 0,
-					'max'   => 200,
 					'step'  => 1,
 					'label' => 'wrd',
 				),

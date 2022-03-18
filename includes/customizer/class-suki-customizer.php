@@ -182,7 +182,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/header--html.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/header--search.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/header--social.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/content--section.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/content.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/content--main.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/content--hero.php';
@@ -232,14 +232,14 @@ class Suki_Customizer {
 	 * Enqueue customizer controls scripts & styles.
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'suki-customize-controls', SUKI_CSS_URL . '/admin/customize-controls.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-customize-controls', 'rtl', 'replace' );
-		wp_style_add_data( 'suki-customize-controls', 'suffix', SUKI_ASSETS_SUFFIX );
+		wp_enqueue_style( 'suki-customizer', SUKI_CSS_URL . '/customizer.css', array(), SUKI_VERSION );
+		wp_style_add_data( 'suki-customizer', 'rtl', 'replace' );
+		wp_style_add_data( 'suki-customizer', 'suffix', SUKI_ASSETS_SUFFIX );
 
-		wp_enqueue_script( 'suki-customize-controls', SUKI_JS_URL . '/admin/customize-controls.js', array( 'customize-controls' ), SUKI_VERSION, true );
+		wp_enqueue_script( 'suki-customizer', SUKI_JS_URL . '/admin/customize-controls.js', array( 'customize-controls' ), SUKI_VERSION, true );
 
 		wp_localize_script(
-			'suki-customize-controls',
+			'suki-customizer',
 			'sukiCustomizerControlsData',
 			array(
 				'contexts'                      => $this->get_control_contexts(),

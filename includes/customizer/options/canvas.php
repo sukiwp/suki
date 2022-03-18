@@ -96,7 +96,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
@@ -105,7 +105,6 @@ $wp_customize->add_control(
 			'units'    => array(
 				'px' => array(
 					'min'  => 600,
-					'max'  => 1600,
 					'step' => 1,
 				),
 			),
@@ -125,21 +124,19 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Narrow container width', 'suki' ),
-			'description' => esc_html__( 'Used when "Narrow" content layout is enabled on the page. This value should be smaller than the "Normal" container width.', 'suki' ),
-			'units'       => array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Narrow container width', 'suki' ),
+			'units'    => array(
 				'px' => array(
-					'min'  => 600,
-					'max'  => 1000,
+					'min'  => 400,
 					'step' => 1,
 				),
 			),
-			'priority'    => 20,
+			'priority' => 20,
 		)
 	)
 );
@@ -175,17 +172,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Boxed page max width', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 500,
-					'max'  => 2000,
+				'px'  => array(
+					'min'  => 600,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 40,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 40,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 30,

@@ -427,7 +427,7 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 	 * Render mobile header.
 	 */
 	function suki_header_mobile() {
-		if ( intval( suki_get_current_page_setting( 'disable_mobile_header' ) ) ) {
+		if ( intval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
 			return;
 		}
 

@@ -169,17 +169,28 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 120,
-					'max'  => 400,
+				'%'   => array(
+					'min'  => 10,
+					'step' => 0.01,
+				),
+				'px'  => array(
+					'min'  => 150,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 10,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,
@@ -205,15 +216,19 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 0,
-					'step' => 1,
-				),
-				'em' => array(
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
-				'%'  => array(
+				'px'  => array(
+					'min'  => 0,
+					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
@@ -223,8 +238,8 @@ $wp_customize->add_control(
 	)
 );
 
-// Items gutter.
-$key = 'header_mobile_vertical_bar_items_gutter';
+// Items gap.
+$key = 'header_mobile_vertical_bar_items_gap';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -234,17 +249,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Spacing between elements', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 40,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,
@@ -382,17 +404,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Icon size', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 60,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 20,

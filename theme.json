@@ -7,32 +7,32 @@
 			"palette": [
 				{
 					"slug": "base",
-					"color": "var(--color--base)",
+					"color": "var(--color-palette-8)",
 					"name": "Base"
 				},
 				{
 					"slug": "base-2",
-					"color": "var(--color--base-2)",
+					"color": "var(--color-palette-7)",
 					"name": "Base 2"
 				},
 				{
 					"slug": "base-3",
-					"color": "var(--color--base-3)",
+					"color": "var(--color-palette-6)",
 					"name": "Base 3"
 				},
 				{
 					"slug": "contrast",
-					"color": "var(--color--contrast)",
+					"color": "var(--color-palette-1)",
 					"name": "Contrast"
 				},
 				{
 					"slug": "contrast-2",
-					"color": "var(--color--contrast-2)",
+					"color": "var(--color-palette-2)",
 					"name": "Contrast 2"
 				},
 				{
 					"slug": "primary",
-					"color": "var(--color--primary)",
+					"color": "var(--color-palette-4)",
 					"name": "Primary"
 				}
 			],

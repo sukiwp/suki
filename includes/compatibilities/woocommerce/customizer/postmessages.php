@@ -277,7 +277,7 @@ $add['button_padding'] = array(
 
 /**
  * ====================================================
- * Content & Sidebar > Sidebar Area
+ * Content > Sidebar Area
  * ====================================================
  */
 

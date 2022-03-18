@@ -388,12 +388,12 @@ if ( suki_show_pro_teaser() ) {
 	);
 }
 
-// Content & Sidebar.
+// Content.
 $panel = 'suki_panel_content';
 $wp_customize->add_panel(
 	$panel,
 	array(
-		'title'    => esc_html__( 'Content & Sidebar', 'suki' ),
+		'title'    => esc_html__( 'Content', 'suki' ),
 		'priority' => 133,
 	)
 );
@@ -421,11 +421,11 @@ $wp_customize->add_section(
 	)
 );
 
-// > > Main Column.
+// > > Main Content.
 $wp_customize->add_section(
 	'suki_section_main',
 	array(
-		'title'    => esc_html__( 'Main Column', 'suki' ),
+		'title'    => esc_html__( 'Main Content', 'suki' ),
 		'panel'    => $panel,
 		'priority' => 10,
 	)

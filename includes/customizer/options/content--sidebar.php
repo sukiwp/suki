@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content & Sidebar > Sidebar Area
+ * Customizer settings: Content > Sidebar Area
  *
  * @package Suki
  **/
@@ -11,42 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $section = 'suki_section_sidebar';
-
-// Sidebar.
-$key = 'content_layout';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Sidebar', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
-			'choices'  => array(
-				'wide'          => array(
-					'label' => esc_html__( 'None', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
-				),
-				'right-sidebar' => array(
-					'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
-				),
-				'left-sidebar'  => array(
-					'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
-				),
-			),
-			'columns'  => 3,
-			'priority' => 10,
-		)
-	)
-);
 
 /**
  * ====================================================
@@ -79,22 +43,28 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
-				'%'  => array(
-					'min'  => 15,
-					'max'  => 40,
+				'%'   => array(
+					'min'  => 10,
 					'step' => 0.01,
 				),
-				'px' => array(
+				'px'  => array(
 					'min'  => 150,
-					'max'  => 400,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 10,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,
@@ -113,22 +83,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Gap with main content', 'suki' ),
 			'units'    => array(
-				'%'  => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 10,
+					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
 					'step' => 0.01,
 				),
-				'px' => array(
+				'rem' => array(
 					'min'  => 0,
-					'max'  => 100,
-					'step' => 1,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,
@@ -191,17 +163,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Gap between widgets', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 80,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 30,
@@ -235,15 +214,19 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 0,
-					'step' => 1,
-				),
-				'em' => array(
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
-				'%'  => array(
+				'px'  => array(
+					'min'  => 0,
+					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
@@ -271,9 +254,17 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Border', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 30,
@@ -292,17 +283,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Control_Dimension(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Border radius', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 40,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 30,
@@ -371,127 +369,17 @@ $wp_customize->add_control(
 	)
 );
 
-// Widget title typography.
-$settings = array(
-	'font_family'           => 'sidebar_widget_title_font_family',
-	'font_weight'           => 'sidebar_widget_title_font_weight',
-	'font_style'            => 'sidebar_widget_title_font_style',
-	'text_transform'        => 'sidebar_widget_title_text_transform',
-	'font_size'             => 'sidebar_widget_title_font_size',
-	'line_height'           => 'sidebar_widget_title_line_height',
-	'letter_spacing'        => 'sidebar_widget_title_letter_spacing',
-
-	'font_size_tablet'      => 'sidebar_widget_title_font_size__tablet',
-	'line_height_tablet'    => 'sidebar_widget_title_line_height__tablet',
-	'letter_spacing_tablet' => 'sidebar_widget_title_letter_spacing__tablet',
-
-	'font_size_mobile'      => 'sidebar_widget_title_font_size__mobile',
-	'line_height_mobile'    => 'sidebar_widget_title_line_height__mobile',
-	'letter_spacing_mobile' => 'sidebar_widget_title_letter_spacing__mobile',
-);
-foreach ( $settings as $key ) {
-	$wp_customize->add_setting(
-		$key,
-		array(
-			'default'           => suki_array_value( $defaults, $key ),
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'typography' ),
-		)
-	);
-}
+// Info.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Typography(
+	new Suki_Customize_Control_Blank(
 		$wp_customize,
-		'sidebar_widget_title_typography',
+		'notice_sidebar_widget_title',
 		array(
-			'settings' => $settings,
-			'section'  => $section,
-			'label'    => esc_html__( 'Widget title typography', 'suki' ),
-			'priority' => 40,
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Looking for widget title configuration? Using the Block-based Widgets editor, you can add and configure a Heading block as a widget title.', 'suki' ) . '</p></div>',
+			'priority'    => 40,
 		)
-	)
-);
-
-// Widget title tag.
-$key = 'sidebar_widget_title_tag';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-	)
-);
-$wp_customize->add_control(
-	$key,
-	array(
-		'type'     => 'select',
-		'section'  => $section,
-		'label'    => esc_html__( 'Widget title tag', 'suki' ),
-		'choices'  => array(
-			'h2'  => 'h2',
-			'h3'  => 'h3',
-			'h4'  => 'h4',
-			'div' => 'div',
-		),
-		'priority' => 40,
-	)
-);
-
-// Widget title alignment.
-$key = 'sidebar_widget_title_alignment';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Widget title alignment', 'suki' ),
-			'choices'  => array(
-				'left'   => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
-				),
-				'center' => array(
-					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
-				),
-				'right'  => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
-				),
-			),
-			'priority' => 40,
-		)
-	)
-);
-
-// Widget title decoration.
-$key = 'sidebar_widget_title_decoration';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-	)
-);
-$wp_customize->add_control(
-	$key,
-	array(
-		'type'     => 'select',
-		'section'  => $section,
-		'label'    => esc_html__( 'Widget title decoration', 'suki' ),
-		'choices'  => array(
-			'none'          => esc_html__( 'None', 'suki' ),
-			'box'           => esc_html__( 'Box', 'suki' ),
-			'border-bottom' => esc_html__( 'Border bottom', 'suki' ),
-		),
-		'priority' => 40,
 	)
 );
 
@@ -540,14 +428,11 @@ $wp_customize->add_control(
 
 // Colors.
 $colors = array(
-	'sidebar_bg_color'                  => esc_html__( 'Background color', 'suki' ),
-	'sidebar_border_color'              => esc_html__( 'Border color', 'suki' ),
-	'sidebar_text_color'                => esc_html__( 'Text color', 'suki' ),
-	'sidebar_link_text_color'           => esc_html__( 'Link text color', 'suki' ),
-	'sidebar_link_hover_text_color'     => esc_html__( 'Link text color :hover', 'suki' ),
-	'sidebar_widget_title_text_color'   => esc_html__( 'Widget title text color', 'suki' ),
-	'sidebar_widget_title_bg_color'     => esc_html__( 'Widget title background color', 'suki' ),
-	'sidebar_widget_title_border_color' => esc_html__( 'Widget title border color', 'suki' ),
+	'sidebar_bg_color'              => esc_html__( 'Background color', 'suki' ),
+	'sidebar_border_color'          => esc_html__( 'Border color', 'suki' ),
+	'sidebar_text_color'            => esc_html__( 'Text color', 'suki' ),
+	'sidebar_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
+	'sidebar_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
 );
 foreach ( $colors as $key => $label ) {
 	$wp_customize->add_setting(

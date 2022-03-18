@@ -54,7 +54,7 @@ $wp_customize->add_control(
 	)
 );
 
-// Max width.
+// Width.
 $key = 'error_404_image_width';
 $wp_customize->add_setting(
 	$key,
@@ -69,11 +69,23 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Max width', 'suki' ),
+			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'%'   => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 10,
@@ -106,17 +118,14 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	$key,
 	array(
-		'section'     => $section,
-		'label'       => esc_html__( 'Title text', 'suki' ),
-		'priority'    => 10,
-		'input_attrs' => array(
-			'placeholder' => esc_html__( 'Oops! That page can not be found', 'suki' ),
-		),
+		'section'  => $section,
+		'label'    => esc_html__( 'Title text', 'suki' ),
+		'priority' => 10,
 	)
 );
 
 // Description.
-$key = 'error_404_description';
+$key = 'error_404_description_text';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -127,13 +136,10 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	$key,
 	array(
-		'type'        => 'textarea',
-		'section'     => $section,
-		'label'       => esc_html__( 'Description', 'suki' ),
-		'priority'    => 10,
-		'input_attrs' => array(
-			'placeholder' => esc_html__( 'It looks like nothing was found at this location. Maybe try searching?', 'suki' ),
-		),
+		'type'     => 'textarea',
+		'section'  => $section,
+		'label'    => esc_html__( 'Description', 'suki' ),
+		'priority' => 10,
 	)
 );
 
@@ -191,10 +197,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	$key,
 	array(
-		'section'     => $section,
-		'priority'    => 10,
-		'input_attrs' => array(
-			'placeholder' => esc_html__( 'Back to Home', 'suki' ),
-		),
+		'section'  => $section,
+		'priority' => 10,
 	)
 );

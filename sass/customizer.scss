@@ -1,6 +1,5 @@
-@import "../__variables";
-
-@import "../__mixins";
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
 $wp_color_primary: #007cba;
 
@@ -171,10 +170,10 @@ li:not(.customize-info) div.customize-section-description {
 	position: relative;
 	margin: 0 -12px;
 	padding: 10px 12px;
-	background-color: transparentize( $color_black, 0.9 );
+	background-color: transparentize( black, 0.9 );
 	color: inherit;
 	outline: 0;
-	@include transition();
+	transition: all 0.25s;
 
 	> span {
 		font-size: 13px;
@@ -377,14 +376,14 @@ li:not(.customize-info) div.customize-section-description {
 		line-height: 16px;
 		font-weight: 600;
 		text-transform: uppercase;
-		background-color: transparentize( $color_black, 0.9 );
+		background-color: transparentize( black, 0.9 );
 
 		&:after {
 			content: "";
 			position: absolute;
 			left: 100%;
 			top: 0;
-			border-bottom: 22px solid transparentize( $color_black, 0.9 );
+			border-bottom: 22px solid transparentize( black, 0.9 );
 			border-right: 12px solid transparent;
 		}
 
@@ -524,7 +523,7 @@ li:not(.customize-info) div.customize-section-description {
 			height: 14px;
 			border-radius: 15px;
 			background-color: #fff;
-			@include transition();
+			transition: all 0.25s;
 		}
 	}
 
@@ -787,7 +786,7 @@ li:not(.customize-info) div.customize-section-description {
 	.suki-slider-range {
 		width: 100%;
 		margin: 0;
-		-webkit-appearance: none;
+		appearance: none;
 		outline: none;
 		height: 8px;
 		background-color: #ccc;
@@ -850,6 +849,19 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 .customize-control-suki-dimension {
+	.customize-control-title {
+		display: block;
+		min-height: 30px;
+		padding-right: 100px;
+	}
+	
+	.suki-dimension-fieldset {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 90px;
+	}
+
 	.suki-row-item {
 		&:nth-child(n+2) {
 			margin-left: -1px;
@@ -857,6 +869,14 @@ li:not(.customize-info) div.customize-section-description {
 	}
 
 	.suki-dimension-input {
+		text-align: right;
+		-moz-appearance: textfield;
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			appearance: none;
+		}
+
 		&:focus {
 			position: relative;
 			z-index: 2;
@@ -928,7 +948,7 @@ li:not(.customize-info) div.customize-section-description {
 	.customize-control-content {
 		padding: 10px;
 		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+		box-shadow: 0 1px 1px transparentize( black, 0.95 );
 		background-color: #fff;
 	}
 
@@ -985,7 +1005,7 @@ li:not(.customize-info) div.customize-section-description {
 	.customize-control-content {
 		padding: 10px;
 		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+		box-shadow: 0 1px 1px transparentize( black, 0.95 );
 		background-color: #fff;
 	}
 
@@ -1018,47 +1038,33 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control-suki-radioimage {
 	.suki-radioimage-list {
-		display: flex;
-		flex-wrap: wrap;
-		margin: -2px;
+		--columns: 1;
 
-		.suki-radioimage-item {
-			flex: 0 0 25%;
-			margin: 0;
-		}
-
-		&.suki-radioimage-columns-1 {
-			.suki-radioimage-item {
-				flex-basis: 100%;
-			}
-		}
+		display: grid;
+		grid-template-columns: repeat(var(--columns), 1fr);
+		gap: 4px;
 
 		&.suki-radioimage-columns-2 {
-			.suki-radioimage-item {
-				flex-basis: 50%;
-			}
+			--columns: 2;
 		}
-
+		
 		&.suki-radioimage-columns-3 {
-			.suki-radioimage-item {
-				flex-basis: 33.33%;
-			}
+			--columns: 3;
 		}
-
+		
+		&.suki-radioimage-columns-4 {
+			--columns: 4;
+		}
+		
 		label {
 			position: relative;
 			display: block;
-			box-sizing: border-box;
-			margin: 2px;
 			padding: 2px;
-			background-color: #aaa;
+			box-sizing: border-box;
+			background-color: #999;
 			color: #fff;
 			outline: 0;
-			border-radius: 4px;
-
-			&:focus {
-				box-shadow: 0 0 5px $wp_color_primary;
-			}
+			border-radius: 3px;
 
 			> img {
 				display: block;
@@ -1087,7 +1093,6 @@ li:not(.customize-info) div.customize-section-description {
 
 		input:checked + label {
 			background-color: $wp_color_primary;
-			color: #fff;
 		}
 
 	}
@@ -1100,7 +1105,7 @@ li:not(.customize-info) div.customize-section-description {
 .customize-control-suki-sortable {
 	.suki-sortable {
 		border: 1px solid #ddd;
-		box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+		box-shadow: 0 1px 1px transparentize( black, 0.95 );
 		background-color: #fff;
 		padding: 0 8px;
 
@@ -1181,7 +1186,7 @@ li:not(.customize-info) div.customize-section-description {
 			position: relative;
 			margin: 3px 0;
 			border: 1px solid #ddd;
-			box-shadow: 0 1px 1px transparentize( $color_black, 0.95 );
+			box-shadow: 0 1px 1px transparentize( black, 0.95 );
 			background-color: #fff;
 
 			&.disabled {
@@ -1291,7 +1296,7 @@ li:not(.customize-info) div.customize-section-description {
 
 		.ui-sortable-placeholder {
 			visibility: visible !important;
-			background-color: transparentize( $color_black, 0.9 ) !important;
+			background-color: transparentize( black, 0.9 ) !important;
 			border-color: transparent !important;
 			box-shadow: none !important;
 		}
@@ -1332,7 +1337,7 @@ li:not(.customize-info) div.customize-section-description {
 // -------------------------------------------------------------
 
 #customize-preview {
-	// @include transition();
+	// transition: all 0.25s;
 
 	.suki-has-builder-active .preview-desktop &,
 	.suki-has-builder-active .preview-tablet & {
@@ -1372,8 +1377,8 @@ li:not(.customize-info) div.customize-section-description {
 			border-top: 1px solid #ddd;
 			border-left: 1px solid #ddd;
 			transform: translateY(100%);
-			box-shadow: inset 10px 0 10px -10px transparentize( $color_black, 0.9 );
-			@include transition( all 0.2s );
+			box-shadow: inset 10px 0 10px -10px transparentize( black, 0.9 );
+			transition: all 0.2s;
 
 			.customize-control {
 				&:last-child {
@@ -1396,7 +1401,7 @@ li:not(.customize-info) div.customize-section-description {
 						.suki-builder-show {
 							visibility: visible;
 							opacity: 1;
-							@include transition( opacity 0.2s 0.2s );
+							transition: opacity 0.2s 0.2s;
 						}
 					}
 				}
@@ -1680,8 +1685,7 @@ li:not(.customize-info) div.customize-section-description {
 			border: none;
 			padding: 10px 15px 8px;
 			background-color: transparent;
-			@include border( bottom, 4px );
-			border-bottom-color: transparent;
+			border-bottom: 4px solid transparent;
 			text-align: center;
 			outline: 0;
 			box-shadow: none;
@@ -1794,17 +1798,16 @@ li:not(.customize-info) div.customize-section-description {
 [id$="_preloader_screen"].customize-control-select,
 [id*="_bar_transparent_"].customize-control-select,
 [id*="_bar_alt_"].customize-control-select {
-	display: flex;
-	align-items: flex-start;
-
 	.customize-control-title {
-		flex-grow: 1;
-		margin-right: auto;
+		display: block;
+		min-height: 30px;
+		padding-right: 135px;
 	}
 	
 	select {
-		flex: 0 0 125px;
-		margin-left: 10px;
+		position: absolute;
+		top: 0;
+		right: 0;
 		width: 125px;
 	}
 }
@@ -1836,17 +1839,14 @@ li:not(.customize-info) div.customize-section-description {
 	padding-left: 15px;
 	width: calc(100% - 15px);
 
-	display: flex;
-	align-items: flex-start;
-
-	.customize-control-title {
-		flex-grow: 1;
-		margin-right: auto;
-	}
-
+	display: block;
+	min-height: 30px;
+	padding-right: 135px;
+	
 	select {
-		flex: 0 0 125px;
-		margin-left: 10px;
+		position: absolute;
+		top: 0;
+		right: 0;
 		width: 125px;
 	}
 }

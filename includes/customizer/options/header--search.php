@@ -98,9 +98,17 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Dropdown width', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 100,
+				'px'  => array(
+					'min'  => 150,
 					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 10,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 10,
+					'step' => 0.01,
 				),
 			),
 			'priority' => 20,

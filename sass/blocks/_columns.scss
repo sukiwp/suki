@@ -5,7 +5,7 @@
 .wp-block-columns {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--wp--style--block-gap);
+	gap: calc( 1.5 * var(--wp--style--block-gap) );
 
 	@extend %has-background-padding;
 

@@ -24,13 +24,13 @@
 }
 
 html {
-	font-family: var(--font-family);
-	font-size: var(--font-size);
-	font-style: var(--font-style);
-	font-weight: var(--font-weight);
-	line-height: var(--line-height);
-	letter-spacing: var(--letter-spacing);
-	text-transform: var(--text-transform);
+	font-family: var(--base--font-family);
+	font-size: var(--base--font-size);
+	font-style: var(--base--font-style);
+	font-weight: var(--base--font-weight);
+	line-height: var(--base--line-height);
+	letter-spacing: var(--base--letter-spacing);
+	text-transform: var(--base--text-transform);
 
 	overflow-x: hidden;
 }
@@ -48,8 +48,8 @@ body {
 }
 
 ::selection {
-	background-color: var(--color--primary); // invert text and background color
-	color: var(--color--base); // invert text and background color
+	background-color: var(--color-palette-4); // invert text and background color
+	color: var(--color-palette-8); // invert text and background color
 }
 
 *::placeholder {

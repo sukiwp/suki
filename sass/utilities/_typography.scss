@@ -3,12 +3,12 @@
  * Automatically apply line height too
  */
 
- $sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
- @each $size in $sizes {
-	 .has-#{$size}-font-size {
-		 line-height: var(--wp--custom--line-height--#{$size});
-	 }
- }
+$sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
+@each $size in $sizes {
+	.has-#{$size}-font-size {
+		line-height: var(--wp--custom--line-height--#{$size});
+	}
+}
 
 /**
  * Typography classes

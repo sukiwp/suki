@@ -2,26 +2,28 @@
  * Footer
  */
 
-.suki-footer {
-	--items-gap: 1.5em; // CUSTOMIZER - Configurable on each header section
-	--columns-gap: var(--items-gap); // --columns-gap is used by header row (.wp-block-columns)
-}
-
 .suki-footer-widgets-bar {
-	--background-color: var(--color--base-2);
+	--background-color: var(--color-palette-7); // CUSTOMIZER
 
-	padding: 4rem var(--wp--style--block-gap); // CUSTOMIZER
+	padding: 60px 20px; // CUSTOMIZER
 
 	// Color declarations
 	background-color: var(--background-color);
 	color: var(--text-color);
 	border-color: var(--border-color);
+
+	&-column {
+		display: flex;
+		flex-direction: column;
+		gap: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+	}
 }
 
 .suki-footer-bottom-bar {
-	--background-color: var(--color--base-2);
+	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
+	--background-color: var(--color-palette-7); // CUSTOMIZER
 	
-	padding: 1.5rem var(--wp--style--block-gap); // CUSTOMIZER
+	padding: 25px 20px; // CUSTOMIZER
 
 	// Color declarations
 	background-color: var(--background-color);
@@ -40,10 +42,9 @@
 }
 
 .suki-footer-column {
-	display: flex; // Custom flex layout
+	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: inherit; // Use parent row's --columns-gap
+	gap: inherit;
 
 	> * {
 		display: flex;

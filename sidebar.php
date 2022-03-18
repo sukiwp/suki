@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<aside id="secondary" class="<?php suki_element_class( 'sidebar', array( 'widget-area', 'sidebar' ) ); ?>" aria-label="<?php esc_attr_e( 'Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
+<aside id="secondary" class="<?php suki_element_class( 'sidebar', array( 'sidebar' ) ); ?>" aria-label="<?php esc_attr_e( 'Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
 	<?php
 	/**
 	 * Hook: suki/frontend/before_sidebar

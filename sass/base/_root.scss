@@ -2,14 +2,30 @@
 	/**
 	 * Color palette variables
 	 */
+	
+	--color-palette-1: #222222;
+	--color-palette-2: #444444;
+	--color-palette-3: #666666;
+	--color-palette-4: #0055cc;
+	--color-palette-5: #004099;
+	--color-palette-6: #cccccc;
+	--color-palette-7: #f3f3f3;
+	--color-palette-8: #ffffff;
 
-	--color--primary: #0055cc;
-	--color--contrast: #222222;
-	--color--contrast-2: #444444;
-	--color--contrast-3: #666666;
-	--color--base: #ffffff;
-	--color--base-2: #f3f3f3;
-	--color--base-3: #cccccc;
+	/**
+	 * Assign scope variables
+	 */
+
+	// Scope colors
+	--text-color: var(--color-palette-2);
+	--border-color: var(--color-palette-6);
+	--background-color: var(--color-palette-8);
+	--subtle-background-color: var(--color-palette-7);
+	--heading-color: var(--color-palette-1, var(--text-color));
+	--heading-color--focus: var(--link-color);
+	--meta-color: var(--color-palette-3, var(--text-color));
+	--link-color: var(--color-palette-4);
+	--link-color--focus: var(--color-palette-5, inherit);
 
 	/**
 	 * Typography variables
@@ -18,66 +34,37 @@
 	// Base typography
 	--base--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	--base--font-size: 100%;
-	--base--font-style: normal;
-	--base--font-weight: 400;
 	--base--line-height: 1.7;
-	--base--letter-spacing: 0;
-	--base--text-transform: none;
 
 	// H1 typography
-	--h1--font-family: revert;
 	--h1--font-size: 2.4rem;
-	--h1--font-style: revert;
-	--h1--font-weight: 700;
+	--h1--font-weight: 600;
 	--h1--line-height: 1.3;
-	--h1--letter-spacing: revert;
-	--h1--text-transform: revert;
 
 	// H2 typography
-	--h2--font-family: revert;
 	--h2--font-size: 1.8rem;
-	--h2--font-style: revert;
-	--h2--font-weight: 700;
+	--h2--font-weight: 600;
 	--h2--line-height: 1.4;
-	--h2--letter-spacing: revert;
-	--h2--text-transform: revert;
 
 	// H3 typography
-	--h3--font-family: revert;
 	--h3--font-size: 1.5rem;
-	--h3--font-style: revert;
-	--h3--font-weight: 700;
+	--h3--font-weight: 600;
 	--h3--line-height: 1.5;
-	--h3--letter-spacing: revert;
-	--h3--text-transform: revert;
 
 	// H4 typography
-	--h4--font-family: revert;
 	--h4--font-size: 1.25rem;
-	--h4--font-style: revert;
-	--h4--font-weight: 700;
+	--h4--font-weight: 600;
 	--h4--line-height: 1.6;
-	--h4--letter-spacing: revert;
-	--h4--text-transform: revert;
 
 	// H5 typography
-	--h5--font-family: revert;
 	--h5--font-size: 1.1rem;
-	--h5--font-style: revert;
-	--h5--font-weight: 700;
+	--h5--font-weight: 600;
 	--h5--line-height: 1.7;
-	--h5--letter-spacing: revert;
-	--h5--text-transform: revert;
 
 	// H6 typography
-	--h6--font-family: revert;
 	--h6--font-size: 1rem;
-	--h6--font-style: revert;
-	--h6--font-weight: 700;
+	--h6--font-weight: 600;
 	--h6--line-height: 1.7;
-	--h6--letter-spacing: revert;
-	--h6--text-transform: revert;
-	--h5--text-transform: revert;
 
 	// Title typography (by default use H1 styles)
 	--title--font-family: var(--h1--font-family);
@@ -87,6 +74,8 @@
 	--title--line-height: var(--h1--line-height);
 	--title--letter-spacing: var(--h1--letter-spacing);
 	--title--text-transform: var(--h1--text-transform);
+	--title--text-color: var(--heading-color);
+	--title--text-color--focus: var(--heading-color--focus);
 
 	// Small title typography (by default use H3 styles)
 	--small-title--font-family: var(--h3--font-family);
@@ -96,71 +85,33 @@
 	--small-title--line-height: var(--h3--line-height);
 	--small-title--letter-spacing: var(--h3--letter-spacing);
 	--small-title--text-transform: var(--h3--text-transform);
+	--small-title--text-color: var(--heading-color);
+	--small-title--text-color--focus: var(--heading-color--focus);
 
 	// Meta typography
-	--meta--font-family: inherit;
 	--meta--font-size: 0.9rem;
-	--meta--font-style: normal;
-	--meta--font-weight: normal;
 	--meta--line-height: 1.6;
-	--meta--letter-spacing: 0;
-	--meta--text-transform: none;
+	--meta--text-color: var(--meta-color);
 
 	// Form inputs
 	--input--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
 	--input--border-radius: 0.1875rem;
 	--input--border-width: 1px;
-	--input--border-color: var(--color--base-3);
-	--input--background-color: var(--color--base);
-	--input--text-color: var(--color--contrast-2);
-	--input--border-color--focus: var(--color--contrast-2);
-	--input--background-color--focus: revert;
-	--input--text-color--focus: revert;
-	--input--font-family: revert;
-	--input--font-size: revert;
-	--input--font-style: revert;
-	--input--font-weight: revert;
-	--input--letter-spacing: revert;
-	--input--text-transform: revert;
+	--input--border-color: var(--color-palette-6);
+	--input--background-color: var(--color-palette-8);
+	--input--text-color: var(--color-palette-2);
+	--input--border-color--focus: var(--color-palette-2);
 
 	// Button
-	--button--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
+	--button--padding: 0.625rem 1rem 0.625rem 1rem;
 	--button--border-radius: 0.1875rem;
 	--button--border-width: 1px;
-	--button--border-color: var(--color--primary);
-	--button--background-color: var(--color--primary);
-	--button--text-color: var(--color--base);
-	--button--border-color--focus: var(--color--contrast);
-	--button--background-color--focus: var(--color--contrast);
-	--button--text-color--focus: var(--color--base);
-	--button--font-family: revert;
-	--button--font-size: revert;
-	--button--font-style: revert;
-	--button--font-weight: revert;
-	--button--letter-spacing: revert;
-	--button--text-transform: revert;
-
-	/**
-	 * Assign scope variables
-	 */
-
-	// Scope colors
-	--text-color: var(--color--contrast); // needs to be redeclared on every section / area
-	--border-color: var(--color--base-3); // needs to be redeclared on every section / area
-	--background-color: var(--color--base); // needs to be redeclared on every section / area
-	--subtle-background-color: var(--color--base-2, var(--background-color));
-	--heading-color: var(--text-color);
-	--link-color: var(--color--primary);
-	--link-color--focus: var(--color--contrast);
-
-	// Scope typography
-	--font-family: var(--base--font-family);
-	--font-size: var(--base--font-size);
-	--font-style: var(--base--font-style);
-	--font-weight: var(--base--font-weight);
-	--line-height: var(--base--line-height);
-	--letter-spacing: var(--base--letter-spacing);
-	--text-transform: var(--base--text-transform);
+	--button--border-color: var(--color-palette-4);
+	--button--background-color: var(--color-palette-4);
+	--button--text-color: var(--color-palette-8);
+	--button--border-color--focus: var(--color-palette-5);
+	--button--background-color--focus: var(--color-palette-5);
+	--button--text-color--focus: var(--color-palette-8);
 
 	/**
 	 * Other variables

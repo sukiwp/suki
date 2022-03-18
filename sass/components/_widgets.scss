@@ -2,12 +2,6 @@
  * Widgets
  */
 
-.widget-area {
-	display: grid;
-	align-content: start;
-	gap: calc( 1.5 * var(--wp--style--block-gap) );
-}
-
 .widget {
 	> * {
 		@include remove-margin-top-for-first-child();

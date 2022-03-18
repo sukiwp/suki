@@ -69,11 +69,8 @@
 	}
 }
 
-// Meta text
-%meta {
-	--text-color: var(--color--contrast-3);
-	color: var(--text-color);
-
+// Meta
+%meta-typography {
 	font-family: var(--meta--font-family);
 	font-size: var(--meta--font-size);
 	font-style: var(--meta--font-style);
@@ -82,9 +79,24 @@
 	letter-spacing: var(--meta--letter-spacing);
 	text-transform: var(--meta--text-transform);
 }
+%meta-color {
+	color: var(--meta--text-color);
+
+	a {
+		color: inherit;
+	
+		&:focus, &:hover {
+			color: var(--meta--text-color--focus);
+		}
+	}
+}
+%meta {
+	@extend %meta-typography;
+	@extend %meta-color;
+}
 
 // Title text
-%title {
+%title-typography {
 	font-family: var(--title--font-family);
 	font-size: var(--title--font-size);
 	font-style: var(--title--font-style);
@@ -93,9 +105,24 @@
 	letter-spacing: var(--title--letter-spacing);
 	text-transform: var(--title--text-transform);
 }
+%title-color {
+	color: var(--title--text-color);
+
+	a {
+		color: inherit;
+	
+		&:focus, &:hover {
+			color: var(--title--text-color--focus);
+		}
+	}
+}
+%title {
+	@extend %meta-typography;
+	@extend %meta-color;
+}
 
 // Small title text
-%small-title {
+%small-title-typography {
 	font-family: var(--small-title--font-family);
 	font-size: var(--small-title--font-size);
 	font-style: var(--small-title--font-style);
@@ -103,6 +130,21 @@
 	line-height: var(--small-title--line-height);
 	letter-spacing: var(--small-title--letter-spacing);
 	text-transform: var(--small-title--text-transform);
+}
+%small-title-color {
+	color: var(--small-title--text-color);
+
+	a {
+		color: inherit;
+	
+		&:focus, &:hover {
+			color: var(--small-title--text-color--focus);
+		}
+	}
+}
+%small-title {
+	@extend %small-title-typography;
+	@extend %small-title-color;
 }
 
 // Block container

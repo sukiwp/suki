@@ -3,7 +3,7 @@
  */
 
 .suki-content {
-	padding: 4rem var(--wp--style--block-gap); // CUSTOMIZER
+	padding: 80px 20px; // CUSTOMIZER
 	flex-grow: 1; // Make content section fill the blank vertical space to fill 100% screen height page.
 }
 
@@ -17,17 +17,15 @@
 }
 
 .suki-content-row {
-	--sidebar-width: 25%; // CUSTOMIZER
-	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) ); // CUSTOMIZER
-
 	display: flex;
 	flex-direction: column;
-	gap: var(--sidebar-gap);
+	gap: calc( 2 * var(--wp--style--block-gap) ); // CUSTOMIZER
 	
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
+		align-items: flex-start;
 
 		.suki-content-layout-left-sidebar & {
 			flex-direction: row-reverse;
@@ -42,10 +40,14 @@
 }
 
 .sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: var(--sidebar-width);
+		flex-basis: 25%; // CUSTOMIZER
 	}
 }
 
@@ -82,8 +84,7 @@
  * Error 404
  */
 
-body.error404 .site-main {
-	display: grid;
-	place-content: center;
-	min-height: 50vh;
+.error404 .site-content {
+	display: flex;
+	align-items: center;
 }

@@ -10,11 +10,11 @@
 	flex-direction: column;
 	width: min( 100%, var(--canvas-size) );
 	min-height: inherit; // full screen height page
-	background-color: var(--color--base); // CUSTOMIZER: page_bg_color
+	background-color: var(--color-palette-8); // CUSTOMIZER:
 }
 
 .suki-page-layout-boxed {
-	background-color: var(--color--base-3); // CUSTOMIZER: outside_bg_color
+	background-color: var(--color-palette-6); // CUSTOMIZER: outside_bg_color
 	background-position: center center; // CUSTOMIZER: outside_bg_position
 	background-size: cover; // CUSTOMIZER: outside_bg_size
 	background-repeat: no-repeat; // CUSTOMIZER: outside_bg_repeat

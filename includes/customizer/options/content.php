@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content & Sidebar > Content Section
+ * Customizer settings: Content > Content Section
  *
  * @package Suki
  **/
@@ -68,6 +68,43 @@ $wp_customize->add_control(
 	)
 );
 
+// Sidebar.
+$key = 'content_layout';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+	)
+);
+
+$wp_customize->add_control(
+	new Suki_Customize_Control_RadioImage(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Sidebar', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
+			'choices'  => array(
+				'wide'          => array(
+					'label' => esc_html__( 'None', 'suki' ),
+					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+				),
+				'right-sidebar' => array(
+					'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+				),
+				'left-sidebar'  => array(
+					'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+				),
+			),
+			'columns'  => 3,
+			'priority' => 10,
+		)
+	)
+);
+
 // ------
 $wp_customize->add_control(
 	new Suki_Customize_Control_HR(
@@ -107,15 +144,19 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'px' => array(
-					'min'  => 0,
-					'step' => 1,
-				),
-				'em' => array(
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),
-				'%'  => array(
+				'px'  => array(
+					'min'  => 0,
+					'step' => 1,
+				),
+				'em'  => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'rem' => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),

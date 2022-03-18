@@ -76,7 +76,7 @@ class Suki_Page_Settings_Meta_Box {
 		return apply_filters(
 			'suki/admin/metabox/page_settings/tabs',
 			array(
-				'content'          => esc_html__( 'Content & Sidebar', 'suki' ),
+				'content'          => esc_html__( 'Content', 'suki' ),
 				'hero'             => esc_html__( 'Content Header', 'suki' ),
 				'header'           => esc_html__( 'Header', 'suki' ),
 				'footer'           => esc_html__( 'Footer', 'suki' ),
@@ -120,7 +120,7 @@ class Suki_Page_Settings_Meta_Box {
 	public function get_structures() {
 		$structures = array(
 			'content' => array(
-				'title'  => esc_html__( 'Content & Sidebar', 'suki' ),
+				'title'  => esc_html__( 'Content', 'suki' ),
 				'fields' => array(
 					'content_container' => array(
 						'type'    => 'select',
@@ -671,7 +671,7 @@ class Suki_Page_Settings_Meta_Box {
 	}
 
 	/**
-	 * Render page settings meta box fields for Content & Sidebar layout.
+	 * Render page settings meta box fields for Content layout.
 	 *
 	 * @param WP_Post|WP_Term $obj Post or term object.
 	 */
