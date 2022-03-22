@@ -55,12 +55,20 @@ class Suki_Google_Fonts extends Suki_Module {
 		// Enqueue Google Fonts on frontend.
 		add_action( 'suki/frontend/before_enqueue_main_css', array( $this, 'enqueue_css' ) );
 
-		// Load Google Fonts locally.
 		if ( boolval( suki_get_theme_mod( 'google_fonts_local' ) ) ) {
-			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-google-fonts-local.php';
+			/**
+			 * Google Fonts local mode.
+			 */
 
 			// Change Google Fonts URL to local self-hosted URL.
-			add_filter( 'suki/frontend/google_fonts_url', array( $this, 'use_local_google_fonts_url' ), 999 );
+			add_filter( 'suki/frontend/google_fonts_url', array( $this, 'use_local_url' ), 999, 2 );
+		} else {
+			/**
+			 * Google Fonts API URL.
+			 */
+
+			// Add preconnect for faster performance.
+			add_filter( 'wp_resource_hints', array( $this, 'add_preconnect' ), 10, 2 );
 		}
 	}
 
@@ -141,10 +149,31 @@ class Suki_Google_Fonts extends Suki_Module {
 	 * @param array  $fonts Font families array.
 	 * @return string
 	 */
-	public function use_local_google_fonts_url( $url, $fonts ) {
-		$local = new Suki_Google_Fonts_Local( $url );
+	public function use_local_url( $url, $fonts ) {
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-wptt-webfont-loader.php';
 
-		return $local->get_url();
+		return wptt_get_webfont_url( $url );
+	}
+
+	/**
+	 * Add resource hints to our Google fonts call.
+	 *
+	 * @param array  $urls           URLs to print for resource hints.
+	 * @param string $relation_type  The relation type the URLs are printed.
+	 * @return array $urls           URLs to print for resource hints.
+	 */
+	public function add_preconnect( $urls, $relation_type ) {
+		if ( wp_style_is( 'suki-google-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+			$urls[] = array(
+				'href' => 'https://fonts.googleapis.com',
+			);
+			$urls[] = array(
+				'href' => 'https://fonts.gstatic.com',
+				'crossorigin',
+			);
+		}
+
+		return $urls;
 	}
 
 	/**
@@ -177,38 +206,6 @@ class Suki_Google_Fonts extends Suki_Module {
 	}
 
 	/**
-	 * Return array of Google Fonts subsets.
-	 *
-	 * @return array
-	 */
-	public function get_subsets() {
-		return array(
-			// 'latin' always chosen by default
-			'latin-ext'    => 'Latin Extended',
-			'arabic'       => 'Arabic',
-			'bengali'      => 'Bengali',
-			'cyrillic'     => 'Cyrillic',
-			'cyrillic-ext' => 'Cyrillic Extended',
-			'devaganari'   => 'Devaganari',
-			'greek'        => 'Greek',
-			'greek-ext'    => 'Greek Extended',
-			'gujarati'     => 'Gujarati',
-			'gurmukhi'     => 'Gurmukhi',
-			'hebrew'       => 'Hebrew',
-			'kannada'      => 'Kannada',
-			'khmer'        => 'Khmer',
-			'malayalam'    => 'Malayalam',
-			'myanmar'      => 'Myanmar',
-			'oriya'        => 'Oriya',
-			'sinhala'      => 'Sinhala',
-			'tamil'        => 'Tamil',
-			'telugu'       => 'Telugu',
-			'thai'         => 'Thai',
-			'vietnamese'   => 'Vietnamese',
-		);
-	}
-
-	/**
 	 * Build Google Fonts embed URL from specified fonts
 	 *
 	 * @param array $google_fonts Array of Google Fonts families.
@@ -220,22 +217,19 @@ class Suki_Google_Fonts extends Suki_Module {
 		}
 
 		// Basic embed link.
-		$link = ( is_ssl() ? 'https:' : 'http:' ) . '//fonts.googleapis.com/css';
-		$args = array();
+		$url = ( is_ssl() ? 'https:' : 'http:' ) . '//fonts.googleapis.com/css2?';
 
 		// Add font families.
-		$families = array();
 		foreach ( $google_fonts as $name ) {
 			// Add font family and all variants.
-			$families[] = str_replace( ' ', '+', $name ) . ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i';
+			$url .= 'family=' . str_replace( ' ', '+', $name ) . ':ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900';
+			$url .= '&';
 		}
-		$args['family'] = implode( '|', $families );
 
-		// Add font subsets.
-		$subsets        = array_merge( array( 'latin' ), suki_get_theme_mod( 'google_fonts_subsets', array() ) );
-		$args['subset'] = implode( ',', $subsets );
+		// Add display fallback.
+		$url .= 'display=swap';
 
-		return esc_attr( add_query_arg( $args, $link ) );
+		return esc_url( $url );
 	}
 }
 
