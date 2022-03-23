@@ -1,5 +1,9 @@
 v2.0.0
 - MAJOR UPDATE: If you have developed Child Theme or plugin to extend older version of Suki, please read this documentation: ... and review your codes.
+- NEW: Google Fonts - Local Google Fonts mode.
+- TWEAK: Rebuild all CSS structures.
+- DEPRECATE: Font smoothing mode.
+- DEPRECATE: Google Fonts - Option to choose font subsets.
 
 v1.3.6
 - NEW: Template hooks - Before Hero (suki/frontend/before_hero).

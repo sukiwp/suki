@@ -49,9 +49,10 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Load Google Fonts locally', 'suki' ),
-			'priority' => 10,
+			'section'     => $section,
+			'label'       => esc_html__( 'Load Google Fonts locally', 'suki' ),
+			'description' => esc_html__( 'Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally.', 'suki' ),
+			'priority'    => 10,
 		)
 	)
 );
