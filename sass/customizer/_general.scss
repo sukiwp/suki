@@ -13,14 +13,6 @@
 	.notice {
 		margin: 0;
 	}
-
-	&-title {
-		margin-bottom: 0; // Move margin to .customize-control-content.
-	}
-
-	&-content {
-		margin-top: 4px;
-	}
 }
 
 .description .dashicons {
@@ -63,6 +55,7 @@
 }
 
 .suki-flex-fieldset {
+	position: relative;
 	display: flex;
 	gap: 5px;
 

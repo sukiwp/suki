@@ -162,6 +162,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php';
 
 		// Global Styles.
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--size-spacing.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--base.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--headings.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--blockquote.php';

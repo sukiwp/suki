@@ -267,7 +267,7 @@ body {
 	/**
 	 * Other variables
 	 */
-	--element-gap: 1.25rem;
+	--block-spacing: 1.25rem;
 	--content-size: 720px;
 	--wide-size: 1140px;
 	--transition-duration: 0.25s;

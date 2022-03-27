@@ -124,7 +124,7 @@
 	},
 	"styles": {
 		"spacing": {
-			"blockGap": "var(--element-gap)"
+			"blockGap": "var(--block-spacing)"
 		}
 	},
 	"customTemplates": [],

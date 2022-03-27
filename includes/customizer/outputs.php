@@ -30,6 +30,36 @@ for ( $i = 1; $i <= 8; $i++ ) {
 
 /**
  * ====================================================
+ * Global Styles > Content Size & Spacing
+ * ====================================================
+ */
+
+$add['container_wide_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'body',
+		'property' => '--wide-size',
+	),
+);
+
+$add['container_narrow_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'body',
+		'property' => '--content-size',
+	),
+);
+
+$add['block_spacing'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'body',
+		'property' => '--block-spacing',
+	),
+);
+
+/**
+ * ====================================================
  * Global Styles > Base Typography
  * ====================================================
  */

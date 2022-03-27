@@ -79,12 +79,22 @@ $wp_customize->add_section(
 );
 
 // Global Styles.
-$panel = 'suki_panel_global_elements';
+$panel = 'suki_panel_global_styles';
 $wp_customize->add_panel(
 	$panel,
 	array(
 		'title'    => esc_html__( 'Global Styles', 'suki' ),
 		'priority' => 122,
+	)
+);
+
+// Global Styles > Content Size & Spacing.
+$wp_customize->add_section(
+	'suki_section_global_size_spacing',
+	array(
+		'title'    => esc_html__( 'Content Size & Spacing', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
 	)
 );
 

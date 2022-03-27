@@ -186,7 +186,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 								<div>
 									<label class="suki-small-label">{{ labels[ setting_type ] }}</label>
 									<div class="suki-dimension">
-										<input class="suki-dimension-number" type="number" value="{{ data.settingsData[ setting_key ].number }}" min="" max="" step="">
+										<input class="suki-dimension-number" type="number" value="{{ data.settingsData[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
 										<select class="suki-dimension-unit">
 											<# _.each( units[ setting_type ], function( unit_data, unit ) { #>
 												<option value="{{ unit }}" {{ unit == data.settingsData[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>

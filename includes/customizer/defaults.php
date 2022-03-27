@@ -29,6 +29,17 @@ $add['color_palette_8'] = '#ffffff';
 
 /**
  * ====================================================
+ * Global Styles > Content Size & Spacing
+ * ====================================================
+ */
+
+$add['container_wide_width']   = '1140px';
+$add['container_narrow_width'] = '720px';
+
+$add['block_spacing'] = '1.5rem';
+
+/**
+ * ====================================================
  * Global Styles > Base Typography
  * ====================================================
  */

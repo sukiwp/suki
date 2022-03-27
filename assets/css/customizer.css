@@ -18,12 +18,6 @@
 .customize-control .notice {
 	margin: 0;
 }
-.customize-control-title {
-	margin-bottom: 0;
-}
-.customize-control-content {
-	margin-top: 4px;
-}
 
 .description .dashicons {
 	width: auto;
@@ -62,6 +56,7 @@
 }
 
 .suki-flex-fieldset {
+	position: relative;
 	display: flex;
 	gap: 5px;
 }
@@ -252,7 +247,45 @@
 }
 
 /**
- * Suki Pro section
+ * Suki Pro upsell section
+ */
+.suki-pro-teaser {
+	margin-top: 15px;
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+	background-color: #fff8e5;
+}
+.customize-control-suki-pro-teaser > .suki-pro-teaser {
+	margin-left: -12px;
+	margin-right: -12px;
+}
+.suki-pro-teaser ul {
+	margin: 0;
+	padding: 0 10px 11px 18px;
+}
+.suki-pro-teaser ul li {
+	margin: 0.25em 0;
+}
+.suki-pro-teaser .accordion-section-title {
+	display: block;
+	padding: 10px 10px 11px 14px !important;
+	background-color: transparent !important;
+	border-top: none !important;
+	border-bottom: none !important;
+	border-color: transparent !important;
+	text-decoration: none;
+	color: inherit !important;
+}
+.suki-pro-teaser .accordion-section-title:hover, .suki-pro-teaser .accordion-section-title:focus {
+	color: var(--admin-primary-color) !important;
+}
+.suki-pro-teaser .accordion-section-title h3 {
+	margin: 0;
+	color: inherit !important;
+}
+
+/**
+ * Suki Pro link section
  */
 .control-section-suki-section-pro-link {
 	margin-top: 15px;
@@ -347,17 +380,10 @@
 /**
  * Dimension Control
  */
-.customize-control-suki-dimension .customize-control-title {
-	display: block;
-	min-height: 30px;
-	padding-right: 90px;
-}
 .customize-control-suki-dimension .customize-control-content {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 80px;
-	margin-top: 0;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5px;
 }
 
 /**
@@ -910,56 +936,6 @@ li:not(.customize-info) div.customize-section-description {
 
 .customize-control .attachment-media-view .thumbnail-image img, .customize-control-header img {
 	width: 100%;
-}
-
-.suki-row {
-	display: flex;
-	align-items: flex-start;
-}
-
-.suki-row-item {
-	flex: 1 0 0;
-	vertical-align: middle;
-}
-
-.suki-input-with-unit {
-	border-top-right-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
-}
-
-.suki-pro-teaser {
-	margin-top: 15px;
-	border-top: 1px solid #ddd !important;
-	border-bottom: 1px solid #ddd !important;
-	background-color: #fff8e5;
-}
-.customize-control-suki-pro-teaser > .suki-pro-teaser {
-	margin-left: -12px;
-	margin-right: -12px;
-}
-.suki-pro-teaser ul {
-	margin: 0;
-	padding: 0 10px 11px 18px;
-}
-.suki-pro-teaser ul li {
-	margin: 0.25em 0;
-}
-.suki-pro-teaser .accordion-section-title {
-	display: block;
-	padding: 10px 10px 11px 14px !important;
-	background-color: transparent !important;
-	border-top: none !important;
-	border-bottom: none !important;
-	border-color: transparent !important;
-	text-decoration: none;
-	color: inherit !important;
-}
-.suki-pro-teaser .accordion-section-title:hover, .suki-pro-teaser .accordion-section-title:focus {
-	color: var(--admin-primary-color) !important;
-}
-.suki-pro-teaser .accordion-section-title h3 {
-	margin: 0;
-	color: inherit !important;
 }
 
 .suki-has-builder-active .preview-desktop #customize-preview, .suki-has-builder-active .preview-tablet #customize-preview {

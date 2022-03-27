@@ -106,9 +106,9 @@ class Suki {
 		require_once SUKI_INCLUDES_DIR . '/modules/class-suki-module.php';
 
 		$active_modules = array(
-			// 'breadcrumb',
-			// 'google-fonts',
-			// 'page-settings',
+			'breadcrumb',
+			'google-fonts',
+			'page-settings',
 		);
 		foreach ( $active_modules as $active_module ) {
 			require_once SUKI_INCLUDES_DIR . '/modules/' . $active_module . '/class-suki-' . $active_module . '.php';

@@ -34,7 +34,53 @@
 }
 
 /**
- * Suki Pro section
+ * Suki Pro upsell section
+ */
+
+.suki-pro-teaser {
+	margin-top: 15px;
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+	background-color: #fff8e5;
+
+	.customize-control-suki-pro-teaser > & {
+		margin-left: -12px;
+		margin-right: -12px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0 10px 11px 18px;
+
+		li {
+			margin: 0.25em 0;
+		}
+	}
+
+	.accordion-section-title {
+		display: block;
+		padding: 10px 10px 11px 14px !important;
+		background-color: transparent !important;
+		// color: inherit !important;
+		border-top: none !important;
+		border-bottom: none !important;
+		border-color: transparent !important;
+		text-decoration: none;
+		color: inherit !important;
+
+		&:hover, &:focus {
+			color: var(--admin-primary-color) !important;
+		}
+
+		h3 {
+			margin: 0;
+			color: inherit !important;
+		}
+	}
+}
+
+/**
+ * Suki Pro link section
  */
 
 .control-section-suki-section-pro-link {
@@ -152,18 +198,10 @@
  */
 
 .customize-control-suki-dimension {
-	.customize-control-title {
-		display: block;
-		min-height: 30px;
-		padding-right: 90px;
-	}
-	
 	.customize-control-content {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 80px;
-		margin-top: 0; // Reset
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 5px;
 	}
 }
 
