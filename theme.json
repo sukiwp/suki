@@ -1,39 +1,48 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"settings": {
 		"appearanceTools": true,
 		"color": {
 			"palette": [
 				{
-					"slug": "base",
-					"color": "var(--color-palette-8)",
-					"name": "Base"
-				},
-				{
-					"slug": "base-2",
-					"color": "var(--color-palette-7)",
-					"name": "Base 2"
-				},
-				{
-					"slug": "base-3",
-					"color": "var(--color-palette-6)",
-					"name": "Base 3"
-				},
-				{
-					"slug": "contrast",
+					"slug": "suki-color-1",
 					"color": "var(--color-palette-1)",
-					"name": "Contrast"
+					"name": "Theme Color 1"
 				},
 				{
-					"slug": "contrast-2",
+					"slug": "suki-color-2",
 					"color": "var(--color-palette-2)",
-					"name": "Contrast 2"
+					"name": "Theme Color 2"
 				},
 				{
-					"slug": "primary",
+					"slug": "suki-color-3",
+					"color": "var(--color-palette-3)",
+					"name": "Theme Color 3"
+				},
+				{
+					"slug": "suki-color-4",
 					"color": "var(--color-palette-4)",
-					"name": "Primary"
+					"name": "Theme Color 4"
+				},
+				{
+					"slug": "suki-color-5",
+					"color": "var(--color-palette-5)",
+					"name": "Theme Color 5"
+				},
+				{
+					"slug": "suki-color-6",
+					"color": "var(--color-palette-6)",
+					"name": "Theme Color 6"
+				},
+				{
+					"slug": "suki-color-7",
+					"color": "var(--color-palette-7)",
+					"name": "Theme Color 7"
+				},
+				{
+					"slug": "suki-color-8",
+					"color": "var(--color-palette-8)",
+					"name": "Theme Color 8"
 				}
 			],
 			"custom": true,
@@ -49,32 +58,32 @@
 				{
 					"name": "Small",
 					"slug": "small",
-					"size": "var(--meta--font-size)"
+					"size": "0.9rem"
 				},
 				{
 					"name": "Normal",
 					"slug": "normal",
-					"size": "var(--base--font-size)"
+					"size": "1rem"
 				},
 				{
 					"name": "Medium",
 					"slug": "medium",
-					"size": "var(--h4--font-size)"
+					"size": "1.25rem"
 				},
 				{
 					"name": "Large",
 					"slug": "large",
-					"size": "var(--h3--font-size)"
+					"size": "1.5rem"
 				},
 				{
 					"name": "Extra Large",
 					"slug": "extra-large",
-					"size": "var(--h2--font-size)"
+					"size": "1.8rem"
 				},
 				{
 					"name": "Huge",
 					"slug": "huge",
-					"size": "var(--h1--font-size);"
+					"size": "2.4rem"
 				}
 			],
 			"fontStyle": true,
@@ -94,7 +103,7 @@
 			"blockGap": true,
 			"padding": true,
 			"margin": true,
-			"units": [ "px", "em", "rem", "vh", "vw" ]
+			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
 		},
 		"border": {
 			"color": true,
@@ -104,12 +113,12 @@
 		},
 		"custom": {
 			"line-height": {
-				"small": "var(--meta--line-height)",
-				"normal": "var(--base--line-height)",
-				"medium": "var(--h4--line-height)",
-				"large": "var(--h3--line-height)",
-				"extra-large": "var(--h2--line-height)",
-				"huge": "var(--h1--line-height)"
+				"small": "1.7",
+				"normal": "1.7",
+				"medium": "1.6",
+				"large": "1.5",
+				"extra-large": "1.4",
+				"huge": "1.3"
 			}
 		}
 	},

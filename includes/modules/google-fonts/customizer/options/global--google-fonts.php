@@ -25,7 +25,7 @@ $wp_customize->add_section(
 	array(
 		'title'    => esc_html__( 'Google Fonts', 'suki' ),
 		'panel'    => $panel,
-		'priority' => 20,
+		'priority' => 15,
 	)
 );
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Typography & Colors > Blockquote
+ * Customizer settings: Global Styles > Blockquote
  *
  * @package Suki
  **/

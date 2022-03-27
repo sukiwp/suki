@@ -29,7 +29,7 @@ $add['color_palette_8'] = '#ffffff';
 
 /**
  * ====================================================
- * Typography & Colors > Base Typography & Colors
+ * Global Styles > Base Typography
  * ====================================================
  */
 
@@ -38,13 +38,11 @@ $add['body_font_size']   = '100%';
 $add['body_font_style']  = 'normal';
 $add['body_line_height'] = '1.7';
 
-$add['font_smoothing'] = 0;
-
 $add['body_text_color'] = 'var(--color-palette-2)';
 
 /**
  * ====================================================
- * Typography & Colors > Border & Subtle Background
+ * Global Styles > Border & Subtle Background
  * ====================================================
  */
 
@@ -53,7 +51,7 @@ $add['border_color'] = 'var(--color-palette-6)';
 
 /**
  * ====================================================
- * Typography & Colors > Link
+ * Global Styles > Link
  * ====================================================
  */
 
@@ -62,7 +60,7 @@ $add['link_hover_text_color'] = 'var(--color-palette-5)';
 
 /**
  * ====================================================
- * Typography & Colors > Headings
+ * Global Styles > Headings
  * ====================================================
  */
 
@@ -94,7 +92,7 @@ $add['heading_text_color'] = 'var(--color-palette-1)';
 
 /**
  * ====================================================
- * Typography & Colors > Blockquote
+ * Global Styles > Blockquote
  * ====================================================
  */
 
@@ -105,7 +103,7 @@ $add['blockquote_line_height'] = '1.6';
 
 /**
  * ====================================================
- * Typography & Colors > Form Input
+ * Global Styles > Form Input
  * ====================================================
  */
 
@@ -118,7 +116,7 @@ $add['input_focus_border_color'] = 'var(--color-palette-2)';
 
 /**
  * ====================================================
- * Typography & Colors > Button
+ * Global Styles > Button
  * ====================================================
  */
 
@@ -138,19 +136,19 @@ $add['button_hover_text_color']   = 'var(--color-palette-8)';
 
 /**
  * ====================================================
- * Typography & Colors > Title
+ * Global Styles > Title
  * ====================================================
  */
 
 /**
  * ====================================================
- * Typography & Colors > Small Title
+ * Global Styles > Small Title
  * ====================================================
  */
 
 /**
  * ====================================================
- * Typography & Colors > Meta Info
+ * Global Styles > Meta Info
  * ====================================================
  */
 
@@ -158,7 +156,7 @@ $add['meta_text_color'] = 'var(--color--palette-3)';
 
 /**
  * ====================================================
- * Page Canvas & Wrapper
+ * Page Canvas
  * ====================================================
  */
 
@@ -166,9 +164,6 @@ $add['page_layout'] = 'full-width';
 
 $add['boxed_page_width']  = '1400px';
 $add['boxed_page_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0.05)';
-
-$add['container_width']      = '1140px';
-$add['content_narrow_width'] = '720px';
 
 $add['page_bg_color'] = 'var(--color-palette-8)';
 

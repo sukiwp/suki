@@ -176,10 +176,6 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
-				'%'   => array(
-					'min'  => 10,
-					'step' => 0.01,
-				),
 				'px'  => array(
 					'min'  => 150,
 					'step' => 1,
@@ -190,6 +186,10 @@ $wp_customize->add_control(
 				),
 				'rem' => array(
 					'min'  => 0,
+					'step' => 0.01,
+				),
+				'%'   => array(
+					'min'  => 10,
 					'step' => 0.01,
 				),
 			),
@@ -216,10 +216,6 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'%'   => array(
-					'min'  => 0,
-					'step' => 0.01,
-				),
 				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
@@ -229,6 +225,10 @@ $wp_customize->add_control(
 					'step' => 0.01,
 				),
 				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),

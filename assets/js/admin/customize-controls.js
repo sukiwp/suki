@@ -60,6 +60,32 @@
 	});
 
 	/**
+	 * Dimension field handler
+	 * Field contains a pair of number and unit.
+	 */
+
+	$( '#customize-controls' ).on( 'change', '.suki-dimension-unit', function( e ) {
+		var $unit = $( e.target ),
+		    $unitChoice = $unit.find( 'option[value="' + $unit.val() + '"]' ),
+		    $scope = $( e.target ).closest( '.suki-dimension' ),
+		    $number = $scope.find( '.suki-dimension-number' );
+
+		$number.attr( 'min', $unitChoice.attr( 'data-min' ) );
+		$number.attr( 'max', $unitChoice.attr( 'data-max' ) );
+		$number.attr( 'step', $unitChoice.attr( 'data-step' ) );
+		$number.val( '' ).trigger( 'change' );
+	});
+
+	$( '#customize-controls' ).on( 'change', '.suki-dimension-number', function( e ) {
+		var $number = $( e.target ),
+		    $scope = $( e.target ).closest( '.suki-dimension' ),
+		    $unit = $scope.find( '.suki-dimension-unit' ),
+		    $value = $scope.find( '.suki-dimension-value' );
+
+		$value.val( '' === $number.val() ? '' : $number.val().toString() + $unit.val().toString() ).trigger( 'change' );
+	});
+
+	/**
 	 * Contentless sections like: suki-section-spacer, suki-section-pro-teaser, suki-section-pro-link
 	 */
 	wp.customize.sectionConstructor['suki-section-pro-teaser'] =
@@ -302,41 +328,6 @@
 	});
 
 	/**
-	 * Suki dimension control
-	 */
-	wp.customize.controlConstructor['suki-dimension'] = wp.customize.SukiControl.extend({
-		ready: function() {
-			var control = this;
-
-			// Shortcut so that we don't have to use _.bind every time we add a callback.
-			_.bindAll( control, 'onChangeUnit', 'onChangeNumber' );
-
-			control.container.on( 'change', '.suki-dimension-unit', control.onChangeUnit );
-			control.container.on( 'change blur', '.suki-dimension-input', control.onChangeNumber );
-		},
-
-		onChangeUnit: function( e ) {
-			var $unit = $( e.target ),
-			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
-			    $input = $scope.find( '.suki-dimension-input' );
-
-			$input.attr( 'min', this.params.units[ $unit.val() ].min );
-			$input.attr( 'max', this.params.units[ $unit.val() ].max );
-			$input.attr( 'step', this.params.units[ $unit.val() ].step );
-
-			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' );
-		},
-
-		onChangeNumber: function( e ) {
-			var $input = $( e.target ),
-			    $scope = $( e.target ).closest( '.suki-dimension-fieldset' ),
-			    $unit = $scope.find( '.suki-dimension-unit' );
-
-			this.settings[ $scope.attr( 'data-settingkey' ) ].set( '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString() );
-		},
-	});
-
-	/**
 	 * Suki slider control
 	 */
 	wp.customize.controlConstructor['suki-slider'] = wp.customize.SukiControl.extend({
@@ -344,57 +335,28 @@
 			var control = this;
 
 			// Shortcut so that we don't have to use _.bind every time we add a callback.
-			_.bindAll( control, 'onChangeUnit', 'onChangeNumber', 'onChangeSlider' );
+			// _.bindAll( control, 'onChangeNumber', 'onChangeSlider' );
 
-			control.container.on( 'change', '.suki-slider-unit', control.onChangeUnit );
-			control.container.on( 'change blur', '.suki-slider-input', control.onChangeNumber );
+			control.container.on( 'change', '.suki-slider-number', control.onChangeNumber );
 			control.container.on( 'input', '.suki-slider-range', control.onChangeSlider );
 		},
 
-		onChangeUnit: function( e ) {
-			var $unit = $( e.target ),
-			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
-			    $input = $scope.find( '.suki-slider-input' ),
-			    $range = $scope.find( '.suki-slider-range' ),
-			    $value = $scope.find( '.suki-slider-value' );
-
-			$input.attr( 'min', this.params.units[ $unit.val() ].min );
-			$input.attr( 'max', this.params.units[ $unit.val() ].max );
-			$input.attr( 'step', this.params.units[ $unit.val() ].step );
-
-			$range.attr( 'min', this.params.units[ $unit.val() ].min );
-			$range.attr( 'max', this.params.units[ $unit.val() ].max );
-			$range.attr( 'step', this.params.units[ $unit.val() ].step );
-
-			$value.val( '' ).trigger( 'change' );
-		},
-
-		onChangeNumber: function( e ) {
-			var $input = $( e.target ),
-			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
-			    $unit = $scope.find( '.suki-slider-unit' ),
-			    $range = $scope.find( '.suki-slider-range' ),
-			    $value = $scope.find( '.suki-slider-value' );
-
-			$range.val( $input.val() );
-			
-			var value = '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString();
-
-			$value.val( value ).trigger( 'change' );
+		onChangeNumber: function( e, changeFromRange = false ) {
+			if ( ! changeFromRange ) {
+				var $number = $( e.target ),
+					$scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+					$range = $scope.find( '.suki-slider-range' );
+	
+				$range.val( $number.val() );
+			}
 		},
 
 		onChangeSlider: function( e ) {
 			var $range = $( e.target ),
 			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
-			    $unit = $scope.find( '.suki-slider-unit' ),
-			    $input = $scope.find( '.suki-slider-input' ),
-			    $value = $scope.find( '.suki-slider-value' );
+			    $number = $scope.find( '.suki-slider-number' );
 
-			$input.val( $range.val() );
-			
-			var value = '' === $input.val() ? '' : $input.val().toString() + $unit.val().toString();
-
-			$value.val( value ).trigger( 'change' );
+			$number.val( $range.val() ).trigger( 'change', [ true ] );
 		},
 	});
 	
@@ -405,106 +367,26 @@
 		ready: function() {
 			var control = this;
 
-			control.container.find( '.suki-dimensions-fieldset' ).each(function( i, el ) {
-				var $el = $( el ),
-				    $unit = $el.find( '.suki-dimensions-unit' ),
-				    $link = $el.find( '.suki-dimensions-link' ),
-				    $unlink = $el.find( '.suki-dimensions-unlink' ),
-				    $inputs = $el.find( '.suki-dimensions-input' ),
-				    $value = $el.find( '.suki-dimensions-value' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			// _.bindAll( control, 'updateValue' );
 
-				$unit.on( 'change', function( e ) {
-					var $option = $unit.find( 'option[value="' + this.value + '"]' );
+			control.container.on( 'change', '.suki-dimension-value', control.updateValue );
+		},
 
-					$inputs.attr( 'min', $option.attr( 'data-min' ) );
-					$inputs.attr( 'max', $option.attr( 'data-max' ) );
-					$inputs.attr( 'step', $option.attr( 'data-step' ) );
+		updateValue: function( e ) {
+			var $scope = $( e.target ).closest( '.suki-dimensions-fieldset' ),
+			    $items = $scope.find( '.suki-dimension-value' ),
+			    values = [];
 
-					$inputs.val( '' ).trigger( 'change' );
-				});
-
-				$link.on( 'click', function( e ) {
-					e.preventDefault();
-					
-					$el.attr( 'data-linked', 'true' );
-					$inputs.val( $inputs.first().val() ).trigger( 'change' );
-					$inputs.first().focus();
-				});
-
-				$unlink.on( 'click', function( e ) {
-					e.preventDefault();
-					
-					$el.attr( 'data-linked', 'false' );
-					$inputs.first().focus();
-				});
-
-				$inputs.on( 'keyup mouseup', function( e ) {
-					if ( 'true' == $el.attr( 'data-linked' ) ) {
-						$inputs.not( this ).val( this.value ).trigger( 'change' );
-					}
-				});
-
-				$inputs.on( 'change blur', function( e ) {
-					var values = [],
-					    unit = $unit.val().toString(),
-					    isEmpty = true,
-					    value;
-
-					$inputs.each(function() {
-						if ( '' === this.value ) {
-							values.push( '0' + unit );
-						} else {
-							values.push( this.value.toString() + unit );
-							isEmpty = false;
-						}
-					});
-
-					if ( isEmpty ) {
-						value = '   ';
-					} else {
-						value = values.join( ' ' );
-					}
-
-					$value.val( value ).trigger( 'change' );
-				});
+			$items.each(function( i, item ) {
+				if ( '' === item.value ) {
+					values.push( '0' );
+				} else {
+					values.push( this.value.toString() );
+				}
 			});
-		}
-	});
-	
-	/**
-	 * Suki typography control
-	 */
-	 wp.customize.controlConstructor['suki-typography'] = wp.customize.SukiControl.extend({
-		ready: function() {
-			var control = this;
 
-			control.container.find( '.suki-typography-size' ).each(function( i, el ) {
-				var $el = $( el ),
-				    $unit = $el.find( '.suki-typography-size-unit' ),
-				    $input = $el.find( '.suki-typography-size-input' ),
-				    $value = $el.find( '.suki-typography-size-value' );
-
-				var setNumberAttrs = function( unit ) {
-					var $option = $unit.find( 'option[value="' + unit + '"]' );
-
-					$input.attr( 'min', $option.attr( 'data-min' ) );
-					$input.attr( 'max', $option.attr( 'data-max' ) );
-					$input.attr( 'step', $option.attr( 'data-step' ) );
-				};
-
-				$unit.on( 'change', function( e ) {
-					setNumberAttrs( this.value );
-					
-					$input.val( '' ).trigger( 'change' );
-				});
-				setNumberAttrs( $unit.val() );
-
-				$input.on( 'change blur', function( e ) {
-					var value = '' === this.value ? '' : this.value.toString() + $unit.val().toString();
-
-					$value.val( value ).trigger( 'change' );
-				});
-			});
+			$scope.find( '.suki-dimensions-value' ).val( values.join( ' ' ) ).trigger( 'change' );
 		},
 	});
 	
@@ -609,20 +491,6 @@
 			});
 		}
 	});
-	
-	/**
-	 * Suki radio image control
-	 */
-	wp.customize.controlConstructor['suki-radioimage'] = wp.customize.SukiControl.extend({
-		ready: function() {
-			var control = this,
-			    $inputs = control.container.find( '.suki-radioimage-input' );
-
-			$inputs.on( 'change', function( e ) {
-				control.setting.set( this.value );
-			});
-		}
-	});
 
 	/**
 	 * Suki sortable control
@@ -674,7 +542,7 @@
 			this.setting.set( value );
 		},
 	});
-	
+
 	/**
 	 * Suki builder control
 	 */
@@ -880,6 +748,9 @@
 			}
 		});
 
+		/**
+		 * Controls dependencies / contexts.
+		 */
 		if ( sukiCustomizerControlsData && sukiCustomizerControlsData.contexts ) {
 			_.each( sukiCustomizerControlsData.contexts, function( elementRules, elementID ) {
 				var elementType = 0 == elementID.indexOf( 'suki_section' ) ? 'section' : 'control';
@@ -1076,7 +947,9 @@
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );
 		
-		wp.customize.control( 'footer_elements' ).container.on( 'init', setCustomResponsiveElementsDisplay );
+		if ( wp.customize.control( 'footer_elements' ) ) {
+			wp.customize.control( 'footer_elements' ).container.on( 'init', setCustomResponsiveElementsDisplay );
+		}
 
 		/**
 		 * Init Header Elements Locations Grouping
@@ -1145,9 +1018,15 @@
 				if ( targetSection ) targetSection.focus();
 			});
 		};
-		wp.customize.control( 'header_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
-		wp.customize.control( 'header_mobile_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
-		wp.customize.control( 'footer_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
+		if ( wp.customize.control( 'header_elements' ) ) {
+			wp.customize.control( 'header_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
+		}
+		if ( wp.customize.control( 'header_mobile_elements' ) ) {
+			wp.customize.control( 'header_mobile_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
+		}
+		if ( wp.customize.control( 'footer_elements' ) ) {
+			wp.customize.control( 'footer_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
+		}
 
 	});
 })( wp, jQuery );

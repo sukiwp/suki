@@ -39,10 +39,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public $units = array( '' );
 
 		/**
-		 * Setup parameters for content rendering by Underscore JS template.
+		 * Constructor.
+		 *
+		 * @param WP_Customize_Manager $manager Customizer Manager object.
+		 * @param integer              $id      Control ID.
+		 * @param array                $args    Arguments array.
 		 */
-		public function to_json() {
-			parent::to_json();
+		public function __construct( $manager, $id, $args = array() ) {
+			parent::__construct( $manager, $id, $args );
 
 			// Make sure there is at least 1 unit type.
 			if ( empty( $this->units ) ) {
@@ -61,60 +65,75 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 					)
 				);
 			}
+		}
+
+		/**
+		 * Setup parameters for content rendering by Underscore JS template.
+		 */
+		public function to_json() {
+			parent::to_json();
+
+			/**
+			 * Add general variables.
+			 */
 
 			$this->json['name'] = $this->id;
 
 			$this->json['units'] = $this->units;
 
-			$this->json['inputs'] = array();
+			/**
+			 * Build settingsData and responsiveStructures.
+			 */
 
-			$this->json['structures'] = array();
+			$this->json['settingsData'] = array();
 
-			foreach ( $this->settings as $setting_key => $setting ) {
+			$this->json['responsiveStructures'] = array();
+
+			foreach ( $this->settings as $setting_key => $setting_obj ) {
+				// Get setting value.
 				$value = $this->value( $setting_key );
-				if ( false === $value ) {
-					$value = '   '; // 3 empty space for default value
+
+				// Build array to store each dimension value data.
+				$items = array();
+				foreach ( explode( ' ', $value ) as $value_item ) {
+					// Decompose each dimension value into number and unit.
+					$_number = '' === $value_item ? '' : floatval( $value_item );
+					$_unit   = str_replace( $_number, '', $value_item );
+
+					$items[] = array(
+						'raw'    => '' === $_number ? '' : $_number . $_unit,
+						'number' => $_number,
+						'unit'   => $_unit,
+					);
 				}
 
-				// Convert dimensions string into numbers and unit.
-				$numbers = array();
-				$units   = array_keys( $this->units );
-				$unit    = reset( $units );
-				$parts   = explode( ' ', $value );
-
-				foreach ( $parts as $part ) {
-					$_number = '' === $part ? '' : floatval( $part );
-					$_unit   = str_replace( $_number, '', $part );
-
-					$numbers[] = $_number;
-					if ( '' !== $_unit ) {
-						$unit = $_unit;
-					}
-				}
-
-				// Add to inputs array.
-				$this->json['inputs'][ $setting_key ] = array(
-					'__link'  => $this->get_link( $setting_key ),
-					'value'   => $value,
-					'numbers' => $numbers,
-					'unit'    => $unit,
+				// Build settingsData array.
+				$this->json['settingsData'][ $setting_key ] = array(
+					'link'  => $this->get_link( $setting_key ),
+					'value' => $value,
+					'items' => $items,
 				);
 
-				// Add to structures array.
+				// Build responsiveStructures array.
 				$device = 'desktop';
-				if ( false !== strpos( $setting->id, '__' ) ) {
-					$chunks = explode( '__', $setting->id );
+				if ( false !== strpos( $setting_obj->id, '__' ) ) {
+					$chunks = explode( '__', $setting_obj->id );
 
 					if ( in_array( $chunks[1], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
 						$device = $chunks[1];
 					}
 				}
-
-				$this->json['structures'][ $device ] = $setting_key;
+				$this->json['responsiveStructures'][ $device ] = $setting_key;
 			}
 
-			$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
+			// Whether this control has responsive settings or not.
+			$this->json['hasResponsive'] = 1 < count( $this->json['responsiveStructures'] ) ? true : false;
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -122,11 +141,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		protected function content_template() {
 			?>
 			<# if ( data.label ) { #>
-				<span class="customize-control-title {{ data.responsive ? 'suki-responsive-title' : '' }}">
+				<span class="customize-control-title {{ data.hasResponsive ? 'suki-responsive-title' : '' }}">
 					{{{ data.label }}}
-					<# if ( data.responsive ) { #>
+					<# if ( data.hasResponsive ) { #>
 						<span class="suki-responsive-switcher">
-							<# _.each( data.structures, function( setting_key, device ) { #>
+							<# _.each( data.responsiveStructures, function( setting_key, device ) { #>
 								<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
 							<# }); #>
 						</span>
@@ -137,27 +156,37 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="customize-control-content">
-				<# _.each( data.structures, function( setting_key, device ) { #>
-					<div class="suki-dimensions-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}" data-linked="false">
-						<label class="suki-row-item" style="flex: 0 0 30px;">
-							<button class="suki-dimensions-link button button-secondary dashicons dashicons-editor-unlink" tabindex="0"></button>
-							<button class="suki-dimensions-unlink button button-primary dashicons dashicons-admin-links" tabindex="0"></button>
-						</label>
+				<# _.each( data.responsiveStructures, function( setting_key, device ) { #>
+					<div class="suki-dimensions-fieldset suki-flex-fieldset {{ data.hasResponsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}" data-linked="false">
 						<# _.each( [ 'top', 'right', 'bottom', 'left' ], function( prop, i ) { #>
-							<label class="suki-row-item">
-								<input class="suki-dimensions-input" type="number" value="{{ data.inputs[ setting_key ].numbers[ i ] }}" min="{{ data.units[ data.inputs[ setting_key ].unit ].min }}" max="{{ data.units[ data.inputs[ setting_key ].unit ].max }}" step="{{ data.units[ data.inputs[ setting_key ].unit ].step }}">
+							<div>
+								<div class="suki-dimension">
+									<input
+										class="suki-dimension-number"
+										type="number"
+										value="{{ data.settingsData[ setting_key ].items[ i ].number }}"
+										min="{{ data.units[ data.settingsData[ setting_key ].items[ i ].unit ].min }}"
+										max="{{ data.units[ data.settingsData[ setting_key ].items[ i ].unit ].max }}"
+										step="{{ data.units[ data.settingsData[ setting_key ].items[ i ].unit ].step }}"
+									>
+									<select class="suki-dimension-unit">
+										<# _.each( data.units, function( unit_data, unit ) { #>
+											<option
+												value="{{ unit }}"
+												{{ unit == data.settingsData[ setting_key ].items[ i ].unit ? 'selected' : '' }}
+												data-min="{{ unit_data.min }}"
+												data-max="{{ unit_data.max }}"
+												data-step="{{ unit_data.step }}"
+											>{{{ unit_data.label }}}</option>
+										<# }); #>
+									</select>
+									<input type="hidden" class="suki-dimension-value" value="{{ data.settingsData[ setting_key ].items[ i ].raw }}">
+								</div>
 								<span class="suki-small-label">{{{ prop }}}</span>
-							</label>
+							</div>
 						<# }); #>
-						<label class="suki-row-item" style="flex: 0 0 30px;">
-							<select class="suki-dimensions-unit suki-unit">
-								<# _.each( data.units, function( unit_data, unit ) { #>
-									<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
-								<# }); #>
-							</select>
-						</label>
 
-						<input type="hidden" class="suki-dimensions-value" value="{{ data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
+						<input type="hidden" class="suki-dimensions-value" value="{{ data.settingsData[ setting_key ].value }}" {{{ data.settingsData[ setting_key ].link }}}>
 					</div>
 				<# }); #>
 			</div>

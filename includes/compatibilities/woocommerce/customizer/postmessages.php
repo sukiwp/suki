@@ -14,7 +14,7 @@ $add = array();
 
 /**
  * ====================================================
- * Typography & Colors > Border & Subtle Background
+ * Global Styles > Border & Subtle Background
  * ====================================================
  */
 
@@ -28,7 +28,7 @@ $add['subtle_color'] = array(
 
 /**
  * ====================================================
- * Typography & Colors > Link
+ * Global Styles > Link
  * ====================================================
  */
 
@@ -80,7 +80,7 @@ $add['link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Typography & Colors > Headings
+ * Global Styles > Headings
  * ====================================================
  */
 
@@ -135,7 +135,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Typography & Colors > Small Title
+ * Global Styles > Small Title
  * ====================================================
  */
 
@@ -180,7 +180,7 @@ $add['small_title_text_color'] = array(
 
 /**
  * ====================================================
- * Typography & Colors > Meta Info
+ * Global Styles > Meta Info
  * ====================================================
  */
 
@@ -242,7 +242,7 @@ $add['meta_link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Typography & Colors > Button
+ * Global Styles > Button
  * ====================================================
  */
 

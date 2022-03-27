@@ -1,5 +1,5 @@
 @charset "UTF-8";
-select, textarea, :where(input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input) {
+:is(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea) {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -20,13 +20,13 @@ select, textarea, :where(input:not([type]), input[type=""], input[type="date"], 
 	text-transform: var(--input--text-transform);
 	transition: all var(--transition-duration);
 }
-select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input) {
+:focus:is(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea) {
 	border-color: var(--input--border-color--focus, var(--input--border-color));
 	background-color: var(--input--background-color--focus, var(--input--background-color));
 	color: var(--input--text-color--focus);
 }
 
-.wp-block-file__button, .wp-block-button__link, button, input[type=button], input[type=reset], input[type=submit], .button {
+.wp-block-file__button, .wp-block-button__link, :is(button, input[type=button], input[type=reset], input[type=submit], .button) {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -52,14 +52,14 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	text-align: center;
 	transition: all var(--transition-duration);
 }
-.wp-block-file__button:hover, .wp-block-button__link:hover, button:hover, input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover, .button:hover, .wp-block-file__button:focus, .wp-block-button__link:focus, button:focus, input[type=button]:focus, input[type=reset]:focus, input[type=submit]:focus, .button:focus {
+.wp-block-file__button:hover, .wp-block-button__link:hover, :hover:is(button, input[type=button], input[type=reset], input[type=submit], .button), .wp-block-file__button:focus, .wp-block-button__link:focus, :focus:is(button, input[type=button], input[type=reset], input[type=submit], .button) {
 	border-color: var(--button--border-color--focus, var(--button--border-color));
 	background-color: var(--button--background-color--focus, var(--button--background-color));
 	color: var(--button--text-color--focus);
 	text-decoration: none;
 }
 
-.suki-title, .wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
+.wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
 	font-family: var(--meta--font-family);
 	font-size: var(--meta--font-size);
 	font-style: var(--meta--font-style);
@@ -69,14 +69,34 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	text-transform: var(--meta--text-transform);
 }
 
-.suki-title, .wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
+.wp-block-post-author__byline, .wp-block-rss__item-author, .wp-block-rss__item-publish-date, .wp-block-latest-comments__comment-date, .wp-block-latest-posts__post-date, .wp-block-latest-posts__post-author, .comment-reply-title small, .comment-respond .logged-in-as, .comment .reply, .comment-metadata, .suki-meta {
 	color: var(--meta--text-color);
 }
-.suki-title a, .wp-block-post-author__byline a, .wp-block-rss__item-author a, .wp-block-rss__item-publish-date a, .wp-block-latest-comments__comment-date a, .wp-block-latest-posts__post-date a, .wp-block-latest-posts__post-author a, .comment-reply-title small a, .comment-respond .logged-in-as a, .comment .reply a, .comment-metadata a, .suki-meta a {
+.wp-block-post-author__byline a, .wp-block-rss__item-author a, .wp-block-rss__item-publish-date a, .wp-block-latest-comments__comment-date a, .wp-block-latest-posts__post-date a, .wp-block-latest-posts__post-author a, .comment-reply-title small a, .comment-respond .logged-in-as a, .comment .reply a, .comment-metadata a, .suki-meta a {
 	color: inherit;
 }
-.suki-title a:focus, .wp-block-post-author__byline a:focus, .wp-block-rss__item-author a:focus, .wp-block-rss__item-publish-date a:focus, .wp-block-latest-comments__comment-date a:focus, .wp-block-latest-posts__post-date a:focus, .wp-block-latest-posts__post-author a:focus, .comment-reply-title small a:focus, .comment-respond .logged-in-as a:focus, .comment .reply a:focus, .comment-metadata a:focus, .suki-meta a:focus, .suki-title a:hover, .wp-block-post-author__byline a:hover, .wp-block-rss__item-author a:hover, .wp-block-rss__item-publish-date a:hover, .wp-block-latest-comments__comment-date a:hover, .wp-block-latest-posts__post-date a:hover, .wp-block-latest-posts__post-author a:hover, .comment-reply-title small a:hover, .comment-respond .logged-in-as a:hover, .comment .reply a:hover, .comment-metadata a:hover, .suki-meta a:hover {
+.wp-block-post-author__byline a:focus, .wp-block-rss__item-author a:focus, .wp-block-rss__item-publish-date a:focus, .wp-block-latest-comments__comment-date a:focus, .wp-block-latest-posts__post-date a:focus, .wp-block-latest-posts__post-author a:focus, .comment-reply-title small a:focus, .comment-respond .logged-in-as a:focus, .comment .reply a:focus, .comment-metadata a:focus, .suki-meta a:focus, .wp-block-post-author__byline a:hover, .wp-block-rss__item-author a:hover, .wp-block-rss__item-publish-date a:hover, .wp-block-latest-comments__comment-date a:hover, .wp-block-latest-posts__post-date a:hover, .wp-block-latest-posts__post-author a:hover, .comment-reply-title small a:hover, .comment-respond .logged-in-as a:hover, .comment .reply a:hover, .comment-metadata a:hover, .suki-meta a:hover {
 	color: var(--meta--text-color--focus);
+}
+
+.suki-title {
+	font-family: var(--title--font-family);
+	font-size: var(--title--font-size);
+	font-style: var(--title--font-style);
+	font-weight: var(--title--font-weight);
+	line-height: var(--title--line-height);
+	letter-spacing: var(--title--letter-spacing);
+	text-transform: var(--title--text-transform);
+}
+
+.suki-title {
+	color: var(--title--text-color);
+}
+.suki-title a {
+	color: inherit;
+}
+.suki-title a:focus, .suki-title a:hover {
+	color: var(--title--text-color--focus);
 }
 
 .suki-logo, .wp-block-post-author__name, .comment-reply-title, #comments, .suki-small-title {
@@ -159,7 +179,7 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	padding: 0.25em 0.5em;
 }
 
-:root {
+body {
 	/**
 	 * Color palette variables
 	 */
@@ -226,7 +246,7 @@ select:focus, textarea:focus, :focus:where(input:not([type]), input[type=""], in
 	--small-title--text-color: var(--heading-color);
 	--small-title--text-color--focus: var(--heading-color--focus);
 	--meta--font-size: 0.9rem;
-	--meta--line-height: 1.6;
+	--meta--line-height: 1.7;
 	--meta--text-color: var(--meta-color);
 	--input--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
 	--input--border-radius: 0.1875rem;

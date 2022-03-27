@@ -68,7 +68,6 @@ class Suki {
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 
 		// Register sidebars and widgets.
-		// add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Set theme info.
@@ -107,9 +106,9 @@ class Suki {
 		require_once SUKI_INCLUDES_DIR . '/modules/class-suki-module.php';
 
 		$active_modules = array(
-			'breadcrumb',
-			'google-fonts',
-			'page-settings',
+			// 'breadcrumb',
+			// 'google-fonts',
+			// 'page-settings',
 		);
 		foreach ( $active_modules as $active_module ) {
 			require_once SUKI_INCLUDES_DIR . '/modules/' . $active_module . '/class-suki-' . $active_module . '.php';
@@ -227,15 +226,6 @@ class Suki {
 
 		// Save to class $info property.
 		$this->info = apply_filters( 'suki/theme_info', $info );
-	}
-
-	/**
-	 * Register custom widgets.
-	 */
-	public function register_widgets() {
-		// Include custom widgets.
-		require_once SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-posts.php';
-		require_once SUKI_INCLUDES_DIR . '/widgets/class-suki-widget-social.php';
 	}
 
 	/**

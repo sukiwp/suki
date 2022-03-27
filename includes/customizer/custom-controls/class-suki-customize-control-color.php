@@ -42,6 +42,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function to_json() {
 			parent::to_json();
 
+			/**
+			 * Add general variables.
+			 */
+
 			$this->json['name'] = $this->id;
 
 			$this->json['default'] = $this->setting->default;
@@ -50,9 +54,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 			$this->json['alpha'] = $this->alpha;
 
-			$this->json['has_palette'] = $this->has_palette;
+			$this->json['hasPalette'] = $this->has_palette;
 
-			$this->json['__link'] = $this->get_link();
+			$this->json['link'] = $this->get_link();
 		}
 
 		/**
@@ -62,6 +66,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			wp_enqueue_script( 'alpha-color-picker' );
 			wp_enqueue_style( 'alpha-color-picker' );
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -82,7 +91,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="customize-control-content suki-colorpicker suki-colorpicker-{{ data.alpha ? 'with-alpha' : 'no-alpha' }}">
-				<input value="{{ data.value }}" type="text" maxlength="30" class="color-picker" data-palette="{{ data.has_palette ? '<?php echo esc_attr( $palette ); ?>' : 'false' }}" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="{{ data.default }}" data-show-opacity="{{ data.alpha }}" {{{ data.__link }}}>
+				<input value="{{ data.value }}" type="text" maxlength="30" class="color-picker" data-palette="{{ data.hasPalette ? '<?php echo esc_attr( $palette ); ?>' : 'false' }}" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="{{ data.default }}" data-show-opacity="{{ data.alpha }}" {{{ data.link }}}>
 			</div>
 			<?php
 		}

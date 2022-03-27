@@ -22,7 +22,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
 	$add[ 'color_palette_' . $i ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--color-palette-' . $i,
 		),
 	);
@@ -30,12 +30,12 @@ for ( $i = 1; $i <= 8; $i++ ) {
 
 /**
  * ====================================================
- * Typography & Colors > Base Typography & Colors
+ * Global Styles > Base Typography
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element  = ':root';
+	$element  = 'body';
 	$property = '--base--' . str_replace( '_', '-', $prop );
 
 	$add[ 'body_' . $prop ] = array(
@@ -76,7 +76,7 @@ $add['font_smoothing'] = array(
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--text-color',
 	),
 );
@@ -84,7 +84,7 @@ $add['body_text_color'] = array(
 $add['subtle_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--subtle-background-color',
 	),
 );
@@ -92,7 +92,7 @@ $add['subtle_color'] = array(
 $add['border_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--border-color',
 	),
 );
@@ -100,7 +100,7 @@ $add['border_color'] = array(
 $add['link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--link-color',
 	),
 );
@@ -108,20 +108,20 @@ $add['link_text_color'] = array(
 $add['link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--link-color--focus',
 	),
 );
 
 /**
  * ====================================================
- * Typography & Colors > Headings
+ * Global Styles > Headings
  * ====================================================
  */
 
 for ( $i = 1; $i <= 4; $i++ ) {
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element  = ':root';
+		$element  = 'body';
 		$property = '--h' . $i . '--' . str_replace( '_', '-', $prop );
 
 		$rules = array();
@@ -157,7 +157,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 $add['heading_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--heading-color',
 	),
 );
@@ -165,7 +165,7 @@ $add['heading_text_color'] = array(
 $add['heading_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--heading-color--focus',
 	),
 );
@@ -173,14 +173,14 @@ $add['heading_link_hover_text_color'] = array(
 $add['heading_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--heading-color--focus',
 	),
 );
 
 /**
  * ====================================================
- * Typography & Colors > Blockquote
+ * Global Styles > Blockquote
  * ====================================================
  */
 
@@ -217,14 +217,14 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 
 /**
  * ====================================================
- * Typography & Colors > Button
+ * Global Styles > Button
  * ====================================================
  */
 
 $add['button_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--button--padding',
 	),
 );
@@ -232,7 +232,7 @@ $add['button_padding'] = array(
 $add['button_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--button--border-width',
 	),
 );
@@ -240,7 +240,7 @@ $add['button_border'] = array(
 $add['button_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--button--border-radius',
 	),
 );
@@ -249,7 +249,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add[ 'button_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--button--' . str_replace( '_', '-', $prop ),
 		),
 	);
@@ -259,7 +259,7 @@ foreach ( array( 'background_color', 'border_color', 'text_color' ) as $prop ) {
 	$add[ 'button_' . $prop ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--button--' . str_replace( '_', '-', $prop ),
 		),
 	);
@@ -267,7 +267,7 @@ foreach ( array( 'background_color', 'border_color', 'text_color' ) as $prop ) {
 	$add[ 'button_hover_' . $prop ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--button--' . str_replace( '_', '-', $prop ) . '--focus',
 		),
 	);
@@ -275,14 +275,14 @@ foreach ( array( 'background_color', 'border_color', 'text_color' ) as $prop ) {
 
 /**
  * ====================================================
- * Typography & Colors > Form Input
+ * Global Styles > Form Input
  * ====================================================
  */
 
 $add['input_padding'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--input--padding',
 	),
 );
@@ -290,7 +290,7 @@ $add['input_padding'] = array(
 $add['input_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--input--border-width',
 	),
 );
@@ -298,7 +298,7 @@ $add['input_border'] = array(
 $add['input_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--input--border-radius',
 	),
 );
@@ -307,7 +307,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	$add[ 'input_' . $prop ] = array(
 		array(
 			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--input--' . str_replace( '_', '-', $prop ),
 		),
 	);
@@ -317,7 +317,7 @@ foreach ( array( 'background_color', 'border_color', 'text_color' ) as $prop ) {
 	$add[ 'input_' . $prop ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--input--' . str_replace( '_', '-', $prop ),
 		),
 	);
@@ -325,7 +325,7 @@ foreach ( array( 'background_color', 'border_color', 'text_color' ) as $prop ) {
 	$add[ 'input_hover_' . $prop ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => ':root',
+			'element'  => 'body',
 			'property' => '--input--' . str_replace( '_', '-', $prop ) . '--focus',
 		),
 	);
@@ -333,12 +333,12 @@ foreach ( array( 'background_color', 'border_color', 'text_color' ) as $prop ) {
 
 /**
  * ====================================================
- * Typography & Colors > Title
+ * Global Styles > Title
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element  = ':root';
+	$element  = 'body';
 	$property = '--title--' . str_replace( '_', '-', $prop );
 
 	$add[ 'title_' . $prop ] = array(
@@ -371,7 +371,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--title--text-color',
 	),
 );
@@ -379,19 +379,19 @@ $add['title_text_color'] = array(
 $add['title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--title--text-color--focus',
 	),
 );
 
 /**
  * ====================================================
- * Typography & Colors > Small Title
+ * Global Styles > Small Title
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element  = ':root';
+	$element  = 'body';
 	$property = '--small-title--' . str_replace( '_', '-', $prop );
 
 	$add[ 'small_title_' . $prop ] = array(
@@ -424,7 +424,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['small_title_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--small-title--text-color',
 	),
 );
@@ -432,7 +432,7 @@ $add['small_title_text_color'] = array(
 $add['small_title_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--small-title--text-color--focus',
 	),
 );
@@ -440,12 +440,12 @@ $add['small_title_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Typography & Colors > Meta Info
+ * Global Styles > Meta Info
  * ====================================================
  */
 
 foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-	$element  = ':root';
+	$element  = 'body';
 	$property = '--meta--' . str_replace( '_', '-', $prop );
 
 	$add[ 'meta_' . $prop ] = array(
@@ -478,7 +478,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['meta_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--meta--text-color',
 	),
 );
@@ -494,14 +494,14 @@ $add['meta_link_text_color'] = array(
 $add['meta_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--meta--text-color--focus',
 	),
 );
 
 /**
  * ====================================================
- * Page Canvas & Wrapper
+ * Page Canvas
  * ====================================================
  */
 
@@ -532,7 +532,7 @@ $add['boxed_page_shadow'] = array(
 $add['container_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--wide-size',
 	),
 );
@@ -540,7 +540,7 @@ $add['container_width'] = array(
 $add['content_narrow_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => ':root',
+		'element'  => 'body',
 		'property' => '--content-size',
 	),
 );

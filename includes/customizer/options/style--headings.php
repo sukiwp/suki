@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Typography & Colors > Headings
+ * Customizer settings: Global Styles > Headings
  *
  * @package Suki
  **/
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $section = 'suki_section_headings';
 
-for ( $i = 1; $i <= 4; $i++ ) {
+for ( $i = 1; $i <= 6; $i++ ) {
 	// Heading %s typography.
 	$settings = array(
 		'font_family'            => 'h' . $i . '_font_family',

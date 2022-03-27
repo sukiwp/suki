@@ -23,30 +23,24 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public $type = 'suki-background';
 
 		/**
-		 * Constructor.
-		 *
-		 * @param WP_Customize_Manager $manager Customizer Manager object.
-		 * @param integer              $id      Control ID.
-		 * @param array                $args    Arguments array.
-		 */
-		public function __construct( $manager, $id, $args = array() ) {
-			parent::__construct( $manager, $id, $args );
-
-		}
-
-		/**
 		 * Setup parameters for content rendering by Underscore JS template.
 		 */
 		public function to_json() {
 			parent::to_json();
 
+			/**
+			 * Add general variables.
+			 */
+
 			$this->json['name'] = $this->id;
 
-			$this->json['can_upload'] = current_user_can( 'upload_files' );
+			$this->json['isCurrentUserCanUpload'] = current_user_can( 'upload_files' );
 
-			$this->json['inputs'] = array();
+			/**
+			 * Build settingsData.
+			 */
 
-			$this->json['structures'] = array();
+			$this->json['settingsData'] = array();
 
 			foreach ( $this->settings as $setting_key => $setting ) {
 				// Extract setting type.
@@ -56,12 +50,13 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				}
 				$type = $matches[1];
 
+				// Get setting value.
 				$value = $this->value( $setting_key );
 
-				// Add to inputs array.
-				$this->json['inputs'][ $setting_key ] = array(
-					'__link' => $this->get_link( $setting_key ),
-					'value'  => $value,
+				// Add to settingsData array.
+				$this->json['settingsData'][ $setting_key ] = array(
+					'link'  => $this->get_link( $setting_key ),
+					'value' => $value,
 				);
 
 				// Prepare attachment info fo "image" field.
@@ -69,11 +64,16 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 					$attachment_id = attachment_url_to_postid( $value );
 
 					if ( $attachment_id ) {
-						$this->json['attachment'] = wp_prepare_attachment_for_js( $attachment_id );
+						$this->json['imageAttachment'] = wp_prepare_attachment_for_js( $attachment_id );
 					}
 				}
 			}
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -100,63 +100,61 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
-			<div class="customize-control-content">
-				<div class="suki-background-fieldset suki-row">
-					<div class="suki-row-item">
-						<# if ( data.attachment && data.attachment.id ) { #>
-							<div class="attachment-media-view attachment-media-view-{{ data.attachment.type }} {{ data.attachment.orientation }}">
-								<div class="thumbnail thumbnail-{{ data.attachment.type }}">
-									<# if ( 'image' === data.attachment.type && data.attachment.sizes && data.attachment.sizes.full ) { #>
-										<img class="attachment-thumb" src="{{ data.attachment.sizes.full.url }}" draggable="false" alt="" />
-									<# } else { #>
-										<img class="attachment-thumb type-icon icon" src="{{ data.attachment.icon }}" draggable="false" alt="" />
-										<p class="attachment-title">{{ data.attachment.title }}</p>
-									<# } #>
-								</div>
-								<div class="actions">
-									<# if ( data.can_upload ) { #>
-										<button type="button" class="button remove-button">{{ labels.button_remove }}</button>
-										<button type="button" class="button upload-button control-focus">{{ labels.button_change }}</button>
-									<# } #>
-								</div>
-							</div>
-						<# } else { #>
-							<div class="attachment-media-view">
-								<# if ( data.can_upload ) { #>
-									<button type="button" class="upload-button button-add-media">{{ labels.button_select }}</button>
+			<div class="customize-control-content suki-control-box">
+				<div>
+					<# if ( data.imageAttachment && data.imageAttachment.id ) { #>
+						<div class="attachment-media-view attachment-media-view-{{ data.imageAttachment.type }} {{ data.imageAttachment.orientation }}">
+							<div class="thumbnail thumbnail-{{ data.imageAttachment.type }}">
+								<# if ( 'image' === data.imageAttachment.type && data.imageAttachment.sizes && data.imageAttachment.sizes.full ) { #>
+									<img class="attachment-thumb" src="{{ data.imageAttachment.sizes.full.url }}" draggable="false" alt="" />
+								<# } else { #>
+									<img class="attachment-thumb type-icon icon" src="{{ data.imageAttachment.icon }}" draggable="false" alt="" />
+									<p class="attachment-title">{{ data.imageAttachment.title }}</p>
 								<# } #>
 							</div>
-						<# } #>
-						<input type="hidden" value="{{ data.inputs.image.value }}" {{{ data.inputs.image.__link }}}>
-					</div>
+							<div class="actions">
+								<# if ( data.isCurrentUserCanUpload ) { #>
+									<button type="button" class="button remove-button">{{ labels.button_remove }}</button>
+									<button type="button" class="button upload-button control-focus">{{ labels.button_change }}</button>
+								<# } #>
+							</div>
+						</div>
+					<# } else { #>
+						<div class="attachment-media-view">
+							<# if ( data.isCurrentUserCanUpload ) { #>
+								<button type="button" class="upload-button button-add-media">{{ labels.button_select }}</button>
+							<# } #>
+						</div>
+					<# } #>
+					<input type="hidden" value="{{ data.settingsData.image.value }}" {{{ data.settingsData.image.link }}}>
 				</div>
 
-				<div class="suki-background-fieldset suki-row">
+				<div class="suki-flex-fieldset">
 					<# _.each( [ 'attachment', 'repeat' ], function( type ) { #>
-						<# if ( data.inputs[ type ] ) { #>
-							<label class="suki-row-item">
-								<span class="suki-small-label">{{ labels[ type ] }}</span>
-								<select class="suki-background-input" {{{ data.inputs[ type ].__link }}}>
+						<# if ( data.settingsData[ type ] ) { #>
+							<div>
+								<label class="suki-small-label">{{ labels[ type ] }}</label>
+								<select {{{ data.settingsData[ type ].link }}}>
 									<# _.each( choices[ type ], function( label, value ) { #>
-										<option value="{{ value }}" {{{ value === data.inputs[ type ].value ? 'selected' : '' }}}>{{{ label }}}</option>
+										<option value="{{ value }}" {{{ value === data.settingsData[ type ].value ? 'selected' : '' }}}>{{{ label }}}</option>
 									<# }); #>
 								</select>
-							</label>
+							</div>
 						<# } #>
 					<# }); #>
 				</div>
 
-				<div class="suki-background-fieldset suki-row">
+				<div class="suki-flex-fieldset">
 					<# _.each( [ 'size', 'position' ], function( type ) { #>
-						<# if ( data.inputs[ type ] ) { #>
-							<label class="suki-row-item">
-								<span class="suki-small-label">{{ labels[ type ] }}</span>
-								<select class="suki-background-input" {{{ data.inputs[ type ].__link }}}>
+						<# if ( data.settingsData[ type ] ) { #>
+							<div>
+								<label class="suki-small-label">{{ labels[ type ] }}</label>
+								<select {{{ data.settingsData[ type ].link }}}>
 									<# _.each( choices[ type ], function( label, value ) { #>
-										<option value="{{ value }}" {{{ value === data.inputs[ type ].value ? 'selected' : '' }}}>{{{ label }}}</option>
+										<option value="{{ value }}" {{{ value === data.settingsData[ type ].value ? 'selected' : '' }}}>{{{ label }}}</option>
 									<# }); #>
 								</select>
-							</label>
+							</div>
 						<# } #>
 					<# }); #>
 				</div>
@@ -165,7 +163,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		}
 
 		/**
-		 * Return available choices for this control inputs.
+		 * Return available choices for this control settingsData.
 		 *
 		 * @param string $key Key of requested choices.
 		 * @return array

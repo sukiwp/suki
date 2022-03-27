@@ -161,15 +161,15 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--social.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php';
 
-		// Typography & Colors.
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--base.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--headings.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--blockquote.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--form-inputs.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--buttons.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--title.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--small-title.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/general--meta.php';
+		// Global Styles.
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--base.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--headings.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--blockquote.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--form-inputs.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--buttons.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--title.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--small-title.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/options/style--meta.php';
 
 		// Layout.
 		require_once SUKI_INCLUDES_DIR . '/customizer/options/canvas.php';
@@ -602,6 +602,12 @@ class Suki_Customizer {
 
 		// Parse value for "font" type.
 		if ( 'font' === $rule['type'] ) {
+			/**
+			 * Chunks
+			 *
+			 * 0 => fonts group.
+			 * 1 =>
+			 */
 			$chunks = explode( '|', $setting_value );
 
 			if ( 2 === count( $chunks ) ) {
@@ -609,7 +615,7 @@ class Suki_Customizer {
 				if ( empty( $fonts ) ) {
 					$fonts = suki_get_all_fonts();
 				}
-				$setting_value = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
+				$setting_value = suki_array_value( suki_array_value( $fonts, $chunks[0], array() ), $chunks[1], $chunks[1] );
 			}
 		}
 

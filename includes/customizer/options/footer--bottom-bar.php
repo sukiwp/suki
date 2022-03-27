@@ -150,10 +150,6 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Padding', 'suki' ),
 			'units'    => array(
-				'%'   => array(
-					'min'  => 0,
-					'step' => 0.01,
-				),
 				'px'  => array(
 					'min'  => 0,
 					'step' => 1,
@@ -163,6 +159,10 @@ $wp_customize->add_control(
 					'step' => 0.01,
 				),
 				'rem' => array(
+					'min'  => 0,
+					'step' => 0.01,
+				),
+				'%'   => array(
 					'min'  => 0,
 					'step' => 0.01,
 				),

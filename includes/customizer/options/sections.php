@@ -34,7 +34,7 @@ if ( suki_show_pro_teaser() ) {
 	);
 }
 
-// ------
+// --- Global
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -46,39 +46,69 @@ $wp_customize->add_section(
 	)
 );
 
-// Typography & Colors.
-$panel = 'suki_panel_general_styles';
+// Global Configurations.
+$panel = 'suki_panel_global_settings';
 $wp_customize->add_panel(
 	$panel,
 	array(
-		'title'    => esc_html__( 'Typography & Colors', 'suki' ),
+		'title'    => esc_html__( 'Global Configurations', 'suki' ),
 		'priority' => 121,
 	)
 );
 
-// > Base Typography & Colors.
+// Global Configurations > Color Palette.
+$wp_customize->add_section(
+	'suki_section_color_palette',
+	array(
+		'title'       => esc_html__( 'Color Palette', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Save up to 8 colors that you frequently use while customizing your website.', 'suki' ) . '</p><p>' . esc_html__( 'These colors don\'t represent global colors (text, heading, border, etc.). To configure Global Colors, please navigate to Global Styles section.', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 10,
+	)
+);
+
+// Global Configurations > Social.
+$wp_customize->add_section(
+	'suki_section_social',
+	array(
+		'title'       => esc_html__( 'Social Media Links', 'suki' ),
+		'description' => '<p>' . esc_html__( 'Please use full URL format with the protocol. For example: "https://" or "mailto:".', 'suki' ) . '</p>',
+		'panel'       => $panel,
+		'priority'    => 10,
+	)
+);
+
+// Global Styles.
+$panel = 'suki_panel_global_elements';
+$wp_customize->add_panel(
+	$panel,
+	array(
+		'title'    => esc_html__( 'Global Styles', 'suki' ),
+		'priority' => 122,
+	)
+);
+
+// Global Styles > Base Typography.
 $wp_customize->add_section(
 	'suki_section_base',
 	array(
-		'title'       => esc_html__( 'Base Typography & Colors', 'suki' ),
-		'description' => '<p>' . esc_html__( 'The global settings of body typography and colors.', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 10,
+		'title'    => esc_html__( 'Base Typography', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
 	)
 );
 
-// > Headings (H1 - H4).
+// Global Styles > Headings (H1 - H4).
 $wp_customize->add_section(
 	'suki_section_headings',
 	array(
-		'title'       => esc_html__( 'Headings (H1 - H4)', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Used on all H1 - H4 tags globally.', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 10,
+		'title'    => esc_html__( 'Headings (H1 - H6)', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
 	)
 );
 
-// > Blockquote.
+// Global Styles > Blockquote.
 $wp_customize->add_section(
 	'suki_section_blockquote',
 	array(
@@ -88,7 +118,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Form Input.
+// Global Styles > Form Input.
 $wp_customize->add_section(
 	'suki_section_form_input',
 	array(
@@ -98,7 +128,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Button.
+// Global Styles > Button.
 $wp_customize->add_section(
 	'suki_section_button',
 	array(
@@ -108,7 +138,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Title.
+// Global Styles > Title.
 $wp_customize->add_section(
 	'suki_section_title',
 	array(
@@ -119,7 +149,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Small Title.
+// Global Styles > Small Title.
 $wp_customize->add_section(
 	'suki_section_small_title',
 	array(
@@ -130,7 +160,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Meta Info.
+// Global Styles > Meta Info.
 $wp_customize->add_section(
 	'suki_section_meta',
 	array(
@@ -141,51 +171,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Modules.
-$panel = 'suki_panel_global_settings';
-$wp_customize->add_panel(
-	$panel,
-	array(
-		'title'    => esc_html__( 'Global Modules', 'suki' ),
-		'priority' => 122,
-	)
-);
-
-// > Social.
-$wp_customize->add_section(
-	'suki_section_social',
-	array(
-		'title'       => esc_html__( 'Social Media Links', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Please use full URL format with the protocol. For example: "https://" or "mailto:".', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 20,
-	)
-);
-
-// > Color Palette.
-$wp_customize->add_section(
-	'suki_section_color_palette',
-	array(
-		'title'       => esc_html__( 'Color Palette', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Save up to 8 colors that you frequently use while customizing your website.', 'suki' ) . '</p><p>' . esc_html__( 'These colors don\'t represent global colors (text, heading, border, etc.). To configure Global Colors, please navigate to Typography & Colors section.', 'suki' ) . '</p>',
-		'panel'       => $panel,
-		'priority'    => 20,
-	)
-);
-
-// ------
-$wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
-		$wp_customize,
-		'suki_section_spacer_layout',
-		array(
-			'title'    => esc_html__( 'Layout', 'suki' ),
-			'priority' => 130,
-		)
-	)
-);
-
-// Page Canvas & Wrapper.
+// Page Canvas.
 $wp_customize->add_section(
 	'suki_section_page_canvas',
 	array(
@@ -217,7 +203,7 @@ $wp_customize->add_panel(
 	)
 );
 
-// > Header Builder.
+// Header > Header Builder.
 $wp_customize->add_section(
 	'suki_section_header_builder',
 	array(
@@ -227,7 +213,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > ------
+// Header > --- Areas.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -240,7 +226,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Top Bar.
+// Header > Top Bar.
 $wp_customize->add_section(
 	'suki_section_header_top_bar',
 	array(
@@ -250,7 +236,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Main Bar.
+// Header > Main Bar.
 $wp_customize->add_section(
 	'suki_section_header_main_bar',
 	array(
@@ -260,7 +246,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Bottom Bar.
+// Header > Bottom Bar.
 $wp_customize->add_section(
 	'suki_section_header_bottom_bar',
 	array(
@@ -270,7 +256,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Mobile Main Bar.
+// Header > Mobile Main Bar.
 $wp_customize->add_section(
 	'suki_section_header_mobile_main_bar',
 	array(
@@ -280,7 +266,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Mobile Drawer.
+// Header > Mobile Drawer.
 $wp_customize->add_section(
 	'suki_section_header_mobile_vertical_bar',
 	array(
@@ -291,7 +277,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > ------
+// Header > --- Elements.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -304,7 +290,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Logo.
+// Header > Logo.
 $wp_customize->add_section(
 	'suki_section_header_logo',
 	array(
@@ -315,7 +301,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Menu.
+// Header > Menu.
 $wp_customize->add_section(
 	'suki_section_header_menu',
 	array(
@@ -325,7 +311,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Search.
+// Header > Search.
 $wp_customize->add_section(
 	'suki_section_header_search',
 	array(
@@ -335,7 +321,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > HTML.
+// Header > HTML.
 $wp_customize->add_section(
 	'suki_section_header_html',
 	array(
@@ -345,7 +331,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Social.
+// Header > Social.
 $wp_customize->add_section(
 	'suki_section_header_social',
 	array(
@@ -355,7 +341,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > More Options Available.
+// Header > More Options Available.
 if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_section(
 		new Suki_Customize_Section_Pro_Teaser(
@@ -398,7 +384,7 @@ $wp_customize->add_panel(
 	)
 );
 
-// > ------
+// Content > --- Areas.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -411,7 +397,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Content Section.
+// Content > Content Section.
 $wp_customize->add_section(
 	'suki_section_content',
 	array(
@@ -421,7 +407,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > > Main Content.
+// Content > Main Content.
 $wp_customize->add_section(
 	'suki_section_main',
 	array(
@@ -431,7 +417,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > > Sidebar Area.
+// Content > Sidebar.
 $wp_customize->add_section(
 	'suki_section_sidebar',
 	array(
@@ -441,7 +427,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Hero Section.
+// Content > Hero Section.
 $wp_customize->add_section(
 	'suki_section_hero',
 	array(
@@ -462,7 +448,7 @@ $wp_customize->add_panel(
 	)
 );
 
-// > Footer Builder.
+// Footer > Footer Builder.
 $wp_customize->add_section(
 	'suki_section_footer_builder',
 	array(
@@ -472,7 +458,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > ------
+// Footer > --- Areas.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -485,7 +471,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Widgets Bar.
+// Footer > Widgets Bar.
 $wp_customize->add_section(
 	'suki_section_footer_widgets_bar',
 	array(
@@ -495,7 +481,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Bottom Bar.
+// Footer > Bottom Bar.
 $wp_customize->add_section(
 	'suki_section_footer_bottom_bar',
 	array(
@@ -505,7 +491,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > ------
+// Footer > --- Elements.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -518,7 +504,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Copyright.
+// Footer > Copyright.
 $wp_customize->add_section(
 	'suki_section_footer_copyright',
 	array(
@@ -528,7 +514,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > HTML.
+// Footer > HTML.
 $wp_customize->add_section(
 	'suki_section_footer_html',
 	array(
@@ -538,7 +524,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Social.
+// Footer > Social.
 $wp_customize->add_section(
 	'suki_section_footer_social',
 	array(
@@ -548,7 +534,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Scroll To Top.
+// Footer > Scroll To Top.
 $wp_customize->add_section(
 	'suki_section_scroll_to_top',
 	array(
@@ -558,7 +544,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > More Options Available.
+// Footer > More Options Available.
 if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_section(
 		new Suki_Customize_Section_Pro_Teaser(
@@ -586,7 +572,7 @@ if ( suki_show_pro_teaser() ) {
 	);
 }
 
-// ------
+// --- Pages.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -608,7 +594,7 @@ $wp_customize->add_panel(
 	)
 );
 
-// > ------
+// Blog > --- Pages.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -621,7 +607,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Post Index.
+// Blog > Post Archive Page.
 $wp_customize->add_section(
 	'suki_section_post_archive',
 	array(
@@ -631,7 +617,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Default.
+// Blog > Post Archive Page > Default.
 $wp_customize->add_section(
 	'suki_section_entry_default',
 	array(
@@ -641,7 +627,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Grid.
+// Blog > Post Archive Page >Grid.
 $wp_customize->add_section(
 	'suki_section_entry_grid',
 	array(
@@ -651,7 +637,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Single Post Page.
+// Blog > Single Post Page.
 $wp_customize->add_section(
 	'suki_section_post_single',
 	array(
@@ -671,7 +657,7 @@ $wp_customize->add_panel(
 	)
 );
 
-// > ------
+// Other Pages > --- Default Pages.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,
@@ -684,7 +670,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Static Page.
+// Other Pages > Static Page.
 $wp_customize->add_section(
 	'suki_section_page_single',
 	array(
@@ -694,7 +680,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Search Results Page.
+// Other Pages > Search Results Page.
 $wp_customize->add_section(
 	'suki_section_search_results',
 	array(
@@ -704,7 +690,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Error 404 Page.
+// Other Pages > Error 404 Page.
 $wp_customize->add_section(
 	'suki_section_error_404',
 	array(
@@ -714,7 +700,7 @@ $wp_customize->add_section(
 	)
 );
 
-// > Custom Post Types
+// Other Pages > Custom Post Types.
 $i = 10;
 foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_key => $page_type_data ) {
 	// Get post type object..
@@ -732,6 +718,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 
 	// Add separator .
 	if ( 0 < strpos( $page_type_key, '_archive' ) ) {
+		// Other Pages > --- [Custom Post Type].
 		$wp_customize->add_section(
 			new Suki_Customize_Section_Spacer(
 				$wp_customize,
@@ -748,6 +735,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 
 	$description = suki_array_value( $page_type_data, 'description' );
 
+	// Other Pages > [Custom Post Type] Archive Page / Single [Custom Post Type] Page.
 	$wp_customize->add_section(
 		suki_array_value( $page_type_data, 'section' ),
 		array(
@@ -759,7 +747,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 	);
 }
 
-// ------
+// --- Core.
 $wp_customize->add_section(
 	new Suki_Customize_Section_Spacer(
 		$wp_customize,

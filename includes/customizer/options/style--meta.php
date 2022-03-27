@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Typography & Colors > Small Title
+ * Customizer settings: Global Styles > Meta
  *
  * @package Suki
  **/
@@ -10,25 +10,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$section = 'suki_section_small_title';
+$section = 'suki_section_meta';
 
 // Typography.
 $settings = array(
-	'font_family'            => 'small_title_font_family',
-	'font_weight'            => 'small_title_font_weight',
-	'font_style'             => 'small_title_font_style',
-	'text_transform'         => 'small_title_text_transform',
-	'font_size'              => 'small_title_font_size',
-	'line_height'            => 'small_title_line_height',
-	'letter_spacing'         => 'small_title_letter_spacing',
+	'font_family'            => 'meta_font_family',
+	'font_weight'            => 'meta_font_weight',
+	'font_style'             => 'meta_font_style',
+	'text_transform'         => 'meta_text_transform',
+	'font_size'              => 'meta_font_size',
+	'line_height'            => 'meta_line_height',
+	'letter_spacing'         => 'meta_letter_spacing',
 
-	'font_size__tablet'      => 'small_title_font_size__tablet',
-	'line_height__tablet'    => 'small_title_line_height__tablet',
-	'letter_spacing__tablet' => 'small_title_letter_spacing__tablet',
+	'font_size__tablet'      => 'meta_font_size__tablet',
+	'line_height__tablet'    => 'meta_line_height__tablet',
+	'letter_spacing__tablet' => 'meta_letter_spacing__tablet',
 
-	'font_size__mobile'      => 'small_title_font_size__mobile',
-	'line_height__mobile'    => 'small_title_line_height__mobile',
-	'letter_spacing__mobile' => 'small_title_letter_spacing__mobile',
+	'font_size__mobile'      => 'meta_font_size__mobile',
+	'line_height__mobile'    => 'meta_line_height__mobile',
+	'letter_spacing__mobile' => 'meta_letter_spacing__mobile',
 );
 foreach ( $settings as $key ) {
 	$wp_customize->add_setting(
@@ -43,11 +43,11 @@ foreach ( $settings as $key ) {
 $wp_customize->add_control(
 	new Suki_Customize_Control_Typography(
 		$wp_customize,
-		'small_title_typography',
+		'meta_typography',
 		array(
 			'settings' => $settings,
 			'section'  => $section,
-			'label'    => esc_html__( 'Small Title typography', 'suki' ),
+			'label'    => esc_html__( 'Meta typography', 'suki' ),
 			'priority' => 10,
 		)
 	)
@@ -57,7 +57,7 @@ $wp_customize->add_control(
 $wp_customize->add_control(
 	new Suki_Customize_Control_HR(
 		$wp_customize,
-		'hr_small_title_colors',
+		'hr_meta_colors',
 		array(
 			'section'  => $section,
 			'settings' => array(),
@@ -68,8 +68,9 @@ $wp_customize->add_control(
 
 // Colors.
 $colors = array(
-	'small_title_text_color'       => esc_html__( 'Small Title text color', 'suki' ),
-	'small_title_hover_text_color' => esc_html__( 'Small Title link text color :hover', 'suki' ),
+	'meta_text_color'            => esc_html__( 'Meta text color', 'suki' ),
+	'meta_link_text_color'       => esc_html__( 'Meta link text color', 'suki' ),
+	'meta_link_hover_text_color' => esc_html__( 'Meta link text color :hover', 'suki' ),
 );
 foreach ( $colors as $key => $label ) {
 	$wp_customize->add_setting(

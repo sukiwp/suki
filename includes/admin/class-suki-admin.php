@@ -235,9 +235,7 @@ class Suki_Admin {
 	 * Add CSS for editor page.
 	 */
 	public function add_editor_css() {
-		add_editor_style( SUKI_CSS_URL . '/admin/editor' . SUKI_ASSETS_SUFFIX . '.css' );
-
-		// add_editor_style( Suki_Customizer::instance()->generate_active_google_fonts_embed_url() );
+		add_editor_style( SUKI_CSS_URL . '/editor' . SUKI_ASSETS_SUFFIX . '.css' );
 	}
 
 	/**
@@ -350,9 +348,9 @@ class Suki_Admin {
 	 * Enqueue Block Editor assets.
 	 */
 	public function enqueue_block_editor_assets() {
-		wp_enqueue_style( 'suki-editor-block', SUKI_CSS_URL . '/admin/editor-block' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-editor-block', 'rtl', 'replace' );
-		wp_style_add_data( 'suki-editor-block', 'suffix', SUKI_ASSETS_SUFFIX );
+		wp_enqueue_style( 'suki-editor', SUKI_CSS_URL . '/editor' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_style_add_data( 'suki-editor', 'rtl', 'replace' );
+		wp_style_add_data( 'suki-editor', 'suffix', SUKI_ASSETS_SUFFIX );
 	}
 
 	/**

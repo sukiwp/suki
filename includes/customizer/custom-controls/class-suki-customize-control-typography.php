@@ -42,11 +42,19 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function to_json() {
 			parent::to_json();
 
+			/**
+			 * Add general variables.
+			 */
+
 			$this->json['name'] = $this->id;
 
-			$this->json['inputs'] = array();
+			/**
+			 * Build settingsData and responsiveStructures.
+			 */
 
-			$this->json['structures'] = array();
+			$this->json['settingsData'] = array();
+
+			$this->json['responsiveStructures'] = array();
 
 			foreach ( $this->settings as $setting_key => $setting ) {
 				// Extract setting type.
@@ -56,12 +64,13 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				}
 				$type = $matches[1];
 
+				// Get setting value.
 				$value = $this->value( $setting_key );
 
-				// Add to inputs array.
-				$this->json['inputs'][ $setting_key ] = array(
-					'__link' => $this->get_link( $setting_key ),
-					'value'  => $value,
+				// Build settingsData array.
+				$this->json['settingsData'][ $setting_key ] = array(
+					'link'  => $this->get_link( $setting_key ),
+					'value' => $value,
 				);
 
 				// Add number and unit to font_size, line_height, letter_spacing setting type.
@@ -75,11 +84,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 						$unit = key( $units );
 					}
 
-					$this->json['inputs'][ $setting_key ]['number'] = $number;
-					$this->json['inputs'][ $setting_key ]['unit']   = $unit;
+					$this->json['settingsData'][ $setting_key ]['number'] = $number;
+					$this->json['settingsData'][ $setting_key ]['unit']   = $unit;
 				}
 
-				// Add to structures array.
+				// Build responsiveStructures array.
 				$device = 'desktop';
 				if ( false !== strpos( $setting->id, '__' ) ) {
 					$chunks = explode( '__', $setting->id );
@@ -89,12 +98,18 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				}
 
 				if ( in_array( $type, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
-					$this->json['structures'][ $device ][ $type ] = $setting_key;
+					$this->json['responsiveStructures'][ $device ][ $type ] = $setting_key;
 				}
 			}
 
-			$this->json['responsive'] = 1 < count( $this->json['structures'] ) ? true : false;
+			// Whether this control has responsive settings or not.
+			$this->json['hasResponsive'] = 1 < count( $this->json['responsiveStructures'] ) ? true : false;
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -120,12 +135,12 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
-			<div class="customize-control-content">
-				<# if ( data.inputs.font_family ) { #>
-					<div class="suki-typography-fieldset suki-row">
-						<label class="suki-row-item">
-							<span class="suki-small-label">{{ labels.font_family }}</span>
-							<select class="suki-typography-input" {{{ data.inputs.font_family.__link }}}>
+			<div class="customize-control-content suki-control-box">
+				<# if ( data.settingsData.font_family ) { #>
+					<div class="suki-flex-fieldset">
+						<div>
+							<label class="suki-small-label">{{ labels.font_family }}</label>
+							<select {{{ data.settingsData.font_family.link }}}>
 								<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 								<# _.each( choices.font_family, function( provider_data, provider ) { #>
 									<# if ( 0 == provider_data.fonts.length ) return; #>
@@ -136,54 +151,50 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 									</optgroup>
 								<# }); #>
 							</select>
-						</label>
+						</div>
 					</div>
 				<# } #>
 
-				<div class="suki-typography-fieldset suki-row">
+				<div class="suki-flex-fieldset">
 					<# _.each( [ 'font_weight', 'font_style', 'text_transform' ], function( type ) { #>
-						<# if ( data.inputs[ type ] ) { #>
-							<label class="suki-row-item">
-								<span class="suki-small-label">{{ labels[ type ] }}</span>
-								<select class="suki-typography-input" {{{ data.inputs[ type ].__link }}}>
+						<# if ( data.settingsData[ type ] ) { #>
+							<div>
+								<label class="suki-small-label">{{ labels[ type ] }}</label>
+								<select {{{ data.settingsData[ type ].link }}}>
 									<option value=""><?php esc_html_e( 'Default', 'suki' ); ?></option>
 									<# _.each( choices[ type ], function( label, value ) { #>
 										<option value="{{ value }}">{{{ label }}}</option>
 									<# }); #>
 								</select>
-							</label>
+							</div>
 						<# } #>
 					<# }); #>
 				</div>
 
-				<# if ( data.responsive ) { #>
+				<# if ( data.hasResponsive ) { #>
 					<div class="suki-responsive-switcher">
-						<# _.each( data.structures, function( setting_key, device ) { #>
+						<# _.each( data.responsiveStructures, function( setting_key, device ) { #>
 							<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
 						<# }); #>
 					</div>
 				<# } #>
 
-				<# _.each( data.structures, function( setting_keys, device ) { #>
-					<div class="suki-typography-fieldset suki-row {{ data.responsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
+				<# _.each( data.responsiveStructures, function( setting_keys, device ) { #>
+					<div class="suki-flex-fieldset {{ data.hasResponsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}">
 						<# _.each( setting_keys, function( setting_key, setting_type ) { #>
-							<# if ( data.inputs[ setting_key ] ) { #>
-								<label class="suki-row-item">
-									<span class="suki-small-label">{{ labels[ setting_type ] }}</span>
-									<span class="suki-typography-size suki-row">
-										<span class="suki-row-item">
-											<input class="suki-typography-size-input suki-input-with-unit" type="number" value="{{ data.inputs[ setting_key ].number }}" min="" max="" step="" placeholder="<?php esc_attr_e( 'Default', 'suki' ); ?>">
-										</span>
-										<span class="suki-row-item" style="flex: 0 0 30px;">
-											<select class="suki-typography-size-unit suki-unit">
-												<# _.each( units[ setting_type ], function( unit_data, unit ) { #>
-													<option value="{{ unit }}" {{ unit == data.inputs[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
-												<# }); #>
-											</select>
-										</span>
-										<input type="hidden" class="suki-typography-size-value" value="{{data.inputs[ setting_key ].value }}" {{{ data.inputs[ setting_key ].__link }}}>
-									</span>
-								</label>
+							<# if ( data.settingsData[ setting_key ] ) { #>
+								<div>
+									<label class="suki-small-label">{{ labels[ setting_type ] }}</label>
+									<div class="suki-dimension">
+										<input class="suki-dimension-number" type="number" value="{{ data.settingsData[ setting_key ].number }}" min="" max="" step="">
+										<select class="suki-dimension-unit">
+											<# _.each( units[ setting_type ], function( unit_data, unit ) { #>
+												<option value="{{ unit }}" {{ unit == data.settingsData[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
+											<# }); #>
+										</select>
+									</div>
+									<input type="hidden" class="suki-dimension-value" value="{{ data.settingsData[ setting_key ].value }}" {{{ data.settingsData[ setting_key ].link }}}>
+								</div>
 							<# } #>
 						<# }); #>
 					</div>
@@ -193,7 +204,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		}
 
 		/**
-		 * Return available choices for this control inputs.
+		 * Return available choices for this control.
 		 *
 		 * @param string $key Key of request choice.
 		 * @return array
@@ -243,7 +254,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		}
 
 		/**
-		 * Return available units for this control inputs.
+		 * Return available units for this control.
 		 *
 		 * @param string $key Key of requested unit.
 		 * @return array

@@ -70,15 +70,17 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function to_json() {
 			parent::to_json();
 
+			/**
+			 * Add general variables.
+			 */
+
 			$this->json['name'] = $this->id;
 
 			$this->json['layout'] = $this->layout;
 
 			$this->json['choices'] = $this->choices;
 
-			$this->json['inputs'] = array();
-
-			$this->json['structures'] = array();
+			$this->json['settingsData'] = array();
 
 			$this->json['actives'] = array();
 
@@ -93,10 +95,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 						$value = array();
 					}
 
-					// Add to inputs array.
-					$this->json['inputs'][ $setting_key ] = array(
-						'__link' => $this->get_link( $setting_key ),
-						'value'  => $value,
+					// Add to settingsData array.
+					$this->json['settingsData'][ $setting_key ] = array(
+						'link'  => $this->get_link( $setting_key ),
+						'value' => $value,
 					);
 
 					// Pool active elements into array.
@@ -106,9 +108,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				}
 			} else {
 				// Single setting.
-				$this->json['inputs']['default'] = array(
-					'__link' => $this->get_link(),
-					'value'  => (array) $this->value(),
+				$this->json['settingsData']['default'] = array(
+					'link'  => $this->get_link(),
+					'value' => (array) $this->value(),
 				);
 			}
 
@@ -121,6 +123,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function enqueue() {
 			wp_enqueue_style( 'jquery-ui-sortable' );
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -141,7 +148,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 								<p class="suki-small-label">{{{ data.labels[ setting_key ] }}}</p>
 							<# } #>
 							<ul class="suki-builder-sortable-panel" data-connect="{{ data.name }}">
-								<# _.each( data.inputs[ setting_key ].value, function( item ) {
+								<# _.each( data.settingsData[ setting_key ].value, function( item ) {
 									if ( undefined === data.choices[ item ] ) return;
 
 									var limitations = undefined !== data.limitations[ item ] ? data.limitations[ item ].join( ',' ) : '';

@@ -35,6 +35,10 @@ class Suki_Google_Fonts extends Suki_Module {
 	protected function __construct() {
 		parent::__construct();
 
+		/**
+		 * Fonts data set
+		 */
+
 		// Add Google Fonts list to theme fonts bank.
 		add_filter( 'suki/dataset/all_fonts', array( $this, 'add_to_all_fonts' ) );
 
@@ -70,6 +74,13 @@ class Suki_Google_Fonts extends Suki_Module {
 			// Add preconnect for faster performance.
 			add_filter( 'wp_resource_hints', array( $this, 'add_preconnect' ), 10, 2 );
 		}
+
+		/**
+		 * Admin
+		 */
+
+		// Enqueue Google Fonts on Gutenberg block editor.
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_css' ) );
 	}
 
 	/**
@@ -118,23 +129,7 @@ class Suki_Google_Fonts extends Suki_Module {
 	 * Enqueue Google Fonts CSS on frontend.
 	 */
 	public function enqueue_css() {
-		// Get active Google Fonts from Customizer values.
-		$fonts = Suki_Customizer::instance()->get_active_fonts( 'google_fonts' );
-
-		// Generate embed URL.
-		$url = $this->generate_embed_url( $fonts );
-
-		/**
-		 * Filter: suki/frontend/google_fonts_url
-		 *
-		 * Allow further modification to the embed URL.
-		 *
-		 * @since 2.0.0
-		 *
-		 * @param string $url   Embed URL.
-		 * @param array  $fonts Google Fonts array.
-		 */
-		$url = apply_filters( 'suki/frontend/google_fonts_url', $url, $fonts );
+		$url = $this->get_embed_url();
 
 		// Enqueue on frontend.
 		if ( ! empty( $url ) ) {
@@ -174,6 +169,18 @@ class Suki_Google_Fonts extends Suki_Module {
 		}
 
 		return $urls;
+	}
+
+	/**
+	 * Enqueue Google Fonts on Gutenberg block editor.
+	 */
+	public function enqueue_editor_css() {
+		$url = $this->get_embed_url();
+
+		// Enqueue on frontend.
+		if ( ! empty( $url ) ) {
+			wp_enqueue_style( 'suki-google-fonts', $url, array(), SUKI_VERSION );
+		}
 	}
 
 	/**
@@ -230,6 +237,33 @@ class Suki_Google_Fonts extends Suki_Module {
 		$url .= 'display=swap';
 
 		return esc_url( $url );
+	}
+
+	/**
+	 * Return Google Fonts embed URL from selected typography values on Customizer.
+	 *
+	 * @return string
+	 */
+	public function get_embed_url() {
+		// Get active Google Fonts from Customizer values.
+		$fonts = Suki_Customizer::instance()->get_active_fonts( 'google_fonts' );
+
+		// Generate embed URL.
+		$url = $this->generate_embed_url( $fonts );
+
+		/**
+		 * Filter: suki/frontend/google_fonts_url
+		 *
+		 * Allow further modification to the embed URL.
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param string $url   Embed URL.
+		 * @param array  $fonts Google Fonts array.
+		 */
+		$url = apply_filters( 'suki/frontend/google_fonts_url', $url, $fonts );
+
+		return $url;
 	}
 }
 

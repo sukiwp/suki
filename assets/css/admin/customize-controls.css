@@ -782,7 +782,7 @@ li:not(.customize-info) div.customize-section-description {
 	margin-left: -1px;
 }
 
-.customize-control-suki-dimension .suki-dimension-input:focus {
+.customize-control-suki-dimension .suki-dimension-number:focus {
 	position: relative;
 	z-index: 2;
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Page Canvas & Wrapper
+ * Customizer settings: Page Canvas
  *
  * @package Suki
  **/
@@ -14,11 +14,25 @@ $section = 'suki_section_page_canvas';
 
 /**
  * ====================================================
- * Page Layout
+ * Canvas
  * ====================================================
  */
 
-// Page layout.
+// Heading: Canvas.
+$wp_customize->add_control(
+	new Suki_Customize_Control_Heading(
+		$wp_customize,
+		'heading_canvas',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Canvas', 'suki' ),
+			'priority' => 10,
+		)
+	)
+);
+
+// Canvas size.
 $key = 'page_layout';
 $wp_customize->add_setting(
 	$key,
@@ -34,7 +48,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Page layout', 'suki' ),
+			'label'    => esc_html__( 'Canvas size', 'suki' ),
 			'choices'  => array(
 				'full-width' => array(
 					'label' => esc_html__( 'Full width', 'suki' ),
@@ -50,7 +64,7 @@ $wp_customize->add_control(
 	)
 );
 
-// Page background color.
+// Canvas background color.
 $key = 'page_bg_color';
 $wp_customize->add_setting(
 	$key,
@@ -66,7 +80,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Page background color', 'suki' ),
+			'label'    => esc_html__( 'Canvas background color', 'suki' ),
 			'priority' => 10,
 		)
 	)
@@ -76,92 +90,16 @@ $wp_customize->add_control(
 $wp_customize->add_control(
 	new Suki_Customize_Control_HR(
 		$wp_customize,
-		'hr_container_width',
+		'hr_boxed_page',
 		array(
 			'section'  => $section,
 			'settings' => array(),
-			'priority' => 20,
+			'priority' => 10,
 		)
 	)
 );
 
-// Normal container width.
-$key = 'container_width';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Control_Dimension(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Normal container width', 'suki' ),
-			'units'    => array(
-				'px' => array(
-					'min'  => 600,
-					'step' => 1,
-				),
-			),
-			'priority' => 20,
-		)
-	)
-);
-
-// Narrow container width.
-$key = 'content_narrow_width';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Control_Dimension(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Narrow container width', 'suki' ),
-			'units'    => array(
-				'px' => array(
-					'min'  => 400,
-					'step' => 1,
-				),
-			),
-			'priority' => 20,
-		)
-	)
-);
-
-/**
- * ====================================================
- * Boxed Page
- * ====================================================
- */
-
-// Heading: Boxed Page.
-$wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
-		$wp_customize,
-		'heading_boxed_page',
-		array(
-			'section'  => $section,
-			'settings' => array(),
-			'label'    => esc_html__( 'Boxed Page', 'suki' ),
-			'priority' => 30,
-		)
-	)
-);
-
-// Boxed page width.
+// Canvas box max width.
 $key = 'boxed_page_width';
 $wp_customize->add_setting(
 	$key,
@@ -177,7 +115,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Boxed page max width', 'suki' ),
+			'label'    => esc_html__( 'Canvas box max width', 'suki' ),
 			'units'    => array(
 				'px'  => array(
 					'min'  => 600,
@@ -192,12 +130,12 @@ $wp_customize->add_control(
 					'step' => 0.01,
 				),
 			),
-			'priority' => 30,
+			'priority' => 10,
 		)
 	)
 );
 
-// Boxed page shadow.
+// Canvas box shadow.
 $key = 'boxed_page_shadow';
 $wp_customize->add_setting(
 	$key,
@@ -213,21 +151,8 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Boxed page shadow', 'suki' ),
-			'priority' => 30,
-		)
-	)
-);
-
-// ------
-$wp_customize->add_control(
-	new Suki_Customize_Control_HR(
-		$wp_customize,
-		'hr_boxed_page_outside',
-		array(
-			'section'  => $section,
-			'settings' => array(),
-			'priority' => 30,
+			'label'    => esc_html__( 'Canvas box shadow', 'suki' ),
+			'priority' => 10,
 		)
 	)
 );
@@ -249,7 +174,7 @@ $wp_customize->add_control(
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Outside background color', 'suki' ),
-			'priority' => 30,
+			'priority' => 10,
 		)
 	)
 );
@@ -281,7 +206,7 @@ $wp_customize->add_control(
 			'settings' => $settings,
 			'section'  => $section,
 			'label'    => esc_html__( 'Outside background image', 'suki' ),
-			'priority' => 30,
+			'priority' => 10,
 		)
 	)
 );

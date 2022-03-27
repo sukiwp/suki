@@ -27,6 +27,8 @@ abstract class Suki_Module {
 	/**
 	 * Module name
 	 *
+	 * Module name sould be unique and written in a valid slug format.
+	 *
 	 * @var string
 	 */
 	const MODULE_SLUG = '';

@@ -28,15 +28,17 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function to_json() {
 			parent::to_json();
 
-			$this->json['name'] = $this->id;
+			/**
+			 * Add general variables.
+			 */
 
-			$this->json['default'] = $this->setting->default;
+			$this->json['name'] = $this->id;
 
 			$this->json['value'] = is_array( $this->value() ) ? $this->value() : array();
 
 			$this->json['choices'] = $this->choices;
 
-			$this->json['__link'] = $this->get_link();
+			$this->json['link'] = $this->get_link();
 		}
 
 		/**
@@ -45,6 +47,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function enqueue() {
 			wp_enqueue_script( 'html5sortable' );
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -57,15 +64,15 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
-			<div class="customize-control-content">
-				<ul class="suki-sortable" id="{{ 'suki-sortable--' + data.name }}">
+			<div class="customize-control-content suki-control-box">
+				<ul class="suki-sortable" id="{{ data.name }}">
 					<# _.each( data.value, function( item ) { #>
 						<# if ( 0 > Object.keys( data.choices ).indexOf( item ) ) return; #>
 						<li class="suki-sortable-item" data-value="{{ item }}">
-							<input type="checkbox" value="{{{ item }}}" id="{{ 'suki-sortable--' + data.name + '--' + item }}" checked>
+							<input type="checkbox" value="{{{ item }}}" id="{{ data.name + '--' + item }}" checked>
 
 							<div class="suki-sortable-item-label button">
-								<label for="{{ 'suki-sortable--' + data.name + '--' + item }}">
+								<label for="{{ data.name + '--' + item }}">
 									<span class="dashicons dashicons-visibility"></span>
 									<span class="dashicons dashicons-hidden"></span>
 								</label>
@@ -77,10 +84,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 					<# _.each( data.choices, function( label, item ) { #>
 						<# if ( 0 <= data.value.indexOf( item ) ) return; #>
 						<li class="suki-sortable-item" data-value="{{ item }}">
-							<input type="checkbox" value="{{{ item }}}" id="{{ 'suki-sortable--' + data.name + '--' + item }}">
+							<input type="checkbox" value="{{{ item }}}" id="{{ data.name + '--' + item }}">
 
 							<div class="suki-sortable-item-label button">
-								<label for="{{ 'suki-sortable--' + data.name + '--' + item }}">
+								<label for="{{ data.name + '--' + item }}">
 									<span class="dashicons dashicons-visibility"></span>
 									<span class="dashicons dashicons-hidden"></span>
 								</label>

@@ -9,19 +9,15 @@
  * radio
  */
 
-:where(input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input) {
+:is(input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea) {
 	@extend %input;
 }
 
 textarea {
-	@extend %input;
-
 	line-height: inherit;
 }
 
 select {
-	@extend %input;
-
 	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1kcm9wZG93biIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzAgMjAiPjxwYXRoIGQ9Ik0xOS4zNiw5LDE1LjIsMTMuMTJhLjI4LjI4LDAsMCwxLS40MSwwTDEwLjYzLDlhLjI4LjI4LDAsMCwxLDAtLjQxbC40NS0uNDVBLjI5LjI5LDAsMCwxLDExLjI5LDhhLjMxLjMxLDAsMCwxLC4yMS4wOUwxNSwxMS42MSwxOC41MSw4LjFhLjI4LjI4LDAsMCwxLC40MSwwbC40NS40NWEuMjguMjgsMCwwLDEsMCwuNDFaIi8+PC9zdmc+);
 	background-position: center right;
 	background-repeat: no-repeat;
@@ -33,6 +29,6 @@ select {
  * Button
  */
 
-button, input[type="button"], input[type="reset"], input[type="submit"], .button {
+:is(button, input[type="button"], input[type="reset"], input[type="submit"], .button) {
 	@extend %button;
 }

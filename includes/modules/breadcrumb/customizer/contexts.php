@@ -47,4 +47,11 @@ $add['breadcrumb_trail_current_page'] = array(
 	),
 );
 
+$add['breadcrumb_hide_when_only_home_or_current'] = array(
+	array(
+		'setting' => 'breadcrumb_plugin',
+		'value'   => '',
+	),
+);
+
 return $add;

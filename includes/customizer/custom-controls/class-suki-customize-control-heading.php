@@ -28,8 +28,8 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		protected function render_content() {
 			if ( ! empty( $this->label ) ) {
 				?>
-				<span class="tabindex" tabindex="0"></span>
-				<h4 class="suki-heading"><span><?php echo $this->label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span></h4>
+				<span class="suki-heading-tabindex" tabindex="0"></span>
+				<div class="suki-heading"><?php echo $this->label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 				<?php
 				if ( ! empty( $this->description ) ) {
 					?>

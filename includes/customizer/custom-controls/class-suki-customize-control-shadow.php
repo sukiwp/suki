@@ -54,7 +54,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				$chunks[5] = '';
 			}
 
-			$this->json['value'] = array(
+			$this->json['decomposedValue'] = array(
 				'h_offset' => intval( $chunks[0] ),
 				'v_offset' => intval( $chunks[1] ),
 				'blur'     => intval( $chunks[2] ),
@@ -63,13 +63,13 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				'position' => $chunks[5],
 			);
 
-			$this->json['raw_value'] = $value;
+			$this->json['value'] = $value;
 
 			$this->json['has_palette'] = $this->has_palette;
 
-			$this->json['exclude'] = $this->exclude;
+			$this->json['excludedProps'] = $this->exclude;
 
-			$this->json['__link'] = $this->get_link();
+			$this->json['link'] = $this->get_link();
 		}
 
 		/**
@@ -79,6 +79,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			wp_enqueue_script( 'alpha-color-picker' );
 			wp_enqueue_style( 'alpha-color-picker' );
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -109,31 +114,33 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
-			<div class="customize-control-content">
-				<div class="suki-row suki-shadow-row">
-					<# var isExcluded = -1 < data.exclude.indexOf( 'position' ) ? 'style="display: none;"' : ''; #>
-					<div class="suki-row-item suki-shadow-position" {{{ isExcluded }}}>
-						<select class="suki-shadow-input">
-							<option value="" {{ value === data.value.position ? 'selected' : '' }}><?php esc_html_e( 'out', 'suki' ); ?></option>
-							<option value="inset" {{ value === data.value.position ? 'selected' : '' }}><?php esc_html_e( 'in', 'suki' ); ?></option>
-						</select>
-					</div>
-
+			<div class="customize-control-content suki-control-box">
+				<div class="suki-flex-fieldset">
 					<# var inputs = <?php echo wp_json_encode( $inputs ); ?>; #>
 					<# _.each( inputs, function( label, prop ) { #>
-						<# var isExcluded = -1 < data.exclude.indexOf( prop ) ? 'style="display: none;"' : ''; #>
-						<div class="suki-row-item suki-shadow-{{ prop }}" {{{ isExcluded }}}>
-							<input type="number" value="{{ '' !== isExcluded ? '' : data.value[ prop ] }}" class="suki-shadow-input" step="1">
+						<# var hideStyle = -1 < data.excludedProps.indexOf( prop ) ? 'style="display: none;"' : ''; #>
+						<div class="suki-shadow-{{ prop }}" {{{ hideStyle }}}>
+							<input type="number" value="{{ '' !== hideStyle ? '' : data.decomposedValue[ prop ] }}" step="1">
 							<span class="suki-small-label">{{{ label }}}</span>
 						</div>
 					<# }); #>
 				</div>
 
-				<div class="suki-shadow-color">
-					<input value="{{ data.value.color }}" type="text" maxlength="30" class="suki-shadow-input color-picker" data-palette="{{ data.has_palette ? '<?php echo esc_attr( $palette ); ?>' : 'false' }}" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="rgba(0,0,0,0)" data-show-opacity="true">
+				<div class="suki-flex-fieldset">
+					<# var hideStyle = -1 < data.excludedProps.indexOf( 'position' ) ? 'style="display: none;"' : ''; #>
+					<div class="suki-shadow-position" {{{ hideStyle }}}>
+						<select>
+							<option value="" {{ value === data.decomposedValue.position ? 'selected' : '' }}><?php esc_html_e( 'Outer shadow', 'suki' ); ?></option>
+							<option value="inset" {{ value === data.decomposedValue.position ? 'selected' : '' }}><?php esc_html_e( 'Inner shadow', 'suki' ); ?></option>
+						</select>
+					</div>
+
+					<div class="suki-shadow-color">
+						<input value="{{ data.decomposedValue.color }}" type="text" maxlength="30" class="color-picker" data-palette="{{ data.has_palette ? '<?php echo esc_attr( $palette ); ?>' : 'false' }}" placeholder="<?php esc_attr_e( 'Hex / RGBA', 'suki' ); ?>" data-default-color="rgba(0,0,0,0)" data-show-opacity="true">
+					</div>
 				</div>
 
-				<input type="hidden" {{{ data.__link }}} value="{{ data.raw_value }}" class="suki-shadow-value">
+				<input type="hidden" {{{ data.link }}} value="{{ data.value }}" class="suki-shadow-value">
 			</div>
 			<?php
 		}

@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable
+
 $add = array();
 
 /**
@@ -18,41 +20,10 @@ $add = array();
  * ====================================================
  */
 
-$add['heading_boxed_page'] = array(
-	array(
-		'setting' => 'page_layout',
-		'value'   => 'boxed',
-	),
-);
-
-$add['boxed_page_width'] = array(
-	array(
-		'setting' => 'page_layout',
-		'value'   => 'boxed',
-	),
-);
-
-$add['boxed_page_shadow'] = array(
-	array(
-		'setting' => 'page_layout',
-		'value'   => 'boxed',
-	),
-);
-
-$add['hr_boxed_page_outside'] = array(
-	array(
-		'setting' => 'page_layout',
-		'value'   => 'boxed',
-	),
-);
-
-$add['outside_bg_color'] = array(
-	array(
-		'setting' => 'page_layout',
-		'value'   => 'boxed',
-	),
-);
-
+$add['boxed_page_width'] =
+$add['boxed_page_shadow'] =
+$add['hr_boxed_page'] =
+$add['outside_bg_color'] =
 $add['outside_bg'] = array(
 	array(
 		'setting' => 'page_layout',
@@ -95,30 +66,9 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 		);
 	}
 
-	$add[ 'header_' . $bar . '_menu_hover_highlight_color' ] = array(
-		array(
-			'setting'  => 'header_' . $bar . '_menu_highlight',
-			'operator' => '!=',
-			'value'    => 'none',
-		),
-	);
-
-	$add[ 'header_' . $bar . '_menu_hover_highlight_text_color' ] = array(
-		array(
-			'setting'  => 'header_' . $bar . '_menu_highlight',
-			'operator' => '!=',
-			'value'    => 'none',
-		),
-	);
-
-	$add[ 'header_' . $bar . '_menu_active_highlight_color' ] = array(
-		array(
-			'setting'  => 'header_' . $bar . '_menu_highlight',
-			'operator' => '!=',
-			'value'    => 'none',
-		),
-	);
-
+	$add[ 'header_' . $bar . '_menu_hover_highlight_color' ] =
+	$add[ 'header_' . $bar . '_menu_hover_highlight_text_color' ] =
+	$add[ 'header_' . $bar . '_menu_active_highlight_color' ] =
 	$add[ 'header_' . $bar . '_menu_active_highlight_text_color' ] = array(
 		array(
 			'setting'  => 'header_' . $bar . '_menu_highlight',
@@ -135,14 +85,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
  * ====================================================
  */
 
-$add['suki_section_header_mobile_main_bar'] = array(
-	array(
-		'setting'  => '__device',
-		'operator' => '!=',
-		'value'    => 'desktop',
-	),
-);
-
+$add['suki_section_header_mobile_main_bar'] =
 $add['suki_section_header_mobile_vertical_bar'] = array(
 	array(
 		'setting'  => '__device',
@@ -195,20 +138,8 @@ $add['header_mobile_elements'] = array(
  * ====================================================
  */
 
-$add['heading_header_logo'] = array(
-	array(
-		'setting' => '__device',
-		'value'   => 'desktop',
-	),
-);
-
-$add['custom_logo'] = array(
-	array(
-		'setting' => '__device',
-		'value'   => 'desktop',
-	),
-);
-
+$add['heading_header_logo'] =
+$add['custom_logo'] =
 $add['header_logo_width'] = array(
 	array(
 		'setting' => '__device',
@@ -216,22 +147,8 @@ $add['header_logo_width'] = array(
 	),
 );
 
-$add['heading_header_mobile_logo'] = array(
-	array(
-		'setting'  => '__device',
-		'operator' => '!=',
-		'value'    => 'desktop',
-	),
-);
-
-$add['custom_logo_mobile'] = array(
-	array(
-		'setting'  => '__device',
-		'operator' => '!=',
-		'value'    => 'desktop',
-	),
-);
-
+$add['heading_header_mobile_logo'] =
+$add['custom_logo_mobile'] =
 $add['header_mobile_logo_width'] = array(
 	array(
 		'setting'  => '__device',
@@ -296,14 +213,7 @@ $add['blank_edit_entry_grid'] = array(
 	),
 );
 
-$add['post_archive_title_text'] = array(
-	array(
-		'setting'  => 'post_archive_content_header',
-		'operator' => 'contain',
-		'value'    => 'title',
-	),
-);
-
+$add['post_archive_title_text'] =
 $add['post_archive_tax_title_text'] = array(
 	array(
 		'setting'  => 'post_archive_content_header',
@@ -355,14 +265,7 @@ $add['entry_read_more_text'] = array(
 	),
 );
 
-$add['entry_thumbnail_ignore_padding'] = array(
-	array(
-		'setting'  => 'entry_thumbnail_position',
-		'operator' => '!=',
-		'value'    => '',
-	),
-);
-
+$add['entry_thumbnail_ignore_padding'] =
 $add['entry_thumbnail_size'] = array(
 	array(
 		'setting'  => 'entry_thumbnail_position',
@@ -401,14 +304,7 @@ $add['entry_grid_read_more_text'] = array(
 	),
 );
 
-$add['entry_grid_thumbnail_ignore_padding'] = array(
-	array(
-		'setting'  => 'entry_grid_thumbnail_position',
-		'operator' => '!=',
-		'value'    => '',
-	),
-);
-
+$add['entry_grid_thumbnail_ignore_padding'] =
 $add['entry_grid_thumbnail_size'] = array(
 	array(
 		'setting'  => 'entry_grid_thumbnail_position',
@@ -469,3 +365,5 @@ $add['error_404_home_button_text'] = array(
 );
 
 return $add;
+
+// phpcs:enable

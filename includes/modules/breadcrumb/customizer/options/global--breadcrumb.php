@@ -26,7 +26,7 @@ $wp_customize->add_section(
 		'title'       => esc_html__( 'Breadcrumb', 'suki' ),
 		'description' => '<p>' . esc_html__( 'Breadcrumb can be added on 2 locations:', 'suki' ) . '</p><ul><li>' . esc_html__( 'Header (visible globally)', 'suki' ) . '</li><li>' . esc_html__( 'Content Header (per page type)', 'suki' ) . '</li></ul>',
 		'panel'       => $panel,
-		'priority'    => 20,
+		'priority'    => 15,
 	)
 );
 

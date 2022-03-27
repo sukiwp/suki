@@ -28,12 +28,21 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public function to_json() {
 			parent::to_json();
 
+			/**
+			 * Add general variables.
+			 */
+
 			$this->json['name'] = $this->id;
 
 			$this->json['value'] = $this->value();
 
-			$this->json['__link'] = $this->get_link();
+			$this->json['link'] = $this->get_link();
 		}
+
+		/**
+		 * Don't render the control content from PHP, as it's rendered via JS on load.
+		 */
+		public function render_content() {}
 
 		/**
 		 * Render Underscore JS template for this control's content.
@@ -47,11 +56,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="customize-control-content">
-				<label>
-					<input type="checkbox" value="1" {{{ data.__link }}}>
-					<span class="suki-toggle-ui">
-						<span class="suki-toggle-ui-handle"></span>
-					</span>
+				<input id="{{ data.name }}" type="checkbox" value="1" {{{ data.link }}}>
+				<label for="{{ data.name }}" class="suki-toggle-ui">
+					<span class="suki-toggle-ui-handle"></span>
 				</label>
 			</div>
 			<?php
