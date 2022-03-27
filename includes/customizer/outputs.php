@@ -559,22 +559,6 @@ $add['boxed_page_shadow'] = array(
 	),
 );
 
-$add['container_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'body',
-		'property' => '--wide-size',
-	),
-);
-
-$add['content_narrow_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'body',
-		'property' => '--content-size',
-	),
-);
-
 $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',
