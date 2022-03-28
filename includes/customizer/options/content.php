@@ -35,17 +35,14 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 			'choices'  => array(
-				'narrow'     => array(
-					'label' => esc_html__( 'Narrow', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
+				'narrow' => array(
+					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
 				),
-				'default'    => array(
-					'label' => esc_html__( 'Normal', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
+				'wide'   => array(
+					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
 				),
-				'full-width' => array(
-					'label' => esc_html__( 'Full width', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
+				'full'   => array(
+					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
 				),
 			),
 			'columns'  => 3,
@@ -86,17 +83,14 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Sidebar', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 			'choices'  => array(
-				'wide'          => array(
-					'label' => esc_html__( 'None', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
-				),
-				'right-sidebar' => array(
-					'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+				'no-sidebar'    => array(
+					'label' => esc_html__( 'Disabled', 'suki' ),
 				),
 				'left-sidebar'  => array(
-					'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+					'label' => '<span class="dashicons dashicons-align-pull-left"></span> ' . esc_html__( 'Left', 'suki' ),
+				),
+				'right-sidebar' => array(
+					'label' => '<span class="dashicons dashicons-align-pull-right"></span> ' . esc_html__( 'Right', 'suki' ),
 				),
 			),
 			'columns'  => 3,

@@ -1710,10 +1710,10 @@ body {
 	width: auto;
 	z-index: 100000;
 }
-.editor-styles-wrapper .suki-section-default {
+.editor-styles-wrapper .suki-section-wide {
 	--content-size: var(--wide-size);
 }
-.editor-styles-wrapper .suki-section-full-width {
+.editor-styles-wrapper .suki-section-full {
 	--content-size: auto;
 	--wide-size: auto;
 }

@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Dimensions control class
 	 */
-	class Suki_Customize_Control_Dimensions extends Suki_Customize_Control {
+	class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *
@@ -32,11 +32,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 		/**
 		 * Control units.
-		 * Available choices: px, em, %.
 		 *
 		 * @var array
 		 */
-		public $units = array( '' );
+		public $units = array();
 
 		/**
 		 * Constructor.
@@ -50,7 +49,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 			// Make sure there is at least 1 unit type.
 			if ( empty( $this->units ) ) {
-				$this->units = array( '' );
+				$this->units = array(
+					'' => array(
+						'min'   => '',
+						'max'   => '',
+						'step'  => '',
+						'label' => '',
+					),
+				);
 			}
 
 			// Sanitize unit attributes.
@@ -93,14 +99,30 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				// Get setting value.
 				$value = $this->value( $setting_key );
 
-				// Build array to store each dimension value data.
-				$items = array();
-				foreach ( explode( ' ', $value ) as $value_item ) {
-					// Decompose each dimension value into number and unit.
-					$_number = '' === $value_item ? '' : floatval( $value_item );
-					$_unit   = str_replace( $_number, '', $value_item );
+				// Explode full value into array.
+				$value_array = explode( ' ', $value );
 
-					$items[] = array(
+				// Sanitize value_array array.
+				$value_array = array(
+					0 => suki_array_value( $value_array, 0, '' ),
+					1 => suki_array_value( $value_array, 1, '' ),
+					2 => suki_array_value( $value_array, 2, '' ),
+					3 => suki_array_value( $value_array, 3, '' ),
+				);
+
+				// Build array to store each dimension value data.
+				$exploded_value = array();
+				foreach ( $value_array as $value_item ) {
+					// Split each dimension value into number and unit.
+					$_number = '' === $value_item ? '' : floatval( $value_item );
+					$_unit   = preg_replace( '/[0-9]+/', '', $value_item );
+
+					// When no unit found in the value, use the first choice as the selected unit (unit should not be empty).
+					if ( empty( $_unit ) ) {
+						$_unit = array_keys( $this->units )[0];
+					}
+
+					$exploded_value[] = array(
 						'raw'    => '' === $_number ? '' : $_number . $_unit,
 						'number' => $_number,
 						'unit'   => $_unit,
@@ -109,9 +131,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 				// Build settingsData array.
 				$this->json['settingsData'][ $setting_key ] = array(
-					'link'  => $this->get_link( $setting_key ),
-					'value' => $value,
-					'items' => $items,
+					'link'          => $this->get_link( $setting_key ),
+					'value'         => $value,
+					'explodedValue' => $exploded_value,
 				);
 
 				// Build responsiveStructures array.
@@ -145,7 +167,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 					{{{ data.label }}}
 					<# if ( data.hasResponsive ) { #>
 						<span class="suki-responsive-switcher">
-							<# _.each( data.responsiveStructures, function( setting_key, device ) { #>
+							<# _.each( data.responsiveStructures, function( settingKey, device ) { #>
 								<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
 							<# }); #>
 						</span>
@@ -156,37 +178,37 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="customize-control-content">
-				<# _.each( data.responsiveStructures, function( setting_key, device ) { #>
+				<# _.each( data.responsiveStructures, function( settingKey, device ) { #>
 					<div class="suki-dimensions-fieldset suki-flex-fieldset {{ data.hasResponsive ? 'suki-responsive-fieldset' : '' }} {{ 'desktop' == device ? 'active' : '' }} {{ 'preview-' + device }}" data-linked="false">
-						<# _.each( [ 'top', 'right', 'bottom', 'left' ], function( prop, i ) { #>
+						<# _.each( [ 'top', 'right', 'bottom', 'left' ], function( prop, i ) {; #>
 							<div>
 								<div class="suki-dimension">
 									<input
 										class="suki-dimension-number"
 										type="number"
-										value="{{ data.settingsData[ setting_key ].items[ i ].number }}"
-										min="{{ data.units[ data.settingsData[ setting_key ].items[ i ].unit ].min }}"
-										max="{{ data.units[ data.settingsData[ setting_key ].items[ i ].unit ].max }}"
-										step="{{ data.units[ data.settingsData[ setting_key ].items[ i ].unit ].step }}"
+										value="{{ data.settingsData[ settingKey ].explodedValue[ i ].number }}"
+										min="{{ data.units[ data.settingsData[ settingKey ].explodedValue[ i ].unit ].min }}"
+										max="{{ data.units[ data.settingsData[ settingKey ].explodedValue[ i ].unit ].max }}"
+										step="{{ data.units[ data.settingsData[ settingKey ].explodedValue[ i ].unit ].step }}"
 									>
 									<select class="suki-dimension-unit">
-										<# _.each( data.units, function( unit_data, unit ) { #>
+										<# _.each( data.units, function( unitData, unit ) { #>
 											<option
 												value="{{ unit }}"
-												{{ unit == data.settingsData[ setting_key ].items[ i ].unit ? 'selected' : '' }}
-												data-min="{{ unit_data.min }}"
-												data-max="{{ unit_data.max }}"
-												data-step="{{ unit_data.step }}"
-											>{{{ unit_data.label }}}</option>
+												{{ unit == data.settingsData[ settingKey ].explodedValue[ i ].unit ? 'selected' : '' }}
+												data-min="{{ unitData.min }}"
+												data-max="{{ unitData.max }}"
+												data-step="{{ unitData.step }}"
+											>{{{ unitData.label }}}</option>
 										<# }); #>
 									</select>
-									<input type="hidden" class="suki-dimension-value" value="{{ data.settingsData[ setting_key ].items[ i ].raw }}">
+									<input type="hidden" class="suki-dimension-value" value="{{ data.settingsData[ settingKey ].explodedValue[ i ].raw }}">
 								</div>
 								<span class="suki-small-label">{{{ prop }}}</span>
 							</div>
 						<# }); #>
 
-						<input type="hidden" class="suki-dimensions-value" value="{{ data.settingsData[ setting_key ].value }}" {{{ data.settingsData[ setting_key ].link }}}>
+						<input type="hidden" class="suki-dimensions-value" value="{{ data.settingsData[ settingKey ].value }}" {{{ data.settingsData[ settingKey ].link }}}>
 					</div>
 				<# }); #>
 			</div>

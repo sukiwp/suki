@@ -67,10 +67,10 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				'section'  => $section,
 				'label'    => esc_html__( 'Content container', 'suki' ),
 				'choices'  => array(
-					''           => esc_html__( '-- Global --', 'suki' ),
-					'narrow'     => esc_html__( 'Narrow', 'suki' ),
-					'default'    => esc_html__( 'Normal', 'suki' ),
-					'full-width' => esc_html__( 'Full width', 'suki' ),
+					''        => esc_html__( '-- Global --', 'suki' ),
+					'narrow'  => esc_html__( 'Narrow', 'suki' ),
+					'default' => esc_html__( 'Wide', 'suki' ),
+					'full'    => esc_html__( 'Full', 'suki' ),
 				),
 				'priority' => 100,
 			)
@@ -108,9 +108,9 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				'label'    => esc_html__( 'Sidebar', 'suki' ),
 				'choices'  => array(
 					''              => esc_html__( '-- Global --', 'suki' ),
-					'wide'          => esc_html__( 'None', 'suki' ),
-					'right-sidebar' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-					'left-sidebar'  => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+					'no-sidebar'    => esc_html__( 'Disabled', 'suki' ),
+					'left-sidebar'  => esc_html__( 'Left', 'suki' ),
+					'right-sidebar' => esc_html__( 'Right', 'suki' ),
 				),
 				'priority' => 110,
 			)
@@ -171,11 +171,11 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				'section'  => $section,
 				'label'    => esc_html__( 'Container', 'suki' ),
 				'choices'  => array(
-					''           => esc_html__( '-- Global --', 'suki' ),
-					'inherit'    => esc_html__( 'Same with Content', 'suki' ),
-					'default'    => esc_html__( 'Normal', 'suki' ),
-					'full-width' => esc_html__( 'Full width', 'suki' ),
-					'narrow'     => esc_html__( 'Narrow', 'suki' ),
+					''        => esc_html__( '-- Global --', 'suki' ),
+					'inherit' => esc_html__( 'Same with Content', 'suki' ),
+					'narrow'  => esc_html__( 'Narrow', 'suki' ),
+					'default' => esc_html__( 'Wide', 'suki' ),
+					'full'    => esc_html__( 'Full', 'suki' ),
 				),
 				'priority' => 120,
 			)

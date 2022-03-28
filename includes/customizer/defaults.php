@@ -260,7 +260,7 @@ $add['header_social_links_target'] = 'self';
 $add['header_top_bar_merged']     = 0;
 $add['header_top_bar_merged_gap'] = '';
 
-$add['header_top_bar_container'] = 'default';
+$add['header_top_bar_container'] = 'wide';
 $add['header_top_bar_height']    = '50px';
 $add['header_top_bar_padding']   = '0px 20px 0px 20px';
 $add['header_top_bar_border']    = '0px 0px 0px 0px';
@@ -275,7 +275,7 @@ $add['header_top_bar_icon_size'] = '18px';
  * ====================================================
  */
 
-$add['header_main_bar_container'] = 'default';
+$add['header_main_bar_container'] = 'wide';
 $add['header_main_bar_height']    = '90px';
 $add['header_main_bar_padding']   = '0px 20px 0px 20px';
 $add['header_main_bar_border']    = '0px 0px 0px 0px';
@@ -293,7 +293,7 @@ $add['header_main_bar_icon_size'] = '18px';
 $add['header_bottom_bar_merged']     = 0;
 $add['header_bottom_bar_merged_gap'] = '0px';
 
-$add['header_bottom_bar_container'] = 'default';
+$add['header_bottom_bar_container'] = 'wide';
 $add['header_bottom_bar_height']    = '50px';
 $add['header_bottom_bar_padding']   = '0px 20px 0px 20px';
 $add['header_bottom_bar_border']    = '0px 0px 0px 0px';
@@ -353,7 +353,7 @@ $add['hero_bg_attachment'] = 'scroll';
  * ====================================================
  */
 
-$add['content_container'] = 'default';
+$add['content_container'] = 'wide';
 $add['content_layout']    = 'right-sidebar';
 $add['content_padding']   = '80px 20px 80px 20px';
 
@@ -401,7 +401,7 @@ $add['footer_elements_bottom_right']  = array();
  * ====================================================
  */
 
-$add['footer_widgets_bar_container'] = 'default';
+$add['footer_widgets_bar_container'] = 'wide';
 $add['footer_widgets_bar_padding']   = '60px 20px 60px 20px';
 $add['footer_widgets_bar_border']    = '0px 0px 0px 0px';
 
@@ -420,7 +420,7 @@ $add['footer_widgets_bar_bg_color'] = 'var(--color-palette-7)';
 $add['footer_bottom_bar_merged']     = 0;
 $add['footer_bottom_bar_merged_gap'] = '0px';
 
-$add['footer_bottom_bar_container'] = 'default';
+$add['footer_bottom_bar_container'] = 'wide';
 $add['footer_bottom_bar_padding']   = '25px 20px 25px 20px';
 $add['footer_bottom_bar_border']    = '0px 0px 0px 0px';
 

@@ -18,40 +18,40 @@ $section = 'suki_section_header_mobile_main_bar';
  * ====================================================
  */
 
-// Height.
-$key = 'header_mobile_main_bar_height';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Control_Dimension(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Height', 'suki' ),
-			'units'    => array(
-				'px'  => array(
-					'min'  => 0,
-					'step' => 1,
-				),
-				'em'  => array(
-					'min'  => 0,
-					'step' => 0.01,
-				),
-				'rem' => array(
-					'min'  => 0,
-					'step' => 0.01,
-				),
-			),
-			'priority' => 10,
-		)
-	)
-);
+// // Height.
+// $key = 'header_mobile_main_bar_height';
+// $wp_customize->add_setting(
+// 	$key,
+// 	array(
+// 		'default'           => suki_array_value( $defaults, $key ),
+// 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+// 	)
+// );
+// $wp_customize->add_control(
+// 	new Suki_Customize_Control_Dimension(
+// 		$wp_customize,
+// 		$key,
+// 		array(
+// 			'section'  => $section,
+// 			'label'    => esc_html__( 'Height', 'suki' ),
+// 			'units'    => array(
+// 				'px'  => array(
+// 					'min'  => 0,
+// 					'step' => 1,
+// 				),
+// 				'em'  => array(
+// 					'min'  => 0,
+// 					'step' => 0.01,
+// 				),
+// 				'rem' => array(
+// 					'min'  => 0,
+// 					'step' => 0.01,
+// 				),
+// 			),
+// 			'priority' => 10,
+// 		)
+// 	)
+// );
 
 // Padding.
 $key      = 'header_mobile_main_bar_padding';

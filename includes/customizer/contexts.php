@@ -173,6 +173,20 @@ $add['header_cart_amount_visibility'] = array(
 
 /**
  * ====================================================
+ * Content > Content Section
+ * ====================================================
+ */
+
+$add['content_layout'] = array(
+	array(
+		'setting'  => 'content_container',
+		'operator' => '!=',
+		'value'    => 'narrow',
+	),
+);
+
+/**
+ * ====================================================
  * Footer > Bottom Bar
  * ====================================================
  */

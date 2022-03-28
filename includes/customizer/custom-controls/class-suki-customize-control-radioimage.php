@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Multiple checkboxes control class
 	 */
-	class Suki_Customize_Control_RadioImage extends Suki_Customize_Control {
+	class Suki_Customize_Control_RadioImage extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *

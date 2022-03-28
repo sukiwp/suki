@@ -32,7 +32,7 @@ $wp_customize->add_control(
 			'units'    => array(
 				'px'  => array(
 					'min'  => 0,
-					'step' => 0.5,
+					'step' => 1,
 				),
 				'em'  => array(
 					'min'  => 0,

@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Background control class
 	 */
-	class Suki_Customize_Control_Background extends Suki_Customize_Control {
+	class Suki_Customize_Control_Background extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *

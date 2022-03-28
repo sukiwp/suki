@@ -1921,11 +1921,11 @@ hr:last-child {
 /**
  * Section layout
  */
-.suki-section-default {
+.suki-section-wide {
 	--content-size: var(--wide-size);
 }
 
-.suki-section-full-width {
+.suki-section-full {
 	--content-size: auto;
 	--wide-size: auto;
 }

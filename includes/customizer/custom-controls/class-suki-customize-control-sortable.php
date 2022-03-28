@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Custom color control class
 	 */
-	class Suki_Customize_Control_Sortable extends Suki_Customize_Control {
+	class Suki_Customize_Control_Sortable extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *

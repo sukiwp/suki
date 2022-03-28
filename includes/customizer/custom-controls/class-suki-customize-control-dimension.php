@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Dimension control class
 	 */
-	class Suki_Customize_Control_Dimension extends Suki_Customize_Control {
+	class Suki_Customize_Control_Dimension extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *
@@ -23,11 +23,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public $type = 'suki-dimension';
 
 		/**
-		 * Available choices: px, em, %.
+		 * Control units.
 		 *
 		 * @var array
 		 */
-		public $units = array( '' );
+		public $units = array();
 
 		/**
 		 * Constructor.
@@ -41,7 +41,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 			// Make sure there is at least 1 unit type.
 			if ( empty( $this->units ) ) {
-				$this->units = array( '' );
+				$this->units = array(
+					'' => array(
+						'min'   => '',
+						'max'   => '',
+						'step'  => '',
+						'label' => '',
+					),
+				);
 			}
 
 			// Sanitize unit attributes.

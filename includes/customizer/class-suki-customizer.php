@@ -117,7 +117,7 @@ class Suki_Customizer {
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-spacer.php';
 
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control.php';
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-hr.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-heading.php';

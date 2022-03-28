@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Horizontal line control class
 	 */
-	class Suki_Customize_Control_HR extends Suki_Customize_Control {
+	class Suki_Customize_Control_HR extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *

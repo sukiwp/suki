@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Slider control class
 	 */
-	class Suki_Customize_Control_Slider extends Suki_Customize_Control {
+	class Suki_Customize_Control_Slider extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *
@@ -24,11 +24,10 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 		/**
 		 * Control units.
-		 * Available choices: px, em, %.
 		 *
 		 * @var array
 		 */
-		public $units = array( '' );
+		public $units = array();
 
 		/**
 		 * Hide units.
@@ -49,7 +48,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 
 			// Make sure there is at least 1 unit type.
 			if ( empty( $this->units ) ) {
-				$this->units = array( '' );
+				$this->units = array(
+					'' => array(
+						'min'   => '',
+						'max'   => '',
+						'step'  => '',
+						'label' => '',
+					),
+				);
 			}
 
 			// Sanitize unit attributes.
@@ -57,9 +63,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 				$this->units[ $key ] = wp_parse_args(
 					$unit,
 					array(
-						'min'   => 0,
+						'min'   => '',
 						'max'   => '',
-						'step'  => 1,
+						'step'  => '',
 						'label' => $key,
 					)
 				);

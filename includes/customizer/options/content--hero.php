@@ -77,21 +77,17 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
 			'choices'  => array(
-				'inherit'    => array(
+				'inherit' => array(
 					'label' => esc_html__( 'Same with Content', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/default.svg',
 				),
-				'default'    => array(
-					'label' => esc_html__( 'Normal', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/hero-container--default.svg',
+				'narrow' => array(
+					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
 				),
-				'full-width' => array(
-					'label' => esc_html__( 'Full width', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/hero-container--full-width.svg',
+				'wide'   => array(
+					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
 				),
-				'narrow'     => array(
-					'label' => esc_html__( 'Narrow', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/hero-container--narrow.svg',
+				'full'   => array(
+					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
 				),
 			),
 			'priority' => 20,

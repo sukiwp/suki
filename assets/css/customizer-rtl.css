@@ -479,96 +479,8 @@
 }
 
 /**
- * Sortable Control
- */
-.customize-control-suki-sortable .suki-sortable {
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-}
-.customize-control-suki-sortable .suki-sortable-item {
-	margin: 0;
-}
-.customize-control-suki-sortable .suki-sortable-item .dashicons {
-	font-size: 20px;
-	margin: 0;
-}
-.customize-control-suki-sortable .suki-sortable-item input {
-	display: none;
-}
-.customize-control-suki-sortable .suki-sortable-item-label {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	opacity: 0.6;
-	border-style: dashed;
-}
-.customize-control-suki-sortable .suki-sortable-item-label label {
-	flex: 0 0 20px;
-	margin-left: 0.75em;
-}
-.customize-control-suki-sortable .suki-sortable-item-label label .dashicons-visibility {
-	display: none;
-}
-.customize-control-suki-sortable .suki-sortable-item-label label .dashicons-hidden {
-	display: block;
-}
-.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label {
-	opacity: 1;
-	border-style: solid;
-}
-.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label label .dashicons-visibility {
-	display: block;
-}
-.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label label .dashicons-hidden {
-	display: none;
-}
-.customize-control-suki-sortable .suki-sortable-item-name {
-	flex: 1 1 auto;
-}
-.customize-control-suki-sortable .suki-sortable-item-handle {
-	flex: 0 0 auto;
-	margin: 0;
-}
-.customize-control-suki-sortable .suki-sortable .sortable-placeholder {
-	border: none;
-	margin: 0;
-}
-
-/**
  * Shadow Control
  */
-.customize-control-suki-shadow .suki-shadow-fieldset {
-	position: relative;
-	padding-left: 30px;
-	display: flex;
-}
-.customize-control-suki-shadow .suki-shadow-fieldset > *:not(:first-child) :is(input, select) {
-	border-right: none;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.customize-control-suki-shadow .suki-shadow-fieldset > *:not(:last-child) :is(input, select) {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-.customize-control-suki-shadow .suki-shadow-position {
-	flex: 0 0 40px;
-}
-.customize-control-suki-shadow .suki-shadow-position select {
-	padding: 0 !important;
-	text-align: center;
-	text-align-last: center;
-	background-image: none !important;
-}
-.customize-control-suki-shadow input[type=number] {
-	text-align: center;
-	-moz-appearance: textfield;
-}
-.customize-control-suki-shadow input[type=number]::-webkit-inner-spin-button, .customize-control-suki-shadow input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	appearance: none;
-}
 .customize-control-suki-shadow .suki-small-label {
 	text-align: center;
 }
@@ -631,6 +543,63 @@
 }
 .customize-control-suki-shadow .wp-picker-container.wp-picker-active .wp-picker-holder {
 	display: block;
+}
+
+/**
+ * Sortable Control
+ */
+.customize-control-suki-sortable .suki-sortable {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.customize-control-suki-sortable .suki-sortable-item {
+	margin: 0;
+}
+.customize-control-suki-sortable .suki-sortable-item .dashicons {
+	font-size: 20px;
+	margin: 0;
+}
+.customize-control-suki-sortable .suki-sortable-item input {
+	display: none;
+}
+.customize-control-suki-sortable .suki-sortable-item-label {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	opacity: 0.6;
+	border-style: dashed;
+}
+.customize-control-suki-sortable .suki-sortable-item-label label {
+	flex: 0 0 20px;
+	margin-left: 0.75em;
+}
+.customize-control-suki-sortable .suki-sortable-item-label label .dashicons-visibility {
+	display: none;
+}
+.customize-control-suki-sortable .suki-sortable-item-label label .dashicons-hidden {
+	display: block;
+}
+.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label {
+	opacity: 1;
+	border-style: solid;
+}
+.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label label .dashicons-visibility {
+	display: block;
+}
+.customize-control-suki-sortable .suki-sortable-item input:checked ~ .suki-sortable-item-label label .dashicons-hidden {
+	display: none;
+}
+.customize-control-suki-sortable .suki-sortable-item-name {
+	flex: 1 1 auto;
+}
+.customize-control-suki-sortable .suki-sortable-item-handle {
+	flex: 0 0 auto;
+	margin: 0;
+}
+.customize-control-suki-sortable .suki-sortable .sortable-placeholder {
+	border: none;
+	margin: 0;
 }
 
 /**

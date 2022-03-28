@@ -36,17 +36,14 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Layout', 'suki' ),
 			'choices'  => array(
-				'default'    => array(
-					'label' => esc_html__( 'Normal', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/footer-container--default.svg',
+				'narrow' => array(
+					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
 				),
-				'full-width' => array(
-					'label' => esc_html__( 'Full width', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/footer-container--full-width.svg',
+				'wide'   => array(
+					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
 				),
-				'contained'  => array(
-					'label' => esc_html__( 'Contained', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/footer-container--contained.svg',
+				'full'   => array(
+					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
 				),
 			),
 			'priority' => 10,

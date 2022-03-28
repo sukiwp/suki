@@ -131,10 +131,10 @@ class Suki_Page_Settings_Meta_Box {
 						 * @todo Migrate values.
 						 */
 						'choices' => array(
-							''           => esc_html__( '(Inherit from Customizer)', 'suki' ),
-							'narrow'     => esc_html__( 'Normal', 'suki' ),
-							'default'    => esc_html__( 'Wide', 'suki' ),
-							'full-width' => esc_html__( 'Full', 'suki' ),
+							''        => esc_html__( '(Inherit from Customizer)', 'suki' ),
+							'narrow'  => esc_html__( 'Narrow', 'suki' ),
+							'default' => esc_html__( 'Wide', 'suki' ),
+							'full'    => esc_html__( 'Full', 'suki' ),
 						),
 					),
 					'content_layout'    => array(
@@ -147,7 +147,7 @@ class Suki_Page_Settings_Meta_Box {
 						 */
 						'choices' => array(
 							''              => esc_html__( '(Inherit from Customizer)', 'suki' ),
-							'wide'          => esc_html__( 'None', 'suki' ),
+							'no-sidebar'    => esc_html__( 'Disabled', 'suki' ),
 							'left-sidebar'  => esc_html__( 'Left Sidebar', 'suki' ),
 							'right-sidebar' => esc_html__( 'Right Sidebar', 'suki' ),
 						),
@@ -689,21 +689,17 @@ class Suki_Page_Settings_Meta_Box {
 						'name'    => $option_key . '[' . $key . ']',
 						'type'    => 'radioimage',
 						'choices' => array(
-							''           => array(
+							''       => array(
 								'label' => esc_html__( '(Customizer)', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
 							),
-							'default'    => array(
-								'label' => esc_html__( 'Normal', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/content-container--default.svg',
+							'narrow' => array(
+								'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
 							),
-							'full-width' => array(
-								'label' => esc_html__( 'Full width', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/content-container--full-width.svg',
+							'wide'   => array(
+								'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
 							),
-							'narrow'     => array(
-								'label' => esc_html__( 'Narrow', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
+							'full'   => array(
+								'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
 							),
 						),
 						'value'   => suki_array_value( $values, $key ),
@@ -728,19 +724,15 @@ class Suki_Page_Settings_Meta_Box {
 						'choices' => array(
 							''              => array(
 								'label' => esc_html__( '(Customizer)', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/customizer.svg',
 							),
-							'right-sidebar' => array(
-								'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--right-sidebar.svg',
+							'no-sidebar'    => array(
+								'label' => esc_html__( 'Disabled', 'suki' ),
 							),
 							'left-sidebar'  => array(
-								'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--left-sidebar.svg',
+								'label' => '<span class="dashicons dashicons-align-pull-left"></span> ' . esc_html__( 'Left', 'suki' ),
 							),
-							'wide'          => array(
-								'label' => esc_html__( 'Disabled', 'suki' ),
-								'image' => SUKI_IMAGES_URL . '/customizer/content-sidebar-layout--wide.svg',
+							'right-sidebar' => array(
+								'label' => '<span class="dashicons dashicons-align-pull-right"></span> ' . esc_html__( 'Right', 'suki' ),
 							),
 						),
 						'value'   => suki_array_value( $values, $key ),
