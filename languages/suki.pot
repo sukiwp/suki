@@ -1729,6 +1729,10 @@ msgstr ""
 msgid "Vertical Menu"
 msgstr ""
 
+#: includes/customizer/options/header--mobile-main-bar.php:36, includes/customizer/options/header--top-main-bottom-bar.php:146
+msgid "Height"
+msgstr ""
+
 #: includes/customizer/options/header--mobile-vertical-bar.php:37
 msgid "Drawer"
 msgstr ""
@@ -1772,10 +1776,6 @@ msgstr ""
 
 #: includes/customizer/options/header--top-main-bottom-bar.php:64
 msgid "Gap with Main Bar content"
-msgstr ""
-
-#: includes/customizer/options/header--top-main-bottom-bar.php:146
-msgid "Height"
 msgstr ""
 
 #: includes/customizer/options/header--top-main-bottom-bar.php:499
