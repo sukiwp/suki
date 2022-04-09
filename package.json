@@ -1,14 +1,7 @@
 {
 	"name": "suki",
-	"title": "Suki",
-	"description": "Suki is a free multi-purpose WordPress theme that is lightweight, fast, highly customizable, and flexible. Build any kind of websites, blog, business, portfolio, WooCommerce storefronts, and also niche websites like Spa, Restaurant, Wedding, Non Profit, Education, Hotel, etc. Fully compatible with Gutenberg, Elementor, Brizy, Visual Composer, Beaver Builder, Divi, SiteOrigin, and other page builders. Tons of design options for customizing typography, colors, layout, and also free built-in Header and Footer builder. Built with SEO in mind, Suki is incredibly fast, mobile optimized, 100% HTML valid, and integrated with Schema.org structured data. Furthermore, Suki supports accessibility, multi-language translation, and RTL languages. Learn more about the full features and also \"one click demo import\" feature at https://sukiwp.com/.",
-	"uri": "https://sukiwp.com/",
-	"author": {
-		"name": "Suki WordPress Theme",
-		"url": "https://sukiwp.com/#about"
-	},
 	"version": "2.0.0-dev",
-	"license": "GPL-2.0-or-later",
+	"description": "Suki is a free multi-purpose WordPress theme that is lightweight, fast, highly customizable, and flexible. Build any kind of websites, blog, business, portfolio, WooCommerce storefronts, and also niche websites like Spa, Restaurant, Wedding, Non Profit, Education, Hotel, etc. Fully compatible with Gutenberg, Elementor, Brizy, Visual Composer, Beaver Builder, Divi, SiteOrigin, and other page builders. Tons of design options for customizing typography, colors, layout, and also free built-in Header and Footer builder. Built with SEO in mind, Suki is incredibly fast, mobile optimized, 100% HTML valid, and integrated with Schema.org structured data. Furthermore, Suki supports accessibility, multi-language translation, and RTL languages. Learn more about the full features and also \"one click demo import\" feature at https://sukiwp.com/.",
 	"keywords": [
 		"two-columns",
 		"left-sidebar",
@@ -29,20 +22,21 @@
 		"e-commerce",
 		"portfolio"
 	],
-	"private": true,
+	"homepage": "https://sukiwp.com/",
+	"license": "GPL-2.0-or-later",
+	"author": {
+		"name": "Suki WordPress Theme",
+		"url": "https://sukiwp.com/"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/sukiwp/suki.git"
 	},
-	"bugs": {
-		"url": "https://github.com/sukiwp/suki/issues"
+	"scripts": {
+		"start": "gulp",
+		"build": "gulp build",
+		"zip": "gulp zip"
 	},
-	"contributors": [
-		{
-			"name": "sukiwp",
-			"url": "https://profiles.wordpress.org/sukiwp"
-		}
-	],
 	"devDependencies": {
 		"@wordpress/scripts": "^22.3.0",
 		"gulp": "^4.0.2",
@@ -58,8 +52,10 @@
 		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.1.0",
 		"sass": "^1.50.0",
+		"vinyl-named": "^1.1.0",
 		"webpack-stream": "^7.0.0"
 	},
+	"private": true,
 	"browserslist": [
 		"> 1%",
 		"last 3 Chrome major versions",
@@ -68,7 +64,9 @@
 		"last 2 Edge major versions",
 		"last 1 IE major versions"
 	],
-	"data": {
+	"additionalInfo": {
+		"title": "Suki",
+		"authorSlug": "sukiwp",
 		"initFile": "style.css",
 		"requiresWPVersion": "4.5",
 		"testedWPVersion": "5.4",

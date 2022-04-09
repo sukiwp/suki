@@ -24,6 +24,7 @@ const wpPot = require( 'gulp-wp-pot' );
 const zip = require( 'gulp-zip' );
 
 // Others
+const named = require( 'vinyl-named' );
 const replace = require( 'gulp-replace' );
 const rename = require( 'gulp-rename' );
 const path = require( 'path' );
@@ -35,8 +36,8 @@ const path = require( 'path' );
 const package = require( './package.json' );
 const config = {
 	scripts: {
-		src: 'src/*.*',
-		dest: 'build',
+		src: 'src/scripts/*.*',
+		dest: 'assets/scripts',
 	},
 	js: {
 		src: [
@@ -46,22 +47,23 @@ const config = {
 		dest: 'assets/js',
 	},
 	css: {
-		src: 'sass/**/*.scss',
+		src: 'src/sass/**/*.scss',
 		srcRTL: [
-			'assets/**/*.css',
-			'!assets/**/*-rtl.css',
-			'!assets/**/*.min.css',
+			'assets/css/**/*.css',
+			'!assets/css/**/*-rtl.css',
+			'!assets/css/**/*.min.css',
 		],
 		srcMinify: [
-			'assets/**/*.css',
-			'!assets/**/*.min.css',
+			'assets/css/**/*.css',
+			'!assets/css/**/*.min.css',
 		],
 		dest: 'assets/css',
 	},
 	pot: {
 		src: [
 			'**/*.php', // all php files
-			'**/scripts/*.js', // all php files
+			'**/*.js', // all JS files
+			package.additionalInfo.initFile, // init file.
 			'!src/**/*', // ignore source files
 			'!**/*.assets.php',  // ignore assets PHP file.
 			'!node_modules/**/*', // ignore node modules
@@ -76,14 +78,18 @@ const config = {
 			'!**/.*', // ignore all dotfiles
 			'!**/_*', // ignore all partial files
 			'!**/{Thumbs.db,.DS_Store}', // ignore OS files
-			'!{node_modules,node_modules/**/*}', // ignore node_modules
+
+			'!src/**', // ignore all source files
+			'!README.md', // ignore readme.md
+
+			'!*phpcs.xml*', // ignore phpcs.xml (all variants)
+			'!*.config.js', // ignore all config.js files
+
+			'!node_modules/**', // ignore node_modules
 			'!{package.json,package-lock.json,yarn.lock}', // ignore npm/yarn files
 			'!{gulp*,gulp**/*}', // ignore anything that starts with gulp
 
-			'!README.md', // ignore readme.md
-			'!*phpcs.xml*', // ignore phpcs.xml (all variants)
-			'!*.config.js', // ignore all config.js files
-			'!{vendor,vendor/**/*}', // ignore composer packages
+			'!vendor/**', // ignore composer packages
 			'!{composer.json,composer.lock}', // ignore composer files
 		],
 		dest: 'zip',
@@ -95,13 +101,13 @@ const config = {
  */
 
 // Copy project info to main file.
-const copyInfoToMainFile = ( cb ) => {
+const copyInfoToMainFile = () => {
 	const infoFile = package.additionalInfo.initFile;
 	
-	gulp
+	return gulp
 	.src( infoFile )
 	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.title ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.uri ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/, 'm' ), '$1 ' + package.homepage ) )
 	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author:)[^\r\n]*?$/, 'm' ), '$1 ' + package.author.name ) )
 	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author URI:)[^\r\n]*?$/, 'm' ), '$1 ' + package.author.url ) )
 	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Description:)[^\r\n]*?$/, 'm' ), '$1 ' + package.description ) )
@@ -113,15 +119,13 @@ const copyInfoToMainFile = ( cb ) => {
 	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Text Domain:)[^\r\n]*?$/, 'm' ), '$1 ' + package.name ) )
 	.pipe( replace( new RegExp( '([\'"]' + package.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]),\s*[\'"].*?[\'"]', 'm' ), '$1, \'' + package.version + '\'' ) )
 	.pipe( gulp.dest( path.dirname( infoFile ) ) );
-	
-	cb();
 }
 
 // Copy project info to `readme.txt` file.
-const copyInfoToReadmeFile = ( cb ) => {
+const copyInfoToReadmeFile = () => {
 	const readmeFile = 'readme.txt';
 
-	gulp
+	return gulp
 	.src( readmeFile )
 	.pipe( replace( new RegExp( /^(===).*(===)$/, 'm' ), '$1 ' + package.additionalInfo.title + ' $2' ) )
 	.pipe( replace( new RegExp( /^(Contributors:).*?$/, 'm' ), '$1 ' + package.additionalInfo.authorSlug ) )
@@ -131,50 +135,48 @@ const copyInfoToReadmeFile = ( cb ) => {
 	.pipe( replace( new RegExp( /^(Requires PHP:).*?$/, 'm' ), '$1 ' + package.additionalInfo.requiresPHPVersion ) )
 	.pipe( replace( new RegExp( /^(Tags:).*?$/, 'm' ), '$1 ' + package.keywords.join( ', ' ) ) )
 	.pipe( gulp.dest( path.dirname( readmeFile ) ) );
-
-	cb();
 }
+
+const copyInfo = gulp.series( copyInfoToMainFile, copyInfoToReadmeFile );
 
 /**
  * Compile ES6 JS files.
  */
 
-const buildScripts = ( cb ) => {
+const buildScripts = () => {
+	// Load default configuration from @wordpress/scripts package.
 	const wpWebpackConfig = require( '@wordpress/scripts/config/webpack.config' );
 
-	// delete wpWebpackConfig.entry;
-	// delete wpWebpackConfig.output;
+	// Remove default entry configuration, we will use our own configuration instead.
+	delete wpWebpackConfig.entry;
 
-	// gulp
-	// .src( config.scripts.src )
-	// .pipe( webpack( wpWebpackConfig ) )
-	// .pipe( gulp.dest( config.scripts.dest ) )
-
-	cb();
+	return gulp
+	.src( config.scripts.src )
+	.pipe( named() )
+	.pipe( webpack( wpWebpackConfig ) )
+	.pipe( gulp.dest( config.scripts.dest ) )
 }
 
 /**
  * Build JS files.
  */
 
-const buildJS = ( cb ) => {
-	gulp
+const buildJS = () => {
+	return gulp
 	.src( config.js.src )
 	.pipe( sourcemaps.init() )
 	.pipe( terser() )
 	.pipe( sourcemaps.write() )
 	.pipe( rename( { suffix: '.min' } ) )
 	.pipe( gulp.dest( config.js.dest ) );
-
-	cb();
 }
 
 /**
  * Build CSS files.
  */
 
-const compileSass = ( cb ) => {
-	gulp
+const compileSass = () => {
+	return gulp
 	.src( config.css.src )
 	.pipe( sourcemaps.init() )
 	.pipe( sass( {
@@ -185,22 +187,18 @@ const compileSass = ( cb ) => {
 	.pipe( sourcemaps.write() )
 	.pipe( autoprefixer( { cascade: false } ) )
 	.pipe( gulp.dest( config.css.dest ) )
-
-	cb();
 }
 
-const generateRTLCSS = ( cb ) => {
-	gulp
+const generateRTLCSS = () => {
+	return gulp
 	.src( config.css.srcRTL )
 	.pipe( rtlcss() )
 	.pipe( rename( { suffix: '-rtl' } ) )
 	.pipe( gulp.dest( config.css.dest ) );
-
-	cb();
 }
 
-const minifyCSS = ( cb ) => {
-	gulp
+const minifyCSS = () => {
+	return gulp
 	.src( config.css.srcMinify )
 	.pipe( mmq() )
 	.pipe( cleanCSS() )
@@ -214,48 +212,44 @@ const buildCSS = gulp.series( compileSass, generateRTLCSS, minifyCSS );
  * Build .pot file.
  */
 
-const buildPOT = ( cb ) => {
-	gulp
-	.src( config.src.pot.concat( [ config.init ] ) )
+const buildPOT = () => {
+	return gulp
+	.src( config.pot.src )
 	.pipe( wpPot( {
 		domain: package.name,
 		package: package.title,
 		metadataFile: package.additionalInfo.initFile,
 	} ) )
 	.pipe( gulp.dest( config.pot.dest + '/' + package.name + '.pot' ) );
-
-	cb();
 }
 
 /**
  * Run all build tasks in sequence.
  */
 
-const build = gulp.series( buildScripts, buildCSS, buildJS, buildPOT );
+const buildAll = gulp.series( copyInfo, buildScripts, buildJS, buildCSS, buildPOT );
 
 /**
  * Compress production files into a zip file.
  */
  
-const zipFiles = ( cb ) => {
-	 // Add timestamp to dev build.
-	 if ( package.version.endsWith( 'dev' ) ) {
-		 package.version = package.version.replace( 'dev', 'dev-' + Date.now() );
-	 }
+const zipFiles = () => {
+	// Add timestamp to dev build.
+	if ( package.version.endsWith( 'dev' ) ) {
+		package.version = package.version.replace( 'dev', 'dev-' + Date.now() );
+	}
  
-	 gulp
-	 .src( config.zip.src )
-	 .pipe( zip( package.name + '-' + package.version + '.zip' ) )
-	 .pipe( gulp.dest( config.zip.dest ) );
- 
-	 cb();
+	return gulp
+	.src( config.zip.src )
+	.pipe( zip( package.name + '-' + package.version + '.zip' ) )
+	.pipe( gulp.dest( config.zip.dest ) );
 }
  
 /**
  * Watch any change on the files and then run the particular tasks.
  */
 
-const watch = ( cb ) => {
+const watchChanges = () => {
 	gulp.watch( 'package.json', 'info' );
 
 	gulp.watch( config.scripts.src, 'scripts' );
@@ -271,7 +265,7 @@ const watch = ( cb ) => {
  * Export tasks
  */
 
-exports.info = gulp.series( copyInfoToMainFile, copyInfoToReadmeFile );
+exports.info = copyInfo;
 
 exports.scripts = buildScripts;
 
@@ -281,10 +275,10 @@ exports.css = buildCSS;
 
 exports.pot = buildPOT;
 
-exports.build = build;
+exports.build = buildAll;
 
-exports.watch = watch;
+exports.watch = watchChanges;
 
-exports.default = gulp.series( build, watch );
+exports.default = gulp.series( buildAll, watchChanges );
 
-exports.zip = gulp.series( build, zipFiles );
+exports.zip = gulp.series( buildAll, zipFiles );
