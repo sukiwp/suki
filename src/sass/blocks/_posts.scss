@@ -42,7 +42,7 @@
 		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
 	}
 
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 }
 
 /**
@@ -50,7 +50,7 @@
  */
 
 .wp-block-query {
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 }
 
 .wp-block-post-template {
@@ -115,11 +115,11 @@
 		width: 100%;
 	}
 
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 }
 
 .wp-block-post-excerpt {
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 }
 
 /**
@@ -127,8 +127,8 @@
  */
 
 .wp-block-query-pagination {
-	@extend %has-background-padding;
-	@extend %alignleft-alignright-max-width;
+	@include padding-for-has-background();
+	@include max-width-for-alignleft-alignright();
 
 	&-numbers {
 		display: flex;

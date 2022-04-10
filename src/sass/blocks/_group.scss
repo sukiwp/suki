@@ -3,7 +3,7 @@
  */
 
 .wp-block-group {
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 }

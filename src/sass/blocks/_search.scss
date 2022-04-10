@@ -58,7 +58,7 @@
 			}
 		}
 	}
-	@extend %alignleft-alignright-max-width;
+	@include max-width-for-alignleft-alignright();
 
 	// Align center
 	&.aligncenter {

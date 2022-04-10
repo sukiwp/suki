@@ -20,16 +20,25 @@ $sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
 	}
 }
 
+// Title
+%title,
 .suki-title {
-	@extend %title;
+	@include title-typography();
+	@include title-color();
 }
 
+// Small title
+%small-title,
 .suki-small-title {
-	@extend %small-title;
+	@include small-title-typography();
+	@include small-title-color();
 }
 
+// Meta
+%meta,
 .suki-meta {
-	@extend %meta;
+	@include meta-typography();
+	@include meta-color();
 }
 
 .suki-reverse-link-color {

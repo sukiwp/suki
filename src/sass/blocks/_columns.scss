@@ -7,10 +7,10 @@
 	flex-wrap: wrap;
 	gap: calc( 1.5 * var(--wp--style--block-gap) );
 
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 
 	&:where(.has-background) {
-		@extend %alignfull-ignore-padding;
+		@include stretch-alignfull();
 	}
 
 	// Vertical alignment (CORE FEATURES)
@@ -45,7 +45,7 @@
 	flex-grow: 1; // Column with unspecified width will fill the blank space
 	flex-basis: 0;
 
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 
 	// > * {
 	// 	margin-top: var(--wp--style--block-gap);

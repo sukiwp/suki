@@ -63,7 +63,7 @@
 	 * Common components
 	 */
 
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 
 	// Submenu toggle on "open on click" mode
 	// The entire menu item would be a toggle button, we need to reset the styles

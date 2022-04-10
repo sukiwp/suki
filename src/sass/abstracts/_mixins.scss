@@ -80,3 +80,99 @@
 		}
 	}
 }
+
+// Title typography
+@mixin title-typography() {
+	font-family: var(--title--font-family);
+	font-size: var(--title--font-size);
+	font-style: var(--title--font-style);
+	font-weight: var(--title--font-weight);
+	line-height: var(--title--line-height);
+	letter-spacing: var(--title--letter-spacing);
+	text-transform: var(--title--text-transform);
+}
+
+// Title color
+@mixin title-color() {
+	color: var(--title--text-color);
+
+	a {
+		color: inherit;
+	
+		&:focus, &:hover {
+			color: var(--title--text-color--focus);
+		}
+	}
+}
+
+// Small title typography
+@mixin small-title-typography() {
+	font-family: var(--small-title--font-family);
+	font-size: var(--small-title--font-size);
+	font-style: var(--small-title--font-style);
+	font-weight: var(--small-title--font-weight);
+	line-height: var(--small-title--line-height);
+	letter-spacing: var(--small-title--letter-spacing);
+	text-transform: var(--small-title--text-transform);
+}
+
+// Small title color
+@mixin small-title-color() {
+	color: var(--small-title--text-color);
+
+	a {
+		color: inherit;
+	
+		&:focus, &:hover {
+			color: var(--small-title--text-color--focus);
+		}
+	}
+}
+
+// Meta typography
+@mixin meta-typography() {
+	font-family: var(--meta--font-family);
+	font-size: var(--meta--font-size);
+	font-style: var(--meta--font-style);
+	font-weight: var(--meta--font-weight);
+	line-height: var(--meta--line-height);
+	letter-spacing: var(--meta--letter-spacing);
+	text-transform: var(--meta--text-transform);
+}
+
+// Meta color
+@mixin meta-color() {
+	color: var(--meta--text-color);
+
+	a {
+		color: inherit;
+	
+		&:focus, &:hover {
+			color: var(--meta--text-color--focus);
+		}
+	}
+}
+
+// Padding when element has .has-background
+@mixin padding-for-has-background() {
+	&:where(.has-background) {
+		padding: var(--wp--style--block-gap);
+	}
+}
+
+// Align left & right max width
+@mixin max-width-for-alignleft-alignright() {
+	// Apply max-width to floated items that have no intrinsic width.
+	&:where(.alignleft, .alignright) {
+		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) );; // Fix value, only overrideable via custom CSS
+		width: 100%;
+	}
+}
+
+// Align full ignores padding
+@mixin stretch-alignfull() {
+	&:where(.alignfull) {
+		margin-left: calc( -1 * ( min( var(--full-size), 100vw ) - 100% ) / 2 ) !important;
+		margin-right: calc( -1 * ( min( var(--full-size), 100vw ) - 100% ) / 2 ) !important;
+	}
+}

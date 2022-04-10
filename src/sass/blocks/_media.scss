@@ -5,7 +5,7 @@
  .wp-block-image {
 	overflow: hidden;
 
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 
 	&.is-style-rounded {
 		img {
@@ -31,7 +31,7 @@
  */
 
 .wp-block-video {
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 }
 
 /**
@@ -49,7 +49,7 @@
 	padding: var(--wp--style--block-gap);
 	gap: 0; // Cover doesn't need gap
 
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 
 	&.has-parallax {
 		background-attachment: fixed; // When parallax mode is activated, .wp-block-cover__image-background is removed
@@ -119,7 +119,7 @@
 		opacity: 0.5; // Default
 	}
 
-	@extend %alignleft-alignright-max-width;
+	@include max-width-for-alignleft-alignright();
 
 	&__inner-container {
 		--text-color: #000;
@@ -215,7 +215,7 @@
  */
 
 .wp-block-embed {
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 
 	// Supply a min-width when inside a cover block, to prevent it from collapsing.
 	.wp-block-cover & {
@@ -223,7 +223,7 @@
 		min-height: 240px;
 	}
 
-	@extend %alignleft-alignright-max-width;
+	@include max-width-for-alignleft-alignright();
 
 	// Supply a min-width when inside a cover block, to prevent it from collapsing.
 	.wp-block-cover & {
@@ -365,7 +365,7 @@
 		justify-content: center;
 	}
 
-	@extend %alignleft-alignright-max-width;
+	@include max-width-for-alignleft-alignright();
 }
 
 /**
@@ -383,7 +383,7 @@
 	grid-template-areas: "media content";
 	align-items: center;
 
-	@extend %alignfull-ignore-padding;
+	@include stretch-alignfull();
 	
 	&.has-media-on-the-right {
 		grid-template-areas: "content media";

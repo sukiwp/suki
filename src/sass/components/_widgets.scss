@@ -10,6 +10,15 @@
 }
 
 // List widgets
+%widget-list {
+	list-style: none;
+	margin: var(--wp--style--block-gap) 0;
+	padding: 0;
+
+	display: grid;
+	gap: 0.25em;
+}
+
 .widget_nav_menu,
 .widget_categories,
 .widget_archive,
@@ -46,6 +55,18 @@
 }
 
 // Calendar widget
+%widget-calendar {
+	text-align: center;
+
+	caption {
+		margin-bottom: 0.5em;
+	}
+
+	:where(th, td) {
+		padding: 0.25em 0.5em;
+	}
+}
+
 .widget_calendar {
 	@extend %widget-calendar;
 }

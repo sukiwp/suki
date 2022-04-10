@@ -34,9 +34,9 @@
  */
 
 .wp-block-pullquote {	
-	@extend %has-background-padding;
+	@include padding-for-has-background();
 	
-	@extend %alignleft-alignright-max-width;
+	@include max-width-for-alignleft-alignright();
 	
 	blockquote {
 		position: relative;
