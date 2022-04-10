@@ -217,9 +217,7 @@
 				}
 
 				var fontFamily = fontName.replace( ' ', '+' ),
-				    variants = '100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i',
-				    subsets = wp.customize( 'google_fonts_subsets' ).get(),
-				    href = '//fonts.googleapis.com/css?family=' + fontFamily + ':' + variants + '&subset=' + subsets.join( ',' );
+				    href = '//fonts.googleapis.com/css2?family=' + fontFamily + ':ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
 
 				// Set new href on preview's Google Fonts CSS.
 				$googleFontsLink.attr( 'href', href );
