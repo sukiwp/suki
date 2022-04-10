@@ -28,6 +28,7 @@ const named = require( 'vinyl-named' );
 const replace = require( 'gulp-replace' );
 const rename = require( 'gulp-rename' );
 const path = require( 'path' );
+const del = require( 'del' );
 
 /**
  * Configurations
@@ -62,7 +63,7 @@ const config = {
 	pot: {
 		src: [
 			'**/*.php', // all php files
-			'**/*.js', // all JS files
+			'assets/scripts/**/*.js', // all JS files
 			package.additionalInfo.initFile, // init file.
 			'!src/**/*', // ignore source files
 			'!**/*.assets.php',  // ignore assets PHP file.
@@ -250,15 +251,51 @@ const zipFiles = () => {
  */
 
 const watchChanges = () => {
-	gulp.watch( 'package.json', 'info' );
+	/**
+	 * Package.json
+	 */
+	const infoWatcher = gulp.watch( 'package.json', copyInfo );
 
-	gulp.watch( config.scripts.src, 'scripts' );
+	/**
+	 * Scripts
+	 */
+	const scriptsWatcher = gulp.watch( config.scripts.src, buildScripts );
 
-	gulp.watch( config.js.src, 'js' );
+	// Delete mirror destination files
+	scriptsWatcher.on( 'unlink', ( deletedFile, stats ) => {
+		const basename = path.basename( deletedFile, path.extname( deletedFile ) );
+		const mirrorDeleteGlob = path.join( config.scripts.dest, basename ) + '.*';
+		del( mirrorDeleteGlob );
+	} );
+
+	/**
+	 * JS
+	 */
+	const jsWatcher = gulp.watch( config.js.src, buildJS );
+
+	// Delete mirror destination files
+	jsWatcher.on( 'unlink', ( deletedFile, stats ) => {
+		const basename = path.basename( deletedFile, path.extname( deletedFile ) );
+		const mirrorDeleteGlob = path.join( config.js.dest, basename ) + '?(.min).js';
+		del( mirrorDeleteGlob );
+	} );
 	
-	gulp.watch( config.css.src, 'css' );
+	/**
+	 * CSS
+	 */
+	const cssWatcher = gulp.watch( config.css.src, buildCSS );
 
-	gulp.watch( config.pot.src, 'pot' );
+	// Delete mirror destination files
+	cssWatcher.on( 'unlink', ( deletedFile, stats ) => {
+		const basename = path.basename( deletedFile, path.extname( deletedFile ) );
+		const mirrorDeleteGlob = path.join( config.css.dest, basename ) + '?(-rtl)?(.min).css';
+		del( mirrorDeleteGlob );
+	} );
+
+	/**
+	 * POT
+	 */
+	const potWatcher = gulp.watch( config.pot.src, buildPOT );
 }
 
 /**
