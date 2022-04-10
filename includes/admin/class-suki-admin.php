@@ -52,6 +52,9 @@ class Suki_Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
 
+		// Editor styles.
+		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
+
 		// Theme dashboard notification.
 		add_action( 'admin_notices', array( $this, 'add_theme_welcome' ), 999 );
 
@@ -62,10 +65,6 @@ class Suki_Admin {
 
 		// Suki Sites Import plugin installation from theme's dashboard page.
 		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
-
-		// Editor styles.
-		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_custom_css' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
 		// Suki admin page hooks.
 		add_action( 'suki/admin/dashboard/header', array( $this, 'render_admin_page__logo' ), 10 );
@@ -175,6 +174,16 @@ class Suki_Admin {
 	}
 
 	/**
+	 * Add CSS for editor page.
+	 */
+	public function enqueue_editor_css() {
+		// Add editor styles to the block editor.
+		add_theme_support( 'editor-styles' );
+
+		add_editor_style( 'assets/css/main' . SUKI_ASSETS_SUFFIX . '.css' );
+	}
+
+	/**
 	 * Add welcome panel on the Appearance > Themes page.
 	 */
 	public function add_theme_welcome() {
@@ -229,225 +238,6 @@ class Suki_Admin {
 	public function reset_rating_notice_flag() {
 		update_option( 'suki_installed_time', time() );
 		update_option( 'suki_rating_notice_is_dismissed', 0 );
-	}
-
-	/**
-	 * Add CSS for editor page.
-	 */
-	public function add_editor_css() {
-		add_editor_style( SUKI_CSS_URL . '/editor' . SUKI_ASSETS_SUFFIX . '.css' );
-	}
-
-	/**
-	 * Add custom CSS to classic editor.
-	 *
-	 * @param array $settings Settings array.
-	 * @return array
-	 */
-	public function add_classic_editor_custom_css( $settings ) {
-		if ( ! function_exists( 'get_current_screen' ) ) {
-			return;
-		}
-		// Skip Gutenberg editor page.
-		$current_screen = get_current_screen();
-		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
-			return $settings;
-		}
-
-		global $post;
-
-		if ( empty( $post ) ) {
-			return $settings;
-		}
-
-		$css_array = array(
-			'global' => array(),
-		);
-
-		// TinyMCE HTML.
-		$css_array['global']['html']['background-color'] = '#fcfcfc';
-
-		// Typography.
-		$fonts               = suki_get_all_fonts();
-		$active_google_fonts = array();
-		$typography_types    = array(
-			'body'       => 'body',
-			'blockquote' => 'blockquote',
-			'h1'         => 'h1',
-			'h2'         => 'h2',
-			'h3'         => 'h3',
-			'h4'         => 'h4',
-		);
-
-		foreach ( $typography_types as $type => $selector ) {
-			// Font Family.
-			$font_family = suki_get_theme_mod( $type . '_font_family' );
-			$font_stack  = $font_family;
-			if ( '' !== $font_family && 'inherit' !== $font_family ) {
-				$chunks = explode( '|', $font_family );
-				if ( 2 === count( $chunks ) ) {
-					$font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
-				}
-			}
-			if ( ! empty( $font_stack ) ) {
-				$css_array['global'][ $selector ]['font-family'] = $font_stack;
-			}
-
-			// Font weight.
-			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
-			if ( ! empty( $font_weight ) ) {
-				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
-			}
-
-			// Font style.
-			$font_style = suki_get_theme_mod( $type . '_font_style' );
-			if ( ! empty( $font_style ) ) {
-				$css_array['global'][ $selector ]['font-style'] = $font_style;
-			}
-
-			// Text transform.
-			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
-			if ( ! empty( $text_transform ) ) {
-				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
-			}
-
-			// Font size.
-			$font_size = suki_get_theme_mod( $type . '_font_size' );
-			if ( ! empty( $font_size ) ) {
-				$css_array['global'][ $selector ]['font-size'] = $font_size;
-			}
-
-			// Line height.
-			$line_height = suki_get_theme_mod( $type . '_line_height' );
-			if ( ! empty( $line_height ) ) {
-				$css_array['global'][ $selector ]['line-height'] = $line_height;
-			}
-
-			// Letter spacing.
-			$letter_spacing = suki_get_theme_mod( $type . '_letter_spacing' );
-			if ( ! empty( $letter_spacing ) ) {
-				$css_array['global'][ $selector ]['letter-spacing'] = $letter_spacing;
-			}
-		}
-
-		// Build CSS string.
-		// $styles = str_replace( '"', '\"', suki_convert_css_array_to_string( $css_array ) );.
-		$styles = wp_slash( suki_convert_css_array_to_string( $css_array ) );
-
-		// Merge with existing styles or add new styles.
-		if ( ! isset( $settings['content_style'] ) ) {
-			$settings['content_style'] = $styles . ' ';
-		} else {
-			$settings['content_style'] .= ' ' . $styles . ' ';
-		}
-
-		return $settings;
-	}
-
-	/**
-	 * Enqueue Block Editor assets.
-	 */
-	public function enqueue_block_editor_assets() {
-		wp_enqueue_style( 'suki-editor', SUKI_CSS_URL . '/editor' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-editor', 'rtl', 'replace' );
-		wp_style_add_data( 'suki-editor', 'suffix', SUKI_ASSETS_SUFFIX );
-	}
-
-	/**
-	 * Add custom CSS to Gutenberg editor.
-	 *
-	 * @param array $settings Settings array.
-	 * @return array
-	 */
-	public function add_gutenberg_custom_css( $settings ) {
-		$css_array = array();
-
-		// Content width.
-		$css_array['global']['.wp-block']['max-width']                    = 'calc(' . suki_get_theme_mod( 'content_narrow_width' ) . ' + 30px)';
-		$css_array['global']['.wp-block[data-align="wide"]']['max-width'] = 'calc(' . suki_get_theme_mod( 'container_width' ) . ' + 30px)';
-		$css_array['global']['.wp-block[data-align="full"]']['max-width'] = 'none';
-
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-family']    = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-weight']    = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-style']     = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['text-transform'] = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['font-size']      = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['line-height']    = 'inherit';
-		$css_array['global']['.editor-post-title__block .editor-post-title__input']['letter-spacing'] = 'inherit';
-
-		// Typography.
-		$fonts               = suki_get_all_fonts();
-		$active_google_fonts = array();
-		$typography_types    = array(
-			'body'       => 'body',
-			'blockquote' => 'blockquote',
-			'h1'         => 'h1, .editor-post-title__block .editor-post-title__input',
-			'h2'         => 'h2',
-			'h3'         => 'h3',
-			'h4'         => 'h4',
-			'title'      => '.editor-post-title__block .editor-post-title__input',
-		);
-
-		foreach ( $typography_types as $type => $selector ) {
-			// Font Family.
-			$font_family = suki_get_theme_mod( $type . '_font_family' );
-			$font_stack  = $font_family;
-			if ( '' !== $font_family && 'inherit' !== $font_family ) {
-				$chunks = explode( '|', $font_family );
-				if ( 2 === count( $chunks ) ) {
-					$font_stack = suki_array_value( $fonts[ $chunks[0] ], $chunks[1], $chunks[1] );
-				}
-			}
-			if ( ! empty( $font_stack ) ) {
-				$css_array['global'][ $selector ]['font-family'] = $font_stack;
-			}
-
-			// Font weight.
-			$font_weight = suki_get_theme_mod( $type . '_font_weight' );
-			if ( ! empty( $font_weight ) ) {
-				$css_array['global'][ $selector ]['font-weight'] = $font_weight;
-			}
-
-			// Font style.
-			$font_style = suki_get_theme_mod( $type . '_font_style' );
-			if ( ! empty( $font_style ) ) {
-				$css_array['global'][ $selector ]['font-style'] = $font_style;
-			}
-
-			// Text transform.
-			$text_transform = suki_get_theme_mod( $type . '_text_transform' );
-			if ( ! empty( $text_transform ) ) {
-				$css_array['global'][ $selector ]['text-transform'] = $text_transform;
-			}
-
-			// Font size.
-			$font_size = suki_get_theme_mod( $type . '_font_size' );
-			if ( ! empty( $font_size ) ) {
-				$css_array['global'][ $selector ]['font-size'] = $font_size;
-			}
-
-			// Line height.
-			$line_height = suki_get_theme_mod( $type . '_line_height' );
-			if ( ! empty( $line_height ) ) {
-				$css_array['global'][ $selector ]['line-height'] = $line_height;
-			}
-
-			// Letter spacing.
-			$letter_spacing = suki_get_theme_mod( $type . '_letter_spacing' );
-			if ( ! empty( $letter_spacing ) ) {
-				$css_array['global'][ $selector ]['letter-spacing'] = $letter_spacing;
-			}
-		}
-
-		// Relative heading margin top.
-		$css_array['global']['h1, h2, h3, h4, h5, h6']['margin-top'] = 'calc( 2 * ' . suki_get_theme_mod( 'body_font_size' ) . ') !important';
-
-		// Add to settings array.
-		$settings['styles']['suki-custom'] = array(
-			'css' => suki_convert_css_array_to_string( $css_array ),
-		);
-
-		return $settings;
 	}
 
 	/**

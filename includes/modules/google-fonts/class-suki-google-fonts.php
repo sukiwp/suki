@@ -79,8 +79,10 @@ class Suki_Google_Fonts extends Suki_Module {
 		 * Admin
 		 */
 
-		// Enqueue Google Fonts on Gutenberg block editor.
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_css' ) );
+		if ( is_admin() ) {
+			// Enqueue Google Fonts on Gutenberg block editor.
+			add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
+		}
 	}
 
 	/**
@@ -131,7 +133,6 @@ class Suki_Google_Fonts extends Suki_Module {
 	public function enqueue_css() {
 		$url = $this->get_embed_url();
 
-		// Enqueue on frontend.
 		if ( ! empty( $url ) ) {
 			wp_enqueue_style( 'suki-google-fonts', $url, array(), SUKI_VERSION );
 		}
@@ -177,9 +178,8 @@ class Suki_Google_Fonts extends Suki_Module {
 	public function enqueue_editor_css() {
 		$url = $this->get_embed_url();
 
-		// Enqueue on frontend.
 		if ( ! empty( $url ) ) {
-			wp_enqueue_style( 'suki-google-fonts', $url, array(), SUKI_VERSION );
+			add_editor_style( 'suki-google-fonts', $url, array(), SUKI_VERSION );
 		}
 	}
 
