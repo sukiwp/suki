@@ -7,7 +7,6 @@ const gulp = require( 'gulp' );
 
 // CSS libraries
 const sass = require( 'gulp-sass' )( require( 'sass' ) );
-const sourcemaps = require( 'gulp-sourcemaps' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const cleanCSS = require( 'gulp-clean-css' );
 const mmq = require( 'gulp-merge-media-queries' );
@@ -165,9 +164,7 @@ const buildScripts = () => {
 const buildJS = () => {
 	return gulp
 	.src( config.js.src )
-	.pipe( sourcemaps.init() )
 	.pipe( terser() )
-	.pipe( sourcemaps.write() )
 	.pipe( rename( { suffix: '.min' } ) )
 	.pipe( gulp.dest( config.js.dest ) );
 }
@@ -179,13 +176,11 @@ const buildJS = () => {
 const compileSass = () => {
 	return gulp
 	.src( config.css.src )
-	.pipe( sourcemaps.init() )
 	.pipe( sass( {
 		outputStyle: 'expanded',
 		indentType: 'tab',
 		indentWidth: 1,
 	} ).on( 'error', sass.logError ) )
-	.pipe( sourcemaps.write() )
 	.pipe( autoprefixer( { cascade: false } ) )
 	.pipe( gulp.dest( config.css.dest ) )
 }
