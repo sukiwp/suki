@@ -97,7 +97,7 @@
 }
 
 .wp-block-post {
-	@extend %block-container;
+	@include block-container();
 }
 
 /**

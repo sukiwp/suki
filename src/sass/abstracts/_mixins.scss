@@ -11,6 +11,24 @@
 	}
 }
 
+@mixin block-container {
+	max-width: none !important;
+
+	> :where(*) {
+		max-width: min( 100%, var(--content-size) );
+
+		&:where(:not(.alignleft, .alignright) ) {
+			margin-left: auto !important;
+			margin-right: auto !important;
+			margin-top: var(--wp--style--block-gap);
+			margin-bottom: 0;
+	
+			@include remove-margin-top-for-first-child();
+			@include remove-margin-bottom-for-last-child();
+		}
+	}
+}
+
 // Remove top margin of an element if it's the first child
 @mixin remove-margin-top-for-first-child( $important: true ) {
 	&:first-child {

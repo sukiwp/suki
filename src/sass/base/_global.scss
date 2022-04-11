@@ -2,27 +2,6 @@
  * Global
  */
 
-* {
-	// Set box sizing on all elements and pseudo elements
-	&,
-	&:before,
-	&:after {
-		box-sizing: border-box;
-	}
-	
-	// Remove outline for mouse users
-	&:focus {
-		outline: none;
-	}
-
-	// // Set border color
-	// &,
-	// &:before,
-	// &:after {
-	// 	border-color: var(--border-color);
-	// }
-}
-
 body {
 	// Color palette (default)
 	--color-palette-1: #222222;
@@ -158,6 +137,27 @@ body {
 	word-wrap: break-word;
 }
 
+:where(*) {
+	// Set box sizing on all elements and pseudo elements
+	&,
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+	
+	// Remove outline for mouse users
+	&:focus {
+		outline: none;
+	}
+
+	// Set border color
+	&,
+	&:before,
+	&:after {
+		border-color: var(--border-color);
+	}
+}
+
 ::selection {
 	background-color: var(--color-palette-4); // invert text and background color
 	color: var(--color-palette-8); // invert text and background color
@@ -165,4 +165,14 @@ body {
 
 *::placeholder {
 	opacity: 0.75;
+}
+
+hr {
+	border: none;
+	border-bottom: 1px solid var(--border-color);
+	border-color: var(--border-color);
+	margin: var(--wp--style--block-gap) 0;
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
 }
