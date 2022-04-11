@@ -54,6 +54,7 @@ class Suki_Admin {
 
 		// Editor styles.
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
+		add_filter( 'block_editor_settings_all', array( $this, 'enqueue_editor_dynamic_css' ), 10, 2 );
 
 		// Theme dashboard notification.
 		add_action( 'admin_notices', array( $this, 'add_theme_welcome' ), 999 );
@@ -181,6 +182,23 @@ class Suki_Admin {
 		add_theme_support( 'editor-styles' );
 
 		add_editor_style( 'assets/css/main' . SUKI_ASSETS_SUFFIX . '.css' );
+	}
+
+	/**
+	 * Add dynamic CSS for editor page.
+	 *
+	 * @param array                   $editor_settings      Editor's settings array.
+	 * @param WP_Block_Editor_Context $block_editor_context Block editor context.
+	 */
+	public function enqueue_editor_dynamic_css( $editor_settings, $block_editor_context ) {
+		$dynamic_css = trim( apply_filters( 'suki/frontend/dynamic_css', '' ) );
+
+		$editor_settings['styles'][] = array(
+			'css'            => $dynamic_css,
+			'__unstableType' => 'theme',
+		);
+
+		return $editor_settings;
 	}
 
 	/**

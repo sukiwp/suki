@@ -70,35 +70,17 @@ class Suki_Page_Settings extends Suki_Module {
 	 */
 
 	/**
-	 * Override page settings value with individual page setting values.
+	 * Override page settings value with individual page setting values which is configured via meta box.
 	 *
-	 * @param mixed  $value     Setting value.
-	 * @param string $key       Setting key.
-	 * @param string $page_type Page type.
+	 * @param mixed  $value                Setting value.
+	 * @param string $key                  Setting key.
+	 * @param string $current_page_context Page type.
 	 * @return mixed
 	 */
-	public function override_page_settings_value( $value, $key, $page_type ) {
-		// Error 404.
-		if ( 'error_404' === $page_type ) {
-			// Some fixed values.
-			switch ( $key ) {
-				case 'hero':
-					$value = 0;
-					break;
-
-				case 'content_container':
-					$value = 'narrow';
-					break;
-
-				case 'content_layout':
-					$value = 'wide';
-					break;
-			}
-		}
-
+	public function override_page_settings_value( $value, $key, $current_page_context ) {
 		// Singular pages.
-		if ( '_single' === substr( $page_type, -7 ) ) {
-			$post_type = str_replace( '_single', '', $page_type );
+		if ( '_single' === substr( $current_page_context, -7 ) ) {
+			$post_type = str_replace( '_single', '', $current_page_context );
 
 			// Get the singular object.
 			$obj = get_queried_object();
@@ -113,8 +95,8 @@ class Suki_Page_Settings extends Suki_Module {
 		}
 
 		// Archive pages.
-		if ( '_archive' === substr( $page_type, -8 ) ) {
-			$post_type = str_replace( '_archive', '', $page_type );
+		if ( '_archive' === substr( $current_page_context, -8 ) ) {
+			$post_type = str_replace( '_archive', '', $current_page_context );
 
 			if ( is_tax() || is_category() || is_tag() ) {
 				$obj = get_queried_object();

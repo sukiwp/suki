@@ -214,6 +214,44 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 }
 
 /**
+ * Return the current loaded page context.
+ *
+ * @return string
+ */
+function suki_get_current_page_context() {
+	$current_page_context = '';
+
+	// Get the page type.
+	if ( is_admin() ) {
+		// Admin pages.
+		$screen = get_current_screen();
+
+		switch ( $screen->base ) {
+			case 'post':
+				$current_page_context = $screen->post_type . '_single';
+				break;
+
+			case 'term':
+				$current_page_context = $screen->post_type . '_archive';
+				break;
+		}
+	} else {
+		// Frontend pages.
+		if ( is_404() ) {
+			$current_page_context = 'error_404';
+		} elseif ( is_search() && ! is_archive() ) { // WooCommerce search results page is considered as archive.
+			$current_page_context = 'search_results';
+		} elseif ( is_singular() ) {
+			$current_page_context = get_queried_object()->post_type . '_single';
+		} elseif ( is_archive() ) {
+			$current_page_context = get_query_var( 'post_type' ) . '_archive';
+		}
+	}
+
+	return $current_page_context;
+}
+
+/**
  * Wrapper function to get page setting of specified key.
  *
  * @param string $key     Key of requested page setting value.
@@ -226,36 +264,49 @@ function suki_get_current_page_setting( $key, $default = null ) {
 		return null;
 	}
 
-	// Get the page type.
-	if ( is_404() ) {
-		$page_type = 'error_404';
-	} elseif ( is_search() && ! is_archive() ) { // WooCommerce search results page is considered as archive.
-		$page_type = 'search_results';
-	} elseif ( is_singular() ) {
-		$page_type = get_queried_object()->post_type . '_single';
-	} elseif ( is_archive() ) {
-		$page_type = get_query_var( 'post_type' ) . '_archive';
-	}
+	// Get current page context.
+	$current_page_context = suki_get_current_page_context();
 
 	// Get the value from Customizer's Individual Page Settings.
-	$value = suki_get_theme_mod( $page_type . '_' . $key );
+	$value = suki_get_theme_mod( $current_page_context . '_' . $key );
+
+	/**
+	 * Hardcoded values for Error 404 page.
+	 */
+
+	if ( 'error_404' === $current_page_context ) {
+		// Some fixed values.
+		switch ( $key ) {
+			case 'hero':
+				$value = 0;
+				break;
+
+			case 'content_container':
+				$value = 'narrow';
+				break;
+
+			case 'content_layout':
+				$value = 'wide';
+				break;
+		}
+	}
 
 	/**
 	 * Filter: suki/page_settings/setting_value
 	 *
 	 * @param mixed  $value     Setting value.
 	 * @param string $key       Setting key.
-	 * @param string $page_type Page type.
+	 * @param string $current_page_context Page type.
 	 */
-	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key, $page_type );
+	$value = apply_filters( 'suki/page_settings/setting_value', $value, $key, $current_page_context );
 
 	/**
 	 * Filter: suki/page_settings/setting_value/{$key}
 	 *
 	 * @param mixed  $value     Setting value.
-	 * @param string $page_type Page type.
+	 * @param string $current_page_context Page type.
 	 */
-	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value, $page_type );
+	$value = apply_filters( 'suki/page_settings/setting_value/' . $key, $value, $current_page_context );
 
 	// Last fallback, if the value is empty, try to use the global value.
 	if ( '' === $value || is_null( $value ) ) {
