@@ -80,30 +80,28 @@ class Suki_Page_Settings extends Suki_Module {
 	public function override_page_settings_value( $value, $key, $current_page_context ) {
 		// Singular pages.
 		if ( '_single' === substr( $current_page_context, -7 ) ) {
-			$post_type = str_replace( '_single', '', $current_page_context );
-
 			// Get the singular object.
-			$obj = get_queried_object();
+			$post = get_queried_object();
 
-			// Get the individual page settings for current singular object.
-			$individual_settings = wp_parse_args( get_post_meta( $obj->ID, '_suki_page_settings', true ), array() );
+			if ( ! empty( $post ) ) {
+				// Get the individual page settings for current singular object.
+				$individual_settings = wp_parse_args( get_post_meta( $post->ID, '_suki_page_settings', true ), array() );
 
-			// Override with individual value (if set).
-			if ( isset( $individual_settings[ $key ] ) ) {
-				$value = $individual_settings[ $key ];
+				// Override with individual value (if set).
+				if ( isset( $individual_settings[ $key ] ) ) {
+					$value = $individual_settings[ $key ];
+				}
 			}
 		}
 
 		// Archive pages.
 		if ( '_archive' === substr( $current_page_context, -8 ) ) {
-			$post_type = str_replace( '_archive', '', $current_page_context );
-
 			if ( is_tax() || is_category() || is_tag() ) {
-				$obj = get_queried_object();
+				$term = get_queried_object();
 
-				if ( $obj ) {
+				if ( ! empty( $term ) ) {
 					// Get the individual page settings for current taxonomy term.
-					$individual_settings = wp_parse_args( get_term_meta( $obj->term_id, 'suki_page_settings', true ), array() );
+					$individual_settings = wp_parse_args( get_term_meta( $term->term_id, 'suki_page_settings', true ), array() );
 
 					// Override with individual value (if set).
 					if ( isset( $individual_settings[ $key ] ) ) {

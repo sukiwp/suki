@@ -221,31 +221,15 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 function suki_get_current_page_context() {
 	$current_page_context = '';
 
-	// Get the page type.
-	if ( is_admin() ) {
-		// Admin pages.
-		$screen = get_current_screen();
-
-		switch ( $screen->base ) {
-			case 'post':
-				$current_page_context = $screen->post_type . '_single';
-				break;
-
-			case 'term':
-				$current_page_context = $screen->post_type . '_archive';
-				break;
-		}
-	} else {
-		// Frontend pages.
-		if ( is_404() ) {
-			$current_page_context = 'error_404';
-		} elseif ( is_search() && ! is_archive() ) { // WooCommerce search results page is considered as archive.
-			$current_page_context = 'search_results';
-		} elseif ( is_singular() ) {
-			$current_page_context = get_queried_object()->post_type . '_single';
-		} elseif ( is_archive() ) {
-			$current_page_context = get_query_var( 'post_type' ) . '_archive';
-		}
+	// Frontend pages.
+	if ( is_404() ) {
+		$current_page_context = 'error_404';
+	} elseif ( is_search() && ! is_archive() ) { // WooCommerce search results page is considered as archive.
+		$current_page_context = 'search_results';
+	} elseif ( is_singular() ) {
+		$current_page_context = get_queried_object()->post_type . '_single';
+	} elseif ( is_archive() ) {
+		$current_page_context = get_query_var( 'post_type' ) . '_archive';
 	}
 
 	return $current_page_context;
@@ -269,27 +253,6 @@ function suki_get_current_page_setting( $key, $default = null ) {
 
 	// Get the value from Customizer's Individual Page Settings.
 	$value = suki_get_theme_mod( $current_page_context . '_' . $key );
-
-	/**
-	 * Hardcoded values for Error 404 page.
-	 */
-
-	if ( 'error_404' === $current_page_context ) {
-		// Some fixed values.
-		switch ( $key ) {
-			case 'hero':
-				$value = 0;
-				break;
-
-			case 'content_container':
-				$value = 'narrow';
-				break;
-
-			case 'content_layout':
-				$value = 'wide';
-				break;
-		}
-	}
 
 	/**
 	 * Filter: suki/page_settings/setting_value

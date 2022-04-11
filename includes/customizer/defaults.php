@@ -576,6 +576,12 @@ $add['search_results_content_header_alignment'] = 'left';
  * ====================================================
  */
 
+// Hardcoded values for Error 404 page settings.
+// No actual options added in the Customizer.
+$add['error_404_hero']              = 0;
+$add['error_404_content_container'] = 'narrow';
+$add['error_404_content_layout']    = 'no-sidebar';
+
 $add['error_404_title_text']       = esc_html__( 'Oops! That page can not be found', 'suki' );
 $add['error_404_description_text'] = esc_html__( 'It looks like nothing was found at this location. Maybe try searching?', 'suki' );
 $add['error_404_search_bar']       = 1;
