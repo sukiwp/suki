@@ -86,6 +86,27 @@ function suki_show_pro_teaser() {
 }
 
 /**
+ * Return script data as defined on the generated `/assets/scripts/[name].asset.php` file.
+ *
+ * @since 2.0.0
+ *
+ * @param string $script_name Script name.
+ * @return array
+ */
+function suki_get_script_data( $script_name ) {
+	// Define the asset file path.
+	$script_asset_path = trailingslashit( get_template_directory() ) . 'assets/scripts/' . $script_name . '.asset.php';
+
+	// Get dependencies and version from the asset file.
+	$script_data = include $script_asset_path;
+
+	// Add the script file URL to the returned data.
+	$script_data['js_file_url'] = trailingslashit( get_template_directory_uri() ) . 'assets/scripts/' . $script_name . '.js';
+
+	return $script_data;
+}
+
+/**
  * Modified version of the original `get_template_part` function.
  * Add filters to allow 3rd party plugins to override the template files.
  *

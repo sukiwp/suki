@@ -59,6 +59,9 @@ class Suki_Page_Settings_Meta_Box {
 		add_action( 'suki/admin/metabox/page_settings/fields/footer', array( $this, 'render_options__footer' ), 10 );
 		add_action( 'suki/admin/metabox/page_settings/fields/custom_blocks', array( $this, 'render_options__custom_blocks' ), 10 );
 		add_action( 'suki/admin/metabox/page_settings/fields/preloader_screen', array( $this, 'render_options__preloader_screen' ), 10 );
+
+		// Enqueue JS.
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_js' ) );
 	}
 
 	/**
@@ -115,83 +118,184 @@ class Suki_Page_Settings_Meta_Box {
 	/**
 	 * Return all fields structures.
 	 *
+	 * @param string $context Page settings context (post or term).
 	 * @return array
 	 */
-	public function get_structures() {
+	public function get_structures( $context = 'post' ) {
+		/**
+		 * Structures should not be an assosiative array for easier handling on JS.
+		 * Also, some choices has `''` (blank) and number values, JS will automatically sort these object properties, which break our original orders.
+		 */
 		$structures = array(
-			'content' => array(
+			array(
+				'key'    => 'content',
 				'title'  => esc_html__( 'Content', 'suki' ),
 				'fields' => array(
-					'content_container' => array(
+					array(
+						'key'     => 'content_container',
 						'type'    => 'select',
 						'label'   => esc_html__( 'Container', 'suki' ),
-						/**
-						 * Choices
-						 *
-						 * @todo Migrate values.
-						 */
-						'choices' => array(
-							''        => esc_html__( '(Inherit from Customizer)', 'suki' ),
-							'narrow'  => esc_html__( 'Narrow', 'suki' ),
-							'default' => esc_html__( 'Wide', 'suki' ),
-							'full'    => esc_html__( 'Full', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '-- Inherit --', 'suki' ),
+							),
+							array(
+								'value' => 'narrow',
+								'label' => esc_html__( 'Narrow', 'suki' ),
+							),
+							array(
+								'value' => 'default',
+								'label' => esc_html__( 'Wide', 'suki' ),
+							),
+							array(
+								'name'  => 'full',
+								'label' => esc_html__( 'Full', 'suki' ),
+							),
 						),
 					),
-					'content_layout'    => array(
+					array(
+						'key'     => 'content_layout',
 						'type'    => 'select',
 						'label'   => esc_html__( 'Sidebar', 'suki' ),
-						/**
-						 * Choices
-						 *
-						 * @todo Migrate values.
-						 */
-						'choices' => array(
-							''              => esc_html__( '(Inherit from Customizer)', 'suki' ),
-							'no-sidebar'    => esc_html__( 'Disabled', 'suki' ),
-							'left-sidebar'  => esc_html__( 'Left Sidebar', 'suki' ),
-							'right-sidebar' => esc_html__( 'Right Sidebar', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '-- Inherit --', 'suki' ),
+							),
+							array(
+								'value' => 'no-sidebar',
+								'label' => esc_html__( 'Disabled', 'suki' ),
+							),
+							array(
+								'value' => 'left-sidebar',
+								'label' => esc_html__( 'Left Sidebar', 'suki' ),
+							),
+							array(
+								'value' => 'right-sidebar',
+								'label' => esc_html__( 'Right Sidebar', 'suki' ),
+							),
+						),
+					),
+					array(
+						'key'     => 'disable_content_header',
+						'type'    => 'select',
+						'label'   => esc_html__( 'Content header', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '✓ Visible', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( '✗ Hidden', 'suki' ),
+							),
+						),
+					),
+					array(
+						'key'     => 'hero',
+						'type'    => 'select',
+						'label'   => esc_html__( 'Content header location', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '-- Inherit --', 'suki' ),
+							),
+							array(
+								'value' => '0',
+								'label' => esc_html__( 'Default', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( 'Hero section', 'suki' ),
+							),
+						),
+					),
+					array(
+						'key'     => 'disable_thumbnail',
+						'type'    => 'select',
+						'label'   => esc_html__( 'Featured Thumbnail', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '✓ Visible', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( '✗ Hidden', 'suki' ),
+							),
 						),
 					),
 				),
 			),
-			'header'  => array(
+			array(
+				'key'    => 'header',
 				'title'  => esc_html__( 'Header', 'suki' ),
 				'fields' => array(
-					'disable_header'        => array(
+					array(
+						'key'     => 'disable_header',
 						'type'    => 'select',
-						'label'   => '<span class="dashicons dashicons-desktop"></span>' . esc_html__( 'Desktop header', 'suki' ),
-						'choices' => array(
-							''  => esc_html__( '&#x2714; Visible', 'suki' ),
-							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						'label'   => esc_html__( 'Desktop header', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '✓ Visible', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( '✗ Hidden', 'suki' ),
+							),
 						),
 					),
-					'disable_header_mobile' => array(
+					array(
+						'key'     => 'disable_header_mobile',
 						'type'    => 'select',
-						'label'   => '<span class="dashicons dashicons-tablet"></span>' . esc_html__( 'Mobile header', 'suki' ),
-						'choices' => array(
-							''  => esc_html__( '&#x2714; Visible', 'suki' ),
-							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						'label'   => esc_html__( 'Mobile header', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '✓ Visible', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( '✗ Hidden', 'suki' ),
+							),
 						),
 					),
 				),
 			),
-			'footer'  => array(
+			array(
+				'key'    => 'footer',
 				'title'  => esc_html__( 'Footer', 'suki' ),
 				'fields' => array(
-					'disable_footer_widgets' => array(
+					array(
+						'key'     => 'disable_footer_widgets',
 						'type'    => 'select',
 						'label'   => esc_html__( 'Footer widgets', 'suki' ),
-						'choices' => array(
-							''  => esc_html__( '&#x2714; Visible', 'suki' ),
-							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '✓ Visible', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( '✗ Hidden', 'suki' ),
+							),
 						),
 					),
-					'disable_footer_bottom'  => array(
+					array(
+						'key'     => 'disable_footer_bottom',
 						'type'    => 'select',
 						'label'   => esc_html__( 'Footer bottom', 'suki' ),
-						'choices' => array(
-							''  => esc_html__( '&#x2714; Visible', 'suki' ),
-							'1' => esc_html__( '&#x2718; Hidden', 'suki' ),
+						'options' => array(
+							array(
+								'value' => '',
+								'label' => esc_html__( '✓ Visible', 'suki' ),
+							),
+							array(
+								'value' => '1',
+								'label' => esc_html__( '✗ Hidden', 'suki' ),
+							),
 						),
 					),
 				),
@@ -201,9 +305,10 @@ class Suki_Page_Settings_Meta_Box {
 		/**
 		 * Filter: suki/page_settings/structures
 		 *
-		 * @param array $structures Fields structures.
+		 * @param array  $structures Fields structures.
+		 * @param string $context    Page settings context (post or term).
 		 */
-		apply_filters( 'suki/page_settings/structures', $structures );
+		apply_filters( 'suki/page_settings/structures', $structures, $context );
 
 		return $structures;
 	}
@@ -238,6 +343,30 @@ class Suki_Page_Settings_Meta_Box {
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Enqueue scripts (JS) for page settings.
+	 */
+	public function enqueue_editor_js() {
+		// Abort if current loaded editor's post type is not public post types.
+		if ( ! in_array( get_current_screen()->post_type, suki_get_public_post_types(), true ) ) {
+			return;
+		}
+
+		$script_data = suki_get_script_data( 'page-settings' );
+		wp_enqueue_script( 'suki-page-settings', $script_data['js_file_url'], $script_data['dependencies'], $script_data['version'], true );
+
+		wp_add_inline_script(
+			'suki-page-settings',
+			'const SukiPageSettingsData = ' . wp_json_encode(
+				array(
+					'metaKey'    => '_suki_page_settings',
+					'structures' => $this->get_structures(),
+				)
+			),
+			'before'
+		);
+	}
 
 	/**
 	 * Register meta data for posts and terms.

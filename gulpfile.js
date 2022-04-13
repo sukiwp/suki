@@ -38,6 +38,7 @@ const config = {
 	scripts: {
 		src: 'src/scripts/*.*',
 		dest: 'assets/scripts',
+		watch: 'src/scripts/**/*.*',
 	},
 	js: {
 		src: [
@@ -47,7 +48,7 @@ const config = {
 		dest: 'assets/js',
 	},
 	css: {
-		src: 'src/sass/**/*.scss',
+		src: 'src/sass/*.scss',
 		srcRTL: [
 			'assets/css/**/*.css',
 			'!assets/css/**/*-rtl.css',
@@ -58,6 +59,7 @@ const config = {
 			'!assets/css/**/*.min.css',
 		],
 		dest: 'assets/css',
+		watch: 'src/sass/**/*.scss',
 	},
 	pot: {
 		src: [
@@ -254,7 +256,7 @@ const watchChanges = () => {
 	/**
 	 * Scripts
 	 */
-	const scriptsWatcher = gulp.watch( config.scripts.src, buildScripts );
+	const scriptsWatcher = gulp.watch( config.scripts.watch || config.scripts.src, buildScripts );
 
 	// Delete mirror destination files
 	scriptsWatcher.on( 'unlink', ( deletedFile, stats ) => {
@@ -266,7 +268,7 @@ const watchChanges = () => {
 	/**
 	 * JS
 	 */
-	const jsWatcher = gulp.watch( config.js.src, buildJS );
+	const jsWatcher = gulp.watch( config.js.watch || config.js.src, buildJS );
 
 	// Delete mirror destination files
 	jsWatcher.on( 'unlink', ( deletedFile, stats ) => {
@@ -278,7 +280,7 @@ const watchChanges = () => {
 	/**
 	 * CSS
 	 */
-	const cssWatcher = gulp.watch( config.css.src, buildCSS );
+	const cssWatcher = gulp.watch( config.css.watch || config.css.src, buildCSS );
 
 	// Delete mirror destination files
 	cssWatcher.on( 'unlink', ( deletedFile, stats ) => {
@@ -290,7 +292,7 @@ const watchChanges = () => {
 	/**
 	 * POT
 	 */
-	const potWatcher = gulp.watch( config.pot.src, buildPOT );
+	const potWatcher = gulp.watch( config.pot.watch || config.pot.src, buildPOT );
 }
 
 /**
