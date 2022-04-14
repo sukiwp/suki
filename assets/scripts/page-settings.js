@@ -66,19 +66,13 @@ var SukiPageSettings = /*#__PURE__*/function (_Component) {
             gap: '4px'
           }
         }, panel.fields.map(function (field) {
-          switch (field.type) {
-            case 'select':
-              return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
-                key: field.key,
-                label: field.label,
-                value: "",
-                options: field.options
-              });
-              break;
-
-            case 'toggle':
-              (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, null);
-              break;
+          if ('select' === field.type) {
+            return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
+              key: field.key,
+              label: field.label,
+              value: "",
+              options: field.options
+            });
           }
         }))));
       }));

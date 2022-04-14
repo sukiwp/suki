@@ -24,21 +24,15 @@ class SukiPageSettings extends Component {
 								} }
 								>
 									{ panel.fields.map( ( field ) => {
-										switch ( field.type ) {
-											case 'select':
-												return (
-													<SelectControl
-													key={ field.key }
-													label={ field.label }
-													value=''
-													options={ field.options }
-													/>
-												)
-												break;
-										
-											case 'toggle':
-												<ToggleControl />
-												break;
+										if ( 'select' === field.type ) {
+											return (
+												<SelectControl
+												key={ field.key }
+												label={ field.label }
+												value=''
+												options={ field.options }
+												/>
+											);
 										}
 									} ) }
 								</div>
