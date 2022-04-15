@@ -31,5 +31,10 @@
 	"support": {
 		"issues": "https://github.com/sukiwp/suki/issues",
 		"source": "https://github.com/sukiwp/suki"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
