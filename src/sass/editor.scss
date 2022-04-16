@@ -1,0 +1,16 @@
+@import "main";
+
+/**
+ * Tiny MCE
+ */
+
+body.mce-content-body {
+	--wp--style--block-gap: var(--block-spacing);
+
+	padding: 0.5em 0.75em !important;
+	min-height: auto;
+}
+
+/**
+ * Block Editor
+ */

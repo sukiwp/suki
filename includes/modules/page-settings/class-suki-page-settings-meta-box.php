@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Individual Page Settings metabox
+ * Suki Page Settings meta box
  *
  * @package Suki
  */
@@ -47,13 +47,17 @@ class Suki_Page_Settings_Meta_Box {
 		add_action( 'init', array( $this, 'register_meta' ) );
 
 		// Post meta box.
-		add_action( 'add_meta_boxes', array( $this, 'init_post_meta_box' ), 10, 2 );
+		add_action( 'admin_init', array( $this, 'init_post_meta_box' ) );
 
 		// Term meta box.
 		add_action( 'admin_init', array( $this, 'init_term_meta_box' ) );
 
 		// Enqueue JS.
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_js' ) );
+
+		// Page settings filters.
+		add_filter( 'suki/page_settings/structures', array( $this, 'add_optional_page_settings' ), 10, 2 );
+		add_filter( 'suki/page_settings/post_meta_box', array( $this, 'exclude_page_settings_on_posts_page' ), 10, 2 );
 	}
 
 	/**
@@ -94,175 +98,86 @@ class Suki_Page_Settings_Meta_Box {
 		 * Also, some choices has `''` (blank) and number values, JS will automatically sort these object properties, which break our original orders.
 		 */
 		$structures = array(
-			array(
-				'key'    => 'content',
+			'content' => array(
 				'title'  => esc_html__( 'Content', 'suki' ),
 				'fields' => array(
-					array(
-						'key'     => 'content_container',
+					'content_container'      => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Container', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '-- Inherit --', 'suki' ),
-							),
-							array(
-								'value' => 'narrow',
-								'label' => esc_html__( 'Narrow', 'suki' ),
-							),
-							array(
-								'value' => 'wide',
-								'label' => esc_html__( 'Wide', 'suki' ),
-							),
-							array(
-								'value' => 'full',
-								'label' => esc_html__( 'Full', 'suki' ),
-							),
+							''       => esc_html__( '-- Inherit --', 'suki' ),
+							'narrow' => esc_html__( 'Narrow', 'suki' ),
+							'wide'   => esc_html__( 'Wide', 'suki' ),
+							'full'   => esc_html__( 'Full', 'suki' ),
 						),
 					),
-					array(
-						'key'     => 'content_layout',
+					'content_layout'         => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Sidebar', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '-- Inherit --', 'suki' ),
-							),
-							array(
-								'value' => 'no-sidebar',
-								'label' => esc_html__( 'Disabled', 'suki' ),
-							),
-							array(
-								'value' => 'left-sidebar',
-								'label' => esc_html__( 'Left Sidebar', 'suki' ),
-							),
-							array(
-								'value' => 'right-sidebar',
-								'label' => esc_html__( 'Right Sidebar', 'suki' ),
-							),
+							''              => esc_html__( '-- Inherit --', 'suki' ),
+							'no-sidebar'    => esc_html__( 'Disabled', 'suki' ),
+							'left-sidebar'  => esc_html__( 'Left Sidebar', 'suki' ),
+							'right-sidebar' => esc_html__( 'Right Sidebar', 'suki' ),
 						),
 					),
-					array(
-						'key'     => 'disable_content_header',
+					'disable_content_header' => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Content header', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '✓ Visible', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( '✗ Hidden', 'suki' ),
-							),
+							''  => esc_html__( '✓ Visible', 'suki' ),
+							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
 					),
-					array(
-						'key'     => 'hero',
+					'hero'                   => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Content header location', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '-- Inherit --', 'suki' ),
-							),
-							array(
-								'value' => '0',
-								'label' => esc_html__( 'Default', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( 'Hero section', 'suki' ),
-							),
-						),
-					),
-					array(
-						'key'     => 'disable_thumbnail',
-						'type'    => 'select',
-						'label'   => esc_html__( 'Featured Thumbnail', 'suki' ),
-						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '✓ Visible', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( '✗ Hidden', 'suki' ),
-							),
+							''  => esc_html__( '-- Inherit --', 'suki' ),
+							'0' => esc_html__( 'Default', 'suki' ),
+							'1' => esc_html__( 'Hero section', 'suki' ),
 						),
 					),
 				),
 			),
-			array(
-				'key'    => 'header',
+			'header'  => array(
 				'title'  => esc_html__( 'Header', 'suki' ),
 				'fields' => array(
-					array(
-						'key'     => 'disable_header',
+					'disable_header'        => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Desktop header', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '✓ Visible', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( '✗ Hidden', 'suki' ),
-							),
+							''  => esc_html__( '✓ Visible', 'suki' ),
+							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
 					),
-					array(
-						'key'     => 'disable_header_mobile',
+					'disable_header_mobile' => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Mobile header', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '✓ Visible', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( '✗ Hidden', 'suki' ),
-							),
+							''  => esc_html__( '✓ Visible', 'suki' ),
+							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
 					),
 				),
 			),
-			array(
-				'key'    => 'footer',
+			'footer'  => array(
 				'title'  => esc_html__( 'Footer', 'suki' ),
 				'fields' => array(
-					array(
-						'key'     => 'disable_footer_widgets',
+					'disable_footer_widgets' => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Footer widgets', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '✓ Visible', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( '✗ Hidden', 'suki' ),
-							),
+							''  => esc_html__( '✓ Visible', 'suki' ),
+							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
 					),
-					array(
-						'key'     => 'disable_footer_bottom',
+					'disable_footer_bottom'  => array(
 						'type'    => 'select',
 						'label'   => esc_html__( 'Footer bottom', 'suki' ),
 						'options' => array(
-							array(
-								'value' => '',
-								'label' => esc_html__( '✓ Visible', 'suki' ),
-							),
-							array(
-								'value' => '1',
-								'label' => esc_html__( '✗ Hidden', 'suki' ),
-							),
+							''  => esc_html__( '✓ Visible', 'suki' ),
+							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
 					),
 				),
@@ -275,34 +190,53 @@ class Suki_Page_Settings_Meta_Box {
 		 * @param array  $structures Fields structures.
 		 * @param string $context    Page settings context (post or term).
 		 */
-		apply_filters( 'suki/page_settings/structures', $structures, $context );
+		$structures = apply_filters( 'suki/page_settings/structures', $structures, $context );
 
 		return $structures;
 	}
 
 	/**
-	 * Return array of fields schema for REST API meta schema.
+	 * Return all fields structures.
 	 *
+	 * @param string $context Page settings context (post or term).
 	 * @return array
 	 */
-	public function get_fields_rest_schema() {
-		$schema = array();
+	public function get_structures_as_simple_array( $context = 'post' ) {
+		// Get the original structures.
+		$structures = $this->get_structures( $context );
 
-		foreach ( $this->get_structures() as $group_key => $group_data ) {
-			foreach ( $group_data['fields'] as $field_key => $field_data ) {
-				switch ( $field_data['type'] ) {
-					default:
-						$type = 'string';
-						break;
+		// Iterate through the structures and refactor the associative array to simple array.
+		foreach ( $structures as $panel_key => &$panel ) {
+			// Add key as an array item.
+			$panel['key'] = $panel_key;
+
+			foreach ( $panel['fields'] as $field_key => &$field ) {
+				// Add key as an array item.
+				$field['key'] = $field_key;
+
+				// Refactor options array for 'select' type..
+				if ( 'select' === $field['type'] ) {
+					$options = array();
+
+					foreach ( $field['options'] as $value => $label ) {
+						$options[] = array(
+							'value' => $value,
+							'label' => $label,
+						);
+					}
+
+					$field['options'] = $options;
 				}
-
-				$schema[ $field_key ] = array(
-					'type' => $type,
-				);
 			}
+
+			// Convert fields (associative array) to simple array.
+			$panel['fields'] = array_values( $panel['fields'] );
 		}
 
-		return $schema;
+		// Convert panels (associative array) to simple array.
+		$structures = array_values( $structures );
+
+		return $structures;
 	}
 
 	/**
@@ -310,6 +244,61 @@ class Suki_Page_Settings_Meta_Box {
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Add optional page settings to the structures.
+	 *
+	 * @param array  $structures Fields structures.
+	 * @param string $context    Page settings context (post or term).
+	 * @return array
+	 */
+	public function add_optional_page_settings( $structures, $context ) {
+		// Abort if it's not post meta box.
+		if ( 'post' !== $context ) {
+			return $structures;
+		}
+
+		// Abort if current post type doesn't support thumbnail.
+		if ( ! post_type_supports( get_current_screen()->post_type, 'thumbnail' ) ) {
+			return $structures;
+		}
+
+		// Add "Featured image" field.
+		$structures['content']['fields']['disable_thumbnail'] = array(
+			'type'    => 'select',
+			'label'   => esc_html__( 'Featured image', 'suki' ),
+			'options' => array(
+				''  => esc_html__( '✓ Visible', 'suki' ),
+				'1' => esc_html__( '✗ Hidden', 'suki' ),
+			),
+		);
+
+		return $structures;
+	}
+
+	/**
+	 * Exclude page settings meta box on posts page.
+	 *
+	 * @param string  $html Meta box HTML.
+	 * @param WP_Post $post Post object.
+	 * @return string
+	 */
+	public function exclude_page_settings_on_posts_page( $html, $post ) {
+		// Add posts page to disabled IDs.
+		if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) === $post->ID ) {
+			$html = '<p><a href="' . esc_url(
+				add_query_arg(
+					array(
+						'autofocus[section]' => 'suki_section_post_archive',
+						'url'                => esc_url( get_permalink( get_option( 'page_for_posts' ) ) ),
+					),
+					admin_url( 'customize.php' )
+				)
+			) . '">' . esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
+		}
+
+		return $html;
+	}
 
 	/**
 	 * Enqueue scripts (JS) for page settings.
@@ -320,15 +309,17 @@ class Suki_Page_Settings_Meta_Box {
 			return;
 		}
 
+		// Enqueue JS.
 		$script_data = suki_get_script_data( 'page-settings' );
 		wp_enqueue_script( 'suki-page-settings', $script_data['js_file_url'], $script_data['dependencies'], $script_data['version'], true );
 
+		// Pass data to JS via inline script.
 		wp_add_inline_script(
 			'suki-page-settings',
 			'const SukiPageSettingsData = ' . wp_json_encode(
 				array(
 					'metaKey'    => '_suki_page_settings',
-					'structures' => $this->get_structures(),
+					'structures' => $this->get_structures_as_simple_array(),
 				)
 			),
 			'before'
@@ -352,8 +343,17 @@ class Suki_Page_Settings_Meta_Box {
 					},
 					'show_in_rest'  => array(
 						'schema' => array(
-							'type'       => 'object',
-							'properties' => $this->get_fields_rest_schema(),
+							'type'                 => 'object',
+							/**
+							 * Set all fields types to `string`.
+							 *
+							 * Page settings are used to override Customizer values, therefore string `inherit` is always one of each setting choices.
+							 * So all the field values will be in `string` type.
+							 *
+							 * Use `additionalProperties` to skip setting all keys.
+							 * ref: https://make.wordpress.org/core/2019/10/03/wp-5-3-supports-object-and-array-meta-types-in-the-rest-api/
+							 */
+							'additionalProperties' => 'string',
 						),
 					),
 				)
@@ -363,25 +363,25 @@ class Suki_Page_Settings_Meta_Box {
 
 	/**
 	 * Add page settings meta box to post edit page.
-	 *
-	 * @param string  $post_type Post type string.
-	 * @param WP_Post $post      Post object.
 	 */
-	public function init_post_meta_box( $post_type, $post ) {
-		// Abort if current loaded editor is Gutenberg.
-		// If the current post type supports Gutenberg, we will use Gutenberg Sidebar for Page Settings.
-		if ( get_current_screen()->is_block_editor() ) {
-			return;
-		}
+	public function init_post_meta_box() {
+		add_action(
+			'add_meta_boxes',
+			function() {
+				// Abort if current loaded editor is Gutenberg.
+				// If the current post type supports Gutenberg, we will use Gutenberg Sidebar for Page Settings.
+				if ( get_current_screen()->is_block_editor() ) {
+					return;
+				}
 
-		add_meta_box(
-			'suki_page_settings',
-			/* translators: %s: theme name. */
-			sprintf( esc_html__( 'Individual Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) ),
-			array( $this, 'render_post_meta_box' ),
-			suki_get_public_post_types(),
-			'normal',
-			apply_filters( 'suki/admin/metabox/page_settings/priority', 'high' )
+				add_meta_box(
+					'suki_page_settings',
+					esc_html__( 'Theme Page Settings', 'suki' ),
+					array( $this, 'render_post_meta_box' ),
+					suki_get_public_post_types(),
+					'side'
+				);
+			}
 		);
 
 		add_action( 'save_post', array( $this, 'save_post_meta_box' ) );
@@ -512,40 +512,18 @@ class Suki_Page_Settings_Meta_Box {
 	 * @param WP_Post $post Post object.
 	 */
 	public function render_post_meta_box( $post ) {
-		// Define an array of post IDs that will disable Individual Page Settings meta box.
-		// The Individual Page Settings fields would not be displayed on those disabled IDs meta box.
-		// Instead, The meta box would show the defined string specified on the disabled array.
-		$disabled_ids = array();
-
-		// Add posts page to disabled IDs.
-		if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) === $post->ID ) {
-			$disabled_ids[ $posts_page_id ] = '<p><a href="' . esc_url(
-				add_query_arg(
-					array(
-						'autofocus[section]' => 'suki_section_page_settings_post_archive',
-						'url'                => esc_url( get_permalink( get_option( 'page_for_posts' ) ) ),
-					),
-					admin_url( 'customize.php' )
-				)
-			) . '">' . esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
-		}
-
-		// Filter to modify disabled IDs.
-		$disabled_ids = apply_filters( 'suki/admin/metabox/page_settings/disabled_posts', $disabled_ids, $post );
-
-		// Check if current post ID is one of the disabled IDs.
-		if ( array_key_exists( $post->ID, $disabled_ids ) ) {
-			// Print the notice here.
-			echo $disabled_ids[ $post->ID ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-			// There is no other content should be rendered.
-			return;
-		}
-
 		// Add a nonce field so we can check for it later.
 		wp_nonce_field( 'suki_post_page_settings', 'suki_post_page_settings_nonce' );
 
-		// Render meta box.
+		// Early filter to bypass the default meta box.
+		$meta_box = apply_filters( 'suki/page_settings/post_meta_box', '', $post );
+
+		// If any filter detected, return the markup from the filters.
+		if ( '' !== trim( $meta_box ) ) {
+			echo $meta_box; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+
+		// Render the default meta box.
 		$this->render_meta_box_content( $post );
 	}
 
@@ -558,18 +536,13 @@ class Suki_Page_Settings_Meta_Box {
 		?>
 		<tr class="form-field suki-edit-term-page-settings">
 			<td colspan="2" style="padding: 0;">
-				<h3>
-					<?php
-					/* translators: %s: tdeme name. */
-					printf( esc_html__( 'Individual Page Settings (%s)', 'suki' ), esc_html( suki_get_theme_info( 'name' ) ) );
-					?>
-				</h3>
+				<h3><?php esc_html_e( 'Theme Page Settings', 'suki' ); ?></h3>
 				<?php
 				// Add a nonce field so we can check for it later.
 				wp_nonce_field( 'suki_term_page_settings', 'suki_term_page_settings_nonce' );
 
 				// Render meta box.
-				echo '<div class="suki-term-metabox-container">';
+				echo '<div class="suki-term-meta-box-container">';
 				$this->render_meta_box_content( $term );
 				echo '</div>';
 				?>
@@ -581,7 +554,7 @@ class Suki_Page_Settings_Meta_Box {
 	/**
 	 * Render meta box wrapper.
 	 *
-	 * @param WP_Post|WP_Term $obj Post or term object.
+	 * @param WP_Post|WP_Term $obj  Post or term object.
 	 */
 	public function render_meta_box_content( $obj = null ) {
 		// Abort if no object specified.
@@ -589,62 +562,43 @@ class Suki_Page_Settings_Meta_Box {
 			return;
 		}
 
-		$option_key = 'suki_page_settings';
+		$meta_key   = 'suki_page_settings';
 		$structures = $this->get_structures();
 		$values     = $this->get_values( $obj );
+		$first_key  = key( $structures );
 		?>
-		<div id="suki-metabox-page-settings" class="suki-admin-metabox-page-settings suki-admin-metabox suki-admin-form">
-			<ul class="suki-admin-metabox-nav">
-				<?php foreach ( $structures as $i => $panel ) : ?>
-					<li class="suki-admin-metabox-nav-item <?php echo esc_attr( 0 === $i ? 'active' : '' ); ?>">
-						<a href="<?php echo esc_attr( '#suki-metabox-page-settings--' . $panel['key'] ); ?>"><?php echo $panel['title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
-
-			<div class="suki-admin-metabox-panels">
-				<?php
-				foreach ( $structures as $i => $panel ) {
-					?>
-					<div id="<?php echo esc_attr( 'suki-metabox-page-settings--' . $panel['key'] ); ?>" class="suki-admin-metabox-panel <?php echo esc_attr( 0 === $i ? 'active' : '' ); ?>">
-						<?php
-						foreach ( $panel['fields'] as $field ) {
-							?>
+		<div class="suki-admin-meta-box__wrapper">
+			<?php foreach ( $structures as $panel_key => $panel ) { ?>
+				<details id="<?php echo esc_attr( 'suki-page-settings__' . $panel_key ); ?>" class="suki-admin-accordion">
+					<summary><?php echo esc_html( $panel['title'] ); ?></summary>
+					<div class="suki-admin-form-rows">
+						<?php foreach ( $panel['fields'] as $field_key => $field ) { ?>
 							<div class="suki-admin-form-row">
-								<div class="suki-admin-form-label">
-									<label><?php echo $field['label']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></label>
-								</div>
-								<div class="suki-admin-form-field">
+								<label class="suki-admin-form-label"><?php echo esc_html( $field['label'] ); ?></label>
+								<div>
 									<?php
 									switch ( $field['type'] ) {
 										case 'select':
-											$choices = array();
-
-											foreach ( $field['options'] as $option ) {
-												$choices[ $option['value'] ] = $option['label'];
-											}
-
 											Suki_Admin_Fields::render_field(
 												array(
-													'type' => 'select',
-													'name' => $option_key . '[' . $field['key'] . ']',
-													'choices' => $choices,
-													'value' => suki_array_value( $values, $field['key'] ),
+													'type'    => 'select',
+													'name'    => $meta_key . '[' . $field_key . ']',
+													'choices' => $field['options'],
+													'value'   => suki_array_value( $values, $field_key ),
 												)
 											);
+											break;
+
+										case 'toggle':
 											break;
 									}
 									?>
 								</div>
 							</div>
-							<?php
-						}
-						?>
+						<?php } ?>
 					</div>
-					<?php
-				}
-				?>
-			</div>
+				</details>
+			<?php } ?>
 		</div>
 		<?php
 	}

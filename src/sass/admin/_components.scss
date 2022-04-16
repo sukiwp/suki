@@ -1,0 +1,53 @@
+/**
+ * Forms
+ */
+
+.suki-admin-form-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.suki-admin-form-label {
+	display: inline-block;
+	padding-bottom: 4px;
+}
+
+/**
+ * Accordion
+ */
+
+details.suki-admin-accordion {
+	margin-block: 2px;
+
+	summary ~ * {
+		padding: 8px 12px 10px;
+	}
+	
+	summary {
+		padding: 8px 12px;
+		background-color: rgba(0,0,0,0.05);
+		cursor: pointer;
+		list-style: none;
+		font-weight: bold;
+
+		&:hover,
+		&:focus {
+			background-color: rgba(0,0,0,0.075);
+		}
+		
+		&:before {
+			content: "▶";
+			margin-right: 4px;
+			opacity: 0.5;
+		}
+	}
+	
+	&[open] {
+		summary {
+			&:before {
+				content: "▼";
+			}
+		}
+	}
+}

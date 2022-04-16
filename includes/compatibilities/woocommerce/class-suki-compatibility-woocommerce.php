@@ -69,7 +69,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'wp', array( $this, 'modify_template_hooks_after_init' ) );
 
 		// Page settings.
-		add_action( 'suki/admin/metabox/page_settings/disabled_posts', array( $this, 'exclude_shop_page_from_page_settings' ), 10, 2 );
+		add_filter( 'suki/page_settings/post_meta_box', array( $this, 'exclude_page_settings_on_shop_page' ), 10, 2 );
 
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
@@ -136,7 +136,7 @@ class Suki_Compatibility_WooCommerce {
 		$postmessages = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php';
 		$defaults     = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php';
 
-		$generated_css = Suki_Customizer::instance()->convert_postmessages_to_css_string( $postmessages, $defaults );
+		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $postmessages, $defaults );
 
 		if ( ! empty( $generated_css ) ) {
 			$css .= "\n/* Suki + WooCommerce Dynamic CSS */\n" . $generated_css;
@@ -612,30 +612,26 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Modify page settings metabox.
+	 * Exclude page settings meta box on shop page.
 	 *
-	 * @param array $ids  IDs.
-	 * @param array $post Post object.
-	 * @return array
+	 * @param string  $html Meta box HTML.
+	 * @param WP_Post $post Post object.
+	 * @return string
 	 */
-	public function exclude_shop_page_from_page_settings( $ids, $post ) {
+	public function exclude_page_settings_on_shop_page( $html, $post ) {
 		if ( wc_get_page_id( 'shop' ) === $post->ID ) {
-			$ids[ $post->ID ] = '<p><a href="' . esc_attr(
+			$html = '<p><a href="' . esc_attr(
 				add_query_arg(
 					array(
-						'autofocus[section]' => 'suki_section_page_settings_product_archive',
-						'url'                => esc_url(
-							get_permalink(
-								wc_get_page_id( 'shop' )
-							)
-						),
+						'autofocus[section]' => 'woocommerce_product_catalog',
+						'url'                => esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ),
 					),
 					admin_url( 'customize.php' )
 				)
 			) . '">' . esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
 		}
 
-		return $ids;
+		return $html;
 	}
 
 	/**

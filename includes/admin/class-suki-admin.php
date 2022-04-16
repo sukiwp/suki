@@ -54,7 +54,8 @@ class Suki_Admin {
 
 		// Editor styles.
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
-		add_filter( 'block_editor_settings_all', array( $this, 'enqueue_editor_dynamic_css' ), 10, 2 );
+		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css' ), 10, 2 );
+		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
 
 		// Theme dashboard notification.
 		add_action( 'admin_notices', array( $this, 'add_theme_welcome' ), 999 );
@@ -120,7 +121,7 @@ class Suki_Admin {
 		wp_register_style( 'alpha-color-picker', SUKI_CSS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.css', array( 'wp-color-picker' ), SUKI_VERSION );
 
 		// Enqueue CSS files.
-		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin/admin.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
 		wp_style_add_data( 'suki-admin', 'suffix', SUKI_ASSETS_SUFFIX );
 
@@ -181,22 +182,44 @@ class Suki_Admin {
 		// Add editor styles to the block editor.
 		add_theme_support( 'editor-styles' );
 
-		add_editor_style( 'assets/css/main' . SUKI_ASSETS_SUFFIX . '.css' );
+		add_editor_style( 'assets/css/editor' . SUKI_ASSETS_SUFFIX . '.css' );
 	}
 
 	/**
-	 * Add dynamic CSS for editor page.
+	 * Add dynamic CSS to Gutenberg.
 	 *
 	 * @param array                   $editor_settings      Editor's settings array.
 	 * @param WP_Block_Editor_Context $block_editor_context Block editor context.
 	 */
-	public function enqueue_editor_dynamic_css( $editor_settings, $block_editor_context ) {
+	public function add_block_editor_dynamic_css( $editor_settings, $block_editor_context ) {
 		$dynamic_css = trim( apply_filters( 'suki/frontend/dynamic_css', '' ) );
 
 		$editor_settings['styles'][] = array(
 			'css'            => $dynamic_css,
 			'__unstableType' => 'theme',
 		);
+
+		return $editor_settings;
+	}
+
+	/**
+	 * Add dynamic CSS to Classic Editor.
+	 *
+	 * @param array $editor_settings Editor's settings array.
+	 */
+	public function add_classic_editor_dynamic_css( $editor_settings ) {
+		$dynamic_css = trim( apply_filters( 'suki/frontend/dynamic_css', '' ) );
+
+		// Remove comment and whitespace.
+		$dynamic_css = preg_replace( '/\/\*.*?\*\//', '', $dynamic_css );
+		$dynamic_css = preg_replace( '/[\t\n\r]/', '', $dynamic_css );
+
+		// Merge with existing styles or add new styles.
+		if ( ! isset( $editor_settings['content_style'] ) ) {
+			$editor_settings['content_style'] = $dynamic_css . ' ';
+		} else {
+			$editor_settings['content_style'] .= ' ' . $dynamic_css . ' ';
+		}
 
 		return $editor_settings;
 	}
