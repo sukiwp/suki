@@ -17,20 +17,23 @@
  * Accordion
  */
 details.suki-admin-accordion {
-	margin-block: 2px;
+	margin-block: 12px;
+	background-color: #fff;
 }
 details.suki-admin-accordion summary ~ * {
 	padding: 8px 12px 10px;
+	border: 1px solid #dcdcde;
+	border-top: none;
 }
 details.suki-admin-accordion summary {
 	padding: 8px 12px;
-	background-color: rgba(0, 0, 0, 0.05);
+	border: 1px solid #dcdcde;
 	cursor: pointer;
 	list-style: none;
 	font-weight: bold;
 }
 details.suki-admin-accordion summary:hover, details.suki-admin-accordion summary:focus {
-	background-color: rgba(0, 0, 0, 0.075);
+	background-color: #f6f7f7;
 }
 details.suki-admin-accordion summary:before {
 	content: "▶";
@@ -39,12 +42,4 @@ details.suki-admin-accordion summary:before {
 }
 details.suki-admin-accordion[open] summary:before {
 	content: "▼";
-}
-
-/**
- * Page Settings meta box
- */
-#suki_page_settings .inside {
-	padding: 0;
-	margin: 0;
 }

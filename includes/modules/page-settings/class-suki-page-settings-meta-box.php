@@ -285,7 +285,7 @@ class Suki_Page_Settings_Meta_Box {
 	 */
 	public function exclude_page_settings_on_posts_page( $html, $post ) {
 		// Add posts page to disabled IDs.
-		if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) === $post->ID ) {
+		if ( 'page' === get_option( 'show_on_front' ) && intval( get_option( 'page_for_posts' ) ) === $post->ID ) {
 			$html = '<p><a href="' . esc_url(
 				add_query_arg(
 					array(
@@ -521,6 +521,7 @@ class Suki_Page_Settings_Meta_Box {
 		// If any filter detected, return the markup from the filters.
 		if ( '' !== trim( $meta_box ) ) {
 			echo $meta_box; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			return;
 		}
 
 		// Render the default meta box.

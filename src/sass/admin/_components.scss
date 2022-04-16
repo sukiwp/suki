@@ -18,22 +18,25 @@
  */
 
 details.suki-admin-accordion {
-	margin-block: 2px;
+	margin-block: 12px;
+	background-color: #fff;
 
 	summary ~ * {
 		padding: 8px 12px 10px;
+		border: 1px solid #dcdcde;
+		border-top: none;
 	}
 	
 	summary {
 		padding: 8px 12px;
-		background-color: rgba(0,0,0,0.05);
+		border: 1px solid #dcdcde;
 		cursor: pointer;
 		list-style: none;
 		font-weight: bold;
 
 		&:hover,
 		&:focus {
-			background-color: rgba(0,0,0,0.075);
+			background-color: #f6f7f7;
 		}
 		
 		&:before {

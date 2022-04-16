@@ -2237,7 +2237,7 @@ msgstr ""
 msgid "Featured image"
 msgstr ""
 
-#: includes/modules/page-settings/class-suki-page-settings-meta-box.php:379, includes/modules/page-settings/class-suki-page-settings-meta-box.php:539
+#: includes/modules/page-settings/class-suki-page-settings-meta-box.php:379, includes/modules/page-settings/class-suki-page-settings-meta-box.php:540
 msgid "Theme Page Settings"
 msgstr ""
 
