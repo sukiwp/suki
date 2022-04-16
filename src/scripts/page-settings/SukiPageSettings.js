@@ -16,13 +16,12 @@ class SukiPageSettings extends Component {
 							title={ panel.title }
 							initialOpen={ 0 == i ? true : false }
 							>
-								<div
-								style={ {
+								<div style={ {
 									display: 'flex',
 									flexDirection: 'column',
 									gap: '4px',
-								} }
-								>
+									marginTop: '8px',
+								} }>
 									{ panel.fields.map( ( field ) => {
 										if ( 'select' === field.type ) {
 											return (

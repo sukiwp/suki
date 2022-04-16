@@ -63,7 +63,8 @@ var SukiPageSettings = /*#__PURE__*/function (_Component) {
           style: {
             display: 'flex',
             flexDirection: 'column',
-            gap: '4px'
+            gap: '4px',
+            marginTop: '8px'
           }
         }, panel.fields.map(function (field) {
           if ('select' === field.type) {
