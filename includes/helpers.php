@@ -272,7 +272,7 @@ function suki_get_current_page_setting( $key, $default = null ) {
 	// Get current page context.
 	$current_page_context = suki_get_current_page_context();
 
-	// Get the value from Customizer's Individual Page Settings.
+	// Get the value from Customizer Page Settings.
 	$value = suki_get_theme_mod( $current_page_context . '_' . $key );
 
 	/**
@@ -458,7 +458,7 @@ function suki_get_module_categories() {
  * Return array of default Suki theme modules.
  *
  * Optional theme modules:
- * - Individual Page Settings
+ * - Page Settings
  * - Breadcrumb
  * - Google Fonts
  *
@@ -467,7 +467,7 @@ function suki_get_module_categories() {
 function suki_get_theme_modules() {
 	return array(
 		'page-settings' => array(
-			'label'    => esc_html__( 'Individual Page Settings', 'suki' ),
+			'label'    => esc_html__( 'Page Settings', 'suki' ),
 			'category' => 'layout',
 		),
 		'breadcrumb'    => array(

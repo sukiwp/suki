@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki module: Individual Page Settings
+ * Suki module: Page Settings
  *
  * @package Suki
  *
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Individual Page Settings module class.
+ * Page Settings module class.
  */
 class Suki_Page_Settings extends Suki_Module {
 	/**
@@ -46,21 +46,17 @@ class Suki_Page_Settings extends Suki_Module {
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_customizer_control_contexts' ) );
 
 		/**
-		 * Meta box
-		 */
-
-		// Only include metabox on post add/edit page and term add/edit page.
-		global $pagenow;
-		if ( in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit-tags.php', 'term.php' ), true ) ) {
-			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-page-settings-meta-box.php';
-		}
-
-		/**
 		 * Frontend
 		 */
 
 		// Override page settings value with individual page setting values.
 		add_filter( 'suki/page_settings/setting_value', array( $this, 'override_page_settings_value' ), 10, 3 );
+
+		/**
+		 * Meta box
+		 */
+
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-page-settings-meta-box.php';
 	}
 
 	/**

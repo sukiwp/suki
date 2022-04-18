@@ -71,7 +71,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'When using 2 Columns layout, it\'s recommended to set the container width to "Normal" or "Full width" and also hide the sidebar via the "Individual Page Settings" meta box available on the page editor.', 'suki' ) . '</p></div>',
+			'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'When using 2 Columns layout, it\'s recommended to set the container width to "Normal" or "Full width" and also hide the sidebar via the "Page Settings" meta box available on the page editor.', 'suki' ) . '</p></div>',
 			'priority'    => 11,
 		)
 	)
@@ -165,7 +165,7 @@ $wp_customize->add_control(
 	)
 );
 
-// Heading: Individual Page Settings.
+// Heading: Page Settings.
 $wp_customize->add_control(
 	new Suki_Customize_Control_Heading(
 		$wp_customize,
@@ -173,7 +173,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'label'       => esc_html__( 'Individual Page Settings', 'suki' ),
+			'label'       => esc_html__( 'Page Settings', 'suki' ),
 			'description' => '<a href="' . esc_url( get_edit_post_link( wc_get_page_id( 'cart' ) ) ) . '" class="button button-secondary">' . esc_html__( 'Go to Page Editor', 'suki' ) . '</a>',
 			'priority'    => 100,
 		)

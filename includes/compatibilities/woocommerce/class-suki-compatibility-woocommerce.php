@@ -69,7 +69,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'wp', array( $this, 'modify_template_hooks_after_init' ) );
 
 		// Page settings.
-		add_filter( 'suki/page_settings/post_meta_box', array( $this, 'exclude_page_settings_on_shop_page' ), 10, 2 );
+		add_filter( 'suki/page_settings/overriding_post_meta_box', array( $this, 'exclude_page_settings_on_shop_page' ), 10, 2 );
 
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
 		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
@@ -635,7 +635,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Add "Product Layout" tab on Individual Page Settings meta box.
+	 * Add "Product Layout" tab on Page Settings meta box.
 	 *
 	 * @param array $tabs Tabs.
 	 * @return array
@@ -649,7 +649,7 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Render "Product Layout" options on Individual Page Settings meta box.
+	 * Render "Product Layout" options on Page Settings meta box.
 	 *
 	 * @param WP_Post|WP_Term $obj Post or term object.
 	 * @param string          $tab Tab name.
