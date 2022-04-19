@@ -1,6 +1,6 @@
 <wpml-config>
 	<custom-fields>
- 		<custom-field action="copy">_suki_page_settings</custom-field>
+ 		<custom-field action="copy">suki_page_settings</custom-field>
  	</custom-fields>
 	<admin-texts>
 		<key name="theme_mods_suki">

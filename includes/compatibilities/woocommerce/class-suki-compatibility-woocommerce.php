@@ -698,7 +698,7 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		// Get the settings, if exists.
-		$page_settings = get_post_meta( $value, '_suki_page_settings', true );
+		$page_settings = get_post_meta( $value, 'suki_page_settings', true );
 		if ( empty( $page_settings ) ) {
 			$page_settings = array();
 		}
@@ -714,7 +714,7 @@ class Suki_Compatibility_WooCommerce {
 		}
 
 		// Update the post meta.
-		update_post_meta( $value, '_suki_page_settings', $page_settings );
+		update_post_meta( $value, 'suki_page_settings', $page_settings );
 	}
 
 	/**

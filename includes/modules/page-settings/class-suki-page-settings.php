@@ -81,7 +81,7 @@ class Suki_Page_Settings extends Suki_Module {
 
 			if ( ! empty( $post ) ) {
 				// Get the individual page settings for current singular object.
-				$individual_settings = wp_parse_args( get_post_meta( $post->ID, '_suki_page_settings', true ), array() );
+				$individual_settings = wp_parse_args( get_post_meta( $post->ID, 'suki_page_settings', true ), array() );
 
 				// Override with individual value (if set).
 				if ( isset( $individual_settings[ $key ] ) ) {
