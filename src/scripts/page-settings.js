@@ -42,26 +42,28 @@ function SukiPageSettingsSidebar() {
 					return (
 						<Panel key={ panel.key }>
 							<PanelBody
-							title={ panel.title }
-							initialOpen={ 0 == i ? true : false }
+								title={ panel.title }
+								initialOpen={ 0 == i ? true : false }
 							>
-								<div style={ {
-									display: 'flex',
-									flexDirection: 'column',
-									gap: '4px',
-									marginTop: '8px',
-								} }>
+								<div
+									style={ {
+										display: 'flex',
+										flexDirection: 'column',
+										gap: '4px',
+										marginTop: '8px',
+									} }
+								>
 									{ panel.fields.map( ( field ) => {
 										if ( 'select' === field.type ) {
 											return (
 												<SelectControl
-												key={ field.key }
-												label={ field.label }
-												value={ getFieldValue( field.key ) }
-												options={ field.options }
-												onChange={ ( value ) => {
-													setFieldValue( field.key, value );
-												} }
+													key={ field.key }
+													label={ field.label }
+													value={ getFieldValue( field.key ) }
+													options={ field.options }
+													onChange={ ( value ) => {
+														setFieldValue( field.key, value );
+													} }
 												/>
 											);
 										}
@@ -70,7 +72,7 @@ function SukiPageSettingsSidebar() {
 							</PanelBody>
 						</Panel>
 					);
-				} ) }
+				} )}
 			</PluginSidebar>
 			<PluginSidebarMoreMenuItem target={ SukiPageSettingsData.metaKey }>
 				{ SukiPageSettingsData.title }

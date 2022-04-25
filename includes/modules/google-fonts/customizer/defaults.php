@@ -18,7 +18,8 @@ $add = array();
  * ====================================================
  */
 
-$add['google_fonts_subsets'] = array();
-$add['google_fonts_local']   = 0;
+$add['google_fonts'] = array();
+
+$add['google_fonts_local'] = 0;
 
 return $add;

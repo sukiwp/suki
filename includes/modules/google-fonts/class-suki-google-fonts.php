@@ -236,7 +236,7 @@ class Suki_Google_Fonts extends Suki_Module {
 		// Add display fallback.
 		$url .= 'display=swap';
 
-		return esc_url( $url );
+		return $url;
 	}
 
 	/**
@@ -245,8 +245,13 @@ class Suki_Google_Fonts extends Suki_Module {
 	 * @return string
 	 */
 	public function get_embed_url() {
-		// Get active Google Fonts from Customizer values.
-		$fonts = Suki_Customizer::instance()->get_active_fonts( 'google_fonts' );
+		// Get active Google Fonts.
+		$fonts = suki_get_theme_mod( 'google_fonts', array() );
+
+		// Abort if there is no active Google Fonts.
+		if ( empty( $fonts ) ) {
+			return '';
+		}
 
 		// Generate embed URL.
 		$url = $this->generate_embed_url( $fonts );

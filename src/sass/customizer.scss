@@ -21,8 +21,11 @@
 	margin-top: 0;
 }
 
-
-
+.suki-customize-control {
+	* {
+		box-sizing: border-box;
+	}
+}
 
 
 .button {

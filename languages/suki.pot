@@ -80,7 +80,7 @@ msgstr ""
 msgid "WooCommerce Integration Modules"
 msgstr ""
 
-#: includes/helpers.php:470, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:176, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:88
+#: includes/helpers.php:470, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:176, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:88, includes/modules/page-settings/customizer/options/all-page-settings.php:33
 msgid "Page Settings"
 msgstr ""
 
@@ -553,57 +553,33 @@ msgstr ""
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:250
-msgid "Vertical Bar"
-msgstr ""
-
-#: includes/customizer/class-suki-customizer.php:260, includes/customizer/options/sections.php:243
-msgid "Top Bar"
-msgstr ""
-
-#: includes/customizer/class-suki-customizer.php:268, includes/customizer/options/sections.php:253
-msgid "Main Bar"
-msgstr ""
-
-#: includes/customizer/class-suki-customizer.php:276, includes/customizer/class-suki-customizer.php:308, includes/customizer/options/sections.php:263, includes/customizer/options/sections.php:498
-msgid "Bottom Bar"
-msgstr ""
-
-#: includes/customizer/class-suki-customizer.php:288, includes/customizer/options/sections.php:283
-msgid "Mobile Popup"
-msgstr ""
-
-#: includes/customizer/class-suki-customizer.php:296, includes/customizer/options/sections.php:273
-msgid "Mobile Main Bar"
-msgstr ""
-
-#: includes/customizer/class-suki-customizer.php:765, includes/customizer/options/sections.php:697
+#: includes/customizer/class-suki-customizer.php:768, includes/customizer/options/sections.php:697
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:770, includes/customizer/options/sections.php:707
+#: includes/customizer/class-suki-customizer.php:773, includes/customizer/options/sections.php:707
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:779, includes/customizer/options/sections.php:687
+#: includes/customizer/class-suki-customizer.php:782, includes/customizer/options/sections.php:687
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:784, includes/customizer/options/sections.php:624
+#: includes/customizer/class-suki-customizer.php:787, includes/customizer/options/sections.php:624
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:789, includes/customizer/options/sections.php:654
+#: includes/customizer/class-suki-customizer.php:792, includes/customizer/options/sections.php:654
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:802
+#: includes/customizer/class-suki-customizer.php:805
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:808
+#: includes/customizer/class-suki-customizer.php:811
 msgid "Single %s Page"
 msgstr ""
 
@@ -1051,6 +1027,14 @@ msgstr ""
 
 #: includes/customizer/custom-controls/class-suki-customize-control-typography.php:245
 msgid "Capitalize"
+msgstr ""
+
+#: includes/customizer/custom-controls/class-suki-customize-multiselect-control.php:52
+msgid "＋ Add new"
+msgstr ""
+
+#: includes/customizer/custom-controls/class-suki-customize-multiselect-control.php:53
+msgid "Remove"
 msgstr ""
 
 #: includes/customizer/options/auto-custom-post-types.php:41, includes/customizer/options/blog--archive.php:131, includes/customizer/options/blog--single.php:29, includes/customizer/options/page--search.php:71, includes/customizer/options/page--single.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:29
@@ -1950,6 +1934,26 @@ msgstr ""
 msgid "Areas"
 msgstr ""
 
+#: includes/customizer/options/sections.php:243
+msgid "Top Bar"
+msgstr ""
+
+#: includes/customizer/options/sections.php:253
+msgid "Main Bar"
+msgstr ""
+
+#: includes/customizer/options/sections.php:263, includes/customizer/options/sections.php:498
+msgid "Bottom Bar"
+msgstr ""
+
+#: includes/customizer/options/sections.php:273
+msgid "Mobile Main Bar"
+msgstr ""
+
+#: includes/customizer/options/sections.php:283
+msgid "Mobile Popup"
+msgstr ""
+
 #: includes/customizer/options/sections.php:284
 msgid "This would appear when the \"Toggle\" element is clicked. Please make sure you have added the \"Toggle\" element into the Mobile Main Bar."
 msgstr ""
@@ -2640,16 +2644,20 @@ msgstr ""
 msgid "Hide if home or current page is the only item"
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/options/global--google-fonts.php:53
+#: includes/modules/google-fonts/customizer/options/global--google-fonts.php:59
+msgid "Active Google Fonts"
+msgstr ""
+
+#: includes/modules/google-fonts/customizer/options/global--google-fonts.php:60
+msgid "Select the Google Fonts that you want to use. These fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum."
+msgstr ""
+
+#: includes/modules/google-fonts/customizer/options/global--google-fonts.php:82
 msgid "Load Google Fonts locally"
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/options/global--google-fonts.php:54
+#: includes/modules/google-fonts/customizer/options/global--google-fonts.php:83
 msgid "Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally."
-msgstr ""
-
-#: includes/modules/page-settings/customizer/options/all-page-settings.php:33
-msgid "Individual Page Settings"
 msgstr ""
 
 #. translators: %s: Custom Post Type singular name.

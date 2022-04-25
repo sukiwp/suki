@@ -25,12 +25,12 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 
 	/**
 	 * ====================================================
-	 * Individual Page Settings
+	 * Page Settings
 	 * ====================================================
 	 */
 
-	// Heading: Individual Page Settings.
-	$heading = esc_html__( 'Individual Page Settings', 'suki' );
+	// Heading: Page Settings.
+	$heading = esc_html__( 'Page Settings', 'suki' );
 	if ( false !== strpos( $page_type_key, '_single' ) ) {
 		/* translators: %s: Custom Post Type singular name. */
 		$heading .= ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . sprintf( esc_attr__( 'You can override these options on each individual %s.', 'suki' ), $post_type_obj->labels->singular_name ) . '"><span class="dashicons dashicons-admin-site-alt3"></span></span>';

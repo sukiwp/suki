@@ -1,0 +1,125 @@
+/**
+ * Base react control.
+ *
+ * @see https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
+ * @see https://github.com/kirki-framework/kirki/blob/master/packages/kirki-framework/control-base/src/dynamic-control.js
+ */
+
+wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
+	/**
+	 * Initialize.
+	 *
+	 * @param {string} id - Control ID.
+	 * @param {Object} params - Control params.
+	 */
+	initialize: function( id, params ) {
+		const control = this;
+
+		// Bind functions to this control context for passing as React props.
+		control.setNotificationContainer = control.setNotificationContainer.bind( control );
+
+		wp.customize.Control.prototype.initialize.call( control, id, params );
+
+		// The following should be eliminated with <https://core.trac.wordpress.org/ticket/31334>.
+		const onRemoved = ( removedControl ) => {
+			if ( control === removedControl ) {
+				control.destroy();
+				control.container.remove();
+				wp.customize.control.unbind( 'removed', onRemoved );
+			}
+		}
+		wp.customize.control.bind( 'removed', onRemoved );
+	},
+
+	/**
+	 * Set notification container and render.
+	 *
+	 * This is called when the React component is mounted.
+	 *
+	 * @param {Element} element - Notification container.
+	 * @return {void}
+	 */
+	setNotificationContainer: function( element ) {
+		const control = this;
+
+		control.notifications.container = jQuery( element );
+		control.notifications.render();
+	},
+
+	/**
+	 * Render the control into the DOM.
+	 *
+	 * This is called from the Control#embed() method in the parent class.
+	 *
+	 * @returns {void}
+	 */
+	renderContent: function() {
+		const control = this;
+
+		/**
+		 * Render original content template from the parent class.
+		 *
+		 * All Suki custom controls will have empty control content container, as defined in Suki_Customize_Control.php.
+		 * The container will be filled later by React.
+		 */
+
+		wp.customize.SukiControl.prototype.renderContent.call( control );
+
+		/**
+		 * Render control's main content inside the ".customize-control-content" container.
+		 */
+		
+		control.renderContentForm( control.container[0].querySelector( '.customize-control-content' ) );
+	},
+
+	/**
+	 * Render the control content's form into the ".customize-control-content" container.
+	 *
+	 * Form can be inserted using React into the `container`.
+	 *
+	 * @returns {void}
+	 */
+	renderContentForm: function( container ) {},
+
+	/**
+	 * After control has been first rendered, start re-rendering when setting changes.
+	 *
+	 * React is able to be used here instead of the wp.customize.Element abstraction.
+	 *
+	 * @returns {void}
+	 */
+	ready: function() {
+		const control = this;
+
+		/**
+		 * Update component value's state when customizer setting's value is changed.
+		 */
+		control.setting.bind( ( val ) => {
+			control.renderContent( val );
+		} );
+	},
+
+	/**
+	 * Handle removal/de-registration of the control.
+	 *
+	 * This is essentially the inverse of the Control#embed() method.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/31334
+	 * @returns {void}
+	 */
+	destroy: function() {
+		const control = this;
+
+		// Garbage collection: undo mounting that was done in the embed/renderContent method.
+		ReactDOM.unmountComponentAtNode( control.container[0] );
+
+		// Call destroy method in parent if it exists (as of #31334).
+		if (wp.customize.Control.prototype.destroy) {
+			wp.customize.Control.prototype.destroy.call( control );
+		}
+	}
+
+
+});
+
+wp.customize.controlConstructor['suki-react'] = wp.customize.SukiReactControl;
