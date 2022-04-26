@@ -1,0 +1,29 @@
+/**
+ * Spacer section
+ */
+
+.control-section-suki-spacer {
+	margin-top: 15px;
+
+	h2 {
+		position: relative;
+		display: table;
+		margin: -5px 0 0;
+		padding: 3px 10px 3px 18px;
+		color: inherit;
+		font-size: 11px;
+		line-height: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		background-color: rgba(0,0,0,0.1);
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: 100%;
+			top: 0;
+			border-bottom: 22px solid rgba(0,0,0,0.1);
+			border-right: 12px solid transparent;
+		}
+	}
+}

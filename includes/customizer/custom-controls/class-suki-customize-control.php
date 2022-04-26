@@ -62,28 +62,6 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			$this->render_content();
 			echo '</li>';
 		}
-
-		/**
-		 * An Underscore (JS) template for this control's content (but not its container).
-		 *
-		 * Class variables for this control class are available in the `data` JS object;
-		 * export custom variables by overriding WP_Customize_Control::to_json().
-		 *
-		 * @see WP_Customize_Control::print_template()
-		 */
-		protected function content_template() {
-			?>
-			<# if ( data.label ) { #>
-				<label for="_customize-input-{{ data.id }}" class="customize-control-title">{{{ data.label }}}</label>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span id="_customize-description-{{ data.id }}" class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-			<div class="customize-control-content">
-				<!-- React container -->
-			</div>
-			<?php
-		}
 	}
 
 	// Register control type.

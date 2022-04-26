@@ -5,9 +5,12 @@
 	--admin-color--primary: #2271b1;
 	--admin-color--gray: #ccc;
 	--admin-color--border: #8c8f94;
+
+	@include global-variables();
 }
 
 @import "customizer/general";
+@import "customizer/sections";
 @import "customizer/controls";
 @import "customizer/specific";
 
@@ -21,9 +24,17 @@
 	margin-top: 0;
 }
 
+.customize-control {
+	margin-bottom: 18px;
+}
+
 .suki-customize-control {
-	* {
+	*, *:before, *:after {
 		box-sizing: border-box;
+	}
+
+	.components-base-control__field {
+		margin-bottom: 0;
 	}
 }
 

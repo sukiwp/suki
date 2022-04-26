@@ -36,7 +36,7 @@ if ( suki_show_pro_teaser() ) {
 
 // --- Global
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_global',
 		array(
@@ -225,7 +225,7 @@ $wp_customize->add_section(
 
 // Header > --- Areas.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_header_bars',
 		array(
@@ -289,7 +289,7 @@ $wp_customize->add_section(
 
 // Header > --- Elements.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_header_elements',
 		array(
@@ -396,7 +396,7 @@ $wp_customize->add_panel(
 
 // Content > --- Areas.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_content_areas',
 		array(
@@ -470,7 +470,7 @@ $wp_customize->add_section(
 
 // Footer > --- Areas.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_footer_bars',
 		array(
@@ -503,7 +503,7 @@ $wp_customize->add_section(
 
 // Footer > --- Elements.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_footer_elements',
 		array(
@@ -584,7 +584,7 @@ if ( suki_show_pro_teaser() ) {
 
 // --- Pages.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_pages',
 		array(
@@ -606,7 +606,7 @@ $wp_customize->add_panel(
 
 // Blog > --- Pages.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_blog_pages',
 		array(
@@ -669,7 +669,7 @@ $wp_customize->add_panel(
 
 // Other Pages > --- Default Pages.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_page_settings_others',
 		array(
@@ -730,7 +730,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 	if ( 0 < strpos( $page_type_key, '_archive' ) ) {
 		// Other Pages > --- [Custom Post Type].
 		$wp_customize->add_section(
-			new Suki_Customize_Section_Spacer(
+			new Suki_Customize_Spacer_Section(
 				$wp_customize,
 				'suki_section_spacer_page_settings_' . $post_type_slug,
 				array(
@@ -759,7 +759,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 
 // --- Core.
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_core',
 		array(

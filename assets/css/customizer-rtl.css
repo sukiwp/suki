@@ -3,6 +3,85 @@
 	--admin-color--primary: #2271b1;
 	--admin-color--gray: #ccc;
 	--admin-color--border: #8c8f94;
+	--color-palette-1: #222222;
+	--color-palette-2: #444444;
+	--color-palette-3: #666666;
+	--color-palette-4: #0055cc;
+	--color-palette-5: #004099;
+	--color-palette-6: #cccccc;
+	--color-palette-7: #f3f3f3;
+	--color-palette-8: #ffffff;
+	--text-color: var(--color-palette-2);
+	--border-color: var(--color-palette-6);
+	--background-color: var(--color-palette-8);
+	--subtle-background-color: var(--color-palette-7);
+	--heading-color: var(--color-palette-1, var(--text-color));
+	--heading-color--focus: var(--link-color);
+	--meta-color: var(--color-palette-3, var(--text-color));
+	--link-color: var(--color-palette-4);
+	--link-color--focus: var(--color-palette-5, inherit);
+	--base--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--base--font-size: 16px;
+	--base--line-height: 1.7;
+	--h1--font-size: 2.4rem;
+	--h1--font-weight: 600;
+	--h1--line-height: 1.3;
+	--h2--font-size: 1.8rem;
+	--h2--font-weight: 600;
+	--h2--line-height: 1.4;
+	--h3--font-size: 1.5rem;
+	--h3--font-weight: 600;
+	--h3--line-height: 1.5;
+	--h4--font-size: 1.25rem;
+	--h4--font-weight: 600;
+	--h4--line-height: 1.6;
+	--h5--font-size: 1.1rem;
+	--h5--font-weight: 600;
+	--h5--line-height: 1.7;
+	--h6--font-size: 1rem;
+	--h6--font-weight: 600;
+	--h6--line-height: 1.7;
+	--title--font-family: var(--h1--font-family);
+	--title--font-size: var(--h1--font-size);
+	--title--font-style: var(--h1--font-style);
+	--title--font-weight: var(--h1--font-weight);
+	--title--line-height: var(--h1--line-height);
+	--title--letter-spacing: var(--h1--letter-spacing);
+	--title--text-transform: var(--h1--text-transform);
+	--title--text-color: var(--heading-color);
+	--title--text-color--focus: var(--heading-color--focus);
+	--small-title--font-family: var(--h3--font-family);
+	--small-title--font-size: var(--h3--font-size);
+	--small-title--font-style: var(--h3--font-style);
+	--small-title--font-weight: var(--h3--font-weight);
+	--small-title--line-height: var(--h3--line-height);
+	--small-title--letter-spacing: var(--h3--letter-spacing);
+	--small-title--text-transform: var(--h3--text-transform);
+	--small-title--text-color: var(--heading-color);
+	--small-title--text-color--focus: var(--heading-color--focus);
+	--meta--font-size: 0.9rem;
+	--meta--line-height: 1.7;
+	--meta--text-color: var(--meta-color);
+	--input--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
+	--input--border-radius: 0.1875rem;
+	--input--border-width: 1px;
+	--input--border-color: var(--color-palette-6);
+	--input--background-color: var(--color-palette-8);
+	--input--text-color: var(--color-palette-2);
+	--input--border-color--focus: var(--color-palette-2);
+	--button--padding: 0.625rem 1rem 0.625rem 1rem;
+	--button--border-radius: 0.1875rem;
+	--button--border-width: 1px;
+	--button--border-color: var(--color-palette-4);
+	--button--background-color: var(--color-palette-4);
+	--button--text-color: var(--color-palette-8);
+	--button--border-color--focus: var(--color-palette-5);
+	--button--background-color--focus: var(--color-palette-5);
+	--button--text-color--focus: var(--color-palette-8);
+	--block-spacing: 1.25rem;
+	--content-size: 720px;
+	--wide-size: 1140px;
+	--transition-duration: 0.25s;
 }
 
 /**
@@ -216,6 +295,33 @@
 }
 
 /**
+ * Spacer section
+ */
+.control-section-suki-spacer {
+	margin-top: 15px;
+}
+.control-section-suki-spacer h2 {
+	position: relative;
+	display: table;
+	margin: -5px 0 0;
+	padding: 3px 18px 3px 10px;
+	color: inherit;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.control-section-suki-spacer h2:after {
+	content: "";
+	position: absolute;
+	right: 100%;
+	top: 0;
+	border-bottom: 22px solid rgba(0, 0, 0, 0.1);
+	border-left: 12px solid transparent;
+}
+
+/**
  * Spacer Section
  */
 .control-section-suki-section-spacer {
@@ -341,39 +447,11 @@
  * Toggle Control
  */
 .customize-control-suki-toggle .customize-control-title {
-	padding-left: 40px;
+	padding-left: 50px;
 }
-.customize-control-suki-toggle .suki-toggle-ui {
+.customize-control-suki-toggle .components-form-toggle {
 	position: absolute;
-	top: 0;
-	left: 0;
-	display: inline-block;
-	width: 30px;
-	height: 18px;
-	margin: 3px 0 0;
-	border-radius: 15px;
-	background-color: var(--admin-color--border);
-}
-.customize-control-suki-toggle .suki-toggle-ui-handle {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 2px;
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	border-radius: 15px;
-	background-color: #fff;
-	transition: all 0.25s;
-}
-.customize-control-suki-toggle input[type=checkbox] {
-	display: none;
-}
-.customize-control-suki-toggle input[type=checkbox]:checked ~ .suki-toggle-ui {
-	background-color: var(--admin-color--primary);
-}
-.customize-control-suki-toggle input[type=checkbox]:checked ~ .suki-toggle-ui .suki-toggle-ui-handle {
-	right: auto;
+	top: 3px;
 	left: 0;
 }
 
@@ -831,8 +909,15 @@
 	margin-top: 0;
 }
 
-.suki-customize-control * {
+.customize-control {
+	margin-bottom: 18px;
+}
+
+.suki-customize-control *, .suki-customize-control *:before, .suki-customize-control *:after {
 	box-sizing: border-box;
+}
+.suki-customize-control .components-base-control__field {
+	margin-bottom: 0;
 }
 
 .button {

@@ -1,8 +1,14 @@
 function SukiControlDescription( props ) {
-	if ( props.text ) {
+	if ( props.children ) {
+		let { ...attributes } = props;
+
+		delete attributes.children;
+
+		attributes.className = [ 'description', 'customize-control-description', attributes.className ].join( ' ' );
+
 		return (
 			<>
-				<span id={props.id} className="description customize-control-description">{props.text}</span>
+				<span {...attributes}>{props.children}</span>
 			</>
 		);
 	} else {

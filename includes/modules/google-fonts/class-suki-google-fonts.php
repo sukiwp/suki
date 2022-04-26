@@ -112,7 +112,7 @@ class Suki_Google_Fonts extends Suki_Module {
 	public function add_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/options/global--google-fonts.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/structures/global--google-fonts.php';
 	}
 
 	/**

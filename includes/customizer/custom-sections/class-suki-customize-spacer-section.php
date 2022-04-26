@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_Section_Spacer' ) ) {
+if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_Spacer_Section' ) ) {
 	/**
 	 * Spacer section class.
 	 */
-	class Suki_Customize_Section_Spacer extends WP_Customize_Section {
+	class Suki_Customize_Spacer_Section extends WP_Customize_Section {
 		/**
 		 * Control type.
 		 *
 		 * @var string
 		 */
-		public $type = 'suki-section-spacer';
+		public $type = 'suki-spacer';
 
 		/**
 		 * Render Underscore JS template for this section.
@@ -37,5 +37,5 @@ if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_S
 	}
 
 	// Register section type.
-	$wp_customize->register_section_type( 'Suki_Customize_Section_Spacer' );
+	$wp_customize->register_section_type( 'Suki_Customize_Spacer_Section' );
 }

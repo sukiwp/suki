@@ -1,8 +1,5 @@
 /**
  * Base react control.
- *
- * @see https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
- * @see https://github.com/kirki-framework/kirki/blob/master/packages/kirki-framework/control-base/src/dynamic-control.js
  */
 
 wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
@@ -53,33 +50,7 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 	 *
 	 * @returns {void}
 	 */
-	renderContent: function() {
-		const control = this;
-
-		/**
-		 * Render original content template from the parent class.
-		 *
-		 * All Suki custom controls will have empty control content container, as defined in Suki_Customize_Control.php.
-		 * The container will be filled later by React.
-		 */
-
-		wp.customize.SukiControl.prototype.renderContent.call( control );
-
-		/**
-		 * Render control's main content inside the ".customize-control-content" container.
-		 */
-		
-		control.renderContentForm( control.container[0].querySelector( '.customize-control-content' ) );
-	},
-
-	/**
-	 * Render the control content's form into the ".customize-control-content" container.
-	 *
-	 * Form can be inserted using React into the `container`.
-	 *
-	 * @returns {void}
-	 */
-	renderContentForm: function( container ) {},
+	renderContent: function() {},
 
 	/**
 	 * After control has been first rendered, start re-rendering when setting changes.
@@ -117,9 +88,5 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 		if (wp.customize.Control.prototype.destroy) {
 			wp.customize.Control.prototype.destroy.call( control );
 		}
-	}
-
-
+	},
 });
-
-wp.customize.controlConstructor['suki-react'] = wp.customize.SukiReactControl;

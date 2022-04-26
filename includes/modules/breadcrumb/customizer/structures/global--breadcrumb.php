@@ -92,7 +92,7 @@ $wp_customize->add_control(
 	)
 );
 
-// Include "Home" as the first item.
+// Include home.
 $key = 'breadcrumb_trail_home';
 $wp_customize->add_setting(
 	$key,
@@ -103,18 +103,18 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Include "Home" as the first item', 'suki' ),
+			'label'    => esc_html__( 'Include home', 'suki' ),
 			'priority' => 20,
 		)
 	)
 );
 
-// Include current page as the last item.
+// Include current page.
 $key = 'breadcrumb_trail_current_page';
 $wp_customize->add_setting(
 	$key,
@@ -125,18 +125,18 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Include current page as the last item', 'suki' ),
+			'label'    => esc_html__( 'Include current page', 'suki' ),
 			'priority' => 20,
 		)
 	)
 );
 
-// Hide if home or current page is the only item.
+// Hide when no nested item.
 $key = 'breadcrumb_hide_when_only_home_or_current';
 $wp_customize->add_setting(
 	$key,
@@ -147,12 +147,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Hide if home or current page is the only item', 'suki' ),
+			'label'    => esc_html__( 'Hide when no nested item', 'suki' ),
 			'priority' => 20,
 		)
 	)

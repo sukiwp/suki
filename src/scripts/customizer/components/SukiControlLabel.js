@@ -1,8 +1,14 @@
 function SukiControlLabel( props ) {
-	if ( props.text ) {
+	if ( props.children ) {
+		let { ...attributes } = props;
+
+		delete attributes.children;
+
+		attributes.className = [ 'customize-control-title', attributes.className ].join( ' ' );
+
 		return (
 			<>
-				<label htmlFor={props.for} className='customize-control-title'>{props.text}</label>
+				<label {...attributes}>{props.children}</label>
 			</>
 		);
 	} else {

@@ -118,7 +118,7 @@ class Suki_Page_Settings extends Suki_Module {
 	public function add_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/options/all-page-settings.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/structures/all-page-settings.php';
 	}
 
 	/**

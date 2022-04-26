@@ -1,34 +1,42 @@
 /**
- * Multi Select control
+ * Multi Select control (using React)
  */
 
 import SukiControlLabel from "../components/SukiControlLabel";
 import SukiControlDescription from "../components/SukiControlDescription";
-
+ 
 import {
-	SelectControl,
-	Button,
-	__experimentalItemGroup as ItemGroup,
 	__experimentalItem as Item,
+	__experimentalItemGroup as ItemGroup,
+	SelectControl,
 } from '@wordpress/components';
 
 wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 	initialize: function( id, params ) {
 		const control = this;
 
-		// Bind functions to this control context for passing as React props.
-		control.handleAddNew = control.handleAddNew.bind( control );
-		control.handleRemove = control.handleRemove.bind( control );
-
 		wp.customize.Control.prototype.initialize.call( control, id, params );
 	},
 
-	renderContentForm: function( container ) {
+	renderContent: function() {
 		const control = this;
+
+		let limit = control.params.itemsLimit;
+
+		// If limit is set to `0`, it means limit is same as the number of options.
+		if ( 0 === limit ) {
+			limit = Object.keys( control.params.choices ).length;
+		}
 
 		ReactDOM.render(
 			<>
-				{ 0 < control.setting.get().length ? (
+				<SukiControlLabel htmlFor={ '_customize-input-' + control.id }>
+					{ control.params.label }
+				</SukiControlLabel>
+				<SukiControlDescription id={ '_customize-description-' + control.id }>
+					{ control.params.description }
+				</SukiControlDescription>
+				{ 0 < control.setting.get().length &&
 					<ItemGroup
 						isSeparated
 						isBordered
@@ -59,11 +67,11 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 											cursor: 'pointer',
 										} }
 										onClick={ () => {
-											control.handleRemove( value );
+											control.removeValueItem( value );
 										} }
 										onKeyUp={ ( e ) => {
 											if ( 13 == e.which || 32 == e.which ) {
-												control.handleRemove( value );
+												control.removeValueItem( value );
 											}
 										} }
 									>✕</span>
@@ -71,51 +79,41 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 							);
 						} ) }
 					</ItemGroup>
-				) : '' }
+				}
 
-				<SelectControl
+				<select
 					id={ '_customize-input-' + control.id }
-					value=''
-					options={ control.getOptions() }
-					disabled={ control.getLimit() <= control.setting.get().length ? true : false }
-					onChange={ ( value ) => {
-						control.handleAddNew( value )
+					value=""
+					disabled={ limit <= control.setting.get().length ? true : false }
+					onChange={ ( e ) => {
+						control.addNewValueItem( e.target.value );
 					} }
-				/>
+				>
+					<option
+						value=""
+						disabled
+					>
+						{ control.params.l10n.addNew }
+					</option>
+
+					{ Object.keys( control.params.choices ).map( ( value ) => {
+						return (
+							<option
+								key={ value }
+								value={ value }
+								disabled={ -1 === control.setting.get().indexOf( value ) ? false : true }
+							>
+								{ control.params.choices[ value ] }
+							</option>
+						)
+					} ) }
+				</select>
 			</>,
-			container
+			control.container[0]
 		);
 	},
 
-	getLimit: function() {
-		const control = this;
-
-		return control.params.itemsLimit || Object.keys( control.params.choices ).length;
-	},
-
-	getOptions: function() {
-		const control = this;
-
-		// Add "Add New" text as the first option with empty value;
-		const options = [ {
-			label: control.params.l10n.addNew,
-			value: '',
-			disabled: true,
-		} ];
-
-		// Convert object to array of object.
-		Object.keys( control.params.choices ).forEach( ( key ) => {
-			options.push( {
-				label: control.params.choices[ key ],
-				value: key,
-				disabled: -1 !== control.setting.get().indexOf( key ) ? true : false,
-			} );
-		} );
-		
-		return options;
-	},
-
-	handleAddNew: function( value ) {
+	addNewValueItem: function( value ) {
 		const control = this;
 
 		let valueArray = control.setting.get() || [];
@@ -133,7 +131,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 		control.setting.set( valueArray );
 	},
 
-	handleRemove: function( removedValue ) {
+	removeValueItem: function( removedValue ) {
 		const control = this;
 
 		let valueArray = control.setting.get() || [];

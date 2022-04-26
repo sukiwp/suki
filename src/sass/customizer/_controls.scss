@@ -151,45 +151,13 @@
 
 .customize-control-suki-toggle {
 	.customize-control-title {
-		padding-right: 40px;
+		padding-right: 50px;
 	}
 
-	.suki-toggle-ui {
+	.components-form-toggle {
 		position: absolute;
-		top: 0;
+		top: 3px;
 		right: 0;
-		display: inline-block;
-		width: 30px;
-		height: 18px;
-		margin: 3px 0 0;
-		border-radius: 15px;
-		background-color: var(--admin-color--border);
-
-		&-handle {
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin: 2px;
-			display: inline-block;
-			width: 14px;
-			height: 14px;
-			border-radius: 15px;
-			background-color: #fff;
-			transition: all 0.25s;
-		}
-	}
-
-	input[type="checkbox"] {
-		display: none;
-
-		&:checked ~ .suki-toggle-ui {
-			background-color: var(--admin-color--primary);
-	
-			.suki-toggle-ui-handle {
-				left: auto;
-				right: 0;
-			}
-		}
 	}
 }
 

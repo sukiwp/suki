@@ -115,13 +115,25 @@ class Suki_Customizer {
 	public function register_custom_controls( $wp_customize ) {
 		require_once SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer-sanitization.php';
 
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-spacer.php';
+		/**
+		 * Custom sections
+		 */
+
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-spacer-section.php';
+		if ( suki_show_pro_teaser() ) {
+			require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-section-pro-link.php';
+			require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-section-pro-teaser.php';
+		}
+
+		/**
+		 * Custom controls
+		 */
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-hr.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-heading.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-blank.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-toggle.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-color.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-toggle.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-color.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-shadow.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-slider.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-dimension.php';
@@ -134,13 +146,11 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php';
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-color-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-multiselect-control.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-toggle-control.php';
 
-		if ( suki_show_pro_teaser() ) {
-			require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-pro-link.php';
-			require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-section-pro-teaser.php';
-			require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php';
-		}
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php';
 	}
 
 	/**
@@ -152,57 +162,57 @@ class Suki_Customizer {
 		$defaults = $this->get_setting_defaults();
 
 		// Sections and Panels.
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/sections.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/sections.php';
 
 		// Global Modules.
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--social.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/options/global--color-palette.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--social.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--color-palette.php';
 
 		// // Global Styles.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--size-spacing.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--base.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--headings.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--blockquote.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--form-inputs.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--buttons.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--title.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--small-title.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/style--meta.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--size-spacing.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--base.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--headings.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--blockquote.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--form-inputs.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--buttons.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--title.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--small-title.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--meta.php';
 
 		// // Layout.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/canvas.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--builder.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--top-main-bottom-bar.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--mobile-main-bar.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--mobile-vertical-bar.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--logo.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--menu.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--html.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--search.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/header--social.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/content.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/content--main.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/content--sidebar.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/content--hero.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--builder.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--widgets-bar.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--bottom-bar.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--copyright.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--html.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--social.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/footer--scroll-to-top.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/canvas.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--builder.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--top-main-bottom-bar.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--mobile-main-bar.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--mobile-vertical-bar.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--logo.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--menu.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--html.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--search.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--social.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content--main.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content--sidebar.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content--hero.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--builder.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--widgets-bar.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--bottom-bar.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--copyright.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--html.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--social.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--scroll-to-top.php';
 
 		// // Blog.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/blog--archive.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/blog--single.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-default.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/blog--entry-grid.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--archive.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--single.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--entry-default.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--entry-grid.php';
 
 		// // Pages.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/page--single.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/page--error-404.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/page--search.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/options/auto-custom-post-types.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--single.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--error-404.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--search.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/auto-custom-post-types.php';
 	}
 
 	/**

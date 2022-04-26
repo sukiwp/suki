@@ -1,8 +1,7 @@
 /**
  * Base dynamic control.
  *
- * @see https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
- * @see https://github.com/kirki-framework/kirki/blob/master/packages/kirki-framework/control-base/src/dynamic-control.js
+ * @ref https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
  */
 
 wp.customize.SukiControl = wp.customize.Control.extend({
@@ -18,7 +17,7 @@ wp.customize.SukiControl = wp.customize.Control.extend({
 		if ( ! args.params.content ) {
 			args.params.content = $( '<li></li>' );
 			args.params.content.attr( 'id', 'customize-control-' + id.replace( /]/g, '' ).replace( /\[/g, '-' ) );
-			args.params.content.attr( 'class', 'customize-control customize-control-' + args.params.type );
+			args.params.content.attr( 'class', 'suki-customize-control customize-control customize-control-' + args.params.type );
 		}
 
 		control.propertyElements = [];
@@ -188,5 +187,3 @@ wp.customize.SukiControl = wp.customize.Control.extend({
 		wp.customize.Control.prototype.focus.call( control, args );
 	},
 });
-
-wp.customize.controlConstructor[ 'suki-base' ] = wp.customize.SukiControl;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Multi-select control
+ * Suki Customizer's Multi-select control (React)
  *
  * @package Suki
  */
