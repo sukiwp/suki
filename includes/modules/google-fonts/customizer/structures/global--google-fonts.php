@@ -64,6 +64,19 @@ $wp_customize->add_control(
 	)
 );
 
+// ------
+$wp_customize->add_control(
+	new Suki_Customize_Control_HR(
+		$wp_customize,
+		'hr_google_fonts',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'priority' => 20,
+		)
+	)
+);
+
 // Load Google Fonts locally.
 $key = 'google_fonts_local';
 $wp_customize->add_setting(
@@ -82,6 +95,27 @@ $wp_customize->add_control(
 			'label'       => esc_html__( 'Load Google Fonts locally', 'suki' ),
 			'description' => esc_html__( 'Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally.', 'suki' ),
 			'priority'    => 20,
+		)
+	)
+);
+
+// Test.
+$key = 'test';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => '#21759b',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Color_Control(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Test', 'suki' ),
+			'priority' => 0,
 		)
 	)
 );

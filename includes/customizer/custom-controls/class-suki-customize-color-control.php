@@ -23,31 +23,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public $type = 'suki-color';
 
 		/**
-		 * Value when checked.
+		 * Whether to integrate color palette or not.
 		 *
-		 * @var integer
+		 * @var boolean
 		 */
-		public $palette = array();
-
-		/**
-		 * Constructor.
-		 *
-		 * @param WP_Customize_Manager $manager Customizer Manager object.
-		 * @param integer              $id      Control ID.
-		 * @param array                $args    Arguments array.
-		 */
-		public function __construct( $manager, $id, $args = array() ) {
-			parent::__construct( $manager, $id, $args );
-
-			// Setup color palette.
-			for ( $i = 1; $i <= 8; $i++ ) {
-				$this->palette[] = array(
-					/* translators: %d: color index number */
-					'name'  => sprintf( esc_html__( 'Theme Color %d', 'suki' ), $i ),
-					'color' => 'var(--color-palette-' . $i . ')',
-				);
-			}
-		}
+		public $has_palette = true;
 
 		/**
 		 * Setup the parameters passed to the JavaScript via JSON.
@@ -63,14 +43,11 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			 * Pass more properties from this class as `params`.
 			 */
 
-			// `palette` property.
-			$this->json['palette'] = $this->palette;
+			// `has_palette` property.
+			$this->json['hasPalette'] = $this->has_palette;
 
-			// Localization.
-			$this->json['l10n'] = array(
-				/* translators: %d: Color palette index */
-				'colorPaletteName' => esc_html__( 'Theme Color %d', 'suki' ),
-			);
+			// Default value.
+			$this->json['defaultValue'] = $this->setting->default;
 		}
 	}
 

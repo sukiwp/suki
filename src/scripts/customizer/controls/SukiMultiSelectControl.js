@@ -21,12 +21,10 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 	renderContent: function() {
 		const control = this;
 
-		let limit = control.params.itemsLimit;
+		const valueArray = control.setting.get();
 
 		// If limit is set to `0`, it means limit is same as the number of options.
-		if ( 0 === limit ) {
-			limit = Object.keys( control.params.choices ).length;
-		}
+		const limit = control.params.itemsLimit || Object.keys( control.params.choices ).length;
 
 		ReactDOM.render(
 			<>
@@ -36,7 +34,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 				<SukiControlDescription id={ '_customize-description-' + control.id }>
 					{ control.params.description }
 				</SukiControlDescription>
-				{ 0 < control.setting.get().length &&
+				{ 0 < valueArray.length &&
 					<ItemGroup
 						isSeparated
 						isBordered
@@ -46,7 +44,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 							marginBottom: '8px',
 						} }
 					>
-						{ control.setting.get().map( ( value ) => {
+						{ valueArray.map( ( value ) => {
 							return(
 								<Item
 									key={ value }
@@ -84,7 +82,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 				<select
 					id={ '_customize-input-' + control.id }
 					value=""
-					disabled={ limit <= control.setting.get().length ? true : false }
+					disabled={ limit <= valueArray.length ? true : false }
 					onChange={ ( e ) => {
 						control.addNewValueItem( e.target.value );
 					} }
@@ -101,7 +99,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 							<option
 								key={ value }
 								value={ value }
-								disabled={ -1 === control.setting.get().indexOf( value ) ? false : true }
+								disabled={ -1 === valueArray.indexOf( value ) ? false : true }
 							>
 								{ control.params.choices[ value ] }
 							</option>

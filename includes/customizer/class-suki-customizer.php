@@ -165,8 +165,8 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/sections.php';
 
 		// Global Modules.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--social.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--color-palette.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--social.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--color-palette.php';
 
 		// // Global Styles.
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--size-spacing.php';

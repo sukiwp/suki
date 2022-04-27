@@ -21,6 +21,7 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
 				</SukiControlDescription>
 				<FormToggle
 					id={ '_customize-input-' + control.id }
+					className="suki-toggle"	
 					checked={ control.setting.get() ? true : false }
 					onChange={ ( e ) => {
 						control.setting.set( e.target.checked );

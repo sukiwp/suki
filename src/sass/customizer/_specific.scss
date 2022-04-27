@@ -1,0 +1,40 @@
+/**
+ * Color palette
+ */
+
+:is(
+	#customize-control-color_palette_1,
+	#customize-control-color_palette_2,
+	#customize-control-color_palette_3,
+	#customize-control-color_palette_4,
+	#customize-control-color_palette_5,
+	#customize-control-color_palette_6,
+	#customize-control-color_palette_7,
+	#customize-control-color_palette_8
+) {
+	width: 0;
+	
+	.suki-color-wrapper {
+		left: 0;
+		right: auto;
+		margin: 3px;
+		z-index: 1;
+	}
+}
+
+:is(
+	#customize-control-color_palette_1_name,
+	#customize-control-color_palette_2_name,
+	#customize-control-color_palette_3_name,
+	#customize-control-color_palette_4_name,
+	#customize-control-color_palette_5_name,
+	#customize-control-color_palette_6_name,
+	#customize-control-color_palette_7_name,
+	#customize-control-color_palette_8_name
+) {
+	clear: none;
+
+	input[type="text"] {
+		padding-left: 50px;
+	}
+}

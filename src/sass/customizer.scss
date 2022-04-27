@@ -5,6 +5,7 @@
 	--admin-color--primary: #2271b1;
 	--admin-color--gray: #ccc;
 	--admin-color--border: #8c8f94;
+	--admin-color--strong-text: #1d2327;
 
 	@include global-variables();
 }
@@ -22,10 +23,6 @@
 
 .customize-partial-edit-shortcut + * {
 	margin-top: 0;
-}
-
-.customize-control {
-	margin-bottom: 18px;
 }
 
 .suki-customize-control {

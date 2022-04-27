@@ -27,6 +27,15 @@ $add['color_palette_6'] = '#cccccc';
 $add['color_palette_7'] = '#f3f3f3';
 $add['color_palette_8'] = '#ffffff';
 
+$add['color_palette_1_name'] = esc_html__( 'Strong Text', 'suki' );
+$add['color_palette_2_name'] = esc_html__( 'Normal Text', 'suki' );
+$add['color_palette_3_name'] = esc_html__( 'Weak Text', 'suki' );
+$add['color_palette_4_name'] = esc_html__( 'Primary', 'suki' );
+$add['color_palette_5_name'] = esc_html__( 'Primary Alt', 'suki' );
+$add['color_palette_6_name'] = esc_html__( 'Border', 'suki' );
+$add['color_palette_7_name'] = esc_html__( 'Background Alt', 'suki' );
+$add['color_palette_8_name'] = esc_html__( 'Background', 'suki' );
+
 /**
  * ====================================================
  * Global Styles > Content Size & Spacing

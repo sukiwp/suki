@@ -583,27 +583,59 @@ msgstr ""
 msgid "Single %s Page"
 msgstr ""
 
-#: includes/customizer/defaults.php:215
+#: includes/customizer/defaults.php:30
+msgid "Strong Text"
+msgstr ""
+
+#: includes/customizer/defaults.php:31
+msgid "Normal Text"
+msgstr ""
+
+#: includes/customizer/defaults.php:32
+msgid "Weak Text"
+msgstr ""
+
+#: includes/customizer/defaults.php:33
+msgid "Primary"
+msgstr ""
+
+#: includes/customizer/defaults.php:34
+msgid "Primary Alt"
+msgstr ""
+
+#: includes/customizer/defaults.php:35, includes/customizer/structures/blog--entry-grid.php:207, includes/customizer/structures/content--hero.php:210, includes/customizer/structures/content--main.php:99, includes/customizer/structures/content--sidebar.php:255, includes/customizer/structures/footer--bottom-bar.php:188, includes/customizer/structures/footer--widgets-bar.php:118, includes/customizer/structures/header--mobile-main-bar.php:119, includes/customizer/structures/header--top-main-bottom-bar.php:222, includes/customizer/structures/style--buttons.php:67, includes/customizer/structures/style--form-inputs.php:67
+msgid "Border"
+msgstr ""
+
+#: includes/customizer/defaults.php:36
+msgid "Background Alt"
+msgstr ""
+
+#: includes/customizer/defaults.php:37, includes/customizer/structures/header--top-main-bottom-bar.php:559
+msgid "Background"
+msgstr ""
+
+#: includes/customizer/defaults.php:224
 msgid "Insert HTML text here"
 msgstr ""
 
-#: includes/customizer/defaults.php:435
+#: includes/customizer/defaults.php:444
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:493, includes/customizer/defaults.php:520, includes/customizer/defaults.php:549
+#: includes/customizer/defaults.php:502, includes/customizer/defaults.php:529, includes/customizer/defaults.php:558
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:585
+#: includes/customizer/defaults.php:594
 msgid "Oops! That page can not be found"
 msgstr ""
 
-#: includes/customizer/defaults.php:586
+#: includes/customizer/defaults.php:595
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
-#: includes/customizer/defaults.php:589
+#: includes/customizer/defaults.php:598
 msgid "Back to Home"
 msgstr ""
 
@@ -807,12 +839,6 @@ msgstr ""
 #: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:681
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
-msgstr ""
-
-#. translators: %d: color index number
-#. translators: %d: Color palette index
-#: includes/customizer/custom-controls/class-suki-customize-color-control.php:46, includes/customizer/custom-controls/class-suki-customize-color-control.php:72
-msgid "Theme Color %d"
 msgstr ""
 
 #: includes/customizer/custom-controls/class-suki-customize-control-background.php:85, includes/customizer/structures/page--error-404.php:50
@@ -1228,10 +1254,6 @@ msgstr ""
 msgid "Padding"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:207, includes/customizer/structures/content--hero.php:210, includes/customizer/structures/content--main.php:99, includes/customizer/structures/content--sidebar.php:255, includes/customizer/structures/footer--bottom-bar.php:188, includes/customizer/structures/footer--widgets-bar.php:118, includes/customizer/structures/header--mobile-main-bar.php:119, includes/customizer/structures/header--top-main-bottom-bar.php:222, includes/customizer/structures/style--buttons.php:67, includes/customizer/structures/style--form-inputs.php:67
-msgid "Border"
-msgstr ""
-
 #: includes/customizer/structures/blog--entry-grid.php:243, includes/customizer/structures/content--sidebar.php:291, includes/customizer/structures/footer--scroll-to-top.php:335, includes/customizer/structures/style--buttons.php:103, includes/customizer/structures/style--form-inputs.php:103
 msgid "Border radius"
 msgstr ""
@@ -1634,25 +1656,9 @@ msgstr ""
 msgid "Widget title border color"
 msgstr ""
 
-#. translators: %s: color number.
-#: includes/customizer/structures/global--color-palette.php:52
-msgid "Color %s"
-msgstr ""
-
-#: includes/customizer/structures/global--color-palette.php:68
-msgid "After changing colors, publish the changes and then reload this Customizer page."
-msgstr ""
-
-#: includes/customizer/structures/global--color-palette.php:88
-msgid "Gutenberg Integration"
-msgstr ""
-
-#: includes/customizer/structures/global--color-palette.php:110
-msgid "Use as Gutenberg color palette"
-msgstr ""
-
-#: includes/customizer/structures/global--color-palette.php:111
-msgid "Enabling this would replace the original Gutenberg's color palette with the colors you defined above."
+#. translators: %d: color number
+#: includes/customizer/structures/global--color-palette.php:59
+msgid "Theme Color %d"
 msgstr ""
 
 #: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:91, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:133, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:361, includes/customizer/structures/sections.php:564, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:191, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:103
@@ -1794,10 +1800,6 @@ msgstr ""
 
 #: includes/customizer/structures/header--top-main-bottom-bar.php:556
 msgid "Top level menu items highlight"
-msgstr ""
-
-#: includes/customizer/structures/header--top-main-bottom-bar.php:559
-msgid "Background"
 msgstr ""
 
 #: includes/customizer/structures/header--top-main-bottom-bar.php:560
@@ -2658,12 +2660,16 @@ msgstr ""
 msgid "Select the Google Fonts that you want to use. These fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum."
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:82
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:95
 msgid "Load Google Fonts locally"
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:83
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:96
 msgid "Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally."
+msgstr ""
+
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:117
+msgid "Test"
 msgstr ""
 
 #. translators: %s: Custom Post Type singular name.

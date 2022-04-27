@@ -3,6 +3,7 @@
 	--admin-color--primary: #2271b1;
 	--admin-color--gray: #ccc;
 	--admin-color--border: #8c8f94;
+	--admin-color--strong-text: #1d2327;
 	--color-palette-1: #222222;
 	--color-palette-2: #444444;
 	--color-palette-3: #666666;
@@ -353,6 +354,58 @@
 }
 
 /**
+ * Color control
+ */
+.customize-control-suki-color .customize-control-title {
+	padding-left: 50px;
+}
+.customize-control-suki-color .suki-color-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.customize-control-suki-color .suki-color-toggle {
+	display: block;
+	padding: 2px;
+}
+.customize-control-suki-color .suki-color-toggle-indicator {
+	position: relative;
+	width: 32px;
+	height: 20px;
+	margin: 0;
+	border-radius: inherit;
+	border: none;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.customize-control-suki-color .suki-color-toggle-indicator__linked {
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+	display: flex !important;
+	height: 18px;
+	width: 18px;
+	padding: 1px;
+	align-items: flex-end;
+	justify-content: flex-end;
+	font-size: 10px;
+	line-height: 1;
+	color: var(--admin-color--strong-text);
+	background-image: linear-gradient(-135deg, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 50%);
+}
+
+/**
+ * Toggle Control
+ */
+.customize-control-suki-toggle .customize-control-title {
+	padding-left: 50px;
+}
+.customize-control-suki-toggle .suki-toggle {
+	position: absolute;
+	top: 3px;
+	left: 0;
+}
+
+/**
  * Suki Pro upsell section
  */
 .suki-pro-teaser {
@@ -441,18 +494,6 @@
 }
 .customize-section-description-container + .customize-control-suki-heading {
 	margin-top: 0;
-}
-
-/**
- * Toggle Control
- */
-.customize-control-suki-toggle .customize-control-title {
-	padding-left: 50px;
-}
-.customize-control-suki-toggle .components-form-toggle {
-	position: absolute;
-	top: 3px;
-	left: 0;
 }
 
 /**
@@ -681,93 +722,6 @@
 }
 
 /**
- * Color Control
- */
-.customize-control-suki-color .customize-control-title {
-	padding-left: 40px;
-}
-.customize-control-suki-color .wp-picker-container {
-	display: table;
-	margin-right: auto;
-}
-.customize-control-suki-color .wp-picker-container .wp-color-result.button {
-	position: absolute !important;
-	top: 0;
-	left: 0;
-	margin: 0;
-	width: 30px;
-	height: 24px;
-	min-height: auto;
-	border: none;
-	border-radius: 3px !important;
-	background-size: 12px 12px;
-	background-position: 100% 0, 6px 6px;
-	background-image: linear-gradient(-45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(-45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
-}
-.customize-control-suki-color .wp-picker-container .wp-color-result.button:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	border-radius: 3px !important;
-	background-color: inherit;
-	border: 1px solid #7e8993;
-}
-.customize-control-suki-color .wp-picker-container .wp-color-result.button:focus:before {
-	border-color: var(--admin-color--primary);
-	box-shadow: 0 0 1px var(--admin-color--primary);
-}
-.customize-control-suki-color .wp-picker-container .wp-color-result.button:after {
-	content: "not set";
-	position: absolute;
-	top: 50%;
-	right: 0;
-	width: 40px;
-	margin: -5px -5px 0 0;
-	border: none;
-	font-size: 8px;
-	font-weight: bold;
-	line-height: 10px;
-	text-align: center;
-	text-transform: uppercase;
-	background-color: #fff;
-	color: #444;
-}
-.customize-control-suki-color .wp-picker-container .wp-color-result.button[style*=background]:after {
-	display: none;
-}
-.customize-control-suki-color .wp-picker-container .wp-color-result-text {
-	display: none;
-}
-.customize-control-suki-color .wp-picker-container .wp-picker-input-wrap {
-	display: none;
-	position: relative;
-	padding-left: 60px;
-	margin-top: 6px;
-}
-.customize-control-suki-color .wp-picker-container .wp-picker-input-wrap label, .customize-control-suki-color .wp-picker-container .wp-picker-input-wrap .wp-color-picker {
-	width: 100% !important;
-}
-.customize-control-suki-color .wp-picker-container .wp-picker-input-wrap .button {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 56px;
-}
-.customize-control-suki-color .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
-	display: block;
-}
-.customize-control-suki-color .wp-picker-container .wp-picker-holder {
-	display: none;
-	margin-top: 6px;
-}
-.customize-control-suki-color .wp-picker-container.wp-picker-active .wp-picker-holder {
-	display: block;
-}
-
-/**
  * Dimensions Control
  */
 .customize-control-suki-dimensions .suki-small-label {
@@ -900,6 +854,54 @@
 	flex: 1 0 auto;
 }
 
+/**
+ * Color palette
+ */
+:is(#customize-control-color_palette_1,
+#customize-control-color_palette_2,
+#customize-control-color_palette_3,
+#customize-control-color_palette_4,
+#customize-control-color_palette_5,
+#customize-control-color_palette_6,
+#customize-control-color_palette_7,
+#customize-control-color_palette_8) {
+	width: 0;
+}
+:is(#customize-control-color_palette_1,
+#customize-control-color_palette_2,
+#customize-control-color_palette_3,
+#customize-control-color_palette_4,
+#customize-control-color_palette_5,
+#customize-control-color_palette_6,
+#customize-control-color_palette_7,
+#customize-control-color_palette_8) .suki-color-wrapper {
+	right: 0;
+	left: auto;
+	margin: 3px;
+	z-index: 1;
+}
+
+:is(#customize-control-color_palette_1_name,
+#customize-control-color_palette_2_name,
+#customize-control-color_palette_3_name,
+#customize-control-color_palette_4_name,
+#customize-control-color_palette_5_name,
+#customize-control-color_palette_6_name,
+#customize-control-color_palette_7_name,
+#customize-control-color_palette_8_name) {
+	clear: none;
+}
+:is(#customize-control-color_palette_1_name,
+#customize-control-color_palette_2_name,
+#customize-control-color_palette_3_name,
+#customize-control-color_palette_4_name,
+#customize-control-color_palette_5_name,
+#customize-control-color_palette_6_name,
+#customize-control-color_palette_7_name,
+#customize-control-color_palette_8_name) input[type=text] {
+	padding-right: 50px;
+}
+
 #customize-theme-controls .customize-pane-child.accordion-section-content,
 #customize-theme-controls .customize-pane-child.accordion-sub-container {
 	height: 100%;
@@ -907,10 +909,6 @@
 
 .customize-partial-edit-shortcut + * {
 	margin-top: 0;
-}
-
-.customize-control {
-	margin-bottom: 18px;
 }
 
 .suki-customize-control *, .suki-customize-control *:before, .suki-customize-control *:after {
