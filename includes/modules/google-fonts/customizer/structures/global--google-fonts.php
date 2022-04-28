@@ -98,24 +98,3 @@ $wp_customize->add_control(
 		)
 	)
 );
-
-// Test.
-$key = 'test';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => '#21759b',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Color_Control(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Test', 'suki' ),
-			'priority' => 0,
-		)
-	)
-);

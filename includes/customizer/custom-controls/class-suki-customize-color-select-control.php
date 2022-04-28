@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Color control (React)
+ * Suki Customizer's Color Select control (React)
  *
  * @package Suki
  */
@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Color_Control' ) ) {
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Color_Select_Control' ) ) {
 	/**
-	 * Color control class
+	 * Color Select control class
 	 */
-	class Suki_Customize_Color_Control extends Suki_Customize_Control {
+	class Suki_Customize_Color_Select_Control extends Suki_Customize_Control {
 		/**
 		 * Control type.
 		 *
 		 * @var string
 		 */
-		public $type = 'suki-color';
+		public $type = 'suki-color-select';
 
 		/**
 		 * Setup the parameters passed to the JavaScript via JSON.
@@ -42,5 +42,5 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	}
 
 	// Register control type.
-	$wp_customize->register_control_type( 'Suki_Customize_Color_Control' );
+	$wp_customize->register_control_type( 'Suki_Customize_Color_Select_Control' );
 }

@@ -6,32 +6,24 @@ import SukiControlLabel from "../components/SukiControlLabel";
 import SukiControlDescription from "../components/SukiControlDescription";
 
 import {
+	__experimentalHStack as HStack,
+	__experimentalVStack as VStack,
 	Button,
 	ColorIndicator,
-	ColorPalette,
 	ColorPicker,
 	Dropdown,
-	Icon,
 	Popover,
 	SlotFillProvider,
+	Tooltip,
 } from '@wordpress/components';
+
+import { __ } from '@wordpress/i18n';
 
 wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 	renderContent: function() {
 		const control = this;
 
-		const colorValue = control.setting.get();
-
-		const colorValueIsLinked = 0 === colorValue.indexOf( 'var(' ) ? true : false;
-
-		let colorPalette = [];
-		for ( var i = 1; i <= 8; i++ ) {
-			colorPalette.push( {
-				name: wp.customize( 'color_palette_' + i + '_name' ).get() || sprintf( __( 'Theme Color %d', 'suki' ), i ),
-				color: 'var(--color-palette-' + i + ')',
-				actualValue: wp.customize( 'color_palette_' + i ).get(),
-			} );
-		}
+		const value = control.setting.get();
 
 		ReactDOM.render(
 			<>
@@ -45,60 +37,53 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 				<SlotFillProvider>
 					<Dropdown
 						position="bottom left"
-						className="suki-color-wrapper"
+						className="suki-color-dropdown"
 						renderToggle={ ( toggleParams ) => {
 							return (
-								<Button
-									isSmall
-									variant="tertiary"
-									className="suki-color-toggle"
-									aria-expanded={ toggleParams.isOpen }
-									onClick={ toggleParams.onToggle }
+								<Tooltip
+									text={ value }
+									position="top center"
 								>
-									<ColorIndicator
-										colorValue={ colorValue }
-										className="suki-color-toggle-indicator"
-									/>
-									{ colorValueIsLinked &&
-										<Icon icon="admin-links" className="suki-color-toggle-indicator__linked"/>
-									}
-								</Button>
+									<Button
+										isSmall
+										variant="tertiary"
+										className="suki-color-dropdown__toggle"
+										aria-expanded={ toggleParams.isOpen }
+										onClick={ toggleParams.onToggle }
+									>
+										<ColorIndicator
+											colorValue={ value }
+											className="suki-color-indicator"
+										/>
+									</Button>
+								</Tooltip>
 							);
 						} }
 						renderContent={ ( contentParams ) => {
-							if ( control.params.hasPalette ) {
-								return (
-									<ColorPalette
-										colors={ colorPalette }
-										value={ colorValue }
+							return (
+								<VStack>
+									<ColorPicker
+										color={ value }
 										onChange={ ( color ) => {
 											control.setting.set( color );
 										} }
+										defaultValue="#ff0"
+										enableAlpha
 									/>
-								);
-							} else {
-								return(
-									<>
-										<ColorPicker
-											color={ colorValue }
-											onChange={ ( color ) => {
-												control.setting.set( color );
-											} }
-											defaultValue={ control.params.defaultValue }
-											enableAlpha
-										/>
+
+									<HStack>
 										<Button
-											variant="secondary"
 											isSmall
+											variant="secondary"
 											onClick={ ( e ) => {
 												control.setting.set( control.params.defaultValue );
 											} }
 										>
-											Reset
+											{ __( 'Reset', 'suki' ) }
 										</Button>
-									</>
-								);
-							}
+									</HStack>
+								</VStack>
+							);
 						} }
 					/>
 					<Popover.Slot/>

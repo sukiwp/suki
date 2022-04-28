@@ -553,33 +553,33 @@ msgstr ""
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:778, includes/customizer/structures/sections.php:697
+#: includes/customizer/class-suki-customizer.php:777, includes/customizer/structures/sections.php:697
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:783, includes/customizer/structures/sections.php:707
+#: includes/customizer/class-suki-customizer.php:782, includes/customizer/structures/sections.php:707
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:792, includes/customizer/structures/sections.php:687
+#: includes/customizer/class-suki-customizer.php:791, includes/customizer/structures/sections.php:687
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:797, includes/customizer/structures/sections.php:624
+#: includes/customizer/class-suki-customizer.php:796, includes/customizer/structures/sections.php:624
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:802, includes/customizer/structures/sections.php:654
+#: includes/customizer/class-suki-customizer.php:801, includes/customizer/structures/sections.php:654
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:815
+#: includes/customizer/class-suki-customizer.php:814
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:821
+#: includes/customizer/class-suki-customizer.php:820
 msgid "Single %s Page"
 msgstr ""
 
@@ -1059,14 +1059,6 @@ msgstr ""
 
 #: includes/customizer/custom-controls/class-suki-customize-control-typography.php:245
 msgid "Capitalize"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-multiselect-control.php:52
-msgid "＋ Add new"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-multiselect-control.php:53
-msgid "Remove"
 msgstr ""
 
 #: includes/customizer/structures/auto-custom-post-types.php:41, includes/customizer/structures/blog--archive.php:131, includes/customizer/structures/blog--single.php:29, includes/customizer/structures/page--search.php:71, includes/customizer/structures/page--single.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:29
@@ -2666,10 +2658,6 @@ msgstr ""
 
 #: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:96
 msgid "Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally."
-msgstr ""
-
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:117
-msgid "Test"
 msgstr ""
 
 #. translators: %s: Custom Post Type singular name.

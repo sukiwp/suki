@@ -11,6 +11,8 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 
+import { __ } from '@wordpress/i18n';
+
 wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 	initialize: function( id, params ) {
 		const control = this;
@@ -59,7 +61,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 									<span>{ control.params.choices[ value ] }</span>
 									<span
 										role="button"
-										aria-label={ control.params.l10n.remove }
+										aria-label={ __( 'Remove', 'suki' ) }
 										tabIndex="0"
 										style={ {
 											cursor: 'pointer',
@@ -91,7 +93,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 						value=""
 						disabled
 					>
-						{ control.params.l10n.addNew }
+						{ __( '＋ Add new', 'suki' ) }
 					</option>
 
 					{ Object.keys( control.params.choices ).map( ( value ) => {

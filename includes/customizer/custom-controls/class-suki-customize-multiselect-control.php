@@ -46,12 +46,6 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_M
 
 			// `items_limit` property.
 			$this->json['itemsLimit'] = $this->items_limit;
-
-			// Localization.
-			$this->json['l10n'] = array(
-				'addNew' => esc_html__( '＋ Add new', 'suki' ),
-				'remove' => esc_html__( 'Remove', 'suki' ),
-			);
 		}
 	}
 

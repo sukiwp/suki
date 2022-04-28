@@ -37,45 +37,63 @@
  * Color control
  */
 
- .customize-control-suki-color {
+:is( .customize-control-suki-color, .customize-control-suki-color-select ) {
 	.customize-control-title {
 		padding-right: 50px;
 	}
 
-	.suki-color-wrapper {
+	.suki-color-dropdown {
 		position: absolute;
 		top: 0;
 		right: 0;
 	}
+}
+
+.customize-control-suki-color-select {
+	.suki-color-select-palette {
+		.components-circular-option-picker__swatches {
+			gap: 6px;
+		}
 	
-	.suki-color-toggle {
-		display: block;
-		padding: 2px;
-
-		&-indicator {
-			position: relative;
-			width: 32px;
-			height: 20px;
-			margin: 0; // Reset
-			border-radius: inherit;
-			border: none;
-			box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
-
-			&__linked {
-				position: absolute;
-				bottom: 3px;
-				right: 3px;
-				display: flex !important; // Override WP CSS
-				height: 18px;
-				width: 18px;
-				padding: 1px;
-				align-items: flex-end;
-				justify-content: flex-end;
-				font-size: 10px;
-				line-height: 1;
-				color: var(--admin-color--strong-text);
-				background-image: linear-gradient( 135deg, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50% );
+		.components-circular-option-picker__option {
+			&-wrapper {
+				width: 24px;
+				height: 24px;
 			}
+	
+			&:focus:after {
+				width: 28px;
+				height: 28px;
+			}
+
+			&.is-pressed + svg {
+				top: 0;
+				left: 0;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+
+	.suki-color-select-custom {
+		padding-left: 8px; // Same width default `spacing` attribute (2 x 4px)
+		border-left: 1px solid rgba(0,0,0,0.1);
+
+		button {
+			padding: 2px;
+			width: 24px;
+			min-width: auto; // Reset
+			border-radius: 50%;
+
+			.dashicons {
+				font-size: 14px;
+				line-height: 20px;
+				margin: 0 !important; // Reset
+			}
+		}
+
+		&__picker {
+			width: 100%;
 		}
 	}
 }
