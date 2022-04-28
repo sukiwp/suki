@@ -27,10 +27,10 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 
 		ReactDOM.render(
 			<>
-				<SukiControlLabel htmlFor={ '_customize-input-' + control.id }>
+				<SukiControlLabel id={ control.id }>
 					{ control.params.label }
 				</SukiControlLabel>
-				<SukiControlDescription id={ '_customize-description-' + control.id }>
+				<SukiControlDescription id={ control.id }>
 					{ control.params.description }
 				</SukiControlDescription>
 

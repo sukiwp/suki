@@ -64,165 +64,165 @@ msgstr ""
 msgid "Footer Bottom Menu"
 msgstr ""
 
-#: includes/helpers.php:447
+#: includes/helpers.php:497
 msgid "Layout Modules"
 msgstr ""
 
-#: includes/helpers.php:448
+#: includes/helpers.php:498
 msgid "Assets & Branding Modules"
 msgstr ""
 
-#: includes/helpers.php:449
+#: includes/helpers.php:499
 msgid "Blog Modules"
 msgstr ""
 
-#: includes/helpers.php:450
+#: includes/helpers.php:500
 msgid "WooCommerce Integration Modules"
 msgstr ""
 
-#: includes/helpers.php:470, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:176, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:88, includes/modules/page-settings/customizer/structures/all-page-settings.php:33
+#: includes/helpers.php:520, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:176, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:88, includes/modules/page-settings/customizer/structures/all-page-settings.php:33
 msgid "Page Settings"
 msgstr ""
 
-#: includes/helpers.php:474, includes/modules/breadcrumb/class-suki-breadcrumb.php:396, includes/modules/breadcrumb/class-suki-breadcrumb.php:408, includes/compatibilities/woocommerce/customizer/options/sections.php:96, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:54, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:54, includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:26
+#: includes/helpers.php:524, includes/modules/breadcrumb/class-suki-breadcrumb.php:396, includes/modules/breadcrumb/class-suki-breadcrumb.php:408, includes/compatibilities/woocommerce/customizer/options/sections.php:96, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:54, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:54, includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:26
 msgid "Breadcrumb"
 msgstr ""
 
-#: includes/helpers.php:478, includes/helpers.php:488
+#: includes/helpers.php:528, includes/helpers.php:538
 msgid "Customize"
 msgstr ""
 
-#: includes/helpers.php:484, includes/modules/google-fonts/customizer/structures/global--google-fonts.php:26
+#: includes/helpers.php:534, includes/modules/google-fonts/customizer/structures/global--google-fonts.php:26
 msgid "Google Fonts"
 msgstr ""
 
-#: includes/helpers.php:511
+#: includes/helpers.php:561
 msgid "Header Elements Plus"
 msgstr ""
 
-#: includes/helpers.php:515
+#: includes/helpers.php:565
 msgid "Vertical Header"
 msgstr ""
 
-#: includes/helpers.php:519
+#: includes/helpers.php:569
 msgid "Transparent Header"
 msgstr ""
 
-#: includes/helpers.php:523
+#: includes/helpers.php:573
 msgid "Sticky Header"
 msgstr ""
 
-#: includes/helpers.php:527
+#: includes/helpers.php:577
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: includes/helpers.php:531
+#: includes/helpers.php:581
 msgid "Header Mega Menu"
 msgstr ""
 
-#: includes/helpers.php:535
+#: includes/helpers.php:585
 msgid "Sticky Sidebar"
 msgstr ""
 
-#: includes/helpers.php:539
+#: includes/helpers.php:589
 msgid "Footer Widgets Columns Width"
 msgstr ""
 
-#: includes/helpers.php:543
+#: includes/helpers.php:593
 msgid "Preloader Screen"
 msgstr ""
 
-#: includes/helpers.php:547
+#: includes/helpers.php:597
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: includes/helpers.php:552
+#: includes/helpers.php:602
 msgid "Custom Fonts"
 msgstr ""
 
-#: includes/helpers.php:556
+#: includes/helpers.php:606
 msgid "Custom Icons"
 msgstr ""
 
-#: includes/helpers.php:560
+#: includes/helpers.php:610
 msgid "White Label"
 msgstr ""
 
-#: includes/helpers.php:565
+#: includes/helpers.php:615
 msgid "Blog Layout Plus"
 msgstr ""
 
-#: includes/helpers.php:569
+#: includes/helpers.php:619
 msgid "Blog Featured Posts"
 msgstr ""
 
-#: includes/helpers.php:573
+#: includes/helpers.php:623
 msgid "Blog Related Posts"
 msgstr ""
 
-#: includes/helpers.php:578
+#: includes/helpers.php:628
 msgid "WC Layout Plus"
 msgstr ""
 
-#: includes/helpers.php:582
+#: includes/helpers.php:632
 msgid "WC AJAX Add To Cart"
 msgstr ""
 
-#: includes/helpers.php:586
+#: includes/helpers.php:636
 msgid "WC Quick View"
 msgstr ""
 
-#: includes/helpers.php:590
+#: includes/helpers.php:640
 msgid "WC Off-Canvas Filters"
 msgstr ""
 
-#: includes/helpers.php:594
+#: includes/helpers.php:644
 msgid "WC Checkout Optimization"
 msgstr ""
 
-#: includes/helpers.php:657
+#: includes/helpers.php:707
 msgid "Top - Left"
 msgstr ""
 
-#: includes/helpers.php:658
+#: includes/helpers.php:708
 msgid "Top - Center"
 msgstr ""
 
-#: includes/helpers.php:659
+#: includes/helpers.php:709
 msgid "Top - Right"
 msgstr ""
 
-#: includes/helpers.php:660
+#: includes/helpers.php:710
 msgid "Main - Left"
 msgstr ""
 
-#: includes/helpers.php:661
+#: includes/helpers.php:711
 msgid "Main - Center"
 msgstr ""
 
-#: includes/helpers.php:662
+#: includes/helpers.php:712
 msgid "Main - Right"
 msgstr ""
 
-#: includes/helpers.php:663
+#: includes/helpers.php:713
 msgid "Bottom - Left"
 msgstr ""
 
-#: includes/helpers.php:664
+#: includes/helpers.php:714
 msgid "Bottom - Center"
 msgstr ""
 
-#: includes/helpers.php:665
+#: includes/helpers.php:715
 msgid "Bottom - Right"
 msgstr ""
 
-#: includes/helpers.php:668, includes/customizer/structures/header--logo.php:29, includes/customizer/structures/sections.php:307
+#: includes/helpers.php:718, includes/customizer/structures/header--logo.php:29, includes/customizer/structures/sections.php:307
 msgid "Logo"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: Menu element number.
-#: includes/helpers.php:670, includes/customizer/structures/header--menu.php:30
+#: includes/helpers.php:720, includes/customizer/structures/header--menu.php:30
 msgid "Menu %s"
 msgstr ""
 
@@ -231,124 +231,124 @@ msgstr ""
 #. translators: %s: instance number.
 #. translators: %s: HTML element number.
 #. translators: %s: HTML element number.
-#: includes/helpers.php:672, includes/helpers.php:710, includes/helpers.php:755, includes/customizer/structures/footer--html.php:30, includes/customizer/structures/header--html.php:30
+#: includes/helpers.php:722, includes/helpers.php:760, includes/helpers.php:805, includes/customizer/structures/footer--html.php:30, includes/customizer/structures/header--html.php:30
 msgid "HTML %s"
 msgstr ""
 
-#: includes/helpers.php:673, includes/helpers.php:711, includes/customizer/structures/header--search.php:29
+#: includes/helpers.php:723, includes/helpers.php:761, includes/customizer/structures/header--search.php:29
 msgid "Search Bar"
 msgstr ""
 
-#: includes/helpers.php:674, includes/customizer/structures/header--search.php:77
+#: includes/helpers.php:724, includes/customizer/structures/header--search.php:77
 msgid "Search Dropdown"
 msgstr ""
 
-#: includes/helpers.php:675, includes/helpers.php:713, includes/helpers.php:756, includes/customizer/structures/sections.php:348, includes/customizer/structures/sections.php:541
+#: includes/helpers.php:725, includes/helpers.php:763, includes/helpers.php:806, includes/customizer/structures/sections.php:348, includes/customizer/structures/sections.php:541
 msgid "Social"
 msgstr ""
 
-#: includes/helpers.php:701
+#: includes/helpers.php:751
 msgid "Mobile - Left"
 msgstr ""
 
-#: includes/helpers.php:702
+#: includes/helpers.php:752
 msgid "Mobile - Center"
 msgstr ""
 
-#: includes/helpers.php:703
+#: includes/helpers.php:753
 msgid "Mobile - Right"
 msgstr ""
 
-#: includes/helpers.php:704
+#: includes/helpers.php:754
 msgid "Mobile - Popup"
 msgstr ""
 
-#: includes/helpers.php:707, includes/customizer/structures/header--logo.php:107
+#: includes/helpers.php:757, includes/customizer/structures/header--logo.php:107
 msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: includes/helpers.php:708, template-parts/header-element-mobile-vertical-toggle.php:21, includes/customizer/structures/header--menu.php:48
+#: includes/helpers.php:758, template-parts/header-element-mobile-vertical-toggle.php:21, includes/customizer/structures/header--menu.php:48
 msgid "Mobile Menu"
 msgstr ""
 
-#: includes/helpers.php:712
+#: includes/helpers.php:762
 msgid "Search Icon"
 msgstr ""
 
-#: includes/helpers.php:714
+#: includes/helpers.php:764
 msgid "Toggle"
 msgstr ""
 
-#: includes/helpers.php:746, includes/helpers.php:748, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/content.php:93, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/modules/page-settings/customizer/structures/all-page-settings.php:113
+#: includes/helpers.php:796, includes/helpers.php:798, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/content.php:93, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/modules/page-settings/customizer/structures/all-page-settings.php:113
 msgid "Right"
 msgstr ""
 
-#: includes/helpers.php:746, includes/helpers.php:748, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/content.php:90, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/modules/page-settings/customizer/structures/all-page-settings.php:112
+#: includes/helpers.php:796, includes/helpers.php:798, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/content.php:90, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/modules/page-settings/customizer/structures/all-page-settings.php:112
 msgid "Left"
 msgstr ""
 
-#: includes/helpers.php:747, includes/widgets/class-suki-widget-social.php:83, includes/customizer/structures/header--mobile-vertical-bar.php:114
+#: includes/helpers.php:797, includes/widgets/class-suki-widget-social.php:83, includes/customizer/structures/header--mobile-vertical-bar.php:114
 msgid "Center"
 msgstr ""
 
-#: includes/helpers.php:751, includes/customizer/structures/footer--copyright.php:29, includes/customizer/structures/sections.php:521
+#: includes/helpers.php:801, includes/customizer/structures/footer--copyright.php:29, includes/customizer/structures/sections.php:521
 msgid "Copyright"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: menu number.
-#: includes/helpers.php:753, template-parts/footer-element-menu.php:18
+#: includes/helpers.php:803, template-parts/footer-element-menu.php:18
 msgid "Footer Menu %s"
 msgstr ""
 
-#: includes/helpers.php:929
+#: includes/helpers.php:979
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: includes/helpers.php:930
+#: includes/helpers.php:980
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: includes/helpers.php:931
+#: includes/helpers.php:981
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: includes/helpers.php:932
+#: includes/helpers.php:982
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: includes/helpers.php:933
+#: includes/helpers.php:983
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: includes/helpers.php:934
+#: includes/helpers.php:984
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: includes/helpers.php:950
+#: includes/helpers.php:1000
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/helpers.php:951, includes/customizer/custom-controls/class-suki-customize-control-typography.php:231
+#: includes/helpers.php:1001, includes/customizer/custom-controls/class-suki-customize-control-typography.php:231
 msgid "Medium"
 msgstr ""
 
-#: includes/helpers.php:952
+#: includes/helpers.php:1002
 msgid "Medium Large"
 msgstr ""
 
-#: includes/helpers.php:953
+#: includes/helpers.php:1003
 msgid "Large"
 msgstr ""
 
-#: includes/helpers.php:957, includes/customizer/structures/content--hero.php:90, includes/customizer/structures/content.php:45, includes/customizer/structures/footer--bottom-bar.php:116, includes/customizer/structures/footer--widgets-bar.php:46, includes/customizer/structures/header--top-main-bottom-bar.php:123, includes/modules/page-settings/class-suki-page-settings-meta-box.php:497, includes/modules/page-settings/customizer/structures/all-page-settings.php:73, includes/modules/page-settings/customizer/structures/all-page-settings.php:178
+#: includes/helpers.php:1007, includes/customizer/structures/content--hero.php:90, includes/customizer/structures/content.php:45, includes/customizer/structures/footer--bottom-bar.php:116, includes/customizer/structures/footer--widgets-bar.php:46, includes/customizer/structures/header--top-main-bottom-bar.php:123, includes/modules/page-settings/class-suki-page-settings-meta-box.php:497, includes/modules/page-settings/customizer/structures/all-page-settings.php:73, includes/modules/page-settings/customizer/structures/all-page-settings.php:178
 msgid "Full"
 msgstr ""
 
@@ -553,33 +553,33 @@ msgstr ""
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:777, includes/customizer/structures/sections.php:697
+#: includes/customizer/class-suki-customizer.php:778, includes/customizer/structures/sections.php:697
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:782, includes/customizer/structures/sections.php:707
+#: includes/customizer/class-suki-customizer.php:783, includes/customizer/structures/sections.php:707
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:791, includes/customizer/structures/sections.php:687
+#: includes/customizer/class-suki-customizer.php:792, includes/customizer/structures/sections.php:687
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:796, includes/customizer/structures/sections.php:624
+#: includes/customizer/class-suki-customizer.php:797, includes/customizer/structures/sections.php:624
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:801, includes/customizer/structures/sections.php:654
+#: includes/customizer/class-suki-customizer.php:802, includes/customizer/structures/sections.php:654
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:814
+#: includes/customizer/class-suki-customizer.php:815
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:820
+#: includes/customizer/class-suki-customizer.php:821
 msgid "Single %s Page"
 msgstr ""
 

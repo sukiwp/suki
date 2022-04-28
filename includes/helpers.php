@@ -54,6 +54,56 @@ function suki_flatten_array( $array ) {
 }
 
 /**
+ * Convert associative array into simple array.
+ * For example:
+ *
+ * Input array:
+ *     array(
+ *         'foo'   => 'bar',
+ *         'lorem' => 'ipsum',
+ *     )
+ *
+ * Output array:
+ *     array(
+ *         array(
+ *             'value' => 'foo',
+ *             'label' => 'bar',
+ *         ),
+ *         array(
+ *             'value' => 'lorem',
+ *             'label' => 'ipsum',
+ *         ),
+ *     )
+ *
+ * @param array  $assoc_array    The associative array to be converted.
+ * @param string $left_key_name  Key string that will store the `key` from each associative array item.
+ * @param string $right_key_name Key string that will store the `value` from each associative array item (If `value` is an array, this will be ignored).
+ */
+function suki_convert_associative_array_into_simple_array( $assoc_array = array(), $left_key_name = 'value', $right_key_name = 'label' ) {
+	if ( ! is_array( $assoc_array ) ) {
+		return array();
+	}
+
+	$simple_array = array();
+
+	foreach ( $assoc_array as $left => $right ) {
+		$item = array();
+
+		if ( is_array( $right ) ) {
+			$item = $right;
+		} else {
+			$item[ $right_key_name ] = $right;
+		}
+
+		$item[ $left_key_name ] = $left;
+
+		$simple_array[] = $item;
+	}
+
+	return $simple_array;
+}
+
+/**
  * Return boolean whether Suki Pro is activated.
  *
  * @return boolean

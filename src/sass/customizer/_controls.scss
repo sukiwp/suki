@@ -104,6 +104,17 @@
 }
 
 /**
+ * Dimension Control
+ */
+
+.customize-control-suki-dimension {
+	.components-unit-control-wrapper {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/**
  * Toggle Control
  */
 
@@ -236,17 +247,6 @@
 	}
 }
 
-/**
- * Dimension Control
- */
-
-.customize-control-suki-dimension {
-	.customize-control-content {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 5px;
-	}
-}
 
 /**
  * Radio Image Control

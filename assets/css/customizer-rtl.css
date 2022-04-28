@@ -479,6 +479,14 @@
 }
 
 /**
+ * Dimension Control
+ */
+.customize-control-suki-dimension .components-unit-control-wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/**
  * Toggle Control
  */
 .customize-control-suki-toggle .customize-control-title {
@@ -579,15 +587,6 @@
 }
 .customize-section-description-container + .customize-control-suki-heading {
 	margin-top: 0;
-}
-
-/**
- * Dimension Control
- */
-.customize-control-suki-dimension .customize-control-content {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 5px;
 }
 
 /**

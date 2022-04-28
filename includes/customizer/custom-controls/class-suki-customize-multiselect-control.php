@@ -44,6 +44,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_M
 			 * Pass more properties from this class as `params`.
 			 */
 
+			// `choices` property for controls with options to select / choose.
+			$this->json['choices'] = suki_convert_associative_array_into_simple_array( $this->choices );
+
 			// `items_limit` property.
 			$this->json['itemsLimit'] = $this->items_limit;
 		}

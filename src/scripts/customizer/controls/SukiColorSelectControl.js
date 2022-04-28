@@ -56,14 +56,12 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
 			actualValue: value,
 		};
 
-		console.log( valueInfo );
-
 		ReactDOM.render(
 			<>
-				<SukiControlLabel htmlFor={ '_customize-input-' + control.id }>
+				<SukiControlLabel id={ control.id }>
 					{ control.params.label }
 				</SukiControlLabel>
-				<SukiControlDescription id={ '_customize-description-' + control.id }>
+				<SukiControlDescription id={ control.id }>
 					{ control.params.description }
 				</SukiControlDescription>
 

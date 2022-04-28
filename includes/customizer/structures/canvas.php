@@ -110,7 +110,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Dimension(
+	new Suki_Customize_Dimension_Control(
 		$wp_customize,
 		$key,
 		array(

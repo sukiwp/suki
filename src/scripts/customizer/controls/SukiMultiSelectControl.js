@@ -8,18 +8,11 @@ import SukiControlDescription from "../components/SukiControlDescription";
 import {
 	__experimentalItem as Item,
 	__experimentalItemGroup as ItemGroup,
-	SelectControl,
 } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
 
 wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
-	initialize: function( id, params ) {
-		const control = this;
-
-		wp.customize.Control.prototype.initialize.call( control, id, params );
-	},
-
 	renderContent: function() {
 		const control = this;
 
@@ -30,12 +23,13 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 
 		ReactDOM.render(
 			<>
-				<SukiControlLabel htmlFor={ '_customize-input-' + control.id }>
+				<SukiControlLabel id={ control.id }>
 					{ control.params.label }
 				</SukiControlLabel>
-				<SukiControlDescription id={ '_customize-description-' + control.id }>
+				<SukiControlDescription id={ control.id }>
 					{ control.params.description }
 				</SukiControlDescription>
+
 				{ 0 < valueArray.length &&
 					<ItemGroup
 						isSeparated
