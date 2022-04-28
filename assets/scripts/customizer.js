@@ -607,7 +607,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
     var control = this;
     var valueArray = control.setting.get(); // If limit is set to `0`, it means limit is same as the number of options.
 
-    var limit = control.params.itemsLimit || Object.keys(control.params.choices).length;
+    var limit = control.params.itemsLimit || control.params.choices.length;
     ReactDOM.render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlLabel__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: control.id
     }, control.params.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -624,28 +624,19 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalItem, {
         key: value,
         "data-value": value,
-        style: {
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '12px'
-        }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, control.params.choices[value]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", {
-        role: "button",
-        "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Remove', 'suki'),
-        tabIndex: "0",
-        style: {
-          cursor: 'pointer'
-        },
+        className: "suki-multiselect-item"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalHStack, {
+        expanded: true,
+        spacing: "3"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, value), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+        isSmall: true,
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Remove', 'suki'),
+        showTooltip: true,
+        className: "suki-multiselect-item__remove",
         onClick: function onClick() {
           control.removeValueItem(value);
-        },
-        onKeyUp: function onKeyUp(e) {
-          if (13 == e.which || 32 == e.which) {
-            control.removeValueItem(value);
-          }
         }
-      }, "\u2715"));
+      }, "\u2715")));
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("select", {
       id: '_customize-input-' + control.id,
       value: "",
@@ -656,12 +647,12 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("option", {
       value: "",
       disabled: true
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('＋ Add new', 'suki')), Object.keys(control.params.choices).map(function (value) {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('＋ Add new', 'suki')), control.params.choices.map(function (choice, i) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("option", {
-        key: value,
-        value: value,
-        disabled: -1 === valueArray.indexOf(value) ? false : true
-      }, control.params.choices[value]);
+        key: choice.value,
+        value: choice.value,
+        disabled: -1 === valueArray.indexOf(choice.value) ? false : true
+      }, choice.label);
     }))), control.container[0]);
   },
   addNewValueItem: function addNewValueItem(value) {
@@ -670,11 +661,14 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 
     if (-1 === valueArray.indexOf(value)) {
       valueArray = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(valueArray), [value]);
-    } // Sort the combinedValue according to the original options order.
+    }
 
+    var choicesValues = control.params.choices.map(function (item) {
+      return item.value;
+    }); // Sort the combinedValue according to the original options order.
 
-    valueArray = Object.keys(control.params.choices).filter(function (key) {
-      return -1 !== valueArray.indexOf(key);
+    valueArray = choicesValues.filter(function (choice) {
+      return -1 !== valueArray.indexOf(choice);
     });
     control.setting.set(valueArray);
   },

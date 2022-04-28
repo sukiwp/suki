@@ -115,6 +115,20 @@
 }
 
 /**
+ * Multi-select Control
+ */
+
+.customize-control-suki-multiselect {
+	.suki-multiselect-item__remove {
+		border: none;
+		padding: 0;
+		min-width: auto; // Reset
+		margin: -3px 0;
+		font-size: 14px;
+	}
+}
+
+/**
  * Toggle Control
  */
 

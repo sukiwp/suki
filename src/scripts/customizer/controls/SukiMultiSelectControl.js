@@ -6,8 +6,11 @@ import SukiControlLabel from "../components/SukiControlLabel";
 import SukiControlDescription from "../components/SukiControlDescription";
  
 import {
+	__experimentalHStack as HStack,
 	__experimentalItem as Item,
 	__experimentalItemGroup as ItemGroup,
+	Button,
+	Text,
 } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
@@ -19,7 +22,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 		const valueArray = control.setting.get();
 
 		// If limit is set to `0`, it means limit is same as the number of options.
-		const limit = control.params.itemsLimit || Object.keys( control.params.choices ).length;
+		const limit = control.params.itemsLimit || control.params.choices.length;
 
 		ReactDOM.render(
 			<>
@@ -45,30 +48,25 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 								<Item
 									key={ value }
 									data-value={ value }
-									style={ {
-										display: 'flex',
-										justifyContent: 'space-between',
-										alignItems: 'center',
-										gap: '12px',
-									} }
+									className="suki-multiselect-item"
 								>
-									<span>{ control.params.choices[ value ] }</span>
-									<span
-										role="button"
-										aria-label={ __( 'Remove', 'suki' ) }
-										tabIndex="0"
-										style={ {
-											cursor: 'pointer',
-										} }
-										onClick={ () => {
-											control.removeValueItem( value );
-										} }
-										onKeyUp={ ( e ) => {
-											if ( 13 == e.which || 32 == e.which ) {
+									<HStack
+										expanded
+										spacing="3"
+									>
+										<span>{ value }</span>
+										<Button
+											isSmall
+											label={ __( 'Remove', 'suki' ) }
+											showTooltip
+											className="suki-multiselect-item__remove"
+											onClick={ () => {
 												control.removeValueItem( value );
-											}
-										} }
-									>✕</span>
+											} }
+										>
+											✕
+										</Button>
+									</HStack>
 								</Item>
 							);
 						} ) }
@@ -90,14 +88,14 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 						{ __( '＋ Add new', 'suki' ) }
 					</option>
 
-					{ Object.keys( control.params.choices ).map( ( value ) => {
+					{ control.params.choices.map( ( choice, i ) => {
 						return (
 							<option
-								key={ value }
-								value={ value }
-								disabled={ -1 === valueArray.indexOf( value ) ? false : true }
+								key={ choice.value }
+								value={ choice.value }
+								disabled={ -1 === valueArray.indexOf( choice.value ) ? false : true }
 							>
-								{ control.params.choices[ value ] }
+								{ choice.label }
 							</option>
 						)
 					} ) }
@@ -117,11 +115,15 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 			valueArray = [ ...valueArray, value ];
 		}
 
-		// Sort the combinedValue according to the original options order.
-		valueArray = Object.keys( control.params.choices ).filter( ( key ) => {
-			return -1 !== valueArray.indexOf( key );
+		const choicesValues = control.params.choices.map( ( item ) => {
+			return item.value;
 		} );
 
+		// Sort the combinedValue according to the original options order.
+		valueArray = choicesValues.filter( ( choice ) => {
+			return -1 !== valueArray.indexOf( choice );
+		} );
+		
 		control.setting.set( valueArray );
 	},
 

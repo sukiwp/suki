@@ -6,7 +6,6 @@ import SukiControlLabel from "../components/SukiControlLabel";
 import SukiControlDescription from "../components/SukiControlDescription";
 
 import {
-	__experimentalGrid as Grid,
 	__experimentalHStack as HStack,
 	__experimentalVStack as VStack,
 	Button,
