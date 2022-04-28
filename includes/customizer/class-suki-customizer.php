@@ -168,15 +168,15 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/global--color-palette.php';
 
 		// Global Styles.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--size-spacing.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--base.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--headings.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--blockquote.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--form-inputs.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--buttons.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--title.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--small-title.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--meta.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--size-spacing.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--base.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--headings.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--blockquote.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--form-inputs.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--buttons.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--title.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--small-title.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--meta.php';
 
 		// // Layout.
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/canvas.php';

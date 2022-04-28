@@ -84,11 +84,16 @@
 			width: 24px;
 			min-width: auto; // Reset
 			border-radius: 50%;
+			transition: transform 100ms ease;
 
 			.dashicons {
 				font-size: 14px;
 				line-height: 20px;
 				margin: 0 !important; // Reset
+			}
+
+			&:hover {
+				transform: scale( 1.2 );
 			}
 		}
 

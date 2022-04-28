@@ -464,11 +464,15 @@
 	width: 24px;
 	min-width: auto;
 	border-radius: 50%;
+	transition: transform 100ms ease;
 }
 .customize-control-suki-color-select .suki-color-select-custom button .dashicons {
 	font-size: 14px;
 	line-height: 20px;
 	margin: 0 !important;
+}
+.customize-control-suki-color-select .suki-color-select-custom button:hover {
+	transform: scale(1.2);
 }
 .customize-control-suki-color-select .suki-color-select-custom__picker {
 	width: 100%;

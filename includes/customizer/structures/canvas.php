@@ -71,7 +71,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 	)
 );
 $wp_customize->add_control(
@@ -164,7 +164,7 @@ $wp_customize->add_setting(
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 	)
 );
 $wp_customize->add_control(

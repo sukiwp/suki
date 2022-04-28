@@ -71,6 +71,8 @@ $colors = array(
 	'body_text_color'       => esc_html__( 'Text color', 'suki' ),
 	'link_text_color'       => esc_html__( 'Link text color', 'suki' ),
 	'link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
+	'border_color'          => esc_html__( 'Line / border color', 'suki' ),
+	'subtle_color'          => esc_html__( 'Subtle background color', 'suki' ),
 );
 foreach ( $colors as $key => $label ) {
 	$wp_customize->add_setting(
@@ -78,7 +80,7 @@ foreach ( $colors as $key => $label ) {
 		array(
 			'default'           => suki_array_value( $defaults, $key ),
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -93,49 +95,3 @@ foreach ( $colors as $key => $label ) {
 		)
 	);
 }
-
-// Line / border color.
-$key = 'border_color';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Color_Select_Control(
-		$wp_customize,
-		$key,
-		array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Line / border color', 'suki' ),
-			'description' => esc_html__( 'Used on &lt;hr&gt; and default border color of all elements.', 'suki' ),
-			'priority'    => 10,
-		)
-	)
-);
-
-// Subtle color.
-$key = 'subtle_color';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Color_Select_Control(
-		$wp_customize,
-		$key,
-		array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Subtle background color', 'suki' ),
-			'description' => esc_html__( 'Used as background color of &lt;code&gt;, &lt;pre&gt;, tagclouds, and archive title. Usually slightly darker or lighter than the page background color.', 'suki' ),
-			'priority'    => 10,
-		)
-	)
-);

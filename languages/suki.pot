@@ -2053,20 +2053,12 @@ msgstr ""
 msgid "Base typography"
 msgstr ""
 
-#: includes/customizer/structures/style--base.php:113
+#: includes/customizer/structures/style--base.php:74
 msgid "Line / border color"
 msgstr ""
 
-#: includes/customizer/structures/style--base.php:114
-msgid "Used on &lt;hr&gt; and default border color of all elements."
-msgstr ""
-
-#: includes/customizer/structures/style--base.php:136
+#: includes/customizer/structures/style--base.php:75
 msgid "Subtle background color"
-msgstr ""
-
-#: includes/customizer/structures/style--base.php:137
-msgid "Used as background color of &lt;code&gt;, &lt;pre&gt;, tagclouds, and archive title. Usually slightly darker or lighter than the page background color."
 msgstr ""
 
 #: includes/customizer/structures/style--blockquote.php:50
