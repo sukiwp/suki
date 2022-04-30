@@ -2134,11 +2134,11 @@ msgstr ""
 msgid "Should be smaller than the Wide container width."
 msgstr ""
 
-#: includes/customizer/structures/style--size-spacing.php:88
+#: includes/customizer/structures/style--size-spacing.php:96, includes/customizer/structures/style--size-spacing.php:141
 msgid "Block spacing"
 msgstr ""
 
-#: includes/customizer/structures/style--size-spacing.php:89
+#: includes/customizer/structures/style--size-spacing.php:97, includes/customizer/structures/style--size-spacing.php:142
 msgid "Global spacing between each block."
 msgstr ""
 

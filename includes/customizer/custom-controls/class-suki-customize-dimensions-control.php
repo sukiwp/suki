@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Dimension control (React)
+ * Suki Customizer's Dimensions control (React)
  *
  * @package Suki
  */
@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Dimension_Control' ) ) {
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Dimensions_Control' ) ) {
 	/**
-	 * Dimension control class
+	 * Dimensions control class
 	 */
-	class Suki_Customize_Dimension_Control extends Suki_Customize_Control {
+	class Suki_Customize_Dimensions_Control extends Suki_Customize_Control {
 		/**
 		 * Control type.
 		 *
 		 * @var string
 		 */
-		public $type = 'suki-dimension';
+		public $type = 'suki-dimensions';
 
 		/**
 		 * Units choices and rules.
@@ -44,9 +44,17 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_D
 				$this->units[ $key ] = wp_parse_args(
 					$unit,
 					array(
-						'label' => $key,
+						'min'     => '',
+						'max'     => '',
+						'step'    => '',
+						'default' => '',
+						'label'   => $key,
 					)
 				);
+
+				if ( empty( $this->units[ $key ]['default'] ) ) {
+					$this->units[ $key ]['default'] = $this->units[ $key ]['min'];
+				}
 			}
 		}
 
@@ -68,25 +76,21 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_D
 			$this->json['units'] = suki_convert_associative_array_into_simple_array( $this->units );
 
 			// Responsive structures.
-			if ( 1 < count( $this->settings ) ) {
-				foreach ( $this->settings as $setting_key => $setting ) {
-					// Add to responsiveStructures array.
-					$device = 'desktop';
-					if ( false !== strpos( $setting->id, '__' ) ) {
-						preg_match( '/^(.*?)__(.*?)$/', $setting->id, $matches );
+			foreach ( $this->settings as $setting_key => $setting ) {
+				// Add to responsiveStructures array.
+				$device = 'desktop';
+				if ( false !== strpos( $setting->id, '__' ) ) {
+					preg_match( '/^(.*?)__(.*?)$/', $setting->id, $matches );
 
-						if ( in_array( $matches[2], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
-							$device = $matches[2];
-						}
+					if ( in_array( $matches[2], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
+						$device = $matches[2];
 					}
-					$this->json['responsiveStructures'][ $device ] = $setting_key;
 				}
-			} else {
-				$this->json['responsiveStructures']['global'] = 'default';
+				$this->json['responsiveStructures'][ $device ] = $setting_key;
 			}
 		}
 	}
 
 	// Register control type.
-	$wp_customize->register_control_type( 'Suki_Customize_Dimension_Control' );
+	$wp_customize->register_control_type( 'Suki_Customize_Dimensions_Control' );
 }

@@ -4,7 +4,8 @@
 
 import SukiControlLabel from "../components/SukiControlLabel";
 import SukiControlDescription from "../components/SukiControlDescription";
-import SukiControlResponsiveGroup from "../components/SukiControlResponsiveGroup";
+import SukiControlResponsiveSwitcher from "../components/SukiControlResponsiveSwitcher";
+import SukiControlResponsiveContainer from "../components/SukiControlResponsiveContainer";
 
 import {
 	__experimentalUnitControl as UnitControl,
@@ -16,15 +17,23 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 
 		ReactDOM.render(
 			<>
-				<SukiControlLabel id={ control.id }>
-					{ control.params.label }
-				</SukiControlLabel>
-				<SukiControlDescription id={ control.id }>
-					{ control.params.description }
-				</SukiControlDescription>
+				{ control.params.label &&
+					<SukiControlLabel for={ '_customize-input-' + control.id }>
+						{ control.params.label }
+						{ 1 < Object.keys( control.params.responsiveStructures ).length &&
+							<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
+						}
+					</SukiControlLabel>
+				}
+
+				{ control.params.description &&
+					<SukiControlDescription id={ '_customize-description-' + control.id }>
+						{ control.params.description }
+					</SukiControlDescription>
+				}
 				
-				{ Object.keys( control.params.responsiveStructures ).map( ( deviceId ) => {
-					const settingId = control.params.responsiveStructures[ deviceId ];
+				{ Object.keys( control.params.responsiveStructures ).map( ( device ) => {
+					const settingId = control.params.responsiveStructures[ device ];
 
 					const value = control.settings[ settingId ].get();
 
@@ -33,29 +42,33 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 					 */
 
 					const valueNumber = parseFloat( value );
-
 					const valueUnit = value.replace( valueNumber, '' );
 
-					const currentUnit = control.params.units.find( ( item ) => {
+					const activeUnit = control.params.units.find( ( item ) => {
 						return valueUnit === item.value
 					} );
 
 					return (
-						<SukiControlResponsiveGroup key={ deviceId } data-device={ deviceId }>
+						/**
+						 * @todo onChange is triggered twice when value is not ''.
+						 */
+						<SukiControlResponsiveContainer key={ device } device={ device }>
 							<UnitControl
+								id={ '_customize-input-' + control.id }
 								value={ value }
-								isPressEnterToChange
 								isResetValueOnUnitChange
 								units={ control.params.units }
-								min={ '' !== currentUnit.min ? currentUnit.min : -Infinity }
-								max={ '' !== currentUnit.max ? currentUnit.max : Infinity }
-								step={ '' !== currentUnit.step ? currentUnit.step : 1 }
+								min={ activeUnit?.min ?? -Infinity }
+								max={ activeUnit?.max ?? Infinity }
+								step={ activeUnit?.step ?? 1 }
 								className="suki-dimension"
 								onChange={ ( value ) => {
+									value = isNaN( parseFloat( value ) ) ? '' : value;
+									console.log( value );
 									control.settings[ settingId ].set( value );
 								} }
 							/>
-						</SukiControlResponsiveGroup>
+						</SukiControlResponsiveContainer>
 					);
 				} ) }
 			</>,

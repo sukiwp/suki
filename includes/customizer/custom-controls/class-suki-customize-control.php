@@ -42,10 +42,15 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			 */
 
 			// `choices` property for controls with options to select / choose.
-			$this->json['choices'] = $this->choices;
+			if ( ! empty( $this->choices ) ) {
+				$this->json['choices'] = $this->choices;
+			}
 
 			// `input_attrs` property.
-			$this->json['inputAttributes'] = $this->input_attrs;
+			if ( ! empty( $this->input_attrs ) ) {
+				$this->json['inputAttributes'] = $this->input_attrs;
+			}
+
 		}
 
 		/**

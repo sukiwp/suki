@@ -209,33 +209,6 @@
 	border-bottom-left-radius: 0;
 }
 
-/**
- * Responsive switch
- */
-
-.suki-responsive-switcher {
-	.customize-control-title & {
-		margin-left: 0.5em;
-	}
-
-	&-button {
-		cursor: pointer;
-		outline: 0;
-		opacity: 0.5;
-
-		&.active {
-			opacity: 1;
-		}
-
-		.dashicons {
-			font-size: 15px;
-			width: auto;
-			height: auto;
-			line-height: 1;
-			vertical-align: middle;
-		}
-	}
-}
 
 .suki-responsive-fieldset {
 	&:not(.active) {

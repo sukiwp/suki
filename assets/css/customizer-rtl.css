@@ -269,28 +269,6 @@
 	border-bottom-right-radius: 0;
 }
 
-/**
- * Responsive switch
- */
-.customize-control-title .suki-responsive-switcher {
-	margin-right: 0.5em;
-}
-.suki-responsive-switcher-button {
-	cursor: pointer;
-	outline: 0;
-	opacity: 0.5;
-}
-.suki-responsive-switcher-button.active {
-	opacity: 1;
-}
-.suki-responsive-switcher-button .dashicons {
-	font-size: 15px;
-	width: auto;
-	height: auto;
-	line-height: 1;
-	vertical-align: middle;
-}
-
 .suki-responsive-fieldset:not(.active) {
 	display: none;
 }
@@ -366,6 +344,63 @@
 	line-height: 1;
 	color: var(--admin-color--strong-text);
 	background-image: linear-gradient(-135deg, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 50%);
+}
+
+/**
+ * Responsive container
+ */
+.suki-responsive-container:not([data-device=global]) {
+	display: none;
+}
+.preview-desktop .suki-responsive-container[data-device=desktop] {
+	display: revert;
+}
+.preview-tablet .suki-responsive-container[data-device=tablet] {
+	display: revert;
+}
+.preview-mobile .suki-responsive-container[data-device=mobile] {
+	display: revert;
+}
+
+/**
+ * Responsive switcher
+ */
+.suki-responsive-switcher {
+	display: inline-flex;
+	gap: 4px;
+	vertical-align: middle;
+}
+.customize-control-title .suki-responsive-switcher {
+	margin-right: 12px;
+}
+.suki-responsive-switcher .suki-responsive-switcher__button {
+	min-width: auto;
+	width: auto !important;
+	height: auto;
+	padding: 0 !important;
+	border: none;
+	color: inherit !important;
+	background: transparent !important;
+	box-shadow: none;
+	opacity: 0.4;
+	vertical-align: middle;
+}
+.preview-desktop .suki-responsive-switcher .suki-responsive-switcher__button[data-device=desktop] {
+	opacity: 0.8;
+}
+.preview-tablet .suki-responsive-switcher .suki-responsive-switcher__button[data-device=tablet] {
+	opacity: 0.8;
+}
+.preview-mobile .suki-responsive-switcher .suki-responsive-switcher__button[data-device=mobile] {
+	opacity: 0.8;
+}
+.suki-responsive-switcher .suki-responsive-switcher__button .dashicons {
+	font-size: 14px;
+	width: auto;
+	height: auto;
+	margin: 0;
+	line-height: 1;
+	vertical-align: middle;
 }
 
 /**

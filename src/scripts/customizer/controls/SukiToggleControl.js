@@ -13,12 +13,17 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
 
 		ReactDOM.render(
 			<>
-				<SukiControlLabel id={ control.id }>
-					{ control.params.label }
-				</SukiControlLabel>
-				<SukiControlDescription id={ control.id }>
-					{ control.params.description }
-				</SukiControlDescription>
+				{ control.params.label &&
+					<SukiControlLabel for={ '_customize-input-' + control.id }>
+						{ control.params.label }
+					</SukiControlLabel>
+				}
+
+				{ control.params.description &&
+					<SukiControlDescription id={ '_customize-description-' + control.id }>
+						{ control.params.description }
+					</SukiControlDescription>
+				}
 
 				<FormToggle
 					id={ '_customize-input-' + control.id }

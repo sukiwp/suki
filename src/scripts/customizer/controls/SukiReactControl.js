@@ -65,8 +65,16 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 		/**
 		 * Update component value's state when customizer setting's value is changed.
 		 */
-		control.setting.bind( ( val ) => {
-			control.renderContent( val );
+
+		// control.setting.bind( ( val ) => {
+		// 	control.renderContent( val );
+		// } );
+
+		Object.values( control.settings ).forEach( ( setting ) => {
+			setting.bind( ( val ) => {
+				console.log( 'test: ' + val );
+				control.renderContent( val );
+			} )
 		} );
 	},
 

@@ -39,6 +39,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^22.4.0",
+		"classnames": "^2.3.1",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
