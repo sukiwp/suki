@@ -70,10 +70,9 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 		// 	control.renderContent( val );
 		// } );
 
-		Object.values( control.settings ).forEach( ( setting ) => {
-			setting.bind( ( val ) => {
-				console.log( 'test: ' + val );
-				control.renderContent( val );
+		Object.keys( control.settings ).forEach( ( settingKey ) => {
+			control.settings[ settingKey ].bind( ( val ) => {
+				control.renderContent();
 			} )
 		} );
 	},

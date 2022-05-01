@@ -135,7 +135,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-shadow.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-slider.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-dimension.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-dimensions.php';
+		// require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-dimensions.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-typography.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-multicheck.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-radioimage.php';
@@ -147,6 +147,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-color-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-color-select-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-dimension-control.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-dimensions-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-multiselect-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-toggle-control.php';
 
@@ -179,8 +180,8 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--small-title.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/style--meta.php';
 
-		// // Layout.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/canvas.php';
+		// Layout.
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/canvas.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--builder.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--top-main-bottom-bar.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--mobile-main-bar.php';
@@ -190,7 +191,7 @@ class Suki_Customizer {
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--html.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--search.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--social.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/content.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content--main.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content--sidebar.php';
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/content--hero.php';

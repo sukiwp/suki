@@ -196,32 +196,6 @@
 
 			// Change CSS value.
 			sukiCustomizer.postMessage_css( key, rules, fontStack );
-
-			// If value is from Google Fonts, update the embed link.
-			if ( 'google_fonts' === fontSource ) {
-				// Get the <link> tag.		
-				var googleFontsLinkID = 'suki-customize-preview-google-fonts-css-' + key,
-				    $googleFontsLink = $( '#' + googleFontsLinkID );
-
-				// Create <link> tag if doesn't exist.
-				if ( 0 === $googleFontsLink.length ) {
-					$googleFontsLink = $( document.createElement( 'link' ) );
-					$googleFontsLink.attr( 'id', googleFontsLinkID );
-					$googleFontsLink.attr( 'rel', 'stylesheet' );
-					$googleFontsLink.attr( 'href', '' );
-					$googleFontsLink.attr( 'type', 'text/css' );
-					$googleFontsLink.attr( 'media', 'all' );
-
-					// Append <link> tag to <head>.
-					$googleFontsLink.appendTo( $( 'head' ) );
-				}
-
-				var fontFamily = fontName.replace( ' ', '+' ),
-				    href = '//fonts.googleapis.com/css2?family=' + fontFamily + ':ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
-
-				// Set new href on preview's Google Fonts CSS.
-				$googleFontsLink.attr( 'href', href );
-			}
 		},
 
 	};

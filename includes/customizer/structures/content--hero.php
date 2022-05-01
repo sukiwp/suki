@@ -80,13 +80,13 @@ $wp_customize->add_control(
 				'inherit' => array(
 					'label' => esc_html__( 'Same with Content', 'suki' ),
 				),
-				'narrow' => array(
+				'narrow'  => array(
 					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
 				),
-				'wide'   => array(
+				'wide'    => array(
 					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
 				),
-				'full'   => array(
+				'full'    => array(
 					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
 				),
 			),
@@ -161,7 +161,7 @@ foreach ( $settings as $setting ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Dimensions(
+	new Suki_Customize_Dimensions_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -202,7 +202,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Dimensions(
+	new Suki_Customize_Dimensions_Control(
 		$wp_customize,
 		$key,
 		array(

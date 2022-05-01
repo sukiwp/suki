@@ -108,9 +108,33 @@
  */
 
 .customize-control-suki-dimension {
-	.components-unit-control-wrapper {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+	.suki-dimension {
+		width: 25%;
+	}
+}
+
+/**
+ * Dimensions Control
+ */
+
+.customize-control-suki-dimensions {
+	.suki-responsive-container {
+		> * {
+			max-width: none;
+			padding: 0;
+		}
+	}
+
+	.component-box-control__header {
+		display: none;
+	}
+
+	.component-box-control__input-controls-wrapper {
+		position: absolute;
+		top: 0;
+		left: 24px;
+		width: calc( 100% - 24px - 44px );
+		padding: 0;
 	}
 }
 

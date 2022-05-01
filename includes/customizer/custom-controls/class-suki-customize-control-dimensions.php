@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_Dimensions' ) ) {
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Dimensions_Control' ) ) {
 	/**
 	 * Dimensions control class
 	 */
-	class Suki_Customize_Control_Dimensions extends WP_Customize_Control {
+	class Suki_Customize_Dimensions_Control extends WP_Customize_Control {
 		/**
 		 * Control type.
 		 *
@@ -217,5 +217,5 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	}
 
 	// Register control type.
-	$wp_customize->register_control_type( 'Suki_Customize_Control_Dimensions' );
+	$wp_customize->register_control_type( 'Suki_Customize_Dimensions_Control' );
 }

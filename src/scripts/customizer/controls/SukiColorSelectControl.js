@@ -82,6 +82,7 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
 									label={ valueInfo.name + ': ' + valueInfo.actualValue }
 									showTooltip
 									aria-expanded={ toggleParams.isOpen }
+									id={ '_customize-input' + control.id }
 									className="suki-color-dropdown__toggle"
 									onClick={ toggleParams.onToggle }
 								>

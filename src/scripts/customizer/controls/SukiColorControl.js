@@ -52,8 +52,9 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 									<Button
 										isSmall
 										variant="tertiary"
-										className="suki-color-dropdown__toggle"
 										aria-expanded={ toggleParams.isOpen }
+										id={ '_customize-input' + control.id }
+										className="suki-color-dropdown__toggle"
 										onClick={ toggleParams.onToggle }
 									>
 										<ColorIndicator

@@ -234,43 +234,10 @@
 }
 
 /**
- * Dimension field
+ * Dimension
  */
-.suki-dimension {
-	position: relative;
-	display: block;
-}
-
-.suki-dimension input[type=number] {
+.suki-dimension input {
 	text-align: right;
-	padding-right: 30px;
-	-moz-appearance: textfield;
-}
-.suki-dimension input[type=number]::-webkit-inner-spin-button, .suki-dimension input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	appearance: none;
-}
-
-.suki-dimension .suki-dimension-unit {
-	position: absolute;
-	top: 0;
-	right: 0;
-	-webkit-appearance: none;
-	appearance: none;
-	width: 25px;
-	padding: 0;
-	border-color: transparent;
-	background-color: rgba(0, 0, 0, 0.1);
-	background-image: none;
-	font-size: 0.85em;
-	text-align: center;
-	text-align-last: center;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-
-.suki-responsive-fieldset:not(.active) {
-	display: none;
 }
 
 /**
@@ -516,9 +483,26 @@
 /**
  * Dimension Control
  */
-.customize-control-suki-dimension .components-unit-control-wrapper {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+.customize-control-suki-dimension .suki-dimension {
+	width: 25%;
+}
+
+/**
+ * Dimensions Control
+ */
+.customize-control-suki-dimensions .suki-responsive-container > * {
+	max-width: none;
+	padding: 0;
+}
+.customize-control-suki-dimensions .component-box-control__header {
+	display: none;
+}
+.customize-control-suki-dimensions .component-box-control__input-controls-wrapper {
+	position: absolute;
+	top: 0;
+	left: 24px;
+	width: calc(100% - 24px - 44px);
+	padding: 0;
 }
 
 /**

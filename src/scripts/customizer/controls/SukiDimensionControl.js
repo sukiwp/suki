@@ -7,6 +7,8 @@ import SukiControlDescription from "../components/SukiControlDescription";
 import SukiControlResponsiveSwitcher from "../components/SukiControlResponsiveSwitcher";
 import SukiControlResponsiveContainer from "../components/SukiControlResponsiveContainer";
 
+import { convertDimensionValueIntoNumberAndUnit } from '../utils';
+
 import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
@@ -38,13 +40,12 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 					const value = control.settings[ settingId ].get();
 
 					/**
-					 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl, and then we can replace our manual (non-safe) parsing with it instead.
+					 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl. For the time being, we are using our own function `convertDimensionValueIntoNumberAndUnit`.
 					 */
 
-					const valueNumber = parseFloat( value );
-					const valueUnit = value.replace( valueNumber, '' );
+					const [ valueNumber, valueUnit ] = convertDimensionValueIntoNumberAndUnit( value, control.params.units );
 
-					const activeUnit = control.params.units.find( ( item ) => {
+					const valueUnitObj = control.params.units.find( ( item ) => {
 						return valueUnit === item.value
 					} );
 
@@ -54,17 +55,18 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 						 */
 						<SukiControlResponsiveContainer key={ device } device={ device }>
 							<UnitControl
-								id={ '_customize-input-' + control.id }
 								value={ value }
 								isResetValueOnUnitChange
 								units={ control.params.units }
-								min={ activeUnit?.min ?? -Infinity }
-								max={ activeUnit?.max ?? Infinity }
-								step={ activeUnit?.step ?? 1 }
+								min={ valueUnitObj?.min ?? -Infinity }
+								max={ valueUnitObj?.max ?? Infinity }
+								step={ valueUnitObj?.step ?? 1 }
+								id={ '_customize-input-' + control.id }
 								className="suki-dimension"
 								onChange={ ( value ) => {
-									value = isNaN( parseFloat( value ) ) ? '' : value;
-									console.log( value );
+									// If value only contains unit (e.g. 'px'), set the value to empty string ('').
+									value = isFinite( parseFloat( value ) ) ? value : '';
+
 									control.settings[ settingId ].set( value );
 								} }
 							/>

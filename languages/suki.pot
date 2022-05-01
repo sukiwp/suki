@@ -553,33 +553,33 @@ msgstr ""
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:778, includes/customizer/structures/sections.php:697
+#: includes/customizer/class-suki-customizer.php:779, includes/customizer/structures/sections.php:697
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:783, includes/customizer/structures/sections.php:707
+#: includes/customizer/class-suki-customizer.php:784, includes/customizer/structures/sections.php:707
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:792, includes/customizer/structures/sections.php:687
+#: includes/customizer/class-suki-customizer.php:793, includes/customizer/structures/sections.php:687
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:797, includes/customizer/structures/sections.php:624
+#: includes/customizer/class-suki-customizer.php:798, includes/customizer/structures/sections.php:624
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:802, includes/customizer/structures/sections.php:654
+#: includes/customizer/class-suki-customizer.php:803, includes/customizer/structures/sections.php:654
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:815
+#: includes/customizer/class-suki-customizer.php:816
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:821
+#: includes/customizer/class-suki-customizer.php:822
 msgid "Single %s Page"
 msgstr ""
 
@@ -2134,11 +2134,11 @@ msgstr ""
 msgid "Should be smaller than the Wide container width."
 msgstr ""
 
-#: includes/customizer/structures/style--size-spacing.php:96, includes/customizer/structures/style--size-spacing.php:141
+#: includes/customizer/structures/style--size-spacing.php:96
 msgid "Block spacing"
 msgstr ""
 
-#: includes/customizer/structures/style--size-spacing.php:97, includes/customizer/structures/style--size-spacing.php:142
+#: includes/customizer/structures/style--size-spacing.php:97
 msgid "Global spacing between each block."
 msgstr ""
 

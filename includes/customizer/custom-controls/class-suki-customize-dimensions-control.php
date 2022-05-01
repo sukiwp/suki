@@ -76,17 +76,21 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_D
 			$this->json['units'] = suki_convert_associative_array_into_simple_array( $this->units );
 
 			// Responsive structures.
-			foreach ( $this->settings as $setting_key => $setting ) {
-				// Add to responsiveStructures array.
-				$device = 'desktop';
-				if ( false !== strpos( $setting->id, '__' ) ) {
-					preg_match( '/^(.*?)__(.*?)$/', $setting->id, $matches );
+			if ( 1 < count( $this->settings ) ) {
+				foreach ( $this->settings as $setting_key => $setting ) {
+					// Add to responsiveStructures array.
+					$device = 'desktop';
+					if ( false !== strpos( $setting->id, '__' ) ) {
+						preg_match( '/^(.*?)__(.*?)$/', $setting->id, $matches );
 
-					if ( in_array( $matches[2], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
-						$device = $matches[2];
+						if ( in_array( $matches[2], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
+							$device = $matches[2];
+						}
 					}
+					$this->json['responsiveStructures'][ $device ] = $setting_key;
 				}
-				$this->json['responsiveStructures'][ $device ] = $setting_key;
+			} else {
+				$this->json['responsiveStructures']['global'] = 'default';
 			}
 		}
 	}

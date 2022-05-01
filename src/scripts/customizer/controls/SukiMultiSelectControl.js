@@ -78,9 +78,9 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 				}
 
 				<select
-					id={ '_customize-input-' + control.id }
 					value=""
 					disabled={ limit <= valueArray.length ? true : false }
+					id={ '_customize-input-' + control.id }
 					onChange={ ( e ) => {
 						control.addNewValueItem( e.target.value );
 					} }
