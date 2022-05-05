@@ -64,10 +64,9 @@ const config = {
 	pot: {
 		src: [
 			'**/*.php', // all php files
-			'assets/scripts/**/*.js', // all JS files
 			package.additionalInfo.initFile, // init file.
 			'!src/**/*', // ignore source files
-			'!**/*.assets.php',  // ignore assets PHP file.
+			'!**/*.asset.php',  // ignore assets PHP file.
 			'!node_modules/**/*', // ignore node modules
 			'!vendor/**/*', // ignore composer packages
 		],
