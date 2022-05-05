@@ -1,9 +1,9 @@
 /**
- * Color control
+ * Color control (React)
  */
 
-import SukiControlLabel from "../components/SukiControlLabel";
-import SukiControlDescription from "../components/SukiControlDescription";
+import SukiControlLabel from '../components/SukiControlLabel';
+import SukiControlDescription from '../components/SukiControlDescription';
 
 import {
 	__experimentalHStack as HStack,
@@ -16,8 +16,6 @@ import {
 	SlotFillProvider,
 	Tooltip,
 } from '@wordpress/components';
-
-import { __ } from '@wordpress/i18n';
 
 wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 	renderContent: function() {
@@ -75,6 +73,7 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 										} }
 										defaultValue="#ff0"
 										enableAlpha
+										className="suki-color-dropdown__picker"
 									/>
 
 									<HStack>
@@ -85,7 +84,7 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 												control.setting.set( control.params.defaultValue );
 											} }
 										>
-											{ __( 'Reset', 'suki' ) }
+											{ SukiCustomizerData.l10n.reset }
 										</Button>
 									</HStack>
 								</VStack>

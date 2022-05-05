@@ -20,7 +20,7 @@ $section = 'suki_section_header_logo';
 
 // Heading: Logo.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_logo',
 		array(
@@ -98,7 +98,7 @@ $wp_customize->add_control(
 
 // Heading: Mobile Logo.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_mobile_logo',
 		array(

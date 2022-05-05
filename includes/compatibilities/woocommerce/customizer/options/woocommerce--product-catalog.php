@@ -20,7 +20,7 @@ $section = 'woocommerce_product_catalog';
 
 // Heading: Content Header.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_product_archive_content_header',
 		array(
@@ -71,7 +71,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -122,7 +122,7 @@ $wp_customize->add_control(
 
 // Heading: Layout.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_index_grid',
 		array(
@@ -189,7 +189,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_woocommerce_index_elements',
 		array(
@@ -210,7 +210,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -231,7 +231,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(

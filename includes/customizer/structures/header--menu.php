@@ -20,7 +20,7 @@ $section = 'suki_section_header_menu';
 
 // Heading: Menu.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_menu_1',
 		array(
@@ -38,7 +38,7 @@ $wp_customize->add_control(
 
 // Heading: Mobile Menu.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_mobile_menu',
 		array(

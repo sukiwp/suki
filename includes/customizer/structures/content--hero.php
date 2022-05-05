@@ -28,12 +28,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Enable hero section', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
+			'label'    => esc_html__( 'Enable hero section', 'suki' ),
 			'priority' => 10,
 		)
 	)
@@ -47,7 +47,7 @@ $wp_customize->add_control(
 
 // Heading: Layout.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_hero_layout',
 		array(
@@ -70,24 +70,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Container width', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can override this option on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
+			'label'    => esc_html__( 'Container width', 'suki' ),
 			'choices'  => array(
 				'inherit' => array(
-					'label' => esc_html__( 'Same with Content', 'suki' ),
+					'label' => esc_html__( '= Content', 'suki' ),
 				),
 				'narrow'  => array(
-					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
+					'label' => esc_html__( 'Narrow', 'suki' ),
 				),
 				'wide'    => array(
-					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
+					'label' => esc_html__( 'Wide', 'suki' ),
 				),
 				'full'    => array(
-					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
+					'label' => esc_html__( 'Full', 'suki' ),
 				),
 			),
 			'priority' => 20,
@@ -235,7 +235,7 @@ $wp_customize->add_control(
 
 // Heading: Typography.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_hero_typography',
 		array(
@@ -378,7 +378,7 @@ $wp_customize->add_control(
 
 // Heading: Colors.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_hero_colors',
 		array(
@@ -432,7 +432,7 @@ foreach ( $colors as $key => $label ) {
 
 // Heading: Background Image.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_hero_background',
 		array(

@@ -34,7 +34,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 			)
 		);
 		$wp_customize->add_control(
-			new Suki_Customize_Control_Toggle(
+			new Suki_Customize_Toggle_Control(
 				$wp_customize,
 				$key,
 				array(
@@ -83,7 +83,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 		// ------
 		$wp_customize->add_control(
-			new Suki_Customize_Control_HR(
+			new Suki_Customize_HR_Control(
 				$wp_customize,
 				'hr_header_' . $bar . '_merged',
 				array(
@@ -106,7 +106,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Suki_Customize_Control_RadioImage(
+		new Suki_Customize_RadioImage_Control(
 			$wp_customize,
 			$key,
 			array(
@@ -114,13 +114,13 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 				'label'    => esc_html__( 'Layout', 'suki' ),
 				'choices'  => array(
 					'narrow' => array(
-						'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
+						'label' => esc_html__( 'Narrow', 'suki' ),
 					),
 					'wide'   => array(
-						'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
+						'label' => esc_html__( 'Wide', 'suki' ),
 					),
 					'full'   => array(
-						'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
+						'label' => esc_html__( 'Full', 'suki' ),
 					),
 				),
 				'priority' => 10,
@@ -283,7 +283,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// Heading: Typography.
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Heading(
+		new Suki_Customize_Heading_Control(
 			$wp_customize,
 			'heading_header_' . $bar . '_typography',
 			array(
@@ -438,7 +438,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// Heading: Colors.
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Heading(
+		new Suki_Customize_Heading_Control(
 			$wp_customize,
 			'heading_header_' . $bar . '_colors',
 			array(
@@ -483,7 +483,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// ------
 	$wp_customize->add_control(
-		new Suki_Customize_Control_HR(
+		new Suki_Customize_HR_Control(
 			$wp_customize,
 			'hr_header_' . $bar . '_submenu_colors',
 			array(
@@ -527,7 +527,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// ------
 	$wp_customize->add_control(
-		new Suki_Customize_Control_HR(
+		new Suki_Customize_HR_Control(
 			$wp_customize,
 			'hr_header_' . $bar . '_menu_highlight_colors',
 			array(

@@ -343,7 +343,7 @@ class Suki_Compatibility_Suki_Pro {
 
 			// ------
 			$wp_customize->add_control(
-				new Suki_Customize_Control_HR(
+				new Suki_Customize_HR_Control(
 					$wp_customize,
 					'hr_' . $page_type_key . '_preloader_screen',
 					array(

@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Dimension control (React)
+ * Customizer custom control: Dimension
  *
  * @package Suki
  */
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Dimension_Control' ) ) {
+if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Customize_Dimension_Control' ) ) {
 	/**
 	 * Dimension control class
 	 */
-	class Suki_Customize_Dimension_Control extends Suki_Customize_Control {
+	class Suki_Customize_Dimension_Control extends Suki_Customize_React_Control {
 		/**
 		 * Control type.
 		 *
@@ -44,9 +44,17 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_D
 				$this->units[ $key ] = wp_parse_args(
 					$unit,
 					array(
-						'label' => $key,
+						'min'     => '',
+						'max'     => '',
+						'step'    => '',
+						'default' => '',
+						'label'   => $key,
 					)
 				);
+
+				if ( empty( $this->units[ $key ]['default'] ) ) {
+					$this->units[ $key ]['default'] = $this->units[ $key ]['min'];
+				}
 			}
 		}
 

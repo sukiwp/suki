@@ -20,7 +20,7 @@ $section = 'suki_section_header_search';
 
 // Heading: Search Bar.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_search_bar',
 		array(
@@ -68,7 +68,7 @@ $wp_customize->add_control(
 
 // Heading: Search Dropdown.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_search_dropdown',
 		array(

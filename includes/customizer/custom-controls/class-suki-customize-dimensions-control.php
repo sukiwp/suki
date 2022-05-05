@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Dimensions control (React)
+ * Customizer custom control: Dimensions
  *
  * @package Suki
  */
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Dimensions_Control' ) ) {
+if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Customize_Dimensions_Control' ) ) {
 	/**
 	 * Dimensions control class
 	 */
-	class Suki_Customize_Dimensions_Control extends Suki_Customize_Control {
+	class Suki_Customize_Dimensions_Control extends Suki_Customize_React_Control {
 		/**
 		 * Control type.
 		 *

@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Base Control
+ * Customizer custom control: Base
  *
  * @package Suki
  */
@@ -23,11 +23,6 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 		public $type = 'suki-base';
 
 		/**
-		 * Disable the default content rendering from WP_Customize_Control.
-		 */
-		public function render_content() {}
-
-		/**
 		 * Setup the parameters passed to the JavaScript via JSON.
 		 */
 		public function to_json() {
@@ -40,6 +35,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			/**
 			 * Pass more properties as `params` from the parent class (WP_Customize_Control).
 			 */
+
+			// Control ID.
+			$this->json['id'] = $this->id;
 
 			// `choices` property for controls with options to select / choose.
 			if ( ! empty( $this->choices ) ) {
@@ -67,6 +65,13 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 			$this->render_content();
 			echo '</li>';
 		}
+
+		/**
+		 * Disable the default content rendering from WP_Customize_Control.
+		 *
+		 * Let the subclass to define the content.
+		 */
+		protected function render_content() {}
 	}
 
 	// Register control type.

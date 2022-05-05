@@ -1,11 +1,11 @@
 /**
- * Dimension control
+ * Dimension control (React)
  */
 
-import SukiControlLabel from "../components/SukiControlLabel";
-import SukiControlDescription from "../components/SukiControlDescription";
-import SukiControlResponsiveSwitcher from "../components/SukiControlResponsiveSwitcher";
-import SukiControlResponsiveContainer from "../components/SukiControlResponsiveContainer";
+import SukiControlLabel from '../components/SukiControlLabel';
+import SukiControlDescription from '../components/SukiControlDescription';
+import SukiControlResponsiveSwitcher from '../components/SukiControlResponsiveSwitcher';
+import SukiControlResponsiveContainer from '../components/SukiControlResponsiveContainer';
 
 import { convertDimensionValueIntoNumberAndUnit } from '../utils';
 
@@ -22,9 +22,8 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 				{ control.params.label &&
 					<SukiControlLabel for={ '_customize-input-' + control.id }>
 						{ control.params.label }
-						{ 1 < Object.keys( control.params.responsiveStructures ).length &&
-							<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
-						}
+						
+						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
 					</SukiControlLabel>
 				}
 
@@ -63,6 +62,9 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 								step={ valueUnitObj?.step ?? 1 }
 								id={ '_customize-input-' + control.id }
 								className="suki-dimension"
+								style={ {
+									width: 'calc( 25% - 1px )'
+								} }
 								onChange={ ( value ) => {
 									// If value only contains unit (e.g. 'px'), set the value to empty string ('').
 									value = isFinite( parseFloat( value ) ) ? value : '';

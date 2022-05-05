@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Multi-select control (React)
+ * Customizer custom control: Multi-select
  *
  * @package Suki
  */
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_MultiSelect_Control' ) ) {
+if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Customize_MultiSelect_Control' ) ) {
 	/**
 	 * Multi-select control class
 	 */
-	class Suki_Customize_MultiSelect_Control extends Suki_Customize_Control {
+	class Suki_Customize_MultiSelect_Control extends Suki_Customize_React_Control {
 		/**
 		 * Control type.
 		 *

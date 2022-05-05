@@ -122,72 +122,72 @@
 	/**
 	 * Suki shadow control
 	 */
-	// wp.customize.controlConstructor['suki-shadow'] = wp.customize.Control.extend({
-	// 	ready: function() {
-	// 		var control = this;
+	wp.customize.controlConstructor['suki-shadow'] = wp.customize.Control.extend({
+		ready: function() {
+			var control = this;
 
-	// 		// Shortcut so that we don't have to use _.bind every time we add a callback.
-	// 		_.bindAll( control, 'updateValue' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			_.bindAll( control, 'updateValue' );
 
-	// 		control.container.find( '.suki-shadow-color .color-picker' ).alphaColorPicker({
-	// 			change: control.updateValue,
-	// 			clear: control.updateValue,
-	// 		});
+			control.container.find( '.suki-shadow-color .color-picker' ).alphaColorPicker({
+				change: control.updateValue,
+				clear: control.updateValue,
+			});
 
-	// 		control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
-	// 	},
+			control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
+		},
 
-	// 	updateValue: function( e ) {
-	// 		var values = this.container.find( 'input.suki-shadow-input' ).map(function( i, el ) {
-	// 			var $input = $( el );
+		updateValue: function( e ) {
+			var values = this.container.find( 'input.suki-shadow-input' ).map(function( i, el ) {
+				var $input = $( el );
 
-	// 			if ( $input.hasClass( 'color-picker' ) ) {
-	// 				return '' === $input.wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $input.wpColorPicker( 'color' );
-	// 			} else if ( $input.is( 'input' ) ) {
-	// 				return '' === $input.val() ? '0' : $input.val().toString() + 'px';
-	// 			} else {
-	// 				return $input.val();
-	// 			}
-	// 		}).get();
+				if ( $input.hasClass( 'color-picker' ) ) {
+					return '' === $input.wpColorPicker( 'color' ) ? 'rgba(0,0,0,0)' : $input.wpColorPicker( 'color' );
+				} else if ( $input.is( 'input' ) ) {
+					return '' === $input.val() ? '0' : $input.val().toString() + 'px';
+				} else {
+					return $input.val();
+				}
+			}).get();
 
-	// 		values.push( this.container.find( 'select.suki-shadow-input' ).val() );
+			values.push( this.container.find( 'select.suki-shadow-input' ).val() );
 
-	// 		this.setting( values.join( ' ' ) );
-	// 	},
-	// });
+			this.setting( values.join( ' ' ) );
+		},
+	});
 
 	/**
 	 * Suki slider control
 	 */
-	// wp.customize.controlConstructor['suki-slider'] = wp.customize.Control.extend({
-	// 	ready: function() {
-	// 		var control = this;
+	wp.customize.controlConstructor['suki-slider'] = wp.customize.Control.extend({
+		ready: function() {
+			var control = this;
 
-	// 		// Shortcut so that we don't have to use _.bind every time we add a callback.
-	// 		// _.bindAll( control, 'onChangeNumber', 'onChangeSlider' );
+			// Shortcut so that we don't have to use _.bind every time we add a callback.
+			// _.bindAll( control, 'onChangeNumber', 'onChangeSlider' );
 
-	// 		control.container.on( 'change', '.suki-slider-number', control.onChangeNumber );
-	// 		control.container.on( 'input', '.suki-slider-range', control.onChangeSlider );
-	// 	},
+			control.container.on( 'change', '.suki-slider-number', control.onChangeNumber );
+			control.container.on( 'input', '.suki-slider-range', control.onChangeSlider );
+		},
 
-	// 	onChangeNumber: function( e, changeFromRange = false ) {
-	// 		if ( ! changeFromRange ) {
-	// 			var $number = $( e.target ),
-	// 				$scope = $( e.target ).closest( '.suki-slider-fieldset' ),
-	// 				$range = $scope.find( '.suki-slider-range' );
+		onChangeNumber: function( e, changeFromRange = false ) {
+			if ( ! changeFromRange ) {
+				var $number = $( e.target ),
+					$scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+					$range = $scope.find( '.suki-slider-range' );
 	
-	// 			$range.val( $number.val() );
-	// 		}
-	// 	},
+				$range.val( $number.val() );
+			}
+		},
 
-	// 	onChangeSlider: function( e ) {
-	// 		var $range = $( e.target ),
-	// 		    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
-	// 		    $number = $scope.find( '.suki-slider-number' );
+		onChangeSlider: function( e ) {
+			var $range = $( e.target ),
+			    $scope = $( e.target ).closest( '.suki-slider-fieldset' ),
+			    $number = $scope.find( '.suki-slider-number' );
 
-	// 		$number.val( $range.val() ).trigger( 'change', [ true ] );
-	// 	},
-	// });
+			$number.val( $range.val() ).trigger( 'change', [ true ] );
+		},
+	});
 	
 	/**
 	 * Suki dimensions control

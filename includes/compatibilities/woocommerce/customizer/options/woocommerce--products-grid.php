@@ -88,7 +88,7 @@ $wp_customize->add_control(
 
 // Heading: Grid Item.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_products_grid_item',
 		array(
@@ -111,7 +111,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -141,7 +141,7 @@ $wp_customize->add_control(
 
 // Heading: Add to Cart.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_products_grid_item_add_to_cart',
 		array(
@@ -163,7 +163,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(

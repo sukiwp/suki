@@ -20,7 +20,7 @@ $section = 'suki_section_post_archive';
 
 // Heading: Posts Layout.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_blog_index_layout',
 		array(
@@ -42,7 +42,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -65,7 +65,7 @@ $wp_customize->add_control(
 
 // Edit entry default.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'blank_edit_entry_default',
 		array(
@@ -79,7 +79,7 @@ $wp_customize->add_control(
 
 // Edit entry grid.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'blank_edit_entry_grid',
 		array(
@@ -122,7 +122,7 @@ $wp_customize->add_control(
 
 // Heading: Content Header.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_post_archive_content_header',
 		array(
@@ -172,7 +172,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -239,7 +239,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_post_archive_home_content_header',
 		array(
@@ -260,7 +260,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(

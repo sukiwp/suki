@@ -1,10 +1,57 @@
 /**
+ * Notice inside control
+ */
+
+.customize-control {
+	position: relative;
+
+	.notice {
+		margin: 0;
+	}
+}
+
+/**
+ * Label
+ */
+
+.customize-control-title {
+	display: inline-block;
+}
+
+/**
+ * Form row
+ */
+
+.suki-row {
+	position: relative;
+	display: flex;
+	gap: 2px;
+
+	> * {
+		flex-basis: 100%;
+	}
+}
+
+/**
  * Dimension
  */
 
 .suki-dimension {
+	gap: 2px;
+
 	input {
 		text-align: right;
+	}
+
+	> .components-flex-item {
+		width: 100%;
+		max-width: none;
+		text-align: center;
+		
+		label {
+			font-size: 9px;
+			text-transform: uppercase;
+		}
 	}
 }
 
@@ -14,11 +61,15 @@
 
 .components-color-picker {
 	.react-colorful {
-		width: 100% !important; // Force the color picker to use parent's width
+		width: 275px !important; // Force the color picker to use parent's width
 	
-		.react-colorful__hue,
-		.react-colorful__alpha {
-			width: 100%;
+		&__hue,
+		&__alpha {
+			width: 100% !important;
+		}
+
+		&__saturation {
+			height: 155px !important;
 		}
 	
 		& + div {
@@ -41,7 +92,7 @@
 }
 
 /**
- * Color dropdown
+ * Color select dropdown
  */
 
 .suki-color-dropdown {
@@ -68,8 +119,8 @@
 	.suki-color-indicator {
 		position: absolute;
 		inset: 2px;
-		width: 32px;
-    	height: 20px;
+		width: calc( 100% - 4px );
+    	height: calc( 100% - 4px );
 		margin: 0; // Reset
 		border: none; // Reset
 		border-radius: inherit;
@@ -95,6 +146,58 @@
 				background-image: linear-gradient( 135deg, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50% );
 			}
 		}
+	}
+
+	&__palette {
+		.components-circular-option-picker__swatches {
+			gap: 6px;
+		}
+	
+		.components-circular-option-picker__option {
+			&-wrapper {
+				width: 24px;
+				height: 24px;
+			}
+	
+			&:focus:after {
+				width: 28px;
+				height: 28px;
+			}
+
+			&.is-pressed + svg {
+				top: 0;
+				left: 0;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+
+	&__custom {
+		padding-left: 8px; // Same width default `spacing` attribute (2 x 4px)
+		border-left: 1px solid rgba(0,0,0,0.1);
+
+		&__toggle {
+			padding: 2px !important;
+			width: 24px !important;
+			min-width: auto !important; // Reset
+			border-radius: 50%;
+			transition: transform 100ms ease;
+
+			.dashicons {
+				font-size: 14px;
+				line-height: 20px;
+				margin: 0 !important; // Reset
+			}
+
+			&:hover {
+				transform: scale( 1.2 );
+			}
+		}
+	}
+
+	&__picker {
+		width: 100% !important;
 	}
 }
 

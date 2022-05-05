@@ -28,12 +28,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Enable "Scroll to Top" button', 'suki' ),
+			'label'    => esc_html__( 'Enable Scroll to Top button', 'suki' ),
 			'priority' => 10,
 		)
 	)
@@ -41,7 +41,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_scroll_to_top_display',
 		array(
@@ -62,7 +62,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_MultiCheck(
+	new Suki_Customize_MultiCheck_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -217,7 +217,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_scroll_to_top_size',
 		array(
@@ -354,7 +354,7 @@ $wp_customize->add_control(
 
 // Heading: Colors.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_scroll_to_top_colors',
 		array(

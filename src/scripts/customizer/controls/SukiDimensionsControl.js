@@ -1,11 +1,11 @@
 /**
- * Dimensions control
+ * Dimensions control (React)
  */
 
-import SukiControlLabel from "../components/SukiControlLabel";
-import SukiControlDescription from "../components/SukiControlDescription";
-import SukiControlResponsiveSwitcher from "../components/SukiControlResponsiveSwitcher";
-import SukiControlResponsiveContainer from "../components/SukiControlResponsiveContainer";
+import SukiControlLabel from '../components/SukiControlLabel';
+import SukiControlDescription from '../components/SukiControlDescription';
+import SukiControlResponsiveSwitcher from '../components/SukiControlResponsiveSwitcher';
+import SukiControlResponsiveContainer from '../components/SukiControlResponsiveContainer';
 
 import { convertDimensionValueIntoNumberAndUnit } from '../utils';
 
@@ -18,14 +18,19 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 	renderContent: function() {
 		const control = this;
 
+		const directions = [
+			SukiCustomizerData.l10n.top,
+			SukiCustomizerData.l10n.right,
+			SukiCustomizerData.l10n.bottom,
+			SukiCustomizerData.l10n.left,
+		];
+
 		ReactDOM.render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel for={ '_customize-input-' + control.id }>
 						{ control.params.label }
-						{ 1 < Object.keys( control.params.responsiveStructures ).length &&
-							<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
-						}
+						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
 					</SukiControlLabel>
 				}
 
@@ -55,10 +60,13 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 						/**
 						 * @todo onChange is triggered twice when value is not ''.
 						 */
-						<SukiControlResponsiveContainer key={ device } device={ device }>
+						<SukiControlResponsiveContainer
+							key={ device }
+							device={ device }
+						>
 							<HStack
 								expanded
-								spacing="1"
+								spacing="0.5"
 							>
 								{ valueArray.map( ( subValue, i ) => {
 									/**
@@ -73,13 +81,15 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 
 									return(
 										<UnitControl
+											key={ device + '-' + i }
+											label={ directions[i] }
+											labelPosition="bottom"
 											value={ subValue }
 											isResetValueOnUnitChange
 											units={ control.params.units }
 											min={ subValueUnitObj?.min ?? -Infinity }
 											max={ subValueUnitObj?.max ?? Infinity }
 											step={ subValueUnitObj?.step ?? 1 }
-											id={ '_customize-input-' + control.id }
 											className="suki-dimension"
 											onChange={ ( newSubValue ) => {
 												newSubValue = isNaN( parseFloat( newSubValue ) ) ? '' : newSubValue;
@@ -104,8 +114,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 
 													newValue = valueArray.join( ' ' ).trim();
 												}
-
-												console.log( newValue );
 												
 												control.settings[ settingId ].set( newValue );
 											} }

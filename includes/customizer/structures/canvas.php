@@ -20,7 +20,7 @@ $section = 'suki_section_page_canvas';
 
 // Heading: Canvas.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_canvas',
 		array(
@@ -43,7 +43,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -59,6 +59,7 @@ $wp_customize->add_control(
 					'image' => SUKI_IMAGES_URL . '/customizer/page-layout--boxed.svg',
 				),
 			),
+			'columns'  => 3,
 			'priority' => 10,
 		)
 	)
@@ -88,7 +89,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_boxed_page',
 		array(
@@ -146,7 +147,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Shadow(
+	new Suki_Customize_Shadow_Control(
 		$wp_customize,
 		$key,
 		array(

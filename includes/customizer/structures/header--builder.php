@@ -37,7 +37,7 @@ $switcher = ob_get_clean();
 
 // --- Blank: Header Builder Switcher
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'header_builder_actions',
 		array(

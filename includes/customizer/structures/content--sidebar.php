@@ -20,7 +20,7 @@ $section = 'suki_section_sidebar';
 
 // Heading: Layout.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_sidebar_layout',
 		array(
@@ -116,7 +116,7 @@ $wp_customize->add_control(
 
 // Heading: Widgets.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_sidebar_widgets',
 		array(
@@ -316,7 +316,7 @@ $wp_customize->add_control(
 
 // Heading: Typography.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_sidebar_typography',
 		array(
@@ -371,13 +371,13 @@ $wp_customize->add_control(
 
 // Info.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_Notice_Control(
 		$wp_customize,
 		'notice_sidebar_widget_title',
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Looking for widget title configuration? Using the Block-based Widgets editor, you can add and configure a Heading block as a widget title.', 'suki' ) . '</p></div>',
+			'description' => esc_html__( 'Looking for widget title configuration? Using the Block-based Widgets editor, you can add and configure a Heading block as a widget title.', 'suki' ),
 			'priority'    => 40,
 		)
 	)
@@ -391,7 +391,7 @@ $wp_customize->add_control(
 
 // Heading: Colors.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_sidebar_colors',
 		array(
@@ -414,7 +414,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Shadow(
+	new Suki_Customize_Shadow_Control(
 		$wp_customize,
 		$key,
 		array(

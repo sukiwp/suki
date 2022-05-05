@@ -14,7 +14,7 @@ $section = 'suki_section_header_cart';
 
 // Anchor for Cart Link element.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'heading_header_cart_link',
 		array(
@@ -27,7 +27,7 @@ $wp_customize->add_control(
 
 // Anchor for Cart Dropdown element.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'heading_header_cart_dropdown',
 		array(
@@ -74,7 +74,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_MultiCheck(
+	new Suki_Customize_MultiCheck_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -92,7 +92,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_header_cart_count',
 		array(

@@ -49,92 +49,40 @@
 	}
 }
 
-.customize-control-suki-color-select {
-	.suki-color-select-palette {
-		.components-circular-option-picker__swatches {
-			gap: 6px;
-		}
-	
-		.components-circular-option-picker__option {
-			&-wrapper {
-				width: 24px;
-				height: 24px;
-			}
-	
-			&:focus:after {
-				width: 28px;
-				height: 28px;
-			}
-
-			&.is-pressed + svg {
-				top: 0;
-				left: 0;
-				width: 24px;
-				height: 24px;
-			}
-		}
-	}
-
-	.suki-color-select-custom {
-		padding-left: 8px; // Same width default `spacing` attribute (2 x 4px)
-		border-left: 1px solid rgba(0,0,0,0.1);
-
-		button {
-			padding: 2px;
-			width: 24px;
-			min-width: auto; // Reset
-			border-radius: 50%;
-			transition: transform 100ms ease;
-
-			.dashicons {
-				font-size: 14px;
-				line-height: 20px;
-				margin: 0 !important; // Reset
-			}
-
-			&:hover {
-				transform: scale( 1.2 );
-			}
-		}
-
-		&__picker {
-			width: 100%;
-		}
-	}
-}
-
 /**
- * Dimension Control
+ * Heading Control
  */
 
-.customize-control-suki-dimension {
-	.suki-dimension {
-		width: 25%;
-	}
-}
+.customize-control-suki-heading {
+	margin: 32px 0 12px;
+	
+	.suki-heading {
+		position: relative;
+		margin: 0 -12px;
+		padding: 10px 12px;
+		background-color: rgba(0,0,0,0.1);
+		color: inherit;
+		outline: 0;
+		transition: all 0.25s;
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
 
-/**
- * Dimensions Control
- */
-
-.customize-control-suki-dimensions {
-	.suki-responsive-container {
-		> * {
-			max-width: none;
-			padding: 0;
+		&-tabindex {
+			&:focus + .suki-heading {
+				background-color: var(--admin-color--primary);
+				color: #fff;
+			}
 		}
 	}
 
-	.component-box-control__header {
-		display: none;
+	.description {
+		margin-top: 12px;
 	}
 
-	.component-box-control__input-controls-wrapper {
-		position: absolute;
-		top: 0;
-		left: 24px;
-		width: calc( 100% - 24px - 44px );
-		padding: 0;
+	// Remove top margin if this is the first control after customizer panel / section description.
+	.customize-section-description-container + & {
+		margin-top: 0;
 	}
 }
 
@@ -143,12 +91,66 @@
  */
 
 .customize-control-suki-multiselect {
-	.suki-multiselect-item__remove {
-		border: none;
-		padding: 0;
-		min-width: auto; // Reset
-		margin: -3px 0;
-		font-size: 14px;
+	.suki-multiselect-item {
+		&__remove {
+			border: none;
+			padding: 0;
+			min-width: auto; // Reset
+			margin: -3px 0;
+			font-size: 14px;
+		}
+	}
+}
+
+/**
+ * Radio Image Control
+ */
+
+.customize-control-suki-radioimage {
+	.suki-radioimage {
+		&__option {
+			padding: 2px;
+			height: auto;
+			min-height: 30px;
+
+			&:not(.is-pressed) {
+				background-color: rgba(0,0,0,0.1);
+				color: inherit;
+
+				&:hover, &:focus {
+					background-color: rgba(0,0,0,0.15);
+					color: inherit;
+				}
+			}
+
+			img {
+				border-radius: 2px;
+				box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+			}
+
+			span {
+				padding: 2px 0;
+			}
+		}
+	}
+}
+
+/**
+ * Shadow Control
+ */
+
+.customize-control-suki-shadow {
+	.suki-shadow {
+		&__position-toggle {
+			min-width: 24px;
+			height: 30px;
+			width: 24px;
+			padding: 2px;
+		}
+
+		.suki-color-dropdown {
+			flex: 0 0 36px;
+		}
 	}
 }
 
@@ -167,6 +169,10 @@
 		right: 0;
 	}
 }
+
+
+
+
 
 
 
@@ -248,106 +254,7 @@
 	}
 }
 
-/**
- * Heading Control
- */
 
-.customize-control-suki-heading {
-	margin: 32px 0 12px;
-	
-	.suki-heading {
-		position: relative;
-		margin: 0 -12px;
-		padding: 10px 12px;
-		background-color: rgba(0,0,0,0.1);
-		color: inherit;
-		outline: 0;
-		transition: all 0.25s;
-		font-size: 13px;
-		font-weight: 600;
-		text-transform: uppercase;
-
-		&-tabindex {
-			&:focus + .suki-heading {
-				background-color: var(--admin-color--primary);
-				color: #fff;
-			}
-		}
-	}
-
-	.description {
-		margin-top: 12px;
-	}
-
-	// Remove top margin if this is the first control after customizer panel / section description.
-	.customize-section-description-container + & {
-		margin-top: 0;
-	}
-}
-
-
-/**
- * Radio Image Control
- */
-
- .customize-control-suki-radioimage {
-	.suki-radioimage-list {
-		--columns: 1;
-
-		display: grid;
-		grid-template-columns: repeat(var(--columns), 1fr);
-		gap: 5px;
-
-		&.suki-radioimage-columns-2 {
-			--columns: 2;
-		}
-		
-		&.suki-radioimage-columns-3 {
-			--columns: 3;
-		}
-		
-		&.suki-radioimage-columns-4 {
-			--columns: 4;
-		}
-		
-		label {
-			position: relative;
-			display: block;
-			padding: 2px;
-			box-sizing: border-box;
-			background-color: var(--admin-color--border);
-			color: #fff;
-			outline: 0;
-			border-radius: 3px;
-
-			> img {
-				display: block;
-				width: 100%;
-				border-radius: 2px;
-			}
-
-			> span {
-				display: block;
-				padding: 2px 0;
-				font-size: 0.85em;
-				font-weight: 500;
-				text-align: center;
-			}
-
-			> img + span {
-				margin-top: 2px;
-			}
-		}
-
-		input {
-			display: none;
-		}
-
-		input:checked + label {
-			background-color: var(--admin-color--primary);
-		}
-	}
-}
 
 /**
  * Typography Control
@@ -401,86 +308,6 @@
 	}
 }
 
-/**
- * Shadow Control
- */
-
-.customize-control-suki-shadow {
-	.suki-small-label {
-		text-align: center;
-	}
-
-	.wp-picker-container {
-		display: table;
-		margin-left: auto;
-
-		.wp-color-result.button {
-			position: absolute !important;
-			top: 0;
-			right: 0;
-			margin: 0;
-			width: 30px;
-			height: 30px;
-			min-height: auto; // reset
-			border: none;
-			border-radius: 0 3px 3px 0 !important;
-			background-size: 12px 12px;
-			background-position: 0 0, 6px 6px;
-			background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
-
-			&:before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				border-radius: 0 3px 3px 0 !important;
-				background-color: inherit;
-				box-shadow: inset 0 0 0 1px #7e8993;
-			}
-
-			&:focus:before {
-				box-shadow: inset 0 0 0 1px #7e8993, 0 0 0 1px var(--admin-color--primary);
-			}
-		}
-
-		.wp-color-result-text {
-			display: none;
-		}
-
-		.wp-picker-input-wrap {
-			display: none;
-			position: relative;
-			padding-right: 60px;
-			margin-top: 6px;
-
-			label, .wp-color-picker {
-				width: 100% !important;
-			}
-
-			.button {
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 56px;
-			}
-		}
-
-		&.wp-picker-active .wp-picker-input-wrap {
-			display: block;
-		}
-
-		.wp-picker-holder {
-			display: none;
-			margin-top: 6px;
-		}
-
-		&.wp-picker-active .wp-picker-holder {
-			display: block;
-		}
-	}
-}
 
 
 /**
@@ -555,17 +382,6 @@
 			border: none;
 			margin: 0;
 		}
-	}
-}
-
-
-/**
- * Dimensions Control
- */
-
-.customize-control-suki-dimensions {
-	.suki-small-label {
-		text-align: center;
 	}
 }
 

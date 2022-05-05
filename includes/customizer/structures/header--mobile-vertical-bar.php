@@ -43,13 +43,13 @@ $wp_customize->add_control(
 
 // Info.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_Notice_Control(
 		$wp_customize,
 		'notice_header_mobile_trigger',
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Make sure you have included the "Toggle" element to open the mobile popup panel.', 'suki' ) . '</p></div>',
+			'description' => esc_html__( 'Make sure you have included the "Toggle" element to open the mobile popup panel.', 'suki' ),
 			'priority'    => 10,
 		)
 	)
@@ -66,7 +66,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -99,7 +99,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -136,7 +136,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -282,7 +282,7 @@ $wp_customize->add_control(
 
 // Heading: Typography.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_mobile_vertical_bar_typography',
 		array(
@@ -437,7 +437,7 @@ $wp_customize->add_control(
 
 // Heading: Colors.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_mobile_vertical_bar_colors',
 		array(

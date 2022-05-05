@@ -20,7 +20,7 @@ $section = 'suki_section_woocommerce_elements';
 
 // Heading: Breadcrumb.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_elements_breadcrumb',
 		array(
@@ -42,7 +42,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 
 // Heading: Sale badge.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_elements_sale_badge',
 		array(
@@ -109,7 +109,7 @@ foreach ( $colors as $key => $label ) {
 
 // Heading: Review star.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_elements_star',
 		array(
@@ -151,7 +151,7 @@ $wp_customize->add_control(
 
 // Heading: Alt Button.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_elements_alt_button',
 		array(

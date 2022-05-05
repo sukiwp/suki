@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer custom control: Blank
+ * Customizer custom control: Free Text
  *
  * @package Suki
  */
@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_Blank' ) ) {
+if ( class_exists( 'Suki_Customize_Control' ) && ! class_exists( 'Suki_Customize_FreeText_Control' ) ) {
 	/**
-	 * Blank control class
+	 * Free Text control class
 	 */
-	class Suki_Customize_Control_Blank extends WP_Customize_Control {
+	class Suki_Customize_FreeText_Control extends Suki_Customize_Control {
 		/**
 		 * Control type.
 		 *
 		 * @var string
 		 */
-		public $type = 'suki-blank';
+		public $type = 'suki-freetext';
 
 		/**
 		 * Render control's content.

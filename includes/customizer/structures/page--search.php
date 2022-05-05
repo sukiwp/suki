@@ -20,7 +20,7 @@ $section = 'suki_section_search_results';
 
 // Heading: Results List.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_search_results_layout',
 		array(
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 
 // Heading: Content Header.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_search_results_content_header',
 		array(
@@ -112,7 +112,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(

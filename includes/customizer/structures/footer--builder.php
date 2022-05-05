@@ -27,7 +27,7 @@ $switcher = ob_get_clean();
 
 // --- Blank: Footer Builder Switcher
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'footer_builder_actions',
 		array(
@@ -69,7 +69,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_footer_builder',
 		array(

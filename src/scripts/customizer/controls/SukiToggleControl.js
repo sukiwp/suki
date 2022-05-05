@@ -1,9 +1,9 @@
 /**
- * Toggle control
+ * Toggle control (React)
  */
 
-import SukiControlLabel from "../components/SukiControlLabel";
-import SukiControlDescription from "../components/SukiControlDescription";
+import SukiControlLabel from '../components/SukiControlLabel';
+import SukiControlDescription from '../components/SukiControlDescription';
 
 import { FormToggle } from '@wordpress/components';
 

@@ -1,19 +1,4 @@
-/**
- * Basic customize control
- */
 
-.customize-control {
-	position: relative;
-
-	select {
-		margin: 0;
-		line-height: 28px;
-	}
-
-	.notice {
-		margin: 0;
-	}
-}
 
 .description .dashicons {
 	width: auto;
@@ -54,15 +39,6 @@
 	gap: 10px;
 }
 
-.suki-flex-fieldset {
-	position: relative;
-	display: flex;
-	gap: 5px;
-
-	> * {
-		flex-basis: 100%;
-	}
-}
 
 .suki-context-hidden {
 	display: none !important;

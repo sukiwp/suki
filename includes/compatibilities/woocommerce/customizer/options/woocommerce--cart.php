@@ -20,7 +20,7 @@ $section = 'woocommerce_cart'; // Assumed.
 
 // Heading: Content Layout.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_woocommerce_cart_layout',
 		array(
@@ -42,7 +42,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -65,7 +65,7 @@ $wp_customize->add_control(
 
 // 2 columns notice
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'notice_cart_2_columns',
 		array(
@@ -79,7 +79,7 @@ $wp_customize->add_control(
 
 // ------
 $wp_customize->add_control(
-	new Suki_Customize_Control_HR(
+	new Suki_Customize_HR_Control(
 		$wp_customize,
 		'hr_woocommerce_cart_cross_sells',
 		array(
@@ -100,7 +100,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -167,7 +167,7 @@ $wp_customize->add_control(
 
 // Heading: Page Settings.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_page_settings_woocommerce_cart',
 		array(

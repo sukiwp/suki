@@ -19,7 +19,7 @@ $section = 'suki_section_color_palette';
 
 // Heading: Elementor Integration.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_color_palette_elementor',
 		array(
@@ -33,7 +33,7 @@ $wp_customize->add_control(
 
 // Apply to Elementor color picker.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Blank(
+	new Suki_Customize_FreeText_Control(
 		$wp_customize,
 		'apply_color_palette_to_elementor',
 		array(

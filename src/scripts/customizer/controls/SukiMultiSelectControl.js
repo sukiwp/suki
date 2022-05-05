@@ -1,9 +1,9 @@
 /**
- * Multi Select control (using React)
+ * Multi Select control (React)
  */
 
-import SukiControlLabel from "../components/SukiControlLabel";
-import SukiControlDescription from "../components/SukiControlDescription";
+import SukiControlLabel from '../components/SukiControlLabel';
+import SukiControlDescription from '../components/SukiControlDescription';
  
 import {
 	__experimentalHStack as HStack,
@@ -11,8 +11,6 @@ import {
 	__experimentalItemGroup as ItemGroup,
 	Button,
 } from '@wordpress/components';
-
-import { __ } from '@wordpress/i18n';
 
 wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 	renderContent: function() {
@@ -61,7 +59,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 										<span>{ value }</span>
 										<Button
 											isSmall
-											label={ __( 'Remove', 'suki' ) }
+											label={ SukiCustomizerData.l10n.remove }
 											showTooltip
 											className="suki-multiselect-item__remove"
 											onClick={ () => {
@@ -89,7 +87,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 						value=""
 						disabled
 					>
-						{ __( '＋ Add new', 'suki' ) }
+						{ SukiCustomizerData.l10n.addNew }
 					</option>
 
 					{ control.params.choices.map( ( choice, i ) => {

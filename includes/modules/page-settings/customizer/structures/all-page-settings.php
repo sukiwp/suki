@@ -30,19 +30,14 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 	 */
 
 	// Heading: Page Settings.
-	$heading = esc_html__( 'Page Settings', 'suki' );
-	if ( false !== strpos( $page_type_key, '_single' ) ) {
-		/* translators: %s: Custom Post Type singular name. */
-		$heading .= ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . sprintf( esc_attr__( 'You can override these options on each individual %s.', 'suki' ), $post_type_obj->labels->singular_name ) . '"><span class="dashicons dashicons-admin-site-alt3"></span></span>';
-	}
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Heading(
+		new Suki_Customize_Heading_Control(
 			$wp_customize,
 			'heading_' . $page_type_key . '_page_settings',
 			array(
 				'section'  => $section,
 				'settings' => array(),
-				'label'    => $heading,
+				'label'    => esc_html__( 'Page Settings', 'suki' ),
 				'priority' => 100,
 			)
 		)
@@ -78,13 +73,13 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 
 		// Info.
 		$wp_customize->add_control(
-			new Suki_Customize_Control_Blank(
+			new Suki_Customize_Notice_Control(
 				$wp_customize,
 				'notice_' . $option_prefix . '_sidebar_on_narrow_layout',
 				array(
 					'section'     => $section,
 					'settings'    => array(),
-					'description' => '<div class="notice notice-info notice-alt inline"><p>' . esc_html__( 'Narrow content layout doesn\'t support Sidebar.', 'suki' ) . '</p></div>',
+					'description' => esc_html__( 'Narrow content layout doesn\'t support Sidebar.', 'suki' ),
 					'priority'    => 100,
 				)
 			)
@@ -118,7 +113,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 
 		// ------
 		$wp_customize->add_control(
-			new Suki_Customize_Control_HR(
+			new Suki_Customize_HR_Control(
 				$wp_customize,
 				'hr_' . $page_type_key . '_hero',
 				array(
@@ -240,7 +235,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 
 		// ------
 		$wp_customize->add_control(
-			new Suki_Customize_Control_HR(
+			new Suki_Customize_HR_Control(
 				$wp_customize,
 				'hr_' . $page_type_key . '_header',
 				array(
@@ -302,7 +297,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 
 	// ------
 	$wp_customize->add_control(
-		new Suki_Customize_Control_HR(
+		new Suki_Customize_HR_Control(
 			$wp_customize,
 			'hr_' . $page_type_key . '_footer',
 			array(

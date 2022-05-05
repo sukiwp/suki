@@ -32,7 +32,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 
 	// Heading: Content Header.
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Heading(
+		new Suki_Customize_Heading_Control(
 			$wp_customize,
 			'heading_' . $page_type_key . '_content_header',
 			array(
@@ -85,7 +85,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 		)
 	);
 	$wp_customize->add_control(
-		new Suki_Customize_Control_RadioImage(
+		new Suki_Customize_RadioImage_Control(
 			$wp_customize,
 			$key,
 			array(
@@ -166,7 +166,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 	if ( strpos( $page_type_key, '_single' ) && post_type_supports( $post_type_slug, 'thumbnail' ) ) {
 		// Heading: Featured Image.
 		$wp_customize->add_control(
-			new Suki_Customize_Control_Heading(
+			new Suki_Customize_Heading_Control(
 				$wp_customize,
 				'heading_' . $page_type_key . '_content_thumbnail',
 				array(
@@ -214,7 +214,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 			)
 		);
 		$wp_customize->add_control(
-			new Suki_Customize_Control_Toggle(
+			new Suki_Customize_Toggle_Control(
 				$wp_customize,
 				$key,
 				array(

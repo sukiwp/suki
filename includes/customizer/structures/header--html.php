@@ -20,7 +20,7 @@ $section = 'suki_section_header_html';
 
 // Heading: HTML.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_html_1',
 		array(

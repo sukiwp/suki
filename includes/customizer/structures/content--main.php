@@ -20,7 +20,7 @@ $section = 'suki_section_main';
 
 // Heading: Layout.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_content_main_layout',
 		array(
@@ -124,7 +124,7 @@ $wp_customize->add_control(
 
 // Heading: Colors.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_content_main_colors',
 		array(

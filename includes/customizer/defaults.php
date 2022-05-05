@@ -272,7 +272,6 @@ $add['header_top_bar_merged_gap'] = '';
 $add['header_top_bar_container'] = 'wide';
 $add['header_top_bar_height']    = '50px';
 $add['header_top_bar_padding']   = '0px 20px 0px 20px';
-$add['header_top_bar_border']    = '0px 0px 0px 0px';
 
 $add['header_top_bar_menu_highlight'] = 'none';
 
@@ -287,7 +286,6 @@ $add['header_top_bar_icon_size'] = '18px';
 $add['header_main_bar_container'] = 'wide';
 $add['header_main_bar_height']    = '90px';
 $add['header_main_bar_padding']   = '0px 20px 0px 20px';
-$add['header_main_bar_border']    = '0px 0px 0px 0px';
 
 $add['header_main_bar_menu_highlight'] = 'none';
 
@@ -305,7 +303,6 @@ $add['header_bottom_bar_merged_gap'] = '0px';
 $add['header_bottom_bar_container'] = 'wide';
 $add['header_bottom_bar_height']    = '50px';
 $add['header_bottom_bar_padding']   = '0px 20px 0px 20px';
-$add['header_bottom_bar_border']    = '0px 0px 0px 0px';
 
 $add['header_bottom_bar_menu_highlight'] = 'none';
 
@@ -319,7 +316,6 @@ $add['header_bottom_bar_icon_size'] = '18px';
 
 $add['header_mobile_main_bar_height']          = '60px';
 $add['header_mobile_main_bar_padding__tablet'] = '0px 20px 0px 20px';
-$add['header_mobile_main_bar_border']          = '0px 0px 0px 0px';
 
 $add['header_mobile_main_bar_icon_size'] = '18px';
 
@@ -350,7 +346,6 @@ $add['hero'] = 1;
 
 $add['hero_container'] = 'inherit';
 $add['hero_padding']   = '60px 20px 60px 20px';
-$add['hero_border']    = '0px 0px 0px 0px';
 
 $add['hero_bg_color'] = 'var(--color-palette-7)';
 
@@ -372,9 +367,6 @@ $add['content_padding']   = '80px 20px 80px 20px';
  * ====================================================
  */
 
-$add['content_main_padding'] = '0px 0px 0px 0px';
-$add['content_main_border']  = '0px 0px 0px 0px';
-
 /**
  * ====================================================
  * Content > Sidebar
@@ -385,10 +377,6 @@ $add['sidebar_width'] = '25%';
 $add['sidebar_gap']   = '60px';
 
 $add['sidebar_widgets_mode'] = 'merged';
-
-$add['sidebar_padding']       = '0px 0px 0px 0px';
-$add['sidebar_border']        = '0px 0px 0px 0px';
-$add['sidebar_border_radius'] = '0px';
 
 $add['sidebar_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 
@@ -412,7 +400,6 @@ $add['footer_elements_bottom_right']  = array();
 
 $add['footer_widgets_bar_container'] = 'wide';
 $add['footer_widgets_bar_padding']   = '60px 20px 60px 20px';
-$add['footer_widgets_bar_border']    = '0px 0px 0px 0px';
 
 $add['footer_widgets_bar_widget_title_tag']        = 'h2';
 $add['footer_widgets_bar_widget_title_alignment']  = 'left';
@@ -431,7 +418,6 @@ $add['footer_bottom_bar_merged_gap'] = '0px';
 
 $add['footer_bottom_bar_container'] = 'wide';
 $add['footer_bottom_bar_padding']   = '25px 20px 25px 20px';
-$add['footer_bottom_bar_border']    = '0px 0px 0px 0px';
 
 $add['footer_bottom_bar_bg_color'] = 'var(--color-palette-7)';
 

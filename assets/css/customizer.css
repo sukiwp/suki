@@ -85,20 +85,6 @@
 	--transition-duration: 0.25s;
 }
 
-/**
- * Basic customize control
- */
-.customize-control {
-	position: relative;
-}
-.customize-control select {
-	margin: 0;
-	line-height: 28px;
-}
-.customize-control .notice {
-	margin: 0;
-}
-
 .description .dashicons {
 	width: auto;
 	height: auto;
@@ -133,15 +119,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-}
-
-.suki-flex-fieldset {
-	position: relative;
-	display: flex;
-	gap: 5px;
-}
-.suki-flex-fieldset > * {
-	flex-basis: 100%;
 }
 
 .suki-context-hidden {
@@ -234,21 +211,64 @@
 }
 
 /**
+ * Notice inside control
+ */
+.customize-control {
+	position: relative;
+}
+.customize-control .notice {
+	margin: 0;
+}
+
+/**
+ * Label
+ */
+.customize-control-title {
+	display: inline-block;
+}
+
+/**
+ * Form row
+ */
+.suki-row {
+	position: relative;
+	display: flex;
+	gap: 2px;
+}
+.suki-row > * {
+	flex-basis: 100%;
+}
+
+/**
  * Dimension
  */
+.suki-dimension {
+	gap: 2px;
+}
 .suki-dimension input {
 	text-align: right;
+}
+.suki-dimension > .components-flex-item {
+	width: 100%;
+	max-width: none;
+	text-align: center;
+}
+.suki-dimension > .components-flex-item label {
+	font-size: 9px;
+	text-transform: uppercase;
 }
 
 /**
  * React colorful
  */
 .components-color-picker .react-colorful {
+	width: 275px !important;
+}
+.components-color-picker .react-colorful__hue, .components-color-picker .react-colorful__alpha {
 	width: 100% !important;
 }
-.components-color-picker .react-colorful .react-colorful__hue,
-.components-color-picker .react-colorful .react-colorful__alpha {
-	width: 100%;
+.components-color-picker .react-colorful__saturation {
+	height: 155px !important;
 }
 .components-color-picker .react-colorful + div {
 	padding: 0;
@@ -265,7 +285,7 @@
 }
 
 /**
- * Color dropdown
+ * Color select dropdown
  */
 .suki-color-dropdown ~ .popover-slot .components-popover__content > div {
 	padding: 12px;
@@ -287,8 +307,8 @@
 .suki-color-dropdown .suki-color-indicator {
 	position: absolute;
 	inset: 2px;
-	width: 32px;
-	height: 20px;
+	width: calc(100% - 4px);
+	height: calc(100% - 4px);
 	margin: 0;
 	border: none;
 	border-radius: inherit;
@@ -311,6 +331,45 @@
 	line-height: 1;
 	color: var(--admin-color--strong-text);
 	background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 50%);
+}
+.suki-color-dropdown__palette .components-circular-option-picker__swatches {
+	gap: 6px;
+}
+.suki-color-dropdown__palette .components-circular-option-picker__option-wrapper {
+	width: 24px;
+	height: 24px;
+}
+.suki-color-dropdown__palette .components-circular-option-picker__option:focus:after {
+	width: 28px;
+	height: 28px;
+}
+.suki-color-dropdown__palette .components-circular-option-picker__option.is-pressed + svg {
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 24px;
+}
+.suki-color-dropdown__custom {
+	padding-left: 8px;
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.suki-color-dropdown__custom__toggle {
+	padding: 2px !important;
+	width: 24px !important;
+	min-width: auto !important;
+	border-radius: 50%;
+	transition: transform 100ms ease;
+}
+.suki-color-dropdown__custom__toggle .dashicons {
+	font-size: 14px;
+	line-height: 20px;
+	margin: 0 !important;
+}
+.suki-color-dropdown__custom__toggle:hover {
+	transform: scale(1.2);
+}
+.suki-color-dropdown__picker {
+	width: 100% !important;
 }
 
 /**
@@ -440,69 +499,33 @@
 	right: 0;
 }
 
-.customize-control-suki-color-select .suki-color-select-palette .components-circular-option-picker__swatches {
-	gap: 6px;
-}
-.customize-control-suki-color-select .suki-color-select-palette .components-circular-option-picker__option-wrapper {
-	width: 24px;
-	height: 24px;
-}
-.customize-control-suki-color-select .suki-color-select-palette .components-circular-option-picker__option:focus:after {
-	width: 28px;
-	height: 28px;
-}
-.customize-control-suki-color-select .suki-color-select-palette .components-circular-option-picker__option.is-pressed + svg {
-	top: 0;
-	left: 0;
-	width: 24px;
-	height: 24px;
-}
-.customize-control-suki-color-select .suki-color-select-custom {
-	padding-left: 8px;
-	border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-.customize-control-suki-color-select .suki-color-select-custom button {
-	padding: 2px;
-	width: 24px;
-	min-width: auto;
-	border-radius: 50%;
-	transition: transform 100ms ease;
-}
-.customize-control-suki-color-select .suki-color-select-custom button .dashicons {
-	font-size: 14px;
-	line-height: 20px;
-	margin: 0 !important;
-}
-.customize-control-suki-color-select .suki-color-select-custom button:hover {
-	transform: scale(1.2);
-}
-.customize-control-suki-color-select .suki-color-select-custom__picker {
-	width: 100%;
-}
-
 /**
- * Dimension Control
+ * Heading Control
  */
-.customize-control-suki-dimension .suki-dimension {
-	width: 25%;
+.customize-control-suki-heading {
+	margin: 32px 0 12px;
 }
-
-/**
- * Dimensions Control
- */
-.customize-control-suki-dimensions .suki-responsive-container > * {
-	max-width: none;
-	padding: 0;
+.customize-control-suki-heading .suki-heading {
+	position: relative;
+	margin: 0 -12px;
+	padding: 10px 12px;
+	background-color: rgba(0, 0, 0, 0.1);
+	color: inherit;
+	outline: 0;
+	transition: all 0.25s;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
 }
-.customize-control-suki-dimensions .component-box-control__header {
-	display: none;
+.customize-control-suki-heading .suki-heading-tabindex:focus + .suki-heading {
+	background-color: var(--admin-color--primary);
+	color: #fff;
 }
-.customize-control-suki-dimensions .component-box-control__input-controls-wrapper {
-	position: absolute;
-	top: 0;
-	left: 24px;
-	width: calc(100% - 24px - 44px);
-	padding: 0;
+.customize-control-suki-heading .description {
+	margin-top: 12px;
+}
+.customize-section-description-container + .customize-control-suki-heading {
+	margin-top: 0;
 }
 
 /**
@@ -514,6 +537,43 @@
 	min-width: auto;
 	margin: -3px 0;
 	font-size: 14px;
+}
+
+/**
+ * Radio Image Control
+ */
+.customize-control-suki-radioimage .suki-radioimage__option {
+	padding: 2px;
+	height: auto;
+	min-height: 30px;
+}
+.customize-control-suki-radioimage .suki-radioimage__option:not(.is-pressed) {
+	background-color: rgba(0, 0, 0, 0.1);
+	color: inherit;
+}
+.customize-control-suki-radioimage .suki-radioimage__option:not(.is-pressed):hover, .customize-control-suki-radioimage .suki-radioimage__option:not(.is-pressed):focus {
+	background-color: rgba(0, 0, 0, 0.15);
+	color: inherit;
+}
+.customize-control-suki-radioimage .suki-radioimage__option img {
+	border-radius: 2px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.customize-control-suki-radioimage .suki-radioimage__option span {
+	padding: 2px 0;
+}
+
+/**
+ * Shadow Control
+ */
+.customize-control-suki-shadow .suki-shadow__position-toggle {
+	min-width: 24px;
+	height: 30px;
+	width: 24px;
+	padding: 2px;
+}
+.customize-control-suki-shadow .suki-shadow .suki-color-dropdown {
+	flex: 0 0 36px;
 }
 
 /**
@@ -591,85 +651,6 @@
 }
 
 /**
- * Heading Control
- */
-.customize-control-suki-heading {
-	margin: 32px 0 12px;
-}
-.customize-control-suki-heading .suki-heading {
-	position: relative;
-	margin: 0 -12px;
-	padding: 10px 12px;
-	background-color: rgba(0, 0, 0, 0.1);
-	color: inherit;
-	outline: 0;
-	transition: all 0.25s;
-	font-size: 13px;
-	font-weight: 600;
-	text-transform: uppercase;
-}
-.customize-control-suki-heading .suki-heading-tabindex:focus + .suki-heading {
-	background-color: var(--admin-color--primary);
-	color: #fff;
-}
-.customize-control-suki-heading .description {
-	margin-top: 12px;
-}
-.customize-section-description-container + .customize-control-suki-heading {
-	margin-top: 0;
-}
-
-/**
- * Radio Image Control
- */
-.customize-control-suki-radioimage .suki-radioimage-list {
-	--columns: 1;
-	display: grid;
-	grid-template-columns: repeat(var(--columns), 1fr);
-	gap: 5px;
-}
-.customize-control-suki-radioimage .suki-radioimage-list.suki-radioimage-columns-2 {
-	--columns: 2;
-}
-.customize-control-suki-radioimage .suki-radioimage-list.suki-radioimage-columns-3 {
-	--columns: 3;
-}
-.customize-control-suki-radioimage .suki-radioimage-list.suki-radioimage-columns-4 {
-	--columns: 4;
-}
-.customize-control-suki-radioimage .suki-radioimage-list label {
-	position: relative;
-	display: block;
-	padding: 2px;
-	box-sizing: border-box;
-	background-color: var(--admin-color--border);
-	color: #fff;
-	outline: 0;
-	border-radius: 3px;
-}
-.customize-control-suki-radioimage .suki-radioimage-list label > img {
-	display: block;
-	width: 100%;
-	border-radius: 2px;
-}
-.customize-control-suki-radioimage .suki-radioimage-list label > span {
-	display: block;
-	padding: 2px 0;
-	font-size: 0.85em;
-	font-weight: 500;
-	text-align: center;
-}
-.customize-control-suki-radioimage .suki-radioimage-list label > img + span {
-	margin-top: 2px;
-}
-.customize-control-suki-radioimage .suki-radioimage-list input {
-	display: none;
-}
-.customize-control-suki-radioimage .suki-radioimage-list input:checked + label {
-	background-color: var(--admin-color--primary);
-}
-
-/**
  * Typography Control
  */
 .customize-control-suki-typography .suki-responsive-switcher {
@@ -709,73 +690,6 @@
 }
 .customize-control-suki-slider .suki-dimension {
 	flex: 0 0 80px;
-}
-
-/**
- * Shadow Control
- */
-.customize-control-suki-shadow .suki-small-label {
-	text-align: center;
-}
-.customize-control-suki-shadow .wp-picker-container {
-	display: table;
-	margin-left: auto;
-}
-.customize-control-suki-shadow .wp-picker-container .wp-color-result.button {
-	position: absolute !important;
-	top: 0;
-	right: 0;
-	margin: 0;
-	width: 30px;
-	height: 30px;
-	min-height: auto;
-	border: none;
-	border-radius: 0 3px 3px 0 !important;
-	background-size: 12px 12px;
-	background-position: 0 0, 6px 6px;
-	background-image: linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa);
-}
-.customize-control-suki-shadow .wp-picker-container .wp-color-result.button:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	border-radius: 0 3px 3px 0 !important;
-	background-color: inherit;
-	box-shadow: inset 0 0 0 1px #7e8993;
-}
-.customize-control-suki-shadow .wp-picker-container .wp-color-result.button:focus:before {
-	box-shadow: inset 0 0 0 1px #7e8993, 0 0 0 1px var(--admin-color--primary);
-}
-.customize-control-suki-shadow .wp-picker-container .wp-color-result-text {
-	display: none;
-}
-.customize-control-suki-shadow .wp-picker-container .wp-picker-input-wrap {
-	display: none;
-	position: relative;
-	padding-right: 60px;
-	margin-top: 6px;
-}
-.customize-control-suki-shadow .wp-picker-container .wp-picker-input-wrap label, .customize-control-suki-shadow .wp-picker-container .wp-picker-input-wrap .wp-color-picker {
-	width: 100% !important;
-}
-.customize-control-suki-shadow .wp-picker-container .wp-picker-input-wrap .button {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 56px;
-}
-.customize-control-suki-shadow .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
-	display: block;
-}
-.customize-control-suki-shadow .wp-picker-container .wp-picker-holder {
-	display: none;
-	margin-top: 6px;
-}
-.customize-control-suki-shadow .wp-picker-container.wp-picker-active .wp-picker-holder {
-	display: block;
 }
 
 /**
@@ -833,13 +747,6 @@
 .customize-control-suki-sortable .suki-sortable .sortable-placeholder {
 	border: none;
 	margin: 0;
-}
-
-/**
- * Dimensions Control
- */
-.customize-control-suki-dimensions .suki-small-label {
-	text-align: center;
 }
 
 /**

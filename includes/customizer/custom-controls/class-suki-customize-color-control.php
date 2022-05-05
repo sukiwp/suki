@@ -1,6 +1,6 @@
 <?php
 /**
- * Suki Customizer's Color control (React)
+ * Customizer custom control: Color
  *
  * @package Suki
  */
@@ -14,7 +14,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 	/**
 	 * Color control class
 	 */
-	class Suki_Customize_Color_Control extends Suki_Customize_Control {
+	class Suki_Customize_Color_Control extends Suki_Customize_React_Control {
 		/**
 		 * Control type.
 		 *

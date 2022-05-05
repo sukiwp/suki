@@ -44,15 +44,6 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 	},
 
 	/**
-	 * Render the control into the DOM.
-	 *
-	 * This is called from the Control#embed() method in the parent class.
-	 *
-	 * @returns {void}
-	 */
-	renderContent: function() {},
-
-	/**
 	 * After control has been first rendered, start re-rendering when setting changes.
 	 *
 	 * React is able to be used here instead of the wp.customize.Element abstraction.
@@ -65,10 +56,6 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 		/**
 		 * Update component value's state when customizer setting's value is changed.
 		 */
-
-		// control.setting.bind( ( val ) => {
-		// 	control.renderContent( val );
-		// } );
 
 		Object.keys( control.settings ).forEach( ( settingKey ) => {
 			control.settings[ settingKey ].bind( ( val ) => {
@@ -92,7 +79,7 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 		ReactDOM.unmountComponentAtNode( control.container[0] );
 
 		// Call destroy method in parent if it exists (as of #31334).
-		if (wp.customize.Control.prototype.destroy) {
+		if ( wp.customize.Control.prototype.destroy ) {
 			wp.customize.Control.prototype.destroy.call( control );
 		}
 	},

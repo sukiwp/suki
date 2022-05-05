@@ -858,7 +858,6 @@ function suki_get_all_fonts() {
 		'suki/dataset/all_fonts',
 		array(
 			'web_safe_fonts' => suki_get_web_safe_fonts(),
-			'custom_fonts'   => array(),
 		)
 	);
 

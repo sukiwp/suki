@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer custom control: Horizontal Line
+ * Customizer custom control: HR (horizontal line)
  *
  * @package Suki
  */
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_Control_HR' ) ) {
+if ( class_exists( 'Suki_Customize_Control' ) && ! class_exists( 'Suki_Customize_HR_Control' ) ) {
 	/**
 	 * Horizontal line control class
 	 */
-	class Suki_Customize_Control_HR extends WP_Customize_Control {
+	class Suki_Customize_HR_Control extends Suki_Customize_Control {
 		/**
 		 * Control type.
 		 *

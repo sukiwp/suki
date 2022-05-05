@@ -128,7 +128,7 @@ $wp_customize->add_control(
 
 // Heading: Entry Wrapper.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_entry_grid_item',
 		array(
@@ -270,7 +270,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -289,7 +289,7 @@ $wp_customize->add_control(
 
 // Heading: Entry Header.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_entry_grid_header',
 		array(
@@ -339,7 +339,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -387,7 +387,7 @@ $wp_customize->add_control(
 
 // Heading: Entry Thumbnail.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_entry_grid_thumbnail',
 		array(
@@ -453,7 +453,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Toggle(
+	new Suki_Customize_Toggle_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -472,7 +472,7 @@ $wp_customize->add_control(
 
 // Heading: Entry Content.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_entry_grid_content',
 		array(
@@ -566,7 +566,7 @@ $wp_customize->add_control(
 
 // Heading: Entry Footer.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_entry_grid_meta',
 		array(
@@ -615,7 +615,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_RadioImage(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
 		$key,
 		array(
@@ -663,7 +663,7 @@ $wp_customize->add_control(
 
 // Heading: Colors.
 $wp_customize->add_control(
-	new Suki_Customize_Control_Heading(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_entry_grid_colors',
 		array(
@@ -713,13 +713,13 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Shadow(
+	new Suki_Customize_Shadow_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Shadow', 'suki' ),
-			'exclude'  => array( 'position' ),
+			'props'    => array( 'h_offset', 'v_offset', 'blur', 'spread', 'color' ),
 			'priority' => 80,
 		)
 	)
