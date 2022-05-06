@@ -455,12 +455,12 @@ foreach ( $settings as $setting ) {
 		$setting,
 		array(
 			'default'           => suki_array_value( $defaults, $setting ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'background' ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
 		)
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Background(
+	new Suki_Customize_Background_Control(
 		$wp_customize,
 		$key,
 		array(

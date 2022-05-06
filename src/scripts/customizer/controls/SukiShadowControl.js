@@ -15,7 +15,7 @@ import {
 	Button,
 } from '@wordpress/components';
 
-wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -79,7 +79,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
 							return propValueUnit === item.value
 						} );
 
-						return(
+						return (
 							<UnitControl
 								key={ prop }
 								label={ SukiCustomizerData.l10n[ prop ] }
@@ -121,6 +121,6 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-shadow'] = wp.customize.SukiShadowControl;

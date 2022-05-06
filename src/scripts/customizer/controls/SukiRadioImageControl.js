@@ -11,7 +11,7 @@ import {
 	Button
 } from '@wordpress/components';
 
-wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -65,6 +65,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-radioimage'] = wp.customize.SukiDimensionsControl;

@@ -2,7 +2,7 @@
  * Base react control.
  */
 
-wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
+wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 	/**
 	 * Initialize.
 	 *
@@ -83,4 +83,4 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend({
 			wp.customize.Control.prototype.destroy.call( control );
 		}
 	},
-});
+} );

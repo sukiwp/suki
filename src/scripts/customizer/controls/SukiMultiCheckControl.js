@@ -10,7 +10,7 @@ import {
 	CheckboxControl,
 } from '@wordpress/components';
 
-wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -90,6 +90,6 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend({
 
 		control.setting.set( valueArray );
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-multicheck'] = wp.customize.SukiMultiCheckControl;

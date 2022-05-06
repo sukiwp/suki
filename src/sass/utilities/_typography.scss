@@ -6,7 +6,7 @@
 $sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
 @each $size in $sizes {
 	.has-#{$size}-font-size {
-		line-height: var(--wp--custom--line-height--#{$size});
+		line-height: var(--wp--custom--line-height--#{$size} );
 	}
 }
 

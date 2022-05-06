@@ -130,13 +130,13 @@ class Suki_Customizer {
 		 */
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-slider.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-background.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-sortable.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php';
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-react-control.php';
 
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-background-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-color-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-color-select-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-dimension-control.php';
@@ -258,22 +258,37 @@ class Suki_Customizer {
 					'previewContexts' => $this->get_preview_contexts(),
 					'fonts'           => suki_get_all_fonts(),
 					'l10n'            => array(
+						/**
+						 * General
+						 */
+						'default'       => esc_html__( 'Default', 'suki' ),
+						'reset'         => esc_html__( 'Reset', 'suki' ),
+						'custom'        => esc_html__( 'Custom', 'suki' ),
+
+						/**
+						 * Multi-select
+						 */
 						'addNew'        => esc_html__( 'Add New', 'suki' ),
 						'remove'        => esc_html__( 'Remove', 'suki' ),
 
+						/**
+						 * Dimension
+						 */
 						'top'           => esc_html__( 'Top', 'suki' ),
 						'right'         => esc_html__( 'Right', 'suki' ),
 						'bottom'        => esc_html__( 'Bottom', 'suki' ),
 						'left'          => esc_html__( 'Left', 'suki' ),
 
+						/**
+						 * Responsive
+						 */
 						'dekstop'       => esc_html__( 'Desktop', 'suki' ),
 						'tablet'        => esc_html__( 'Tablet', 'suki' ),
 						'mobile'        => esc_html__( 'Mobile', 'suki' ),
 
-						'default'       => esc_html__( 'Default', 'suki' ),
-						'reset'         => esc_html__( 'Reset', 'suki' ),
-						'custom'        => esc_html__( 'Custom', 'suki' ),
-
+						/**
+						 * Shadow
+						 */
 						'x'             => esc_html__( 'X axis', 'suki' ),
 						'y'             => esc_html__( 'Y axis', 'suki' ),
 						'blur'          => esc_html__( 'Blur', 'suki' ),
@@ -281,10 +296,16 @@ class Suki_Customizer {
 						'innerShadow'   => esc_html__( 'Inner shadow', 'suki' ),
 						'outerShadow'   => esc_html__( 'Outer shadow', 'suki' ),
 
+						/**
+						 * Color
+						 */
 						/* translators: %d: color number. */
 						'themeColor$d'  => esc_html__( 'Theme Color %d', 'suki' ),
 						'notSet'        => esc_html__( 'Not set', 'suki' ),
 
+						/**
+						 * Typography
+						 */
 						'fontFamily'    => esc_html__( 'Family', 'suki' ),
 						'fontWeight'    => esc_html__( 'Weight', 'suki' ),
 						'fontStyle'     => esc_html__( 'Style', 'suki' ),
@@ -311,27 +332,38 @@ class Suki_Customizer {
 						'lowercase'     => esc_html__( 'Lowercase', 'suki' ),
 						'capitalize'    => esc_html__( 'Capitalize', 'suki' ),
 
+						/**
+						 * Background
+						 */
+						'attachment'    => esc_html__( 'Attachment', 'suki' ),
 						'scroll'        => esc_html__( 'Scroll', 'suki' ),
 						'fixed'         => esc_html__( 'Fixed', 'suki' ),
 
+						'repeat'        => esc_html__( 'Repeat', 'suki' ),
 						'noRepeat'      => esc_html__( 'No repeat', 'suki' ),
 						'repeatX'       => esc_html__( 'Repeat horizontally', 'suki' ),
 						'repeatY'       => esc_html__( 'Repeat vertically', 'suki' ),
-						'repeat'        => esc_html__( 'Repeat both', 'suki' ),
+						'repeatBoth'    => esc_html__( 'Repeat both', 'suki' ),
 
+						'size'          => esc_html__( 'Size', 'suki' ),
 						'auto'          => esc_html__( 'Auto', 'suki' ),
 						'cover'         => esc_html__( 'Cover', 'suki' ),
 						'contain'       => esc_html__( 'Contain', 'suki' ),
 
-						'left top'      => esc_html__( 'Left top', 'suki' ),
-						'left center'   => esc_html__( 'Left center', 'suki' ),
-						'left bottom'   => esc_html__( 'Left bottom', 'suki' ),
-						'center top'    => esc_html__( 'Center top', 'suki' ),
-						'center center' => esc_html__( 'Center center', 'suki' ),
-						'center bottom' => esc_html__( 'Center bottom', 'suki' ),
-						'right top'     => esc_html__( 'Right top', 'suki' ),
-						'right center'  => esc_html__( 'Right center', 'suki' ),
-						'right bottom'  => esc_html__( 'Right bottom', 'suki' ),
+						'position'      => esc_html__( 'Position', 'suki' ),
+						'leftTop'       => esc_html__( 'Left top', 'suki' ),
+						'leftCenter'    => esc_html__( 'Left center', 'suki' ),
+						'leftBottom'    => esc_html__( 'Left bottom', 'suki' ),
+						'centerTop'     => esc_html__( 'Center top', 'suki' ),
+						'centerCenter'  => esc_html__( 'Center center', 'suki' ),
+						'centerBottom'  => esc_html__( 'Center bottom', 'suki' ),
+						'rightTop'      => esc_html__( 'Right top', 'suki' ),
+						'rightCenter'   => esc_html__( 'Right center', 'suki' ),
+						'rightBottom'   => esc_html__( 'Right bottom', 'suki' ),
+
+						'selectImage'   => esc_html__( 'Select image', 'suki' ),
+						'removeImage'   => esc_html__( 'Remove image', 'suki' ),
+						'changeImage'   => esc_html__( 'Change image', 'suki' ),
 					),
 				)
 			),
@@ -421,7 +453,7 @@ class Suki_Customizer {
 							}
 						} );
 					}
-				});
+				} );
 			})();
 		</script>
 		<?php

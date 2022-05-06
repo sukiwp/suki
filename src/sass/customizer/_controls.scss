@@ -34,6 +34,23 @@
 }
 
 /**
+ * Background control
+ */
+
+.customize-control-suki-background {
+	.suki-media-upload {
+		&__image {
+			margin-bottom: 16px;
+
+			img {
+				max-height: 200px;
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+/**
  * Color control
  */
 
@@ -201,10 +218,6 @@
 			height: 1px;
 			align-self: center;
 		}
-	}
-
-	.components-flex {
-		gap: 2px;
 	}
 }
 

@@ -7,7 +7,7 @@ import SukiControlDescription from '../components/SukiControlDescription';
 
 import SukiColorSelectDropdown from '../components/SukiColorSelectDropdown';
 
-wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -40,6 +40,6 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-color-select'] = wp.customize.SukiColorSelectControl;

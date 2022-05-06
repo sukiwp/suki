@@ -35,9 +35,9 @@ $colors: ( "black", "white", "cyan-bluish-gray", "pale-pink", "vivid-red", "lumi
 	@each $color in $colors {
 		.has-#{$color}-#{$type} {
 			@if color == $type {
-				--text-#{$type}: var(--wp--preset--color--#{$color});
+				--text-#{$type}: var(--wp--preset--color--#{$color} );
 			} @else {
-				--#{$type}: var(--wp--preset--color--#{$color});
+				--#{$type}: var(--wp--preset--color--#{$color} );
 			}
 		}
 	}

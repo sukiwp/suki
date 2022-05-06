@@ -64,7 +64,7 @@
 									    unit = part.replace( number, '' );
 
 									newParts[ i ] = ( number * scale ).toString() + unit;
-								});
+								} );
 
 								// Build new value.
 								value = newParts.join( ' ' );
@@ -85,7 +85,7 @@
 							var concat_value = [];
 							_.each( value, function( valueItem, key ) {
 								concat_value.push( rule['pattern'].replace( '$', valueItem ) );
-							});
+							} );
 							formattedValue = concat_value.join( ' ' );
 						}
 					} else {
@@ -99,7 +99,7 @@
 
 					// Save the value into a formatted array.
 					cssArray[ rule['media'] ][ rule['element'] ][ rule['property'] ] = formattedValue;
-				});
+				} );
 
 				// Loop into the sorted array to build CSS string.
 				_.each( cssArray, function( elements, media ) {
@@ -108,11 +108,11 @@
 						css += element + '{';
 						_.each( properties, function( value, property ) {
 							css += property + ':' + value + ';';
-						});
+						} );
 						css += '}';
-					});
+					} );
 					if ( 'global' !== media ) css += '}';
-				});
+				} );
 
 			}
 
@@ -145,8 +145,8 @@
 					} else {
 						element.className += ' ' + formattedValue;
 					}
-				});
-			});
+				} );
+			} );
 		},
 
 		/**
@@ -169,8 +169,8 @@
 					} else {
 						element.innerHTML = formattedValue;
 					}
-				});
-			});
+				} );
+			} );
 		},
 
 		/**
@@ -211,17 +211,17 @@
 					if ( undefined == sortedPostMessages[ type ] ) sortedPostMessages[ type ] = [];
 
 					sortedPostMessages[ type ].push( rule );
-				});
+				} );
 
 				wp.customize( key, function( setting ) {
 					setting.bind(function( value ) {
 						_.each( sortedPostMessages, function( rule, type ) {
 							var functionName = 'postMessage_'.concat( type );
 							sukiCustomizer[ functionName ]( key, rule, value );
-						});
-					});
-				});
-			});
+						} );
+					} );
+				} );
+			} );
 		}
 	}
 

@@ -19,14 +19,20 @@
 }
 
 /**
- * Control's component label
+ * Control's component
  */
 
-.customize-control {
-	.components-input-control__label {
-		font-size: 9px;
-		text-transform: uppercase;
-		padding: 0 !important;
+.components-base-control {
+	&__field {
+		.components-flex {
+			gap: 2px;
+		}
+
+		.components-input-control__label {
+			font-size: 9px;
+			text-transform: uppercase;
+			padding: 0 !important;
+		}
 	}
 }
 
@@ -43,7 +49,8 @@
  */
 
 .customize-control-title {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 }
 
 /**
@@ -65,8 +72,6 @@
  */
 
 .suki-dimension {
-	gap: 2px;
-
 	input {
 		text-align: right;
 	}

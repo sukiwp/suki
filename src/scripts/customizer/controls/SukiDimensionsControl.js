@@ -14,7 +14,7 @@ import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
-wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -57,9 +57,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 					} )
 					
 					return (
-						/**
-						 * @todo onChange is triggered twice when value is not ''.
-						 */
 						<SukiControlResponsiveContainer
 							key={ device }
 							device={ device }
@@ -79,7 +76,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 										return subValueUnit === item.value
 									} );
 
-									return(
+									return (
 										<UnitControl
 											key={ device + '-' + i }
 											label={ directions[i] }
@@ -128,6 +125,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-dimensions'] = wp.customize.SukiDimensionsControl;

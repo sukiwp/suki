@@ -3,6 +3,7 @@ import './controls/SukiControl';
 import './controls/SukiReactControl';
 
 // Custom controls
+import './controls/SukiBackgroundControl';
 import './controls/SukiColorControl';
 import './controls/SukiColorSelectControl';
 import './controls/SukiDimensionControl';

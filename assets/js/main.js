@@ -238,8 +238,8 @@
 
 						// Apply vertical max-height.
 						$subsubmenu.style.maxHeight = ( window.innerHeight - $subsubmenu.getBoundingClientRect().top ) + 'px';
-					});
-				});
+					} );
+				} );
 			}
 
 			window.addEventListener( 'resize', calculateSubMenuEdge, false );
@@ -275,7 +275,7 @@
 			$menuLinks.forEach(function( $menuLink ) {
 				$menuLink.addEventListener( 'focus', handleMenuFocusUsingKeyboard, true );
 				$menuLink.addEventListener( 'blur', handleMenuFocusUsingKeyboard, true );
-			});
+			} );
 
 			/**
 			 * Accesibility using arrow nav buttons
@@ -386,7 +386,7 @@
 					var $focusedMenuItems = Array.prototype.slice.call( $header.querySelectorAll( '.menu-item.focus' ) );
 					$focusedMenuItems.forEach(function( $focusedMenuItem ) {
 						$focusedMenuItem.classList.remove( 'focus' );
-					});
+					} );
 
 					$menuItem.classList.add( 'focus' );
 					$this.setAttribute( 'aria-expanded', true );
@@ -426,7 +426,7 @@
 						$focusedMenuItems.forEach(function( $focusedMenuItem ) {
 							$focusedMenuItem.classList.remove( 'focus' );
 							$clickedToggle.setAttribute( 'aria-expanded', false );
-						});
+						} );
 					}
 				}
 			};
@@ -460,7 +460,7 @@
 					$insideMenuItems.forEach(function( $insideMenuItem ) {
 						window.sukiHelper.slideUp( $insideMenuItem.querySelector( '.sub-menu' ) );
 						$insideMenuItem.classList.remove( 'focus' );
-					});
+					} );
 				}
 				// Menu item doesn't have "focus" class yet, so collapses all focused siblings and focuses this menu item.
 				else {
@@ -468,7 +468,7 @@
 					$siblingMenuItems.forEach(function( $siblingMenuItem ) {
 						window.sukiHelper.slideUp( $siblingMenuItem.querySelector( '.sub-menu' ) );
 						$siblingMenuItem.classList.remove( 'focus' );
-					});
+					} );
 
 					window.sukiHelper.slideDown( $subMenu );
 					$menuItem.classList.add( 'focus' );
@@ -519,7 +519,7 @@
 					if ( document.body.classList.contains( 'using-keyboard' ) ) {
 						$clickedToggle.focus();
 					}
-				});
+				} );
 			}
 
 			// Show / hide popup when the toggle is clicked.
@@ -642,7 +642,7 @@
 						window.scrollTo({
 							top: $target.getBoundingClientRect().top,
 							behavior: 'smooth',
-						});
+						} );
 					}
 				}
 				document.addEventListener( 'click', handleScrollToTop, false );

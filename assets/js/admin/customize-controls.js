@@ -50,14 +50,14 @@
 		if ( 13 == e.which ) {
 			inputNumberValidation( e );
 		}
-	});
+	} );
 	// Disable mousewheel scroll when input is in focus.
 	$( '#customize-controls' ).on( 'focus', 'input[type="number"]', function( e ) {
-		$( this ).on( 'mousewheel.disableScroll', function ( e ) { e.preventDefault(); });
-	});
+		$( this ).on( 'mousewheel.disableScroll', function ( e ) { e.preventDefault(); } );
+	} );
 	$( '#customize-controls' ).on( 'blur', 'input[type="number"]', function( e ) {
 		$( this ).off( 'mousewheel.disableScroll' );
-	});
+	} );
 
 	/**
 	 * Dimension field handler
@@ -74,7 +74,7 @@
 		$number.attr( 'max', $unitChoice.attr( 'data-max' ) );
 		$number.attr( 'step', $unitChoice.attr( 'data-step' ) );
 		$number.val( '' ).trigger( 'change' );
-	});
+	} );
 
 	$( '#customize-controls' ).on( 'change', '.suki-dimension-number', function( e ) {
 		var $number = $( e.target ),
@@ -83,7 +83,7 @@
 		    $value = $scope.find( '.suki-dimension-value' );
 
 		$value.val( '' === $number.val() ? '' : $number.val().toString() + $unit.val().toString() ).trigger( 'change' );
-	});
+	} );
 
 	/**
 	 * Contentless sections like: suki-section-spacer, suki-section-pro-teaser, suki-section-pro-link
@@ -91,19 +91,19 @@
 	wp.customize.sectionConstructor['suki-section-pro-teaser'] =
 	wp.customize.sectionConstructor['suki-section-pro-link'] =
 	wp.customize.sectionConstructor['suki-section-pro-locked'] =
-	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend({
+	wp.customize.sectionConstructor['suki-section-spacer'] = wp.customize.Section.extend( {
 		// No events for this type of section.
 		attachEvents: function () {},
 		// Always make the section active.
 		isContextuallyActive: function () {
 			return true;
 		}
-	});
+	} );
 
 	/**
 	 * Suki color control
 	 */
-	wp.customize.controlConstructor['suki-color'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-color'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this,
 				$picker = control.container.find( '.color-picker' );
@@ -115,14 +115,14 @@
 				clear: function() {
 					control.setting.set( '' );
 				},
-			});
+			} );
 		}
-	});
+	} );
 
 	/**
 	 * Suki shadow control
 	 */
-	wp.customize.controlConstructor['suki-shadow'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-shadow'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this;
 
@@ -132,7 +132,7 @@
 			control.container.find( '.suki-shadow-color .color-picker' ).alphaColorPicker({
 				change: control.updateValue,
 				clear: control.updateValue,
-			});
+			} );
 
 			control.container.on( 'change blur', '.suki-shadow-input', control.updateValue );
 		},
@@ -154,12 +154,12 @@
 
 			this.setting( values.join( ' ' ) );
 		},
-	});
+	} );
 
 	/**
 	 * Suki slider control
 	 */
-	wp.customize.controlConstructor['suki-slider'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-slider'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this;
 
@@ -187,12 +187,12 @@
 
 			$number.val( $range.val() ).trigger( 'change', [ true ] );
 		},
-	});
+	} );
 	
 	/**
 	 * Suki dimensions control
 	 */
-	wp.customize.controlConstructor['suki-dimensions'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-dimensions'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this;
 
@@ -213,16 +213,16 @@
 				} else {
 					values.push( this.value.toString() );
 				}
-			});
+			} );
 
 			$scope.find( '.suki-dimensions-value' ).val( values.join( ' ' ) ).trigger( 'change' );
 		},
-	});
+	} );
 	
 	/**
 	 * Suki background control
 	 */
-	wp.customize.controlConstructor['suki-background'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-background'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this;
 
@@ -257,7 +257,7 @@
 						date: false,
 					}),
 				],
-			});
+			} );
 
 			// When a file is selected, run a callback.
 			this.mediaLibrary.on( 'select', this.onSelectMediaLibrary );
@@ -297,12 +297,12 @@
 			this.settings.image.set( '' );
 			this.renderContent(); // Not bound to setting change when emptying.
 		},
-	});
+	} );
 	
 	/**
 	 * Suki multiple checkboxes control
 	 */
-	wp.customize.controlConstructor['suki-multicheck'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-multicheck'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this,
 			    $checkboxes = control.container.find( '.suki-multicheck-input' );
@@ -314,17 +314,17 @@
 					if ( this.checked ) {
 						value.push( this.value );
 					}
-				});
+				} );
 
 				control.setting.set( value );
-			});
+			} );
 		}
-	});
+	} );
 
 	/**
 	 * Suki sortable control
 	 */
-	wp.customize.controlConstructor['suki-sortable'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-sortable'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this,
 			    $sortable = control.container[0].querySelector( '.suki-sortable' ),
@@ -344,13 +344,13 @@
 						value: serializedItem.node.dataset.value,
 					};
 				}
-			});
+			} );
 
 			$sortable.addEventListener( 'sortupdate', control.updateValue, false );
 
 			$checkboxes.forEach(function( $checkbox ) {
 				$checkbox.addEventListener( 'change', control.updateValue, false );
-			});
+			} );
 		},
 
 		updateValue: function( e ) {
@@ -360,7 +360,7 @@
 			// Filter only checked items.
 			var checkedItems = serialized[0].items.filter( function( item ) {
 				return item.checked;
-			});
+			} );
 
 			// Build value.
 			var value = [];
@@ -370,12 +370,12 @@
 
 			this.setting.set( value );
 		},
-	});
+	} );
 
 	/**
 	 * Suki builder control
 	 */
-	wp.customize.controlConstructor['suki-builder'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['suki-builder'] = wp.customize.Control.extend( {
 		ready: function() {
 			var control = this;
 
@@ -393,7 +393,7 @@
 
 				$elements.each(function() {
 					value.push( $( this ).attr( 'data-value' ) );
-				});
+				} );
 
 				if ( null !== control.settings ) {
 					control.settings[ location ].set( value );
@@ -419,7 +419,7 @@
 				if ( 13 == e.which || 32 == e.which ) {
 					$( this ).trigger( 'click' );
 				}
-			});
+			} );
 
 			// Expand inactive panel.
 			control.container.on( 'click', '.suki-builder-element-add', function( e ) {
@@ -434,7 +434,7 @@
 				} else {
 					control.builderInactive.addClass( 'show' ).insertAfter( $location );
 				}
-			});
+			} );
 
 			// Add element to nearby location.
 			control.container.on( 'click', '.suki-builder-inactive .suki-builder-element', function( e ) {
@@ -450,7 +450,7 @@
 					control.updateValue( $location.attr( 'data-location' ) );
 					control.showHideAddButton();
 				}
-			});
+			} );
 
 			// Delete element from location.
 			control.container.on( 'click', '.suki-builder-element-delete', function( e ) {
@@ -462,7 +462,7 @@
 				$element.prependTo( control.builderInactive.children( '.suki-builder-sortable-panel' ) );
 				control.updateValue( $location.attr( 'data-location' ) );
 				control.showHideAddButton();
-			});
+			} );
 
 			// Initialize sortable.
 			control.container.find( '.suki-builder-sortable-panel' ).sortable({
@@ -498,7 +498,7 @@
 			})
 			.disableSelection();
 		}
-	});
+	} );
 
 	/**
 	 * API on ready event handlers
@@ -516,7 +516,7 @@
 			e.preventDefault();
 
 			wp.customize.previewedDevice.set( $( this ).attr( 'data-device' ) );
-		});
+		} );
 
 		// Set all custom responsive toggles and fieldsets.
 		var setCustomResponsiveElementsDisplay = function() {
@@ -537,7 +537,7 @@
 		// This is required to set responsive elements on newly added controls inside the section.
 		wp.customize.section.each(function ( section ) {
 			section.expanded.bind( setCustomResponsiveElementsDisplay );
-		});
+		} );
 
 		/**
 		 * Event handler for links to set preview URL.
@@ -552,7 +552,7 @@
 			if ( url !== wp.customize.previewer.previewUrl() ) {
 				wp.customize.previewer.previewUrl( url );
 			}
-		});
+		} );
 
 		/**
 		 * Event handler for links to jump to a certain control / section.
@@ -575,7 +575,7 @@
 			else if ( targetPanel ) {
 				wp.customize.panel( targetPanel ).focus();
 			}
-		});
+		} );
 
 		/**
 		 * Controls dependencies / contexts.
@@ -671,9 +671,9 @@
 							// Bind the setting for future use.
 							ruleSettingObj.bind( setVisibility );
 						}
-					});
-				});
-			});
+					} );
+				} );
+			} );
 		}
 
 		/**
@@ -683,9 +683,9 @@
 			var $section = $( '.control-section.suki-builder-active' );
 
 			if ( 1324 <= window.innerWidth && $body.hasClass( 'suki-has-builder-active' ) && 0 < $section.length && ! $section.hasClass( 'suki-hide' ) ) {
-				wp.customize.previewer.container.css({ "bottom" : $section.outerHeight() + 'px' });
+				wp.customize.previewer.container.css({ "bottom" : $section.outerHeight() + 'px' } );
 			} else {
-				wp.customize.previewer.container.css({ "bottom" : "" });
+				wp.customize.previewer.container.css({ "bottom" : "" } );
 			}
 		}
 		$window.on( 'resize', resizePreviewer );
@@ -693,7 +693,7 @@
 			setTimeout(function() {
 				resizePreviewer();
 			}, 250 );
-		});
+		} );
 
 		/**
 		 * Page Settings
@@ -712,7 +712,7 @@
 						}
 					} );
 				} );
-			});
+			} );
 		}
 		initPagePreviewBinding();
 
@@ -734,7 +734,7 @@
 					
 					// Fire event after control is initialized.
 					control.container.trigger( 'init' );
-				});
+				} );
 
 				if ( isExpanded ) {
 					$body.addClass( 'suki-has-builder-active' );
@@ -745,7 +745,7 @@
 				}
 
 				resizePreviewer();
-			});
+			} );
 
 			// Attach callback to builder toggle.
 			$section.on( 'click', '.suki-builder-toggle', function( e ) {
@@ -753,11 +753,11 @@
 				$section.toggleClass( 'suki-hide' );
 
 				resizePreviewer();
-			});
+			} );
 
 			$section.find( '.suki-builder-sortable-panel' ).on( 'sortover', function( e, ui ) {
 				resizePreviewer();
-			});
+			} );
 
 			var moveHeaderFooterBuilder = function() {
 				if ( 1324 <= window.innerWidth ) {
@@ -812,19 +812,19 @@
 						if ( $location ) {
 							$location.appendTo( $areaLocations );
 						}
-					});
+					} );
 
 					if ( 0 < $areaLocations.children().length ) {
 						$area.appendTo( $group );
 						$areaLabel.appendTo( $area );
 						$areaLocations.appendTo( $area );
 					}
-				});
+				} );
 
 				if ( 0 < $group.children().length ) {
 					$group.appendTo( $groupWrapper );
 				}
-			});
+			} );
 
 			// Element on click jump to element options.
 			$control.on( 'click', '.suki-builder-location .suki-builder-element > span', function( e ) {
@@ -835,7 +835,7 @@
 				    targetControl = wp.customize.control( targetKey );
 
 				if ( targetControl ) targetControl.focus();
-			});
+			} );
 
 			// Group edit button on click jump to group section.
 			$control.on( 'click', '.suki-builder-area-label', function( e ) {
@@ -845,7 +845,7 @@
 				    targetSection = wp.customize.section( targetKey );
 
 				if ( targetSection ) targetSection.focus();
-			});
+			} );
 		};
 		if ( wp.customize.control( 'header_elements' ) ) {
 			wp.customize.control( 'header_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
@@ -857,5 +857,5 @@
 			wp.customize.control( 'footer_elements' ).container.on( 'init', initHeaderFooterBuilderElements );
 		}
 
-	});
+	} );
 })( wp, jQuery );

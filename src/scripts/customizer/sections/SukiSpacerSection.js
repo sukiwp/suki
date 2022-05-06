@@ -2,7 +2,7 @@
  * Spacer section
  */
 
-wp.customize.SukiSpacerSection = wp.customize.Section.extend({
+wp.customize.SukiSpacerSection = wp.customize.Section.extend( {
 	// No events for this type of section.
 	attachEvents: function () {},
 
@@ -10,6 +10,6 @@ wp.customize.SukiSpacerSection = wp.customize.Section.extend({
 	isContextuallyActive: function () {
 		return true;
 	}
-});
+} );
 
 wp.customize.sectionConstructor['suki-spacer'] = wp.customize.SukiSpacerSection;

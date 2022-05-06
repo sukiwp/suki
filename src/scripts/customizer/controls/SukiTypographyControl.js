@@ -16,7 +16,7 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 
-wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -88,12 +88,12 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
 						<VStack
 							spacing="2"
 						>
-							{ control.settings[ 'font_family' ] &&
+							{ control.settings.font_family &&
 								<SelectControl
 									label={ SukiCustomizerData.l10n.fontFamily }
-									value={ control.settings[ 'font_family' ].get() }
+									value={ control.settings.font_family.get() }
 									onChange={ ( fontFamily ) => {
-										control.settings[ 'font_family' ].set( fontFamily );
+										control.settings.font_family.set( fontFamily );
 									} }
 								>
 									{ Object.keys( SukiCustomizerData.fonts ).map( ( groupLabel ) => {
@@ -122,35 +122,35 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
 								columns="3"
 								gap="2"
 							>
-								{ control.settings[ 'font_weight' ] &&
+								{ control.settings.font_weight &&
 									<SelectControl
 										label={ SukiCustomizerData.l10n.fontWeight }
-										value={ control.settings[ 'font_weight' ].get() }
+										value={ control.settings.font_weight.get() }
 										options={ fontWeightOptions }
 										onChange={ ( fontWeight ) => {
-											control.settings[ 'font_weight' ].set( fontWeight );
+											control.settings.font_weight.set( fontWeight );
 										} }
 									/>
 								}
 
-								{ control.settings[ 'font_style' ] &&
+								{ control.settings.font_style &&
 									<SelectControl
 										label={ SukiCustomizerData.l10n.fontStyle }
-										value={ control.settings[ 'font_style' ].get() }
+										value={ control.settings.font_style.get() }
 										options={ fontStyleOptions }
 										onChange={ ( fontStyle ) => {
-											control.settings[ 'font_style' ].set( fontStyle );
+											control.settings.font_style.set( fontStyle );
 										} }
 									/>
 								}
 
-								{ control.settings[ 'text_transform' ] &&
+								{ control.settings.text_transform &&
 									<SelectControl
 										label={ SukiCustomizerData.l10n.textTransform }
-										value={ control.settings[ 'text_transform' ].get() }
+										value={ control.settings.text_transform.get() }
 										options={ textTransformOptions }
 										onChange={ ( textTransform ) => {
-											control.settings[ 'text_transform' ].set( textTransform );
+											control.settings.text_transform.set( textTransform );
 										} }
 									/>
 								}
@@ -163,7 +163,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
 								const lineHeightSettingId = 'line_height' + ( 'desktop' !== device ? '__' + device : '' );
 								const letterSpacingSettingId = 'letter_spacing' + ( 'desktop' !== device ? '__' + device : '' );
 
-								return(
+								return (
 									<SukiControlResponsiveContainer
 										key={ device }
 										device={ device }
@@ -231,6 +231,6 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-typography'] = wp.customize.SukiTypographyControl;

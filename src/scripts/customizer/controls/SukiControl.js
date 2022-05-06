@@ -4,7 +4,7 @@
  * @ref https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
  */
 
-wp.customize.SukiControl = wp.customize.Control.extend({
+wp.customize.SukiControl = wp.customize.Control.extend( {
 
 	initialize: function( id, options ) {
 		var control = this, args;
@@ -58,8 +58,8 @@ wp.customize.SukiControl = wp.customize.Control.extend({
 				control.elements.push( element );
 				element.sync( setting );
 				element.set( setting() );
-			});
-		});
+			} );
+		} );
 
 	},
 
@@ -111,7 +111,7 @@ wp.customize.SukiControl = wp.customize.Control.extend({
 					element.set( newValue[ propertyName ] );
 				}
 			} );
-		});
+		} );
 	},
 
 	/**
@@ -186,4 +186,4 @@ wp.customize.SukiControl = wp.customize.Control.extend({
 		control.actuallyEmbed();
 		wp.customize.Control.prototype.focus.call( control, args );
 	},
-});
+} );

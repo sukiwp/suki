@@ -151,7 +151,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 						<span class="suki-responsive-switcher">
 							<# _.each( data.responsiveStructures, function( setting_key, device ) { #>
 								<span class="suki-responsive-switcher-button preview-{{ device }}" data-device="{{ device }}"><span class="dashicons dashicons-{{ 'mobile' === device ? 'smartphone' : device }}"></span></span>
-							<# }); #>
+							<# } ); #>
 						</span>
 					<# } #>
 				</span>
@@ -168,12 +168,12 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 							<select class="suki-slider-unit suki-dimension-unit" style="{{ data.hideUnites ? 'display: none;' : '' }}">
 								<# _.each( data.units, function( unit_data, unit ) { #>
 									<option value="{{ unit }}" {{ unit == data.settingsData[ setting_key ].unit ? 'selected' : '' }} data-min="{{ unit_data.min }}" data-max="{{ unit_data.max }}" data-step="{{ unit_data.step }}">{{{ unit_data.label }}}</option>
-								<# }); #>
+								<# } ); #>
 							</select>
 							<input type="hidden" class="suki-dimension-value" value="{{ data.settingsData[ setting_key ].value }}" {{{ data.settingsData[ setting_key ].link }}}>
 						</div>
 					</div>
-				<# }); #>
+				<# } ); #>
 			</div>
 			<?php
 		}

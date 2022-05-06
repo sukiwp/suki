@@ -238,8 +238,8 @@ class Suki_Compatibility_Elementor {
 
 						$button.prop( 'disabled', null );
 						$button.removeClass( 'disabled' );
-					});
-				});
+					} );
+				} );
 			})( jQuery );
 		</script>
 		<?php

@@ -80,7 +80,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 								<span class="suki-sortable-item-handle dashicons dashicons-move"></span>
 							</div>
 						</li>
-					<# }); #>
+					<# } ); #>
 					<# _.each( data.choices, function( label, item ) { #>
 						<# if ( 0 <= data.value.indexOf( item ) ) return; #>
 						<li class="suki-sortable-item" data-value="{{ item }}">
@@ -95,7 +95,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 								<span class="suki-sortable-item-handle dashicons dashicons-move"></span>
 							</div>
 						</li>
-					<# }); #>
+					<# } ); #>
 				</ul>
 			</div>
 			<?php

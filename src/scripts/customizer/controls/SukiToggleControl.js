@@ -7,7 +7,7 @@ import SukiControlDescription from '../components/SukiControlDescription';
 
 import { FormToggle } from '@wordpress/components';
 
-wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -37,6 +37,6 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-toggle'] = wp.customize.SukiToggleControl;

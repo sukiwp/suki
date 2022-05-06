@@ -17,7 +17,7 @@ import {
 	Tooltip,
 } from '@wordpress/components';
 
-wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -97,6 +97,6 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-color'] = wp.customize.SukiColorControl;

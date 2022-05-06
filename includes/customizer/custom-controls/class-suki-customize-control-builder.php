@@ -156,14 +156,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 									#><li class="suki-builder-element button button-secondary" data-value="{{ item }}" tabindex="0" data-limitations="{{ limitations }}">
 										<span>{{{ data.choices[ item ] }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 									</li><#
-								}); #>
+								} ); #>
 							</ul>
 							<span class="suki-builder-element-add" tabindex="0">
 								<span class="dashicons dashicons-plus-alt"></span>
 								<span class="screen-reader-text"><?php esc_html_e( 'Add element', 'suki' ); ?></span>
 							</span>
 						</div>
-					<# }); #>
+					<# } ); #>
 				</div>
 				<div class="suki-builder-inactive" data-location="__inactive">
 					<ul class="suki-builder-sortable-panel" data-connect="{{ data.name }}">
@@ -175,7 +175,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Suki_Customize_C
 									<span>{{{ label }}}</span><a href="#" class="suki-builder-element-delete"><span class="dashicons dashicons-no-alt"></span></a>
 								</li><#
 							}
-						}); #>
+						} ); #>
 						<li class="suki-builder-no-more-items"><?php esc_html_e( 'No more items to add', 'suki' ); ?></li>
 					</ul>
 				</div>

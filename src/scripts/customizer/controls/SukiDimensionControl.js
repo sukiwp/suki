@@ -14,7 +14,7 @@ import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
-wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -82,6 +82,6 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 			control.container[0]
 		);
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-dimension'] = wp.customize.SukiDimensionControl;

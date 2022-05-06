@@ -62,7 +62,7 @@ if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_S
 					<ul>
 						<# _.each( data.features, function( feature, i ) { #>
 							<li>{{{ feature }}}</li>
-						<# }); #>
+						<# } ); #>
 					</ul>
 				<# } #>
 			</li>

@@ -12,7 +12,7 @@ import {
 	Button,
 } from '@wordpress/components';
 
-wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
+wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend( {
 	renderContent: function() {
 		const control = this;
 
@@ -46,7 +46,7 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 						} }
 					>
 						{ valueArray.map( ( value ) => {
-							return(
+							return (
 								<Item
 									key={ value }
 									data-value={ value }
@@ -141,6 +141,6 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 
 		control.setting.set( valueArray );
 	},
-});
+} );
 
 wp.customize.controlConstructor['suki-multiselect'] = wp.customize.SukiMultiSelectControl;

@@ -50,12 +50,12 @@
 			frame.on( 'select', function() {
 				var file = frame.state().get( 'selection' ).first().toJSON();
 				$input.val( file.url );
-			});
+			} );
 
 			frame.open();
 
 			$control.data( 'wpmedia', frame );
-		});
+		} );
 
 		if ( $.fn.select2 ) {
 			$( '.suki-admin-multiselect-control' ).select2();
@@ -89,8 +89,8 @@
 						if ( found ) $setting.show();
 						break;
 				}
-			});
-		});
+			} );
+		} );
 		$( '.suki-admin-dependent-field' ).trigger( 'change' );
 
 		/**
@@ -115,10 +115,10 @@
 					$panels.children( '.suki-admin-metabox-panel.active' ).removeClass( 'active' );
 					$target.addClass( 'active' );
 				}
-			});
+			} );
 
 			$metabox.trigger( 'suki-admin-metabox.ready', this );
-		});
+		} );
 
 		/**
 		 * Rating notice close button
@@ -139,15 +139,15 @@
 					repeat_after: repeat,
 					_ajax_nonce: SukiAdminData.ajax_nonce,
 				},
-			});
+			} );
 
 			// Always remove the notice on current page.
 			$notice.fadeTo( 100, 0, function() {
 				$notice.slideUp( 100, function() {
 					$notice.remove();
-				});
-			});
-		});
+				} );
+			} );
+		} );
 
 		/**
 		 * "Suki Sites Import" plugin installation from theme's dashboard page.
@@ -179,8 +179,8 @@
 				} else {
 					alert( SukiAdminData.strings.error_installing_plugin );
 				}
-			});
-		});
-	});
+			} );
+		} );
+	} );
 	
 })( jQuery );
