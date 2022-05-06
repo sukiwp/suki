@@ -1,3 +1,3 @@
 import './customizer/sections';
 import './customizer/controls';
-import './customizer/responsive';
+import './customizer/contexts';

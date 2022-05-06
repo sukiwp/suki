@@ -249,6 +249,110 @@ function SukiControlResponsiveSwitcher(props) {
 
 /***/ }),
 
+/***/ "./src/scripts/customizer/contexts.js":
+/*!********************************************!*\
+  !*** ./src/scripts/customizer/contexts.js ***!
+  \********************************************/
+/***/ (function() {
+
+wp.customize.bind('ready', function () {
+  Object.keys(SukiCustomizerData.contexts).forEach(function (elementId) {
+    var elementType = 0 === elementId.indexOf('suki_section') ? 'section' : 'control';
+    wp.customize[elementType](elementId, function (elementObj) {
+      SukiCustomizerData.contexts[elementId].forEach(function (rule, i) {
+        var settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize(rule.setting);
+
+        var setVisibility = function setVisibility(checkedValue) {
+          var displayed = false;
+
+          if (undefined == rule.operator || '=' == rule.operator) {
+            rule.operator = '==';
+          }
+
+          switch (rule.operator) {
+            case '>':
+              displayed = checkedValue > rule.value;
+              break;
+
+            case '<':
+              displayed = checkedValue < rule.value;
+              break;
+
+            case '>=':
+              displayed = checkedValue >= rule.value;
+              break;
+
+            case '<=':
+              displayed = checkedValue <= rule.value;
+              break;
+
+            case 'in':
+              displayed = 0 <= rule.value.indexOf(checkedValue);
+              break;
+
+            case 'not_in':
+              displayed = 0 > rule.value.indexOf(checkedValue);
+              break;
+
+            case 'contain':
+              displayed = 0 <= checkedValue.indexOf(rule.value);
+              break;
+
+            case 'not_contain':
+              displayed = 0 > checkedValue.indexOf(rule.value);
+              break;
+
+            case '!=':
+              displayed = checkedValue != rule.value;
+              break;
+
+            case 'empty':
+              displayed = 0 == checkedValue.length;
+              break;
+
+            case '!empty':
+              displayed = 0 < checkedValue.length;
+              break;
+
+            default:
+              displayed = checkedValue == rule.value;
+              break;
+          }
+
+          var container = elementObj.container;
+
+          if ('section' === elementType) {
+            container = elementObj.headContainer;
+          }
+
+          if (displayed) {
+            container.show();
+            container.removeClass('suki-context-hidden');
+          } else {
+            container.hide();
+            container.addClass('suki-context-hidden');
+
+            if ('section' === elementType && elementObj.expanded()) {
+              elementObj.collapse();
+            }
+          }
+        };
+
+        if (undefined !== settingObj) {
+          if ('__device' !== rule.setting) {
+            setVisibility(settingObj.get());
+          } // Bind the setting for future use.
+
+
+          settingObj.bind(setVisibility);
+        }
+      });
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./src/scripts/customizer/controls.js":
 /*!********************************************!*\
   !*** ./src/scripts/customizer/controls.js ***!
@@ -1756,25 +1860,6 @@ wp.customize.controlConstructor['suki-typography'] = wp.customize.SukiTypography
 
 /***/ }),
 
-/***/ "./src/scripts/customizer/responsive.js":
-/*!**********************************************!*\
-  !*** ./src/scripts/customizer/responsive.js ***!
-  \**********************************************/
-/***/ (function() {
-
-/**
- * Handle suki-responsive-switcher
- */
-wp.customize.bind('ready', function () {
-  document.addEventListener('click', function (e) {
-    var $button = e.target.closest('.suki-responsive-switcher__button');
-    if (!$button) return;
-    wp.customize.previewedDevice.set($button.getAttribute('data-device') || 'desktop');
-  }, true);
-});
-
-/***/ }),
-
 /***/ "./src/scripts/customizer/sections.js":
 /*!********************************************!*\
   !*** ./src/scripts/customizer/sections.js ***!
@@ -2257,8 +2342,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customizer_sections__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customizer/sections */ "./src/scripts/customizer/sections.js");
 /* harmony import */ var _customizer_controls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customizer/controls */ "./src/scripts/customizer/controls.js");
-/* harmony import */ var _customizer_responsive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customizer/responsive */ "./src/scripts/customizer/responsive.js");
-/* harmony import */ var _customizer_responsive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_customizer_responsive__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _customizer_contexts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customizer/contexts */ "./src/scripts/customizer/contexts.js");
+/* harmony import */ var _customizer_contexts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_customizer_contexts__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
