@@ -211,6 +211,13 @@
 }
 
 /**
+ * Control
+ */
+.customize-control {
+	margin-bottom: 16px;
+}
+
+/**
  * Notice inside control
  */
 .customize-control {
@@ -218,6 +225,22 @@
 }
 .customize-control .notice {
 	margin: 0;
+}
+
+/**
+ * Control's component label
+ */
+.customize-control .components-input-control__label {
+	font-size: 9px;
+	text-transform: uppercase;
+	padding: 0 !important;
+}
+
+/**
+ * SelectControl
+ */
+.components-select-control__input {
+	line-height: normal !important;
 }
 
 /**
@@ -251,11 +274,6 @@
 .suki-dimension > .components-flex-item {
 	width: 100%;
 	max-width: none;
-	text-align: center;
-}
-.suki-dimension > .components-flex-item label {
-	font-size: 9px;
-	text-transform: uppercase;
 }
 
 /**
@@ -500,6 +518,13 @@
 }
 
 /**
+ * Dimensions control
+ */
+.customize-control-suki-dimensions .suki-dimension > .components-flex-item {
+	text-align: center;
+}
+
+/**
  * Heading Control
  */
 .customize-control-suki-heading {
@@ -575,6 +600,9 @@
 .customize-control-suki-shadow .suki-shadow .suki-color-dropdown {
 	flex: 0 0 36px;
 }
+.customize-control-suki-shadow .suki-shadow .suki-dimension > .components-flex-item {
+	text-align: center;
+}
 
 /**
  * Toggle Control
@@ -586,6 +614,20 @@
 	position: absolute;
 	top: 3px;
 	left: 0;
+}
+
+/**
+ * Typography Control
+ */
+.customize-control-suki-typography .suki-responsive-switcher:after {
+	content: "";
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	flex: 1 1 100%;
+	height: 1px;
+	align-self: center;
+}
+.customize-control-suki-typography .components-flex {
+	gap: 2px;
 }
 
 /**
@@ -648,23 +690,6 @@
 }
 .control-section-suki-section-pro-link .accordion-section-title:hover, .control-section-suki-section-pro-link .accordion-section-title:focus {
 	border-right-color: #a61011 !important;
-}
-
-/**
- * Typography Control
- */
-.customize-control-suki-typography .suki-responsive-switcher {
-	position: relative;
-	text-align: left;
-}
-.customize-control-suki-typography .suki-responsive-switcher:before {
-	content: "";
-	position: absolute;
-	right: 0;
-	top: 50%;
-	width: calc(100% - 60px);
-	height: 1px;
-	background-color: var(--admin-color--border);
 }
 
 /**

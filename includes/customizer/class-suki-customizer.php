@@ -130,7 +130,6 @@ class Suki_Customizer {
 		 */
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-slider.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-typography.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-background.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-sortable.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php';
@@ -151,6 +150,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-radioimage-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-shadow-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-toggle-control.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-typography-control.php';
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php';
 	}
@@ -258,31 +258,80 @@ class Suki_Customizer {
 					'previewContexts' => $this->get_preview_contexts(),
 					'fonts'           => suki_get_all_fonts(),
 					'l10n'            => array(
-						'addNew'       => esc_html__( 'Add New', 'suki' ),
-						'remove'       => esc_html__( 'Remove', 'suki' ),
+						'addNew'        => esc_html__( 'Add New', 'suki' ),
+						'remove'        => esc_html__( 'Remove', 'suki' ),
 
-						'top'          => esc_html__( 'Top', 'suki' ),
-						'right'        => esc_html__( 'Right', 'suki' ),
-						'bottom'       => esc_html__( 'Bottom', 'suki' ),
-						'left'         => esc_html__( 'Left', 'suki' ),
+						'top'           => esc_html__( 'Top', 'suki' ),
+						'right'         => esc_html__( 'Right', 'suki' ),
+						'bottom'        => esc_html__( 'Bottom', 'suki' ),
+						'left'          => esc_html__( 'Left', 'suki' ),
 
-						'dekstop'      => esc_html__( 'Desktop', 'suki' ),
-						'tablet'       => esc_html__( 'Tablet', 'suki' ),
-						'mobile'       => esc_html__( 'Mobile', 'suki' ),
+						'dekstop'       => esc_html__( 'Desktop', 'suki' ),
+						'tablet'        => esc_html__( 'Tablet', 'suki' ),
+						'mobile'        => esc_html__( 'Mobile', 'suki' ),
 
-						'reset'        => esc_html__( 'Reset', 'suki' ),
-						'custom'       => esc_html__( 'Custom', 'suki' ),
+						'default'       => esc_html__( 'Default', 'suki' ),
+						'reset'         => esc_html__( 'Reset', 'suki' ),
+						'custom'        => esc_html__( 'Custom', 'suki' ),
 
-						'x'            => esc_html__( 'X axis', 'suki' ),
-						'y'            => esc_html__( 'Y axis', 'suki' ),
-						'blur'         => esc_html__( 'Blur', 'suki' ),
-						'spread'       => esc_html__( 'Spread', 'suki' ),
-						'innerShadow'  => esc_html__( 'Inner shadow', 'suki' ),
-						'outerShadow'  => esc_html__( 'Outer shadow', 'suki' ),
+						'x'             => esc_html__( 'X axis', 'suki' ),
+						'y'             => esc_html__( 'Y axis', 'suki' ),
+						'blur'          => esc_html__( 'Blur', 'suki' ),
+						'spread'        => esc_html__( 'Spread', 'suki' ),
+						'innerShadow'   => esc_html__( 'Inner shadow', 'suki' ),
+						'outerShadow'   => esc_html__( 'Outer shadow', 'suki' ),
 
 						/* translators: %d: color number. */
-						'themeColor$d' => esc_html__( 'Theme Color %d', 'suki' ),
-						'notSet'       => esc_html__( 'Not set', 'suki' ),
+						'themeColor$d'  => esc_html__( 'Theme Color %d', 'suki' ),
+						'notSet'        => esc_html__( 'Not set', 'suki' ),
+
+						'fontFamily'    => esc_html__( 'Family', 'suki' ),
+						'fontWeight'    => esc_html__( 'Weight', 'suki' ),
+						'fontStyle'     => esc_html__( 'Style', 'suki' ),
+						'textTransform' => esc_html__( 'Transform', 'suki' ),
+						'fontSize'      => esc_html__( 'Size', 'suki' ),
+						'lineHeight'    => esc_html__( 'Line Height', 'suki' ),
+						'letterSpacing' => esc_html__( 'Spacing', 'suki' ),
+
+						'weight100'     => esc_html__( 'Thin' ),
+						'weight200'     => esc_html__( 'Extra Light', 'suki' ),
+						'weight300'     => esc_html__( 'Light', 'suki' ),
+						'weight400'     => esc_html__( 'Regular', 'suki' ),
+						'weight500'     => esc_html__( 'Medium', 'suki' ),
+						'weight600'     => esc_html__( 'Semi Bold', 'suki' ),
+						'weight700'     => esc_html__( 'Bold', 'suki' ),
+						'weight800'     => esc_html__( 'Extra Bold', 'suki' ),
+						'weight900'     => esc_html__( 'Black', 'suki' ),
+
+						'normal'        => esc_html__( 'Normal', 'suki' ),
+						'italic'        => esc_html__( 'Italic', 'suki' ),
+
+						'none'          => esc_html__( 'None', 'suki' ),
+						'uppercase'     => esc_html__( 'Uppercase', 'suki' ),
+						'lowercase'     => esc_html__( 'Lowercase', 'suki' ),
+						'capitalize'    => esc_html__( 'Capitalize', 'suki' ),
+
+						'scroll'        => esc_html__( 'Scroll', 'suki' ),
+						'fixed'         => esc_html__( 'Fixed', 'suki' ),
+
+						'noRepeat'      => esc_html__( 'No repeat', 'suki' ),
+						'repeatX'       => esc_html__( 'Repeat horizontally', 'suki' ),
+						'repeatY'       => esc_html__( 'Repeat vertically', 'suki' ),
+						'repeat'        => esc_html__( 'Repeat both', 'suki' ),
+
+						'auto'          => esc_html__( 'Auto', 'suki' ),
+						'cover'         => esc_html__( 'Cover', 'suki' ),
+						'contain'       => esc_html__( 'Contain', 'suki' ),
+
+						'left top'      => esc_html__( 'Left top', 'suki' ),
+						'left center'   => esc_html__( 'Left center', 'suki' ),
+						'left bottom'   => esc_html__( 'Left bottom', 'suki' ),
+						'center top'    => esc_html__( 'Center top', 'suki' ),
+						'center center' => esc_html__( 'Center center', 'suki' ),
+						'center bottom' => esc_html__( 'Center bottom', 'suki' ),
+						'right top'     => esc_html__( 'Right top', 'suki' ),
+						'right center'  => esc_html__( 'Right center', 'suki' ),
+						'right bottom'  => esc_html__( 'Right bottom', 'suki' ),
 					),
 				)
 			),

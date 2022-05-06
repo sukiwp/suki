@@ -290,7 +290,7 @@ foreach ( $settings as $key ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Typography(
+	new Suki_Customize_Typography_Control(
 		$wp_customize,
 		'footer_bottom_bar_typography',
 		array(

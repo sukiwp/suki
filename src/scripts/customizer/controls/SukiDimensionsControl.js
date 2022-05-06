@@ -10,7 +10,7 @@ import SukiControlResponsiveContainer from '../components/SukiControlResponsiveC
 import { convertDimensionValueIntoNumberAndUnit } from '../utils';
 
 import {
-	__experimentalHStack as HStack,
+	__experimentalGrid as Grid,
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
@@ -64,9 +64,9 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 							key={ device }
 							device={ device }
 						>
-							<HStack
-								expanded
-								spacing="0.5"
+							<Grid
+								columns="4"
+								gap="1"
 							>
 								{ valueArray.map( ( subValue, i ) => {
 									/**
@@ -120,7 +120,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
 										/>
 									);
 								} ) }
-							</HStack>
+							</Grid>
 						</SukiControlResponsiveContainer>
 					);
 				} ) }

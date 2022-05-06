@@ -98,8 +98,11 @@ class Suki_Google_Fonts extends Suki_Module {
 	 * @return array
 	 */
 	public function add_to_all_fonts( $fonts ) {
+		// Get the selected Google Fonts list.
+		$google_fonts = suki_get_theme_mod( 'google_fonts' );
+
 		// Add Google Fonts as the last group of the list.
-		$fonts = array_merge( $fonts, array( 'google_fonts' => $this->get_fonts_list() ) );
+		$fonts[ esc_html__( 'Google Fonts', 'suki' ) ] = array_combine( $google_fonts, $google_fonts );
 
 		return $fonts;
 	}

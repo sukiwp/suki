@@ -1,4 +1,12 @@
 /**
+ * Control
+ */
+
+.customize-control {
+	margin-bottom: 16px;
+}
+
+/**
  * Notice inside control
  */
 
@@ -8,6 +16,26 @@
 	.notice {
 		margin: 0;
 	}
+}
+
+/**
+ * Control's component label
+ */
+
+.customize-control {
+	.components-input-control__label {
+		font-size: 9px;
+		text-transform: uppercase;
+		padding: 0 !important;
+	}
+}
+
+/**
+ * SelectControl
+ */
+
+.components-select-control__input {
+	line-height: normal !important;
 }
 
 /**
@@ -46,12 +74,6 @@
 	> .components-flex-item {
 		width: 100%;
 		max-width: none;
-		text-align: center;
-		
-		label {
-			font-size: 9px;
-			text-transform: uppercase;
-		}
 	}
 }
 

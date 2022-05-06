@@ -19,6 +19,12 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
 	renderContent: function() {
 		const control = this;
 
+		const units = [
+			{ value: 'px', label: 'px' },
+			{ value: 'em', label: 'em' },
+			{ value: 'rem', label: 'rem' },
+		]
+
 		// Split value into array.
 		let valueSplit = control.setting.get().split( ' ', 6 );
 		
@@ -49,7 +55,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
 				<HStack
 					expanded
 					align="top"
-					spacing="0.5"
+					spacing="1"
 					className="suki-shadow"
 				>
 					<Button
@@ -67,9 +73,9 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
 					/>
 
 					{ [ 'x', 'y', 'blur', 'spread' ].map( ( prop, i ) => {
-						const [ propValueNumber, propValueUnit ] = convertDimensionValueIntoNumberAndUnit( valueObj[ prop ], control.params.units );
+						const [ propValueNumber, propValueUnit ] = convertDimensionValueIntoNumberAndUnit( valueObj[ prop ], units );
 
-						const propValueUnitObj = control.params.units.find( ( item ) => {
+						const propValueUnitObj = units.find( ( item ) => {
 							return propValueUnit === item.value
 						} );
 
@@ -80,7 +86,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
 								labelPosition="bottom"
 								value={ valueObj[ prop ] }
 								isResetValueOnUnitChange
-								units={ control.params.units }
+								units={ units }
 								min={ propValueUnitObj?.min ?? -Infinity }
 								max={ propValueUnitObj?.max ?? Infinity }
 								step={ propValueUnitObj?.step ?? 1 }

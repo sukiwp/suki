@@ -55,7 +55,6 @@ $add['block_spacing'] = '1.5rem';
 
 $add['body_font_family'] = 'web_safe_fonts|Default System Font';
 $add['body_font_size']   = '100%';
-$add['body_font_style']  = 'normal';
 $add['body_line_height'] = '1.7';
 
 $add['body_text_color'] = 'var(--color-palette-2)';

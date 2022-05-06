@@ -270,9 +270,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controls_SukiRadioImageControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controls/SukiRadioImageControl */ "./src/scripts/customizer/controls/SukiRadioImageControl.js");
 /* harmony import */ var _controls_SukiShadowControl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controls/SukiShadowControl */ "./src/scripts/customizer/controls/SukiShadowControl.js");
 /* harmony import */ var _controls_SukiToggleControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controls/SukiToggleControl */ "./src/scripts/customizer/controls/SukiToggleControl.js");
+/* harmony import */ var _controls_SukiTypographyControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controls/SukiTypographyControl */ "./src/scripts/customizer/controls/SukiTypographyControl.js");
 // Base controls
 
  // Custom controls
+
 
 
 
@@ -672,6 +674,9 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
         (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlResponsiveContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
           key: device,
           device: device
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.__experimentalGrid, {
+          columns: "4",
+          gap: "1"
         }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.__experimentalUnitControl, {
           value: value,
           isResetValueOnUnitChange: true,
@@ -681,15 +686,12 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
           step: (_valueUnitObj$step = valueUnitObj === null || valueUnitObj === void 0 ? void 0 : valueUnitObj.step) !== null && _valueUnitObj$step !== void 0 ? _valueUnitObj$step : 1,
           id: '_customize-input-' + control.id,
           className: "suki-dimension",
-          style: {
-            width: 'calc( 25% - 1px )'
-          },
           onChange: function onChange(value) {
             // If value only contains unit (e.g. 'px'), set the value to empty string ('').
             value = isFinite(parseFloat(value)) ? value : '';
             control.settings[settingId].set(value);
           }
-        }))
+        })))
       );
     })), control.container[0]);
   }
@@ -758,9 +760,9 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
         (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlResponsiveContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
           key: device,
           device: device
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.__experimentalHStack, {
-          expanded: true,
-          spacing: "0.5"
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.__experimentalGrid, {
+          columns: "4",
+          gap: "1"
         }, valueArray.map(function (subValue, i) {
           var _subValueUnitObj$min, _subValueUnitObj$max, _subValueUnitObj$step;
 
@@ -1187,7 +1189,17 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
   renderContent: function renderContent() {
     var _valueSplit$, _valueSplit$2, _valueSplit$3, _valueSplit$4, _valueSplit$5, _valueSplit$6;
 
-    var control = this; // Split value into array.
+    var control = this;
+    var units = [{
+      value: 'px',
+      label: 'px'
+    }, {
+      value: 'em',
+      label: 'em'
+    }, {
+      value: 'rem',
+      label: 'rem'
+    }]; // Split value into array.
 
     var valueSplit = control.setting.get().split(' ', 6); // Define value array and the fallback value.
 
@@ -1206,7 +1218,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
     }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.__experimentalHStack, {
       expanded: true,
       align: "top",
-      spacing: "0.5",
+      spacing: "1",
       className: "suki-shadow"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
       icon: 'inset' === valueObj.position ? 'editor-contract' : 'editor-expand',
@@ -1221,12 +1233,12 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
     }), ['x', 'y', 'blur', 'spread'].map(function (prop, i) {
       var _propValueUnitObj$min, _propValueUnitObj$max, _propValueUnitObj$ste;
 
-      var _convertDimensionValu = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.convertDimensionValueIntoNumberAndUnit)(valueObj[prop], control.params.units),
+      var _convertDimensionValu = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.convertDimensionValueIntoNumberAndUnit)(valueObj[prop], units),
           _convertDimensionValu2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_convertDimensionValu, 2),
           propValueNumber = _convertDimensionValu2[0],
           propValueUnit = _convertDimensionValu2[1];
 
-      var propValueUnitObj = control.params.units.find(function (item) {
+      var propValueUnitObj = units.find(function (item) {
         return propValueUnit === item.value;
       });
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.__experimentalUnitControl, {
@@ -1235,7 +1247,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
         labelPosition: "bottom",
         value: valueObj[prop],
         isResetValueOnUnitChange: true,
-        units: control.params.units,
+        units: units,
         min: (_propValueUnitObj$min = propValueUnitObj === null || propValueUnitObj === void 0 ? void 0 : propValueUnitObj.min) !== null && _propValueUnitObj$min !== void 0 ? _propValueUnitObj$min : -Infinity,
         max: (_propValueUnitObj$max = propValueUnitObj === null || propValueUnitObj === void 0 ? void 0 : propValueUnitObj.max) !== null && _propValueUnitObj$max !== void 0 ? _propValueUnitObj$max : Infinity,
         step: (_propValueUnitObj$ste = propValueUnitObj === null || propValueUnitObj === void 0 ? void 0 : propValueUnitObj.step) !== null && _propValueUnitObj$ste !== void 0 ? _propValueUnitObj$ste : 1,
@@ -1303,6 +1315,228 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
   }
 });
 wp.customize.controlConstructor['suki-toggle'] = wp.customize.SukiToggleControl;
+
+/***/ }),
+
+/***/ "./src/scripts/customizer/controls/SukiTypographyControl.js":
+/*!******************************************************************!*\
+  !*** ./src/scripts/customizer/controls/SukiTypographyControl.js ***!
+  \******************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SukiControlLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SukiControlLabel */ "./src/scripts/customizer/components/SukiControlLabel.js");
+/* harmony import */ var _components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/SukiControlDescription */ "./src/scripts/customizer/components/SukiControlDescription.js");
+/* harmony import */ var _components_SukiControlResponsiveSwitcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/SukiControlResponsiveSwitcher */ "./src/scripts/customizer/components/SukiControlResponsiveSwitcher.js");
+/* harmony import */ var _components_SukiControlResponsiveContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/SukiControlResponsiveContainer */ "./src/scripts/customizer/components/SukiControlResponsiveContainer.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+
+
+/**
+ * Typography control (React)
+ */
+
+
+
+
+
+wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    var fontWeightOptions = [{
+      value: '',
+      label: ''
+    }, {
+      value: 100,
+      label: SukiCustomizerData.l10n.weight100
+    }, {
+      value: 200,
+      label: SukiCustomizerData.l10n.weight200
+    }, {
+      value: 300,
+      label: SukiCustomizerData.l10n.weight300
+    }, {
+      value: 400,
+      label: SukiCustomizerData.l10n.weight400
+    }, {
+      value: 500,
+      label: SukiCustomizerData.l10n.weight500
+    }, {
+      value: 600,
+      label: SukiCustomizerData.l10n.weight600
+    }, {
+      value: 700,
+      label: SukiCustomizerData.l10n.weight700
+    }, {
+      value: 800,
+      label: SukiCustomizerData.l10n.weight800
+    }, {
+      value: 900,
+      label: SukiCustomizerData.l10n.weight900
+    }];
+    var fontStyleOptions = [{
+      value: '',
+      label: ''
+    }, {
+      value: 'normal',
+      label: SukiCustomizerData.l10n.normal
+    }, {
+      value: 'italic',
+      label: SukiCustomizerData.l10n.italic
+    }];
+    var textTransformOptions = [{
+      value: '',
+      label: ''
+    }, {
+      value: 'none',
+      label: SukiCustomizerData.l10n.none
+    }, {
+      value: 'uppercase',
+      label: SukiCustomizerData.l10n.uppercase
+    }, {
+      value: 'lowercase',
+      label: SukiCustomizerData.l10n.lowercase
+    }, {
+      value: 'capitalize',
+      label: SukiCustomizerData.l10n.capitalize
+    }];
+    var fontSizeUnits = [{
+      value: 'px',
+      label: 'px'
+    }, {
+      value: 'em',
+      label: 'em'
+    }, {
+      value: 'rem',
+      label: 'rem'
+    }, {
+      value: '%',
+      label: '%'
+    }];
+    var lineHeightUnits = [{
+      value: 'px',
+      label: 'px'
+    }, {
+      value: '',
+      label: 'em'
+    }, {
+      value: 'rem',
+      label: 'rem'
+    }, {
+      value: '%',
+      label: '%'
+    }];
+    var letterSpacingUnits = [{
+      value: 'px',
+      label: 'px'
+    }, {
+      value: 'em',
+      label: 'em'
+    }, {
+      value: 'rem',
+      label: 'rem'
+    }];
+    ReactDOM.render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SukiControlLabel__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      for: '_customize-input-' + control.id
+    }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      id: '_customize-description-' + control.id
+    }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Card, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.CardBody, {
+      size: "small"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalVStack, {
+      spacing: "2"
+    }, control.settings['font_family'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+      label: SukiCustomizerData.l10n.fontFamily,
+      value: control.settings['font_family'].get(),
+      onChange: function onChange(fontFamily) {
+        control.settings['font_family'].set(fontFamily);
+      }
+    }, Object.keys(SukiCustomizerData.fonts).map(function (groupLabel) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("optgroup", {
+        key: groupLabel,
+        label: groupLabel
+      }, Object.keys(SukiCustomizerData.fonts[groupLabel]).map(function (familyName) {
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+          key: familyName,
+          value: familyName
+        }, familyName);
+      }));
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalGrid, {
+      columns: "3",
+      gap: "2"
+    }, control.settings['font_weight'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+      label: SukiCustomizerData.l10n.fontWeight,
+      value: control.settings['font_weight'].get(),
+      options: fontWeightOptions,
+      onChange: function onChange(fontWeight) {
+        control.settings['font_weight'].set(fontWeight);
+      }
+    }), control.settings['font_style'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+      label: SukiCustomizerData.l10n.fontStyle,
+      value: control.settings['font_style'].get(),
+      options: fontStyleOptions,
+      onChange: function onChange(fontStyle) {
+        control.settings['font_style'].set(fontStyle);
+      }
+    }), control.settings['text_transform'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
+      label: SukiCustomizerData.l10n.textTransform,
+      value: control.settings['text_transform'].get(),
+      options: textTransformOptions,
+      onChange: function onChange(textTransform) {
+        control.settings['text_transform'].set(textTransform);
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SukiControlResponsiveSwitcher__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      devices: Object.keys(control.params.responsiveStructures)
+    }), Object.keys(control.params.responsiveStructures).map(function (device) {
+      var fontSizeSettingId = 'font_size' + ('desktop' !== device ? '__' + device : '');
+      var lineHeightSettingId = 'line_height' + ('desktop' !== device ? '__' + device : '');
+      var letterSpacingSettingId = 'letter_spacing' + ('desktop' !== device ? '__' + device : '');
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SukiControlResponsiveContainer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        key: device,
+        device: device
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalGrid, {
+        columns: "3",
+        gap: "2"
+      }, control.settings[fontSizeSettingId] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalUnitControl, {
+        label: SukiCustomizerData.l10n.fontSize,
+        value: control.settings[fontSizeSettingId].get(),
+        isResetValueOnUnitChange: true,
+        units: fontSizeUnits,
+        min: "0",
+        className: "suki-dimension",
+        onChange: function onChange(fontSize) {
+          fontSize = isNaN(parseFloat(fontSize)) ? '' : fontSize;
+          control.settings[fontSizeSettingId].set(fontSize);
+        }
+      }), control.settings[lineHeightSettingId] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalUnitControl, {
+        label: SukiCustomizerData.l10n.lineHeight,
+        value: control.settings[lineHeightSettingId].get(),
+        isResetValueOnUnitChange: true,
+        units: lineHeightUnits,
+        min: "0",
+        className: "suki-dimension",
+        onChange: function onChange(lineHeight) {
+          lineHeight = isNaN(parseFloat(lineHeight)) ? '' : lineHeight;
+          control.settings[lineHeightSettingId].set(lineHeight);
+        }
+      }), control.settings[letterSpacingSettingId] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalUnitControl, {
+        label: SukiCustomizerData.l10n.letterSpacing,
+        value: control.settings[letterSpacingSettingId].get(),
+        isResetValueOnUnitChange: true,
+        units: letterSpacingUnits,
+        className: "suki-dimension",
+        onChange: function onChange(letterSpacing) {
+          letterSpacing = isNaN(parseFloat(letterSpacing)) ? '' : letterSpacing;
+          control.settings[letterSpacingSettingId].set(letterSpacing);
+        }
+      })));
+    }))))), control.container[0]);
+  }
+});
+wp.customize.controlConstructor['suki-typography'] = wp.customize.SukiTypographyControl;
 
 /***/ }),
 

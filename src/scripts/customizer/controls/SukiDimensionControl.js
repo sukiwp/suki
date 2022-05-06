@@ -10,6 +10,7 @@ import SukiControlResponsiveContainer from '../components/SukiControlResponsiveC
 import { convertDimensionValueIntoNumberAndUnit } from '../utils';
 
 import {
+	__experimentalGrid as Grid,
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
@@ -53,25 +54,27 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
 						 * @todo onChange is triggered twice when value is not ''.
 						 */
 						<SukiControlResponsiveContainer key={ device } device={ device }>
-							<UnitControl
-								value={ value }
-								isResetValueOnUnitChange
-								units={ control.params.units }
-								min={ valueUnitObj?.min ?? -Infinity }
-								max={ valueUnitObj?.max ?? Infinity }
-								step={ valueUnitObj?.step ?? 1 }
-								id={ '_customize-input-' + control.id }
-								className="suki-dimension"
-								style={ {
-									width: 'calc( 25% - 1px )'
-								} }
-								onChange={ ( value ) => {
-									// If value only contains unit (e.g. 'px'), set the value to empty string ('').
-									value = isFinite( parseFloat( value ) ) ? value : '';
+							<Grid
+								columns="4"
+								gap="1"
+							>
+								<UnitControl
+									value={ value }
+									isResetValueOnUnitChange
+									units={ control.params.units }
+									min={ valueUnitObj?.min ?? -Infinity }
+									max={ valueUnitObj?.max ?? Infinity }
+									step={ valueUnitObj?.step ?? 1 }
+									id={ '_customize-input-' + control.id }
+									className="suki-dimension"
+									onChange={ ( value ) => {
+										// If value only contains unit (e.g. 'px'), set the value to empty string ('').
+										value = isFinite( parseFloat( value ) ) ? value : '';
 
-									control.settings[ settingId ].set( value );
-								} }
-							/>
+										control.settings[ settingId ].set( value );
+									} }
+								/>
+							</Grid>
 						</SukiControlResponsiveContainer>
 					);
 				} ) }

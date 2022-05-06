@@ -276,7 +276,7 @@ foreach ( $settings as $key ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Typography(
+	new Suki_Customize_Typography_Control(
 		$wp_customize,
 		'hero_typography',
 		array(
@@ -317,7 +317,7 @@ foreach ( $settings as $key ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Typography(
+	new Suki_Customize_Typography_Control(
 		$wp_customize,
 		'hero_title_typography',
 		array(
@@ -358,7 +358,7 @@ foreach ( $settings as $key ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Typography(
+	new Suki_Customize_Typography_Control(
 		$wp_customize,
 		'hero_breadcrumb_typography',
 		array(

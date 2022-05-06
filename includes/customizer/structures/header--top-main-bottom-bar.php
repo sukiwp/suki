@@ -316,7 +316,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		);
 	}
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Typography(
+		new Suki_Customize_Typography_Control(
 			$wp_customize,
 			'header_' . $bar . '_typography',
 			array(
@@ -349,7 +349,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		);
 	}
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Typography(
+		new Suki_Customize_Typography_Control(
 			$wp_customize,
 			'header_' . $bar . '_menu_typography',
 			array(
@@ -382,7 +382,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 		);
 	}
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Typography(
+		new Suki_Customize_Typography_Control(
 			$wp_customize,
 			'header_' . $bar . '_submenu_typography',
 			array(

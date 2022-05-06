@@ -42,7 +42,7 @@ for ( $i = 1; $i <= 6; $i++ ) {
 		);
 	}
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Typography(
+		new Suki_Customize_Typography_Control(
 			$wp_customize,
 			'h' . $i . '_typography',
 			array(

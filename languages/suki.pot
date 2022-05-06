@@ -302,6 +302,10 @@ msgstr ""
 msgid "Footer Menu %s"
 msgstr ""
 
+#: includes/helpers.php:860
+msgid "Web Safe Fonts"
+msgstr ""
+
 #: includes/helpers.php:978
 msgctxt "icon label"
 msgid "Search"
@@ -336,7 +340,7 @@ msgstr ""
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/helpers.php:1000, includes/customizer/custom-controls/class-suki-customize-control-typography.php:231
+#: includes/helpers.php:1000, includes/customizer/class-suki-customizer.php:300
 msgid "Medium"
 msgstr ""
 
@@ -581,75 +585,231 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:273
+#: includes/customizer/class-suki-customizer.php:273, includes/customizer/structures/blog--archive.php:52, includes/customizer/structures/sections.php:634, includes/modules/page-settings/class-suki-page-settings-meta-box.php:523, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:53, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:53
+msgid "Default"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:274
 msgid "Reset"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:274, includes/modules/page-settings/customizer/structures/all-page-settings.php:184
+#: includes/customizer/class-suki-customizer.php:275, includes/modules/page-settings/customizer/structures/all-page-settings.php:184
 msgid "Custom"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:276, includes/customizer/custom-controls/class-suki-customize-control-background.php:179
+#: includes/customizer/class-suki-customizer.php:277, includes/customizer/custom-controls/class-suki-customize-control-background.php:179
 msgid "X axis"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:277, includes/customizer/custom-controls/class-suki-customize-control-background.php:180
+#: includes/customizer/class-suki-customizer.php:278, includes/customizer/custom-controls/class-suki-customize-control-background.php:180
 msgid "Y axis"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:278
+#: includes/customizer/class-suki-customizer.php:279
 msgid "Blur"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:279
+#: includes/customizer/class-suki-customizer.php:280
 msgid "Spread"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:280
+#: includes/customizer/class-suki-customizer.php:281
 msgid "Inner shadow"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:281
+#: includes/customizer/class-suki-customizer.php:282
 msgid "Outer shadow"
 msgstr ""
 
 #. translators: %d: color number.
 #. translators: %d: color number
-#: includes/customizer/class-suki-customizer.php:284, includes/customizer/structures/global--color-palette.php:59
+#: includes/customizer/class-suki-customizer.php:285, includes/customizer/structures/global--color-palette.php:59
 msgid "Theme Color %d"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:285
+#: includes/customizer/class-suki-customizer.php:286
 msgid "Not set"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:736, includes/customizer/structures/sections.php:697
+#: includes/customizer/class-suki-customizer.php:288
+msgid "Family"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:289
+msgid "Weight"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:290
+msgid "Style"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:291
+msgid "Transform"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:292, includes/customizer/custom-controls/class-suki-customize-control-background.php:88
+msgid "Size"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:293
+msgid "Line Height"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:294
+msgid "Spacing"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:297
+msgid "Extra Light"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:298
+msgid "Light"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:299
+msgid "Regular"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:301
+msgid "Semi Bold"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:302
+msgid "Bold"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:303
+msgid "Extra Bold"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:304
+msgid "Black"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:306
+msgid "Normal"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:307
+msgid "Italic"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:309, includes/customizer/structures/blog--entry-default.php:322, includes/customizer/structures/blog--entry-grid.php:532, includes/customizer/structures/footer--widgets-bar.php:387, includes/customizer/structures/header--top-main-bottom-bar.php:558
+msgid "None"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:310
+msgid "Uppercase"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:311
+msgid "Lowercase"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:312
+msgid "Capitalize"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:314, includes/customizer/custom-controls/class-suki-customize-control-background.php:174
+msgid "Scroll"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:315, includes/customizer/custom-controls/class-suki-customize-control-background.php:175
+msgid "Fixed"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:317
+msgid "No repeat"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:318
+msgid "Repeat horizontally"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:319
+msgid "Repeat vertically"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:320
+msgid "Repeat both"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:322, includes/customizer/custom-controls/class-suki-customize-control-background.php:184
+msgid "Auto"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:323, includes/customizer/custom-controls/class-suki-customize-control-background.php:185
+msgid "Cover"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:324, includes/customizer/custom-controls/class-suki-customize-control-background.php:186
+msgid "Contain"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:326, includes/customizer/custom-controls/class-suki-customize-control-background.php:189
+msgid "Left top"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:327, includes/customizer/custom-controls/class-suki-customize-control-background.php:190
+msgid "Left center"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:328, includes/customizer/custom-controls/class-suki-customize-control-background.php:191
+msgid "Left bottom"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:329, includes/customizer/custom-controls/class-suki-customize-control-background.php:192
+msgid "Center top"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:330, includes/customizer/custom-controls/class-suki-customize-control-background.php:193
+msgid "Center center"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:331, includes/customizer/custom-controls/class-suki-customize-control-background.php:194
+msgid "Center bottom"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:332, includes/customizer/custom-controls/class-suki-customize-control-background.php:195
+msgid "Right top"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:333, includes/customizer/custom-controls/class-suki-customize-control-background.php:196
+msgid "Right center"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:334, includes/customizer/custom-controls/class-suki-customize-control-background.php:197
+msgid "Right bottom"
+msgstr ""
+
+#: includes/customizer/class-suki-customizer.php:785, includes/customizer/structures/sections.php:697
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:741, includes/customizer/structures/sections.php:707
+#: includes/customizer/class-suki-customizer.php:790, includes/customizer/structures/sections.php:707
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:750, includes/customizer/structures/sections.php:687
+#: includes/customizer/class-suki-customizer.php:799, includes/customizer/structures/sections.php:687
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:755, includes/customizer/structures/sections.php:624
+#: includes/customizer/class-suki-customizer.php:804, includes/customizer/structures/sections.php:624
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:760, includes/customizer/structures/sections.php:654
+#: includes/customizer/class-suki-customizer.php:809, includes/customizer/structures/sections.php:654
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:773
+#: includes/customizer/class-suki-customizer.php:822
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:779
+#: includes/customizer/class-suki-customizer.php:828
 msgid "Single %s Page"
 msgstr ""
 
@@ -685,27 +845,27 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: includes/customizer/defaults.php:224
+#: includes/customizer/defaults.php:223
 msgid "Insert HTML text here"
 msgstr ""
 
-#: includes/customizer/defaults.php:430
+#: includes/customizer/defaults.php:429
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:488, includes/customizer/defaults.php:515, includes/customizer/defaults.php:544
+#: includes/customizer/defaults.php:487, includes/customizer/defaults.php:514, includes/customizer/defaults.php:543
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:580
+#: includes/customizer/defaults.php:579
 msgid "Oops! That page can not be found"
 msgstr ""
 
-#: includes/customizer/defaults.php:581
+#: includes/customizer/defaults.php:580
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
-#: includes/customizer/defaults.php:584
+#: includes/customizer/defaults.php:583
 msgid "Back to Home"
 msgstr ""
 
@@ -923,10 +1083,6 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:88, includes/customizer/custom-controls/class-suki-customize-control-typography.php:125
-msgid "Size"
-msgstr ""
-
 #: includes/customizer/custom-controls/class-suki-customize-control-background.php:89, includes/customizer/structures/footer--scroll-to-top.php:121, includes/customizer/structures/header--mobile-vertical-bar.php:74, includes/customizer/structures/header--mobile-vertical-bar.php:107
 msgid "Position"
 msgstr ""
@@ -943,14 +1099,6 @@ msgstr ""
 msgid "Change image"
 msgstr ""
 
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:174
-msgid "Scroll"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:175
-msgid "Fixed"
-msgstr ""
-
 #: includes/customizer/custom-controls/class-suki-customize-control-background.php:178
 msgid "No"
 msgstr ""
@@ -959,144 +1107,12 @@ msgstr ""
 msgid "Both"
 msgstr ""
 
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:184
-msgid "Auto"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:185
-msgid "Cover"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:186
-msgid "Contain"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:189
-msgid "Left top"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:190
-msgid "Left center"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:191
-msgid "Left bottom"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:192
-msgid "Center top"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:193
-msgid "Center center"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:194
-msgid "Center bottom"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:195
-msgid "Right top"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:196
-msgid "Right center"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-background.php:197
-msgid "Right bottom"
-msgstr ""
-
 #: includes/customizer/custom-controls/class-suki-customize-control-builder.php:163
 msgid "Add element"
 msgstr ""
 
 #: includes/customizer/custom-controls/class-suki-customize-control-builder.php:179
 msgid "No more items to add"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:121
-msgid "Font"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:122
-msgid "Weight"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:123
-msgid "Style"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:124
-msgid "Transform"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:126
-msgid "Line Height"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:127
-msgid "Spacing"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:144, includes/customizer/custom-controls/class-suki-customize-control-typography.php:164, includes/customizer/custom-controls/class-suki-customize-control-typography.php:189, includes/customizer/structures/blog--archive.php:52, includes/customizer/structures/sections.php:634, includes/modules/page-settings/class-suki-page-settings-meta-box.php:523, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:53, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:53
-msgid "Default"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:227
-msgid "Thin"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:228
-msgid "Extra Light"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:229
-msgid "Light"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:230
-msgid "Regular"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:232
-msgid "Semi Bold"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:233
-msgid "Bold"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:234
-msgid "Extra Bold"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:235
-msgid "Black"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:238
-msgid "Normal"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:239
-msgid "Italic"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:242, includes/customizer/structures/blog--entry-default.php:322, includes/customizer/structures/blog--entry-grid.php:532, includes/customizer/structures/footer--widgets-bar.php:387, includes/customizer/structures/header--top-main-bottom-bar.php:558
-msgid "None"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:243
-msgid "Uppercase"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:244
-msgid "Lowercase"
-msgstr ""
-
-#: includes/customizer/custom-controls/class-suki-customize-control-typography.php:245
-msgid "Capitalize"
 msgstr ""
 
 #: includes/customizer/structures/auto-custom-post-types.php:41, includes/customizer/structures/blog--archive.php:131, includes/customizer/structures/blog--single.php:29, includes/customizer/structures/page--search.php:71, includes/customizer/structures/page--single.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:29

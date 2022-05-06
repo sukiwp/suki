@@ -50,6 +50,18 @@
 }
 
 /**
+ * Dimensions control
+ */
+
+.customize-control-suki-dimensions {
+	.suki-dimension {
+		> .components-flex-item {
+			text-align: center;
+		}
+	}
+}
+
+/**
  * Heading Control
  */
 
@@ -151,6 +163,12 @@
 		.suki-color-dropdown {
 			flex: 0 0 36px;
 		}
+
+		.suki-dimension {
+			> .components-flex-item {
+				text-align: center;
+			}
+		}
 	}
 }
 
@@ -167,6 +185,26 @@
 		position: absolute;
 		top: 3px;
 		right: 0;
+	}
+}
+
+/**
+ * Typography Control
+ */
+
+.customize-control-suki-typography {
+	.suki-responsive-switcher {
+		&:after {
+			content: "";
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			flex: 1 1 100%;
+			height: 1px;
+			align-self: center;
+		}
+	}
+
+	.components-flex {
+		gap: 2px;
 	}
 }
 
@@ -256,26 +294,6 @@
 
 
 
-/**
- * Typography Control
- */
-
-.customize-control-suki-typography {
-	.suki-responsive-switcher {
-		position: relative;
-		text-align: right;
-
-		&:before {
-			content: "";
-			position: absolute;
-			left: 0;
-			top: 50%;
-			width: calc( 100% - 60px );
-			height: 1px;
-			background-color: var(--admin-color--border);
-		}
-	}
-}
 
 /**
  * Slider Control
