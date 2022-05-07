@@ -25,24 +25,19 @@ $wp_customize->add_setting(
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Slider(
+	new Suki_Customize_Slider_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Columns', 'suki' ),
-			'units'    => array(
-				'' => array(
-					'min'   => 2,
-					'max'   => 4,
-					'step'  => 1,
-					'label' => 'col',
-				),
-			),
+			'min'      => 2,
+			'max'      => 4,
+			'step'     => 1,
 			'priority' => 10,
 		)
 	)
@@ -346,13 +341,13 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'choices'  => array(
 				'left'   => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+					'label' => esc_html__( 'Left', 'suki' ),
 				),
 				'center' => array(
-					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+					'label' => esc_html__( 'Center', 'suki' ),
 				),
 				'right'  => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+					'label' => esc_html__( 'Right', 'suki' ),
 				),
 			),
 			'priority' => 30,
@@ -622,13 +617,13 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'choices'  => array(
 				'left'   => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+					'label' => esc_html__( 'Left', 'suki' ),
 				),
 				'center' => array(
-					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+					'label' => esc_html__( 'Center', 'suki' ),
 				),
 				'right'  => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+					'label' => esc_html__( 'Right', 'suki' ),
 				),
 			),
 			'priority' => 60,

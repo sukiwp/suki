@@ -129,7 +129,6 @@ class Suki_Customizer {
 		 * Custom controls
 		 */
 
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-slider.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-sortable.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php';
 
@@ -149,6 +148,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-notice-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-radioimage-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-shadow-control.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-slider-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-toggle-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-typography-control.php';
 
@@ -204,17 +204,17 @@ class Suki_Customizer {
 		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--social.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/footer--scroll-to-top.php';
 
-		// // Blog.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--archive.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--single.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--entry-default.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--entry-grid.php';
+		// Blog.
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--archive.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--single.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--entry-default.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/blog--entry-grid.php';
 
-		// // Pages.
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--single.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--error-404.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--search.php';
-		// require_once SUKI_INCLUDES_DIR . '/customizer/structures/auto-custom-post-types.php';
+		// Pages.
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--single.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--error-404.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/page--search.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/auto-custom-post-types.php';
 	}
 
 	/**

@@ -50,9 +50,6 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 					} );
 
 					return (
-						/**
-						 * @todo onChange is triggered twice when value is not ''.
-						 */
 						<SukiControlResponsiveContainer key={ device } device={ device }>
 							<Grid
 								columns="4"

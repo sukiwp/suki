@@ -4,6 +4,14 @@
 
 .customize-control {
 	margin-bottom: 16px;
+
+	&, *, *:before, *:after {
+		box-sizing: border-box;
+	}
+
+	.components-base-control__field {
+		margin-bottom: 0;
+	}
 }
 
 /**
@@ -22,17 +30,17 @@
  * Control's component
  */
 
-.components-base-control {
-	&__field {
-		.components-flex {
-			gap: 2px;
-		}
+.components-input-control {
+	gap: 2px;
 
-		.components-input-control__label {
-			font-size: 9px;
-			text-transform: uppercase;
-			padding: 0 !important;
-		}
+	> .components-flex-item {
+		display: none;
+	}
+
+	&__label {
+		font-size: 9px;
+		text-transform: uppercase;
+		padding: 0 !important;
 	}
 }
 

@@ -107,13 +107,13 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Layout', 'suki' ),
 			'choices'  => array(
 				'narrow' => array(
-					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
+					'label' => esc_html__( 'Narrow', 'suki' ),
 				),
 				'wide'   => array(
-					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
+					'label' => esc_html__( 'Wide', 'suki' ),
 				),
 				'full'   => array(
-					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
+					'label' => esc_html__( 'Full', 'suki' ),
 				),
 			),
 			'priority' => 10,
@@ -290,7 +290,7 @@ foreach ( $settings as $key ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Typography_Control(
+	new Suki_Customize_Control_Typography(
 		$wp_customize,
 		'footer_bottom_bar_typography',
 		array(

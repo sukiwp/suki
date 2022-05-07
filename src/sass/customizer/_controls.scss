@@ -190,6 +190,33 @@
 }
 
 /**
+ * Slider Control
+ */
+
+.customize-control-suki-slider {
+	.suki-slider {
+		.components-range-control {
+			&__root {
+				display: flex;
+			}
+
+			&__wrapper {
+				margin-bottom: 0;
+			}
+
+			&__mark {
+				height: 6px;
+				top: 0;
+			}
+
+			&__mark-label {
+				top: 16px;
+			}
+		}
+	}
+}
+
+/**
  * Toggle Control
  */
 
@@ -308,36 +335,6 @@
 
 
 
-/**
- * Slider Control
- */
-
- .customize-control-suki-slider {
-	input[type="range"] {
-		appearance: none;
-		display: block;
-		margin: 11px 0;
-		outline: none;
-		height: 8px;
-		background-color: rgba(0,0,0,0.1);
-		border-radius: 4px;
-
-		&::-webkit-slider-thumb,
-		&::-moz-range-thumb,
-		&::-ms-thumb {
-			height: 16px;
-			width: 16px;
-			border: none;
-			border-radius: 8px;
-			background-color: var(--admin-color--primary);
-			cursor: pointer;
-		}
-	}
-
-	.suki-dimension {
-		flex: 0 0 80px;
-	}
-}
 
 
 

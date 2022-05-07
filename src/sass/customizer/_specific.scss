@@ -38,3 +38,77 @@
 		padding-left: 50px;
 	}
 }
+
+/**
+ * Page Settings
+ */
+
+.customize-control-select:is(
+	[id$="_content_container"],
+	[id$="_content_layout"],
+	[id$="_hero"],
+	[id$="_disable_header"],
+	[id$="_disable_header_mobile"],
+	[id$="_disable_footer_widgets"],
+	[id$="_disable_footer_bottom"],
+	[id$="_preloader_screen"],
+	[id*="_bar_transparent_"],
+	[id*="_bar_alt_"]
+) {
+	.customize-control-title {
+		min-height: 30px;
+		padding-right: 135px;
+		margin-bottom: 0; // Reset
+	}
+	
+	select {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 120px;
+	}
+}
+
+.customize-control-suki-color:is(
+	[id$="_bar_transparent_bg_color"],
+	[id$="_bar_transparent_border_color"],
+	[id$="_bar_alt_bg_color"],
+	[id$="_bar_alt_border_color"],
+	[id$="_bar_alt_text_color"],
+	[id$="_bar_alt_link_text_color"],
+	[id$="_bar_alt_link_hover_text_color"],
+	[id$="_bar_alt_link_active_text_color"],
+	[id$="_bar_alt_menu_hover_highlight_color"],
+	[id$="_bar_alt_menu_hover_highlight_text_color"],
+	[id$="_bar_alt_menu_active_highlight_color"],
+	[id$="_bar_alt_menu_active_highlight_text_color"],
+	[id$="_bar_alt_transparent_bg_color"],
+	[id$="_bar_alt_transparent_border_color"]
+),
+.customize-control-select:is(
+	[id$="_sidebar_sticky"],
+	[id$="_header_alt_colors"],
+	[id$="_header_transparent"],
+	[id$="_header_sticky"],
+	[id$="_header_mobile_alt_colors"],
+	[id$="_header_mobile_transparent"],
+	[id$="_header_mobile_sticky"],
+	[id$="_hero_container"],
+	[id$="_hero_bg"]
+) {
+	padding-left: 15px;
+
+	min-height: 30px;
+	padding-right: 135px;
+	
+	select {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 120px;
+	}
+}
+
+[id$="_hero_bg_image"] {
+	padding-left: 15px;
+}

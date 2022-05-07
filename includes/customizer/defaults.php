@@ -521,9 +521,6 @@ $add['entry_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bu
 
 $add['blog_index_grid_columns'] = 2;
 
-$add['entry_grid_padding']       = '0 0 0 0';
-$add['entry_grid_border']        = '0 0 0 0';
-$add['entry_grid_border_radius'] = '0px';
 $add['entry_grid_same_height']   = 0;
 
 $add['entry_grid_header']           = array( 'title', 'header-meta' );
@@ -535,8 +532,6 @@ $add['entry_grid_thumbnail_size']           = 'medium_large';
 $add['entry_grid_thumbnail_ignore_padding'] = 0;
 
 $add['entry_grid_excerpt_length']    = 30;
-$add['entry_grid_read_more_text']    = '';
-$add['entry_grid_read_more_display'] = '';
 
 $add['entry_grid_footer']           = array( 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';

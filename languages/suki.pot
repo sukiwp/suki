@@ -80,7 +80,7 @@ msgstr ""
 msgid "WooCommerce Integration Modules"
 msgstr ""
 
-#: includes/helpers.php:520, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:176, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:88, includes/modules/page-settings/customizer/structures/all-page-settings.php:40
+#: includes/helpers.php:520, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:170, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:88, includes/modules/page-settings/customizer/structures/all-page-settings.php:40
 msgid "Page Settings"
 msgstr ""
 
@@ -280,15 +280,15 @@ msgstr ""
 msgid "Toggle"
 msgstr ""
 
-#: includes/helpers.php:796, includes/helpers.php:798, includes/customizer/class-suki-customizer.php:278, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/content.php:98, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/modules/page-settings/customizer/structures/all-page-settings.php:108
+#: includes/helpers.php:796, includes/helpers.php:798, includes/customizer/class-suki-customizer.php:278, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/auto-custom-post-types.php:101, includes/customizer/structures/blog--archive.php:188, includes/customizer/structures/blog--entry-default.php:122, includes/customizer/structures/blog--entry-default.php:421, includes/customizer/structures/blog--entry-grid.php:350, includes/customizer/structures/blog--entry-grid.php:626, includes/customizer/structures/blog--single.php:86, includes/customizer/structures/blog--single.php:249, includes/customizer/structures/content.php:98, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/footer--widgets-bar.php:362, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/customizer/structures/page--search.php:128, includes/customizer/structures/page--single.php:86, includes/modules/page-settings/customizer/structures/all-page-settings.php:108
 msgid "Right"
 msgstr ""
 
-#: includes/helpers.php:796, includes/helpers.php:798, includes/customizer/class-suki-customizer.php:280, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/content.php:94, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/modules/page-settings/customizer/structures/all-page-settings.php:107
+#: includes/helpers.php:796, includes/helpers.php:798, includes/customizer/class-suki-customizer.php:280, includes/widgets/class-suki-widget-social.php:82, includes/widgets/class-suki-widget-social.php:84, includes/customizer/structures/auto-custom-post-types.php:95, includes/customizer/structures/blog--archive.php:182, includes/customizer/structures/blog--entry-default.php:116, includes/customizer/structures/blog--entry-default.php:415, includes/customizer/structures/blog--entry-grid.php:344, includes/customizer/structures/blog--entry-grid.php:620, includes/customizer/structures/blog--single.php:80, includes/customizer/structures/blog--single.php:243, includes/customizer/structures/content.php:94, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/footer--widgets-bar.php:356, includes/customizer/structures/header--mobile-vertical-bar.php:77, includes/customizer/structures/header--mobile-vertical-bar.php:81, includes/customizer/structures/header--mobile-vertical-bar.php:110, includes/customizer/structures/header--mobile-vertical-bar.php:118, includes/customizer/structures/page--search.php:122, includes/customizer/structures/page--single.php:80, includes/modules/page-settings/customizer/structures/all-page-settings.php:107
 msgid "Left"
 msgstr ""
 
-#: includes/helpers.php:797, includes/widgets/class-suki-widget-social.php:83, includes/customizer/structures/header--mobile-vertical-bar.php:114
+#: includes/helpers.php:797, includes/widgets/class-suki-widget-social.php:83, includes/customizer/structures/auto-custom-post-types.php:98, includes/customizer/structures/blog--archive.php:185, includes/customizer/structures/blog--entry-default.php:119, includes/customizer/structures/blog--entry-default.php:418, includes/customizer/structures/blog--entry-grid.php:347, includes/customizer/structures/blog--entry-grid.php:623, includes/customizer/structures/blog--single.php:83, includes/customizer/structures/blog--single.php:246, includes/customizer/structures/footer--widgets-bar.php:359, includes/customizer/structures/header--mobile-vertical-bar.php:114, includes/customizer/structures/page--search.php:125, includes/customizer/structures/page--single.php:83
 msgid "Center"
 msgstr ""
 
@@ -356,7 +356,7 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: includes/template-filters.php:81, includes/customizer/structures/blog--entry-default.php:320, includes/customizer/structures/blog--entry-default.php:345, includes/customizer/structures/blog--entry-grid.php:530, includes/customizer/structures/blog--entry-grid.php:555
+#: includes/template-filters.php:81, includes/customizer/structures/blog--entry-default.php:320, includes/customizer/structures/blog--entry-default.php:345, includes/customizer/structures/blog--entry-grid.php:525, includes/customizer/structures/blog--entry-grid.php:550
 msgid "Read more"
 msgstr ""
 
@@ -695,7 +695,7 @@ msgstr ""
 msgid "Italic"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:330, includes/customizer/structures/blog--entry-default.php:322, includes/customizer/structures/blog--entry-grid.php:532, includes/customizer/structures/footer--widgets-bar.php:387, includes/customizer/structures/header--top-main-bottom-bar.php:558
+#: includes/customizer/class-suki-customizer.php:330, includes/customizer/structures/blog--entry-default.php:322, includes/customizer/structures/blog--entry-grid.php:527, includes/customizer/structures/footer--widgets-bar.php:387, includes/customizer/structures/header--top-main-bottom-bar.php:558
 msgid "None"
 msgstr ""
 
@@ -857,7 +857,7 @@ msgstr ""
 msgid "Primary Alt"
 msgstr ""
 
-#: includes/customizer/defaults.php:35, includes/customizer/structures/blog--entry-grid.php:207, includes/customizer/structures/content--hero.php:210, includes/customizer/structures/content--main.php:99, includes/customizer/structures/content--sidebar.php:255, includes/customizer/structures/footer--bottom-bar.php:188, includes/customizer/structures/footer--widgets-bar.php:118, includes/customizer/structures/header--mobile-main-bar.php:119, includes/customizer/structures/header--top-main-bottom-bar.php:222, includes/customizer/structures/style--buttons.php:67, includes/customizer/structures/style--form-inputs.php:67
+#: includes/customizer/defaults.php:35, includes/customizer/structures/blog--entry-grid.php:202, includes/customizer/structures/content--hero.php:210, includes/customizer/structures/content--main.php:99, includes/customizer/structures/content--sidebar.php:255, includes/customizer/structures/footer--bottom-bar.php:188, includes/customizer/structures/footer--widgets-bar.php:118, includes/customizer/structures/header--mobile-main-bar.php:119, includes/customizer/structures/header--top-main-bottom-bar.php:222, includes/customizer/structures/style--buttons.php:67, includes/customizer/structures/style--form-inputs.php:67
 msgid "Border"
 msgstr ""
 
@@ -877,19 +877,19 @@ msgstr ""
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:487, includes/customizer/defaults.php:514, includes/customizer/defaults.php:543
+#: includes/customizer/defaults.php:487, includes/customizer/defaults.php:514, includes/customizer/defaults.php:538
 msgid "Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:579
+#: includes/customizer/defaults.php:574
 msgid "Oops! That page can not be found"
 msgstr ""
 
-#: includes/customizer/defaults.php:580
+#: includes/customizer/defaults.php:575
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
-#: includes/customizer/defaults.php:583
+#: includes/customizer/defaults.php:578
 msgid "Back to Home"
 msgstr ""
 
@@ -975,7 +975,7 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:273, includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:282, includes/customizer/structures/blog--entry-grid.php:672, includes/customizer/structures/content--hero.php:387, includes/customizer/structures/content--main.php:133, includes/customizer/structures/content--sidebar.php:400, includes/customizer/structures/footer--bottom-bar.php:319, includes/customizer/structures/footer--scroll-to-top.php:363, includes/customizer/structures/footer--widgets-bar.php:409, includes/customizer/structures/header--mobile-main-bar.php:245, includes/customizer/structures/header--mobile-vertical-bar.php:446, includes/customizer/structures/header--top-main-bottom-bar.php:447
+#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:273, includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:282, includes/customizer/structures/blog--entry-grid.php:667, includes/customizer/structures/content--hero.php:387, includes/customizer/structures/content--main.php:133, includes/customizer/structures/content--sidebar.php:400, includes/customizer/structures/footer--bottom-bar.php:319, includes/customizer/structures/footer--scroll-to-top.php:363, includes/customizer/structures/footer--widgets-bar.php:409, includes/customizer/structures/header--mobile-main-bar.php:245, includes/customizer/structures/header--mobile-vertical-bar.php:446, includes/customizer/structures/header--top-main-bottom-bar.php:447
 msgid "Colors"
 msgstr ""
 
@@ -1011,7 +1011,7 @@ msgstr ""
 msgid "Preloader screen"
 msgstr ""
 
-#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:405, includes/customizer/structures/blog--entry-default.php:324, includes/customizer/structures/blog--entry-grid.php:534, includes/customizer/structures/sections.php:145
+#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:405, includes/customizer/structures/blog--entry-default.php:324, includes/customizer/structures/blog--entry-grid.php:529, includes/customizer/structures/sections.php:145
 msgid "Button"
 msgstr ""
 
@@ -1055,7 +1055,7 @@ msgstr ""
 msgid "Product Layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:665, includes/compatibilities/woocommerce/customizer/options/sections.php:126, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:463, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:191
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:665, includes/compatibilities/woocommerce/customizer/options/sections.php:126, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:453, includes/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php:191
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
@@ -1107,7 +1107,7 @@ msgstr ""
 msgid "Content Header"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:49, includes/customizer/structures/blog--archive.php:155, includes/customizer/structures/blog--entry-default.php:90, includes/customizer/structures/blog--entry-grid.php:323, includes/customizer/structures/blog--single.php:53, includes/customizer/structures/page--search.php:95, includes/customizer/structures/page--single.php:53, includes/customizer/structures/sections.php:155, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:53, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:53
+#: includes/customizer/structures/auto-custom-post-types.php:49, includes/customizer/structures/blog--archive.php:155, includes/customizer/structures/blog--entry-default.php:90, includes/customizer/structures/blog--entry-grid.php:318, includes/customizer/structures/blog--single.php:53, includes/customizer/structures/page--search.php:95, includes/customizer/structures/page--single.php:53, includes/customizer/structures/sections.php:155, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:53, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:53
 msgid "Title"
 msgstr ""
 
@@ -1136,19 +1136,19 @@ msgstr ""
 msgid "Featured Image"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:196, includes/customizer/structures/blog--entry-default.php:183, includes/customizer/structures/blog--entry-grid.php:416, includes/customizer/structures/blog--single.php:147, includes/customizer/structures/footer--scroll-to-top.php:96, includes/customizer/structures/header--mobile-vertical-bar.php:35, includes/customizer/structures/page--single.php:128
+#: includes/customizer/structures/auto-custom-post-types.php:196, includes/customizer/structures/blog--entry-default.php:183, includes/customizer/structures/blog--entry-grid.php:411, includes/customizer/structures/blog--single.php:147, includes/customizer/structures/footer--scroll-to-top.php:96, includes/customizer/structures/header--mobile-vertical-bar.php:35, includes/customizer/structures/page--single.php:128
 msgid "Display"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:198, includes/customizer/structures/blog--entry-default.php:185, includes/customizer/structures/blog--entry-grid.php:418, includes/customizer/structures/blog--single.php:149, includes/customizer/structures/content.php:90, includes/customizer/structures/page--single.php:130, includes/modules/page-settings/class-suki-page-settings-meta-box.php:505, includes/modules/page-settings/customizer/structures/all-page-settings.php:106
+#: includes/customizer/structures/auto-custom-post-types.php:198, includes/customizer/structures/blog--entry-default.php:185, includes/customizer/structures/blog--entry-grid.php:413, includes/customizer/structures/blog--single.php:149, includes/customizer/structures/content.php:90, includes/customizer/structures/page--single.php:130, includes/modules/page-settings/class-suki-page-settings-meta-box.php:505, includes/modules/page-settings/customizer/structures/all-page-settings.php:106
 msgid "Disabled"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:199, includes/customizer/structures/blog--entry-default.php:186, includes/customizer/structures/blog--entry-grid.php:419, includes/customizer/structures/blog--single.php:150, includes/customizer/structures/page--single.php:131
+#: includes/customizer/structures/auto-custom-post-types.php:199, includes/customizer/structures/blog--entry-default.php:186, includes/customizer/structures/blog--entry-grid.php:414, includes/customizer/structures/blog--single.php:150, includes/customizer/structures/page--single.php:131
 msgid "Before Content Header"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:200, includes/customizer/structures/blog--entry-default.php:187, includes/customizer/structures/blog--entry-grid.php:420, includes/customizer/structures/blog--single.php:151, includes/customizer/structures/page--single.php:132
+#: includes/customizer/structures/auto-custom-post-types.php:200, includes/customizer/structures/blog--entry-default.php:187, includes/customizer/structures/blog--entry-grid.php:415, includes/customizer/structures/blog--single.php:151, includes/customizer/structures/page--single.php:132
 msgid "After Content Header"
 msgstr ""
 
@@ -1196,31 +1196,31 @@ msgstr ""
 msgid "Items gap"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:65, includes/customizer/structures/blog--entry-grid.php:298
+#: includes/customizer/structures/blog--entry-default.php:65, includes/customizer/structures/blog--entry-grid.php:293
 msgid "Entry Header"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:89, includes/customizer/structures/blog--entry-grid.php:322, includes/customizer/structures/blog--single.php:54, includes/customizer/structures/page--single.php:54
+#: includes/customizer/structures/blog--entry-default.php:89, includes/customizer/structures/blog--entry-grid.php:317, includes/customizer/structures/blog--single.php:54, includes/customizer/structures/page--single.php:54
 msgid "Header Meta"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:143, includes/customizer/structures/blog--entry-grid.php:376, includes/customizer/structures/blog--single.php:107
+#: includes/customizer/structures/blog--entry-default.php:143, includes/customizer/structures/blog--entry-grid.php:371, includes/customizer/structures/blog--single.php:107
 msgid "Header meta text"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:144, includes/customizer/structures/blog--entry-grid.php:377, includes/customizer/structures/blog--single.php:108
+#: includes/customizer/structures/blog--entry-default.php:144, includes/customizer/structures/blog--entry-grid.php:372, includes/customizer/structures/blog--single.php:108
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}."
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:163, includes/customizer/structures/blog--entry-grid.php:396
+#: includes/customizer/structures/blog--entry-default.php:163, includes/customizer/structures/blog--entry-grid.php:391
 msgid "Entry Thumbnail"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:228, includes/customizer/structures/blog--entry-grid.php:440
+#: includes/customizer/structures/blog--entry-default.php:228, includes/customizer/structures/blog--entry-grid.php:435
 msgid "Image size"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:248, includes/customizer/structures/blog--entry-grid.php:481
+#: includes/customizer/structures/blog--entry-default.php:248, includes/customizer/structures/blog--entry-grid.php:476
 msgid "Entry Content"
 msgstr ""
 
@@ -1236,79 +1236,79 @@ msgstr ""
 msgid "Excerpt"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:292, includes/customizer/structures/blog--entry-grid.php:502
+#: includes/customizer/structures/blog--entry-default.php:292, includes/customizer/structures/blog--entry-grid.php:497
 msgid "Excerpt words limit"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:293, includes/customizer/structures/blog--entry-grid.php:503
+#: includes/customizer/structures/blog--entry-default.php:293, includes/customizer/structures/blog--entry-grid.php:498
 msgid "Fill with 0 to disable excerpt."
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:323, includes/customizer/structures/blog--entry-grid.php:533
+#: includes/customizer/structures/blog--entry-default.php:323, includes/customizer/structures/blog--entry-grid.php:528
 msgid "Text"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:343, includes/customizer/structures/blog--entry-grid.php:553
+#: includes/customizer/structures/blog--entry-default.php:343, includes/customizer/structures/blog--entry-grid.php:548
 msgid "Read more text"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:365, includes/customizer/structures/blog--entry-grid.php:575
+#: includes/customizer/structures/blog--entry-default.php:365, includes/customizer/structures/blog--entry-grid.php:570
 msgid "Entry Footer"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:389, includes/customizer/structures/blog--entry-grid.php:599, includes/customizer/structures/blog--single.php:216
+#: includes/customizer/structures/blog--entry-default.php:389, includes/customizer/structures/blog--entry-grid.php:594, includes/customizer/structures/blog--single.php:216
 msgid "Footer Meta"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:442, includes/customizer/structures/blog--entry-grid.php:652, includes/customizer/structures/blog--single.php:270
+#: includes/customizer/structures/blog--entry-default.php:442, includes/customizer/structures/blog--entry-grid.php:647, includes/customizer/structures/blog--single.php:270
 msgid "Footer meta text"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-default.php:443, includes/customizer/structures/blog--entry-grid.php:653, includes/customizer/structures/blog--single.php:271
+#: includes/customizer/structures/blog--entry-default.php:443, includes/customizer/structures/blog--entry-grid.php:648, includes/customizer/structures/blog--single.php:271
 msgid "Available tags: {{date}}, {{categories}}, {{tags}}, {{author}}, {{avatar}}, {{comments}}"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:37, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:339, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:435
+#: includes/customizer/structures/blog--entry-grid.php:37, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:339, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:430
 msgid "Columns"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:67
+#: includes/customizer/structures/blog--entry-grid.php:62
 msgid "Rows gap"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:103, includes/customizer/structures/footer--widgets-bar.php:154
+#: includes/customizer/structures/blog--entry-grid.php:98, includes/customizer/structures/footer--widgets-bar.php:154
 msgid "Columns gap"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:137
+#: includes/customizer/structures/blog--entry-grid.php:132
 msgid "Entry Wrapper"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:167, includes/customizer/structures/content--hero.php:170, includes/customizer/structures/content--main.php:59, includes/customizer/structures/content--sidebar.php:215, includes/customizer/structures/content.php:145, includes/customizer/structures/footer--bottom-bar.php:148, includes/customizer/structures/footer--scroll-to-top.php:299, includes/customizer/structures/footer--widgets-bar.php:78, includes/customizer/structures/header--mobile-main-bar.php:79, includes/customizer/structures/header--mobile-vertical-bar.php:217, includes/customizer/structures/header--top-main-bottom-bar.php:182, includes/customizer/structures/style--buttons.php:31, includes/customizer/structures/style--form-inputs.php:31
+#: includes/customizer/structures/blog--entry-grid.php:162, includes/customizer/structures/content--hero.php:170, includes/customizer/structures/content--main.php:59, includes/customizer/structures/content--sidebar.php:215, includes/customizer/structures/content.php:145, includes/customizer/structures/footer--bottom-bar.php:148, includes/customizer/structures/footer--scroll-to-top.php:299, includes/customizer/structures/footer--widgets-bar.php:78, includes/customizer/structures/header--mobile-main-bar.php:79, includes/customizer/structures/header--mobile-vertical-bar.php:217, includes/customizer/structures/header--top-main-bottom-bar.php:182, includes/customizer/structures/style--buttons.php:31, includes/customizer/structures/style--form-inputs.php:31
 msgid "Padding"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:243, includes/customizer/structures/content--sidebar.php:291, includes/customizer/structures/footer--scroll-to-top.php:335, includes/customizer/structures/style--buttons.php:103, includes/customizer/structures/style--form-inputs.php:103
+#: includes/customizer/structures/blog--entry-grid.php:238, includes/customizer/structures/content--sidebar.php:291, includes/customizer/structures/footer--scroll-to-top.php:335, includes/customizer/structures/style--buttons.php:103, includes/customizer/structures/style--form-inputs.php:103
 msgid "Border radius"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:278
+#: includes/customizer/structures/blog--entry-grid.php:273
 msgid "Same height items in a row"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:461
+#: includes/customizer/structures/blog--entry-grid.php:456
 msgid "Ignore padding"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:680, includes/customizer/structures/content--hero.php:395, includes/customizer/structures/content--sidebar.php:431, includes/customizer/structures/footer--bottom-bar.php:327, includes/customizer/structures/footer--scroll-to-top.php:371, includes/customizer/structures/footer--widgets-bar.php:417, includes/customizer/structures/header--mobile-main-bar.php:253, includes/customizer/structures/header--mobile-vertical-bar.php:454, includes/customizer/structures/header--top-main-bottom-bar.php:455, includes/customizer/structures/style--buttons.php:183, includes/customizer/structures/style--form-inputs.php:183, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:169, includes/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:36
+#: includes/customizer/structures/blog--entry-grid.php:675, includes/customizer/structures/content--hero.php:395, includes/customizer/structures/content--sidebar.php:431, includes/customizer/structures/footer--bottom-bar.php:327, includes/customizer/structures/footer--scroll-to-top.php:371, includes/customizer/structures/footer--widgets-bar.php:417, includes/customizer/structures/header--mobile-main-bar.php:253, includes/customizer/structures/header--mobile-vertical-bar.php:454, includes/customizer/structures/header--top-main-bottom-bar.php:455, includes/customizer/structures/style--buttons.php:183, includes/customizer/structures/style--form-inputs.php:183, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:169, includes/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php:36
 msgid "Background color"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:681, includes/customizer/structures/content--hero.php:396, includes/customizer/structures/content--sidebar.php:432, includes/customizer/structures/footer--bottom-bar.php:328, includes/customizer/structures/footer--widgets-bar.php:418, includes/customizer/structures/header--mobile-main-bar.php:254, includes/customizer/structures/header--mobile-vertical-bar.php:455, includes/customizer/structures/header--top-main-bottom-bar.php:456, includes/customizer/structures/style--buttons.php:184, includes/customizer/structures/style--form-inputs.php:184, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:170
+#: includes/customizer/structures/blog--entry-grid.php:676, includes/customizer/structures/content--hero.php:396, includes/customizer/structures/content--sidebar.php:432, includes/customizer/structures/footer--bottom-bar.php:328, includes/customizer/structures/footer--widgets-bar.php:418, includes/customizer/structures/header--mobile-main-bar.php:254, includes/customizer/structures/header--mobile-vertical-bar.php:455, includes/customizer/structures/header--top-main-bottom-bar.php:456, includes/customizer/structures/style--buttons.php:184, includes/customizer/structures/style--form-inputs.php:184, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:170
 msgid "Border color"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:721, includes/customizer/structures/content--sidebar.php:422
+#: includes/customizer/structures/blog--entry-grid.php:716, includes/customizer/structures/content--sidebar.php:422
 msgid "Shadow"
 msgstr ""
 
@@ -1674,7 +1674,7 @@ msgstr ""
 msgid "Widget title border color"
 msgstr ""
 
-#: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:91, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:133, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:361, includes/customizer/structures/sections.php:564, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:191, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:103
+#: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:91, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:133, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:361, includes/customizer/structures/sections.php:564, includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:185, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:103
 msgctxt "Suki Pro upsell"
 msgid "More Options Available in Suki Pro"
 msgstr ""
@@ -2419,11 +2419,11 @@ msgstr ""
 msgid "Cross-sells grid columns"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:177, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:89
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:171, includes/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php:89
 msgid "Go to Page Editor"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:203
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--cart.php:197
 msgctxt "Suki Pro upsell"
 msgid "Sticky checkout button on mobile"
 msgstr ""
@@ -2485,11 +2485,11 @@ msgstr ""
 msgid "Grid columns"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:218
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:213
 msgid "Show products count"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:239
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:234
 msgid "Show products sort filter"
 msgstr ""
 
@@ -2541,32 +2541,32 @@ msgstr ""
 msgid "Display up-sells as configured on Edit Product page > Product Data > Linked Products > Up-sells."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:367
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:362
 msgid "Related Products"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:388
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:383
 msgid "Show related products"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:389
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:384
 msgid "Display linked products and similar products within same categories or tags. Products that have been displayed on \"Up-sells\" section will not be included."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:409
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:404
 msgid "Max products shown"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:410
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:405
 msgid "0 = disabled; -1 = show all."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:475
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:465
 msgctxt "Suki Pro upsell"
 msgid "AJAX Add To Cart"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:476
+#: includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:466
 msgctxt "Suki Pro upsell"
 msgid "More Gallery Layouts"
 msgstr ""

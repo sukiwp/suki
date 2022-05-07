@@ -12,5 +12,6 @@ import './controls/SukiMultiCheckControl';
 import './controls/SukiMultiSelectControl';
 import './controls/SukiRadioImageControl';
 import './controls/SukiShadowControl';
+import './controls/SukiSliderControl';
 import './controls/SukiToggleControl';
 import './controls/SukiTypographyControl';

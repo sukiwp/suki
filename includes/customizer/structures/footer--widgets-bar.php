@@ -37,13 +37,13 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Layout', 'suki' ),
 			'choices'  => array(
 				'narrow' => array(
-					'label' => '<span class="dashicons dashicons-align-center"></span> ' . esc_html__( 'Narrow', 'suki' ),
+					'label' => esc_html__( 'Narrow', 'suki' ),
 				),
 				'wide'   => array(
-					'label' => '<span class="dashicons dashicons-align-wide"></span> ' . esc_html__( 'Wide', 'suki' ),
+					'label' => esc_html__( 'Wide', 'suki' ),
 				),
 				'full'   => array(
-					'label' => '<span class="dashicons dashicons-align-full-width"></span> ' . esc_html__( 'Full', 'suki' ),
+					'label' => esc_html__( 'Full', 'suki' ),
 				),
 			),
 			'priority' => 10,
@@ -353,13 +353,13 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Widget title alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+					'label' => esc_html__( 'Left', 'suki' ),
 				),
 				'center' => array(
-					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+					'label' => esc_html__( 'Center', 'suki' ),
 				),
 				'right'  => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+					'label' => esc_html__( 'Right', 'suki' ),
 				),
 			),
 			'priority' => 20,

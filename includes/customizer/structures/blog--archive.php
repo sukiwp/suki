@@ -179,13 +179,13 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'choices'  => array(
 				'left'   => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+					'label' => esc_html__( 'Left', 'suki' ),
 				),
 				'center' => array(
-					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+					'label' => esc_html__( 'Center', 'suki' ),
 				),
 				'right'  => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+					'label' => esc_html__( 'Right', 'suki' ),
 				),
 			),
 			'priority' => 20,

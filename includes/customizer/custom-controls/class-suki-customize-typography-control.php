@@ -47,13 +47,24 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 					$type = $matches[1];
 
 					// Add to responsiveStructures array.
-					$device = 'desktop';
-					if ( false !== strpos( $setting->id, '__' ) ) {
-						preg_match( '/^(.*?)__(.*?)$/', $setting->id, $matches );
+					switch ( $type ) {
+						case 'font_family':
+						case 'font_weight':
+						case 'font_style':
+						case 'text_transform':
+							$device = 'global';
+							break;
 
-						if ( in_array( $matches[2], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
-							$device = $matches[2];
-						}
+						default:
+							$device = 'desktop';
+							if ( false !== strpos( $setting->id, '__' ) ) {
+								preg_match( '/^(.*?)__(.*?)$/', $setting->id, $matches );
+
+								if ( in_array( $matches[2], array( 'desktop', 'tablet', 'mobile' ), true ) ) {
+									$device = $matches[2];
+								}
+							}
+							break;
 					}
 					$this->json['responsiveStructures'][ $device ][ $type ] = $setting_key;
 				}
