@@ -1856,7 +1856,7 @@ msgid "Show search bar"
 msgstr ""
 
 #: includes/customizer/structures/page--error-404.php:182
-msgid "Show \"Back to Home\" button"
+msgid "Show Back to Home button"
 msgstr ""
 
 #: includes/customizer/structures/page--search.php:29

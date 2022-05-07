@@ -30,17 +30,19 @@
  * Control's component
  */
 
-.components-input-control {
+:is( .components-input-control, .components-select-control ) {
 	gap: 2px;
 
 	> .components-flex-item {
-		display: none;
-	}
+		label {
+			font-size: 9px;
+			text-transform: uppercase;
+			padding: 0 !important;
+		}
 
-	&__label {
-		font-size: 9px;
-		text-transform: uppercase;
-		padding: 0 !important;
+		&:empty {
+			display: none;
+		}
 	}
 }
 
@@ -177,7 +179,7 @@
 				font-family: "dashicons";
 				font-size: 10px;
 				line-height: 1;
-				color: var(--admin-color--strong-text);
+				color: rgba(0,0,0,0.5);
 				background-image: linear-gradient( 135deg, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50% );
 			}
 		}

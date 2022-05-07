@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_Section_Pro_Teaser' ) ) {
+if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_Pro_Teaser_Section' ) ) {
 	/**
 	 * Pro Teaser section class.
 	 */
-	class Suki_Customize_Section_Pro_Teaser extends WP_Customize_Section {
+	class Suki_Customize_Pro_Teaser_Section extends WP_Customize_Section {
 		/**
 		 * Control type.
 		 *
 		 * @var string
 		 */
-		public $type = 'suki-section-pro-teaser';
+		public $type = 'suki-pro-teaser';
 
 		/**
 		 * Landing page URL.
@@ -37,13 +37,23 @@ if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_S
 		public $features = array();
 
 		/**
-		 * Setup parameters for content rendering by Underscore JS template.
+		 * Setup the parameters passed to the JavaScript via JSON.
 		 */
 		public function json() {
+			/**
+			 * Pass all `params` in the parent class (WP_Customize_Section).
+			 */
+
 			$json = parent::json();
 
+			/**
+			 * Pass more properties from this class as `params`.
+			 */
+
+			// `url` property.
 			$json['url'] = $this->url;
 
+			// `features` property.
 			$json['features'] = $this->features;
 
 			return $json;
@@ -55,9 +65,11 @@ if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_S
 		protected function render_template() {
 			?>
 			<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} suki-pro-teaser">
-				<a class="accordion-section-title" href="{{ data.url }}" target="_blank" rel="noopener">
-					<h3>{{{ data.title }}}</h3>
-				</a>
+				<# if ( data.title ) { #>
+					<a href="{{ data.url }}" target="_blank" rel="noopener">
+						<h3 class="accordion-section-title">{{{ data.title }}}</h3>
+					</a>
+				<# } #>
 				<# if ( 0 < data.features.length ) { #>
 					<ul>
 						<# _.each( data.features, function( feature, i ) { #>
@@ -71,5 +83,5 @@ if ( class_exists( 'WP_Customize_Section' ) && ! class_exists( 'Suki_Customize_S
 	}
 
 	// Register section type.
-	$wp_customize->register_section_type( 'Suki_Customize_Section_Pro_Teaser' );
+	$wp_customize->register_section_type( 'Suki_Customize_Pro_Teaser_Section' );
 }

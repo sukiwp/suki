@@ -30,7 +30,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 				}
 
 				<Grid
-					columns={ control.params.columns || control.params.choices.length }
+					columns={ control.params.columns || 3 }
 					gap="1"
 					className="suki-radioimage"
 				>

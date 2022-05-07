@@ -7,11 +7,11 @@ import SukiControlDescription from '../components/SukiControlDescription';
 
 import {
 	__experimentalGrid as Grid,
-	__experimentalSpacer as Spacer,
 	__experimentalVStack as VStack,
 	Button,
 	Card,
 	CardBody,
+	CardDivider,
 	SelectControl,
 } from '@wordpress/components';
 
@@ -49,8 +49,6 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 			{ value: 'right bottom', label: SukiCustomizerData.l10n.rightBottom },
 		];
 
-		console.log( control.settings );
-
 		ReactDOM.render(
 			<>
 				{ control.params.label &&
@@ -66,77 +64,78 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 				}
 
 				<Card>
-					<CardBody
-						size="small"
-					>
-						<VStack
-							spacing="2"
+					{ control.settings.image &&
+						<CardBody
+							size="xSmall"
+							className="suki-media-upload"
 						>
-							{ control.settings.image &&
-								<>
-									<div className="suki-media-upload">
-										{ control.params.imageAttachment &&
-											<>
-												<div className="suki-media-upload__image">
-													<img src={ control.params.imageAttachment.sizes?.medium?.url }/>
-												</div>
-
-												<Grid
-													columns="2"
-													gap="2"
-												>
-													<Button
-														icon="upload"
-														text={ SukiCustomizerData.l10n.changeImage }
-														variant="secondary"
-														className="suki-media-upload__actions__open"
-														onClick={ ( e ) => {
-															e.preventDefault();
-
-															control.openMediaLibrary();
-														} }
-													/>
-													<Button
-														icon="no-alt"
-														text={ SukiCustomizerData.l10n.removeImage }
-														variant="secondary"
-														className="suki-media-upload__actions__remove"
-														onClick={ ( e ) => {
-															e.preventDefault();
-
-															control.removeImage();
-														} }
-													/>
-												</Grid>
-												
-											</>
-										}
-
-										{ ! control.params.imageAttachment &&
-											<>
-												<Grid
-													columns="1"
-												>
-													<Button
-														icon="upload"
-														text={ SukiCustomizerData.l10n.selectImage }
-														variant="secondary"
-														className="suki-media-upload-actions__open"
-														onClick={ ( e ) => {
-															e.preventDefault();
-
-															control.openMediaLibrary();
-														} }
-													/>
-												</Grid>
-											</>
-										}
+							{ control.params.imageAttachment &&
+								<VStack
+									spacing="2"
+								>
+									<div className="suki-media-upload__image">
+										<img src={ control.params.imageAttachment.sizes?.medium?.url }/>
 									</div>
-									<Spacer/>
-								</>
+
+									<Grid
+										columns="2"
+										gap="2"
+									>
+										<Button
+											icon="upload"
+											text={ SukiCustomizerData.l10n.changeImage }
+											variant="secondary"
+											className="suki-media-upload__actions__open"
+											onClick={ ( e ) => {
+												e.preventDefault();
+
+												control.openMediaLibrary();
+											} }
+										/>
+										<Button
+											icon="no-alt"
+											text={ SukiCustomizerData.l10n.removeImage }
+											variant="secondary"
+											className="suki-media-upload__actions__remove"
+											onClick={ ( e ) => {
+												e.preventDefault();
+
+												control.removeImage();
+											} }
+										/>
+									</Grid>
+								</VStack>
 							}
 
-							{ ( control.settings.attachment || control.settings.repeat || control.settings.size || control.settings.position ) &&
+							{ ! control.params.imageAttachment &&
+								<>
+									<Grid
+										columns="1"
+									>
+										<Button
+											icon="upload"
+											text={ SukiCustomizerData.l10n.selectImage }
+											variant="secondary"
+											className="suki-media-upload-actions__open"
+											onClick={ ( e ) => {
+												e.preventDefault();
+
+												control.openMediaLibrary();
+											} }
+										/>
+									</Grid>
+								</>
+							}
+						</CardBody>
+					}
+
+					{ ( control.settings.attachment || control.settings.repeat || control.settings.size || control.settings.position ) &&
+						<CardBody
+							size="xSmall"
+						>
+							<VStack
+								spacing="2"
+							>
 								<Grid
 									columns="2"
 									gap="2"
@@ -185,9 +184,9 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 										/>
 									}
 								</Grid>
-							}
-						</VStack>
-					</CardBody>
+							</VStack>
+						</CardBody>
+					}
 				</Card>
 			</>,
 			control.container[0]

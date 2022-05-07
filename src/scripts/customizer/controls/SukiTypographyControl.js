@@ -67,6 +67,8 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 			{ value: 'rem', label: 'rem' },
 		];
 
+		let responsiveStructures = control.params.responsiveStructures;
+
 		ReactDOM.render(
 			<>
 				{ control.params.label &&
@@ -83,7 +85,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 				<Card>
 					<CardBody
-						size="small"
+						size="xSmall"
 					>
 						<VStack
 							spacing="2"
@@ -156,9 +158,13 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 								}
 							</Grid>
 
-							<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
+							<SukiControlResponsiveSwitcher devices={ Object.keys( responsiveStructures ) }/>
 
-							{ Object.keys( control.params.responsiveStructures ).map( ( device ) => {
+							{ Object.keys( responsiveStructures ).map( ( device ) => {
+								if ( 'global' === device ) {
+									return;
+								}
+
 								const fontSizeSettingId = 'font_size' + ( 'desktop' !== device ? '__' + device : '' );
 								const lineHeightSettingId = 'line_height' + ( 'desktop' !== device ? '__' + device : '' );
 								const letterSpacingSettingId = 'letter_spacing' + ( 'desktop' !== device ? '__' + device : '' );

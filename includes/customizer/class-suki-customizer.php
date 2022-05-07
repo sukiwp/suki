@@ -121,8 +121,8 @@ class Suki_Customizer {
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-spacer-section.php';
 		if ( suki_show_pro_teaser() ) {
-			require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-section-pro-link.php';
-			require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-section-pro-teaser.php';
+			require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-pro-link-section.php';
+			require_once SUKI_INCLUDES_DIR . '/customizer/custom-sections/class-suki-customize-pro-teaser-section.php';
 		}
 
 		/**
@@ -152,7 +152,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-toggle-control.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-typography-control.php';
 
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-pro-teaser.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-pro-teaser-control.php';
 	}
 
 	/**

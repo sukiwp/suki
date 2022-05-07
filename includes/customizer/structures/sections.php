@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( suki_show_pro_teaser() ) {
 	// Suki Pro link.
 	$wp_customize->add_section(
-		new Suki_Customize_Section_Pro_Link(
+		new Suki_Customize_Pro_Link_Section(
 			$wp_customize,
 			'suki_section_pro_link',
 			array(
@@ -354,7 +354,7 @@ $wp_customize->add_section(
 // Header > More Options Available.
 if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_section(
-		new Suki_Customize_Section_Pro_Teaser(
+		new Suki_Customize_Pro_Teaser_Section(
 			$wp_customize,
 			'suki_section_teaser_pro_upsell_header',
 			array(
@@ -557,7 +557,7 @@ $wp_customize->add_section(
 // Footer > More Options Available.
 if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_section(
-		new Suki_Customize_Section_Pro_Teaser(
+		new Suki_Customize_Pro_Teaser_Section(
 			$wp_customize,
 			'suki_section_teaser_pro_upsell_footer',
 			array(

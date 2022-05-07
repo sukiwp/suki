@@ -179,7 +179,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Show "Back to Home" button', 'suki' ),
+			'label'    => esc_html__( 'Show Back to Home button', 'suki' ),
 			'priority' => 10,
 		)
 	)

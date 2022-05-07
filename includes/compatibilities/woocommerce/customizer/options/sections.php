@@ -119,7 +119,7 @@ $wp_customize->get_section( 'woocommerce_store_notice' )->priority = 29;
 if ( suki_show_pro_teaser() ) {
 	// More Options Available.
 	$wp_customize->add_section(
-		new Suki_Customize_Section_Pro_Teaser(
+		new Suki_Customize_Pro_Teaser_Section(
 			$wp_customize,
 			'suki_section_teaser_pro_upsell_woocommerce',
 			array(

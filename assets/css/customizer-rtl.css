@@ -1,9 +1,5 @@
 @charset "UTF-8";
 .wp-customizer {
-	--admin-color--primary: #2271b1;
-	--admin-color--gray: #ccc;
-	--admin-color--border: #8c8f94;
-	--admin-color--strong-text: #1d2327;
 	--color-palette-1: #222222;
 	--color-palette-2: #444444;
 	--color-palette-3: #666666;
@@ -113,7 +109,6 @@
 
 .suki-control-box {
 	padding: 10px;
-	border: 1px solid var(--admin-color--border);
 	border-radius: 3px;
 	background-color: #fff;
 	display: flex;
@@ -236,16 +231,16 @@
 /**
  * Control's component
  */
-.components-input-control {
+:is(.components-input-control, .components-select-control) {
 	gap: 2px;
 }
-.components-input-control > .components-flex-item {
-	display: none;
-}
-.components-input-control__label {
+:is(.components-input-control, .components-select-control) > .components-flex-item label {
 	font-size: 9px;
 	text-transform: uppercase;
 	padding: 0 !important;
+}
+:is(.components-input-control, .components-select-control) > .components-flex-item:empty {
+	display: none;
 }
 
 /**
@@ -357,7 +352,7 @@
 	font-family: "dashicons";
 	font-size: 10px;
 	line-height: 1;
-	color: var(--admin-color--strong-text);
+	color: rgba(0, 0, 0, 0.5);
 	background-image: linear-gradient(-135deg, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 50%);
 }
 .suki-color-dropdown__palette .components-circular-option-picker__swatches {
@@ -466,8 +461,8 @@
 .control-section-suki-spacer h2 {
 	position: relative;
 	display: table;
-	margin: -5px 0 0;
-	padding: 3px 18px 3px 10px;
+	margin: -10px 0 0;
+	padding: 2px 18px 2px 10px;
 	color: inherit;
 	font-size: 11px;
 	line-height: 16px;
@@ -482,6 +477,59 @@
 	top: 0;
 	border-bottom: 22px solid rgba(0, 0, 0, 0.1);
 	border-left: 12px solid transparent;
+}
+
+/**
+ * Suki Pro link section
+ */
+.control-section-suki-pro-link {
+	margin-top: 15px;
+}
+.control-section-suki-pro-link a {
+	display: block;
+	text-decoration: none;
+}
+.control-section-suki-pro-link .accordion-section-title {
+	background-color: var(--wp-admin-theme-color) !important;
+	border-color: transparent !important;
+	color: #fff !important;
+}
+.control-section-suki-pro-link .accordion-section-title:after {
+	color: inherit !important;
+}
+.control-section-suki-pro-link .accordion-section-title:hover, .control-section-suki-pro-link .accordion-section-title:focus {
+	background-color: var(--wp-admin-theme-color-darker-10) !important;
+}
+
+/**
+ * Suki Pro upsell section
+ */
+.suki-pro-teaser {
+	margin-top: 15px;
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+	background-color: #fcf9e8;
+}
+.customize-control-suki-pro-teaser > .suki-pro-teaser {
+	margin-right: -12px;
+	margin-left: -12px;
+}
+.suki-pro-teaser ul {
+	margin: 0;
+	padding: 0 18px 11px 10px;
+}
+.suki-pro-teaser ul li {
+	margin: 0.25em 0;
+}
+.suki-pro-teaser a {
+	display: block;
+	text-decoration: none;
+}
+.suki-pro-teaser .accordion-section-title {
+	background-color: transparent !important;
+	border-top: none !important;
+	border-bottom: none !important;
+	border-color: transparent !important;
 }
 
 /**
@@ -519,7 +567,7 @@
  * Background control
  */
 .customize-control-suki-background .suki-media-upload__image {
-	margin-bottom: 16px;
+	margin-bottom: 8px;
 }
 .customize-control-suki-background .suki-media-upload__image img {
 	max-height: 200px;
@@ -564,7 +612,7 @@
 	text-transform: uppercase;
 }
 .customize-control-suki-heading .suki-heading-tabindex:focus + .suki-heading {
-	background-color: var(--admin-color--primary);
+	background-color: var(--wp-admin-theme-color);
 	color: #fff;
 }
 .customize-control-suki-heading .description {
@@ -663,68 +711,6 @@
 	flex: 1 1 100%;
 	height: 1px;
 	align-self: center;
-}
-
-/**
- * Suki Pro upsell section
- */
-.suki-pro-teaser {
-	margin-top: 15px;
-	border-top: 1px solid #ddd !important;
-	border-bottom: 1px solid #ddd !important;
-	background-color: #fff8e5;
-}
-.customize-control-suki-pro-teaser > .suki-pro-teaser {
-	margin-right: -12px;
-	margin-left: -12px;
-}
-.suki-pro-teaser ul {
-	margin: 0;
-	padding: 0 18px 11px 10px;
-}
-.suki-pro-teaser ul li {
-	margin: 0.25em 0;
-}
-.suki-pro-teaser .accordion-section-title {
-	display: block;
-	padding: 10px 14px 11px 10px !important;
-	background-color: transparent !important;
-	border-top: none !important;
-	border-bottom: none !important;
-	border-color: transparent !important;
-	text-decoration: none;
-	color: inherit !important;
-}
-.suki-pro-teaser .accordion-section-title:hover, .suki-pro-teaser .accordion-section-title:focus {
-	color: var(--admin-primary-color) !important;
-}
-.suki-pro-teaser .accordion-section-title h3 {
-	margin: 0;
-	color: inherit !important;
-}
-
-/**
- * Suki Pro link section
- */
-.control-section-suki-section-pro-link {
-	margin-top: 15px;
-}
-.control-section-suki-section-pro-link .accordion-section-title {
-	display: block;
-	background-color: #ee5253 !important;
-	border-color: #ee5253 !important;
-	color: #fff !important;
-	text-decoration: none;
-}
-.control-section-suki-section-pro-link .accordion-section-title h3 {
-	margin: 0;
-	color: inherit !important;
-}
-.control-section-suki-section-pro-link .accordion-section-title:after {
-	color: inherit !important;
-}
-.control-section-suki-section-pro-link .accordion-section-title:hover, .control-section-suki-section-pro-link .accordion-section-title:focus {
-	border-right-color: #a61011 !important;
 }
 
 /**

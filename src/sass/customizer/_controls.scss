@@ -40,7 +40,7 @@
 .customize-control-suki-background {
 	.suki-media-upload {
 		&__image {
-			margin-bottom: 16px;
+			margin-bottom: 8px;
 
 			img {
 				max-height: 200px;
@@ -99,7 +99,7 @@
 
 		&-tabindex {
 			&:focus + .suki-heading {
-				background-color: var(--admin-color--primary);
+				background-color: var(--wp-admin-theme-color);
 				color: #fff;
 			}
 		}
@@ -257,80 +257,7 @@
 
 
 
-/**
- * Suki Pro upsell section
- */
 
-.suki-pro-teaser {
-	margin-top: 15px;
-	border-top: 1px solid #ddd !important;
-	border-bottom: 1px solid #ddd !important;
-	background-color: #fff8e5;
-
-	.customize-control-suki-pro-teaser > & {
-		margin-left: -12px;
-		margin-right: -12px;
-	}
-
-	ul {
-		margin: 0;
-		padding: 0 10px 11px 18px;
-
-		li {
-			margin: 0.25em 0;
-		}
-	}
-
-	.accordion-section-title {
-		display: block;
-		padding: 10px 10px 11px 14px !important;
-		background-color: transparent !important;
-		// color: inherit !important;
-		border-top: none !important;
-		border-bottom: none !important;
-		border-color: transparent !important;
-		text-decoration: none;
-		color: inherit !important;
-
-		&:hover, &:focus {
-			color: var(--admin-primary-color) !important;
-		}
-
-		h3 {
-			margin: 0;
-			color: inherit !important;
-		}
-	}
-}
-
-/**
- * Suki Pro link section
- */
-
-.control-section-suki-section-pro-link {
-	margin-top: 15px;
-
-	& .accordion-section-title {
-		display: block;
-		background-color: #ee5253 !important;
-		border-color: #ee5253 !important;
-		color: #fff !important;
-		text-decoration: none;
-
-		h3 {
-			margin: 0;
-			color: inherit !important;
-		}
-
-		&:after {
-			color: inherit !important;
-		}
-
-		&:hover, &:focus {
-			border-left-color: #a61011 !important;
-		}
-	}
-}
 
 
 

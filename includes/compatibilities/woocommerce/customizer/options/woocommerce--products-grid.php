@@ -182,7 +182,7 @@ $wp_customize->add_control(
 
 if ( suki_show_pro_teaser() ) {
 	$wp_customize->add_control(
-		new Suki_Customize_Control_Pro_Teaser(
+		new Suki_Customize_Pro_Teaser_Control(
 			$wp_customize,
 			'pro_teaser_woocommerce_products_grid',
 			array(
