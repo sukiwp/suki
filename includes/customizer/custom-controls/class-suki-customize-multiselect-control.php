@@ -31,6 +31,13 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 		public $items_limit = 0;
 
 		/**
+		 * Whether selected items should keep its original order or not.
+		 *
+		 * @var boolean
+		 */
+		public $keep_order = true;
+
+		/**
 		 * Setup the parameters passed to the JavaScript via JSON.
 		 */
 		public function to_json() {
@@ -49,6 +56,9 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 
 			// `items_limit` property.
 			$this->json['itemsLimit'] = $this->items_limit;
+
+			// `keep_order` property.
+			$this->json['keepOrder'] = $this->keep_order;
 		}
 	}
 

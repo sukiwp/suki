@@ -1303,15 +1303,18 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
 
     if (-1 === valueArray.indexOf(value)) {
       valueArray = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(valueArray), [value]);
+    } // Sort the array according to the original options order.
+
+
+    if (control.params.keepOrder) {
+      var choicesValues = control.params.choices.map(function (item) {
+        return item.value;
+      });
+      valueArray = choicesValues.filter(function (choice) {
+        return -1 !== valueArray.indexOf(choice);
+      });
     }
 
-    var choicesValues = control.params.choices.map(function (item) {
-      return item.value;
-    }); // Sort the combinedValue according to the original options order.
-
-    valueArray = choicesValues.filter(function (choice) {
-      return -1 !== valueArray.indexOf(choice);
-    });
     control.setting.set(valueArray);
   },
   removeValueItem: function removeValueItem(removedValue) {

@@ -117,14 +117,16 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend( {
 			valueArray = [ ...valueArray, value ];
 		}
 
-		const choicesValues = control.params.choices.map( ( item ) => {
-			return item.value;
-		} );
+		// Sort the array according to the original options order.
+		if ( control.params.keepOrder ) {
+			const choicesValues = control.params.choices.map( ( item ) => {
+				return item.value;
+			} );
 
-		// Sort the combinedValue according to the original options order.
-		valueArray = choicesValues.filter( ( choice ) => {
-			return -1 !== valueArray.indexOf( choice );
-		} );
+			valueArray = choicesValues.filter( ( choice ) => {
+				return -1 !== valueArray.indexOf( choice );
+			} );
+		}
 		
 		control.setting.set( valueArray );
 	},
