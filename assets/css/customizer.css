@@ -219,16 +219,6 @@
 }
 
 /**
- * Notice inside control
- */
-.customize-control {
-	position: relative;
-}
-.customize-control .notice {
-	margin: 0;
-}
-
-/**
  * Control's component
  */
 :is(.components-input-control, .components-select-control) {
@@ -259,15 +249,13 @@
 }
 
 /**
- * Form row
+ * Control content box
  */
-.suki-row {
-	position: relative;
-	display: flex;
-	gap: 2px;
-}
-.suki-row > * {
-	flex-basis: 100%;
+.suki-control-content-box {
+	background-color: #ffffff;
+	padding: 8px;
+	border-radius: 2px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 /**
@@ -652,9 +640,17 @@
 }
 
 /**
+ * Notice inside control
+ */
+.customize-control-suki-notice .notice {
+	margin: 0;
+}
+
+/**
  * Radio Image Control
  */
 .customize-control-suki-radioimage .suki-radioimage__option {
+	display: block;
 	padding: 2px;
 	height: auto;
 }

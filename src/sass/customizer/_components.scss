@@ -15,18 +15,6 @@
 }
 
 /**
- * Notice inside control
- */
-
-.customize-control {
-	position: relative;
-
-	.notice {
-		margin: 0;
-	}
-}
-
-/**
  * Control's component
  */
 
@@ -64,17 +52,14 @@
 }
 
 /**
- * Form row
+ * Control content box
  */
 
-.suki-row {
-	position: relative;
-	display: flex;
-	gap: 2px;
-
-	> * {
-		flex-basis: 100%;
-	}
+ .suki-control-content-box {
+	background-color: #ffffff;
+	padding: 8px;
+	border-radius: 2px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }
 
 /**

@@ -9,9 +9,6 @@ import {
 	__experimentalGrid as Grid,
 	__experimentalVStack as VStack,
 	Button,
-	Card,
-	CardBody,
-	CardDivider,
 	SelectControl,
 } from '@wordpress/components';
 
@@ -63,13 +60,13 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 					</SukiControlDescription>
 				}
 
-				<Card>
+				<VStack
+					spacing="2"
+					className="suki-control-content-box"
+				>
 					{ control.settings.image &&
-						<CardBody
-							size="xSmall"
-							className="suki-media-upload"
-						>
-							{ control.params.imageAttachment &&
+						<div className="suki-media-upload">
+							{ control.params.imageAttachment ?
 								<VStack
 									spacing="2"
 								>
@@ -105,89 +102,81 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 										/>
 									</Grid>
 								</VStack>
-							}
+							:
+								<Grid
+									columns="1"
+								>
+									<Button
+										icon="upload"
+										text={ SukiCustomizerData.l10n.selectImage }
+										variant="secondary"
+										className="suki-media-upload-actions__open"
+										onClick={ ( e ) => {
+											e.preventDefault();
 
-							{ ! control.params.imageAttachment &&
-								<>
-									<Grid
-										columns="1"
-									>
-										<Button
-											icon="upload"
-											text={ SukiCustomizerData.l10n.selectImage }
-											variant="secondary"
-											className="suki-media-upload-actions__open"
-											onClick={ ( e ) => {
-												e.preventDefault();
-
-												control.openMediaLibrary();
-											} }
-										/>
-									</Grid>
-								</>
+											control.openMediaLibrary();
+										} }
+									/>
+								</Grid>
 							}
-						</CardBody>
+						</div>
 					}
 
 					{ ( control.settings.attachment || control.settings.repeat || control.settings.size || control.settings.position ) &&
-						<CardBody
-							size="xSmall"
+						<VStack
+							spacing="2"
 						>
-							<VStack
-								spacing="2"
+							<Grid
+								columns="2"
+								gap="2"
 							>
-								<Grid
-									columns="2"
-									gap="2"
-								>
-									{ control.settings.attachment &&
-										<SelectControl
-											label={ SukiCustomizerData.l10n.attachment }
-											value={ control.settings.attachment.get() }
-											options={ attachmentOptions }
-											onChange={ ( attachment ) => {
-												control.settings.attachment.set( attachment );
-											} }
-										/>
-									}
+								{ control.settings.attachment &&
+									<SelectControl
+										label={ SukiCustomizerData.l10n.attachment }
+										value={ control.settings.attachment.get() }
+										options={ attachmentOptions }
+										onChange={ ( attachment ) => {
+											control.settings.attachment.set( attachment );
+										} }
+									/>
+								}
 
-									{ control.settings.repeat &&
-										<SelectControl
-											label={ SukiCustomizerData.l10n.repeat }
-											value={ control.settings.repeat.get() }
-											options={ repeatOptions }
-											onChange={ ( repeat ) => {
-												control.settings.repeat.set( repeat );
-											} }
-										/>
-									}
+								{ control.settings.repeat &&
+									<SelectControl
+										label={ SukiCustomizerData.l10n.repeat }
+										value={ control.settings.repeat.get() }
+										options={ repeatOptions }
+										onChange={ ( repeat ) => {
+											control.settings.repeat.set( repeat );
+										} }
+									/>
+								}
 
-									{ control.settings.size &&
-										<SelectControl
-											label={ SukiCustomizerData.l10n.size }
-											value={ control.settings.size.get() }
-											options={ sizeOptions }
-											onChange={ ( size ) => {
-												control.settings.size.set( size );
-											} }
-										/>
-									}
+								{ control.settings.size &&
+									<SelectControl
+										label={ SukiCustomizerData.l10n.size }
+										value={ control.settings.size.get() }
+										options={ sizeOptions }
+										onChange={ ( size ) => {
+											control.settings.size.set( size );
+										} }
+									/>
+								}
 
-									{ control.settings.position &&
-										<SelectControl
-											label={ SukiCustomizerData.l10n.position }
-											value={ control.settings.position.get() }
-											options={ positionOptions }
-											onChange={ ( position ) => {
-												control.settings.position.set( position );
-											} }
-										/>
-									}
-								</Grid>
-							</VStack>
-						</CardBody>
+								{ control.settings.position &&
+									<SelectControl
+										label={ SukiCustomizerData.l10n.position }
+										value={ control.settings.position.get() }
+										options={ positionOptions }
+										onChange={ ( position ) => {
+											control.settings.position.set( position );
+										} }
+									/>
+								}
+							</Grid>
+						</VStack>
 					}
-				</Card>
+				</VStack>
 			</>,
 			control.container[0]
 		);

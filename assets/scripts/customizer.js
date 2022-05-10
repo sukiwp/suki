@@ -4801,10 +4801,12 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
       for: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: '_customize-description-' + control.id
-    }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Card, null, control.settings.image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardBody, {
-      size: "xSmall",
+    }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
+      spacing: "2",
+      className: "suki-control-content-box"
+    }, control.settings.image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "suki-media-upload"
-    }, control.params.imageAttachment && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
+    }, control.params.imageAttachment ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
       spacing: "2"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "suki-media-upload__image"
@@ -4831,7 +4833,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
         e.preventDefault();
         control.removeImage();
       }
-    }))), !control.params.imageAttachment && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalGrid, {
+    }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalGrid, {
       columns: "1"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       icon: "upload",
@@ -4842,9 +4844,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
         e.preventDefault();
         control.openMediaLibrary();
       }
-    })))), (control.settings.attachment || control.settings.repeat || control.settings.size || control.settings.position) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardBody, {
-      size: "xSmall"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
+    }))), (control.settings.attachment || control.settings.repeat || control.settings.size || control.settings.position) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
       spacing: "2"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalGrid, {
       columns: "2",
@@ -4877,7 +4877,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
       onChange: function onChange(position) {
         control.settings.position.set(position);
       }
-    })))))), control.container[0]);
+    }))))), control.container[0]);
   },
   openMediaLibrary: function openMediaLibrary() {
     var control = this;
@@ -5597,8 +5597,13 @@ function SukiMultiSelectList(props) {
       value: value,
       label: valueInfo.label,
       sortable: control.params.sortable,
-      handleRemoveItem: function handleRemoveItem(item) {
-        control.handleRemoveItem(item);
+      handleRemoveItem: function handleRemoveItem(removedValue) {
+        var newValues = values || []; // Remove the clicked item from the value array.
+
+        newValues = newValues.filter(function (value) {
+          return value !== removedValue;
+        });
+        control.setting.set(newValues);
       }
     });
   })));
@@ -5692,7 +5697,24 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
       id: '_customize-input-' + control.id,
       hidden: limit <= values.length,
       onChange: function onChange(e) {
-        control.handleAddNewItem(e.target.value);
+        var addedValue = e.target.value;
+        var newValues = values || []; // Add the selected item into the value array.
+
+        if (-1 === newValues.indexOf(addedValue)) {
+          newValues = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(newValues), [addedValue]);
+        } // If sortable mode is deisabled, sort the array according to the original options order.
+
+
+        if (!control.params.sortable) {
+          var choicesValues = control.params.choices.map(function (item) {
+            return item.value;
+          });
+          newValues = choicesValues.filter(function (choice) {
+            return -1 !== newValues.indexOf(choice);
+          });
+        }
+
+        control.setting.set(newValues);
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("option", {
       value: "",
@@ -5704,35 +5726,6 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
         disabled: -1 === values.indexOf(choice.value) ? false : true
       }, choice.label);
     })))), control.container[0]);
-  },
-  handleAddNewItem: function handleAddNewItem(value) {
-    var control = this;
-    var valueArray = control.setting.get() || []; // Add the selected item into the value array.
-
-    if (-1 === valueArray.indexOf(value)) {
-      valueArray = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(valueArray), [value]);
-    } // If sortable mode is deisabled, sort the array according to the original options order.
-
-
-    if (!control.params.sortable) {
-      var choicesValues = control.params.choices.map(function (item) {
-        return item.value;
-      });
-      valueArray = choicesValues.filter(function (choice) {
-        return -1 !== valueArray.indexOf(choice);
-      });
-    }
-
-    control.setting.set(valueArray);
-  },
-  handleRemoveItem: function handleRemoveItem(removedValue) {
-    var control = this;
-    var valueArray = control.setting.get() || []; // Remove the clicked item from the value array.
-
-    valueArray = valueArray.filter(function (value) {
-      return value !== removedValue;
-    });
-    control.setting.set(valueArray);
   }
 });
 wp.customize.controlConstructor['suki-multiselect'] = wp.customize.SukiMultiSelectControl;
@@ -5783,10 +5776,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
         expanded: true,
         spacing: "0.5",
-        justify: "center",
-        style: {
-          width: '100%'
-        }
+        justify: "center"
       }, choice.image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
         src: choice.image,
         role: "img",
@@ -6238,10 +6228,9 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
       for: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: '_customize-description-' + control.id
-    }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Card, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.CardBody, {
-      size: "xSmall"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalVStack, {
-      spacing: "2"
+    }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.__experimentalVStack, {
+      spacing: "2",
+      className: "suki-control-content-box"
     }, control.settings.font_family && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
       label: SukiCustomizerData.l10n.fontFamily,
       value: control.settings.font_family.get(),
@@ -6331,7 +6320,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
           control.settings[letterSpacingSettingId].set(letterSpacing);
         }
       })));
-    }))))), control.container[0]);
+    }))), control.container[0]);
   }
 });
 wp.customize.controlConstructor['suki-typography'] = wp.customize.SukiTypographyControl;

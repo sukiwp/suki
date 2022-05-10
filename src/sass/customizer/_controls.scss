@@ -156,12 +156,23 @@
 }
 
 /**
+ * Notice inside control
+ */
+
+.customize-control-suki-notice {
+	.notice {
+		margin: 0;
+	}
+}
+
+/**
  * Radio Image Control
  */
 
 .customize-control-suki-radioimage {
 	.suki-radioimage {
 		&__option {
+			display: block; // Override `inline-flex` by <Button>
 			padding: 2px;
 			height: auto;
 

@@ -83,156 +83,149 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 					</SukiControlDescription>
 				}
 
-				<Card>
-					<CardBody
-						size="xSmall"
-					>
-						<VStack
-							spacing="2"
+				<VStack
+					spacing="2"
+					className="suki-control-content-box"
+				>
+					{ control.settings.font_family &&
+						<SelectControl
+							label={ SukiCustomizerData.l10n.fontFamily }
+							value={ control.settings.font_family.get() }
+							onChange={ ( fontFamily ) => {
+								control.settings.font_family.set( fontFamily );
+							} }
 						>
-							{ control.settings.font_family &&
-								<SelectControl
-									label={ SukiCustomizerData.l10n.fontFamily }
-									value={ control.settings.font_family.get() }
-									onChange={ ( fontFamily ) => {
-										control.settings.font_family.set( fontFamily );
-									} }
-								>
-									{ Object.keys( SukiCustomizerData.fonts ).map( ( groupLabel ) => {
-										return (
-											<optgroup
-												key={ groupLabel }
-												label={ groupLabel }
-											>
-												{ Object.keys( SukiCustomizerData.fonts[ groupLabel ] ).map( ( familyName ) => {
-													return (
-														<option
-															key={ familyName }
-															value={ familyName }
-														>
-															{ familyName }
-														</option>
-													);
-												} ) }
-											</optgroup>
-										);
-									} ) }
-								</SelectControl>
-							}
-							
-							<Grid
-								columns="3"
-								gap="2"
-							>
-								{ control.settings.font_weight &&
-									<SelectControl
-										label={ SukiCustomizerData.l10n.fontWeight }
-										value={ control.settings.font_weight.get() }
-										options={ fontWeightOptions }
-										onChange={ ( fontWeight ) => {
-											control.settings.font_weight.set( fontWeight );
-										} }
-									/>
-								}
-
-								{ control.settings.font_style &&
-									<SelectControl
-										label={ SukiCustomizerData.l10n.fontStyle }
-										value={ control.settings.font_style.get() }
-										options={ fontStyleOptions }
-										onChange={ ( fontStyle ) => {
-											control.settings.font_style.set( fontStyle );
-										} }
-									/>
-								}
-
-								{ control.settings.text_transform &&
-									<SelectControl
-										label={ SukiCustomizerData.l10n.textTransform }
-										value={ control.settings.text_transform.get() }
-										options={ textTransformOptions }
-										onChange={ ( textTransform ) => {
-											control.settings.text_transform.set( textTransform );
-										} }
-									/>
-								}
-							</Grid>
-
-							<SukiControlResponsiveSwitcher devices={ Object.keys( responsiveStructures ) }/>
-
-							{ Object.keys( responsiveStructures ).map( ( device ) => {
-								if ( 'global' === device ) {
-									return;
-								}
-
-								const fontSizeSettingId = 'font_size' + ( 'desktop' !== device ? '__' + device : '' );
-								const lineHeightSettingId = 'line_height' + ( 'desktop' !== device ? '__' + device : '' );
-								const letterSpacingSettingId = 'letter_spacing' + ( 'desktop' !== device ? '__' + device : '' );
-
+							{ Object.keys( SukiCustomizerData.fonts ).map( ( groupLabel ) => {
 								return (
-									<SukiControlResponsiveContainer
-										key={ device }
-										device={ device }
+									<optgroup
+										key={ groupLabel }
+										label={ groupLabel }
 									>
-										<Grid
-											columns="3"
-											gap="2"
-										>
-											{ control.settings[ fontSizeSettingId ] &&
-												<UnitControl
-													label={ SukiCustomizerData.l10n.fontSize }
-													value={ control.settings[ fontSizeSettingId ].get() }
-													isResetValueOnUnitChange
-													units={ fontSizeUnits }
-													min="0"
-													className="suki-dimension"
-													onChange={ ( fontSize ) => {
-														fontSize = isNaN( parseFloat( fontSize ) ) ? '' : fontSize;
-														
-														control.settings[ fontSizeSettingId ].set( fontSize );
-													} }
-												/>
-											}
-
-											{ control.settings[ lineHeightSettingId ] &&
-												<UnitControl
-													label={ SukiCustomizerData.l10n.lineHeight }
-													value={ control.settings[ lineHeightSettingId ].get() }
-													isResetValueOnUnitChange
-													units={ lineHeightUnits }
-													min="0"
-													className="suki-dimension"
-													onChange={ ( lineHeight ) => {
-														lineHeight = isNaN( parseFloat( lineHeight ) ) ? '' : lineHeight;
-
-														control.settings[ lineHeightSettingId ].set( lineHeight );
-													} }
-												/>
-											}
-
-											{ control.settings[ letterSpacingSettingId ] &&
-												<UnitControl
-													label={ SukiCustomizerData.l10n.letterSpacing }
-													value={ control.settings[ letterSpacingSettingId ].get() }
-													isResetValueOnUnitChange
-													units={ letterSpacingUnits }
-													className="suki-dimension"
-													onChange={ ( letterSpacing ) => {
-														letterSpacing = isNaN( parseFloat( letterSpacing ) ) ? '' : letterSpacing;
-
-														control.settings[ letterSpacingSettingId ].set( letterSpacing );
-													} }
-												/>
-											}
-										</Grid>
-									</SukiControlResponsiveContainer>
+										{ Object.keys( SukiCustomizerData.fonts[ groupLabel ] ).map( ( familyName ) => {
+											return (
+												<option
+													key={ familyName }
+													value={ familyName }
+												>
+													{ familyName }
+												</option>
+											);
+										} ) }
+									</optgroup>
 								);
 							} ) }
-							
-							
-						</VStack>
-					</CardBody>
-				</Card>
+						</SelectControl>
+					}
+					
+					<Grid
+						columns="3"
+						gap="2"
+					>
+						{ control.settings.font_weight &&
+							<SelectControl
+								label={ SukiCustomizerData.l10n.fontWeight }
+								value={ control.settings.font_weight.get() }
+								options={ fontWeightOptions }
+								onChange={ ( fontWeight ) => {
+									control.settings.font_weight.set( fontWeight );
+								} }
+							/>
+						}
+
+						{ control.settings.font_style &&
+							<SelectControl
+								label={ SukiCustomizerData.l10n.fontStyle }
+								value={ control.settings.font_style.get() }
+								options={ fontStyleOptions }
+								onChange={ ( fontStyle ) => {
+									control.settings.font_style.set( fontStyle );
+								} }
+							/>
+						}
+
+						{ control.settings.text_transform &&
+							<SelectControl
+								label={ SukiCustomizerData.l10n.textTransform }
+								value={ control.settings.text_transform.get() }
+								options={ textTransformOptions }
+								onChange={ ( textTransform ) => {
+									control.settings.text_transform.set( textTransform );
+								} }
+							/>
+						}
+					</Grid>
+
+					<SukiControlResponsiveSwitcher devices={ Object.keys( responsiveStructures ) }/>
+
+					{ Object.keys( responsiveStructures ).map( ( device ) => {
+						if ( 'global' === device ) {
+							return;
+						}
+
+						const fontSizeSettingId = 'font_size' + ( 'desktop' !== device ? '__' + device : '' );
+						const lineHeightSettingId = 'line_height' + ( 'desktop' !== device ? '__' + device : '' );
+						const letterSpacingSettingId = 'letter_spacing' + ( 'desktop' !== device ? '__' + device : '' );
+
+						return (
+							<SukiControlResponsiveContainer
+								key={ device }
+								device={ device }
+							>
+								<Grid
+									columns="3"
+									gap="2"
+								>
+									{ control.settings[ fontSizeSettingId ] &&
+										<UnitControl
+											label={ SukiCustomizerData.l10n.fontSize }
+											value={ control.settings[ fontSizeSettingId ].get() }
+											isResetValueOnUnitChange
+											units={ fontSizeUnits }
+											min="0"
+											className="suki-dimension"
+											onChange={ ( fontSize ) => {
+												fontSize = isNaN( parseFloat( fontSize ) ) ? '' : fontSize;
+												
+												control.settings[ fontSizeSettingId ].set( fontSize );
+											} }
+										/>
+									}
+
+									{ control.settings[ lineHeightSettingId ] &&
+										<UnitControl
+											label={ SukiCustomizerData.l10n.lineHeight }
+											value={ control.settings[ lineHeightSettingId ].get() }
+											isResetValueOnUnitChange
+											units={ lineHeightUnits }
+											min="0"
+											className="suki-dimension"
+											onChange={ ( lineHeight ) => {
+												lineHeight = isNaN( parseFloat( lineHeight ) ) ? '' : lineHeight;
+
+												control.settings[ lineHeightSettingId ].set( lineHeight );
+											} }
+										/>
+									}
+
+									{ control.settings[ letterSpacingSettingId ] &&
+										<UnitControl
+											label={ SukiCustomizerData.l10n.letterSpacing }
+											value={ control.settings[ letterSpacingSettingId ].get() }
+											isResetValueOnUnitChange
+											units={ letterSpacingUnits }
+											className="suki-dimension"
+											onChange={ ( letterSpacing ) => {
+												letterSpacing = isNaN( parseFloat( letterSpacing ) ) ? '' : letterSpacing;
+
+												control.settings[ letterSpacingSettingId ].set( letterSpacing );
+											} }
+										/>
+									}
+								</Grid>
+							</SukiControlResponsiveContainer>
+						);
+					} ) }
+				</VStack>
 			</>,
 			control.container[0]
 		);

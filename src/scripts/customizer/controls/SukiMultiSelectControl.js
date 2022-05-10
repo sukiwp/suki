@@ -71,8 +71,15 @@ function SukiMultiSelectList( props ) {
 							value={ value }
 							label={ valueInfo.label }
 							sortable={ control.params.sortable }
-							handleRemoveItem={ ( item ) => {
-								control.handleRemoveItem( item );
+							handleRemoveItem={ ( removedValue ) => {
+								let newValues = values || [];
+
+								// Remove the clicked item from the value array.
+								newValues = newValues.filter( ( value ) => {
+									return value !== removedValue;
+								} )
+
+								control.setting.set( newValues );
 							} }
 						/>
 					);
@@ -209,7 +216,27 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend( {
 						id={ '_customize-input-' + control.id }
 						hidden={ limit <= values.length }
 						onChange={ ( e ) => {
-							control.handleAddNewItem( e.target.value );
+							const addedValue = e.target.value;
+
+							let newValues = values || [];
+
+							// Add the selected item into the value array.
+							if ( -1 === newValues.indexOf( addedValue ) ) {
+								newValues = [ ...newValues, addedValue ];
+							}
+
+							// If sortable mode is deisabled, sort the array according to the original options order.
+							if ( ! control.params.sortable ) {
+								const choicesValues = control.params.choices.map( ( item ) => {
+									return item.value;
+								} );
+
+								newValues = choicesValues.filter( ( choice ) => {
+									return -1 !== newValues.indexOf( choice );
+								} );
+							}
+							
+							control.setting.set( newValues );
 						} }
 					>
 						<option
@@ -235,43 +262,6 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend( {
 			</>,
 			control.container[0]
 		);
-	},
-
-	handleAddNewItem: function( value ) {
-		const control = this;
-
-		let valueArray = control.setting.get() || [];
-
-		// Add the selected item into the value array.
-		if ( -1 === valueArray.indexOf( value ) ) {
-			valueArray = [ ...valueArray, value ];
-		}
-
-		// If sortable mode is deisabled, sort the array according to the original options order.
-		if ( ! control.params.sortable ) {
-			const choicesValues = control.params.choices.map( ( item ) => {
-				return item.value;
-			} );
-
-			valueArray = choicesValues.filter( ( choice ) => {
-				return -1 !== valueArray.indexOf( choice );
-			} );
-		}
-		
-		control.setting.set( valueArray );
-	},
-
-	handleRemoveItem: function( removedValue ) {
-		const control = this;
-
-		let valueArray = control.setting.get() || [];
-
-		// Remove the clicked item from the value array.
-		valueArray = valueArray.filter( ( value ) => {
-			return value !== removedValue;
-		} )
-
-		control.setting.set( valueArray );
 	},
 } );
 

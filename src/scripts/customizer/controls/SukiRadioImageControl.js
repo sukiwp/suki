@@ -48,9 +48,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 									expanded
 									spacing="0.5"
 									justify="center"
-									style={ {
-										width: '100%'
-									} }
 								>
 									{ choice.image &&
 										<img src={ choice.image } role="img" aria-hidden="true"/>
