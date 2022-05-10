@@ -78,11 +78,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Sortable(
+	new Suki_Customize_MultiSelect_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Elements', 'suki' ),
 			'choices'  => apply_filters(
 				'suki/dataset/entry_header_elements',
 				array(
@@ -90,6 +91,7 @@ $wp_customize->add_control(
 					'title'       => esc_html__( 'Title', 'suki' ),
 				)
 			),
+			'sortable' => true,
 			'priority' => 30,
 		)
 	)
@@ -111,6 +113,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
 					'label' => esc_html__( 'Left', 'suki' ),
@@ -378,17 +381,19 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Sortable(
+	new Suki_Customize_MultiSelect_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Elements', 'suki' ),
 			'choices'  => apply_filters(
 				'suki/dataset/entry_footer_elements',
 				array(
 					'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 				)
 			),
+			'sortable' => true,
 			'priority' => 60,
 		)
 	)
@@ -410,6 +415,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
 					'label' => esc_html__( 'Left', 'suki' ),

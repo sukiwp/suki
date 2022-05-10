@@ -71,7 +71,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
+			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
 			'priority'    => 11,
 		)
 	)
@@ -85,7 +85,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
+			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
 			'priority'    => 11,
 		)
 	)
@@ -144,11 +144,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Sortable(
+	new Suki_Customize_MultiSelect_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Elements', 'suki' ),
 			'choices'  => apply_filters(
 				'suki/dataset/post_archive_content_header_elements',
 				array(
@@ -156,6 +157,7 @@ $wp_customize->add_control(
 					'archive-description' => esc_html__( 'Taxonomy Description', 'suki' ),
 				)
 			),
+			'sortable' => true,
 			'priority' => 20,
 		)
 	)
@@ -177,6 +179,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
 					'label' => esc_html__( 'Left', 'suki' ),

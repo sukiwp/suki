@@ -557,7 +557,7 @@
 		/**
 		 * Event handler for links to jump to a certain control / section.
 		 */
-		$( '#customize-controls' ).on( 'click', '.suki-customize-goto-control', function( e ) {
+		$( '#customize-controls' ).on( 'click', '.suki-customize-autofocus-link', function( e ) {
 			e.preventDefault();
 
 			var $this = $( this ),

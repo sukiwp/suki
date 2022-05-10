@@ -31,11 +31,13 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 		public $items_limit = 0;
 
 		/**
-		 * Whether selected items should keep its original order or not.
+		 * Whether to implement sortable feature or not.
+		 * If enabled, user can sort the selected items.
+		 * Otherwise, the selected items order will remain as the choices list.
 		 *
 		 * @var boolean
 		 */
-		public $keep_order = true;
+		public $sortable = false;
 
 		/**
 		 * Setup the parameters passed to the JavaScript via JSON.
@@ -57,8 +59,8 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 			// `items_limit` property.
 			$this->json['itemsLimit'] = $this->items_limit;
 
-			// `keep_order` property.
-			$this->json['keepOrder'] = $this->keep_order;
+			// `sortable` property.
+			$this->json['sortable'] = $this->sortable;
 		}
 	}
 

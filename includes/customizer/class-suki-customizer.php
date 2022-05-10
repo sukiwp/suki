@@ -129,7 +129,6 @@ class Suki_Customizer {
 		 * Custom controls
 		 */
 
-		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-sortable.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control-builder.php';
 
 		require_once SUKI_INCLUDES_DIR . '/customizer/custom-controls/class-suki-customize-control.php';

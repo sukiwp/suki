@@ -42,11 +42,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Sortable(
+	new Suki_Customize_MultiSelect_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Elements', 'suki' ),
 			'choices'  => apply_filters(
 				'suki/dataset/page_single_content_header_elements',
 				array(
@@ -54,6 +55,7 @@ $wp_customize->add_control(
 					'header-meta' => esc_html__( 'Header Meta', 'suki' ),
 				)
 			),
+			'sortable' => true,
 			'priority' => 10,
 		)
 	)
@@ -75,6 +77,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
 					'label' => esc_html__( 'Left', 'suki' ),

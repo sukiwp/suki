@@ -30,7 +30,7 @@ $wp_customize->add_control(
 			'description' => sprintf(
 				/* translators: %s: link to "Global Modules" section. */
 				esc_html__( 'You can edit Social Media URLs via %s.', 'suki' ),
-				'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-goto-control">' . esc_html__( 'Global Modules', 'suki' ) . '</a>'
+				'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link">' . esc_html__( 'Global Modules', 'suki' ) . '</a>'
 			),
 			'priority'    => 10,
 		)
@@ -48,13 +48,14 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Builder(
+	new Suki_Customize_MultiSelect_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Active links', 'suki' ),
 			'choices'  => suki_get_social_media_types( true ),
+			'sortable' => true,
 			'priority' => 10,
 		)
 	)

@@ -1,4 +1,8 @@
 wp.customize.bind( 'ready', () => {
+	/**
+	 * Control dependencies
+	 */
+
 	Object.keys( SukiCustomizerData.contexts ).forEach( ( elementId ) => {
 		const elementType = 0 === elementId.indexOf( 'suki_section' ) ? 'section' : 'control';
 
@@ -91,5 +95,31 @@ wp.customize.bind( 'ready', () => {
 				}
 			} );
 		} );
+	} );
+
+	/**
+	 * "Go to control / section" link
+	 */
+
+	document.getElementById( 'customize-controls' ).addEventListener( 'click', ( e ) => {
+		if ( ! e.target.matches( '.suki-customize-autofocus-link' ) ) {
+			return;
+		}
+
+		e.preventDefault();
+
+		const url = new URL( e.target );
+		
+		if ( targetControl = url.searchParams.get( 'autofocus[control]' ) ) {
+			wp.customize.control( targetControl ).focus();
+		}
+
+		else if ( targetSection = url.searchParams.get( 'autofocus[section]' ) ) {
+			wp.customize.section( targetSection ).focus();
+		}
+
+		else if ( targetPanel = url.searchParams.get( 'autofocus[panel]' ) ) {
+			wp.customize.panel( targetPanel ).focus();
+		}
 	} );
 } );

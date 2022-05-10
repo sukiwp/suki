@@ -625,12 +625,30 @@
 /**
  * Multi-select Control
  */
-.customize-control-suki-multiselect .suki-multiselect-item__remove {
+.customize-control-suki-multiselect .suki-multiselect__list__item {
+	padding: 6px 8px;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.customize-control-suki-multiselect .suki-multiselect__list__item__remove {
 	border: none;
-	padding: 0;
 	min-width: auto;
-	margin: -3px 0;
-	font-size: 14px;
+	padding: 0 !important;
+	width: auto !important;
+	height: auto !important;
+}
+.customize-control-suki-multiselect .suki-multiselect__list__item__move {
+	cursor: move;
+}
+.customize-control-suki-multiselect .suki-multiselect__list__item .dashicons {
+	font-size: 16px;
+	width: 1em;
+	height: 1em;
+	margin: 0;
+}
+.customize-control-suki-multiselect select {
+	margin: 0;
 }
 
 /**
@@ -639,7 +657,6 @@
 .customize-control-suki-radioimage .suki-radioimage__option {
 	padding: 2px;
 	height: auto;
-	min-height: 30px;
 }
 .customize-control-suki-radioimage .suki-radioimage__option:not(.is-pressed) {
 	background-color: rgba(0, 0, 0, 0.1);
@@ -654,7 +671,7 @@
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 .customize-control-suki-radioimage .suki-radioimage__option span {
-	padding: 2px 0;
+	padding: 4px 0;
 }
 
 /**

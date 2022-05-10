@@ -42,11 +42,12 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	new Suki_Customize_Control_Sortable(
+	new Suki_Customize_MultiSelect_Control(
 		$wp_customize,
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Elements', 'suki' ),
 			'choices'  => apply_filters(
 				'suki/dataset/product_single_content_header_elements',
 				array(
@@ -55,6 +56,7 @@ $wp_customize->add_control(
 					'product-rating' => esc_html__( 'Rating', 'suki' ),
 				)
 			),
+			'sortable' => true,
 			'priority' => 10,
 		)
 	)
@@ -76,6 +78,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
+			'label'    => esc_html__( 'Alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
 					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
