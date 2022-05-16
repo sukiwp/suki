@@ -143,7 +143,6 @@
 	}
 }
 
-
 #customize-control-header_mobile_elements {
 	margin-bottom: 0;
 
@@ -154,6 +153,25 @@
 			"_inactive _inactive _inactive _inactive _inactive";
 		grid-template-columns: max(15%, 120px) 12px repeat(3, 1fr);
 		grid-template-rows: 1fr 1fr auto;
+
+		grid-column-gap: 4px;
+		grid-row-gap: 12px;
+	}
+}
+
+/**
+ * Footer Builder
+ */
+
+#customize-control-footer_elements {
+	margin-bottom: 0;
+
+	.suki-builder {
+		grid-template-areas:
+			"bottom_left bottom_center bottom_right"
+			"_inactive _inactive _inactive";
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
 
 		grid-column-gap: 4px;
 		grid-row-gap: 12px;
