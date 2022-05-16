@@ -3,6 +3,7 @@
  */
 
 .customize-control {
+	position: relative;
 	margin-bottom: 16px;
 
 	&, *, *:before, *:after {
@@ -55,9 +56,9 @@
  * Control content box
  */
 
- .suki-control-content-box {
+.suki-control-content-box {
 	background-color: #ffffff;
-	padding: 8px;
+	padding: 12px;
 	border-radius: 2px;
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }

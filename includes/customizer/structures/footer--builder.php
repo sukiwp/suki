@@ -18,27 +18,6 @@ $section = 'suki_section_footer_builder';
  * ====================================================
  */
 
-ob_start();
-?>
-<span class="button button-secondary suki-builder-hide suki-builder-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'suki' ); ?></span>
-<span class="button button-primary suki-builder-show suki-builder-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Footer Builder', 'suki' ); ?></span>
-<?php
-$switcher = ob_get_clean();
-
-// --- Blank: Footer Builder Switcher
-$wp_customize->add_control(
-	new Suki_Customize_FreeText_Control(
-		$wp_customize,
-		'footer_builder_actions',
-		array(
-			'section'     => $section,
-			'settings'    => array(),
-			'description' => $switcher,
-			'priority'    => 10,
-		)
-	)
-);
-
 // Widgets columns.
 $key = 'footer_widgets_bar';
 $wp_customize->add_setting(
@@ -80,11 +59,57 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/footer_builder/areas
+ *
+ * @param array Array of areas for Footer Builder.
+ */
+$areas = apply_filters(
+	'suki/dataset/footer_builder/areas',
+	array(
+		'bottom_left'   => esc_html__( 'Left', 'suki' ),
+		'bottom_center' => esc_html__( 'Center', 'suki' ),
+		'bottom_right'  => esc_html__( 'Right', 'suki' ),
+	)
+);
+
+/**
+ * Filter: suki/dataset/footer_builder/elements
+ *
+ * @param array Array of elements for Footer Builder.
+ */
+$choices = apply_filters(
+	'suki/dataset/footer_builder/elements',
+	array(
+		'copyright' => array(
+			'icon'              => 'editor-code',
+			'label'             => esc_html__( 'Copyright', 'suki' ),
+			'unsupported_areas' => array(),
+		),
+		'menu-1'    => array(
+			'icon'              => 'admin-links',
+			/* translators: %s: instance number. */
+			'label'             => sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
+			'unsupported_areas' => array(),
+		),
+		'html-1'    => array(
+			'icon'              => 'editor-code',
+			/* translators: %s: instance number. */
+			'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+			'unsupported_areas' => array(),
+		),
+		'social'    => array(
+			'icon'              => 'twitter',
+			'label'             => esc_html__( 'Social', 'suki' ),
+			'unsupported_areas' => array(),
+		),
+	)
+);
+
 // Bottom bar elements.
-$config   = suki_get_footer_builder_configurations();
 $key      = 'footer_elements';
 $settings = array();
-foreach ( $config['locations'] as $slug => $label ) {
+foreach ( $areas as $slug => $label ) {
 	$settings[ $slug ] = $key . '_' . $slug;
 }
 foreach ( $settings as $setting ) {
@@ -97,17 +122,16 @@ foreach ( $settings as $setting ) {
 	);
 }
 $wp_customize->add_control(
-	new Suki_Customize_Control_Builder(
+	new Suki_Customize_Builder_Control(
 		$wp_customize,
 		$key,
 		array(
-			'settings'    => $settings,
-			'section'     => $section,
-			'label'       => esc_html__( 'Bottom bar elements', 'suki' ),
-			'choices'     => $config['choices'],
-			'labels'      => $config['locations'],
-			'limitations' => array(),
-			'priority'    => 20,
+			'settings' => $settings,
+			'section'  => $section,
+			'label'    => esc_html__( 'Bottom bar elements', 'suki' ),
+			'areas'    => $areas,
+			'choices'  => $choices,
+			'priority' => 20,
 		)
 	)
 );

@@ -1,13 +1,13 @@
 import classnames from 'classnames';
 
-function SukiControlDescription( props ) {
+function SukiControlDescription( { children, className, id } ) {
 	return (
 		<>
 			<span
-				className={ classnames( props.className, 'description', 'customize-control-description' ) }
-				id={ props.id }
+				className={ classnames( className, 'description', 'customize-control-description' ) }
+				id={ id }
 			>
-				{ props.children }
+				{ children }
 			</span>
 		</>
 	);

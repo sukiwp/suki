@@ -1,13 +1,13 @@
 import classnames from 'classnames';
 
-function SukiControlLabel( props ) {
+function SukiControlLabel( { children, className, target } ) {
 	return (
 		<>
 			<label
-				className={ classnames( props.className, 'customize-control-title' ) }
-				htmlFor={ props.for }
+				className={ classnames( className, 'customize-control-title' ) }
+				htmlFor={ target }
 			>
-				{ props.children }
+				{ children }
 			</label>
 		</>
 	);

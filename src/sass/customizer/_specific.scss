@@ -112,3 +112,46 @@
 [id$="_hero_bg_image"] {
 	padding-left: 15px;
 }
+
+/**
+ * Header Builder
+ */
+
+.suki-header-builder-responsive-switcher {
+	padding: 0 20px 0 calc( 20px - 0.5em );
+	margin: -20px -20px 0;
+
+	button {
+		cursor: pointer;
+	}
+}
+
+#customize-control-header_elements {
+	.suki-builder {
+		grid-template-areas:
+			"top_left top_center top_right"
+			"main_left main_center main_right"
+			"bottom_left bottom_center bottom_right"
+			"_inactive _inactive _inactive";
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+
+		grid-column-gap: 4px;
+		grid-row-gap: 12px;
+	}
+}
+
+
+#customize-control-header_mobile_elements {
+	.suki-builder {
+		grid-template-areas:
+			"vertical_top . main_left main_center main_right"
+			"vertical_top . . . ."
+			"_inactive _inactive _inactive _inactive _inactive";
+		grid-template-columns: max(15%, 120px) 12px repeat(3, 1fr);
+		grid-template-rows: 1fr 1fr auto;
+
+		grid-column-gap: 4px;
+		grid-row-gap: 12px;
+	}
+}

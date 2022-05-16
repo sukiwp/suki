@@ -148,17 +148,17 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Elements', 'suki' ),
-			'choices'  => apply_filters(
+			'section'     => $section,
+			'label'       => esc_html__( 'Elements', 'suki' ),
+			'choices'     => apply_filters(
 				'suki/dataset/post_archive_content_header_elements',
 				array(
 					'title'               => esc_html__( 'Title', 'suki' ),
 					'archive-description' => esc_html__( 'Taxonomy Description', 'suki' ),
 				)
 			),
-			'sortable' => true,
-			'priority' => 20,
+			'is_sortable' => true,
+			'priority'    => 20,
 		)
 	)
 );

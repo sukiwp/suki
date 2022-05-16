@@ -134,31 +134,6 @@ $add['header_mobile_elements'] = array(
 
 /**
  * ====================================================
- * Header > Logo
- * ====================================================
- */
-
-$add['heading_header_logo'] =
-$add['custom_logo'] =
-$add['header_logo_width'] = array(
-	array(
-		'setting' => '__device',
-		'value'   => 'desktop',
-	),
-);
-
-$add['heading_header_mobile_logo'] =
-$add['custom_logo_mobile'] =
-$add['header_mobile_logo_width'] = array(
-	array(
-		'setting'  => '__device',
-		'operator' => '!=',
-		'value'    => 'desktop',
-	),
-);
-
-/**
- * ====================================================
  * Header > Shopping Cart
  * ====================================================
  */

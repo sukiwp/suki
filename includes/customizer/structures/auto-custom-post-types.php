@@ -66,11 +66,11 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 			$wp_customize,
 			$key,
 			array(
-				'section'  => $section,
-				'label'    => esc_html__( 'Elements', 'suki' ),
-				'choices'  => apply_filters( 'suki/dataset/' . $page_type_key . '_content_header_elements', $elements ),
-				'sortable' => true,
-				'priority' => 20,
+				'section'     => $section,
+				'label'       => esc_html__( 'Elements', 'suki' ),
+				'choices'     => apply_filters( 'suki/dataset/' . $page_type_key . '_content_header_elements', $elements ),
+				'is_sortable' => true,
+				'priority'    => 20,
 			)
 		)
 	);

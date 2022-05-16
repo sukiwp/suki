@@ -195,7 +195,7 @@ foreach ( $settings as $setting ) {
 		array(
 			'default'           => suki_array_value( $defaults, $setting ),
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'background' ),
 		)
 	);
 }

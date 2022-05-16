@@ -38,9 +38,8 @@
 		"zip": "gulp zip"
 	},
 	"dependencies": {
-		"@dnd-kit/modifiers": "^5.0.0",
-		"@dnd-kit/sortable": "^6.0.1",
-		"classnames": "^2.3.1"
+		"classnames": "^2.3.1",
+		"react-sortablejs": "^6.1.1"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^23.0.0",

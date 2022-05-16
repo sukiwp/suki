@@ -455,7 +455,7 @@ foreach ( $settings as $setting ) {
 		$setting,
 		array(
 			'default'           => suki_array_value( $defaults, $setting ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
+			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'background' ),
 		)
 	);
 }
@@ -466,7 +466,7 @@ $wp_customize->add_control(
 		array(
 			'settings' => $settings,
 			'section'  => $section,
-			'label'    => esc_html__( 'Default background image', 'suki' ) . ' <span class="suki-global-default-badge suki-tooltip" tabindex="0" data-tooltip="' . esc_attr__( 'You can set different background image on each individual page.', 'suki' ) . '"><span class="dashicons dashicons-admin-site-alt3"></span> ' . esc_html__( 'Global', 'suki' ) . '</span>',
+			'label'    => esc_html__( 'Default background image', 'suki' ),
 			'priority' => 60,
 		)
 	)

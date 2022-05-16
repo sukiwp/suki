@@ -37,7 +37,7 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 		 *
 		 * @var boolean
 		 */
-		public $sortable = false;
+		public $is_sortable = false;
 
 		/**
 		 * Setup the parameters passed to the JavaScript via JSON.
@@ -59,8 +59,8 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 			// `items_limit` property.
 			$this->json['itemsLimit'] = $this->items_limit;
 
-			// `sortable` property.
-			$this->json['sortable'] = $this->sortable;
+			// `is_sortable` property.
+			$this->json['isSortable'] = $this->is_sortable;
 		}
 	}
 

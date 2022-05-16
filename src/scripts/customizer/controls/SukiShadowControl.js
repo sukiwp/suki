@@ -41,7 +41,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 		ReactDOM.render(
 			<>
 				{ control.params.label &&
-					<SukiControlLabel for={ '_customize-input-' + control.id }>
+					<SukiControlLabel target={ '_customize-input-' + control.id }>
 						{ control.params.label }
 					</SukiControlLabel>
 				}
@@ -66,7 +66,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 						onClick={ ( e ) => {
 							valueObj.position = 'inset' === valueObj.position ? '' : 'inset';
 
-							let newValue = Object.values( valueObj ).join( ' ' );
+							let newValue = Object.values( valueObj ).join( ' ' ).trim();
 		
 							control.setting.set( newValue );
 						} }
@@ -96,7 +96,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 
 									valueObj[ prop ] = newPropValue;
 
-									let newValue = Object.values( valueObj ).join( ' ' );
+									let newValue = Object.values( valueObj ).join( ' ' ).trim();
 		
 									control.setting.set( newValue );
 								} }
@@ -109,7 +109,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 						changeValue={ ( newColorValue ) => {
 							valueObj.color = newColorValue;
 
-							let newValue = Object.values( valueObj ).join( ' ' );
+							let newValue = Object.values( valueObj ).join( ' ' ).trim();
 		
 							control.setting.set( newValue );
 						} }

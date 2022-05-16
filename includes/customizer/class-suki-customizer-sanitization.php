@@ -189,44 +189,48 @@ class Suki_Customizer_Sanitization {
 
 		switch ( $type ) {
 			case 'font_family':
-				$choices = $control->get_choices( $type );
+				$fonts = suki_flatten_array( suki_get_all_fonts() );
 
-				// Check if value format is invalid, then return empty string.
-				if ( false === strpos( $value, '|' ) ) {
-					return '';
-				}
-
-				$chunks = explode( '|', $value );
-
-				// Check if provider is invalid, then return empty string.
-				if ( ! array_key_exists( $chunks[0], $choices ) ) {
-					return '';
-				}
-
-				// Check if font family is invalid, then return empty string.
-				if ( ! array_key_exists( $value, $choices[ $chunks[0] ]['fonts'] ) ) {
-					return '';
+				if ( ! array_key_exists( $value, $fonts ) ) {
+					$value = '';
 				}
 				break;
 
 			case 'font_weight':
-			case 'font_style':
-			case 'text_transform':
-				$choices = $control->get_choices( $type );
-
 				// Make sure the selected value in one of the available choices.
-				if ( ! array_key_exists( $value, $choices ) ) {
-					return '';
+				if ( ! in_array( (string) $value, array( '', '100', '200', '300', '400', '500', '600', '700', '800', '900' ), true ) ) {
+					$value = '';
+				}
+				break;
+
+			case 'font_style':
+				// Make sure the selected value in one of the available choices.
+				if ( ! in_array( $value, array( '', 'normal', 'italic' ), true ) ) {
+					$value = '';
+				}
+				break;
+
+			case 'text_transform':
+				// Make sure the selected value in one of the available choices.
+				if ( ! in_array( $value, array( '', 'none', 'uppercase', 'lowercase', 'capitalize' ), true ) ) {
+					$value = '';
 				}
 				break;
 
 			case 'font_size':
 			case 'line_height':
 			case 'letter_spacing':
-				$units = $control->get_units( $type );
-
 				// Validate dimension.
-				$value = self::validate_dimension( $value, $units );
+				$value = self::validate_dimension(
+					$value,
+					array(
+						''    => array(),
+						'px'  => array(),
+						'em'  => array(),
+						'rem' => array(),
+						'%'   => array(),
+					)
+				);
 
 				break;
 		}
@@ -265,19 +269,35 @@ class Suki_Customizer_Sanitization {
 				$attachment_id = attachment_url_to_postid( $value );
 
 				if ( ! $attachment_id ) {
-					return '';
+					$value = '';
 				}
 				break;
 
 			case 'attachment':
-			case 'repeat':
-			case 'position':
-			case 'size':
-				$choices = $control->get_choices( $type );
-
 				// Make sure the selected value in one of the available choices.
-				if ( ! array_key_exists( $value, $choices ) ) {
-					return '';
+				if ( ! in_array( $value, array( 'scroll', 'fixed' ), true ) ) {
+					$value = '';
+				}
+				break;
+
+			case 'repeat':
+				// Make sure the selected value in one of the available choices.
+				if ( ! in_array( $value, array( 'repeat', 'repeat-x', 'repeat-y', 'no-repeat' ), true ) ) {
+					$value = '';
+				}
+				break;
+
+			case 'position':
+				// Make sure the selected value in one of the available choices.
+				if ( ! in_array( $value, array( 'left top', 'left center', 'left bottom', 'center top', 'center center', 'center bottom', 'right top', 'right center', 'right bottom' ), true ) ) {
+					$value = '';
+				}
+				break;
+
+			case 'size':
+				// Make sure the selected value in one of the available choices.
+				if ( ! in_array( $value, array( 'auto', 'cover', 'contain' ), true ) ) {
+					$value = '';
 				}
 				break;
 		}
@@ -296,7 +316,7 @@ class Suki_Customizer_Sanitization {
 		// Elaborate each property.
 		$props = explode( ' ', $value );
 
-		// Check if properties count is less than 4, return empty string.
+		// Check if properties count is less than 5, return empty string.
 		if ( 5 > count( $props ) ) {
 			return '';
 		}
@@ -308,14 +328,23 @@ class Suki_Customizer_Sanitization {
 					$props[ $i ] = self::validate_color( $props[ $i ] );
 					break;
 
-				default:
+				case 5:
+					if ( 'inset' !== $props[ $i ] ) {
+						$props[ $i ] = '';
+					}
+					break;
+
+				case 0:
+				case 1:
+				case 2:
+				case 3:
 					// Validate dimension.
 					$props[ $i ] = self::validate_dimension( $props[ $i ], array( 'px' => array() ) );
 					break;
 			}
 		}
 
-		return $value;
+		return trim( implode( ' ', $props ) );
 	}
 
 	/**
@@ -382,7 +411,7 @@ class Suki_Customizer_Sanitization {
 				unset( $value[ $i ] );
 			}
 
-			if ( array_key_exists( $location, suki_array_value( $control->limitations, $slug, array() ) ) ) {
+			if ( in_array( $location, $control->choices[ $slug ]['unsupported_areas'], true ) ) {
 				unset( $value[ $i ] );
 			}
 		}

@@ -52,11 +52,11 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Active links', 'suki' ),
-			'choices'  => suki_get_social_media_types( true ),
-			'sortable' => true,
-			'priority' => 10,
+			'section'     => $section,
+			'label'       => esc_html__( 'Active links', 'suki' ),
+			'choices'     => suki_get_social_media_types( true ),
+			'is_sortable' => true,
+			'priority'    => 10,
 		)
 	)
 );

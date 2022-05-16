@@ -20,7 +20,7 @@ wp.customize.SukiSliderControl = wp.customize.SukiReactControl.extend( {
 		ReactDOM.render(
 			<>
 				{ control.params.label &&
-					<SukiControlLabel for={ '_customize-input-' + control.id }>
+					<SukiControlLabel target={ '_customize-input-' + control.id }>
 						{ control.params.label }
 
 						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>

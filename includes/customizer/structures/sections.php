@@ -191,35 +191,25 @@ $wp_customize->add_section(
 );
 
 // Header.
-$panel    = 'suki_panel_header';
-$switcher = '
-<div class="suki-responsive-switcher nav-tab-wrapper wp-clearfix">
-	<a href="#" class="nav-tab preview-desktop suki-responsive-switcher-button" data-device="desktop">
-		<span class="dashicons dashicons-desktop"></span>
-		<span>' . esc_html__( 'Desktop', 'suki' ) . '</span>
-	</a>
-	<a href="#" class="nav-tab preview-tablet preview-mobile suki-responsive-switcher-button" data-device="tablet">
-		<span class="dashicons dashicons-smartphone"></span>
-		<span>' . esc_html__( 'Tablet / Mobile', 'suki' ) . '</span>
-	</a>
-</div>
-';
+$panel = 'suki_panel_header';
 $wp_customize->add_panel(
 	$panel,
 	array(
-		'title'       => esc_html__( 'Header', 'suki' ),
-		'description' => $switcher,
-		'priority'    => 132,
+		'title'    => esc_html__( 'Header', 'suki' ),
+		'priority' => 132,
 	)
 );
 
 // Header > Header Builder.
 $wp_customize->add_section(
-	'suki_section_header_builder',
-	array(
-		'title'    => esc_html__( 'Header Builder', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 10,
+	new Suki_Customize_Builder_Section(
+		$wp_customize,
+		'suki_section_header_builder',
+		array(
+			'title'    => esc_html__( 'Header Builder', 'suki' ),
+			'panel'    => $panel,
+			'priority' => 10,
+		)
 	)
 );
 
@@ -304,10 +294,9 @@ $wp_customize->add_section(
 $wp_customize->add_section(
 	'suki_section_header_logo',
 	array(
-		'title'       => esc_html__( 'Logo', 'suki' ),
-		'description' => $switcher,
-		'panel'       => $panel,
-		'priority'    => 30,
+		'title'    => esc_html__( 'Logo', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 30,
 	)
 );
 
@@ -460,11 +449,14 @@ $wp_customize->add_panel(
 
 // Footer > Footer Builder.
 $wp_customize->add_section(
-	'suki_section_footer_builder',
-	array(
-		'title'    => esc_html__( 'Footer Builder', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 10,
+	new Suki_Customize_Builder_Section(
+		$wp_customize,
+		'suki_section_footer_builder',
+		array(
+			'title'    => esc_html__( 'Footer Builder', 'suki' ),
+			'panel'    => $panel,
+			'priority' => 10,
+		)
 	)
 );
 

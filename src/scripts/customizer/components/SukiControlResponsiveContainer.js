@@ -1,13 +1,13 @@
 import classnames from 'classnames';
 
-function SukiControlResponsiveContainer( props ) {
+function SukiControlResponsiveContainer( { children, className, device } ) {
 	return (
 		<>
 			<div
-				className={ classnames( props.className, 'suki-responsive-container' ) }
-				data-device={ props.device }
+				className={ classnames( className, 'suki-responsive-container' ) }
+				data-device={ device }
 			>
-				{ props.children }
+				{ children }
 			</div>
 		</>
 	);

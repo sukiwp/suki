@@ -46,17 +46,17 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Elements', 'suki' ),
-			'choices'  => apply_filters(
+			'section'     => $section,
+			'label'       => esc_html__( 'Elements', 'suki' ),
+			'choices'     => apply_filters(
 				'suki/dataset/post_single_content_header_elements',
 				array(
 					'title'       => esc_html__( 'Title', 'suki' ),
 					'header-meta' => esc_html__( 'Header Meta', 'suki' ),
 				)
 			),
-			'sortable' => true,
-			'priority' => 10,
+			'is_sortable' => true,
+			'priority'    => 10,
 		)
 	)
 );
@@ -212,17 +212,17 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Elements', 'suki' ),
-			'choices'  => apply_filters(
+			'section'     => $section,
+			'label'       => esc_html__( 'Elements', 'suki' ),
+			'choices'     => apply_filters(
 				'suki/dataset/post_single_content_header_elements',
 				array(
 					'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 					'tags'        => esc_html__( 'Tags', 'suki' ),
 				)
 			),
-			'sortable' => true,
-			'priority' => 30,
+			'is_sortable' => true,
+			'priority'    => 30,
 		)
 	)
 );

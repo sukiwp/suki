@@ -12,7 +12,7 @@ import {
 
 import { sprintf } from '@wordpress/i18n';
 
-function SukiColorSelectDropdown( props ) {
+function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValue, value } ) {
 	let palette = [];
 
 	for ( var i = 1; i <= 8; i++ ) {
@@ -24,8 +24,6 @@ function SukiColorSelectDropdown( props ) {
 			value: 'var(--color-palette-' + i + ')',
 		} );
 	}
-
-	const value = props.value;
 
 	const valueIsLink = value && 0 === value.indexOf( 'var(' ) ? true : false;
 
@@ -54,7 +52,6 @@ function SukiColorSelectDropdown( props ) {
 									label={ '' !== value ? valueInfo.name + ': ' + valueInfo.color : SukiCustomizerData.l10n.notSet }
 									showTooltip
 									aria-expanded={ toggleParams.isOpen }
-									id={ props.id || null }
 									className="suki-color-dropdown__toggle"
 									onClick={ toggleParams.onToggle }
 								>
@@ -86,9 +83,9 @@ function SukiColorSelectDropdown( props ) {
 														return color === item.color
 													} );
 
-													props.changeValue( colorInfo.value );
+													changeValue( colorInfo.value );
 												} else {
-													props.changeValue( '' );
+													changeValue( '' );
 												}
 											} }
 										/>
@@ -105,13 +102,13 @@ function SukiColorSelectDropdown( props ) {
 												onClick={ ( e ) => {
 													if ( pickerIsOpened ) {
 														// isPresed: true
-														props.changeValue( '' );
+														changeValue( '' );
 													} else {
 														// isPressed: false
 														if ( valueInfo.color ) {
-															props.changeValue( valueInfo.color );
+															changeValue( valueInfo.color );
 														} else {
-															props.changeValue( props.defaultPickerValue || '#ffffff' );
+															changeValue( defaultPickerValue || '#ffffff' );
 														}
 													}
 												} }
@@ -125,18 +122,18 @@ function SukiColorSelectDropdown( props ) {
 											enableAlpha
 											className="suki-color-dropdown__picker"
 											onChange={ ( value ) => {
-												props.changeValue( value );
+												changeValue( value );
 											} }
 										/>
 									}
 
-									{ props.defaultValue &&
+									{ defaultValue &&
 										<HStack>
 											<Button
 												isSmall
 												variant="secondary"
 												onClick={ ( e ) => {
-													props.changeValue( props.defaultValue );
+													changeValue( defaultValue );
 												} }
 											>
 												{ SukiCustomizerData.l10n.reset }
