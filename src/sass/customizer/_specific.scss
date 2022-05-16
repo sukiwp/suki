@@ -127,15 +127,17 @@
 }
 
 #customize-control-header_elements {
+	margin-bottom: 0;
+	
 	.suki-builder {
 		grid-template-areas:
-			"top_left top_center top_right"
-			"main_left main_center main_right"
-			"bottom_left bottom_center bottom_right"
-			"_inactive _inactive _inactive";
+		"top_left top_center top_right"
+		"main_left main_center main_right"
+		"bottom_left bottom_center bottom_right"
+		"_inactive _inactive _inactive";
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: auto;
-
+		
 		grid-column-gap: 4px;
 		grid-row-gap: 12px;
 	}
@@ -143,6 +145,8 @@
 
 
 #customize-control-header_mobile_elements {
+	margin-bottom: 0;
+
 	.suki-builder {
 		grid-template-areas:
 			"vertical_top . main_left main_center main_right"

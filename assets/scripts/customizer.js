@@ -566,16 +566,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function SukiBuilder(_ref) {
   var control = _ref.control;
 
+  // State for all settings values and inactive elements.
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(getValues()),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState, 2),
       values = _useState2[0],
-      setValues = _useState2[1];
+      setValues = _useState2[1]; // Get all settings values, and also define inactive elements.
 
-  var areas = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(control.params.areas), [{
-    id: '_inactive',
-    label: SukiCustomizerData.l10n.inactiveElements,
-    sortableInstance: null
-  }]);
 
   function getValues() {
     var values = {};
@@ -593,11 +589,18 @@ function SukiBuilder(_ref) {
     });
     values._inactive = inactiveItemIds;
     return values;
-  }
+  } // Sortable areas and their info.
 
+
+  var areas = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(control.params.areas), [{
+    id: '_inactive',
+    label: SukiCustomizerData.l10n.inactiveElements,
+    sortableInstance: null
+  }]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("div", {
     className: "suki-builder"
   }, areas.map(function (area) {
+    // Array of item objects of current sortable area.
     var areaItems = values[area.id].map(function (itemId) {
       return control.params.choices.find(function (choice) {
         return itemId === choice.value;
@@ -608,34 +611,41 @@ function SukiBuilder(_ref) {
       "data-area": area.id,
       className: "suki-builder__area",
       style: {
-        '--grid-area': area.id
+        '--area': area.id
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("label", {
       className: "suki-builder__area__label"
-    }, area.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)(react_sortablejs__WEBPACK_IMPORTED_MODULE_7__.ReactSortable, {
+    }, area.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)(react_sortablejs__WEBPACK_IMPORTED_MODULE_7__.ReactSortable // Store the sortable instance to `areas` variable.
+    , {
       ref: function ref(node) {
         if (node) {
           area.sortableInstance = node.sortable;
         }
-      },
-      group: control.id,
-      list: areaItems,
+      } // Connect with other sortable areas.
+      ,
+      group: control.id // Sortable values.
+      ,
+      list: areaItems // Handler to update sortable values.
+      ,
       setList: function setList(updatedAreaItems) {
+        // Parse array of IDs from the updated sortable items.
         var updatedAreaItemsIds = updatedAreaItems.map(function (item) {
           return item.value;
-        });
+        }); // Update values state.
+
         setValues(function (prevValues) {
           return _objectSpread(_objectSpread({}, prevValues), {}, (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, area.id, updatedAreaItemsIds));
-        });
+        }); // Update setting values for areas, except the `_inactive` area.
 
         if ('_inactive' !== area.id) {
           if (updatedAreaItemsIds !== control.settings[area.id].get()) {
             control.settings[area.id].set(updatedAreaItemsIds);
           }
         }
-      },
+      } // When start dragging a sortable item, disable the unsupported areas.
+      ,
       onStart: function onStart(e) {
-        console.log(e);
+        //
         var itemId = e.item.getAttribute('data-value');
         var itemObj = control.params.choices.find(function (choice) {
           return itemId === choice.value;
@@ -647,7 +657,8 @@ function SukiBuilder(_ref) {
           area.sortableInstance.option('disabled', true);
           area.sortableInstance.el.parentElement.classList.add('disabled');
         });
-      },
+      } // When dropping a sortable item, restore all areas.
+      ,
       onEnd: function onEnd(e) {
         areas.forEach(function (area) {
           area.sortableInstance.option('disabled', false);
@@ -2144,7 +2155,7 @@ wp.customize.bind('ready', function () {
 /***/ (function() {
 
 /**
- * Custom section
+ * Static sections
  */
 wp.customize.sectionConstructor['suki-pro-link'] = wp.customize.sectionConstructor['suki-pro-teaser'] = wp.customize.sectionConstructor['suki-spacer'] = wp.customize.Section.extend({
   // No events for this type of section.
@@ -2154,41 +2165,85 @@ wp.customize.sectionConstructor['suki-pro-link'] = wp.customize.sectionConstruct
     return true;
   }
 });
+/**
+ * Builder section
+ */
+
 wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend({
-  ready: function ready() {
+  initAllControls: function initAllControls() {
     var section = this;
-    var panelId = section.panel.get();
+    section.controls().forEach(function (control) {
+      if ('resolved' !== control.deferred.embedded.state()) {
+        control.embed();
+
+        if (control.actuallyEmbed) {
+          control.actuallyEmbed();
+        }
+      }
+    });
+  },
+  resizePreview: function resizePreview() {
+    var section = this;
+
+    if (!section.contentContainer[0].classList.contains('active')) {
+      return;
+    }
+
+    console.log(section.id + ' -- ' + section.contentContainer[0].getBoundingClientRect().height);
+
+    if (1324 <= window.innerWidth && !section.contentContainer[0].classList.contains('hidden')) {
+      wp.customize.previewer.container[0].style.height = 'calc(100% - ' + (section.contentContainer[0].getBoundingClientRect().height + 'px') + ')';
+    } else {
+      wp.customize.previewer.container[0].style.height = null;
+    }
+  },
+  ready: function ready() {
+    var section = this; // Bind this.
+
+    this.resizePreview = this.resizePreview.bind(this);
+    var panelId = section.panel.get(); // If section is inside a panel, bind panel expanded.
 
     if ('' !== panelId) {
       wp.customize.panel(panelId, function (panel) {
         panel.expanded.bind(function (isExpanded) {
           if (isExpanded) {
-            section.controls().forEach(function (control) {
-              if ('resolved' !== control.deferred.embedded.state()) {
-                control.embed();
-
-                if (control.actuallyEmbed) {
-                  control.actuallyEmbed();
-                }
-              }
-            });
+            section.initAllControls();
             section.contentContainer[0].classList.add('active');
+            window.addEventListener('resize', section.resizePreview);
+            section.resizePreview();
           } else {
             section.contentContainer[0].classList.remove('active');
+            window.removeEventListener('resize', section.resizePreview);
+            section.resizePreview();
           }
         });
       });
-    }
+    } // Init section right away.
+    else {
+      section.initAllControls();
+      section.contentContainer[0].classList.add('active');
+      window.addEventListener('resize', section.resizePreview);
+      section.resizePreview();
+    } // Handler for hide builder button.
+
 
     section.contentContainer[0].querySelector('.suki-builder-section__toggle__hide').addEventListener('click', function (e) {
       e.preventDefault();
       section.contentContainer[0].classList.add('hidden');
       document.activeElement.blur();
-    });
+      section.resizePreview();
+    }); // Handler for show builder button.
+
     section.contentContainer[0].querySelector('.suki-builder-section__toggle__show').addEventListener('click', function (e) {
       e.preventDefault();
       section.contentContainer[0].classList.remove('hidden');
       document.activeElement.blur();
+      section.resizePreview();
+    });
+    wp.customize.bind('ready', function () {
+      wp.customize.previewedDevice.bind(function (device) {
+        section.resizePreview();
+      });
     });
   }
 });

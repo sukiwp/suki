@@ -458,13 +458,12 @@
 		position: fixed;
 		top: auto;
 		bottom: 0;
-		left: 0;
+		left: 300px;
 		right: 0;
 		height: auto !important;
 		width: auto;
-		max-height: 60%;
+		max-height: 50%;
 		margin: 0;
-		margin-left: 300px;
 		padding: 40px 20px 20px !important;
 		overflow: auto;
 		background-color: #eee;
@@ -513,12 +512,12 @@
 }
 @media screen and (min-width: 1667px) {
 	#customize-theme-controls .control-section-suki-builder:is(ul) {
-		margin-left: 18%;
+		left: 18%;
 	}
 }
 @media screen and (min-width: 3333px) {
 	#customize-theme-controls .control-section-suki-builder:is(ul) {
-		margin-left: 600px;
+		left: 600px;
 	}
 }
 
@@ -654,7 +653,7 @@
 .customize-control-suki-builder .suki-builder__area {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	background-color: #fff;
-	grid-area: var(--grid-area);
+	grid-area: var(--area);
 }
 .customize-control-suki-builder .suki-builder__area.disabled {
 	opacity: 0.5;
@@ -1094,6 +1093,9 @@
 	cursor: pointer;
 }
 
+#customize-control-header_elements {
+	margin-bottom: 0;
+}
 #customize-control-header_elements .suki-builder {
 	grid-template-areas: "top_left top_center top_right" "main_left main_center main_right" "bottom_left bottom_center bottom_right" "_inactive _inactive _inactive";
 	grid-template-columns: repeat(3, 1fr);
@@ -1102,6 +1104,9 @@
 	grid-row-gap: 12px;
 }
 
+#customize-control-header_mobile_elements {
+	margin-bottom: 0;
+}
 #customize-control-header_mobile_elements .suki-builder {
 	grid-template-areas: "vertical_top . main_left main_center main_right" "vertical_top . . . ." "_inactive _inactive _inactive _inactive _inactive";
 	grid-template-columns: max(15%, 120px) 12px repeat(3, 1fr);

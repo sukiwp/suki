@@ -31,25 +31,27 @@ ob_start();
 	</button>
 </div>
 <script>
-	const buttonDesktop = document.querySelector( '.suki-header-builder-responsive-switcher > button[data-device="desktop"]' );
-	const buttonTablet = document.querySelector( '.suki-header-builder-responsive-switcher > button[data-device="tablet"]' );
+	const buttons = document.querySelectorAll( '.suki-header-builder-responsive-switcher > button' );
 
-	buttonDesktop.addEventListener( 'click', ( e ) => {
-		e.preventDefault();
+	for ( let i = 0; i < buttons.length; i++ ) {
+		buttons[i].addEventListener( 'click', ( e ) => {
+			e.preventDefault();
+			wp.customize.previewedDevice.set( buttons[i].getAttribute( 'data-device' ) );
+		} );
+	}
 
-		buttonDesktop.classList.add( 'nav-tab-active' );
-		buttonTablet.classList.remove( 'nav-tab-active' );
+	wp.customize.bind( 'ready', function() {
+		wp.customize.previewedDevice.bind( ( device ) => {
+			const targetDevice = 'desktop' === device ? 'desktop' : 'tablet';
 
-		wp.customize.previewedDevice.set( 'desktop' );
-	} );
-
-	buttonTablet.addEventListener( 'click', ( e ) => {
-		e.preventDefault();
-
-		buttonTablet.classList.add( 'nav-tab-active' );
-		buttonDesktop.classList.remove( 'nav-tab-active' );
-
-		wp.customize.previewedDevice.set( 'tablet' );
+			for ( let i = 0; i < buttons.length; i++ ) {
+				if ( targetDevice === buttons[i].getAttribute( 'data-device' ) ) {
+					buttons[i].classList.add( 'nav-tab-active' );
+				} else {
+					buttons[i].classList.remove( 'nav-tab-active' );
+				}
+			}
+		} );
 	} );
 </script>
 <?php

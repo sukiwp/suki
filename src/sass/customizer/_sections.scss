@@ -20,13 +20,12 @@
 				position: fixed;
 				top: auto;
 				bottom: 0;
-				left: 0;
+				left: 300px;
 				right: 0;
 				height: auto !important;
 				width: auto;
-				max-height: 60%;
+				max-height: 50%;
 				margin: 0;
-				margin-left: 300px;
 				padding: 40px 20px 20px !important;
 				overflow: auto;
 				background-color: #eee;
@@ -84,11 +83,11 @@
 			}
 
 			@media screen and ( min-width: 1667px ) {
-				margin-left: 18%;
+				left: 18%;
 			}
 		
 			@media screen and ( min-width: 3333px ) {
-				margin-left: 600px;
+				left: 600px;
 			}
 		}
 	}
