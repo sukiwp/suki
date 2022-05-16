@@ -34,14 +34,8 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend( {
 
 	resizePreview: function() {
 		const section = this;
-
-		if ( ! section.contentContainer[0].classList.contains( 'active' ) ) {
-			return;
-		}
-
-		console.log( section.id + ' -- ' + section.contentContainer[0].getBoundingClientRect().height );
 		
-		if ( 1324 <= window.innerWidth && ! section.contentContainer[0].classList.contains( 'hidden' ) ) {
+		if ( 1324 <= window.innerWidth && section.contentContainer[0].classList.contains( 'active' ) && ! section.contentContainer[0].classList.contains( 'hidden' ) ) {
 			wp.customize.previewer.container[0].style.height = 'calc(100% - ' + ( section.contentContainer[0].getBoundingClientRect().height + 'px' ) + ')' ;
 		} else {
 			wp.customize.previewer.container[0].style.height = null;
