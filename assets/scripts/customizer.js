@@ -2181,18 +2181,38 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend({
         }
       }
     });
+    section.initialized = true;
   },
   resizePreview: function resizePreview() {
     var section = this;
 
+    if (!section.initialized) {
+      return;
+    }
+
     if (1324 <= window.innerWidth && section.contentContainer[0].classList.contains('active') && !section.contentContainer[0].classList.contains('hidden')) {
-      wp.customize.previewer.container[0].style.height = 'calc(100% - ' + (section.contentContainer[0].getBoundingClientRect().height + 'px') + ')';
+      switch (wp.customize.previewedDevice.get()) {
+        case 'tablet':
+          originalHeight = '1024px';
+          break;
+
+        case 'mobile':
+          originalHeight = '812px';
+          break;
+
+        default:
+          originalHeight = '100%';
+          break;
+      }
+
+      wp.customize.previewer.container[0].style.height = 'min( calc(100% - ' + (section.contentContainer[0].getBoundingClientRect().height + 'px') + '), ' + originalHeight + ' )';
     } else {
       wp.customize.previewer.container[0].style.height = null;
     }
   },
   ready: function ready() {
-    var section = this; // Bind this.
+    var section = this;
+    section.initialized = false; // Bind this.
 
     this.resizePreview = this.resizePreview.bind(this);
     var panelId = section.panel.get(); // If section is inside a panel, bind panel expanded.
