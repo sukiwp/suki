@@ -190,8 +190,11 @@
 			&.is-pressed + svg {
 				top: 0;
 				left: 0;
-				width: 24px;
-				height: 24px;
+				width: 14px;
+				height: 14px;
+				margin: 5px;
+				background-color: rgba(0,0,0,0.5);
+				fill: #fff;
 			}
 		}
 	}

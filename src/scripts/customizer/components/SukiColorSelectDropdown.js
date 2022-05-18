@@ -20,8 +20,8 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 
 		palette.push( {
 			name: wp.customize( 'color_palette_' + i + '_name' ).get() || sprintf( SukiCustomizerData.l10n.themeColor$d, i ),
-			color: color,
-			value: 'var(--color-palette-' + i + ')',
+			color: 'var(--color-palette-' + i + ')',
+			actualValue: color,
 		} );
 	}
 
@@ -30,12 +30,14 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 	const pickerIsOpened = value && ! valueIsLink;
 
 	const valueInfo = valueIsLink ? palette.find( ( item ) => {
-		return value === item.value
+		return value === item.color;
 	} ) : {
 		name: SukiCustomizerData.l10n.custom,
 		color: value,
-		value: value,
+		actualValue: value,
 	};
+
+	console.log( valueInfo );
 
 	return (
 		<>
@@ -49,7 +51,7 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 								<Button
 									isSmall
 									variant="tertiary"
-									label={ '' !== value ? valueInfo.name + ': ' + valueInfo.color : SukiCustomizerData.l10n.notSet }
+									label={ '' !== value ? valueInfo.name : SukiCustomizerData.l10n.notSet }
 									showTooltip
 									aria-expanded={ toggleParams.isOpen }
 									className="suki-color-dropdown__toggle"
@@ -73,20 +75,12 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 									<HStack>
 										<ColorPalette
 											colors={ palette }
-											value={ valueIsLink && valueInfo.color }
+											value={ valueIsLink ? valueInfo.color : '' }
 											disableCustomColors={ true }
 											clearable={ false }
 											className="suki-color-dropdown__palette"
 											onChange={ ( color ) => {											
-												if ( color ) {
-													const colorInfo = palette.find( ( item ) => {
-														return color === item.color
-													} );
-
-													changeValue( colorInfo.value );
-												} else {
-													changeValue( '' );
-												}
+												changeValue( color );
 											} }
 										/>
 										<div className="suki-color-dropdown__custom">
@@ -105,8 +99,8 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 														changeValue( '' );
 													} else {
 														// isPressed: false
-														if ( valueInfo.color ) {
-															changeValue( valueInfo.color );
+														if ( valueInfo.actualValue ) {
+															changeValue( valueInfo.actualValue );
 														} else {
 															changeValue( defaultPickerValue || '#ffffff' );
 														}

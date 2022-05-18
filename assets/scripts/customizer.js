@@ -30,20 +30,21 @@ function SukiColorSelectDropdown(_ref) {
     var color = wp.customize('color_palette_' + i).get();
     palette.push({
       name: wp.customize('color_palette_' + i + '_name').get() || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.sprintf)(SukiCustomizerData.l10n.themeColor$d, i),
-      color: color,
-      value: 'var(--color-palette-' + i + ')'
+      color: 'var(--color-palette-' + i + ')',
+      actualValue: color
     });
   }
 
   var valueIsLink = value && 0 === value.indexOf('var(') ? true : false;
   var pickerIsOpened = value && !valueIsLink;
   var valueInfo = valueIsLink ? palette.find(function (item) {
-    return value === item.value;
+    return value === item.color;
   }) : {
     name: SukiCustomizerData.l10n.custom,
     color: value,
-    value: value
+    actualValue: value
   };
+  console.log(valueInfo);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "suki-color-dropdown"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SlotFillProvider, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Dropdown, {
@@ -53,7 +54,7 @@ function SukiColorSelectDropdown(_ref) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
         isSmall: true,
         variant: "tertiary",
-        label: '' !== value ? valueInfo.name + ': ' + valueInfo.color : SukiCustomizerData.l10n.notSet,
+        label: '' !== value ? valueInfo.name : SukiCustomizerData.l10n.notSet,
         showTooltip: true,
         "aria-expanded": toggleParams.isOpen,
         className: "suki-color-dropdown__toggle",
@@ -71,19 +72,12 @@ function SukiColorSelectDropdown(_ref) {
         }
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.__experimentalHStack, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
         colors: palette,
-        value: valueIsLink && valueInfo.color,
+        value: valueIsLink ? valueInfo.color : '',
         disableCustomColors: true,
         clearable: false,
         className: "suki-color-dropdown__palette",
         onChange: function onChange(color) {
-          if (color) {
-            var colorInfo = palette.find(function (item) {
-              return color === item.color;
-            });
-            changeValue(colorInfo.value);
-          } else {
-            changeValue('');
-          }
+          changeValue(color);
         }
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "suki-color-dropdown__custom"
@@ -102,8 +96,8 @@ function SukiColorSelectDropdown(_ref) {
             changeValue('');
           } else {
             // isPressed: false
-            if (valueInfo.color) {
-              changeValue(valueInfo.color);
+            if (valueInfo.actualValue) {
+              changeValue(valueInfo.actualValue);
             } else {
               changeValue(defaultPickerValue || '#ffffff');
             }
@@ -303,6 +297,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+wp.customize.bind('ready', function () {
+  /**
+   * Color Palette controls
+   */
+  function setColorPaletteValue(i, color) {
+    var styleId = "suki-color-palette-".concat(i, "-output-css");
+    var styleTag = document.getElementById(styleId);
+
+    if (!styleTag) {
+      styleTag = document.createElement('style');
+      styleTag.id = styleId;
+      document.head.appendChild(styleTag);
+    }
+
+    styleTag.textContent = ".wp-customizer{--color-palette-".concat(i, ":").concat(color, "}");
+  }
+
+  var _loop = function _loop(i) {
+    wp.customize("color_palette_".concat(i)).bind(function (color) {
+      setColorPaletteValue(i, color);
+    });
+    setColorPaletteValue(i, wp.customize("color_palette_".concat(i)).get());
+  };
+
+  for (var i = 1; i <= 8; i++) {
+    _loop(i);
+  }
+});
 
 /***/ }),
 
