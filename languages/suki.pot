@@ -446,119 +446,119 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:165
+#: includes/admin/class-suki-admin.php:163
 msgid "Installing..."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:166
+#: includes/admin/class-suki-admin.php:164
 msgid "Error occured while installing the plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:167
+#: includes/admin/class-suki-admin.php:165
 msgid "Redirecting to demo list..."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:237
+#: includes/admin/class-suki-admin.php:257
 msgid "Welcome to Suki!"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:238
+#: includes/admin/class-suki-admin.php:258
 msgid "Thank you for installing Suki! Please visit the theme dashboard for more info about Suki features."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:239
+#: includes/admin/class-suki-admin.php:259
 msgid "Suki Dashboard"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:266
+#: includes/admin/class-suki-admin.php:286
 msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:266
+#: includes/admin/class-suki-admin.php:286
 msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:268
+#: includes/admin/class-suki-admin.php:288
 msgid "Okay, you deserve it"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:269
+#: includes/admin/class-suki-admin.php:289
 msgid "Nope, maybe later"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:270
+#: includes/admin/class-suki-admin.php:290
 msgid "I already did"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:475
+#: includes/admin/class-suki-admin.php:495
 msgid "Core Module"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:511
+#: includes/admin/class-suki-admin.php:531
 msgid "Modules Manager"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:534
+#: includes/admin/class-suki-admin.php:554
 msgid "Available on Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:545
+#: includes/admin/class-suki-admin.php:565
 msgid "WooCommerce is not installed"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:587
+#: includes/admin/class-suki-admin.php:607
 msgid "Suki Website"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:593
+#: includes/admin/class-suki-admin.php:613
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:599
+#: includes/admin/class-suki-admin.php:619
 msgid "Translation"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:605
+#: includes/admin/class-suki-admin.php:625
 msgid "Users Community Group"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:611
+#: includes/admin/class-suki-admin.php:631
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:617
+#: includes/admin/class-suki-admin.php:637
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:626
+#: includes/admin/class-suki-admin.php:646
 msgid "Other Links"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:647
+#: includes/admin/class-suki-admin.php:667
 msgid "Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:650
+#: includes/admin/class-suki-admin.php:670
 msgid "Get more powerful features and take your website to the next level with Suki Pro."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:659
+#: includes/admin/class-suki-admin.php:679
 msgid "Upgrade to Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:675
+#: includes/admin/class-suki-admin.php:695
 msgid "One Click Demo Import"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:678
+#: includes/admin/class-suki-admin.php:698
 msgid "Kickstart your website with our pre-made demo websites: Import. Modify. Launch!"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:683
+#: includes/admin/class-suki-admin.php:703
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:681
+#: includes/admin/class-suki-admin.php:701
 msgid "Browse Demo Sites"
 msgstr ""
 

@@ -54,7 +54,8 @@ class Suki_Admin {
 
 		// Editor styles.
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
-		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css' ), 10, 2 );
+		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css__visual' ), 10, 2 );
+		add_filter( 'admin_enqueue_scripts', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
 
 		// Theme dashboard notification.
@@ -116,9 +117,6 @@ class Suki_Admin {
 		 * Hook: Styles to be included before admin CSS
 		 */
 		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
-
-		// Register CSS files.
-		wp_register_style( 'alpha-color-picker', SUKI_CSS_URL . '/vendors/alpha-color-picker' . SUKI_ASSETS_SUFFIX . '.css', array( 'wp-color-picker' ), SUKI_VERSION );
 
 		// Enqueue CSS files.
 		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin.css', array(), SUKI_VERSION );
@@ -186,12 +184,12 @@ class Suki_Admin {
 	}
 
 	/**
-	 * Add dynamic CSS to Gutenberg.
+	 * Add dynamic CSS to Gutenberg visual editor.
 	 *
 	 * @param array                   $editor_settings      Editor's settings array.
 	 * @param WP_Block_Editor_Context $block_editor_context Block editor context.
 	 */
-	public function add_block_editor_dynamic_css( $editor_settings, $block_editor_context ) {
+	public function add_block_editor_dynamic_css__visual( $editor_settings, $block_editor_context ) {
 		$dynamic_css = trim( apply_filters( 'suki/frontend/dynamic_css', '' ) );
 
 		$editor_settings['styles'][] = array(
@@ -200,6 +198,28 @@ class Suki_Admin {
 		);
 
 		return $editor_settings;
+	}
+
+	/**
+	 * Add dynamic CSS to Gutenberg controls (outside .editor-styles-wrapper).
+	 */
+	public function add_block_editor_dynamic_css__controls() {
+		// Abort if current admin page is not Gutenberg.
+		if ( ! get_current_screen()->is_block_editor() ) {
+			return;
+		}
+
+		// Build custom CSS.
+		$css_array = array();
+		for ( $i = 1; $i <= 8; $i++ ) {
+			$css_array['global']['.block-editor'][ '--color-palette-' . $i ] = suki_get_theme_mod( 'color_palette_' . $i );
+		}
+
+		// Inject inline CSS after the admin.css.
+		wp_add_inline_style(
+			'suki-admin',
+			suki_convert_css_array_to_string( $css_array )
+		);
 	}
 
 	/**
