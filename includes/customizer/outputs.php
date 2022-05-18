@@ -1497,16 +1497,16 @@ $add['content_main_border_color'] = array(
 $add['sidebar_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar',
-		'property' => 'flex-basis',
+		'element'  => 'body',
+		'property' => '--sidebar-width',
 	),
 );
 
 $add['sidebar_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-row',
-		'property' => 'gap',
+		'element'  => 'body',
+		'property' => '--sidebar-gap',
 	),
 );
 

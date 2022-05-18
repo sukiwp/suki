@@ -81,6 +81,8 @@ body {
 	--block-spacing: 1.25rem;
 	--content-size: 720px;
 	--wide-size: 1140px;
+	--sidebar-width: 25%;
+	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) );
 	--transition-duration: 0.25s;
 }
 
@@ -4415,8 +4417,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 	flex-grow: 1;
 }
 
-.suki-content-layout-left-sidebar .suki-block-container,
-.suki-content-layout-right-sidebar .suki-block-container {
+:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) .site-main {
 	--content-size: auto;
 	--wide-size: auto;
 	--full-size: auto;
@@ -4425,7 +4426,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 .suki-content-row {
 	display: flex;
 	flex-direction: column;
-	gap: calc(2 * var(--wp--style--block-gap));
+	gap: var(--sidebar-gap);
 }
 @media screen and (min-width: 1024px) {
 	.suki-content-row {
@@ -4454,7 +4455,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 	.sidebar {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: 25%;
+		flex-basis: var(--sidebar-width);
 	}
 }
 
@@ -4618,3 +4619,56 @@ body.mce-content-body {
 /**
  * Block Editor
  */
+body.suki-section-wide {
+	--content-size: var(--wide-size);
+}
+
+body.suki-section-full {
+	--content-size: auto;
+	--wide-size: auto;
+}
+
+.block-editor-block-list__layout {
+	margin-top: 3rem;
+}
+
+body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) {
+	position: relative;
+	width: var(--content-size);
+	margin-left: auto;
+	margin-right: auto;
+}
+body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) .block-editor-block-list__layout {
+	--content-size: auto;
+	--wide-size: auto;
+	--full-size: auto;
+}
+body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow):after {
+	content: "Sidebar";
+	box-sizing: border-box;
+	position: absolute;
+	top: 4rem;
+	bottom: 40vh;
+	width: calc(var(--sidebar-width));
+	max-height: 50rem;
+	padding: 1.5rem;
+	border: 3px dashed rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	color: rgba(0, 0, 0, 0.2);
+}
+
+body.suki-content-layout-left-sidebar:not(.suki-section-narrow) > * {
+	padding-left: calc(var(--sidebar-gap) + var(--sidebar-width));
+}
+body.suki-content-layout-left-sidebar:not(.suki-section-narrow):after {
+	left: 0;
+}
+
+body.suki-content-layout-right-sidebar:not(.suki-section-narrow) > * {
+	padding-right: calc(var(--sidebar-gap) + var(--sidebar-width));
+}
+body.suki-content-layout-right-sidebar:not(.suki-section-narrow):after {
+	right: 0;
+}

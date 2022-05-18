@@ -79,7 +79,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				array(
 					'section'     => $section,
 					'settings'    => array(),
-					'description' => esc_html__( 'Narrow content layout doesn\'t support Sidebar.', 'suki' ),
+					'description' => esc_html__( 'Sidebar will be automatically disabled in Narrow container.', 'suki' ),
 					'priority'    => 100,
 				)
 			)

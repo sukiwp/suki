@@ -1,7 +1,50 @@
 import { registerPlugin } from '@wordpress/plugins';
-import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
-import { Panel, PanelBody, SelectControl } from '@wordpress/components';
-import { useSelect, useDispatch } from '@wordpress/data';
+
+import {
+	PluginSidebar,
+	PluginSidebarMoreMenuItem
+} from '@wordpress/edit-post';
+
+import {
+	__experimentalVStack as VStack,
+	Panel,
+	PanelBody,
+	SelectControl
+} from '@wordpress/components';
+
+import {
+	useSelect, 
+	useDispatch
+} from '@wordpress/data';
+
+function runFieldOutputs( key, rules, value, inheritValue ) {
+	const actualValue = '' !== value ? value : inheritValue;
+
+	rules.forEach( ( rule ) => {
+		if ( undefined == rule.element ) {
+			return;
+		}
+		
+		rule.pattern = rule.pattern || '$';
+
+		switch ( rule.type ) {
+			case 'class':
+			default:
+				const regex = new RegExp( rule['pattern'].replace( '$', '[\\w\\-]+' ), 'i' );
+
+				const formattedValue = rule['pattern'].replace( '$', actualValue );
+
+				document.querySelectorAll( rule.element ).forEach( ( element ) => {
+					if ( element.className.match( regex ) ) {
+						element.className = element.className.replace( regex, formattedValue );
+					} else {
+						element.className += ' ' + formattedValue;
+					}
+				} );
+				break;
+		}
+	} );
+}
 
 function SukiPageSettingsSidebar() {
 	const metaValue = useSelect( ( select ) => {
@@ -45,30 +88,36 @@ function SukiPageSettingsSidebar() {
 								title={ panel.title }
 								initialOpen={ 0 == i ? true : false }
 							>
-								<div
-									style={ {
-										display: 'flex',
-										flexDirection: 'column',
-										gap: '4px',
-										marginTop: '8px',
-									} }
+								<VStack
+									spacing="2"
 								>
 									{ panel.fields.map( ( field ) => {
+										const value = getFieldValue( field.key );
+
+										if ( field.outputs ) {
+											runFieldOutputs( field.key, field.outputs, value, field.inherit_value );
+										}
+
 										if ( 'select' === field.type ) {
 											return (
 												<SelectControl
 													key={ field.key }
 													label={ field.label }
-													value={ getFieldValue( field.key ) }
+													value={ value }
 													options={ field.options }
+													help={ field.description }
 													onChange={ ( value ) => {
 														setFieldValue( field.key, value );
+
+														if ( field.outputs ) {
+															runFieldOutputs( field.key, field.outputs, value, field.inherit_value );
+														}
 													} }
 												/>
 											);
 										}
 									} ) }
-								</div>
+								</VStack>
 							</PanelBody>
 						</Panel>
 					);

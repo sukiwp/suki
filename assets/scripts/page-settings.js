@@ -177,6 +177,32 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+function runFieldOutputs(key, rules, value, inheritValue) {
+  var actualValue = '' !== value ? value : inheritValue;
+  rules.forEach(function (rule) {
+    if (undefined == rule.element) {
+      return;
+    }
+
+    rule.pattern = rule.pattern || '$';
+
+    switch (rule.type) {
+      case 'class':
+      default:
+        var regex = new RegExp(rule['pattern'].replace('$', '[\\w\\-]+'), 'i');
+        var formattedValue = rule['pattern'].replace('$', actualValue);
+        document.querySelectorAll(rule.element).forEach(function (element) {
+          if (element.className.match(regex)) {
+            element.className = element.className.replace(regex, formattedValue);
+          } else {
+            element.className += ' ' + formattedValue;
+          }
+        });
+        break;
+    }
+  });
+}
+
 function SukiPageSettingsSidebar() {
   var metaValue = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(function (select) {
     return select('core/editor').getEditedPostAttribute('meta')[SukiPageSettingsData.metaKey];
@@ -213,22 +239,28 @@ function SukiPageSettingsSidebar() {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: panel.title,
       initialOpen: 0 == i ? true : false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      style: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '4px',
-        marginTop: '8px'
-      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalVStack, {
+      spacing: "2"
     }, panel.fields.map(function (field) {
+      var value = getFieldValue(field.key);
+
+      if (field.outputs) {
+        runFieldOutputs(field.key, field.outputs, value, field.inherit_value);
+      }
+
       if ('select' === field.type) {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
           key: field.key,
           label: field.label,
-          value: getFieldValue(field.key),
+          value: value,
           options: field.options,
+          help: field.description,
           onChange: function onChange(value) {
             setFieldValue(field.key, value);
+
+            if (field.outputs) {
+              runFieldOutputs(field.key, field.outputs, value, field.inherit_value);
+            }
           }
         });
       }

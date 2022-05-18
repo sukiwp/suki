@@ -14,3 +14,71 @@ body.mce-content-body {
 /**
  * Block Editor
  */
+
+body.suki-section-wide {
+	--content-size: var(--wide-size);
+}
+
+body.suki-section-full {
+	--content-size: auto;
+	--wide-size: auto;
+}
+
+.block-editor-block-list__layout {
+	margin-top: 3rem;
+}
+
+body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
+	&:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+		position: relative;
+		width: var(--content-size);
+		margin-left: auto;
+		margin-right: auto;
+
+		.block-editor-block-list__layout {
+			--content-size: auto;
+			--wide-size: auto;
+			--full-size: auto;
+		}
+
+		&:after {
+			content: "Sidebar";
+			box-sizing: border-box;
+			position: absolute;
+			top: 4rem;
+			bottom: 40vh;
+			width: calc( var(--sidebar-width) );
+			max-height: 50rem;
+			padding: 1.5rem;
+			border: 3px dashed rgba(0,0,0,0.1);
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			color: rgba(0,0,0,0.2);
+		}
+	}
+}
+
+body.suki-content-layout-left-sidebar {
+	&:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+		> * {
+			padding-left: calc( var(--sidebar-gap) + var(--sidebar-width) );
+		}
+
+		&:after {
+			left: 0;
+		}
+	}
+}
+
+body.suki-content-layout-right-sidebar {
+	&:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+		> * {
+			padding-right: calc( var(--sidebar-gap) + var(--sidebar-width) );
+		}
+
+		&:after {
+			right: 0;
+		}
+	}
+}

@@ -53,9 +53,6 @@ class Suki_Breadcrumb extends Suki_Module {
 		// Add Customizer default values.
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
 
-		// Add Customizer dynamic outputs.
-		add_filter( 'suki/customizer/setting_outputs', array( $this, 'add_customizer_setting_outputs' ) );
-
 		// Add Customizer dependency control contexts.
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_customizer_control_contexts' ) );
 
@@ -431,18 +428,6 @@ class Suki_Breadcrumb extends Suki_Module {
 		$add = include trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/defaults.php';
 
 		return array_merge_recursive( $defaults, $add );
-	}
-
-	/**
-	 * Add Customizer Dynamic output rules.
-	 *
-	 * @param array $outputs Dynamic output rules.
-	 * @return array
-	 */
-	public function add_customizer_setting_outputs( $outputs = array() ) {
-		$add = include trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/customizer/outputs.php';
-
-		return array_merge_recursive( $outputs, $add );
 	}
 
 	/**

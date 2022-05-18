@@ -57,7 +57,7 @@ class Suki_Page_Settings_Meta_Box {
 		add_action( 'admin_init', array( $this, 'init_term_meta_box' ) );
 
 		// Page settings filters.
-		add_filter( 'suki/page_settings/structures', array( $this, 'add_optional_page_settings' ) );
+		add_filter( 'suki/page_settings/structures', array( $this, 'add_optional_page_settings' ), 10, 2 );
 		add_filter( 'suki/page_settings/excluded_post_ids', array( $this, 'disable_page_settings_on_posts_page' ) );
 	}
 
@@ -70,24 +70,15 @@ class Suki_Page_Settings_Meta_Box {
 	/**
 	 * Add optional page settings to the structures.
 	 *
-	 * @param array $structures Fields structures.
+	 * @param array  $structures Fields structures.
+	 * @param string $type       Page type with this format: [post_type]_[single/archive].
 	 * @return array
 	 */
-	public function add_optional_page_settings( $structures ) {
-		/**
-		 * Get current post ID.
-		 * This filter will be run when registering post meta and its REST schema on `init` hook.
-		 * The only way to get current post ID on `init` hook is using the $_GET global variable (as defined in the admin page URL).
-		 */
-		$post_id = suki_array_value( $_GET, 'post' );
-
-		// Abort if it's not post meta box.
-		if ( empty( $post_id ) ) {
-			return $structures;
-		}
+	public function add_optional_page_settings( $structures, $type ) {
+		$post_type = preg_replace( '/(_single|_archive)/', '', $type );
 
 		// Abort if current post type doesn't support thumbnail.
-		if ( ! post_type_supports( get_post_type( $post_id ), 'thumbnail' ) ) {
+		if ( ! post_type_supports( $post_type, 'thumbnail' ) ) {
 			return $structures;
 		}
 
@@ -136,7 +127,7 @@ class Suki_Page_Settings_Meta_Box {
 					'show_in_rest'  => array(
 						'schema' => array(
 							'type'                 => 'object',
-							'properties'           => $this->get_fields_rest_schema(),
+							'properties'           => $this->get_fields_rest_schema( $post_type ),
 							'additionalProperties' => array(
 								'type' => 'string',
 							),
@@ -241,7 +232,8 @@ class Suki_Page_Settings_Meta_Box {
 	 * Enqueue scripts (JS) for page settings.
 	 */
 	public function enqueue_editor_js() {
-		$post_id = get_query_var( 'post' );
+		$post_id   = get_query_var( 'post' );
+		$post_type = get_post_type( $post_id );
 
 		// Abort if current edited post is one of the excluded IDs.
 		if ( in_array( $post_id, $this->get_excluded_post_ids(), true ) ) {
@@ -249,7 +241,7 @@ class Suki_Page_Settings_Meta_Box {
 		}
 
 		// Abort if current loaded editor's post type is not public post types.
-		if ( ! in_array( get_post_type( $post_id ), suki_get_public_post_types(), true ) ) {
+		if ( ! in_array( $post_type, suki_get_public_post_types(), true ) ) {
 			return;
 		}
 
@@ -268,7 +260,7 @@ class Suki_Page_Settings_Meta_Box {
 				array(
 					'metaKey'    => self::META_KEY,
 					'title'      => esc_html__( 'Page Settings (Theme)', 'suki' ),
-					'structures' => $this->get_structures_as_simple_array(),
+					'structures' => $this->get_structures_as_simple_array( $post_type . '_single' ),
 				)
 			),
 			'before'
@@ -390,7 +382,15 @@ class Suki_Page_Settings_Meta_Box {
 			return;
 		}
 
-		$structures = $this->get_structures();
+		if ( is_a( $obj, 'WP_Post' ) ) {
+			$type = get_post_type( $obj ) . '_single';
+		} elseif ( is_a( $obj, 'WP_Term' ) ) {
+			$type = get_taxonomy( $obj->taxonomy )->object_type[0] . '_archive';
+		} else {
+			return;
+		}
+
+		$structures = $this->get_structures( $type );
 		$values     = $this->get_values( $obj );
 		$first_key  = key( $structures );
 		?>
@@ -419,6 +419,12 @@ class Suki_Page_Settings_Meta_Box {
 										case 'toggle':
 											break;
 									}
+
+									if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) {
+										?>
+										<p class="description"><?php echo wp_kses_post( $field['description'] ); ?></p>
+										<?php
+									}
 									?>
 								</div>
 							</div>
@@ -438,11 +444,14 @@ class Suki_Page_Settings_Meta_Box {
 
 	/**
 	 * Return all fields schema array for REST API meta.
+	 *
+	 * @param string $post_type Post type.
+	 * @return array
 	 */
-	public function get_fields_rest_schema() {
+	public function get_fields_rest_schema( $post_type ) {
 		$schema = array();
 
-		foreach ( $this->get_structures() as $panel_key => $panel ) {
+		foreach ( $this->get_structures( $post_type . '_single' ) as $panel_key => $panel ) {
 			foreach ( $panel['fields'] as $field_key => $field ) {
 				$schema[ $field_key ] = array(
 					'type' => 'string',
@@ -476,9 +485,10 @@ class Suki_Page_Settings_Meta_Box {
 	/**
 	 * Return all fields structures.
 	 *
+	 * @param string $type Page type with this format: [post_type]_[single/archive].
 	 * @return array
 	 */
-	public function get_structures() {
+	public function get_structures( $type ) {
 		/**
 		 * Structures should not be an assosiative array for easier handling on JS.
 		 * Also, some choices has `''` (blank) and number values, JS will automatically sort these object properties, which break our original orders.
@@ -488,24 +498,41 @@ class Suki_Page_Settings_Meta_Box {
 				'title'  => esc_html__( 'Content', 'suki' ),
 				'fields' => array(
 					'content_container'      => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Container', 'suki' ),
-						'options' => array(
+						'type'          => 'select',
+						'label'         => esc_html__( 'Container', 'suki' ),
+						'description'   => esc_html__( 'Sidebar will be automatically disabled in Narrow container.', 'suki' ),
+						'options'       => array(
 							''       => esc_html__( '-- Inherit --', 'suki' ),
 							'narrow' => esc_html__( 'Narrow', 'suki' ),
 							'wide'   => esc_html__( 'Wide', 'suki' ),
 							'full'   => esc_html__( 'Full', 'suki' ),
 						),
+						'outputs'       => array(
+							array(
+								'type'    => 'class',
+								'element' => '.editor-styles-wrapper',
+								'pattern' => 'suki-section-$',
+							),
+						),
+						'inherit_value' => '' !== suki_get_theme_mod( $type . '_content_container', '' ) ? suki_get_theme_mod( $type . '_content_container' ) : suki_get_theme_mod( 'content_container' ),
 					),
 					'content_layout'         => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Sidebar', 'suki' ),
-						'options' => array(
+						'type'          => 'select',
+						'label'         => esc_html__( 'Sidebar', 'suki' ),
+						'options'       => array(
 							''              => esc_html__( '-- Inherit --', 'suki' ),
 							'no-sidebar'    => esc_html__( 'Disabled', 'suki' ),
 							'left-sidebar'  => esc_html__( 'Left Sidebar', 'suki' ),
 							'right-sidebar' => esc_html__( 'Right Sidebar', 'suki' ),
 						),
+						'outputs'       => array(
+							array(
+								'type'    => 'class',
+								'element' => '.editor-styles-wrapper',
+								'pattern' => 'suki-content-layout-$',
+							),
+						),
+						'inherit_value' => '' !== suki_get_theme_mod( $type . '_content_layout', '' ) ? suki_get_theme_mod( $type . '_content_layout' ) : suki_get_theme_mod( 'content_layout' ),
 					),
 					'disable_content_header' => array(
 						'type'    => 'select',
@@ -574,8 +601,9 @@ class Suki_Page_Settings_Meta_Box {
 		 * Filter: suki/page_settings/structures
 		 *
 		 * @param array  $structures Fields structures.
+		 * @param string $type       Page type with this format: [post_type]_[single/archive].
 		 */
-		$structures = apply_filters( 'suki/page_settings/structures', $structures );
+		$structures = apply_filters( 'suki/page_settings/structures', $structures, $type );
 
 		return $structures;
 	}
@@ -583,11 +611,12 @@ class Suki_Page_Settings_Meta_Box {
 	/**
 	 * Return all fields structures.
 	 *
+	 * @param string $type Page type with this format: [post_type]_[single/archive].
 	 * @return array
 	 */
-	public function get_structures_as_simple_array() {
+	public function get_structures_as_simple_array( $type ) {
 		// Get the original structures.
-		$structures = $this->get_structures();
+		$structures = $this->get_structures( $type );
 
 		// Iterate through the structures and refactor the associative array to simple array.
 		foreach ( $structures as $panel_key => &$panel ) {

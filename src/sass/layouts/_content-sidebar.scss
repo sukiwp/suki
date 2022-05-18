@@ -7,9 +7,8 @@
 	flex-grow: 1; // Make content section fill the blank vertical space to fill 100% screen height page.
 }
 
-.suki-content-layout-left-sidebar,
-.suki-content-layout-right-sidebar {
-	.suki-block-container {
+:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
+	.site-main {
 		--content-size: auto;
 		--wide-size: auto;
 		--full-size: auto;
@@ -19,7 +18,7 @@
 .suki-content-row {
 	display: flex;
 	flex-direction: column;
-	gap: calc( 2 * var(--wp--style--block-gap) ); // CUSTOMIZER
+	gap: var(--sidebar-gap);
 	
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		display: flex;
@@ -47,7 +46,7 @@
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: 25%; // CUSTOMIZER
+		flex-basis: var(--sidebar-width);
 	}
 }
 

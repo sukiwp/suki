@@ -33,24 +33,24 @@ ob_start();
 <script>
 	const buttons = document.querySelectorAll( '.suki-header-builder-responsive-switcher > button' );
 
-	for ( let i = 0; i < buttons.length; i++ ) {
-		buttons[i].addEventListener( 'click', ( e ) => {
+	buttons.forEach( ( button ) => {
+		button.addEventListener( 'click', ( e ) => {
 			e.preventDefault();
-			wp.customize.previewedDevice.set( buttons[i].getAttribute( 'data-device' ) );
+			wp.customize.previewedDevice.set( button.getAttribute( 'data-device' ) );
 		} );
-	}
+	} );
 
 	wp.customize.bind( 'ready', function() {
 		wp.customize.previewedDevice.bind( ( device ) => {
 			const targetDevice = 'desktop' === device ? 'desktop' : 'tablet';
 
-			for ( let i = 0; i < buttons.length; i++ ) {
-				if ( targetDevice === buttons[i].getAttribute( 'data-device' ) ) {
-					buttons[i].classList.add( 'nav-tab-active' );
+			buttons.forEach( ( button ) => {
+				if ( targetDevice === button.getAttribute( 'data-device' ) ) {
+					button.classList.add( 'nav-tab-active' );
 				} else {
-					buttons[i].classList.remove( 'nav-tab-active' );
+					button.classList.remove( 'nav-tab-active' );
 				}
-			}
+			} );
 		} );
 	} );
 </script>

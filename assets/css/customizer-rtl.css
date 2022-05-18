@@ -78,6 +78,8 @@
 	--block-spacing: 1.25rem;
 	--content-size: 720px;
 	--wide-size: 1140px;
+	--sidebar-width: 25%;
+	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) );
 	--transition-duration: 0.25s;
 }
 

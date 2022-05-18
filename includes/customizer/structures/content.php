@@ -62,7 +62,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => esc_html__( 'Narrow content layout doesn\'t support Sidebar.', 'suki' ),
+			'description' => esc_html__( 'Sidebar will be automatically disabled in Narrow container.', 'suki' ),
 			'priority'    => 10,
 		)
 	)
