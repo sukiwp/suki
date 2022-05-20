@@ -25,7 +25,7 @@ msgstr ""
 msgid "Shop Sidebar"
 msgstr ""
 
-#: sidebar.php:15, includes/class-suki.php:238, includes/customizer/structures/content.php:87, includes/customizer/structures/sections.php:423, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
+#: sidebar.php:15, includes/class-suki.php:260, includes/customizer/structures/content.php:87, includes/customizer/structures/sections.php:423, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
 msgid "Sidebar"
 msgstr ""
 
@@ -46,21 +46,21 @@ msgid "Suki is a free multi-purpose WordPress theme that is lightweight, fast, h
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: includes/class-suki.php:252
+#: includes/class-suki.php:274
 msgid "Footer Widgets Column %s"
 msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:270, template-parts/header-element-menu.php:18
+#: includes/class-suki.php:292, template-parts/header-element-menu.php:18
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:271, template-parts/header-element-mobile-menu.php:18
+#: includes/class-suki.php:293, template-parts/header-element-mobile-menu.php:18
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: includes/class-suki.php:272
+#: includes/class-suki.php:294
 msgid "Footer Bottom Menu"
 msgstr ""
 
@@ -446,119 +446,107 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:163
+#: includes/admin/class-suki-admin.php:160
 msgid "Installing..."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:164
+#: includes/admin/class-suki-admin.php:161
 msgid "Error occured while installing the plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:165
+#: includes/admin/class-suki-admin.php:162
 msgid "Redirecting to demo list..."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:257
-msgid "Welcome to Suki!"
-msgstr ""
-
-#: includes/admin/class-suki-admin.php:258
-msgid "Thank you for installing Suki! Please visit the theme dashboard for more info about Suki features."
-msgstr ""
-
-#: includes/admin/class-suki-admin.php:259
-msgid "Suki Dashboard"
-msgstr ""
-
-#: includes/admin/class-suki-admin.php:286
+#: includes/admin/class-suki-admin.php:266
 msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:286
+#: includes/admin/class-suki-admin.php:266
 msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:288
+#: includes/admin/class-suki-admin.php:268
 msgid "Okay, you deserve it"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:289
+#: includes/admin/class-suki-admin.php:269
 msgid "Nope, maybe later"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:290
+#: includes/admin/class-suki-admin.php:270
 msgid "I already did"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:495
+#: includes/admin/class-suki-admin.php:475
 msgid "Core Module"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:531
+#: includes/admin/class-suki-admin.php:511
 msgid "Modules Manager"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:554
+#: includes/admin/class-suki-admin.php:534
 msgid "Available on Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:565
+#: includes/admin/class-suki-admin.php:545
 msgid "WooCommerce is not installed"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:607
+#: includes/admin/class-suki-admin.php:587
 msgid "Suki Website"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:613
+#: includes/admin/class-suki-admin.php:593
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:619
+#: includes/admin/class-suki-admin.php:599
 msgid "Translation"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:625
+#: includes/admin/class-suki-admin.php:605
 msgid "Users Community Group"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:631
+#: includes/admin/class-suki-admin.php:611
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:637
+#: includes/admin/class-suki-admin.php:617
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:646
+#: includes/admin/class-suki-admin.php:626
 msgid "Other Links"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:667
+#: includes/admin/class-suki-admin.php:647
 msgid "Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:670
+#: includes/admin/class-suki-admin.php:650
 msgid "Get more powerful features and take your website to the next level with Suki Pro."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:679
+#: includes/admin/class-suki-admin.php:659
 msgid "Upgrade to Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:695
+#: includes/admin/class-suki-admin.php:675
 msgid "One Click Demo Import"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:698
+#: includes/admin/class-suki-admin.php:678
 msgid "Kickstart your website with our pre-made demo websites: Import. Modify. Launch!"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:703
+#: includes/admin/class-suki-admin.php:683
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:701
+#: includes/admin/class-suki-admin.php:681
 msgid "Browse Demo Sites"
 msgstr ""
 
@@ -627,7 +615,7 @@ msgid "Outer shadow"
 msgstr ""
 
 #. translators: %d: color number.
-#. translators: %d: color number
+#. translators: %d: color number.
 #: includes/customizer/class-suki-customizer.php:303, includes/customizer/structures/global--color-palette.php:59
 msgid "Theme Color %d"
 msgstr ""

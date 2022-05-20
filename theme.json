@@ -1,50 +1,9 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"settings": {
 		"appearanceTools": true,
 		"color": {
-			"palette": [
-				{
-					"slug": "suki-color-1",
-					"color": "var(--color-palette-1)",
-					"name": "Theme Color 1"
-				},
-				{
-					"slug": "suki-color-2",
-					"color": "var(--color-palette-2)",
-					"name": "Theme Color 2"
-				},
-				{
-					"slug": "suki-color-3",
-					"color": "var(--color-palette-3)",
-					"name": "Theme Color 3"
-				},
-				{
-					"slug": "suki-color-4",
-					"color": "var(--color-palette-4)",
-					"name": "Theme Color 4"
-				},
-				{
-					"slug": "suki-color-5",
-					"color": "var(--color-palette-5)",
-					"name": "Theme Color 5"
-				},
-				{
-					"slug": "suki-color-6",
-					"color": "var(--color-palette-6)",
-					"name": "Theme Color 6"
-				},
-				{
-					"slug": "suki-color-7",
-					"color": "var(--color-palette-7)",
-					"name": "Theme Color 7"
-				},
-				{
-					"slug": "suki-color-8",
-					"color": "var(--color-palette-8)",
-					"name": "Theme Color 8"
-				}
-			],
 			"custom": true,
 			"link": true,
 			"duotone": [],

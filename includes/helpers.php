@@ -879,22 +879,22 @@ function suki_get_web_safe_fonts() {
 		'suki/dataset/web_safe_fonts',
 		array(
 			// System.
-			'Default System Font' => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+			'Default System Font' => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 
 			// Sans Serif.
-			'Arial'               => "Arial, 'Helvetica Neue', Helvetica, sans-serif",
-			'Helvetica'           => "'Helvetica Neue', Helvetica, Arial, sans-serif",
+			'Arial'               => 'Arial, "Helvetica Neue", Helvetica, sans-serif',
+			'Helvetica'           => '"Helvetica Neue", Helvetica, Arial, sans-serif',
 			'Tahoma'              => 'Tahoma, Geneva, sans-serif',
-			'Trebuchet MS'        => "'Trebuchet MS', Helvetica, sans-serif",
+			'Trebuchet MS'        => '"Trebuchet MS", Helvetica, sans-serif',
 			'Verdana'             => 'Verdana, Geneva, sans-serif',
 
 			// Serif.
 			'Georgia'             => 'Georgia, serif',
-			'Times New Roman'     => "'Times New Roman', Times, serif",
+			'Times New Roman'     => '"Times New Roman", Times, serif',
 
 			// Monospace.
-			'Courier New'         => "'Courier New', Courier, monospace",
-			'Lucida Console'      => "'Lucida Console', Monaco, monospace",
+			'Courier New'         => '"Courier New", Courier, monospace',
+			'Lucida Console'      => '"Lucida Console", Monaco, monospace',
 		)
 	);
 

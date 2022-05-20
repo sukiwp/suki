@@ -58,9 +58,6 @@ class Suki_Admin {
 		add_filter( 'admin_enqueue_scripts', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
 
-		// Theme dashboard notification.
-		add_action( 'admin_notices', array( $this, 'add_theme_welcome' ), 999 );
-
 		// Rating and review notification.
 		add_action( 'admin_notices', array( $this, 'add_rating_notice' ) );
 		add_action( 'wp_ajax_suki_rating_notice_close', array( $this, 'ajax_dismiss_rating_notice' ) );
@@ -242,23 +239,6 @@ class Suki_Admin {
 		}
 
 		return $editor_settings;
-	}
-
-	/**
-	 * Add welcome panel on the Appearance > Themes page.
-	 */
-	public function add_theme_welcome() {
-		if ( 'themes' !== get_current_screen()->id ) {
-			return;
-		}
-		?>
-		<div class="suki-admin-themes-welcome notice">
-			<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ); ?>" alt="Suki">
-			<h2><?php esc_html_e( 'Welcome to Suki!', 'suki' ); ?></h2>
-			<p><?php esc_html_e( 'Thank you for installing Suki! Please visit the theme dashboard for more info about Suki features.', 'suki' ); ?></p>
-			<p><a href="<?php echo esc_url( add_query_arg( array( 'page' => 'suki' ), admin_url( 'themes.php' ) ) ); ?>" class="button button-hero button-primary"><?php esc_html_e( 'Suki Dashboard', 'suki' ); ?></a></p>
-		</div>
-		<?php
 	}
 
 	/**

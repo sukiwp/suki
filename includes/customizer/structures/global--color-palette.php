@@ -55,7 +55,7 @@ for ( $i = 1; $i <= 8; $i++ ) {
 		array(
 			'section'     => $section,
 			'input_attrs' => array(
-				/* translators: %d: color number */
+				/* translators: %d: color number. */
 				'placeholder' => sprintf( esc_html__( 'Theme Color %d', 'suki' ), $i ),
 			),
 			'priority'    => $i * 10,

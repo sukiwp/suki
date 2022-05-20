@@ -197,6 +197,28 @@ class Suki {
 
 		// Selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Color palette
+		 *
+		 * We declare the color palette via `add_theme_support` instead of `theme.json`.
+		 * Because we need to support user defined color names as configured on Customize > Global Configuration > Color Palette.
+		 */
+
+		$palette = array();
+
+		for ( $i = 1; $i <= 8; $i++ ) {
+			$palette[] = array(
+				'slug'  => 'suki-color-' . $i,
+				'color' => suki_get_theme_mod( 'color_palette_' . $i ), // var(--color-palette-$i).
+				'name'  => suki_get_theme_mod( 'color_palette_' . $i . '_name' ),
+			);
+		}
+
+		add_theme_support(
+			'editor-color-palette',
+			$palette
+		);
 	}
 
 	/**
