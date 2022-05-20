@@ -4621,43 +4621,48 @@ body.suki-section-full {
 	margin-top: 3rem;
 }
 
-body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) {
-	position: relative;
-	width: var(--content-size);
-	margin-right: auto;
-	margin-left: auto;
+@media screen and (min-width: 1305px) {
+	body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) {
+		position: relative;
+		width: min(100%, var(--content-size));
+		margin-right: auto;
+		margin-left: auto;
+	}
+	body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow):after {
+		content: "Sidebar";
+		box-sizing: border-box;
+		position: absolute;
+		top: 4rem;
+		bottom: 40vh;
+		width: var(--sidebar-width);
+		padding: 1.5rem;
+		border: 3px dashed rgba(0, 0, 0, 0.1);
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		color: rgba(0, 0, 0, 0.2);
+	}
 }
 body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) .block-editor-block-list__layout {
 	--content-size: auto;
 	--wide-size: auto;
 	--full-size: auto;
 }
-body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow):after {
-	content: "Sidebar";
-	box-sizing: border-box;
-	position: absolute;
-	top: 4rem;
-	bottom: 40vh;
-	width: calc(var(--sidebar-width));
-	max-height: 50rem;
-	padding: 1.5rem;
-	border: 3px dashed rgba(0, 0, 0, 0.1);
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	color: rgba(0, 0, 0, 0.2);
+
+@media screen and (min-width: 1305px) {
+	body.suki-content-layout-left-sidebar:not(.suki-section-narrow) > * {
+		padding-right: calc(var(--sidebar-gap) + var(--sidebar-width));
+	}
+	body.suki-content-layout-left-sidebar:not(.suki-section-narrow):after {
+		right: 0;
+	}
 }
 
-body.suki-content-layout-left-sidebar:not(.suki-section-narrow) > * {
-	padding-right: calc(var(--sidebar-gap) + var(--sidebar-width));
-}
-body.suki-content-layout-left-sidebar:not(.suki-section-narrow):after {
-	right: 0;
-}
-
-body.suki-content-layout-right-sidebar:not(.suki-section-narrow) > * {
-	padding-left: calc(var(--sidebar-gap) + var(--sidebar-width));
-}
-body.suki-content-layout-right-sidebar:not(.suki-section-narrow):after {
-	left: 0;
+@media screen and (min-width: 1305px) {
+	body.suki-content-layout-right-sidebar:not(.suki-section-narrow) > * {
+		padding-left: calc(var(--sidebar-gap) + var(--sidebar-width));
+	}
+	body.suki-content-layout-right-sidebar:not(.suki-section-narrow):after {
+		left: 0;
+	}
 }

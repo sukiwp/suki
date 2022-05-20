@@ -28,18 +28,12 @@ body.suki-section-full {
 	margin-top: 3rem;
 }
 
-body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
-	&:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		position: relative;
-		width: var(--content-size);
+		width: min( 100%, var(--content-size) );
 		margin-left: auto;
 		margin-right: auto;
-
-		.block-editor-block-list__layout {
-			--content-size: auto;
-			--wide-size: auto;
-			--full-size: auto;
-		}
 
 		&:after {
 			content: "Sidebar";
@@ -47,8 +41,7 @@ body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
 			position: absolute;
 			top: 4rem;
 			bottom: 40vh;
-			width: calc( var(--sidebar-width) );
-			max-height: 50rem;
+			width: var(--sidebar-width);
 			padding: 1.5rem;
 			border: 3px dashed rgba(0,0,0,0.1);
 			display: flex;
@@ -57,26 +50,33 @@ body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
 			color: rgba(0,0,0,0.2);
 		}
 	}
+
+	.block-editor-block-list__layout {
+		--content-size: auto;
+		--wide-size: auto;
+		--full-size: auto;
+	}
+
 }
 
-body.suki-content-layout-left-sidebar {
-	&:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+body.suki-content-layout-left-sidebar:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		> * {
 			padding-left: calc( var(--sidebar-gap) + var(--sidebar-width) );
 		}
-
+	
 		&:after {
 			left: 0;
 		}
 	}
 }
 
-body.suki-content-layout-right-sidebar {
-	&:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+body.suki-content-layout-right-sidebar:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		> * {
 			padding-right: calc( var(--sidebar-gap) + var(--sidebar-width) );
 		}
-
+	
 		&:after {
 			right: 0;
 		}
