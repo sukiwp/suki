@@ -74,10 +74,8 @@ wp.customize.bind( 'ready', () => {
 
 					if ( displayed ) {
 						container.show();
-						container.removeClass( 'suki-context-hidden' );
 					} else {
 						container.hide();
-						container.addClass( 'suki-context-hidden' );
 
 						if ( 'section' === elementType && elementObj.expanded() ) {
 							elementObj.collapse();

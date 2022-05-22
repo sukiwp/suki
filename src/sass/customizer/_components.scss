@@ -1,10 +1,52 @@
+@import "../components/icon";
+
+/**
+ * Button
+ */
+
+.button {
+	.dashicons {
+		width: auto;
+		height: auto;
+		margin-top: -0.1em;
+		margin-right: 0.25em;
+		font-size: 1.2em;
+		line-height: 1;
+		vertical-align: middle;
+	}
+}
+
+/**
+ * Section
+ */
+
+#customize-theme-controls,
+#customize-outer-theme-controls {
+	.accordion-section-title {
+		border-top: 1px solid #ddd;
+		margin-top: -1px;
+	}
+}
+
+#accordion-section-themes + .control-section,
+.customize-info + .control-section {
+	border-top: none;
+}
+ 
+div.customize-section-description {
+	margin: 0 -12px;
+	padding: 12px 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
 /**
  * Control
  */
 
 .customize-control {
 	position: relative;
-	margin-bottom: 16px;
+	margin-bottom: 15px;
 
 	&, *, *:before, *:after {
 		box-sizing: border-box;
@@ -12,6 +54,10 @@
 
 	.components-base-control__field {
 		margin-bottom: 0;
+	}
+
+	.customize-control-notifications-container:empty {
+		display: none;
 	}
 }
 
@@ -26,7 +72,7 @@
 		label {
 			font-size: 9px;
 			text-transform: uppercase;
-			padding: 0 !important;
+			margin: 0 !important;
 		}
 
 		&:empty {
@@ -306,5 +352,15 @@
 			line-height: 1;
 			vertical-align: middle;
 		}
+	}
+}
+
+/**
+ * Mega Menu settings popup on Suki Pro
+ */
+
+ .modal-open {
+	#TB_overlay, #TB_window {
+		z-index: 500001;
 	}
 }

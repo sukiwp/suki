@@ -1,4 +1,39 @@
 /**
+ * Responsive Customizer Preview
+ */
+
+.preview-tablet .wp-full-overlay-main {
+	width: 768px;
+	height: 1024px;
+}
+
+.preview-mobile .wp-full-overlay-main {
+	width: 375px;
+	height: 812px;
+}
+
+/**
+ * Social links
+ */
+
+#sub-accordion-section-suki_section_social {
+	.customize-control-text {
+		.customize-control-description {
+			font-size: 14px;
+			line-height: 1.75;
+			font-weight: 600;
+			font-style: normal;
+
+			.suki-icon {
+				font-size: 18px;
+				margin-right: 0.5em;
+				vertical-align: -1px;
+			}
+		}
+	}
+}
+
+/**
  * Color palette
  */
 
@@ -122,7 +157,16 @@
 	margin: -20px -20px 0;
 
 	button {
+		display: inline-flex;
+		gap: 6px;
+		align-items: center;
 		cursor: pointer;
+
+		.dashicons {
+			font-size: 1.2em;
+			width: 1em;
+			height: 1em;
+		}
 	}
 }
 
@@ -175,5 +219,32 @@
 
 		grid-column-gap: 4px;
 		grid-row-gap: 12px;
+	}
+}
+
+#customize-control-footer_widgets_bar {
+	@media screen and ( min-width: 1324px ) {
+		.customize-control-title {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		select {
+			display: inline-block;
+			width: auto;
+		}
+	}
+}
+
+/**
+ * Add ↳ prefix to some sections link to indicate hierarchy
+ */
+
+[id="accordion-section-suki_section_main"],
+[id="accordion-section-suki_section_sidebar"],
+[id^="accordion-section-suki_section_entry_"] {
+	.accordion-section-title:before {
+		content: "\21B3";
+		margin-right: 0.5em;
 	}
 }

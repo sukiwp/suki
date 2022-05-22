@@ -44,11 +44,11 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend( {
 		if ( 1324 <= window.innerWidth && section.contentContainer[0].classList.contains( 'active' ) && ! section.contentContainer[0].classList.contains( 'hidden' ) ) {
 			switch ( wp.customize.previewedDevice.get() ) {
 				case 'tablet':
-					originalHeight = '1024px';
+					originalHeight = '1024px'; // Custom mobile view height as defined in the theme's CSS.
 					break;
 
 				case 'mobile':
-					originalHeight = '812px';
+					originalHeight = '812px'; // Custom mobile view height as defined in the theme's CSS.
 					break;
 
 				default:

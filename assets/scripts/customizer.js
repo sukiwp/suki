@@ -568,6 +568,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-sortablejs */ "./node_modules/react-sortablejs/dist/index.js");
 /* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -580,6 +582,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 /**
  * Builder control (React)
  */
+
 
 
 
@@ -692,10 +695,27 @@ function SukiBuilder(_ref) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("span", {
         key: item.value,
         "data-value": item.value,
-        className: "suki-builder__item button"
-      }, item.icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("span", {
-        className: 'dashicons dashicons-' + item.icon
-      }), item.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("span", null, item.label));
+        className: "suki-builder__item"
+      }, item.icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.Icon, {
+        icon: item.icon
+      }), item.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("span", null, item.label), '_inactive' !== area.id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.Button, {
+        icon: "no-alt",
+        className: "suki-builder__item__remove",
+        onClick: function onClick() {
+          var updatedAreaItemsIds = values[area.id].filter(function (id) {
+            return id !== item.value;
+          });
+          setValues(function (prevValues) {
+            var _objectSpread3;
+
+            return _objectSpread(_objectSpread({}, prevValues), {}, (_objectSpread3 = {}, (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_objectSpread3, area.id, updatedAreaItemsIds), (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_objectSpread3, "_inactive", [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(prevValues._inactive), [item.value])), _objectSpread3));
+          });
+
+          if (updatedAreaItemsIds !== control.settings[area.id].get()) {
+            control.settings[area.id].set(updatedAreaItemsIds);
+          }
+        }
+      }));
     })));
   }));
 }
@@ -2124,10 +2144,8 @@ wp.customize.bind('ready', function () {
 
           if (displayed) {
             container.show();
-            container.removeClass('suki-context-hidden');
           } else {
             container.hide();
-            container.addClass('suki-context-hidden');
 
             if ('section' === elementType && elementObj.expanded()) {
               elementObj.collapse();
@@ -2215,11 +2233,13 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend({
     if (1324 <= window.innerWidth && section.contentContainer[0].classList.contains('active') && !section.contentContainer[0].classList.contains('hidden')) {
       switch (wp.customize.previewedDevice.get()) {
         case 'tablet':
-          originalHeight = '1024px';
+          originalHeight = '1024px'; // Custom mobile view height as defined in the theme's CSS.
+
           break;
 
         case 'mobile':
-          originalHeight = '812px';
+          originalHeight = '812px'; // Custom mobile view height as defined in the theme's CSS.
+
           break;
 
         default:

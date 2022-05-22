@@ -9,6 +9,11 @@ import { useState } from 'react';
 
 import { ReactSortable } from 'react-sortablejs';
 
+import {
+	Button,
+	Icon,
+} from '@wordpress/components';
+
 function SukiBuilder( { control } ) {
 	// State for all settings values and inactive elements.
 	const [ values, setValues ] = useState( getValues() );
@@ -136,14 +141,38 @@ function SukiBuilder( { control } ) {
 									<span
 										key={ item.value }
 										data-value={ item.value }
-										className="suki-builder__item button"
+										className="suki-builder__item"
 									>
 										{ item.icon &&
-											<span className={ 'dashicons dashicons-' + item.icon }></span>
+											<Icon icon={ item.icon }/>
 										}
 
 										{ item.label &&
 											<span>{ item.label }</span>
+										}
+
+										{ '_inactive' !== area.id &&
+											<Button
+												icon="no-alt"
+												className="suki-builder__item__remove"
+												onClick={ () => {
+													const updatedAreaItemsIds = values[ area.id ].filter( ( id ) => {
+														return id !== item.value;
+													} );
+
+													setValues( ( prevValues ) => {
+														return {
+															...prevValues,
+															[ area.id ]: updatedAreaItemsIds,
+															_inactive: [ ...prevValues._inactive, item.value ],
+														};
+													} );
+
+													if ( updatedAreaItemsIds !== control.settings[ area.id ].get() ) {
+														control.settings[ area.id ].set( updatedAreaItemsIds );
+													}
+												} }
+											/>
 										}
 									</span>
 								);
