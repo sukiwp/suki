@@ -110,7 +110,6 @@ function SukiBuilder( { control } ) {
 
 							// When start dragging a sortable item, disable the unsupported areas.
 							onStart={ ( e ) => {
-								//
 								const itemId = e.item.getAttribute( 'data-value' );
 
 								const itemObj = control.params.choices.find( ( choice ) => {

@@ -305,7 +305,7 @@ blockquote > *:last-child {
  * range
  * radio
  */
-:is(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea) {
+:where(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea) {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -326,7 +326,7 @@ blockquote > *:last-child {
 	text-transform: var(--input--text-transform);
 	transition: all var(--transition-duration);
 }
-:is(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea):focus {
+:where(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea):focus {
 	border-color: var(--input--border-color--focus, var(--input--border-color));
 	background-color: var(--input--background-color--focus, var(--input--background-color));
 	color: var(--input--text-color--focus);
@@ -348,7 +348,7 @@ select {
  * Button
  */
 .wp-block-file__button, .wp-block-button__link,
-:is(button, input[type=button], input[type=reset], input[type=submit], .button) {
+:where(button, input[type=button], input[type=reset], input[type=submit], .button) {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -375,8 +375,8 @@ select {
 	transition: all var(--transition-duration);
 }
 .wp-block-file__button:hover, .wp-block-button__link:hover, .wp-block-file__button:focus, .wp-block-button__link:focus,
-:is(button, input[type=button], input[type=reset], input[type=submit], .button):hover,
-:is(button, input[type=button], input[type=reset], input[type=submit], .button):focus {
+:where(button, input[type=button], input[type=reset], input[type=submit], .button):hover,
+:where(button, input[type=button], input[type=reset], input[type=submit], .button):focus {
 	border-color: var(--button--border-color--focus, var(--button--border-color));
 	background-color: var(--button--background-color--focus, var(--button--background-color));
 	color: var(--button--text-color--focus);

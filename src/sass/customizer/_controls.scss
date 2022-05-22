@@ -141,12 +141,6 @@
 			border-radius: 2px;
 			cursor: move;
 
-			&.sortable-ghost {
-				background-color: transparent;
-				border-style: dashed;
-				color: transparent;
-			}
-
 			&__remove {
 				position: absolute;
 				z-index: 1;
@@ -173,8 +167,26 @@
 				}
 			}
 
-			&:hover .suki-builder__item__remove {
-				opacity: 1;
+			&:hover {
+				.suki-builder__item__remove {
+					opacity: 1;
+				}
+			}
+			
+			&.sortable-ghost {
+				background-color: transparent;
+				border-style: dashed;
+				color: transparent;
+				
+				.suki-builder__item__remove {
+					opacity: 0;
+				}
+			}
+
+			&.sortable-chosen {
+				.suki-builder__item__remove {
+					opacity: 0;
+				}
 			}
 
 			.dashicons {

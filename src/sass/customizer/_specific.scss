@@ -1,15 +1,21 @@
 /**
- * Responsive Customizer Preview
+ * Customizer Preview
  */
+
+.wp-full-overlay-main {
+	margin-top: 0 !important;
+}
 
 .preview-tablet .wp-full-overlay-main {
 	width: 768px;
 	height: 1024px;
+	margin-left: -384px;
 }
 
 .preview-mobile .wp-full-overlay-main {
-	width: 375px;
-	height: 812px;
+	width: 414px;
+	height: 895px;
+	margin-left: -212px;
 }
 
 /**
