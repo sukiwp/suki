@@ -54,6 +54,7 @@ class Suki_Admin {
 
 		// Editor styles.
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
+		add_action( 'wp_default_styles', array( $this, 'remove_block_editor_default_block_styles' ), PHP_INT_MAX );
 		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css__visual' ), 10, 2 );
 		add_filter( 'admin_enqueue_scripts', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
@@ -178,6 +179,24 @@ class Suki_Admin {
 		add_theme_support( 'editor-styles' );
 
 		add_editor_style( 'assets/css/editor' . SUKI_ASSETS_SUFFIX . '.css' );
+	}
+
+	/**
+	 * Remove default block styles (`wp-block-library`) from Gutenberg.
+	 *
+	 * @link https://fullsiteediting.com/lessons/how-to-remove-default-block-styles/#h-how-to-remove-default-block-styles-from-the-block-editor-and-site-editor
+	 *
+	 * @param WP_Styles $styles WP_Styles instance.
+	 */
+	public function remove_block_editor_default_block_styles( $styles ) {
+		$handle = 'wp-block-library';
+
+		if ( $styles->query( $handle, 'registered' ) ) {
+			// Remove the style.
+			$styles->remove( $handle );
+			// Remove path and dependencies.
+			$styles->add( $handle, false, array() );
+		}
 	}
 
 	/**
