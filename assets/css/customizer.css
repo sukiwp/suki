@@ -1,44 +1,5 @@
 @charset "UTF-8";
 /**
- * Icon
- */
-.suki-icon {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	line-height: 1;
-	text-align: center;
-}
-.suki-icon svg {
-	display: inline-block;
-	width: 100%;
-	height: 100%;
-	vertical-align: top;
-}
-.suki-icon svg:not([stroke-width]) {
-	stroke-width: 0;
-}
-.suki-icon svg:not([stroke]) {
-	stroke: currentColor;
-}
-.suki-icon svg:not([fill]) {
-	fill: currentColor;
-}
-
-/**
- * Button
- */
-.button .dashicons {
-	width: auto;
-	height: auto;
-	margin-top: -0.1em;
-	margin-right: 0.25em;
-	font-size: 1.2em;
-	line-height: 1;
-	vertical-align: middle;
-}
-
-/**
  * Section
  */
 #customize-theme-controls .accordion-section-title,
@@ -48,7 +9,7 @@
 }
 
 #accordion-section-themes + .control-section,
-.customize-info + .control-section {
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2), #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu, #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
 	border-top: none;
 }
 
@@ -89,6 +50,48 @@ div.customize-section-description {
 }
 :is(.components-input-control, .components-select-control) > .components-flex-item:empty {
 	display: none;
+}
+
+/**
+ * Icon
+ */
+/**
+ * Icon
+ */
+.suki-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1;
+	text-align: center;
+}
+.suki-icon svg {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+.suki-icon svg:not([stroke-width]) {
+	stroke-width: 0;
+}
+.suki-icon svg:not([stroke]) {
+	stroke: currentColor;
+}
+.suki-icon svg:not([fill]) {
+	fill: currentColor;
+}
+
+/**
+ * Button
+ */
+.button .dashicons {
+	width: auto;
+	height: auto;
+	margin-top: -0.1em;
+	margin-right: 0.25em;
+	font-size: 1.2em;
+	line-height: 1;
+	vertical-align: middle;
 }
 
 /**

@@ -1,21 +1,3 @@
-@import "../components/icon";
-
-/**
- * Button
- */
-
-.button {
-	.dashicons {
-		width: auto;
-		height: auto;
-		margin-top: -0.1em;
-		margin-right: 0.25em;
-		font-size: 1.2em;
-		line-height: 1;
-		vertical-align: middle;
-	}
-}
-
 /**
  * Section
  */
@@ -29,7 +11,7 @@
 }
 
 #accordion-section-themes + .control-section,
-.customize-info + .control-section {
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2), #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu, #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
 	border-top: none;
 }
  
@@ -78,6 +60,28 @@ div.customize-section-description {
 		&:empty {
 			display: none;
 		}
+	}
+}
+
+/**
+ * Icon
+ */
+
+@import "../components/icon";
+
+/**
+ * Button
+ */
+
+.button {
+	.dashicons {
+		width: auto;
+		height: auto;
+		margin-top: -0.1em;
+		margin-right: 0.25em;
+		font-size: 1.2em;
+		line-height: 1;
+		vertical-align: middle;
 	}
 }
 
