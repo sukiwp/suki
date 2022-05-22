@@ -31,7 +31,7 @@ body.suki-section-full {
 body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		position: relative;
-		width: min( 100%, var(--content-size) );
+		width: var(--content-size);
 		margin-left: auto;
 		margin-right: auto;
 

@@ -4,7 +4,6 @@
 
 .wp-block-separator {
 	width: 6rem;
-	margin: calc(1.5 * var(--wp--style--block-gap)) auto;
 
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();

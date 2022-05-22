@@ -4,6 +4,8 @@
 
 .wp-block-preformatted {
 	white-space: pre-wrap;
+
+	@include padding-for-has-background();
 }
 
 /**
@@ -22,9 +24,7 @@
 
 .wp-block-code {	
 	code {
-		padding: 1em 1.5em;
-		background-color: var(--subtle-background-color);
-		background-color: revert;
-		padding: revert;
+		display: block;
+		padding: var(--wp--style--block-gap); // Reset
 	}
 }

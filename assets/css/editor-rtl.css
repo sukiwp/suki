@@ -2339,7 +2339,6 @@ th {
  */
 .wp-block-separator {
 	width: 6rem;
-	margin: calc(1.5 * var(--wp--style--block-gap)) auto;
 }
 .wp-block-separator:first-child {
 	margin-top: 0 !important;
@@ -2566,6 +2565,9 @@ th {
 .wp-block-preformatted {
 	white-space: pre-wrap;
 }
+.wp-block-preformatted:where(.has-background) {
+	padding: var(--wp--style--block-gap);
+}
 
 /**
  * Block: Verse
@@ -2580,10 +2582,8 @@ th {
  * Block: Code
  */
 .wp-block-code code {
-	padding: 1em 1.5em;
-	background-color: var(--subtle-background-color);
-	background-color: revert;
-	padding: revert;
+	display: block;
+	padding: var(--wp--style--block-gap);
 }
 
 /**
@@ -4624,7 +4624,7 @@ body.suki-section-full {
 @media screen and (min-width: 1305px) {
 	body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) {
 		position: relative;
-		width: min(100%, var(--content-size));
+		width: var(--content-size);
 		margin-right: auto;
 		margin-left: auto;
 	}
