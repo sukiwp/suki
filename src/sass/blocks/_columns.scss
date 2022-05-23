@@ -3,10 +3,6 @@
  */
 
 .wp-block-columns {
-	display: flex;
-	flex-wrap: wrap;
-	gap: calc( 1.5 * var(--wp--style--block-gap) );
-
 	@include padding-for-has-background();
 
 	&:where(.has-background) {
@@ -29,10 +25,6 @@
 	}
 
 	&.is-not-stacked-on-mobile {
-		flex-wrap: nowrap;
-	}
-
-	@media screen and ( min-width: $breakpoint-tablet ) {
 		flex-wrap: nowrap;
 	}
 }

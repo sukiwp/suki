@@ -393,19 +393,19 @@ msgstr ""
 msgid "Site Footer"
 msgstr ""
 
-#: includes/template-tags.php:973
+#: includes/template-tags.php:982
 msgid "Newer Posts"
 msgstr ""
 
-#: includes/template-tags.php:975
+#: includes/template-tags.php:986
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags.php:1048
+#: includes/template-tags.php:1079
 msgid "Post Navigation"
 msgstr ""
 
-#: includes/template-tags.php:1246, includes/template-tags.php:1250
+#: includes/template-tags.php:1383, includes/template-tags.php:1387
 msgctxt "terms list separator"
 msgid ", "
 msgstr ""

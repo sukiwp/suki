@@ -1,0 +1,112 @@
+/**
+ * Block: Comments title {
+ */
+
+.wp-block-comments-title {
+	@extend %small-title;
+}
+
+/**
+ * Block: Comment template
+ */
+
+.wp-block-comment-template {
+	list-style: none;
+	padding: 0;
+
+	.comment > ol {
+		list-style: none;
+		padding-left: calc(2 * var(--wp--style--block-gap));
+	}
+
+	&,
+	.comment,
+	.comment > ol {
+		display: grid;
+		gap: calc(2 * var(--wp--style--block-gap));
+	}
+}
+
+/**
+ * Block: Comment edit link
+ */
+
+.wp-block-comment-edit-link {
+	a {
+		&:before {
+			content: "✎ ";
+		}
+	}
+}
+
+
+/**
+ * Block: Comment reply link
+ */
+
+.wp-block-comment-reply-link {
+	a {
+		&:before {
+			content: "↪ ";
+		}
+	}
+}
+
+/**
+ * Block: Coments pagination
+ */
+
+.wp-block-comments-pagination {
+	gap: calc(0.5 * var(--wp--style--block-gap)) !important;
+
+	> * {
+		display: inline-flex;
+		gap: calc(0.5 * var(--wp--style--block-gap));
+	}
+}
+
+/**
+ * Block: Comment form
+ */
+
+.wp-block-post-comments-form {
+	.wp-block-comment-template & {
+		margin-top: 0 !important; // Reset
+	}
+	
+	.comment-reply-title {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--wp--style--block-gap);
+		@extend %small-title;
+	
+		small {
+			@extend %meta;
+			margin-left: auto;
+	
+			a {
+				&:before {
+					content: "✕ ";
+				}
+			}
+		}
+	}
+
+	.comment-form {
+		:where(.comment-form-comment, .comment-form-author, .comment-form-email, .comment-form-url) {
+			label {
+				display: block;
+			}
+		}
+	
+		textarea {
+			height: 6em;
+			width: 100%;
+		}
+	
+		.logged-in-as {
+			@extend %meta;
+		}
+	}
+}
