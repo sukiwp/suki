@@ -12,6 +12,14 @@ body.mce-content-body {
 }
 
 /**
+ * Components
+ */
+
+.wp-block-search__button {
+	@extend %button;
+}
+
+/**
  * Block Editor
  */
 

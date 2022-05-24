@@ -300,7 +300,7 @@ function suki_get_current_page_context() {
 	} elseif ( is_singular() ) {
 		$current_page_context = get_queried_object()->post_type . '_single';
 	} elseif ( is_archive() ) {
-		$current_page_context = get_query_var( 'post_type' ) . '_archive';
+		$current_page_context = get_taxonomy( get_queried_object()->taxonomy )->object_type[0] . '_archive';
 	}
 
 	return $current_page_context;

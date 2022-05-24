@@ -33,14 +33,7 @@
 }
 
 .entry-meta {
-	> * {
-		display: inline-block;
-	}
-
-	.entry-footer & {
-		padding-top: calc( 0.5 * var(--wp--style--block-gap) );
-		border-top: 1px solid var(--border-color);
-	}
+	white-space: pre-wrap; // Preserve white space on flex items
 }
 
 .entry-author {

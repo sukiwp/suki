@@ -625,11 +625,18 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 
 				// Wrap title text.
 				if ( ! empty( $title ) ) {
-					$html = '<h1 class="entry-title suki-title">' . $title . '</h1>';
+					$html = do_blocks(
+						'
+						<!-- wp:heading {
+							"className":"entry-title suki-title"
+						} --><h2 class="entry-title suki-title">' . $title . '</h2><!-- /wp:heading -->
+						'
+					);
 				}
 				break;
 
 			case 'archive-description':
+				// We can't replace this with Gutenberg block yet, because it doesn't cover Author and Post Type archive description.
 				if ( ! is_post_type_archive() ) {
 					$desc = trim( get_the_archive_description() );
 
@@ -640,11 +647,22 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 				break;
 
 			case 'search-form':
+				// We can't replace this with Gutenberg block yet, because the Search block style is not same as our theme's search bar.
 				$html = get_search_form( array( 'echo' => false ) );
 				break;
 
 			case 'header-meta':
 				$html = suki_entry_meta( suki_get_current_page_setting( 'content_header_meta' ), false );
+				break;
+
+			case 'hr':
+				$html = do_blocks(
+					'
+					<!-- wp:separator {
+						"className":"is-style-wide"
+					} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->
+					'
+				);
 				break;
 		}
 
@@ -691,7 +709,17 @@ if ( ! function_exists( 'suki_content_footer_element' ) ) {
 				break;
 
 			case 'footer-meta':
-				$html = suki_entry_meta( suki_get_current_page_setting( 'content_header_meta' ), false );
+				$html = suki_entry_meta( suki_get_current_page_setting( 'content_footer_meta' ), false );
+				break;
+
+			case 'hr':
+				$html = do_blocks(
+					'
+					<!-- wp:separator {
+						"className":"is-style-wide"
+					} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->
+					'
+				);
 				break;
 
 			default:
@@ -1060,7 +1088,6 @@ if ( ! function_exists( 'suki_singular_navigation' ) ) {
 		echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'
 			<!-- wp:group {
-				"tagName":"nav",
 				"layout":{
 					"type":"flex",
 					"flexWrap":"nowrap",
@@ -1074,22 +1101,24 @@ if ( ! function_exists( 'suki_singular_navigation' ) ) {
 					}
 				},
 				"className":"navigation post-navigation"
-			} -->
-			<div class="wp-block-group" style="margin-top:3rem">
-				<h2 class="screen-reader-text">' . esc_html__( 'Post Navigation', 'suki' ) . '</h2>
+			} --><div class="wp-block-group" style="margin-top:3rem">
+
+				<!-- wp:heading {
+					"className":"screen-reader-text"
+				} --><h2 class="screen-reader-text">' . esc_html__( 'Post Navigation', 'suki' ) . '</h2><!-- /wp:heading -->
 
 				<!-- wp:post-navigation-link {
 					"type":"previous",
-					"label":"",
+					"label":" ",
 					"showTitle":true
 				} /-->
 
 				<!-- wp:post-navigation-link {
-					"label":"",
+					"label":" ",
 					"showTitle":true
 				} /-->
-			</div>
-			<!-- /wp:group -->
+
+			</div><!-- /wp:group -->
 			'
 		);
 	}
@@ -1106,8 +1135,8 @@ if ( ! function_exists( 'suki_comments' ) ) {
 			'
 			<!-- wp:comments-query-loop {
 				"className":"suki-has-margin-top__200"
-			} -->
-			<div class="wp-block-comments-query-loop suki-has-margin-top__200">
+			} --><div class="wp-block-comments-query-loop suki-has-margin-top__200">
+
 				<!-- wp:comments-title /-->
 
 				<!-- wp:comment-template {
@@ -1119,8 +1148,8 @@ if ( ! function_exists( 'suki_comments' ) ) {
 							"type":"flex",
 							"orientation":"vertical"
 						}
-					} -->
-					<div class="wp-block-group">
+					} --><div class="wp-block-group">
+
 						<!-- wp:group {
 							"layout":{
 								"type":"flex",
@@ -1131,8 +1160,8 @@ if ( ! function_exists( 'suki_comments' ) ) {
 									"blockGap":"1rem"
 								}
 							}
-						} -->
-						<div class="wp-block-group">
+						} --><div class="wp-block-group">
+
 							<!-- wp:avatar {
 								"size":50,
 								"style":{
@@ -1146,8 +1175,8 @@ if ( ! function_exists( 'suki_comments' ) ) {
 								"layout":{
 									"type":"default"
 								}
-							} -->
-							<div class="wp-block-group">
+							} --><div class="wp-block-group">
+
 								<!-- wp:comment-author-name {
 									"className":"suki-h6"
 								} /-->
@@ -1162,31 +1191,27 @@ if ( ! function_exists( 'suki_comments' ) ) {
 											"blockGap":"0.75rem"
 										}
 									},
-									"className":"suki-meta",
+									"className":"suki-meta suki-reverse-link-color",
 									"layout":{
 										"type":"flex"
 									}
-								} -->
-								<div class="wp-block-group suki-meta" style="margin-top:0px;margin-bottom:0px">
+								} --><div class="wp-block-group suki-meta suki-reverse-link-color" style="margin-top:0px;margin-bottom:0px">
 									<!-- wp:comment-date /-->
 					
 									<!-- wp:comment-edit-link /-->
-								</div>
-								<!-- /wp:group -->
+								</div><!-- /wp:group -->
 
-							</div>
-							<!-- /wp:group -->
+							</div><!-- /wp:group -->
 
-						</div>
-						<!-- /wp:group -->
+						</div><!-- /wp:group -->
 					
 						<!-- wp:comment-content /-->
 					
 						<!-- wp:comment-reply-link {
-							"className":"suki-meta"
+							"className":"suki-meta suki-reverse-link-color"
 						} /-->
-					</div>
-					<!-- /wp:group -->
+
+					</div><!-- /wp:group -->
 
 				<!-- /wp:comment-template -->
 
@@ -1199,6 +1224,7 @@ if ( ! function_exists( 'suki_comments' ) ) {
 					},
 					"className":"suki-has-margin-top__200"
 				} -->
+
 					<!-- wp:comments-pagination-previous {
 						"label":" "
 					} /-->
@@ -1208,14 +1234,14 @@ if ( ! function_exists( 'suki_comments' ) ) {
 					<!-- wp:comments-pagination-next {
 						"label":" "
 					} /-->
+
 				<!-- /wp:comments-pagination -->
 
 				<!-- wp:post-comments-form {
 					"className":"suki-has-margin-top__200"
 				} /-->
 
-			</div>
-			<!-- /wp:comments-query-loop -->
+			</div><!-- /wp:comments-query-loop -->
 			'
 		);
 	}
@@ -1292,36 +1318,75 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 	 *
 	 * @since 2.0.0 Add $echo parameter with default to true.
 	 *
-	 * @param string  $html Format text.
+	 * @param string  $text Format text.
 	 * @param boolean $echo Render or return.
 	 * @return string
 	 */
-	function suki_entry_meta( $html, $echo = true ) {
+	function suki_entry_meta( $text, $echo = true ) {
 		if ( 'post' !== get_post_type() ) {
 			return;
 		}
 
 		// Remove unneccessary white space on the beginning and the end of the text.
-		$html = trim( $html );
+		$text = trim( $text );
 
 		// Abort if format is empty.
-		if ( empty( $html ) ) {
+		if ( empty( $text ) ) {
 			return;
 		}
 
+		/**
+		 * Parse formatted tags.
+		 */
+
+		// Wrap the first and last elements.
+		$text = '<span>' . $text . '</span>';
+
+		// Open and close wrap for syntax.
+		$text = str_replace( '{{', '</span>{{', $text );
+		$text = str_replace( '}}', '}}<span>', $text );
+
+		// Remove blank parts.
+		$text = str_replace( '<span></span>', '', $text );
+
+		/**
+		 * Convert syntax tag to blocks.
+		 */
+
 		// Get all smart tags.
-		preg_match_all( '/{{(.*?)}}/', $html, $matches, PREG_SET_ORDER );
+		preg_match_all( '/{{(.*?)}}/', $text, $matches, PREG_SET_ORDER );
 
 		// Iterate each smart tag and convert it to real HTML.
 		foreach ( $matches as $match ) {
 			$meta = suki_entry_meta_element( $match[1], false );
 
-			$html = str_replace( $match[0], $meta, $html );
+			$text = str_replace( $match[0], $meta, $text );
 		}
 
-		if ( '' !== trim( $html ) ) {
-			$html = '<div class="entry-meta suki-meta suki-reverse-link-color">' . $html . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
+		/**
+		 * Build return text.
+		 */
+
+		$html = do_blocks(
+			'
+			<!-- wp:group {
+				"layout":{
+					"type":"flex",
+					"flexWrap":"wrap"
+				},
+				"style":{
+					"spacing":{
+						"blockGap":"0px"
+					}
+				},
+				"className":"entry-meta suki-meta suki-reverse-link-color"
+			} --><div class="wp-block-group entry-meta suki-meta suki-reverse-link-color">
+
+				' . $text . '
+
+			</div><!-- /wp:group -->
+			'
+		);
 
 		// Render or return.
 		if ( boolval( $echo ) ) {

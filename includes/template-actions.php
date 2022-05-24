@@ -131,30 +131,30 @@ function suki_template_hooks() {
 			// If hero section is not active.
 			if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
 				// Add content header element.
-				foreach ( suki_get_current_page_setting( 'content_header', array() ) as $element ) {
-					add_action(
-						'suki/frontend/' . get_post_type() . '_content/header',
-						function() use ( $element ) {
+				add_action(
+					'suki/frontend/' . get_post_type() . '_content/header',
+					function() {
+						foreach ( suki_get_current_page_setting( 'content_header', array() ) as $element ) {
 							// This action can't be modified or removed, because it uses anonymous function.
 							suki_content_header_element( $element );
-						},
-						10
-					);
-				}
+						}
+					},
+					10
+				);
 			}
 		}
 
 		// Add content footer elements.
-		foreach ( suki_get_current_page_setting( 'content_footer', array() ) as $element ) {
-			add_action(
-				'suki/frontend/' . get_post_type() . '_content/footer',
-				function() use ( $element ) {
+		add_action(
+			'suki/frontend/' . get_post_type() . '_content/footer',
+			function() {
+				foreach ( suki_get_current_page_setting( 'content_footer', array() ) as $element ) {
 					// This action can't be modified or removed, because it uses anonymous function.
 					suki_content_footer_element( $element );
-				},
-				10
-			);
-		}
+				}
+			},
+			10
+		);
 
 		// Add thumbnail before or after content header.
 		if ( ! boolval( suki_get_current_page_setting( 'disable_thumbnail' ) ) && post_type_supports( get_post_type(), 'thumbnail' ) ) {
@@ -188,28 +188,28 @@ function suki_template_hooks() {
 	add_action( 'suki/frontend/entry/' . suki_get_theme_mod( 'entry_thumbnail_position' ) . '_header', 'suki_entry_thumbnail', 10 );
 
 	// Add entry header elements.
-	foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
-		add_action(
-			'suki/frontend/entry/header',
-			function() use ( $element ) {
+	add_action(
+		'suki/frontend/entry/header',
+		function() {
+			foreach ( suki_get_theme_mod( 'entry_header', array() ) as $element ) {
 				// This action can't be modified or removed, because it uses anonymous function.
 				suki_entry_header_footer_element( $element );
-			},
-			10
-		);
-	}
+			}
+		},
+		10
+	);
 
 	// Add entry footer elements.
-	foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
-		add_action(
-			'suki/frontend/entry/footer',
-			function() use ( $element ) {
+	add_action(
+		'suki/frontend/entry/footer',
+		function() {
+			foreach ( suki_get_theme_mod( 'entry_footer', array() ) as $element ) {
 				// This action can't be modified or removed, because it uses anonymous function.
 				suki_entry_header_footer_element( $element );
-			},
-			10
-		);
-	}
+			}
+		},
+		10
+	);
 
 	/**
 	 * ====================================================
@@ -221,28 +221,28 @@ function suki_template_hooks() {
 	add_action( 'suki/frontend/entry_grid/' . suki_get_theme_mod( 'entry_grid_thumbnail_position' ) . '_header', 'suki_entry_grid_thumbnail', 10 );
 
 	// Add entry grid header elements.
-	foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
-		add_action(
-			'suki/frontend/entry_grid/header',
-			function() use ( $element ) {
+	add_action(
+		'suki/frontend/entry_grid/header',
+		function() {
+			foreach ( suki_get_theme_mod( 'entry_grid_header', array() ) as $element ) {
 				// This action can't be modified or removed, because it uses anonymous function.
 				suki_entry_header_footer_element( $element, 'grid' );
-			},
-			10
-		);
-	}
+			}
+		},
+		10
+	);
 
 	// Add entry grid footer elements.
-	foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
-		add_action(
-			'suki/frontend/entry_grid/footer',
-			function() use ( $element ) {
+	add_action(
+		'suki/frontend/entry_grid/footer',
+		function() {
+			foreach ( suki_get_theme_mod( 'entry_grid_footer', array() ) as $element ) {
 				// This action can't be modified or removed, because it uses anonymous function.
 				suki_entry_header_footer_element( $element, 'grid' );
-			},
-			10
-		);
-	}
+			}
+		},
+		10
+	);
 
 	/**
 	 * ====================================================

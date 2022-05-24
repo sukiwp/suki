@@ -2097,12 +2097,8 @@ th {
 	margin-block: calc(0.25 * var(--wp--style--block-gap));
 }
 
-.entry-meta > * {
-	display: inline-block;
-}
-.entry-footer .entry-meta {
-	padding-top: calc(0.5 * var(--wp--style--block-gap));
-	border-top: 1px solid var(--border-color);
+.entry-meta {
+	white-space: pre-wrap;
 }
 
 .entry-author:where(:not(.has-background)) {

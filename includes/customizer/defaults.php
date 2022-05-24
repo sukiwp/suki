@@ -482,7 +482,7 @@ $add['post_single_content_header_alignment']   = 'left';
 $add['post_single_content_header_meta']        = '{{date}}';
 $add['post_single_content_thumbnail_position'] = 'before';
 
-$add['post_single_content_footer']           = array( 'tags', 'footer-meta' );
+$add['post_single_content_footer']           = array( 'tags', 'hr', 'footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
@@ -509,7 +509,7 @@ $add['entry_excerpt_length']    = 55;
 $add['entry_read_more_text']    = '';
 $add['entry_read_more_display'] = '';
 
-$add['entry_footer']           = array( 'footer-meta' );
+$add['entry_footer']           = array( 'hr', 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
 $add['entry_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 
@@ -531,9 +531,9 @@ $add['entry_grid_thumbnail_position']       = 'before';
 $add['entry_grid_thumbnail_size']           = 'medium_large';
 $add['entry_grid_thumbnail_ignore_padding'] = 0;
 
-$add['entry_grid_excerpt_length']    = 30;
+$add['entry_grid_excerpt_length'] = 30;
 
-$add['entry_grid_footer']           = array( 'footer-meta' );
+$add['entry_grid_footer']           = array( 'hr', 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
 

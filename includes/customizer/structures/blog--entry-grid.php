@@ -595,6 +595,7 @@ $wp_customize->add_control(
 			'choices'     => apply_filters(
 				'suki/dataset/entry_grid_footer_elements',
 				array(
+					'hr'          => '⎯⎯⎯⎯⎯',
 					'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 				)
 			),

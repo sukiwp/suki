@@ -217,6 +217,7 @@ $wp_customize->add_control(
 			'choices'     => apply_filters(
 				'suki/dataset/post_single_content_header_elements',
 				array(
+					'hr'          => '⎯⎯⎯⎯⎯',
 					'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
 					'tags'        => esc_html__( 'Tags', 'suki' ),
 				)
