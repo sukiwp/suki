@@ -38,7 +38,7 @@ $add['container_wide_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body',
-		'property' => '--wide-size',
+		'property' => '--content-width--wide',
 	),
 );
 
@@ -46,7 +46,7 @@ $add['container_narrow_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body',
-		'property' => '--content-size',
+		'property' => '--content-width--narrow',
 	),
 );
 

@@ -9,9 +9,9 @@
 
 :is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
 	.site-main {
-		--content-size: auto;
-		--wide-size: auto;
-		--full-size: auto;
+		--content-width--narrow: auto;
+		--content-width--wide: auto;
+		--content-width--full: auto;
 	}
 }
 

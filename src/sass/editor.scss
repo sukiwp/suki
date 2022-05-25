@@ -24,12 +24,12 @@ body.mce-content-body {
  */
 
 body.suki-section-wide {
-	--content-size: var(--wide-size);
+	--content-width--narrow: var(--content-width--wide);
 }
 
 body.suki-section-full {
-	--content-size: auto;
-	--wide-size: auto;
+	--content-width--narrow: auto;
+	--content-width--wide: auto;
 }
 
 .block-editor-block-list__layout {
@@ -39,7 +39,7 @@ body.suki-section-full {
 body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		position: relative;
-		width: var(--content-size);
+		width: var(--content-width--narrow);
 		margin-left: auto;
 		margin-right: auto;
 
@@ -60,9 +60,9 @@ body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):n
 	}
 
 	.block-editor-block-list__layout {
-		--content-size: auto;
-		--wide-size: auto;
-		--full-size: auto;
+		--content-width--narrow: auto;
+		--content-width--wide: auto;
+		--content-width--full: auto;
 	}
 
 }

@@ -12,11 +12,11 @@
 
 // (Default) Wide mode: narrow alignment is always wide
 .suki-section-wide {
-	--content-size: var(--wide-size);
+	--content-width--narrow: var(--content-width--wide);
 }
 
 // Full width mode: narrow and wide alignments are always full width
 .suki-section-full {
-	--content-size: auto;
-	--wide-size: auto;
+	--content-width--narrow: auto;
+	--content-width--wide: auto;
 }

@@ -55,8 +55,8 @@
 			"dropCap": true
 		},
 		"layout": {
-			"contentSize": "var(--content-size)",
-			"wideSize": "var(--wide-size)"
+			"contentSize": "var(--content-width--narrow)",
+			"wideSize": "var(--content-width--wide)"
 		},
 		"spacing": {
 			"blockGap": true,

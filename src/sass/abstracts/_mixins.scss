@@ -107,8 +107,8 @@
 	--block-spacing: 1.25rem;
 
 	// Container
-	--content-size: 720px;
-	--wide-size: 1140px;
+	--content-width--narrow: 720px;
+	--content-width--wide: 1140px;
 
 	// Sidebar (declared on body to accomodate Gutenberg .editor-styles-wrapper)
 	--sidebar-width: 25%;
@@ -135,7 +135,7 @@
 	max-width: none !important;
 
 	> :where(*) {
-		max-width: min( 100%, var(--content-size) );
+		max-width: min( 100%, var(--content-width--narrow) );
 
 		&:where(:not(.alignleft, .alignright) ) {
 			margin-left: auto !important;
@@ -310,7 +310,7 @@
 // Align full ignores padding
 @mixin stretch-alignfull() {
 	&:where(.alignfull) {
-		margin-left: calc( -1 * ( min( var(--full-size), 100vw ) - 100% ) / 2 ) !important;
-		margin-right: calc( -1 * ( min( var(--full-size), 100vw ) - 100% ) / 2 ) !important;
+		margin-left: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
+		margin-right: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
 	}
 }
