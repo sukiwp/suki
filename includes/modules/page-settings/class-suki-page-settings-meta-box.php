@@ -543,12 +543,23 @@ class Suki_Page_Settings_Meta_Box {
 						),
 					),
 					'hero'                   => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Content header location', 'suki' ),
-						'options' => array(
+						'type'        => 'select',
+						'label'       => esc_html__( 'Hero section', 'suki' ),
+						'description' => esc_html__( 'Display content header in a separate section between header and content sections.', 'suki' ),
+						'options'     => array(
 							''  => esc_html__( '-- Inherit --', 'suki' ),
 							'0' => esc_html__( 'Default', 'suki' ),
 							'1' => esc_html__( 'Hero section', 'suki' ),
+						),
+					),
+					'hero_container'         => array(
+						'type'          => 'select',
+						'label'         => esc_html__( 'Hero section container', 'suki' ),
+						'options'       => array(
+							''       => esc_html__( '-- Inherit --', 'suki' ),
+							'narrow' => esc_html__( 'Narrow', 'suki' ),
+							'wide'   => esc_html__( 'Wide', 'suki' ),
+							'full'   => esc_html__( 'Full', 'suki' ),
 						),
 					),
 				),

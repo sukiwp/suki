@@ -111,7 +111,7 @@ function suki_excerpt_length( $length ) {
 			$key = 'entry_' . $layout . '_excerpt_length';
 		}
 
-		return intval( suki_get_theme_mod( $key, $length ) );
+		return boolval( suki_get_theme_mod( $key, $length ) );
 	}
 
 	// Else.

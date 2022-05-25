@@ -149,7 +149,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 			)
 		);
 
-		// Container.
+		// Hero container.
 		$subkey = 'hero_container';
 		$key    = $option_prefix . '_' . $subkey;
 		$wp_customize->add_setting(
@@ -164,10 +164,9 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 			array(
 				'type'     => 'select',
 				'section'  => $section,
-				'label'    => esc_html__( 'Container', 'suki' ),
+				'label'    => esc_html__( 'Hero container', 'suki' ),
 				'choices'  => array(
 					''        => esc_html__( '-- Global --', 'suki' ),
-					'inherit' => esc_html__( 'Same with Content', 'suki' ),
 					'narrow'  => esc_html__( 'Narrow', 'suki' ),
 					'default' => esc_html__( 'Wide', 'suki' ),
 					'full'    => esc_html__( 'Full', 'suki' ),

@@ -482,17 +482,17 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Keep / remove "add to cart" button on products grid.
-		if ( ! intval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'woocommerce_products_grid_item_add_to_cart' ) ) ) {
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 		}
 
 		// Keep / remove gallery zoom module.
-		if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery_zoom' ) ) ) {
 			remove_theme_support( 'wc-product-gallery-zoom' );
 		}
 
 		// Keep / remove gallery lightbox module.
-		if ( ! intval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'woocommerce_single_gallery_lightbox' ) ) ) {
 			remove_theme_support( 'wc-product-gallery-lightbox' );
 		}
 
@@ -503,17 +503,17 @@ class Suki_Compatibility_WooCommerce {
 		if ( is_shop() || is_product_taxonomy() ) {
 			// Add Content Header.
 			// AVailable elements: title, breadcrumb.
-			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
+			if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
 				add_action( 'woocommerce_archive_description', 'suki_content_header', 1 );
 			}
 
 			// Keep / remove products count filter.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_results_count' ) ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_results_count' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 			}
 
 			// Keep / remove products sorting filter.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_index_sort_filter' ) ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_index_sort_filter' ) ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 			}
 		}
@@ -525,7 +525,7 @@ class Suki_Compatibility_WooCommerce {
 		if ( is_product() ) {
 			// Add Content Header.
 			// AVailable elements: title, breadcrumb, rating.
-			if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
+			if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
 				add_action( 'woocommerce_before_single_product_summary', 'suki_content_header', 1 );
 			}
 
@@ -542,24 +542,24 @@ class Suki_Compatibility_WooCommerce {
 			}
 
 			// Keep / remove gallery.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_gallery' ) ) ) {
+			if ( ! boolval( suki_get_current_page_setting( 'woocommerce_single_gallery' ) ) ) {
 				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper' ), 19 );
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper_end' ), 29 );
 			}
 
 			// Keep / remove tabs.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_tabs' ) ) ) {
+			if ( ! boolval( suki_get_current_page_setting( 'woocommerce_single_tabs' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_up_sells' ) ) ) {
+			if ( ! boolval( suki_get_current_page_setting( 'woocommerce_single_up_sells' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 			}
 
 			// Keep / remove up-sells.
-			if ( ! intval( suki_get_current_page_setting( 'woocommerce_single_related' ) ) ) {
+			if ( ! boolval( suki_get_current_page_setting( 'woocommerce_single_related' ) ) ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 			}
 		}
@@ -573,7 +573,7 @@ class Suki_Compatibility_WooCommerce {
 			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 10 );
 
 			// Readd cross-sells.
-			if ( intval( suki_get_theme_mod( 'woocommerce_cart_cross_sells' ) ) ) {
+			if ( boolval( suki_get_theme_mod( 'woocommerce_cart_cross_sells' ) ) ) {
 				add_action( 'woocommerce_' . suki_get_theme_mod( 'woocommerce_cart_cross_sells_position' ), 'woocommerce_cross_sell_display', 10 );
 			}
 
@@ -872,7 +872,7 @@ class Suki_Compatibility_WooCommerce {
 		// Make sure it's WooCommerce page.
 		if ( is_woocommerce() ) {
 			// If user chose not to use theme's breadcrumb, use WooCommerce breadcrumb.
-			if ( ! intval( suki_get_theme_mod( 'woocommerce_breadcrumb_use_theme_module' ) ) ) {
+			if ( ! boolval( suki_get_theme_mod( 'woocommerce_breadcrumb_use_theme_module' ) ) ) {
 				ob_start();
 				woocommerce_breadcrumb();
 				$html = ob_get_clean();

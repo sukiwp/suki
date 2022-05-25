@@ -72,7 +72,7 @@ class Suki_Compatibility_Brizy {
 	 */
 	public function modify_brizy_content( $content, $project, $post ) {
 		// Use theme's container width.
-		if ( '<meta ' === substr( $content, 0, 6 ) && intval( suki_get_theme_mod( 'brizy_use_container_width' ) ) ) {
+		if ( '<meta ' === substr( $content, 0, 6 ) && boolval( suki_get_theme_mod( 'brizy_use_container_width' ) ) ) {
 			$content = preg_replace( '/(\.brz \.brz-css-\w*?\{max-width: )(1170px;)/', '${1}' . suki_get_theme_mod( 'container_width' ) . ';', $content );
 		}
 

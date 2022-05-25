@@ -54,6 +54,34 @@ function suki_flatten_array( $array ) {
 }
 
 /**
+ * Split dimension value into an array of number and unit.
+ *
+ * @param string $dimension Dimension string.
+ * @return array
+ */
+function suki_split_dimension( $dimension ) {
+	$number = floatval( $dimension );
+	$unit   = str_replace( $number, '', $dimension );
+
+	return array( $number, $unit );
+}
+
+/**
+ * Scale a dimension value and preserve the units.
+ *
+ * @param float  $multiplier Multiplier.
+ * @param string $dimension  Dimension string.
+ * @return string
+ */
+function suki_scale_dimension( $multiplier, $dimension ) {
+	$splitted_dimension = suki_split_dimension( $dimension );
+
+	$scaled_dimension = $splitted_dimension[0] * $multiplier . $splitted_dimension[1];
+
+	return $scaled_dimension;
+}
+
+/**
  * Convert associative array into simple array.
  * For example:
  *

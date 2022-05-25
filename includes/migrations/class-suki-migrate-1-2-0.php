@@ -68,13 +68,13 @@ class Suki_Migrate_1_2_0 {
 	 */
 	private function migrate_woocommerce_options() {
 		// Deprecate "woocommerce_cart_two_columns" and replace with "woocommerce_cart_layout".
-		if ( intval( get_theme_mod( 'woocommerce_cart_two_columns' ) ) ) {
+		if ( boolval( get_theme_mod( 'woocommerce_cart_two_columns' ) ) ) {
 			set_theme_mod( 'woocommerce_cart_layout', '2-columns' );
 			remove_theme_mod( 'woocommerce_cart_two_columns' );
 		}
 
 		// Deprecate "woocommerce_checkout_two_columns" and replace with "woocommerce_checkout_layout".
-		if ( intval( get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
+		if ( boolval( get_theme_mod( 'woocommerce_checkout_two_columns' ) ) ) {
 			set_theme_mod( 'woocommerce_checkout_layout', '2-columns' );
 			remove_theme_mod( 'woocommerce_checkout_two_columns' );
 		}

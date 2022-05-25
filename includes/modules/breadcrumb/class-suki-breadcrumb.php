@@ -148,14 +148,14 @@ class Suki_Breadcrumb extends Suki_Module {
 		$items = array();
 
 		// Home.
-		if ( intval( suki_get_theme_mod( 'breadcrumb_trail_home' ) ) ) {
+		if ( boolval( suki_get_theme_mod( 'breadcrumb_trail_home' ) ) ) {
 			$items['home'] = array(
 				'label' => esc_html__( 'Home', 'suki' ),
 				'url'   => home_url( '/' ),
 			);
 		}
 
-		if ( intval( suki_get_theme_mod( 'breadcrumb_trail_home' ) ) ) {
+		if ( boolval( suki_get_theme_mod( 'breadcrumb_trail_home' ) ) ) {
 			$items['home'] = array(
 				'label' => esc_html__( 'Home', 'suki' ),
 				'url'   => home_url( '/' ),
@@ -325,7 +325,7 @@ class Suki_Breadcrumb extends Suki_Module {
 		}
 
 		// Remove last item in the trail if "current page" is set to hidden.
-		if ( ! intval( suki_get_theme_mod( 'breadcrumb_trail_current_page' ) ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'breadcrumb_trail_current_page' ) ) ) {
 			unset( $items[ $last_key ] );
 		}
 
@@ -342,7 +342,7 @@ class Suki_Breadcrumb extends Suki_Module {
 		}
 
 		// Abort if breadcrumb trail only contain 1 item and the "Hide if home or current page is the only item" mode is enabled.
-		if ( 1 === count( $items ) && intval( suki_get_theme_mod( 'breadcrumb_hide_when_only_home_or_current' ) ) ) {
+		if ( 1 === count( $items ) && boolval( suki_get_theme_mod( 'breadcrumb_hide_when_only_home_or_current' ) ) ) {
 			// If home or current page (doesn't contain URL).
 			if ( 'home' === array_key_first( $items ) || ! isset( $items[0]['url'] ) ) {
 				return;

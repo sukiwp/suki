@@ -399,7 +399,7 @@ class Suki_Migrate_1_3_0 {
 		 * Use "hero" in the option key, because we have already changed "page_header" to "hero".
 		 */
 
-		if ( intval( get_theme_mod( 'hero' ) ) ) {
+		if ( boolval( get_theme_mod( 'hero' ) ) ) {
 			$locations = array(
 				'left',
 				'center',
@@ -580,11 +580,11 @@ class Suki_Migrate_1_3_0 {
 
 		$elements = array();
 
-		if ( intval( get_theme_mod( 'woocommerce_index_page_breadcrumb', 1 ) ) ) {
+		if ( boolval( get_theme_mod( 'woocommerce_index_page_breadcrumb', 1 ) ) ) {
 			$elements[] = 'breadcrumb';
 		}
 
-		if ( intval( get_theme_mod( 'woocommerce_index_page_title', 1 ) ) ) {
+		if ( boolval( get_theme_mod( 'woocommerce_index_page_title', 1 ) ) ) {
 			$elements[] = 'title';
 		}
 
@@ -601,7 +601,7 @@ class Suki_Migrate_1_3_0 {
 
 		$elements = array();
 
-		if ( intval( get_theme_mod( 'woocommerce_single_breadcrumb', 1 ) ) ) {
+		if ( boolval( get_theme_mod( 'woocommerce_single_breadcrumb', 1 ) ) ) {
 			$elements[] = 'breadcrumb';
 		}
 

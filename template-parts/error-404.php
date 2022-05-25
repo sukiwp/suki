@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Image
 	 */
 	$image = suki_get_theme_mod( 'error_404_image' );
-	if ( intval( $image ) ) {
+	if ( boolval( $image ) ) {
 		$image_width = suki_get_theme_mod( 'error_404_image_width' );
 		$image_url   = wp_get_attachment_image_src( $image, 'full' );
 		?>
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Search form
 	 */
-	if ( intval( suki_get_theme_mod( 'error_404_search_bar' ) ) ) {
+	if ( boolval( suki_get_theme_mod( 'error_404_search_bar' ) ) ) {
 		get_search_form();
 	}
 

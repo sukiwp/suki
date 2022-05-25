@@ -37,7 +37,7 @@ if ( 1 > $columns ) {
 
 	<?php
 	// Bottom Bar (if merged).
-	if ( intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+	if ( boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
 		suki_footer_bottom();
 	}
 	?>

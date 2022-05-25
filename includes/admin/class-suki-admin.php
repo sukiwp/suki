@@ -542,7 +542,7 @@ class Suki_Admin {
 						<?php foreach ( $category_modules as $module_slug => $module_data ) : ?>
 							<?php
 							// Skip if module is in "hide" mode.
-							if ( intval( $module_data['hide'] ) ) {
+							if ( boolval( $module_data['hide'] ) ) {
 								continue;
 							}
 

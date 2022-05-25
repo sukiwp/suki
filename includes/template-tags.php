@@ -383,7 +383,7 @@ if ( ! function_exists( 'suki_header_desktop' ) ) {
 	 * Render main header.
 	 */
 	function suki_header_desktop() {
-		if ( intval( suki_get_current_page_setting( 'disable_header' ) ) ) {
+		if ( boolval( suki_get_current_page_setting( 'disable_header' ) ) ) {
 			return;
 		}
 
@@ -427,7 +427,7 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 	 * Render mobile header.
 	 */
 	function suki_header_mobile() {
-		if ( intval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
+		if ( boolval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
 			return;
 		}
 
@@ -508,8 +508,13 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	 * Render page header section.
 	 */
 	function suki_hero() {
+		// Abort if disable content header option is checked on the current loaded page.
+		if ( boolval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+			return;
+		}
+
 		// Abort if hero is disabled on the current loaded page.
-		if ( ! intval( suki_get_current_page_setting( 'hero' ) ) ) {
+		if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
 			return;
 		}
 
@@ -530,7 +535,7 @@ if ( ! function_exists( 'suki_content_header' ) ) {
 	 */
 	function suki_content_header() {
 		// Abort if disable content header option is checked on the current loaded page.
-		if ( intval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
+		if ( boolval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
 			return;
 		}
 
@@ -543,9 +548,11 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 	/**
 	 * Render content header element.
 	 *
-	 * @param string $element Element slug.
+	 * @param string  $element Element slug.
+	 * @param boolean $echo    Render or return.
+	 * @return string
 	 */
-	function suki_content_header_element( $element ) {
+	function suki_content_header_element( $element, $echo = true ) {
 		// Abort if element slug is empty.
 		if ( empty( $element ) ) {
 			return;
@@ -681,7 +688,12 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 		 */
 		$html = apply_filters( 'suki/frontend/content_header_element/' . $element, $html );
 
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// Render or return.
+		if ( boolval( $echo ) ) {
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $html;
+		}
 	}
 }
 
@@ -835,7 +847,7 @@ if ( ! function_exists( 'suki_main_footer' ) ) {
 		suki_footer_widgets();
 
 		// Bottom Bar (if not merged).
-		if ( ! intval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
 			suki_footer_bottom();
 		}
 	}
@@ -846,7 +858,7 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) {
 	 * Render footer widgets area.
 	 */
 	function suki_footer_widgets() {
-		if ( intval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) {
+		if ( boolval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) {
 			return;
 		}
 
@@ -875,7 +887,7 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) {
 	 * Render footer bottom bar.
 	 */
 	function suki_footer_bottom() {
-		if ( intval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) {
+		if ( boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) {
 			return;
 		}
 
@@ -940,7 +952,7 @@ if ( ! function_exists( 'suki_scroll_to_top' ) ) {
 	 * Print scroll to top button.
 	 */
 	function suki_scroll_to_top() {
-		if ( ! intval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
+		if ( ! boolval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
 			return;
 		}
 

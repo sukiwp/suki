@@ -28,7 +28,7 @@ get_header();
 	/**
 	 * Hero
 	 */
-	if ( intval( suki_get_current_page_setting( 'hero' ) ) ) {
+	if ( boolval( suki_get_current_page_setting( 'hero' ) ) ) {
 		suki_hero();
 	}
 	?>

@@ -111,7 +111,7 @@ class Suki_Migrate_1_1_0 {
 			case 'center':
 				// Set elements.
 				$elements = array( 'title' );
-				if ( intval( get_theme_mod( 'page_header_breadcrumb' ) ) ) {
+				if ( boolval( get_theme_mod( 'page_header_breadcrumb' ) ) ) {
 					$elements[] = 'breadcrumb';
 				}
 
@@ -122,7 +122,7 @@ class Suki_Migrate_1_1_0 {
 			case 'left-right':
 				set_theme_mod( 'page_header_elements_left', array( 'title' ) );
 
-				if ( intval( get_theme_mod( 'page_header_breadcrumb' ) ) ) {
+				if ( boolval( get_theme_mod( 'page_header_breadcrumb' ) ) ) {
 					set_theme_mod( 'page_header_elements_right', array( 'breadcrumb' ) );
 				}
 				break;
@@ -130,7 +130,7 @@ class Suki_Migrate_1_1_0 {
 			case 'right-left':
 				set_theme_mod( 'page_header_elements_right', array( 'title' ) );
 
-				if ( intval( get_theme_mod( 'page_header_breadcrumb' ) ) ) {
+				if ( boolval( get_theme_mod( 'page_header_breadcrumb' ) ) ) {
 					set_theme_mod( 'page_header_elements_left', array( 'breadcrumb' ) );
 				}
 				break;

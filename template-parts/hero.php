@@ -20,18 +20,41 @@ if ( ! has_action( 'suki/frontend/hero' ) ) {
  */
 do_action( 'suki/frontend/before_hero' );
 
-?>
-<div id="hero" class="<?php suki_element_class( 'hero', array( 'suki-hero', 'suki-block-container' ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
-	<?php
-	/**
-	 * Hook: suki/frontend/hero
-	 *
-	 * @see suki_content_header() [10]
-	 */
-	do_action( 'suki/frontend/hero' );
-	?>
-</div>
-<?php
+/**
+ * Hero section
+ *
+ * Note: We rely on 'suki-hero' CSS class and our own Customizer options to style the section.
+ */
+
+// Build the content first.
+ob_start();
+foreach ( suki_get_current_page_setting( 'content_header' ) as $element ) {
+	suki_content_header_element( $element );
+}
+$content_header = ob_get_clean();
+
+// Build class.
+$class = 'suki-hero has-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ) . ' suki-section-' . suki_get_current_page_setting( 'hero_container' );
+
+// Render the section.
+echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	'
+	<!-- wp:group {
+		"align":"full",
+		"style":{
+			"spacing":{
+				"blockGap":"' . suki_scale_dimension( 0.5, suki_get_theme_mod( 'block_spacing' ) ) . '"
+			}
+		},
+		"className":"' . $class . '",
+		"layout":{
+			"inherit":true
+		}
+	} --><div class="wp-block-group alignfull ' . $class . '" id="hero">
+		' . $content_header . '
+	</div><!-- /wp:group -->
+	'
+);
 
 /**
  * Hook: suki/frontend/after_hero

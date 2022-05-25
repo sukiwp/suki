@@ -30,7 +30,7 @@ if ( 1 > $count ) {
 <div class="<?php suki_element_class( 'header_main_bar', array( 'suki-header-main-bar', 'suki-header-section', 'suki-block-container' ) ); ?>">
 	<?php
 	// Header Top Bar (if merged).
-	if ( intval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+	if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
 		suki_header_desktop__top_bar( true );
 	}
 	?>
@@ -58,7 +58,7 @@ if ( 1 > $count ) {
 
 	<?php
 	// Header Bottom Bar (if merged).
-	if ( intval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+	if ( boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 		suki_header_desktop__bottom_bar( true );
 	}
 	?>

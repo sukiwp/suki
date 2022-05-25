@@ -343,7 +343,7 @@ $add['header_mobile_vertical_bar_icon_size'] = '18px';
 
 $add['hero'] = 1;
 
-$add['hero_container'] = 'inherit';
+$add['hero_container'] = 'wide';
 $add['hero_padding']   = '60px 20px 60px 20px';
 
 $add['hero_bg_color'] = 'var(--color-palette-7)';
@@ -359,12 +359,6 @@ $add['hero_bg_attachment'] = 'scroll';
 $add['content_container'] = 'wide';
 $add['content_layout']    = 'right-sidebar';
 $add['content_padding']   = '80px 20px 80px 20px';
-
-/**
- * ====================================================
- * Content > Main Content
- * ====================================================
- */
 
 /**
  * ====================================================
