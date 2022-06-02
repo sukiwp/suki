@@ -84,9 +84,9 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 											value={ subValue }
 											isResetValueOnUnitChange
 											units={ control.params.units }
-											min={ subValueUnitObj?.min ?? -Infinity }
-											max={ subValueUnitObj?.max ?? Infinity }
-											step={ subValueUnitObj?.step ?? 1 }
+											min={ '' === subValueUnitObj.min ? -Infinity : subValueUnitObj.min }
+											max={ '' === subValueUnitObj.max ? Infinity : subValueUnitObj.max }
+											step={ '' === subValueUnitObj.step ? 1 : subValueUnitObj.step }
 											className="suki-dimension"
 											onChange={ ( newSubValue ) => {
 												newSubValue = isNaN( parseFloat( newSubValue ) ) ? '' : newSubValue;

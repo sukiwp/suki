@@ -87,9 +87,9 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 								value={ valueObj[ prop ] }
 								isResetValueOnUnitChange
 								units={ units }
-								min={ propValueUnitObj?.min ?? -Infinity }
-								max={ propValueUnitObj?.max ?? Infinity }
-								step={ propValueUnitObj?.step ?? 1 }
+								min={ '' === propValueUnitObj.min ? -Infinity : propValueUnitObj.min }
+								max={ '' === propValueUnitObj.max ? Infinity : propValueUnitObj.max }
+								step={ '' === propValueUnitObj.step ? 1 : propValueUnitObj.step }
 								className="suki-dimension"
 								onChange={ ( newPropValue ) => {
 									newPropValue = isNaN( parseFloat( newPropValue ) ) ? '0' : newPropValue;

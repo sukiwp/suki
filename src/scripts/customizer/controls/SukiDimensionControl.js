@@ -59,9 +59,9 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 									value={ value }
 									isResetValueOnUnitChange
 									units={ control.params.units }
-									min={ valueUnitObj?.min ?? -Infinity }
-									max={ valueUnitObj?.max ?? Infinity }
-									step={ valueUnitObj?.step ?? 1 }
+									min={ '' === valueUnitObj.min ? -Infinity : valueUnitObj.min }
+									max={ '' === valueUnitObj.max ? Infinity : valueUnitObj.max }
+									step={ '' === valueUnitObj.step ? 1 : valueUnitObj.step }
 									id={ '_customize-input-' + control.id }
 									className="suki-dimension"
 									onChange={ ( value ) => {

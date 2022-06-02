@@ -44,7 +44,6 @@ function SukiColorSelectDropdown(_ref) {
     color: value,
     actualValue: value
   };
-  console.log(valueInfo);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "suki-color-dropdown"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SlotFillProvider, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Dropdown, {
@@ -1098,8 +1097,6 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
     })), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
     }, control.params.description), Object.keys(control.params.responsiveStructures).map(function (device) {
-      var _valueUnitObj$min, _valueUnitObj$max, _valueUnitObj$step;
-
       var settingId = control.params.responsiveStructures[device];
       var value = control.settings[settingId].get();
       /**
@@ -1124,9 +1121,9 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
         value: value,
         isResetValueOnUnitChange: true,
         units: control.params.units,
-        min: (_valueUnitObj$min = valueUnitObj === null || valueUnitObj === void 0 ? void 0 : valueUnitObj.min) !== null && _valueUnitObj$min !== void 0 ? _valueUnitObj$min : -Infinity,
-        max: (_valueUnitObj$max = valueUnitObj === null || valueUnitObj === void 0 ? void 0 : valueUnitObj.max) !== null && _valueUnitObj$max !== void 0 ? _valueUnitObj$max : Infinity,
-        step: (_valueUnitObj$step = valueUnitObj === null || valueUnitObj === void 0 ? void 0 : valueUnitObj.step) !== null && _valueUnitObj$step !== void 0 ? _valueUnitObj$step : 1,
+        min: '' === valueUnitObj.min ? -Infinity : valueUnitObj.min,
+        max: '' === valueUnitObj.max ? Infinity : valueUnitObj.max,
+        step: '' === valueUnitObj.step ? 1 : valueUnitObj.step,
         id: '_customize-input-' + control.id,
         className: "suki-dimension",
         onChange: function onChange(value) {
@@ -1202,8 +1199,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
         columns: "4",
         gap: "1"
       }, valueArray.map(function (subValue, i) {
-        var _subValueUnitObj$min, _subValueUnitObj$max, _subValueUnitObj$step;
-
         /**
          * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl, and then we can replace our manual (non-safe) parsing with it instead.
          */
@@ -1222,9 +1217,9 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
           value: subValue,
           isResetValueOnUnitChange: true,
           units: control.params.units,
-          min: (_subValueUnitObj$min = subValueUnitObj === null || subValueUnitObj === void 0 ? void 0 : subValueUnitObj.min) !== null && _subValueUnitObj$min !== void 0 ? _subValueUnitObj$min : -Infinity,
-          max: (_subValueUnitObj$max = subValueUnitObj === null || subValueUnitObj === void 0 ? void 0 : subValueUnitObj.max) !== null && _subValueUnitObj$max !== void 0 ? _subValueUnitObj$max : Infinity,
-          step: (_subValueUnitObj$step = subValueUnitObj === null || subValueUnitObj === void 0 ? void 0 : subValueUnitObj.step) !== null && _subValueUnitObj$step !== void 0 ? _subValueUnitObj$step : 1,
+          min: '' === subValueUnitObj.min ? -Infinity : subValueUnitObj.min,
+          max: '' === subValueUnitObj.max ? Infinity : subValueUnitObj.max,
+          step: '' === subValueUnitObj.step ? 1 : subValueUnitObj.step,
           className: "suki-dimension",
           onChange: function onChange(newSubValue) {
             newSubValue = isNaN(parseFloat(newSubValue)) ? '' : newSubValue;
@@ -1686,8 +1681,6 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
         control.setting.set(newValue);
       }
     }), ['x', 'y', 'blur', 'spread'].map(function (prop, i) {
-      var _propValueUnitObj$min, _propValueUnitObj$max, _propValueUnitObj$ste;
-
       var _convertDimensionValu = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.convertDimensionValueIntoNumberAndUnit)(valueObj[prop], units),
           _convertDimensionValu2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_convertDimensionValu, 2),
           propValueNumber = _convertDimensionValu2[0],
@@ -1703,9 +1696,9 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
         value: valueObj[prop],
         isResetValueOnUnitChange: true,
         units: units,
-        min: (_propValueUnitObj$min = propValueUnitObj === null || propValueUnitObj === void 0 ? void 0 : propValueUnitObj.min) !== null && _propValueUnitObj$min !== void 0 ? _propValueUnitObj$min : -Infinity,
-        max: (_propValueUnitObj$max = propValueUnitObj === null || propValueUnitObj === void 0 ? void 0 : propValueUnitObj.max) !== null && _propValueUnitObj$max !== void 0 ? _propValueUnitObj$max : Infinity,
-        step: (_propValueUnitObj$ste = propValueUnitObj === null || propValueUnitObj === void 0 ? void 0 : propValueUnitObj.step) !== null && _propValueUnitObj$ste !== void 0 ? _propValueUnitObj$ste : 1,
+        min: '' === propValueUnitObj.min ? -Infinity : propValueUnitObj.min,
+        max: '' === propValueUnitObj.max ? Infinity : propValueUnitObj.max,
+        step: '' === propValueUnitObj.step ? 1 : propValueUnitObj.step,
         className: "suki-dimension",
         onChange: function onChange(newPropValue) {
           newPropValue = isNaN(parseFloat(newPropValue)) ? '0' : newPropValue;

@@ -37,8 +37,6 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 		actualValue: value,
 	};
 
-	console.log( valueInfo );
-
 	return (
 		<>
 			<div className="suki-color-dropdown">
