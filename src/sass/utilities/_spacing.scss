@@ -6,20 +6,14 @@ $props: ( "inline", "block", "top", "right", "bottom", "left" );
 
 $i: 0;
 @while 400 >= $i {
-	$value: calc( $i / 100 * var(--wp--style--block-gap) );
+	$value: ( $i / 100 ) * 1rem;
 
-	@if 0 == $i {
-		$value: 0;
-	} @else if 100 == $i {
-		$value: var(--wp--style--block-gap);
-	}
-
-	.suki-has-margin__#{$i} {
+	.suki-has-margin--#{$i} {
 		margin: #{$value} !important;
 	}
 
 	@each $prop in $props {
-		.suki-has-margin-#{$prop}__#{$i} {
+		.suki-has-margin-#{$prop}--#{$i} {
 			margin-#{$prop}: #{$value} !important;
 		}
 	}
@@ -35,7 +29,7 @@ $props: ( "inline", "block", "top", "right", "bottom", "left" );
 
 $i: 0;
 @while 400 >= $i {
-	$value: calc( $i / 100 * var(--wp--style--block-gap) );
+	$value: ( $i / 100 ) * 1rem;
 
 	@if 0 == $i {
 		$value: 0;
@@ -43,12 +37,12 @@ $i: 0;
 		$value: var(--wp--style--block-gap);
 	}
 
-	.suki-has-padding__#{$i} {
+	.suki-has-padding--#{$i} {
 		padding: #{$value} !important;
 	}
 
 	@each $prop in $props {
-		.suki-has-padding-#{$prop}__#{$i} {
+		.suki-has-padding-#{$prop}--#{$i} {
 			padding-#{$prop}: #{$value} !important;
 		}
 	}

@@ -18,7 +18,7 @@ if ( 1 > $columns ) {
 }
 
 ?>
-<div class="<?php suki_element_class( 'footer_widgets_bar', array( 'suki-footer-widgets-bar', 'suki-block-container' ) ); ?>">
+<div class="<?php suki_element_class( 'footer_widgets_bar', array( 'suki-footer-widgets-bar', 'suki-container' ) ); ?>">
 	<div class="<?php suki_element_class( 'footer_widgets_bar_inner', array( 'suki-footer-widgets-bar-columns-' . $columns, 'suki-footer-widgets-bar-columns', 'wp-block-columns' ) ); ?>">
 		<?php
 		for ( $i = 1; $i <= $columns; $i++ ) {

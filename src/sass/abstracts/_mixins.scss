@@ -131,43 +131,35 @@
 	}
 }
 
-@mixin block-container {
-	max-width: none !important;
+// @mixin block-container {
+// 	max-width: none !important;
 
-	> :where(*) {
-		max-width: min( 100%, var(--content-width--narrow) );
+// 	> :where(*) {
+// 		max-width: min( 100%, var(--content-width--narrow) );
 
-		&:where(:not(.alignleft, .alignright) ) {
-			margin-left: auto !important;
-			margin-right: auto !important;
-			margin-top: var(--wp--style--block-gap);
-			margin-bottom: 0;
+// 		&:where(:not(.alignleft, .alignright) ) {
+// 			margin-left: auto !important;
+// 			margin-right: auto !important;
+// 			margin-top: var(--wp--style--block-gap);
+// 			margin-bottom: 0;
 	
-			@include remove-margin-top-for-first-child();
-			@include remove-margin-bottom-for-last-child();
-		}
-	}
-}
+// 			@include remove-margin-top-for-first-child();
+// 			@include remove-margin-bottom-for-last-child();
+// 		}
+// 	}
+// }
 
 // Remove top margin of an element if it's the first child
-@mixin remove-margin-top-for-first-child( $important: true ) {
+@mixin remove-margin-top-for-first-child() {
 	&:first-child {
-		@if $important {
-			margin-top: 0 !important;
-		} @else {
-			margin-top: 0;
-		}
+		margin-top: 0;
 	}
 }
 
 // Remove bottom margin of an element if it's the last child
-@mixin remove-margin-bottom-for-last-child( $important: true ) {
+@mixin remove-margin-bottom-for-last-child() {
 	&:last-child {
-		@if $important {
-			margin-bottom: 0 !important;
-		} @else {
-			margin-bottom: 0;
-		}
+		margin-bottom: 0;
 	}
 }
 

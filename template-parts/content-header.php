@@ -18,7 +18,7 @@ if ( 1 > count( $elements ) ) {
 }
 
 ?>
-<div class="<?php suki_element_class( 'content_header', array( 'suki-content-header' ) ); ?>">
+<div class="<?php suki_element_class( 'content_header', array( 'suki-content-header', 'wp-block-group' ) ); ?>">
 	<?php
 	// Render content header elements.
 	foreach ( $elements as $element ) {

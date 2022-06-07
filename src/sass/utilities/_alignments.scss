@@ -22,8 +22,6 @@
 	margin-top: 0;
 	margin-right: var(--wp--style--block-gap);
 	margin-bottom: var(--wp--style--block-gap);
-	
-	@include remove-margin-bottom-for-last-child();
 }
 
 .alignright {
@@ -34,8 +32,6 @@
 	margin-top: 0;
 	margin-left: var(--wp--style--block-gap);
 	margin-bottom: var(--wp--style--block-gap);
-	
-	@include remove-margin-bottom-for-last-child();
 }
 
 .aligncenter {
@@ -43,8 +39,6 @@
 	margin-top: 0;
 	margin-inline: auto;
 	margin-bottom: var(--wp--style--block-gap);
-
-	@include remove-margin-bottom-for-last-child();
 }
 
 /**

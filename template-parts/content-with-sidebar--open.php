@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div id="content" class="<?php suki_element_class( 'content', array( 'suki-content', 'site-content', 'suki-block-container' ) ); ?>">
+<div id="content" class="<?php suki_element_class( 'content', array( 'suki-content', 'site-content', 'suki-container' ) ); ?>">
 	<?php
 	/**
 	 * Hook: suki/frontend/before_content
@@ -21,4 +21,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	?>
 
 	<div class="suki-content-row">
-		<main id="primary" class="site-main suki-block-container">
+		<main id="primary" class="site-main suki-container">

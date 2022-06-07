@@ -7,7 +7,7 @@
 	flex-grow: 1; // Make content section fill the blank vertical space to fill 100% screen height page.
 }
 
-:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar) {
+:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) {
 	.site-main {
 		--content-width--narrow: auto;
 		--content-width--wide: auto;
@@ -15,7 +15,7 @@
 	}
 }
 
-.suki-content-row {
+.suki-content-sidebar-columns {
 	display: flex;
 	flex-direction: column;
 	gap: var(--sidebar-gap);
@@ -32,17 +32,13 @@
 	}
 }
 
-.site-main {
+.suki-main-column {
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		flex-grow: 1;
 	}
 }
 
-.sidebar {
-	display: flex;
-	flex-direction: column;
-	gap: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
-
+.suki-sidebar-column {
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		flex-grow: 0;
 		flex-shrink: 0;
@@ -50,21 +46,10 @@
 	}
 }
 
-/**
- * Content Header
- */
-
-.suki-content-header {
-	> * {
-		margin-block: calc( 0.5 * var(--wp--style--block-gap) );
-
-		@include remove-margin-top-for-first-child();
-		@include remove-margin-bottom-for-last-child();
-
-		> :where(.search-form, .archive-description) {
-			margin-block: var(--wp--style--block-gap);
-		}
-	}
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
 }
 
 /**

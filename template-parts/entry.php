@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	if ( has_action( 'suki/frontend/entry/header' ) ) {
 		?>
-		<header class="entry-header suki-block-container <?php echo esc_attr( 'has-text-align-' . suki_get_theme_mod( 'entry_header_alignment' ) ); ?>">
+		<header class="entry-header suki-container <?php echo esc_attr( 'has-text-align-' . suki_get_theme_mod( 'entry_header_alignment' ) ); ?>">
 			<?php
 			/**
 			 * Hook: suki/frontend/entry/header
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	if ( has_action( 'suki/frontend/entry/footer' ) ) {
 		?>
-		<footer class="entry-footer suki-block-container <?php echo esc_attr( 'has-text-align-' . suki_get_theme_mod( 'entry_footer_alignment' ) ); ?>">
+		<footer class="entry-footer suki-container <?php echo esc_attr( 'has-text-align-' . suki_get_theme_mod( 'entry_footer_alignment' ) ); ?>">
 			<?php
 			/**
 			 * Hook: suki/frontend/entry/footer

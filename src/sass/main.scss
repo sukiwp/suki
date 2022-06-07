@@ -18,21 +18,10 @@
 @import "utilities/visibility";
 @import "utilities/accessibility";
 
-// Components
-@import "components/container";
-@import "components/icon";
-@import "components/toggle";
-@import "components/popup";
-@import "components/search";
-@import "components/breadcrumb";
-@import "components/social-links";
-@import "components/widgets";
-@import "components/entry";
-
 // Blocks
 @import "blocks/group";
+@import "blocks/layout";
 @import "blocks/columns";
-@import "blocks/spacer";
 @import "blocks/text";
 @import "blocks/separator";
 @import "blocks/table";
@@ -46,6 +35,17 @@
 @import "blocks/social-links";
 @import "blocks/posts";
 @import "blocks/comments";
+
+// Components
+@import "components/container";
+@import "components/icon";
+@import "components/toggle";
+@import "components/popup";
+@import "components/search";
+@import "components/breadcrumb";
+@import "components/social-links";
+@import "components/widgets";
+@import "components/post";
 
 // Layouts
 @import "layouts/canvas";

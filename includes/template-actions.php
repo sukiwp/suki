@@ -136,7 +136,7 @@ function suki_template_hooks() {
 					function() {
 						foreach ( suki_get_current_page_setting( 'content_header', array() ) as $element ) {
 							// This action can't be modified or removed, because it uses anonymous function.
-							suki_content_header_element( $element );
+							suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), true, false );
 						}
 					},
 					10
@@ -165,16 +165,16 @@ function suki_template_hooks() {
 		if ( is_singular( 'post' ) ) {
 			// Add author bio.
 			if ( boolval( suki_get_theme_mod( 'blog_single_author_bio' ) ) ) {
-				add_action( 'suki/frontend/after_main', 'suki_author_bio', 10 );
+				add_action( 'suki/frontend/after_main', 'suki_author_bio', 10, 0 );
 			}
 
 			// Add post navigation.
 			if ( boolval( suki_get_theme_mod( 'blog_single_navigation' ) ) ) {
-				add_action( 'suki/frontend/after_main', 'suki_singular_navigation', 15 );
+				add_action( 'suki/frontend/after_main', 'suki_singular_navigation', 15, 0 );
 			}
 
 			// Add comments.
-			add_action( 'suki/frontend/after_main', 'suki_comments', 20 );
+			add_action( 'suki/frontend/after_main', 'suki_comments', 20, 0 );
 		}
 	}
 

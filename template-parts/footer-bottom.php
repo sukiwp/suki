@@ -27,7 +27,7 @@ if ( 1 > $count ) {
 }
 
 ?>
-<div class="<?php suki_element_class( 'footer_bottom_bar', array( 'suki-footer-bottom-bar', 'suki-block-container', 'site-info' ) ); ?>">
+<div class="<?php suki_element_class( 'footer_bottom_bar', array( 'suki-footer-bottom-bar', 'suki-container', 'site-info' ) ); ?>">
 	<div class="<?php suki_element_class( 'footer_bottom_bar_inner', array( 'suki-footer-row', 'wp-block-columns' ) ); ?>">
 		<?php
 		foreach ( array( 'left', 'center', 'right' ) as $column ) {

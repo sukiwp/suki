@@ -367,7 +367,6 @@ $add['content_padding']   = '80px 20px 80px 20px';
  */
 
 $add['sidebar_width'] = '25%';
-$add['sidebar_gap']   = '60px';
 
 $add['sidebar_widgets_mode'] = 'merged';
 
@@ -515,7 +514,7 @@ $add['entry_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bu
 
 $add['blog_index_grid_columns'] = 2;
 
-$add['entry_grid_same_height']   = 0;
+$add['entry_grid_same_height'] = 0;
 
 $add['entry_grid_header']           = array( 'title', 'header-meta' );
 $add['entry_grid_header_alignment'] = 'left';

@@ -21,59 +21,53 @@ get_header();
 suki_hero();
 
 /**
- * Content wrapper template -- Open
+ * Content
  */
-suki_content_open();
-
-/**
- * Hook: suki/frontend/before_main
- *
- * @see suki_archive_header() [10]
- */
-do_action( 'suki/frontend/before_main' );
-
-/**
- * Main content
- */
+ob_start();
 if ( have_posts() ) {
 	/**
 	 * Query loop
 	 */
 	?>
-	<div class="<?php suki_element_class( 'loop', array( 'wp-block-post-template', 'suki-loop', 'suki-has-margin-block__300' ) ); ?>">
-		<?php
-		while ( have_posts() ) {
-			the_post();
-
-			/**
-			 * Entry template
-			 */
-			suki_get_template_part( 'entry', suki_get_current_page_setting( 'loop_layout', 'default' ) );
+	<!-- wp:query {
+		"query":{
+			"inherit":true
+		},
+		"className":"suki-loop",
+		"layout":{
+			"inherit":true
 		}
-		?>
-	</div>
-	<?php
+	} --><div class="wp-block-query suki-loop">
 
+		<!-- wp:post-template -->
+
+			<?php
+			/**
+			 * Post entry
+			 */
+			suki_entry( suki_get_current_page_setting( 'loop_layout', 'default' ), true, false );
+			?>
+
+		<!-- /wp:post-template -->
+
+		<?php
+		/**
+		 * Archive navigation
+		 */
+		suki_archive_navigation( true, false );
+		?>
+
+	</div><!-- /wp:query -->
+	<?php
 } else {
 	/**
 	 * No items found.
 	 */
 	?>
-	<p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p>
+	<!-- wp:paragraph --><p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p><!-- /wp:paragraph -->
 	<?php
 }
-
-/**
- * Hook: suki/frontend/after_main
- *
- * @see suki_archive_navigation() [10]
- */
-do_action( 'suki/frontend/after_main' );
-
-/**
- * Content wrapper template -- Close
- */
-suki_content_close();
+suki_content( ob_get_clean() );
 
 /**
  * Footer template

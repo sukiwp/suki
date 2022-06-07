@@ -539,7 +539,7 @@ $add['page_layout'] = array(
 	array(
 		'type'    => 'class',
 		'element' => 'body',
-		'pattern' => 'suki-page-layout-$',
+		'pattern' => 'suki-page--$',
 	),
 );
 
@@ -547,7 +547,7 @@ $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-page-layout-boxed .suki-canvas',
-		'property' => '--canvas-size',
+		'property' => '--canvas-width',
 	),
 );
 
@@ -991,7 +991,7 @@ $add['header_mobile_vertical_bar_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-header-mobile-vertical',
-		'pattern' => 'suki-text-align-$',
+		'pattern' => 'has-text-align-$',
 	),
 );
 
@@ -2031,8 +2031,13 @@ $add['scroll_to_top_hover_text_color'] = array(
 $add['post_archive_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => 'body.blog .suki-content-header, body.category .suki-content-header, body.tag .suki-content-header, body.author .suki-content-header, body.date .suki-content-header',
-		'pattern' => 'suki-text-align-$',
+		'element' => '.suki-post_archive .suki-content-header > *',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.suki-post_archive .suki-content-header > *',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2054,7 +2059,12 @@ $add['entry_header_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.entry-layout-default .entry-header',
-		'pattern' => 'suki-text-align-$',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.entry-layout-default .entry-header',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2062,7 +2072,12 @@ $add['entry_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.entry-layout-default .entry-footer',
-		'pattern' => 'suki-text-align-$',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.entry-layout-default .entry-footer',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2163,7 +2178,12 @@ $add['entry_grid_header_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.entry-layout-grid .entry-header',
-		'pattern' => 'suki-text-align-$',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.entry-layout-grid .entry-header',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2171,7 +2191,12 @@ $add['entry_grid_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.entry-layout-grid .entry-footer',
-		'pattern' => 'suki-text-align-$',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.entry-layout-grid .entry-footer',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2208,16 +2233,26 @@ $add['entry_grid_shadow'] = array(
 $add['post_single_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => 'body.single-post .suki-content-header',
-		'pattern' => 'suki-text-align-$',
+		'element' => '.suki-post_single .suki-content-header > *',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.suki-post_single .suki-content-header > *',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
 $add['post_single_content_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry-single .entry-footer',
-		'pattern' => 'suki-text-align-$',
+		'element' => '.suki-post_single .suki-content-footer > *',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.suki-post_single .suki-content-footer > *',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2230,8 +2265,13 @@ $add['post_single_content_footer_alignment'] = array(
 $add['page_single_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => 'body.page .suki-content-header',
-		'pattern' => 'suki-text-align-$',
+		'element' => '.suki-page_single .suki-content-header > *',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.suki-page_single .suki-content-header > *',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2244,8 +2284,13 @@ $add['page_single_content_header_alignment'] = array(
 $add['search_results_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => 'body.search-results:not(.archive) .suki-content-header',
-		'pattern' => 'suki-text-align-$',
+		'element' => '.suki-search_results .suki-content-header > *',
+		'pattern' => 'has-text-align-$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.suki-search_results .suki-content-header > *',
+		'pattern' => 'suki-flex--justify-$',
 	),
 );
 
@@ -2256,17 +2301,16 @@ $add['search_results_content_header_alignment'] = array(
  */
 
 foreach ( suki_get_public_post_types( 'custom' ) as $pt ) {
-	$element = 'body.post-type-archive-' . $pt . ' .suki-content-header';
-
-	foreach ( get_object_taxonomies( $pt ) as $pt_tax ) {
-		$element .= ', body.tax-' . $pt_tax . ' .suki-content-header';
-	}
-
 	$add[ $pt . '_archive_content_header_alignment' ] = array(
 		array(
 			'type'    => 'class',
-			'element' => $element,
-			'pattern' => 'suki-text-align-$',
+			'element' => '.suki-' . $pt . '_archive .suki-content-header > *',
+			'pattern' => 'has-text-align-$',
+		),
+		array(
+			'type'    => 'class',
+			'element' => '.suki-' . $pt . '_archive .suki-content-header > *',
+			'pattern' => 'suki-flex--justify-$',
 		),
 	);
 }
@@ -2281,8 +2325,13 @@ foreach ( suki_get_public_post_types( 'custom' ) as $pt ) {
 	$add[ $pt . '_single_content_header_alignment' ] = array(
 		array(
 			'type'    => 'class',
-			'element' => 'body.single-' . $pt . ' .suki-content-header',
-			'pattern' => 'suki-text-align-$',
+			'element' => '.suki-' . $pt . '_single .suki-content-header > *',
+			'pattern' => 'has-text-align-$',
+		),
+		array(
+			'type'    => 'class',
+			'element' => '.suki-' . $pt . '_single .suki-content-header > *',
+			'pattern' => 'suki-flex--justify-$',
 		),
 	);
 }

@@ -12,7 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<aside id="secondary" class="<?php suki_element_class( 'sidebar', array( 'sidebar', 'sidebar-shop' ) ); ?>" aria-label="<?php esc_attr_e( 'Shop Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
+?>
+<!-- wp:group {
+	"tagName":"aside"
+	"className":"sidebar sidebar-shop"
+} --><aside class="wp-block-group sidebar sidebar-shop" aria-label="<?php esc_attr_e( 'Shop Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
+
 	<?php
 	/**
 	 * Hook: suki/frontend/before_sidebar
@@ -31,4 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	do_action( 'suki/frontend/after_sidebar' );
 	?>
-</aside>
+
+</aside><!-- /wp:group -->
+<?php
+echo do_blocks( ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

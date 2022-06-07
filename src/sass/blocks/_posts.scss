@@ -5,41 +5,34 @@
 .wp-block-post-author {
 	display: grid;
 	grid-auto-flow: row;
+	grid-template: auto;
 	gap: var(--wp--style--block-gap);
 	margin: var(--wp--style--block-gap) 0;
 	text-align: center;
 	
 	@media screen and ( min-width: $breakpoint-phone ) {
 		grid-auto-flow: column;
-		text-align: initial;
+		text-align: unset;
 	}
 
 	&__avatar {
-		flex-shrink: 0;
-
 		.avatar {
 			border-radius: 9999px;
 		}
 	}
 
 	&__content {
-		flex-grow: 1;
-	}
-
-	&__byline {
-		margin-top: 0;
-		margin-bottom: 0;
-
-		@extend %meta;
-	}
-
-	&__name {
-		@extend %small-title;
-		margin: 0;
+		> * {
+			margin: 0;
+		}
 	}
 
 	&__bio {
 		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+	}
+
+	&__byline {
+		@extend %meta;
 	}
 
 	@include padding-for-has-background();
@@ -96,9 +89,9 @@
 	}
 }
 
-.wp-block-post {
-	@include block-container();
-}
+// .wp-block-post {
+// 	@include block-container();
+// }
 
 /**
  * Block: Post element

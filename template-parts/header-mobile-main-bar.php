@@ -27,7 +27,7 @@ if ( 1 > $count ) {
 }
 
 ?>
-<div class="<?php suki_element_class( 'header_mobile_main_bar', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-block-container' ) ); ?>">
+<div class="<?php suki_element_class( 'header_mobile_main_bar', array( 'suki-header-mobile-main-bar', 'suki-header-section', 'suki-container' ) ); ?>">
 	<div class="<?php suki_element_class( 'header_mobile_main_bar_inner', array( 'suki-header-row', 'wp-block-columns', 'is-not-stacked-on-mobile' ) ); ?>">
 		<?php
 		foreach ( $columns as $column ) {

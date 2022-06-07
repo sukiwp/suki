@@ -16,54 +16,60 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 get_header();
 
-// Initiate the post early, so hero section can use post meta data.
-the_post();
-
 /**
  * Hero
  */
 suki_hero();
 
 /**
- * Content wrapper template -- Open
+ * Content
  */
-suki_content_open();
 
-/**
- * Hook: suki/frontend/before_main
- */
-do_action( 'suki/frontend/before_main' );
+// Initiate the post early, so hero section can use post meta data.
+the_post();
 
-/**
- * Main content article
- */
+ob_start();
 ?>
-<article class="<?php suki_post_class( array( 'suki-block-container', 'entry', 'entry-layout-default' ) ); ?>">
+<!-- wp:group {
+	"tagName":"article",
+	"align":"full",
+	"style":{
+		"spacing":{
+			"blockGap":"calc(1.5 * var(--wp--style--block-gap))"
+		}
+	},
+	"className":"entry entry-layout-default",
+	"layout":{
+		"inherit":true
+	}
+} --><article class="wp-block-group alignfull entry entry-layout-default">
+
 	<?php
 	/**
 	 * Hook: suki/frontend/{post_type}_content/before_header
-	 *
-	 * @see suki_singular_thumbnail() [10]
 	 */
 	do_action( 'suki/frontend/' . get_post_type() . '_content/before_header' );
 
 	/**
 	 * Content header
 	 */
-	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/header' ) ) {
+	if (
+		! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) &&
+		! boolval( suki_get_current_page_setting( 'hero' ) ) &&
+		( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) )
+	) {
 		?>
-		<header class="entry-header suki-content-header suki-block-container <?php echo esc_attr( 'has-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ) ); ?>">
+		<!-- wp:group {
+			"className":"entry-header suki-content-header"
+		} --><div class="wp-block-group entry-header suki-content-header">
+
 			<?php
-			/**
-			 * Hook: suki/frontend/{post_type}_content/header
-			 *
-			 * @see suki_singular_title()       [10]
-			 * @see suki_singular_header_meta() [10]
-			 * @see suki_breadcrumb()           [10]
-			 */
-			do_action( 'suki/frontend/' . get_post_type() . '_content/header' );
+			foreach ( suki_get_current_page_setting( 'content_header' ) as $element ) {
+				suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), true, false );
+			}
 			?>
-		</header>
+
+		</div><!-- /wp:group -->
 		<?php
 	}
 
@@ -73,18 +79,13 @@ do_action( 'suki/frontend/before_main' );
 	 * @see suki_singular_thumbnail() [10]
 	 */
 	do_action( 'suki/frontend/' . get_post_type() . '_content/after_header' );
+	?>
 
-	/**
-	 * Main content
-	 */
-	echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		'
-		<!-- wp:post-content {
-			"className":"entry-content suki-block-container"
-		} /-->
-		'
-	);
+	<!-- wp:post-content {
+		"className":"entry-content"
+	} /-->
 
+	<?php
 	/**
 	 * Hook: suki/frontend/{post_type}_content/before_footer
 	 */
@@ -93,19 +94,24 @@ do_action( 'suki/frontend/before_main' );
 	/**
 	 * Content footer
 	 */
-	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/footer' ) ) {
+	if ( 0 < count( suki_get_current_page_setting( 'content_footer' ) ) ) {
 		?>
-		<footer class="entry-footer suki-block-container <?php echo esc_attr( 'has-text-align-' . suki_get_current_page_setting( 'content_footer_alignment' ) ); ?>">
+		<!-- wp:group {
+			"className":"entry-footer suki-content-footer",
+			"style":{
+				"spacing":{
+					"blockGap":"0.75rem"
+				}
+			}
+		} --><div class="wp-block-group entry-footer suki-content-footer">
+
 			<?php
-			/**
-			 * Hook: suki/frontend/{post_type}_content/footer
-			 *
-			 * @see suki_singular_footer_meta() [10]
-			 * @see suki_singular_tags()        [10]
-			 */
-			do_action( 'suki/frontend/' . get_post_type() . '_content/footer' );
+			foreach ( suki_get_current_page_setting( 'content_footer' ) as $element ) {
+				suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), true, false );
+			}
 			?>
-		</footer>
+
+		</div><!-- /wp:group -->  
 		<?php
 	}
 
@@ -114,18 +120,10 @@ do_action( 'suki/frontend/before_main' );
 	 */
 	do_action( 'suki/frontend/' . get_post_type() . '_content/after_footer' );
 	?>
-</article>
+
+</article><!-- /wp:group -->
 <?php
-
-/**
- * Hook: suki/frontend/after_main
- */
-do_action( 'suki/frontend/after_main' );
-
-/**
- * Content wrapper template -- Close
- */
-suki_content_close();
+suki_content( ob_get_clean() );
 
 /**
  * Footer template

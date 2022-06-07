@@ -55,9 +55,6 @@ class Suki {
 		 * Hooks
 		 */
 
-		// Set Content width.
-		add_action( 'after_setup_theme', array( $this, 'set_content_width' ), 0 );
-
 		// Load translations.
 		add_action( 'after_setup_theme', array( $this, 'load_translations' ) );
 
@@ -67,7 +64,7 @@ class Suki {
 		// Register menus.
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
 
-		// Register sidebars and widgets.
+		// Register sidebars.
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
 
 		// Set theme info.
@@ -91,8 +88,15 @@ class Suki {
 		// Helper functions.
 		require_once SUKI_INCLUDES_DIR . '/helpers.php';
 
-		// Template functions and hooks.
+		// Template functions.
 		require_once SUKI_INCLUDES_DIR . '/template-tags.php';
+		require_once SUKI_INCLUDES_DIR . '/template-tags/header.php';
+		require_once SUKI_INCLUDES_DIR . '/template-tags/hero.php';
+		require_once SUKI_INCLUDES_DIR . '/template-tags/footer.php';
+		require_once SUKI_INCLUDES_DIR . '/template-tags/content.php';
+		require_once SUKI_INCLUDES_DIR . '/template-tags/post.php';
+
+		// Template filters and hooks.
 		require_once SUKI_INCLUDES_DIR . '/template-actions.php';
 		require_once SUKI_INCLUDES_DIR . '/template-filters.php';
 
@@ -104,7 +108,6 @@ class Suki {
 
 		// Load modules.
 		require_once SUKI_INCLUDES_DIR . '/modules/class-suki-module.php';
-
 		$active_modules = array(
 			'breadcrumb',
 			'google-fonts',
@@ -140,17 +143,6 @@ class Suki {
 	 * Hook functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Set the content width in pixels, based on the theme's design and stylesheet.
-	 *
-	 * Priority 0 to make it available to lower priority callbacks.
-	 *
-	 * @global integer $content_width
-	 */
-	public function set_content_width() {
-		$GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
-	}
 
 	/**
 	 * Load translations for theme's text domain.

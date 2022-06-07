@@ -51,11 +51,11 @@ body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):n
 			bottom: 40vh;
 			width: var(--sidebar-width);
 			padding: 1.5rem;
-			border: 3px dashed rgba(0,0,0,0.1);
+			border: 3px dashed currentColor;
 			display: flex;
 			justify-content: center;
 			align-items: flex-start;
-			color: rgba(0,0,0,0.2);
+			color: var(--border-color);
 		}
 	}
 

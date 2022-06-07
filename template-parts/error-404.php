@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="error-404 has-text-align-center suki-block-container">
+<div class="error-404 has-text-align-center suki-container">
 	<?php
 	/**
 	 * Image

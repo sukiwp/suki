@@ -56,7 +56,7 @@ class Suki_Admin {
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
 		add_action( 'wp_default_styles', array( $this, 'remove_block_editor_default_block_styles' ), PHP_INT_MAX );
 		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css__visual' ), 10, 2 );
-		add_filter( 'admin_enqueue_scripts', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
+		add_filter( 'enqueue_block_editor_assets', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
 
 		// Rating and review notification.
@@ -232,10 +232,12 @@ class Suki_Admin {
 		}
 
 		// Inject inline CSS after the admin.css.
+		wp_register_style( 'suki-block-editor', false, array(), true, true );
 		wp_add_inline_style(
-			'suki-admin',
+			'suki-block-editor',
 			suki_convert_css_array_to_string( $css_array )
 		);
+		wp_enqueue_style( 'suki-block-editor' );
 	}
 
 	/**
