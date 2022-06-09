@@ -11,41 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Post entry
- */
-if ( ! function_exists( 'suki_entry' ) ) {
-	/**
-	 * Render entry
-	 *
-	 * @param string  $layout    Layout slug.
-	 * @param boolean $echo      Render or return.
-	 * @param boolean $do_blocks Parse blocks or not.
-	 * @return string
-	 */
-	function suki_entry( $layout = 'default', $echo = true, $do_blocks = true ) {
-		$html = '
-		<!-- wp:post-title /-->
-		';
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
  * Post entry header & footer element
  */
 if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
@@ -54,39 +19,47 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 	 *
 	 * @param string  $element   Element slug.
 	 * @param string  $layout    Layout slug.
+	 * @param string  $alignment Element alignment (left, center, or right).
 	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @return string
 	 */
-	function suki_entry_header_footer_element( $element, $layout = 'default', $echo = true, $do_blocks = true ) {
+	function suki_entry_header_footer_element( $element, $layout = 'default', $alignment = 'left', $echo = true, $do_blocks = true ) {
 		// Set fallback layout to "default".
 		if ( empty( $layout ) ) {
 			$layout = 'default';
 		}
 
-		// Abort if element slug is empty.
-		if ( empty( $element ) ) {
-			return;
-		}
-
-		$html = '';
-
 		switch ( $element ) {
 			case 'title':
 				$html = '
 				<!-- wp:post-title {
+					"level":2,
 					"isLink":true,
+					"textAlign":"' . $alignment . '",
 					"className":"entry-title ' . ( 'default' === $layout ? 'suki-title' : 'suki-small-title' ) . '"
 				} /-->
 				';
 				break;
 
 			case 'header-meta':
-				$html = suki_entry_meta( suki_get_theme_mod( 'entry_' . ( 'default' === $layout ? '' : $layout . '_' ) . 'header_meta' ), false, false );
+				$html = suki_entry_meta( suki_get_theme_mod( 'entry_' . ( 'default' === $layout ? '' : $layout . '_' ) . 'header_meta' ), $alignment, false, false );
 				break;
 
 			case 'footer-meta':
-				$html = suki_entry_meta( suki_get_theme_mod( 'entry_' . ( 'default' === $layout ? '' : $layout . '_' ) . 'footer_meta' ), false, false );
+				$html = suki_entry_meta( suki_get_theme_mod( 'entry_' . ( 'default' === $layout ? '' : $layout . '_' ) . 'footer_meta' ), $alignment, false, false );
+				break;
+
+			case 'hr':
+				$html = '
+				<!-- wp:separator {
+					"className":"is-style-wide"
+				} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->
+				';
+				break;
+
+			default:
+				$html = '';
 				break;
 		}
 
@@ -181,10 +154,6 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 	 * @return string
 	 */
 	function suki_entry_meta( $text, $alignment = 'left', $echo = true, $do_blocks = true ) {
-		if ( 'post' !== get_post_type() ) {
-			return;
-		}
-
 		// Remove unneccessary white space on the beginning and the end of the text.
 		$text = trim( $text );
 

@@ -75,6 +75,9 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
+		// Block patterns.
+		add_action( 'init', array( $this, 'register_block_patterns' ) );
+
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
 			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
@@ -86,42 +89,42 @@ class Suki {
 		 */
 
 		// Helper functions.
-		require_once SUKI_INCLUDES_DIR . '/helpers.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'helpers.php';
 
 		// Template functions.
-		require_once SUKI_INCLUDES_DIR . '/template-tags.php';
-		require_once SUKI_INCLUDES_DIR . '/template-tags/header.php';
-		require_once SUKI_INCLUDES_DIR . '/template-tags/hero.php';
-		require_once SUKI_INCLUDES_DIR . '/template-tags/footer.php';
-		require_once SUKI_INCLUDES_DIR . '/template-tags/content.php';
-		require_once SUKI_INCLUDES_DIR . '/template-tags/post.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/header.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/hero.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/footer.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/content.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/post.php';
 
 		// Template filters and hooks.
-		require_once SUKI_INCLUDES_DIR . '/template-actions.php';
-		require_once SUKI_INCLUDES_DIR . '/template-filters.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-actions.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-filters.php';
 
 		// Version checking and migrations.
-		require_once SUKI_INCLUDES_DIR . '/migrations/class-suki-migration.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'migrations/class-suki-migration.php';
 
 		// Customizer functionalities.
-		require_once SUKI_INCLUDES_DIR . '/customizer/class-suki-customizer.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/class-suki-customizer.php';
 
 		// Load modules.
-		require_once SUKI_INCLUDES_DIR . '/modules/class-suki-module.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/class-suki-module.php';
 		$active_modules = array(
 			'breadcrumb',
 			'google-fonts',
 			'page-settings',
 		);
 		foreach ( $active_modules as $active_module ) {
-			require_once SUKI_INCLUDES_DIR . '/modules/' . $active_module . '/class-suki-' . $active_module . '.php';
+			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . $active_module . '/class-suki-' . $active_module . '.php';
 		}
 
 		// Load plugin compatibilities.
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.
 			if ( class_exists( $plugin_class ) ) {
-				$compatibility_file = SUKI_INCLUDES_DIR . '/compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php';
+				$compatibility_file = trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/' . $plugin_slug . '/class-suki-compatibility-' . $plugin_slug . '.php';
 
 				if ( file_exists( $compatibility_file ) ) {
 					require_once $compatibility_file;
@@ -131,11 +134,11 @@ class Suki {
 
 		// Admin page functionalities.
 		if ( is_admin() ) {
-			require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin.php';
+			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'admin/class-suki-admin.php';
 		}
 
 		// Deprecated.
-		require_once SUKI_INCLUDES_DIR . '/deprecated.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'deprecated.php';
 	}
 
 	/**
@@ -290,10 +293,8 @@ class Suki {
 
 	/**
 	 * Enqueue frontend scripts.
-	 *
-	 * @param string $hook Hook name.
 	 */
-	public function handle_frontend_scripts( $hook ) {
+	public function handle_frontend_scripts() {
 		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
@@ -412,8 +413,8 @@ class Suki {
 			return $css;
 		}
 
-		$outputs  = include SUKI_INCLUDES_DIR . '/customizer/outputs.php';
-		$defaults = include SUKI_INCLUDES_DIR . '/customizer/defaults.php';
+		$outputs  = include trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/outputs.php';
+		$defaults = include trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/defaults.php';
 
 		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $outputs, $defaults );
 
@@ -493,6 +494,28 @@ class Suki {
 		}
 
 		return $css;
+	}
+
+	/**
+	 * Register block patterns.
+	 */
+	public function register_block_patterns() {
+		$block_patterns = array(
+			'comments',
+			'query--default',
+			'query--grid',
+			'query-pagination--page-numbers',
+			'query-pagination--prev-next',
+		);
+
+		foreach ( $block_patterns as $block_pattern ) {
+			$pattern_file = trailingslashit( SUKI_INCLUDES_DIR ) . 'block-patterns/' . $block_pattern . '.php';
+
+			register_block_pattern(
+				'suki/' . $block_pattern,
+				require $pattern_file
+			);
+		}
 	}
 
 	/**

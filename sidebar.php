@@ -14,8 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 ob_start();
 ?>
 <!-- wp:group {
-	"tagName":"aside"
-	"className":"sidebar"
+	"tagName":"aside",
+	"className":"sidebar",
+	"style":{
+		"spacing":{
+			"blockGap":"var(--sidebar-widgets-gap)"
+		}
+	}
 } --><aside class="wp-block-group sidebar" aria-label="<?php esc_attr_e( 'Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
 
 	<?php

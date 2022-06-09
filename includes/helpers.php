@@ -329,6 +329,8 @@ function suki_get_current_page_context() {
 		$current_page_context = get_queried_object()->post_type . '_single';
 	} elseif ( is_archive() ) {
 		$current_page_context = get_taxonomy( get_queried_object()->taxonomy )->object_type[0] . '_archive';
+	} elseif ( is_home() ) {
+		$current_page_context = 'post_archive';
 	}
 
 	return $current_page_context;

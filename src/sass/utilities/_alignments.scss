@@ -3,11 +3,11 @@
  */
 
 .alignwide {
-	max-width: min( 100%, var(--content-width--wide) );
+	max-width: min( 100%, var(--content-width--wide) ) !important;
 }
 
 .alignfull {
-	max-width: none;
+	max-width: none !important;
 }
 
 /**

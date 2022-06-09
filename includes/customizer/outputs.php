@@ -1497,7 +1497,7 @@ $add['content_main_border_color'] = array(
 $add['sidebar_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body',
+		'element'  => '.suki-content-sidebar-columns',
 		'property' => '--sidebar-width',
 	),
 );
@@ -1505,7 +1505,7 @@ $add['sidebar_width'] = array(
 $add['sidebar_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => 'body',
+		'element'  => '.suki-content-sidebar-columns',
 		'property' => '--sidebar-gap',
 	),
 );
@@ -1521,8 +1521,8 @@ $add['sidebar_widgets_mode'] = array(
 $add['sidebar_widgets_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar',
-		'property' => 'gap',
+		'element'  => '.suki-content-sidebar-columns',
+		'property' => '--sidebar-widgets-gap',
 	),
 );
 

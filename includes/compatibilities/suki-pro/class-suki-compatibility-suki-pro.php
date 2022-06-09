@@ -414,7 +414,7 @@ class Suki_Compatibility_Suki_Pro {
 
 		// ------
 		$wp_customize->add_section(
-			new Suki_Customize_Section_Spacer(
+			new Suki_Customize_Spacer_Section(
 				$wp_customize,
 				'suki_section_spacer_header_advanced',
 				array(
@@ -452,7 +452,7 @@ class Suki_Compatibility_Suki_Pro {
 
 		// ------
 		$wp_customize->add_section(
-			new Suki_Customize_Section_Spacer(
+			new Suki_Customize_Spacer_Section(
 				$wp_customize,
 				'suki_section_spacer_blog_advanced',
 				array(
@@ -479,7 +479,7 @@ class Suki_Compatibility_Suki_Pro {
 
 		// ------
 		$wp_customize->add_section(
-			new Suki_Customize_Section_Spacer(
+			new Suki_Customize_Spacer_Section(
 				$wp_customize,
 				'suki_section_spacer_woocommerce_advanced',
 				array(

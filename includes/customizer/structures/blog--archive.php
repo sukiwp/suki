@@ -33,7 +33,7 @@ $wp_customize->add_control(
 );
 
 // Posts layout.
-$key = 'blog_index_loop_mode';
+$key = 'post_archive_loop_layout';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -92,7 +92,7 @@ $wp_customize->add_control(
 );
 
 // Navigation mode.
-$key = 'blog_index_navigation_mode';
+$key = 'post_archive_pagination_layout';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -107,8 +107,8 @@ $wp_customize->add_control(
 		'section'  => $section,
 		'label'    => esc_html__( 'Navigation mode', 'suki' ),
 		'choices'  => array(
-			'prev-next'  => esc_html__( 'Prev / Next buttons', 'suki' ),
-			'pagination' => esc_html__( 'Page numbers', 'suki' ),
+			'prev-next'    => esc_html__( 'Previous and Next', 'suki' ),
+			'page-numbers' => esc_html__( 'Page numbers', 'suki' ),
 		),
 		'priority' => 19,
 	)

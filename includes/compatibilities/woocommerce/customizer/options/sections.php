@@ -27,7 +27,7 @@ $wp_customize->get_panel( $panel )->priority = 142;
 
 // ------
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_woocommerce_pages',
 		array(
@@ -68,7 +68,7 @@ $wp_customize->get_section( 'woocommerce_checkout' )->priority = 12;
 
 // ------
 $wp_customize->add_section(
-	new Suki_Customize_Section_Spacer(
+	new Suki_Customize_Spacer_Section(
 		$wp_customize,
 		'suki_section_spacer_woocommerce_general',
 		array(

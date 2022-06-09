@@ -110,10 +110,6 @@
 	--content-width--narrow: 720px;
 	--content-width--wide: 1140px;
 
-	// Sidebar (declared on body to accomodate Gutenberg .editor-styles-wrapper)
-	--sidebar-width: 25%;
-	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) );
-
 	// Transition
 	--transition-duration: 0.25s;
 }

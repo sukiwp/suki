@@ -60,7 +60,12 @@ ob_start();
 	) {
 		?>
 		<!-- wp:group {
-			"className":"entry-header suki-content-header"
+			"className":"entry-header suki-content-header",
+			"style":{
+				"spacing":{
+					"blockGap":"0.75rem"
+				}
+			}
 		} --><div class="wp-block-group entry-header suki-content-header">
 
 			<?php

@@ -72,15 +72,13 @@ function suki_render_layout_support_css( $block_content, $block ) {
 	// Skip if gap value contains unsupported characters.
 	// Regex for CSS value borrowed from `safecss_filter_attr`, and used here
 	// because we only want to match against the value, not the CSS attribute.
-	if ( is_array( $gap_value ) ) {
-		foreach ( $gap_value as $key => $value ) {
-			$gap_value[ $key ] = $value && preg_match( '%[\\\(&=}]|/\*%', $value ) ? null : $value;
-		}
-	} else {
-		$gap_value = $gap_value && preg_match( '%[\\\(&=}]|/\*%', $gap_value ) ? null : $gap_value;
-	}
-
-	$fallback_gap_value = _wp_array_get( $block_type->supports, array( 'spacing', 'blockGap', '__experimentalDefault' ), '0.5em' );
+	// if ( is_array( $gap_value ) ) {
+	// 	foreach ( $gap_value as $key => $value ) {
+	// 		$gap_value[ $key ] = $value && preg_match( '%[\\\(&=}]|/\*%', $value ) ? null : $value;
+	// 	}
+	// } else {
+	// 	$gap_value = $gap_value && preg_match( '%[\\\(&=}]|/\*%', $gap_value ) ? null : $gap_value;
+	// }
 
 	// If a block's block.json skips serialization for spacing or spacing.blockGap,
 	// don't apply the user-defined value to the styles.
@@ -100,19 +98,19 @@ function suki_render_layout_support_css( $block_content, $block ) {
 		 * Group mode
 		 */
 
+		$classes[] = 'suki-container';
+
 		// Children max width.
 		if ( ! empty( $layout['inherit'] ) && $layout['inherit'] ) {
 			/**
 			 * Default content size
 			 */
 
-			$classes[] = 'suki-container';
+			$classes[] = 'suki-container--default';
 		} else {
 			/**
 			 * Custom content size
 			 */
-
-			$classes[] = 'suki-container--custom';
 
 			$content_size = isset( $layout['contentSize'] ) ? $layout['contentSize'] : '';
 			$wide_size    = isset( $layout['wideSize'] ) ? $layout['wideSize'] : '';
@@ -139,9 +137,11 @@ function suki_render_layout_support_css( $block_content, $block ) {
 				$gap_value = isset( $gap_value['top'] ) ? $gap_value['top'] : null;
 			}
 
-			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : 'var( --wp--style--block-gap )';
+			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : null;
 
-			$styles['global'][ ".{$class_name}>*+*" ]['margin-block-start'] = $gap_style;
+			if ( ! empty( $gap_style ) ) {
+				$styles['global'][ ".{$class_name}>*+*" ]['margin-block-start'] = $gap_style;
+			}
 		}
 	} elseif ( 'flex' === $layout_type ) {
 		/**
@@ -186,15 +186,15 @@ function suki_render_layout_support_css( $block_content, $block ) {
 		// Block gap.
 		if ( $has_block_gap_support ) {
 			if ( is_array( $gap_value ) ) {
-				$gap_row    = isset( $gap_value['top'] ) ? $gap_value['top'] : $fallback_gap_value;
-				$gap_column = isset( $gap_value['left'] ) ? $gap_value['left'] : $fallback_gap_value;
+				$gap_row    = isset( $gap_value['top'] ) ? $gap_value['top'] : 'var(--wp--style--block-gap)';
+				$gap_column = isset( $gap_value['left'] ) ? $gap_value['left'] : 'var(--wp--style--block-gap)';
 				$gap_value  = $gap_row === $gap_column ? $gap_row : $gap_row . ' ' . $gap_column;
 			}
-			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : "var( --wp--style--block-gap, $fallback_gap_value )";
+			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : null;
 
-			$styles['global'][ ".{$class_name}" ]['gap'] = $gap_style;
-		} else {
-			$styles['global'][ ".{$class_name}" ]['gap'] = $fallback_gap_value;
+			if ( ! empty( $gap_style ) ) {
+				$styles['global'][ ".{$class_name}" ]['gap'] = $gap_style;
+			}
 		}
 	}
 
@@ -333,7 +333,7 @@ function suki_excerpt_length( $length ) {
 
 	// Posts page.
 	if ( ( is_home() || is_archive() ) && 'post' === get_post_type() ) {
-		$layout = suki_get_theme_mod( 'blog_index_loop_mode' );
+		$layout = suki_get_theme_mod( 'post_archive_query_layout' );
 
 		if ( 'default' === $layout ) {
 			$key = 'entry_excerpt_length';
@@ -341,7 +341,7 @@ function suki_excerpt_length( $length ) {
 			$key = 'entry_' . $layout . '_excerpt_length';
 		}
 
-		return boolval( suki_get_theme_mod( $key, $length ) );
+		return intval( suki_get_theme_mod( $key, $length ) );
 	}
 
 	// Else.
@@ -644,9 +644,9 @@ add_filter( 'suki/frontend/content_classes', 'suki_content_classes' );
  * @return array
  */
 function suki_loop_classes( $classes ) {
-	$classes['mode'] = esc_attr( 'suki-loop-' . suki_get_theme_mod( 'blog_index_loop_mode' ) );
+	$classes['mode'] = esc_attr( 'suki-loop-' . suki_get_theme_mod( 'post_archive_query_layout' ) );
 
-	switch ( suki_get_theme_mod( 'blog_index_loop_mode' ) ) {
+	switch ( suki_get_theme_mod( 'post_archive_query_layout' ) ) {
 		// Default post layout.
 		case 'default':
 			$classes['alignment'] = 'alignfull';

@@ -225,11 +225,16 @@ class Suki_Admin {
 			return;
 		}
 
-		// Build custom CSS.
 		$css_array = array();
+
+		// Add color palette CSS.
 		for ( $i = 1; $i <= 8; $i++ ) {
 			$css_array['global']['.block-editor'][ '--color-palette-' . $i ] = suki_get_theme_mod( 'color_palette_' . $i );
 		}
+
+		// Add sidebar CSS.
+		$css_array['global']['.block-editor']['--sidebar-width'] = suki_get_theme_mod( 'sidebar_width' );
+		$css_array['global']['.block-editor']['--sidebar-gap']   = suki_get_theme_mod( 'sidebar_gap' );
 
 		// Inject inline CSS after the admin.css.
 		wp_register_style( 'suki-block-editor', false, array(), true, true );

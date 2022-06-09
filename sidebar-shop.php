@@ -12,10 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-?>
 <!-- wp:group {
-	"tagName":"aside"
-	"className":"sidebar sidebar-shop"
+	"tagName":"aside",
+	"className":"sidebar",
+	"style":{
+		"spacing":{
+			"blockGap":"var(--sidebar-widgets-gap)"
+		}
+	}
 } --><aside class="wp-block-group sidebar sidebar-shop" aria-label="<?php esc_attr_e( 'Shop Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
 
 	<?php

@@ -4,18 +4,4 @@
 
 .wp-block-group {
 	@include padding-for-has-background();
-
-	@include stretch-alignfull();
-
-	> * {
-		margin-block: 0;
-	}
-
-	> * + * {
-		margin-block-start: var(--wp--style--block-gap);
-	}
-
-	> style:first-child + * {
-		margin-block-start: 0;
-	}
 }

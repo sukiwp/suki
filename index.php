@@ -29,35 +29,9 @@ if ( have_posts() ) {
 	 * Query loop
 	 */
 	?>
-	<!-- wp:query {
-		"query":{
-			"inherit":true
-		},
-		"className":"suki-loop",
-		"layout":{
-			"inherit":true
-		}
-	} --><div class="wp-block-query suki-loop">
-
-		<!-- wp:post-template -->
-
-			<?php
-			/**
-			 * Post entry
-			 */
-			suki_entry( suki_get_current_page_setting( 'loop_layout', 'default' ), true, false );
-			?>
-
-		<!-- /wp:post-template -->
-
-		<?php
-		/**
-		 * Archive navigation
-		 */
-		suki_archive_navigation( true, false );
-		?>
-
-	</div><!-- /wp:query -->
+	<!-- wp:pattern {
+		"slug":"suki/query--<?php echo esc_attr( suki_get_current_page_setting( 'loop_layout', 'default' ) ); ?>"
+	} /-->
 	<?php
 } else {
 	/**

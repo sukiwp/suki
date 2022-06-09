@@ -458,11 +458,11 @@ $add['post_archive_content_header']           = array( 'title', 'archive-descrip
 $add['post_archive_content_header_alignment'] = 'left';
 
 $add['post_archive_loop_layout']     = 'default';
-$add['post_archive_navigation_mode'] = 'pagination';
+$add['post_archive_navigation_mode'] = 'page-numbers';
 
-$add['blog_index_loop_mode']       = 'default';
+$add['post_archive_query_layout']       = 'default';
 $add['blog_index_content_header']  = 0;
-$add['blog_index_navigation_mode'] = 'pagination';
+$add['post_archive_pagination_layout'] = 'page-numbers';
 
 /**
  * ====================================================
@@ -477,7 +477,7 @@ $add['post_single_content_thumbnail_position'] = 'before';
 
 $add['post_single_content_footer']           = array( 'tags', 'hr', 'footer-meta' );
 $add['post_single_content_footer_alignment'] = 'left';
-$add['post_single_content_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
+$add['post_single_content_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' );
 
 $add['blog_single_author_bio'] = 1;
 $add['blog_single_navigation'] = 1;
@@ -504,7 +504,7 @@ $add['entry_read_more_display'] = '';
 
 $add['entry_footer']           = array( 'hr', 'footer-meta' );
 $add['entry_footer_alignment'] = 'left';
-$add['entry_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
+$add['entry_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' );
 
 /**
  * ====================================================
@@ -528,7 +528,7 @@ $add['entry_grid_excerpt_length'] = 30;
 
 $add['entry_grid_footer']           = array( 'hr', 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
-$add['entry_grid_footer_meta']      = esc_html__( 'Posted in {{categories}} &nbsp;&bull;&nbsp; {{comments}}', 'suki' );
+$add['entry_grid_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' );
 
 $add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 

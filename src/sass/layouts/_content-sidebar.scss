@@ -16,6 +16,10 @@
 }
 
 .suki-content-sidebar-columns {
+	--sidebar-width: 25%;
+	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) );
+	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
+
 	display: flex;
 	flex-direction: column;
 	gap: var(--sidebar-gap);
@@ -44,12 +48,6 @@
 		flex-shrink: 0;
 		flex-basis: var(--sidebar-width);
 	}
-}
-
-.sidebar {
-	display: flex;
-	flex-direction: column;
-	gap: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
 }
 
 /**

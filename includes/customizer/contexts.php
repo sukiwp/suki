@@ -190,14 +190,14 @@ $add['footer_bottom_bar_merged_gap'] = array(
 
 $add['blank_edit_entry_default'] = array(
 	array(
-		'setting' => 'blog_index_loop_mode',
+		'setting' => 'post_archive_query_layout',
 		'value'   => 'default',
 	),
 );
 
 $add['blank_edit_entry_grid'] = array(
 	array(
-		'setting' => 'blog_index_loop_mode',
+		'setting' => 'post_archive_query_layout',
 		'value'   => 'grid',
 	),
 );

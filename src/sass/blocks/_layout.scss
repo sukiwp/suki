@@ -4,16 +4,22 @@
 
 .suki-container {
 	> * {
-		max-width: var(--content-width--narrow);
+		margin-block: 0;
 		margin-inline: auto !important;
 	}
-	
-	> .alignwide {
-		max-width: var(--content-width--wide);
+
+	> * + * {
+		margin-block-start: var(--wp--style--block-gap);
 	}
 
-	> .alignfull {
-		max-width: none;
+	> style:first-child + * {
+		margin-block-start: 0;
+	}
+
+	&--default {
+		> * {
+			max-width: var(--content-width--narrow);
+		}
 	}
 }
 

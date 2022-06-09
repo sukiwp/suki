@@ -6,7 +6,7 @@ $props: ( "inline", "block", "top", "right", "bottom", "left" );
 
 $i: 0;
 @while 400 >= $i {
-	$value: ( $i / 100 ) * 1rem;
+	$value: calc( $i / 100 * 1rem );
 
 	.suki-has-margin--#{$i} {
 		margin: #{$value} !important;
@@ -29,7 +29,7 @@ $props: ( "inline", "block", "top", "right", "bottom", "left" );
 
 $i: 0;
 @while 400 >= $i {
-	$value: ( $i / 100 ) * 1rem;
+	$value: calc( $i / 100 * 1rem );
 
 	@if 0 == $i {
 		$value: 0;

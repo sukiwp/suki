@@ -54,12 +54,12 @@
 	display: grid;
 	gap: calc( 3 * var(--wp--style--block-gap) );
 
-	> .wp-block-post + .wp-block-post {
+	> * + * {
 		margin-top: 0; // Reset WordPress generated CSS
 	}
 
 	&.is-flex-container {
-		gap: var(--wp--style--block-gap);
+		gap: calc( 2 * var(--wp--style--block-gap) );
 
 		@media screen and ( min-width: $breakpoint-phone ) {
 			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
@@ -89,9 +89,9 @@
 	}
 }
 
-// .wp-block-post {
-// 	@include block-container();
-// }
+.wp-block-post {
+	@extend .suki-container;
+}
 
 /**
  * Block: Post element
