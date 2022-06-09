@@ -2,7 +2,7 @@
  * Block: Image
  */
 
- .wp-block-image {
+.wp-block-image {
 	overflow: hidden;
 
 	@include stretch-alignfull();
@@ -11,6 +11,10 @@
 		img {
 			border-radius: 9999px;
 		}
+	}
+
+	&.aligncenter {
+		text-align: center;
 	}
 }
 

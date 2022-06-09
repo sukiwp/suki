@@ -2291,6 +2291,9 @@ th {
 .wp-block-image.is-style-rounded img {
 	border-radius: 9999px;
 }
+.wp-block-image.aligncenter {
+	text-align: center;
+}
 
 /**
  * Block: Audio
@@ -4395,7 +4398,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 /**
  * Error 404
  */
-.error404 .site-content {
+.suki-error_404 .suki-content {
 	display: flex;
 	align-items: center;
 }
