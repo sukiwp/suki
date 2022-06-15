@@ -1497,8 +1497,8 @@ $add['content_main_border_color'] = array(
 $add['sidebar_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-sidebar-columns',
-		'property' => '--sidebar-width',
+		'element'  => '.suki-content-sidebar-column',
+		'property' => 'flex-basis',
 	),
 );
 
@@ -1506,7 +1506,7 @@ $add['sidebar_gap'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-content-sidebar-columns',
-		'property' => '--sidebar-gap',
+		'property' => 'gap',
 	),
 );
 
@@ -1521,8 +1521,8 @@ $add['sidebar_widgets_mode'] = array(
 $add['sidebar_widgets_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-sidebar-columns',
-		'property' => '--sidebar-widgets-gap',
+		'element'  => '.sidebar > * + *',
+		'property' => 'margin-top',
 	),
 );
 
@@ -1682,7 +1682,7 @@ $add['footer_widgets_bar_border'] = array(
 $add['footer_widgets_bar_columns_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-bar > .wp-block-columns',
+		'element'  => '.suki-footer-widgets-columns',
 		'property' => 'gap',
 	),
 );
@@ -1690,8 +1690,8 @@ $add['footer_widgets_bar_columns_gap'] = array(
 $add['footer_widgets_bar_widgets_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-column',
-		'property' => 'gap',
+		'element'  => '.suki-footer-widgets-column > * + *',
+		'property' => 'margin-top',
 	),
 );
 

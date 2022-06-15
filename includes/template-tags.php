@@ -347,36 +347,6 @@ if ( ! function_exists( 'suki_social_links' ) ) {
  * ====================================================
  */
 
-if ( ! function_exists( 'suki_header' ) ) {
-	/**
-	 * Render header wrapper.
-	 */
-	function suki_header() {
-		/**
-		 * Hook: suki/frontend/before_header
-		 */
-		do_action( 'suki/frontend/before_header' );
-
-		?>
-		<header id="masthead" class="suki-header site-header" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
-			<?php
-			/**
-			 * Hook: suki/frontend/header
-			 *
-			 * @hooked suki_header_desktop - 10
-			 * @hooked suki_header_mobile - 10
-			 */
-			do_action( 'suki/frontend/header' );
-			?>
-		</header>
-		<?php
-
-		/**
-		 * Hook: suki/frontend/after_header
-		 */
-		do_action( 'suki/frontend/after_header' );
-	}
-}
 
 if ( ! function_exists( 'suki_header_desktop' ) ) {
 	/**
@@ -455,47 +425,6 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 	}
 }
 
-if ( ! function_exists( 'suki_header_element' ) ) {
-	/**
-	 * Wrapper function to print HTML markup for all header element.
-	 *
-	 * @param string $element Element slug.
-	 */
-	function suki_header_element( $element ) {
-		// Abort if element slug is empty.
-		if ( empty( $element ) ) {
-			return;
-		}
-
-		// Classify element into its type.
-		$type = preg_replace( '/-\d$/', '', $element );
-
-		// Add passing variables.
-		$variables = array(
-			'element' => $element,
-		);
-
-		// Get header element template.
-		$html = suki_get_template_part( 'header-element-' . $type, null, $variables, false );
-
-		/**
-		 * Filter: suki/frontend/header_element
-		 *
-		 * @param string $html    HTML markup.
-		 * @param string $element Element slug.
-		 */
-		$html = apply_filters( 'suki/frontend/header_element', $html, $element );
-
-		/**
-		 * Filter: suki/frontend/header_element/{$element}
-		 *
-		 * @param string $html HTML markup.
-		 */
-		$html = apply_filters( 'suki/frontend/header_element/' . $element, $html );
-
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-}
 
 /**
  * ====================================================
@@ -503,134 +432,8 @@ if ( ! function_exists( 'suki_header_element' ) ) {
  * ====================================================
  */
 
-if ( ! function_exists( 'suki_footer' ) ) {
-	/**
-	 * Render footer wrapper.
-	 */
-	function suki_footer() {
-		?>
-		<footer id="colophon" class="suki-footer site-footer" aria-label="<?php esc_attr_e( 'Site Footer', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPFooter">
-			<?php
-			/**
-			 * Hook: suki/frontend/footer
-			 *
-			 * @hooked suki_main_footer - 10
-			 */
-			do_action( 'suki/frontend/footer' );
-			?>
-		</footer>
-		<?php
-	}
-}
 
-if ( ! function_exists( 'suki_main_footer' ) ) {
-	/**
-	 * Render footer sections.
-	 */
-	function suki_main_footer() {
-		// Widgets Bar.
-		suki_footer_widgets();
 
-		// Bottom Bar (if not merged).
-		if ( ! boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
-			suki_footer_bottom();
-		}
-	}
-}
-
-if ( ! function_exists( 'suki_footer_widgets' ) ) {
-	/**
-	 * Render footer widgets area.
-	 */
-	function suki_footer_widgets() {
-		if ( boolval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) {
-			return;
-		}
-
-		// Get widgets area count.
-		$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
-		if ( 1 > $columns ) {
-			return;
-		}
-
-		// Check widgets area.
-		$print_row = 0;
-		for ( $i = 1; $i <= $columns; $i++ ) {
-			if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
-				$print_row = true;
-				break;
-			}
-		}
-
-		// Render the template.
-		suki_get_template_part( 'footer-widgets' );
-	}
-}
-
-if ( ! function_exists( 'suki_footer_bottom' ) ) {
-	/**
-	 * Render footer bottom bar.
-	 */
-	function suki_footer_bottom() {
-		if ( boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) {
-			return;
-		}
-
-		// Count elements on all columns.
-		$count = count( suki_get_theme_mod( 'footer_elements_bottom_left', array() ) ) + count( suki_get_theme_mod( 'footer_elements_bottom_center', array() ) ) + count( suki_get_theme_mod( 'footer_elements_bottom_right', array() ) );
-
-		// Abort if no element found in this section.
-		if ( 1 > $count ) {
-			return;
-		}
-
-		// Render the template.
-		suki_get_template_part( 'footer-bottom' );
-	}
-}
-
-if ( ! function_exists( 'suki_footer_element' ) ) {
-	/**
-	 * Render each footer element.
-	 *
-	 * @param string $element Element slug.
-	 */
-	function suki_footer_element( $element ) {
-		// Abort if element slug is empty.
-		if ( empty( $element ) ) {
-			return;
-		}
-
-		// Classify element into its type.
-		$type = preg_replace( '/-\d$/', '', $element );
-
-		// Add passing variables.
-		$variables = array(
-			'element' => $element,
-			'slug'    => $element,
-		); // $slug is fallback attribute name used prior Suki v1.3.
-
-		// Get footer element template.
-		$html = suki_get_template_part( 'footer-element-' . $type, null, $variables, false );
-
-		/**
-		 * Filter: suki/frontend/footer_element
-		 *
-		 * @param string $html    HTML markup.
-		 * @param string $element Element slug.
-		 */
-		$html = apply_filters( 'suki/frontend/footer_element', $html, $element );
-
-		/**
-		 * Filter: suki/frontend/footer_element/{$element}
-		 *
-		 * @param string $html HTML markup.
-		 */
-		$html = apply_filters( 'suki/frontend/footer_element/' . $element, $html );
-
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-}
 
 
 /**

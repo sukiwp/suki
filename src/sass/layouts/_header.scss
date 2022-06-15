@@ -153,36 +153,45 @@
  * Header row and column
  */
 
- .suki-header-row {
+.suki-header-row {
 	height: 100%; // Fill the vertical space to parent's height
 	gap: var(--items-gap);
+
+	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .suki-header-column {
-	display: flex; // Custom flex layout
-	align-items: stretch; // Fill 100% vertical space
-	gap: var(--items-gap); // Use parent row's gap
-	white-space: nowrap;
+	gap: inherit;
 
-	> * {
-		display: flex;
-		align-items: center; // All children is vertically center aligned
-		margin: 0;
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		white-space: nowrap;
+
+		&--left {
+			flex: 1 1 50%;
+		}
+		
+		&--center {
+			flex: 0 1 auto;
+		}
+		
+		&--right {
+			flex: 1 1 50%;
+		}
 	}
 
-	&-left {
-		flex: 1 1 50%;
-		justify-content: flex-start;
-	}
-	
-	&-center {
-		flex: 0 1 auto;
+	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+		&--empty {
+			display: none;
+		}
+
+		flex: 0 0 100%;
+		flex-direction: column;
 		justify-content: center;
-	}
-	
-	&-right {
-		flex: 1 1 50%;
-		justify-content: flex-end;
+		align-items: center;
 	}
 }
 

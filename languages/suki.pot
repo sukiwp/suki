@@ -17,15 +17,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: index.php:41
-msgid "Nothing found."
-msgstr ""
-
-#: sidebar-shop.php:23
+#: sidebar-shop.php:18
 msgid "Shop Sidebar"
 msgstr ""
 
-#: sidebar.php:24, includes/class-suki.php:255, includes/customizer/structures/content.php:87, includes/customizer/structures/sections.php:423, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
+#: sidebar.php:19, includes/class-suki.php:255, includes/customizer/structures/content.php:87, includes/customizer/structures/sections.php:423, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
 msgid "Sidebar"
 msgstr ""
 
@@ -381,14 +377,6 @@ msgstr ""
 msgid "Add a menu"
 msgstr ""
 
-#: includes/template-tags.php:361
-msgid "Site Header"
-msgstr ""
-
-#: includes/template-tags.php:512
-msgid "Site Footer"
-msgstr ""
-
 #: page-templates/page-builder-with-container.php:3
 msgid "[Theme] Page Builder with Container"
 msgstr ""
@@ -409,7 +397,7 @@ msgstr ""
 msgid "Hero Section"
 msgstr ""
 
-#: template-parts/scroll-to-top.php:16, includes/template-tags/footer.php:33
+#: template-parts/scroll-to-top.php:16, includes/template-tags/footer.php:236
 msgid "Back to Top"
 msgstr ""
 
@@ -533,12 +521,44 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: includes/block-patterns/query--default.php:165
-msgid "Posts Query: Default Layout"
+#: includes/block-patterns/footer--customizer.php:22
+msgid "Site Footer"
 msgstr ""
 
-#: includes/block-patterns/query--grid.php:124
-msgid "Posts Query: Grid Layout"
+#: includes/block-patterns/footer--customizer.php:43
+msgid "[Customizer] Footer"
+msgstr ""
+
+#: includes/block-patterns/footer-bottom--customizer.php:86
+msgid "[Customizer] Footer Bottom"
+msgstr ""
+
+#: includes/block-patterns/footer-widgets--customizer.php:67
+msgid "[Customizer] Footer Widgets"
+msgstr ""
+
+#: includes/block-patterns/header--customizer.php:22
+msgid "Site Header"
+msgstr ""
+
+#: includes/block-patterns/header--customizer.php:37
+msgid "[Customizer] Header Desktop & Mobile"
+msgstr ""
+
+#: includes/block-patterns/header-desktop--customizer.php:71, includes/block-patterns/header-mobile--customizer.php:81
+msgid "[Customizer] Mobile Header"
+msgstr ""
+
+#: includes/block-patterns/query--default--customizer.php:162, includes/block-patterns/query--grid--customizer.php:121
+msgid "Nothing found."
+msgstr ""
+
+#: includes/block-patterns/query--default--customizer.php:171
+msgid "[Customizer] Posts Query: Default Layout"
+msgstr ""
+
+#: includes/block-patterns/query--grid--customizer.php:130
+msgid "[Customizer] Posts Query: Grid Layout"
 msgstr ""
 
 #: includes/block-patterns/query-pagination--page-numbers.php:35
@@ -873,27 +893,27 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: includes/customizer/defaults.php:223
+#: includes/customizer/defaults.php:223, includes/customizer/defaults.php:422
 msgid "Insert HTML text here"
 msgstr ""
 
-#: includes/customizer/defaults.php:422
+#: includes/customizer/defaults.php:430
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:480, includes/customizer/defaults.php:507, includes/customizer/defaults.php:531
+#: includes/customizer/defaults.php:488, includes/customizer/defaults.php:515, includes/customizer/defaults.php:539
 msgid "Posted in {{categories}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:567
+#: includes/customizer/defaults.php:575
 msgid "Oops! That page can not be found"
 msgstr ""
 
-#: includes/customizer/defaults.php:568
+#: includes/customizer/defaults.php:576
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
-#: includes/customizer/defaults.php:571
+#: includes/customizer/defaults.php:579
 msgid "Back to Home"
 msgstr ""
 

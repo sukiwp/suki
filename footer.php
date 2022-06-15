@@ -20,7 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			/**
 			 * Footer
 			 */
-			suki_footer();
+			echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				'
+				<!-- wp:pattern {
+					"slug":"suki/footer--customizer"
+				} /-->
+				'
+			);
 
 			/**
 			 * Hook: suki/frontend/after_footer

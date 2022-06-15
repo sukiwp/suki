@@ -502,8 +502,14 @@ class Suki {
 	public function register_block_patterns() {
 		$block_patterns = array(
 			'comments',
-			'query--default',
-			'query--grid',
+			'header--customizer',
+			'header-desktop--customizer',
+			'header-mobile--customizer',
+			'footer--customizer',
+			'footer-widgets--customizer',
+			'footer-bottom--customizer',
+			'query--default--customizer',
+			'query--grid--customizer',
 			'query-pagination--page-numbers',
 			'query-pagination--prev-next',
 		);

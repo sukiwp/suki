@@ -54,16 +54,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 				"inherit":true
 			}
 		} --><div id="hero" class="wp-block-group alignfull suki-hero <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'hero_container' ) ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
-			<?php
-			/**
-			 * Hook: suki/frontend/before_hero
-			 */
-			do_action( 'suki/frontend/before_hero' );
 
-			/**
-			 * Content header
-			 */
-			?>
 			<!-- wp:group {
 				"className":"suki-content-header <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'hero_container' ) ); ?>"
 			} --><div class="wp-block-group suki-content-header">
@@ -75,13 +66,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 				?>
 
 			</div><!-- /wp:group -->
-			<?php
 
-			/**
-			 * Hook: suki/frontend/after_hero
-			 */
-			do_action( 'suki/frontend/after_hero' );
-			?>
 		</div><!-- /wp:group -->
 		<?php
 		$html = ob_get_clean();

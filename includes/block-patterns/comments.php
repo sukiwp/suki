@@ -25,14 +25,14 @@ ob_start();
 		} --><div class="wp-block-group">
 
 			<!-- wp:group {
-				"layout":{
-					"type":"flex",
-					"flexWrap":"nowrap"
-				},
 				"style":{
 					"spacing":{
 						"blockGap":"1rem"
 					}
+				},
+				"layout":{
+					"type":"flex",
+					"flexWrap":"nowrap"
 				}
 			} --><div class="wp-block-group">
 
@@ -91,12 +91,12 @@ ob_start();
 
 	<!-- wp:comments-pagination {
 		"paginationArrow":"arrow",
+		"className":"suki-comments__pagination",
 		"layout":{
 			"type":"flex",
 			"orientation":"horizontal",
 			"justifyContent":"center"
-		},
-		"className":"suki-comments__pagination"
+		}
 	} -->
 
 		<!-- wp:comments-pagination-previous {

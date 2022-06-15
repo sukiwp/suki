@@ -6,7 +6,7 @@
 	--background-color: var(--color-palette-7); // CUSTOMIZER
 
 	padding: 60px 20px; // CUSTOMIZER
-
+	
 	// Color declarations
 	background-color: var(--background-color);
 	color: var(--text-color);
@@ -15,7 +15,10 @@
 	&-column {
 		display: flex;
 		flex-direction: column;
-		gap: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+
+		> * + * {
+			margin-top: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+		}
 	}
 }
 
@@ -36,50 +39,43 @@
  */
 
 .suki-footer-row {
+	gap: var(--items-gap);
+
 	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
-		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
 .suki-footer-column {
-	display: flex;
-	flex-direction: column;
 	gap: inherit;
 
-	> * {
-		display: flex;
-		align-items: center; // All children is vertically center aligned
-		justify-content: center;
-		text-align: center;
-		margin: 0;
-	}
-
 	@media screen and ( min-width: $breakpoint-tablet ) {
-		flex-direction: row;
 		white-space: nowrap;
 
-		&-left {
+		&--left {
 			flex: 1 1 50%;
-			justify-content: flex-start;
-			text-align: left;
 		}
 		
-		&-center {
+		&--center {
 			flex: 0 1 auto;
-			justify-content: center;
-			text-align: center;
 		}
 		
-		&-right {
+		&--right {
 			flex: 1 1 50%;
-			justify-content: flex-end;
-			text-align: right;
 		}
 	}
 
 	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+		&--empty {
+			display: none;
+		}
+
+		flex: 0 0 100%;
+		flex-direction: column;
 		justify-content: center;
-		flex-basis: 100% !important; // Use !important to override default wp-block-columns behavior
+		align-items: center;
 	}
 }
 

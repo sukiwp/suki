@@ -24,23 +24,11 @@ suki_hero();
  * Content
  */
 ob_start();
-if ( have_posts() ) {
-	/**
-	 * Query loop
-	 */
-	?>
-	<!-- wp:pattern {
-		"slug":"suki/query--<?php echo esc_attr( suki_get_current_page_setting( 'loop_layout', 'default' ) ); ?>"
-	} /-->
-	<?php
-} else {
-	/**
-	 * No items found.
-	 */
-	?>
-	<!-- wp:paragraph --><p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p><!-- /wp:paragraph -->
-	<?php
-}
+?>
+<!-- wp:pattern {
+	"slug":"suki/query--<?php echo esc_attr( suki_get_current_page_setting( 'loop_layout', 'default' ) ); ?>--customizer"
+} /-->
+<?php
 suki_content( ob_get_clean() );
 
 /**

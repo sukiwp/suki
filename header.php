@@ -45,6 +45,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php
 			/**
+			 * Hook: suki/frontend/before_header
+			 */
+			do_action( 'suki/frontend/before_header' );
+
+			/**
 			 * Header
 			 */
 			suki_header();
+
+			/**
+			 * Hook: suki/frontend/after_header
+			 */
+			do_action( 'suki/frontend/after_header' );

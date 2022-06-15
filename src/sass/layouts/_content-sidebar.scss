@@ -16,13 +16,9 @@
 }
 
 .suki-content-sidebar-columns {
-	--sidebar-width: 25%;
-	--sidebar-gap: calc( 2 * var(--wp--style--block-gap) );
-	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
-
 	display: flex;
 	flex-direction: column;
-	gap: var(--sidebar-gap);
+	gap: calc( 2 * var(--wp--style--block-gap) ); // CUSTOMIZER
 	
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		display: flex;
@@ -46,7 +42,13 @@
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: var(--sidebar-width);
+		flex-basis: 25%; // CUSTOMIZER
+	}
+}
+
+.sidebar {
+	> * + * {
+		margin-top: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
 	}
 }
 

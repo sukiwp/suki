@@ -1,6 +1,6 @@
 <?php
 /**
- * Posts Query: Grid Layout
+ * [Customizer] Posts Query: Grid Layout
  *
  * @package Suki
  */
@@ -116,12 +116,18 @@ $thumbnail_block = '
 		"slug":"suki/query-pagination--<?php echo esc_attr( suki_get_theme_mod( 'post_archive_pagination_layout' ) ); ?>"
 	} /-->
 
+	<!-- wp:query-no-results -->
+		<!-- wp:paragraph -->
+		<p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p>
+		<!-- /wp:paragraph -->
+	<!-- /wp:query-no-results -->
+
 </div><!-- /wp:query -->
 <?php
 $content = ob_get_clean();
 
 return array(
-	'title'      => esc_html__( 'Posts Query: Grid Layout', 'suki' ),
+	'title'      => esc_html__( '[Customizer] Posts Query: Grid Layout', 'suki' ),
 	'categories' => array( 'query' ),
 	'blockTypes' => array( 'core/query' ),
 	'content'    => $content,
