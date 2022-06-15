@@ -537,11 +537,7 @@ msgstr ""
 msgid "[Customizer] Footer Widgets"
 msgstr ""
 
-#: includes/block-patterns/header--customizer.php:22
-msgid "Site Header"
-msgstr ""
-
-#: includes/block-patterns/header--customizer.php:37
+#: includes/block-patterns/header--customizer.php:9
 msgid "[Customizer] Header Desktop & Mobile"
 msgstr ""
 
@@ -831,33 +827,33 @@ msgstr ""
 msgid "Inactive elements"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:822, includes/customizer/structures/sections.php:689
+#: includes/customizer/class-suki-customizer.php:833, includes/customizer/structures/sections.php:689
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:827, includes/customizer/structures/sections.php:699
+#: includes/customizer/class-suki-customizer.php:838, includes/customizer/structures/sections.php:699
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:836, includes/customizer/structures/sections.php:679
+#: includes/customizer/class-suki-customizer.php:847, includes/customizer/structures/sections.php:679
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:841, includes/customizer/structures/sections.php:616
+#: includes/customizer/class-suki-customizer.php:852, includes/customizer/structures/sections.php:616
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:846, includes/customizer/structures/sections.php:646
+#: includes/customizer/class-suki-customizer.php:857, includes/customizer/structures/sections.php:646
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:859
+#: includes/customizer/class-suki-customizer.php:870
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:865
+#: includes/customizer/class-suki-customizer.php:876
 msgid "Single %s Page"
 msgstr ""
 
@@ -893,27 +889,27 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: includes/customizer/defaults.php:223, includes/customizer/defaults.php:422
+#: includes/customizer/defaults.php:223, includes/customizer/defaults.php:423
 msgid "Insert HTML text here"
 msgstr ""
 
-#: includes/customizer/defaults.php:430
+#: includes/customizer/defaults.php:431
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:488, includes/customizer/defaults.php:515, includes/customizer/defaults.php:539
+#: includes/customizer/defaults.php:489, includes/customizer/defaults.php:516, includes/customizer/defaults.php:540
 msgid "Posted in {{categories}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:575
+#: includes/customizer/defaults.php:576
 msgid "Oops! That page can not be found"
 msgstr ""
 
-#: includes/customizer/defaults.php:576
+#: includes/customizer/defaults.php:577
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
-#: includes/customizer/defaults.php:579
+#: includes/customizer/defaults.php:580
 msgid "Back to Home"
 msgstr ""
 

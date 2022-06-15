@@ -1180,18 +1180,16 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
     })), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlDescription__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
     }, control.params.description), Object.keys(control.params.responsiveStructures).map(function (device) {
+      var _value$, _value$2, _value$3, _value$4;
+
       var settingId = control.params.responsiveStructures[device];
-      var valueString = control.settings[settingId].get(); // Split value into array.
+      var value = control.settings[settingId].get();
 
-      var valueSplit = valueString.split(' ', 4); // Set default value array to 4 items and blank values.
+      if ('string' === typeof value) {
+        value = value.split(' ');
+      }
 
-      var valueArray = ['', '', '', '']; // Iterate through the splitted values and set the value array.
-
-      valueArray.forEach(function (subValue, i) {
-        var _valueSplit$i;
-
-        valueArray[i] = (_valueSplit$i = valueSplit[i]) !== null && _valueSplit$i !== void 0 ? _valueSplit$i : '';
-      });
+      var valueArray = [(_value$ = value[0]) !== null && _value$ !== void 0 ? _value$ : '', (_value$2 = value[1]) !== null && _value$2 !== void 0 ? _value$2 : '', (_value$3 = value[2]) !== null && _value$3 !== void 0 ? _value$3 : '', (_value$4 = value[3]) !== null && _value$4 !== void 0 ? _value$4 : ''];
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SukiControlResponsiveContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
         key: device,
         device: device
@@ -1223,26 +1221,9 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
           className: "suki-dimension",
           onChange: function onChange(newSubValue) {
             newSubValue = isNaN(parseFloat(newSubValue)) ? '' : newSubValue;
-            valueArray[i] = newSubValue;
-            /**
-             * If all subvalues are '', value will be '',
-             * If at least one of the subvalues is a dimension value, convert the other '' subvalues into '0'.
-             */
+            valueArray[i] = newSubValue; // control.settings[ settingId ].set( '' );
 
-            var newValue = valueArray.join(' ').trim();
-
-            if ('' !== newValue.trim()) {
-              valueArray = valueArray.map(function (valueArrayItem) {
-                if ('' === valueArrayItem) {
-                  return '0';
-                } else {
-                  return valueArrayItem;
-                }
-              });
-              newValue = valueArray.join(' ').trim();
-            }
-
-            control.settings[settingId].set(newValue);
+            control.settings[settingId].set(valueArray);
           }
         });
       })));

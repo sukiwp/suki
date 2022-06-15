@@ -43,18 +43,18 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 				{ Object.keys( control.params.responsiveStructures ).map( ( device ) => {
 					const settingId = control.params.responsiveStructures[ device ];
 
-					let valueString = control.settings[ settingId ].get();
+					let value = control.settings[ settingId ].get();
 
-					// Split value into array.
-					let valueSplit = valueString.split( ' ', 4 );
-					
-					// Set default value array to 4 items and blank values.
-					let valueArray = [ '', '', '', '' ];
-					
-					// Iterate through the splitted values and set the value array.
-					valueArray.forEach( ( subValue, i ) => {
-						valueArray[i] = valueSplit[i] ?? '';
-					} )
+					if ( 'string' === typeof value ) {
+						value = value.split( ' ' );
+					}
+
+					const valueArray = [
+						value[0] ?? '',
+						value[1] ?? '',
+						value[2] ?? '',
+						value[3] ?? '',
+					];
 					
 					return (
 						<SukiControlResponsiveContainer
@@ -93,26 +93,8 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 
 												valueArray[i] = newSubValue;
 
-												/**
-												 * If all subvalues are '', value will be '',
-												 * If at least one of the subvalues is a dimension value, convert the other '' subvalues into '0'.
-												 */
-
-												let newValue = valueArray.join( ' ' ).trim();
-
-												if ( '' !== newValue.trim() ) {
-													valueArray = valueArray.map( ( valueArrayItem ) => {
-														if ( '' === valueArrayItem ) {
-															return '0';
-														} else {
-															return valueArrayItem;
-														}
-													} );
-
-													newValue = valueArray.join( ' ' ).trim();
-												}
-												
-												control.settings[ settingId ].set( newValue );
+												// control.settings[ settingId ].set( '' );
+												control.settings[ settingId ].set( valueArray );
 											} }
 										/>
 									);

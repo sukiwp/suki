@@ -10,7 +10,7 @@
 	// Color declarations
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border-color: var(--border-color);
+	border: 0 solid var(--border-color);
 
 	&-column {
 		display: flex;
@@ -31,7 +31,7 @@
 	// Color declarations
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border-color: var(--border-color);
+	border: 0 solid var(--border-color);
 }
 
 /**

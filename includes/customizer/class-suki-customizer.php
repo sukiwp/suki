@@ -600,6 +600,17 @@ class Suki_Customizer {
 			$rule['pattern'] = '$';
 		}
 
+		// Convert array value into string.
+		if ( is_array( $setting_value ) ) {
+			foreach ( $setting_value as $i => $subvalue ) {
+				if ( '' === $subvalue ) {
+					$setting_value[ $i ] = '0';
+				}
+			}
+
+			$setting_value = implode( ' ', $setting_value );
+		}
+
 		// Check if there is function attached.
 		if ( isset( $rule['function'] ) && isset( $rule['function']['name'] ) ) {
 			// Apply function to the original value.
@@ -661,8 +672,8 @@ class Suki_Customizer {
 			/**
 			 * Chunks
 			 *
-			 * 0 => fonts group.
-			 * 1 =>
+			 * 0 => group.
+			 * 1 => font name.
 			 */
 			$chunks = explode( '|', $setting_value );
 

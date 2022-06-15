@@ -4424,7 +4424,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 	padding: 60px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border-color: var(--border-color);
+	border: 0 solid var(--border-color);
 }
 .suki-footer-widgets-bar-column {
 	display: flex;
@@ -4440,7 +4440,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 	padding: 25px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border-color: var(--border-color);
+	border: 0 solid var(--border-color);
 }
 
 /**

@@ -127,14 +127,19 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Dimensions value
 	 *
-	 * @param string               $value   Setting value.
+	 * @param array                $value   Setting value.
 	 * @param WP_Customize_Setting $setting Customizer setting object.
-	 * @return string
+	 * @return array
 	 */
 	public static function dimensions( $value, $setting ) {
-		// Check if there is no value in top, right, bottom, left properties, then return empty string (without unit).
-		if ( '' === trim( $value ) ) {
-			return '';
+		// Check if value is not array, return empty array.
+		if ( ! is_array( $value ) ) {
+			return array( '', '', '', '' );
+		}
+
+		// Check if properties count is less than 4, return empty string.
+		if ( 4 > count( $value ) ) {
+			return array( '', '', '', '' );
 		}
 
 		// Get control ID, support for reponsive control.
@@ -143,20 +148,10 @@ class Suki_Customizer_Sanitization {
 		// Get the control object associated with the setting.
 		$control = $setting->manager->get_control( $control_id );
 
-		// Elaborate each property.
-		// Check if properties count is less than 4, return empty string.
-		$props = explode( ' ', $value );
-		if ( 4 > count( $props ) ) {
-			return '';
-		}
-
 		// Validate each property.
 		for ( $i = 0; $i < 4; $i++ ) {
-			$props[ $i ] = self::validate_dimension( $props[ $i ], $control->units );
+			$value[ $i ] = self::validate_dimension( $value[ $i ], $control->units );
 		}
-
-		// Build new value.
-		$value = implode( ' ', $props );
 
 		return $value;
 	}
