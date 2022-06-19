@@ -1,4 +1,14 @@
 /**
+ * Header
+ */
+
+.suki-header {
+	> * + * {
+		margin-block-start: 0; // Reset
+	}
+}
+
+/**
  * Desktop header
  */
 
@@ -155,16 +165,12 @@
 
 .suki-header-row {
 	height: 100%; // Fill the vertical space to parent's height
+	align-items: stretch;
 	gap: var(--items-gap);
-
-	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
 }
 
 .suki-header-column {
+	align-items: inherit;
 	gap: inherit;
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
@@ -192,6 +198,12 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+
+	> * {
+		display: flex;
+		align-items: center;
+		gap: inherit;
 	}
 }
 
@@ -235,137 +247,22 @@
 }
 
 /**
- * Global menu
+ * Header element: Menu
  */
 
-.menu {
-	// Reset
-	list-style: none;
-	margin: 0;
-	padding: 0;
+// Horizontal menu
+.suki-header-row {
+	.menu {
+		align-items: inherit;
+		gap: inherit;
+	}
 
-	position: relative; // Used for sub menu positioning
-	display: flex;
-	align-items: center;
-	gap: var(--items-gap, --wp--style--block-gap);
-
-	> .menu-item {
-		position: relative;
-		display: flex;
+	.menu-item {
 		align-items: center;
 	}
 
 	.suki-menu-item-link {
-		display: inline-flex;
-		align-items: center;
-	}
-
-	.suki-dropdown-sign {
-		margin-left: 0.5em;
-	}
-
-	.sub-menu {
-		.menu-item {
-			position: relative; // Used for sub menu positioning
-		}
-
-		.suki-menu-item-link {
-			display: inline-flex;
-			padding: calc( 0.5 * var(--spacing) ) calc( 2 * var(--spacing) );
-		}
-
-		.suki-dropdown-sign {
-			margin-left: 0.75em;
-			margin-right: -0.75em;
-		}
-	}
-}
-
-.sub-menu {
-	--spacing: 0.5em;
-
-	position: absolute;
-	z-index: 1;
-	top: 100%;
-	left: 0;
-	list-style: none;
-	min-width: 100%;
-	width: max-content;
-	max-width: 20rem;
-	margin: 0;
-	padding: var(--spacing) 0;
-	background-color: var(--background-color);
-	color: var(--text-color);
-	box-shadow: 0 0.1rem 1rem rgba(0,0,0,0.1);
-	
-	// Hide on normal state
-	@include hide();
-
-	&.suki-sub-menu-edge {
-		left: auto; // Reset
-		right: 0; // Right value will be filled by JS
-	}
-
-	.sub-menu {
-		top: 0;
-		left: 100%;
-		margin-top: calc( -1 * var(--spacing) );
-
-		// Prevent the menu from disappearing when the mouse is over the gap
-		&:before {
-			content: "";
-			position: absolute;
-			right: 100%;
-			height: 100%;
-			display: block;
-			width: 0.5em;
-			background: transparent;
-		}
-
-		&.suki-sub-menu-right {
-			left: auto;
-			right: 100%;
-
-			// Prevent the menu from disappearing when the mouse is over the gap
-			&:before {
-				content: "";
-				position: absolute;
-				right: auto;
-				left: 100%;
-				height: 100%;
-				display: block;
-				width: 0.5em;
-				background: transparent;
-			}
-		}
-	}
-
-	.suki-hover-menu .menu-item:hover > &, // Desktop mouse
-	.menu-item.focus > & { // Keyboard tab and mobile tap
-		// Show on focus state
-		@include show();
-	}
-}
-
-/**
- * Menu icon
- */
-
-.suki-menu-icon {
-	font-size: var(--menu-icon-size, 1.15em);
-}
-
-/**
- * Header element: Menu
- */
-
- .suki-header-section {
-	.menu {
-		height: 100%; // Always fill the vertical space
-	
-		> .menu-item {
-			height: 100%; // Always fill the vertical space
-		}
+		align-items: inherit;
 	}
 }
 

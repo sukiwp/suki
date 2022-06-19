@@ -791,14 +791,14 @@ function suki_get_header_mobile_builder_configurations() {
 				'search-bar'             => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
 				'search-dropdown'        => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Icon', 'suki' ),
 				'social'                 => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
-				'mobile-vertical-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
+				'mobile-popup-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
 			),
 			'limitations' => array(
 				'mobile-logo'            => array( 'vertical_top' ),
 				'mobile-menu'            => array( 'main_left', 'main_center', 'main_right' ),
 				'search-bar'             => array( 'main_left', 'main_center', 'main_right' ),
 				'search-dropdown'        => array( 'vertical_top' ),
-				'mobile-vertical-toggle' => array( 'vertical_top' ),
+				'mobile-popup-toggle' => array( 'vertical_top' ),
 			),
 		)
 	);

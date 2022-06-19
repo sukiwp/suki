@@ -14,17 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?>
-<nav class="<?php echo esc_attr( 'suki-footer-' . $element ); ?> suki-footer-menu site-navigation" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php /* translators: %s: menu number. */ echo esc_attr( sprintf( esc_html__( 'Footer Menu %s', 'suki' ), str_replace( 'menu-', '', $element ) ) ); ?>">
-	<?php
-	wp_nav_menu(
-		array(
-			'theme_location' => 'footer-' . $element,
-			'menu_class'     => 'menu',
-			'container'      => false,
-			'depth'          => -1,
-			'fallback_cb'    => 'suki_unassigned_menu',
-		)
-	);
-	?>
-</nav>
+wp_nav_menu(
+	array(
+		'theme_location' => 'footer-' . $element,
+		'menu_class'     => 'suki-footer-' . $element . ' suki-footer-menu menu',
+		'container'      => false,
+		'depth'          => -1,
+		'fallback_cb'    => 'suki_unassigned_menu',
+		/* translators: %s: menu number. */
+		'items_wrap'     => '<ul class="%2$s" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="' . sprintf( esc_attr__( 'Footer Menu %s', 'suki' ), str_replace( 'menu-', '', $element ) ) . '">%3$s</ul>',
+	)
+);

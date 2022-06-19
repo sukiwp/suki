@@ -23,5 +23,5 @@ $copyright = str_replace( '{{theme_author}}', '<a href="' . suki_get_theme_info(
 
 ?>
 <div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
-	<div class="suki-footer-copyright-content"><?php echo do_shortcode( $copyright ); ?></div>
+	<?php echo do_shortcode( $copyright ); ?>
 </div>

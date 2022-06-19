@@ -55,10 +55,10 @@
 	gap: calc( 3 * var(--wp--style--block-gap) );
 
 	> * + * {
-		margin-top: 0; // Reset WordPress generated CSS
+		margin-block-start: 0; // Reset WordPress generated CSS
 	}
 
-	&.is-flex-container {
+	&:where(.is-flex-container) {
 		gap: calc( 2 * var(--wp--style--block-gap) );
 
 		@media screen and ( min-width: $breakpoint-phone ) {

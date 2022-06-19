@@ -314,7 +314,7 @@ class Suki_Customizer {
 						'lineHeight'       => esc_html__( 'Line Height', 'suki' ),
 						'letterSpacing'    => esc_html__( 'Spacing', 'suki' ),
 
-						'weight100'        => esc_html__( 'Thin' ),
+						'weight100'        => esc_html__( 'Thin', 'suki' ),
 						'weight200'        => esc_html__( 'Extra Light', 'suki' ),
 						'weight300'        => esc_html__( 'Light', 'suki' ),
 						'weight400'        => esc_html__( 'Regular', 'suki' ),

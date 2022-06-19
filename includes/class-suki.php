@@ -75,9 +75,6 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
-		// Block patterns.
-		add_action( 'init', array( $this, 'register_block_patterns' ) );
-
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
 			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
@@ -93,11 +90,6 @@ class Suki {
 
 		// Template functions.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags.php';
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/header.php';
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/hero.php';
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/footer.php';
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/content.php';
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/post.php';
 
 		// Template filters and hooks.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-actions.php';
@@ -494,34 +486,6 @@ class Suki {
 		}
 
 		return $css;
-	}
-
-	/**
-	 * Register block patterns.
-	 */
-	public function register_block_patterns() {
-		$block_patterns = array(
-			'comments',
-			'header--customizer',
-			'header-desktop--customizer',
-			'header-mobile--customizer',
-			'footer--customizer',
-			'footer-widgets--customizer',
-			'footer-bottom--customizer',
-			'query--default--customizer',
-			'query--grid--customizer',
-			'query-pagination--page-numbers',
-			'query-pagination--prev-next',
-		);
-
-		foreach ( $block_patterns as $block_pattern ) {
-			$pattern_file = trailingslashit( SUKI_INCLUDES_DIR ) . 'block-patterns/' . $block_pattern . '.php';
-
-			register_block_pattern(
-				'suki/' . $block_pattern,
-				require $pattern_file
-			);
-		}
 	}
 
 	/**

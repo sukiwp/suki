@@ -23,13 +23,9 @@ suki_hero();
 /**
  * Content
  */
-ob_start();
-?>
-<!-- wp:pattern {
-	"slug":"suki/query--<?php echo esc_attr( suki_get_current_page_setting( 'loop_layout', 'default' ) ); ?>--customizer"
-} /-->
-<?php
-suki_content( ob_get_clean() );
+suki_content(
+	suki_loop( suki_get_current_page_setting( 'loop_layout', 'default' ), false, false )
+);
 
 /**
  * Footer template

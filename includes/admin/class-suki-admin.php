@@ -233,8 +233,8 @@ class Suki_Admin {
 		}
 
 		// Add sidebar CSS.
-		$css_array['global']['.block-editor']['--sidebar-width'] = suki_get_theme_mod( 'sidebar_width' );
-		$css_array['global']['.block-editor']['--sidebar-gap']   = suki_get_theme_mod( 'sidebar_gap' );
+		$css_array['global']['.editor-styles-wrapper']['--sidebar-width'] = suki_get_theme_mod( 'sidebar_width', '25%' );
+		$css_array['global']['.editor-styles-wrapper']['--sidebar-gap']   = suki_get_theme_mod( 'sidebar_gap', 'calc( 2 * var(--wp--style--block-gap) )' );
 
 		// Inject inline CSS after the admin.css.
 		wp_register_style( 'suki-block-editor', false, array(), true, true );

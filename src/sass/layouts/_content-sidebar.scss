@@ -48,13 +48,26 @@
 
 .sidebar {
 	> * + * {
-		margin-top: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
 	}
 }
+
+// .suki-content-header,
+// .suki-content-footer {
+// 	> * + * {
+// 		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
+// 	}
+// }
 
 /**
  * Loop
  */
+
+.suki-loop {
+	&:not(:first-child) {
+		margin-top: calc( 3 * var(--wp--style--block-gap) );
+	}
+}
 
 .suki-loop-grid {
 	align-items: start;

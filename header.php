@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'suki/frontend/before_canvas' );
 		?>
 
-		<div id="page" class="suki-canvas site">
+		<div id="page" class="suki-canvas site wp-site-blocks">
 
 			<?php
 			/**

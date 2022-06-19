@@ -10,7 +10,11 @@
 	flex-direction: column;
 	width: min( 100%, var(--canvas-width) );
 	min-height: inherit; // full screen height page
-	background-color: var(--color-palette-8); // CUSTOMIZER:
+	background-color: var(--color-palette-8); // CUSTOMIZER
+
+	> * + * {
+		margin-block-start: 0; // reset `.wp-site-blocks`
+	}
 }
 
 .suki-page-layout-boxed {

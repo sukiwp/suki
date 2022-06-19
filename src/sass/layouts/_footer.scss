@@ -17,7 +17,7 @@
 		flex-direction: column;
 
 		> * + * {
-			margin-top: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
 		}
 	}
 }
@@ -76,6 +76,17 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+}
+
+/**
+ * Footer element: Menu
+ */
+
+// Horizontal menu
+.suki-header-row {
+	.menu {
+		gap: inherit;
 	}
 }
 

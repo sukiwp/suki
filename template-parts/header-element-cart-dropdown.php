@@ -78,25 +78,26 @@ if ( '' !== $amount_position ) {
 			<?php
 		}
 		?>
-				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 
-				<?php
-				if ( 'before' === $amount_position ) {
-					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				}
-				?>
+		<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
 
-				<span class="cart-icon">
-					<?php suki_icon( 'cart', array( 'class' => 'suki-menu-icon' ) ); ?>
-				</span>
+		<?php
+		if ( 'before' === $amount_position ) {
+			echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+		?>
 
-				<span class="cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+		<span class="cart-icon">
+			<?php suki_icon( 'cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+		</span>
 
-				<?php
-				if ( 'after' === $amount_position ) {
-					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				}
-				?>
+		<span class="cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+
+		<?php
+		if ( 'after' === $amount_position ) {
+			echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+		?>
 
 		<?php
 		if ( $is_dropdown ) {

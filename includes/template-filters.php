@@ -72,13 +72,13 @@ function suki_render_layout_support_css( $block_content, $block ) {
 	// Skip if gap value contains unsupported characters.
 	// Regex for CSS value borrowed from `safecss_filter_attr`, and used here
 	// because we only want to match against the value, not the CSS attribute.
-	// if ( is_array( $gap_value ) ) {
-	// 	foreach ( $gap_value as $key => $value ) {
-	// 		$gap_value[ $key ] = $value && preg_match( '%[\\\(&=}]|/\*%', $value ) ? null : $value;
-	// 	}
-	// } else {
-	// 	$gap_value = $gap_value && preg_match( '%[\\\(&=}]|/\*%', $gap_value ) ? null : $gap_value;
-	// }
+	if ( is_array( $gap_value ) ) {
+		foreach ( $gap_value as $key => $value ) {
+			$gap_value[ $key ] = $value && preg_match( '%[\\\(&=}]|/\*%', $value ) ? null : $value;
+		}
+	} else {
+		$gap_value = $gap_value && preg_match( '%[\\\(&=}]|/\*%', $gap_value ) ? null : $gap_value;
+	}
 
 	// If a block's block.json skips serialization for spacing or spacing.blockGap,
 	// don't apply the user-defined value to the styles.
@@ -239,7 +239,8 @@ function suki_render_layout_support_css( $block_content, $block ) {
 add_filter( 'render_block', 'suki_render_layout_support_css', 10, 2 );
 
 // Remove the original layout filter.
-remove_filter( 'render_block', 'wp_render_layout_support_flag', 10 );
+remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10 );
+remove_filter( 'render_block', 'wp_render_layout_support_flag', 10 ); // Gutenberg plugin.
 
 /**
  * ====================================================
@@ -423,11 +424,9 @@ add_filter( 'nav_menu_item_title', 'suki_nav_menu_item_title', 99, 4 );
  * @param integer  $depth Menu item depth in the menu hierarchy.
  */
 function suki_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
-	if ( ! isset( $atts['class'] ) ) {
-		$atts['class'] = '';
-	}
+	$atts['class'] = 'suki-menu-item-link' . ( isset( $atts['class'] ) ? ' ' . $atts['class'] : '' );
 
-	$atts['class'] = 'suki-menu-item-link ' . $atts['class'];
+	$atts['itemprop'] = 'url';
 
 	return $atts;
 }

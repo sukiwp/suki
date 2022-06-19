@@ -20,11 +20,11 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 	 * @param string  $element   Element slug.
 	 * @param string  $layout    Layout slug.
 	 * @param string  $alignment Element alignment (left, center, or right).
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_entry_header_footer_element( $element, $layout = 'default', $alignment = 'left', $echo = true, $do_blocks = true ) {
+	function suki_entry_header_footer_element( $element, $layout = 'default', $alignment = 'left', $do_blocks = true, $echo = true ) {
 		// Set fallback layout to "default".
 		if ( empty( $layout ) ) {
 			$layout = 'default';
@@ -103,11 +103,11 @@ if ( ! function_exists( 'suki_entry_thumbnail' ) ) {
 	/**
 	 * Render entry thumbnail.
 	 *
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_entry_thumbnail( $echo = true, $do_blocks = true ) {
+	function suki_entry_thumbnail( $do_blocks = true, $echo = true ) {
 		$size = suki_get_theme_mod( 'entry_thumbnail_size', 'full' );
 
 		$html = '
@@ -149,11 +149,11 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 	 *
 	 * @param string  $text      Format text.
 	 * @param string  $alignment Text alignment.
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_entry_meta( $text, $alignment = 'left', $echo = true, $do_blocks = true ) {
+	function suki_entry_meta( $text, $alignment = 'left', $do_blocks = true, $echo = true ) {
 		// Remove unneccessary white space on the beginning and the end of the text.
 		$text = trim( $text );
 
@@ -196,11 +196,6 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 
 		$html = '
 		<!-- wp:group {
-			"style":{
-				"spacing":{
-					"blockGap":"0px"
-				}
-			},
 			"className":"entry-meta suki-meta suki-reverse-link-color",
 			"layout":{
 				"type":"flex",
@@ -239,11 +234,11 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 	 * Render entry meta element.
 	 *
 	 * @param string  $element   Element slug.
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_entry_meta_element( $element, $echo = true, $do_blocks = true ) {
+	function suki_entry_meta_element( $element, $do_blocks = true, $echo = true ) {
 		switch ( $element ) {
 			case 'date':
 				$html = '

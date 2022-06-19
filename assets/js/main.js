@@ -173,7 +173,7 @@
 
 			var calculateSubMenuEdge = function() {
 
-				var $submenus = Array.prototype.slice.call( document.querySelectorAll( '.suki-header-section .menu > * > .sub-menu' ) );
+				var $submenus = Array.prototype.slice.call( document.querySelectorAll( '.suki-header-row .menu > * > .sub-menu' ) );
 				$submenus.forEach(function( $submenu ) {
 					var $section = $submenu.closest( '.suki-header' ),
 					    $menuItem = $submenu.parentElement,
@@ -368,7 +368,7 @@
 			 */
 			var handleSubMenuToggle = function( e ) {
 				// Check target element.
-				var $this = e.target.closest( '.suki-header-section .suki-toggle-menu .suki-sub-menu-toggle' );
+				var $this = e.target.closest( '.suki-header-row .suki-toggle-menu .suki-sub-menu-toggle' );
 				if ( ! $this ) return;
 
 				e.preventDefault();

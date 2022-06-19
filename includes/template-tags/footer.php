@@ -17,16 +17,43 @@ if ( ! function_exists( 'suki_footer' ) ) {
 	/**
 	 * Render footer.
 	 *
-	 * @param boolean $echo      Render or return.
+	 * Notes:
+	 * - Action Hooks API is used to to register footer sections and allow further modifications in Child Theme or 3rd party plugin.
+	 * - `suki-header` CSS class handles these styles: blockGap (0px).
+	 * - `aria-label`, `itemscope`, `itemtype` attributes are added manually.
+	 *
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_footer( $echo = true, $do_blocks = true ) {
-		$html = '
-		<!-- wp:pattern {
-			"slug":"suki/footer--customizer"
-		} -->
-		';
+	function suki_footer( $do_blocks = true, $echo = true ) {
+		ob_start();
+
+		if ( has_action( 'suki/frontend/footer' ) ) { // Footer has at least 1 attached action.
+			?>
+			<!-- wp:group {
+				"tagName":"footer",
+				"align":"full",
+				"className":"suki-footer site-footer",
+				"layout":{
+					"inherit":true
+				}
+			} --><footer id="colophon" class="wp-block-group alignfull suki-footer site-footer" aria-label="<?php esc_attr_e( 'Site Footer', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPFooter">
+
+				<?php
+				/**
+				 * Hook: suki/frontend/footer
+				 *
+				 * @hooked suki_footer_widgets - 10
+				 * @hooked suki_footer_bottom - 10
+				 */
+				do_action( 'suki/frontend/footer' );
+				?>
+
+			</footer><!-- /wp:group -->
+			<?php
+		}
+		$html = ob_get_clean();
 
 		/**
 		 * Result
@@ -53,38 +80,64 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) {
 	/**
 	 * Render footer widgets area.
 	 *
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_footer_widgets( $echo = true, $do_blocks = true ) {
-		if ( boolval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) ) {
-			return;
-		}
+	function suki_footer_widgets( $do_blocks = true, $echo = true ) {
+		ob_start();
 
-		// Get widgets area count.
 		$columns = intval( suki_get_theme_mod( 'footer_widgets_bar' ) );
-		if ( 1 > $columns ) {
-			return;
-		}
 
-		// Check widgets area.
-		$has_widgets = false;
-		for ( $i = 1; $i <= $columns; $i++ ) {
-			if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
-				$has_widgets = true;
-				break;
-			}
-		}
-		if ( ! $has_widgets ) {
-			return;
-		}
+		if (
+			! boolval( suki_get_current_page_setting( 'disable_footer_widgets' ) ) && // Footer widgets is not disabled.
+			0 < $columns // Footer widgets has at least 1 column.
+		) {
+			?>
+			<!-- wp:group {
+				"align":"full",
+				"className":"suki-footer-widgets-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_widgets_bar_container' ) ); ?>",
+				"layout":{
+					"inherit":true
+				}
+			} --><div class="wp-block-group alignfull suki-footer-widgets-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_widgets_bar_container' ) ); ?>">
 
-		$html = '
-		<!-- wp:pattern {
-			"slug":"suki/footer-widgets--customizer"
-		} -->
-		';
+				<!-- wp:columns {
+					"verticalAlignment":"top",
+					"className":"suki-footer-widgets-columns"
+				} --><div class="wp-block-columns are-vertically-aligned-top suki-footer-widgets-columns">
+
+					<?php
+					for ( $i = 1; $i <= $columns; $i++ ) {
+						?>
+						<!-- wp:column {
+							"verticalAlignment":"top",
+							"className":"suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-column"
+						} --><div class="wp-block-column is-vertically-aligned-top suki-footer-widgets-column-<?php echo esc_attr( $i ); ?> suki-footer-widgets-column">
+
+							<?php
+							if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
+								dynamic_sidebar( 'footer-widgets-' . $i );
+							}
+							?>
+
+						</div><!-- /wp:column -->
+						<?php
+					}
+					?>
+
+				</div><!-- /wp:columns -->
+
+				<?php
+				if ( boolval( suki_get_theme_mod( 'footer_bottom_bar_merged' ) ) ) {
+					suki_footer_bottom( false );
+				}
+				?>
+
+			</div><!-- /wp:group -->
+			<?php
+		}
+		$html = ob_get_clean();
 
 		/**
 		 * Result
@@ -111,28 +164,87 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) {
 	/**
 	 * Render footer bottom bar.
 	 *
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_footer_bottom( $echo = true, $do_blocks = true ) {
-		if ( boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) ) {
-			return;
+	function suki_footer_bottom( $do_blocks = true, $echo = true ) {
+		ob_start();
+
+		$elements = array(
+			'left'   => suki_get_theme_mod( 'footer_elements_bottom_left', array() ),
+			'center' => suki_get_theme_mod( 'footer_elements_bottom_center', array() ),
+			'right'  => suki_get_theme_mod( 'footer_elements_bottom_right', array() ),
+		);
+
+		if (
+			! boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) && // Footer bottom is not disabled.
+			0 < array_sum( array_map( 'count', $elements ) ) // Footer bottom contains at least 1 element.
+		) {
+			?>
+			<!-- wp:group {
+				"align":"full",
+				"className":"suki-footer-bottom-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>",
+				"layout":{
+					"inherit":true
+				}
+			} --><div class="wp-block-group alignfull suki-footer-bottom-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>">
+
+				<!-- wp:group {
+					"className":"suki-footer-bottom-row suki-footer-row",
+					"layout":{
+						"type":"flex",
+						"flexWrap":"nowrap",
+						"justifyContent":"space-between"
+					}
+				} --><div class="wp-block-group suki-footer-bottom-row suki-footer-row">
+
+					<?php
+					foreach ( array_keys( $elements ) as $column ) {
+						// Skip center column if it's empty.
+						if ( 'center' === $column && 0 === count( $elements[ $column ] ) ) {
+							continue;
+						}
+
+						$classes = implode(
+							' ',
+							array_merge(
+								array(
+									'suki-footer-column', // Used for additional styles via theme's CSS.
+									'suki-footer-column--' . $column, // Used for additional styles via theme's CSS.
+								),
+								count( $elements[ $column ] ) === 0 ? array(
+									'suki-footer-column--empty', // Used for additional styles via theme's CSS.
+								) : array()
+							)
+						);
+						?>
+						<!-- wp:group {
+							"className":"<?php echo esc_attr( $classes ); ?>",
+							"layout":{
+								"type":"flex",
+								"flexWrap":"nowrap",
+								"justifyContent":"<?php echo esc_attr( $column ); ?>"
+							}
+						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+
+							<?php
+							foreach ( $elements[ $column ] as $element ) {
+								suki_footer_element( $element, false );
+							}
+							?>
+
+						</div><!-- /wp:group -->
+						<?php
+					}
+					?>
+
+				</div><!-- /wp:group -->
+
+			</div><!-- /wp:group -->
+			<?php
 		}
-
-		// Count elements on all columns.
-		$count = count( suki_get_theme_mod( 'footer_elements_bottom_left', array() ) ) + count( suki_get_theme_mod( 'footer_elements_bottom_center', array() ) ) + count( suki_get_theme_mod( 'footer_elements_bottom_right', array() ) );
-
-		// Abort if no element found in this section.
-		if ( 1 > $count ) {
-			return;
-		}
-
-		$html = '
-		<!-- wp:pattern {
-			"slug":"suki/footer-bottom--customizer"
-		} -->
-		';
+		$html = ob_get_clean();
 
 		/**
 		 * Result
@@ -152,17 +264,19 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) {
 	}
 }
 
-
+/**
+ * Footer bottom element
+ */
 if ( ! function_exists( 'suki_footer_element' ) ) {
 	/**
-	 * Render each footer element.
+	 * Render footer element.
 	 *
 	 * @param string  $element Element slug.
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_footer_element( $element, $echo = true, $do_blocks = true ) {
+	function suki_footer_element( $element, $do_blocks = true, $echo = true ) {
 		// Abort if element slug is empty.
 		if ( empty( $element ) ) {
 			return;
@@ -220,11 +334,11 @@ if ( ! function_exists( 'suki_scroll_to_top' ) ) {
 	/**
 	 * Render scroll to top.
 	 *
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_scroll_to_top( $echo = true, $do_blocks = true ) {
+	function suki_scroll_to_top( $do_blocks = true, $echo = true ) {
 		if ( ! boolval( suki_get_theme_mod( 'scroll_to_top' ) ) ) {
 			return;
 		}

@@ -18,14 +18,14 @@ if ( ! function_exists( 'suki_content' ) ) {
 	 * Render content section with the specified main content.
 	 *
 	 * @param string  $main_content Main content.
-	 * @param boolean $echo         Render or return.
 	 * @param boolean $do_blocks    Parse blocks or not.
+	 * @param boolean $echo         Render or return.
 	 * @return string
 	 */
-	function suki_content( $main_content, $echo = true, $do_blocks = true ) {
+	function suki_content( $main_content, $do_blocks = true, $echo = true ) {
 		$has_sidebar = 'narrow' !== suki_get_current_page_setting( 'content_container' ) && in_array( suki_get_current_page_setting( 'content_layout' ), array( 'left-sidebar', 'right-sidebar' ), true );
 
-		$content_classes = implode(
+		$classes = implode(
 			' ',
 			array(
 				'suki-content',
@@ -44,11 +44,11 @@ if ( ! function_exists( 'suki_content' ) ) {
 		?>
 		<!-- wp:group {
 			"align":"full",
-			"className":"<?php echo esc_attr( $content_classes ); ?>",
+			"className":"<?php echo esc_attr( $classes ); ?>",
 			"layout":{
 				"inherit":true
 			}
-		} --><div id="content" class="wp-block-group alignfull <?php echo esc_attr( $content_classes ); ?>">
+		} --><div id="content" class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>">
 
 			<?php
 			/**
@@ -162,6 +162,173 @@ if ( ! function_exists( 'suki_content' ) ) {
 }
 
 /**
+ * Hero section
+ */
+if ( ! function_exists( 'suki_hero' ) ) {
+	/**
+	 * Render page header section.
+	 *
+	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
+	 * @return string
+	 */
+	function suki_hero( $do_blocks = true, $echo = true ) {
+		ob_start();
+
+		$classes = 'suki-hero ' . esc_attr( 'suki-section-' . suki_get_current_page_setting( 'hero_container' ) );
+
+		if (
+			boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is enabled.
+			has_action( 'suki/frontend/hero' ) // Hero section has at least 1 attached action.
+		) {
+			?>
+			<!-- wp:group {
+				"align":"full",
+				"className":"<?php echo esc_attr( $classes ); ?>",
+				"layout":{
+					"inherit":true
+				}
+			} --><div id="hero" class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>" role="region" aria-label="<?php esc_attr_e( 'Hero Section', 'suki' ); ?>">
+
+				<?php
+				/**
+				 * Hook: suki/frontend/hero
+				 *
+				 * @hooked suki_content_header - 10
+				 */
+				do_action( 'suki/frontend/hero' );
+				?>
+
+			</div><!-- /wp:group -->
+			<?php
+		}
+		$html = ob_get_clean();
+
+		/**
+		 * Result
+		 */
+
+		// Parse blocks.
+		if ( boolval( $do_blocks ) ) {
+			$html = do_blocks( $html );
+		}
+
+		// Render or return.
+		if ( boolval( $echo ) ) {
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $html;
+		}
+	}
+}
+
+/**
+ * Content header
+ */
+if ( ! function_exists( 'suki_content_header' ) ) {
+	/**
+	 * Render content header.
+	 *
+	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
+	 * @return string
+	 */
+	function suki_content_header( $do_blocks = true, $echo = true ) {
+		ob_start();
+
+		$elements = suki_get_current_page_setting( 'content_header', array() );
+
+		if (
+			! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
+			( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
+			0 < count( $elements ) // Content header has at least 1 element.
+		) {
+			?>
+			<!-- wp:group {
+				"className":"entry-header suki-content-header"
+			} --><div class="wp-block-group entry-header suki-content-header">
+
+				<?php
+				foreach ( $elements as $element ) {
+					suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
+				}
+				?>
+
+			</div><!-- /wp:group -->
+			<?php
+		}
+		$html = ob_get_clean();
+
+		/**
+		 * Result
+		 */
+
+		// Parse blocks.
+		if ( boolval( $do_blocks ) ) {
+			$html = do_blocks( $html );
+		}
+
+		// Render or return.
+		if ( boolval( $echo ) ) {
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $html;
+		}
+	}
+}
+
+/**
+ * Content footer
+ */
+if ( ! function_exists( 'suki_content_footer' ) ) {
+	/**
+	 * Render content footer.
+	 *
+	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
+	 * @return string
+	 */
+	function suki_content_footer( $do_blocks = true, $echo = true ) {
+		ob_start();
+
+		$elements = suki_get_current_page_setting( 'content_footer', array() );
+
+		if ( 0 < count( $elements ) ) { // Content footer has at least 1 element.
+			?>
+			<!-- wp:group {
+				"className":"entry-footer suki-content-footer"
+			} --><div class="wp-block-group entry-footer suki-content-footer">
+
+				<?php
+				foreach ( $elements as $element ) {
+					suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), false );
+				}
+				?>
+
+			</div><!-- /wp:group -->
+			<?php
+		}
+		$html = ob_get_clean();
+
+		/**
+		 * Result
+		 */
+
+		// Parse blocks.
+		if ( boolval( $do_blocks ) ) {
+			$html = do_blocks( $html );
+		}
+
+		// Render or return.
+		if ( boolval( $echo ) ) {
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $html;
+		}
+	}
+}
+
+/**
  * Content header element
  */
 if ( ! function_exists( 'suki_content_header_element' ) ) {
@@ -170,11 +337,11 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 	 *
 	 * @param string  $element   Element slug.
 	 * @param string  $alignment Element alignment (left, center, or right).
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_content_header_element( $element, $alignment = 'left', $echo = true, $do_blocks = true ) {
+	function suki_content_header_element( $element, $alignment = 'left', $do_blocks = true, $echo = true ) {
 		// Abort if element slug is empty.
 		if ( empty( $element ) ) {
 			return;
@@ -265,17 +432,7 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 			case 'archive-description':
 				// We can't replace this with Gutenberg block yet, because it doesn't cover Author and Post Type archive description.
 				if ( ! is_post_type_archive() ) {
-					$desc = trim( get_the_archive_description() );
-
-					if ( ! empty( $desc ) ) {
-						$html = '
-						<!-- wp:paragraph {
-							"align":"' . $alignment . '"
-						} --><p class="has-text-align-' . $alignment . '">
-							' . $desc . '
-						</p><!-- /wp:paragraph -->
-						';
-					}
+					$html = trim( get_the_archive_description() );
 				}
 				break;
 
@@ -343,11 +500,11 @@ if ( ! function_exists( 'suki_content_footer_element' ) ) {
 	 *
 	 * @param string  $element   Element slug.
 	 * @param string  $alignment Element alignment (left, center, or right).
-	 * @param boolean $echo      Render or return.
 	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_content_footer_element( $element, $alignment = 'left', $echo = true, $do_blocks = true ) {
+	function suki_content_footer_element( $element, $alignment = 'left', $do_blocks = true, $echo = true ) {
 		// Abort if element slug is empty.
 		if ( empty( $element ) ) {
 			return;
@@ -394,231 +551,6 @@ if ( ! function_exists( 'suki_content_footer_element' ) ) {
 		 * @param string $html HTML markup.
 		 */
 		$html = apply_filters( 'suki/frontend/content_footer_element/' . $element, $html );
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
- * Archive navigation
- */
-if ( ! function_exists( 'suki_archive_navigation' ) ) {
-	/**
-	 * Render posts loop navigation.
-	 *
-	 * @param boolean $echo      Render or return.
-	 * @param boolean $do_blocks Parse blocks or not.
-	 * @return string
-	 */
-	function suki_archive_navigation( $echo = true, $do_blocks = true ) {
-		if ( ! is_archive() && ! is_home() && ! is_search() ) {
-			return;
-		}
-
-		// Render posts navigation.
-		switch ( suki_get_theme_mod( 'post_archive_pagination_layout' ) ) {
-			case 'pagination':
-				$html = '
-				<!-- wp:query-pagination {
-					"paginationArrow":"arrow",
-					"layout":{
-						"type":"flex",
-						"justifyContent":"center",
-						"orientation":"horizontal"
-					},
-					"className":"suki-archive-navigation"
-				} -->
-
-					<!-- wp:query-pagination-previous {
-						"label":" "
-					} /-->
-
-					<!-- wp:query-pagination-numbers /-->
-
-					<!-- wp:query-pagination-next {
-						"label":" "
-					} /-->
-
-				<!-- /wp:query-pagination -->
-				';
-				break;
-
-			default:
-				$html = '
-				<!-- wp:query-pagination {
-					"paginationArrow":"arrow",
-					"layout":{
-						"type":"flex",
-						"justifyContent":"space-between",
-						"orientation":"horizontal"
-					},
-					"className":"suki-archive-navigation"
-				} -->
-
-					<!-- wp:query-pagination-previous {
-						"label":"' . esc_html__( 'Newer Posts', 'suki' ) . '"
-					} /-->
-
-					<!-- wp:query-pagination-next {
-						"label":"' . esc_html__( 'Older Posts', 'suki' ) . '"
-					} /-->
-
-				<!-- /wp:query-pagination -->
-				';
-				break;
-		}
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
- * Post navigation
- */
-if ( ! function_exists( 'suki_singular_navigation' ) ) {
-	/**
-	 * Render singular prev / next post navigation in single post page.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param boolean $echo      Render or return.
-	 * @param boolean $do_blocks Parse blocks or not.
-	 * @return string
-	 */
-	function suki_singular_navigation( $echo = true, $do_blocks = true ) {
-		$html = '
-		<!-- wp:group {
-			"className":"suki-post-navigation",
-			"layout":{
-				"type":"flex",
-				"flexWrap":"nowrap",
-				"justifyContent":"space-between"
-			}
-		} --><div class="wp-block-group suki-post-navigation">
-
-			<!-- wp:heading {
-				"className":"screen-reader-text"
-			} --><h2 class="screen-reader-text">' . esc_html__( 'Post Navigation', 'suki' ) . '</h2><!-- /wp:heading -->
-
-			<!-- wp:post-navigation-link {
-				"type":"previous",
-				"label":" ",
-				"showTitle":true
-			} /-->
-
-			<!-- wp:post-navigation-link {
-				"label":" ",
-				"showTitle":true
-			} /-->
-
-		</div><!-- /wp:group -->
-		';
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
- * Author bio
- */
-if ( ! function_exists( 'suki_author_bio' ) ) {
-	/**
-	 * Render singular author bio.
-	 * Note: `entry-author` class is used to style the element.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param boolean $echo      Render or return.
-	 * @param boolean $do_blocks Parse blocks or not.
-	 * @return string
-	 */
-	function suki_author_bio( $echo = true, $do_blocks = true ) {
-		$html = '
-		<!-- wp:post-author {
-			"avatarSize":96,
-			"showBio":true,
-			"className":"suki-author-bio"
-		} /-->
-		';
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
- * Comments
- */
-if ( ! function_exists( 'suki_comments' ) ) {
-	/**
-	 * Print singular comments.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param boolean $echo      Render or return.
-	 * @param boolean $do_blocks Parse blocks or not.
-	 */
-	function suki_comments( $echo = true, $do_blocks = true ) {
-		$html = '
-		<!-- wp:pattern {
-			"slug":"suki/comments"
-		} /-->
-		';
 
 		/**
 		 * Result

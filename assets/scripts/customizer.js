@@ -2451,8 +2451,7 @@ function $eb03e74f8f7db1f3$export$d7d742816c28cf91(customs) {
     $eb03e74f8f7db1f3$export$a6177d5829f70ebc(customs);
 }
 function $eb03e74f8f7db1f3$export$77f49a256021c8de(customs) {
-    customs.forEach((curr)=>$eb03e74f8f7db1f3$export$1d0aa160432dfea5(curr.element)
-    );
+    customs.forEach((curr)=>$eb03e74f8f7db1f3$export$1d0aa160432dfea5(curr.element));
 }
 function $eb03e74f8f7db1f3$export$a6177d5829f70ebc(customs) {
     customs.forEach((curr)=>{
@@ -2501,8 +2500,7 @@ function $eb03e74f8f7db1f3$export$4655efe700f887a(evt, list) {
                     oldIndex: curr.index,
                     newIndex: evt.newIndicies[index].index,
                     ...parentElement
-                })
-            );
+                }));
             break;
     }
     /* eslint-enable */ const customs = $eb03e74f8f7db1f3$export$bc06a3af7dc65f53(custom, list);
@@ -2517,8 +2515,7 @@ function $eb03e74f8f7db1f3$export$be2da95e6167b0bd(normalized, list) {
     const newList = [
         ...list
     ];
-    normalized.concat().reverse().forEach((curr)=>newList.splice(curr.oldIndex, 1)
-    );
+    normalized.concat().reverse().forEach((curr)=>newList.splice(curr.oldIndex, 1));
     return newList;
 }
 function $eb03e74f8f7db1f3$export$eca851ee65ae17e4(normalized, list, evt, clone) {
@@ -2540,9 +2537,7 @@ function $eb03e74f8f7db1f3$export$bc06a3af7dc65f53(inputs, list) {
     const normalized = inputs.map((curr)=>({
             ...curr,
             item: list[curr.oldIndex]
-        })
-    ).sort((a, b)=>a.oldIndex - b.oldIndex
-    );
+        })).sort((a, b)=>a.oldIndex - b.oldIndex);
     return normalized;
 }
 function $eb03e74f8f7db1f3$export$7553c81e62e31b7e(props) {
@@ -2557,21 +2552,23 @@ function $eb03e74f8f7db1f3$export$7553c81e62e31b7e(props) {
 const $7fe8e3ea572bda7a$var$store = {
     dragging: null
 };
-class $7fe8e3ea572bda7a$export$11bbed9ee0012c13 extends $8zHUo$react.Component {
+class $7fe8e3ea572bda7a$export$11bbed9ee0012c13 extends (0, $8zHUo$react.Component) {
+    /* eslint-disable-next-line */ static defaultProps = {
+        clone: (item)=>item
+    };
     constructor(props){
         super(props);
         // @todo forward ref this component
-        this.ref = /*#__PURE__*/ $8zHUo$react.createRef();
+        this.ref = /*#__PURE__*/ (0, $8zHUo$react.createRef)();
         // make all state false because we can't change sortable unless a mouse gesture is made.
         const newList = [
             ...props.list
         ].map((item)=>Object.assign(item, {
                 chosen: false,
                 selected: false
-            })
-        );
+            }));
         props.setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
-        ($parcel$interopDefault($8zHUo$tinyinvariant))(//@ts-expect-error: Doesn't exist. Will deprecate soon.
+        (0, ($parcel$interopDefault($8zHUo$tinyinvariant)))(//@ts-expect-error: Doesn't exist. Will deprecate soon.
         !props.plugins, `
 Plugins prop is no longer supported.
 Instead, mount it with "Sortable.mount(new MultiDrag())"
@@ -2581,7 +2578,7 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
     componentDidMount() {
         if (this.ref.current === null) return;
         const newOptions = this.makeOptions();
-        ($parcel$interopDefault($8zHUo$sortablejs)).create(this.ref.current, newOptions);
+        (0, ($parcel$interopDefault($8zHUo$sortablejs))).create(this.ref.current, newOptions);
     }
     componentDidUpdate(prevProps) {
         if (prevProps.disabled !== this.props.disabled && this.sortable) this.sortable.option("disabled", this.props.disabled);
@@ -2595,42 +2592,40 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
         };
         // if no tag, default to a `div` element.
         const newTag = !tag || tag === null ? "div" : tag;
-        return(/*#__PURE__*/ $8zHUo$react.createElement(newTag, {
+        return /*#__PURE__*/ (0, $8zHUo$react.createElement)(newTag, {
             // @todo - find a way (perhaps with the callback) to allow AntD components to work
             ref: this.ref,
             ...classicProps
-        }, this.getChildren()));
+        }, this.getChildren());
     }
     getChildren() {
         const { children: children , dataIdAttr: dataIdAttr , selectedClass: selectedClass = "sortable-selected" , chosenClass: chosenClass = "sortable-chosen" , dragClass: /* eslint-disable */ dragClass = "sortable-drag" , fallbackClass: fallbackClass = "sortable-falback" , ghostClass: ghostClass = "sortable-ghost" , swapClass: swapClass = "sortable-swap-highlight" , filter: /* eslint-enable */ filter = "sortable-filter" , list: list ,  } = this.props;
         // if no children, don't do anything.
         if (!children || children == null) return null;
         const dataid = dataIdAttr || "data-id";
-        /* eslint-disable-next-line */ return $8zHUo$react.Children.map(children, (child, index)=>{
+        /* eslint-disable-next-line */ return (0, $8zHUo$react.Children).map(children, (child, index)=>{
             if (child === undefined) return undefined;
-            const item = list[index] || {
-            };
+            const item = list[index] || {};
             const { className: prevClassName  } = child.props;
             // @todo - handle the function if avalable. I don't think anyone will be doing this soon.
             const filtered = typeof filter === "string" && {
                 [filter.replace(".", "")]: !!item.filtered
             };
-            const className = ($parcel$interopDefault($8zHUo$classnames))(prevClassName, {
+            const className = (0, ($parcel$interopDefault($8zHUo$classnames)))(prevClassName, {
                 [selectedClass]: item.selected,
                 [chosenClass]: item.chosen,
                 ...filtered
             });
-            return(/*#__PURE__*/ $8zHUo$react.cloneElement(child, {
+            return /*#__PURE__*/ (0, $8zHUo$react.cloneElement)(child, {
                 [dataid]: child.key,
                 className: className
-            }));
+            });
         });
     }
     /** Appends the `sortable` property to this component */ get sortable() {
         const el = this.ref.current;
         if (el === null) return null;
-        const key = Object.keys(el).find((k)=>k.includes("Sortable")
-        );
+        const key = Object.keys(el).find((k)=>k.includes("Sortable"));
         if (!key) return null;
         //@ts-expect-error: fix me.
         return el[key];
@@ -2654,11 +2649,9 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
             "onFilter",
             "onSort", 
         ];
-        const newOptions = $eb03e74f8f7db1f3$export$7553c81e62e31b7e(this.props);
-        DOMHandlers.forEach((name)=>newOptions[name] = this.prepareOnHandlerPropAndDOM(name)
-        );
-        NonDOMHandlers.forEach((name)=>newOptions[name] = this.prepareOnHandlerProp(name)
-        );
+        const newOptions = (0, $eb03e74f8f7db1f3$export$7553c81e62e31b7e)(this.props);
+        DOMHandlers.forEach((name)=>newOptions[name] = this.prepareOnHandlerPropAndDOM(name));
+        NonDOMHandlers.forEach((name)=>newOptions[name] = this.prepareOnHandlerProp(name));
         /** onMove has 2 arguments and needs to be handled seperately. */ const onMove1 = (evt, originalEvt)=>{
             const { onMove: onMove  } = this.props;
             const defaultValue = evt.willInsertAfter || -1;
@@ -2697,24 +2690,23 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
         /* eslint-disable-next-line */ const otherList = [
             ...$7fe8e3ea572bda7a$var$store.dragging.props.list
         ];
-        const customs = $eb03e74f8f7db1f3$export$4655efe700f887a(evt, otherList);
-        $eb03e74f8f7db1f3$export$77f49a256021c8de(customs);
-        const newList = $eb03e74f8f7db1f3$export$eca851ee65ae17e4(customs, list, evt, clone).map((item)=>Object.assign(item, {
+        const customs = (0, $eb03e74f8f7db1f3$export$4655efe700f887a)(evt, otherList);
+        (0, $eb03e74f8f7db1f3$export$77f49a256021c8de)(customs);
+        const newList = (0, $eb03e74f8f7db1f3$export$eca851ee65ae17e4)(customs, list, evt, clone).map((item)=>Object.assign(item, {
                 selected: false
-            })
-        );
+            }));
         setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
     }
     onRemove(evt) {
         const { list: list , setList: setList  } = this.props;
-        const mode = $eb03e74f8f7db1f3$export$1fc0f6205829e19c(evt);
-        const customs = $eb03e74f8f7db1f3$export$4655efe700f887a(evt, list);
-        $eb03e74f8f7db1f3$export$a6177d5829f70ebc(customs);
+        const mode = (0, $eb03e74f8f7db1f3$export$1fc0f6205829e19c)(evt);
+        const customs = (0, $eb03e74f8f7db1f3$export$4655efe700f887a)(evt, list);
+        (0, $eb03e74f8f7db1f3$export$a6177d5829f70ebc)(customs);
         let newList = [
             ...list
         ];
         // remove state if not in clone mode. otherwise, keep.
-        if (evt.pullMode !== "clone") newList = $eb03e74f8f7db1f3$export$be2da95e6167b0bd(customs, newList);
+        if (evt.pullMode !== "clone") newList = (0, $eb03e74f8f7db1f3$export$be2da95e6167b0bd)(customs, newList);
         else {
             // switch used to get the clone
             let customClones = customs;
@@ -2723,21 +2715,19 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
                     customClones = customs.map((item, index)=>({
                             ...item,
                             element: evt.clones[index]
-                        })
-                    );
+                        }));
                     break;
                 case "normal":
                     customClones = customs.map((item)=>({
                             ...item,
                             element: evt.clone
-                        })
-                    );
+                        }));
                     break;
                 case "swap":
                 default:
-                    ($parcel$interopDefault($8zHUo$tinyinvariant))(true, `mode "${mode}" cannot clone. Please remove "props.clone" from <ReactSortable/> when using the "${mode}" plugin`);
+                    (0, ($parcel$interopDefault($8zHUo$tinyinvariant)))(true, `mode "${mode}" cannot clone. Please remove "props.clone" from <ReactSortable/> when using the "${mode}" plugin`);
             }
-            $eb03e74f8f7db1f3$export$77f49a256021c8de(customClones);
+            (0, $eb03e74f8f7db1f3$export$77f49a256021c8de)(customClones);
             // replace selected items with cloned items
             customs.forEach((curr)=>{
                 const index = curr.oldIndex;
@@ -2748,16 +2738,15 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
         // remove item.selected from list
         newList = newList.map((item)=>Object.assign(item, {
                 selected: false
-            })
-        );
+            }));
         setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
     }
     onUpdate(evt) {
         const { list: list , setList: setList  } = this.props;
-        const customs = $eb03e74f8f7db1f3$export$4655efe700f887a(evt, list);
-        $eb03e74f8f7db1f3$export$77f49a256021c8de(customs);
-        $eb03e74f8f7db1f3$export$a6177d5829f70ebc(customs);
-        const newList = $eb03e74f8f7db1f3$export$c25cf8080bd305ec(customs, list);
+        const customs = (0, $eb03e74f8f7db1f3$export$4655efe700f887a)(evt, list);
+        (0, $eb03e74f8f7db1f3$export$77f49a256021c8de)(customs);
+        (0, $eb03e74f8f7db1f3$export$a6177d5829f70ebc)(customs);
+        const newList = (0, $eb03e74f8f7db1f3$export$c25cf8080bd305ec)(customs, list);
         return setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
     }
     onStart() {
@@ -2790,14 +2779,13 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
     }
     onSpill(evt) {
         const { removeOnSpill: removeOnSpill , revertOnSpill: revertOnSpill  } = this.props;
-        if (removeOnSpill && !revertOnSpill) $eb03e74f8f7db1f3$export$1d0aa160432dfea5(evt.item);
+        if (removeOnSpill && !revertOnSpill) (0, $eb03e74f8f7db1f3$export$1d0aa160432dfea5)(evt.item);
     }
     onSelect(evt) {
         const { list: list , setList: setList  } = this.props;
         const newList = list.map((item)=>Object.assign(item, {
                 selected: false
-            })
-        );
+            }));
         evt.newIndicies.forEach((curr)=>{
             const index = curr.index;
             if (index === -1) {
@@ -2813,8 +2801,7 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
         const { list: list , setList: setList  } = this.props;
         const newList = list.map((item)=>Object.assign(item, {
                 selected: false
-            })
-        );
+            }));
         evt.newIndicies.forEach((curr)=>{
             const index = curr.index;
             if (index === -1) return;
@@ -2823,9 +2810,6 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
         setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
     }
 }
-$7fe8e3ea572bda7a$export$11bbed9ee0012c13.defaultProps = {
-    clone: (item)=>item
-};
 
 
 var $faefaad95e5fcca0$exports = {};

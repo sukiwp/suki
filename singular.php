@@ -16,6 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 get_header();
 
+// Initiate the post early, so hero section can use post meta data.
+the_post();
+
 /**
  * Hero
  */
@@ -25,19 +28,18 @@ suki_hero();
  * Content
  */
 
-// Initiate the post early, so hero section can use post meta data.
-the_post();
-
 ob_start();
+
+$thumbnail_block = '
+<!-- wp:post-featured-image {
+	' . ( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? '"align":"wide",' : '' ) . '
+	"className":"entry-thumbnail"
+} /-->
+';
 ?>
 <!-- wp:group {
 	"tagName":"article",
 	"align":"full",
-	"style":{
-		"spacing":{
-			"blockGap":"calc(1.5 * var(--wp--style--block-gap))"
-		}
-	},
 	"className":"entry entry-layout-default",
 	"layout":{
 		"inherit":true
@@ -51,38 +53,26 @@ ob_start();
 	do_action( 'suki/frontend/' . get_post_type() . '_content/before_header' );
 
 	/**
+	 * Featured image (before header)
+	 */
+	if ( 'before' === suki_get_theme_mod( 'entry_thumbnail_position' ) ) {
+		echo $thumbnail_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
+	/**
 	 * Content header
 	 */
-	if (
-		! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) &&
-		! boolval( suki_get_current_page_setting( 'hero' ) ) &&
-		( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) &&
-		0 < count( suki_get_current_page_setting( 'content_header', array() ) )
-	) {
-		?>
-		<!-- wp:group {
-			"className":"entry-header suki-content-header",
-			"style":{
-				"spacing":{
-					"blockGap":"0.75rem"
-				}
-			}
-		} --><div class="wp-block-group entry-header suki-content-header">
+	suki_content_header();
 
-			<?php
-			foreach ( suki_get_current_page_setting( 'content_header', array() ) as $element ) {
-				suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), true, false );
-			}
-			?>
-
-		</div><!-- /wp:group -->
-		<?php
+	/**
+	 * Featured image (after header)
+	 */
+	if ( 'after' === suki_get_theme_mod( 'entry_thumbnail_position' ) ) {
+		echo $thumbnail_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
 	 * Hook: suki/frontend/{post_type}_content/after_header
-	 *
-	 * @see suki_singular_thumbnail() [10]
 	 */
 	do_action( 'suki/frontend/' . get_post_type() . '_content/after_header' );
 	?>
@@ -92,6 +82,15 @@ ob_start();
 	} /-->
 
 	<?php
+	if ( 'before' === suki_get_current_page_setting( 'thumbnail_position' ) ) {
+		?>
+		<!-- wp:post-featured-image {
+			' . ( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? '"align":"wide",' : '' ) . '
+			"className":"entry-thumbnail"
+		} /-->
+		<?php
+	}
+
 	/**
 	 * Hook: suki/frontend/{post_type}_content/before_footer
 	 */
@@ -100,26 +99,7 @@ ob_start();
 	/**
 	 * Content footer
 	 */
-	if ( 0 < count( suki_get_current_page_setting( 'content_footer', array() ) ) ) {
-		?>
-		<!-- wp:group {
-			"className":"entry-footer suki-content-footer",
-			"style":{
-				"spacing":{
-					"blockGap":"0.75rem"
-				}
-			}
-		} --><div class="wp-block-group entry-footer suki-content-footer">
-
-			<?php
-			foreach ( suki_get_current_page_setting( 'content_footer', array() ) as $element ) {
-				suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), true, false );
-			}
-			?>
-
-		</div><!-- /wp:group -->  
-		<?php
-	}
+	suki_content_footer();
 
 	/**
 	 * Hook: suki/frontend/{post_type}_content/after_footer

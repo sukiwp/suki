@@ -211,7 +211,7 @@ $add['header_elements_bottom_right']  = array();
 
 $add['header_mobile_elements_main_left']    = array( 'mobile-logo' );
 $add['header_mobile_elements_main_center']  = array();
-$add['header_mobile_elements_main_right']   = array( 'mobile-vertical-toggle' );
+$add['header_mobile_elements_main_right']   = array( 'mobile-popup-toggle' );
 $add['header_mobile_elements_vertical_top'] = array( 'mobile-menu', 'search-bar' );
 
 /**
@@ -496,8 +496,6 @@ $add['blog_single_navigation'] = 1;
  * Blog > Post Layout: Default
  * ====================================================
  */
-
-$add['blog_index_default_items_gap'] = '6rem';
 
 $add['entry_header']           = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';

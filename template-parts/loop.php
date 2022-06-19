@@ -1,11 +1,14 @@
 <?php
 /**
- * [Customizer] Posts Query: Default Layout
+ * Template: Loop default
  *
  * @package Suki
  */
 
-ob_start();
+// Prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Build thumbnail markup.
 $thumbnail_size  = suki_get_theme_mod( 'entry_thumbnail_size', 'full' );
@@ -23,27 +26,22 @@ $thumbnail_block = '
 		"inherit":true
 	},
 	"align":"full",
-	"className":"suki-loop suki-loop-default",
 	"layout":{
 		"inherit":true
 	}
-} --><div class="wp-block-query alignfull suki-loop suki-loop-default">
+} --><div class="wp-block-query alignfull">
 
 	<!-- wp:post-template {
-		"className":"alignfull"
+		"className":"suki-loop suki-loop-default alignfull"
 	} -->
 
 		<!-- wp:group {
 			"align":"full",
-			"style":{
-				"spacing":{
-					"blockGap":"calc(1.5 * var(--wp--style--block-gap))"
-				}
-			},
+			"className":"entry-layout-default",
 			"layout":{
 				"inherit":true
 			}
-		} --><div class="wp-block-group alignfull">
+		} --><div class="wp-block-group alignfull entry-layout-default">
 
 			<?php
 			/**
@@ -61,18 +59,13 @@ $thumbnail_block = '
 				<!-- wp:group {
 					"align":"full",
 					"className":"entry-header",
-					"style":{
-						"spacing":{
-							"blockGap":"calc( 0.5 * var(--wp--style--block-gap) )"
-						}
-					},
 					"layout":{
 						"inherit":true
 					}
 				} --><div class="wp-block-group alignfull entry-header">
 					<?php
 					foreach ( suki_get_theme_mod( 'entry_header' ) as $element ) {
-						suki_entry_header_footer_element( $element, 'default', suki_get_theme_mod( 'entry_header_alignment', 'left' ), true, false );
+						suki_entry_header_footer_element( $element, 'default', suki_get_theme_mod( 'entry_header_alignment', 'left' ), false );
 					}
 					?>
 				</div><!-- /wp:group -->
@@ -130,18 +123,13 @@ $thumbnail_block = '
 				<!-- wp:group {
 					"align":"full",
 					"className":"entry-footer",
-					"style":{
-						"spacing":{
-							"blockGap":"calc( 0.5 * var(--wp--style--block-gap) )"
-						}
-					},
 					"layout":{
 						"inherit":true
 					}
 				} --><div class="wp-block-group alignfull entry-footer">
 					<?php
 					foreach ( suki_get_theme_mod( 'entry_footer' ) as $element ) {
-						suki_entry_header_footer_element( $element, 'default', suki_get_theme_mod( 'entry_footer_alignment', 'left' ), true, false );
+						suki_entry_header_footer_element( $element, 'default', suki_get_theme_mod( 'entry_footer_alignment', 'left' ), false );
 					}
 					?>
 				</div><!-- /wp:group -->
@@ -153,9 +141,12 @@ $thumbnail_block = '
 
 	<!-- /wp:post-template -->
 
-	<!-- wp:pattern {
-		"slug":"suki/query-pagination--<?php echo esc_attr( suki_get_theme_mod( 'post_archive_pagination_layout' ) ); ?>"
-	} /-->
+	<?php
+	/**
+	 * Pagination
+	 */
+	suki_loop_navigation( suki_get_theme_mod( 'post_archive_pagination_layout' ), false );
+	?>
 
 	<!-- wp:query-no-results -->
 		<!-- wp:paragraph -->
@@ -164,12 +155,3 @@ $thumbnail_block = '
 	<!-- /wp:query-no-results -->
 
 </div><!-- /wp:query -->
-<?php
-$content = ob_get_clean();
-
-return array(
-	'title'      => esc_html__( '[Customizer] Posts Query: Default Layout', 'suki' ),
-	'categories' => array( 'query' ),
-	'blockTypes' => array( 'core/query' ),
-	'content'    => $content,
-);

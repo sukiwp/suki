@@ -199,38 +199,38 @@ $mobile_areas = apply_filters(
 $mobile_choices = apply_filters(
 	'suki/dataset/header_mobile_builder/elements',
 	array(
-		'mobile-logo'            => array(
+		'mobile-logo'         => array(
 			'icon'              => 'admin-home',
 			'label'             => esc_html__( 'Mobile Logo', 'suki' ),
 			'unsupported_areas' => array( 'vertical_top' ),
 		),
-		'mobile-menu'            => array(
+		'mobile-menu'         => array(
 			'icon'              => 'admin-links',
 			'label'             => esc_html__( 'Mobile Menu', 'suki' ),
 			'unsupported_areas' => array( 'main_left', 'main_center', 'main_right' ),
 		),
-		'html-1'                 => array(
+		'html-1'              => array(
 			'icon'              => 'editor-code',
 			/* translators: %s: instance number. */
 			'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
 			'unsupported_areas' => array(),
 		),
-		'search-bar'             => array(
+		'search-bar'          => array(
 			'icon'              => 'search',
 			'label'             => esc_html__( 'Search Bar', 'suki' ),
 			'unsupported_areas' => array( 'main_left', 'main_center', 'main_right' ),
 		),
-		'search-dropdown'        => array(
+		'search-dropdown'     => array(
 			'icon'              => 'search',
 			'label'             => esc_html__( 'Search Dropdown', 'suki' ),
 			'unsupported_areas' => array( 'vertical_top' ),
 		),
-		'social'                 => array(
+		'social'              => array(
 			'icon'              => 'twitter',
 			'label'             => esc_html__( 'Social', 'suki' ),
 			'unsupported_areas' => array(),
 		),
-		'mobile-vertical-toggle' => array(
+		'mobile-popup-toggle' => array(
 			'icon'              => 'menu',
 			'label'             => esc_html__( 'Toggle', 'suki' ),
 			'unsupported_areas' => array( 'vertical_top' ),

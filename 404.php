@@ -20,9 +20,7 @@ get_header();
  */
 ob_start();
 
-/**
- * Image
- */
+// Image.
 $image = suki_get_theme_mod( 'error_404_image' );
 if ( intval( $image ) ) {
 	$image_width = intval( suki_get_theme_mod( 'error_404_image_width' ) );
@@ -41,9 +39,7 @@ if ( intval( $image ) ) {
 	<?php
 }
 
-/**
- * Title
- */
+// Title.
 $title_text = suki_get_theme_mod( 'error_404_title_text' );
 if ( ! empty( $title_text ) ) {
 	?>
@@ -55,9 +51,7 @@ if ( ! empty( $title_text ) ) {
 	<?php
 }
 
-/**
- * Description
- */
+// Description.
 $description_text = suki_get_theme_mod( 'error_404_description_text' );
 if ( ! empty( $description_text ) ) {
 	$paragraphs = explode( "\n\n", $description_text );
@@ -71,16 +65,12 @@ if ( ! empty( $description_text ) ) {
 	}
 }
 
-/**
- * Search form
- */
+// Search form.
 if ( boolval( suki_get_theme_mod( 'error_404_search_bar' ) ) ) {
 	get_search_form();
 }
 
-/**
- * Home button
- */
+// Home button.
 $button_text = suki_get_theme_mod( 'error_404_home_button_text' );
 if ( boolval( suki_get_theme_mod( 'error_404_home_button' ) ) && ! empty( $button_text ) ) {
 	?>

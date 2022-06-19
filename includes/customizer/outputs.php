@@ -2098,16 +2098,18 @@ $add['blog_index_grid_columns'] = array(
 $add['blog_index_grid_rows_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-loop-grid', // scss: entry.
+		'element'  => '.suki-loop-grid',
 		'property' => 'row-gap',
+		// 'pattern'  => '$ !important',
 	),
 );
 
 $add['blog_index_grid_columns_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-loop-grid', // scss: entry.
+		'element'  => '.suki-loop-grid',
 		'property' => 'column-gap',
+		// 'pattern'  => '$ !important',
 	),
 );
 

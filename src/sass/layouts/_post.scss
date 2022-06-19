@@ -11,7 +11,20 @@
 	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
 }
 
+.entry-layout-default {
+	> * + * {
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
+	}
+}
+
+:is(.entry-header, .entry-footer) {
+	:is(.suki-meta, .suki-title, .suki-small-title):not(:first-child) {
+		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
+	}
+}
+
 .entry-meta {
+	gap: 0;
 	white-space: pre-wrap; // Preserve white space on flex items
 
 	&__avatar {
@@ -47,7 +60,7 @@
 }
 
 /**
- * Post
+ * Post author bio
  */
 
 .suki-author-bio {
@@ -62,14 +75,32 @@
 	}
 }
 
+/**
+ * Post navigation
+ */
+
 .suki-post-navigation {
 	margin-top: calc( 2 * var(--wp--style--block-gap) );
 }
+
+/**
+ * Comments
+ */
 
 .suki-comments {
 	margin-top: calc( 2 * var(--wp--style--block-gap) );
 
 	> * + * {
-		margin-top: calc( 1.5 * var(--wp--style--block-gap) );
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
+	}
+}
+
+.suki-comment {
+	&__meta {
+		gap: 1rem;
+
+		.suki-meta {
+			gap: 1rem;
+		}
 	}
 }

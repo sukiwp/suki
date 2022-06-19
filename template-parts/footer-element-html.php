@@ -16,5 +16,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="<?php echo esc_attr( 'suki-footer-' . $element ); ?>">
-	<div><?php echo do_shortcode( suki_get_theme_mod( 'footer_' . str_replace( '-', '_', $element ) . '_content' ) ); ?></div>
+	<?php echo do_shortcode( suki_get_theme_mod( 'footer_' . str_replace( '-', '_', $element ) . '_content' ) ); ?>
 </div>

@@ -37,19 +37,20 @@
 @import "blocks/comments";
 
 // Components
-@import "components/container";
 @import "components/icon";
 @import "components/toggle";
 @import "components/popup";
+@import "components/container";
+@import "components/menu";
 @import "components/search";
 @import "components/breadcrumb";
 @import "components/social-links";
 @import "components/widgets";
-@import "components/post";
 
-// Layouts
+// Layout
 @import "layouts/canvas";
 @import "layouts/header";
+@import "layouts/footer";
 @import "layouts/hero";
 @import "layouts/content-sidebar";
-@import "layouts/footer";
+@import "layouts/post";
