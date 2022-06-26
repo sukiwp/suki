@@ -236,6 +236,9 @@ class Suki_Admin {
 		$css_array['global']['.editor-styles-wrapper']['--sidebar-width'] = suki_get_theme_mod( 'sidebar_width', '25%' );
 		$css_array['global']['.editor-styles-wrapper']['--sidebar-gap']   = suki_get_theme_mod( 'sidebar_gap', 'calc( 2 * var(--wp--style--block-gap) )' );
 
+		// Add sidebar area label.
+		$css_array['@media screen and (min-width: 1305px)']['.editor-styles-wrapper:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow):after']['content'] = '"' . esc_html__( 'Sidebar', 'suki' ) . '" !important';
+
 		// Inject inline CSS after the admin.css.
 		wp_register_style( 'suki-block-editor', false, array(), true, true );
 		wp_add_inline_style(
