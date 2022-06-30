@@ -2,7 +2,9 @@
  * Header
  */
 
-.suki-header {
+.suki-header,
+.suki-header-desktop,
+.suki-header-mobile {
 	> * + * {
 		margin-block-start: 0; // Reset
 	}
@@ -38,6 +40,18 @@
 	color: var(--text-color);
 	
 	padding: 0 20px; // CUSTOMIZER
+
+	&:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) {
+		> .suki-header-main-bar-merged-wrapper {
+			height: 100%;
+			gap: 0;
+
+			> .suki-header-row {
+				flex-grow: 1;
+				height: auto;
+			}
+		}
+	}
 }
 
 .suki-header-bottom-bar {
@@ -164,7 +178,7 @@
  */
 
 .suki-header-row {
-	height: 100%; // Fill the vertical space to parent's height
+	height: 100%;
 	align-items: stretch;
 	gap: var(--items-gap);
 }
@@ -172,38 +186,23 @@
 .suki-header-column {
 	align-items: inherit;
 	gap: inherit;
+	white-space: nowrap;
 
-	@media screen and ( min-width: $breakpoint-tablet ) {
-		white-space: nowrap;
-
-		&--left {
-			flex: 1 1 50%;
-		}
-		
-		&--center {
-			flex: 0 1 auto;
-		}
-		
-		&--right {
-			flex: 1 1 50%;
-		}
+	&--left {
+		flex: 1 1 50%;
 	}
-
-	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
-		&--empty {
-			display: none;
-		}
-
-		flex: 0 0 100%;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	
+	&--center {
+		flex: 0 1 auto;
+	}
+	
+	&--right {
+		flex: 1 1 50%;
 	}
 
 	> * {
 		display: flex;
 		align-items: center;
-		gap: inherit;
 	}
 }
 
@@ -212,8 +211,6 @@
  */
 
 .suki-header-vertical-column {
-	display: flex;
-	flex-direction: column;
 	align-items: var(--flex-align);
 	gap: var(--items-gap);
 	width: 100%;
@@ -230,17 +227,17 @@
 		max-width: 100%;
 	}
 
-	&-top {
+	&--top {
 		flex: 1 1 50%;
 		justify-content: flex-start;
 	}
 	
-	&-center {
+	&--center {
 		flex: 0 1 auto;
 		justify-content: center;
 	}
 	
-	&-bottom {
+	&--bottom {
 		flex: 1 1 50%;
 		justify-content: flex-end;
 	}
@@ -336,13 +333,16 @@
  */
 
 .suki-logo {
-	width: 100px; // CUSTOMIZER
 	@extend %small-title;
 
 	img, svg {
 		display: block;
 		width: 100%;
 		height: auto;
+	}
+
+	&-image {
+		width: 100px; // CUSTOMIZER
 	}
 }
 

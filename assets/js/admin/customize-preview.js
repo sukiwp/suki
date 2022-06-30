@@ -34,6 +34,17 @@
 					var value = newValue,
 					    formattedValue;
 
+					// Convert array value into string.
+					if ( Array.isArray( value) ) {
+						let sanitizedValue = [];
+
+						sanitizedValue = value.map( function( subvalue ) {
+							return '' === subvalue ? 0 : subvalue;
+						} );
+
+						value = sanitizedValue.join( ' ' );
+					}
+
 					if ( rule['function'] && rule['function']['name'] ) {
 
 						switch ( rule['function']['name'] ) {

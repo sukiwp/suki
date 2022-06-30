@@ -243,19 +243,9 @@ if ( ! function_exists( 'suki_content_header' ) ) {
 			( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
 			0 < count( $elements ) // Content header has at least 1 element.
 		) {
-			?>
-			<!-- wp:group {
-				"className":"entry-header suki-content-header"
-			} --><div class="wp-block-group entry-header suki-content-header">
-
-				<?php
-				foreach ( $elements as $element ) {
-					suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
-				}
-				?>
-
-			</div><!-- /wp:group -->
-			<?php
+			foreach ( $elements as $element ) {
+				suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
+			}
 		}
 		$html = ob_get_clean();
 
@@ -294,19 +284,9 @@ if ( ! function_exists( 'suki_content_footer' ) ) {
 		$elements = suki_get_current_page_setting( 'content_footer', array() );
 
 		if ( 0 < count( $elements ) ) { // Content footer has at least 1 element.
-			?>
-			<!-- wp:group {
-				"className":"entry-footer suki-content-footer"
-			} --><div class="wp-block-group entry-footer suki-content-footer">
-
-				<?php
-				foreach ( $elements as $element ) {
-					suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), false );
-				}
-				?>
-
-			</div><!-- /wp:group -->
-			<?php
+			foreach ( $elements as $element ) {
+				suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), false );
+			}
 		}
 		$html = ob_get_clean();
 

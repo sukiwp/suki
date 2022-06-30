@@ -233,15 +233,6 @@ $add['header_mobile_logo_width'] = '100px';
 
 /**
  * ====================================================
- * Header > Search
- * ====================================================
- */
-
-$add['header_search_bar_width']      = '300px';
-$add['header_search_dropdown_width'] = '300px';
-
-/**
- * ====================================================
  * Header > Cart
  * ====================================================
  */
@@ -265,8 +256,7 @@ $add['header_social_links_target'] = 'self';
  * ====================================================
  */
 
-$add['header_top_bar_merged']     = 0;
-$add['header_top_bar_merged_gap'] = '';
+$add['header_top_bar_merged'] = 0;
 
 $add['header_top_bar_container'] = 'wide';
 $add['header_top_bar_height']    = '50px';
@@ -274,7 +264,7 @@ $add['header_top_bar_padding']   = array( '0px', '20px', '0px', '20px' );
 
 $add['header_top_bar_menu_highlight'] = 'none';
 
-$add['header_top_bar_icon_size'] = '18px';
+$add['header_top_bar_icon_size'] = '1.2em';
 
 /**
  * ====================================================
@@ -288,7 +278,7 @@ $add['header_main_bar_padding']   = array( '0px', '20px', '0px', '20px' );
 
 $add['header_main_bar_menu_highlight'] = 'none';
 
-$add['header_main_bar_icon_size'] = '18px';
+$add['header_main_bar_icon_size'] = '1.2em';
 
 /**
  * ====================================================
@@ -296,8 +286,7 @@ $add['header_main_bar_icon_size'] = '18px';
  * ====================================================
  */
 
-$add['header_bottom_bar_merged']     = 0;
-$add['header_bottom_bar_merged_gap'] = '0px';
+$add['header_bottom_bar_merged'] = 0;
 
 $add['header_bottom_bar_container'] = 'wide';
 $add['header_bottom_bar_height']    = '50px';
@@ -305,7 +294,7 @@ $add['header_bottom_bar_padding']   = array( '0px', '20px', '0px', '20px' );
 
 $add['header_bottom_bar_menu_highlight'] = 'none';
 
-$add['header_bottom_bar_icon_size'] = '18px';
+$add['header_bottom_bar_icon_size'] = '1.2em';
 
 /**
  * ====================================================
@@ -316,7 +305,7 @@ $add['header_bottom_bar_icon_size'] = '18px';
 $add['header_mobile_main_bar_height']          = '60px';
 $add['header_mobile_main_bar_padding__tablet'] = array( '0px', '20px', '0px', '20px' );
 
-$add['header_mobile_main_bar_icon_size'] = '18px';
+$add['header_mobile_main_bar_icon_size'] = '1.2em';
 
 /**
  * ====================================================
@@ -333,7 +322,7 @@ $add['header_mobile_vertical_bar_alignment'] = 'left';
 $add['header_mobile_vertical_bar_width']     = '300px';
 $add['header_mobile_vertical_bar_padding']   = array( '30px', '30px', '30px', '30px' );
 
-$add['header_mobile_vertical_bar_icon_size'] = '18px';
+$add['header_mobile_vertical_bar_icon_size'] = '1.2em';
 
 /**
  * ====================================================
@@ -406,8 +395,7 @@ $add['footer_widgets_bar_bg_color'] = 'var(--color-palette-7)';
  * ====================================================
  */
 
-$add['footer_bottom_bar_merged']     = 0;
-$add['footer_bottom_bar_merged_gap'] = '0px';
+$add['footer_bottom_bar_merged'] = 0;
 
 $add['footer_bottom_bar_container'] = 'wide';
 $add['footer_bottom_bar_padding']   = array( '25px', '20px', '25px', '20px' );
@@ -453,7 +441,7 @@ $add['scroll_to_top_position'] = 'right';
 $add['scroll_to_top_h_offset'] = '20px';
 $add['scroll_to_top_v_offset'] = '20px';
 
-$add['scroll_to_top_icon_size']     = '18px';
+$add['scroll_to_top_icon_size']     = '1.2em';
 $add['scroll_to_top_padding']       = '10px';
 $add['scroll_to_top_border_radius'] = '40px';
 

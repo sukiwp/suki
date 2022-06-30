@@ -39,7 +39,7 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 				$key,
 				array(
 					'section'  => $section,
-					'label'    => esc_html__( 'Merge inside Main Bar wrapper', 'suki' ),
+					'label'    => esc_html__( 'Put inside Main Bar container', 'suki' ),
 					'priority' => 10,
 				)
 			)

@@ -62,7 +62,21 @@ $thumbnail_block = '
 	/**
 	 * Content header
 	 */
-	suki_content_header();
+	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/header' ) ) {
+		?>
+		<!-- wp:group {
+			"tagName":"header",
+			"className":"entry-header"
+		} --><header class="entry-header">
+			<?php
+			/**
+			 * Hook: suki/frontend/{post_type}_content/header
+			 */
+			do_action( 'suki/frontend/' . get_post_type() . '_content/header' );
+			?>
+		</header><!-- /wp:group -->
+		<?php
+	}
 
 	/**
 	 * Featured image (after header)
@@ -99,7 +113,21 @@ $thumbnail_block = '
 	/**
 	 * Content footer
 	 */
-	suki_content_footer();
+	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/footer' ) ) {
+		?>
+		<!-- wp:group {
+			"tagName":"footer",
+			"className":"entry-footer"
+		} --><footer class="entry-footer">
+			<?php
+			/**
+			 * Hook: suki/frontend/{post_type}_content/footer
+			 */
+			do_action( 'suki/frontend/' . get_post_type() . '_content/footer' );
+			?>
+		</footer><!-- /wp:group -->
+		<?php
+	}
 
 	/**
 	 * Hook: suki/frontend/{post_type}_content/after_footer

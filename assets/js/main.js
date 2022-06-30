@@ -443,7 +443,7 @@
 			 */
 			var handleAccordionMenuToggle = function( e ) {
 				// Check target element.
-				var $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .suki-sub-menu-toggle' );
+				var $this = e.target.closest( '.suki-header-vertical-column .suki-toggle-menu .suki-sub-menu-toggle' );
 				if ( ! $this ) return;
 				
 				e.preventDefault();

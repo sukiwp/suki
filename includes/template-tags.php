@@ -202,7 +202,7 @@ if ( ! function_exists( 'suki_default_logo' ) ) {
 	 */
 	function suki_default_logo() {
 		?>
-		<div class="suki-default-logo suki-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></div>
+		<div class="suki-default-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></div>
 		<?php
 	}
 }
@@ -213,7 +213,7 @@ if ( ! function_exists( 'suki_default_logo_mobile' ) ) {
 	 */
 	function suki_default_logo_mobile() {
 		?>
-		<span class="suki-default-logo suki-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo_mobile' ) ); ?></span>
+		<span class="suki-default-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo_mobile' ) ); ?></span>
 		<?php
 	}
 }

@@ -562,11 +562,11 @@ function suki_header_main_bar_classes( $classes ) {
 	$classes['menu_highlight'] = esc_attr( 'suki-header-menu-highlight-' . suki_get_theme_mod( 'header_main_bar_menu_highlight' ) );
 
 	if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-		$classes['top_bar_merged'] = 'suki-header-main-bar-with-top-bar';
+		$classes['top_bar_merged'] = 'suki-header-main-bar--with-top-bar';
 	}
 
 	if ( boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-		$classes['bottom_bar_merged'] = 'suki-header-main-bar-with-bottom-bar';
+		$classes['bottom_bar_merged'] = 'suki-header-main-bar--with-bottom-bar';
 	}
 
 	return $classes;

@@ -107,7 +107,7 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Position', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
-					'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+					'label' => esc_html__( 'Left', 'suki' ),
 					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--left.svg',
 				),
 				'center' => array(
@@ -115,7 +115,7 @@ $wp_customize->add_control(
 					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--center.svg',
 				),
 				'right'  => array(
-					'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+					'label' => esc_html__( 'Right', 'suki' ),
 					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--right.svg',
 				),
 			),
@@ -144,13 +144,13 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Alignment', 'suki' ),
 			'choices'  => array(
 				'left'   => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'right' : 'left' ) . '"></span>',
+					'label' => esc_html__( 'Left', 'suki' ),
 				),
 				'center' => array(
-					'label' => '<span class="dashicons dashicons-editor-aligncenter"></span>',
+					'label' => esc_html__( 'Center', 'suki' ),
 				),
 				'right'  => array(
-					'label' => '<span class="dashicons dashicons-editor-align' . ( is_rtl() ? 'left' : 'right' ) . '"></span>',
+					'label' => esc_html__( 'Right', 'suki' ),
 				),
 			),
 			'priority' => 10,
@@ -177,11 +177,11 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
 				'px'  => array(
-					'min'  => 150,
+					'min'  => 0,
 					'step' => 1,
 				),
 				'em'  => array(
-					'min'  => 10,
+					'min'  => 0,
 					'step' => 0.01,
 				),
 				'rem' => array(
@@ -189,7 +189,7 @@ $wp_customize->add_control(
 					'step' => 0.01,
 				),
 				'%'   => array(
-					'min'  => 10,
+					'min'  => 0,
 					'step' => 0.01,
 				),
 			),

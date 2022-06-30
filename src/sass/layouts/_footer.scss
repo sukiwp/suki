@@ -2,6 +2,12 @@
  * Footer
  */
 
+.suki-footer {
+	> * + * {
+		margin-block-start: 0; // Reset
+	}
+}
+
 .suki-footer-widgets-bar {
 	--background-color: var(--color-palette-7); // CUSTOMIZER
 

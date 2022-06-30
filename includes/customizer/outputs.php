@@ -823,7 +823,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		$add[ 'header_' . $bar . '_bar_merged_gap' ] = array(
 			array(
 				'type'     => 'css',
-				'element'  => '.suki-header-main-bar.suki-header-main-bar-with-' . $bar . '-bar .suki-header-row',
+				'element'  => '.suki-header-main-bar-with-' . $bar . '-bar > .suki-header-main-bar-merged-wrapper > .suki-header-row',
 				'property' => 'margin-' . $bar,
 			),
 		);
@@ -1114,7 +1114,7 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = array(
 $add['header_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-logo .suki-logo-image', // scss: header.
+		'element'  => '.suki-header-logo .suki-logo-image',
 		'property' => 'width',
 	),
 );
@@ -1122,7 +1122,7 @@ $add['header_logo_width'] = array(
 $add['header_mobile_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-logo .suki-logo-image', // scss: header.
+		'element'  => '.suki-header-mobile-logo .suki-logo-image',
 		'property' => 'width',
 	),
 );

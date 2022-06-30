@@ -775,7 +775,7 @@
 		};
 		wp.customize.panel( 'suki_panel_header', initHeaderFooterBuilder );
 		wp.customize.panel( 'suki_panel_footer', initHeaderFooterBuilder );
-		
+
 		if ( wp.customize.control( 'footer_elements' ) ) {
 			wp.customize.control( 'footer_elements' ).container.on( 'init', setCustomResponsiveElementsDisplay );
 		}

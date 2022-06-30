@@ -44,7 +44,7 @@ body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):n
 		margin-right: auto;
 
 		&:after {
-			content: "Sidebar";
+			content: "";
 			box-sizing: border-box;
 			position: absolute;
 			top: 4rem;

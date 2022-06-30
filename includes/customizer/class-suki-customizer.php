@@ -186,7 +186,7 @@ class Suki_Customizer {
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--builder.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--top-main-bottom-bar.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--mobile-main-bar.php';
-		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--mobile-vertical-bar.php';
+		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--mobile-popup.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--logo.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--menu.php';
 		require_once SUKI_INCLUDES_DIR . '/customizer/structures/header--html.php';

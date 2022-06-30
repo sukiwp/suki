@@ -41,13 +41,6 @@ $add['outside_bg'] = array(
 
 // Main bar is placed first because top bar and bottom bar can be merged into main bar.
 foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
-	$add[ 'suki_section_header_' . $bar ] = array(
-		array(
-			'setting' => '__device',
-			'value'   => 'desktop',
-		),
-	);
-
 	if ( 'main_bar' !== $bar ) {
 		$add[ 'header_' . $bar . '_container' ] = array(
 			array(
@@ -84,15 +77,6 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
  * Header > Mobile Popup
  * ====================================================
  */
-
-$add['suki_section_header_mobile_main_bar'] =
-$add['suki_section_header_mobile_vertical_bar'] = array(
-	array(
-		'setting'  => '__device',
-		'operator' => '!=',
-		'value'    => 'desktop',
-	),
-);
 
 $add['header_mobile_vertical_bar_full_screen_position'] = array(
 	array(

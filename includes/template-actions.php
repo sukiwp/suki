@@ -123,35 +123,14 @@ function suki_template_hooks() {
 	 */
 
 	if ( is_singular() ) {
-		// If content header is not disabled.
-		if ( ! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) ) {
-			// If hero section is not active.
-			if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
-				// Add content header element.
-				add_action(
-					'suki/frontend/' . get_post_type() . '_content/header',
-					function() {
-						foreach ( suki_get_current_page_setting( 'content_header', array() ) as $element ) {
-							// This action can't be modified or removed, because it uses anonymous function.
-							suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
-						}
-					},
-					10
-				);
-			}
+		// If hero section is not active.
+		if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
+			// Add content header to main content.
+			add_action( 'suki/frontend/' . get_post_type() . '_content/header', 'suki_content_header', 10 );
 		}
 
 		// Add content footer elements.
-		add_action(
-			'suki/frontend/' . get_post_type() . '_content/footer',
-			function() {
-				foreach ( suki_get_current_page_setting( 'content_footer', array() ) as $element ) {
-					// This action can't be modified or removed, because it uses anonymous function.
-					suki_content_footer_element( $element );
-				}
-			},
-			10
-		);
+		add_action( 'suki/frontend/' . get_post_type() . '_content/footer', 'suki_content_footer', 10 );
 
 		// Post type: post.
 		if ( is_singular( 'post' ) ) {
