@@ -243,7 +243,6 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 			case 'date':
 				$html = '
 				<!-- wp:post-date {
-					"format":null,
 					"isLink":true,
 					"className":"entry-meta__date"
 				} /-->
@@ -252,8 +251,7 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 
 			case 'author':
 				$html = '
-				<!-- wp:post-author {
-					"showAvatar":false,
+				<!-- wp:post-author-name {
 					"className":"entry-meta__author"
 				} /-->
 				';
@@ -261,8 +259,8 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 
 			case 'avatar':
 				$html = '
-				<!-- wp:post-author {
-					"avatarSize":48,
+				<!-- wp:avatar {
+					"size":' . apply_filters( 'suki/frontend/entry_author_bio_avatar_size', 80 ) . ',
 					"className":"entry-meta__avatar"
 				} /-->
 				';
@@ -288,9 +286,7 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 
 			case 'comments':
 				$html = '
-				<!-- wp:comments-title {
-					"showPostTitle":false,
-					"level":6,
+				<!-- wp:post-comments-link {
 					"className":"entry-meta__comments"
 				} /-->
 				';
