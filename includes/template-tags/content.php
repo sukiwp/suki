@@ -238,11 +238,7 @@ if ( ! function_exists( 'suki_content_header' ) ) {
 
 		$elements = suki_get_current_page_setting( 'content_header', array() );
 
-		if (
-			! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
-			( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
-			0 < count( $elements ) // Content header has at least 1 element.
-		) {
+		if ( 0 < count( $elements ) ) { // Content header has at least 1 element.
 			foreach ( $elements as $element ) {
 				suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
 			}

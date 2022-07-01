@@ -1906,7 +1906,7 @@ msgstr ""
 msgid "Use {{keyword}} to display search keyword."
 msgstr ""
 
-#: includes/customizer/structures/page--search.php:156, includes/template-tags/content.php:344
+#: includes/customizer/structures/page--search.php:156, includes/template-tags/content.php:340
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 
