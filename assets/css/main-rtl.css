@@ -3415,7 +3415,7 @@ li:not(:last-child) > .wp-block-rss__item-excerpt {
 .wp-block-post-author {
 	display: grid;
 	grid-auto-flow: row;
-	grid-template: auto;
+	grid-template-columns: auto 1fr;
 	gap: var(--wp--style--block-gap);
 	margin: var(--wp--style--block-gap) 0;
 	text-align: center;

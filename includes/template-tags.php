@@ -37,7 +37,7 @@ if ( ! function_exists( 'suki_unassigned_menu' ) ) {
 			return;
 		}
 		?>
-		<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>" class="suki-menu-item-link">
+		<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>">
 			<em><?php esc_html_e( 'Add a menu', 'suki' ); ?></em>
 		</a>
 		<?php
