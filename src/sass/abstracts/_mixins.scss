@@ -290,7 +290,7 @@
 @mixin max-width-for-alignleft-alignright() {
 	// Apply max-width to floated items that have no intrinsic width.
 	&:where(.alignleft, .alignright) {
-		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) );; // Fix value, only overrideable via custom CSS
+		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) ); // Fix value, only overrideable via custom CSS
 		width: 100%;
 	}
 }

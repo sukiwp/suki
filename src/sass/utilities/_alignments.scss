@@ -20,7 +20,7 @@
 
 	/*rtl:ignore*/
 	margin-top: 0;
-	margin-right: var(--wp--style--block-gap);
+	margin-right: var(--wp--style--block-gap) !important;
 	margin-bottom: var(--wp--style--block-gap);
 }
 
@@ -30,7 +30,7 @@
 	
 	/*rtl:ignore*/
 	margin-top: 0;
-	margin-left: var(--wp--style--block-gap);
+	margin-left: var(--wp--style--block-gap) !important;
 	margin-bottom: var(--wp--style--block-gap);
 }
 

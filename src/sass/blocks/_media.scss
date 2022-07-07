@@ -19,6 +19,81 @@
 }
 
 /**
+ * Block: Gallery
+ */
+
+.wp-block-gallery {
+	display: grid !important; // Use grid instead of flexbox from block layout support.
+
+	&.columns-2 {
+		grid-template-columns: repeat( 2, 1fr );
+	}
+	
+	&.columns-default,
+	&.columns-3 {
+		grid-template-columns: repeat( 3, 1fr );
+	}
+
+	// On phone and larger devices, gallery will have at least 2 columns
+	&:where(.columns-4, .columns-5, .columns-6, .columns-7, .columns-8) {
+		grid-template-columns: repeat( 2, 1fr );
+	}
+
+	@media screen and ( min-width: $breakpoint-phone ) {
+		&:where(.columns-5, .columns-6) {
+			grid-template-columns: repeat( 3, 1fr );
+		}
+
+		&:where(.columns-7, .columns-8) {
+			grid-template-columns: repeat( 4, 1fr );
+		}
+	}
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		&.columns-4 {
+			grid-template-columns: repeat( 4, 1fr );
+		}
+	
+		&.columns-5 {
+			grid-template-columns: repeat( 5, 1fr );
+		}
+	
+		&.columns-6 {
+			grid-template-columns: repeat( 6, 1fr );
+		}
+	
+		&.columns-7 {
+			grid-template-columns: repeat( 7, 1fr );
+		}
+	
+		&.columns-8 {
+			grid-template-columns: repeat( 8, 1fr );
+		}
+	}
+
+	&.is-cropped {
+		align-items: stretch;
+
+		> * {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		img {
+			flex-grow: 1;
+			object-fit: cover;
+		}
+	}
+
+	&.aligncenter {
+		justify-content: center;
+	}
+
+	@include max-width-for-alignleft-alignright();
+}
+
+/**
  * Block: Audio
  */
 
@@ -29,111 +104,120 @@
 }
 
 /**
- * Block: Video
- */
-
-.wp-block-video {
-	@include stretch-alignfull();
-}
-
-/**
  * Block: Cover
  */
 
 .wp-block-cover {
 	position: relative;
-	background-size: cover;
-	background-position: center center;
 	min-height: 20rem; // Default
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: var(--wp--style--block-gap);
-	gap: 0; // Cover doesn't need gap
+	isolation: isolate;
 
 	@include stretch-alignfull();
 
-	&.has-parallax {
-		background-attachment: fixed; // When parallax mode is activated, .wp-block-cover__image-background is removed
+	@include max-width-for-alignleft-alignright();
 
-		// Mobile Safari does not support fixed background attachment properly.
-		// See also https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios
-		// Chrome on Android does not appear to support the attachment at all: https://issuetracker.google.com/issues/36908439
-		@supports (-webkit-overflow-scrolling: touch) {
-			background-attachment: scroll;
-		}
-
-		// Remove the appearance of scrolling based on OS-level animation preferences.
-		@media (prefers-reduced-motion: reduce) {
-			background-attachment: scroll;
-		}
-	}
-
-	&.is-repeated {
-		background-repeat: repeat;
-		background-size: auto;
-	}
-
-	&.has-background-dim {
-		&:not([class*="-background-color"]) {
-			background-color: #000; // Default
-		}
-
-		&-10 {
-			opacity: 0.1;
-		}
-		&-20 {
-			opacity: 0.2;
-		}
-		&-30 {
-			opacity: 0.3;
-		}
-		&-40 {
-			opacity: 0.4;
-		}
-		&-50 {
-			opacity: 0.5;
-		}
-		&-60 {
-			opacity: 0.6;
-		}
-		&-70 {
-			opacity: 0.7;
-		}
-		&-80 {
-			opacity: 0.8;
-		}
-		&-90 {
-			opacity: 0.9;
-		}
-		&-100 {
-			opacity: 1;
-		}
-	}
-
-	&__gradient-background {
+	// Background overlay
+	&__background {
 		position: absolute;
 		top: 0;
 		left: 0;
 		bottom: 0;
 		right: 0;
-		z-index: 1;
+		z-index: 0;
 		opacity: 0.5; // Default
+
+		&.has-background-dim {
+			// No overlay background color set.
+			&:not([class*="-background-color"]) {
+				background-color: #000; // Default overlay color
+			}
+	
+			// Remove background-color when gradient overlay is set.
+			&.has-background-gradient {
+				background-color: transparent;
+			}
+		}
+
+		// Overlay opacity
+		@for $i from 1 through 10 {
+			&.has-background-dim-#{ $i * 10 } {
+				opacity: $i * 0.1;
+			}
+		}
 	}
 
-	@include max-width-for-alignleft-alignright();
+	// Image background
+	&__image-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		max-height: none;
+		object-fit: cover;
+		background-size: cover;
+		background-position: center center;
+		user-select: none; // Disable selection when background is <img> (no repeat mode)
 
+		&.has-parallax {
+			background-attachment: fixed;
+	
+			// Mobile Safari does not support fixed background attachment properly.
+			// See also https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios
+			// Chrome on Android does not appear to support the attachment at all: https://issuetracker.google.com/issues/36908439
+			@supports (-webkit-overflow-scrolling: touch) {
+				background-attachment: scroll;
+			}
+	
+			// Remove the appearance of scrolling based on OS-level animation preferences.
+			@media (prefers-reduced-motion: reduce) {
+				background-attachment: scroll;
+			}
+		}
+
+		&.is-repeated {
+			background-repeat: repeat;
+			background-size: auto;
+		}
+	}
+
+	// Video background
+	&__video-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		max-height: none;
+		object-fit: cover;
+	}
+
+	// Inner container
 	&__inner-container {
-		--text-color: #000;
-
 		width: 100%;
 		z-index: 1;
-		color: var(--text-color);
+		color: white;
 	}
 
-	&:not(.is-light) {
+	&.is-light {
 		.wp-block-cover__inner-container {
-			--text-color: #fff;
+			color: black;
 		}
 	}
 
@@ -182,29 +266,19 @@
 		}
 	}
 
-	&.has-custom-content-position.has-custom-content-position {
+	&.has-custom-content-position {
 		.wp-block-cover__inner-container {
-			margin: 0;
 			width: auto;
 		}
 	}
+}
 
-	&__video-background,
-	&__image-background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 0;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		height: 100%;
-		max-width: none;
-		max-height: none;
-		object-fit: cover;
-	}
+/**
+ * Block: Video
+ */
+
+.wp-block-video {
+	@include stretch-alignfull();
 }
 
 .wp-block-cover-image {
@@ -287,88 +361,6 @@
 	}
 }
 
-/**
- * Block: \Gallery
- */
-
-.wp-block-gallery {
-	--gap: var(--wp--style--block-gap, 0.5em);
-
-	display: grid;
-	gap: var(--gap);
-
-	> * {
-		position: relative;
-		margin: 0; // Reset <figure> margin
-	}
-
-	&.columns-2 {
-		grid-template-columns: repeat( 2, 1fr );
-	}
-	
-	&.columns-default,
-	&.columns-3 {
-		grid-template-columns: repeat( 3, 1fr );
-	}
-
-	// On phone and larger devices, gallery will have at least 2 columns
-	&:where(.columns-4, .columns-5, .columns-6, .columns-7, .columns-8) {
-		grid-template-columns: repeat( 2, 1fr );
-	}
-
-	@media screen and ( min-width: $breakpoint-phone ) and ( max-width: ( $breakpoint-tablet - 1px ) ) {
-		&:where(.columns-5, .columns-6) {
-			grid-template-columns: repeat( 3, 1fr );
-		}
-
-		&:where(.columns-7, .columns-8) {
-			grid-template-columns: repeat( 4, 1fr );
-		}
-	}
-
-	@media screen and ( min-width: $breakpoint-tablet ) {
-		&.columns-4 {
-			grid-template-columns: repeat( 4, 1fr );
-		}
-	
-		&.columns-5 {
-			grid-template-columns: repeat( 5, 1fr );
-		}
-	
-		&.columns-6 {
-			grid-template-columns: repeat( 6, 1fr );
-		}
-	
-		&.columns-7 {
-			grid-template-columns: repeat( 7, 1fr );
-		}
-	
-		&.columns-8 {
-			grid-template-columns: repeat( 8, 1fr );
-		}
-	}
-
-	&.is-cropped {
-		align-items: stretch;
-
-		> * {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-		}
-
-		img {
-			flex-grow: 1;
-			object-fit: cover;
-		}
-	}
-
-	&.aligncenter {
-		justify-content: center;
-	}
-
-	@include max-width-for-alignleft-alignright();
-}
 
 /**
  * Block: Media and Text
