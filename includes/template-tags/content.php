@@ -23,6 +23,19 @@ if ( ! function_exists( 'suki_content' ) ) {
 	 * @return string
 	 */
 	function suki_content( $main_content, $do_blocks = true, $echo = true ) {
+		ob_start();
+
+		/**
+		 * Hero section
+		 */
+		suki_hero( false );
+
+		/**
+		 * Content section
+		 *
+		 * Note: Styles are configured via CSS class and Customizer options.
+		 */
+
 		$has_sidebar = 'narrow' !== suki_get_current_page_setting( 'content_container' ) && in_array( suki_get_current_page_setting( 'content_layout' ), array( 'left-sidebar', 'right-sidebar' ), true );
 
 		$classes = implode(
@@ -34,13 +47,6 @@ if ( ! function_exists( 'suki_content' ) ) {
 				$has_sidebar ? 'suki-content-layout-' . suki_get_current_page_setting( 'content_layout' ) : '',
 			)
 		);
-
-		/**
-		 * Content section
-		 *
-		 * Note: Styles are configured via CSS class and Customizer options.
-		 */
-		ob_start();
 		?>
 		<!-- wp:group {
 			"align":"full",

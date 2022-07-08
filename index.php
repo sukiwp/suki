@@ -16,11 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 /**
- * Hero
- */
-suki_hero();
-
-/**
  * Content
  */
 suki_content(

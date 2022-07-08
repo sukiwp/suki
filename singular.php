@@ -16,19 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 get_header();
 
-// Initiate the post early, so hero section can use post meta data.
-the_post();
-
-/**
- * Hero
- */
-suki_hero();
-
 /**
  * Content
  */
 
 ob_start();
+
+the_post();
 
 $thumbnail_block = '
 <!-- wp:post-featured-image {
@@ -68,12 +62,14 @@ $thumbnail_block = '
 			"tagName":"header",
 			"className":"entry-header"
 		} --><header class="entry-header">
+
 			<?php
 			/**
 			 * Hook: suki/frontend/{post_type}_content/header
 			 */
 			do_action( 'suki/frontend/' . get_post_type() . '_content/header' );
 			?>
+
 		</header><!-- /wp:group -->
 		<?php
 	}
@@ -92,7 +88,10 @@ $thumbnail_block = '
 	?>
 
 	<!-- wp:post-content {
-		"className":"entry-content"
+		"align":"full",
+		"layout":{
+			"inherit":"true"
+		}
 	} /-->
 
 	<?php
@@ -119,12 +118,14 @@ $thumbnail_block = '
 			"tagName":"footer",
 			"className":"entry-footer"
 		} --><footer class="entry-footer">
+
 			<?php
 			/**
 			 * Hook: suki/frontend/{post_type}_content/footer
 			 */
 			do_action( 'suki/frontend/' . get_post_type() . '_content/footer' );
 			?>
+
 		</footer><!-- /wp:group -->
 		<?php
 	}
