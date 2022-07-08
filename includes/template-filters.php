@@ -163,7 +163,7 @@ function suki_render_layout_support_css( $block_content, $block ) {
 		}
 
 		// Flex wrap.
-		if ( ! empty( $layout['flexWrap'] ) && 'wrap' === $layout['flexWrap'] ) {
+		if ( empty( $layout['flexWrap'] ) || 'wrap' === $layout['flexWrap'] ) {
 			$classes[] = 'suki-flex--wrap';
 		}
 
