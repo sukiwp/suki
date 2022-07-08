@@ -2095,40 +2095,44 @@ th {
  * Block: Gallery
  */
 .wp-block-gallery {
-	display: grid !important;
+	--wp--style--gallery-gap-default: var(--wp--style--block-gap);
+}
+.wp-block-gallery > * {
+	flex-grow: 1;
+	flex-basis: calc((100% - (var(--columns) - 1) * var(--wp--style--gallery-gap-default)) / var(--columns));
 }
 .wp-block-gallery.columns-2 {
-	grid-template-columns: repeat(2, 1fr);
+	--columns: 2;
 }
 .wp-block-gallery.columns-default, .wp-block-gallery.columns-3 {
-	grid-template-columns: repeat(3, 1fr);
+	--columns: 3;
 }
 .wp-block-gallery:where(.columns-4, .columns-5, .columns-6, .columns-7, .columns-8) {
-	grid-template-columns: repeat(2, 1fr);
+	--columns: 4;
 }
 @media screen and (min-width: 500px) {
-	.wp-block-gallery:where(.columns-5, .columns-6) {
-		grid-template-columns: repeat(3, 1fr);
+	.wp-block-gallery:where(.columns-5, .columns-6) > * {
+		--columns: 3;
 	}
-	.wp-block-gallery:where(.columns-7, .columns-8) {
-		grid-template-columns: repeat(4, 1fr);
+	.wp-block-gallery:where(.columns-7, .columns-8) > * {
+		--columns: 4;
 	}
 }
 @media screen and (min-width: 768px) {
-	.wp-block-gallery.columns-4 {
-		grid-template-columns: repeat(4, 1fr);
+	.wp-block-gallery.columns-4 > * {
+		--columns: 4;
 	}
-	.wp-block-gallery.columns-5 {
-		grid-template-columns: repeat(5, 1fr);
+	.wp-block-gallery.columns-5 > * {
+		--columns: 5;
 	}
-	.wp-block-gallery.columns-6 {
-		grid-template-columns: repeat(6, 1fr);
+	.wp-block-gallery.columns-6 > * {
+		--columns: 6;
 	}
-	.wp-block-gallery.columns-7 {
-		grid-template-columns: repeat(7, 1fr);
+	.wp-block-gallery.columns-7 > * {
+		--columns: 7;
 	}
-	.wp-block-gallery.columns-8 {
-		grid-template-columns: repeat(8, 1fr);
+	.wp-block-gallery.columns-8 > * {
+		--columns: 8;
 	}
 }
 .wp-block-gallery.is-cropped {

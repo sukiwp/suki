@@ -23,51 +23,70 @@
  */
 
 .wp-block-gallery {
-	display: grid !important; // Use grid instead of flexbox from block layout support.
+	--wp--style--gallery-gap-default: var(--wp--style--block-gap);
+
+	> * {
+		flex-grow: 1;
+		flex-basis: calc( ( 100% - ( ( var(--columns) - 1 ) * var(--wp--style--gallery-gap-default) ) ) / var(--columns) );
+	}
 
 	&.columns-2 {
-		grid-template-columns: repeat( 2, 1fr );
+		--columns: 2;
 	}
 	
 	&.columns-default,
 	&.columns-3 {
-		grid-template-columns: repeat( 3, 1fr );
+		--columns: 3;
 	}
 
 	// On phone and larger devices, gallery will have at least 2 columns
 	&:where(.columns-4, .columns-5, .columns-6, .columns-7, .columns-8) {
-		grid-template-columns: repeat( 2, 1fr );
+		--columns: 4;
 	}
 
 	@media screen and ( min-width: $breakpoint-phone ) {
 		&:where(.columns-5, .columns-6) {
-			grid-template-columns: repeat( 3, 1fr );
+			> * {
+				--columns: 3;
+			}
 		}
 
 		&:where(.columns-7, .columns-8) {
-			grid-template-columns: repeat( 4, 1fr );
+			> * {
+				--columns: 4;
+			}
 		}
 	}
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
 		&.columns-4 {
-			grid-template-columns: repeat( 4, 1fr );
+			> * {
+				--columns: 4;
+			}
 		}
 	
 		&.columns-5 {
-			grid-template-columns: repeat( 5, 1fr );
+			> * {
+				--columns: 5;
+			}
 		}
 	
 		&.columns-6 {
-			grid-template-columns: repeat( 6, 1fr );
+			> * {
+				--columns: 6;
+			}
 		}
 	
 		&.columns-7 {
-			grid-template-columns: repeat( 7, 1fr );
+			> * {
+				--columns: 7;
+			}
 		}
 	
 		&.columns-8 {
-			grid-template-columns: repeat( 8, 1fr );
+			> * {
+				--columns: 8;
+			}
 		}
 	}
 
