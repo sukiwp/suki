@@ -12,5 +12,5 @@ vendor
 # Editor
 .vscode
 
-# Build files
-__build
+# Build zip files
+zip
