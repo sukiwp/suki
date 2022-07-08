@@ -2091,7 +2091,7 @@ th {
 .wp-block-gallery {
 	--wp--style--gallery-gap-default: var(--wp--style--block-gap);
 }
-.wp-block-gallery > * {
+.wp-block-gallery > .wp-block-image {
 	flex-grow: 1;
 	flex-basis: calc((100% - (var(--columns) - 1) * var(--wp--style--gallery-gap-default)) / var(--columns));
 }
@@ -2144,6 +2144,9 @@ th {
 }
 .wp-block-gallery.aligncenter {
 	justify-content: center;
+}
+.wp-block-gallery > figcaption {
+	flex-basis: 100%;
 }
 .wp-block-gallery:where(.alignleft, .alignright) {
 	max-width: calc(50% - var(--wp--style--block-gap) / 2);
