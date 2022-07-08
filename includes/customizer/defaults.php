@@ -126,8 +126,8 @@ $add['blockquote_line_height'] = '1.6';
  * ====================================================
  */
 
-$add['input_padding']       = '10px 12px 10px 12px';
-$add['input_border']        = '1px 1px 1px 1px';
+$add['input_padding']       = array( '0.5em', '0.75em', '0.5em', '0.75em' );
+$add['input_border']        = array( '1px', '1px', '1px', '1px' );
 $add['input_border_radius'] = '3px';
 
 $add['input_bg_color']           = 'var(--color-palette-8)';
@@ -139,7 +139,7 @@ $add['input_focus_border_color'] = 'var(--color-palette-2)';
  * ====================================================
  */
 
-$add['button_padding']       = array( '10px', '20px', '10px', '20px' );
+$add['button_padding']       = array( '0.5em', '1em', '0.5em', '1em' );
 $add['button_border']        = array( '1px', '1px', '1px', '1px' );
 $add['button_border_radius'] = '3px';
 
@@ -152,18 +152,6 @@ $add['button_text_color']         = 'var(--color-palette-8)';
 $add['button_hover_bg_color']     = 'var(--color-palette-4)';
 $add['button_hover_border_color'] = 'var(--color-palette-4)';
 $add['button_hover_text_color']   = 'var(--color-palette-8)';
-
-/**
- * ====================================================
- * Global Styles > Title
- * ====================================================
- */
-
-/**
- * ====================================================
- * Global Styles > Small Title
- * ====================================================
- */
 
 /**
  * ====================================================

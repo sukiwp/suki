@@ -84,8 +84,8 @@
 	--meta--text-color: var(--meta-color);
 
 	// Form inputs (default)
-	--input--padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-	--input--border-radius: 0.1875rem;
+	--input--padding: 0.5em 0.75em 0.5em 0.75em;
+	--input--border-radius: 0.2em;
 	--input--border-width: 1px;
 	--input--border-color: var(--color-palette-6);
 	--input--background-color: var(--color-palette-8);
@@ -93,8 +93,8 @@
 	--input--border-color--focus: var(--color-palette-2);
 
 	// Button (default)
-	--button--padding: 0.625rem 1rem 0.625rem 1rem;
-	--button--border-radius: 0.1875rem;
+	--button--padding: 0.5em 1em 0.5em 1em;
+	--button--border-radius: 0.2em;
 	--button--border-width: 1px;
 	--button--border-color: var(--color-palette-4);
 	--button--background-color: var(--color-palette-4);

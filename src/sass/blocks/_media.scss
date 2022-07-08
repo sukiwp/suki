@@ -274,11 +274,97 @@
 }
 
 /**
+ * Block: File
+ */
+
+.wp-block-file {
+	display: flex;
+	align-items: center;
+	gap: calc( 0.5 * var(--wp--style--block-gap) );
+
+	&__button {
+		@extend %button;
+	}
+}
+
+/**
+ * Block: Media and Text
+ */
+
+.wp-block-media-text {
+	/*!rtl:begin:ignore*/
+	direction: ltr;
+	/*!rtl:end:ignore*/
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: "media content";
+	align-items: center;
+
+	@include stretch-alignfull();
+	
+	&.has-media-on-the-right {
+		grid-template-areas: "content media";
+	}
+
+	&.is-vertically-aligned-top {
+		align-items: start;
+	}
+
+	&.is-vertically-aligned-center {
+		align-items: center;
+	}
+	
+	&.is-vertically-aligned-bottom {
+		align-items: end;
+	}
+
+	&__media {
+		grid-area: media;
+		margin: 0;
+
+		img {
+			object-fit: cover;
+		}
+
+		.is-image-fill > & {
+			align-self: stretch;
+
+			a {
+				display: block;
+				height: 100%;
+			}
+			
+			img {
+				height: 100%;
+			}
+		}
+	}
+	
+	&__content {
+		grid-area: content;
+		padding: clamp( var(--wp--style--block-gap), 10%, calc( 1.5 * var(--wp--style--block-gap) ) );
+	}
+
+	&.is-stacked-on-mobile {
+		@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
+			grid-template-columns: 100% !important; // Use important to override inline style from the block settings
+			grid-template-areas: "media" "content"; // Stack media and content
+		}
+	}
+}
+
+/**
  * Block: Video
  */
 
 .wp-block-video {
 	@include stretch-alignfull();
+
+	video {
+		width: 100%;
+	}
 }
 
 .wp-block-cover-image {
@@ -292,12 +378,6 @@
 
 .wp-block-embed {
 	@include stretch-alignfull();
-
-	// Supply a min-width when inside a cover block, to prevent it from collapsing.
-	.wp-block-cover & {
-		min-width: 320px;
-		min-height: 240px;
-	}
 
 	@include max-width-for-alignleft-alignright();
 
@@ -358,74 +438,5 @@
 
 	.wp-embed-aspect-1-2 .wp-block-embed__wrapper::before {
 		padding-top: 200%; // 2 / 1 * 100
-	}
-}
-
-
-/**
- * Block: Media and Text
- */
-
-.wp-block-media-text {
-	/*!rtl:begin:ignore*/
-	direction: ltr;
-	/*!rtl:end:ignore*/
-
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: auto;
-	grid-template-areas: "media content";
-	align-items: center;
-
-	@include stretch-alignfull();
-	
-	&.has-media-on-the-right {
-		grid-template-areas: "content media";
-	}
-
-	&.is-vertically-aligned-top {
-		align-items: start;
-	}
-
-	&.is-vertically-aligned-center {
-		align-items: center;
-	}
-	
-	&.is-vertically-aligned-bottom {
-		align-items: end;
-	}
-
-	&__media {
-		grid-area: media;
-		margin: 0;
-
-		img {
-			object-fit: cover;
-		}
-
-		.is-image-fill > & {
-			align-self: stretch;
-
-			a {
-				display: block;
-				height: 100%;
-			}
-			
-			img {
-				height: 100%;
-			}
-		}
-	}
-	
-	&__content {
-		grid-area: content;
-		padding: clamp( var(--wp--style--block-gap), 10%, calc( 2 * var(--wp--style--block-gap) ) );
-	}
-
-	&.is-stacked-on-mobile {
-		@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
-			grid-template-columns: 100% !important; // Use important to override inline style from the block settings
-			grid-template-areas: "media" "content";
-		}
 	}
 }

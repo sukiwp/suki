@@ -19,17 +19,13 @@
 @import "utilities/accessibility";
 
 // Blocks
-@import "blocks/group";
-@import "blocks/layout";
-@import "blocks/columns";
+@import "blocks/common";
 @import "blocks/text";
-@import "blocks/separator";
-@import "blocks/buttons";
-@import "blocks/search";
 @import "blocks/media";
-@import "blocks/others";
+@import "blocks/design";
+@import "blocks/widgets";
+
 @import "blocks/navigation";
-@import "blocks/social-links";
 @import "blocks/posts";
 @import "blocks/comments";
 
