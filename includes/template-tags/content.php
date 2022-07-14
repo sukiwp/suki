@@ -43,8 +43,8 @@ if ( ! function_exists( 'suki_content' ) ) {
 			array(
 				'suki-content',
 				'site-content',
-				'suki-section-' . suki_get_current_page_setting( 'content_container' ),
-				$has_sidebar ? 'suki-content-layout-' . suki_get_current_page_setting( 'content_layout' ) : '',
+				'suki-section--' . suki_get_current_page_setting( 'content_container' ),
+				$has_sidebar ? 'suki-content--layout-' . suki_get_current_page_setting( 'content_layout' ) : '',
 			)
 		);
 		?>
@@ -181,7 +181,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	function suki_hero( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$classes = 'suki-hero ' . esc_attr( 'suki-section-' . suki_get_current_page_setting( 'hero_container' ) );
+		$classes = 'suki-hero ' . esc_attr( 'suki-section--' . suki_get_current_page_setting( 'hero_container' ) );
 
 		if (
 			boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is enabled.

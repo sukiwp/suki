@@ -11,7 +11,7 @@
 // -------------------------------------------------------------
 
 .alignwide {
-	.suki-content-layout-wide & {
+	.suki-content--layout-wide & {
 		position: relative;
 		left: calc( 50% - min( 1140px / 2, 50vw - 20px ) ); // postmessage: container_width
 		min-width: 100%; // at least as wide as wrapper
@@ -19,20 +19,20 @@
 		width: calc( 100vw - ( 2 * 20px ) ); // will be changed on fixed vertical header
 	}
 
-	.suki-section-full-width.suki-content-layout-wide & {
+	.suki-section--full-width.suki-content--layout-wide & {
 		left: auto;
 	}
 }
 
 .alignfull {
-	.suki-content-layout-wide & {
+	.suki-content--layout-wide & {
 		position: relative;
 		left: calc( 50% - 50vw );
 		min-width: 100%; // at least as wide as wrapper
 		max-width: 100vw;
 		width: 100vw; // will be changed on fixed vertical header
 
-		body.suki-page-layout-boxed & {
+		body.suki-page--layout-boxed & {
 			left: calc( 50% - min( 1400px / 2, 50vw ) ); // postmessage: boxed_page_width
 			max-width: 1400px; // postmessage: boxed_page_width
 		}
@@ -81,19 +81,19 @@
 			left: auto !important;
 		}
 
-		.suki-section-narrow.suki-content-layout-wide & {
+		.suki-section--narrow.suki-content--layout-wide & {
 			&:not(.alignwide):not(.alignfull) {
 				width: 720px; // postmessage: content_narrow_width
 			}
 		}
 		
-		.suki-section-default.suki-content-layout-wide & {
+		.suki-section-default.suki-content--layout-wide & {
 			&:not(.alignwide):not(.alignfull) {
 				width: 1140px; // postmessage: container_width
 			}
 		}
 		
-		.suki-section-full-width.suki-content-layout-wide & {
+		.suki-section--full-width.suki-content--layout-wide & {
 			width: 100%;
 			max-width: 100%;
 		}

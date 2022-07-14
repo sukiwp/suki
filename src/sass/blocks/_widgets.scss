@@ -1,4 +1,29 @@
 /**
+ * Widget list
+ */
+
+:is(
+	.wp-block-archives,
+	.wp-block-categories,
+	.wp-block-page-list,
+	.wp-block-latest-posts,
+	.wp-block-latest-comments,
+	.wp-block-rss
+) {
+	@extend %widget-list;
+}
+
+/**
+ * Block: Archives
+ */
+
+.wp-block-archives-dropdown {
+	label {
+		display: block;
+	}
+}
+
+/**
  * Block: Calendar
  */
 
@@ -7,18 +32,10 @@
 }
 
 /**
- * Block: Latest posts, latest comments, archives, categories, pages list, RSS
+ * Block: Latest posts
  */
-
-.wp-block-archives,
-.wp-block-categories,
-.wp-block-page-list {
-	@extend %widget-list;
-}
  
 .wp-block-latest-posts {
-	@extend %widget-list;
-
 	&:where(.has-author, .has-dates) {
 		gap: calc( 0.75 * var(--wp--style--block-gap) );
 	}
@@ -76,8 +93,9 @@
 	}
 
 	&__post-excerpt {
-		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+		margin-top: calc( 0.25 * var(--wp--style--block-gap) );
 
+		// Because latest posts doesn't have .has-excerpts indicator, we can't modify the list gap
 		li:not(:last-child) > & {
 			margin-bottom: calc( 0.25 * var(--wp--style--block-gap) );
 		}
@@ -123,9 +141,11 @@
 	}
 }
 
-.wp-block-latest-comments {
-	@extend %widget-list;
+/**
+ * Block: Latest comments
+ */
 
+.wp-block-latest-comments {
 	&:where(.has-dates, .has-avatars, .has-excerpts) {
 		gap: calc( 0.75 * var(--wp--style--block-gap) );
 	}
@@ -153,11 +173,7 @@
 	}
 	
 	&__comment-excerpt {
-		margin-top: calc(0.5 * var(--wp--style--block-gap));
-
-		li:not(:last-child) > article > & {
-			margin-bottom: calc( 0.25 * var(--wp--style--block-gap) );
-		}
+		margin-top: calc(0.25 * var(--wp--style--block-gap));
 
 		> * {
 			margin: 0;
@@ -170,18 +186,14 @@
 	}
 }
 
-.wp-block-archives-dropdown {
-	label {
-		display: block;
-	}
-}
-
 /**
  * Block: RSS
  */
 
 .wp-block-rss {
-	@extend %widget-list;
+	&:where(.has-dates, .has-avatars, .has-excerpts) {
+		gap: calc( 0.75 * var(--wp--style--block-gap) );
+	}
 
 	li {
 		> a {
@@ -211,11 +223,7 @@
 	}
 
 	&__item-excerpt {
-		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
-
-		li:not(:last-child) > & {
-			margin-bottom: calc( 0.75 * var(--wp--style--block-gap) );
-		}
+		margin-top: calc( 0.25 * var(--wp--style--block-gap) );
 
 		.widget & {
 			font-size: var(--wp--preset--font-size--small);
@@ -229,11 +237,6 @@
  */
 
 .wp-block-search {
-	margin: var(--wp--style--block-gap) 0;
-
-	@include remove-margin-top-for-first-child();
-	@include remove-margin-bottom-for-last-child();
-
 	&__inside-wrapper {
 		display: flex;
 		flex: auto;
@@ -589,7 +592,7 @@
  */
 
 .wp-block-tag-cloud {
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	row-gap: 0.5em;

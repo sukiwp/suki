@@ -1,4 +1,63 @@
 /**
+ * Block: Query
+ */
+
+.wp-block-query {
+	@include padding-for-has-background();
+}
+
+/**
+ * Block: Post Template
+ */
+
+.wp-block-post-template {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	display: grid;
+	gap: calc( 3 * var(--wp--style--block-gap) );
+
+	> * {
+		@extend .suki-container;
+	}
+
+	> * + * {
+		margin-block-start: 0 !important; // Reset WordPress generated CSS
+	}
+
+	&:where(.is-flex-container) {
+		gap: calc( 1.5 * var(--wp--style--block-gap) );
+
+		@media screen and ( min-width: $breakpoint-phone ) {
+			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 2, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			&:where(.columns-3, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 3, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			&.columns-4 {
+				grid-template-columns: repeat( 4, 1fr );
+			}
+
+			&.columns-5 {
+				grid-template-columns: repeat( 5, 1fr );
+			}
+
+			&.columns-6 {
+				grid-template-columns: repeat( 6, 1fr );
+			}
+		}
+	}
+}
+
+/**
  * Block: Post author
  */
 
@@ -36,61 +95,6 @@
 	}
 
 	@include padding-for-has-background();
-}
-
-/**
- * Block: Query
- */
-
-.wp-block-query {
-	@include padding-for-has-background();
-}
-
-.wp-block-post-template {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-
-	display: grid;
-	gap: calc( 3 * var(--wp--style--block-gap) );
-
-	> * + * {
-		margin-block-start: 0; // Reset WordPress generated CSS
-	}
-
-	&:where(.is-flex-container) {
-		gap: calc( 2 * var(--wp--style--block-gap) );
-
-		@media screen and ( min-width: $breakpoint-phone ) {
-			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
-				grid-template-columns: repeat( 2, 1fr );
-			}
-		}
-
-		@media screen and ( min-width: $breakpoint-tablet ) {
-			&:where(.columns-3, .columns-5, .columns-6) {
-				grid-template-columns: repeat( 3, 1fr );
-			}
-		}
-
-		@media screen and ( min-width: $breakpoint-desktop ) {
-			&.columns-4 {
-				grid-template-columns: repeat( 4, 1fr );
-			}
-
-			&.columns-5 {
-				grid-template-columns: repeat( 5, 1fr );
-			}
-
-			&.columns-6 {
-				grid-template-columns: repeat( 6, 1fr );
-			}
-		}
-	}
-}
-
-.wp-block-post {
-	@extend .suki-container;
 }
 
 /**

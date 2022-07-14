@@ -197,9 +197,7 @@
 	top: 0;
 
 	.admin-bar & {
-		@media screen and ( min-width: $adminbar-breakpoint-sticky ) {
-			top: $adminbar-height-mobile;
-		}
+		top: $adminbar-height-mobile;
 	
 		@media screen and ( min-width: $adminbar-breakpoint ) {
 			top: $adminbar-height;

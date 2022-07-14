@@ -15,7 +15,7 @@
 	@include transition( transform );
 }
 
-body.suki-page-layout-boxed {
+body.suki-page--layout-boxed {
 	background-color: $color_border; // postmessage: outside_bg_color
 	background-position: center center; // postmessage: outside_bg_position
 	background-size: cover; // postmessage: outside_bg_size
@@ -43,7 +43,7 @@ body.suki-page-layout-boxed {
 	visibility: hidden;
 	@include transition( opacity, visibility 0s 0.25s );
 
-	&.suki-popup-active {
+	&.suki-popup--active {
 		opacity: 1;
 		visibility: visible;
 		@include transition( opacity, visibility 0s 0s );
@@ -69,7 +69,7 @@ body.suki-page-layout-boxed {
 	color: $color_bg; // postmessage: page_bg_color
 }
 
-.suki-toggle.suki-popup-close-icon {
+.suki-toggle.suki-popup__close-icon {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -77,7 +77,7 @@ body.suki-page-layout-boxed {
 	font-size: 1.5rem;
 }
 
-.suki-toggle.suki-popup-close-icon {
+.suki-toggle.suki-popup__close-icon {
 	line-height: 1;
 	background-color: transparent !important;
 	color: inherit !important;
@@ -105,11 +105,11 @@ body.suki-page-layout-boxed {
 
 	@include float-container();
 
-	.suki-section-full-width > .suki-section-inner > & {
+	.suki-section--full-width > .suki-section-inner > & {
 		width: 100%;
 	}
 
-	.suki-section-narrow > .suki-section-inner > & {
+	.suki-section--narrow > .suki-section-inner > & {
 		width: 720px; // postmessage: content_narrow_width
 	}
 }
@@ -194,7 +194,7 @@ body.suki-page-layout-boxed {
 	@media screen and ( min-width: $breakpoint_1024 ) {
 		display: flex;
 		
-		.suki-content-layout-left-sidebar & {
+		.suki-content--layout-left-sidebar & {
 			flex-direction: row-reverse;
 		}
 	}
@@ -233,7 +233,7 @@ body.suki-page-layout-boxed {
 	flex: 0 0;
 	flex-basis: 25%; // postmessage: sidebar_width
 
-	.suki-content-layout-right-sidebar & {
+	.suki-content--layout-right-sidebar & {
 		margin-left: 60px; // postmessage: sidebar_gap
 
 		.rtl & {
@@ -241,7 +241,7 @@ body.suki-page-layout-boxed {
 		}
 	}
 
-	.suki-content-layout-left-sidebar & {
+	.suki-content--layout-left-sidebar & {
 		margin-right: 60px; // postmessage: sidebar_gap
 
 		.rtl & {

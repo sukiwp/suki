@@ -57,7 +57,7 @@ select {
  */
 
 %button,
-:where([type="button"], [type="reset"], [type="submit"], .button) {
+:where([type="reset"], [type="submit"], .button) {
 	appearance: none;
 	display: inline-flex;
 	align-items: center;

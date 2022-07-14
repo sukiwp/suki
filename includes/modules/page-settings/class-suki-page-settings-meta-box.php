@@ -529,7 +529,7 @@ class Suki_Page_Settings_Meta_Box {
 							array(
 								'type'    => 'class',
 								'element' => '.editor-styles-wrapper',
-								'pattern' => 'suki-content-layout-$',
+								'pattern' => 'suki-content--layout-$',
 							),
 						),
 						'inherit_value' => '' !== suki_get_theme_mod( $type . '_content_layout', '' ) ? suki_get_theme_mod( $type . '_content_layout' ) : suki_get_theme_mod( 'content_layout' ),

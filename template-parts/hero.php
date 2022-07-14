@@ -31,7 +31,7 @@ $classes = implode(
 	'',
 	array(
 		'suki-hero has-text-align-' . suki_get_current_page_setting( 'content_header_alignment' ),
-		'suki-section-' . suki_get_current_page_setting( 'hero_container' ),
+		'suki-section--' . suki_get_current_page_setting( 'hero_container' ),
 	)
 );
 

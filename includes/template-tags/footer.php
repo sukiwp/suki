@@ -96,11 +96,11 @@ if ( ! function_exists( 'suki_footer_widgets' ) ) {
 			?>
 			<!-- wp:group {
 				"align":"full",
-				"className":"suki-footer-widgets-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_widgets_bar_container' ) ); ?>",
+				"className":"suki-footer-widgets-bar <?php echo esc_attr( 'suki-section--' . suki_get_current_page_setting( 'footer_widgets_bar_container' ) ); ?>",
 				"layout":{
 					"inherit":true
 				}
-			} --><div class="wp-block-group alignfull suki-footer-widgets-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_widgets_bar_container' ) ); ?>">
+			} --><div class="wp-block-group alignfull suki-footer-widgets-bar <?php echo esc_attr( 'suki-section--' . suki_get_current_page_setting( 'footer_widgets_bar_container' ) ); ?>">
 
 				<!-- wp:columns {
 					"verticalAlignment":"top",
@@ -184,11 +184,11 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) {
 			?>
 			<!-- wp:group {
 				"align":"full",
-				"className":"suki-footer-bottom-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>",
+				"className":"suki-footer-bottom-bar <?php echo esc_attr( 'suki-section--' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>",
 				"layout":{
 					"inherit":true
 				}
-			} --><div class="wp-block-group alignfull suki-footer-bottom-bar <?php echo esc_attr( 'suki-section-' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>">
+			} --><div class="wp-block-group alignfull suki-footer-bottom-bar <?php echo esc_attr( 'suki-section--' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>">
 
 				<!-- wp:group {
 					"className":"suki-footer-bottom-row suki-footer-row",

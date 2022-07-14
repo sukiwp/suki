@@ -458,7 +458,7 @@ li > .block-editor .editor-styles-wrapper ul, li >
 	padding: 1.5rem;
 }
 
-.suki-content-layout-wide .block-editor .editor-styles-wrapper .alignwide {
+.suki-content--layout-wide .block-editor .editor-styles-wrapper .alignwide {
 	position: relative;
 	left: calc( 50% - min( 1140px / 2, 50vw - 20px ));
 	min-width: 100%;
@@ -466,11 +466,11 @@ li > .block-editor .editor-styles-wrapper ul, li >
 	width: calc( 100vw - ( 2 * 20px ));
 }
 
-.suki-section-full-width.suki-content-layout-wide .block-editor .editor-styles-wrapper .alignwide {
+.suki-section--full-width.suki-content--layout-wide .block-editor .editor-styles-wrapper .alignwide {
 	left: auto;
 }
 
-.suki-content-layout-wide .block-editor .editor-styles-wrapper .alignfull {
+.suki-content--layout-wide .block-editor .editor-styles-wrapper .alignfull {
 	position: relative;
 	left: calc( 50% - 50vw);
 	min-width: 100%;
@@ -478,7 +478,7 @@ li > .block-editor .editor-styles-wrapper ul, li >
 	width: 100vw;
 }
 
-body.suki-page-layout-boxed .suki-content-layout-wide .block-editor .editor-styles-wrapper .alignfull {
+body.suki-page--layout-boxed .suki-content--layout-wide .block-editor .editor-styles-wrapper .alignfull {
 	left: calc( 50% - min( 1400px / 2, 50vw ));
 	max-width: 1400px;
 }
@@ -515,15 +515,15 @@ body.suki-page-layout-boxed .suki-content-layout-wide .block-editor .editor-styl
 	left: auto !important;
 }
 
-.suki-section-narrow.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
+.suki-section--narrow.suki-content--layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
 	width: 720px;
 }
 
-.suki-section-default.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
+.suki-section-default.suki-content--layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > *:not(.alignwide):not(.alignfull) {
 	width: 1140px;
 }
 
-.suki-section-full-width.suki-content-layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
+.suki-section--full-width.suki-content--layout-wide .block-editor .editor-styles-wrapper [class$="__inner-container"] > * {
 	width: 100%;
 	max-width: 100%;
 }

@@ -11,13 +11,13 @@
 	left: 0;
 	@include hide();
 	
-	&.suki-popup-active {
+	&.suki-popup--active {
 		@include show();
 	}
 
 	@include admin-bar-top-offset();
 	
-	&-background {
+	&__background {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -25,5 +25,25 @@
 		left: 0;
 		background-color: rgba(0,0,0,0.7);
 		color: #fff;
+
+		.suki-toggle {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 1.5rem;
+			color: inherit;
+			line-height: 1;
+		}
+	}
+
+	&__content {
+		position: relative;
+		background-color: var(--background-color); // CUSTOMIZER
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 }

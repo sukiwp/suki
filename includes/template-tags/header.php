@@ -599,27 +599,29 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 			'top' => suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() ),
 		);
 
-		$classes = suki_element_class( 'header_mobile_vertical', array( 'suki-header-mobile-vertical', 'suki-popup' ), false );
+		$classes = suki_element_class( 'header_mobile_vertical', array( 'suki-header-mobile-popup', 'suki-popup' ), false );
 
 		if ( 0 < count( $elements ) ) { // Mobile header popup contains at least 1 element.
 			?>
 			<div id="mobile-header-popup" class="<?php echo esc_attr( $classes ); ?>">
 
-				<div class="suki-popup-background suki-popup-close"></div>
+				<div class="suki-popup__background suki-popup__close">
+					<button class="suki-toggle"><?php suki_icon( 'close' ); ?></button>
+				</div>
 
 				<!-- wp:group {
-					"className":"suki-header-vertical-column",
+					"className":"suki-popup__content suki-header-vertical-column",
 					"layout":{
 						"type":"flex",
 						"orientation":"vertical",
 						"flexWrap":"nowrap",
 						"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) ); ?>"
 					}
-				} --><div class="wp-block-group suki-header-vertical-column">
+				} --><div class="wp-block-group suki-popup__content suki-header-vertical-column">
 
 					<?php
-					foreach ( array_keys( $elements ) as $column ) {
-						$classes = 'suki-header-vertical-row suki-header-vertical-row--' . $column;
+					foreach ( array_keys( $elements ) as $row ) {
+						$classes = 'suki-header-vertical-row suki-header-vertical-row--' . $row;
 						?>
 						<!-- wp:group {
 							"className":"<?php echo esc_attr( $classes ); ?>",
@@ -632,7 +634,7 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 							<?php
-							foreach ( $elements[ $column ] as $element ) {
+							foreach ( $elements[ $row ] as $element ) {
 								suki_header_element( $element, false );
 							}
 							?>
@@ -642,9 +644,10 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 					}
 					?>
 
+					<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+
 				</div><!-- /wp:group -->
 
-				<button class="suki-popup-close-icon suki-popup-close suki-toggle"><?php suki_icon( 'close' ); ?></button>
 			</div>
 			<?php
 		}

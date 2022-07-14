@@ -7,7 +7,7 @@
 	flex-grow: 1; // Make content section fill the blank vertical space to fill 100% screen height page.
 }
 
-:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) {
+:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) {
 	.site-main {
 		--content-width--narrow: auto;
 		--content-width--wide: auto;
@@ -26,7 +26,7 @@
 		flex-wrap: nowrap;
 		align-items: flex-start;
 
-		.suki-content-layout-left-sidebar & {
+		.suki-content--layout-left-sidebar & {
 			flex-direction: row-reverse;
 		}
 	}

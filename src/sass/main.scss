@@ -18,17 +18,6 @@
 @import "utilities/visibility";
 @import "utilities/accessibility";
 
-// Blocks
-@import "blocks/common";
-@import "blocks/text";
-@import "blocks/media";
-@import "blocks/design";
-@import "blocks/widgets";
-
-@import "blocks/navigation";
-@import "blocks/posts";
-@import "blocks/comments";
-
 // Components
 @import "components/icon";
 @import "components/toggle";
@@ -39,6 +28,17 @@
 @import "components/breadcrumb";
 @import "components/social-links";
 @import "components/widgets";
+
+// Blocks
+@import "blocks/common";
+@import "blocks/text";
+@import "blocks/media";
+@import "blocks/design";
+@import "blocks/widgets";
+
+@import "blocks/navigation";
+@import "blocks/posts";
+@import "blocks/comments";
 
 // Layout
 @import "layouts/canvas";

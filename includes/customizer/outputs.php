@@ -546,7 +546,7 @@ $add['page_layout'] = array(
 $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-layout-boxed .suki-canvas',
+		'element'  => '.suki-page--layout-boxed .suki-canvas',
 		'property' => '--canvas-width',
 	),
 );
@@ -554,7 +554,7 @@ $add['boxed_page_width'] = array(
 $add['boxed_page_shadow'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-layout-boxed .suki-canvas',
+		'element'  => '.suki-page--layout-boxed .suki-canvas',
 		'property' => 'box-shadow',
 	),
 );
@@ -570,7 +570,7 @@ $add['page_bg_color'] = array(
 $add['outside_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page-layout-boxed',
+		'element'  => '.suki-page--layout-boxed',
 		'property' => 'background-color',
 	),
 );
@@ -579,7 +579,7 @@ foreach ( array( 'image', 'position', 'size', 'repeat', 'attachment' ) as $prop 
 	$add[ 'outside_bg_' . $prop ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-page-layout-boxed',
+			'element'  => '.suki-page--layout-boxed',
 			'property' => 'background-' . $prop,
 			'pattern'  => 'image' === $prop ? 'url($)' : '$',
 			'media'    => '@media screen and (min-width: 1024px)',
@@ -783,7 +783,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'    => 'class',
 			'element' => '.suki-header-' . $bar . '-bar',
-			'pattern' => 'suki-header-menu-highlight-$',
+			'pattern' => 'suki-header-menu--highlight-$',
 		),
 	);
 

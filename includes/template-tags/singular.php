@@ -137,7 +137,7 @@ if ( ! function_exists( 'suki_comments' ) ) {
 			<!-- wp:comments-title /-->
 
 			<!-- wp:comment-template {
-				"className":"suki-comments__template"
+				"className":"suki-comments__list"
 			} -->
 
 				<!-- wp:group {
@@ -146,18 +146,19 @@ if ( ! function_exists( 'suki_comments' ) ) {
 						"type":"flex",
 						"orientation":"vertical"
 					}
-				} --><div class="wp-block-group">
+				} --><div class="wp-block-group suki-comment">
 
 					<!-- wp:group {
-						"className":"suki-comment__meta",
+						"className":"suki-comment__header",
 						"layout":{
 							"type":"flex",
 							"flexWrap":"nowrap"
 						}
-					} --><div class="wp-block-group">
+					} --><div class="wp-block-group suki-comment__header">
 
 						<!-- wp:avatar {
 							"size":50,
+							"className":"suki-comment__avatar",
 							"style":{
 								"border":{
 									"radius":"50%"
@@ -166,10 +167,12 @@ if ( ! function_exists( 'suki_comments' ) ) {
 						} /-->
 
 						<!-- wp:group {
+							"className":"suki-comment__meta",
 							"layout":{
-								"type":"default"
+								"type":"flex",
+								"orientation":"vertical"
 							}
-						} --><div class="wp-block-group">
+						} --><div class="wp-block-group suki-comment__meta">
 
 							<!-- wp:comment-author-name {
 								"className":"suki-h6"
@@ -181,9 +184,11 @@ if ( ! function_exists( 'suki_comments' ) ) {
 									"type":"flex"
 								}
 							} --><div class="wp-block-group suki-meta suki-reverse-link-color">
+
 								<!-- wp:comment-date /-->
 
 								<!-- wp:comment-edit-link /-->
+
 							</div><!-- /wp:group -->
 
 						</div><!-- /wp:group -->

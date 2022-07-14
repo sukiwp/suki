@@ -23,11 +23,11 @@ body.mce-content-body {
  * Block Editor
  */
 
-body.suki-section-wide {
+body.suki-section--wide {
 	--content-width--narrow: var(--content-width--wide);
 }
 
-body.suki-section-full {
+body.suki-section--full {
 	--content-width--narrow: auto;
 	--content-width--wide: auto;
 }
@@ -36,7 +36,7 @@ body .is-root-container {
 	margin-top: 3rem;
 }
 
-body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		position: relative;
 		width: var(--content-width--narrow);
@@ -67,7 +67,7 @@ body:is(.suki-content-layout-left-sidebar, .suki-content-layout-right-sidebar):n
 
 }
 
-body.suki-content-layout-left-sidebar:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		> * {
 			padding-left: calc( var(--sidebar-gap) + var(--sidebar-width) );
@@ -79,7 +79,7 @@ body.suki-content-layout-left-sidebar:not(.suki-section-narrow) { // Sidebar is 
 	}
 }
 
-body.suki-content-layout-right-sidebar:not(.suki-section-narrow) { // Sidebar is not supported in narrow container.
+body.suki-content--layout-right-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		> * {
 			padding-right: calc( var(--sidebar-gap) + var(--sidebar-width) );

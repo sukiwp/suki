@@ -505,13 +505,13 @@
 			var $clickedToggle = null;
 
 			var deactivatePopup = function( device ) {
-				var $activePopups = Array.prototype.slice.call( document.querySelectorAll( '.suki-popup-active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) ) );
+				var $activePopups = Array.prototype.slice.call( document.querySelectorAll( '.suki-popup--active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) ) );
 
 				$activePopups.forEach(function( $activePopup ) {
 					// Deactivate popup.
 					$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
 					$clickedToggle.setAttribute( 'aria-expanded', false );
-					$activePopup.classList.remove( 'suki-popup-active' );
+					$activePopup.classList.remove( 'suki-popup--active' );
 					document.body.classList.remove( 'suki-has-popup-active' );
 
 					// Back current focus to the toggle.
@@ -535,13 +535,13 @@
 				// Abort if no popup target found.
 				if ( ! $target ) return;
 
-				if ( $target.classList.contains( 'suki-popup-active' ) ) {
+				if ( $target.classList.contains( 'suki-popup--active' ) ) {
 					deactivatePopup();
 				} else {
 					// Activate popup.
 					$this.classList.add( 'suki-popup-toggle-active' );
 					$this.setAttribute( 'aria-expanded', true );
-					$target.classList.add( 'suki-popup-active' );
+					$target.classList.add( 'suki-popup--active' );
 					document.body.classList.add( 'suki-has-popup-active' );
 
 					// Put focus on popup.
@@ -557,10 +557,10 @@
 			document.addEventListener( 'click', handlePopupToggle, false );
 			document.addEventListener( 'touchend', handlePopupToggle, false );
 
-			// Close popup when any of ".suki-popup-close" element is clicked.
+			// Close popup when any of ".suki-popup__close" element is clicked.
 			var handlePopupClose = function( e ) {
 				// Check target element.
-				if ( ! e.target.closest( '.suki-popup-close' ) ) return;
+				if ( ! e.target.closest( '.suki-popup__close' ) ) return;
 
 				e.preventDefault();
 

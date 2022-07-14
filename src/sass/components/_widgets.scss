@@ -12,11 +12,22 @@
 // List widgets
 %widget-list {
 	list-style: none;
-	margin: var(--wp--style--block-gap) 0;
-	padding: 0;
+	margin-block: 0;
 
 	display: grid;
 	gap: 0.25em;
+	
+	&, & > ul {
+		padding-left: 0;
+	}
+
+	:is( ul, ol ) {
+		list-style: none;
+		margin-block: 0;
+
+		display: grid;
+		gap: 0.25em;
+	}
 }
 
 .widget_nav_menu,
