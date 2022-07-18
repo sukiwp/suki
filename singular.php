@@ -60,8 +60,8 @@ $thumbnail_block = '
 		?>
 		<!-- wp:group {
 			"tagName":"header",
-			"className":"entry-header"
-		} --><header class="entry-header">
+			"className":"entry-header suki-content-header"
+		} --><header class="entry-header suki-content-header">
 
 			<?php
 			/**
@@ -116,8 +116,8 @@ $thumbnail_block = '
 		?>
 		<!-- wp:group {
 			"tagName":"footer",
-			"className":"entry-footer"
-		} --><footer class="entry-footer">
+			"className":"entry-footer suki-content-footer"
+		} --><footer class="entry-footer suki-content-footer">
 
 			<?php
 			/**

@@ -635,7 +635,7 @@ add_filter( 'suki/frontend/content_classes', 'suki_content_classes' );
  * @return array
  */
 function suki_loop_classes( $classes ) {
-	$classes['mode'] = esc_attr( 'suki-loop-' . suki_get_theme_mod( 'post_archive_query_layout' ) );
+	$classes['mode'] = esc_attr( 'suki-loop--' . suki_get_theme_mod( 'post_archive_query_layout' ) );
 
 	switch ( suki_get_theme_mod( 'post_archive_query_layout' ) ) {
 		// Default post layout.

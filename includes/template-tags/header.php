@@ -606,43 +606,51 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 			<div id="mobile-header-popup" class="<?php echo esc_attr( $classes ); ?>">
 
 				<div class="suki-popup__background suki-popup__close">
-					<button class="suki-toggle"><?php suki_icon( 'close' ); ?></button>
+					<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
 				</div>
 
 				<!-- wp:group {
-					"className":"suki-popup__content suki-header-vertical-column",
+					"className":"suki-popup__content",
 					"layout":{
 						"type":"flex",
 						"orientation":"vertical",
-						"flexWrap":"nowrap",
-						"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) ); ?>"
 					}
-				} --><div class="wp-block-group suki-popup__content suki-header-vertical-column">
+				} --><div class="wp-block-group suki-popup__content">
 
-					<?php
-					foreach ( array_keys( $elements ) as $row ) {
-						$classes = 'suki-header-vertical-row suki-header-vertical-row--' . $row;
-						?>
-						<!-- wp:group {
-							"className":"<?php echo esc_attr( $classes ); ?>",
-							"layout":{
-								"type":"flex",
-								"orientation":"vertical",
-								"flexWrap":"nowrap",
-								"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) ); ?>"
-							}
-						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+					<!-- wp:group {
+						"className":"suki-header-vertical-column",
+						"layout":{
+							"type":"flex",
+							"orientation":"vertical",
+							"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_position' ) ); ?>"
+						}
+					} --><div class="suki-header-vertical-column">
 
-							<?php
-							foreach ( $elements[ $row ] as $element ) {
-								suki_header_element( $element, false );
-							}
-							?>
-
-						</div><!-- /wp:group -->
 						<?php
-					}
-					?>
+						foreach ( array_keys( $elements ) as $row ) {
+							$classes = 'suki-header-vertical-row suki-header-vertical-row--' . $row;
+							?>
+							<!-- wp:group {
+								"className":"<?php echo esc_attr( $classes ); ?>",
+								"layout":{
+									"type":"flex",
+									"orientation":"vertical",
+									"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) ); ?>"
+								}
+							} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+
+								<?php
+								foreach ( $elements[ $row ] as $element ) {
+									suki_header_element( $element, false );
+								}
+								?>
+
+							</div><!-- /wp:group -->
+							<?php
+						}
+						?>
+
+					</div><!-- /wp:group -->
 
 					<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
 

@@ -181,7 +181,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	function suki_hero( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$classes = 'suki-hero ' . esc_attr( 'suki-section--' . suki_get_current_page_setting( 'hero_container' ) );
+		$classes = 'suki-hero entry-header suki-content-header ' . esc_attr( 'suki-section--' . suki_get_current_page_setting( 'hero_container' ) );
 
 		if (
 			boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is enabled.

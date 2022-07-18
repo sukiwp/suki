@@ -512,7 +512,7 @@
 					$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
 					$clickedToggle.setAttribute( 'aria-expanded', false );
 					$activePopup.classList.remove( 'suki-popup--active' );
-					document.body.classList.remove( 'suki-has-popup-active' );
+					document.body.classList.remove( 'suki-has-active-popup' );
 
 					// Back current focus to the toggle.
 					$activePopup.removeAttribute( 'tabindex' );
@@ -542,7 +542,7 @@
 					$this.classList.add( 'suki-popup-toggle-active' );
 					$this.setAttribute( 'aria-expanded', true );
 					$target.classList.add( 'suki-popup--active' );
-					document.body.classList.add( 'suki-has-popup-active' );
+					document.body.classList.add( 'suki-has-active-popup' );
 
 					// Put focus on popup.
 					setTimeout(function() {
@@ -573,7 +573,7 @@
 			var handlePopupEscape = function( e ) {
 				var key = e.which || e.keyCode;
 
-				if ( document.body.classList.contains( 'suki-has-popup-active' ) && 27 === key ) {
+				if ( document.body.classList.contains( 'suki-has-active-popup' ) && 27 === key ) {
 					deactivatePopup();
 				}
 			}
@@ -581,7 +581,7 @@
 
 			// When window resize, close Active Popups based on their responsive visibility classes.
 			var handleResponsiveVisibility = function( e ) {
-				if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
+				if ( document.body.classList.contains( 'suki-has-active-popup' ) ) {
 					var device = 'mobile';
 
 					if ( sukiConfig.breakpoints.mobile <= window.innerWidth ) {
@@ -612,7 +612,7 @@
 					// Check if the hash target is on this page.
 					if ( pageURL === linkURL ) {
 						// Deactivate all popups.
-						if ( document.body.classList.contains( 'suki-has-popup-active' ) ) {
+						if ( document.body.classList.contains( 'suki-has-active-popup' ) ) {
 							deactivatePopup();
 						}
 					}

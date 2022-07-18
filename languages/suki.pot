@@ -48,11 +48,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:279, includes/template-tags/header.php:705
+#: includes/class-suki.php:279, includes/template-tags/header.php:713
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:280, includes/template-tags/header.php:718
+#: includes/class-suki.php:280, includes/template-tags/header.php:726
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: includes/helpers.php:788, includes/template-tags/header.php:763, includes/customizer/structures/header--builder.php:209, includes/customizer/structures/header--menu.php:48
+#: includes/helpers.php:788, includes/template-tags/header.php:771, includes/customizer/structures/header--builder.php:209, includes/customizer/structures/header--menu.php:48
 msgid "Mobile Menu"
 msgstr ""
 
@@ -881,7 +881,7 @@ msgstr ""
 msgid "Site Header"
 msgstr ""
 
-#: includes/template-tags/header.php:786, includes/customizer/structures/sections.php:317
+#: includes/template-tags/header.php:794, includes/customizer/structures/sections.php:317
 msgid "Search"
 msgstr ""
 

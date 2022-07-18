@@ -511,7 +511,7 @@ class Suki_Page_Settings_Meta_Box {
 							array(
 								'type'    => 'class',
 								'element' => '.editor-styles-wrapper',
-								'pattern' => 'suki-section-$',
+								'pattern' => 'suki-section--$',
 							),
 						),
 						'inherit_value' => '' !== suki_get_theme_mod( $type . '_content_container', '' ) ? suki_get_theme_mod( $type . '_content_container' ) : suki_get_theme_mod( 'content_container' ),
@@ -553,9 +553,9 @@ class Suki_Page_Settings_Meta_Box {
 						),
 					),
 					'hero_container'         => array(
-						'type'          => 'select',
-						'label'         => esc_html__( 'Hero section container', 'suki' ),
-						'options'       => array(
+						'type'    => 'select',
+						'label'   => esc_html__( 'Hero section container', 'suki' ),
+						'options' => array(
 							''       => esc_html__( '-- Inherit --', 'suki' ),
 							'narrow' => esc_html__( 'Narrow', 'suki' ),
 							'wide'   => esc_html__( 'Wide', 'suki' ),

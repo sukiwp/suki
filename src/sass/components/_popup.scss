@@ -25,20 +25,26 @@
 		left: 0;
 		background-color: rgba(0,0,0,0.7);
 		color: #fff;
+	}
 
-		.suki-toggle {
-			position: absolute;
-			top: 0;
-			right: 0;
-			margin: 1.5rem;
-			color: inherit;
-			line-height: 1;
+	.suki-toggle.suki-popup__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 1.25rem;
+		color: inherit;
+		font-size: 1.5rem;
+		line-height: 1;
+		opacity: 0.75;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
 		}
 	}
 
 	&__content {
 		position: relative;
-		background-color: var(--background-color); // CUSTOMIZER
 	}
 
 	&__close {
