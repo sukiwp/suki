@@ -48,11 +48,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:279, includes/template-tags/header.php:713
+#: includes/class-suki.php:279, includes/template-tags/header.php:708
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:280, includes/template-tags/header.php:726
+#: includes/class-suki.php:280, includes/template-tags/header.php:721
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 msgid "Page Settings"
 msgstr ""
 
-#: includes/helpers.php:554, includes/modules/breadcrumb/class-suki-breadcrumb.php:393, includes/modules/breadcrumb/class-suki-breadcrumb.php:405, includes/compatibilities/woocommerce/customizer/options/sections.php:96, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:55, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:55, includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:26
+#: includes/helpers.php:554, includes/modules/breadcrumb/class-suki-breadcrumb.php:396, includes/modules/breadcrumb/class-suki-breadcrumb.php:408, includes/compatibilities/woocommerce/customizer/options/sections.php:96, includes/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php:29, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php:55, includes/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php:55, includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:26
 msgid "Breadcrumb"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: includes/helpers.php:788, includes/template-tags/header.php:771, includes/customizer/structures/header--builder.php:209, includes/customizer/structures/header--menu.php:48
+#: includes/helpers.php:788, includes/template-tags/header.php:766, includes/customizer/structures/header--builder.php:209, includes/customizer/structures/header--menu.php:48
 msgid "Mobile Menu"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgstr ""
 #. translators: %s: instance number.
 #. translators: %s: menu number.
 #. translators: %s: instance number.
-#: includes/helpers.php:833, template-parts/footer-element-menu.php:25, includes/customizer/structures/footer--builder.php:92
+#: includes/helpers.php:833, includes/template-tags/footer.php:316, includes/customizer/structures/footer--builder.php:92
 msgid "Footer Menu %s"
 msgstr ""
 
@@ -389,16 +389,8 @@ msgstr ""
 msgid "Shopping Cart"
 msgstr ""
 
-#: template-parts/hero.php:46, includes/template-tags/content.php:197, includes/customizer/structures/sections.php:433
-msgid "Hero Section"
-msgstr ""
-
 #: template-parts/loop-grid.php:118, template-parts/loop.php:153
 msgid "Nothing found."
-msgstr ""
-
-#: template-parts/scroll-to-top.php:16, includes/template-tags/footer.php:350
-msgid "Back to Top"
 msgstr ""
 
 #: includes/admin/class-suki-admin-fields.php:269
@@ -869,6 +861,10 @@ msgstr ""
 msgid "Older Posts"
 msgstr ""
 
+#: includes/template-tags/content.php:197, includes/customizer/structures/sections.php:433
+msgid "Hero Section"
+msgstr ""
+
 #: includes/template-tags/content.php:346, includes/customizer/structures/page--search.php:156
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
@@ -877,11 +873,15 @@ msgstr ""
 msgid "Site Footer"
 msgstr ""
 
+#: includes/template-tags/footer.php:425
+msgid "Back to Top"
+msgstr ""
+
 #: includes/template-tags/header.php:41
 msgid "Site Header"
 msgstr ""
 
-#: includes/template-tags/header.php:794, includes/customizer/structures/sections.php:317
+#: includes/template-tags/header.php:789, includes/customizer/structures/sections.php:317
 msgid "Search"
 msgstr ""
 
@@ -2113,21 +2113,21 @@ msgstr ""
 msgid "Title link text color :hover"
 msgstr ""
 
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:153, includes/modules/breadcrumb/class-suki-breadcrumb.php:160
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:156, includes/modules/breadcrumb/class-suki-breadcrumb.php:163
 msgid "Home"
 msgstr ""
 
 #. translators: %s: search keyword.
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:169
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:172
 msgid "Search: %s"
 msgstr ""
 
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:176
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:179
 msgid "Page Not Found"
 msgstr ""
 
 #. translators: %s: page number.
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:324
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:327
 msgid " (Page %d)"
 msgstr ""
 

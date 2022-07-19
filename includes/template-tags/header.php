@@ -695,11 +695,6 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 		// Classify element into its type.
 		$type = preg_replace( '/-\d$/', '', $element );
 
-		// Add passing variables.
-		$variables = array(
-			'element' => $element,
-		);
-
 		// Get header element template.
 		switch ( $type ) {
 			case 'menu':

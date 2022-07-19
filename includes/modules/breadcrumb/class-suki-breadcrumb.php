@@ -62,6 +62,9 @@ class Suki_Breadcrumb extends Suki_Module {
 
 		// Add breadcrumb HTML to Content Header rendering filter.
 		add_filter( 'suki/frontend/content_header_element/breadcrumb', array( $this, 'get_html' ) );
+
+		// Add breadcrumb HTML to Header element rendering filter.
+		add_filter( 'suki/frontend/header_element/breadcrumb', array( $this, 'get_html' ) );
 	}
 
 	/**
