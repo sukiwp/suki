@@ -40,12 +40,12 @@ class Suki_Breadcrumb extends Suki_Module {
 		 */
 
 		// Add breadcrumb as Content Header elements on all page types (Customizer).
-		foreach ( Suki_Customizer::instance()->get_page_types() as $page_type_key => $page_type_data ) {
+		foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key => $page_type_data ) {
 			add_filter( 'suki/dataset/' . $page_type_key . '_content_header_elements', array( $this, 'add_content_header_elements' ) );
 		}
 
 		// Add breadcrumb as Header Builder elements (Customizer).
-		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'add_header_builder_elements' ) );
+		add_filter( 'suki/dataset/header_builder/elements', array( $this, 'add_header_builder_elements' ) );
 
 		// Add Customizer options.
 		add_action( 'customize_register', array( $this, 'add_customizer_settings' ) );
@@ -401,13 +401,17 @@ class Suki_Breadcrumb extends Suki_Module {
 	/**
 	 * Add breadcrumb as Header Builder elements.
 	 *
-	 * @param array $configurations Configurations array.
+	 * @param array $elements Elements array.
 	 * @return array
 	 */
-	public function add_header_builder_elements( $configurations ) {
-		$configurations['choices']['breadcrumb'] = '<span class="dashicons dashicons-networking"></span>' . esc_html__( 'Breadcrumb', 'suki' );
+	public function add_header_builder_elements( $elements ) {
+		$elements['breadcrumb'] = array(
+			'icon'              => 'networking',
+			'label'             => esc_html__( 'Breadcrumb', 'suki' ),
+			'unsupported_areas' => array(),
+		);
 
-		return $configurations;
+		return $elements;
 	}
 
 	/**
