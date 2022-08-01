@@ -500,7 +500,7 @@ class Suki_Page_Settings_Meta_Box {
 					'content_container'      => array(
 						'type'          => 'select',
 						'label'         => esc_html__( 'Container', 'suki' ),
-						'description'   => esc_html__( 'Sidebar will be automatically disabled in Narrow container.', 'suki' ),
+						'description'   => esc_html__( 'Narrow container doesn\'t support sidebar.', 'suki' ),
 						'options'       => array(
 							''       => esc_html__( '-- Inherit --', 'suki' ),
 							'narrow' => esc_html__( 'Narrow', 'suki' ),

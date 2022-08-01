@@ -1103,6 +1103,8 @@ div.customize-section-description {
 /**
  * Add ↳ prefix to some sections link to indicate hierarchy
  */
+[id=accordion-panel-suki_panel_header] .accordion-section-title:before,
+[id=accordion-panel-suki_panel_footer] .accordion-section-title:before,
 [id=accordion-section-suki_section_main] .accordion-section-title:before,
 [id=accordion-section-suki_section_sidebar] .accordion-section-title:before,
 [id^=accordion-section-suki_section_entry_] .accordion-section-title:before {

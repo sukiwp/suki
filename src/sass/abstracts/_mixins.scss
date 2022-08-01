@@ -165,7 +165,7 @@
 	visibility: hidden;
 
 	@if $transition {
-		transition: opacity var(--transition-duration), visibility 0s var(--transition-duration); // hide transition
+		transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s); // hide transition
 	} @else {
 		transition: none;
 	}
@@ -177,7 +177,7 @@
 	visibility: visible;
 
 	@if $transition {
-		transition: opacity var(--transition-duration), visibility 0s; // show transition
+		transition: opacity var(--transition-duration, 0.25s), visibility 0s; // show transition
 	} @else {
 		transition: none;
 	}

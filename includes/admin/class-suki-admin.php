@@ -64,16 +64,6 @@ class Suki_Admin {
 		add_action( 'wp_ajax_suki_rating_notice_close', array( $this, 'ajax_dismiss_rating_notice' ) );
 		add_action( 'after_switch_theme', array( $this, 'reset_rating_notice_flag' ) );
 
-		// Suki Sites Import plugin installation from theme's dashboard page.
-		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
-
-		// Suki admin page hooks.
-		add_action( 'suki/admin/dashboard/header', array( $this, 'render_admin_page__logo' ), 10 );
-		add_action( 'suki/admin/dashboard/content', array( $this, 'render_admin_page__modules' ), 10 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__suki_pro' ), 1 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__sites' ), 10 );
-		add_action( 'suki/admin/dashboard/sidebar', array( $this, 'render_sidebar__links' ), 20 );
-
 		/**
 		 * Include more files.
 		 */
@@ -89,14 +79,17 @@ class Suki_Admin {
 
 	/**
 	 * Add admin submenu page: Appearance > Suki.
+	 *
+	 * More additional menus related to Suki theme could be added using the `suki/admin/menu` hook.
 	 */
 	public function register_admin_menu() {
+		// Add theme dashboard page.
 		add_theme_page(
 			suki_get_theme_info( 'name' ),
 			suki_get_theme_info( 'name' ),
 			'edit_theme_options',
 			'suki',
-			array( $this, 'render_admin_page' )
+			array( $this, 'render_theme_dashboard' )
 		);
 
 		/**
@@ -336,69 +329,6 @@ class Suki_Admin {
 	}
 
 	/**
-	 * AJAX callback to install Suki Sites Import plugin.
-	 */
-	public function ajax_install_sites_import_plugin() {
-		check_ajax_referer( 'suki', '_ajax_nonce' );
-
-		if ( ! current_user_can( 'install_plugins' ) ) {
-			wp_send_json_error();
-		}
-
-		$path = 'suki-sites-import/suki-sites-import.php';
-
-		if ( ! file_exists( WP_PLUGIN_DIR . '/' . $path ) ) {
-			if ( ! function_exists( 'plugins_api' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-			}
-			if ( ! class_exists( 'WP_Upgrader' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-			}
-
-			$api = plugins_api(
-				'plugin_information',
-				array(
-					'slug'   => 'suki-sites-import',
-					'fields' => array(
-						'short_description' => false,
-						'sections'          => false,
-						'requires'          => false,
-						'rating'            => false,
-						'ratings'           => false,
-						'downloaded'        => false,
-						'last_updated'      => false,
-						'added'             => false,
-						'tags'              => false,
-						'compatibility'     => false,
-						'homepage'          => false,
-						'donate_link'       => false,
-					),
-				)
-			);
-
-			// Use AJAX upgrader skin instead of plugin installer skin.
-			// ref: function wp_ajax_install_plugin().
-			$upgrader = new Plugin_Upgrader( new WP_Ajax_Upgrader_Skin() );
-
-			$install = $upgrader->install( $api->download_link );
-
-			if ( false === $install ) {
-				wp_send_json_error();
-			}
-		}
-
-		if ( ! is_plugin_active( $path ) ) {
-			$activate = activate_plugin( $path, '', false, true );
-
-			if ( is_wp_error( $activate ) ) {
-				wp_send_json_error();
-			}
-		}
-
-		wp_send_json_success();
-	}
-
-	/**
 	 * ====================================================
 	 * Render functions
 	 * ====================================================
@@ -407,55 +337,11 @@ class Suki_Admin {
 	/**
 	 * Render admin page.
 	 */
-	public function render_admin_page() {
-		?>
-		<div class="wrap suki-admin-wrap <?php echo esc_attr( suki_is_pro() ? 'suki-pro-installed' : '' ); ?>">
-			<div class="suki-admin-header">
-				<div class="suki-admin-wrapper wp-clearfix">
-					<?php
-					/**
-					 * Hook: suki/admin/dashboard/header
-					 */
-					do_action( 'suki/admin/dashboard/header' );
-					?>
-				</div>
-			</div>
+	public function render_theme_dashboard() {
+		// Include admin dashboard page.
+		require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-dashboard.php';
 
-			<div class="suki-admin-notices">
-				<div class="suki-admin-wrapper">
-					<h1 style="display: none;"></h1>
-
-					<?php settings_errors(); ?>
-				</div>
-			</div>
-
-			<div class="suki-admin-content metabox-holder">
-				<div class="suki-admin-wrapper">
-					<div class="suki-admin-content-row">
-						<div class="suki-admin-primary">
-							<?php
-							/**
-							 * Hook: suki/admin/dashboard/content
-							 */
-							do_action( 'suki/admin/dashboard/content' );
-							?>
-						</div>
-
-						<?php if ( has_action( 'suki/admin/dashboard/sidebar' ) ) : ?>
-							<div class="suki-admin-secondary">
-								<?php
-								/**
-								 * Hook: suki/admin/dashboard/sidebar
-								 */
-								do_action( 'suki/admin/dashboard/sidebar' );
-								?>
-							</div>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php
+		Suki_Admin_Dashboard::instance()->render();
 	}
 
 	/**

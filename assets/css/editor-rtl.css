@@ -1889,13 +1889,13 @@ th {
 	right: 0;
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity var(--transition-duration), visibility 0s var(--transition-duration);
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s);
 	top: 0;
 }
 .suki-popup.suki-popup--active {
 	opacity: 1;
 	visibility: visible;
-	transition: opacity var(--transition-duration), visibility 0s;
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 }
 .admin-bar .suki-popup {
 	top: 46px;
@@ -1998,7 +1998,7 @@ th {
 	box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity var(--transition-duration), visibility 0s var(--transition-duration);
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s);
 }
 .sub-menu.suki-sub-menu-edge {
 	right: auto;
@@ -2035,7 +2035,7 @@ th {
 .suki-hover-menu .menu-item:hover > .sub-menu, .menu-item.focus > .sub-menu {
 	opacity: 1;
 	visibility: visible;
-	transition: opacity var(--transition-duration), visibility 0s;
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 }
 
 /**
@@ -3549,12 +3549,12 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity var(--transition-duration), visibility 0s var(--transition-duration);
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s);
 }
 .wp-block-navigation-item.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container, .wp-block-navigation-item.has-child:not(.open-on-click):not(.open-on-hover-click):focus-within > .wp-block-navigation__submenu-container, .wp-block-navigation-submenu__toggle[aria-expanded=true] + .wp-block-navigation__submenu-container {
 	opacity: 1;
 	visibility: visible;
-	transition: opacity var(--transition-duration), visibility 0s;
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 }
 .wp-block-navigation__submenu-container:empty {
 	display: none;
@@ -3661,7 +3661,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 .wp-block-navigation__responsive-container.hidden-by-default {
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity var(--transition-duration), visibility 0s var(--transition-duration);
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s);
 	position: fixed;
 	overflow: auto;
 	padding: clamp(var(--wp--style--block-gap), 5%, 3 * var(--wp--style--block-gap));
@@ -3672,7 +3672,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 .wp-block-navigation__responsive-container.hidden-by-default.is-menu-open {
 	opacity: 1;
 	visibility: visible;
-	transition: opacity var(--transition-duration), visibility 0s;
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 }
 .wp-block-navigation__responsive-container.hidden-by-default.is-menu-open .wp-block-navigation__responsive-container-close {
 	display: revert;
@@ -3710,7 +3710,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 .wp-block-navigation__responsive-container.hidden-by-default .wp-block-navigation__submenu-container {
 	opacity: 1;
 	visibility: visible;
-	transition: opacity var(--transition-duration), visibility 0s;
+	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 	position: static;
 	display: flex;
 	flex-direction: column;
@@ -3735,7 +3735,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	.wp-block-navigation__responsive-container:not(.hidden-by-default) {
 		opacity: 0;
 		visibility: hidden;
-		transition: opacity var(--transition-duration), visibility 0s var(--transition-duration);
+		transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s);
 		position: fixed;
 		overflow: auto;
 		padding: clamp(var(--wp--style--block-gap), 5%, 3 * var(--wp--style--block-gap));
@@ -3746,7 +3746,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	.wp-block-navigation__responsive-container:not(.hidden-by-default).is-menu-open {
 		opacity: 1;
 		visibility: visible;
-		transition: opacity var(--transition-duration), visibility 0s;
+		transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 	}
 	.wp-block-navigation__responsive-container:not(.hidden-by-default).is-menu-open .wp-block-navigation__responsive-container-close {
 		display: revert;
@@ -3784,7 +3784,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	.wp-block-navigation__responsive-container:not(.hidden-by-default) .wp-block-navigation__submenu-container {
 		opacity: 1;
 		visibility: visible;
-		transition: opacity var(--transition-duration), visibility 0s;
+		transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 		position: static;
 		display: flex;
 		flex-direction: column;

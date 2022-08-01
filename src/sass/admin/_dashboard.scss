@@ -1,0 +1,414 @@
+/**
+ * Theme Dashboard
+ */
+
+.appearance_page_suki {
+	#wpcontent {
+		padding: 0;
+
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+	}
+
+	.update-nag {
+		margin: 0;
+		display: block;
+	}
+}
+
+.suki-admin-dashboard {
+	$green: #46b450;
+
+	/**
+	 * Components
+	 */
+
+	&__container {
+		width: 100%;
+		max-width: 800px;
+		padding: 0 20px;
+		margin: 0 auto;
+	}
+
+	&__version-badge {
+		font-size: 13px;
+		font-weight: 500;
+		line-height: 1;
+		padding: 0.25em 0.5em;
+		white-space: nowrap;
+		background-color: rgba(0,0,0,0.1);
+	}
+
+	&__box {
+		padding: 20px;
+		background-color: #fff;
+		// box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+		box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+
+		> *:where(:first-child) {
+			margin-top: 0;
+		}
+
+		> *:where(:last-child) {
+			margin-bottom: 0;
+		}
+
+		&-separator {
+			height: 1px;
+			border: none;
+			background-color: rgba(0,0,0,0.1);
+			margin: 20px -20px;
+		}
+	}
+
+	&__heading {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	&__subtitle {
+		font-size: 15px;
+		font-weight: 400;
+		font-style: italic;
+		line-height: 1.5;
+	}
+
+	&__action-button.button {
+		font-size: 16px;
+		padding: 2px 15px;
+	}
+
+	/**
+	 * Header
+	 */
+
+	&__header {
+		background: #fff;
+		box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);
+
+		.suki-admin-dashboard__container {
+			display: flex;
+			gap: 15px;
+			align-items: center;
+			height: 60px;
+		}
+	}
+
+	&__header-logo {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0;
+		font-size: 26px;
+		font-weight: 400;
+		line-height: 1.3;
+
+		img {
+			height: 30px;
+		}
+	}
+
+	&__header-links {
+		display: flex;
+		gap: 15px;
+		margin-left: auto;
+
+		a {
+			font-weight: 500;
+			text-decoration: none;
+		}
+	}
+
+	/**
+	 * Body
+	 */
+	
+	&__body {
+		padding: 20px 0 0;
+
+		.suki-admin-dashboard__container {
+			display: grid;
+			gap: 20px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: stretch;
+		gap: 20px;
+	}
+
+	&__sidebar {
+		display: flex;
+		flex-direction: column;
+		justify-content: stretch;
+		gap: 20px;
+	}
+
+	/**
+	 * Customizer
+	 */
+
+	&__customizer-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+
+		.suki-admin-dashboard__heading {
+			margin: 0;
+		}
+	}
+
+	&__customizer-links-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(var(--rows), auto);
+		grid-auto-flow: column;
+		column-gap: 20px;
+		row-gap: 8px;
+		margin-top: 20px;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	&__customizer-links-item {
+		a {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			text-decoration: none;
+		}
+
+		.dashicons {
+			font-size: 24px;
+			width: 1em;
+			height: 1em;
+		}
+	}
+
+	/**
+	 * Suki Pro Teaser
+	 */
+	
+	&__suki-pro-teaser {
+		text-align: center;
+
+		.suki-admin-dashboard__heading {
+			margin-top: 20px;
+		}
+	}
+
+	&__suki-pro-teaser-modules-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(var(--rows), auto);
+		grid-auto-flow: column;
+		justify-content: start;
+		row-gap: 10px;
+		column-gap: 20px;
+		padding: 20px;
+		margin-inline: auto;
+		background-color: rgba(0,0,0,0.03);
+		font-size: 14px;
+		// font-weight: 500;
+		text-align: initial;
+
+		li {
+			display: flex;
+			align-items: flex-start;
+			gap: 10px;
+			margin: 0;
+
+			&:before {
+				content: "✔";
+				color: $green;
+			}
+		}
+	}
+
+	&__suki-pro-teaser-action {
+		margin: 60px 0;
+	}
+
+	/**
+	 * Modules
+	 */
+
+	&__modules-category {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 0 15px;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 1.5;
+
+		.dashicons {
+			opacity: 0.4;
+			font-size: 24px;
+			width: 1em;
+			height: 1em;
+		}
+	}
+
+	&__modules-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(var(--rows), auto);
+		grid-auto-flow: column;
+		gap: 5px;
+	}
+
+	&__module {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px;
+		background-color: #fff;
+		box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+
+		&--unavailable {
+			background-color: rgba(0,0,0,0.03);
+		}
+	}
+
+	&__module-name {
+		font-size: 14px;
+		font-weight: 500;
+
+		.suki-admin-dashboard__module--unavailable & {
+			opacity: 0.8;
+		}
+	}
+
+	&__module-settings-link {
+		margin-left: auto;
+		text-decoration: none;
+		color: currentColor;
+
+		&:before {
+			content: "\f108";
+			font-family: "dashicons";
+			font-size: 20px;
+			height: 1em;
+			width: 1em;
+			vertical-align: middle;
+			opacity: 0;
+		}
+
+		.suki-admin-dashboard__module:hover & {
+			&:before {
+				opacity: 0.25;
+			}
+		}
+
+		&:hover,
+		&:focus {
+			color: currentColor;
+
+			&:before {
+				opacity: 0.5 !important;
+			}
+		}
+	}
+
+	&__module-action {
+		display: block;
+		width: 32px;
+		height: 18px;
+		border-radius: 9px;
+		background-color: rgba(0,0,0,0.1);
+		text-align: center;
+
+		&--core,
+		&--unavailable {
+			&:before {
+				font-family: "dashicons";
+				font-size: 14px;
+				height: 1em;
+				width: 1em;
+			}
+		}
+
+		&--core {
+			background-color: transparentize($green, 0.8);
+			color: $green;
+
+			&:before {
+				content: "\f147";
+			}
+		}
+
+		&--unavailable {
+			&:before {
+				content: "\f160";
+				opacity: 0.4;
+			}
+		}
+
+		&--active,
+		&--inactive {
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				width: 14px;
+				height: 14px;
+				margin: 2px;
+				border-radius: 7px;
+				background-color: #fff;
+			}
+		}
+
+		&--inactive {
+			background-color: rgba(0,0,0,0.25);
+
+			&:before {
+				left: 0;
+			}
+		}
+
+		&--active {
+			background-color: #2271b1;
+
+			&:before {
+				right: 0;
+			}
+		}
+	}
+
+	/**
+	 * Addons
+	 */
+		
+	&__addons {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+
+	&__addon {
+		text-align: center;
+
+		.suki-admin-dashboard__heading {
+			margin-bottom: 0;
+		}
+	}
+
+	&__addon-banner {
+		margin: -20px -20px 20px -20px !important;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+}

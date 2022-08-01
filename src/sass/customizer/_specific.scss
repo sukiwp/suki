@@ -246,6 +246,8 @@
  * Add ↳ prefix to some sections link to indicate hierarchy
  */
 
+[id="accordion-panel-suki_panel_header"],
+[id="accordion-panel-suki_panel_footer"],
 [id="accordion-section-suki_section_main"],
 [id="accordion-section-suki_section_sidebar"],
 [id^="accordion-section-suki_section_entry_"] {

@@ -54,3 +54,35 @@ details.suki-admin-accordion {
 		}
 	}
 }
+
+/**
+ * Tooltip
+ */
+
+.suki-admin-tooltip {
+	position: relative;
+
+	> .suki-admin-tooltip__content {
+		position: absolute;
+		z-index: 9999;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-bottom: 3px;
+		padding: 4px 8px;
+		border-radius: 3px;
+		background-color: rgba(0,0,0,0.9);
+		color: #fff;
+		font-size: 13px;
+		line-height: 1.5;
+		white-space: nowrap;
+		@include hide();
+	}
+	
+	&:hover,
+	&:focus {
+		> .suki-admin-tooltip__content {
+			@include show();
+		}
+	}
+}

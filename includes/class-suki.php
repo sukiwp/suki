@@ -101,17 +101,6 @@ class Suki {
 		// Customizer functionalities.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/class-suki-customizer.php';
 
-		// Load modules.
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/class-suki-module.php';
-		$active_modules = array(
-			'breadcrumb',
-			'google-fonts',
-			'page-settings',
-		);
-		foreach ( $active_modules as $active_module ) {
-			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . $active_module . '/class-suki-' . $active_module . '.php';
-		}
-
 		// Load plugin compatibilities.
 		foreach ( $this->get_compatible_plugins() as $plugin_slug => $plugin_class ) {
 			// Only include plugin's compatibility class if the plugin is active.
@@ -122,6 +111,17 @@ class Suki {
 					require_once $compatibility_file;
 				}
 			}
+		}
+
+		// Load core modules.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/class-suki-module.php';
+		$core_modules = array(
+			'breadcrumb',
+			'google-fonts',
+			'page-settings',
+		);
+		foreach ( $core_modules as $module ) {
+			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . $module . '/class-suki-' . $module . '.php';
 		}
 
 		// Admin page functionalities.
