@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Styles > Form Input
+ * Customizer settings: Global Elements > Form Input
  *
  * @package Suki
  **/

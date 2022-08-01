@@ -132,7 +132,7 @@ $add['header_cart_amount_visibility'] = array(
 
 /**
  * ====================================================
- * Content > Content Section
+ * Global Layout > Content Section
  * ====================================================
  */
 

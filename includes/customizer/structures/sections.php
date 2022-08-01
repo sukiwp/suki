@@ -61,7 +61,7 @@ $wp_customize->add_section(
 	'suki_section_color_palette',
 	array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Save up to 8 colors that you frequently use while customizing your website.', 'suki' ) . '</p><p>' . esc_html__( 'These colors don\'t represent global colors (text, heading, border, etc.). To configure Global Colors, please navigate to Global Styles section.', 'suki' ) . '</p>',
+		'description' => '<p>' . esc_html__( 'Save up to 8 colors that you frequently use while customizing your website.', 'suki' ) . '</p><p>' . esc_html__( 'These colors don\'t represent global colors (text, heading, border, etc.). To configure Global Colors, please navigate to Global Elements section.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	)
@@ -78,27 +78,17 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles.
-$panel = 'suki_panel_global_styles';
+// Global Elements.
+$panel = 'suki_panel_global_elements';
 $wp_customize->add_panel(
 	$panel,
 	array(
-		'title'    => esc_html__( 'Global Styles', 'suki' ),
+		'title'    => esc_html__( 'Global Elements', 'suki' ),
 		'priority' => 122,
 	)
 );
 
-// Global Styles > Content Size & Spacing.
-$wp_customize->add_section(
-	'suki_section_global_size_spacing',
-	array(
-		'title'    => esc_html__( 'Content Size & Spacing', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 10,
-	)
-);
-
-// Global Styles > Base Typography.
+// Global Elements > Base Typography.
 $wp_customize->add_section(
 	'suki_section_base',
 	array(
@@ -108,7 +98,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Headings (H1 - H4).
+// Global Elements > Headings (H1 - H4).
 $wp_customize->add_section(
 	'suki_section_headings',
 	array(
@@ -118,7 +108,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Blockquote.
+// Global Elements > Blockquote.
 $wp_customize->add_section(
 	'suki_section_blockquote',
 	array(
@@ -128,7 +118,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Form Input.
+// Global Elements > Form Input.
 $wp_customize->add_section(
 	'suki_section_form_input',
 	array(
@@ -138,7 +128,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Button.
+// Global Elements > Button.
 $wp_customize->add_section(
 	'suki_section_button',
 	array(
@@ -148,7 +138,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Title.
+// Global Elements > Title.
 $wp_customize->add_section(
 	'suki_section_title',
 	array(
@@ -159,7 +149,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Small Title.
+// Global Elements > Small Title.
 $wp_customize->add_section(
 	'suki_section_small_title',
 	array(
@@ -170,7 +160,7 @@ $wp_customize->add_section(
 	)
 );
 
-// Global Styles > Meta Info.
+// Global Elements > Meta Info.
 $wp_customize->add_section(
 	'suki_section_meta',
 	array(
@@ -181,12 +171,74 @@ $wp_customize->add_section(
 	)
 );
 
-// Page Canvas.
+// Global Layout.
+$panel = 'suki_panel_global_layout';
+$wp_customize->add_panel(
+	$panel,
+	array(
+		'title'    => esc_html__( 'Global Layout', 'suki' ),
+		'priority' => 123,
+	)
+);
+
+// Global Layout > Content Size & Spacing.
+$wp_customize->add_section(
+	'suki_section_global_size_spacing',
+	array(
+		'title'    => esc_html__( 'Content Size & Spacing', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
+	)
+);
+
+// Global Layout > Page Canvas.
 $wp_customize->add_section(
 	'suki_section_page_canvas',
 	array(
 		'title'    => esc_html__( 'Page Canvas', 'suki' ),
-		'priority' => 131,
+		'panel'    => $panel,
+		'priority' => 10,
+	)
+);
+
+// Global Layout > Content Section.
+$wp_customize->add_section(
+	'suki_section_content',
+	array(
+		'title'    => esc_html__( 'Content Section', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
+	)
+);
+
+// Global Layout > Main Content.
+$wp_customize->add_section(
+	'suki_section_main',
+	array(
+		'title'    => esc_html__( 'Main Content', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
+	)
+);
+
+// Global Layout > Sidebar.
+$wp_customize->add_section(
+	'suki_section_sidebar',
+	array(
+		'title'    => esc_html__( 'Sidebar', 'suki' ),
+		'panel'    => $panel,
+		'priority' => 10,
+	)
+);
+
+// Global Layout > Hero Section.
+$wp_customize->add_section(
+	'suki_section_hero',
+	array(
+		'title'       => esc_html__( 'Hero Section', 'suki' ),
+		'description' => esc_html__( 'A section between header and content section that displays Content Header.', 'suki' ),
+		'panel'       => $panel,
+		'priority'    => 10,
 	)
 );
 
@@ -196,7 +248,7 @@ $wp_customize->add_panel(
 	$panel,
 	array(
 		'title'    => esc_html__( 'Header', 'suki' ),
-		'priority' => 132,
+		'priority' => 124,
 	)
 );
 
@@ -373,77 +425,13 @@ if ( suki_show_pro_teaser() ) {
 	);
 }
 
-// Content.
-$panel = 'suki_panel_content';
-$wp_customize->add_panel(
-	$panel,
-	array(
-		'title'    => esc_html__( 'Content', 'suki' ),
-		'priority' => 133,
-	)
-);
-
-// Content > --- Areas.
-$wp_customize->add_section(
-	new Suki_Customize_Spacer_Section(
-		$wp_customize,
-		'suki_section_spacer_content_areas',
-		array(
-			'title'    => esc_html__( 'Areas', 'suki' ),
-			'panel'    => $panel,
-			'priority' => 10,
-		)
-	)
-);
-
-// Content > Content Section.
-$wp_customize->add_section(
-	'suki_section_content',
-	array(
-		'title'    => esc_html__( 'Content Section', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 10,
-	)
-);
-
-// Content > Main Content.
-$wp_customize->add_section(
-	'suki_section_main',
-	array(
-		'title'    => esc_html__( 'Main Content', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 10,
-	)
-);
-
-// Content > Sidebar.
-$wp_customize->add_section(
-	'suki_section_sidebar',
-	array(
-		'title'    => esc_html__( 'Sidebar', 'suki' ),
-		'panel'    => $panel,
-		'priority' => 10,
-	)
-);
-
-// Content > Hero Section.
-$wp_customize->add_section(
-	'suki_section_hero',
-	array(
-		'title'       => esc_html__( 'Hero Section', 'suki' ),
-		'description' => esc_html__( 'A section between header and content section that displays Content Header.', 'suki' ),
-		'panel'       => $panel,
-		'priority'    => 10,
-	)
-);
-
 // Footer.
 $panel = 'suki_panel_footer';
 $wp_customize->add_panel(
 	$panel,
 	array(
 		'title'    => esc_html__( 'Footer', 'suki' ),
-		'priority' => 134,
+		'priority' => 125,
 	)
 );
 

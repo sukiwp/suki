@@ -38,18 +38,7 @@ $add['color_palette_8_name'] = esc_html__( 'Background', 'suki' );
 
 /**
  * ====================================================
- * Global Styles > Content Size & Spacing
- * ====================================================
- */
-
-$add['container_wide_width']   = '1140px';
-$add['container_narrow_width'] = '720px';
-
-$add['block_spacing'] = '1.5rem';
-
-/**
- * ====================================================
- * Global Styles > Base Typography
+ * Global Elements > Base Typography
  * ====================================================
  */
 
@@ -61,7 +50,7 @@ $add['body_text_color'] = 'var(--color-palette-2)';
 
 /**
  * ====================================================
- * Global Styles > Border & Subtle Background
+ * Global Elements > Border & Subtle Background
  * ====================================================
  */
 
@@ -70,7 +59,7 @@ $add['border_color'] = 'var(--color-palette-6)';
 
 /**
  * ====================================================
- * Global Styles > Link
+ * Global Elements > Link
  * ====================================================
  */
 
@@ -79,7 +68,7 @@ $add['link_hover_text_color'] = 'var(--color-palette-5)';
 
 /**
  * ====================================================
- * Global Styles > Headings
+ * Global Elements > Headings
  * ====================================================
  */
 
@@ -111,7 +100,7 @@ $add['heading_text_color'] = 'var(--color-palette-1)';
 
 /**
  * ====================================================
- * Global Styles > Blockquote
+ * Global Elements > Blockquote
  * ====================================================
  */
 
@@ -122,7 +111,7 @@ $add['blockquote_line_height'] = '1.6';
 
 /**
  * ====================================================
- * Global Styles > Form Input
+ * Global Elements > Form Input
  * ====================================================
  */
 
@@ -135,7 +124,7 @@ $add['input_focus_border_color'] = 'var(--color-palette-2)';
 
 /**
  * ====================================================
- * Global Styles > Button
+ * Global Elements > Button
  * ====================================================
  */
 
@@ -155,7 +144,7 @@ $add['button_hover_text_color']   = 'var(--color-palette-8)';
 
 /**
  * ====================================================
- * Global Styles > Meta Info
+ * Global Elements > Meta Info
  * ====================================================
  */
 
@@ -163,7 +152,18 @@ $add['meta_text_color'] = 'var(--color--palette-3)';
 
 /**
  * ====================================================
- * Page Canvas
+ * Global Layout > Content Size & Spacing
+ * ====================================================
+ */
+
+$add['container_wide_width']   = '1140px';
+$add['container_narrow_width'] = '720px';
+
+$add['block_spacing'] = '1.5rem';
+
+/**
+ * ====================================================
+ * Global Layout > Page Canvas
  * ====================================================
  */
 
@@ -180,6 +180,43 @@ $add['outside_bg_position']   = 'center center';
 $add['outside_bg_size']       = 'cover';
 $add['outside_bg_repeat']     = 'no-repeat';
 $add['outside_bg_attachment'] = 'fixed';
+
+/**
+ * ====================================================
+ * Global Layout > Content Section
+ * ====================================================
+ */
+
+$add['content_container'] = 'wide';
+$add['content_layout']    = 'right-sidebar';
+$add['content_padding']   = array( '80px', '20px', '80px', '20px' );
+
+/**
+ * ====================================================
+ * Global Layout > Sidebar
+ * ====================================================
+ */
+
+$add['sidebar_width'] = '25%';
+
+$add['sidebar_widgets_mode'] = 'merged';
+
+$add['sidebar_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
+
+/**
+ * ====================================================
+ * Global Layout > Hero Section
+ * ====================================================
+ */
+
+$add['hero'] = 1;
+
+$add['hero_container'] = 'wide';
+$add['hero_padding']   = array( '60px', '20px', '60px', '20px' );
+
+$add['hero_bg_color'] = 'var(--color-palette-7)';
+
+$add['hero_bg_attachment'] = 'scroll';
 
 /**
  * ====================================================
@@ -311,43 +348,6 @@ $add['header_mobile_vertical_bar_width']     = '300px';
 $add['header_mobile_vertical_bar_padding']   = array( '30px', '30px', '30px', '30px' );
 
 $add['header_mobile_vertical_bar_icon_size'] = '1.2em';
-
-/**
- * ====================================================
- * Page Header
- * ====================================================
- */
-
-$add['hero'] = 1;
-
-$add['hero_container'] = 'wide';
-$add['hero_padding']   = array( '60px', '20px', '60px', '20px' );
-
-$add['hero_bg_color'] = 'var(--color-palette-7)';
-
-$add['hero_bg_attachment'] = 'scroll';
-
-/**
- * ====================================================
- * Content > Section
- * ====================================================
- */
-
-$add['content_container'] = 'wide';
-$add['content_layout']    = 'right-sidebar';
-$add['content_padding']   = array( '80px', '20px', '80px', '20px' );
-
-/**
- * ====================================================
- * Content > Sidebar
- * ====================================================
- */
-
-$add['sidebar_width'] = '25%';
-
-$add['sidebar_widgets_mode'] = 'merged';
-
-$add['sidebar_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 
 /**
  * ====================================================

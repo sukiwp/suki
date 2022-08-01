@@ -18,20 +18,6 @@ $section = 'suki_section_page_canvas';
  * ====================================================
  */
 
-// Heading: Canvas.
-$wp_customize->add_control(
-	new Suki_Customize_Heading_Control(
-		$wp_customize,
-		'heading_canvas',
-		array(
-			'section'  => $section,
-			'settings' => array(),
-			'label'    => esc_html__( 'Canvas', 'suki' ),
-			'priority' => 10,
-		)
-	)
-);
-
 // Canvas size.
 $key = 'page_layout';
 $wp_customize->add_setting(

@@ -14,7 +14,7 @@ $add = array();
 
 /**
  * ====================================================
- * Global Styles > Border & Subtle Background
+ * Global Elements > Border & Subtle Background
  * ====================================================
  */
 
@@ -28,7 +28,7 @@ $add['subtle_color'] = array(
 
 /**
  * ====================================================
- * Global Styles > Link
+ * Global Elements > Link
  * ====================================================
  */
 
@@ -80,7 +80,7 @@ $add['link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Global Styles > Headings
+ * Global Elements > Headings
  * ====================================================
  */
 
@@ -135,7 +135,7 @@ $add['heading_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Global Styles > Small Title
+ * Global Elements > Small Title
  * ====================================================
  */
 
@@ -180,7 +180,7 @@ $add['small_title_text_color'] = array(
 
 /**
  * ====================================================
- * Global Styles > Meta Info
+ * Global Elements > Meta Info
  * ====================================================
  */
 
@@ -242,7 +242,7 @@ $add['meta_link_hover_text_color'] = array(
 
 /**
  * ====================================================
- * Global Styles > Button
+ * Global Elements > Button
  * ====================================================
  */
 
@@ -277,7 +277,7 @@ $add['button_padding'] = array(
 
 /**
  * ====================================================
- * Content > Sidebar Area
+ * Global Layout > Sidebar Area
  * ====================================================
  */
 

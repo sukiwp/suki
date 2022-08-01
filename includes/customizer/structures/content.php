@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content > Content Section
+ * Customizer settings: Global Layout > Content Section
  *
  * @package Suki
  **/
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => esc_html__( 'Sidebar will be automatically disabled in Narrow container.', 'suki' ),
+			'description' => esc_html__( 'Narrow container doesn\'t support sidebar.', 'suki' ),
 			'priority'    => 10,
 		)
 	)

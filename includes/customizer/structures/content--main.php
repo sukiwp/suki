@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content > Main Content
+ * Customizer settings: Global Layout > Main Content
  *
  * @package Suki
  **/

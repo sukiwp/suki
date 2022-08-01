@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Content > Sidebar Area
+ * Customizer settings: Global Layout > Sidebar Area
  *
  * @package Suki
  **/

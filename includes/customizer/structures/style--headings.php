@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Styles > Headings
+ * Customizer settings: Global Elements > Headings
  *
  * @package Suki
  **/
