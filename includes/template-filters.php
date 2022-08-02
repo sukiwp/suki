@@ -334,7 +334,7 @@ function suki_excerpt_length( $length ) {
 
 	// Posts page.
 	if ( ( is_home() || is_archive() ) && 'post' === get_post_type() ) {
-		$layout = suki_get_theme_mod( 'post_archive_query_layout' );
+		$layout = suki_get_theme_mod( 'post_archive_loop_layout' );
 
 		if ( 'default' === $layout ) {
 			$key = 'entry_excerpt_length';
@@ -635,9 +635,9 @@ add_filter( 'suki/frontend/content_classes', 'suki_content_classes' );
  * @return array
  */
 function suki_loop_classes( $classes ) {
-	$classes['mode'] = esc_attr( 'suki-loop--' . suki_get_theme_mod( 'post_archive_query_layout' ) );
+	$classes['mode'] = esc_attr( 'suki-loop--' . suki_get_theme_mod( 'post_archive_loop_layout' ) );
 
-	switch ( suki_get_theme_mod( 'post_archive_query_layout' ) ) {
+	switch ( suki_get_theme_mod( 'post_archive_loop_layout' ) ) {
 		// Default post layout.
 		case 'default':
 			$classes['alignment'] = 'alignfull';

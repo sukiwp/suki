@@ -445,7 +445,7 @@ $add['post_archive_content_header_alignment'] = 'left';
 $add['post_archive_loop_layout']     = 'default';
 $add['post_archive_navigation_mode'] = 'page-numbers';
 
-$add['post_archive_query_layout']        = 'default';
+$add['post_archive_loop_layout']        = 'default';
 $add['post_archive_home_content_header'] = 1;
 $add['post_archive_pagination_layout']   = 'page-numbers';
 

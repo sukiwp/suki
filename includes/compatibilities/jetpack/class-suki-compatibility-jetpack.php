@@ -102,7 +102,7 @@ class Suki_Compatibility_Jetpack {
 			if ( is_search() ) {
 				suki_get_template_part( 'entry', 'search' );
 			} else {
-				suki_get_template_part( 'entry', suki_get_theme_mod( 'post_archive_query_layout' ) );
+				suki_get_template_part( 'entry', suki_get_theme_mod( 'post_archive_loop_layout' ) );
 			}
 		}
 	}

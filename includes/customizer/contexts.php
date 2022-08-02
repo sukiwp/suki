@@ -174,14 +174,14 @@ $add['footer_bottom_bar_merged_gap'] = array(
 
 $add['blank_edit_entry_default'] = array(
 	array(
-		'setting' => 'post_archive_query_layout',
+		'setting' => 'post_archive_loop_layout',
 		'value'   => 'default',
 	),
 );
 
 $add['blank_edit_entry_grid'] = array(
 	array(
-		'setting' => 'post_archive_query_layout',
+		'setting' => 'post_archive_loop_layout',
 		'value'   => 'grid',
 	),
 );
