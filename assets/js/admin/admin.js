@@ -153,7 +153,7 @@
 		 * "Suki Sites Import" plugin installation from theme's dashboard page.
 		 */
 
-		$( '.suki-admin-install-sites-import-plugin-button' ).on( 'click', function( e ) {
+		$( '[data-js="install-sites-import-plugin"]' ).on( 'click', function( e ) {
 			var $button = $( this );
 
 			$button.prop( 'disabled', 'disabled' );

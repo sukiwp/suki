@@ -197,10 +197,18 @@
 	 */
 	
 	&__suki-pro-teaser {
-		text-align: center;
-
 		.suki-admin-dashboard__heading {
 			margin-top: 20px;
+		}
+	}
+
+	&__suki-pro-teaser-banner {
+		margin: -20px -20px 20px -20px !important;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
 		}
 	}
 
@@ -212,12 +220,8 @@
 		justify-content: start;
 		row-gap: 10px;
 		column-gap: 20px;
-		padding: 20px;
 		margin-inline: auto;
-		background-color: rgba(0,0,0,0.03);
 		font-size: 14px;
-		// font-weight: 500;
-		text-align: initial;
 
 		li {
 			display: flex;
@@ -233,7 +237,7 @@
 	}
 
 	&__suki-pro-teaser-action {
-		margin: 60px 0;
+		margin-top: 20px;
 	}
 
 	/**

@@ -240,11 +240,16 @@ details.suki-admin-accordion[open] summary:before {
 	width: 1em;
 	height: 1em;
 }
-.suki-admin-dashboard__suki-pro-teaser {
-	text-align: center;
-}
 .suki-admin-dashboard__suki-pro-teaser .suki-admin-dashboard__heading {
 	margin-top: 20px;
+}
+.suki-admin-dashboard__suki-pro-teaser-banner {
+	margin: -20px -20px 20px -20px !important;
+}
+.suki-admin-dashboard__suki-pro-teaser-banner img {
+	display: block;
+	width: 100%;
+	height: auto;
 }
 .suki-admin-dashboard__suki-pro-teaser-modules-grid {
 	display: grid;
@@ -254,11 +259,8 @@ details.suki-admin-accordion[open] summary:before {
 	justify-content: start;
 	row-gap: 10px;
 	column-gap: 20px;
-	padding: 20px;
 	margin-inline: auto;
-	background-color: rgba(0, 0, 0, 0.03);
 	font-size: 14px;
-	text-align: initial;
 }
 .suki-admin-dashboard__suki-pro-teaser-modules-grid li {
 	display: flex;
@@ -271,7 +273,7 @@ details.suki-admin-accordion[open] summary:before {
 	color: #46b450;
 }
 .suki-admin-dashboard__suki-pro-teaser-action {
-	margin: 60px 0;
+	margin-top: 20px;
 }
 .suki-admin-dashboard__modules-category {
 	display: flex;
