@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-function SukiControlLabel( { children, className, target } ) {
+const SukiControlLabel = ( { children, className, target } ) => {
 	return (
 		<>
 			<label

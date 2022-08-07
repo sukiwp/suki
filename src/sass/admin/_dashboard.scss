@@ -195,12 +195,6 @@
 	/**
 	 * Suki Pro Teaser
 	 */
-	
-	&__suki-pro-teaser {
-		.suki-admin-dashboard__heading {
-			margin-top: 20px;
-		}
-	}
 
 	&__suki-pro-teaser-banner {
 		margin: -20px -20px 20px -20px !important;
@@ -220,7 +214,7 @@
 		justify-content: start;
 		row-gap: 10px;
 		column-gap: 20px;
-		margin-inline: auto;
+		margin: 20px 0;
 		font-size: 14px;
 
 		li {
@@ -234,10 +228,6 @@
 				color: $green;
 			}
 		}
-	}
-
-	&__suki-pro-teaser-action {
-		margin-top: 20px;
 	}
 
 	/**

@@ -12,15 +12,15 @@ import {
 
 import { sprintf } from '@wordpress/i18n';
 
-function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValue, value } ) {
+const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValue, value } ) => {
 	let palette = [];
 
-	for ( var i = 1; i <= 8; i++ ) {
-		const color = wp.customize( 'color_palette_' + i ).get();
+	for ( let i = 1; i <= 8; i++ ) {
+		const color = wp.customize( `color_palette_${i}` ).get();
 
 		palette.push( {
-			name: wp.customize( 'color_palette_' + i + '_name' ).get() || sprintf( SukiCustomizerData.l10n.themeColor$d, i ),
-			color: 'var(--color-palette-' + i + ')',
+			name: wp.customize( `color_palette_${i}_name` ).get() || sprintf( SukiCustomizerData.l10n.themeColor$d, i ),
+			color: `var(--color-palette-${i})`,
 			actualValue: color,
 		} );
 	}
@@ -77,7 +77,7 @@ function SukiColorSelectDropdown( { changeValue, defaultPickerValue, defaultValu
 											disableCustomColors={ true }
 											clearable={ false }
 											className="suki-color-dropdown__palette"
-											onChange={ ( color ) => {											
+											onChange={ ( color ) => {
 												changeValue( color );
 											} }
 										/>

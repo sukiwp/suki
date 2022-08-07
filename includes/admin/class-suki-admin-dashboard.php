@@ -200,8 +200,9 @@ class Suki_Admin_Dashboard {
 		$pro_modules = suki_get_pro_modules();
 		?>
 		<div class="suki-admin-dashboard__suki-pro-teaser suki-admin-dashboard__box">
-			<div class="suki-admin-dashboard__suki-pro-teaser-banner"><img src="<?php echo esc_url( 'https://via.placeholder.com/800x200' ); ?>" width="800" height="200" alt="" /></div>
-			<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'More Powerful Features on Suki Pro', 'suki' ); ?></h2>
+			<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></h2>
+			<p><?php esc_html_e( 'Take Suki to the next level with more powerful features, advanced demo sites, and premium support.', 'suki' ); ?></p>
+			<hr class="suki-admin-dashboard__box-separator">
 
 			<ul class="suki-admin-dashboard__suki-pro-teaser-modules-grid" style="--rows: <?php echo esc_attr( ceil( count( $pro_modules ) / 3 ) ); ?>">
 				<?php

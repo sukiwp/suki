@@ -14,12 +14,12 @@ import {
 	Icon,
 } from '@wordpress/components';
 
-function SukiBuilder( { control } ) {
+const SukiBuilder = ( { control } ) => {
 	// State for all settings values and inactive elements.
 	const [ values, setValues ] = useState( getValues() );
 
 	// Get all settings values, and also define inactive elements.
-	function getValues() {
+	const getValues = () => {
 		let values = {};
 		let activeItemIds = [];
 		let inactiveItemIds = [];
@@ -91,7 +91,7 @@ function SukiBuilder( { control } ) {
 								const updatedAreaItemsIds = updatedAreaItems.map( ( item ) => {
 									return item.value;
 								} );
-					
+
 								// Update values state.
 								setValues( ( prevValues ) => {
 									return {

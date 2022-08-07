@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-function SukiControlResponsiveContainer( { children, className, device } ) {
+const SukiControlResponsiveContainer = ( { children, className, device } ) => {
 	return (
 		<>
 			<div

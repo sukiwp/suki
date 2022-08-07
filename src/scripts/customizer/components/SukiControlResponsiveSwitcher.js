@@ -1,10 +1,9 @@
 import {
-	__experimentalHStack as HStack,
 	Button,
 	ButtonGroup,
 } from '@wordpress/components';
 
-function SukiControlResponsiveSwitcher( { devices } ) {
+const SukiControlResponsiveSwitcher = ( { devices } ) => {
 	const controlDevices = [ 'desktop', 'tablet', 'mobile' ].filter( ( device ) => {
 		return -1 !== devices.indexOf( device );
 	} );

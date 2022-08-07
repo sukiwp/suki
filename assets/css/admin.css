@@ -240,9 +240,6 @@ details.suki-admin-accordion[open] summary:before {
 	width: 1em;
 	height: 1em;
 }
-.suki-admin-dashboard__suki-pro-teaser .suki-admin-dashboard__heading {
-	margin-top: 20px;
-}
 .suki-admin-dashboard__suki-pro-teaser-banner {
 	margin: -20px -20px 20px -20px !important;
 }
@@ -259,7 +256,7 @@ details.suki-admin-accordion[open] summary:before {
 	justify-content: start;
 	row-gap: 10px;
 	column-gap: 20px;
-	margin-inline: auto;
+	margin: 20px 0;
 	font-size: 14px;
 }
 .suki-admin-dashboard__suki-pro-teaser-modules-grid li {
@@ -271,9 +268,6 @@ details.suki-admin-accordion[open] summary:before {
 .suki-admin-dashboard__suki-pro-teaser-modules-grid li:before {
 	content: "✔";
 	color: #46b450;
-}
-.suki-admin-dashboard__suki-pro-teaser-action {
-	margin-top: 20px;
 }
 .suki-admin-dashboard__modules-category {
 	display: flex;

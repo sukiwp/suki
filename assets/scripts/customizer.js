@@ -19,7 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function SukiColorSelectDropdown(_ref) {
+var SukiColorSelectDropdown = function SukiColorSelectDropdown(_ref) {
   var changeValue = _ref.changeValue,
       defaultPickerValue = _ref.defaultPickerValue,
       defaultValue = _ref.defaultValue,
@@ -27,10 +27,10 @@ function SukiColorSelectDropdown(_ref) {
   var palette = [];
 
   for (var i = 1; i <= 8; i++) {
-    var color = wp.customize('color_palette_' + i).get();
+    var color = wp.customize("color_palette_".concat(i)).get();
     palette.push({
-      name: wp.customize('color_palette_' + i + '_name').get() || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.sprintf)(SukiCustomizerData.l10n.themeColor$d, i),
-      color: 'var(--color-palette-' + i + ')',
+      name: wp.customize("color_palette_".concat(i, "_name")).get() || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.sprintf)(SukiCustomizerData.l10n.themeColor$d, i),
+      color: "var(--color-palette-".concat(i, ")"),
       actualValue: color
     });
   }
@@ -118,7 +118,7 @@ function SukiColorSelectDropdown(_ref) {
       }, SukiCustomizerData.l10n.reset)));
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Popover.Slot, null))));
-}
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (SukiColorSelectDropdown);
 
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function SukiControlDescription(_ref) {
+var SukiControlDescription = function SukiControlDescription(_ref) {
   var children = _ref.children,
       className = _ref.className,
       id = _ref.id;
@@ -147,7 +147,7 @@ function SukiControlDescription(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, 'description', 'customize-control-description'),
     id: id
   }, children));
-}
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (SukiControlDescription);
 
@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function SukiControlLabel(_ref) {
+var SukiControlLabel = function SukiControlLabel(_ref) {
   var children = _ref.children,
       className = _ref.className,
       target = _ref.target;
@@ -176,7 +176,7 @@ function SukiControlLabel(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, 'customize-control-title'),
     htmlFor: target
   }, children));
-}
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (SukiControlLabel);
 
@@ -197,7 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function SukiControlResponsiveContainer(_ref) {
+var SukiControlResponsiveContainer = function SukiControlResponsiveContainer(_ref) {
   var children = _ref.children,
       className = _ref.className,
       device = _ref.device;
@@ -205,7 +205,7 @@ function SukiControlResponsiveContainer(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, 'suki-responsive-container'),
     "data-device": device
   }, children));
-}
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (SukiControlResponsiveContainer);
 
@@ -226,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function SukiControlResponsiveSwitcher(_ref) {
+var SukiControlResponsiveSwitcher = function SukiControlResponsiveSwitcher(_ref) {
   var devices = _ref.devices;
   var controlDevices = ['desktop', 'tablet', 'mobile'].filter(function (device) {
     return -1 !== devices.indexOf(device);
@@ -248,7 +248,7 @@ function SukiControlResponsiveSwitcher(_ref) {
       }
     });
   })));
-}
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (SukiControlResponsiveSwitcher);
 
@@ -587,7 +587,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-function SukiBuilder(_ref) {
+var SukiBuilder = function SukiBuilder(_ref) {
   var control = _ref.control;
 
   // State for all settings values and inactive elements.
@@ -597,7 +597,7 @@ function SukiBuilder(_ref) {
       setValues = _useState2[1]; // Get all settings values, and also define inactive elements.
 
 
-  function getValues() {
+  var getValues = function getValues() {
     var values = {};
     var activeItemIds = [];
     var inactiveItemIds = [];
@@ -613,7 +613,7 @@ function SukiBuilder(_ref) {
     });
     values._inactive = inactiveItemIds;
     return values;
-  } // Sortable areas and their info.
+  }; // Sortable areas and their info.
 
 
   var areas = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(control.params.areas), [{
@@ -716,7 +716,7 @@ function SukiBuilder(_ref) {
       }));
     })));
   }));
-}
+};
 
 wp.customize.SukiBuilderControl = wp.customize.SukiReactControl.extend({
   renderContent: function renderContent() {

@@ -449,67 +449,67 @@ msgstr ""
 msgid "Start Customizing"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:204
-msgid "More Powerful Features on Suki Pro"
-msgstr ""
-
-#: includes/admin/class-suki-admin-dashboard.php:227, includes/admin/class-suki-admin.php:574
+#: includes/admin/class-suki-admin-dashboard.php:203, includes/admin/class-suki-admin-dashboard.php:228, includes/admin/class-suki-admin.php:574
 msgid "Upgrade to Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:272, includes/admin/class-suki-admin.php:449
+#: includes/admin/class-suki-admin-dashboard.php:204
+msgid "Take Suki to the next level with more powerful features, advanced demo sites, and premium support."
+msgstr ""
+
+#: includes/admin/class-suki-admin-dashboard.php:273, includes/admin/class-suki-admin.php:449
 msgid "Available on Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:261
+#: includes/admin/class-suki-admin-dashboard.php:262
 msgid "Deactivate"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:261
+#: includes/admin/class-suki-admin-dashboard.php:262
 msgid "Activate"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:286
+#: includes/admin/class-suki-admin-dashboard.php:287
 msgid "More Features on Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:290
+#: includes/admin/class-suki-admin-dashboard.php:291
 msgid "Activate All"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:293
+#: includes/admin/class-suki-admin-dashboard.php:294
 msgid "Deactivate All"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:374
+#: includes/admin/class-suki-admin-dashboard.php:375
 msgid "Demo Sites Import"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:375, includes/admin/class-suki-admin.php:593
+#: includes/admin/class-suki-admin-dashboard.php:376, includes/admin/class-suki-admin.php:593
 msgid "Kickstart your website with our pre-made demo websites: Import. Modify. Launch!"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:384, includes/admin/class-suki-admin.php:598
+#: includes/admin/class-suki-admin-dashboard.php:385, includes/admin/class-suki-admin.php:598
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:380, includes/admin/class-suki-admin.php:596
+#: includes/admin/class-suki-admin-dashboard.php:381, includes/admin/class-suki-admin.php:596
 msgid "Browse Demo Sites"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:392
+#: includes/admin/class-suki-admin-dashboard.php:393
 msgid "Child Theme"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:393
+#: includes/admin/class-suki-admin-dashboard.php:394
 msgid "Extend codes or override templates from the Suki theme using our starter Child Theme."
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:402
+#: includes/admin/class-suki-admin-dashboard.php:403
 msgid "Download Starter Child Theme"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:398
+#: includes/admin/class-suki-admin-dashboard.php:399
 msgid "Edit Child Theme"
 msgstr ""
 

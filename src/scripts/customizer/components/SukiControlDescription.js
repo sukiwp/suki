@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-function SukiControlDescription( { children, className, id } ) {
+const SukiControlDescription = ( { children, className, id } ) => {
 	return (
 		<>
 			<span
