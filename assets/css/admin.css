@@ -152,7 +152,6 @@ details.suki-admin-accordion[open] summary:before {
 .suki-admin-dashboard__subtitle {
 	font-size: 15px;
 	font-weight: 400;
-	font-style: italic;
 	line-height: 1.5;
 }
 .suki-admin-dashboard__action-button.button {
@@ -196,6 +195,15 @@ details.suki-admin-accordion[open] summary:before {
 .suki-admin-dashboard__body .suki-admin-dashboard__container {
 	display: grid;
 	gap: 20px;
+}
+.suki-admin-dashboard__notices {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	gap: 5px;
+}
+.suki-admin-dashboard__notices .notice {
+	margin: 0;
 }
 .suki-admin-dashboard__content {
 	display: flex;

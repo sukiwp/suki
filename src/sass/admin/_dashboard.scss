@@ -73,7 +73,6 @@
 	&__subtitle {
 		font-size: 15px;
 		font-weight: 400;
-		font-style: italic;
 		line-height: 1.5;
 	}
 
@@ -133,6 +132,17 @@
 		.suki-admin-dashboard__container {
 			display: grid;
 			gap: 20px;
+		}
+	}
+
+	&__notices {
+		display: flex;
+		flex-direction: column;
+		justify-content: stretch;
+		gap: 5px;
+
+		.notice {
+			margin: 0;
 		}
 	}
 

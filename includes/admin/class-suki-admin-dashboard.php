@@ -83,17 +83,14 @@ class Suki_Admin_Dashboard {
 				</div>
 			</div>
 
-			<div class="suki-admin-notices">
-				<div class="suki-admin-wrapper">
-					<h1 style="display: none;"></h1>
-
-					<?php settings_errors(); ?>
-				</div>
-				<hr class="wp-header-end">
-			</div>
-
 			<div class="suki-admin-dashboard__body">
 				<div class="suki-admin-dashboard__container">
+					<div class="suki-admin-dashboard__notices">
+						<hr class="wp-header-end" style="display: none;">
+
+						<?php settings_errors(); ?>
+					</div>
+
 					<?php
 					/**
 					 * Hook: suki/admin/dashboard/content
@@ -200,8 +197,8 @@ class Suki_Admin_Dashboard {
 		$pro_modules = suki_get_pro_modules();
 		?>
 		<div class="suki-admin-dashboard__suki-pro-teaser suki-admin-dashboard__box">
-			<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Upgrade to Suki Pro', 'suki' ); ?></h2>
-			<p><?php esc_html_e( 'Take Suki to the next level with more powerful features, advanced demo sites, and premium support.', 'suki' ); ?></p>
+			<h2 class="suki-admin-dashboard__heading" style="margin-bottom: 0;"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
+			<p class="suki-admin-dashboard__subtitle" style="margin-top: 5px;"><?php esc_html_e( 'Get more features, advanced demo templates, and premium support.', 'suki' ); ?></p>
 			<hr class="suki-admin-dashboard__box-separator">
 
 			<ul class="suki-admin-dashboard__suki-pro-teaser-modules-grid" style="--rows: <?php echo esc_attr( ceil( count( $pro_modules ) / 3 ) ); ?>">
@@ -371,7 +368,7 @@ class Suki_Admin_Dashboard {
 		?>
 		<div class="suki-admin-dashboard__addons">
 			<div class="suki-admin-dashboard__addon suki-admin-dashboard__box">
-				<div class="suki-admin-dashboard__addon-banner"><img src="<?php echo esc_url( 'https://via.placeholder.com/400x160' ); ?>" width="400" height="160" alt="" /></div>
+				<div class="suki-admin-dashboard__addon-banner"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/dashboard--suki-sites-import.jpg' ); ?>" width="400" height="160" alt="" /></div>
 				<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Demo Sites Import', 'suki' ); ?></h2>
 				<p><?php esc_html_e( 'Kickstart your website with our pre-made demo websites: Import. Modify. Launch!', 'suki' ); ?></p>
 
@@ -389,7 +386,7 @@ class Suki_Admin_Dashboard {
 			</div>
 
 			<div class="suki-admin-dashboard__addon suki-admin-dashboard__box">
-				<div class="suki-admin-dashboard__addon-banner"><img src="<?php echo esc_url( 'https://via.placeholder.com/400x160' ); ?>" width="400" height="160" alt="" /></div>
+				<div class="suki-admin-dashboard__addon-banner"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/dashboard--child-theme.jpg' ); ?>" width="400" height="160" alt="" /></div>
 				<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Child Theme', 'suki' ); ?></h2>
 				<p><?php esc_html_e( 'Extend codes or override templates from the Suki theme using our starter Child Theme.', 'suki' ); ?></p>
 
