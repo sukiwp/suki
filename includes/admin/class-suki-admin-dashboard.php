@@ -51,16 +51,11 @@ class Suki_Admin_Dashboard {
 		add_action( 'suki/admin/dashboard/header', array( $this, 'render_header__links' ), 20 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__customizer' ), 10 );
 		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__suki_pro_teaser' ), 20 );
-		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__addons' ), 30 );
-		// add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__modules' ), 20 );
+		add_action( 'suki/admin/dashboard/content', array( $this, 'render_content__suki_sites_import' ), 30 );
 
 		/**
 		 * AJAX handlers
 		 */
-
-		// Modules manager.
-		add_action( 'wp_ajax_suki_active_modules', array( $this, 'ajax_activate_modules' ) );
-		add_action( 'wp_ajax_suki_deactive_modules', array( $this, 'ajax_deactivate_modules' ) );
 
 		// Suki Sites Import plugin installation.
 		add_action( 'wp_ajax_suki_install_sites_import_plugin', array( $this, 'ajax_install_sites_import_plugin' ) );
@@ -85,11 +80,9 @@ class Suki_Admin_Dashboard {
 
 			<div class="suki-admin-dashboard__body">
 				<div class="suki-admin-dashboard__container">
-					<div class="suki-admin-dashboard__notices">
-						<hr class="wp-header-end" style="display: none;">
-
-						<?php settings_errors(); ?>
-					</div>
+					<hr class="wp-header-end" style="display: none;">
+					<!-- WordPress notices -->
+					<?php settings_errors(); ?>
 
 					<?php
 					/**
@@ -172,7 +165,7 @@ class Suki_Admin_Dashboard {
 		?>
 		<div class="suki-admin-dashboard__customizer suki-admin-dashboard__box">
 			<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Start Customizing', 'suki' ); ?></h2>
-			<div class="suki-admin-dashboard__customizer-links-list" style="--rows: <?php echo esc_attr( ceil( count( $links ) / 2 ) ); ?>">
+			<div class="suki-admin-dashboard__customizer-links-list" style="--items: <?php echo esc_attr( count( $links ) ); ?>">
 				<?php
 				foreach ( $links as $link ) {
 					?>
@@ -201,7 +194,7 @@ class Suki_Admin_Dashboard {
 			<p class="suki-admin-dashboard__subheading" style="margin-top: 5px;"><?php esc_html_e( 'Get more features, advanced demo templates, and premium support.', 'suki' ); ?></p>
 			<hr class="suki-admin-dashboard__box-separator">
 
-			<ul class="suki-admin-dashboard__suki-pro-teaser-modules-grid" style="--rows: <?php echo esc_attr( ceil( count( $pro_modules ) / 3 ) ); ?>">
+			<ul class="suki-admin-dashboard__suki-pro-teaser-modules-grid" style="--items: <?php echo esc_attr( count( $pro_modules ) ); ?>">
 				<?php
 				foreach ( $pro_modules as $module_slug => $module_data ) {
 					?>
@@ -362,45 +355,30 @@ class Suki_Admin_Dashboard {
 	}
 
 	/**
-	 * Render content section: Addons.
+	 * Render content section: Suki Sites Import.
 	 */
-	public function render_content__addons() {
+	public function render_content__suki_sites_import() {
 		?>
-		<div class="suki-admin-dashboard__addons">
-			<div class="suki-admin-dashboard__addon suki-admin-dashboard__box">
-				<div class="suki-admin-dashboard__addon-banner"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/dashboard--suki-sites-import.jpg' ); ?>" width="400" height="160" alt="" /></div>
-				<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Demo Sites Import', 'suki' ); ?></h2>
+		<div class="suki-admin-dashboard__suki-sites-import suki-admin-dashboard__box">
+			<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/dashboard--suki-sites-import.jpg' ); ?>" class="suki-admin-dashboard__suki-sites-import-banner" width="400" height="240" alt="" />
+
+			<div class="suki-admin-dashboard__suki-sites-import-text">
+				<h2 class="suki-admin-dashboard__heading" style="margin: 0;"><?php esc_html_e( 'Demo Sites Import', 'suki' ); ?></h2>
 				<p><?php esc_html_e( 'Kickstart your website with our pre-made demo websites: Import. Modify. Launch!', 'suki' ); ?></p>
 
-				<?php
-				if ( is_plugin_active( 'suki-sites-import/suki-sites-import.php' ) ) {
-					?>
-					<p><a href="<?php echo esc_url( add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ) ); ?>" class="button"><?php esc_html_e( 'Browse Demo Sites', 'suki' ); ?></a></p>
+				<p style="margin-bottom: 0;">
 					<?php
-				} elseif ( current_user_can( 'install_plugins' ) ) {
+					if ( is_plugin_active( 'suki-sites-import/suki-sites-import.php' ) ) {
+						?>
+						<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ) ); ?>" class="button"><?php esc_html_e( 'Browse Demo Sites', 'suki' ); ?></a>
+						<?php
+					} elseif ( current_user_can( 'install_plugins' ) ) {
+						?>
+						<button class="button" data-js="install-sites-import-plugin"><?php esc_html_e( 'Install & Activate Plugin', 'suki' ); ?></button>
+						<?php
+					}
 					?>
-					<p><button class="button" data-js="install-sites-import-plugin"><?php esc_html_e( 'Install & Activate Plugin', 'suki' ); ?></button></p>
-					<?php
-				}
-				?>
-			</div>
-
-			<div class="suki-admin-dashboard__addon suki-admin-dashboard__box">
-				<div class="suki-admin-dashboard__addon-banner"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/dashboard--child-theme.jpg' ); ?>" width="400" height="160" alt="" /></div>
-				<h2 class="suki-admin-dashboard__heading"><?php esc_html_e( 'Child Theme', 'suki' ); ?></h2>
-				<p><?php esc_html_e( 'Extend codes or override templates from the Suki theme using our starter Child Theme.', 'suki' ); ?></p>
-
-				<?php
-				if ( is_child_theme() ) {
-					?>
-					<p><a href="<?php echo esc_url( admin_url( 'theme-editor.php' ) ); ?>" class="button"><?php esc_html_e( 'Edit Child Theme', 'suki' ); ?></a></p>
-					<?php
-				} else {
-					?>
-					<p><a href="https://github.com/sukiwp/suki-child/" class="button"><?php esc_html_e( 'Download Starter Child Theme', 'suki' ); ?></a></p>
-					<?php
-				}
-				?>
+				</p>
 			</div>
 		</div>
 		<?php
@@ -411,64 +389,6 @@ class Suki_Admin_Dashboard {
 	 * AJAX functions
 	 * ====================================================
 	 */
-
-	/**
-	 * AJAX callback to activate modules.
-	 */
-	public function ajax_activate_modules() {
-		check_ajax_referer( 'suki', '_ajax_nonce' );
-
-		// Abort if no module is specified.
-		if ( ! isset( $_REQUEST['modules'] ) ) {
-			return;
-		}
-
-		// Skip if it's White Label module.
-		if ( in_array( 'white-label', $_REQUEST['modules'], true ) ) {
-			return;
-		}
-
-		// Get pro modules list.
-		$available_modules = suki_get_pro_modules();
-
-		// Sanitize module.
-		$module = sanitize_key( $_REQUEST['module'] );
-
-		// Get module data.
-		$module_data = suki_array_value( $available_modules, $module );
-
-		// Get active modules array from DB.
-		$active_modules = get_option( 'suki_pro_active_modules', array() );
-
-		// If module is already active, show notice and abort.
-		if ( in_array( $module, $active_modules ) ) {
-			return;
-		}
-
-		// Merge into active modules array.
-		$active_modules = array_merge( $active_modules, array( $module ) );
-
-		// Resort array.
-		$active_modules = array_values( $active_modules );
-
-		// Update DB.
-		update_option( 'suki_pro_active_modules', $active_modules );
-
-		// Add success notice.
-		Suki_Pro_Notice::instance()->add_notice(
-			array(
-				'type' => 'success',
-				/* translators: %s: module name */
-				'text' => sprintf( esc_html__( '"%s" is activated.', 'suki-pro' ), suki_array_value( $module_data, 'label' ) ),
-			)
-		);
-
-		// Redirect to show notices on session.
-		wp_safe_redirect( admin_url( 'themes.php?page=suki' ) );
-
-		wp_send_json_success();
-		exit;
-	}
 
 	/**
 	 * AJAX callback to install Suki Sites Import plugin.
