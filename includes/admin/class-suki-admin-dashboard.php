@@ -198,7 +198,7 @@ class Suki_Admin_Dashboard {
 		?>
 		<div class="suki-admin-dashboard__suki-pro-teaser suki-admin-dashboard__box">
 			<h2 class="suki-admin-dashboard__heading" style="margin-bottom: 0;"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
-			<p class="suki-admin-dashboard__subtitle" style="margin-top: 5px;"><?php esc_html_e( 'Get more features, advanced demo templates, and premium support.', 'suki' ); ?></p>
+			<p class="suki-admin-dashboard__subheading" style="margin-top: 5px;"><?php esc_html_e( 'Get more features, advanced demo templates, and premium support.', 'suki' ); ?></p>
 			<hr class="suki-admin-dashboard__box-separator">
 
 			<ul class="suki-admin-dashboard__suki-pro-teaser-modules-grid" style="--rows: <?php echo esc_attr( ceil( count( $pro_modules ) / 3 ) ); ?>">
