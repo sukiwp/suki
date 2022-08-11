@@ -10,6 +10,52 @@
 	}
 }
 
+.suki-header--mobile-visibility {
+	&-tablet {
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			.suki-header-desktop {
+				display: block;
+			}
+
+			.suki-header-mobile {
+				display: none;
+			}
+		}
+
+		@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+			.suki-header-desktop {
+				display: none;
+			}
+
+			.suki-header-mobile {
+				display: block;
+			}
+		}
+	}
+
+	&-mobile {
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			.suki-header-desktop {
+				display: block;
+			}
+
+			.suki-header-mobile {
+				display: none;
+			}
+		}
+
+		@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
+			.suki-header-desktop {
+				display: none;
+			}
+
+			.suki-header-mobile {
+				display: block;
+			}
+		}
+	}
+}
+
 /**
  * Desktop header
  */
@@ -20,11 +66,11 @@
 	--background-color: var(--color-palette-7); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
 	--link-color--focus: var(--color-palette-4); // CUSTOMIZER
-	
+
 	height: var(--height);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	
+
 	padding: 0 20px; // CUSTOMIZER
 }
 
@@ -34,11 +80,11 @@
 	--background-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
 	--link-color--focus: var(--color-palette-4); // CUSTOMIZER
-	
+
 	height: var(--height);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	
+
 	padding: 0 20px; // CUSTOMIZER
 
 	&:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) {
@@ -62,11 +108,11 @@
 	--heading-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color--focus: var(--color-palette-6); // CUSTOMIZER
-	
+
 	height: var(--height);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	
+
 	padding: 0 var(--wp--style--block-gap); // CUSTOMIZER
 }
 
@@ -80,11 +126,11 @@
 	--background-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
 	--link-color--focus: var(--color-palette-4); // CUSTOMIZER
-	
+
 	height: var(--height);
 	background-color: var(--background-color);
 	color: var(--text-color);
-	
+
 	padding: 0 20px; // CUSTOMIZER
 }
 
@@ -195,11 +241,11 @@
 	&--left {
 		flex: 1 1 50%;
 	}
-	
+
 	&--center {
 		flex: 0 1 auto;
 	}
-	
+
 	&--right {
 		flex: 1 1 50%;
 	}
@@ -232,12 +278,12 @@
 		flex: 1 1 50%;
 		justify-content: flex-start;
 	}
-	
+
 	&--center {
 		flex: 0 1 auto;
 		justify-content: center;
 	}
-	
+
 	&--bottom {
 		flex: 1 1 50%;
 		justify-content: flex-end;
@@ -296,7 +342,7 @@
 .suki-header-section-vertical {
 	.suki-toggle-menu {
 		display: revert; // Reset
-		
+
 		> .menu-item {
 			display: revert; // Reset
 			height: auto; // Reset
@@ -308,20 +354,20 @@
 			box-shadow: none; // Reset
 			@include show( false ); // Reset
 			display: none; // Will be changed by JS
-	
+
 			.has-text-align-left & {
 				padding-left: var(--wp--style--block-gap);
 			}
-			
+
 			.has-text-align-right & {
 				padding-right: var(--wp--style--block-gap);
 			}
-	
+
 			.suki-menu-item-link {
 				padding: calc( 0.25 * var(--wp--style--block-gap) ) 0;
 			}
 		}
-	
+
 		.suki-menu-item-link, .suki-sub-menu-toggle {
 			padding: calc( 0.25 * var(--wp--style--block-gap) ) 0;
 		}
@@ -368,7 +414,7 @@
 			border-color: transparent;
 			background-color: transparent;
 			color: inherit;
-			
+
 			&:focus {
 				border-color: transparent;
 				background-color: transparent;

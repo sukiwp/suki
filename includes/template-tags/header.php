@@ -30,15 +30,16 @@ if ( ! function_exists( 'suki_header' ) ) {
 		ob_start();
 
 		if ( has_action( 'suki/frontend/header' ) ) { // Header has at least 1 attached action.
+			$classes = 'suki-header site-header suki-header--mobile-visibility-' . suki_get_theme_mod( 'header_mobile_visibility' );
 			?>
 			<!-- wp:group {
 				"tagName":"header",
 				"align":"full",
-				"className":"suki-header site-header",
+				"className":"<?php echo esc_attr( $classes ); ?>",
 				"layout":{
 					"inherit":true
 				}
-			} --><header id="masthead" class="wp-block-group alignfull suki-header site-header" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
+			} --><header id="masthead" class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
 
 				<?php
 				/**
@@ -91,8 +92,8 @@ if ( ! function_exists( 'suki_header_desktop' ) ) {
 			?>
 			<!-- wp:group {
 				"align":"full",
-				"className":"suki-header-desktop suki-show-on-desktop"
-			} --><div id="header" class="wp-block-group alignfull suki-header-desktop suki-show-on-desktop">
+				"className":"suki-header-desktop"
+			} --><div id="header" class="wp-block-group alignfull suki-header-desktop">
 
 				<?php
 				// Header Top Bar (if not merged).
@@ -462,8 +463,8 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 			?>
 			<!-- wp:group {
 				"align":"full",
-				"className":"suki-header-mobile suki-hide-on-desktop"
-			} --><div id="mobile-header" class="wp-block-group alignfull suki-header-mobile suki-hide-on-desktop">
+				"className":"suki-header-mobile"
+			} --><div id="mobile-header" class="wp-block-group alignfull suki-header-mobile">
 
 				<?php
 				// Mobile main bar.

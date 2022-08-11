@@ -212,11 +212,11 @@ msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:279, includes/template-tags/header.php:708
+#: includes/class-suki.php:279, includes/template-tags/header.php:709
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:280, includes/template-tags/header.php:721
+#: includes/class-suki.php:280, includes/template-tags/header.php:722
 msgid "Mobile Header Menu"
 msgstr ""
 
@@ -1169,7 +1169,7 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:201, includes/customizer/structures/blog--entry-default.php:188, includes/customizer/structures/blog--entry-grid.php:415, includes/customizer/structures/blog--single.php:152, includes/customizer/structures/content.php:90, includes/customizer/structures/header--builder.php:197, includes/customizer/structures/page--single.php:133, includes/modules/page-settings/class-suki-page-settings-meta-box.php:524, includes/modules/page-settings/customizer/structures/all-page-settings.php:106
+#: includes/customizer/structures/auto-custom-post-types.php:201, includes/customizer/structures/blog--entry-default.php:188, includes/customizer/structures/blog--entry-grid.php:415, includes/customizer/structures/blog--single.php:152, includes/customizer/structures/content.php:90, includes/customizer/structures/page--single.php:133, includes/modules/page-settings/class-suki-page-settings-meta-box.php:524, includes/modules/page-settings/customizer/structures/all-page-settings.php:106
 msgid "Disabled"
 msgstr ""
 
@@ -1572,11 +1572,11 @@ msgstr ""
 #. translators: %s: instance number.
 #. translators: %s: instance number.
 #. translators: %s: instance number.
-#: includes/customizer/structures/footer--builder.php:98, includes/customizer/structures/footer--html.php:30, includes/customizer/structures/header--builder.php:122, includes/customizer/structures/header--builder.php:239, includes/customizer/structures/header--html.php:30, includes/helpers.php:782, includes/helpers.php:820, includes/helpers.php:865
+#: includes/customizer/structures/footer--builder.php:98, includes/customizer/structures/footer--html.php:30, includes/customizer/structures/header--builder.php:122, includes/customizer/structures/header--builder.php:238, includes/customizer/structures/header--html.php:30, includes/helpers.php:782, includes/helpers.php:820, includes/helpers.php:865
 msgid "HTML %s"
 msgstr ""
 
-#: includes/customizer/structures/footer--builder.php:103, includes/customizer/structures/header--builder.php:137, includes/customizer/structures/header--builder.php:254, includes/customizer/structures/sections.php:389, includes/customizer/structures/sections.php:521, includes/helpers.php:785, includes/helpers.php:823, includes/helpers.php:866
+#: includes/customizer/structures/footer--builder.php:103, includes/customizer/structures/header--builder.php:137, includes/customizer/structures/header--builder.php:253, includes/customizer/structures/sections.php:389, includes/customizer/structures/sections.php:521, includes/helpers.php:785, includes/helpers.php:823, includes/helpers.php:866
 msgid "Social"
 msgstr ""
 
@@ -1747,11 +1747,11 @@ msgstr ""
 msgid "Menu %s"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:127, includes/customizer/structures/header--builder.php:244, includes/customizer/structures/header--search.php:29, includes/helpers.php:783, includes/helpers.php:821
+#: includes/customizer/structures/header--builder.php:127, includes/customizer/structures/header--builder.php:243, includes/customizer/structures/header--search.php:29, includes/helpers.php:783, includes/helpers.php:821
 msgid "Search Bar"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:132, includes/customizer/structures/header--builder.php:249, includes/customizer/structures/header--search.php:85, includes/helpers.php:784
+#: includes/customizer/structures/header--builder.php:132, includes/customizer/structures/header--builder.php:248, includes/customizer/structures/header--search.php:85, includes/helpers.php:784
 msgid "Search Dropdown"
 msgstr ""
 
@@ -1760,47 +1760,47 @@ msgid "Desktop header"
 msgstr ""
 
 #: includes/customizer/structures/header--builder.php:193
-msgid "Mobile header visibility"
+msgid "Mobile header breakpoint"
 msgstr ""
 
 #: includes/customizer/structures/header--builder.php:195
-msgid "Screen width < 1024px"
+msgid "Below 1024px"
 msgstr ""
 
 #: includes/customizer/structures/header--builder.php:196
-msgid "Screen width < 768px"
+msgid "Below 768px"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:211, includes/helpers.php:811
+#: includes/customizer/structures/header--builder.php:210, includes/helpers.php:811
 msgid "Mobile - Left"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:212, includes/helpers.php:812
+#: includes/customizer/structures/header--builder.php:211, includes/helpers.php:812
 msgid "Mobile - Center"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:213, includes/helpers.php:813
+#: includes/customizer/structures/header--builder.php:212, includes/helpers.php:813
 msgid "Mobile - Right"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:214, includes/helpers.php:814
+#: includes/customizer/structures/header--builder.php:213, includes/helpers.php:814
 msgid "Mobile - Popup"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:228, includes/customizer/structures/header--logo.php:107, includes/helpers.php:817
+#: includes/customizer/structures/header--builder.php:227, includes/customizer/structures/header--logo.php:107, includes/helpers.php:817
 msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: includes/customizer/structures/header--builder.php:233, includes/customizer/structures/header--menu.php:48, includes/helpers.php:818, includes/template-tags/header.php:766
+#: includes/customizer/structures/header--builder.php:232, includes/customizer/structures/header--menu.php:48, includes/helpers.php:818, includes/template-tags/header.php:767
 msgid "Mobile Menu"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:259, includes/helpers.php:824
+#: includes/customizer/structures/header--builder.php:258, includes/helpers.php:824
 msgid "Toggle"
 msgstr ""
 
-#: includes/customizer/structures/header--builder.php:287, includes/modules/page-settings/class-suki-page-settings-meta-box.php:580
+#: includes/customizer/structures/header--builder.php:286, includes/modules/page-settings/class-suki-page-settings-meta-box.php:580
 msgid "Mobile header"
 msgstr ""
 
@@ -2106,7 +2106,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: includes/customizer/structures/sections.php:369, includes/template-tags/header.php:789
+#: includes/customizer/structures/sections.php:369, includes/template-tags/header.php:790
 msgid "Search"
 msgstr ""
 
@@ -2664,7 +2664,7 @@ msgstr ""
 msgid "Back to Top"
 msgstr ""
 
-#: includes/template-tags/header.php:41
+#: includes/template-tags/header.php:42
 msgid "Site Header"
 msgstr ""
 

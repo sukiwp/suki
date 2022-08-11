@@ -242,23 +242,25 @@
 }
 
 #customize-control-footer_elements {
-	margin-bottom: 0;
+	@media screen and ( min-width: 1324px ) {
+		margin-bottom: 0;
 
-	.suki-builder {
-		grid-template-areas:
-			"bottom_left bottom_center bottom_right"
-			"_inactive _inactive _inactive";
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: auto;
+		.suki-builder {
+			grid-template-areas:
+				"bottom_left bottom_center bottom_right"
+				"_inactive _inactive _inactive";
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: auto;
 
-		grid-column-gap: 4px;
-		grid-row-gap: 12px;
-	}
+			grid-column-gap: 4px;
+			grid-row-gap: 12px;
+		}
 
-	$areas: bottom_left bottom_center bottom_right _inactive;
-	@each $area in $areas {
-		[data-area="#{$area}"] {
-			grid-area: $area;
+		$areas: bottom_left bottom_center bottom_right _inactive;
+		@each $area in $areas {
+			[data-area="#{$area}"] {
+				grid-area: $area;
+			}
 		}
 	}
 }

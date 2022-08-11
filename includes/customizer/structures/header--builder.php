@@ -27,7 +27,7 @@ ob_start();
 	</button>
 	<button class="nav-tab preview-tablet preview-mobile" data-device="tablet">
 		<span class="dashicons dashicons-smartphone"></span>
-		<span><?php esc_html_e( 'Tablet / Mobile', 'suki' ); ?></span>
+		<span><?php esc_html_e( 'Mobile', 'suki' ); ?></span>
 	</button>
 </div>
 <script>
@@ -140,7 +140,7 @@ $desktop_choices = apply_filters(
 	)
 );
 
-// Desktop Header.
+// Desktop header.
 $key      = 'header_elements';
 $settings = array();
 foreach ( $desktop_areas as $slug => $label ) {
@@ -162,7 +162,7 @@ $wp_customize->add_control(
 		array(
 			'settings' => $settings,
 			'section'  => $section,
-			'label'    => esc_html__( 'Desktop Header', 'suki' ),
+			'label'    => esc_html__( 'Desktop header', 'suki' ),
 			'areas'    => $desktop_areas,
 			'choices'  => $desktop_choices,
 			'priority' => 10,
@@ -175,6 +175,29 @@ $wp_customize->add_control(
  * Mobile Header
  * ====================================================
  */
+
+// Mobile header breakpoint.
+$key = 'header_mobile_visibility';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
+	)
+);
+$wp_customize->add_control(
+	$key,
+	array(
+		'type'     => 'select',
+		'section'  => $section,
+		'label'    => esc_html__( 'Mobile header breakpoint', 'suki' ),
+		'choices'  => array(
+			'tablet' => esc_html__( 'Below 1024px', 'suki' ),
+			'mobile' => esc_html__( 'Below 768px', 'suki' ),
+		),
+		'priority' => 20,
+	)
+);
 
 /**
  * Filter: suki/dataset/header_mobile_builder/areas
@@ -238,7 +261,7 @@ $mobile_choices = apply_filters(
 	)
 );
 
-// Mobile Header.
+// Mobile header.
 $key      = 'header_mobile_elements';
 $settings = array();
 foreach ( $mobile_areas as $slug => $label ) {
@@ -260,10 +283,10 @@ $wp_customize->add_control(
 		array(
 			'settings' => $settings,
 			'section'  => $section,
-			'label'    => esc_html__( 'Mobile Header', 'suki' ),
+			'label'    => esc_html__( 'Mobile header', 'suki' ),
 			'areas'    => $mobile_areas,
 			'choices'  => $mobile_choices,
-			'priority' => 10,
+			'priority' => 20,
 		)
 	)
 );

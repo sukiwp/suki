@@ -9,7 +9,7 @@
 				display: none !important;
 			}
 		}
-		
+
 		&:is(ul) {
 			.suki-builder-section__toggle {
 				display: none;
@@ -51,7 +51,7 @@
 						border-top-color: transparent;
 						border-right-color: transparent;
 					}
-			
+
 					&__show {
 						position: absolute;
 						bottom: 100%;
@@ -59,21 +59,21 @@
 						border-top-right-radius: 0;
 						border-bottom-left-radius: 0;
 						border-bottom-right-radius: 0;
-	
+
 						opacity: 0;
 						transition: opacity 0.2s 0.2s;
 					}
 				}
-			
+
 				&.active {
 					.wp-full-overlay.expanded & {
 						visibility: visible;
 						transform: translateY(0);
-	
+
 						&.hidden {
 							transform: translateY(100%);
 							overflow: visible;
-	
+
 							.suki-builder-section__toggle__show {
 								opacity: 1;
 							}
@@ -85,7 +85,7 @@
 			@media screen and ( min-width: 1667px ) {
 				left: 18%;
 			}
-		
+
 			@media screen and ( min-width: 3333px ) {
 				left: 600px;
 			}

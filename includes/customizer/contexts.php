@@ -108,6 +108,7 @@ $add['header_elements'] = array(
 );
 
 // Mobile Header Elements.
+$add['header_mobile_visibility'] =
 $add['header_mobile_elements'] = array(
 	array(
 		'setting'  => '__device',
