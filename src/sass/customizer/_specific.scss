@@ -54,7 +54,7 @@
 	#customize-control-color_palette_8
 ) {
 	width: 0;
-	
+
 	.suki-color-dropdown {
 		left: 0;
 		right: auto;
@@ -101,7 +101,7 @@
 		padding-right: 135px;
 		margin-bottom: 0; // Reset
 	}
-	
+
 	select {
 		position: absolute;
 		top: 0;
@@ -141,7 +141,7 @@
 
 	min-height: 30px;
 	padding-right: 135px;
-	
+
 	select {
 		position: absolute;
 		top: 0;
@@ -155,12 +155,17 @@
 }
 
 /**
- * Header Builder
+ * Header & Footer Builder
  */
 
 .suki-header-builder-responsive-switcher {
-	padding: 0 20px 0 calc( 20px - 0.5em );
-	margin: -20px -20px 0;
+	margin: 0 -12px;
+	padding: 0 12px 0 calc( 12px - 0.5em );
+
+	@media screen and ( min-width: 1324px ) {
+		margin: -20px -20px 0;
+		padding: 0 20px 0 calc( 20px - 0.5em );
+	}
 
 	button {
 		display: inline-flex;
@@ -177,41 +182,64 @@
 }
 
 #customize-control-header_elements {
-	margin-bottom: 0;
-	
-	.suki-builder {
-		grid-template-areas:
-		"top_left top_center top_right"
-		"main_left main_center main_right"
-		"bottom_left bottom_center bottom_right"
-		"_inactive _inactive _inactive";
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: auto;
-		
-		grid-column-gap: 4px;
-		grid-row-gap: 12px;
+	@media screen and ( min-width: 1324px ) {
+		margin-bottom: 0;
+
+		.suki-builder {
+			grid-template-areas:
+			"top_left top_center top_right"
+			"main_left main_center main_right"
+			"bottom_left bottom_center bottom_right"
+			"_inactive _inactive _inactive";
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: auto;
+
+			grid-column-gap: 4px;
+			grid-row-gap: 12px;
+		}
+
+		$areas: top_left top_center top_right main_left main_center main_right bottom_left bottom_center bottom_right _inactive;
+		@each $area in $areas {
+			[data-area="#{$area}"] {
+				grid-area: $area;
+			}
+		}
 	}
 }
 
 #customize-control-header_mobile_elements {
-	margin-bottom: 0;
+	@media screen and ( min-width: 1324px ) {
+		margin-bottom: 0;
 
-	.suki-builder {
-		grid-template-areas:
-			"vertical_top . main_left main_center main_right"
-			"vertical_top . . . ."
-			"_inactive _inactive _inactive _inactive _inactive";
-		grid-template-columns: max(15%, 120px) 12px repeat(3, 1fr);
-		grid-template-rows: 1fr 1fr auto;
+		.suki-builder {
+			grid-template-areas:
+				"vertical_top . main_left main_center main_right"
+				"vertical_top . . . ."
+				"_inactive _inactive _inactive _inactive _inactive";
+			grid-template-columns: max(15%, 120px) 12px repeat(3, 1fr);
+			grid-template-rows: 1fr 1fr auto;
 
-		grid-column-gap: 4px;
-		grid-row-gap: 12px;
+			grid-column-gap: 4px;
+			grid-row-gap: 12px;
+		}
+
+		$areas: vertical_top main_left main_center main_right _inactive;
+		@each $area in $areas {
+			[data-area="#{$area}"] {
+				grid-area: $area;
+			}
+		}
 	}
 }
 
-/**
- * Footer Builder
- */
+#customize-control-header_mobile_visibility {
+	@media screen and ( min-width: 1324px ) {
+		select {
+			width: auto;
+			margin-left: 15px;
+		}
+	}
+}
 
 #customize-control-footer_elements {
 	margin-bottom: 0;
@@ -225,6 +253,55 @@
 
 		grid-column-gap: 4px;
 		grid-row-gap: 12px;
+	}
+
+	$areas: bottom_left bottom_center bottom_right _inactive;
+	@each $area in $areas {
+		[data-area="#{$area}"] {
+			grid-area: $area;
+		}
+	}
+}
+
+#customize-control-header_elements,
+#customize-control-header_mobile_elements,
+#customize-control-header_elements {
+	@media screen and ( min-width: 1324px ) {
+		[data-area$="_left"] {
+			.suki-builder__area__label {
+				text-align: left;
+			}
+
+			.suki-builder__area__sortable {
+				justify-content: flex-start;
+			}
+		}
+
+		[data-area$="_center"] {
+			.suki-builder__area__label {
+				text-align: center;
+			}
+
+			.suki-builder__area__sortable {
+				justify-content: center;
+			}
+		}
+
+		[data-area$="_right"] {
+			.suki-builder__area__label {
+				text-align: right;
+			}
+
+			.suki-builder__area__sortable {
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	[data-area^="vertical"] {
+		.suki-builder__area__sortable {
+			flex-direction: column;
+		}
 	}
 }
 

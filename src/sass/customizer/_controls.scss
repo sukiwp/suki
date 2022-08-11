@@ -60,48 +60,11 @@
 		gap: 8px;
 
 		&__area {
-			border: 1px solid rgba(0,0,0,0.1);
+			border: 1px solid rgba(0,0,0,0.2);
 			background-color: #fff;
-			grid-area: var(--area);
 
 			&.disabled {
 				opacity: 0.5;
-			}
-
-			&[data-area$="_left"] {
-				.suki-builder__area__label {
-					text-align: left;
-				}
-
-				.suki-builder__area__sortable {
-					justify-content: flex-start;
-				}
-			}
-
-			&[data-area$="_center"] {
-				.suki-builder__area__label {
-					text-align: center;
-				}
-
-				.suki-builder__area__sortable {
-					justify-content: center;
-				}
-			}
-
-			&[data-area$="_right"] {
-				.suki-builder__area__label {
-					text-align: right;
-				}
-
-				.suki-builder__area__sortable {
-					justify-content: flex-end;
-				}
-			}
-
-			&[data-area^="vertical"] {
-				.suki-builder__area__sortable {
-					flex-direction: column;
-				}
 			}
 
 			&__label {
@@ -172,12 +135,12 @@
 					opacity: 1;
 				}
 			}
-			
+
 			&.sortable-ghost {
 				background-color: transparent;
 				border-style: dashed;
 				color: transparent;
-				
+
 				.suki-builder__item__remove {
 					opacity: 0;
 				}
@@ -232,7 +195,7 @@
 
 .customize-control-suki-heading {
 	margin: 24px 0 16px;
-	
+
 	.suki-heading {
 		position: relative;
 		margin: 0 -12px;
@@ -279,7 +242,7 @@
 				gap: 8px;
 				padding: 4px 8px;
 				background-color: #fff;
-				border: 1px solid rgba(0,0,0,0.1);
+				border: 1px solid rgba(0,0,0,0.2);
 				border-radius: 2px;
 
 				&__move {
@@ -436,7 +399,7 @@
 	.suki-responsive-switcher {
 		&:after {
 			content: "";
-			border-bottom: 1px solid rgba(0,0,0,0.1);
+			border-bottom: 1px solid rgba(0,0,0,0.2);
 			flex: 1 1 100%;
 			height: 1px;
 			align-self: center;

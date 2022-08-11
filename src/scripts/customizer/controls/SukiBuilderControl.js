@@ -15,23 +15,22 @@ import {
 } from '@wordpress/components';
 
 const SukiBuilder = ( { control } ) => {
-	// State for all settings values and inactive elements.
-	const [ values, setValues ] = useState( getValues() );
-
 	// Get all settings values, and also define inactive elements.
 	const getValues = () => {
 		let values = {};
 		let activeItemIds = [];
 		let inactiveItemIds = [];
 
+		// Iterate through each setting, select the active items, and add them to the return array.
 		Object.keys( control.settings ).forEach( ( settingId ) => {
-			const value = control.settings[ settingId ].get();
+			const settingValue = control.settings[ settingId ].get();
 
-			values[ settingId ] = value;
+			values[ settingId ] = settingValue;
 
-			activeItemIds = [ ...activeItemIds, ...value ];
+			activeItemIds = [...activeItemIds, ...settingValue];
 		} );
 
+		// Add inactive items into the return array.
 		control.params.choices.forEach( ( choice ) => {
 			if ( -1 === activeItemIds.indexOf( choice.value ) ) {
 				inactiveItemIds.push( choice.value );
@@ -43,8 +42,11 @@ const SukiBuilder = ( { control } ) => {
 		return values;
 	}
 
+	// State for all settings values and inactive elements.
+	const [ values, setValues ] = useState( getValues() );
+
 	// Sortable areas and their info.
-	let areas = [ ...control.params.areas, {
+	const areas = [ ...control.params.areas, {
 		id: '_inactive',
 		label: SukiCustomizerData.l10n.inactiveElements,
 		sortableInstance: null,
@@ -65,9 +67,6 @@ const SukiBuilder = ( { control } ) => {
 						key={ area.id }
 						data-area={ area.id }
 						className="suki-builder__area"
-						style={ {
-							'--area': area.id
-						} }
 					>
 						<label className="suki-builder__area__label">{ area.label }</label>
 

@@ -14,7 +14,7 @@
 #customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2), #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu, #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
 	border-top: none;
 }
- 
+
 div.customize-section-description {
 	margin: 0 -12px;
 	padding: 12px 15px;
@@ -135,7 +135,7 @@ div.customize-section-description {
 .components-color-picker {
 	.react-colorful {
 		width: 275px !important; // Force the color picker to use parent's width
-	
+
 		&__hue,
 		&__alpha {
 			width: 100% !important;
@@ -144,14 +144,14 @@ div.customize-section-description {
 		&__saturation {
 			height: 155px !important;
 		}
-	
+
 		& + div {
 			padding: 0;
 			margin-top: 4px;
 
 			> .components-spacer {
 				margin: 8px 0 0; // Same width default `spacing` attribute (2 x 4px)
-			
+
 				&:last-child {
 					display: none;
 				}
@@ -225,13 +225,13 @@ div.customize-section-description {
 		.components-circular-option-picker__swatches {
 			gap: 6px;
 		}
-	
+
 		.components-circular-option-picker__option {
 			&-wrapper {
 				width: 24px;
 				height: 24px;
 			}
-	
+
 			&:focus:after {
 				width: 28px;
 				height: 28px;
@@ -251,7 +251,7 @@ div.customize-section-description {
 
 	&__custom {
 		padding-left: 8px; // Same width default `spacing` attribute (2 x 4px)
-		border-left: 1px solid rgba(0,0,0,0.1);
+		border-left: 1px solid rgba(0,0,0,0.2);
 
 		&__toggle {
 			padding: 2px !important;

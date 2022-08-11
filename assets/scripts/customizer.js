@@ -557,8 +557,8 @@ wp.customize.controlConstructor['suki-background'] = wp.customize.SukiBackground
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_SukiControlLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/SukiControlLabel */ "./src/scripts/customizer/components/SukiControlLabel.js");
@@ -590,22 +590,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var SukiBuilder = function SukiBuilder(_ref) {
   var control = _ref.control;
 
-  // State for all settings values and inactive elements.
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(getValues()),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState, 2),
-      values = _useState2[0],
-      setValues = _useState2[1]; // Get all settings values, and also define inactive elements.
-
-
+  // Get all settings values, and also define inactive elements.
   var getValues = function getValues() {
     var values = {};
     var activeItemIds = [];
-    var inactiveItemIds = [];
+    var inactiveItemIds = []; // Iterate through each setting, select the active items, and add them to the return array.
+
     Object.keys(control.settings).forEach(function (settingId) {
-      var value = control.settings[settingId].get();
-      values[settingId] = value;
-      activeItemIds = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(activeItemIds), (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(value));
-    });
+      var settingValue = control.settings[settingId].get();
+      values[settingId] = settingValue;
+      activeItemIds = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(activeItemIds), (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(settingValue));
+    }); // Add inactive items into the return array.
+
     control.params.choices.forEach(function (choice) {
       if (-1 === activeItemIds.indexOf(choice.value)) {
         inactiveItemIds.push(choice.value);
@@ -613,10 +609,16 @@ var SukiBuilder = function SukiBuilder(_ref) {
     });
     values._inactive = inactiveItemIds;
     return values;
-  }; // Sortable areas and their info.
+  }; // State for all settings values and inactive elements.
 
 
-  var areas = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(control.params.areas), [{
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(getValues()),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+      values = _useState2[0],
+      setValues = _useState2[1]; // Sortable areas and their info.
+
+
+  var areas = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(control.params.areas), [{
     id: '_inactive',
     label: SukiCustomizerData.l10n.inactiveElements,
     sortableInstance: null
@@ -633,10 +635,7 @@ var SukiBuilder = function SukiBuilder(_ref) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("div", {
       key: area.id,
       "data-area": area.id,
-      className: "suki-builder__area",
-      style: {
-        '--area': area.id
-      }
+      className: "suki-builder__area"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)("label", {
       className: "suki-builder__area__label"
     }, area.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.createElement)(react_sortablejs__WEBPACK_IMPORTED_MODULE_7__.ReactSortable // Store the sortable instance to `areas` variable.
@@ -706,7 +705,7 @@ var SukiBuilder = function SukiBuilder(_ref) {
           setValues(function (prevValues) {
             var _objectSpread3;
 
-            return _objectSpread(_objectSpread({}, prevValues), {}, (_objectSpread3 = {}, (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_objectSpread3, area.id, updatedAreaItemsIds), (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_objectSpread3, "_inactive", [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(prevValues._inactive), [item.value])), _objectSpread3));
+            return _objectSpread(_objectSpread({}, prevValues), {}, (_objectSpread3 = {}, (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_objectSpread3, area.id, updatedAreaItemsIds), (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_objectSpread3, "_inactive", [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(prevValues._inactive), [item.value])), _objectSpread3));
           });
 
           if (updatedAreaItemsIds !== control.settings[area.id].get()) {
