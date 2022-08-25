@@ -114,9 +114,6 @@ function suki_template_hooks() {
 		) {
 			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 		}
-
-		// Add navigation after the loop.
-		add_action( 'suki/frontend/after_main', 'suki_loop_navigation', 10 );
 	}
 
 	/**

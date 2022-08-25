@@ -59,9 +59,13 @@ $thumbnail_block = '
 	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/header' ) ) {
 		?>
 		<!-- wp:group {
+			"align":"full",
 			"tagName":"header",
-			"className":"entry-header suki-content-header"
-		} --><header class="entry-header suki-content-header">
+			"className":"entry-header suki-content-header",
+			"layout":{
+				"inherit":"true"
+			}
+		} --><header class="wp-block-group alignfull entry-header suki-content-header">
 
 			<?php
 			/**
@@ -115,9 +119,13 @@ $thumbnail_block = '
 	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/footer' ) ) {
 		?>
 		<!-- wp:group {
+			"align":"full",
 			"tagName":"footer",
-			"className":"entry-footer suki-content-footer"
-		} --><footer class="entry-footer suki-content-footer">
+			"className":"entry-footer suki-content-footer",
+			"layout":{
+				"inherit":"true"
+			}
+		} --><footer class="wp-block-group alignfull entry-footer suki-content-footer">
 
 			<?php
 			/**

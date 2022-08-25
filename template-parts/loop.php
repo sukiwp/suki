@@ -108,6 +108,7 @@ $thumbnail_block = '
 				 */
 				?>
 				<!-- wp:post-content {
+					"align":"full",
 					"layout":{
 						"inherit":true
 					}

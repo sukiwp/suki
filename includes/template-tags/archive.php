@@ -56,16 +56,17 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 	 *
 	 * @since 2.0.0
 	 *
+	 * @param string  $mode      Navigation mode.
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_loop_navigation( $do_blocks = true, $echo = true ) {
+	function suki_loop_navigation( $mode = 'prev-next', $do_blocks = true, $echo = true ) {
 		$html = '';
 
 		if ( is_archive() || is_home() || is_search() ) {
 			// Render posts navigation.
-			switch ( suki_get_theme_mod( 'post_archive_pagination_layout' ) ) {
+			switch ( $mode ) {
 				case 'page-numbers':
 					$html = '
 					<!-- wp:query-pagination {
@@ -77,21 +78,22 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 						},
 						"className":"suki-archive-navigation"
 					} -->
-					
+
 						<!-- wp:query-pagination-previous {
 							"label":" "
 						} /-->
-					
+
 						<!-- wp:query-pagination-numbers /-->
-					
+
 						<!-- wp:query-pagination-next {
 							"label":" "
 						} /-->
-					
+
 					<!-- /wp:query-pagination -->
 					';
 					break;
 
+				case 'prev-next':
 				default:
 					$html = '
 					<!-- wp:query-pagination {
@@ -103,15 +105,15 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 						},
 						"className":"suki-archive-navigation"
 					} -->
-	
+
 						<!-- wp:query-pagination-previous {
 							"label":"' . esc_html__( 'Newer Posts', 'suki' ) . '"
 						} /-->
-	
+
 						<!-- wp:query-pagination-next {
 							"label":"' . esc_html__( 'Older Posts', 'suki' ) . '"
 						} /-->
-	
+
 					<!-- /wp:query-pagination -->
 					';
 					break;
