@@ -62,13 +62,38 @@ function suki_render_layout_support_css( $block_content, $block ) {
 	}
 
 	$block_gap             = wp_get_global_settings( array( 'spacing', 'blockGap' ) );
+	$default_layout        = wp_get_global_settings( array( 'layout' ) );
 	$has_block_gap_support = isset( $block_gap ) ? null !== $block_gap : false;
+	$default_block_layout  = _wp_array_get( $block_type->supports, array( '__experimentalLayout', 'default' ), array() );
+	$used_layout           = isset( $block['attrs']['layout'] ) ? $block['attrs']['layout'] : $default_block_layout;
+	if ( isset( $used_layout['inherit'] ) && $used_layout['inherit'] ) {
+		if ( ! $default_layout ) {
+			return $block_content;
+		}
+		$used_layout = $default_layout;
+	}
 
-	$default_layout = _wp_array_get( $block_type->supports, array( '__experimentalLayout', 'default' ), array() );
-	$layout         = isset( $block['attrs']['layout'] ) ? $block['attrs']['layout'] : $default_layout;
+	$class_names     = array();
+	$container_class = wp_unique_id( 'wp-container-' );
+	$class_names[]   = $container_class;
 
-	$class_name = wp_unique_id( 'wp-container-' );
-	$gap_value  = _wp_array_get( $block, array( 'attrs', 'style', 'spacing', 'blockGap' ) );
+	// The following section was added to reintroduce a small set of layout classnames that were
+	// removed in the 5.9 release (https://github.com/WordPress/gutenberg/issues/38719). It is
+	// not intended to provide an extended set of classes to match all block layout attributes
+	// here.
+	if ( ! empty( $block['attrs']['layout']['orientation'] ) ) {
+		$class_names[] = 'is-' . sanitize_title( $block['attrs']['layout']['orientation'] );
+	}
+
+	if ( ! empty( $block['attrs']['layout']['justifyContent'] ) ) {
+		$class_names[] = 'is-content-justification-' . sanitize_title( $block['attrs']['layout']['justifyContent'] );
+	}
+
+	if ( ! empty( $block['attrs']['layout']['flexWrap'] ) && 'nowrap' === $block['attrs']['layout']['flexWrap'] ) {
+		$class_names[] = 'is-nowrap';
+	}
+
+	$gap_value = _wp_array_get( $block, array( 'attrs', 'style', 'spacing', 'blockGap' ) );
 	// Skip if gap value contains unsupported characters.
 	// Regex for CSS value borrowed from `safecss_filter_attr`, and used here
 	// because we only want to match against the value, not the CSS attribute.
@@ -80,28 +105,33 @@ function suki_render_layout_support_css( $block_content, $block ) {
 		$gap_value = $gap_value && preg_match( '%[\\\(&=}]|/\*%', $gap_value ) ? null : $gap_value;
 	}
 
+	$fallback_gap_value = _wp_array_get( $block_type->supports, array( 'spacing', 'blockGap', '__experimentalDefault' ), '0.5em' );
+
 	// If a block's block.json skips serialization for spacing or spacing.blockGap,
 	// don't apply the user-defined value to the styles.
 	$should_skip_gap_serialization = wp_should_skip_block_supports_serialization( $block_type, 'spacing', 'blockGap' );
 
 	/**
-	 * Build classes & styles
+	 * Comment out this original line:
+	 * $style                         = wp_get_layout_style( ".$container_class", $used_layout, $has_block_gap_support, $gap_value, $should_skip_gap_serialization, $fallback_gap_value );
 	 */
 
-	$classes = array();
-	$styles  = array();
+	/**
+	 * BEGIN CUSTOM CODE
+	 */
 
-	$layout_type = isset( $layout['type'] ) ? $layout['type'] : 'default';
+	$styles      = array();
+	$layout_type = isset( $used_layout['type'] ) ? $used_layout['type'] : 'default';
 
 	if ( 'default' === $layout_type ) {
 		/**
 		 * Group mode
 		 */
 
-		$classes[] = 'suki-container';
+		$class_names[] = 'suki-container';
 
 		// Children max width.
-		if ( ! empty( $layout['inherit'] ) && $layout['inherit'] ) {
+		if ( ! empty( $used_layout['inherit'] ) && $used_layout['inherit'] ) {
 			/**
 			 * Default content size
 			 */
@@ -112,8 +142,8 @@ function suki_render_layout_support_css( $block_content, $block ) {
 			 * Custom content size
 			 */
 
-			$content_size = isset( $layout['contentSize'] ) ? $layout['contentSize'] : '';
-			$wide_size    = isset( $layout['wideSize'] ) ? $layout['wideSize'] : '';
+			$content_size = isset( $used_layout['contentSize'] ) ? $used_layout['contentSize'] : '';
+			$wide_size    = isset( $used_layout['wideSize'] ) ? $used_layout['wideSize'] : '';
 
 			$all_max_width_value  = $content_size ? $content_size : $wide_size;
 			$wide_max_width_value = $wide_size ? $wide_size : $content_size;
@@ -124,10 +154,10 @@ function suki_render_layout_support_css( $block_content, $block ) {
 
 			if ( $content_size || $wide_size ) {
 				// All childrens.
-				$styles['global'][ ".{$class_name}>*" ]['max-width'] = $all_max_width_value;
+				$styles['global'][ ".{$container_class}>:where(:not(.alignleft):not(.alignright))" ]['max-width'] = $all_max_width_value;
 
 				// Wide aligned childrens.
-				$styles['global'][ ".{$class_name}>.alignwide" ]['max-width'] = $wide_max_width_value;
+				$styles['global'][ ".{$container_class}>.alignwide" ]['max-width'] = $wide_max_width_value;
 			}
 		}
 
@@ -137,7 +167,7 @@ function suki_render_layout_support_css( $block_content, $block ) {
 				$gap_value = isset( $gap_value['top'] ) ? $gap_value['top'] : null;
 			}
 
-			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : null;
+			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : null; // Set `null` as the fallback value, because we already have `suki-container--default` class.
 
 			if ( ! empty( $gap_style ) ) {
 				$styles['global'][ ".{$class_name}>*+*" ]['margin-block-start'] = $gap_style;
@@ -148,93 +178,50 @@ function suki_render_layout_support_css( $block_content, $block ) {
 		 * Row & Stack mode
 		 */
 
-		$layout_orientation = isset( $layout['orientation'] ) ? $layout['orientation'] : 'horizontal';
+		$layout_orientation = isset( $used_layout['orientation'] ) ? $used_layout['orientation'] : 'horizontal';
 
 		// Flex display.
-		$classes[] = 'suki-flex';
-
-		// Flex orientation.
-		if ( 'horizontal' === $layout_orientation ) {
-			// Row mode.
-			$classes[] = 'suki-flex--row';
-		} else {
-			// Stack mode.
-			$classes[] = 'suki-flex--stack';
-		}
-
-		// Flex wrap.
-		if ( empty( $layout['flexWrap'] ) || 'wrap' === $layout['flexWrap'] ) {
-			$classes[] = 'suki-flex--wrap';
-		}
-
-		// Justify classes.
-		if ( ! empty( $layout['justifyContent'] ) ) {
-			if ( 'horizontal' === $layout_orientation ) {
-				// Use `justify-content` for horizontal layout.
-				$classes[] = 'suki-flex--justify-' . $layout['justifyContent'];
-			} else {
-				// Use `align-items` for vertical layout.
-				$classes[] = 'suki-flex--align-' . $layout['justifyContent'];
-			}
-		}
-
-		// Align classes.
-		if ( ! empty( $layout['verticalAlignment'] ) ) {
-			$classes[] = 'suki-flex--align-' . $layout['verticalAlignment'];
-		}
+		$class_names[] = 'suki-flex';
 
 		// Block gap.
 		if ( $has_block_gap_support ) {
 			if ( is_array( $gap_value ) ) {
-				$gap_row    = isset( $gap_value['top'] ) ? $gap_value['top'] : 'var(--wp--style--block-gap)';
-				$gap_column = isset( $gap_value['left'] ) ? $gap_value['left'] : 'var(--wp--style--block-gap)';
+				$gap_row    = isset( $gap_value['top'] ) ? $gap_value['top'] : 'var( --wp--style--block-gap )';
+				$gap_column = isset( $gap_value['left'] ) ? $gap_value['left'] : 'var( --wp--style--block-gap )';
 				$gap_value  = $gap_row === $gap_column ? $gap_row : $gap_row . ' ' . $gap_column;
 			}
 			$gap_style = $gap_value && ! $should_skip_gap_serialization ? $gap_value : null;
 
 			if ( ! empty( $gap_style ) ) {
-				$styles['global'][ ".{$class_name}" ]['gap'] = $gap_style;
+				$styles['global'][ ".{$container_class}" ]['gap'] = $gap_style;
 			}
 		}
 	}
 
+	// Apply inline styles.
+	if ( ! empty( $styles ) ) {
+		$block_content = '<style id="suki-css--' . $container_class . '" style="display:none">' . suki_convert_css_array_to_string( $styles ) . '</style>' . $block_content;
+	}
+
 	/**
-	 * Apply CSS classes
+	 * END CUSTOM CODE
 	 */
 
-	// Add class name.
-	$block_content = preg_replace(
-		'/(class=")(.*?")/',
-		'$1' . esc_attr( $class_name ) . ' $2',
+	// This assumes the hook only applies to blocks with a single wrapper.
+	// I think this is a reasonable limitation for that particular hook.
+	$content = preg_replace(
+		'/' . preg_quote( 'class="', '/' ) . '/',
+		'class="' . esc_attr( implode( ' ', $class_names ) ) . ' ',
 		$block_content,
 		1
 	);
 
-	// Add layout classes.
-	if ( ! empty( $classes ) ) {
-		$block_content = preg_replace(
-			'/(class=".*?)"/',
-			'$1 ' . esc_attr( implode( ' ', $classes ) ) . '"',
-			$block_content,
-			1
-		);
-	}
-
 	/**
-	 * Apply inline styles
+	 * Comment out this original line:
+	 * wp_enqueue_block_support_styles( $style );
 	 */
 
-	if ( ! empty( $styles ) ) {
-		$css = suki_convert_css_array_to_string( $styles );
-
-		$block_content = '<style id="suki-css--' . $class_name . '" style="display:none">' . $css . '</style>' . $block_content;
-	}
-
-	/**
-	 * Return the HTML markup
-	 */
-
-	return $block_content;
+	return $content;
 }
 add_filter( 'render_block', 'suki_render_layout_support_css', 10, 2 );
 
