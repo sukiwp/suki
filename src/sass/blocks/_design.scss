@@ -31,6 +31,15 @@
 		@extend %button;
 		width: 100%;
 
+		// Gutenberg button doesn't have border color options, so we always set them to transparent.
+		border-color: transparent;
+
+		// Gutenberg button doesn't have border color options, so we always set them to transparent.
+		&:hover,
+		&:focus {
+			border-color: transparent;
+		}
+
 		&.aligncenter {
 			text-align: center;
 		}
@@ -50,7 +59,7 @@
 			&:not(:hover, :focus) { // When button .has-background-color, the background color is only used for hover state.
 				background-color: transparent !important; // Use !important to override WP generated CSS
 			}
-			
+
 			&:hover, &:focus {
 				color: var(--button--background-color--focus, var(--button--background-color));
 			}
@@ -121,7 +130,7 @@
 	// > * {
 	// 	margin-top: var(--wp--style--block-gap);
 	// 	margin-bottom: var(--wp--style--block-gap);
-	
+
 	// 	@include remove-margin-top-for-first-child();
 	// 	@include remove-margin-bottom-for-last-child();
 	// }

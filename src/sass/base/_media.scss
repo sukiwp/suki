@@ -4,7 +4,6 @@
 
 figure {
 	margin: var(--wp--style--block-gap) 0;
-
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
 }
@@ -13,8 +12,8 @@ figcaption {
 	display: block;
 	margin: 0.5em 0 0;
 	text-align: center;
-	font-size: var(--wp--preset--font-size--small);
-	line-height: var(--wp--custom--line-height--small);
+	font-size: var(--meta--font-size);
+	line-height: var(--meta--line-height);
 	opacity: 0.75;
 }
 

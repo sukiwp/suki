@@ -33,7 +33,7 @@ body {
 	&:after {
 		box-sizing: border-box;
 	}
-	
+
 	// Remove outline for mouse users
 	&:focus {
 		outline: none;
@@ -60,8 +60,8 @@ hr {
 	border: none;
 	border-bottom: 1px solid var(--border-color);
 	border-color: var(--border-color);
-	margin: var(--wp--style--block-gap) 0;
 
+	margin: var(--wp--style--block-gap) 0;
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
 }

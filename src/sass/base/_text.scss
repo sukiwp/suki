@@ -6,7 +6,7 @@ a {
 	color: var(--link-color);
 	text-decoration: none;
 	transition: color var(--transition-duration);
-	
+
 	&:hover,
 	&:focus {
 		color: var(--link-color--focus);
@@ -44,7 +44,7 @@ cite {
  * Block text elements
  */
 
- p {
+p {
 	margin: var(--wp--style--block-gap) 0;
 }
 
@@ -148,7 +148,6 @@ blockquote {
 
 	> * {
 		margin-block: var(--wp--style--block-gap);
-
 		@include remove-margin-top-for-first-child();
 		@include remove-margin-bottom-for-last-child();
 	}

@@ -43,8 +43,8 @@ $add['color_palette_8_name'] = esc_html__( 'Background', 'suki' );
  */
 
 $add['body_font_family'] = 'web_safe_fonts|Default System Font';
-$add['body_font_size']   = '100%';
-$add['body_line_height'] = '1.7';
+$add['body_font_size']   = '16px';
+$add['body_line_height'] = '1.6';
 
 $add['body_text_color'] = 'var(--color-palette-2)';
 
@@ -74,27 +74,27 @@ $add['link_hover_text_color'] = 'var(--color-palette-5)';
 
 $add['h1_font_size']   = '2.4rem';
 $add['h1_font_weight'] = 600;
-$add['h1_line_height'] = '1.3';
+$add['h1_line_height'] = '1.2';
 
 $add['h2_font_size']   = '1.8rem';
 $add['h2_font_weight'] = 600;
-$add['h2_line_height'] = '1.4';
+$add['h2_line_height'] = '1.3';
 
 $add['h3_font_size']   = '1.5rem';
 $add['h3_font_weight'] = 600;
-$add['h3_line_height'] = '1.5';
+$add['h3_line_height'] = '1.4';
 
 $add['h4_font_size']   = '1.25rem';
 $add['h4_font_weight'] = 600;
-$add['h4_line_height'] = '1.6';
+$add['h4_line_height'] = '1.5';
 
 $add['h5_font_size']   = '1.1rem';
 $add['h5_font_weight'] = 600;
-$add['h5_line_height'] = '1.7';
+$add['h5_line_height'] = '1.6';
 
 $add['h6_font_size']   = '1rem';
 $add['h6_font_weight'] = 600;
-$add['h6_line_height'] = '1.7';
+$add['h6_line_height'] = '1.6';
 
 $add['heading_text_color'] = 'var(--color-palette-1)';
 
@@ -107,7 +107,7 @@ $add['heading_text_color'] = 'var(--color-palette-1)';
 $add['blockquote_font_size']   = '1.25rem';
 $add['blockquote_font_style']  = 'italic';
 $add['blockquote_font_weight'] = 400;
-$add['blockquote_line_height'] = '1.6';
+$add['blockquote_line_height'] = '1.5';
 
 /**
  * ====================================================

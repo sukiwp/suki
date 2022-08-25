@@ -18,7 +18,7 @@
 
 .wp-block-quote {
 	padding-left: 1em;
-	font-size: 1.25rem; // CUSTOMIZER
+	font-size: var(--h4--font-size);
 	line-height: var(--h4--line-height);
 	border-left: 0.25rem solid currentColor;
 
@@ -26,7 +26,7 @@
 		padding-left: unset;
 		border-left: none;
 	}
-	
+
 	&.has-text-align-right {
 		padding-left: unset;
 		padding-right: 1em;
@@ -39,7 +39,7 @@
 		border: none;
 	}
 
-	// Large style
+	// Large style (deprecated since WP 6.0)
 	&.is-style-large {
 		font-size: var(--h2--font-size);
 		line-height: var(--h2--line-height);
@@ -50,7 +50,7 @@
  * Block: Code
  */
 
-.wp-block-code {	
+.wp-block-code {
 	code {
 		display: block;
 		padding: var(--wp--style--block-gap); // Reset
@@ -78,7 +78,7 @@
 		font-size: var(--h2--font-size);
 		line-height: var(--h2--line-height);
 		isolation: isolate;
-		
+
 		&:before {
 			content: "”";
 			position: absolute;
@@ -100,19 +100,19 @@
 		blockquote {
 			padding-left: unset;
 			padding-top: 2em;
-			
+
 			&:before {
 				left: 50%;
 				transform: translateX(-50%);
 			}
 		}
 	}
-	
+
 	&.has-text-align-right {
 		blockquote {
 			padding-left: unset;
 			padding-right: 2.25em;
-			
+
 			&:before {
 				left: auto;
 				right: 0;
@@ -121,7 +121,7 @@
 	}
 
 	@include padding-for-has-background();
-	
+
 	@include max-width-for-alignleft-alignright();
 }
 
@@ -148,13 +148,13 @@
 			border-width: 1px; // default
 		}
 	}
-	
+
 	thead {
 		th, td {
 			border-bottom-width: 0.2rem;
 		}
 	}
-	
+
 	tfoot {
 		th, td {
 			border-top-width: 0.2rem;
@@ -169,7 +169,7 @@
 			border-color: inherit;
 		}
 	}
-	
+
 	table[style*=border-style] {
 		> *,
 		tr,
@@ -178,7 +178,7 @@
 			border-style: inherit;
 		}
 	}
-	
+
 	table[style*=border-width] {
 		> *,
 		tr,

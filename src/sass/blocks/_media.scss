@@ -16,6 +16,13 @@
 	&.aligncenter {
 		text-align: center;
 	}
+
+	&.alignwide,
+	&.alignfull {
+		img {
+			width: 100%;
+		}
+	}
 }
 
 /**
@@ -25,15 +32,55 @@
 .wp-block-gallery {
 	--wp--style--gallery-gap-default: var(--wp--style--block-gap);
 
-	> .wp-block-image {
+	align-items: flex-start;
+
+	.wp-block-image {
+		position: relative;
 		flex-grow: 1;
 		flex-basis: calc( ( 100% - ( ( var(--columns) - 1 ) * var(--wp--style--gallery-gap-default) ) ) / var(--columns) );
+
+		display: flex;
+		flex-direction: column;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		figcaption {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: auto;
+			max-height: 100%;
+			overflow: auto;
+			padding: 0.5em;
+			background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0, rgba(0,0,0,0.3) 70%, transparent);
+			color: white;
+		}
+	}
+
+	&.is-cropped {
+		align-items: stretch;
+
+		.wp-block-image {
+			> *:not(figcaption) {
+				flex-grow: 1;
+			}
+
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
 	}
 
 	&.columns-2 {
 		--columns: 2;
 	}
-	
+
 	&.columns-default,
 	&.columns-3 {
 		--columns: 3;
@@ -64,44 +111,29 @@
 				--columns: 4;
 			}
 		}
-	
+
 		&.columns-5 {
 			> * {
 				--columns: 5;
 			}
 		}
-	
+
 		&.columns-6 {
 			> * {
 				--columns: 6;
 			}
 		}
-	
+
 		&.columns-7 {
 			> * {
 				--columns: 7;
 			}
 		}
-	
+
 		&.columns-8 {
 			> * {
 				--columns: 8;
 			}
-		}
-	}
-
-	&.is-cropped {
-		align-items: stretch;
-
-		> * {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-		}
-
-		img {
-			flex-grow: 1;
-			object-fit: cover;
 		}
 	}
 
@@ -139,9 +171,29 @@
 	padding: var(--wp--style--block-gap);
 	isolation: isolate;
 
+	background-size: cover;
+    background-position: center center;
+
 	@include stretch-alignfull();
 
 	@include max-width-for-alignleft-alignright();
+
+	// Parallax
+	&.has-parallax {
+		background-attachment: fixed;
+
+		// Mobile Safari does not support fixed background attachment properly.
+		// See also https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios
+		// Chrome on Android does not appear to support the attachment at all: https://issuetracker.google.com/issues/36908439
+		@supports (-webkit-overflow-scrolling: touch) {
+			background-attachment: scroll;
+		}
+
+		// Remove the appearance of scrolling based on OS-level animation preferences.
+		@media (prefers-reduced-motion: reduce) {
+			background-attachment: scroll;
+		}
+	}
 
 	// Background overlay
 	&__background {
@@ -158,7 +210,7 @@
 			&:not([class*="-background-color"]) {
 				background-color: #000; // Default overlay color
 			}
-	
+
 			// Remove background-color when gradient overlay is set.
 			&.has-background-gradient {
 				background-color: transparent;
@@ -191,22 +243,6 @@
 		background-size: cover;
 		background-position: center center;
 		user-select: none; // Disable selection when background is <img> (no repeat mode)
-
-		&.has-parallax {
-			background-attachment: fixed;
-	
-			// Mobile Safari does not support fixed background attachment properly.
-			// See also https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios
-			// Chrome on Android does not appear to support the attachment at all: https://issuetracker.google.com/issues/36908439
-			@supports (-webkit-overflow-scrolling: touch) {
-				background-attachment: scroll;
-			}
-	
-			// Remove the appearance of scrolling based on OS-level animation preferences.
-			@media (prefers-reduced-motion: reduce) {
-				background-attachment: scroll;
-			}
-		}
 
 		&.is-repeated {
 			background-repeat: repeat;
@@ -326,7 +362,7 @@
 	align-items: center;
 
 	@include stretch-alignfull();
-	
+
 	&.has-media-on-the-right {
 		grid-template-areas: "content media";
 	}
@@ -338,7 +374,7 @@
 	&.is-vertically-aligned-center {
 		align-items: center;
 	}
-	
+
 	&.is-vertically-aligned-bottom {
 		align-items: end;
 	}
@@ -358,13 +394,13 @@
 				display: block;
 				height: 100%;
 			}
-			
+
 			img {
 				height: 100%;
 			}
 		}
 	}
-	
+
 	&__content {
 		grid-area: content;
 		padding: clamp( var(--wp--style--block-gap), 10%, calc( 1.5 * var(--wp--style--block-gap) ) );
@@ -390,10 +426,10 @@
 	}
 }
 
-.wp-block-cover-image {
-	// Fallback alias for .wp-block-cover
-	@extend .wp-block-cover;
-}
+// .wp-block-cover-image {
+// 	// Fallback alias for .wp-block-cover
+// 	@extend .wp-block-cover;
+// }
 
 /**
  * Block: Embed
@@ -417,7 +453,7 @@
 
 .wp-embed-responsive {
 	// Add responsiveness to embeds with aspect ratios.
-	& .wp-has-aspect-ratio {
+	.wp-has-aspect-ratio {
 		.wp-block-embed__wrapper::before {
 			content: "";
 			display: block;
@@ -435,31 +471,45 @@
 		}
 	}
 
-	.wp-embed-aspect-21-9 .wp-block-embed__wrapper::before {
-		padding-top: 42.85%; // 9 / 21 * 100
+	.wp-embed-aspect-21-9 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 42.85%; // 9 / 21 * 100
+		}
 	}
 
-	.wp-embed-aspect-18-9 .wp-block-embed__wrapper::before {
-		padding-top: 50%; // 9 / 18 * 100
+	.wp-embed-aspect-18-9 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 50%; // 9 / 18 * 100
+		}
 	}
 
-	.wp-embed-aspect-16-9 .wp-block-embed__wrapper::before {
-		padding-top: 56.25%; // 9 / 16 * 100
+	.wp-embed-aspect-16-9 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 56.25%; // 9 / 16 * 100
+		}
 	}
 
-	.wp-embed-aspect-4-3 .wp-block-embed__wrapper::before {
-		padding-top: 75%; // 3 / 4 * 100
+	.wp-embed-aspect-4-3 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 75%; // 3 / 4 * 100
+		}
 	}
 
-	.wp-embed-aspect-1-1 .wp-block-embed__wrapper::before {
-		padding-top: 100%; // 1 / 1 * 100
+	.wp-embed-aspect-1-1 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 100%; // 1 / 1 * 100
+		}
 	}
 
-	.wp-embed-aspect-9-16 .wp-block-embed__wrapper::before {
-		padding-top: 177.77%; // 16 / 9 * 100
+	.wp-embed-aspect-9-16 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 177.77%; // 16 / 9 * 100
+		}
 	}
 
-	.wp-embed-aspect-1-2 .wp-block-embed__wrapper::before {
-		padding-top: 200%; // 2 / 1 * 100
+	.wp-embed-aspect-1-2 {
+		.wp-block-embed__wrapper::before {
+			padding-top: 200%; // 2 / 1 * 100
+		}
 	}
 }

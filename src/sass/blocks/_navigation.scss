@@ -7,9 +7,9 @@
 	--flex-align: center;
 	--flex-justify: flex-start;
 	--flex-wrap: wrap;
-	
+
 	position: relative;
-	
+
 	/**
 	 * Variables
 	 */
@@ -23,7 +23,7 @@
 	&.items-justified {
 		&-left {
 			--flex-justify: flex-start;
-			
+
 			&.is-vertical {
 				--flex-justify: flex-start; // Always vertically align to top
 				--flex-align: flex-start;
@@ -32,7 +32,7 @@
 
 		&-center {
 			--flex-justify: center;
-			
+
 			&.is-vertical {
 				--flex-justify: flex-start; // Always vertically align to top
 				--flex-align: center;
@@ -41,7 +41,7 @@
 
 		&-right {
 			--flex-justify: flex-end;
-			
+
 			&.is-vertical {
 				--flex-justify: flex-start; // Always vertically align to top
 				--flex-align: flex-end;
@@ -117,7 +117,7 @@
 
 		&__content {
 			color: inherit;
-			
+
 			&:hover, &:focus {
 				color: inherit;
 				text-decoration: underline;
@@ -163,7 +163,7 @@
 			&:first-child {
 				padding-top: calc( 0.5 * var(--wp--style--block-gap) );
 			}
-	
+
 			&:last-child {
 				padding-bottom: calc( 0.5 * var(--wp--style--block-gap) );
 			}
@@ -214,7 +214,7 @@
 			}
 		}
 	}
-	
+
 	/**
 	 * Navigation with responsive (overlay)
 	 */
@@ -270,7 +270,7 @@
 			flex-wrap: nowrap;
 			align-items: var(--flex-justify);
 			justify-content: flex-start;
-			
+
 			color: inherit !important;
 
 			padding: 0; // Reset
@@ -307,7 +307,7 @@
 			display: none;
 		}
 	}
-	
+
 	&__responsive-container {
 		// position fixed is added via mixin
 		@include admin-bar-top-offset();
@@ -369,12 +369,12 @@
 			z-index: 2; // Needs to be above the modal z index itself.
 		}
 
-		// Apply mixin: navigation overlay mode 
+		// Apply mixin: navigation overlay mode
 		&.hidden-by-default {
 			@include __block-navigation-overlay();
 		}
-		
-		// Apply mixin: navigation overlay mode 
+
+		// Apply mixin: navigation overlay mode
 		// Duplicate the declaration due to media query
 		&:not(.hidden-by-default) {
 			@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
