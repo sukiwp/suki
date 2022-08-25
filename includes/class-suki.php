@@ -206,6 +206,15 @@ class Suki {
 			'editor-color-palette',
 			$palette
 		);
+
+		/**
+		 * Additional theme supports
+		 *
+		 * Ones that could not be defined in theme.json.
+		 */
+
+		// Responsive embeds.
+		add_theme_support( 'responsive-embeds' );
 	}
 
 	/**
