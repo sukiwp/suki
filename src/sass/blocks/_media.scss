@@ -13,6 +13,14 @@
 		}
 	}
 
+	&:where(.alignleft, .alignright, .aligncenter) {
+		display: table;
+
+		figcaption {
+			display: table-caption;
+		}
+	}
+
 	&.aligncenter {
 		text-align: center;
 	}

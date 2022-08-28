@@ -9,12 +9,12 @@ figure {
 }
 
 figcaption {
-	display: block;
 	margin: 0.5em 0 0;
 	text-align: center;
 	font-size: var(--meta--font-size);
 	line-height: var(--meta--line-height);
 	opacity: 0.75;
+	caption-side: bottom;
 }
 
 img,

@@ -1,0 +1,31 @@
+/**
+ * Gallery
+ */
+
+.gallery {
+	display: grid;
+	gap: calc( 0.5 * var(--wp--style--block-gap) );
+
+	@for $i from 2 through 9 {
+		&-columns-#{$i} {
+			grid-template-columns: repeat( $i, 1fr );
+		}
+	}
+}
+
+.gallery-item {
+	margin: 0; // Reset
+	text-align: center;
+
+	img {
+		width: 100%;
+	}
+
+	a {
+		display: block;
+	}
+}
+
+.gallery-caption {
+	display: block;
+}

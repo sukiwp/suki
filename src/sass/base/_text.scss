@@ -24,17 +24,10 @@ kbd {
 }
 
 code {
-	background-color: var(--subtle-background-color);
-	color: var(--text-color);
-	font-family: monospace;
-	font-size: inherit;
-	padding: 0.15em 0.3em;
-	white-space: pre-wrap;
 	overflow-wrap: break-word;
 }
 
 cite {
-	display: block;
 	font-size: var(--wp--preset--font-size--small);
 	line-height: var(--wp--custom--line-height--small);
 	opacity: 0.75;
@@ -128,7 +121,7 @@ h6 {
 
 ul, ol {
 	margin: var(--wp--style--block-gap) 0;
-	padding-left: var(--wp--style--block-gap);
+	padding-left: 2em;
 
 	overflow-wrap: break-word;
 

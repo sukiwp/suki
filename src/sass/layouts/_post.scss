@@ -24,8 +24,13 @@
 }
 
 .entry-meta {
-	gap: 0;
-	white-space: pre-wrap; // Preserve white space on flex items
+	display: block; // Force
+	// gap: 0;
+	// white-space: pre-wrap; // Preserve white space on flex items
+
+	> * {
+		display: inline; // Force
+	}
 
 	&__avatar {
 		.wp-block-post-author__avatar {
