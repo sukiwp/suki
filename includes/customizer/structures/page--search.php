@@ -32,25 +32,26 @@ $wp_customize->add_control(
 	)
 );
 
-// No results found text.
-$key = 'search_results_not_found_text';
+// Layout.
+$key = 'search_results_use_blog_loop_layout';
 $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'textarea' ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	)
 );
 $wp_customize->add_control(
 	$key,
 	array(
-		'type'        => 'textarea',
-		'section'     => $section,
-		'label'       => esc_html__( 'No results found text', 'suki' ),
-		'priority'    => 10,
-		'input_attrs' => array(
-			'placeholder' => esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'suki' ),
+		'type'     => 'select',
+		'section'  => $section,
+		'label'    => esc_html__( 'Layout', 'suki' ),
+		'choices'  => array(
+			''  => esc_html__( 'Compact search results', 'suki' ),
+			'1' => esc_html__( 'Same with Blog posts', 'suki' ),
 		),
+		'priority' => 10,
 	)
 );
 

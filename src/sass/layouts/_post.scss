@@ -69,7 +69,7 @@
  */
 
 .suki-author-bio {
-	margin-top: calc( 2 * var(--wp--style--block-gap) );
+	margin-top: calc( 3 * var(--wp--style--block-gap) );
 	padding: var(--wp--style--block-gap);
 	border: 1px solid var(--border-color);
 
@@ -85,7 +85,7 @@
  */
 
 .suki-post-navigation {
-	margin-top: calc( 2 * var(--wp--style--block-gap) );
+	margin-top: calc( 3 * var(--wp--style--block-gap) );
 }
 
 /**
@@ -93,7 +93,7 @@
  */
 
 .suki-comments {
-	margin-top: calc( 2 * var(--wp--style--block-gap) );
+	margin-top: calc( 3 * var(--wp--style--block-gap) );
 
 	> * + * {
 		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );

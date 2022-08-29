@@ -2048,9 +2048,10 @@ $add['post_archive_content_header_alignment'] = array(
 
 $add['blog_index_default_items_gap'] = array(
 	array(
-		'type'     => 'css',
-		'element'  => '.suki-loop-default',
-		'property' => 'gap',
+		'type'     => 'class',
+		'element'  => '.suki-loop-default__spacer',
+		'property' => 'style',
+		'pattern'  => 'height:$',
 	),
 );
 

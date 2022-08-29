@@ -1,529 +1,535 @@
 v2.0.0
 - MAJOR UPDATE: If you have developed Child Theme or plugin to extend older version of Suki, please read this documentation: ... and review your codes.
-- NEW: Google Fonts: Add "Load Google Fonts locally" option.
-- NEW: Header Builder: Add "Mobile header breakpoint" option.
-- TWEAK: Google Fonts: Use new API url format.
-- TWEAK: Rebuild all CSS structures.
-- TWEAK: Page Settings: In Gutenberg, the page settings meta box will be available in Gutenberg Sidebar.
-- TWEAK: Theme Dashboard: Change theme dashboard design.
-- DEPRECATE: Font smoothing mode.
-- DEPRECATE: Google Fonts - Option to choose font subsets.
+- [NEW] Google Fonts: Add "Load Google Fonts locally" option.
+- [NEW] Header Builder: Add "Mobile header breakpoint" option.
+- [NEW] Search results page: Add results layout option (Compact or same with the Blog page).
+- [TWEAK] Template Files: Build all template layouts using blocks (** There are still some elements couldn't be migrated to blocks yet).
+- [TWEAK] CSS: Rebuild all CSS structures using modern browser's CSS for better, faster, and easier styling.
+- [TWEAK] Google Fonts: Use new API url format.
+- [TWEAK] Page Settings: In Gutenberg editor, the page settings meta box will be available via Gutenberg Sidebar.
+- [TWEAK] Theme Dashboard: Change theme dashboard design.
+- [TWEAK] Template files: Remove some page template files (`archive.php`, `home.php`, `page.php`, and `single.php`) and only use `index.php`, `search.php`, and `singular.php` instead.
+- [TWEAK] Template files: Remove `comments.php` template file, and use Comments block (via template functions) instead.
+- [TWEAK] Template parts: Remove support to override template using template files (developers can still override template parts by overriding template functions).
+- [DEPRECATED] Typography: Remove Font smoothing mode.
+- [DEPRECATED] Google Fonts: Remove font subsets option. New Google Fonts API doesn't need subsets attribute.
+- [DEPRECATED] Search results page: Remove Not found text option, now it will default to "Nothing found".
 
 v1.3.6
-- NEW: Template hooks - Before Hero (suki/frontend/before_hero).
-- NEW: Template hooks - After Hero (suki/frontend/after_hero).
-- NEW: WooCommerce - Add product taxonomy description as Content Header element.
-- TWEAK: Page templates - Add Hero section on custom page templates (can be disabled via Page Settings).
-- FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce archive page.
-- FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce search results page.
-- FIX: Minor CSS.
+- [NEW] Template hooks - Before Hero (suki/frontend/before_hero).
+- [NEW] Template hooks - After Hero (suki/frontend/after_hero).
+- [NEW] WooCommerce - Add product taxonomy description as Content Header element.
+- [TWEAK] Page templates - Add Hero section on custom page templates (can be disabled via Page Settings).
+- [FIX] WooCommerce - Fix theme's breadcrumb on WooCommerce archive page.
+- [FIX] WooCommerce - Fix theme's breadcrumb on WooCommerce search results page.
+- [FIX] Minor CSS.
 
 v1.3.5
-- NEW: WooCommerce - Styles for WooCommerce widget blocks: Price Filter and Attribute Filter.
-- FIX: Migration - Fix version migration.
-- FIX: Breadcrumb - Error on blog front page.
-- FIX: WooCommerce - Fix theme's breadcrumb on WooCommerce product page.
-- FIX: WooCommerce - Disabled product gallery still takes space in the layout.
-- FIX: Dynamic CSS - Headings typography settings CSS.
+- [NEW] WooCommerce - Styles for WooCommerce widget blocks: Price Filter and Attribute Filter.
+- [FIX] Migration - Fix version migration.
+- [FIX] Breadcrumb - Error on blog front page.
+- [FIX] WooCommerce - Fix theme's breadcrumb on WooCommerce product page.
+- [FIX] WooCommerce - Disabled product gallery still takes space in the layout.
+- [FIX] Dynamic CSS - Headings typography settings CSS.
 
 v1.3.4
-- FIX: WooCommerce - Fix theme's breadcrumb for WooCommerce product and archive pages.
+- [FIX] WooCommerce - Fix theme's breadcrumb for WooCommerce product and archive pages.
 
 v1.3.3
-- FIX: Blog - Pagination now showing.
-- FIX: WooCommerce - Fix theme's breadcrumb for WooCommerce product pages.
-- FIX: Migration - Fix version migration.
+- [FIX] Blog - Pagination now showing.
+- [FIX] WooCommerce - Fix theme's breadcrumb for WooCommerce product pages.
+- [FIX] Migration - Fix version migration.
 
 v1.3.2
-- TWEAK: Breadcrumb - Improve breadcrumb on WooCommerce product pages, it will automatically detect "Shop" page title and use it in the breadcrumb.
-- FIX: Hero - Hero section background mode on single post type pages.
-- FIX: WooCommerce - Account page's avatar bug, not showing user's defined gravatar.
-- FIX: WooCommerce - Product gallery width option.
-- FIX: Gutenberg CSS.
+- [TWEAK] Breadcrumb - Improve breadcrumb on WooCommerce product pages, it will automatically detect "Shop" page title and use it in the breadcrumb.
+- [FIX] Hero - Hero section background mode on single post type pages.
+- [FIX] WooCommerce - Account page's avatar bug, not showing user's defined gravatar.
+- [FIX] WooCommerce - Product gallery width option.
+- [FIX] Gutenberg CSS.
 
 v1.3.1
-- NEW: Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).
-- NEW: Breadcrumb - Add new option: "Hide if home or current page is the only item" mode.
-- FIX: Breadcrumb - Bug on singular pages.
-- FIX: WooCommerce - Content header issue on Shop page.
-- FIX: Page Settings - Default values on custom post types.
-- FIX: Gutenberg CSS.
-- FIX: Some dynamic CSS bugs.
+- [NEW] Theme Support - Add Gutenberg "Custom Spacing" theme support (block padding options).
+- [NEW] Breadcrumb - Add new option: "Hide if home or current page is the only item" mode.
+- [FIX] Breadcrumb - Bug on singular pages.
+- [FIX] WooCommerce - Content header issue on Shop page.
+- [FIX] Page Settings - Default values on custom post types.
+- [FIX] Gutenberg CSS.
+- [FIX] Some dynamic CSS bugs.
 
 v1.3.0
-- NEW: Content Header — Introducing "Content Header", per-page configurable set of page title, breadcrumb, and other elements.
-- NEW: Hero Section — Replace the former "Page Header" section.
-- NEW: Blog - Add new dedicated Single Post Page options (formerly uses the same layout as "Default" post layout for archives page).
-- NEW: Page - Add new dedicated Single Static Page options (formerly uses the same layout as "Default" post layout for archives page).
-- NEW: Breadcrumb — Theme's native breadcrumb.
-- NEW: Header Elements — Add Breadcrumb element to Header.
-- NEW: Header Elements — Add new options to show Shopping Cart's amount and its responsive visibility.
-- NEW: Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
-- NEW: Sidebar — Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
-- NEW: Footer Widgets Bar — Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
-- NEW: Gutenberg — Add new theme supports for Gutenberg features: theme font sizes, custom line height, custom units, custom cover block padding, custom link color.
-- NEW: Footer Elements — Add new element: HTML (accepts HTML tags and shortcode).
-- NEW: Blog — Thumbnail size option for blog post layouts.
-- NEW: Blog — "Content or excerpt" option for default post layout.
-- NEW: Customizer — Border radius and Box shadow options for posts layout, sidebar.
-- NEW: WooCommerce compatibility - Add new option to change the cart cross sells position.
-- NEW: WPML Compatibility — Add WPML configuration file (`wpml-config.xml`) for automatic WPML integration.
-- NEW: Page Template - Page Builder with Container — Page template for page builders that doesn't have their own content container functionalities, such as Visual Composer, Site Origin, etc.
-- TWEAK: Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).
-- TWEAK: Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
-- TWEAK: Header Elements — Allow "Shopping Cart Dropdown" inside the mobile header bar.
-- TWEAK: Header Builder — Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
-- TWEAK: Social Icons — Update some existing social icons.
-- TWEAK: Social Icons — Add hidden label on each social icon for better accessibility.
-- TWEAK: Social Icons — Remove Google+.
-- TWEAK: Google Fonts — Update Google Fonts list.
-- TWEAK: WooCommerce compatibility — Improve template modifications via hooks.
-- TWEAK: WooCommerce compatibility — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
-- TWEAK: Elementor compatibility — Move compatibility CSS to standalone inline CSS.
-- TWEAK: Customizer — Improve Customizer UI & UX.
-- TWEAK: Theme Dashboard — Improve theme dashboard layout for better compatibility with Suki Pro's White Label module. Now user won't see "pro" badges and links to our website on the modules manager.
-- TWEAK: Deprecate "Page Header" section.
-- TWEAK: Implement Filters API to allow further modification on each template part's HTML markup.
-- TWEAK: Use localize scripts to define header bars JS configuration instead of using HTML tag attributes (fallback compatibilities are added for prior Suki Pro 1.2.0).
-- TWEAK: A lot of CSS improvements.
-- FIX: Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
-- FIX: Footer — Widgets column width bug.
-- FIX: WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
-- FIX: Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
-- FIX: Customizer Preview Frame size for Tablet and Mobile modes.
-- FIX: CSS Media Query bugs on Windows browsers — Now Windows browsers will show correct breakpoints.
-- FIX: RTL CSS issue and file naming.
-- FIX: Blurred text rendering.
+- [NEW] Content Header — Introducing "Content Header", per-page configurable set of page title, breadcrumb, and other elements.
+- [NEW] Hero Section — Replace the former "Page Header" section.
+- [NEW] Blog - Add new dedicated Single Post Page options (formerly uses the same layout as "Default" post layout for archives page).
+- [NEW] Page - Add new dedicated Single Static Page options (formerly uses the same layout as "Default" post layout for archives page).
+- [NEW] Breadcrumb — Theme's native breadcrumb.
+- [NEW] Header Elements — Add Breadcrumb element to Header.
+- [NEW] Header Elements — Add new options to show Shopping Cart's amount and its responsive visibility.
+- [NEW] Social Icons — Add more social icons: WordPress, Messenger, Skype, Slack, Telegram, WhatsApp, GitLab, Bitbucket.
+- [NEW] Sidebar — Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
+- [NEW] Footer Widgets Bar — Add new option to set widget title tag (h2 / h3 / h4 / div) for custom SEO needs.
+- [NEW] Gutenberg — Add new theme supports for Gutenberg features: theme font sizes, custom line height, custom units, custom cover block padding, custom link color.
+- [NEW] Footer Elements — Add new element: HTML (accepts HTML tags and shortcode).
+- [NEW] Blog — Thumbnail size option for blog post layouts.
+- [NEW] Blog — "Content or excerpt" option for default post layout.
+- [NEW] Customizer — Border radius and Box shadow options for posts layout, sidebar.
+- [NEW] WooCommerce compatibility - Add new option to change the cart cross sells position.
+- [NEW] WPML Compatibility — Add WPML configuration file (`wpml-config.xml`) for automatic WPML integration.
+- [NEW] Page Template - Page Builder with Container — Page template for page builders that doesn't have their own content container functionalities, such as Visual Composer, Site Origin, etc.
+- [TWEAK] Header Elements — SVG Logo now will be displayed using `<img>` tag instead of the inline SVG method. This will prevent display issue when both desktop and mobile SVG logo contain elements with same ID (e.g. gradient fill effect).
+- [TWEAK] Header Elements — Improve header's Shopping Cart template (**If you overrode this template via Child Theme, please review the template again**).
+- [TWEAK] Header Elements — Allow "Shopping Cart Dropdown" inside the mobile header bar.
+- [TWEAK] Header Builder — Improve header menu javascript to support full width Mega Menu (available since Suki Pro v1.2).
+- [TWEAK] Social Icons — Update some existing social icons.
+- [TWEAK] Social Icons — Add hidden label on each social icon for better accessibility.
+- [TWEAK] Social Icons — Remove Google+.
+- [TWEAK] Google Fonts — Update Google Fonts list.
+- [TWEAK] WooCommerce compatibility — Improve template modifications via hooks.
+- [TWEAK] WooCommerce compatibility — Improve mini cart widget's buttons CSS (make each button full width for better compatibility with longer text in non-english languages).
+- [TWEAK] Elementor compatibility — Move compatibility CSS to standalone inline CSS.
+- [TWEAK] Customizer — Improve Customizer UI & UX.
+- [TWEAK] Theme Dashboard — Improve theme dashboard layout for better compatibility with Suki Pro's White Label module. Now user won't see "pro" badges and links to our website on the modules manager.
+- [TWEAK] Deprecate "Page Header" section.
+- [TWEAK] Implement Filters API to allow further modification on each template part's HTML markup.
+- [TWEAK] Use localize scripts to define header bars JS configuration instead of using HTML tag attributes (fallback compatibilities are added for prior Suki Pro 1.2.0).
+- [TWEAK] A lot of CSS improvements.
+- [FIX] Header — Shopping cart dropdown toggle does nothing on Cart and Checkout pages. Now it works like a link to the Cart page.
+- [FIX] Footer — Widgets column width bug.
+- [FIX] WooCommerce — "My Account" page's navigation links color doesn't follow the global link color configured in Customizer.
+- [FIX] Elementor Pro compatibility — Elementor Pro's WooCommerce products grid CSS conflict with theme's CSS.
+- [FIX] Customizer Preview Frame size for Tablet and Mobile modes.
+- [FIX] CSS Media Query bugs on Windows browsers — Now Windows browsers will show correct breakpoints.
+- [FIX] RTL CSS issue and file naming.
+- [FIX] Blurred text rendering.
 
 v1.2.13
-- FIX: Header shopping cart's count badge CSS (bug since v1.2.12).
-- FIX: WooCommerce product's image gallery CSS (bug since v1.2.12).
+- [FIX] Header shopping cart's count badge CSS (bug since v1.2.12).
+- [FIX] WooCommerce product's image gallery CSS (bug since v1.2.12).
 
 v1.2.12
-- TWEAK: Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
-- TWEAK: Change WooCommerce product gallery "slide" transition to "fade" transition (due to Mozilla Firefox bug when using "Left" gallery layout mode from Suki Pro).
-- TWEAK: Automatically focus to search bar when header search icon is clicked, works on both desktop and mobile browsers. It also supports custom search bar from 3rd party plugins.
-- TWEAK: Improve HTML structure of header sections for better compatibility.
-- TWEAK: Deprecate `header-desktop-bar.php` template part and replace it with 3 new separate template parts: `header-desktop-top-bar`, `header-desktop-main-bar`, and `header-desktop-bottom-bar`.
-- TWEAK: Deprecate `suki_main_header__bar` function and replace it with 3 new template functions: `suki_main_header__top_bar`, `suki_main_header__main_bar`, `suki_main_header__bottom_bar`.
-- TWEAK: Change CSS class for sticky "Scroll to top" button (from "sticky" to "suki-sticky") to avoid CSS conflict with sticky blog post style.
-- FIX: Header accessibility issue when user is using keyboard to navigate the menu items.
-- FIX: JS error message when closing toggled header sub menu.
-- FIX: CSS on WooCommerce Checkout payment methods.
-- FIX: Minor CSS issue.
+- [TWEAK] Improve header menu and sub menu CSS to support shrunk logo on Sticky mode.
+- [TWEAK] Change WooCommerce product gallery "slide" transition to "fade" transition (due to Mozilla Firefox bug when using "Left" gallery layout mode from Suki Pro).
+- [TWEAK] Automatically focus to search bar when header search icon is clicked, works on both desktop and mobile browsers. It also supports custom search bar from 3rd party plugins.
+- [TWEAK] Improve HTML structure of header sections for better compatibility.
+- [TWEAK] Deprecate `header-desktop-bar.php` template part and replace it with 3 new separate template parts: `header-desktop-top-bar`, `header-desktop-main-bar`, and `header-desktop-bottom-bar`.
+- [TWEAK] Deprecate `suki_main_header__bar` function and replace it with 3 new template functions: `suki_main_header__top_bar`, `suki_main_header__main_bar`, `suki_main_header__bottom_bar`.
+- [TWEAK] Change CSS class for sticky "Scroll to top" button (from "sticky" to "suki-sticky") to avoid CSS conflict with sticky blog post style.
+- [FIX] Header accessibility issue when user is using keyboard to navigate the menu items.
+- [FIX] JS error message when closing toggled header sub menu.
+- [FIX] CSS on WooCommerce Checkout payment methods.
+- [FIX] Minor CSS issue.
 
 v1.2.11
-- FIX: WooCommerce cart's cross sells hiding option bug when using 2 columns layout.
-- FIX: WooCommerce quantity increment button's Javascript for better compatibility with 3rd party plugins.
-- FIX: WooCommerce products grid's AJAX add to cart loading button CSS.
-- FIX: Remove bottom border on WooCommerce's cart table when on mobile view.
+- [FIX] WooCommerce cart's cross sells hiding option bug when using 2 columns layout.
+- [FIX] WooCommerce quantity increment button's Javascript for better compatibility with 3rd party plugins.
+- [FIX] WooCommerce products grid's AJAX add to cart loading button CSS.
+- [FIX] Remove bottom border on WooCommerce's cart table when on mobile view.
 
 v1.2.10
-- TWEAK: Improve mobile header dropdown behavior: clicking the menu link will also open the dropdown.
-- FIX: Mobile header dropdown bug from v1.2.9.
+- [TWEAK] Improve mobile header dropdown behavior: clicking the menu link will also open the dropdown.
+- [FIX] Mobile header dropdown bug from v1.2.9.
 
 v1.2.9
-- FIX: WooCommerce cart's cross sells hiding option.
-- FIX: WooCommerce product's gallery and summary width CSS.
-- FIX: Border radius on "toggle buttons".
-- FIX: Javascript error in IE 11 browser.
-- FIX: Click event handler of non link elements on older Mobile Safari browser.
+- [FIX] WooCommerce cart's cross sells hiding option.
+- [FIX] WooCommerce product's gallery and summary width CSS.
+- [FIX] Border radius on "toggle buttons".
+- [FIX] Javascript error in IE 11 browser.
+- [FIX] Click event handler of non link elements on older Mobile Safari browser.
 
 v1.2.8
-- TWEAK: Improve WooCommerce product CSS.
-- FIX: Elementor Pro's Theme Builder compatibility bug.
+- [TWEAK] Improve WooCommerce product CSS.
+- [FIX] Elementor Pro's Theme Builder compatibility bug.
 
 v1.2.7
-- TWEAK: Improve Gutenberg editor CSS.
-- TWEAK: Improve accesssibility supports.
-- FIX: Gutenberg columns responsive CSS.
-- FIX: Header menu hightlight CSS.
-- FIX: Elementor Pro's Theme Builder compatibility bug.
+- [TWEAK] Improve Gutenberg editor CSS.
+- [TWEAK] Improve accesssibility supports.
+- [FIX] Gutenberg columns responsive CSS.
+- [FIX] Header menu hightlight CSS.
+- [FIX] Elementor Pro's Theme Builder compatibility bug.
 
 v1.2.6
-- FIX: Scroll to Top javascript.
-- FIX: Javascript warning in Firefox browser.
+- [FIX] Scroll to Top javascript.
+- [FIX] Javascript warning in Firefox browser.
 
 v1.2.5
-- TWEAK: Refactor all javascript's event handlers with "Event Delegation" for better performance.
-- TWEAK: Improve WooCommerce quantity increment buttons CSS (larger size, more mobile friendly).
-- TWEAK: Improve WooCommerce quantity increment buttons JS.
-- TWEAK: Allow WooCommerce product gallery width to be less than 50% (now 25% is the minimum width).
-- FIX: Gutenberg columns CSS.
+- [TWEAK] Refactor all javascript's event handlers with "Event Delegation" for better performance.
+- [TWEAK] Improve WooCommerce quantity increment buttons CSS (larger size, more mobile friendly).
+- [TWEAK] Improve WooCommerce quantity increment buttons JS.
+- [TWEAK] Allow WooCommerce product gallery width to be less than 50% (now 25% is the minimum width).
+- [FIX] Gutenberg columns CSS.
 
 v1.2.4
-- NEW: Update Google Fonts list (from 916 fonts to 977 fonts).
-- NEW: Option to hide featured image on blog posts layout (Default and Grid layout).
-- FIX: Header submenu style.
-- FIX: Gutenberg `alignwide` and `alignfull` CSS.
+- [NEW] Update Google Fonts list (from 916 fonts to 977 fonts).
+- [NEW] Option to hide featured image on blog posts layout (Default and Grid layout).
+- [FIX] Header submenu style.
+- [FIX] Gutenberg `alignwide` and `alignfull` CSS.
 
 v1.2.3
-- FIX: Header mobile drawer's overflow scrolling CSS.
-- FIX: Page header background bug when WooCommerce shop page set as front page.
-- FIX: Page header title bug when WooCommerce shop page set as front page.
-- FIX: WooCommerce's star's color CSS in the review form page.
-- FIX: WooCommerce's "My Account" page CSS for non-logged in users.
+- [FIX] Header mobile drawer's overflow scrolling CSS.
+- [FIX] Page header background bug when WooCommerce shop page set as front page.
+- [FIX] Page header title bug when WooCommerce shop page set as front page.
+- [FIX] WooCommerce's star's color CSS in the review form page.
+- [FIX] WooCommerce's "My Account" page CSS for non-logged in users.
 
 v1.2.2
-- FIX: WooCommerce's product review CSS on mobile devices.
-- FIX: Brizy Integration's CSS reset bug on Safari when using light text on dark background.
+- [FIX] WooCommerce's product review CSS on mobile devices.
+- [FIX] Brizy Integration's CSS reset bug on Safari when using light text on dark background.
 
 v1.2.1
-- FIX: Theme's typography bug inside Gutenberg editor (overriding custom typography settings from 3rd party addons).
-- FIX: Overlapping select2 CSS on the admin's metabox.
+- [FIX] Theme's typography bug inside Gutenberg editor (overriding custom typography settings from 3rd party addons).
+- [FIX] Overlapping select2 CSS on the admin's metabox.
 
 v1.2.0
-- NEW: Implement template inheritances using template files (via custom `get_template_part` function). Developers could easily override template files from Child Theme.
-- NEW: Social links widget.
-- NEW: Items gap options for Post Layout: Default.
-- NEW: Excerpt options for Post Layout: Default.
-- NEW: Excerpt options for Post Layout: Grid.
-- NEW: Additional style options for Post Layout: Default - items gap.
-- NEW: Additional style options for Post Layout: Grid - padding, border.
-- NEW: Filter `suki/frontend/meta_avatar_size` to change gravatar size on entry meta.
-- NEW: Migration process to v1.2.0.
-- TWEAK: Improve Brizy integration.
-- TWEAK: Improve dynamic custom CSS generation performance by filtering the CSS array based on the saved theme options only.
-- TWEAK: Improve string on post navigation to avoid wrong translation on the "%title" syntax.
-- TWEAK: Improve Gutenberg CSS.
-- TWEAK: Improve WooCommerce CSS.
-- TWEAK: Improve some text strings.
-- FIX: Header search dropdown bug for not showing on mobile devices.
-- FIX: Sub menu overflow bug (remove JS that detects vertical overflow).
-- FIX: WooCommerce product gallery's zoom and lightbox bugs.
-- FIX: Minor Customizer CSS since WordPress 5.3.
+- [NEW] Implement template inheritances using template files (via custom `get_template_part` function). Developers could easily override template files from Child Theme.
+- [NEW] Social links widget.
+- [NEW] Items gap options for Post Layout: Default.
+- [NEW] Excerpt options for Post Layout: Default.
+- [NEW] Excerpt options for Post Layout: Grid.
+- [NEW] Additional style options for Post Layout: Default - items gap.
+- [NEW] Additional style options for Post Layout: Grid - padding, border.
+- [NEW] Filter `suki/frontend/meta_avatar_size` to change gravatar size on entry meta.
+- [NEW] Migration process to v1.2.0.
+- [TWEAK] Improve Brizy integration.
+- [TWEAK] Improve dynamic custom CSS generation performance by filtering the CSS array based on the saved theme options only.
+- [TWEAK] Improve string on post navigation to avoid wrong translation on the "%title" syntax.
+- [TWEAK] Improve Gutenberg CSS.
+- [TWEAK] Improve WooCommerce CSS.
+- [TWEAK] Improve some text strings.
+- [FIX] Header search dropdown bug for not showing on mobile devices.
+- [FIX] Sub menu overflow bug (remove JS that detects vertical overflow).
+- [FIX] WooCommerce product gallery's zoom and lightbox bugs.
+- [FIX] Minor Customizer CSS since WordPress 5.3.
 
 v1.1.2
-- TWEAK: Improve UX of Customizer's builder control: hide add button when there is no available element left.
-- FIX: Header menu's underline highlight CSS.
-- FIX: Customizer's shadow control doesn't show Color Palette.
+- [TWEAK] Improve UX of Customizer's builder control: hide add button when there is no available element left.
+- [FIX] Header menu's underline highlight CSS.
+- [FIX] Customizer's shadow control doesn't show Color Palette.
 
 v1.1.1
-- FIX: Page Header title on date archive pages.
-- FIX: Hide content header on archive pages when there is no title or description to display.
-- FIX: Page Header CSS on mobile.
-- FIX: WooCommerce products grid margin CSS.
-- FIX: Full screen mobile header drawer transition CSS.
+- [FIX] Page Header title on date archive pages.
+- [FIX] Hide content header on archive pages when there is no title or description to display.
+- [FIX] Page Header CSS on mobile.
+- [FIX] WooCommerce products grid margin CSS.
+- [FIX] Full screen mobile header drawer transition CSS.
 
 v1.1.0
-- NEW: "Scroll to Top" feature.
-- NEW: "Color Palette" feature.
-- NEW: Option(s) to change form input typography.
-- NEW: Option(s) to enable / disable font smoothing.
-- NEW: Option(s) to change full screen mobile header drawer position.
-- NEW: Page Header drag & drop layout builder (replace the old layout option).
-- NEW: Option(s) to change Page Header title text on post type archive page and taxonomy archive page.
-- NEW: Breadcrumb integrations for [Rank Math](https://wordpress.org/plugins/seo-by-rank-math/).
-- NEW: Breadcrumb integrations for [SEOPress](https://wordpress.org/plugins/wp-seopress/).
-- NEW: Archive description is now automatically displayed on the archive page.
-- NEW: Add new action hook `suki/frontend/before_primary_and_sidebar` and `suki/frontend/after_primary_and_sidebar`.
-- NEW: Option(s) to change blog posts grid row gap.
-- NEW: WooCommerce 2 columns layout for Cart page (configurable on Customizer).
-- NEW: WooCommerce product's quantity input will automatically have minus (-) and plus (+) button.
-- NEW: Option(s) to change WooCommerce products grid row gap.
-- NEW: Add some new modules into the modules manager for Suki Pro v1.1.0.
-- TWEAK: Improve frontend's general typography CSS for better readibility and accessibility.
-- TWEAK: Improve Gutenberg CSS for new native blocks and styles.
-- TWEAK: Improve dynamic CSS placement on frontend to allow Child Theme override the styles easier.
-- TWEAK: Improve Header Builder: Allow header logo to be placed on all header sections.
-- TWEAK: Improve Header Builder: Allow HTML header element to be placed on mobile header section.
-- TWEAK: Page Header is now enabled by default (for fresh installation only).
-- TWEAK: Improve WooCommerce cart and checkout page styles.
-- TWEAK: Improve WooCommerce filter widgets styles.
-- TWEAK: WooCommerce frontend CSS is now only 1 request and 58KB in size (using theme's dedicated WooCommerce frontend CSS instead of overriding original WooCommerce CSS).
-- TWEAK: Add smooth animation for accordion menu dropdown (used in mobile header menu).
-- TWEAK: Improve featured image size used in default post layout and grid post layout.
-- TWEAK: Redesign Suki theme's dashboard page UI.
-- TWEAK: Use new radio image control on some Customizer settings UI for more intuitive experience.
-- TWEAK: Update Google Fonts list to the latest one.
-- FIX: WooCommerce select2 CSS.
-- FIX: Some frontend CSS bugs.
-- FIX: Hidden search widget on search results page.
-- FIX: Customizer number field validation.
-- FIX: Customizer dimensions control doesn't show the saved unit value correctly.
-- FIX: CSS fallback compatibility for older browsers like IE11 and Safari iOS 9.
+- [NEW] "Scroll to Top" feature.
+- [NEW] "Color Palette" feature.
+- [NEW] Option(s) to change form input typography.
+- [NEW] Option(s) to enable / disable font smoothing.
+- [NEW] Option(s) to change full screen mobile header drawer position.
+- [NEW] Page Header drag & drop layout builder (replace the old layout option).
+- [NEW] Option(s) to change Page Header title text on post type archive page and taxonomy archive page.
+- [NEW] Breadcrumb integrations for [Rank Math](https://wordpress.org/plugins/seo-by-rank-math/).
+- [NEW] Breadcrumb integrations for [SEOPress](https://wordpress.org/plugins/wp-seopress/).
+- [NEW] Archive description is now automatically displayed on the archive page.
+- [NEW] Add new action hook `suki/frontend/before_primary_and_sidebar` and `suki/frontend/after_primary_and_sidebar`.
+- [NEW] Option(s) to change blog posts grid row gap.
+- [NEW] WooCommerce 2 columns layout for Cart page (configurable on Customizer).
+- [NEW] WooCommerce product's quantity input will automatically have minus (-) and plus (+) button.
+- [NEW] Option(s) to change WooCommerce products grid row gap.
+- [NEW] Add some new modules into the modules manager for Suki Pro v1.1.0.
+- [TWEAK] Improve frontend's general typography CSS for better readibility and accessibility.
+- [TWEAK] Improve Gutenberg CSS for new native blocks and styles.
+- [TWEAK] Improve dynamic CSS placement on frontend to allow Child Theme override the styles easier.
+- [TWEAK] Improve Header Builder: Allow header logo to be placed on all header sections.
+- [TWEAK] Improve Header Builder: Allow HTML header element to be placed on mobile header section.
+- [TWEAK] Page Header is now enabled by default (for fresh installation only).
+- [TWEAK] Improve WooCommerce cart and checkout page styles.
+- [TWEAK] Improve WooCommerce filter widgets styles.
+- [TWEAK] WooCommerce frontend CSS is now only 1 request and 58KB in size (using theme's dedicated WooCommerce frontend CSS instead of overriding original WooCommerce CSS).
+- [TWEAK] Add smooth animation for accordion menu dropdown (used in mobile header menu).
+- [TWEAK] Improve featured image size used in default post layout and grid post layout.
+- [TWEAK] Redesign Suki theme's dashboard page UI.
+- [TWEAK] Use new radio image control on some Customizer settings UI for more intuitive experience.
+- [TWEAK] Update Google Fonts list to the latest one.
+- [FIX] WooCommerce select2 CSS.
+- [FIX] Some frontend CSS bugs.
+- [FIX] Hidden search widget on search results page.
+- [FIX] Customizer number field validation.
+- [FIX] Customizer dimensions control doesn't show the saved unit value correctly.
+- [FIX] CSS fallback compatibility for older browsers like IE11 and Safari iOS 9.
 
 v1.0.14
-- TWEAK: Improve logo's vertical alignment CSS.
+- [TWEAK] Improve logo's vertical alignment CSS.
 
 v1.0.13
-- TWEAK: Improve javascript that makes header sub menu aligned properly.
-- FIX: Button and form input typography should inherit base typography.
+- [TWEAK] Improve javascript that makes header sub menu aligned properly.
+- [FIX] Button and form input typography should inherit base typography.
 
 v1.0.12
-- TWEAK: Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
-- TWEAK: Improve WooCommerce 2 columns layout checkout page styles.
-- FIX: Base CSS for iframe.
+- [TWEAK] Improve WooCommerce checkout page structures for compatibility with 3rd party plugins.
+- [TWEAK] Improve WooCommerce 2 columns layout checkout page styles.
+- [FIX] Base CSS for iframe.
 
 v1.0.11
-- NEW: Elementor compatibility CSS.
-- NEW: Brizy Integration option: disable Brizy's reset CSS.
-- NEW: Footer copyright text now supports new syntax {{theme}}.
-- TWEAK: Improve theme's CSS to be slightly slimmer.
-- TWEAK: Improve image width on any Gutenberg embed block with image type.
+- [NEW] Elementor compatibility CSS.
+- [NEW] Brizy Integration option: disable Brizy's reset CSS.
+- [NEW] Footer copyright text now supports new syntax {{theme}}.
+- [TWEAK] Improve theme's CSS to be slightly slimmer.
+- [TWEAK] Improve image width on any Gutenberg embed block with image type.
 
 v1.0.10
-- NEW: Brizy Integration option: use theme's content width as Brizy content width.
-- TWEAK: Improve HTML markup of WooCommerce's "added to cart" message.
-- FIX: Page header title text on products search results page should show "Search results for ...".
+- [NEW] Brizy Integration option: use theme's content width as Brizy content width.
+- [TWEAK] Improve HTML markup of WooCommerce's "added to cart" message.
+- [FIX] Page header title text on products search results page should show "Search results for ...".
 
 v1.0.9
-- TWEAK: Improve mobile header menu's dropdown sign style.
-- TWEAK: Improve WooCommerce template modifications.
-- TWEAK: Improve minor WooCommerce CSS.
-- FIX: Social media links can't open in new tab.
+- [TWEAK] Improve mobile header menu's dropdown sign style.
+- [TWEAK] Improve WooCommerce template modifications.
+- [TWEAK] Improve minor WooCommerce CSS.
+- [FIX] Social media links can't open in new tab.
 
 v1.0.8
-- NEW: Add the new `wp_body_open()` theme hook (WordPress 5.2 compatibility).
-- TWEAK: Remove `#body` wrapper inside the `<body>` tag.
-- TWEAK: Improve minor WooCommerce CSS.
-- TWEAK: Improve some text strings in admin pages.
-- FIX: When White Label mode is active (via Suki Pro), it should show the White Label value instead of original theme name "Suki".
-- FIX: Header mobile main bar's "spacing between elements".
+- [NEW] Add the new `wp_body_open()` theme hook (WordPress 5.2 compatibility).
+- [TWEAK] Remove `#body` wrapper inside the `<body>` tag.
+- [TWEAK] Improve minor WooCommerce CSS.
+- [TWEAK] Improve some text strings in admin pages.
+- [FIX] When White Label mode is active (via Suki Pro), it should show the White Label value instead of original theme name "Suki".
+- [FIX] Header mobile main bar's "spacing between elements".
 
 v1.0.7
-- FIX: Border CSS bug (grid blog post).
+- [FIX] Border CSS bug (grid blog post).
 
 v1.0.6
-- FIX: Border CSS bug.
+- [FIX] Border CSS bug.
 
 v1.0.5
-- TWEAK: Improve Gutenberg editor CSS.
-- TWEAK: Remove additional custom CSS for Elementor, now will use 100% Elementor default CSS.
+- [TWEAK] Improve Gutenberg editor CSS.
+- [TWEAK] Remove additional custom CSS for Elementor, now will use 100% Elementor default CSS.
 
 v1.0.4
-- TWEAK: Use Filesystem API to render inline SVG.
+- [TWEAK] Use Filesystem API to render inline SVG.
 
 v1.0.3
-- TWEAK: Remove default center alignment for Image Widget.
-- FIX: Footer widgets gap CSS.
-- FIX: SVG logo rendering error.
+- [TWEAK] Remove default center alignment for Image Widget.
+- [FIX] Footer widgets gap CSS.
+- [FIX] SVG logo rendering error.
 
 v1.0.2
-- TWEAK: Improve content row CSS.
-- FIX: WooCommerce's single product gallery width CSS.
-- FIX: Header submenu / dropdown CSS.
+- [TWEAK] Improve content row CSS.
+- [FIX] WooCommerce's single product gallery width CSS.
+- [FIX] Header submenu / dropdown CSS.
 
 v1.0.1
-- TWEAK: Improve WooCommerce products grid CSS.
-- TWEAK: Improve Gutenberg columns CSS.
+- [TWEAK] Improve WooCommerce products grid CSS.
+- [TWEAK] Improve Gutenberg columns CSS.
 
 v1.0.0
-- NEW: Allow child theme to use parent theme options (for easier migration).
-- NEW: Default blog posts layout will automatically use `excerpt` instead of the main `content` if specified.
-- NEW: Options to change header's submenu colors on each header bar (top, main, bottom bar).
-- NEW: Options to change header's cart count colors.
-- NEW: Options to change entry footer text alignment.
-- NEW: Header popup (e.g. mobile header drawer) will automatically close when user clicks a hash link to elements on the same page.
-- NEW: Filters (`suki/page_settings/setting_value` and `suki/page_settings/setting_value/{$key}`) to modify current page setting values when retrieving1.
-- NEW: Filters (`suki/customizer/setting_value` and `suki/customizer/setting_value/{$key}`) to modify theme option values when retrieving1.
-- NEW: Filter (`suki/frontend/svg_icon/`) to modify the SVG tags of theme's icons.
-- NEW: Filters to add classes to many different post entries.
-- NEW: Filters to add classes to some WooCommerce elements.
-- NEW: Brizy compatilibity: container width will inherit from Theme options.
-- NEW: Improve default theme colors to pass WCAG 2.0 AA.
-- NEW: Add supports for Suki Pro v1.0.x.
-- NEW: Add `em` unit to `font size` options.
-- NEW: Add `em` unit to `padding` options.
-- TWEAK: Improve some WooCommerce HTML markup.
-- TWEAK: Colors of general elements will affect more globally.
-- TWEAK: Change default grid post style to no border and no padding (configurable via new added options).
-- TWEAK: Update color picker library from [`wp-color-picker-alpha`](https://github.com/kallookoo/wp-color-picker-alpha) to [`alpha-color-picker`](https://github.com/BraadMartin/components/tree/master/alpha-color-picker).
-- TWEAK: Logo in text will automatically use `h1` styles.
-- TWEAK: Improve entry header and entry footer HTML markup.
-- TWEAK: Improve shopping cart count HTML markup for easier styling.
-- TWEAK: Improve page settings meta box with clearer information.
-- TWEAK: Improve Gutenberg editor CSS.
-- TWEAK: Improve Gutenberg frontend CSS.
-- TWEAK: Improve WooCommerce compatibility CSS.
-- TWEAK: Improve default theme's CSS.
-- TWEAK: Improve some text strings.
-- TWEAK: Update Suki Pro modules list.
-- TWEAK: Update Suki admin page looks to be simpler and cleaner.
-- FIX: Customizer styles were applied on whole Gutenberg editor page when page is built using page builders.
-- FIX: Header or Footer Social links "open in new tab".
-- FIX: Footer bottom overflow bug on mobile screen.
-- FIX: Header and Footer Builder on Safari Mac.
-- FIX: Contained section CSS.
-- FIX: Dynamic CSS for WooCommerce's button.
-- FIX: Warning on `suki_get_current_page_setting` function.
+- [NEW] Allow child theme to use parent theme options (for easier migration).
+- [NEW] Default blog posts layout will automatically use `excerpt` instead of the main `content` if specified.
+- [NEW] Options to change header's submenu colors on each header bar (top, main, bottom bar).
+- [NEW] Options to change header's cart count colors.
+- [NEW] Options to change entry footer text alignment.
+- [NEW] Header popup (e.g. mobile header drawer) will automatically close when user clicks a hash link to elements on the same page.
+- [NEW] Filters (`suki/page_settings/setting_value` and `suki/page_settings/setting_value/{$key}`) to modify current page setting values when retrieving1.
+- [NEW] Filters (`suki/customizer/setting_value` and `suki/customizer/setting_value/{$key}`) to modify theme option values when retrieving1.
+- [NEW] Filter (`suki/frontend/svg_icon/`) to modify the SVG tags of theme's icons.
+- [NEW] Filters to add classes to many different post entries.
+- [NEW] Filters to add classes to some WooCommerce elements.
+- [NEW] Brizy compatilibity: container width will inherit from Theme options.
+- [NEW] Improve default theme colors to pass WCAG 2.0 AA.
+- [NEW] Add supports for Suki Pro v1.0.x.
+- [NEW] Add `em` unit to `font size` options.
+- [NEW] Add `em` unit to `padding` options.
+- [TWEAK] Improve some WooCommerce HTML markup.
+- [TWEAK] Colors of general elements will affect more globally.
+- [TWEAK] Change default grid post style to no border and no padding (configurable via new added options).
+- [TWEAK] Update color picker library from [`wp-color-picker-alpha`](https://github.com/kallookoo/wp-color-picker-alpha) to [`alpha-color-picker`](https://github.com/BraadMartin/components/tree/master/alpha-color-picker).
+- [TWEAK] Logo in text will automatically use `h1` styles.
+- [TWEAK] Improve entry header and entry footer HTML markup.
+- [TWEAK] Improve shopping cart count HTML markup for easier styling.
+- [TWEAK] Improve page settings meta box with clearer information.
+- [TWEAK] Improve Gutenberg editor CSS.
+- [TWEAK] Improve Gutenberg frontend CSS.
+- [TWEAK] Improve WooCommerce compatibility CSS.
+- [TWEAK] Improve default theme's CSS.
+- [TWEAK] Improve some text strings.
+- [TWEAK] Update Suki Pro modules list.
+- [TWEAK] Update Suki admin page looks to be simpler and cleaner.
+- [FIX] Customizer styles were applied on whole Gutenberg editor page when page is built using page builders.
+- [FIX] Header or Footer Social links "open in new tab".
+- [FIX] Footer bottom overflow bug on mobile screen.
+- [FIX] Header and Footer Builder on Safari Mac.
+- [FIX] Contained section CSS.
+- [FIX] Dynamic CSS for WooCommerce's button.
+- [FIX] Warning on `suki_get_current_page_setting` function.
 
 v0.7.10
-- FIX: Single template filter for Elementor library affected all other post types as well.
+- [FIX] Single template filter for Elementor library affected all other post types as well.
 
 v0.7.9
-- FIX: Remove Elementor and Brizy isolation mode (this caused some problems in multiple cases).
+- [FIX] Remove Elementor and Brizy isolation mode (this caused some problems in multiple cases).
 
 v0.7.8
-- TWEAK: Improve Suki admin page with quick links.
-- FIX: Brizy editor isolation mode.
+- [TWEAK] Improve Suki admin page with quick links.
+- [FIX] Brizy editor isolation mode.
 
 v0.7.7
-- NEW: Add dedicated template for Elementor Template with "Page" or "Section" types.
-- NEW: Elementor preview isolation mode (elements except the main editor is ignoring any mouse event).
-- NEW: Brizy preview isolation mode (elements except the main editor is ignoring any mouse event).
-- TWEAK: Remove `classList` polyfill JS (unnecessary).
-- FIX: Header logo CSS for sticky header integration (used in Suki Pro).
-- FIX: Link default colors.
+- [NEW] Add dedicated template for Elementor Template with "Page" or "Section" types.
+- [NEW] Elementor preview isolation mode (elements except the main editor is ignoring any mouse event).
+- [NEW] Brizy preview isolation mode (elements except the main editor is ignoring any mouse event).
+- [TWEAK] Remove `classList` polyfill JS (unnecessary).
+- [FIX] Header logo CSS for sticky header integration (used in Suki Pro).
+- [FIX] Link default colors.
 
 v0.7.6
-- FIX: Popup close icon CSS.
-- FIX: Footer bottom CSS.
+- [FIX] Popup close icon CSS.
+- [FIX] Footer bottom CSS.
 
 v0.7.5
-- FIX: TinyMCE settings filters which caused blank white error on TinyMCE.
-- FIX: Minor CSS.
+- [FIX] TinyMCE settings filters which caused blank white error on TinyMCE.
+- [FIX] Minor CSS.
 
 v0.7.4
-- FIX: Gutenberg cover image CSS when using parallax and wide alignment mode.
+- [FIX] Gutenberg cover image CSS when using parallax and wide alignment mode.
 
 v0.7.3
-- FIX: Use selected font family in Gutenberg editor.
+- [FIX] Use selected font family in Gutenberg editor.
 
 v0.7.2
-- TWEAK: Improve Gutenberg editor CSS.
-- TWEAK: Improve CSS for widgets and other minor elements.
-- TWEAK: Improve static pages template hooks.
-- TWEAK: Make multiple elements in a footer bottom column displayed inline (previously block).
-- FIX: Footer bottom CSS.
+- [TWEAK] Improve Gutenberg editor CSS.
+- [TWEAK] Improve CSS for widgets and other minor elements.
+- [TWEAK] Improve static pages template hooks.
+- [TWEAK] Make multiple elements in a footer bottom column displayed inline (previously block).
+- [FIX] Footer bottom CSS.
 
 v0.7.1
-- FIX: Global page header background image was not showing in archive page.
-- FIX: Header link hover color.
-- FIX: Footer bottom responsive CSS.
-- FIX: Some minor CSS.
+- [FIX] Global page header background image was not showing in archive page.
+- [FIX] Header link hover color.
+- [FIX] Footer bottom responsive CSS.
+- [FIX] Some minor CSS.
 
 v0.7.0
-- NEW: Move Gutenberg compatibility features into core.
-- NEW: Gutenberg editor's styles.
-- NEW: Option to set spacing between header's merged bars (top and bottom) and the main bar.
-- NEW: Option to set spacing between footer's merged bottom bar and the widgets bar.
-- NEW: Option to set spacing between footer's merged bottom bar and the widgets bar.
-- NEW: Option to set active menu link colors including its highlight effect colors.
-- NEW: Option to set spacing between elements on footer bottom bar.
-- NEW: Option to set page header background overlay color along with transparency.
-- NEW: Option to set page header layout width when on "left", "center", "right" layout.
-- NEW: Option to set WooCommerce products grid text alignment.
-- NEW: Option to set post / page content header alignment.
-- NEW: Percentage (%) unit on all section padding settings.
-- TWEAK: Move "Page Settings" metabox to side panels (for better experience on Gutenberg).
-- TWEAK: Remove static page's template hooks and use same hooks as default post content's.
-- TWEAK: Header's merged bars HTML structure.
-- TWEAK: Footer's merged bars HTML structure.
-- TWEAK: Suki Pro modules list.
-- TWEAK: Remove "page header background overlay opacity" setting in favor of "page header background overlay color".
-- TWEAK: Update Google Fonts JSON.
-- FIX: JS warning when header is disabled.
-- FIX: Reponsive switcher on Customizer's slider and typography controls.
-- FIX: Some WooCommerce CSS.
-- FIX: Some Gutenberg CSS.
-- FIX: Some other template CSS.
+- [NEW] Move Gutenberg compatibility features into core.
+- [NEW] Gutenberg editor's styles.
+- [NEW] Option to set spacing between header's merged bars (top and bottom) and the main bar.
+- [NEW] Option to set spacing between footer's merged bottom bar and the widgets bar.
+- [NEW] Option to set spacing between footer's merged bottom bar and the widgets bar.
+- [NEW] Option to set active menu link colors including its highlight effect colors.
+- [NEW] Option to set spacing between elements on footer bottom bar.
+- [NEW] Option to set page header background overlay color along with transparency.
+- [NEW] Option to set page header layout width when on "left", "center", "right" layout.
+- [NEW] Option to set WooCommerce products grid text alignment.
+- [NEW] Option to set post / page content header alignment.
+- [NEW] Percentage (%) unit on all section padding settings.
+- [TWEAK] Move "Page Settings" metabox to side panels (for better experience on Gutenberg).
+- [TWEAK] Remove static page's template hooks and use same hooks as default post content's.
+- [TWEAK] Header's merged bars HTML structure.
+- [TWEAK] Footer's merged bars HTML structure.
+- [TWEAK] Suki Pro modules list.
+- [TWEAK] Remove "page header background overlay opacity" setting in favor of "page header background overlay color".
+- [TWEAK] Update Google Fonts JSON.
+- [FIX] JS warning when header is disabled.
+- [FIX] Reponsive switcher on Customizer's slider and typography controls.
+- [FIX] Some WooCommerce CSS.
+- [FIX] Some Gutenberg CSS.
+- [FIX] Some other template CSS.
 
 v0.6.3
-- TWEAK: Make header HTML elements allow all HTML tags.
-- FIX: Variable product's "add to cart" form CSS.
-- FIX: Footer widget columns width on mobile.
-- FIX: Cart totals CSS.
-- FIX: Select2 CSS.
+- [TWEAK] Make header HTML elements allow all HTML tags.
+- [FIX] Variable product's "add to cart" form CSS.
+- [FIX] Footer widget columns width on mobile.
+- [FIX] Cart totals CSS.
+- [FIX] Select2 CSS.
 
 v0.6.2
-- TWEAK: Improve compatibility CSS for WooCommerce 3.5.
-- TWEAK: Improve letter spacing step, from 0.5px to 0.1px.
-- FIX: Gutenberg blocks CSS.
-- FIX: Customizer's dimensions control bug for not saving responsive values.
-- FIX: Customizer's shadow control JS.
-- FIX: Customizer's footer builder JS.
+- [TWEAK] Improve compatibility CSS for WooCommerce 3.5.
+- [TWEAK] Improve letter spacing step, from 0.5px to 0.1px.
+- [FIX] Gutenberg blocks CSS.
+- [FIX] Customizer's dimensions control bug for not saving responsive values.
+- [FIX] Customizer's shadow control JS.
+- [FIX] Customizer's footer builder JS.
 
 v0.6.1
-- NEW: WooCommerce cart's table responsive styles.
-- NEW: Make search form's placeholder text translatable from theme's text domain.
-- TWEAK: Adjust narrow content and content wrapper allowed width ranges in Customizer.
-- TWEAK: Improve WooCommerce responsive cart table styles.
-- FIX: Customizer's shadow control JS bug.
-- FIX: Customizer's postmessage on button radius option for WooCommerce buttons.
-- FIX: Customizer's postmessage on subsidiary headings.
-- FIX: Custom CSS media queries order.
-- FIX: Custom CSS on WooCommerce buttons and inputs.
-- FIX: Some minor CSS.
+- [NEW] WooCommerce cart's table responsive styles.
+- [NEW] Make search form's placeholder text translatable from theme's text domain.
+- [TWEAK] Adjust narrow content and content wrapper allowed width ranges in Customizer.
+- [TWEAK] Improve WooCommerce responsive cart table styles.
+- [FIX] Customizer's shadow control JS bug.
+- [FIX] Customizer's postmessage on button radius option for WooCommerce buttons.
+- [FIX] Customizer's postmessage on subsidiary headings.
+- [FIX] Custom CSS media queries order.
+- [FIX] Custom CSS on WooCommerce buttons and inputs.
+- [FIX] Some minor CSS.
 
 v0.6.0
-- NEW: Header menu highlight now has highlight text color option.
-- TWEAK: Drastically improve Customizer performance (now it loads much faster).
-- TWEAK: Now section side padding is merged to "Padding" option (to avoid confusion).
-- FIX: Header sub-menu typography.
-- FIX: Customizer color control's autocomplete issue.
-- FIX: Customizer bugs.
-- FIX: Some CSS bugs.
-- FIX: Page header's default background on static pages.
+- [NEW] Header menu highlight now has highlight text color option.
+- [TWEAK] Drastically improve Customizer performance (now it loads much faster).
+- [TWEAK] Now section side padding is merged to "Padding" option (to avoid confusion).
+- [FIX] Header sub-menu typography.
+- [FIX] Customizer color control's autocomplete issue.
+- [FIX] Customizer bugs.
+- [FIX] Some CSS bugs.
+- [FIX] Page header's default background on static pages.
 
 v0.5.5
-- TWEAK: Improve compatibility for Suki Pro.
-- FIX: Page header's background not using feature image on static pages.
+- [TWEAK] Improve compatibility for Suki Pro.
+- [FIX] Page header's background not using feature image on static pages.
 
 v0.5.4
-- NEW: Customizer's dimension control.
-- TWEAK: Improve default compatibility styles for Gutenberg.
-- TWEAK: Improve compatibility for Suki Pro.
-- TWEAK: Improve value range on all padding, border controls in Customizer.
-- TWEAK: Improve Suki admin page content and design.
-- FIX: Responsive settings on Customizer's Typography control.
-- FIX: "Hide post title" option (Page Settings) bug on static page.
-- REMOVE: Section side padding options on Customizer -- now is default in theme CSS.
-- REMOVE: Gutenberg options on Customizer -- now is default in theme CSS.
+- [NEW] Customizer's dimension control.
+- [TWEAK] Improve default compatibility styles for Gutenberg.
+- [TWEAK] Improve compatibility for Suki Pro.
+- [TWEAK] Improve value range on all padding, border controls in Customizer.
+- [TWEAK] Improve Suki admin page content and design.
+- [FIX] Responsive settings on Customizer's Typography control.
+- [FIX] "Hide post title" option (Page Settings) bug on static page.
+- [DEPRECATED] Section side padding options on Customizer -- now is default in theme CSS.
+- [DEPRECATED] Gutenberg options on Customizer -- now is default in theme CSS.
 
 v0.5.2
-- FIX: custom CSS bug on v0.5.1.
+- [FIX] custom CSS bug on v0.5.1.
 
 v0.5.1
-- NEW: "Page header" option on Page Settings to enable / disable page header (replacing "Disable page header" option).
-- TWEAK: Improve all sanitization and escaping.
-- TWEAK: Improve some strings.
-- FIX: z-index on Content section overlapping Header bottom bar.
-- FIX: Mobile header submenu typography live preview on Customizer.
-- FIX: Page settings fallback values for Page header background image.
-- REMOVE: "Disable page header" option on Page Setting (in favor of the new "Page header" option).
+- [NEW] "Page header" option on Page Settings to enable / disable page header (replacing "Disable page header" option).
+- [TWEAK] Improve all sanitization and escaping.
+- [TWEAK] Improve some strings.
+- [FIX] z-index on Content section overlapping Header bottom bar.
+- [FIX] Mobile header submenu typography live preview on Customizer.
+- [FIX] Page settings fallback values for Page header background image.
+- [DEPRECATED] "Disable page header" option on Page Setting (in favor of the new "Page header" option).
 
 v0.5.0
-- NEW: Page Header background image mode on Customizer's Page Settings (replacing the old background options).
-- NEW: Gutenberg columns option in Customizer.
-- NEW: Option to hide featured image on page and post meta box.
-- TWEAK: Add proper `rel` attribute on social links -- credit to (luizbills)[https://github.com/luizbills] (#8)[https://github.com/sukiwp/suki/pull/8]
-- TWEAK: Move all Gutenberg compatibility features to a separate module.
-- TWEAK: Improve some strings.
-- TWEAK: Improve all sanitization and escaping.
-- TWEAK: Minor CSS.
-- REMOVE: Author social links features.
-- REMOVE: Built-in SVG upload feature (please use 3rd party plugin instead).
-- REMOVE: All "Page header background" options on Page Header.
-- REMOVE: "Override page header title" text option on Customizer's Page Settings.
-- REMOVE: "Override page header title" text option on Page Settings metabox.
-- REMOVE: All "Page header background" options on Customizer's Page Settings.
-- REMOVE: All "Page header background" options on Page Settings metabox.
-- REMOVE: "Show page title" option on Page Header settings (page title will always be displayed).
+- [NEW] Page Header background image mode on Customizer's Page Settings (replacing the old background options).
+- [NEW] Gutenberg columns option in Customizer.
+- [NEW] Option to hide featured image on page and post meta box.
+- [TWEAK] Add proper `rel` attribute on social links -- credit to (luizbills)[https://github.com/luizbills] (#8)[https://github.com/sukiwp/suki/pull/8]
+- [TWEAK] Move all Gutenberg compatibility features to a separate module.
+- [TWEAK] Improve some strings.
+- [TWEAK] Improve all sanitization and escaping.
+- [TWEAK] Minor CSS.
+- [DEPRECATED] Author social links features.
+- [DEPRECATED] Built-in SVG upload feature (please use 3rd party plugin instead).
+- [DEPRECATED] All "Page header background" options on Page Header.
+- [DEPRECATED] "Override page header title" text option on Customizer's Page Settings.
+- [DEPRECATED] "Override page header title" text option on Page Settings metabox.
+- [DEPRECATED] All "Page header background" options on Customizer's Page Settings.
+- [DEPRECATED] All "Page header background" options on Page Settings metabox.
+- [DEPRECATED] "Show page title" option on Page Header settings (page title will always be displayed).
 
 v0.4.2
-- NEW: Global default options for "section layout" and "content & sidebar layout".
-- NEW: Version migration mechanism for future updates that require migration process.
-- NEW: Option to hide page title on static page meta box.
-- TWEAK: Some control & section structures on Customizer.
-- TWEAK: Some translatable strings on Customizer.
-- TWEAK: Mobile header drawer HTML structures.
-- TWEAK: Search results page when no results found.
-- FIX: Some CSS.
-- REMOVE: Ambiguous "keep content title displayed" option on Page Settings.
+- [NEW] Global default options for "section layout" and "content & sidebar layout".
+- [NEW] Version migration mechanism for future updates that require migration process.
+- [NEW] Option to hide page title on static page meta box.
+- [TWEAK] Some control & section structures on Customizer.
+- [TWEAK] Some translatable strings on Customizer.
+- [TWEAK] Mobile header drawer HTML structures.
+- [TWEAK] Search results page when no results found.
+- [FIX] Some CSS.
+- [DEPRECATED] Ambiguous "keep content title displayed" option on Page Settings.
 
 v0.4.1
-- TWEAK: Some translatable strings on Customizer.
-- FIX: Blog posts page layout options not working.
-- FIX: Default CSS caused colors settings on headings, title, and small title not working.
-- FIX: Font family bugs on Small Title and Meta Info.
-- FIX: Some minor PHP warnings.
+- [TWEAK] Some translatable strings on Customizer.
+- [FIX] Blog posts page layout options not working.
+- [FIX] Default CSS caused colors settings on headings, title, and small title not working.
+- [FIX] Font family bugs on Small Title and Meta Info.
+- [FIX] Some minor PHP warnings.
 
 v0.4.0
-- NEW: Option to merge header top bar, header bottom bar into header main bar.
-- NEW: Option to merge footer bottom bar into footer widgets bar.
-- TWEAK: Content wrapper is now rendered on header.php and footer.php and add new filter to disable it.
-- TWEAK: Change all ambiguous labels and terms on Customizer options to be more self-explanatory.
+- [NEW] Option to merge header top bar, header bottom bar into header main bar.
+- [NEW] Option to merge footer bottom bar into footer widgets bar.
+- [TWEAK] Content wrapper is now rendered on header.php and footer.php and add new filter to disable it.
+- [TWEAK] Change all ambiguous labels and terms on Customizer options to be more self-explanatory.
 
 v0.3.0
 - Release.

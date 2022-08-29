@@ -15,15 +15,6 @@
 	padding: 0;
 	margin: 0;
 
-	display: grid;
-	gap: calc( 5 * var(--wp--style--block-gap) );
-
-	@extend .suki-container;
-
-	> * + * {
-		margin-block-start: 0 !important; // Reset WordPress generated CSS
-	}
-
 	&:where(.is-flex-container) {
 		gap: calc( 1.5 * var(--wp--style--block-gap) );
 

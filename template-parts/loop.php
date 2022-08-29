@@ -140,6 +140,11 @@ $thumbnail_block = '
 
 		</div><!-- /wp:group -->
 
+		<!-- wp:spacer {
+			"height":"<?php echo esc_attr( suki_get_theme_mod( 'blog_index_default_items_gap', '5em' ) ); ?>",
+			"className":"suki-loop-default__spacer"
+		} --><div style="height:<?php echo esc_attr( suki_get_theme_mod( 'blog_index_default_items_gap', '5em' ) ); ?>" aria-hidden="true" class="wp-block-spacer suki-loop-default__spacer"></div><!-- /wp:spacer -->
+
 	<!-- /wp:post-template -->
 
 	<?php

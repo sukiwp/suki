@@ -19,7 +19,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: calc( 2 * var(--wp--style--block-gap) ); // CUSTOMIZER
-	
+
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		display: flex;
 		flex-direction: row;
@@ -52,22 +52,9 @@
 	}
 }
 
-// .suki-content-header,
-// .suki-content-footer {
-// 	> * + * {
-// 		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
-// 	}
-// }
-
 /**
  * Loop
  */
-
-.suki-loop {
-	&:not(:first-child) {
-		margin-top: calc( 3 * var(--wp--style--block-gap) );
-	}
-}
 
 .suki-loop-grid {
 	align-items: start;

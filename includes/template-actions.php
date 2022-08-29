@@ -154,16 +154,5 @@ function suki_template_hooks() {
 			add_action( 'suki/frontend/after_main', 'suki_comments', 20 );
 		}
 	}
-
-	/**
-	 * ====================================================
-	 * Search Results Item
-	 * ====================================================
-	 */
-
-	if ( is_search() ) {
-		// Add title to search result entry header.
-		add_action( 'suki/frontend/entry_search/header', 'suki_entry_small_title', 10 );
-	}
 }
 add_action( 'template_redirect', 'suki_template_hooks', 20 );
