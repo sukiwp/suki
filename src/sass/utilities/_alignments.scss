@@ -8,6 +8,9 @@
 
 .alignfull {
 	max-width: none !important;
+
+	margin-inline-start: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
+	margin-inline-end: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
 }
 
 /**

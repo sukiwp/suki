@@ -38,12 +38,6 @@
 	&.is-style-plain {
 		border: none;
 	}
-
-	// Large style (deprecated since WP 6.0)
-	&.is-style-large {
-		font-size: var(--h2--font-size);
-		line-height: var(--h2--line-height);
-	}
 }
 
 /**
@@ -53,7 +47,7 @@
 .wp-block-code {
 	code {
 		display: block;
-		padding: var(--wp--style--block-gap); // Reset
+		padding: 0.4em 0.6em;
 	}
 }
 
@@ -75,9 +69,13 @@
 	blockquote {
 		position: relative;
 		padding-left: 2.25em;
-		font-size: var(--h2--font-size);
-		line-height: var(--h2--line-height);
 		isolation: isolate;
+		font-size: var(--h3--font-size);
+		line-height: var(--h3--line-height);
+
+		p {
+			font: inherit; // Needed to override default WP editor style.
+		}
 
 		&:before {
 			content: "”";

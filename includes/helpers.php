@@ -318,6 +318,11 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
  * @return string
  */
 function suki_get_current_page_context() {
+	// Abort if it's an admin page.
+	if ( is_admin() ) {
+		return;
+	}
+
 	$current_page_context = '';
 
 	// Frontend pages.

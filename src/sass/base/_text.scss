@@ -24,6 +24,9 @@ kbd {
 }
 
 code {
+	background-color: var(--subtle-background-color);
+	color: var(--text-color);
+	padding: 0.1em 0.2em;
 	overflow-wrap: break-word;
 }
 
@@ -143,6 +146,10 @@ blockquote {
 		margin-block: var(--wp--style--block-gap);
 		@include remove-margin-top-for-first-child();
 		@include remove-margin-bottom-for-last-child();
+	}
+
+	cite {
+		display: block;
 	}
 }
 

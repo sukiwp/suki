@@ -93,10 +93,6 @@
 
 	@include padding-for-has-background();
 
-	&:where(.has-background) {
-		@include stretch-alignfull();
-	}
-
 	// Vertical alignment (CORE FEATURES)
 	&.are-vertically-aligned {
 		&-top {

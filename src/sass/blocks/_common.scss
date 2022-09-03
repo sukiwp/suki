@@ -81,6 +81,10 @@
 		flex-wrap: wrap;
 	}
 
+	&:not(.is-vertical) {
+		align-items: center;
+	}
+
 	> * {
 		margin: 0;
 	}

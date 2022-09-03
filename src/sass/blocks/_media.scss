@@ -5,8 +5,6 @@
 .wp-block-image {
 	overflow: hidden;
 
-	@include stretch-alignfull();
-
 	&.is-style-rounded {
 		img {
 			border-radius: 9999px;
@@ -40,7 +38,9 @@
 .wp-block-gallery {
 	--wp--style--gallery-gap-default: var(--wp--style--block-gap);
 
-	align-items: flex-start;
+	&.has-nested-images { // Use this selector to override WP default layout container CSS.
+		align-items: normal;
+	}
 
 	.wp-block-image {
 		position: relative;
@@ -55,18 +55,21 @@
 			width: 100%;
 		}
 
-		figcaption {
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			height: auto;
-			max-height: 100%;
-			overflow: auto;
-			padding: 0.5em;
-			background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0, rgba(0,0,0,0.3) 70%, transparent);
-			color: white;
+		&:where(.is-style-default, :not([class*="is-style-"])) {
+			figcaption {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: auto;
+				max-height: 100%;
+				overflow: auto;
+				padding: 0.5em;
+				background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0, rgba(0,0,0,0.3) 70%, transparent);
+				color: white;
+			}
 		}
+
 	}
 
 	&.is-cropped {
@@ -181,8 +184,6 @@
 
 	background-size: cover;
     background-position: center center;
-
-	@include stretch-alignfull();
 
 	@include max-width-for-alignleft-alignright();
 
@@ -345,12 +346,22 @@
  */
 
 .wp-block-file {
-	display: flex;
-	align-items: center;
-	gap: calc( 0.5 * var(--wp--style--block-gap) );
+	&.alignleft {
+		text-align: left;
+	}
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	&.alignright {
+		text-align: right;
+	}
 
 	&__button {
 		@extend %button;
+
+		margin-left: 1em;
 	}
 }
 
@@ -368,8 +379,6 @@
 	grid-template-rows: auto;
 	grid-template-areas: "media content";
 	align-items: center;
-
-	@include stretch-alignfull();
 
 	&.has-media-on-the-right {
 		grid-template-areas: "content media";
@@ -427,8 +436,6 @@
  */
 
 .wp-block-video {
-	@include stretch-alignfull();
-
 	video {
 		width: 100%;
 	}
@@ -444,8 +451,6 @@
  */
 
 .wp-block-embed {
-	@include stretch-alignfull();
-
 	@include max-width-for-alignleft-alignright();
 
 	// Supply a min-width when inside a cover block, to prevent it from collapsing.

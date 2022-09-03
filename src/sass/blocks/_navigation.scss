@@ -10,6 +10,8 @@
 
 	position: relative;
 
+	@include padding-for-has-background();
+
 	/**
 	 * Variables
 	 */
@@ -20,7 +22,7 @@
 	}
 
 	// Justify
-	&.items-justified {
+	&.is-content-justification {
 		&-left {
 			--flex-justify: flex-start;
 
@@ -54,15 +56,13 @@
 	}
 
 	// Wrap
-	&.no-wrap {
+	&.is-nowrap {
 		--flex-wrap: nowrap;
 	}
 
 	/**
 	 * Common components
 	 */
-
-	@include padding-for-has-background();
 
 	// Submenu toggle on "open on click" mode
 	// The entire menu item would be a toggle button, we need to reset the styles
@@ -97,21 +97,23 @@
 		padding: 0;
 
 		display: flex;
+		width: 100%;
 		flex-direction: var(--flex-direction);
 		flex-wrap: var(--flex-wrap);
 		align-items: var(--flex-align);
 		justify-content: var(--flex-justify);
 		gap: var(--wp--style--block-gap);
 
-		> * {
-			padding: calc( 0.5 * var(--wp--style--block-gap) ) 0;
-			margin: calc( -0.5 * var(--wp--style--block-gap) ) 0;
-		}
+		// > * {
+		// 	padding: calc( 0.5 * var(--wp--style--block-gap) ) 0;
+		// 	margin: calc( -0.5 * var(--wp--style--block-gap) ) 0;
+		// }
 	}
 
 	&-item {
 		position: relative;
 		display: flex;
+		align-items: center;
 		flex-direction: initial; // Reset
 		justify-content: space-between;
 
@@ -128,6 +130,10 @@
 			word-break: normal;
 			overflow-wrap: break-word;
 		}
+
+		&__description {
+			display: none; // Theme doesn't support menu item description.
+		}
 	}
 
 	&__submenu-container {
@@ -143,6 +149,7 @@
 		width: max-content;
 		max-width: 20rem;
 		box-shadow: 0 0.1rem 1rem rgba(0,0,0,0.1);
+		background-color: var(--background-color);
 		@include hide();
 
 		// Submenu open trigger
@@ -314,6 +321,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+		width: 100%;
 
 		&-content {
 			display: flex;

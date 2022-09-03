@@ -19,6 +19,16 @@ body.mce-content-body {
 	@extend %button;
 }
 
+.wp-block-social-links {
+	&.is-style-pill-shape {
+		.wp-block-social-link {
+			button {
+				padding: 0.25em;
+			}
+		}
+	}
+}
+
 /**
  * Block Editor
  */
@@ -72,7 +82,7 @@ body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar i
 		> * {
 			padding-left: calc( var(--sidebar-gap) + var(--sidebar-width) );
 		}
-	
+
 		&:after {
 			left: 0;
 		}
@@ -84,7 +94,7 @@ body.suki-content--layout-right-sidebar:not(.suki-section--narrow) { // Sidebar 
 		> * {
 			padding-right: calc( var(--sidebar-gap) + var(--sidebar-width) );
 		}
-	
+
 		&:after {
 			right: 0;
 		}
