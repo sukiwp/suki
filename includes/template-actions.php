@@ -134,7 +134,7 @@ function suki_template_hooks() {
 		}
 
 		// Add content footer elements.
-		if ( 0 < count( suki_get_current_page_setting( 'content_header', array() ) ) ) { // Content footer has at least 1 element.
+		if ( 0 < count( suki_get_current_page_setting( 'content_footer', array() ) ) ) { // Content footer has at least 1 element.
 			add_action( 'suki/frontend/' . get_post_type() . '_content/footer', 'suki_content_footer', 10 );
 		}
 

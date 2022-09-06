@@ -2248,87 +2248,79 @@ th {
 }
 
 /**
- * Block: Group
- */
-:where([class*=wp-container-]) {
-	clear: both;
-}
-
-/**
- * Block layout support
- */
-.is-vertical {
-	flex-direction: column;
-}
-
-.is-nowrap {
-	flex-wrap: nowrap;
-}
-
-.is-content-justification-left {
-	justify-content: flex-start;
-}
-.is-content-justification-left.is-vertical {
-	align-items: flex-start;
-}
-
-.is-content-justification-center {
-	justify-content: center;
-}
-.is-content-justification-center.is-vertical {
-	align-items: center;
-}
-
-.is-content-justification-right {
-	justify-content: flex-end;
-}
-.is-content-justification-right.is-vertical {
-	align-items: flex-end;
-}
-
-.is-content-justification-space-between {
-	justify-content: space-between;
-}
-
-/**
- * Block layout support (theme classes)
- */
-.suki-container {
-	clear: both;
-}
-.suki-container > * {
-	margin-inline: auto;
-	margin-block: 0;
-}
-.suki-container > * + * {
-	margin-block-start: var(--wp--style--block-gap);
-}
-.suki-container > style:first-child + * {
-	margin-block-start: 0;
-}
-.suki-container--default > * {
-	max-width: var(--content-width--narrow);
-}
-
-.suki-flex {
-	display: flex;
-	gap: var(--wp--style--block-gap);
-}
-.suki-flex:not(.is-nowrap) {
-	flex-wrap: wrap;
-}
-.suki-flex:not(.is-vertical) {
-	align-items: center;
-}
-.suki-flex > * {
-	margin: 0;
-}
-
-/**
  * Define border style when a block has border-width
  */
-:where([style*=border-width]) {
+:where(.has-border-color, [style*=border-width]) {
 	border-style: solid;
+}
+
+/**
+ * Block support: Layout
+ */
+.is-layout-flow > * {
+	margin-block: 0;
+}
+.is-layout-flow > * + * {
+	margin-block-start: var(--block-spacing);
+}
+.is-layout-flow > style:first-child + * {
+	margin-block-start: 0;
+}
+
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: var(--content-width--narrow);
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.is-layout-constrained > * {
+	margin-block: 0;
+}
+.is-layout-constrained > * + * {
+	margin-block-start: var(--block-spacing);
+}
+.is-layout-constrained > style:first-child + * {
+	margin-block-start: 0;
+}
+
+.is-layout-flex {
+	display: flex;
+	gap: var(--block-spacing);
+}
+.is-layout-flex:where(:not(.is-nowrap)) {
+	flex-wrap: wrap;
+}
+.is-layout-flex:where(:not(.is-vertical)) {
+	align-items: center;
+}
+.is-layout-flex.is-vertical {
+	flex-direction: column;
+}
+.is-layout-flex.is-nowrap {
+	flex-wrap: nowrap;
+}
+.is-layout-flex.is-content-justification-left:not(.is-vertical) {
+	justify-content: flex-start;
+}
+.is-layout-flex.is-content-justification-left.is-vertical {
+	align-items: flex-start;
+}
+.is-layout-flex.is-content-justification-center:not(.is-vertical) {
+	justify-content: center;
+}
+.is-layout-flex.is-content-justification-center.is-vertical {
+	align-items: center;
+}
+.is-layout-flex.is-content-justification-right:not(.is-vertical) {
+	justify-content: flex-end;
+}
+.is-layout-flex.is-content-justification-right.is-vertical {
+	align-items: flex-end;
+}
+.is-layout-flex.is-content-justification-space-between:not(.is-vertical) {
+	justify-content: space-between;
+}
+.is-layout-flex > * {
+	margin: 0;
 }
 
 /**
@@ -2942,7 +2934,7 @@ th {
  * Block: Button
  */
 .wp-block-button {
-	--gap: var(--wp--style--block-gap, 0.5em);
+	--gap: var(--block-spacing, 0.5em);
 }
 .wp-block-button__link {
 	width: 100%;
@@ -2985,11 +2977,17 @@ th {
 /**
  * Block: Columns
  */
-.wp-block-columns:not([class*=are-vertically-aligned-]) {
-	align-items: flex-start;
+.wp-block-columns {
+	--gap: var(--block-spacing);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: initial !important;
 }
 .wp-block-columns:where(.has-background) {
 	padding: var(--wp--style--block-gap);
+}
+.wp-block-columns.is-not-stacked-on-mobile {
+	flex-wrap: nowrap;
 }
 .wp-block-columns.are-vertically-aligned-top {
 	align-items: flex-start;
@@ -3000,8 +2998,10 @@ th {
 .wp-block-columns.are-vertically-aligned-bottom {
 	align-items: flex-end;
 }
-.wp-block-columns.is-not-stacked-on-mobile {
-	flex-wrap: nowrap;
+@media screen and (min-width: 768px) {
+	.wp-block-columns {
+		flex-wrap: nowrap;
+	}
 }
 
 /**
@@ -3010,6 +3010,9 @@ th {
 .wp-block-column {
 	flex-grow: 1;
 	flex-basis: 0;
+	min-width: 0;
+	word-break: break-word;
+	overflow-wrap: break-word;
 }
 .wp-block-column:where(.has-background) {
 	padding: var(--wp--style--block-gap);
@@ -3030,12 +3033,6 @@ th {
 @media screen and (max-width: 499px) {
 	:where(.wp-block-columns):not(.is-not-stacked-on-mobile) > :where(.wp-block-column) {
 		flex-basis: 100% !important;
-	}
-}
-@media screen and (min-width: 500px) and (max-width: 767px) {
-	:where(.wp-block-columns):not(.is-not-stacked-on-mobile) > :where(.wp-block-column):not(:only-child) {
-		flex-basis: calc(50% - var(--wp--style--block-gap, 2em) / 2) !important;
-		flex-grow: 0;
 	}
 }
 
@@ -3084,6 +3081,13 @@ th {
 }
 
 /**
+ * Block: Spacer
+ */
+.wp-block-spacer {
+	clear: both;
+}
+
+/**
  * Widget list
  */
 /**
@@ -3102,11 +3106,7 @@ th {
 .wp-block-latest-posts:where(.has-author, .has-dates) {
 	gap: calc(0.75 * var(--wp--style--block-gap));
 }
-.wp-block-latest-posts li::before, .wp-block-latest-posts li::after {
-	content: "";
-	display: table;
-}
-.wp-block-latest-posts li::after {
+.wp-block-latest-posts li {
 	clear: both;
 }
 .wp-block-latest-posts li a {
@@ -4060,6 +4060,9 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	list-style: none;
 	padding: 0;
 }
+.wp-block-comment-template .comment {
+	clear: both;
+}
 .wp-block-comment-template .comment > ol {
 	list-style: none;
 	padding-left: calc(2 * var(--wp--style--block-gap));
@@ -4802,6 +4805,18 @@ body.mce-content-body {
  */
 .wp-block-social-links.is-style-pill-shape .wp-block-social-link button {
 	padding: 0.25em;
+}
+
+.edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: var(--content-width--narrow);
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.edit-post-visual-editor__post-title-wrapper > * {
+	margin-block: 0;
+}
+.edit-post-visual-editor__post-title-wrapper > * + * {
+	margin-block-start: var(--block-spacing);
 }
 
 /**

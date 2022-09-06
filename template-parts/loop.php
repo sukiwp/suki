@@ -25,11 +25,10 @@ $thumbnail_block = '
 	"query":{
 		"inherit":true
 	},
-	"align":"full",
 	"layout":{
 		"inherit":true
 	}
-} --><div class="wp-block-query alignfull">
+} --><div class="wp-block-query">
 
 	<!-- wp:post-template {
 		"className":"suki-loop suki-loop-default alignfull"

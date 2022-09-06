@@ -14,6 +14,10 @@
 	list-style: none;
 	padding: 0;
 
+	.comment {
+		clear: both;
+	}
+
 	.comment > ol {
 		list-style: none;
 		padding-left: calc(2 * var(--wp--style--block-gap));
@@ -73,18 +77,18 @@
 	.wp-block-comment-template & {
 		margin-top: 0 !important; // Reset
 	}
-	
+
 	.comment-reply-title {
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
 		gap: var(--wp--style--block-gap);
 		@extend %small-title;
-	
+
 		small {
 			@extend %meta;
 			margin-left: auto;
-	
+
 			a {
 				&:before {
 					content: "✕ ";
@@ -99,12 +103,12 @@
 				display: block;
 			}
 		}
-	
+
 		textarea {
 			height: 6em;
 			width: 100%;
 		}
-	
+
 		.logged-in-as {
 			@extend %meta;
 		}

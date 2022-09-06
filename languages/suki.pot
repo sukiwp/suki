@@ -365,15 +365,15 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: includes/template-filters.php:299, includes/customizer/structures/blog--entry-default.php:323, includes/customizer/structures/blog--entry-default.php:348, includes/customizer/structures/blog--entry-grid.php:527, includes/customizer/structures/blog--entry-grid.php:552
+#: includes/template-filters.php:330, includes/customizer/structures/blog--entry-default.php:323, includes/customizer/structures/blog--entry-default.php:348, includes/customizer/structures/blog--entry-grid.php:527, includes/customizer/structures/blog--entry-grid.php:552
 msgid "Read more"
 msgstr ""
 
-#: includes/template-filters.php:371
+#: includes/template-filters.php:402
 msgid "Expand / Collapse"
 msgstr ""
 
-#: includes/template-filters.php:435
+#: includes/template-filters.php:466
 msgid "Search&hellip;"
 msgstr ""
 
@@ -397,7 +397,7 @@ msgstr ""
 msgid "Shopping Cart"
 msgstr ""
 
-#: template-parts/loop-grid.php:118, template-parts/loop-search.php:56, template-parts/loop.php:159
+#: template-parts/loop-grid.php:117, template-parts/loop-search.php:55, template-parts/loop.php:158
 msgid "Nothing found."
 msgstr ""
 
@@ -937,11 +937,11 @@ msgstr ""
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags/content.php:197, includes/customizer/structures/sections.php:238
+#: includes/template-tags/content.php:193, includes/customizer/structures/sections.php:238
 msgid "Hero Section"
 msgstr ""
 
-#: includes/template-tags/content.php:346, includes/customizer/structures/page--search.php:157
+#: includes/template-tags/content.php:342, includes/customizer/structures/page--search.php:157
 msgid "Search results for: \"{{keyword}}\""
 msgstr ""
 

@@ -33,12 +33,11 @@ $thumbnail_block = '
 ?>
 <!-- wp:group {
 	"tagName":"article",
-	"align":"full",
 	"className":"entry entry-layout-default",
 	"layout":{
 		"inherit":true
 	}
-} --><article class="wp-block-group alignfull entry entry-layout-default">
+} --><article class="wp-block-group entry entry-layout-default">
 
 	<?php
 	/**

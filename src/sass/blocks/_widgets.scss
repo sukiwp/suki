@@ -41,7 +41,7 @@
 	}
 
 	li {
-		@include float-container();
+		clear: both;
 
 		a {
 			display: flex;

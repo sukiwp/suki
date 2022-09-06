@@ -29,7 +29,6 @@ $thumbnail_block = '
 		"type":"flex",
 		"columns":<?php echo esc_attr( suki_get_theme_mod( 'blog_index_grid_columns' ) ); ?>
 	},
-	"align":"full",
 	"layout":{
 		"inherit":true
 	}

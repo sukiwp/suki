@@ -29,6 +29,22 @@ body.mce-content-body {
 	}
 }
 
+.edit-post-visual-editor__post-title-wrapper {
+	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		max-width: var(--content-width--narrow);
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	> * {
+		margin-block: 0;
+	}
+
+	> * + * {
+		margin-block-start: var(--block-spacing);
+	}
+}
+
 /**
  * Block Editor
  */

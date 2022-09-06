@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	"query":{
 		"inherit":true
 	},
-	"align":"full",
 	"layout":{
 		"inherit":true
 	}

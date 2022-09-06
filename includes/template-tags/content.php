@@ -52,7 +52,7 @@ if ( ! function_exists( 'suki_content' ) ) {
 			"align":"full",
 			"className":"<?php echo esc_attr( $classes ); ?>",
 			"layout":{
-				"inherit":true
+				"inherit":<?php echo esc_attr( $has_sidebar ? true : false ); ?>
 			}
 		} --><div id="content" class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>">
 
@@ -87,12 +87,8 @@ if ( ! function_exists( 'suki_content' ) ) {
 			?>
 			<!-- wp:group {
 				"tagName":"main",
-				"align":"full",
-				"className":"site-main",
-				"layout":{
-					"inherit":true
-				}
-			} --><main id="primary" class="wp-block-group alignfull site-main">
+				"className":"site-main"
+			} --><main id="primary" class="wp-block-group site-main">
 
 				<?php
 				/**
