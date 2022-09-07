@@ -41,12 +41,12 @@ cite {
  */
 
 p {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading-color);
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 
 	a {
 		color: inherit;
@@ -123,7 +123,7 @@ h6 {
 }
 
 ul, ol {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 	padding-left: 2em;
 
 	overflow-wrap: break-word;
@@ -134,13 +134,13 @@ ul, ol {
 }
 
 pre {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 	font-size: 1rem;
 	font-family: monospace;
 }
 
 blockquote {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 
 	> * {
 		margin-block: var(--wp--style--block-gap);

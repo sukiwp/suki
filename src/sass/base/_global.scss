@@ -59,7 +59,7 @@ hr {
 	border-bottom: 1px solid var(--border-color);
 	border-color: var(--border-color);
 
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
 }

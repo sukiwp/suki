@@ -128,7 +128,7 @@ hr {
 	border: none;
 	border-bottom: 1px solid var(--border-color);
 	border-color: var(--border-color);
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 hr:first-child {
 	margin-top: 0;
@@ -176,12 +176,12 @@ cite {
  * Block text elements
  */
 p {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 
 h1, .suki-h1, h2, .suki-h2, h3, .suki-h3, h4, .suki-h4, h5, .suki-h5, h6, .suki-h6 {
 	color: var(--heading-color);
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 h1 a, .suki-h1 a, h2 a, .suki-h2 a, h3 a, .suki-h3 a, h4 a, .suki-h4 a, h5 a, .suki-h5 a, h6 a, .suki-h6 a {
 	color: inherit;
@@ -255,7 +255,7 @@ h6, .suki-h6 {
 }
 
 ul, ol {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 	padding-left: 2em;
 	overflow-wrap: break-word;
 }
@@ -264,13 +264,13 @@ ul ul, ul ol, ol ul, ol ol {
 }
 
 pre {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 	font-size: 1rem;
 	font-family: monospace;
 }
 
 blockquote {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 blockquote > * {
 	margin-block: var(--wp--style--block-gap);
@@ -302,7 +302,7 @@ blockquote cite {
  * range
  * radio
  */
-:where(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea) {
+:is(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea) {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -323,7 +323,7 @@ blockquote cite {
 	text-transform: var(--input--text-transform);
 	transition: all var(--transition-duration);
 }
-:where(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea):focus {
+:is(input:not([type]), input[type=""], input[type=date], input[type=datetime-local], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], .input, select, textarea):focus {
 	border-color: var(--input--border-color--focus, var(--input--border-color));
 	background-color: var(--input--background-color--focus, var(--input--background-color));
 	color: var(--input--text-color--focus);
@@ -345,7 +345,7 @@ select {
  * Button
  */
 .wp-block-search__button, .wp-block-button__link, .wp-block-file__button,
-:where([type=reset], [type=submit], .button) {
+:is([type=reset], [type=submit], .button) {
 	-webkit-appearance: none;
 	appearance: none;
 	display: inline-flex;
@@ -372,8 +372,8 @@ select {
 	transition: all var(--transition-duration);
 }
 .wp-block-search__button:hover, .wp-block-button__link:hover, .wp-block-file__button:hover, .wp-block-search__button:focus, .wp-block-button__link:focus, .wp-block-file__button:focus,
-:where([type=reset], [type=submit], .button):hover,
-:where([type=reset], [type=submit], .button):focus {
+:is([type=reset], [type=submit], .button):hover,
+:is([type=reset], [type=submit], .button):focus {
 	border-color: var(--button--border-color--focus, var(--button--border-color));
 	background-color: var(--button--background-color--focus, var(--button--background-color));
 	color: var(--button--text-color--focus);
@@ -384,7 +384,7 @@ select {
  * Media tags.
  */
 figure {
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 figure:first-child {
 	margin-top: 0;
@@ -420,7 +420,7 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	border: 1px solid var(--border-color);
-	margin: var(--wp--style--block-gap) 0;
+	margin-block: var(--wp--style--block-gap);
 }
 table:first-child {
 	margin-top: 0;

@@ -10,12 +10,12 @@
  */
 
 %input,
-:where(input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea) {
+:is(input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input, select, textarea) {
 	appearance: none;
 	display: inline-flex;
 	max-width: 100%;
 	vertical-align: middle;
-	
+
 	padding: var(--input--padding);
 	border-style: solid;
 	border-radius: var(--input--border-radius);
@@ -57,7 +57,7 @@ select {
  */
 
 %button,
-:where([type="reset"], [type="submit"], .button) {
+:is([type="reset"], [type="submit"], .button) {
 	appearance: none;
 	display: inline-flex;
 	align-items: center;
