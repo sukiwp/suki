@@ -21,6 +21,205 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * [DEPRECATED]
  *
+ * @deprecated 2.0.0 Header builder now uses `suki/dataset/header_builder/elements` and `suki/dataset/header_builder/areas` filter to populate elements.
+ *
+ * @return array
+ */
+function suki_get_header_builder_configurations() {
+	_deprecated_function( __FUNCTION__, '2.0.0' );
+
+	/**
+	 * [DEPRECATED]
+	 *
+	 * Filter: suki/dataset/header_builder_configurations
+	 *
+	 * @deprecated 2.0.0
+	 *
+	 * @param array $config Configurations array.
+	 */
+	$config = apply_filters_deprecated(
+		'suki/dataset/header_builder_configurations',
+		array(
+			array(
+				'locations'   => array(
+					'top_left'      => esc_html__( 'Top - Left', 'suki' ),
+					'top_center'    => esc_html__( 'Top - Center', 'suki' ),
+					'top_right'     => esc_html__( 'Top - Right', 'suki' ),
+					'main_left'     => esc_html__( 'Main - Left', 'suki' ),
+					'main_center'   => esc_html__( 'Main - Center', 'suki' ),
+					'main_right'    => esc_html__( 'Main - Right', 'suki' ),
+					'bottom_left'   => esc_html__( 'Bottom - Left', 'suki' ),
+					'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
+					'bottom_right'  => esc_html__( 'Bottom - Right', 'suki' ),
+				),
+				'choices'     => array(
+					'logo'            => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Logo', 'suki' ),
+					/* translators: %s: instance number. */
+					'menu-1'          => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
+					/* translators: %s: instance number. */
+					'html-1'          => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+					'search-bar'      => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
+					'search-dropdown' => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Dropdown', 'suki' ),
+					'social'          => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+				),
+				'limitations' => array(),
+			),
+		),
+		'2.0.0'
+	);
+
+	ksort( $config['choices'] );
+
+	return $config;
+}
+
+/**
+ * [DEPRECATED]
+ *
+ * @deprecated 2.0.0 Header builder now uses `suki/dataset/header_mobile_builder/elements` and `suki/dataset/header_mobile_builder/areas` filter to populate elements.
+ *
+ * @return array
+ */
+function suki_get_header_mobile_builder_configurations() {
+	_deprecated_function( __FUNCTION__, '2.0.0' );
+
+	/**
+	 * [DEPRECATED]
+	 *
+	 * Filter: suki/dataset/header_mobile_builder_configurations
+	 *
+	 * @deprecated 2.0.0
+	 *
+	 * @param array $config Configurations array.
+	 */
+	$config = apply_filters_deprecated(
+		'suki/dataset/header_mobile_builder_configurations',
+		array(
+			array(
+				'locations'   => array(
+					'main_left'    => esc_html__( 'Mobile - Left', 'suki' ),
+					'main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
+					'main_right'   => esc_html__( 'Mobile - Right', 'suki' ),
+					'vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
+				),
+				'choices'     => array(
+					'mobile-logo'         => '<span class="dashicons dashicons-admin-home"></span>' . esc_html__( 'Mobile Logo', 'suki' ),
+					'mobile-menu'         => '<span class="dashicons dashicons-admin-links"></span>' . esc_html__( 'Mobile Menu', 'suki' ),
+					/* translators: %s: instance number. */
+					'html-1'              => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+					'search-bar'          => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Bar', 'suki' ),
+					'search-dropdown'     => '<span class="dashicons dashicons-search"></span>' . esc_html__( 'Search Icon', 'suki' ),
+					'social'              => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+					'mobile-popup-toggle' => '<span class="dashicons dashicons-menu"></span>' . esc_html__( 'Toggle', 'suki' ),
+				),
+				'limitations' => array(
+					'mobile-logo'         => array( 'vertical_top' ),
+					'mobile-menu'         => array( 'main_left', 'main_center', 'main_right' ),
+					'search-bar'          => array( 'main_left', 'main_center', 'main_right' ),
+					'search-dropdown'     => array( 'vertical_top' ),
+					'mobile-popup-toggle' => array( 'vertical_top' ),
+				),
+			),
+		),
+		'2.0.0'
+	);
+
+	ksort( $config['choices'] );
+
+	return $config;
+}
+
+/**
+ * [DEPRECATED]
+ *
+ * @deprecated 2.0.0 Footer builder now uses `suki/dataset/footer_builder/elements` and `suki/dataset/footer_builder/areas` filter to populate elements.
+ *
+ * @return array
+ */
+function suki_get_footer_builder_configurations() {
+	_deprecated_function( __FUNCTION__, '2.0.0' );
+
+	/**
+	 * [DEPRECATED]
+	 *
+	 * Filter: suki/dataset/footer_builder_configurations
+	 *
+	 * @deprecated 2.0.0
+	 *
+	 * @param array $config Configurations array.
+	 */
+	$config = apply_filters_deprecated(
+		'suki/dataset/footer_builder_configurations',
+		array(
+			array(
+				'locations' => array(
+					'bottom_left'   => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
+					'bottom_center' => esc_html__( 'Center', 'suki' ),
+					'bottom_right'  => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
+				),
+				'choices'   => array(
+					'copyright' => '<span class="dashicons dashicons-editor-code"></span>' . esc_html__( 'Copyright', 'suki' ),
+					/* translators: %s: instance number. */
+					'menu-1'    => '<span class="dashicons dashicons-admin-links"></span>' . sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
+					/* translators: %s: instance number. */
+					'html-1'    => '<span class="dashicons dashicons-editor-code"></span>' . sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+					'social'    => '<span class="dashicons dashicons-twitter"></span>' . esc_html__( 'Social', 'suki' ),
+				),
+			),
+		),
+		'2.0.0',
+	);
+
+	ksort( $config['choices'] );
+
+	return $config;
+}
+
+/**
+ * [DEPRECATED]
+ *
+ * @deprecated 2.0.0 Default colors in PHP are now available using CSS custom properties names, e.g. var(--color-palette-x).
+ *
+ * @return array
+ */
+function suki_get_default_colors() {
+	_deprecated_function( __FUNCTION__, '2.0.0' );
+
+	/**
+	 * [DEPRECATED]
+	 *
+	 * Filter: suki/dataset/default_colors
+	 *
+	 * @deprecated 2.0.0
+	 *
+	 * @param array $colors Colors array.
+	 */
+	$colors = apply_filters_deprecated(
+		'suki/dataset/default_colors',
+		array(
+			array(
+				'transparent' => 'rgba(0,0,0,0)',
+				'white'       => '#ffffff',
+				'black'       => '#000000',
+				'accent'      => '#0066cc',
+				'accent2'     => '#004c99',
+				'bg'          => '#ffffff',
+				'text'        => '#666666',
+				'heading'     => '#333333',
+				'subtle'      => 'rgba(0,0,0,0.05)',
+				'border'      => 'rgba(0,0,0,0.1)',
+			),
+		),
+		'2.0.0'
+	);
+
+	return $colors;
+}
+
+
+/**
+ * [DEPRECATED]
+ *
  * @deprecated 2.0.0 Replace `suki_build_google_fonts_embed_url` with `Suki_Google_Fonts::instance()->generate_embed_url`.
  *
  * @param array $google_fonts Array of Google Fonts families.
