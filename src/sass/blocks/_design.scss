@@ -91,10 +91,7 @@
 
 	display: flex;
 	flex-wrap: wrap;
-
-	// Ensure full vertical column stretch when alignment is not set.
-	// This overrides the Layout block support's default align-items setting of `center`.
-	align-items: initial !important;
+	align-items: flex-start;
 
 	// &:not([class*="are-vertically-aligned-"]) {
 	// 	align-items: flex-start;
@@ -164,7 +161,7 @@
 }
 
 :where(.wp-block-columns):not(.is-not-stacked-on-mobile) > :where(.wp-block-column) {
-	@media screen and ( max-width: ( $breakpoint-phone - 1px ) ) {
+	@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
 		// Responsiveness: Show at most one columns on mobile. This must be
 		// important since the Column assigns its own width as an inline style.
 		flex-basis: 100% !important;

@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+ob_start();
 ?>
 <!-- wp:group {
 	"tagName":"aside",

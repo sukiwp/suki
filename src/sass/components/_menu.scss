@@ -10,7 +10,7 @@
 
 	position: relative; // Used for sub menu positioning
 	display: flex;
-	gap: var(--wp--style--block-gap);
+	gap: var(--block-spacing);
 
 	> .menu-item {
 		position: relative;
@@ -58,7 +58,7 @@
 	background-color: var(--background-color);
 	color: var(--text-color);
 	box-shadow: 0 0.1rem 1rem rgba(0,0,0,0.1);
-	
+
 	// Hide on normal state
 	@include hide();
 

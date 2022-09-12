@@ -36,15 +36,15 @@ class Suki_Breadcrumb extends Suki_Module {
 		parent::__construct();
 
 		/**
-		 * Customizer settings & values
+		 * Customizer
 		 */
 
-		// Add breadcrumb as Content Header elements on all page types (Customizer).
+		// Add breadcrumb as content header elements on all page types (Customizer).
 		foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key => $page_type_data ) {
 			add_filter( 'suki/dataset/' . $page_type_key . '_content_header_elements', array( $this, 'add_content_header_elements' ) );
 		}
 
-		// Add breadcrumb as Header Builder elements (Customizer).
+		// Add breadcrumb as header builder elements (Customizer).
 		add_filter( 'suki/dataset/header_builder/elements', array( $this, 'add_header_builder_elements' ) );
 
 		// Add Customizer options.
@@ -60,10 +60,10 @@ class Suki_Breadcrumb extends Suki_Module {
 		 * Frontend
 		 */
 
-		// Add breadcrumb HTML to Content Header rendering filter.
+		// Add breadcrumb HTML to content header rendering filter.
 		add_filter( 'suki/frontend/content_header_element/breadcrumb', array( $this, 'get_html' ) );
 
-		// Add breadcrumb HTML to Header element rendering filter.
+		// Add breadcrumb HTML to header element rendering filter.
 		add_filter( 'suki/frontend/header_element/breadcrumb', array( $this, 'get_html' ) );
 	}
 
@@ -387,7 +387,7 @@ class Suki_Breadcrumb extends Suki_Module {
 	 */
 
 	/**
-	 * Add breadcrumb as Content Header elements.
+	 * Add breadcrumb as content header elements.
 	 *
 	 * @param array $elements Elements array.
 	 * @return array
@@ -399,7 +399,7 @@ class Suki_Breadcrumb extends Suki_Module {
 	}
 
 	/**
-	 * Add breadcrumb as Header Builder elements.
+	 * Add breadcrumb as header builder elements.
 	 *
 	 * @param array $elements Elements array.
 	 * @return array

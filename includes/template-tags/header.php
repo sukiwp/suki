@@ -34,12 +34,11 @@ if ( ! function_exists( 'suki_header' ) ) {
 			?>
 			<!-- wp:group {
 				"tagName":"header",
-				"align":"full",
 				"className":"<?php echo esc_attr( $classes ); ?>",
 				"layout":{
 					"inherit":true
 				}
-			} --><header id="masthead" class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
+			} --><header id="masthead" class="wp-block-group <?php echo esc_attr( $classes ); ?>" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
 
 				<?php
 				/**

@@ -16,13 +16,16 @@
 }
 
 .suki-content-sidebar-columns {
-	display: flex;
-	flex-direction: column;
-	gap: calc( 2 * var(--wp--style--block-gap) ); // CUSTOMIZER
+	--sidebar-width: 25%; // CUSTOMIZER
+	--sidebar-gap: calc( 2 * var(--block-spacing) ); // CUSTOMIZER
+
+	gap: var(--sidebar-gap);
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		flex-wrap: wrap; // Override default wp-block-columns style.
+	}
 
 	@media screen and ( min-width: $breakpoint-desktop ) {
-		display: flex;
-		flex-direction: row;
 		flex-wrap: nowrap;
 		align-items: flex-start;
 
@@ -33,22 +36,28 @@
 }
 
 .suki-main-column {
+	flex-basis: 100%; // Override default wp-block-columns style.
+
 	@media screen and ( min-width: $breakpoint-desktop ) {
-		flex-grow: 1;
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: calc( 100% - var(--sidebar-width) - var(--sidebar-gap) );
 	}
 }
 
 .suki-sidebar-column {
+	flex-basis: 100%; // Override default wp-block-columns style.
+
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: 25%; // CUSTOMIZER
+		flex-basis: var(--sidebar-width);
 	}
 }
 
 .sidebar {
 	> * + * {
-		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+		margin-block-start: calc( 1.5 * var(--block-spacing) ); // CUSTOMIZER
 	}
 }
 

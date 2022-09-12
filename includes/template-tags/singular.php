@@ -141,11 +141,7 @@ if ( ! function_exists( 'suki_comments' ) ) {
 			} -->
 
 				<!-- wp:group {
-					"className":"suki-comment",
-					"layout":{
-						"type":"flex",
-						"orientation":"vertical"
-					}
+					"className":"suki-comment"
 				} --><div class="wp-block-group suki-comment">
 
 					<!-- wp:group {

@@ -17,12 +17,13 @@ if ( ! function_exists( 'suki_content' ) ) {
 	/**
 	 * Render content section with the specified main content.
 	 *
-	 * @param string  $main_content Main content.
-	 * @param boolean $do_blocks    Parse blocks or not.
-	 * @param boolean $echo         Render or return.
+	 * @param string  $main_content    Main content.
+	 * @param string  $sidebar_context Sidebar context.
+	 * @param boolean $do_blocks       Parse blocks or not.
+	 * @param boolean $echo            Render or return.
 	 * @return string
 	 */
-	function suki_content( $main_content, $do_blocks = true, $echo = true ) {
+	function suki_content( $main_content, $sidebar_context = '', $do_blocks = true, $echo = true ) {
 		ob_start();
 
 		/**
@@ -49,12 +50,11 @@ if ( ! function_exists( 'suki_content' ) ) {
 		);
 		?>
 		<!-- wp:group {
-			"align":"full",
 			"className":"<?php echo esc_attr( $classes ); ?>",
 			"layout":{
 				"inherit":<?php echo esc_attr( $has_sidebar ? true : false ); ?>
 			}
-		} --><div id="content" class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>">
+		} --><div id="content" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 			<?php
 			/**
@@ -87,7 +87,10 @@ if ( ! function_exists( 'suki_content' ) ) {
 			?>
 			<!-- wp:group {
 				"tagName":"main",
-				"className":"site-main"
+				"className":"site-main",
+				"layout":{
+					"inherit":true
+				}
 			} --><main id="primary" class="wp-block-group site-main">
 
 				<?php
@@ -126,7 +129,7 @@ if ( ! function_exists( 'suki_content' ) ) {
 						/**
 						 * Sidebar
 						 */
-						get_sidebar();
+						get_sidebar( $sidebar_context );
 						?>
 
 					</div><!-- /wp:column -->
@@ -325,6 +328,8 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 			return;
 		}
 
+		$html = '';
+
 		switch ( $element ) {
 			case 'title':
 				// Singular pages.
@@ -487,6 +492,8 @@ if ( ! function_exists( 'suki_content_footer_element' ) ) {
 		if ( empty( $element ) ) {
 			return;
 		}
+
+		$html = '';
 
 		switch ( $element ) {
 			case 'tags':

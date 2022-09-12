@@ -11,15 +11,23 @@
 	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
 }
 
+.entry-title {
+	@extend %title;
+}
+
+.entry-small-title {
+	@extend %small-title;
+}
+
 .entry-layout-default {
 	> * + * {
-		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
+		margin-block-start: calc( 1.5 * var(--block-spacing) );
 	}
 }
 
 :is(.entry-header, .entry-footer) {
 	:is(.suki-meta, .suki-title, .suki-small-title):not(:first-child) {
-		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
+		margin-block-start: calc( 0.5 * var(--block-spacing) );
 	}
 }
 
@@ -69,8 +77,8 @@
  */
 
 .suki-author-bio {
-	margin-top: calc( 3 * var(--wp--style--block-gap) );
-	padding: var(--wp--style--block-gap);
+	margin-top: calc( 3 * var(--block-spacing) );
+	padding: var(--block-spacing);
 	border: 1px solid var(--border-color);
 
 	.wp-block-post-author__name {
@@ -85,7 +93,7 @@
  */
 
 .suki-post-navigation {
-	margin-top: calc( 3 * var(--wp--style--block-gap) );
+	margin-top: calc( 3 * var(--block-spacing) );
 }
 
 /**
@@ -93,10 +101,10 @@
  */
 
 .suki-comments {
-	margin-top: calc( 3 * var(--wp--style--block-gap) );
+	margin-top: calc( 3 * var(--block-spacing) );
 
 	> * + * {
-		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
+		margin-block-start: calc( 1.5 * var(--block-spacing) );
 	}
 }
 

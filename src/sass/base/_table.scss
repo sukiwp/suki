@@ -7,13 +7,13 @@ table {
 	border-collapse: collapse;
 	border: 1px solid var(--border-color);
 
-	margin-block: var(--wp--style--block-gap);
+	margin-block: var(--block-spacing);
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
 }
 
 th, td {
-	padding: 0.5rem 0.75rem;
+	padding: 0.5em 0.75em;
 	border: 1px solid;
 	border-color: inherit;
 }

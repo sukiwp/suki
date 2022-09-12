@@ -37,7 +37,7 @@
 
 .wp-block-latest-posts {
 	&:where(.has-author, .has-dates) {
-		gap: calc( 0.75 * var(--wp--style--block-gap) );
+		gap: calc( 0.75 * var(--block-spacing) );
 	}
 
 	li {
@@ -49,7 +49,7 @@
 	}
 
 	&__featured-image {
-		margin-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+		margin-bottom: calc( 0.5 * var(--block-spacing) );
 
 		a {
 			display: inline-block;
@@ -61,17 +61,17 @@
 
 		&.alignleft {
 			/*rtl:ignore*/
-			margin-right: calc( 0.5 * var(--wp--style--block-gap) ) !important; // Use !important because WP generates inline CSS for alignleft (margin-right: 2em) which has high specificity
+			margin-right: calc( 0.5 * var(--block-spacing) ) !important; // Use !important because WP generates inline CSS for alignleft (margin-right: 2em) which has high specificity
 		}
 
 		&.alignright {
 			/*rtl:ignore*/
-			margin-left: calc( 0.5 * var(--wp--style--block-gap) ) !important; // Use !important because WP generates inline CSS for alignright (margin-left: 2em) which has high specificity
+			margin-left: calc( 0.5 * var(--block-spacing) ) !important; // Use !important because WP generates inline CSS for alignright (margin-left: 2em) which has high specificity
 		}
 
 		&.aligncenter {
 			text-align: center;
-			margin-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+			margin-bottom: calc( 0.5 * var(--block-spacing) );
 		}
 	}
 
@@ -93,11 +93,11 @@
 	}
 
 	&__post-excerpt {
-		margin-top: calc( 0.25 * var(--wp--style--block-gap) );
+		margin-top: calc( 0.25 * var(--block-spacing) );
 
 		// Because latest posts doesn't have .has-excerpts indicator, we can't modify the list gap
 		li:not(:last-child) > & {
-			margin-bottom: calc( 0.25 * var(--wp--style--block-gap) );
+			margin-bottom: calc( 0.25 * var(--block-spacing) );
 		}
 
 		.widget & {
@@ -107,7 +107,7 @@
 	}
 
 	&.is-grid {
-		--gap: var(--wp--style--block-gap);
+		--gap: var(--block-spacing);
 
 		display: grid;
 		gap: var(--gap);
@@ -147,7 +147,7 @@
 
 .wp-block-latest-comments {
 	&:where(.has-dates, .has-avatars, .has-excerpts) {
-		gap: calc( 0.75 * var(--wp--style--block-gap) );
+		gap: calc( 0.75 * var(--block-spacing) );
 	}
 
 	&__comment {
@@ -173,7 +173,7 @@
 	}
 
 	&__comment-excerpt {
-		margin-top: calc(0.25 * var(--wp--style--block-gap));
+		margin-top: calc(0.25 * var(--block-spacing));
 
 		> * {
 			margin: 0;
@@ -192,7 +192,7 @@
 
 .wp-block-rss {
 	&:where(.has-dates, .has-avatars, .has-excerpts) {
-		gap: calc( 0.75 * var(--wp--style--block-gap) );
+		gap: calc( 0.75 * var(--block-spacing) );
 	}
 
 	li {
@@ -200,7 +200,7 @@
 			display: inline-block;
 
 			&:only-child {
-				margin-bottom: calc( -0.25 * var(--wp--style--block-gap) );
+				margin-bottom: calc( -0.25 * var(--block-spacing) );
 			}
 		}
 	}
@@ -223,7 +223,7 @@
 	}
 
 	&__item-excerpt {
-		margin-top: calc( 0.25 * var(--wp--style--block-gap) );
+		margin-top: calc( 0.25 * var(--block-spacing) );
 
 		.widget & {
 			font-size: var(--wp--preset--font-size--small);

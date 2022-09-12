@@ -30,6 +30,8 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 			$layout = 'default';
 		}
 
+		$html = '';
+
 		switch ( $element ) {
 			case 'title':
 				$html = '
@@ -239,6 +241,8 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 	 * @return string
 	 */
 	function suki_entry_meta_element( $element, $do_blocks = true, $echo = true ) {
+		$html = '';
+
 		switch ( $element ) {
 			case 'date':
 				$html = '

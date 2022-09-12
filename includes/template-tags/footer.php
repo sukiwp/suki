@@ -33,12 +33,11 @@ if ( ! function_exists( 'suki_footer' ) ) {
 			?>
 			<!-- wp:group {
 				"tagName":"footer",
-				"align":"full",
 				"className":"suki-footer site-footer",
 				"layout":{
 					"inherit":true
 				}
-			} --><footer id="colophon" class="wp-block-group alignfull suki-footer site-footer" aria-label="<?php esc_attr_e( 'Site Footer', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPFooter">
+			} --><footer id="colophon" class="wp-block-group suki-footer site-footer" aria-label="<?php esc_attr_e( 'Site Footer', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPFooter">
 
 				<?php
 				/**

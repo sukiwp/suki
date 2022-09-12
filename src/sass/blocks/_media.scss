@@ -36,7 +36,7 @@
  */
 
 .wp-block-gallery {
-	--wp--style--gallery-gap-default: var(--wp--style--block-gap);
+	--wp--style--gallery-gap-default: var(--block-spacing);
 
 	&.has-nested-images { // Use this selector to override WP default layout container CSS.
 		align-items: normal;
@@ -179,7 +179,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: var(--wp--style--block-gap);
+	padding: var(--block-spacing);
 	isolation: isolate;
 
 	background-size: cover;
@@ -420,7 +420,7 @@
 
 	&__content {
 		grid-area: content;
-		padding: clamp( var(--wp--style--block-gap), 10%, calc( 1.5 * var(--wp--style--block-gap) ) );
+		padding: clamp( var(--block-spacing), 10%, calc( 1.5 * var(--block-spacing) ) );
 	}
 
 	&.is-stacked-on-mobile {

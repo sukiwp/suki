@@ -3,7 +3,7 @@
 	// Color palette (default)
 	--color-palette-1: #222222;
 	--color-palette-2: #444444;
-	--color-palette-3: #666666;
+	--color-palette-3: #6c6c6c;
 	--color-palette-4: #0055cc;
 	--color-palette-5: #004099;
 	--color-palette-6: #cccccc;
@@ -126,24 +126,6 @@
 		clear: both;
 	}
 }
-
-// @mixin block-container {
-// 	max-width: none !important;
-
-// 	> :where(*) {
-// 		max-width: min( 100%, var(--content-width--narrow) );
-
-// 		&:where(:not(.alignleft, .alignright) ) {
-// 			margin-left: auto !important;
-// 			margin-right: auto !important;
-// 			margin-top: var(--wp--style--block-gap);
-// 			margin-bottom: 0;
-
-// 			@include remove-margin-top-for-first-child();
-// 			@include remove-margin-bottom-for-last-child();
-// 		}
-// 	}
-// }
 
 // Remove top margin of an element if it's the first child
 @mixin remove-margin-top-for-first-child() {
@@ -280,7 +262,7 @@
 // Padding when element has .has-background
 @mixin padding-for-has-background() {
 	&:where(.has-background) {
-		padding: var(--wp--style--block-gap);
+		padding: var(--block-spacing);
 	}
 }
 
@@ -288,7 +270,7 @@
 @mixin max-width-for-alignleft-alignright() {
 	// Apply max-width to floated items that have no intrinsic width.
 	&:where(.alignleft, .alignright) {
-		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) ); // Fix value, only overrideable via custom CSS
+		max-width: calc( 50% - ( var(--block-spacing) / 2 ) ); // Fix value, only overrideable via custom CSS
 		width: 100%;
 	}
 }

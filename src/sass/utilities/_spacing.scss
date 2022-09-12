@@ -34,7 +34,7 @@ $i: 0;
 	@if 0 == $i {
 		$value: 0;
 	} @else if 100 == $i {
-		$value: var(--wp--style--block-gap);
+		$value: var(--block-spacing);
 	}
 
 	.suki-has-padding--#{$i} {

@@ -51,7 +51,8 @@ body {
 }
 
 *::placeholder {
-	opacity: 0.75;
+	opacity: 0.5;
+	color: currentColor;
 }
 
 hr {
@@ -59,7 +60,7 @@ hr {
 	border-bottom: 1px solid var(--border-color);
 	border-color: var(--border-color);
 
-	margin-block: var(--wp--style--block-gap);
+	margin-block: var(--block-spacing);
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
 }

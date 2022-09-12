@@ -662,8 +662,8 @@ $add['content_main_border_color'] = array(
 $add['sidebar_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-content-sidebar-column',
-		'property' => 'flex-basis',
+		'element'  => '.suki-content-sidebar-columns',
+		'property' => '--sidebar-width',
 	),
 );
 
@@ -671,7 +671,7 @@ $add['sidebar_gap'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.suki-content-sidebar-columns',
-		'property' => 'gap',
+		'property' => '--sidebar-gap',
 	),
 );
 
@@ -2100,7 +2100,6 @@ $add['blog_index_grid_rows_gap'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-grid',
 		'property' => 'row-gap',
-		// 'pattern'  => '$ !important',
 	),
 );
 
@@ -2109,7 +2108,6 @@ $add['blog_index_grid_columns_gap'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-loop-grid',
 		'property' => 'column-gap',
-		// 'pattern'  => '$ !important',
 	),
 );
 

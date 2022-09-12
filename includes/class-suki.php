@@ -85,6 +85,9 @@ class Suki {
 		 * Include more files.
 		 */
 
+		// Deprecated functions.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'deprecated.php';
+
 		// Helper functions.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'helpers.php';
 
@@ -128,9 +131,6 @@ class Suki {
 		if ( is_admin() ) {
 			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'admin/class-suki-admin.php';
 		}
-
-		// Deprecated.
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'deprecated.php';
 	}
 
 	/**

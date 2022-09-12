@@ -8,7 +8,7 @@
 
 :where( ul, ol ) {
 	&.has-background {
-		padding-left: calc( 2 * var(--wp--style--block-gap) );
+		padding-left: calc( 2 * var(--block-spacing) );
 	}
 }
 
@@ -199,7 +199,7 @@
 	&.alignright {
 		display: table;
 		width: auto;
-		max-width: calc( ( var(--content-width--narrow) / 2 ) - ( var(--wp--style--block-gap) / 2 ) );; // Fix value, only overrideable via custom CSS
+		max-width: calc( ( var(--content-width--narrow) / 2 ) - ( var(--block-spacing) / 2 ) );; // Fix value, only overrideable via custom CSS
 
 		th, td {
 			word-break: break-word;

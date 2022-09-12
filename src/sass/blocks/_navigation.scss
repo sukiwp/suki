@@ -102,11 +102,11 @@
 		flex-wrap: var(--flex-wrap);
 		align-items: var(--flex-align);
 		justify-content: var(--flex-justify);
-		gap: var(--wp--style--block-gap);
+		gap: var(--block-spacing);
 
 		// > * {
-		// 	padding: calc( 0.5 * var(--wp--style--block-gap) ) 0;
-		// 	margin: calc( -0.5 * var(--wp--style--block-gap) ) 0;
+		// 	padding: calc( 0.5 * var(--block-spacing) ) 0;
+		// 	margin: calc( -0.5 * var(--block-spacing) ) 0;
 		// }
 	}
 
@@ -165,14 +165,14 @@
 		}
 
 		.wp-block-navigation-item {
-			padding: calc( 0.25 * var(--wp--style--block-gap) ) var(--wp--style--block-gap);
+			padding: calc( 0.25 * var(--block-spacing) ) var(--block-spacing);
 
 			&:first-child {
-				padding-top: calc( 0.5 * var(--wp--style--block-gap) );
+				padding-top: calc( 0.5 * var(--block-spacing) );
 			}
 
 			&:last-child {
-				padding-bottom: calc( 0.5 * var(--wp--style--block-gap) );
+				padding-bottom: calc( 0.5 * var(--block-spacing) );
 			}
 		}
 
@@ -232,8 +232,8 @@
 		position: fixed;
 
 		overflow: auto;
-		padding: clamp( var(--wp--style--block-gap), 5%, calc( 3 * var(--wp--style--block-gap) ) );
-		padding-top: calc( 3 * var(--wp--style--block-gap) );
+		padding: clamp( var(--block-spacing), 5%, calc( 3 * var(--block-spacing) ) );
+		padding-top: calc( 3 * var(--block-spacing) );
 		background-color: inherit;
 		z-index: 100;
 
@@ -251,7 +251,7 @@
 			flex-wrap: nowrap;
 			align-items: var(--flex-justify);
 			justify-content: flex-start;
-			gap: var(--wp--style--block-gap);
+			gap: var(--block-spacing);
 		}
 
 		// Menu container
@@ -260,7 +260,7 @@
 			flex-wrap: nowrap;
 			align-items: var(--flex-justify);
 			justify-content: flex-start;
-			gap: calc( 0.5 * var(--wp--style--block-gap) );
+			gap: calc( 0.5 * var(--block-spacing) );
 			background-color: transparent !important;
 
 			> * {
@@ -293,19 +293,19 @@
 			flex-wrap: nowrap;
 			align-items: var(--flex-justify);
 			justify-content: flex-start;
-			gap: calc( 0.5 * var(--wp--style--block-gap) );
-			padding-top: calc( 0.5 * var(--wp--style--block-gap) );
+			gap: calc( 0.5 * var(--block-spacing) );
+			padding-top: calc( 0.5 * var(--block-spacing) );
 
 			// Reset
 			margin: 0;
 			box-shadow: none;
 
 			.wp-block-navigation.items-justified-left & {
-				padding-left: var(--wp--style--block-gap);
+				padding-left: var(--block-spacing);
 			}
 
 			.wp-block-navigation.items-justified-right & {
-				padding-right: var(--wp--style--block-gap);
+				padding-right: var(--block-spacing);
 			}
 		}
 
@@ -329,7 +329,7 @@
 			flex-wrap: var(--flex-wrap);
 			align-items: var(--flex-align);
 			justify-content: var(--flex-justify);
-			gap: var(--wp--style--block-gap);
+			gap: var(--block-spacing);
 
 			> * {
 				margin-top: 0;
@@ -372,8 +372,8 @@
 		&-close {
 			display: none;
 			position: absolute;
-			top: var(--wp--style--block-gap);
-			right: var(--wp--style--block-gap);
+			top: var(--block-spacing);
+			right: var(--block-spacing);
 			z-index: 2; // Needs to be above the modal z index itself.
 		}
 

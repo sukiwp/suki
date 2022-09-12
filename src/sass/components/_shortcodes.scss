@@ -4,7 +4,7 @@
 
 .gallery {
 	display: grid;
-	gap: calc( 0.5 * var(--wp--style--block-gap) );
+	gap: calc( 0.5 * var(--block-spacing) );
 
 	@for $i from 2 through 9 {
 		&-columns-#{$i} {

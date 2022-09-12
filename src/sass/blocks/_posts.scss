@@ -16,7 +16,7 @@
 	margin: 0;
 
 	&:where(.is-flex-container) {
-		gap: calc( 1.5 * var(--wp--style--block-gap) );
+		gap: calc( 1.5 * var(--block-spacing) );
 
 		@media screen and ( min-width: $breakpoint-phone ) {
 			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
@@ -58,7 +58,7 @@
 	display: grid;
 	grid-auto-flow: row;
 	grid-template-columns: auto 1fr;
-	gap: var(--wp--style--block-gap);
+	gap: var(--block-spacing);
 	text-align: center;
 
 	@media screen and ( min-width: $breakpoint-phone ) {
@@ -79,7 +79,7 @@
 	}
 
 	&__bio {
-		margin-top: calc( 0.5 * var(--wp--style--block-gap) );
+		margin-top: calc( 0.5 * var(--block-spacing) );
 	}
 
 	&__byline {
