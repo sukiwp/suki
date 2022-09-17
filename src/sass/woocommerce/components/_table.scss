@@ -1,0 +1,130 @@
+/**
+ * Table (.shop_table)
+ */
+
+.woocommerce table.shop_table {
+	border-width: 0;
+
+	:is( th, td ) {
+		border-width: 0; // No border by default
+		vertical-align: top;
+
+		&:first-child {
+			padding-inline-start: 0;
+		}
+
+		&:last-child {
+			padding-inline-end: 0;
+		}
+	}
+
+	tr {
+		&:first-child {
+			:is( th, td ) {
+				border-top-width: 1px; // Add top border to first row
+			}
+		}
+
+		&:last-child {
+			:is( th, td ) {
+				border-bottom-width: 1px; // Add bottom border to last row
+			}
+		}
+	}
+
+	th {
+		text-align: unset; // Reset
+		font-weight: 600;
+	}
+
+	.cart_item {
+		:is( th, td ) {
+			> * {
+				margin-block: 0;
+			}
+
+			> * + * {
+				margin-block-start: calc( 0.5 * var(--block-spacing) );
+			}
+		}
+	}
+
+	.woocommerce-shipping-methods {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+
+	.woocommerce-shipping-calculator {
+		.shipping-calculator-form {
+			margin-block-start: calc( 0.5 * var(--block-spacing) );
+
+			> * {
+				margin-block: 0;
+			}
+
+			> * + * {
+				margin-block-start: calc( 0.5 * var(--block-spacing) );
+			}
+		}
+	}
+
+	.product-remove {
+		width: 0;
+	}
+
+	.product-thumbnail {
+		width: 7em;
+	}
+
+	.product-name {
+		> *:first-child ~ * {
+			margin-block-start: 0;
+			margin-block-end: 0;
+
+			@include meta-typography();
+			@include meta-color();
+		}
+
+		.variation {
+			display: block;
+
+			> * {
+				display: inline-block;
+			}
+
+			dd {
+				margin: 0;
+			}
+
+			p {
+				margin: 0;
+			}
+		}
+
+		.wc-item-meta {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: block;
+
+			> * {
+				display: block;
+			}
+
+			strong {
+				display: inline-block;
+				font-weight: unset;
+			}
+
+			p {
+				display: inline-block;
+				margin: 0;
+			}
+		}
+	}
+}

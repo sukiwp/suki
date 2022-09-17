@@ -815,7 +815,7 @@ $add['hero_container'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-hero',
-		'pattern' => 'suki-section-$',
+		'pattern' => 'suki-section--$',
 	),
 );
 
@@ -1053,7 +1053,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'    => 'class',
 			'element' => '.suki-header-' . $bar . '-bar',
-			'pattern' => 'suki-section-$',
+			'pattern' => 'suki-section--$',
 		),
 	);
 
@@ -1649,7 +1649,7 @@ $add['footer_widgets_bar_container'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-footer-widgets-bar',
-		'pattern' => 'suki-section-$',
+		'pattern' => 'suki-section--$',
 	),
 );
 
@@ -1785,7 +1785,7 @@ $add['footer_bottom_bar_container'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-footer-bottom-bar',
-		'pattern' => 'suki-section-$',
+		'pattern' => 'suki-section--$',
 	),
 );
 

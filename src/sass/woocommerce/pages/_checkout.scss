@@ -1,0 +1,304 @@
+/**
+ * Checkout shortcode
+ */
+
+.woocommerce-checkout {
+	/**
+	 * Checkout page
+	 */
+
+	.woocommerce-form-coupon-toggle {
+		.woocommerce-info {
+			padding: var(--block-spacing);
+
+			&:before {
+				display: none;
+			}
+		}
+
+		+ .woocommerce-form-coupon {
+			margin-block-start: 0;
+			padding-block-start: 0;
+		}
+	}
+
+	.woocommerce-form-coupon {
+		margin-block: var(--block-spacing);
+		background-color: var(--subtle-background-color);
+		padding: var(--block-spacing);
+
+		> p:first-child {
+			display: none;
+		}
+
+		:is( .form-row-first, .form-row-last ) {
+			display: inline-block;
+			margin-block: 0; // Reset
+			width: auto; // Reset
+			float: none; // Reset
+			padding: 0; // Reset
+		}
+
+		~ .checkout {
+			margin-block-start: calc( 2 * var(--block-spacing) );
+		}
+	}
+
+	.checkout {
+		margin-block: var(--block-spacing);
+
+		.col2-set {
+			display: block; // Reset
+
+			:is( .col-1, .col-2 ) {
+				width: unset;
+			}
+
+			.col-2 {
+				margin-block-start: calc( 2 * var(--block-spacing) );
+			}
+		}
+	}
+
+	#order_review_heading {
+		margin-block-start: calc( 2 * var(--block-spacing) );
+	}
+
+	.woocommerce-checkout-review-order-table {
+		tbody {
+			:is( th, td ) {
+				border-width: 0;
+			}
+		}
+	}
+
+	.woocommerce-terms-and-conditions-wrapper {
+		@include meta-typography();
+		@include meta-color();
+	}
+
+	.place-order {
+		margin-block-end: 0; // When block overlay added, this form-row is no longer the last child, so we need to add this CSS manually
+
+		#place_order {
+			width: 100%;
+			font-size: calc( 1.2 * var(--button--font-size, var(--base--font-size)) );
+			margin-block-start: calc( 1.5 * var(--block-spacing) );
+		}
+	}
+
+	.woocommerce-checkout-payment {
+		margin-block-start: calc( 1.5 * var(--block-spacing) );
+
+		.payment_methods {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			display: flex;
+			flex-direction: column;
+			gap: 0.25em;
+
+			.wc_payment_method {
+				position: relative;
+				background-color: var(--subtle-background-color);
+				padding: 0.75em;
+
+				input[name="payment_method"] {
+					display: none;
+					position: absolute;
+					top: 1em;
+					left: 1em;
+				}
+
+				label {
+					margin: -0.75em;
+					padding: 0.75em;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					font-weight: 600;
+				}
+
+				&:not(:only-child) {
+					padding-inline-start: 2.75em;
+
+					label {
+						margin-inline-start: -2.75em;
+						padding-inline-start: 2.75em;
+						cursor: pointer;
+					}
+
+					input[name="payment_method"] {
+						display: unset;
+					}
+				}
+
+				img {
+					vertical-align: middle;
+					margin-inline-start: 0.5em;
+					height: 1.5em;
+
+					& + img {
+						margin-inline-start: 0.25em;
+					}
+				}
+
+				.payment_box {
+					position: relative; // Make it a front layer
+					margin-block-start: 0.5em;
+
+					@include meta-typography();
+					@include meta-color();
+
+					> * {
+						margin-block: 0.5em;
+
+						@include remove-margin-top-for-first-child();
+						@include remove-margin-bottom-for-last-child();
+					}
+
+					/**
+					 * Unknown elements
+					 */
+
+					.woocommerce-SavedPaymentMethods {
+						list-style: none;
+						margin: 0;
+						padding: 0;
+
+						.woocommerce-SavedPaymentMethods-token,
+						.woocommerce-SavedPaymentMethods-new {
+							margin: 0 0 0.5em;
+
+							label {
+								cursor: pointer;
+							}
+						}
+
+						.woocommerce-SavedPaymentMethods-tokenInput {
+							vertical-align: middle;
+							margin: -3px 1em 0 0;
+							position: relative;
+						}
+					}
+
+					.wc-credit-card-form {
+						border: 0;
+						padding: 0;
+						margin: 1em 0 0;
+					}
+
+					.wc-credit-card-form-card-number,
+					.wc-credit-card-form-card-expiry,
+					.wc-credit-card-form-card-cvc {
+						font-size: 1.5em;
+						padding: 8px;
+						background-repeat: no-repeat;
+						background-position: right 0.618em center;
+						background-size: 32px 20px;
+
+						&.visa {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/visa.svg");
+						}
+
+						&.mastercard {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/mastercard.svg");
+						}
+
+						&.laser {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/laser.svg");
+						}
+
+						&.dinersclub {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/diners.svg");
+						}
+
+						&.maestro {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/maestro.svg");
+						}
+
+						&.jcb {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/jcb.svg");
+						}
+
+						&.amex {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/amex.svg");
+						}
+
+						&.discover {
+							background-image: url("../../../../plugins/woocommerce/assets/images/icons/credit-cards/discover.svg");
+						}
+					}
+
+					span.help {
+						font-size: 0.857em;
+						// color: $subtext;
+						font-weight: normal;
+					}
+				}
+
+				.payment_method_paypal {
+					.about_paypal {
+						margin-inline-start: auto;
+						font-weight: normal;
+						float: right;
+						font-size: 0.85em;
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * 2 columns checkout
+	 */
+
+	.suki-woocommerce-checkout-2-columns {
+		--gap: calc( 3 * var(--block-spacing) );
+
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		gap: var(--gap);
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+
+		&:not(:last-child) {
+			margin-block-end: var(--gap);
+		}
+
+		&__column {
+			@media screen and ( min-width: $breakpoint-tablet ) {
+				&--left {
+					flex-basis: 60%;
+				}
+
+				&--right {
+					flex-basis: calc( 40% - var(--gap) );
+					padding: calc( 1.25 * var(--block-spacing) );
+					border-width: 1px;
+					border-style: solid;
+				}
+			}
+		}
+
+		#order_review_heading {
+			margin-block-start: 0;
+		}
+	}
+}
+
+/**
+ * Order details page
+ */
+
+.woocommerce {
+	.woocommerce-thankyou-order-received {
+		@include small-title-typography();
+		@include small-title-color();
+	}
+}

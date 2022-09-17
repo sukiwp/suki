@@ -1,0 +1,65 @@
+/**
+ * Spin animation
+ */
+
+@keyframes spin {
+	100% {
+		transform: rotate( 360deg );
+	}
+}
+
+/**
+ * Stripe animation
+ */
+
+@keyframes button-loading-background {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(1.75em);
+	}
+}
+
+/**
+ * Cart count pulse animation
+ */
+
+@keyframes cart-count-pulse {
+	0% {
+		transform: scale( 1 );
+	}
+	50% {
+		transform: scale( 1.2 );
+	}
+}
+
+/**
+ * Loader screen
+ */
+
+.woocommerce .blockUI.blockOverlay {
+	position: relative;
+}
+
+.woocommerce .blockUI.blockOverlay,
+.woocommerce .loader {
+	&:before {
+		height: 1em;
+		width: 1em;
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-inline-start: -0.5em;
+		margin-block-start: -0.5em;
+		content: '';
+		animation: spin 1s ease-in-out infinite;
+		background: url('../../../../plugins/woocommerce/assets/images/icons/loader.svg') center center;
+		background-size: cover;
+		line-height: 1;
+		text-align: center;
+		font-size: 2em;
+		color: rgba(#000, 0.75);
+	}
+}

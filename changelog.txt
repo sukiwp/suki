@@ -11,6 +11,7 @@ v2.0.0
 - [TWEAK] Template files: Remove some page template files (`archive.php`, `home.php`, `page.php`, and `single.php`) and only use `index.php`, `search.php`, and `singular.php` instead.
 - [TWEAK] Template files: Remove `comments.php` template file, and use Comments block (via template functions) instead.
 - [TWEAK] Template parts: Remove support to override template using template files (developers can still override template parts by overriding template functions).
+- [TWEAK] WooCommerce: Revamp all WooCommerce templates and styles.
 - [DEPRECATED] Typography: Remove Font smoothing mode.
 - [DEPRECATED] Google Fonts: Remove font subsets option. New Google Fonts API doesn't need subsets attribute.
 - [DEPRECATED] Search results page: Remove Not found text option, now it will default to "Nothing found".

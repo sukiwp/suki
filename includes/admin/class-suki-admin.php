@@ -56,8 +56,8 @@ class Suki_Admin {
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
 		add_action( 'wp_default_styles', array( $this, 'remove_block_editor_default_block_styles' ), PHP_INT_MAX );
 		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css__visual' ), 10, 2 );
-		add_filter( 'enqueue_block_editor_assets', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
 
 		// Rating and review notification.
 		add_action( 'admin_notices', array( $this, 'add_rating_notice' ) );
@@ -226,8 +226,9 @@ class Suki_Admin {
 		}
 
 		// Add sidebar CSS.
-		$css_array['global']['.editor-styles-wrapper']['--sidebar-width'] = suki_get_theme_mod( 'sidebar_width', '25%' );
-		$css_array['global']['.editor-styles-wrapper']['--sidebar-gap']   = suki_get_theme_mod( 'sidebar_gap', 'calc( 2 * var(--wp--style--block-gap) )' );
+		$css_array['global']['.editor-styles-wrapper']['--sidebar-width']       = suki_get_theme_mod( 'sidebar_width', '25%' );
+		$css_array['global']['.editor-styles-wrapper']['--sidebar-gap']         = suki_get_theme_mod( 'sidebar_gap', 'calc( 2 * var(--wp--style--block-gap) )' );
+		$css_array['global']['.editor-styles-wrapper']['--sidebar-widgets-gap'] = suki_get_theme_mod( 'sidebar_widgets_gap', 'calc( 1.5 * var(--wp--style--block-gap) )' );
 
 		// Add sidebar area label.
 		$css_array['@media screen and (min-width: 1305px)']['.editor-styles-wrapper:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow):after']['content'] = '"' . esc_html__( 'Sidebar', 'suki' ) . '" !important';

@@ -146,11 +146,11 @@ p.demo_store a,
 	margin-top: 0.75em;
 }
 
-.woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter {
+.woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb__delimiter {
 	margin: 0 0.5em;
 }
 
-.woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb-delimiter:before {
+.woocommerce .woocommerce-breadcrumb .suki-woocommerce-breadcrumb__delimiter:before {
 	content: "\203a";
 }
 

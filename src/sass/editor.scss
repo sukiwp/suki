@@ -32,8 +32,8 @@ body.mce-content-body {
 .edit-post-visual-editor__post-title-wrapper {
 	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
 		max-width: var(--content-width--narrow);
-		margin-left: auto !important;
-		margin-right: auto !important;
+		margin-inline-start: auto !important;
+		margin-inline-end: auto !important;
 	}
 
 	> * {
@@ -42,6 +42,18 @@ body.mce-content-body {
 
 	> * + * {
 		margin-block-start: var(--block-spacing);
+	}
+}
+
+body.wp-block-widget-area__inner-blocks {
+	> .block-editor-block-list__layout {
+		> * {
+			margin-block: 0;
+		}
+
+		> * + * {
+			margin-block-start: var(--sidebar-widgets-gap);
+		}
 	}
 }
 
@@ -59,15 +71,15 @@ body.suki-section--full {
 }
 
 body .is-root-container {
-	margin-top: 3rem;
+	margin-block-start: 3rem;
 }
 
 body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		position: relative;
 		width: var(--content-width--narrow);
-		margin-left: auto;
-		margin-right: auto;
+		margin-inline-start: auto;
+		margin-inline-end: auto;
 
 		&:after {
 			content: "";
@@ -96,7 +108,7 @@ body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar)
 body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		> * {
-			padding-left: calc( var(--sidebar-gap) + var(--sidebar-width) );
+			padding-inline-start: calc( var(--sidebar-gap) + var(--sidebar-width) );
 		}
 
 		&:after {
@@ -108,7 +120,7 @@ body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar i
 body.suki-content--layout-right-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		> * {
-			padding-right: calc( var(--sidebar-gap) + var(--sidebar-width) );
+			padding-inline-end: calc( var(--sidebar-gap) + var(--sidebar-width) );
 		}
 
 		&:after {

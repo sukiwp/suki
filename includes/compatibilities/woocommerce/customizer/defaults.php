@@ -10,18 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$colors = suki_get_default_colors();
-
 $add = array();
-
-/**
- * ====================================================
- * WooCommerce > Store Notice
- * ====================================================
- */
-
-$add['woocommerce_demo_store_notice_bg_color']   = '';
-$add['woocommerce_demo_store_notice_text_color'] = '';
 
 /**
  * ====================================================
@@ -102,23 +91,5 @@ $add['woocommerce_products_grid_text_alignment'] = 'left';
  */
 
 $add['woocommerce_breadcrumb_use_theme_module'] = 1;
-
-/**
- * ====================================================
- * WooCommerce > Other Elements
- * ====================================================
- */
-
-$add['woocommerce_sale_badge_bg_color']   = '';
-$add['woocommerce_sale_badge_text_color'] = '';
-
-$add['woocommerce_review_star_color'] = '';
-
-$add['woocommerce_alt_button_bg_color']           = '';
-$add['woocommerce_alt_button_border_color']       = '';
-$add['woocommerce_alt_button_text_color']         = '';
-$add['woocommerce_alt_button_hover_bg_color']     = '';
-$add['woocommerce_alt_button_hover_border_color'] = '';
-$add['woocommerce_alt_button_hover_text_color']   = '';
 
 return $add;

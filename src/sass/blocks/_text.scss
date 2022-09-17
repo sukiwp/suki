@@ -8,7 +8,7 @@
 
 :where( ul, ol ) {
 	&.has-background {
-		padding-left: calc( 2 * var(--block-spacing) );
+		padding-inline-start: calc( 2 * var(--block-spacing) );
 	}
 }
 
@@ -17,19 +17,19 @@
  */
 
 .wp-block-quote {
-	padding-left: 1em;
+	padding-inline-start: 1em;
 	font-size: var(--h4--font-size);
 	line-height: var(--h4--line-height);
 	border-left: 0.25rem solid currentColor;
 
 	&.has-text-align-center {
-		padding-left: unset;
+		padding-inline-start: unset;
 		border-left: none;
 	}
 
 	&.has-text-align-right {
-		padding-left: unset;
-		padding-right: 1em;
+		padding-inline-start: unset;
+		padding-inline-end: 1em;
 		border-left: none;
 		border-right: 0.25rem solid currentColor;
 	}
@@ -68,7 +68,7 @@
 .wp-block-pullquote {
 	blockquote {
 		position: relative;
-		padding-left: 2.25em;
+		padding-inline-start: 2.25em;
 		isolation: isolate;
 		font-size: var(--h3--font-size);
 		line-height: var(--h3--line-height);
@@ -96,8 +96,8 @@
 
 	&.has-text-align-center {
 		blockquote {
-			padding-left: unset;
-			padding-top: 2em;
+			padding-inline-start: unset;
+			padding-block-start: 2em;
 
 			&:before {
 				left: 50%;
@@ -108,8 +108,8 @@
 
 	&.has-text-align-right {
 		blockquote {
-			padding-left: unset;
-			padding-right: 2.25em;
+			padding-inline-start: unset;
+			padding-block-end: 2.25em;
 
 			&:before {
 				left: auto;

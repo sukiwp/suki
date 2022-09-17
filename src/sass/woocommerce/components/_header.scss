@@ -1,0 +1,57 @@
+/**
+ * Header element: Cart
+ */
+
+.suki-header-cart {
+	.cart-amount {
+		margin: 0 0.25em 0 0.5em;
+
+		&:nth-child(2) {
+			margin-inline-start: 0;
+		}
+
+		&:last-child {
+			margin-inline-end: 0;
+		}
+	}
+
+	.cart-link {
+		position: relative;
+	}
+
+	.cart-count {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		width: 2em;
+		height: 2em;
+		display: inline-block;
+		margin: -1em -1em 0 0;
+		border-radius: 50%;
+		font-size: 0.6em;
+		text-align: center;
+		line-height: 2;
+		letter-spacing: 0; // reset
+		background-color: var(--color-palette-4);
+		color: var(--color-palette-8);
+		animation: cart-count-pulse 0.5s 1;
+
+		strong {
+			display: inline-block;
+			font-size: 0.5em;
+			line-height: 2;
+			vertical-align: top;
+		}
+
+		&[data-count="0"] {
+			display: none;
+		}
+	}
+
+	.sub-menu {
+		white-space: normal;
+		width: 20em;
+		padding: var(--block-spacing);
+	}
+}

@@ -78,13 +78,13 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Container width', 'suki' ),
 			'choices'  => array(
-				'narrow'  => array(
+				'narrow' => array(
 					'label' => esc_html__( 'Narrow', 'suki' ),
 				),
-				'wide'    => array(
+				'wide'   => array(
 					'label' => esc_html__( 'Wide', 'suki' ),
 				),
-				'full'    => array(
+				'full'   => array(
 					'label' => esc_html__( 'Full', 'suki' ),
 				),
 			),

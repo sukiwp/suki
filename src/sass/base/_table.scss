@@ -13,7 +13,7 @@ table {
 }
 
 th, td {
-	padding: 0.5em 0.75em;
+	padding: calc( 0.5 * var(--block-spacing) );
 	border: 1px solid;
 	border-color: inherit;
 }

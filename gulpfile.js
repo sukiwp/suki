@@ -48,7 +48,7 @@ const config = {
 		dest: 'assets/js',
 	},
 	css: {
-		src: 'src/sass/*.scss',
+		src: 'src/sass/**/*.scss',
 		srcRTL: [
 			'assets/css/**/*.css',
 			'!assets/css/**/*-rtl.css',
@@ -104,7 +104,7 @@ const config = {
 // Copy project info to main file.
 const copyInfoToMainFile = () => {
 	const infoFile = package.additionalInfo.initFile;
-	
+
 	return gulp
 	.src( infoFile )
 	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.title ) )
@@ -229,19 +229,19 @@ const buildAll = gulp.series( copyInfo, buildScripts, buildJS, buildCSS, buildPO
 /**
  * Compress production files into a zip file.
  */
- 
+
 const zipFiles = () => {
 	// Add timestamp to dev build.
 	if ( package.version.endsWith( 'dev' ) ) {
 		package.version = package.version.replace( 'dev', 'dev-' + Date.now() );
 	}
- 
+
 	return gulp
 	.src( config.zip.src )
 	.pipe( zip( package.name + '-' + package.version + '.zip' ) )
 	.pipe( gulp.dest( config.zip.dest ) );
 }
- 
+
 /**
  * Watch any change on the files and then run the particular tasks.
  */
@@ -275,7 +275,7 @@ const watchChanges = () => {
 		const mirrorDeleteGlob = path.join( config.js.dest, basename ) + '?(.min).js';
 		del( mirrorDeleteGlob );
 	} );
-	
+
 	/**
 	 * CSS
 	 */

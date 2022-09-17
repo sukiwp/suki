@@ -78,7 +78,7 @@ div.customize-section-description {
 		width: auto;
 		height: auto;
 		margin-top: -0.1em;
-		margin-right: 0.25em;
+		margin-inline-end: 0.25em;
 		font-size: 1.2em;
 		line-height: 1;
 		vertical-align: middle;
@@ -315,7 +315,7 @@ div.customize-section-description {
 	vertical-align: middle;
 
 	.customize-control-title & {
-		margin-left: 12px;
+		margin-inline-start: 12px;
 	}
 
 	.suki-responsive-switcher__button {

@@ -10,33 +10,33 @@
  */
 
 %input,
-input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input {
+:is( input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input ) {
 	appearance: none;
 	display: inline-flex;
 	max-width: 100%;
 	vertical-align: middle;
 
-	padding: var(--input--padding);
+	padding: var(--input--padding, 0.5em 0.75em);
 	border-style: solid;
-	border-radius: var(--input--border-radius);
-	border-width: var(--input--border-width);
-	border-color: var(--input--border-color);
-	background-color: var(--input--background-color);
-	color: var(--input--text-color);
+	border-radius: var(--input--border-radius, 0);
+	border-width: var(--input--border-width, 1px);
+	border-color: var(--input--border-color, var(--color-palette-6));
+	background-color: var(--input--background-color, var(--color-palette-8));
+	color: var(--input--text-color, var(--color-palette-2));
 
-	font-family: var(--input--font-family);
-	font-size: var(--input--font-size);
-	font-style: var(--input--font-style);
+	font-family: var(--input--font-family, var(--base--font-family));
+	font-size: var(--input--font-size, var(--base--font-size));
+	font-style: var(--input--font-style, var(--base--font-style));
 	line-height: initial;
-	letter-spacing: var(--input--letter-spacing);
-	text-transform: var(--input--text-transform);
+	letter-spacing: var(--input--letter-spacing, 0);
+	text-transform: var(--input--text-transform, none);
 
 	transition: all var(--transition-duration);
 
 	&:focus {
 		border-color: var(--input--border-color--focus, var(--input--border-color));
 		background-color: var(--input--background-color--focus, var(--input--background-color));
-		color: var(--input--text-color--focus);
+		color: var(--input--text-color--focus, var(--input--text-color));
 	}
 }
 
@@ -53,12 +53,20 @@ select {
 	background-position: center right;
 	background-repeat: no-repeat;
 	background-size: 1.8em 1.2em;
-	padding-right: 1.8em;
+	padding-inline-end: 1.8em;
 }
 
 select[multiple] {
-	padding-right: 0;
+	padding-inline-end: 0;
 	background: none;
+}
+
+:is( input[type="radio"], input[type="checkbox"] ) {
+	margin: 0 0.5em 0 0;
+	font-size: 1em; // Make sure the input button is in same size with the current text size
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.1em;
 }
 
 /**
@@ -71,27 +79,28 @@ select[multiple] {
 	appearance: none;
 	isolation: isolate;
 	display: inline-flex;
+	gap: 0.5em; // Prepare gap for button with icon
 	align-items: center;
 	justify-content: center;
 	max-width: 100%;
 	cursor: pointer;
 	vertical-align: middle;
 
-	padding: var(--button--padding);
+	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
-	border-radius: var(--button--border-radius);
-	border-width: var(--button--border-width);
-	border-color: var(--button--border-color);
-	background-color: var(--button--background-color);
-	color: var(--button--text-color);
+	border-radius: var(--button--border-radius, 0.2em);
+	border-width: var(--button--border-width, 1px);
+	border-color: var(--button--border-color, var(--color-palette-4));
+	background-color: var(--button--background-color, var(--color-palette-4));
+	color: var(--button--text-color, var(--color-palette-8));
 
-	font-family: var(--button--font-family);
-	font-size: var(--button--font-size);
-	font-style: var(--button--font-style);
-	font-weight: var(--button--font-weight);
+	font-family: var(--button--font-family, var(--base--font-family));
+	font-size: var(--button--font-size, var(--base--font-size));
+	font-style: var(--button--font-style, normal);
+	font-weight: var(--button--font-weight, normal);
 	line-height: initial;
-	letter-spacing: var(--button--letter-spacing);
-	text-transform: var(--button--text-transform);
+	letter-spacing: var(--button--letter-spacing, 0);
+	text-transform: var(--button--text-transform, none);
 
 	text-align: center;
 
@@ -139,8 +148,8 @@ select[multiple] {
 
 	.select2-selection--single {
 		.select2-selection__rendered {
-			padding-left: 0;
-			padding-right: 0;
+			padding-inline-start: 0;
+			padding-inline-end: 0;
 			font: inherit;
 			color: inherit;
 		}
@@ -208,7 +217,7 @@ select[multiple] {
 		.select2-selection__choice__remove {
 			color: inherit;
 			font-weight: inherit;
-			margin-right: 0.25em;
+			margin-inline-end: 0.25em;
 		}
 	}
 
@@ -303,7 +312,12 @@ fieldset {
 	padding-inline: var(--block-spacing);
 	padding-block-start: calc( 0.5 * var(--block-spacing) );
 	padding-block-end: var(--block-spacing);
-	margin: 0;
+	margin-block: var(--block-spacing);
+	margin-inline: 0;
+
+	legend {
+		margin-block-end: calc( -1 * var(--block-spacing) );
+	}
 }
 
 legend {

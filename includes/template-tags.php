@@ -341,7 +341,6 @@ if ( ! function_exists( 'suki_social_links' ) ) {
 	}
 }
 
-
 require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/header.php';
 require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/footer.php';
 require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/content.php';

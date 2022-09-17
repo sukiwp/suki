@@ -44,31 +44,75 @@ class Suki_Compatibility_WooCommerce {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Theme supports.
+		/**
+		 * Theme supports
+		 */
+
+		// Add theme supports.
 		add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ) );
 
-		// Compatibility CSS.
+		/**
+		 * Compatibility CSS
+		 */
+
+		// Disable original WooCommerce CSS.
 		add_filter( 'woocommerce_enqueue_styles', array( $this, 'disable_original_css' ) );
+
+		// Enqueue compatibility CSS.
 		add_action( 'suki/frontend/after_enqueue_main_css', array( $this, 'enqueue_css' ) );
+
+		// Add dynamic CSS.
 		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_dynamic_css' ) );
 
-		// Customizer settings & values.
+		/**
+		 * Customizer
+		 */
+
+		// Add options.
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
+
+		// Add default values.
 		add_filter( 'suki/customizer/setting_defaults', array( $this, 'add_customizer_setting_defaults' ) );
-		add_filter( 'suki/customizer/setting_postmessages', array( $this, 'add_customizer_setting_postmessages' ) );
+
+		// Add option outputs.
+		add_filter( 'suki/customizer/setting_outputs', array( $this, 'add_customizer_setting_outputs' ) );
+
+		// Add option contexts.
 		add_filter( 'suki/customizer/control_contexts', array( $this, 'add_control_contexts' ) );
+
+		// Add preview contexts.
 		add_filter( 'suki/customizer/preview_contexts', array( $this, 'add_preview_contexts' ) );
-		add_filter( 'suki/dataset/header_builder_configurations', array( $this, 'modify_header_builder_configurations' ) );
-		add_filter( 'suki/dataset/mobile_header_builder_configurations', array( $this, 'modify_mobile_header_builder_configuratinos' ) );
+
+		// Add header builder elements (Customizer).
+		add_filter( 'suki/dataset/header_builder/elements', array( $this, 'add_header_builder_elements' ) );
+
+		// Add mobile header builder elements (Customizer).
+		add_filter( 'suki/dataset/header_mobile_builder/elements', array( $this, 'add_header_mobile_builder_elements' ) );
+
 		add_filter( 'suki/dataset/product_single_content_header_elements', array( $this, 'modify_content_header_elements_choices_on_product_single_page' ) );
 		add_filter( 'suki/dataset/customizer_page_types/custom', array( $this, 'modify_custom_page_settings_types' ) );
 
-		// Template hooks.
+		/**
+		 * Frontend
+		 */
+
+		// Register `sidebar-shop` sidebar.
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
+
+		// Template hooks.
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
+
+		// Template hooks (after `init` hook run).
 		add_action( 'wp', array( $this, 'modify_template_hooks_after_init' ) );
 
-		// Page settings.
+		// Render header elements.
+		add_filter( 'suki/frontend/header_element/cart-link', array( $this, 'get_header_cart_link_html' ) );
+		add_filter( 'suki/frontend/header_element/cart-dropdown', array( $this, 'get_header_cart_dropdown_html' ) );
+
+		/**
+		 * Page settings.
+		 */
+
 		add_filter( 'suki/page_settings/overriding_post_meta_box', array( $this, 'exclude_page_settings_on_shop_page' ), 10, 2 );
 
 		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
@@ -99,7 +143,7 @@ class Suki_Compatibility_WooCommerce {
 	 * Enqueue compatibility CSS.
 	 */
 	public function enqueue_css() {
-		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/compatibilities/woocommerce/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-woocommerce', 'rtl', 'replace' );
 		wp_style_add_data( 'suki-woocommerce', 'suffix', SUKI_ASSETS_SUFFIX );
 
@@ -133,10 +177,10 @@ class Suki_Compatibility_WooCommerce {
 			return $css;
 		}
 
-		$postmessages = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php';
-		$defaults     = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php';
+		$outputs  = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/outputs.php';
+		$defaults = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php';
 
-		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $postmessages, $defaults );
+		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $outputs, $defaults );
 
 		if ( ! empty( $generated_css ) ) {
 			$css .= "\n/* Suki + WooCommerce Dynamic CSS */\n" . $generated_css;
@@ -153,15 +197,15 @@ class Suki_Compatibility_WooCommerce {
 	public function register_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/sections.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/header--cart.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--store-notice.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-catalog.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--product-single.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--cart.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--checkout.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--products-grid.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/options/woocommerce--other-elements.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/sections.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/header--cart.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php';
+		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php';
 	}
 
 	/**
@@ -179,13 +223,13 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add postmessage rules for some Customizer settings.
 	 *
-	 * @param array $postmessages PostMessages array.
+	 * @param array $outputs Outputs array.
 	 * @return array
 	 */
-	public function add_customizer_setting_postmessages( $postmessages = array() ) {
-		$add = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/postmessages.php';
+	public function add_customizer_setting_outputs( $outputs = array() ) {
+		$add = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/outputs.php';
 
-		return array_merge_recursive( $postmessages, $add );
+		return array_merge_recursive( $outputs, $add );
 	}
 
 	/**
@@ -216,47 +260,47 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Modify header builder configurations.
+	 * Add header shopping cart as Header Builder elements.
 	 *
-	 * @param array $config Configurations array.
+	 * @param array $elements Elements array.
 	 * @return array
 	 */
-	public function modify_header_builder_configurations( $config ) {
-		$config = array_merge_recursive(
-			array(
-				'choices' => array(
-					'cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
-					'cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
-				),
-			),
-			$config
+	public function add_header_builder_elements( $elements ) {
+		$elements['cart-link'] = array(
+			'icon'              => 'cart',
+			'label'             => esc_html__( 'Cart Link', 'suki' ),
+			'unsupported_areas' => array(),
 		);
 
-		return $config;
+		$elements['cart-dropdown'] = array(
+			'icon'              => 'cart',
+			'label'             => esc_html__( 'Cart Dropdown', 'suki' ),
+			'unsupported_areas' => array(),
+		);
+
+		return $elements;
 	}
 
 	/**
-	 * Modify mobile header builder configurations.
+	 * Add header shopping cart as Mobile Header Builder elements.
 	 *
-	 * @param array $config Configurations array.
+	 * @param array $elements Elements array.
 	 * @return array
 	 */
-	public function modify_mobile_header_builder_configuratinos( $config ) {
-		$config = array_merge_recursive(
-			array(
-				'choices'     => array(
-					'cart-link'     => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
-					'cart-dropdown' => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
-				),
-				'limitations' => array(
-					'cart-link'     => array( 'vertical_top' ),
-					'cart-dropdown' => array( 'vertical_top' ),
-				),
-			),
-			$config
+	public function add_header_mobile_builder_elements( $elements ) {
+		$elements['cart-link'] = array(
+			'icon'              => 'cart',
+			'label'             => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
+			'unsupported_areas' => array( 'vertical_top' ),
 		);
 
-		return $config;
+		$elements['cart-dropdown'] = array(
+			'icon'              => 'cart',
+			'label'             => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
+			'unsupported_areas' => array( 'vertical_top' ),
+		);
+
+		return $elements;
 	}
 
 	/**
@@ -315,32 +359,50 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function modify_template_hooks() {
 		/**
-		 * Global template filters
+		 * Responsive breakpoint
 		 */
 
 		// Change mobile devices breakpoint.
 		add_filter( 'woocommerce_style_smallscreen_breakpoint', array( $this, 'set_smallscreen_breakpoint' ) );
 
+		/**
+		 * Header elements
+		 */
+
 		// Add count to Cart menu item.
 		add_filter( 'nav_menu_item_title', array( $this, 'add_count_to_cart_menu_item' ), 10, 4 );
+
+		/**
+		 * Cart
+		 */
 
 		// Add cart fragments.
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'update_header_cart' ) );
 
-		// Add filter for adding class to products grid wrapper.
-		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
+		/**
+		 * Product search widget
+		 */
 
-		// Product search form widget.
+		// Modify product search widget.
 		add_filter( 'get_product_search_form', array( $this, 'change_product_search_form_markup' ) );
 
-		// Modify "added to cart" message.
-		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_markup' ), 10, 3 );
+		/**
+		 * Product search widget
+		 */
 
 		// Modify flexslider settings on single product page.
-		add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'change_single_product_carousel_options' ), 10, 3 );
+		add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'change_single_product_carousel_options' ) );
+
+		/**
+		 * Page title.
+		 */
 
 		// Modify page title.
 		add_filter( 'woocommerce_page_title', array( $this, 'modify_page_title' ) );
+
+		/**
+		 * Breadcrumb
+		 */
 
 		// Modify original WooCommerce breadcrumb configuration.
 		add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'modify_breadcrumb_defaults' ) );
@@ -351,14 +413,15 @@ class Suki_Compatibility_WooCommerce {
 		// Change "Products" in theme's breadcrumb trails to Shop page's title.
 		add_filter( 'suki/frontend/breadcrumb_trail', array( $this, 'modify_theme_breadcrumb_trails' ) );
 
-		// Add text alignment class on products loop.
-		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
+		/**
+		 * Content header elements
+		 */
 
 		// Modify Content Header element.
 		add_filter( 'suki/frontend/content_header_element', array( $this, 'modify_content_header_elements' ), 10, 2 );
 
 		/**
-		 * Global template hooks
+		 * WooCommerce template wrapper
 		 */
 
 		// Remove breadcrumb from its original position.
@@ -368,15 +431,64 @@ class Suki_Compatibility_WooCommerce {
 		// Change main content (primary) wrapper.
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-		add_action( 'woocommerce_before_main_content', 'suki_primary_open' );
-		add_action( 'woocommerce_after_main_content', 'suki_primary_close' );
-
-		// Add plus and minus buttons to the quantity input.
-		add_action( 'woocommerce_after_quantity_input_field', array( $this, 'add_quantity_plus_minus_buttons' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_quantity_plus_minus_buttons_scripts' ) );
+		add_action( 'woocommerce_before_main_content', array( $this, 'render_template_wrapper' ), 10 );
+		add_action( 'woocommerce_after_main_content', array( $this, 'render_template_wrapper_end' ), 10 );
 
 		/**
-		 * Shop page's template hooks
+		 * Quantity input field
+		 */
+
+		// Add plus and minus buttons to the quantity input.
+		add_action( 'woocommerce_after_quantity_input_field', array( $this, 'render_quantity_plus_minus_buttons' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'render_quantity_plus_minus_buttons_scripts' ) );
+
+		/**
+		 * Products loop
+		 */
+
+		// Add filter for adding class to products grid wrapper.
+		add_filter( 'woocommerce_product_loop_start', array( $this, 'change_loop_start_markup' ) );
+
+		// Remove the original link wrapper.
+		// The original link wrapper wraps thumbnail, title, rating, and price altogether.
+		// We will wrap both thumbnail and title separately as links.
+		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+
+		// Add wrapper to products grid filters.
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper' ), 11 );
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper_end' ), 999 );
+
+		// Add wrapper to products grid item.
+		// add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
+		// add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
+
+		// Add product thumbnail wrapper.
+		// This wrapper is needed for more advanced features like quick view, hover product image, etc.
+		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper' ), 1 );
+		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 999 );
+
+		// Move sale badge position to before the newly added custom thumbnail wrapper.
+		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 2 );
+
+		// Add a link wrapper to the product thumbnail.
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 9 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 19 );
+
+		// Add a link wrapper to the product title.
+		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 1 );
+		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
+
+		// Products loop configuration.
+		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
+		add_filter( 'loop_shop_columns', array( $this, 'set_loop_columns' ) );
+
+		// Add text alignment class on products loop.
+		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
+
+		/**
+		 * Shop page
 		 */
 
 		// Remove title from its original position.
@@ -387,52 +499,24 @@ class Suki_Compatibility_WooCommerce {
 		// It might be readded via Content Header.
 		remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
 
-		// Remove the original link wrapper.
-		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
-		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
-
-		// Add wrapper to products grid filters.
-		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper' ), 11 );
-		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper_end' ), 999 );
-
-		// Add wrapper to products grid item.
-		add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
-		add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
-
-		// Move sale badge position to before thumbnail because we need to add a link wrapper to the product thumbnail.
-		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 2 );
-
-		// Add product thumbnail wrapper.
-		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper' ), 1 );
-		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper_end' ), 999 );
-
-		// Add a link wrapper to the product thumbnail.
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 9 );
-		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 19 );
-
-		// Add a link wrapper to the product title.
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 1 );
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 999 );
-
-		// Products loop.
-		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
-		add_filter( 'loop_shop_columns', array( $this, 'set_loop_columns' ) );
-
 		/**
-		 * Product page's template hooks
+		 * Product page
 		 */
 
-		// Add wrapper to products grid filters.
-		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper' ), 19 );
-		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper_end' ), 29 );
+		// Modify "added to cart" message.
+		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_markup' ), 10, 3 );
 
-		// Add class to single product gallery for single image or multiple images.
-		add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_single_product_gallery_class' ) );
+		// Add wrapper to product images gallery.
+		// This wrapper is needed for more advanced features and styling.
+		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_images_wrapper' ), 19 );
+		add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_images_wrapper_end' ), 29 );
 
 		// Move sale badge position to after images for better CSS handling based on the thumbnail layout.
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 		add_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 21 );
+
+		// Add class to single product gallery for single image or multiple images.
+		// add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_single_product_gallery_class' ) );
 
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );
@@ -440,6 +524,9 @@ class Suki_Compatibility_WooCommerce {
 		// Add wrapper to single product add to cart form.
 		add_filter( 'woocommerce_before_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper' ) );
 		add_filter( 'woocommerce_after_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper_end' ) );
+
+		// Set review avatar size.
+		add_filter( 'woocommerce_review_gravatar_size', array( $this, 'set_review_avatar_size' ) );
 
 		// Related products.
 		add_filter( 'woocommerce_related_products_args', array( $this, 'set_related_products_args' ) );
@@ -572,7 +659,7 @@ class Suki_Compatibility_WooCommerce {
 			// Remove cross sells from its original position.
 			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 10 );
 
-			// Readd cross-sells.
+			// Re-add cross-sells.
 			if ( boolval( suki_get_theme_mod( 'woocommerce_cart_cross_sells' ) ) ) {
 				add_action( 'woocommerce_' . suki_get_theme_mod( 'woocommerce_cart_cross_sells_position' ), 'woocommerce_cross_sell_display', 10 );
 			}
@@ -609,6 +696,169 @@ class Suki_Compatibility_WooCommerce {
 				add_action( 'woocommerce_checkout_after_order_review', array( $this, 'render_checkout_2_columns_wrapper_end' ), 999 );
 			}
 		}
+	}
+
+	/**
+	 * Return header cart link HTML markup.
+	 *
+	 * @param string $html HTML markup.
+	 */
+	public function get_header_cart_link_html( $html ) {
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
+		$cart = WC()->cart;
+
+		if ( empty( $cart ) ) {
+			return;
+		}
+		?>
+		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="suki-header-cart-link suki-header-cart cart-link suki-menu-item-link">
+			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
+
+			<?php suki_icon( 'cart', array( 'class' => 'cart-icon suki-menu-icon' ) ); ?>
+
+			<span class="cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>">
+				<?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</span>
+
+			<?php
+			$classes = array();
+
+			$amount_position = suki_get_theme_mod( 'header_cart_amount', '' );
+
+			$amount_html = '';
+			if ( '' !== $amount_position ) {
+				$classes[] = $amount_position;
+
+				$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'header_cart_amount_visibility' ) );
+
+				foreach ( $hide_devices as $device ) {
+					$classes[] = esc_attr( 'suki-hide-on-' . $device );
+				}
+			}
+			?>
+			<span class="cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+				<?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</span>
+		</a>
+		<?php
+
+		return $html;
+	}
+
+	/**
+	 * Return header cart dropdown HTML markup.
+	 *
+	 * @param string $html HTML markup.
+	 */
+	public function get_header_cart_dropdown_html( $html ) {
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
+		$cart = WC()->cart;
+
+		if ( empty( $cart ) ) {
+			return;
+		}
+
+		/**
+		 * Build cart dropdown HTML.
+		 */
+		ob_start();
+		the_widget(
+			'WC_Widget_Cart',
+			array(
+				'title'         => '',
+				'hide_if_empty' => false,
+			)
+		);
+		$dropdown_html = ob_get_clean();
+		if ( ! empty( $dropdown_html ) ) {
+			$is_dropdown = true;
+		} else {
+			$is_dropdown = false;
+		}
+
+		/**
+		 * Build cart amount HTML.
+		 */
+		$amount_position = suki_get_theme_mod( 'header_cart_amount', '' );
+
+		$amount_html = '';
+
+		if ( '' !== $amount_position ) {
+			$classes = array();
+
+			$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'header_cart_amount_visibility' ) );
+
+			foreach ( $hide_devices as $device ) {
+				$classes[] = esc_attr( 'suki-hide-on-' . $device );
+			}
+
+			ob_start();
+			?>
+			<span class="cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+			<?php
+			$amount_html = ob_get_clean();
+		}
+		?>
+		<div class="suki-header-cart-dropdown suki-header-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
+			<div class="menu-item">
+				<?php
+				if ( $is_dropdown ) {
+					?>
+					<button class="cart-link suki-menu-item-link suki-sub-menu-toggle suki-toggle" aria-expanded="false">
+					<?php
+				} else {
+					?>
+					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-link suki-menu-item-link">
+					<?php
+				}
+				?>
+
+				<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
+
+				<?php
+				if ( 'before' === $amount_position ) {
+					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+				?>
+
+				<span class="cart-icon">
+					<?php suki_icon( 'cart', array( 'class' => 'suki-menu-icon' ) ); ?>
+				</span>
+
+				<span class="cart-count" data-count="<?php echo esc_attr( $cart->get_cart_contents_count() ); ?>"><?php echo $cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+
+				<?php
+				if ( 'after' === $amount_position ) {
+					echo $amount_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+				?>
+
+				<?php
+				if ( $is_dropdown ) {
+					?>
+					</button>
+					<div class="sub-menu">
+						<?php echo $dropdown_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					</div>
+					<?php
+				} else {
+					?>
+					</a>
+					<?php
+				}
+				?>
+			</div>
+		</div>
+
+		<?php
+
+		return $html;
 	}
 
 	/**
@@ -826,6 +1076,7 @@ class Suki_Compatibility_WooCommerce {
 
 		return $options;
 	}
+
 	/**
 	 * Modify page title text.
 	 *
@@ -857,7 +1108,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function modify_breadcrumb_defaults( $defaults ) {
-		$defaults['delimiter'] = '<span class="suki-woocommerce-breadcrumb-delimiter"></span>';
+		$defaults['delimiter'] = '<span class="suki-woocommerce-breadcrumb__delimiter"></span>';
 
 		return $defaults;
 	}
@@ -969,6 +1220,8 @@ class Suki_Compatibility_WooCommerce {
 			return $html;
 		}
 
+		$html = '';
+
 		switch ( $element ) {
 			case 'title':
 				if ( ! is_product() ) {
@@ -1001,19 +1254,37 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add plus and minus buttons to the quantity input.
+	 * Render opening template wrapper.
 	 */
-	public function add_quantity_plus_minus_buttons() {
+	public function render_template_wrapper() {
 		?>
-		<span class="suki-qty-increment suki-qty-minus" role="button" tabindex="0">-</span>
-		<span class="suki-qty-increment suki-qty-plus" role="button" tabindex="0">+</span>
+		<div class="woocommerce">
 		<?php
 	}
 
 	/**
-	 * Add plus and minus buttons to the quantity input via JS.
+	 * Render closing template wrapper.
 	 */
-	public function add_quantity_plus_minus_buttons_scripts() {
+	public function render_template_wrapper_end() {
+		?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render plus and minus buttons to the quantity input.
+	 */
+	public function render_quantity_plus_minus_buttons() {
+		?>
+		<span class="suki-qty-increment suki-qty-minus" data-operator="-" role="button" tabindex="0">-</span>
+		<span class="suki-qty-increment suki-qty-plus" data-operator="+" role="button" tabindex="0">+</span>
+		<?php
+	}
+
+	/**
+	 * Render plus and minus buttons to the quantity input via JS.
+	 */
+	public function render_quantity_plus_minus_buttons_scripts() {
 		// Add inline JS to initiate quantity plus minus UI.
 		// This javascript uses jQuery to hook into WooCommerce event callback (WooCommerce uses jQuery).
 		ob_start();
@@ -1021,7 +1292,7 @@ class Suki_Compatibility_WooCommerce {
 		(function() {
 			'use strict';
 
-			var handleWooCommerceQuantityIncrementButtons = function( e ) {
+			const handleWooCommerceQuantityIncrementButtons = ( e ) => {
 				// Only handle "suki-qty-increment" button.
 				if ( e.target.classList.contains( 'suki-qty-increment' ) ) {
 					// Prevent default handlers on click and touch event.
@@ -1034,26 +1305,31 @@ class Suki_Compatibility_WooCommerce {
 						return;
 					}
 
-					var $button = e.target,
-					var $input = $button.parentElement.querySelector( '.qty' ),
-					var step = parseInt( $input.getAttribute( 'step' ) ),
-					var min = parseInt( $input.getAttribute( 'min' ) ),
-					var max = parseInt( $input.getAttribute( 'max' ) ),
-					var sign = $button.classList.contains( 'suki-qty-minus' ) ? '-' : '+';
+					const $button = e.target;
+					const $input = $button.parentElement.querySelector( '.qty' );
+					const step = parseInt( $input.step ) || 1;
+					const min = parseInt( $input.min ) || 0;
+					const max = parseInt( $input.max ) || Number.MAX_SAFE_INTEGER;
+					const operator = $button.dataset.operator;
 
 					// Adjust the input value according to the clicked button.
-					if ( '-' === sign ) {
-						var newValue = parseInt( $input.value ) - step;
+					if ( '-' === operator ) {
+						const oldValue = parseInt( $input.value ) || 0;
+						const newValue = oldValue - step;
 
-						if ( min && min > newValue ) {
+						console.log( min );
+						console.log( newValue );
+
+						if ( min > newValue ) {
 							$input.value = parseInt( min );
 						} else {
 							$input.value = parseInt( newValue );
 						}
 					} else {
-						var newValue = parseInt( $input.value ) + step;
+						const oldValue = parseInt( $input.value ) || 0;
+						const newValue = oldValue + step;
 
-						if ( max && max < newValue ) {
+						if ( max < newValue ) {
 							$input.value = parseInt( max );
 						} else {
 							$input.value = parseInt( newValue );
@@ -1061,7 +1337,7 @@ class Suki_Compatibility_WooCommerce {
 					}
 
 					// Trigger "change" event on the input field (use old fashioned way for IE compatibility).
-					var event = document.createEvent( 'HTMLEvents' );
+					const event = document.createEvent( 'HTMLEvents' );
 					event.initEvent( 'change', true, false);
 					$input.dispatchEvent( event );
 				}
@@ -1085,16 +1361,16 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add opening products filters wrapper tag.
+	 * Render opening products filters wrapper tag.
 	 */
 	public function render_loop_filters_wrapper() {
 		?>
-		<div class="suki-products-filters">
+		<div class="suki-woocommerce-loop__filters">
 		<?php
 	}
 
 	/**
-	 * Add closing products filters wrapper tag.
+	 * Render closing products filters wrapper tag.
 	 */
 	public function render_loop_filters_wrapper_end() {
 		?>
@@ -1107,7 +1383,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_loop_item_wrapper() {
 		?>
-		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_classes', array( 'suki-product-wrapper' ) ) ) ); ?>">
+		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_classes', array( 'suki-woocommerce-loop-item' ) ) ) ); ?>">
 		<?php
 	}
 
@@ -1125,7 +1401,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_loop_product_thumbnail_wrapper() {
 		?>
-		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array( 'suki-product-thumbnail' ) ) ) ); ?>">
+		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array( 'suki-woocommerce-loop-item__thumbnail' ) ) ) ); ?>">
 		<?php
 	}
 
@@ -1165,18 +1441,18 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add opening products gallery tag.
+	 * Render opening product images wrapper tag.
 	 */
-	public function render_product_gallery_wrapper() {
+	public function render_product_images_wrapper() {
 		?>
-		<div class="suki-woocommerce-single-gallery">
+		<div class="suki-woocommerce-product__images">
 		<?php
 	}
 
 	/**
-	 * Add closing products gallery tag.
+	 * Render closing product images wrapper tag.
 	 */
-	public function render_product_gallery_wrapper_end() {
+	public function render_product_images_wrapper_end() {
 		?>
 		</div>
 		<?php
@@ -1215,7 +1491,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_add_to_cart_form_wrapper() {
 		?>
-		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array( 'suki-product-add-to-cart' ) ) ) ); ?>">
+		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array( 'suki-woocommerce-product__add-to-cart' ) ) ) ); ?>">
 		<?php
 	}
 
@@ -1226,6 +1502,16 @@ class Suki_Compatibility_WooCommerce {
 		?>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Set review avatar size.
+	 *
+	 * @param string $size Avatar size in pixel.
+	 * @return string
+	 */
+	public function set_review_avatar_size( $size ) {
+		return '50';
 	}
 
 	/**
@@ -1316,7 +1602,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_cart_2_columns_left_wrapper() {
 		?>
-		<div class="suki-woocommerce-cart-2-columns--left">
+		<div class="suki-woocommerce-cart-2-columns__column suki-woocommerce-cart-2-columns__column--left">
 		<?php
 	}
 
@@ -1334,7 +1620,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_cart_2_columns_right_wrapper() {
 		?>
-		<div class="suki-woocommerce-cart-2-columns--right">
+		<div class="suki-woocommerce-cart-2-columns__column suki-woocommerce-cart-2-columns__column--right">
 		<?php
 	}
 
@@ -1386,7 +1672,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_checkout_2_columns_left_wrapper() {
 		?>
-		<div class="suki-woocommerce-checkout-2-columns--left">
+		<div class="suki-woocommerce-checkout-2-columns__column--left">
 		<?php
 	}
 
@@ -1404,7 +1690,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function render_checkout_2_columns_right_wrapper() {
 		?>
-		<div class="suki-woocommerce-checkout-2-columns--right">
+		<div class="suki-woocommerce-checkout-2-columns__column--right">
 		<?php
 	}
 
@@ -1424,26 +1710,24 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
-	 * Add opening wrapper tag to wrap account sidebar.
+	 * Render opening wrapper tag to wrap account sidebar.
 	 */
 	public function render_account_sidebar_wrapper() {
 		$user = wp_get_current_user();
 		?>
-		<div class="suki-woocommerce-MyAccount">
-			<div class="suki-woocommerce-MyAccount-sidebar">
-				<div class="suki-woocommerce-MyAccount-user">
-					<?php echo get_avatar( $user->ID, 60 ); ?>
-					<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
-				</div>
+		<div class="suki-woocommerce-account__sidebar">
+			<div class="suki-woocommerce-account__user-info">
+				<?php echo get_avatar( $user->ID, 50 ); ?>
+				<strong class="name"><?php echo esc_html( $user->display_name ); ?></strong>
+			</div>
 		<?php
 	}
 
 	/**
-	 * Add closing wrapper tag to wrap account sidebar.
+	 * Render closing wrapper tag to wrap account sidebar.
 	 */
 	public function render_account_sidebar_wrapper_end() {
 		?>
-			</div>
 		</div>
 		<?php
 	}

@@ -5,7 +5,7 @@
 a {
 	color: var(--link-color);
 	text-decoration: none;
-	transition: color var(--transition-duration);
+	transition: color var(--transition-duration), opacity var(--transition-duration);
 
 	&:hover,
 	&:focus {
@@ -36,6 +36,10 @@ cite {
 	opacity: 0.75;
 }
 
+mark {
+	background-color: var(--subtle-background-color);
+}
+
 /**
  * Block text elements
  */
@@ -59,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // For element after headings, remove the top margin. We will use the heading's margin bottom
 :where(h1, h2, h3, h4, h5, h6) + :where(h1, h2, h3, h4, h5, h6) {
-	margin-top: calc( 0.5 * var(--block-spacing) );
+	margin-block-start: calc( 0.5 * var(--block-spacing) );
 }
 
 h1 {
@@ -124,7 +128,7 @@ h6 {
 
 ul, ol {
 	margin-block: var(--block-spacing);
-	padding-left: 2em;
+	padding-inline-start: 2em;
 
 	overflow-wrap: break-word;
 

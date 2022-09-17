@@ -1,0 +1,263 @@
+/**
+ * Form row
+ */
+
+.woocommerce .form-row {
+	margin-block: var(--block-spacing);
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+
+	&:is(.form-row-first) + .form-row-last { // If form-row-first is a first child, remove the next from-row-last margin-top as well
+		margin-block-start: 0;
+	}
+
+	@media screen and ( min-width: $breakpoint-phone ) {
+		&-first {
+			width: 50%;
+			float: left;
+			padding-inline-end: calc( 0.5 * var(--block-spacing) );
+		}
+
+		&-last {
+			width: 50%;
+			float: right;
+			padding-inline-start: calc( 0.5 * var(--block-spacing) );
+		}
+
+		&-wide {
+			clear: both;
+		}
+	}
+
+	label {
+		display: table; // Make it a block level, not inline, and uses auto width.
+
+		&.hidden {
+			visibility: hidden;
+		}
+
+		&.inline {
+			display: inline-block;
+		}
+	}
+
+	.woocommerce-input-wrapper {
+		display: block;
+	}
+
+	:is( select, input.input-text, textarea, .select2-container ) {
+		width: 100%;
+	}
+
+	.description {
+		@include meta-typography();
+		@include meta-color();
+	}
+
+	.required {
+		color: var(--link-color);
+		text-decoration: none;
+	}
+
+	.optional {
+		visibility: visible;
+	}
+
+	&.woocommerce-invalid {
+		label {
+			color: var(--wc-red);
+		}
+
+		:is( select, input.input-text, textarea, .select2-container ) {
+			border-color: var(--wc-red);
+		}
+
+		:is( input[type="radio"], input[type="checkbox"] ) {
+			outline: 1px solid var(--wc-red);
+			outline-offset: 1px;
+		}
+	}
+
+	// &.woocommerce-validated {
+	// 	:is( select, input.input-text, textarea, .select2-container ) {
+	// 		border-color: var(--wc-green);
+	// 	}
+	// }
+}
+
+/**
+ * Address field
+ */
+
+.woocommerce {
+	#billing_address_1_field {
+		margin-block-end: 0;
+	}
+
+	#billing_address_2_field {
+		margin-block-start: 0.5em;
+	}
+}
+
+/**
+ * Button
+ */
+
+.woocommerce .button {
+	&.loading {
+		// position: relative; --- added from .button
+		// isolation: isolate; --- added from .button
+		cursor: not-allowed;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 150%;
+			height: 100%;
+			z-index: -1;
+			background-image: repeating-linear-gradient( -60deg, transparent, transparent 0.75em, currentColor 0.75em, currentColor 1.5em );
+			animation: button-loading-background 0.5s linear infinite;
+			opacity: 0.15;
+		}
+	}
+
+	&.added {
+		&:after {
+			content: "\e017";
+			font-family: "WooCommerce";
+			margin-inline-start: 0.5em;
+		}
+	}
+
+	&:is( .disabled, :disabled ) {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+}
+
+/**
+ * Alt button
+ */
+
+.woocommerce :is( .button.alt, .button.checkout ) {
+	color: var(--button-alt--text-color, var(--button--text-color));
+	border-color: var(--button-alt--border-color, var(--button--border-color));
+	background-color: var(--button-alt--background-color, var(--button--background-color));
+
+	&:is( :hover, :focus ) {
+		color: var(--button-alt--text-color--focus, var(--button--text-color--focus));
+		border-color: var(--button-alt--border-color--focus, var(--button--border-color--focus));
+		background-color: var(--button-alt--background-color--focus, var(--button--background-color--focus));
+	}
+}
+
+/**
+ * Product quantity field
+ */
+
+.woocommerce .quantity {
+	display: inline-block;
+	width: 5em;
+	position: relative;
+
+	.qty {
+		width: 100%;
+		text-align: center;
+		padding-inline-start: 1.25em;
+		padding-inline-end: 1.25em;
+		-moz-appearance: textfield;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+
+	&.hidden > * {
+		display: none;
+	}
+
+	.suki-qty-increment {
+		position: absolute;
+		top: 50%;
+		display: inline-block;
+		width: 1em;
+		margin-block-start: -0.5em;
+		text-align: center;
+		cursor: pointer;
+		border-radius: 0;
+		border-color: transparent;
+		background-color: transparent;
+		font-size: 1.25em;
+		line-height: 1;
+		opacity: 0.5;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+
+	.suki-qty-minus {
+		left: 0;
+	}
+
+	.suki-qty-plus {
+		right: 0;
+	}
+}
+
+/**
+ * Password strength meter
+ */
+
+.woocommerce .woocommerce-password-strength {
+	position: relative;
+	padding-block-start: 0.25em;
+
+	@include meta-typography();
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: -0.25em;
+		left: 0;
+		height: 0.25em;
+		background-color: currentColor;
+	}
+
+	&:is( .bad, .short ) {
+		color: var(--wc-red);
+
+		&:before {
+			width: 33.333%;
+		}
+	}
+
+	&.good {
+		color: var(--wc-blue);
+
+		&:before {
+			width: 66.667%;
+		}
+	}
+
+	&.strong {
+		color: var(--wc-green);
+
+		&:before {
+			width: 100%;
+		}
+	}
+}
+
+.woocommerce .woocommerce-password-hint {
+	display: block;
+	margin-block-start: 0.25em;
+
+	@include meta-typography();
+	@include meta-color();
+}

@@ -192,7 +192,7 @@
 
 		@media screen and (min-width: 400px) {
 			--rows: calc(var(--items) / 2);
-				
+
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
@@ -413,10 +413,10 @@
 	/**
 	 * Suki Sites Import
 	 */
-	
+
 	&__suki-sites-import {
 		padding: 0; // reset
-		
+
 		@media screen and ( min-width: 600px ) {
 			display: flex;
 			align-items: center;

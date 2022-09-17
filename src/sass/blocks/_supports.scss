@@ -2,7 +2,7 @@
  * Block support: Layout
  */
 
- .is-layout-flow {
+.is-layout-flow {
 	> * {
 		margin-block: 0;
 	}
@@ -19,8 +19,8 @@
 .is-layout-constrained {
 	> :where( :not(.alignleft):not(.alignright):not(.alignfull) ) {
 		max-width: var(--content-width--narrow);
-		margin-left: auto !important;
-		margin-right: auto !important;
+		margin-inline-start: auto !important;
+		margin-inline-end: auto !important;
 	}
 
 	> * {

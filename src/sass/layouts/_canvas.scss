@@ -27,8 +27,8 @@
 	.suki-canvas {
 		--canvas-width: 1400px; // CUSTOMIZER
 
-		margin-left: auto;
-		margin-right: auto;
+		margin-inline-start: auto;
+		margin-inline-end: auto;
 		box-shadow: 0px 0px 2rem 0px rgba(0,0,0,0.05); // CUSTOMIZER: boxed_page_shadow
 	}
 }

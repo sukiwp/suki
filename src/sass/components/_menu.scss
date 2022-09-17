@@ -22,7 +22,7 @@
 	}
 
 	.suki-dropdown-sign {
-		margin-left: 0.5em;
+		margin-inline-start: 0.5em;
 	}
 
 	.sub-menu {
@@ -36,8 +36,8 @@
 		}
 
 		.suki-dropdown-sign {
-			margin-left: 0.75em;
-			margin-right: -0.75em;
+			margin-inline-start: 0.75em;
+			margin-inline-end: -0.75em;
 		}
 	}
 }
@@ -70,7 +70,7 @@
 	.sub-menu {
 		top: 0;
 		left: 100%;
-		margin-top: calc( -1 * var(--spacing) );
+		margin-block-start: calc( -1 * var(--spacing) );
 
 		// Prevent the menu from disappearing when the mouse is over the gap
 		&:before {

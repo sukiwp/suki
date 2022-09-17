@@ -26,7 +26,7 @@ details.suki-admin-accordion {
 		border: 1px solid #dcdcde;
 		border-top: none;
 	}
-	
+
 	summary {
 		padding: 8px 12px;
 		border: 1px solid #dcdcde;
@@ -38,14 +38,14 @@ details.suki-admin-accordion {
 		&:focus {
 			background-color: #f6f7f7;
 		}
-		
+
 		&:before {
 			content: "▶";
-			margin-right: 4px;
+			margin-inline-end: 4px;
 			opacity: 0.5;
 		}
 	}
-	
+
 	&[open] {
 		summary {
 			&:before {
@@ -78,7 +78,7 @@ details.suki-admin-accordion {
 		white-space: nowrap;
 		@include hide();
 	}
-	
+
 	&:hover,
 	&:focus {
 		> .suki-admin-tooltip__content {

@@ -20,7 +20,7 @@
 
 	.comment > ol {
 		list-style: none;
-		padding-left: calc( 2 * var(--block-spacing) );
+		padding-inline-start: calc( 2 * var(--block-spacing) );
 	}
 
 	&,
@@ -75,7 +75,7 @@
 
 .wp-block-post-comments-form {
 	.wp-block-comment-template & {
-		margin-top: 0 !important; // Reset
+		margin-block-start: 0 !important; // Reset
 	}
 
 	.comment-reply-title {
@@ -87,7 +87,7 @@
 
 		small {
 			@extend %meta;
-			margin-left: auto;
+			margin-inline-start: auto;
 
 			a {
 				&:before {

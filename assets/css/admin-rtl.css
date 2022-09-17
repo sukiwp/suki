@@ -37,7 +37,7 @@ details.suki-admin-accordion summary:hover, details.suki-admin-accordion summary
 }
 details.suki-admin-accordion summary:before {
 	content: "▶";
-	margin-left: 4px;
+	margin-inline-end: 4px;
 	opacity: 0.5;
 }
 details.suki-admin-accordion[open] summary:before {

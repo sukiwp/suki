@@ -168,11 +168,11 @@
 			padding: calc( 0.25 * var(--block-spacing) ) var(--block-spacing);
 
 			&:first-child {
-				padding-top: calc( 0.5 * var(--block-spacing) );
+				padding-block-start: calc( 0.5 * var(--block-spacing) );
 			}
 
 			&:last-child {
-				padding-bottom: calc( 0.5 * var(--block-spacing) );
+				padding-block-end: calc( 0.5 * var(--block-spacing) );
 			}
 		}
 
@@ -196,7 +196,7 @@
 
 	&__submenu-icon {
 		align-self: center;
-		margin-left: 0.5em;
+		margin-inline-start: 0.5em;
 		padding: 0 !important;
 		border: none !important;
 		background-color: transparent !important;
@@ -233,7 +233,7 @@
 
 		overflow: auto;
 		padding: clamp( var(--block-spacing), 5%, calc( 3 * var(--block-spacing) ) );
-		padding-top: calc( 3 * var(--block-spacing) );
+		padding-block-start: calc( 3 * var(--block-spacing) );
 		background-color: inherit;
 		z-index: 100;
 
@@ -294,18 +294,18 @@
 			align-items: var(--flex-justify);
 			justify-content: flex-start;
 			gap: calc( 0.5 * var(--block-spacing) );
-			padding-top: calc( 0.5 * var(--block-spacing) );
+			padding-block-start: calc( 0.5 * var(--block-spacing) );
 
 			// Reset
 			margin: 0;
 			box-shadow: none;
 
 			.wp-block-navigation.items-justified-left & {
-				padding-left: var(--block-spacing);
+				padding-inline-start: var(--block-spacing);
 			}
 
 			.wp-block-navigation.items-justified-right & {
-				padding-right: var(--block-spacing);
+				padding-inline-end: var(--block-spacing);
 			}
 		}
 
@@ -332,8 +332,8 @@
 			gap: var(--block-spacing);
 
 			> * {
-				margin-top: 0;
-				margin-bottom: 0;
+				margin-block-start: 0;
+				margin-block-end: 0;
 			}
 		}
 
@@ -385,7 +385,7 @@
 		// Apply mixin: navigation overlay mode
 		// Duplicate the declaration due to media query
 		&:not(.hidden-by-default) {
-			@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
+			@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
 				@include __block-navigation-overlay();
 			}
 		}

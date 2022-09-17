@@ -60,15 +60,15 @@
 }
 
 .suki-ignore-padding {
-	margin-left: calc( -1 * var(--padding-left) );
-	margin-right: calc( -1 * var(--padding-right) );
+	margin-inline-start: calc( -1 * var(--padding-left) );
+	margin-inline-end: calc( -1 * var(--padding-right) );
 
 	&:first-child {
-		margin-top: calc( -1 * var(--padding-top) );
+		margin-block-start: calc( -1 * var(--padding-top) );
 	}
 
 	&:last-child {
-		margin-bottom: calc( -1 * var(--padding-bottom) );
+		margin-block-end: calc( -1 * var(--padding-bottom) );
 	}
 }
 
@@ -77,7 +77,7 @@
  */
 
 .suki-author-bio {
-	margin-top: calc( 3 * var(--block-spacing) );
+	margin-block-start: calc( 3 * var(--block-spacing) );
 	padding: var(--block-spacing);
 	border: 1px solid var(--border-color);
 
@@ -93,7 +93,7 @@
  */
 
 .suki-post-navigation {
-	margin-top: calc( 3 * var(--block-spacing) );
+	margin-block-start: calc( 3 * var(--block-spacing) );
 }
 
 /**
@@ -101,7 +101,7 @@
  */
 
 .suki-comments {
-	margin-top: calc( 3 * var(--block-spacing) );
+	margin-block-start: calc( 3 * var(--block-spacing) );
 
 	> * + * {
 		margin-block-start: calc( 1.5 * var(--block-spacing) );

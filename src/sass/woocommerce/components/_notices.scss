@@ -1,0 +1,94 @@
+/**
+ * Store notice bar
+ */
+
+ .woocommerce-store-notice {
+	position: sticky;
+	bottom: 0;
+	width: 100%;
+	margin: 0;
+	padding: calc( 0.75 * var(--block-spacing) ) 0;
+	text-align: center;
+	background-color: var(--color-palette-4);
+	color: var(--color-palette-8);
+	z-index: 99998;
+	display: none;
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+}
+
+/**
+ * Notices
+ */
+
+.woocommerce-notices-wrapper {
+	margin-block: calc( 2 * var(--block-spacing) );
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+
+	&:empty {
+		display: none;
+	}
+}
+
+:is( .woocommerce-message, .woocommerce-error, .woocommerce-info ) {
+	position: relative;
+	list-style: none;
+	padding: 1em 1em 1em 3em;
+	margin-inline: 0;
+	margin-block: var(--block-spacing);
+
+	width: auto;
+	background-color: var(--subtle-background-color);
+	word-wrap: break-word;
+
+	@include remove-margin-top-for-first-child();
+	@include remove-margin-bottom-for-last-child();
+
+	&:before {
+		font-family: "WooCommerce";
+		content: "\e028";
+		display: inline-block;
+		position: absolute;
+		top: 1em;
+		left: 1.25em;
+	}
+
+	.button {
+		@include button-link();
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			float: right;
+		}
+	}
+}
+
+.woocommerce-message {
+	border-top-color: #8fae1b;
+
+	&:before {
+		content: "\e015";
+		color: #8fae1b;
+	}
+}
+
+.woocommerce-info {
+	border-top-color: #1e85be;
+
+	&:before {
+		color: #1e85be;
+	}
+}
+
+.woocommerce-error {
+	border-top-color: #b81c23;
+
+	&:before {
+		content: "\e016";
+		color: #b81c23;
+	}
+}

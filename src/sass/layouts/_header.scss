@@ -10,6 +10,11 @@
 	}
 }
 
+.suki-header {
+	position: relative;
+	z-index: 99;
+}
+
 .suki-header--mobile-visibility {
 	&-tablet {
 		@media screen and ( min-width: $breakpoint-desktop ) {
@@ -22,7 +27,7 @@
 			}
 		}
 
-		@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+		@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
 			.suki-header-desktop {
 				display: none;
 			}
@@ -44,7 +49,7 @@
 			}
 		}
 
-		@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
+		@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
 			.suki-header-desktop {
 				display: none;
 			}
@@ -356,11 +361,11 @@
 			display: none; // Will be changed by JS
 
 			.has-text-align-left & {
-				padding-left: var(--block-spacing);
+				padding-inline-start: var(--block-spacing);
 			}
 
 			.has-text-align-right & {
-				padding-right: var(--block-spacing);
+				padding-inline-end: var(--block-spacing);
 			}
 
 			.suki-menu-item-link {
@@ -421,64 +426,5 @@
 				color: inherit;
 			}
 		}
-	}
-}
-
-/**
- * Header element: Cart
- */
-
-.suki-header-cart {
-	.widget {
-		margin: 0;
-	}
-
-	.cart-amount {
-		margin: 0 0.25em 0 0.5em;
-
-		&:nth-child(2) {
-			margin-left: 0;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-	}
-
-	.cart-link {
-		position: relative;
-	}
-
-	.cart-count {
-		width: 2em;
-		height: 2em;
-		position: absolute;
-		z-index: 1;
-		display: inline-block;
-		margin: -0.6em 0 0 -1.2em;
-		border-radius: 50%;
-		font-size: 0.6em;
-		text-align: center;
-		line-height: 2;
-		letter-spacing: 0; // reset
-		background-color: var(--color-palette-4);
-		color: var(--color-palette-8);
-		animation: suki-pulse 0.5s 1;
-
-		strong {
-			display: inline-block;
-			font-size: 0.5em;
-			line-height: 2;
-			vertical-align: top;
-		}
-
-		&[data-count="0"] {
-			display: none;
-		}
-	}
-
-	.sub-menu {
-		white-space: normal;
-		width: 20em;
 	}
 }

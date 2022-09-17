@@ -361,7 +361,7 @@
 	&__button {
 		@extend %button;
 
-		margin-left: 1em;
+		margin-inline-start: 1em;
 	}
 }
 
@@ -424,7 +424,7 @@
 	}
 
 	&.is-stacked-on-mobile {
-		@media screen and ( max-width: ( $breakpoint-tablet - 1px ) ) {
+		@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
 			grid-template-columns: 100% !important; // Use important to override inline style from the block settings
 			grid-template-areas: "media" "content"; // Stack media and content
 		}
@@ -470,7 +470,7 @@
 		.wp-block-embed__wrapper::before {
 			content: "";
 			display: block;
-			padding-top: 50%; // Default to 2:1 aspect ratio.
+			padding-block-start: 50%; // Default to 2:1 aspect ratio.
 		}
 
 		iframe {
@@ -486,43 +486,43 @@
 
 	.wp-embed-aspect-21-9 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 42.85%; // 9 / 21 * 100
+			padding-block-start: 42.85%; // 9 / 21 * 100
 		}
 	}
 
 	.wp-embed-aspect-18-9 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 50%; // 9 / 18 * 100
+			padding-block-start: 50%; // 9 / 18 * 100
 		}
 	}
 
 	.wp-embed-aspect-16-9 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 56.25%; // 9 / 16 * 100
+			padding-block-start: 56.25%; // 9 / 16 * 100
 		}
 	}
 
 	.wp-embed-aspect-4-3 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 75%; // 3 / 4 * 100
+			padding-block-start: 75%; // 3 / 4 * 100
 		}
 	}
 
 	.wp-embed-aspect-1-1 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 100%; // 1 / 1 * 100
+			padding-block-start: 100%; // 1 / 1 * 100
 		}
 	}
 
 	.wp-embed-aspect-9-16 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 177.77%; // 16 / 9 * 100
+			padding-block-start: 177.77%; // 16 / 9 * 100
 		}
 	}
 
 	.wp-embed-aspect-1-2 {
 		.wp-block-embed__wrapper::before {
-			padding-top: 200%; // 2 / 1 * 100
+			padding-block-start: 200%; // 2 / 1 * 100
 		}
 	}
 }

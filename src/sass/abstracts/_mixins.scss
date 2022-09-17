@@ -130,14 +130,14 @@
 // Remove top margin of an element if it's the first child
 @mixin remove-margin-top-for-first-child() {
 	&:first-child {
-		margin-top: 0;
+		margin-block-start: 0;
 	}
 }
 
 // Remove bottom margin of an element if it's the last child
 @mixin remove-margin-bottom-for-last-child() {
 	&:last-child {
-		margin-bottom: 0;
+		margin-block-end: 0;
 	}
 }
 
@@ -162,6 +162,26 @@
 		transition: opacity var(--transition-duration, 0.25s), visibility 0s; // show transition
 	} @else {
 		transition: none;
+	}
+}
+
+// Button with normal link appearance
+@mixin button-link() {
+	padding: 0;
+	border-width: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	text-decoration: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	background-color: transparent !important;
+	color: var(--link-color);
+	text-decoration: none;
+
+	&:hover, &:focus {
+		color: var(--link-color--focus);
+		text-decoration: underline;
 	}
 }
 

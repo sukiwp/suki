@@ -47,7 +47,7 @@
 .suki-footer-row {
 	gap: var(--items-gap);
 
-	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -73,7 +73,7 @@
 		}
 	}
 
-	@media screen and ( max-width: ( $breakpoint-desktop - 1px ) ) {
+	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
 		&--empty {
 			display: none;
 		}

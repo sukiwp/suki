@@ -1,0 +1,111 @@
+
+/**
+ * Products loop
+ */
+
+.woocommerce ul.products { // Requires ul selector because .products class is also used in Related Products section
+	--columns: 1;
+	--row-gap: var(--block-spacing);
+	--column-gap: var(--block-spacing);
+
+	display: grid;
+	row-gap: var(--row-gap);
+	column-gap: var(--column-gap);
+	grid-template-columns: repeat( var(--columns), 1fr );
+
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	&.columns-2 {
+		@media screen and ( min-width: $breakpoint-phone ) {
+			--columns: 2;
+		}
+	}
+
+	&.columns-3 {
+		@media screen and ( min-width: $breakpoint-phone ) {
+			--columns: 3;
+		}
+	}
+
+	&.columns-4 {
+		@media screen and ( min-width: $breakpoint-phone ) {
+			--columns: 2;
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			--columns: 4;
+		}
+	}
+
+	&.columns-5 {
+		@media screen and ( min-width: $breakpoint-phone ) {
+			--columns: 2;
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			--columns: 5;
+		}
+	}
+
+	&.columns-6 {
+		@media screen and ( min-width: $breakpoint-phone ) {
+			--columns: 2;
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			--columns: 3;
+		}
+
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			--columns: 6;
+		}
+	}
+
+	.product {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start; // CUSTOMIZER
+
+		> * + * {
+			margin-block-start: calc( 0.25 * var(--block-spacing) );
+		}
+
+		.suki-woocommerce-loop-item__thumbnail {
+			position: relative;
+			align-self: stretch;
+
+			&:first-child:not(:only-child) {
+				margin-block-end: calc( 0.5 * var(--block-spacing) );
+			}
+
+			a {
+				&:hover, &:focus {
+					opacity: 0.9;
+				}
+			}
+
+			img {
+				width: 100%; // Force image to always use full horizontal space
+			}
+		}
+
+		.onsale {
+			right: 0;
+			left: auto;
+		}
+
+		a {
+			@include reverse-link-color();
+		}
+
+		.woocommerce-loop-product__title,
+		.woocommerce-loop-category__title {
+			margin: 0; // Reset
+			font: inherit;
+			color: inherit;
+		}
+	}
+}
