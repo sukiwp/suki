@@ -75,6 +75,9 @@ class Suki {
 		// For example, Elementor declares their 'wp_enqueue_scripts' actions late, on 'init' hook.
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
+		// Replace blocks CSS with our own CSS.
+		add_action( 'wp_default_styles', array( $this, 'modify_blocks_css' ) );
+
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
 			add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), array( $this, 'child_use_parent_mods__set' ), 10, 2 );
@@ -184,6 +187,9 @@ class Suki {
 
 		// Selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		// Add editor styles to the block editor.
+		add_theme_support( 'editor-styles' );
 
 		/**
 		 * Color palette
@@ -296,13 +302,25 @@ class Suki {
 	 * Enqueue frontend scripts.
 	 */
 	public function handle_frontend_scripts() {
+		// Add defer attributes to javascripts.
 		add_filter( 'script_loader_tag', array( $this, 'add_defer_attribute_to_scripts' ), 10, 2 );
 
+		// Enqueue theme CSS and JS files.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_javascripts' ) );
 
+		// Add dynamic CSS to frontend.
 		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_dynamic_css' ) );
 		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_page_settings_css' ), 25 );
+	}
+
+	/**
+	 * Replace blocks CSS with our own CSS.
+	 *
+	 * @param WP_Styles $styles WP_Styles object.
+	 */
+	public function modify_blocks_css( $styles ) {
+		$styles->registered['wp-block-library']->src = SUKI_CSS_URL . '/blocks' . SUKI_ASSETS_SUFFIX . '.css';
 	}
 
 	/**
@@ -312,11 +330,6 @@ class Suki {
 	 */
 	public function enqueue_frontend_styles( $hook ) {
 		/**
-		 * Remove the default block CSS from WordPress
-		 */
-		wp_dequeue_style( 'wp-block-library' );
-
-		/**
 		 * Hook: Enqueue others before main CSS
 		 */
 		do_action( 'suki/frontend/before_enqueue_main_css', $hook );
@@ -324,7 +337,7 @@ class Suki {
 		/**
 		 * Main CSS
 		 */
-		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 		wp_style_add_data( 'suki', 'suffix', SUKI_ASSETS_SUFFIX );
 
@@ -420,7 +433,7 @@ class Suki {
 		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $outputs, $defaults );
 
 		if ( ! empty( $generated_css ) ) {
-			$css .= "\n/* Suki Dynamic CSS */\n" . $generated_css;
+			$css .= "\n/* Theme Dynamic CSS */\n" . $generated_css;
 		}
 
 		return $css;

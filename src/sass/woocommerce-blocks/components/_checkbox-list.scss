@@ -1,0 +1,22 @@
+/**
+ * Component: Checkbox list
+ */
+
+.wc-block-components-checkbox-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+
+	li {
+		display: flex;
+
+		input, label {
+			cursor: pointer;
+		}
+	}
+
+}

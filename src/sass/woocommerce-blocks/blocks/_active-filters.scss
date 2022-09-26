@@ -1,0 +1,82 @@
+/**
+ * Block: Active Filters
+ */
+
+.wc-block-active-filters {
+	&__clear-all {
+		@include button-link();
+
+		margin-block-start: 0.5em;
+	}
+
+	&__list {
+		$el: &;
+
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		&-item {
+
+			position: relative;
+
+			&-type {
+				@include meta-typography();
+				@include meta-color();
+			}
+
+			&-type + &-name {
+				margin-inline-start: 0.5em;
+			}
+
+			&-name {
+				display: inline-flex;
+				gap: 0.4em;
+				font-weight: 500;
+			}
+
+			&-remove {
+				// Reset
+				border: 0;
+				padding: 0;
+				background: none;
+				box-shadow: none;
+				font: inherit;
+				color: inherit;
+
+				opacity: 0.25;
+				transition: all var(--transition-duration);
+				cursor: pointer;
+
+				&:is( :hover, :focus ) {
+					opacity: 1;
+				}
+
+				svg {
+					display: block;
+					width: 1em;
+					height: 1em;
+				}
+			}
+		}
+
+		&--chips {
+			flex-direction: row;
+			gap: 0.25em;
+
+			#{$el}-item-type {
+				display: none;
+			}
+		}
+	}
+}

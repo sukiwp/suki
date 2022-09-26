@@ -1,0 +1,18 @@
+/**
+ * Block: Product Searh
+ */
+
+.wc-block-product-search {
+	&__fields {
+		display: flex;
+		gap: 0.25em;
+	}
+
+	&__button {
+		svg {
+			.rtl & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}

@@ -96,6 +96,7 @@
  * Rating stars
  */
 
+%woocommerce-rating-stars,
 .woocommerce .star-rating {
 	overflow: hidden;
 	position: relative;
@@ -143,5 +144,23 @@
 
 	ins {
 		text-decoration: none; // Reset default browser style
+	}
+}
+
+/**
+ * Pagination
+ */
+
+.woocommerce .woocommerce-pagination {
+	margin-block-start: calc( 2 * var(--block-spacing) );
+	text-align: center;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: inline-flex;
+		gap: 1em;
 	}
 }

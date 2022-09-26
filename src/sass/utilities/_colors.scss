@@ -8,10 +8,6 @@
 
 .has-text-color {
 	color: var(--text-color);
-
-	:where(h1, h2, h3, h4, h5, h6) {
-		color: var(--text-color);
-	}
 }
 
 .has-link-color {
@@ -22,10 +18,6 @@
 
 .has-border-color {
 	border-color: var(--border-color);
-	
-	* {
-		border-color: var(--border-color);
-	}
 }
 
 $types: ( "background-color", "color", "border-color" );

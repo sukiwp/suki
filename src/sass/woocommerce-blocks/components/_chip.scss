@@ -1,0 +1,54 @@
+/**
+ * Component: Chip
+ */
+
+.wc-block-components-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25em;
+	padding: 0.25em 0.5em;
+	isolation: isolate;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: currentColor;
+		opacity: 0.1;
+		z-index: -1;
+	}
+
+	&__text {
+		line-height: normal;
+		white-space: nowrap;
+	}
+
+	&__remove {
+		// Reset
+		border: 0;
+		padding: 0;
+		background: none;
+		box-shadow: none;
+		font: inherit;
+		color: inherit;
+
+		margin: -0.25em -0.5em -0.25em 0;
+		cursor: pointer;
+		opacity: 0.5;
+
+		transition: all var(--transition-duration);
+
+		&:is( :hover, :focus ) {
+			opacity: 1;
+		}
+
+		svg {
+			display: block;
+			width: 1.5em;
+			height: 1.5em;
+		}
+	}
+}

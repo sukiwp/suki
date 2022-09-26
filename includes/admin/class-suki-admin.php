@@ -53,8 +53,7 @@ class Suki_Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_javascripts' ) );
 
 		// Editor styles.
-		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_css' ) );
-		add_action( 'wp_default_styles', array( $this, 'remove_block_editor_default_block_styles' ), PHP_INT_MAX );
+		add_action( 'admin_init', array( $this, 'enqueue_editor_css' ) );
 		add_filter( 'block_editor_settings_all', array( $this, 'add_block_editor_dynamic_css__visual' ), 10, 2 );
 		add_filter( 'tiny_mce_before_init', array( $this, 'add_classic_editor_dynamic_css' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'add_block_editor_dynamic_css__controls' ), 20 );
@@ -110,7 +109,7 @@ class Suki_Admin {
 		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
 
 		// Enqueue CSS files.
-		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
 		wp_style_add_data( 'suki-admin', 'suffix', SUKI_ASSETS_SUFFIX );
 
@@ -168,28 +167,7 @@ class Suki_Admin {
 	 * Add CSS for editor page.
 	 */
 	public function enqueue_editor_css() {
-		// Add editor styles to the block editor.
-		add_theme_support( 'editor-styles' );
-
 		add_editor_style( 'assets/css/editor' . SUKI_ASSETS_SUFFIX . '.css' );
-	}
-
-	/**
-	 * Remove default block styles (`wp-block-library`) from Gutenberg.
-	 *
-	 * @link https://fullsiteediting.com/lessons/how-to-remove-default-block-styles/#h-how-to-remove-default-block-styles-from-the-block-editor-and-site-editor
-	 *
-	 * @param WP_Styles $styles WP_Styles instance.
-	 */
-	public function remove_block_editor_default_block_styles( $styles ) {
-		$handle = 'wp-block-library';
-
-		if ( $styles->query( $handle, 'registered' ) ) {
-			// Remove the style.
-			$styles->remove( $handle );
-			// Remove path and dependencies.
-			$styles->add( $handle, false, array() );
-		}
 	}
 
 	/**
@@ -234,7 +212,7 @@ class Suki_Admin {
 		$css_array['@media screen and (min-width: 1305px)']['.editor-styles-wrapper:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow):after']['content'] = '"' . esc_html__( 'Sidebar', 'suki' ) . '" !important';
 
 		// Inject inline CSS after the admin.css.
-		wp_register_style( 'suki-block-editor', false, array(), true, true );
+		wp_register_style( 'suki-block-editor', false, array(), SUKI_VERSION );
 		wp_add_inline_style(
 			'suki-block-editor',
 			suki_convert_css_array_to_string( $css_array )

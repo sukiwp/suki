@@ -1,4 +1,37 @@
-@import "main";
+// Abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// Base
+@import "base/global";
+@import "base/text";
+@import "base/form";
+@import "base/media";
+@import "base/table";
+
+// Utilities
+@import "utilities/colors";
+@import "utilities/typography";
+@import "utilities/alignments";
+@import "utilities/spacing";
+@import "utilities/columns";
+@import "utilities/visibility";
+@import "utilities/accessibility";
+
+// Blocks
+@import "blocks/common";
+@import "blocks/text";
+@import "blocks/media";
+@import "blocks/design";
+@import "blocks/widgets";
+
+@import "blocks/navigation";
+@import "blocks/posts";
+@import "blocks/comments";
+
+// Block supports (added last)
+@import "blocks/supports";
+
 
 /**
  * Tiny MCE
@@ -15,18 +48,30 @@ body.mce-content-body {
  * Components
  */
 
-.wp-block-search__button {
-	@extend %button;
-}
+// .wp-block-search__button {
+// 	@extend %button;
+// }
 
-.wp-block-social-links {
-	&.is-style-pill-shape {
-		.wp-block-social-link {
-			button {
-				padding: 0.25em;
-			}
-		}
-	}
+// .wp-block-social-links {
+// 	&.is-style-pill-shape {
+// 		.wp-block-social-link {
+// 			button {
+// 				padding: 0.25em;
+// 			}
+// 		}
+// 	}
+// }
+
+.block-editor-plain-text { // Re-define the original CSS, because it's overridden by theme's CSS (.editor-styles-wrapper textarea)
+	box-shadow: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	line-height: inherit;
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
 }
 
 .edit-post-visual-editor__post-title-wrapper {

@@ -55,14 +55,20 @@ class Suki_Compatibility_WooCommerce {
 		 * Compatibility CSS
 		 */
 
-		// Disable original WooCommerce CSS.
-		add_filter( 'woocommerce_enqueue_styles', array( $this, 'disable_original_css' ) );
-
-		// Enqueue compatibility CSS.
-		add_action( 'suki/frontend/after_enqueue_main_css', array( $this, 'enqueue_css' ) );
+		// Replace WooCommerce classic CSS with our own CSS.
+		add_filter( 'woocommerce_enqueue_styles', array( $this, 'modify_css' ) );
 
 		// Add dynamic CSS.
 		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_dynamic_css' ) );
+
+		// Enqueue dynamic CSS.
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_dynamic_css' ) );
+
+		// Replace WooCommerce blocks CSS with our own CSS.
+		add_action( 'init', array( $this, 'modify_blocks_css' ) );
+
+		// Add CSS for editor page.
+		add_action( 'admin_init', array( $this, 'enqueue_editor_css' ) );
 
 		/**
 		 * Customizer
@@ -140,27 +146,22 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Enqueue compatibility CSS.
-	 */
-	public function enqueue_css() {
-		wp_enqueue_style( 'suki-woocommerce', SUKI_CSS_URL . '/woocommerce' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
-		wp_style_add_data( 'suki-woocommerce', 'rtl', 'replace' );
-		wp_style_add_data( 'suki-woocommerce', 'suffix', SUKI_ASSETS_SUFFIX );
-
-		// Inline CSS.
-		wp_add_inline_style( 'suki-woocommerce', trim( apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' ) ) );
-	}
-
-	/**
-	 * Disable original WooCommerce CSS.
+	 * Replace WooCommerce classic CSS with our own CSS.
 	 *
 	 * @param array $styles Styles array.
 	 * @return array
 	 */
-	public function disable_original_css( $styles ) {
-		$styles['woocommerce-layout']['src']      = false;
+	public function modify_css( $styles ) {
+		// Disable woocommerce-layout.css as layout related styles will be included in our own CSS.
+		$styles['woocommerce-layout']['src'] = false;
+
+		// Disable woocommerce-smallscreen.css as responsive styles will be included in our own CSS.
 		$styles['woocommerce-smallscreen']['src'] = false;
-		$styles['woocommerce-general']['src']     = false;
+
+		// Replace woocommerce-general.css with our own CSS.
+		// Our CSS includes all general, layout, and smallscreen CSS.
+		$styles['woocommerce-general']['src']     = SUKI_CSS_URL . '/woocommerce' . SUKI_ASSETS_SUFFIX . '.css';
+		$styles['woocommerce-general']['version'] = SUKI_VERSION;
 
 		return $styles;
 	}
@@ -183,10 +184,35 @@ class Suki_Compatibility_WooCommerce {
 		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $outputs, $defaults );
 
 		if ( ! empty( $generated_css ) ) {
-			$css .= "\n/* Suki + WooCommerce Dynamic CSS */\n" . $generated_css;
+			$css .= "\n/* Theme + WooCommerce Dynamic CSS */\n" . $generated_css;
 		}
 
 		return $css;
+	}
+
+	/**
+	 * Enqueue dynamic CSS.
+	 */
+	public function enqueue_dynamic_css() {
+		// Inline CSS.
+		wp_add_inline_style( 'woocommerce-general', trim( apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' ) ) );
+	}
+
+	/**
+	 * Replace WooCommerce blocks CSS with our own CSS.
+	 */
+	public function modify_blocks_css() {
+		wp_deregister_style( 'wc-blocks-style' );
+		wp_register_style( 'wc-blocks-style', SUKI_CSS_URL . '/woocommerce-blocks' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_style_add_data( 'wc-blocks-style', 'rtl', 'replace' );
+		wp_style_add_data( 'wc-blocks-style', 'suffix', SUKI_ASSETS_SUFFIX );
+	}
+
+	/**
+	 * Add CSS for editor page.
+	 */
+	public function enqueue_editor_css() {
+		add_editor_style( 'assets/css/woocommerce-blocks' . SUKI_ASSETS_SUFFIX . '.css' );
 	}
 
 	/**
@@ -459,10 +485,6 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper' ), 11 );
 		add_action( 'woocommerce_before_shop_loop', array( $this, 'render_loop_filters_wrapper_end' ), 999 );
 
-		// Add wrapper to products grid item.
-		// add_action( 'woocommerce_before_shop_loop_item', array( $this, 'render_loop_item_wrapper' ), 1 );
-		// add_action( 'woocommerce_after_shop_loop_item', array( $this, 'render_loop_item_wrapper_end' ), 999 );
-
 		// Add product thumbnail wrapper.
 		// This wrapper is needed for more advanced features like quick view, hover product image, etc.
 		add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'render_loop_product_thumbnail_wrapper' ), 1 );
@@ -514,9 +536,6 @@ class Suki_Compatibility_WooCommerce {
 		// Move sale badge position to after images for better CSS handling based on the thumbnail layout.
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 		add_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 21 );
-
-		// Add class to single product gallery for single image or multiple images.
-		// add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'add_single_product_gallery_class' ) );
 
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );

@@ -9,45 +9,35 @@
 	}
 }
 
-// List widgets
-%widget-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+:is(
+	.widget_nav_menu,
+	.widget_categories,
+	.widget_archive,
+	.widget_meta,
+	.widget_pages,
+	.widget_recent_entries,
+	.widget_recent_comments,
+	.widget_rss
+) {
+	--gap: 0.25em;
 
-	display: flex;
-	flex-direction: column;
-	gap: 0.25em;
-
-	& > ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	li > :is( ul, ol ) {
+	:is( ul, ol ) {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-
-		padding-inline-start: var(--block-spacing);
 
 		display: flex;
 		flex-direction: column;
-		gap: 0.25em;
-	}
-}
+		gap: var(--gap);
 
-.widget_nav_menu,
-.widget_categories,
-.widget_archive,
-.widget_meta,
-.widget_pages,
-.widget_recent_entries,
-.widget_recent_comments,
-.widget_rss {
-	ul {
-		@extend %widget-list;
+		:is( ul, ol ) {
+			margin-block-start: var(--gap);
+			padding-inline-start: var(--block-spacing);
+
+			display: flex;
+			flex-direction: column;
+			gap: var(--gap);
+		}
 	}
 }
 
@@ -74,7 +64,7 @@
 }
 
 // Calendar widget
-%widget-calendar {
+.widget_calendar {
 	text-align: center;
 
 	caption {
@@ -84,8 +74,4 @@
 	:where(th, td) {
 		padding: 0.25em 0.5em;
 	}
-}
-
-.widget_calendar {
-	@extend %widget-calendar;
 }

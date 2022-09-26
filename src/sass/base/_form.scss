@@ -37,6 +37,8 @@
 		border-color: var(--input--border-color--focus, var(--input--border-color));
 		background-color: var(--input--background-color--focus, var(--input--background-color));
 		color: var(--input--text-color--focus, var(--input--text-color));
+
+		outline: none; // Reset .using-keyboard style
 	}
 }
 
@@ -63,10 +65,6 @@ select[multiple] {
 
 :is( input[type="radio"], input[type="checkbox"] ) {
 	margin: 0 0.5em 0 0;
-	font-size: 1em; // Make sure the input button is in same size with the current text size
-	width: 1em;
-	height: 1em;
-	vertical-align: -0.1em;
 }
 
 /**
@@ -75,45 +73,7 @@ select[multiple] {
 
 %button,
 [type="reset"], [type="submit"], .button {
-	position: relative;
-	appearance: none;
-	isolation: isolate;
-	display: inline-flex;
-	gap: 0.5em; // Prepare gap for button with icon
-	align-items: center;
-	justify-content: center;
-	max-width: 100%;
-	cursor: pointer;
-	vertical-align: middle;
-
-	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
-	border-style: solid;
-	border-radius: var(--button--border-radius, 0.2em);
-	border-width: var(--button--border-width, 1px);
-	border-color: var(--button--border-color, var(--color-palette-4));
-	background-color: var(--button--background-color, var(--color-palette-4));
-	color: var(--button--text-color, var(--color-palette-8));
-
-	font-family: var(--button--font-family, var(--base--font-family));
-	font-size: var(--button--font-size, var(--base--font-size));
-	font-style: var(--button--font-style, normal);
-	font-weight: var(--button--font-weight, normal);
-	line-height: initial;
-	letter-spacing: var(--button--letter-spacing, 0);
-	text-transform: var(--button--text-transform, none);
-
-	text-align: center;
-
-	transition: all var(--transition-duration);
-
-	&:hover,
-	&:focus {
-		border-color: var(--button--border-color--focus, var(--button--border-color));
-		background-color: var(--button--background-color--focus, var(--button--background-color));
-		color: var(--button--text-color--focus);
-
-		text-decoration: none;
-	}
+	@include button();
 }
 
 /**

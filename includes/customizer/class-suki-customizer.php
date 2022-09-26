@@ -242,7 +242,7 @@ class Suki_Customizer {
 	 * Enqueue customizer controls scripts & styles.
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'suki-customizer', SUKI_CSS_URL . '/customizer.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki-customizer', SUKI_CSS_URL . '/customizer' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-customizer', 'rtl', 'replace' );
 		wp_style_add_data( 'suki-customizer', 'suffix', SUKI_ASSETS_SUFFIX );
 

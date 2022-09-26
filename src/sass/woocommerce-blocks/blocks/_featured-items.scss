@@ -1,0 +1,136 @@
+@mixin wc-block-featured-item() {
+	text-align: center;
+	overflow: hidden;
+
+	&__wrapper {
+		// Editor applied the min-height style in the wrapper, so we need to make this wrapper as big as the block tag.
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: inherit;
+		padding: var(--block-spacing);
+		isolation: isolate;
+
+		> * {
+			margin-block: 0;
+
+			color: inherit;
+		}
+
+		> * + * {
+			margin-block-start: var(--block-spacing);
+		}
+	}
+
+	.background-dim__overlay {
+		margin: 0; // Reset &__wrapper > * + *
+		padding: 0;
+		display: none;
+	}
+
+	&.has-background-dim {
+		.background-dim__overlay {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			z-index: -1;
+			opacity: 0.5; // Default opacity, if has-background-dim-xx class is not found
+		}
+	}
+
+	@for $i from 1 through 10 {
+		&.has-background-dim-#{$i * 10} {
+			.background-dim__overlay {
+				opacity: $i * 0.1;
+			}
+		}
+	}
+
+	&__background-image {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0; // Reset &__wrapper > * + *
+		padding: 0;
+		z-index: -2;
+
+		&.has-parallax {
+			background-attachment: fixed;
+
+			// Mobile Safari does not support fixed background attachment properly.
+			// See also https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios
+			// Chrome on Android does not appear to support the attachment at all: https://issuetracker.google.com/issues/36908439
+			@supports (-webkit-overflow-scrolling: touch) {
+				background-attachment: scroll;
+			}
+
+			// Remove the appearance of scrolling based on OS-level animation preferences.
+			@media (prefers-reduced-motion: reduce) {
+				background-attachment: scroll;
+			}
+		}
+
+		& + * {
+			margin-block-start: 0; // Reset &__wrapper > * + *
+		}
+	}
+
+	/**
+	 * Alignment
+	 */
+
+	&.has-left-content {
+		text-align: left;
+	}
+
+	&.has-right-content {
+		text-align: right;
+	}
+}
+
+/**
+ * Block: Featured Category
+ */
+
+.wc-block-featured-category {
+	@include wc-block-featured-item();
+}
+
+/**
+ * Block: Featured Product
+ */
+
+.wc-block-featured-product {
+	@include wc-block-featured-item();
+
+	&__variation {
+		font: inherit;
+		margin-block-start: calc( 0.5 * var(--block-spacing) );
+	}
+
+	&__price {
+		font-size: 1.5em;
+		font-weight: 500;
+		line-height: 1.4;
+
+		del {
+			opacity: 0.5;
+			font-size: 0.9em;
+			font-weight: normal; // Always show regular font weight
+		}
+
+		ins {
+			text-decoration: none; // Reset default browser style
+		}
+	}
+}

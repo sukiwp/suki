@@ -1,0 +1,15 @@
+/**
+ * Component: Filter element label
+ */
+
+.wc-filter-element-label-list-count {
+	opacity: 0.5;
+
+	&:before {
+		content: " (";
+	}
+
+	&:after {
+		content: ")";
+	}
+}

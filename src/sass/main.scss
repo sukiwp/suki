@@ -19,33 +19,21 @@
 @import "utilities/accessibility";
 
 // Components
-@import "components/icon";
-@import "components/toggle";
-@import "components/popup";
-@import "components/container";
-@import "components/menu";
-@import "components/search";
-@import "components/breadcrumb";
-@import "components/social-links";
-@import "components/widgets";
-@import "components/shortcodes";
-
-// Blocks
-@import "blocks/common";
-@import "blocks/supports";
-@import "blocks/text";
-@import "blocks/media";
-@import "blocks/design";
-@import "blocks/widgets";
-
-@import "blocks/navigation";
-@import "blocks/posts";
-@import "blocks/comments";
+@import "main/components/icon";
+@import "main/components/toggle";
+@import "main/components/popup";
+@import "main/components/container";
+@import "main/components/menu";
+@import "main/components/search";
+@import "main/components/breadcrumb";
+@import "main/components/social-links";
+@import "main/components/widgets";
+@import "main/components/shortcodes";
 
 // Layout
-@import "layouts/canvas";
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/hero";
-@import "layouts/content-sidebar";
-@import "layouts/post";
+@import "main/layouts/canvas";
+@import "main/layouts/header";
+@import "main/layouts/footer";
+@import "main/layouts/hero";
+@import "main/layouts/content-sidebar";
+@import "main/layouts/post";

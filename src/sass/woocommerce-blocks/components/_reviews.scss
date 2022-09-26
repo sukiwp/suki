@@ -1,0 +1,142 @@
+/**
+ * Component: Review sort select
+ */
+
+.wc-block-components-review-sort-select {
+	text-align: right;
+}
+
+/**
+ * Component: Review list
+ */
+
+.wc-block-components-review-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+	gap: calc( 1.5 * var(--block-spacing) );
+	margin-block-start: calc( 1.5 * var(--block-spacing) );
+}
+
+.wc-block-components-review-list-item {
+	&__info {
+		display: flex;
+		align-items: flex-start;
+		gap: 1em;
+	}
+
+	&__image {
+		position: relative;
+		width: 3em;
+	}
+
+	&__verified {
+		position: absolute;
+		bottom: -0.5em;
+		right: -0.5em;
+		width: 1.5em;
+		height: 1.5em;
+		text-indent: -999em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.75em;
+
+		border-radius: 50%;
+		background-color: var(--wc-green);
+		color: #fff;
+
+		&:before {
+			content: "✔";
+			text-indent: 0;
+		}
+	}
+
+	&__meta {
+		display: flex;
+		align-items: center;
+		flex-flow: row wrap;
+
+		&:after {
+			// Force wrap after star rating.
+			order: 3;
+			content: "";
+			flex-basis: 100%;
+		}
+	}
+
+	&__product {
+		order: 1;
+		margin-inline-end: 0.5em;
+	}
+
+	&__author {
+		order: 1;
+	}
+
+	&__product + &__author {
+		order: 4;
+	}
+
+	&__published-date {
+		order: 5;
+	}
+
+	&__product + &__author + &__published-date {
+		&:before {
+			content: "–";
+			margin: 0 0.5em;
+		}
+	}
+
+	&__author:first-child + &__published-date,
+	&__rating + &__author + &__published-date {
+		&:before {
+			display: none;
+		}
+	}
+
+	&__rating {
+		order: 2;
+
+		&__stars {
+			overflow: hidden;
+			position: relative;
+			display: inline-block;
+			height: 1em;
+			font-size: 1em;
+			line-height: 1;
+			font-family: "star";
+			color: var(--color-palette-4);
+			vertical-align: -0.1em;
+
+			&:before {
+				content: "\73\73\73\73\73";
+				top: 0;
+				left: 0;
+			}
+
+			span {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-block-start: 1em;
+				overflow: hidden;
+			}
+
+			span:before {
+				content: "\53\53\53\53\53";
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+	}
+
+	&__text {
+		margin-block-start: var(--block-spacing);
+	}
+}

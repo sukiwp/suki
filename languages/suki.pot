@@ -21,7 +21,7 @@ msgstr ""
 msgid "Shop Sidebar"
 msgstr ""
 
-#: sidebar.php:19, includes/class-suki.php:256, includes/admin/class-suki-admin.php:234, includes/customizer/structures/content.php:87, includes/customizer/structures/sections.php:228, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
+#: sidebar.php:19, includes/class-suki.php:262, includes/admin/class-suki-admin.php:212, includes/customizer/structures/content.php:87, includes/customizer/structures/sections.php:228, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
 msgid "Sidebar"
 msgstr ""
 
@@ -42,21 +42,21 @@ msgid "Suki is a free multi-purpose WordPress theme that is lightweight, fast, h
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: includes/class-suki.php:270
+#: includes/class-suki.php:276
 msgid "Footer Widgets Column %s"
 msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:288, includes/template-tags/header.php:708
+#: includes/class-suki.php:294, includes/template-tags/header.php:708
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:289, includes/template-tags/header.php:721
+#: includes/class-suki.php:295, includes/template-tags/header.php:721
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: includes/class-suki.php:290
+#: includes/class-suki.php:296
 msgid "Footer Bottom Menu"
 msgstr ""
 
@@ -397,7 +397,7 @@ msgstr ""
 msgid "Nothing found."
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:117, includes/admin/class-suki-admin.php:509
+#: includes/admin/class-suki-admin-dashboard.php:117, includes/admin/class-suki-admin.php:487
 msgid "Documentation"
 msgstr ""
 
@@ -409,7 +409,7 @@ msgstr ""
 msgid "Community"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:120, includes/admin/class-suki-admin.php:515
+#: includes/admin/class-suki-admin-dashboard.php:120, includes/admin/class-suki-admin.php:493
 msgid "Translation"
 msgstr ""
 
@@ -445,7 +445,7 @@ msgstr ""
 msgid "Start Customizing"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:193, includes/admin/class-suki-admin.php:563
+#: includes/admin/class-suki-admin-dashboard.php:193, includes/admin/class-suki-admin.php:541
 msgid "Suki Pro"
 msgstr ""
 
@@ -453,11 +453,11 @@ msgstr ""
 msgid "Get more features, advanced demo templates, and premium support."
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:218, includes/admin/class-suki-admin.php:575
+#: includes/admin/class-suki-admin-dashboard.php:218, includes/admin/class-suki-admin.php:553
 msgid "Upgrade to Suki Pro"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:263, includes/admin/class-suki-admin.php:450
+#: includes/admin/class-suki-admin-dashboard.php:263, includes/admin/class-suki-admin.php:428
 msgid "Available on Suki Pro"
 msgstr ""
 
@@ -485,15 +485,15 @@ msgstr ""
 msgid "Demo Sites Import"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:367, includes/admin/class-suki-admin.php:594
+#: includes/admin/class-suki-admin-dashboard.php:367, includes/admin/class-suki-admin.php:572
 msgid "Kickstart your website with our pre-made demo websites: Import. Modify. Launch!"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:377, includes/admin/class-suki-admin.php:599
+#: includes/admin/class-suki-admin-dashboard.php:377, includes/admin/class-suki-admin.php:577
 msgid "Install & Activate Plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:373, includes/admin/class-suki-admin.php:597
+#: includes/admin/class-suki-admin-dashboard.php:373, includes/admin/class-suki-admin.php:575
 msgid "Browse Demo Sites"
 msgstr ""
 
@@ -509,75 +509,75 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:154
+#: includes/admin/class-suki-admin.php:153
 msgid "Installing..."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:155
+#: includes/admin/class-suki-admin.php:154
 msgid "Error occured while installing the plugin"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:156
+#: includes/admin/class-suki-admin.php:155
 msgid "Redirecting to demo list..."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:289
+#: includes/admin/class-suki-admin.php:267
 msgid "Hey, it's me David from Suki WordPress theme. I noticed you've been using Suki to build your website - that's awesome!"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:289
+#: includes/admin/class-suki-admin.php:267
 msgid "Could you do us a BIG favor and give it a 5-star rating on WordPress.org? It would boost our motivation to keep adding new features in the future."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:291
+#: includes/admin/class-suki-admin.php:269
 msgid "Okay, you deserve it"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:292
+#: includes/admin/class-suki-admin.php:270
 msgid "Nope, maybe later"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:293
+#: includes/admin/class-suki-admin.php:271
 msgid "I already did"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:391
+#: includes/admin/class-suki-admin.php:369
 msgid "Core Module"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:427
+#: includes/admin/class-suki-admin.php:405
 msgid "Modules Manager"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:461
+#: includes/admin/class-suki-admin.php:439
 msgid "WooCommerce is not installed"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:503
+#: includes/admin/class-suki-admin.php:481
 msgid "Suki Website"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:521
+#: includes/admin/class-suki-admin.php:499
 msgid "Users Community Group"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:527
+#: includes/admin/class-suki-admin.php:505
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:533
+#: includes/admin/class-suki-admin.php:511
 msgid "Rate Us &#9733;&#9733;&#9733;&#9733;&#9733;"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:542
+#: includes/admin/class-suki-admin.php:520
 msgid "Other Links"
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:566
+#: includes/admin/class-suki-admin.php:544
 msgid "Get more powerful features and take your website to the next level with Suki Pro."
 msgstr ""
 
-#: includes/admin/class-suki-admin.php:591
+#: includes/admin/class-suki-admin.php:569
 msgid "One Click Demo Import"
 msgstr ""
 
@@ -1025,74 +1025,74 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:271, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:293
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:297, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:319
 msgid "Cart Link"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:277, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:299
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:303, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:325
 msgid "Cart Dropdown"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:314
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:340
 msgid "Product rating"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:346
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:372
 msgid "Sidebar Shop"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:348
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:374
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:718, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:822, includes/compatibilities/woocommerce/customizer/structures/sections.php:17
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:737, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:841, includes/compatibilities/woocommerce/customizer/structures/sections.php:17
 msgid "Shopping Cart"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:881
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:900
 msgid "Edit Page settings here"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:895
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:914
 msgid "Product Layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:915, includes/compatibilities/woocommerce/customizer/structures/sections.php:126, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:456, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:191
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:934, includes/compatibilities/woocommerce/customizer/structures/sections.php:126, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:456, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:191
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:917
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:936
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable breadcrumb."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:918
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:937
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable gallery on this product page."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:919
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:938
 msgctxt "Suki Pro upsell"
 msgid "Change gallery layout on this product page."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:920
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:939
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable product info tabs."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:921
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:940
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable up-sells."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:922
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:941
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:931
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:950
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""

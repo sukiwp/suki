@@ -1,0 +1,202 @@
+/**
+ * Component: Form token field
+ */
+
+.wc-blocks-components-form-token-field-wrapper {
+
+	.components-visually-hidden,
+	.components-form-token-field__label {
+		@include hide-visually( false );
+	}
+
+	.components-form-token-field__input-container {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.25em;
+		width: 100%;
+
+		padding: var(--input--padding, 0.5em 0.75em);
+		border-style: solid;
+		border-radius: var(--input--border-radius, 0);
+		border-width: var(--input--border-width, 1px);
+		border-color: var(--input--border-color, var(--color-palette-6));
+		background-color: var(--input--background-color, var(--color-palette-8));
+		color: var(--input--text-color, var(--color-palette-2));
+
+		font-family: var(--input--font-family, var(--base--font-family));
+		font-size: var(--input--font-size, var(--base--font-size));
+		font-style: var(--input--font-style, var(--base--font-style));
+		line-height: initial;
+		letter-spacing: var(--input--letter-spacing, 0);
+		text-transform: var(--input--text-transform, none);
+
+		transition: all var(--transition-duration);
+
+		&.is-active {
+			border-color: var(--input--border-color--focus, var(--input--border-color));
+			background-color: var(--input--background-color--focus, var(--input--background-color));
+			color: var(--input--text-color--focus, var(--input--text-color));
+
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+
+		.components-form-token-field__input {
+			min-width: 4em;
+			transition: none !important; // Reset %input
+		}
+
+		.components-form-token-field__token {
+			position: relative;
+			display: flex;
+			align-items: center;
+			gap: 0.25em;
+		}
+
+			.components-form-token-field__remove-token {
+				// Reset everything
+				border: 0;
+				padding: 0;
+				background: none;
+				box-shadow: none;
+				font: inherit;
+				color: inherit;
+
+				margin: -0.25em -0.5em -0.25em 0;
+				cursor: pointer;
+				opacity: 0.5;
+
+				svg {
+					display: block;
+					width: 1.5em;
+					height: 1.5em;
+				}
+
+				&:is( :hover, :focus ) {
+					opacity: 1;
+				}
+
+				span {
+					display: none; // Hide the popover
+				}
+			}
+
+		.components-form-token-field__suggestions-list {
+			list-style: none;
+			padding: 0;
+			margin: 1px -1px 0;
+
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			border: inherit;
+			border-top: 0;
+			border-radius: var(--input--border-radius, 0);
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			background-color: inherit;
+			z-index: 50;
+
+			&:empty {
+				display: none;
+			}
+		}
+
+			.components-form-token-field__suggestion {
+				position: relative;
+				padding: var(--input--padding, 0.5em 0.75em);
+				isolation: isolate;
+
+				&.is-selected {
+					&:before {
+						content: "";
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						background-color: currentColor;
+						opacity: 0.1;
+						z-index: -1;
+					}
+				}
+			}
+
+	&:not(.single-selection) {
+		.components-form-token-field__input {
+			// Reset everything
+			border: 0;
+			padding: 0;
+			background: none;
+			box-shadow: none;
+
+			flex: 1;
+		}
+
+		.components-form-token-field__token {
+			position: relative;
+			display: flex;
+			align-items: center;
+			gap: 0.25em;
+			padding: 0.25em 0.5em;
+			margin: -0.25em 0;
+			isolation: isolate;
+
+			&:first-child {
+				margin-left: -0.5em;
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: currentColor;
+				opacity: 0.1;
+				z-index: -1;
+			}
+		}
+	}
+
+	&.single-selection {
+		.components-form-token-field__token {
+			width: 100%;
+		}
+
+		.components-form-token-field__token-text {
+			flex: 1;
+		}
+
+		.components-form-token-field__input {
+			flex: 1;
+
+			&:first-child {
+				// Make the input blended with the input-container
+				border: 0;
+				padding: 0;
+				background: none;
+				box-shadow: none;
+			}
+		}
+
+		.components-form-token-field__input-container:not(.is-active) .components-form-token-field__token + .components-form-token-field__input {
+			// Hide colors, we still need the input to be focusables
+			position: absolute;
+			border-color: transparent;
+			background: none;
+			box-shadow: none;
+			color: transparent;
+		}
+
+		.components-form-token-field__input-container.is-active .components-form-token-field__token + .components-form-token-field__input {
+			position: static;
+			margin-block-start: 0.25em;
+		}
+	}
+}

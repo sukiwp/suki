@@ -1,0 +1,20 @@
+/**
+ * Block: Filter by Attribute
+ */
+
+.wc-block-attribute-filter {
+
+	&.style-dropdown {
+		display: flex;
+		gap: 0.25em;
+		align-items: flex-start;
+
+		.wc-blocks-components-form-token-field-wrapper {
+			flex: 1;
+		}
+
+		.wc-block-attribute-filter__button {
+			margin-block-start: 0;
+		}
+	}
+}

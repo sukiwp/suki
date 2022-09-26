@@ -1,9 +1,14 @@
+%comments-heading {
+	@include small-title-typography();
+	@include small-title-color();
+}
+
 /**
  * Block: Comments title {
  */
 
 .wp-block-comments-title {
-	@extend %small-title;
+	@extend %comments-heading;
 }
 
 /**
@@ -82,8 +87,8 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: var(--block-spacing) ;
-		@extend %small-title;
+		gap: var(--block-spacing);
+		@extend %comments-heading;
 
 		small {
 			@extend %meta;

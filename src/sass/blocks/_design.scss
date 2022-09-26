@@ -28,8 +28,7 @@
 	--gap: var(--block-spacing, 0.5em);
 
 	&__link {
-		@extend %button;
-		width: 100%;
+		@include button();
 
 		// Gutenberg button doesn't have border color options, so we always set them to transparent.
 		border-color: transparent;
@@ -91,11 +90,10 @@
 
 	display: flex;
 	flex-wrap: wrap;
-	align-items: flex-start;
 
-	// &:not([class*="are-vertically-aligned-"]) {
-	// 	align-items: flex-start;
-	// }
+	&:not([class*="are-vertically-aligned-"]) {
+		align-items: flex-start;
+	}
 
 	@include padding-for-has-background();
 

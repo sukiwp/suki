@@ -1,0 +1,13 @@
+/**
+ * Component: Sort select
+ */
+
+.wc-block-components-sort-select {
+	&__label {
+		margin-right: 0.5em;
+	}
+
+	&__select {
+		width: max-content;
+	}
+}

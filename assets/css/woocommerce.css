@@ -253,6 +253,21 @@
 }
 
 /**
+ * Pagination
+ */
+.woocommerce .woocommerce-pagination {
+	margin-block-start: calc(2 * var(--block-spacing));
+	text-align: center;
+}
+.woocommerce .woocommerce-pagination ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	gap: 1em;
+}
+
+/**
  * Store notice bar
  */
 .woocommerce-store-notice {
@@ -313,6 +328,9 @@
 	left: 1.25em;
 }
 :is(.woocommerce-message, .woocommerce-error, .woocommerce-info) .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
 	padding: 0;
 	border-width: 0;
 	font-size: inherit;
@@ -324,6 +342,7 @@
 	background-color: transparent !important;
 	color: var(--link-color);
 	text-decoration: none;
+	cursor: pointer;
 }
 :is(.woocommerce-message, .woocommerce-error, .woocommerce-info) .button:hover, :is(.woocommerce-message, .woocommerce-error, .woocommerce-info) .button:focus {
 	color: var(--link-color--focus);
@@ -998,6 +1017,9 @@
 	display: none;
 }
 .woocommerce.widget_price_filter .price_slider_amount .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
 	padding: 0;
 	border-width: 0;
 	font-size: inherit;
@@ -1009,6 +1031,7 @@
 	background-color: transparent !important;
 	color: var(--link-color);
 	text-decoration: none;
+	cursor: pointer;
 }
 .woocommerce.widget_price_filter .price_slider_amount .button:hover, .woocommerce.widget_price_filter .price_slider_amount .button:focus {
 	color: var(--link-color--focus);
@@ -1141,21 +1164,6 @@
 }
 
 /**
- * Pagination
- */
-.woocommerce .woocommerce-pagination {
-	margin-block-start: calc(2 * var(--block-spacing));
-	text-align: center;
-}
-.woocommerce .woocommerce-pagination ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: inline-flex;
-	gap: 1em;
-}
-
-/**
  * Product images and summary
  */
 .woocommerce div.product {
@@ -1241,7 +1249,7 @@
 	width: 36px;
 	height: 36px;
 	background: #fff;
-	text-indent: -9999px;
+	text-indent: -999em;
 }
 .woocommerce div.product .images .woocommerce-product-gallery__trigger:before {
 	content: "";

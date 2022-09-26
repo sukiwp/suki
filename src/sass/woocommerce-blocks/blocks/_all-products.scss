@@ -1,0 +1,11 @@
+/**
+ * Block: All Products
+ */
+
+.wc-block-all-products {
+	.wc-block-components-sort-select {
+		&__label {
+			margin: 0; // Reset sort-select component margin
+		}
+	}
+}

@@ -359,7 +359,7 @@
 	}
 
 	&__button {
-		@extend %button;
+		@include button();
 
 		margin-inline-start: 1em;
 	}
@@ -440,11 +440,6 @@
 		width: 100%;
 	}
 }
-
-// .wp-block-cover-image {
-// 	// Fallback alias for .wp-block-cover
-// 	@extend .wp-block-cover;
-// }
 
 /**
  * Block: Embed

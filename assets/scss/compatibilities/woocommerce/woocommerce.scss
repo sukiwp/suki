@@ -368,7 +368,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Product Page
 	// -------------------------------------------------------------
-	
+
 	div.product {
 		margin-bottom: 0;
 		position: relative;
@@ -1292,7 +1292,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Buttons
 	// -------------------------------------------------------------
-	
+
 	a.button,
 	button.button,
 	input.button,
@@ -1406,7 +1406,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Reviews
 	// -------------------------------------------------------------
-	
+
 	#reviews {
 		// h2 small {
 		// 	float: right;
@@ -1574,7 +1574,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Star ratings
 	// -------------------------------------------------------------
-	
+
 	.star-rating {
 		// float: right;
 		overflow: hidden;
@@ -1746,7 +1746,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Tables
 	// -------------------------------------------------------------
-	
+
 	table.shop_attributes {
 		// border: 0;
 		// border-top: 1px dotted rgba(0, 0, 0, 0.1);
@@ -2031,7 +2031,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Forms
 	// -------------------------------------------------------------
-	
+
 	form .form-row {
 		// padding: 3px;
 		padding: 0;
@@ -2352,7 +2352,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Cart widget
 	// -------------------------------------------------------------
-	
+
 	ul.cart_list,
 	ul.product_list_widget {
 		list-style: none outside;
@@ -2374,7 +2374,7 @@ p.demo_store,
 			// @include clearfix();
 			@include float-container();
 			// list-style: none;
-			
+
 			&.empty {
 				margin: 0;
 				padding: 0;
@@ -2540,7 +2540,7 @@ p.demo_store,
 	// -------------------------------------------------------------
 	// Filter widgets
 	// -------------------------------------------------------------
-	
+
 	&.widget_layered_nav,
 	&.widget_rating_filter {
 		ul {
@@ -2637,7 +2637,7 @@ p.demo_store,
 
 				padding: 0.25em 0.5em;
 				line-height: normal;
-				background-color: $color_subtle; // postmessage: TODO	
+				background-color: $color_subtle; // postmessage: TODO
 				color: inherit;
 
 				&:hover, &:focus {
@@ -2763,7 +2763,7 @@ p.demo_store,
 				opacity: 0.2;
 			}
 		}
-		
+
 		&__range-input-progress {
 			height: 100%; // relative
 			border-radius: 0.25em;
@@ -2791,7 +2791,7 @@ p.demo_store,
 				cursor: pointer;
 				-webkit-appearance: none;
 			}
-			
+
 			&::-moz-range-thumb {
 				height: 1rem;
 				width: 1rem;
@@ -2804,7 +2804,7 @@ p.demo_store,
 				cursor: pointer;
 				-webkit-appearance: none;
 			}
-			
+
 			&::-ms-thumb {
 				height: 1rem;
 				width: 1rem;
@@ -2912,7 +2912,7 @@ p.demo_store,
 		.count {
 			opacity: 0.5;
 		}
-		
+
 		.amount {
 			display: inline-block;
 		}
@@ -3189,7 +3189,7 @@ p.demo_store,
 			width: auto;
 			padding: 0;
 			margin-bottom: 3rem;
-			
+
 			@include float-container();
 
 			&:last-child {
@@ -3773,7 +3773,7 @@ p.demo_store,
 				float: left;
 				width: 60%;
 			}
-			
+
 			.suki-woocommerce-cart-2-columns--right {
 				float: right;
 				width: calc(40% - 4rem);

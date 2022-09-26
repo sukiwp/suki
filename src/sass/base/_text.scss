@@ -126,7 +126,7 @@ h6 {
 	text-transform: var(--h6--text-transform);
 }
 
-ul, ol {
+:is( ul, ol ) {
 	margin-block: var(--block-spacing);
 	padding-inline-start: 2em;
 
