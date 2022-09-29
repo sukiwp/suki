@@ -1,0 +1,152 @@
+/**
+ * Block: Cart
+ */
+
+// Normal table mode
+
+.wc-block-cart-items {
+	border: 0;
+
+	:is( th, td ) {
+		border: 0;
+
+		&:first-child {
+			padding-inline-start: 0;
+		}
+
+		&:last-child {
+			padding-inline-end: 0;
+		}
+	}
+}
+
+.wc-block-cart-items__header-image {
+	width: 6em;
+}
+
+.wc-block-cart-items__header-product {
+	visibility: hidden;
+}
+
+.wc-block-cart-items__header-total {
+	width: 0;
+	text-align: right;
+}
+
+.wc-block-cart-items__row {
+	.wc-block-cart-item__image img {
+		display: block;
+		width: 100%;
+	}
+
+	.wc-block-components-product-name {
+		display: block;
+		max-width: max-content;
+	}
+
+	.wc-block-cart-item__prices {
+		display: inline-block;
+	}
+
+	.wc-block-components-product-badge {
+		display: inline-block;
+		margin-inline-start: 0.75em;
+	}
+
+	.wc-block-cart-item__quantity {
+		margin-block-start: 0.75em;
+	}
+
+	.wc-block-cart-item__remove-link {
+		@include button-link();
+		@include reverse-link-color();
+
+		font-size: 0.75em;
+		margin-inline-start: 0.75em;
+		white-space: nowrap;
+	}
+
+	.wc-block-cart-item__total {
+		text-align: right;
+
+		.wc-block-cart-item__total-price-and-sale-badge-wrapper {
+			display: flex;
+			flex-direction: column;
+
+			.wc-block-components-sale-badge {
+				margin-top: 0.25em;
+			}
+		}
+	}
+
+	&.is-disabled {
+		opacity: 0.5;
+		pointer-events: none;
+		transition: opacity 200ms ease;
+	}
+}
+
+// Compact mode
+
+:is( .is-small, .is-mobile ) {
+	.wc-block-cart-item__total {
+		.wc-block-components-sale-badge {
+			display: none;
+		}
+	}
+}
+
+:is( .is-small, .is-medium, .is-mobile ) {
+	&.wc-block-cart {
+		.wc-block-components-sidebar {
+			.wc-block-cart__totals-title {
+				display: none;
+			}
+		}
+	}
+
+	.wc-block-cart-items {
+		tbody {
+			display: flex;
+			flex-direction: column;
+			gap: calc( 1.5 * var(--block-spacing) );
+		}
+
+		td {
+			padding: 0;
+		}
+	}
+
+	.wc-block-cart-items__header {
+		display: none;
+	}
+
+	.wc-block-cart-items__row {
+		display: grid;
+		grid-template-areas: "thumbnail detail total";
+		grid-template-columns: min( 6em, 20% ) 1fr auto;
+		gap: 1em;
+
+		.wc-block-cart-item__image {
+			grid-area: thumbnail;
+		}
+
+		.wc-block-cart-item__product {
+			grid-area: detail;
+		}
+
+
+		.wc-block-cart-item__total {
+			grid-area: total;
+		}
+	}
+
+}
+
+// Large table mode
+
+.is-large {
+	&.wp-block-cart {
+
+	}
+}

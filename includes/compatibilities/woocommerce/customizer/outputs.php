@@ -119,7 +119,7 @@ $add['woocommerce_review_star_color'] = array(
 $props = array(
 	'bg'     => 'background-color',
 	'border' => 'border-color',
-	'text'   => 'color',
+	'text'   => 'text-color',
 );
 
 foreach ( $props as $key => $prop ) {

@@ -2,7 +2,7 @@
  * Component: Price slider
  */
 
-@mixin thumb {
+@mixin thumb() {
 	width: 1em;
 	height: 1em;
 	border-radius: 100%;
@@ -12,22 +12,22 @@
 	background-color: var(--link-color);
 
 	&:hover {
-		@include thumbFocus;
+		@include thumbFocus();
 	}
 }
 
-@mixin thumbFocus {
+@mixin thumbFocus() {
 	background-color: var(--link-color--focus);
 }
 
-@mixin track {
+@mixin track() {
 	cursor: default;
 	height: 1px; /* Required for Samsung internet based browsers */
 	outline: 0;
 	appearance: none;
 }
 
-@mixin reset {
+@mixin reset() {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -85,44 +85,44 @@
 			font: inherit;
 
 			&::-webkit-slider-runnable-track {
-				@include track;
+				@include track();
 			}
 
 			&::-webkit-slider-thumb {
-				@include thumb;
+				@include thumb();
 			}
 
 			&::-webkit-slider-progress {
-				@include reset;
+				@include reset();
 			}
 
 			&::-moz-range-track {
-				@include track;
+				@include track();
 			}
 
 			&::-moz-range-progress {
-				@include reset;
+				@include reset();
 			}
 
 			&::-moz-range-thumb {
-				@include thumb;
+				@include thumb();
 			}
 
 			&::-ms-thumb {
-				@include thumb;
+				@include thumb();
 			}
 
 			&:focus {
 				&::-webkit-slider-thumb {
-					@include thumbFocus;
+					@include thumbFocus();
 				}
 
 				&::-moz-range-thumb {
-					@include thumbFocus;
+					@include thumbFocus();
 				}
 
 				&::-ms-thumb {
-					@include thumbFocus;
+					@include thumbFocus();
 				}
 			}
 

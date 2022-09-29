@@ -1,0 +1,18 @@
+/**
+ * Component: Button
+ */
+
+.wc-block-components-button:not(.is-link) {
+	@include button();
+
+	.wc-block-components-spinner + .wc-block-components-button__text {
+		visibility: hidden;
+	}
+
+	&.text {
+		@include button-link();
+	}
+
+	// &.contained = Use theme's WooCommerce alt button styles
+	// &.outlined = Use theme's original button styles
+}

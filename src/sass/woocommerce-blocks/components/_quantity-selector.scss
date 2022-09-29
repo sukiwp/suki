@@ -1,0 +1,55 @@
+/**
+ * Component: Quantity selector
+ */
+
+.wc-block-components-quantity-selector {
+	display: inline-flex;
+	align-items: stretch;
+	width: 6em;
+
+	// Use input styles.
+	border-style: solid;
+	border-radius: var(--input--border-radius, 0);
+	border-width: var(--input--border-width, 1px);
+	border-color: var(--input--border-color, var(--color-palette-6));
+	background-color: var(--input--background-color, var(--color-palette-8));
+	color: var(--input--text-color, var(--color-palette-2));
+}
+
+.wc-block-components-quantity-selector__input {
+	// Reset border, background as it's already defined by parent container.
+	border: 0 !important;
+	padding-inline: 0 !important;
+	background-color: transparent !important;
+
+	order: 2;
+	flex: 1;
+	text-align: center;
+
+	appearance: textfield;
+
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
+
+.wc-block-components-quantity-selector__button {
+	@include button-nude();
+
+	width: 1.5em;
+	opacity: 0.5;
+
+	&:is( :hover, :focus ) {
+		opacity: 1;
+	}
+}
+
+.wc-block-components-quantity-selector__button--minus {
+	order: 1;
+}
+
+.wc-block-components-quantity-selector__button--plus {
+	order: 3;
+}

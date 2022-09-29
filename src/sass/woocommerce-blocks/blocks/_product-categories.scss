@@ -11,7 +11,7 @@
 			@include button();
 
 			svg {
-				.rtl & {
+				html[dir="rtl"] & {
 					transform: rotate(180deg);
 				}
 			}

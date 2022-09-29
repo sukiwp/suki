@@ -1,0 +1,126 @@
+/**
+ * Component: Drawer
+ */
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slidein {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+.wc-block-components-drawer {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: min( 30rem, 100vw );
+	height: 100%;
+	background-color: var(--background-color);
+	transform: translateX(-100%);
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-style: solid;
+		border-width: 0 0 0 1px;
+		display: block;
+		opacity: .3;
+		pointer-events: none;
+	}
+
+	&__screen-overlay {
+		position: fixed;
+		z-index: 9999;
+		top: var(--screen-top-offset);
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.7);
+		transition: opacity var(--transition-duration);
+		z-index: 9999;
+		opacity: 1;
+
+		&--with-slide-out {
+			transition: opacity var(--transition-duration);
+		}
+
+		// We can't use transition for the slide-in animation because the element
+		// doesn't exist in the DOM when not open. Instead, use an animation that
+		// is triggered when the element is appended to the DOM.
+		&--with-slide-in {
+			animation-duration: var(--transition-duration);
+			animation-name: fadein;
+		}
+
+		&--is-hidden {
+			pointer-events: none;
+			opacity: 0;
+		}
+	}
+
+	&__screen-overlay--with-slide-out & {
+		transition: transform var(--transition-duration);
+	}
+
+	&__screen-overlay--with-slide-in & {
+		animation-duration: var(--transition-duration);
+		animation-name: slidein;
+	}
+
+	&__screen-overlay--is-hidden & {
+		transform: translateX(0);
+	}
+
+	@media screen and (prefers-reduced-motion: reduce) {
+		animation-name: none !important;
+		transition: none !important;
+
+		&__screen-overlay {
+			animation-name: none !important;
+			transition: none !important;
+		}
+	}
+
+	.components-modal__content {
+		padding: var(--block-spacing);
+	}
+
+	.components-modal__header {
+		position: relative;
+
+		// Close button.
+		.components-button {
+			// Reset
+
+			// @include reset-box();
+			// background: transparent;
+			// position: absolute;
+			// right: 0;
+			// top: 0;
+			// // Increase clickable area.
+			// padding: 1em;
+			// margin: -1em;
+
+			// > span {
+			// 	@include visually-hidden();
+			// }
+		}
+	}
+}

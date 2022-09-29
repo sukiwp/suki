@@ -28,12 +28,7 @@
 
 	&__remove {
 		// Reset
-		border: 0;
-		padding: 0;
-		background: none;
-		box-shadow: none;
-		font: inherit;
-		color: inherit;
+		@include button-nude();
 
 		margin: -0.25em -0.5em -0.25em 0;
 		cursor: pointer;

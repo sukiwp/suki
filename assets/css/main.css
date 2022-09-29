@@ -82,6 +82,21 @@
 	--content-width--narrow: 720px;
 	--content-width--wide: 1140px;
 	--transition-duration: 0.25s;
+	--screen-top-offset: 0;
+}
+
+.admin-bar {
+	--screen-top-offset: 46px;
+}
+@media screen and (min-width: 783px) {
+	.admin-bar {
+		--screen-top-offset: 32px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.admin-bar #wpadminbar {
+		position: fixed;
+	}
 }
 
 body {
@@ -374,16 +389,16 @@ select[multiple] {
  */
 [type=reset], [type=submit], .button {
 	position: relative;
-	-webkit-appearance: none;
-	appearance: none;
-	isolation: isolate;
 	display: inline-flex;
-	gap: 0.5em;
 	align-items: center;
 	justify-content: center;
+	gap: 0.5em;
+	-webkit-appearance: none;
+	appearance: none;
 	max-width: 100%;
 	cursor: pointer;
 	vertical-align: middle;
+	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
 	border-radius: var(--button--border-radius, 0.2em);
@@ -2092,27 +2107,18 @@ th {
 .suki-popup {
 	position: fixed;
 	z-index: 100;
-	top: 0;
+	top: var(--screen-top-offset);
 	right: 0;
 	bottom: 0;
 	left: 0;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity var(--transition-duration, 0.25s), visibility 0s var(--transition-duration, 0.25s);
-	top: 0;
 }
 .suki-popup.suki-popup--active {
 	opacity: 1;
 	visibility: visible;
 	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
-}
-.admin-bar .suki-popup {
-	top: 46px;
-}
-@media screen and (min-width: 783px) {
-	.admin-bar .suki-popup {
-		top: 32px;
-	}
 }
 .suki-popup__background {
 	position: absolute;

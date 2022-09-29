@@ -6,6 +6,20 @@
 	@include global-variables();
 }
 
+.admin-bar {
+	--screen-top-offset: #{$adminbar-height-mobile};
+
+	@media screen and ( min-width: $adminbar-breakpoint ) {
+		--screen-top-offset: #{$adminbar-height}; // In this breakpoint, admin bar is smaller and fixed again.
+	}
+
+	#wpadminbar {
+		@media screen and (max-width: 600px) {
+			position: fixed;
+		}
+	}
+}
+
 body {
 	margin: 0; // Reset
 

@@ -112,25 +112,25 @@
 
 .wc-block-featured-product {
 	@include wc-block-featured-item();
+}
 
-	&__variation {
-		font: inherit;
-		margin-block-start: calc( 0.5 * var(--block-spacing) );
+.wc-block-featured-product__variation {
+	font: inherit;
+	margin-block-start: calc( 0.5 * var(--block-spacing) );
+}
+
+.wc-block-featured-product__price {
+	font-size: 1.5em;
+	font-weight: 500;
+	line-height: 1.4;
+
+	del {
+		opacity: 0.5;
+		font-size: 0.9em;
+		font-weight: normal; // Always show regular font weight
 	}
 
-	&__price {
-		font-size: 1.5em;
-		font-weight: 500;
-		line-height: 1.4;
-
-		del {
-			opacity: 0.5;
-			font-size: 0.9em;
-			font-weight: normal; // Always show regular font weight
-		}
-
-		ins {
-			text-decoration: none; // Reset default browser style
-		}
+	ins {
+		text-decoration: none; // Reset default browser style
 	}
 }

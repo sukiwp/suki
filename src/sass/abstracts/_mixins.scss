@@ -112,6 +112,9 @@
 
 	// Transition
 	--transition-duration: 0.25s;
+
+	// Screen top offset
+	--screen-top-offset: 0;
 }
 
 // Float container
@@ -202,15 +205,15 @@
 // Button
 @mixin button() {
 	position: relative;
-	appearance: none;
-	isolation: isolate;
 	display: inline-flex;
-	gap: 0.5em; // Prepare gap for button with icon
 	align-items: center;
 	justify-content: center;
+	gap: 0.5em; // Prepare gap for button with icon
+	appearance: none;
 	max-width: 100%;
 	cursor: pointer;
 	vertical-align: middle;
+	isolation: isolate;
 
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -247,23 +250,31 @@
 	}
 }
 
-// Button with normal link appearance
-@mixin button-link() {
+// Button without any styles
+@mixin button-nude() {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.5em; // Prepare gap for button with icon
 	padding: 0;
-	border-width: 0;
+	border: 0;
 	font-size: inherit;
 	font-weight: inherit;
 	font-style: inherit;
 	text-decoration: inherit;
 	line-height: inherit;
 	letter-spacing: inherit;
-	background-color: transparent !important;
-	color: var(--link-color);
+	background: none;
+	color: inherit;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+// Button with normal link appearance
+@mixin button-link() {
+	@include button-nude();
+
+	color: var(--link-color);
 
 	&:hover, &:focus {
 		color: var(--link-color--focus);
@@ -277,19 +288,6 @@
 
 	&:hover, &:focus {
 		color: var(--link-color);
-	}
-}
-
-// Admin bar top offset
-@mixin admin-bar-top-offset() {
-	top: 0;
-
-	.admin-bar & {
-		top: $adminbar-height-mobile;
-
-		@media screen and ( min-width: $adminbar-breakpoint ) {
-			top: $adminbar-height;
-		}
 	}
 }
 
@@ -386,5 +384,28 @@
 	&:is(.alignfull) {
 		margin-inline-start: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
 		margin-inline-end: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
+	}
+}
+
+// Background using currentColor and opacity (via :before pseudo class)
+@mixin background-current-color( $opacity: 0.1 ) {
+	& {
+		position: relative;
+		overflow: hidden;
+		isolation: isolate;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 0;
+			margin: 0;
+			background-color: currentColor;
+			z-index: -1;
+			opacity: $opacity;
+		}
 	}
 }

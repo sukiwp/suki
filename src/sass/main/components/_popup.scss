@@ -5,18 +5,16 @@
 .suki-popup {
 	position: fixed;
 	z-index: 100;
-	top: 0;
+	top: var(--screen-top-offset);
 	right: 0;
 	bottom: 0;
 	left: 0;
 	@include hide();
-	
+
 	&.suki-popup--active {
 		@include show();
 	}
 
-	@include admin-bar-top-offset();
-	
 	&__background {
 		position: absolute;
 		top: 0;

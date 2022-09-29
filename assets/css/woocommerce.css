@@ -330,19 +330,21 @@
 :is(.woocommerce-message, .woocommerce-error, .woocommerce-info) .button {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.5em;
 	padding: 0;
-	border-width: 0;
+	border: 0;
 	font-size: inherit;
 	font-weight: inherit;
 	font-style: inherit;
 	text-decoration: inherit;
 	line-height: inherit;
 	letter-spacing: inherit;
-	background-color: transparent !important;
-	color: var(--link-color);
+	background: none;
+	color: inherit;
 	text-decoration: none;
 	cursor: pointer;
+	color: var(--link-color);
 }
 :is(.woocommerce-message, .woocommerce-error, .woocommerce-info) .button:hover, :is(.woocommerce-message, .woocommerce-error, .woocommerce-info) .button:focus {
 	color: var(--link-color--focus);
@@ -1019,19 +1021,21 @@
 .woocommerce.widget_price_filter .price_slider_amount .button {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.5em;
 	padding: 0;
-	border-width: 0;
+	border: 0;
 	font-size: inherit;
 	font-weight: inherit;
 	font-style: inherit;
 	text-decoration: inherit;
 	line-height: inherit;
 	letter-spacing: inherit;
-	background-color: transparent !important;
-	color: var(--link-color);
+	background: none;
+	color: inherit;
 	text-decoration: none;
 	cursor: pointer;
+	color: var(--link-color);
 }
 .woocommerce.widget_price_filter .price_slider_amount .button:hover, .woocommerce.widget_price_filter .price_slider_amount .button:focus {
 	color: var(--link-color--focus);

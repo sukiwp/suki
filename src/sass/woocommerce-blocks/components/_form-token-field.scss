@@ -58,12 +58,7 @@
 
 			.components-form-token-field__remove-token {
 				// Reset everything
-				border: 0;
-				padding: 0;
-				background: none;
-				box-shadow: none;
-				font: inherit;
-				color: inherit;
+				@include button-nude();
 
 				margin: -0.25em -0.5em -0.25em 0;
 				cursor: pointer;
@@ -128,13 +123,13 @@
 
 	&:not(.single-selection) {
 		.components-form-token-field__input {
-			// Reset everything
+			// Reset border, background, and padding
 			border: 0;
 			padding: 0;
 			background: none;
 			box-shadow: none;
 
-			flex: 1;
+			flex-grow: 1;
 		}
 
 		.components-form-token-field__token {
@@ -170,11 +165,11 @@
 		}
 
 		.components-form-token-field__token-text {
-			flex: 1;
+			flex-grow: 1;
 		}
 
 		.components-form-token-field__input {
-			flex: 1;
+			flex-grow: 1;
 
 			&:first-child {
 				// Make the input blended with the input-container

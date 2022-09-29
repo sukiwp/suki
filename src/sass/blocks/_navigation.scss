@@ -317,7 +317,7 @@
 
 	&__responsive-container {
 		// position fixed is added via mixin
-		@include admin-bar-top-offset();
+		top: var(--screen-top-offset);
 		left: 0;
 		right: 0;
 		bottom: 0;

@@ -1,0 +1,206 @@
+/**
+ * Block: Mini Cart
+ */
+
+.wc-block-mini-cart__button {
+	@include button-link();
+
+	text-decoration: none !important;
+
+	.modal-open & {
+		pointer-events: none;
+	}
+}
+
+.wc-block-mini-cart__quantity-badge {
+	display: flex;
+	align-items: center;
+}
+
+.wc-block-mini-cart__icon {
+	display: block;
+	height: 1.5em;
+	width: 1.5em;
+
+	html[dir="rtl"] & {
+		transform: scaleX(-1);
+	}
+}
+
+.wc-block-mini-cart__badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.6em;
+	min-width: 1.6em;
+	padding: 0.15em;
+	margin-inline-start: -0.75em;
+	border-width: 0.15em;
+	border-style: solid;
+	border-color: currentColor;
+	border-radius: 0.75em;
+	font-size: 0.875em;
+	font-weight: 600;
+	line-height: 1;
+	transform: translateY(-50%);
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.wc-block-mini-cart__amount {
+	display: none;
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		display: initial;
+	}
+}
+
+// Reset font size so it doesn't depend on drawer's ancestors.
+.wc-block-mini-cart__drawer {
+	font-size: 1rem;
+
+	.components-modal__content {
+		padding: 0;
+		position: relative;
+		height: 100%;
+	}
+
+	.components-modal__header {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		button {
+			@include button-nude();
+			opacity: 0.5;
+
+			span {
+				display: none; // Hide the popover
+			}
+
+			svg {
+				display: block;
+				width: 2.5em;
+				height: 2.5em;
+			}
+
+			&:is( :hover, :focus ) {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.wc-block-mini-cart__template-part {
+	height: 100%;
+}
+
+.wp-block-woocommerce-mini-cart-contents {
+	height: 100%;
+}
+
+.wp-block-woocommerce-empty-mini-cart-contents-block,
+.wp-block-woocommerce-filled-mini-cart-contents-block {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.wp-block-woocommerce-empty-mini-cart-contents-block {
+	justify-content: center;
+
+	.wc-block-mini-cart__empty-cart-wrapper {
+		overflow-y: auto;
+		padding: var(--block-spacing);
+
+		> * {
+			margin-block: 0;
+		}
+
+		> * + * {
+			margin-block-start: var(--block-spacing);
+		}
+	}
+}
+
+.wp-block-woocommerce-filled-mini-cart-contents-block {
+	justify-content: space-between;
+}
+
+.wc-block-mini-cart__title {
+	@include small-title-typography();
+	@include small-title-color();
+
+	margin: 0;
+	padding: var(--block-spacing);
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+.wc-block-mini-cart__items {
+	display: flex; // ??
+	flex-direction: column; // ??
+	flex-grow: 1;
+	overflow-y: auto;
+	padding: var(--block-spacing);
+}
+
+.wc-block-mini-cart__footer {
+	border-top-width: 1px;
+	border-top-style: solid;
+	padding: var(--block-spacing);
+
+	.wc-block-mini-cart__footer-subtotal {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		column-gap: 0.25em;
+
+		:is( .wc-block-components-totals-item__label, .wc-block-components-totals-item__value ) {
+			font-weight: 600;
+		}
+
+		.wc-block-components-totals-item__description {
+			flex-basis: 100%;
+
+			@include meta-typography();
+			@include meta-color();
+		}
+	}
+
+	.wc-block-mini-cart__footer-actions {
+		display: flex;
+		gap: 1em;
+		margin-block-start: var(--block-spacing);
+
+		.wc-block-components-button {
+			flex: 1;
+			font-size: calc( 1.2 * var(--button--font-size, var(--base--font-size)) );
+		}
+
+		.wc-block-mini-cart__footer-checkout {
+			// Use WooCommerce alt button style
+			color: var(--button-alt--text-color, var(--button--text-color));
+			border-color: var(--button-alt--border-color, var(--button--border-color));
+			background-color: var(--button-alt--background-color, var(--button--background-color));
+
+			&:is( :hover, :focus ) {
+				color: var(--button-alt--text-color--focus, var(--button--text-color--focus));
+				border-color: var(--button-alt--border-color--focus, var(--button--border-color--focus));
+				background-color: var(--button-alt--background-color--focus, var(--button--background-color--focus));
+			}
+		}
+	}
+
+	.wc-block-components-payment-method-icons {
+		margin-block-start: var(--block-spacing);
+	}
+}
+
+.wc-block-mini-cart__shopping-button {
+	text-align: center;
+
+	a {
+		@include button();
+	}
+}

@@ -3,6 +3,7 @@ v2.0.0
 - [NEW] Google Fonts: Add "Load Google Fonts locally" option.
 - [NEW] Header Builder: Add "Mobile header breakpoint" option.
 - [NEW] Search results page: Add results layout option (Compact or same with the Blog page).
+- [NEW] WooCommerce: Replace default WooCommerce and WooCommerce Blocks styles with theme's styles.
 - [TWEAK] Template Files: Build all template layouts using blocks (** There are still some elements couldn't be migrated to blocks yet).
 - [TWEAK] CSS: Rebuild all CSS structures using modern browser's CSS for better, faster, and easier styling.
 - [TWEAK] Google Fonts: Use new API url format.

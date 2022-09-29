@@ -2,81 +2,71 @@
  * Block: Active Filters
  */
 
-.wc-block-active-filters {
-	&__clear-all {
-		@include button-link();
+.wc-block-active-filters__clear-all {
+	@include button-link();
 
-		margin-block-start: 0.5em;
-	}
+	margin-block-start: 0.5em;
+}
 
-	&__list {
-		$el: &;
+.wc-block-active-filters__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+
+	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+	}
+}
 
-		display: flex;
-		flex-direction: column;
-		gap: 0.5em;
+.wc-block-active-filters__list-item {
+	position: relative;
+}
 
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
+.wc-block-active-filters__list-item-type {
+	@include meta-typography();
+	@include meta-color();
+}
 
-		&-item {
+.wc-block-active-filters__list-item-type + .wc-block-active-filters__list-item-name {
+	margin-inline-start: 0.5em;
+}
 
-			position: relative;
+.wc-block-active-filters__list-item-name {
+	display: inline-flex;
+	gap: 0.4em;
+	font-weight: 500;
+}
 
-			&-type {
-				@include meta-typography();
-				@include meta-color();
-			}
+.wc-block-active-filters__list-item-remove {
+	// Reset
+	@include button-nude();
 
-			&-type + &-name {
-				margin-inline-start: 0.5em;
-			}
+	opacity: 0.25;
+	transition: all var(--transition-duration);
+	cursor: pointer;
 
-			&-name {
-				display: inline-flex;
-				gap: 0.4em;
-				font-weight: 500;
-			}
+	&:is( :hover, :focus ) {
+		opacity: 1;
+	}
 
-			&-remove {
-				// Reset
-				border: 0;
-				padding: 0;
-				background: none;
-				box-shadow: none;
-				font: inherit;
-				color: inherit;
+	svg {
+		display: block;
+		width: 1em;
+		height: 1em;
+	}
+}
 
-				opacity: 0.25;
-				transition: all var(--transition-duration);
-				cursor: pointer;
+.wc-block-active-filters__list--chips {
+	flex-direction: row;
+	gap: 0.25em;
 
-				&:is( :hover, :focus ) {
-					opacity: 1;
-				}
-
-				svg {
-					display: block;
-					width: 1em;
-					height: 1em;
-				}
-			}
-		}
-
-		&--chips {
-			flex-direction: row;
-			gap: 0.25em;
-
-			#{$el}-item-type {
-				display: none;
-			}
-		}
+	.wc-block-active-filters__list-item-type {
+		display: none;
 	}
 }

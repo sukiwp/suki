@@ -145,22 +145,6 @@
 		color: var(--color-palette-8);
 	}
 
-	&-price {
-		del {
-			opacity: 0.5;
-			font-size: 0.9em;
-			font-weight: normal; // Always show regular font weight
-		}
-
-		ins {
-			text-decoration: none; // Reset default browser style
-
-			&:before {
-				content: " ";
-			}
-		}
-	}
-
 	&-rating {
 		> * {
 			overflow: hidden;

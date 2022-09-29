@@ -3,15 +3,20 @@
 @import "abstracts/mixins";
 
 // Components
+@import "woocommerce-blocks/components/button";
+@import "woocommerce-blocks/components/cart-checkout";
 @import "woocommerce-blocks/components/checkbox-list";
 @import "woocommerce-blocks/components/chip";
+@import "woocommerce-blocks/components/drawer";
 @import "woocommerce-blocks/components/form-token-field";
 @import "woocommerce-blocks/components/filter-element-label";
 @import "woocommerce-blocks/components/filter-reset-button";
 @import "woocommerce-blocks/components/filter-submit-button";
 @import "woocommerce-blocks/components/pagination";
 @import "woocommerce-blocks/components/price-slider";
+@import "woocommerce-blocks/components/price";
 @import "woocommerce-blocks/components/product-list";
+@import "woocommerce-blocks/components/quantity-selector";
 @import "woocommerce-blocks/components/reviews";
 @import "woocommerce-blocks/components/sort-select";
 
@@ -19,7 +24,11 @@
 @import "woocommerce-blocks/blocks/active-filters";
 @import "woocommerce-blocks/blocks/all-products";
 @import "woocommerce-blocks/blocks/attribute-filter";
+@import "woocommerce-blocks/blocks/cart-checkout-shared";
+@import "woocommerce-blocks/blocks/cart";
+@import "woocommerce-blocks/blocks/checkout";
 @import "woocommerce-blocks/blocks/featured-items";
+@import "woocommerce-blocks/blocks/mini-cart";
 @import "woocommerce-blocks/blocks/price-filter";
 @import "woocommerce-blocks/blocks/product-categories";
 @import "woocommerce-blocks/blocks/product-search";
