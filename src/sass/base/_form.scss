@@ -12,34 +12,8 @@
 %input,
 :is( input:not([type]), input[type=""], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], .input ) {
 	appearance: none;
-	display: inline-flex;
-	max-width: 100%;
-	vertical-align: middle;
 
-	padding: var(--input--padding, 0.5em 0.75em);
-	border-style: solid;
-	border-radius: var(--input--border-radius, 0);
-	border-width: var(--input--border-width, 1px);
-	border-color: var(--input--border-color, var(--color-palette-6));
-	background-color: var(--input--background-color, var(--color-palette-8));
-	color: var(--input--text-color, var(--color-palette-2));
-
-	font-family: var(--input--font-family, var(--base--font-family));
-	font-size: var(--input--font-size, var(--base--font-size));
-	font-style: var(--input--font-style, var(--base--font-style));
-	line-height: initial;
-	letter-spacing: var(--input--letter-spacing, 0);
-	text-transform: var(--input--text-transform, none);
-
-	transition: all var(--transition-duration);
-
-	&:focus {
-		border-color: var(--input--border-color--focus, var(--input--border-color));
-		background-color: var(--input--background-color--focus, var(--input--background-color));
-		color: var(--input--text-color--focus, var(--input--text-color));
-
-		outline: none; // Reset .using-keyboard style
-	}
+	@include input();
 }
 
 %textarea,
@@ -182,7 +156,8 @@ select[multiple] {
 	}
 
 	.select2-dropdown {
-		border-width: 1px;
+		border-radius: var(--input--border-radius, 0);
+		border-width: var(--input--border-width, 1px);
 		border-style: solid;
 		border-color: inherit;
 		overflow: hidden;
@@ -242,7 +217,7 @@ select[multiple] {
 	}
 
 	.select2-dropdown--below {
-		border-top: none;
+		border-top: 0;
 		border-top-left-radius: 0 !important;
 		border-top-right-radius: 0 !important;
 
@@ -252,7 +227,7 @@ select[multiple] {
 	}
 
 	.select2-dropdown--above {
-		border-bottom: none;
+		border-bottom: 0;
 		border-bottom-left-radius: 0 !important;
 		border-bottom-right-radius: 0 !important;
 

@@ -1,0 +1,47 @@
+/**
+ * Component: Radio control
+ */
+
+.wc-block-components-radio-control {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.wc-block-components-radio-control__option {
+	display: flex;
+	position: relative;
+	align-items: center;
+	gap: 0.5em;
+
+}
+
+.wc-block-components-radio-control__input {
+	position: relative;
+	display: inline-block;
+	height: 1.5em;
+	width: 1.5em;
+	border: 0.125em solid currentColor;
+	border-radius: 50%;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+
+	&:checked::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		height: 0.8em;
+		width: 0.8em;
+		border-radius: 50%;
+		background: currentColor;
+		transform: translate(-50%, -50%);
+	}
+
+}
+
+.wc-block-components-radio-control__option-layout {
+	flex-grow: 1;
+}

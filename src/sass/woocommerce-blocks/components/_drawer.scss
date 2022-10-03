@@ -107,20 +107,22 @@
 
 		// Close button.
 		.components-button {
-			// Reset
+			@include button-nude();
+			opacity: 0.5;
 
-			// @include reset-box();
-			// background: transparent;
-			// position: absolute;
-			// right: 0;
-			// top: 0;
-			// // Increase clickable area.
-			// padding: 1em;
-			// margin: -1em;
+			&:is( :hover, :focus ) {
+				opacity: 1;
+			}
 
-			// > span {
-			// 	@include visually-hidden();
-			// }
+			svg {
+				display: block;
+				width: 2.5em;
+				height: 2.5em;
+			}
+
+			span {
+				@include hide-visually(); // Hide the popover
+			}
 		}
 	}
 }

@@ -3,7 +3,7 @@
  */
 
 .alignwide {
-	max-width: min( 100%, var(--content-width--wide) ) !important;
+	max-width: var(--content-width--wide) !important;
 }
 
 .alignfull {

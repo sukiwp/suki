@@ -69,25 +69,6 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-
-		button {
-			@include button-nude();
-			opacity: 0.5;
-
-			span {
-				display: none; // Hide the popover
-			}
-
-			svg {
-				display: block;
-				width: 2.5em;
-				height: 2.5em;
-			}
-
-			&:is( :hover, :focus ) {
-				opacity: 1;
-			}
-		}
 	}
 }
 

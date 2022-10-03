@@ -1,0 +1,72 @@
+/**
+ * Component: Text input
+ */
+
+.wc-block-components-text-input.wc-block-components-text-input {
+	position: relative;
+	white-space: nowrap;
+
+	label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: var(--input--padding);
+		margin-block: 0;
+		transform: translateY( 1rem );
+		transform-origin: top left;
+		transition: transform var(--transition-duration);
+		font: inherit;
+		line-height: initial;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		opacity: 0.5;
+		cursor: text;
+
+		border-width: var(--input--border-width);
+		border-style: solid;
+		border-color: transparent;
+
+		z-index: 1;
+
+		@media screen and (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
+	}
+
+	:is( input[type="tel"], input[type="url"], input[type="text"], input[type="number"], input[type="email"] ) {
+		padding-block: 1rem;
+		font-size: 1rem;
+		line-height: 1;
+		width: 100%;
+	}
+
+	input[type="number"] {
+		-moz-appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			appearance: none;
+			margin: 0;
+		}
+	}
+
+	&:is( .is-active, :focus-within ) {
+		label {
+			transform: translateY( 0.4rem ) scale(0.75);
+		}
+
+		:is( input[type="tel"], input[type="url"], input[type="text"], input[type="number"], input[type="email"] ) {
+			padding-block: 1.5rem 0.5rem;
+		}
+	}
+
+	&.has-error {
+		color: var(--wc-red);
+
+		:is( input[type="tel"], input[type="url"], input[type="text"], input[type="number"], input[type="email"] ) {
+			border-color: currentColor !important;
+			color: inherit !important;
+		}
+	}
+}

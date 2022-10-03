@@ -1,0 +1,28 @@
+/**
+ * Component: Sidebar layout
+ */
+
+.wc-block-components-sidebar-layout {
+	--gap: calc( 3 * var(--block-spacing) );
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap);
+}
+
+
+:is( .is-medium, .is-small, .is-mobile ) {
+	&.wc-block-components-sidebar-layout {
+		flex-direction: column;
+	}
+}
+
+.is-large {
+	.wc-block-components-main {
+		flex-basis: 60%;
+	}
+
+	.wc-block-components-sidebar {
+		flex-basis: calc( 40% - var(--gap) );
+	}
+}

@@ -3,24 +3,25 @@
  */
 
 .wc-block-components-quantity-selector {
-	display: inline-flex;
+	@include input();
+
 	align-items: stretch;
 	width: 6em;
+	padding: 0 !important; // Reset input();
 
-	// Use input styles.
-	border-style: solid;
-	border-radius: var(--input--border-radius, 0);
-	border-width: var(--input--border-width, 1px);
-	border-color: var(--input--border-color, var(--color-palette-6));
-	background-color: var(--input--background-color, var(--color-palette-8));
-	color: var(--input--text-color, var(--color-palette-2));
+	&:focus-within {
+		border-color: var(--input--border-color--focus, var(--input--border-color));
+		background-color: var(--input--background-color--focus, var(--input--background-color));
+		color: var(--input--text-color--focus, var(--input--text-color));
+	}
 }
 
 .wc-block-components-quantity-selector__input {
-	// Reset border, background as it's already defined by parent container.
+	// Reset border, background because it's already defined by parent container.
 	border: 0 !important;
 	padding-inline: 0 !important;
 	background-color: transparent !important;
+	box-shadow: none !important;
 
 	order: 2;
 	flex: 1;

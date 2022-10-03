@@ -202,6 +202,38 @@
 	}
 }
 
+// Input {
+@mixin input() {
+	display: inline-flex;
+	max-width: 100%;
+	vertical-align: middle;
+
+	padding: var(--input--padding, 0.5em 0.75em);
+	border-style: solid;
+	border-radius: var(--input--border-radius, 0);
+	border-width: var(--input--border-width, 1px);
+	border-color: var(--input--border-color, var(--color-palette-6));
+	background-color: var(--input--background-color, var(--color-palette-8));
+	color: var(--input--text-color, var(--color-palette-2));
+
+	font-family: var(--input--font-family, var(--base--font-family));
+	font-size: var(--input--font-size, var(--base--font-size));
+	font-style: var(--input--font-style, var(--base--font-style));
+	line-height: initial;
+	letter-spacing: var(--input--letter-spacing, 0);
+	text-transform: var(--input--text-transform, none);
+
+	transition: all var(--transition-duration);
+
+	&:focus {
+		border-color: var(--input--border-color--focus, var(--input--border-color));
+		background-color: var(--input--background-color--focus, var(--input--background-color));
+		color: var(--input--text-color--focus, var(--input--text-color));
+
+		outline: none; // Reset .using-keyboard style
+	}
+}
+
 // Button
 @mixin button() {
 	position: relative;
@@ -211,8 +243,8 @@
 	gap: 0.5em; // Prepare gap for button with icon
 	appearance: none;
 	max-width: 100%;
-	cursor: pointer;
 	vertical-align: middle;
+	cursor: pointer;
 	isolation: isolate;
 
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
@@ -264,10 +296,14 @@
 	text-decoration: inherit;
 	line-height: inherit;
 	letter-spacing: inherit;
-	background: none;
+	background: transparent;
 	color: inherit;
 	text-decoration: none;
 	cursor: pointer;
+
+	&:is( :hover, :focus ) {
+		background: transparent;
+	}
 }
 
 // Button with normal link appearance
@@ -276,7 +312,7 @@
 
 	color: var(--link-color);
 
-	&:hover, &:focus {
+	&:is( :hover, :focus ) {
 		color: var(--link-color--focus);
 		text-decoration: underline;
 	}
@@ -286,7 +322,7 @@
 @mixin reverse-link-color() {
 	color: inherit;
 
-	&:hover, &:focus {
+	&:is( :hover, :focus ) {
 		color: var(--link-color);
 	}
 }

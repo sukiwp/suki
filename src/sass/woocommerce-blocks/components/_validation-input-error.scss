@@ -1,0 +1,9 @@
+/**
+ * Component: Validation input error
+ */
+
+.wc-block-components-validation-error {
+	@include meta-typography();
+
+	color: var(--wc-red);
+}

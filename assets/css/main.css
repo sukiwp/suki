@@ -396,8 +396,8 @@ select[multiple] {
 	-webkit-appearance: none;
 	appearance: none;
 	max-width: 100%;
-	cursor: pointer;
 	vertical-align: middle;
+	cursor: pointer;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -513,7 +513,8 @@ select[multiple] {
 	margin-inline-end: 0.25em;
 }
 .select2-container .select2-dropdown {
-	border-width: 1px;
+	border-radius: var(--input--border-radius, 0);
+	border-width: var(--input--border-width, 1px);
 	border-style: solid;
 	border-color: inherit;
 	overflow: hidden;
@@ -563,7 +564,7 @@ select[multiple] {
 	opacity: 0.15;
 }
 .select2-container .select2-dropdown--below {
-	border-top: none;
+	border-top: 0;
 	border-top-left-radius: 0 !important;
 	border-top-right-radius: 0 !important;
 }
@@ -571,7 +572,7 @@ select[multiple] {
 	border-bottom: inherit;
 }
 .select2-container .select2-dropdown--above {
-	border-bottom: none;
+	border-bottom: 0;
 	border-bottom-left-radius: 0 !important;
 	border-bottom-right-radius: 0 !important;
 }
@@ -918,9 +919,8 @@ th {
 .suki-reverse-link-color a {
 	color: inherit;
 }
-.suki-reverse-link-color:is(a):hover, .suki-reverse-link-color:is(a):focus,
-.suki-reverse-link-color a:hover,
-.suki-reverse-link-color a:focus {
+.suki-reverse-link-color:is(a):is(:hover, :focus),
+.suki-reverse-link-color a:is(:hover, :focus) {
 	color: var(--link-color);
 }
 
@@ -928,7 +928,7 @@ th {
  * Width alignment
  */
 .alignwide {
-	max-width: min(100%, var(--content-width--wide)) !important;
+	max-width: var(--content-width--wide) !important;
 }
 
 .alignfull {

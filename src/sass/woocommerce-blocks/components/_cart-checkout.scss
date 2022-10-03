@@ -43,3 +43,181 @@
 		}
 	}
 }
+
+/**
+ * Component: Shipping Calculator
+ */
+
+.wc-block-components-shipping-calculator {
+	margin-block-start: 1em;
+}
+
+.wc-block-components-shipping-calculator-address {
+	.wc-block-components-address-form {
+		> * + * {
+			margin-block-start: 1em;
+		}
+	}
+}
+
+.wc-block-components-shipping-calculator-address__button {
+	width: 100%;
+	margin-block-start: 1em;
+}
+
+/**
+ * Component: Totals
+ */
+
+// Totals > Coupon
+
+.wc-block-components-totals-coupon__form {
+	display: flex;
+	// align-items: stretch;
+	width: 100%;
+
+	.wc-block-components-totals-coupon__input {
+		flex-grow: 1;
+	}
+
+	.wc-block-components-totals-coupon__button {
+		flex-shrink: 0;
+		margin-left: 0.5em;
+		white-space: nowrap;
+	}
+
+	.wc-block-components-totals-coupon__button.no-margin {
+		margin: 0;
+	}
+}
+
+// Totals > Discount
+
+.wc-block-components-totals-discount__coupon-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wc-block-components-totals-discount .wc-block-components-totals-item__value {
+	color: var(--wc-green);
+}
+
+// Totals > Footer Item
+
+.wc-block-components-totals-footer-item {
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+// Totals > Shipping
+
+.wc-block-components-totals-shipping {
+	// Added extra label for specificity.
+	fieldset.wc-block-components-totals-shipping__fieldset {
+		background-color: transparent;
+		margin: 0;
+		padding: 0;
+		border: 0;
+
+		margin-block-start: var(--block-spacing);
+
+		.wc-block-components-panel__button {
+			font-size: inherit; // Reset font-size: 1.1em
+		}
+	}
+
+	.wc-block-components-totals-shipping__via {
+		margin-bottom: 1em;
+	}
+
+	.wc-block-components-totals-shipping__options {
+		:is( .wc-block-components-radio-control__label, .wc-block-components-radio-control__description, .wc-block-components-radio-control__secondary-label, .wc-block-components-radio-control__secondary-description ) {
+			flex-basis: 100%;
+			text-align: initial;
+		}
+	}
+
+	// .wc-block-components-shipping-rates-control__no-results-notice {
+	// 	margin: 0 0 em($gap-small);
+	// }
+
+	.wc-block-components-totals-shipping__change-address-button {
+		@include button-link();
+	}
+}
+
+/**
+ * Component: Checkout package components
+ */
+
+// packages/checkout/components/totals-wrapper/style.scss
+
+.wc-block-components-totals-wrapper {
+	padding-block: calc( 0.75 * var(--block-spacing) );
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+
+	&:empty {
+		display: none;
+	}
+
+	&:last-child {
+		border-bottom-width: 0;
+	}
+}
+
+// packages/checkout/components/totals/item/style.scss
+
+.wc-block-components-totals-item {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.wc-block-components-totals-item__label {
+	flex-grow: 1;
+	font-size: 1.1em;
+}
+
+.wc-block-components-totals-item__value {
+	margin-inline-start: 1em;
+	font-size: 1.1em;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.wc-block-components-totals-item__description {
+	@include meta-typography();
+	@include meta-color();
+
+	flex-basis: 100%;
+}
+
+// packages/checkout/components/panel/style.scss
+
+.wc-block-components-panel__button {
+	@include button-nude();
+
+	position: relative;
+	width: 100%;
+	padding-right: 3em;
+	justify-content: flex-start; // Reset button justify-content: center
+	word-break: break-word;
+
+	font-size: 1.1em;
+
+	&[aria-expanded="true"] {
+		margin-block-end: calc( 0.75 * var(--block-spacing) );
+	}
+
+	> .wc-block-components-panel__button-icon {
+		fill: currentColor;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: auto;
+	}
+}

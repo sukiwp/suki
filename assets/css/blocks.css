@@ -493,8 +493,8 @@
 	-webkit-appearance: none;
 	appearance: none;
 	max-width: 100%;
-	cursor: pointer;
 	vertical-align: middle;
+	cursor: pointer;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -665,8 +665,8 @@
 	-webkit-appearance: none;
 	appearance: none;
 	max-width: 100%;
-	cursor: pointer;
 	vertical-align: middle;
+	cursor: pointer;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -1364,7 +1364,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 .wp-block-tag-cloud a {
 	color: inherit;
 }
-.wp-block-tag-cloud a:hover, .wp-block-tag-cloud a:focus {
+.wp-block-tag-cloud a:is(:hover, :focus) {
 	color: var(--link-color);
 }
 
