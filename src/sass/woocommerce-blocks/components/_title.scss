@@ -1,0 +1,8 @@
+/**
+ * Component: Title
+ */
+
+.wc-block-components-title {
+	@include small-title-typography();
+	@include small-title-color();
+}

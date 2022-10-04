@@ -178,9 +178,28 @@
 		border-bottom-style: solid;
 		text-align: right;
 	}
+
+	.wc-block-cart__sidebar {
+		position: sticky;
+		align-self: flex-start;
+		top: var(--screen-top-offset);
+	}
 }
 
-// Inner blocks: proceed to checkout
+/**
+ * Block: Cross-sell Products
+ */
+
+// Not yet implemented in the core version of WooCommerce Blocks
+
+/**
+ * Block: Proceed to Checkout
+ */
+
+.wc-block-cart__submit {
+	position: relative;
+	margin-block-start: calc( 2 * var(--block-spacing) );
+}
 
 .wc-block-cart__submit-button {
 	width: 100%;
@@ -210,7 +229,7 @@
 			right: 0;
 			top: 0;
 			height: 100%;
-			box-shadow: 0 -10px 20px 10px rgba(0,0,0,0.1);
+			box-shadow: 0 -0.5em 1em 0.5em rgba(0,0,0,0.1);
 		}
 	}
 }

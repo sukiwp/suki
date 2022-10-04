@@ -107,7 +107,7 @@
 	--block-spacing: 1.25rem;
 
 	// Container
-	--content-width--narrow: 720px;
+	--content-width--narrow: 700px;
 	--content-width--wide: 1140px;
 
 	// Transition
@@ -389,14 +389,6 @@
 // Meta color
 @mixin meta-color() {
 	color: var(--meta--text-color);
-
-	a {
-		color: inherit;
-
-		&:focus, &:hover {
-			color: var(--meta--text-color--focus);
-		}
-	}
 }
 
 // Padding when element has .has-background

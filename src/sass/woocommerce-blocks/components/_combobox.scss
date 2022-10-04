@@ -54,6 +54,7 @@
 		font-size: 1rem;
 		line-height: 1;
 		width: 100%;
+		transition: none;
 
 		&[aria-expanded="true"] {
 			border-bottom-right-radius: 0;

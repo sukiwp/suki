@@ -1,0 +1,138 @@
+/**
+ * Component: Checkout > Checkbox control
+ */
+
+.wc-block-components-checkbox {
+	label {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 0.75em;
+		cursor: pointer;
+	}
+
+	.wc-block-components-checkbox__input {
+		position: relative;
+		display: inline-block;
+		height: 1.25em;
+		width: 1.25em;
+		margin: 0 !important;
+		border: 0.125em solid currentColor;
+		border-radius: 0.125em;
+		appearance: none;
+		background: transparent;
+		color: inherit;
+		font-size: 1em;
+		cursor: pointer;
+	}
+
+	.wc-block-components-checkbox__mark {
+		position: absolute;
+		top: calc( 50% - 0.5em );
+		left: 0;
+		width: 1em;
+		height: 0.8em;
+		margin: 0 0.125em 0.125em;
+		fill: currentColor;
+	}
+
+	.wc-block-components-checkbox__input:not(:checked) + .wc-block-components-checkbox__mark {
+		display: none;
+	}
+}
+
+/**
+ * Component: Checkout > Panel
+ */
+
+.wc-block-components-panel {
+	> h2 {
+		font: inherit; // Reset
+	}
+}
+
+.wc-block-components-panel__button {
+	@include button-nude();
+
+	position: relative;
+	width: 100%;
+	padding-right: 3em;
+	display: block; // Reset button-nude
+	text-align: initial; // Reset button-nude
+	word-break: break-word;
+
+	font-size: 1.1em;
+
+	&[aria-expanded="true"] {
+		margin-block-end: calc( 0.75 * var(--block-spacing) );
+	}
+
+	> .wc-block-components-panel__button-icon {
+		fill: currentColor;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: auto;
+	}
+}
+
+.wc-block-components-panel__content {
+	// Ensures the panel contents are not visible for any theme that tweaked the
+	// `display` property of div elements.
+	&[hidden] {
+		display: none;
+	}
+}
+
+/**
+ * Component: Checkout > Totals Wrapper
+ */
+
+.wc-block-components-totals-wrapper {
+	padding-block: calc( 0.75 * var(--block-spacing) );
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+
+	&:empty {
+		display: none;
+	}
+
+	&:last-child {
+		border-bottom-width: 0;
+	}
+
+	&.slot-wrapper {
+		padding: 0;
+	}
+}
+
+/**
+ * Component: Checkout > Totals > Item
+ */
+
+.wc-block-components-totals-item {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.wc-block-components-totals-item__label {
+	flex-grow: 1;
+	font-size: 1.1em;
+}
+
+.wc-block-components-totals-item__value {
+	margin-inline-start: 1em;
+	font-size: 1.1em;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.wc-block-components-totals-item__description {
+	@include meta-typography();
+	@include meta-color();
+
+	flex-basis: 100%;
+}

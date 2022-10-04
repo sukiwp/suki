@@ -79,7 +79,7 @@
 	--button--background-color--focus: var(--color-palette-5);
 	--button--text-color--focus: var(--color-palette-8);
 	--block-spacing: 1.25rem;
-	--content-width--narrow: 720px;
+	--content-width--narrow: 700px;
 	--content-width--wide: 1140px;
 	--transition-duration: 0.25s;
 	--screen-top-offset: 0;
@@ -906,13 +906,6 @@ th {
 	letter-spacing: var(--meta--letter-spacing);
 	text-transform: var(--meta--text-transform);
 	color: var(--meta--text-color);
-}
-.suki-meta a {
-	color: inherit;
-}
-.suki-meta a:focus,
-.suki-meta a:hover {
-	color: var(--meta--text-color--focus);
 }
 
 .suki-reverse-link-color:is(a),

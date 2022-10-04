@@ -2,6 +2,9 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
+// Packages
+@import "woocommerce-blocks/packages/checkout";
+
 // Components
 @import "woocommerce-blocks/components/button";
 @import "woocommerce-blocks/components/cart-checkout";
@@ -9,20 +12,28 @@
 @import "woocommerce-blocks/components/chip";
 @import "woocommerce-blocks/components/combobox";
 @import "woocommerce-blocks/components/drawer";
-@import "woocommerce-blocks/components/form-token-field";
 @import "woocommerce-blocks/components/filter-element-label";
 @import "woocommerce-blocks/components/filter-reset-button";
 @import "woocommerce-blocks/components/filter-submit-button";
+@import "woocommerce-blocks/components/form-token-field";
+@import "woocommerce-blocks/components/formatted-monetary-amount";
+@import "woocommerce-blocks/components/load-more-button";
+@import "woocommerce-blocks/components/loading-mask";
 @import "woocommerce-blocks/components/pagination";
 @import "woocommerce-blocks/components/price-slider";
-@import "woocommerce-blocks/components/price";
 @import "woocommerce-blocks/components/product-list";
+@import "woocommerce-blocks/components/product-price";
+@import "woocommerce-blocks/components/product-rating";
 @import "woocommerce-blocks/components/quantity-selector";
 @import "woocommerce-blocks/components/radio-control";
 @import "woocommerce-blocks/components/reviews";
 @import "woocommerce-blocks/components/sidebar-layout";
 @import "woocommerce-blocks/components/sort-select";
+@import "woocommerce-blocks/components/spinner";
+@import "woocommerce-blocks/components/tabs";
 @import "woocommerce-blocks/components/text-input";
+@import "woocommerce-blocks/components/textarea";
+@import "woocommerce-blocks/components/title";
 @import "woocommerce-blocks/components/validation-input-error";
 
 // Blocks

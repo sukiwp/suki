@@ -5,8 +5,10 @@
 .wc-block-components-sidebar-layout {
 	--gap: calc( 3 * var(--block-spacing) );
 
+	position: relative;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: flex-start;
 	gap: var(--gap);
 }
 
@@ -14,6 +16,7 @@
 :is( .is-medium, .is-small, .is-mobile ) {
 	&.wc-block-components-sidebar-layout {
 		flex-direction: column;
+		align-items: initial;
 	}
 }
 

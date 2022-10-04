@@ -892,12 +892,6 @@
 	text-transform: var(--meta--text-transform);
 	color: var(--meta--text-color);
 }
-.wp-block-post-comments-form .comment-form .logged-in-as a, .wp-block-post-comments-form .comment-reply-title small a, .wp-block-post-author__byline a, .wp-block-rss__item-author a, .wp-block-rss__item-publish-date a, .wp-block-latest-comments__comment-date a, .wp-block-latest-posts__post-date a, .wp-block-latest-posts__post-author a {
-	color: inherit;
-}
-.wp-block-post-comments-form .comment-form .logged-in-as a:focus, .wp-block-post-comments-form .comment-reply-title small a:focus, .wp-block-post-author__byline a:focus, .wp-block-rss__item-author a:focus, .wp-block-rss__item-publish-date a:focus, .wp-block-latest-comments__comment-date a:focus, .wp-block-latest-posts__post-date a:focus, .wp-block-latest-posts__post-author a:focus, .wp-block-post-comments-form .comment-form .logged-in-as a:hover, .wp-block-post-comments-form .comment-reply-title small a:hover, .wp-block-post-author__byline a:hover, .wp-block-rss__item-author a:hover, .wp-block-rss__item-publish-date a:hover, .wp-block-latest-comments__comment-date a:hover, .wp-block-latest-posts__post-date a:hover, .wp-block-latest-posts__post-author a:hover {
-	color: var(--meta--text-color--focus);
-}
 
 /**
  * Block: Archives

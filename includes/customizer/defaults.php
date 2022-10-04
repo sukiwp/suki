@@ -157,7 +157,7 @@ $add['meta_text_color'] = 'var(--color--palette-3)';
  */
 
 $add['container_wide_width']   = '1140px';
-$add['container_narrow_width'] = '720px';
+$add['container_narrow_width'] = '700px';
 
 $add['block_spacing'] = '1.5rem';
 

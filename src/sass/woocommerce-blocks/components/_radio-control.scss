@@ -12,29 +12,32 @@
 	display: flex;
 	position: relative;
 	align-items: center;
-	gap: 0.5em;
-
+	gap: 0.75em;
+	cursor: pointer;
 }
 
 .wc-block-components-radio-control__input {
 	position: relative;
 	display: inline-block;
-	height: 1.5em;
-	width: 1.5em;
+	height: 1.25em;
+	width: 1.25em;
+	margin: 0 !important;
 	border: 0.125em solid currentColor;
 	border-radius: 50%;
 	appearance: none;
 	background: transparent;
+	color: inherit;
+	font-size: 1em;
 	cursor: pointer;
 
-	&:checked::before {
+	&:checked:before {
 		content: "";
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		display: block;
-		height: 0.8em;
-		width: 0.8em;
+		height: 0.75em;
+		width: 0.75em;
 		border-radius: 50%;
 		background: currentColor;
 		transform: translate(-50%, -50%);
@@ -44,4 +47,19 @@
 
 .wc-block-components-radio-control__option-layout {
 	flex-grow: 1;
+
+	display: table;
+}
+
+:is( .wc-block-components-radio-control__label-group, .wc-block-components-radio-control__description-group ) {
+	display: table-row;
+
+	> span {
+		display: table-cell;
+	}
+
+	:is( .wc-block-components-radio-control__secondary-label, .wc-block-components-radio-control__secondary-description ) {
+		text-align: right;
+		min-width: 50%;
+	}
 }
