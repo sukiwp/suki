@@ -254,20 +254,38 @@
 	margin-block-start: var(--block-spacing);
 }
 
+.wc-block-components-checkout-step--with-step-number .wc-block-components-checkout-step__title {
+	display: flex;
+	align-items: center;
+}
 .wc-block-components-checkout-step--with-step-number .wc-block-components-checkout-step__title:before {
 	counter-increment: checkout-step;
-	content: counter(checkout-step) ".";
-	display: inline-block;
+	content: counter(checkout-step);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	margin-inline-end: 1rem;
+	border: 0.125em solid;
+	border-radius: 50%;
+	font-size: 1rem;
 	opacity: 0.25;
 }
 :is(.is-medium, .is-large) .wc-block-components-checkout-step--with-step-number {
-	padding-inline-start: 2.5rem;
+	padding-inline-start: 3rem;
 }
-:is(.is-medium, .is-large) .wc-block-components-checkout-step--with-step-number .wc-block-components-checkout-step__title:before {
+:is(.is-medium, .is-large) .wc-block-components-checkout-step--with-step-number .wc-block-components-checkout-step__title {
+	margin-inline-start: -3rem;
+}
+:is(.is-medium, .is-large) .wc-block-components-checkout-step--with-step-number:not(:last-of-type):after {
+	content: "";
 	position: absolute;
-	width: 1.5rem;
-	left: -2.5rem;
-	text-align: center;
+	top: 2rem;
+	left: calc(1rem - 1px);
+	bottom: calc(-2 * var(--block-spacing));
+	border-left: 2px dashed;
+	opacity: 0.125;
 }
 
 /**
@@ -1812,18 +1830,11 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 
 .wc-block-components-radio-control__option-layout {
 	flex-grow: 1;
-	display: table;
 }
 
 :is(.wc-block-components-radio-control__label-group, .wc-block-components-radio-control__description-group) {
-	display: table-row;
-}
-:is(.wc-block-components-radio-control__label-group, .wc-block-components-radio-control__description-group) > span {
-	display: table-cell;
-}
-:is(.wc-block-components-radio-control__label-group, .wc-block-components-radio-control__description-group) :is(.wc-block-components-radio-control__secondary-label, .wc-block-components-radio-control__secondary-description) {
-	text-align: right;
-	min-width: 50%;
+	display: flex;
+	gap: 0.5em;
 }
 
 /**

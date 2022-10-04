@@ -44,23 +44,41 @@
 
 .wc-block-components-checkout-step--with-step-number {
 	.wc-block-components-checkout-step__title {
+		display: flex;
+		align-items: center;
+
 		&:before {
 			counter-increment: checkout-step;
-			content: counter(checkout-step) ".";
-			display: inline-block;
+			content: counter(checkout-step);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 2rem;
+			height: 2rem;
+			margin-inline-end: 1rem;
+			border: 0.125em solid;
+			border-radius: 50%;
+			font-size: 1rem;
 			opacity: 0.25;
 		}
 	}
 
 	:is( .is-medium, .is-large ) & {
-		padding-inline-start: 2.5rem;
+		padding-inline-start: 3rem;
 
 		.wc-block-components-checkout-step__title {
-			&:before {
+			margin-inline-start: -3rem;
+		}
+
+		&:not(:last-of-type) {
+			&:after {
+				content: "";
 				position: absolute;
-				width: 1.5rem;
-				left: -2.5rem;
-				text-align: center;
+				top: 2rem;
+				left: calc( 1rem - 1px );
+				bottom: calc( -2 * var(--block-spacing) );
+				border-left: 2px dashed;
+				opacity: 0.125;
 			}
 		}
 	}

@@ -47,19 +47,9 @@
 
 .wc-block-components-radio-control__option-layout {
 	flex-grow: 1;
-
-	display: table;
 }
 
 :is( .wc-block-components-radio-control__label-group, .wc-block-components-radio-control__description-group ) {
-	display: table-row;
-
-	> span {
-		display: table-cell;
-	}
-
-	:is( .wc-block-components-radio-control__secondary-label, .wc-block-components-radio-control__secondary-description ) {
-		text-align: right;
-		min-width: 50%;
-	}
+	display: flex;
+	gap: 0.5em;
 }
