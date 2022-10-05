@@ -114,6 +114,14 @@
 			display: flex;
 			flex-direction: column;
 			gap: 1em;
+
+			.editor-styles-wrapper & {
+				> [aria-disabled="true"] {
+					display: flex;
+					flex-direction: column;
+					gap: 1em;
+				}
+			}
 		}
 
 		.wc-block-components-address-form {
@@ -136,6 +144,18 @@
 	}
 }
 
+.wc-block-checkout__form {
+	.wc-block-checkout__payment-method {
+		&:after {
+			display: none;
+		}
+	}
+
+	.wc-block-checkout__order-notes {
+		margin-block: 0;
+	}
+}
+
 /**
  * Block: Checkout Terms
  */
@@ -144,7 +164,7 @@
 	@include meta-typography();
 	@include meta-color();
 
-	margin-block-start: calc( 1.5 * var(--block-spacing) );
+	margin-block-start: calc( 2 * var(--block-spacing) );
 
 	textarea {
 		position: relative;

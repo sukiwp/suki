@@ -33,14 +33,14 @@
 	&:checked:before {
 		content: "";
 		position: absolute;
-		top: 50%;
-		left: 50%;
+		top: 0;
+		left: 0;
 		display: block;
 		height: 0.75em;
 		width: 0.75em;
+		margin: 0.125em;
 		border-radius: 50%;
 		background: currentColor;
-		transform: translate(-50%, -50%);
 	}
 
 }

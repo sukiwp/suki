@@ -24,6 +24,14 @@
 		color: inherit;
 		font-size: 1em;
 		cursor: pointer;
+
+		&:before {
+			// Reset editor styles
+			.editor-styles-wrapper & {
+				display: none;
+			}
+		}
+
 	}
 
 	.wc-block-components-checkbox__mark {
@@ -91,15 +99,16 @@
 
 .wc-block-components-totals-wrapper {
 	padding-block: calc( 0.75 * var(--block-spacing) );
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	border-top-width: 1px;
+	border-top-style: solid;
+
+	&:last-child {
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+	}
 
 	&:empty {
 		display: none;
-	}
-
-	&:last-child {
-		border-bottom-width: 0;
 	}
 
 	&.slot-wrapper {
