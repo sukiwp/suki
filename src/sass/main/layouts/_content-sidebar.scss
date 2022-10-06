@@ -82,4 +82,8 @@
 .suki-error_404 .suki-content {
 	display: flex;
 	align-items: center;
+
+	> * {
+		flex-basis: 100%;
+	}
 }

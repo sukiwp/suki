@@ -393,7 +393,7 @@ msgstr ""
 msgid "[Theme] Page Builder"
 msgstr ""
 
-#: template-parts/loop-grid.php:117, template-parts/loop-search.php:55, template-parts/loop.php:158
+#: template-parts/loop-grid.php:117, template-parts/loop-search.php:55, template-parts/loop.php:157
 msgid "Nothing found."
 msgstr ""
 

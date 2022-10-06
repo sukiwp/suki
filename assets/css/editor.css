@@ -934,8 +934,10 @@ th {
 	/*rtl:ignore*/
 	float: left;
 	/*rtl:ignore*/
-	margin-block-start: 0;
 	margin-inline-end: var(--block-spacing) !important;
+	margin-block-start: 0;
+}
+.alignleft:not(:last-child) {
 	margin-block-end: var(--block-spacing);
 }
 
@@ -943,8 +945,10 @@ th {
 	/*rtl:ignore*/
 	float: right;
 	/*rtl:ignore*/
-	margin-block-start: 0;
 	margin-inline-start: var(--block-spacing) !important;
+	margin-block-start: 0;
+}
+.alignright:not(:last-child) {
 	margin-block-end: var(--block-spacing);
 }
 
@@ -952,6 +956,8 @@ th {
 	clear: both;
 	margin-block-start: 0;
 	margin-inline: auto;
+}
+.aligncenter:not(:last-child) {
 	margin-block-end: var(--block-spacing);
 }
 

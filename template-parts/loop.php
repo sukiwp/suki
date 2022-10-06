@@ -35,12 +35,11 @@ $thumbnail_block = '
 	} -->
 
 		<!-- wp:group {
-			"align":"full",
 			"className":"entry-layout-default",
 			"layout":{
 				"inherit":true
 			}
-		} --><div class="wp-block-group alignfull entry-layout-default">
+		} --><div class="wp-block-group entry-layout-default">
 
 			<?php
 			/**

@@ -932,15 +932,19 @@ th {
  */
 .alignleft {
 	float: left;
-	margin-block-start: 0;
 	margin-inline-end: var(--block-spacing) !important;
+	margin-block-start: 0;
+}
+.alignleft:not(:last-child) {
 	margin-block-end: var(--block-spacing);
 }
 
 .alignright {
 	float: right;
-	margin-block-start: 0;
 	margin-inline-start: var(--block-spacing) !important;
+	margin-block-start: 0;
+}
+.alignright:not(:last-child) {
 	margin-block-end: var(--block-spacing);
 }
 
@@ -948,6 +952,8 @@ th {
 	clear: both;
 	margin-block-start: 0;
 	margin-inline: auto;
+}
+.aligncenter:not(:last-child) {
 	margin-block-end: var(--block-spacing);
 }
 

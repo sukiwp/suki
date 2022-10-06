@@ -25,9 +25,13 @@
 	float: left;
 
 	/*rtl:ignore*/
-	margin-block-start: 0;
 	margin-inline-end: var(--block-spacing) !important;
-	margin-block-end: var(--block-spacing);
+
+	margin-block-start: 0;
+
+	&:not(:last-child) {
+		margin-block-end: var(--block-spacing);
+	}
 }
 
 .alignright {
@@ -35,16 +39,23 @@
 	float: right;
 
 	/*rtl:ignore*/
-	margin-block-start: 0;
 	margin-inline-start: var(--block-spacing) !important;
-	margin-block-end: var(--block-spacing);
+
+	margin-block-start: 0;
+
+	&:not(:last-child) {
+		margin-block-end: var(--block-spacing);
+	}
 }
 
 .aligncenter {
 	clear: both;
 	margin-block-start: 0;
 	margin-inline: auto;
-	margin-block-end: var(--block-spacing);
+
+	&:not(:last-child) {
+		margin-block-end: var(--block-spacing);
+	}
 }
 
 /**

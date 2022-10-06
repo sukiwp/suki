@@ -33,11 +33,12 @@ $thumbnail_block = '
 ?>
 <!-- wp:group {
 	"tagName":"article",
+	"align":"full",
 	"className":"entry entry-layout-default",
 	"layout":{
 		"inherit":true
 	}
-} --><article class="wp-block-group entry entry-layout-default">
+} --><article class="wp-block-group alignfull entry entry-layout-default">
 
 	<?php
 	/**
@@ -59,6 +60,7 @@ $thumbnail_block = '
 		?>
 		<!-- wp:group {
 			"tagName":"header",
+			"align":"full",
 			"className":"entry-header suki-content-header",
 			"layout":{
 				"inherit":"true"
@@ -97,12 +99,7 @@ $thumbnail_block = '
 
 	<?php
 	if ( 'before' === suki_get_current_page_setting( 'thumbnail_position' ) ) {
-		?>
-		<!-- wp:post-featured-image {
-			' . ( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? '"align":"wide",' : '' ) . '
-			"className":"entry-thumbnail"
-		} /-->
-		<?php
+		echo $thumbnail_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
