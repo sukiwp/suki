@@ -94,6 +94,7 @@ const config = {
 			'!{composer.json,composer.lock}', // ignore composer files
 		],
 		dest: 'zip',
+		tempDir: 'zip/' + package.name,
 	},
 }
 
@@ -230,14 +231,24 @@ const buildAll = gulp.series( copyInfo, buildScripts, buildJS, buildCSS, buildPO
  * Compress production files into a zip file.
  */
 
-const zipFiles = () => {
+const cleanZipTempDir = () => {
+	return del( config.zip.tempDir, { force: true } );
+}
+
+const populateZipTempDir = () => {
+	return gulp
+	.src( config.zip.src )
+	.pipe( gulp.dest( config.zip.tempDir ) );
+}
+
+const createZipFile = () => {
 	// Add timestamp to dev build.
 	if ( package.version.endsWith( 'dev' ) ) {
 		package.version = package.version.replace( 'dev', 'dev-' + Date.now() );
 	}
 
 	return gulp
-	.src( config.zip.src )
+	.src( config.zip.tempDir )
 	.pipe( zip( package.name + '-' + package.version + '.zip' ) )
 	.pipe( gulp.dest( config.zip.dest ) );
 }
@@ -314,4 +325,4 @@ exports.watch = watchChanges;
 
 exports.default = gulp.series( buildAll, watchChanges );
 
-exports.zip = gulp.series( buildAll, zipFiles );
+exports.zip = gulp.series( buildAll, cleanZipTempDir, populateZipTempDir, createZipFile, cleanZipTempDir );
