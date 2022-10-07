@@ -231,24 +231,14 @@ const buildAll = gulp.series( copyInfo, buildScripts, buildJS, buildCSS, buildPO
  * Compress production files into a zip file.
  */
 
-const cleanZipTempDir = () => {
-	return del( config.zip.tempDir, { force: true } );
-}
-
-const populateZipTempDir = () => {
-	return gulp
-	.src( config.zip.src )
-	.pipe( gulp.dest( config.zip.tempDir ) );
-}
-
-const createZipFile = () => {
+const zipFiles = () => {
 	// Add timestamp to dev build.
 	if ( package.version.endsWith( 'dev' ) ) {
 		package.version = package.version.replace( 'dev', 'dev-' + Date.now() );
 	}
 
 	return gulp
-	.src( config.zip.tempDir )
+	.src( config.zip.src, { buffer: false, base: './../' } )
 	.pipe( zip( package.name + '-' + package.version + '.zip' ) )
 	.pipe( gulp.dest( config.zip.dest ) );
 }
@@ -325,4 +315,4 @@ exports.watch = watchChanges;
 
 exports.default = gulp.series( buildAll, watchChanges );
 
-exports.zip = gulp.series( buildAll, cleanZipTempDir, populateZipTempDir, createZipFile, cleanZipTempDir );
+exports.zip = gulp.series( buildAll, zipFiles );
