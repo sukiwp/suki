@@ -1,11 +1,11 @@
-// .wc-block-card-elements {
-// 	display: flex;
-// 	width: 100%;
+.wc-block-card-elements {
+	display: flex;
+	width: 100%;
 
-// 	.wc-block-components-validation-error {
-// 		position: static;
-// 	}
-// }
+	.wc-block-components-validation-error {
+		position: static;
+	}
+}
 
 // .wc-block-gateway-container {
 // 	position: relative;
@@ -245,5 +245,17 @@
 
 	&:empty {
 		display: none;
+	}
+}
+
+.wc-block-checkout__payment-method {
+	.wc-block-components-radio-control.disable-radio-control {
+		.wc-block-components-radio-control__input {
+			display: none;
+		}
+
+		.wc-block-components-radio-control-accordion-content {
+			margin-inline-start: 0; // Reset
+		}
 	}
 }

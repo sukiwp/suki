@@ -10,6 +10,7 @@
 	cursor: pointer;
 }
 .wc-block-components-checkbox .wc-block-components-checkbox__input {
+	flex-shrink: 0;
 	position: relative;
 	display: inline-block;
 	height: 1.25em;
@@ -35,6 +36,9 @@
 	height: 0.8em;
 	margin: 0 0.125em 0.125em;
 	fill: currentColor;
+}
+.wc-block-components-checkbox .wc-block-components-checkbox__label {
+	flex-grow: 1;
 }
 .wc-block-components-checkbox .wc-block-components-checkbox__input:not(:checked) + .wc-block-components-checkbox__mark {
 	display: none;
@@ -722,7 +726,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	left: 0;
+	max-width: calc(100% - 2em);
 	margin: var(--input--padding);
 	margin-block: 0;
 	transform: translateY(1rem);
@@ -807,10 +811,10 @@
 	background-color: currentColor;
 	opacity: 0.075;
 }
-.wc-block-components-combobox.wc-block-components-combobox:is(.is-active, :focus-within) label {
+.wc-block-components-combobox.wc-block-components-combobox.is-active label {
 	transform: translateY(0.4rem) scale(0.75);
 }
-.wc-block-components-combobox.wc-block-components-combobox:is(.is-active, :focus-within) .components-combobox-control__input {
+.wc-block-components-combobox.wc-block-components-combobox.is-active .components-combobox-control__input {
 	padding-block: 1.5rem 0.5rem;
 }
 .wc-block-components-combobox.wc-block-components-combobox.has-error {
@@ -1813,7 +1817,12 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	cursor: pointer;
 }
 
+.wc-block-components-radio-control__option-checked {
+	font-weight: 600;
+}
+
 .wc-block-components-radio-control__input {
+	flex-shrink: 0;
 	position: relative;
 	display: inline-block;
 	height: 1.25em;
@@ -2067,7 +2076,7 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	position: absolute;
 	top: 0;
 	right: 0;
-	left: 0;
+	max-width: calc(100% - 2em);
 	margin: var(--input--padding);
 	margin-block: 0;
 	transform: translateY(1rem);
@@ -2104,10 +2113,13 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	appearance: none;
 	margin: 0;
 }
-.wc-block-components-text-input.wc-block-components-text-input:is(.is-active, :focus-within) label {
+.wc-block-components-text-input.wc-block-components-text-input input:-webkit-autofill + label {
 	transform: translateY(0.4rem) scale(0.75);
 }
-.wc-block-components-text-input.wc-block-components-text-input:is(.is-active, :focus-within) :is(input[type=tel], input[type=url], input[type=text], input[type=number], input[type=email]) {
+.wc-block-components-text-input.wc-block-components-text-input.is-active label {
+	transform: translateY(0.4rem) scale(0.75);
+}
+.wc-block-components-text-input.wc-block-components-text-input.is-active :is(input[type=tel], input[type=url], input[type=text], input[type=number], input[type=email]) {
 	padding-block: 1.5rem 0.5rem;
 }
 .wc-block-components-text-input.wc-block-components-text-input.has-error {
@@ -2292,12 +2304,27 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-block-start: 0;
 }
 
+.wc-block-card-elements {
+	display: flex;
+	width: 100%;
+}
+.wc-block-card-elements .wc-block-components-validation-error {
+	position: static;
+}
+
 .wc-block-components-radio-control-accordion-content {
 	margin-block-start: 1em;
 	margin-inline-start: 2em;
 }
 .wc-block-components-radio-control-accordion-content:empty {
 	display: none;
+}
+
+.wc-block-checkout__payment-method .wc-block-components-radio-control.disable-radio-control .wc-block-components-radio-control__input {
+	display: none;
+}
+.wc-block-checkout__payment-method .wc-block-components-radio-control.disable-radio-control .wc-block-components-radio-control-accordion-content {
+	margin-inline-start: 0;
 }
 
 /**

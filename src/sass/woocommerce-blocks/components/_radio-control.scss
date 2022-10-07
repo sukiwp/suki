@@ -16,7 +16,12 @@
 	cursor: pointer;
 }
 
+.wc-block-components-radio-control__option-checked {
+	font-weight: 600;
+}
+
 .wc-block-components-radio-control__input {
+	flex-shrink: 0;
 	position: relative;
 	display: inline-block;
 	height: 1.25em;
@@ -42,7 +47,6 @@
 		border-radius: 50%;
 		background: currentColor;
 	}
-
 }
 
 .wc-block-components-radio-control__option-layout {

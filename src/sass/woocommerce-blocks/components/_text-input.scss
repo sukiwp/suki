@@ -2,7 +2,7 @@
  * Component: Text input
  */
 
-.wc-block-components-text-input.wc-block-components-text-input {
+ .wc-block-components-text-input.wc-block-components-text-input {
 	position: relative;
 	white-space: nowrap;
 
@@ -10,7 +10,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		right: 0;
+		max-width: calc( 100% - 2em );
 		margin: var(--input--padding);
 		margin-block: 0;
 		transform: translateY( 1rem );
@@ -52,9 +52,13 @@
 		}
 	}
 
-	&:is( .is-active, :focus-within ) {
+	input:-webkit-autofill + label {
+		transform: translateY( 0.4rem ) scale( 0.75 );
+	}
+
+	&.is-active {
 		label {
-			transform: translateY( 0.4rem ) scale(0.75);
+			transform: translateY( 0.4rem ) scale( 0.75 );
 		}
 
 		:is( input[type="tel"], input[type="url"], input[type="text"], input[type="number"], input[type="email"] ) {
