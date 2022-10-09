@@ -608,6 +608,19 @@ foreach ( $responsive as $suffix => $media ) {
 	);
 }
 
+$add['content_container'] = array(
+	array(
+		'type'    => 'class',
+		'element' => '.suki-content',
+		'pattern' => 'suki-section--$',
+	),
+	array(
+		'type'    => 'class',
+		'element' => '.suki-hero.suki-hero--inherit-content-container',
+		'pattern' => 'suki-section--$',
+	),
+);
+
 /**
  * ====================================================
  * Global Layout > Main Content
@@ -2090,7 +2103,7 @@ $add['entry_footer_alignment'] = array(
 $add['blog_index_grid_columns'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.suki-loop-grid',
+		'element' => '.suki-loop--layout-grid',
 		'pattern' => 'columns-$',
 	),
 );
@@ -2098,7 +2111,7 @@ $add['blog_index_grid_columns'] = array(
 $add['blog_index_grid_rows_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-loop-grid',
+		'element'  => '.suki-loop--layout-grid',
 		'property' => 'row-gap',
 	),
 );
@@ -2106,7 +2119,7 @@ $add['blog_index_grid_rows_gap'] = array(
 $add['blog_index_grid_columns_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-loop-grid',
+		'element'  => '.suki-loop--layout-grid',
 		'property' => 'column-gap',
 	),
 );

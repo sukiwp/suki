@@ -211,7 +211,7 @@ $add['sidebar_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
 
 $add['hero'] = 1;
 
-$add['hero_container'] = 'wide';
+$add['hero_container'] = 'content';
 $add['hero_padding']   = array( '60px', '20px', '60px', '20px' );
 
 $add['hero_bg_color'] = 'var(--color-palette-7)';

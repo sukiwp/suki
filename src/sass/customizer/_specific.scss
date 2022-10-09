@@ -81,6 +81,16 @@
 }
 
 /**
+ * Hero
+ */
+
+#customize-control-hero_container {
+	.suki-radioimage__option:first-child {
+		grid-column: 1 / 4;
+	}
+}
+
+/**
  * Page Settings
  */
 

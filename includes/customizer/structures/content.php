@@ -37,15 +37,12 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'narrow' => array(
 					'label' => esc_html__( 'Narrow', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--narrow.svg',
 				),
 				'wide'   => array(
 					'label' => esc_html__( 'Wide', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--wide.svg',
 				),
 				'full'   => array(
 					'label' => esc_html__( 'Full', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-container--full.svg',
 				),
 			),
 			'columns'  => 3,
@@ -88,15 +85,12 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'no-sidebar'    => array(
 					'label' => esc_html__( 'Disabled', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-layout--no-sidebar.svg',
 				),
 				'left-sidebar'  => array(
 					'label' => esc_html__( 'Left', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-layout--left-sidebar.svg',
 				),
 				'right-sidebar' => array(
 					'label' => esc_html__( 'Right', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/content-layout--right-sidebar.svg',
 				),
 			),
 			'columns'  => 3,

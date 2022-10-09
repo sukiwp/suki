@@ -2,6 +2,7 @@ v2.0.0
 - MAJOR UPDATE: If you have developed Child Theme or plugin to extend older version of Suki, please read this documentation: ... and review your codes.
 - [NEW] Google Fonts: Add "Load Google Fonts locally" option.
 - [NEW] Header Builder: Add "Mobile header breakpoint" option.
+- [NEW] Hero: Add new choice into the Hero section's container option to use the same container size as the Content section's container.
 - [NEW] Search results page: Add results layout option (Compact or same with the Blog page).
 - [NEW] WooCommerce: Replace default WooCommerce and WooCommerce Blocks styles with theme's styles.
 - [TWEAK] Template Files: Build all template layouts using blocks (** There are still some elements couldn't be migrated to blocks yet).

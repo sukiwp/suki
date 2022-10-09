@@ -917,6 +917,13 @@ div.customize-section-description {
 }
 
 /**
+ * Hero
+ */
+#customize-control-hero_container .suki-radioimage__option:first-child {
+	grid-column: 1/4;
+}
+
+/**
  * Page Settings
  */
 .customize-control-select:is([id$=_content_container],

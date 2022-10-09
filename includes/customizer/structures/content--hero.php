@@ -34,7 +34,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Enable hero section', 'suki' ),
-			'description' => esc_html__( 'Display content header in a separate section between header and content sections.', 'suki' ),
+			'description' => esc_html__( 'Display content header in a separate section just before the content section.', 'suki' ),
 			'priority'    => 10,
 		)
 	)
@@ -78,13 +78,16 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Container width', 'suki' ),
 			'choices'  => array(
-				'narrow' => array(
+				'content' => array(
+					'label' => esc_html__( 'Same with Content section', 'suki' ),
+				),
+				'narrow'  => array(
 					'label' => esc_html__( 'Narrow', 'suki' ),
 				),
-				'wide'   => array(
+				'wide'    => array(
 					'label' => esc_html__( 'Wide', 'suki' ),
 				),
-				'full'   => array(
+				'full'    => array(
 					'label' => esc_html__( 'Full', 'suki' ),
 				),
 			),
