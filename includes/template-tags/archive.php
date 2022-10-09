@@ -64,46 +64,51 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 	function suki_loop_navigation( $mode = 'prev-next', $do_blocks = true, $echo = true ) {
 		$html = '';
 
-		if ( is_archive() || is_home() || is_search() ) {
-			// Render posts navigation.
-			switch ( $mode ) {
-				case 'page-numbers':
-					$html = '
+		// Render posts navigation.
+		switch ( $mode ) {
+			case 'page-numbers':
+				$html = '
+				<!-- wp:group {
+					"className":"suki-loop__navigation",
+					"layout":{
+						"inherit":true
+					}
+				} --><div class="wp-block-group suki-loop__navigation">
+
 					<!-- wp:query-pagination {
 						"paginationArrow":"arrow",
 						"layout":{
 							"type":"flex",
 							"justifyContent":"center",
 							"orientation":"horizontal"
-						},
-						"className":"suki-archive-navigation"
+						}
 					} -->
-
-						<!-- wp:query-pagination-previous {
-							"label":" "
-						} /-->
 
 						<!-- wp:query-pagination-numbers /-->
 
-						<!-- wp:query-pagination-next {
-							"label":" "
-						} /-->
-
 					<!-- /wp:query-pagination -->
-					';
-					break;
 
-				case 'prev-next':
-				default:
-					$html = '
+				</div><!-- /wp:group -->
+				';
+				break;
+
+			case 'prev-next':
+			default:
+				$html = '
+				<!-- wp:group {
+					"className":"suki-loop__navigation",
+					"layout":{
+						"inherit":true
+					}
+				} --><div class="wp-block-group suki-loop__navigation">
+
 					<!-- wp:query-pagination {
 						"paginationArrow":"arrow",
 						"layout":{
 							"type":"flex",
 							"justifyContent":"space-between",
 							"orientation":"horizontal"
-						},
-						"className":"suki-archive-navigation"
+						}
 					} -->
 
 						<!-- wp:query-pagination-previous {
@@ -115,9 +120,10 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 						} /-->
 
 					<!-- /wp:query-pagination -->
-					';
-					break;
-			}
+
+				</div><!-- /wp:group -->
+				';
+				break;
 		}
 
 		/**

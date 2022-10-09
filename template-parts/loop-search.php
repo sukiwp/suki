@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 } --><div class="wp-block-query">
 
 	<!-- wp:post-template {
-		"className":"suki-loop suki-loop-search alignfull"
+		"className":"suki-loop suki-loop--layout-search"
 	} -->
 
 		<!-- wp:group --><div class="wp-block-group">
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- wp:post-title {
 				"level":2,
 				"isLink":true,
-				"className":"entry-title suki-small-title'"
+				"className":"entry-title suki-small-title"
 			} /-->
 
 			<!-- wp:post-excerpt /-->
@@ -38,8 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<!-- wp:spacer {
 			"height":"2em",
-			"className":"suki-loop-search__spacer"
-		} --><div style="height:2em" aria-hidden="true" class="wp-block-spacer suki-loop-search__spacer"></div><!-- /wp:spacer -->
+			"className":"suki-loop--layout-search__spacer"
+		} --><div style="height:2em" aria-hidden="true" class="wp-block-spacer suki-loop--layout-search__spacer"></div><!-- /wp:spacer -->
 
 	<!-- /wp:post-template -->
 

@@ -398,6 +398,7 @@ select[multiple] {
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -592,9 +593,6 @@ fieldset {
 	margin-block: var(--block-spacing);
 	margin-inline: 0;
 }
-fieldset legend {
-	margin-block-end: calc(-1 * var(--block-spacing));
-}
 
 legend {
 	padding: 0.25em;
@@ -606,6 +604,7 @@ legend {
  * Media tags.
  */
 figure {
+	margin-inline: 0;
 	margin-block: var(--block-spacing);
 }
 figure:first-child {
@@ -2541,6 +2540,7 @@ th {
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -2713,6 +2713,7 @@ th {
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -3792,6 +3793,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	margin: 0;
 }
 .wp-block-post-template:where(.is-flex-container) {
+	display: grid;
 	gap: calc(1.5 * var(--block-spacing));
 }
 @media screen and (min-width: 425px) {
@@ -3815,9 +3817,8 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 		grid-template-columns: repeat(6, 1fr);
 	}
 }
-
-.wp-block-post {
-	width: 100%;
+.wp-block-post-template:where(.is-flex-container) .wp-block-post {
+	margin-block: 0;
 }
 
 /**
@@ -3874,20 +3875,25 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	max-width: calc(50% - var(--block-spacing) / 2);
 	width: 100%;
 }
+
 .wp-block-query-pagination-numbers {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 0.75em;
 }
-.wp-block-query-pagination-previous.has-background, .wp-block-query-pagination-next.has-background {
+
+.wp-block-query-pagination-previous.has-background,
+.wp-block-query-pagination-next.has-background {
 	padding: 0.25em 0.5em;
 }
-.wp-block-query-pagination-previous-arrow {
-	margin-inline-end: 0.5em;
+
+.wp-block-query-pagination-previous-arrow:after {
+	content: " ";
 }
-.wp-block-query-pagination-next-arrow {
-	margin-inline-start: 0.5em;
+
+.wp-block-query-pagination-next-arrow:before {
+	content: " ";
 }
 
 /**

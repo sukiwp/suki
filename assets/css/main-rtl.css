@@ -398,6 +398,7 @@ select[multiple] {
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -592,9 +593,6 @@ fieldset {
 	margin-block: var(--block-spacing);
 	margin-inline: 0;
 }
-fieldset legend {
-	margin-block-end: calc(-1 * var(--block-spacing));
-}
 
 legend {
 	padding: 0.25em;
@@ -606,6 +604,7 @@ legend {
  * Media tags.
  */
 figure {
+	margin-inline: 0;
 	margin-block: var(--block-spacing);
 }
 figure:first-child {
@@ -2967,11 +2966,21 @@ th {
 /**
  * Loop
  */
-.suki-loop-grid {
+.suki-loop--layout-grid {
 	align-items: start;
 }
-.suki-loop-grid-same-height {
+.suki-loop--layout-grid-same-height {
 	align-items: stretch;
+}
+
+.suki-loop__navigation {
+	margin-block-start: 0;
+}
+.suki-loop__navigation .wp-block-query-pagination-previous {
+	margin-inline-end: auto;
+}
+.suki-loop__navigation .wp-block-query-pagination-next {
+	margin-inline-start: auto;
 }
 
 /**
@@ -3000,7 +3009,7 @@ th {
 	margin-block-start: calc(1.5 * var(--block-spacing));
 }
 
-:is(.entry-header, .entry-footer) :is(.suki-meta, .suki-title, .suki-small-title):not(:first-child) {
+:is(.entry-header, .entry-footer) > * + * {
 	margin-block-start: calc(0.5 * var(--block-spacing));
 }
 

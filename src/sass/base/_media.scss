@@ -3,6 +3,7 @@
  */
 
 figure {
+	margin-inline: 0; // Reset
 	margin-block: var(--block-spacing);
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();

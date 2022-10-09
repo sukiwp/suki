@@ -2,7 +2,7 @@
 // Post entry
 // -------------------------------------------------------------
 
-.suki-loop-grid {
+.suki-loop--layout-grid {
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
@@ -11,7 +11,7 @@
 	margin-left: -15px; // postmessage: blog_index_grid_columns_gutter
 	margin-right: -15px; // postmessage: blog_index_grid_columns_gutter
 
-	&.suki-loop-grid-same-height {
+	&.suki-loop--layout-grid-same-height {
 		align-items: stretch;
 
 		.entry-footer {
@@ -26,7 +26,7 @@
 		margin-bottom: 6rem; // postmessage: blog_index_default_items_gap
 	}
 
-	.suki-loop-grid & {
+	.suki-loop--layout-grid & {
 		width: 100%;
 		padding-top: 15px; // postmessage: blog_index_grid_rows_gutter
 		padding-bottom: 15px; // postmessage: blog_index_grid_rows_gutter
@@ -39,11 +39,11 @@
 		}
 	}
 
-	.suki-loop-grid.suki-loop-grid-2-columns & {
+	.suki-loop--layout-grid.suki-loop--layout-grid-2-columns & {
 		width: 50%;
 	}
 
-	.suki-loop-grid.suki-loop-grid-3-columns & {
+	.suki-loop--layout-grid.suki-loop--layout-grid-3-columns & {
 		width: 33.33%;
 
 		@media screen and ( max-width: $breakpoint_768  - 0.1px ) {
@@ -51,7 +51,7 @@
 		}
 	}
 
-	.suki-loop-grid.suki-loop-grid-4-columns & {
+	.suki-loop--layout-grid.suki-loop--layout-grid-4-columns & {
 		width: 25%;
 
 		@media screen and ( max-width: $breakpoint_768  - 0.1px ) {
@@ -59,7 +59,7 @@
 		}
 	}
 
-	.suki-loop-search & {
+	.suki-loop--layout-search & {
 		margin-bottom: 2em;
 		padding-bottom: 2em;
 		@include border( bottom );

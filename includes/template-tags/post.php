@@ -105,21 +105,29 @@ if ( ! function_exists( 'suki_entry_thumbnail' ) ) {
 	/**
 	 * Render entry thumbnail.
 	 *
+	 * @param string  $size      Thumbnail size (`thumbnail`, `medium`, `large`, `full`).
+	 * @param boolean $is_wide   Use wide alignment or not.
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
-	function suki_entry_thumbnail( $do_blocks = true, $echo = true ) {
-		$size = suki_get_theme_mod( 'entry_thumbnail_size', 'full' );
-
+	function suki_entry_thumbnail( $size = 'thumbnail', $is_wide = false, $do_blocks = true, $echo = true ) {
 		$html = '
-		<!-- wp:post-featured-image {
-			"isLink":true,
-			' . ( 'full' !== $size ? '"width":' . get_option( $size . '_size_w' ) . ',' : '' ) . '
-			' . ( 'full' !== $size ? '"height":' . get_option( $size . '_size_h' ) . ',' : '' ) . '
-			' . ( boolval( suki_get_theme_mod( 'entry_thumbnail_wide' ) ) ? '"align":"wide",' : '' ) . '
-			"className":"' . suki_element_class( 'entry/thumbnail', array( 'entry-thumbnail' ), false ) . '"
-		} /-->
+		<!-- wp:group {
+			"className":"entry-thumbnail",
+			"layout":{
+				"inherit":true
+			}
+		} --><div class="wp-block-group entry-thumbnail">
+
+			<!-- wp:post-featured-image {
+				' . esc_attr( boolval( $is_wide ) ? '"align":"wide",' : '' ) . '
+				' . esc_attr( 'full' !== $size ? '"width":"' . get_option( $size . '_size_w' ) . 'px",' : '' ) . '
+				' . esc_attr( 'full' !== $size ? '"height":"' . get_option( $size . '_size_h' ) . 'px",' : '' ) . '
+				"isLink":true
+			} /-->
+
+		</div><!-- /wp:group -->
 		';
 
 		/**

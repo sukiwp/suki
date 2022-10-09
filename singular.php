@@ -24,48 +24,32 @@ ob_start();
 
 the_post();
 
-$thumbnail_block = '
-<!-- wp:post-featured-image {
-	' . ( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? '"align":"wide",' : '' ) . '
-	"className":"entry-thumbnail"
-} /-->
-';
+$thumbnail_position = suki_get_current_page_setting( 'content_thumbnail_position' );
 ?>
 <!-- wp:group {
-	"tagName":"article",
-	"align":"full",
 	"className":"entry entry-layout-default",
-	"layout":{
-		"inherit":true
-	}
-} --><article class="wp-block-group alignfull entry entry-layout-default">
+} --><div class="wp-block-group entry entry-layout-default">
 
 	<?php
 	/**
-	 * Hook: suki/frontend/{post_type}_content/before_header
-	 */
-	do_action( 'suki/frontend/' . get_post_type() . '_content/before_header' );
-
-	/**
 	 * Featured image (before header)
 	 */
-	if ( 'before' === suki_get_theme_mod( 'entry_thumbnail_position' ) ) {
-		echo $thumbnail_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	if ( 'before' === $thumbnail_position ) {
+		suki_content_thumbnail();
 	}
 
 	/**
 	 * Content header
 	 */
+
 	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/header' ) ) {
 		?>
 		<!-- wp:group {
-			"tagName":"header",
-			"align":"full",
-			"className":"entry-header suki-content-header",
+			"className":"entry-header",
 			"layout":{
 				"inherit":"true"
 			}
-		} --><header class="wp-block-group entry-header suki-content-header">
+		} --><div class="wp-block-group entry-header">
 
 			<?php
 			/**
@@ -74,38 +58,20 @@ $thumbnail_block = '
 			do_action( 'suki/frontend/' . get_post_type() . '_content/header' );
 			?>
 
-		</header><!-- /wp:group -->
+		</div><!-- /wp:group -->
 		<?php
 	}
 
 	/**
-	 * Featured image (after header)
+	 * Content
 	 */
-	if ( 'after' === suki_get_theme_mod( 'entry_thumbnail_position' ) ) {
-		echo $thumbnail_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-
-	/**
-	 * Hook: suki/frontend/{post_type}_content/after_header
-	 */
-	do_action( 'suki/frontend/' . get_post_type() . '_content/after_header' );
 	?>
-
 	<!-- wp:post-content {
 		"layout":{
 			"inherit":"true"
 		}
 	} /-->
-
 	<?php
-	if ( 'before' === suki_get_current_page_setting( 'thumbnail_position' ) ) {
-		echo $thumbnail_block; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-
-	/**
-	 * Hook: suki/frontend/{post_type}_content/before_footer
-	 */
-	do_action( 'suki/frontend/' . get_post_type() . '_content/before_footer' );
 
 	/**
 	 * Content footer
@@ -113,12 +79,11 @@ $thumbnail_block = '
 	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/footer' ) ) {
 		?>
 		<!-- wp:group {
-			"tagName":"footer",
-			"className":"entry-footer suki-content-footer",
+			"className":"entry-footer",
 			"layout":{
 				"inherit":"true"
 			}
-		} --><footer class="wp-block-group entry-footer suki-content-footer">
+		} --><div class="wp-block-group entry-footer">
 
 			<?php
 			/**
@@ -127,17 +92,12 @@ $thumbnail_block = '
 			do_action( 'suki/frontend/' . get_post_type() . '_content/footer' );
 			?>
 
-		</footer><!-- /wp:group -->
+		</div><!-- /wp:group -->
 		<?php
 	}
-
-	/**
-	 * Hook: suki/frontend/{post_type}_content/after_footer
-	 */
-	do_action( 'suki/frontend/' . get_post_type() . '_content/after_footer' );
 	?>
 
-</article><!-- /wp:group -->
+</div><!-- /wp:group -->
 <?php
 suki_content( ob_get_clean() );
 

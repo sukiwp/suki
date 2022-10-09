@@ -250,9 +250,9 @@ fieldset {
 	margin-block: var(--block-spacing);
 	margin-inline: 0;
 
-	legend {
-		margin-block-end: calc( -1 * var(--block-spacing) );
-	}
+	// legend {
+	// 	margin-block-end: calc( -1 * var(--block-spacing) );
+	// }
 }
 
 legend {

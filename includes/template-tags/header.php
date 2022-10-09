@@ -726,17 +726,21 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 
 			case 'logo':
 				ob_start();
+
+				$tag = is_front_page() ? 'h1' : 'div'; // Use <h1> in front page, otherwise use <div>.
 				?>
-				<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-logo site-branding site-title suki-title" rel="home">
-					<?php
-					/**
-					 * Hook: suki/frontend/logo
-					 *
-					 * @hooked suki_default_logo - 10
-					 */
-					do_action( 'suki/frontend/logo' );
-					?>
-				</a>
+				<<?php echo esc_attr( $tag ); ?>>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-logo site-branding site-title suki-title" rel="home">
+						<?php
+						/**
+						 * Hook: suki/frontend/logo
+						 *
+						 * @hooked suki_default_logo - 10
+						 */
+						do_action( 'suki/frontend/logo' );
+						?>
+					</a>
+				</<?php echo esc_attr( $tag ); ?>>
 				<?php
 				$html = ob_get_clean();
 				break;
@@ -744,16 +748,18 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 			case 'mobile-logo':
 				ob_start();
 				?>
-				<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-logo site-branding site-title" rel="home">
-					<?php
-					/**
-					 * Hook: suki/frontend/mobile_logo
-					 *
-					 * @hooked suki_default_mobile_logo - 10
-					 */
-					do_action( 'suki/frontend/mobile_logo' );
-					?>
-				</a>
+				<div>
+					<a href="<?php echo esc_url( apply_filters( 'suki/frontend/logo_url', home_url( '/' ) ) ); ?>" class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-logo site-branding site-title" rel="home">
+						<?php
+						/**
+						 * Hook: suki/frontend/mobile_logo
+						 *
+						 * @hooked suki_default_mobile_logo - 10
+						 */
+						do_action( 'suki/frontend/mobile_logo' );
+						?>
+					</a>
+				</div>
 				<?php
 				$html = ob_get_clean();
 				break;

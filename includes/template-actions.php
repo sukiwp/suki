@@ -83,37 +83,13 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
-	 * Hero hooks
-	 * ====================================================
-	 */
-
-	// Add content header to hero section.
-	if (
-		boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is active.
-		! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
-		( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
-		0 < count( suki_get_current_page_setting( 'content_header', array() ) ) // Content header has at least 1 element.
-	) {
-		// Add content header to Hero section.
-		add_action( 'suki/frontend/hero', 'suki_content_header', 10 );
-	}
-
-	/**
-	 * ====================================================
 	 * All archive page hooks
 	 * ====================================================
 	 */
 
 	if ( is_archive() || is_home() || is_search() ) {
 		// Add content header to main content.
-		if (
-			! boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is not active.
-			! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
-			( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
-			0 < count( suki_get_current_page_setting( 'content_header', array() ) ) // Content header has at least 1 element.
-		) {
-			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
-		}
+		add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
 	}
 
 	/**
@@ -123,17 +99,10 @@ function suki_template_hooks() {
 	 */
 
 	if ( is_singular() ) {
-		// Add content header to main content.
-		if (
-			! boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is not active.
-			! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
-			( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
-			0 < count( suki_get_current_page_setting( 'content_header', array() ) ) // Content header has at least 1 element.
-		) {
-			add_action( 'suki/frontend/' . get_post_type() . '_content/header', 'suki_content_header', 10 );
-		}
+		// Add content header.
+		add_action( 'suki/frontend/' . get_post_type() . '_content/header', 'suki_content_header', 10 );
 
-		// Add content footer elements.
+		// Add content footer.
 		if ( 0 < count( suki_get_current_page_setting( 'content_footer', array() ) ) ) { // Content footer has at least 1 element.
 			add_action( 'suki/frontend/' . get_post_type() . '_content/footer', 'suki_content_footer', 10 );
 		}

@@ -245,6 +245,7 @@
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
