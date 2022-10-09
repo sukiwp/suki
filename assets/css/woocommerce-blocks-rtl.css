@@ -103,7 +103,7 @@
 	border-top-width: 1px;
 	border-top-style: solid;
 }
-.wc-block-components-totals-wrapper:last-child {
+.wc-block-components-totals-wrapper.has-bottom-border {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
@@ -112,6 +112,14 @@
 }
 .wc-block-components-totals-wrapper.slot-wrapper {
 	padding: 0;
+}
+.wc-block-components-totals-wrapper.slot-wrapper > * > * {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding-block: 1em;
+}
+.wc-block-components-totals-wrapper.slot-wrapper > * > *:last-child {
+	border-bottom-width: 0;
 }
 
 /**
@@ -162,6 +170,7 @@
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -2587,25 +2596,29 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 /**
  * Block: Checkout Fields
  */
-:is(.is-mobile, .is-small, .is-medium) .wc-block-checkout__main {
-	order: 1;
-}
-
-:is(.is-small, .is-medium, .is-large) :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-checkout-step__content {
+:is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-checkout-step__content {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
 }
-.editor-styles-wrapper :is(.is-small, .is-medium, .is-large) :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-checkout-step__content > [aria-disabled=true] {
+.editor-styles-wrapper :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-checkout-step__content > [aria-disabled=true] {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
 }
-:is(.is-small, .is-medium, .is-large) :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-address-form {
+:is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-address-form {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1em;
 }
+:is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-address-form > * {
+	flex-basis: 100%;
+}
+
+:is(.is-mobile, .is-small, .is-medium) .wc-block-checkout__main {
+	order: 1;
+}
+
 :is(.is-small, .is-medium, .is-large) :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-address-form .wc-block-components-text-input,
 :is(.is-small, .is-medium, .is-large) :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-address-form .wc-block-components-country-input,
 :is(.is-small, .is-medium, .is-large) :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-address-form .wc-block-components-state-input {
@@ -3108,6 +3121,7 @@ html[dir=rtl] .wc-block-mini-cart__icon {
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;
@@ -3158,6 +3172,7 @@ html[dir=rtl] .wc-block-mini-cart__icon {
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
+	word-break: normal;
 	isolation: isolate;
 	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
 	border-style: solid;

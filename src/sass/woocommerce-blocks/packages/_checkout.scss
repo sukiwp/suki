@@ -106,7 +106,7 @@
 	border-top-width: 1px;
 	border-top-style: solid;
 
-	&:last-child {
+	&.has-bottom-border {
 		border-bottom-width: 1px;
 		border-bottom-style: solid;
 	}
@@ -117,6 +117,18 @@
 
 	&.slot-wrapper {
 		padding: 0;
+
+		> * > * {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+
+			padding-block: 1em;
+
+			// removes the border bottom for the last slot inserted
+			&:last-child {
+				border-bottom-width: 0;
+			}
+		}
 	}
 }
 

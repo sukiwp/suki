@@ -102,6 +102,32 @@
  * Block: Checkout Fields
  */
 
+ :is( .wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields ) {
+	.wc-block-components-checkout-step__content {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+		.editor-styles-wrapper & {
+			> [aria-disabled="true"] {
+				display: flex;
+				flex-direction: column;
+				gap: 1em;
+			}
+		}
+	}
+
+	.wc-block-components-address-form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+
+		> * {
+			flex-basis: 100%;
+		}
+	}
+}
+
 :is( .is-mobile, .is-small, .is-medium ) {
 	.wc-block-checkout__main {
 		order: 1;
@@ -110,25 +136,7 @@
 
 :is( .is-small, .is-medium, .is-large ) {
 	:is( .wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields ) {
-		.wc-block-components-checkout-step__content {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-
-			.editor-styles-wrapper & {
-				> [aria-disabled="true"] {
-					display: flex;
-					flex-direction: column;
-					gap: 1em;
-				}
-			}
-		}
-
 		.wc-block-components-address-form {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 1em;
-
 			.wc-block-components-text-input,
 			.wc-block-components-country-input,
 			.wc-block-components-state-input {
