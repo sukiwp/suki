@@ -388,6 +388,40 @@ function suki_get_current_page_setting( $key, $default = null ) {
 }
 
 /**
+ * Return boolean whether current loaded page has hero section.
+ *
+ * @return boolean
+ */
+function suki_current_page_has_hero_section() {
+	if (
+		boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is active.
+		! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
+		( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
+		0 < count( suki_get_current_page_setting( 'content_header', array() ) ) // Content header has at least 1 element.
+	) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Return boolean whether current loaded page has content + sidebar layout.
+ *
+ * @return boolean
+ */
+function suki_current_page_has_sidebar() {
+	if (
+		'narrow' !== suki_get_current_page_setting( 'content_container' ) &&
+		in_array( suki_get_current_page_setting( 'content_layout' ), array( 'left-sidebar', 'right-sidebar' ), true )
+	) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * Wrapper function to get theme info.
  *
  * @param string $key Key of requested value.
