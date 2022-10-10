@@ -23,6 +23,7 @@
 	:is( th, td ) {
 		border-left: 0;
 		border-right: 0;
+		border-top: 0;
 
 		&:first-child {
 			padding-inline-start: 0;
@@ -36,7 +37,6 @@
 	.wc-block-cart-items__header {
 		th {
 			padding-block-start: 0;
-			border-top: 0;
 		}
 	}
 
@@ -119,6 +119,17 @@
 	}
 }
 
+.wc-block-cart__totals-title {
+	// Mimic th styles
+	font: inherit;
+	font-weight: 600;
+	padding-block-end: calc( 0.5 * var(--block-spacing) );
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+
+	margin: 0; // Reset
+}
+
 // Compact mode
 
 :is( .is-small, .is-mobile ) {
@@ -143,12 +154,6 @@
 
 .is-large {
 	.wc-block-cart__totals-title {
-		// Use th typography
-		font: inherit;
-		font-weight: 600;
-
-		padding-block-end: calc( 0.5 * var(--block-spacing) );
-		margin: 0;
 		text-align: right;
 	}
 

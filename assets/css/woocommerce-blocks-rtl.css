@@ -100,12 +100,12 @@
  */
 .wc-block-components-totals-wrapper {
 	padding-block: calc(0.75 * var(--block-spacing));
-	border-top-width: 1px;
-	border-top-style: solid;
-}
-.wc-block-components-totals-wrapper.has-bottom-border {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
+}
+.wc-block-components-totals-wrapper:is(:first-child, :first-of-type) {
+	border-top-width: 1px;
+	border-top-style: solid;
 }
 .wc-block-components-totals-wrapper:empty {
 	display: none;
@@ -2356,6 +2356,7 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 .wc-block-cart-items :is(th, td) {
 	border-right: 0;
 	border-left: 0;
+	border-top: 0;
 }
 .wc-block-cart-items :is(th, td):first-child {
 	padding-inline-start: 0;
@@ -2365,7 +2366,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 }
 .wc-block-cart-items .wc-block-cart-items__header th {
 	padding-block-start: 0;
-	border-top: 0;
 }
 .wc-block-cart-items .wc-block-cart-items__row :is(th, td) {
 	vertical-align: top;
@@ -2453,6 +2453,15 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	transition: opacity 200ms ease;
 }
 
+.wc-block-cart__totals-title {
+	font: inherit;
+	font-weight: 600;
+	padding-block-end: calc(0.5 * var(--block-spacing));
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	margin: 0;
+}
+
 :is(.is-small, .is-mobile) .wc-block-cart-item__total .wc-block-components-sale-badge {
 	display: none;
 }
@@ -2462,10 +2471,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 }
 
 .is-large .wc-block-cart__totals-title {
-	font: inherit;
-	font-weight: 600;
-	padding-block-end: calc(0.5 * var(--block-spacing));
-	margin: 0;
 	text-align: left;
 }
 .is-large .wc-block-cart__sidebar {
@@ -3052,11 +3057,12 @@ html[dir=rtl] .wc-block-mini-cart__icon {
 }
 
 .wc-block-mini-cart__items {
-	display: flex;
-	flex-direction: column;
 	flex-grow: 1;
 	overflow-y: auto;
 	padding: var(--block-spacing);
+}
+.wc-block-mini-cart__items .wc-block-mini-cart-items thead {
+	display: none;
 }
 
 .wc-block-mini-cart__footer {

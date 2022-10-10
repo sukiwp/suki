@@ -119,11 +119,17 @@
 }
 
 .wc-block-mini-cart__items {
-	display: flex; // ??
-	flex-direction: column; // ??
+	// display: flex; // ??
+	// flex-direction: column; // ??
 	flex-grow: 1;
 	overflow-y: auto;
 	padding: var(--block-spacing);
+
+	.wc-block-mini-cart-items {
+		thead {
+			display: none;
+		}
+	}
 }
 
 .wc-block-mini-cart__footer {
