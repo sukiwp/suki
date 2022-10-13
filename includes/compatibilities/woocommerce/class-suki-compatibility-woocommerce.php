@@ -444,7 +444,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Modify Content Header element.
-		add_filter( 'suki/frontend/content_header_element', array( $this, 'modify_content_header_elements' ), 10, 2 );
+		add_filter( 'suki/frontend/content_header_element', array( $this, 'modify_content_header_elements' ), 10, 3 );
 
 		/**
 		 * WooCommerce template wrapper
@@ -1104,16 +1104,15 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function modify_page_title( $page_title ) {
 		if ( is_tax() ) {
-			$custom_title = suki_get_theme_mod( 'product_archive_tax_title_text' );
+			$customized_format = suki_get_theme_mod( 'product_archive_tax_title_text' );
 
-			if ( ! empty( $custom_title ) ) {
+			if ( ! empty( $customized_format ) ) {
 				$term_obj     = get_queried_object();
 				$taxonomy_obj = get_taxonomy( $term_obj->taxonomy );
 
-				$custom_title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $custom_title );
-				$custom_title = str_replace( '{{term}}', $term_obj->name, $custom_title );
-
-				$page_title = $custom_title;
+				$page_title = $customized_format;
+				$page_title = str_replace( '{{taxonomy}}', $taxonomy_obj->labels->singular_name, $page_title );
+				$page_title = str_replace( '{{term}}', $term_obj->name, $page_title );
 			}
 		}
 
@@ -1229,22 +1228,29 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Modify content header elements markup.
 	 *
-	 * @param string $html    HTML markup string.
-	 * @param string $element Element slug.
+	 * @param string $html      HTML markup string.
+	 * @param string $element   Element slug.
+	 * @param string $alignment Element alignment (left, center, or right).
 	 * @return array
 	 */
-	public function modify_content_header_elements( $html, $element ) {
+	public function modify_content_header_elements( $html, $element, $alignment ) {
 		// Abort if current loaded page is not a WooCommerce page.
 		if ( ! is_woocommerce() ) {
 			return $html;
 		}
 
-		$html = '';
-
 		switch ( $element ) {
 			case 'title':
 				if ( ! is_product() ) {
-					$html = preg_replace( '/(<h1 .*?>)(.*?)(<\/h1>)/', '$1' . woocommerce_page_title( false ) . '$3', $html );
+					$level = is_front_page() ? 2 : 1; // In front page, logo is the <h1>, so we use <h2> for this title.
+
+					$html = '
+					<!-- wp:heading {
+						"level":' . esc_attr( $level ) . ',
+						"textAlign":"' . esc_attr( $alignment ) . '",
+						"className":"entry-title suki-title"
+					} --><h' . esc_attr( $level ) . ' class="has-text-align-' . esc_attr( $alignment ) . ' entry-title suki-title">' . woocommerce_page_title( false ) . '</h' . esc_attr( $level ) . '><!-- /wp:heading -->
+					';
 				}
 				break;
 

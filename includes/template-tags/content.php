@@ -371,10 +371,8 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 				/**
 				 * Search results page.
 				 *
-				 * Use `core/heading` block, as there is no specific block for search results page title.
+				 * Use `core/heading` block, as there `core/query-title` block for `search` type uses a fixed text and can't be modified via any filter.
 				 * The customized text is processed here.
-				 *
-				 * @todo Change to `core/query-title` block with `"type":"search"` in WP 6.1.
 				 */
 				if ( is_search() ) {
 					// Get custom title format.
@@ -492,17 +490,19 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 		/**
 		 * Filter: suki/frontend/content_header_element
 		 *
-		 * @param string $html    HTML markup.
-		 * @param string $element Element slug.
+		 * @param string $html      HTML markup.
+		 * @param string $element   Element slug.
+		 * @param string $alignment Element alignment (left, center, or right).
 		 */
-		$html = apply_filters( 'suki/frontend/content_header_element', $html, $element );
+		$html = apply_filters( 'suki/frontend/content_header_element', $html, $element, $alignment );
 
 		/**
 		 * Filter: suki/frontend/content_header_element/{$element}
 		 *
-		 * @param string $html HTML markup.
+		 * @param string $html      HTML markup.
+		 * @param string $alignment Element alignment (left, center, or right).
 		 */
-		$html = apply_filters( 'suki/frontend/content_header_element/' . $element, $html );
+		$html = apply_filters( 'suki/frontend/content_header_element/' . $element, $html, $alignment );
 
 		/**
 		 * Result
