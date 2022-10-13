@@ -23,6 +23,7 @@ const wpPot = require( 'gulp-wp-pot' );
 const zip = require( 'gulp-zip' );
 
 // Others
+const fs = require( 'fs' );
 const named = require( 'vinyl-named' );
 const replace = require( 'gulp-replace' );
 const rename = require( 'gulp-rename' );
@@ -104,38 +105,42 @@ const config = {
 
 // Copy project info to main file.
 const copyInfoToMainFile = () => {
-	const infoFile = package.additionalInfo.initFile;
+	const packageInfo = JSON.parse( fs.readFileSync( './package.json' ) );
+
+	const infoFile = packageInfo.additionalInfo.initFile;
 
 	return gulp
 	.src( infoFile )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.title ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/, 'm' ), '$1 ' + package.homepage ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author:)[^\r\n]*?$/, 'm' ), '$1 ' + package.author.name ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author URI:)[^\r\n]*?$/, 'm' ), '$1 ' + package.author.url ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Description:)[^\r\n]*?$/, 'm' ), '$1 ' + package.description ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Version:)[^\r\n]*?$/, 'm' ), '$1 ' + package.version ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Requires at least:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.requiresWPVersion ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Tested up to:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.testedWPVersion ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Requires PHP:)[^\r\n]*?$/, 'm' ), '$1 ' + package.additionalInfo.requiresPHPVersion ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Tags:)[^\r\n]*?$/, 'm' ), '$1 ' + package.keywords.join( ', ' ) ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Text Domain:)[^\r\n]*?$/, 'm' ), '$1 ' + package.name ) )
-	.pipe( replace( new RegExp( '([\'"]' + package.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]),\s*[\'"].*?[\'"]', 'm' ), '$1, \'' + package.version + '\'' ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.title ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.homepage ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.author.name ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author URI:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.author.url ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Description:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.description ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Version:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.version ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Requires at least:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.requiresWPVersion ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Tested up to:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.testedWPVersion ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Requires PHP:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.requiresPHPVersion ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Tags:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.keywords.join( ', ' ) ) )
+	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Text Domain:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.name ) )
+	.pipe( replace( new RegExp( '([\'"]' + packageInfo.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]),\s*[\'"].*?[\'"]', 'm' ), '$1, \'' + packageInfo.version + '\'' ) )
 	.pipe( gulp.dest( path.dirname( infoFile ) ) );
 }
 
 // Copy project info to `readme.txt` file.
 const copyInfoToReadmeFile = () => {
+	const packageInfo = JSON.parse( fs.readFileSync( './package.json' ) );
+
 	const readmeFile = 'readme.txt';
 
 	return gulp
 	.src( readmeFile )
-	.pipe( replace( new RegExp( /^(===).*(===)$/, 'm' ), '$1 ' + package.additionalInfo.title + ' $2' ) )
-	.pipe( replace( new RegExp( /^(Contributors:).*?$/, 'm' ), '$1 ' + package.additionalInfo.authorSlug ) )
-	.pipe( replace( new RegExp( /^(Stable tag:).*?$/, 'm' ), '$1 ' + package.version ) )
-	.pipe( replace( new RegExp( /^(Requires at least:).*?$/, 'm' ), '$1 '  + package.additionalInfo.requiresWPVersion ) )
-	.pipe( replace( new RegExp( /^(Tested up to:).*?$/, 'm' ), '$1 ' + package.additionalInfo.testedWPVersion ) )
-	.pipe( replace( new RegExp( /^(Requires PHP:).*?$/, 'm' ), '$1 ' + package.additionalInfo.requiresPHPVersion ) )
-	.pipe( replace( new RegExp( /^(Tags:).*?$/, 'm' ), '$1 ' + package.keywords.join( ', ' ) ) )
+	.pipe( replace( new RegExp( /^(===).*(===)$/, 'm' ), '$1 ' + packageInfo.additionalInfo.title + ' $2' ) )
+	.pipe( replace( new RegExp( /^(Contributors:).*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.authorSlug ) )
+	.pipe( replace( new RegExp( /^(Stable tag:).*?$/, 'm' ), '$1 ' + packageInfo.version ) )
+	.pipe( replace( new RegExp( /^(Requires at least:).*?$/, 'm' ), '$1 '  + packageInfo.additionalInfo.requiresWPVersion ) )
+	.pipe( replace( new RegExp( /^(Tested up to:).*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.testedWPVersion ) )
+	.pipe( replace( new RegExp( /^(Requires PHP:).*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.requiresPHPVersion ) )
+	.pipe( replace( new RegExp( /^(Tags:).*?$/, 'm' ), '$1 ' + packageInfo.keywords.join( ', ' ) ) )
 	.pipe( gulp.dest( path.dirname( readmeFile ) ) );
 }
 
@@ -251,7 +256,7 @@ const watchChanges = () => {
 	/**
 	 * Package.json
 	 */
-	const infoWatcher = gulp.watch( 'package.json', copyInfo );
+	const infoWatcher = gulp.watch( './package.json', copyInfo );
 
 	/**
 	 * Scripts
