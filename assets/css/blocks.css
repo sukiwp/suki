@@ -398,7 +398,6 @@
 	background-size: cover;
 	background-position: center center;
 	-webkit-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 }
 .wp-block-cover__image-background.is-repeated {

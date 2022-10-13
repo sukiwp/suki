@@ -131,11 +131,6 @@ body {
 	color: var(--color-palette-8);
 }
 
-*:-ms-input-placeholder {
-	opacity: 0.5;
-	color: currentColor;
-}
-
 *::placeholder {
 	opacity: 0.5;
 	color: currentColor;
@@ -1452,7 +1447,6 @@ th {
 	background-size: cover;
 	background-position: center center;
 	-webkit-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 }
 .wp-block-cover__image-background.is-repeated {

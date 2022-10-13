@@ -38,11 +38,13 @@
 		"zip": "gulp zip"
 	},
 	"dependencies": {
-		"classnames": "^2.3.1",
+		"classnames": "^2.3.2",
 		"react-sortablejs": "^6.1.4"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^23.4.0",
+		"@wordpress/browserslist-config": "^5.2.0",
+		"@wordpress/scripts": "^24.3.0",
+		"browserslist": "^4.21.4",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
@@ -54,25 +56,17 @@
 		"gulp-terser": "^2.1.0",
 		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.1.0",
-		"sass": "^1.53.0",
+		"sass": "^1.55.0",
 		"vinyl-named": "^1.1.0",
 		"webpack-stream": "^7.0.0"
 	},
 	"private": true,
-	"browserslist": [
-		"> 1%",
-		"last 3 Chrome major versions",
-		"last 2 Firefox major versions",
-		"last 2 Safari major versions",
-		"last 2 Edge major versions",
-		"last 1 IE major versions"
-	],
 	"additionalInfo": {
 		"title": "Suki",
 		"authorSlug": "sukiwp",
 		"initFile": "style.css",
-		"requiresWPVersion": "4.5",
-		"testedWPVersion": "5.4",
+		"requiresWPVersion": "6.1",
+		"testedWPVersion": "6.1",
 		"requiresPHPVersion": "5.6"
 	}
 }

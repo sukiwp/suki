@@ -131,11 +131,6 @@ body {
 	color: var(--color-palette-8);
 }
 
-*:-ms-input-placeholder {
-	opacity: 0.5;
-	color: currentColor;
-}
-
 *::placeholder {
 	opacity: 0.5;
 	color: currentColor;
