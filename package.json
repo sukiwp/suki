@@ -43,6 +43,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/browserslist-config": "^5.2.0",
+		"@wordpress/eslint-plugin": "^13.3.0",
 		"@wordpress/scripts": "^24.3.0",
 		"browserslist": "^4.21.4",
 		"gulp": "^4.0.2",
