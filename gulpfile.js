@@ -23,7 +23,6 @@ const wpPot = require( 'gulp-wp-pot' );
 const zip = require( 'gulp-zip' );
 
 // Others
-const fs = require( 'fs' );
 const named = require( 'vinyl-named' );
 const replace = require( 'gulp-replace' );
 const rename = require( 'gulp-rename' );
@@ -34,7 +33,6 @@ const del = require( 'del' );
  * Configurations
  */
 
-const package = require( './package.json' );
 const config = {
 	scripts: {
 		src: 'src/scripts/*.*',
@@ -42,10 +40,7 @@ const config = {
 		watch: 'src/scripts/**/*.*',
 	},
 	js: {
-		src: [
-			'assets/js/**/*.js',
-			'!assets/js/**/*.min.js',
-		],
+		src: [ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ],
 		dest: 'assets/js',
 	},
 	css: {
@@ -55,21 +50,18 @@ const config = {
 			'!assets/css/**/*-rtl.css',
 			'!assets/css/**/*.min.css',
 		],
-		srcMinify: [
-			'assets/css/**/*.css',
-			'!assets/css/**/*.min.css',
-		],
+		srcMinify: [ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ],
 		dest: 'assets/css',
 		watch: 'src/sass/**/*.scss',
 	},
 	pot: {
 		src: [
 			'**/*.php', // all php files
-			package.additionalInfo.initFile, // init file.
 			'!src/**/*', // ignore source files
-			'!**/*.asset.php',  // ignore assets PHP file.
+			'!**/*.asset.php', // ignore assets PHP file.
 			'!node_modules/**/*', // ignore node modules
 			'!vendor/**/*', // ignore composer packages
+			// Init file will be added in the pot task
 		],
 		dest: 'languages',
 	},
@@ -95,9 +87,8 @@ const config = {
 			'!{composer.json,composer.lock}', // ignore composer files
 		],
 		dest: 'zip',
-		tempDir: 'zip/' + package.name,
 	},
-}
+};
 
 /**
  * Copy project info from package.json to project main file and `readme.txt` file.
@@ -105,44 +96,156 @@ const config = {
 
 // Copy project info to main file.
 const copyInfoToMainFile = () => {
-	const packageInfo = JSON.parse( fs.readFileSync( './package.json' ) );
+	const packageInfo = require( './package.json' );
 
 	const infoFile = packageInfo.additionalInfo.initFile;
 
 	return gulp
-	.src( infoFile )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.title ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.homepage ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.author.name ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Author URI:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.author.url ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Description:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.description ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Version:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.version ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Requires at least:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.requiresWPVersion ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Tested up to:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.testedWPVersion ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Requires PHP:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.requiresPHPVersion ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Tags:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.keywords.join( ', ' ) ) )
-	.pipe( replace( new RegExp( /^((\s*?\*\s*?)?Text Domain:)[^\r\n]*?$/, 'm' ), '$1 ' + packageInfo.name ) )
-	.pipe( replace( new RegExp( '([\'"]' + packageInfo.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]),\s*[\'"].*?[\'"]', 'm' ), '$1, \'' + packageInfo.version + '\'' ) )
-	.pipe( gulp.dest( path.dirname( infoFile ) ) );
-}
+		.src( infoFile )
+		.pipe(
+			replace(
+				new RegExp(
+					/^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/,
+					'm'
+				),
+				'$1 ' + packageInfo.additionalInfo.title
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp(
+					/^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/,
+					'm'
+				),
+				'$1 ' + packageInfo.homepage
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Author:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.author.name
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Author URI:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.author.url
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Description:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.description
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Version:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.version
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp(
+					/^((\s*?\*\s*?)?Requires at least:)[^\r\n]*?$/,
+					'm'
+				),
+				'$1 ' + packageInfo.additionalInfo.requiresWPVersion
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Tested up to:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.testedWPVersion
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Requires PHP:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.requiresPHPVersion
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Tags:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.keywords.join( ', ' )
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^((\s*?\*\s*?)?Text Domain:)[^\r\n]*?$/, 'm' ),
+				'$1 ' + packageInfo.name
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp(
+					'([\'"]' +
+						packageInfo.name
+							.toUpperCase()
+							.split( '-' )
+							.join( '_' ) +
+						'_VERSION[\'"]),s*[\'"].*?[\'"]',
+					'm'
+				),
+				"$1, '" + packageInfo.version + "'"
+			)
+		)
+		.pipe( gulp.dest( path.dirname( infoFile ) ) );
+};
 
 // Copy project info to `readme.txt` file.
 const copyInfoToReadmeFile = () => {
-	const packageInfo = JSON.parse( fs.readFileSync( './package.json' ) );
+	const packageInfo = require( './package.json' );
 
 	const readmeFile = 'readme.txt';
 
 	return gulp
-	.src( readmeFile )
-	.pipe( replace( new RegExp( /^(===).*(===)$/, 'm' ), '$1 ' + packageInfo.additionalInfo.title + ' $2' ) )
-	.pipe( replace( new RegExp( /^(Contributors:).*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.authorSlug ) )
-	.pipe( replace( new RegExp( /^(Stable tag:).*?$/, 'm' ), '$1 ' + packageInfo.version ) )
-	.pipe( replace( new RegExp( /^(Requires at least:).*?$/, 'm' ), '$1 '  + packageInfo.additionalInfo.requiresWPVersion ) )
-	.pipe( replace( new RegExp( /^(Tested up to:).*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.testedWPVersion ) )
-	.pipe( replace( new RegExp( /^(Requires PHP:).*?$/, 'm' ), '$1 ' + packageInfo.additionalInfo.requiresPHPVersion ) )
-	.pipe( replace( new RegExp( /^(Tags:).*?$/, 'm' ), '$1 ' + packageInfo.keywords.join( ', ' ) ) )
-	.pipe( gulp.dest( path.dirname( readmeFile ) ) );
-}
+		.src( readmeFile )
+		.pipe(
+			replace(
+				new RegExp( /^(===).*(===)$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.title + ' $2'
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^(Contributors:).*?$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.authorSlug
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^(Stable tag:).*?$/, 'm' ),
+				'$1 ' + packageInfo.version
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^(Requires at least:).*?$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.requiresWPVersion
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^(Tested up to:).*?$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.testedWPVersion
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^(Requires PHP:).*?$/, 'm' ),
+				'$1 ' + packageInfo.additionalInfo.requiresPHPVersion
+			)
+		)
+		.pipe(
+			replace(
+				new RegExp( /^(Tags:).*?$/, 'm' ),
+				'$1 ' + packageInfo.keywords.join( ', ' )
+			)
+		)
+		.pipe( gulp.dest( path.dirname( readmeFile ) ) );
+};
 
 const copyInfo = gulp.series( copyInfoToMainFile, copyInfoToReadmeFile );
 
@@ -158,11 +261,11 @@ const buildScripts = () => {
 	delete wpWebpackConfig.entry;
 
 	return gulp
-	.src( config.scripts.src )
-	.pipe( named() )
-	.pipe( webpack( wpWebpackConfig ) )
-	.pipe( gulp.dest( config.scripts.dest ) )
-}
+		.src( config.scripts.src )
+		.pipe( named() )
+		.pipe( webpack( wpWebpackConfig ) )
+		.pipe( gulp.dest( config.scripts.dest ) );
+};
 
 /**
  * Build JS files.
@@ -170,11 +273,11 @@ const buildScripts = () => {
 
 const buildJS = () => {
 	return gulp
-	.src( config.js.src )
-	.pipe( terser() )
-	.pipe( rename( { suffix: '.min' } ) )
-	.pipe( gulp.dest( config.js.dest ) );
-}
+		.src( config.js.src )
+		.pipe( terser() )
+		.pipe( rename( { suffix: '.min' } ) )
+		.pipe( gulp.dest( config.js.dest ) );
+};
 
 /**
  * Build CSS files.
@@ -182,32 +285,34 @@ const buildJS = () => {
 
 const compileSass = () => {
 	return gulp
-	.src( config.css.src )
-	.pipe( sass( {
-		outputStyle: 'expanded',
-		indentType: 'tab',
-		indentWidth: 1,
-	} ).on( 'error', sass.logError ) )
-	.pipe( autoprefixer( { cascade: false } ) )
-	.pipe( gulp.dest( config.css.dest ) )
-}
+		.src( config.css.src )
+		.pipe(
+			sass( {
+				outputStyle: 'expanded',
+				indentType: 'tab',
+				indentWidth: 1,
+			} ).on( 'error', sass.logError )
+		)
+		.pipe( autoprefixer( { cascade: false } ) )
+		.pipe( gulp.dest( config.css.dest ) );
+};
 
 const generateRTLCSS = () => {
 	return gulp
-	.src( config.css.srcRTL )
-	.pipe( rtlcss() )
-	.pipe( rename( { suffix: '-rtl' } ) )
-	.pipe( gulp.dest( config.css.dest ) );
-}
+		.src( config.css.srcRTL )
+		.pipe( rtlcss() )
+		.pipe( rename( { suffix: '-rtl' } ) )
+		.pipe( gulp.dest( config.css.dest ) );
+};
 
 const minifyCSS = () => {
 	return gulp
-	.src( config.css.srcMinify )
-	.pipe( mmq() )
-	.pipe( cleanCSS() )
-	.pipe( rename( { suffix: '.min' } ) )
-	.pipe( gulp.dest( config.css.dest ) );
-}
+		.src( config.css.srcMinify )
+		.pipe( mmq() )
+		.pipe( cleanCSS() )
+		.pipe( rename( { suffix: '.min' } ) )
+		.pipe( gulp.dest( config.css.dest ) );
+};
 
 const buildCSS = gulp.series( compileSass, generateRTLCSS, minifyCSS );
 
@@ -216,37 +321,55 @@ const buildCSS = gulp.series( compileSass, generateRTLCSS, minifyCSS );
  */
 
 const buildPOT = () => {
+	const packageInfo = require( './package.json' );
+
 	return gulp
-	.src( config.pot.src )
-	.pipe( wpPot( {
-		domain: package.name,
-		package: package.title,
-		metadataFile: package.additionalInfo.initFile,
-	} ) )
-	.pipe( gulp.dest( config.pot.dest + '/' + package.name + '.pot' ) );
-}
+		.src( [
+			config.pot.src,
+			packageInfo.additionalInfo.initFile, // init file.
+		] )
+		.pipe(
+			wpPot( {
+				domain: packageInfo.name,
+				package: packageInfo.title,
+				metadataFile: packageInfo.additionalInfo.initFile,
+			} )
+		)
+		.pipe( gulp.dest( config.pot.dest + '/' + packageInfo.name + '.pot' ) );
+};
 
 /**
  * Run all build tasks in sequence.
  */
 
-const buildAll = gulp.series( copyInfo, buildScripts, buildJS, buildCSS, buildPOT );
+const buildAll = gulp.series(
+	copyInfo,
+	buildScripts,
+	buildJS,
+	buildCSS,
+	buildPOT
+);
 
 /**
  * Compress production files into a zip file.
  */
 
 const zipFiles = () => {
+	const packageInfo = require( './package.json' );
+
 	// Add timestamp to dev build.
-	if ( package.version.endsWith( 'dev' ) ) {
-		package.version = package.version.replace( 'dev', 'dev-' + Date.now() );
+	if ( packageInfo.version.endsWith( 'dev' ) ) {
+		packageInfo.version = packageInfo.version.replace(
+			'dev',
+			'dev-' + Date.now()
+		);
 	}
 
 	return gulp
-	.src( config.zip.src, { buffer: false, base: './../' } )
-	.pipe( zip( package.name + '-' + package.version + '.zip' ) )
-	.pipe( gulp.dest( config.zip.dest ) );
-}
+		.src( config.zip.src, { buffer: false, base: './../' } )
+		.pipe( zip( packageInfo.name + '-' + packageInfo.version + '.zip' ) )
+		.pipe( gulp.dest( config.zip.dest ) );
+};
 
 /**
  * Watch any change on the files and then run the particular tasks.
@@ -256,49 +379,67 @@ const watchChanges = () => {
 	/**
 	 * Package.json
 	 */
-	const infoWatcher = gulp.watch( './package.json', copyInfo );
+	gulp.watch( './package.json', copyInfo );
 
 	/**
 	 * Scripts
 	 */
-	const scriptsWatcher = gulp.watch( config.scripts.watch || config.scripts.src, buildScripts );
+	gulp.watch( config.scripts.watch || config.scripts.src, buildScripts ).on(
+		'unlink',
+		( deletedFile ) => {
+			const basename = path.basename(
+				deletedFile,
+				path.extname( deletedFile )
+			);
 
-	// Delete mirror destination files
-	scriptsWatcher.on( 'unlink', ( deletedFile, stats ) => {
-		const basename = path.basename( deletedFile, path.extname( deletedFile ) );
-		const mirrorDeleteGlob = path.join( config.scripts.dest, basename ) + '.*';
-		del( mirrorDeleteGlob );
-	} );
+			const mirrorDeleteGlob =
+				path.join( config.scripts.dest, basename ) + '.*';
+
+			del( mirrorDeleteGlob );
+		}
+	);
 
 	/**
 	 * JS
 	 */
-	const jsWatcher = gulp.watch( config.js.watch || config.js.src, buildJS );
+	gulp.watch( config.js.watch || config.js.src, buildJS ).on(
+		'unlink',
+		( deletedFile ) => {
+			const basename = path.basename(
+				deletedFile,
+				path.extname( deletedFile )
+			);
 
-	// Delete mirror destination files
-	jsWatcher.on( 'unlink', ( deletedFile, stats ) => {
-		const basename = path.basename( deletedFile, path.extname( deletedFile ) );
-		const mirrorDeleteGlob = path.join( config.js.dest, basename ) + '?(.min).js';
-		del( mirrorDeleteGlob );
-	} );
+			const mirrorDeleteGlob =
+				path.join( config.js.dest, basename ) + '?(.min).js';
+
+			del( mirrorDeleteGlob );
+		}
+	);
 
 	/**
 	 * CSS
 	 */
-	const cssWatcher = gulp.watch( config.css.watch || config.css.src, buildCSS );
+	gulp.watch( config.css.watch || config.css.src, buildCSS ).on(
+		'unlink',
+		( deletedFile ) => {
+			const basename = path.basename(
+				deletedFile,
+				path.extname( deletedFile )
+			);
 
-	// Delete mirror destination files
-	cssWatcher.on( 'unlink', ( deletedFile, stats ) => {
-		const basename = path.basename( deletedFile, path.extname( deletedFile ) );
-		const mirrorDeleteGlob = path.join( config.css.dest, basename ) + '?(-rtl)?(.min).css';
-		del( mirrorDeleteGlob );
-	} );
+			const mirrorDeleteGlob =
+				path.join( config.css.dest, basename ) + '?(-rtl)?(.min).css';
+
+			del( mirrorDeleteGlob );
+		}
+	);
 
 	/**
 	 * POT
 	 */
-	const potWatcher = gulp.watch( config.pot.watch || config.pot.src, buildPOT );
-}
+	gulp.watch( config.pot.watch || config.pot.src, buildPOT );
+};
 
 /**
  * Export tasks
