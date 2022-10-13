@@ -50,33 +50,6 @@ module.exports = window["wp"]["element"];
 
 module.exports = window["wp"]["plugins"];
 
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
-  \*******************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ _defineProperty; }
-/* harmony export */ });
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
 /***/ })
 
 /******/ 	});
@@ -154,23 +127,16 @@ var __webpack_exports__ = {};
   !*** ./src/scripts/page-settings.js ***!
   \**************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
-/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/edit-post */ "@wordpress/edit-post");
-/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/edit-post */ "@wordpress/edit-post");
+/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -178,8 +144,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 function runFieldOutputs(key, rules, value, inheritValue) {
-  var actualValue = '' !== value ? value : inheritValue;
-  rules.forEach(function (rule) {
+  const actualValue = '' !== value ? value : inheritValue;
+  rules.forEach(rule => {
     if (undefined == rule.element) {
       return;
     }
@@ -189,9 +155,9 @@ function runFieldOutputs(key, rules, value, inheritValue) {
     switch (rule.type) {
       case 'class':
       default:
-        var regex = new RegExp(rule['pattern'].replace('$', '[\\w\\-]+'), 'i');
-        var formattedValue = rule['pattern'].replace('$', actualValue);
-        document.querySelectorAll(rule.element).forEach(function (element) {
+        const regex = new RegExp(rule['pattern'].replace('$', '[\\w\\-]+'), 'i');
+        const formattedValue = rule['pattern'].replace('$', actualValue);
+        document.querySelectorAll(rule.element).forEach(element => {
           if (element.className.match(regex)) {
             element.className = element.className.replace(regex, formattedValue);
           } else {
@@ -204,21 +170,22 @@ function runFieldOutputs(key, rules, value, inheritValue) {
 }
 
 function SukiPageSettingsSidebar() {
-  var metaValue = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(function (select) {
+  const metaValue = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
     return select('core/editor').getEditedPostAttribute('meta')[SukiPageSettingsData.metaKey];
   }, []);
-  var editPost = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useDispatch)('core/editor').editPost;
+  const editPost = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)('core/editor').editPost;
 
-  var getFieldValue = function getFieldValue(key) {
-    var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  const getFieldValue = function (key) {
+    let defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     // If the specified key exists in the values array, return it. Otherwise, return the defaultValue.
     return undefined !== metaValue && undefined !== metaValue[key] ? metaValue[key] : defaultValue;
   };
 
-  var setFieldValue = function setFieldValue(key, value) {
+  const setFieldValue = (key, value) => {
     // Combine the meta value.
-    var newValue = _objectSpread(_objectSpread({}, metaValue), {}, (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, key, value)); // Ignore '' value because it's "inherit".
-
+    const newValue = { ...metaValue,
+      [key]: value
+    }; // Ignore '' value because it's "inherit".
 
     if ('' === value) {
       delete newValue[key];
@@ -226,36 +193,38 @@ function SukiPageSettingsSidebar() {
 
 
     editPost({
-      meta: (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, SukiPageSettingsData.metaKey, newValue)
+      meta: {
+        [SukiPageSettingsData.metaKey]: newValue
+      }
     });
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__.PluginSidebar, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebar, {
     name: SukiPageSettingsData.metaKey,
     title: SukiPageSettingsData.title
-  }, SukiPageSettingsData.structures.map(function (panel, i) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Panel, {
+  }, SukiPageSettingsData.structures.map((panel, i) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
       key: panel.key
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
       title: panel.title,
       initialOpen: 0 == i ? true : false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalVStack, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
       spacing: "2"
-    }, panel.fields.map(function (field) {
-      var value = getFieldValue(field.key);
+    }, panel.fields.map(field => {
+      const value = getFieldValue(field.key);
 
       if (field.outputs) {
         runFieldOutputs(field.key, field.outputs, value, field.inherit_value);
       }
 
       if ('select' === field.type) {
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
           key: field.key,
           label: field.label,
           value: value,
           options: field.options,
           help: field.description,
-          onChange: function onChange(value) {
+          onChange: value => {
             setFieldValue(field.key, value);
 
             if (field.outputs) {
@@ -265,12 +234,12 @@ function SukiPageSettingsSidebar() {
         });
       }
     }))));
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__.PluginSidebarMoreMenuItem, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebarMoreMenuItem, {
     target: SukiPageSettingsData.metaKey
   }, SukiPageSettingsData.title));
 }
 
-(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_2__.registerPlugin)(SukiPageSettingsData.metaKey.replaceAll('_', '-'), {
+(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__.registerPlugin)(SukiPageSettingsData.metaKey.replaceAll('_', '-'), {
   icon: 'admin-settings',
   render: SukiPageSettingsSidebar
 });

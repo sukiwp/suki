@@ -263,8 +263,8 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 
 			case 'author':
 				$html = '
-				<!-- wp:post-author-name {
-					"className":"entry-meta__author"
+				<!-- wp:post-author {
+					"showAvatar":false
 				} /-->
 				';
 				break;

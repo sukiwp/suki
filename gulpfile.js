@@ -324,10 +324,7 @@ const buildPOT = () => {
 	const packageInfo = require( './package.json' );
 
 	return gulp
-		.src( [
-			config.pot.src,
-			packageInfo.additionalInfo.initFile, // init file.
-		] )
+		.src( config.pot.src.concat( [ packageInfo.additionalInfo.initFile ] ) ) // Add init file to the src glob.
 		.pipe(
 			wpPot( {
 				domain: packageInfo.name,
