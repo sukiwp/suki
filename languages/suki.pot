@@ -21,7 +21,7 @@ msgstr ""
 msgid "Shop Sidebar"
 msgstr ""
 
-#: sidebar.php:19, includes/class-suki.php:262, includes/admin/class-suki-admin.php:212, includes/customizer/structures/content.php:84, includes/customizer/structures/sections.php:228, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
+#: sidebar.php:19, includes/class-suki.php:268, includes/admin/class-suki-admin.php:212, includes/customizer/structures/content.php:84, includes/customizer/structures/sections.php:228, includes/modules/page-settings/class-suki-page-settings-meta-box.php:521, includes/modules/page-settings/customizer/structures/all-page-settings.php:103
 msgid "Sidebar"
 msgstr ""
 
@@ -42,21 +42,21 @@ msgid "Suki is a free multi-purpose WordPress theme that is lightweight, fast, h
 msgstr ""
 
 #. translators: %s: footer widgets column number.
-#: includes/class-suki.php:276
+#: includes/class-suki.php:282
 msgid "Footer Widgets Column %s"
 msgstr ""
 
 #. translators: %s: number of Header Menu.
 #. translators: %s: menu number.
-#: includes/class-suki.php:294, includes/template-tags/header.php:708
+#: includes/class-suki.php:300, includes/template-tags/header.php:718
 msgid "Header Menu %s"
 msgstr ""
 
-#: includes/class-suki.php:295, includes/template-tags/header.php:721
+#: includes/class-suki.php:301, includes/template-tags/header.php:731
 msgid "Mobile Header Menu"
 msgstr ""
 
-#: includes/class-suki.php:296
+#: includes/class-suki.php:302
 msgid "Footer Bottom Menu"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: includes/deprecated.php:107, includes/template-tags/header.php:772, includes/customizer/structures/header--builder.php:232, includes/customizer/structures/header--menu.php:48
+#: includes/deprecated.php:107, includes/template-tags/header.php:782, includes/customizer/structures/header--builder.php:232, includes/customizer/structures/header--menu.php:48
 msgid "Mobile Menu"
 msgstr ""
 
@@ -365,15 +365,15 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: includes/template-filters.php:330, includes/customizer/structures/blog--entry-default.php:323, includes/customizer/structures/blog--entry-default.php:348, includes/customizer/structures/blog--entry-grid.php:527, includes/customizer/structures/blog--entry-grid.php:552
+#: includes/template-filters.php:129, includes/customizer/structures/blog--entry-default.php:323, includes/customizer/structures/blog--entry-default.php:348, includes/customizer/structures/blog--entry-grid.php:527, includes/customizer/structures/blog--entry-grid.php:552
 msgid "Read more"
 msgstr ""
 
-#: includes/template-filters.php:402
+#: includes/template-filters.php:201
 msgid "Expand / Collapse"
 msgstr ""
 
-#: includes/template-filters.php:466
+#: includes/template-filters.php:265
 msgid "Search&hellip;"
 msgstr ""
 
@@ -393,7 +393,7 @@ msgstr ""
 msgid "[Theme] Page Builder"
 msgstr ""
 
-#: template-parts/loop-grid.php:121, template-parts/loop-search.php:55, template-parts/loop.php:169
+#: template-parts/loop-grid.php:141, template-parts/loop-search.php:58, template-parts/loop.php:201
 msgid "Nothing found."
 msgstr ""
 
@@ -925,19 +925,20 @@ msgstr ""
 msgid "Back to Home"
 msgstr ""
 
-#: includes/template-tags/archive.php:115
+#: includes/template-tags/archive.php:114
 msgid "Newer Posts"
 msgstr ""
 
-#: includes/template-tags/archive.php:119
+#: includes/template-tags/archive.php:118
 msgid "Older Posts"
 msgstr ""
 
-#: includes/template-tags/content.php:437, includes/customizer/structures/page--search.php:157
-msgid "Search results for: \"{{keyword}}\""
+#. translators: %s: search keyword.
+#: includes/template-tags/content.php:389
+msgid "Search results for: %s"
 msgstr ""
 
-#: includes/template-tags/footer.php:40
+#: includes/template-tags/footer.php:42
 msgid "Site Footer"
 msgstr ""
 
@@ -945,11 +946,11 @@ msgstr ""
 msgid "Back to Top"
 msgstr ""
 
-#: includes/template-tags/header.php:41
+#: includes/template-tags/header.php:43
 msgid "Site Header"
 msgstr ""
 
-#: includes/template-tags/header.php:795, includes/customizer/structures/sections.php:369
+#: includes/template-tags/header.php:805, includes/customizer/structures/sections.php:369
 msgid "Search"
 msgstr ""
 
@@ -1875,6 +1876,10 @@ msgstr ""
 
 #: includes/customizer/structures/page--search.php:154
 msgid "Use {{keyword}} to display search keyword."
+msgstr ""
+
+#: includes/customizer/structures/page--search.php:157
+msgid "Search results for: {{keyword}}"
 msgstr ""
 
 #: includes/customizer/structures/sections.php:43

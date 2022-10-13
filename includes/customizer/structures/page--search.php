@@ -154,7 +154,7 @@ $wp_customize->add_control(
 		'description' => esc_html__( 'Use {{keyword}} to display search keyword.', 'suki' ),
 		'priority'    => 20,
 		'input_attrs' => array(
-			'placeholder' => esc_html__( 'Search results for: "{{keyword}}"', 'suki' ),
+			'placeholder' => esc_html__( 'Search results for: {{keyword}}', 'suki' ),
 		),
 	)
 );

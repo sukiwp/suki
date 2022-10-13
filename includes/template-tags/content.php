@@ -194,10 +194,6 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	/**
 	 * Render hero section.
 	 *
-	 * Hero section contains content header elements and only visible visually. Screen reader will ignore this section due to the `aria-hidden="true"` attribute.
-	 * When hero section is active, theme will add another visually hidden content header (with `.screen-reader-text` class) inside the `<main>` tag.
-	 * This provides better semantic hierarchy.
-	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
@@ -211,7 +207,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 			$container = suki_get_current_page_setting( 'hero_container' );
 
 			if ( 'content' === $container ) {
-				$container = suki_get_current_page_setting( 'content_container' ) . ' .suki-hero--inherit-content-container';
+				$container = suki_get_current_page_setting( 'content_container' ) . ' suki-hero--inherit-content-container';
 			}
 
 			$classes = 'suki-hero entry-header ' . esc_attr( 'suki-section--' . $container );
@@ -221,12 +217,10 @@ if ( ! function_exists( 'suki_hero' ) ) {
 				"layout":{
 					"inherit":true
 				}
-			} --><div id="hero" class="wp-block-group <?php echo esc_attr( $classes ); ?>" aria-hidden="true">
+			} --><div id="hero" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 				<?php
-				foreach ( $elements as $element ) {
-					suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
-				}
+				suki_content_header( false );
 				?>
 
 			</div><!-- /wp:group -->
@@ -269,75 +263,10 @@ if ( ! function_exists( 'suki_content_header' ) ) {
 		$elements = suki_get_current_page_setting( 'content_header', array() );
 
 		if ( 0 < count( $elements ) ) { // Content header has at least 1 element.
-			if ( suki_current_page_has_hero_section() ) {
-				$classes = suki_current_page_has_hero_section() ? 'screen-reader-text' : '';
-				?>
-				<!-- wp:group {
-					"className":"<?php echo esc_attr( $classes ); ?>"
-				} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
-
-					<?php
-					foreach ( $elements as $element ) {
-						suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
-					}
-					?>
-
-				</div><!-- /wp:group -->
-				<?php
-			} else {
-				foreach ( $elements as $element ) {
-					suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
-				}
+			foreach ( $elements as $element ) {
+				suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
 			}
 		}
-		$html = ob_get_clean();
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
- * Content thumbnail
- */
-if ( ! function_exists( 'suki_content_thumbnail' ) ) {
-	/**
-	 * Render content thumbnail.
-	 *
-	 * @param boolean $do_blocks Parse blocks or not.
-	 * @param boolean $echo      Render or return.
-	 * @return string
-	 */
-	function suki_content_thumbnail( $do_blocks = true, $echo = true ) {
-		ob_start();
-		?>
-		<!-- wp:group {
-			"className":"entry-thumbnail",
-			"layout":{
-				"inherit":true
-			}
-		} --><div class="wp-block-group entry-thumbnail">
-
-			<!-- wp:post-featured-image {
-					<?php echo esc_attr( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? '"align":"wide",' : '' ); ?>
-				"className":"entry-thumbnail"
-			} /-->
-
-		</div><!-- /wp:group -->
-		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -422,33 +351,85 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 
 		switch ( $element ) {
 			case 'title':
-				// Singular pages.
+				$level = is_front_page() ? 2 : 1; // In front page, logo is the <h1>, so we use <h2> for this title.
+
+				/**
+				 * Singular page title.
+				 *
+				 * Use `core/post-title` block.
+				 */
 				if ( is_singular() ) {
-					$title = get_the_title();
+					$html = '
+					<!-- wp:post-title {
+						"level":' . esc_attr( $level ) . ',
+						"textAlign":"' . esc_attr( $alignment ) . '",
+						"className":"entry-title suki-title"
+					} /-->
+					';
 				}
 
-				// Search results page.
+				/**
+				 * Search results page.
+				 *
+				 * Use `core/heading` block, as there is no specific block for search results page title.
+				 * The customized text is processed here.
+				 *
+				 * @todo Change to `core/query-title` block with `"type":"search"` in WP 6.1.
+				 */
 				if ( is_search() ) {
 					// Get custom title format.
-					$title = suki_get_current_page_setting( 'title_text' );
+					$customized_format = suki_get_current_page_setting( 'title_text' );
 
-					// If empty, use default format.
-					if ( empty( $title ) ) {
-						$title = esc_html__( 'Search results for: "{{keyword}}"', 'suki' );
+					if ( ! empty( $customized_format ) ) {
+						// Parse format.
+						$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $customized_format );
+					} else {
+						$title = sprintf(
+							/* translators: %s: search keyword. */
+							esc_html__( 'Search results for: %s', 'suki' ),
+							'<span>' . get_search_query() . '</span>'
+						);
 					}
 
-					// Parse title format.
-					$title = preg_replace( '/\{\{keyword\}\}/', '<span>' . get_search_query() . '</span>', $title );
+					$html = '
+					<!-- wp:heading {
+						"level":' . esc_attr( $level ) . ',
+						"textAlign":"' . esc_attr( $alignment ) . '",
+						"className":"entry-title suki-title"
+					} --><h' . esc_attr( $level ) . ' class="has-text-align-' . esc_attr( $alignment ) . ' entry-title suki-title">' . $title . '</h' . esc_attr( $level ) . '><!-- /wp:heading -->
+					';
 				}
 
-				// Blog posts page.
+				/**
+				 * Archive pages (custom post type, term archive, author archive, date archive).
+				 *
+				 * Use `core/query-title` block.
+				 * The customized text would be applied via `get_the_archive_title` filter.
+				 */
+				if ( is_archive() ) {
+					$html = '
+					<!-- wp:query-title {
+						"type":"archive",
+						"level":' . esc_attr( $level ) . ',
+						"textAlign":"' . esc_attr( $alignment ) . '",
+						"className":"entry-title suki-title"
+					} /-->
+					';
+				}
+
+				/**
+				 * Blog posts page.
+				 *
+				 * Use `core/heading` block, as there is no specific block for blog posts page title.
+				 * The customized text is processed here.
+				 */
 				if ( is_home() ) {
 					// Get custom title format.
-					$title = suki_get_current_page_setting( 'title_text' );
+					$customized_format = suki_get_current_page_setting( 'title_text' );
 
-					if ( ! empty( $title ) ) {
+					if ( ! empty( $customized_format ) ) {
 						// Parse title format.
-						$title = str_replace( '{{post_type}}', get_post_type_object( get_post_type() )->labels->name, $title );
+						$title = str_replace( '{{post_type}}', get_post_type_object( get_post_type() )->labels->name, $customized_format );
 					} else {
 						// Check if "Your homepage displays" set to "Your latest posts".
 						if ( 'posts' === get_option( 'show_on_front' ) ) {
@@ -459,55 +440,30 @@ if ( ! function_exists( 'suki_content_header_element' ) ) {
 							$title = get_the_title( get_option( 'page_for_posts' ) );
 						}
 					}
-				}
-
-				// Posts type archive pages.
-				if ( is_post_type_archive() ) {
-					// Get custom title format.
-					$title = suki_get_current_page_setting( 'title_text' );
-
-					if ( ! empty( $title ) ) {
-						// Parse format.
-						$title = str_replace( '{{post_type}}', get_post_type_object( get_post_type() )->labels->name, $title );
-					} else {
-						// Use default archive title from WordPress.
-						$title = get_the_archive_title();
-					}
-				}
-
-				// Taxonomy archive pages.
-				if ( is_category() || is_tag() || is_tax() ) {
-					// Get custom title format.
-					$title = suki_get_current_page_setting( 'tax_title_text' );
-
-					if ( ! empty( $title ) ) {
-						// Parse format.
-						$title = str_replace( '{{taxonomy}}', get_taxonomy( $term_obj->taxonomy )->labels->singular_name, $title );
-						$title = str_replace( '{{term}}', get_queried_object()->name, $title );
-					} else {
-						// Use default archive title from WordPress.
-						$title = get_the_archive_title(); // Default title.
-					}
-				}
-
-				// Wrap title text.
-				if ( ! empty( $title ) ) {
-					$level = is_front_page() ? 2 : 1; // In front page, logo is the <h1>, so we use <h2> for this title.
 
 					$html = '
 					<!-- wp:heading {
-						"level":' . $level . ',
-						"textAlign":"' . $alignment . ',
+						"level":' . esc_attr( $level ) . ',
+						"textAlign":"' . esc_attr( $alignment ) . '",
 						"className":"entry-title suki-title"
-					} --><h' . $level . ' class="has-text-align-' . $alignment . ' entry-title suki-title">' . $title . '</h' . $level . '><!-- /wp:heading -->
+					} --><h' . esc_attr( $level ) . ' class="has-text-align-' . esc_attr( $alignment ) . ' entry-title suki-title">' . $title . '</h' . esc_attr( $level ) . '><!-- /wp:heading -->
 					';
 				}
 				break;
 
 			case 'archive-description':
-				// We can't replace this with Gutenberg block yet, because it doesn't cover Author and Post Type archive description.
-				if ( ! is_post_type_archive() ) {
-					$html = trim( get_the_archive_description() );
+				if ( is_author() ) {
+					$html = '
+					<!-- wp:post-author-biography {
+						"textAlign":"' . esc_attr( $alignment ) . '"
+					} /-->
+					';
+				} else {
+					$html = '
+					<!-- wp:term-description {
+						"textAlign":"' . esc_attr( $alignment ) . '"
+					} /-->
+					';
 				}
 				break;
 

@@ -27,7 +27,6 @@ ob_start();
 } --><div class="wp-block-group">
 
 	<?php
-
 	// Image.
 	$image = suki_get_theme_mod( 'error_404_image' );
 	if ( intval( $image ) ) {

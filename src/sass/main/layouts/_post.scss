@@ -11,52 +11,33 @@
 	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
 }
 
-.entry-title {
-	@extend %title;
-}
-
-.entry-small-title {
-	@extend %small-title;
-}
-
-.entry-layout-default {
-	> * + * {
-		margin-block-start: calc( 1.5 * var(--block-spacing) );
-	}
-}
-
-:is(.entry-header, .entry-footer) {
-	> * + * {
-		margin-block-start: calc( 0.5 * var(--block-spacing) );
+:is( .entry-header, .entry-footer ) {
+	:is( .entry-title, .entry-meta, .suki-breadcrumb ):not( :first-child ) {
+		margin-block-start: calc( 0.5 * var(--block-spacing) ); // `blockGap` only supports dimension value.
 	}
 }
 
 .entry-meta {
-	display: block; // Force
-	// gap: 0;
-	// white-space: pre-wrap; // Preserve white space on flex items
+	display: block; // Force display to block for wrapping elements to multiple lines
 
 	> * {
-		display: inline; // Force
+		display: inline-block; // Force display to inline
+		vertical-align: middle;
 	}
+}
 
-	&__avatar {
-		.wp-block-post-author__avatar {
-			.avatar {
-				width: 2em;
-				height: 2em;
-			}
-		}
+.entry-meta__avatar {
+	width: 2em; // Force 2em size
 
-		.wp-block-post-author__content {
-			display: none;
-		}
+	img {
+		display: block;
+		border-radius: 9999px;
 	}
+}
 
-	&__comments {
-		font: unset; // Reset
-		color: unset; // Reset
-	}
+.entry-meta__comments {
+	font: unset; // Reset
+	color: unset; // Reset
 }
 
 .suki-ignore-padding {
@@ -69,51 +50,5 @@
 
 	&:last-child {
 		margin-block-end: calc( -1 * var(--padding-bottom) );
-	}
-}
-
-/**
- * Post author bio
- */
-
-.suki-author-bio {
-	margin-block-start: calc( 3 * var(--block-spacing) );
-	padding: var(--block-spacing);
-	border: 1px solid var(--border-color);
-
-	.wp-block-post-author__name {
-		font-weight: bold;
-		font-size: 1.1em;
-		margin: 0;
-	}
-}
-
-/**
- * Post navigation
- */
-
-.suki-post-navigation {
-	margin-block-start: calc( 3 * var(--block-spacing) );
-}
-
-/**
- * Comments
- */
-
-.suki-comments {
-	margin-block-start: calc( 3 * var(--block-spacing) );
-
-	> * + * {
-		margin-block-start: calc( 1.5 * var(--block-spacing) );
-	}
-}
-
-.suki-comment {
-	&__meta {
-		gap: 0;
-
-		.suki-meta {
-			gap: 1rem;
-		}
 	}
 }

@@ -740,14 +740,14 @@
 	display: flex;
 	flex-wrap: wrap;
 }
-.wp-block-columns:not([class*=are-vertically-aligned-]) {
-	align-items: flex-start;
-}
 .wp-block-columns:where(.has-background) {
 	padding: var(--block-spacing);
 }
+.wp-block-columns:not([class*=are-vertically-aligned-]) {
+	align-items: flex-start;
+}
 .wp-block-columns.is-not-stacked-on-mobile {
-	flex-wrap: nowrap;
+	flex-wrap: nowrap !important;
 }
 .wp-block-columns.are-vertically-aligned-top {
 	align-items: flex-start;
@@ -760,7 +760,7 @@
 }
 @media screen and (min-width: 768px) {
 	.wp-block-columns {
-		flex-wrap: nowrap;
+		flex-wrap: nowrap !important;
 	}
 }
 
@@ -1780,20 +1780,25 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
  * Block: Post author
  */
 .wp-block-post-author {
-	display: grid;
-	grid-auto-flow: row;
-	grid-template-columns: auto 1fr;
+	display: flex;
 	gap: var(--block-spacing);
-	text-align: center;
 }
-@media screen and (min-width: 425px) {
+.wp-block-post-author:where(.has-background) {
+	padding: var(--block-spacing);
+}
+@media screen and (max-width: 424.9px) {
 	.wp-block-post-author {
-		grid-auto-flow: column;
-		text-align: unset;
+		flex-direction: column;
 	}
+}
+.wp-block-post-author__avatar {
+	flex-shrink: 0;
 }
 .wp-block-post-author__avatar .avatar {
 	border-radius: 9999px;
+}
+.wp-block-post-author__content {
+	flex-grow: 1;
 }
 .wp-block-post-author__content > * {
 	margin: 0;
@@ -1801,8 +1806,32 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 .wp-block-post-author__bio {
 	margin-block-start: calc(0.5 * var(--block-spacing));
 }
-.wp-block-post-author:where(.has-background) {
-	padding: var(--block-spacing);
+.wp-block-post-author.has-text-align-center {
+	flex-direction: column;
+}
+@media screen and (max-width: 424.9px) {
+	.wp-block-post-author.has-text-align-center {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.wp-block-post-author.has-text-align-left {
+	flex-direction: row;
+}
+@media screen and (max-width: 424.9px) {
+	.wp-block-post-author.has-text-align-left {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+.wp-block-post-author.has-text-align-right {
+	flex-direction: row-reverse;
+}
+@media screen and (max-width: 424.9px) {
+	.wp-block-post-author.has-text-align-right {
+		flex-direction: column;
+		align-items: flex-end;
+	}
 }
 
 /**

@@ -13,8 +13,6 @@
 @import "utilities/colors";
 @import "utilities/typography";
 @import "utilities/alignments";
-@import "utilities/spacing";
-@import "utilities/columns";
 @import "utilities/visibility";
 @import "utilities/accessibility";
 
@@ -37,3 +35,5 @@
 @import "main/layouts/hero";
 @import "main/layouts/content-sidebar";
 @import "main/layouts/post";
+@import "main/layouts/archive";
+@import "main/layouts/singular";

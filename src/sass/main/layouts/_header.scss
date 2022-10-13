@@ -2,61 +2,51 @@
  * Header
  */
 
-.suki-header,
-.suki-header-desktop,
-.suki-header-mobile {
-	> * + * {
-		margin-block-start: 0; // Reset
-	}
-}
-
 .suki-header {
 	position: relative;
 	z-index: 99;
 }
 
-.suki-header--mobile-visibility {
-	&-tablet {
-		@media screen and ( min-width: $breakpoint-desktop ) {
-			.suki-header-desktop {
-				display: block;
-			}
-
-			.suki-header-mobile {
-				display: none;
-			}
+.suki-header--mobile-visibility-tablet {
+	@media screen and ( min-width: $breakpoint-desktop ) {
+		.suki-header-desktop {
+			display: block;
 		}
 
-		@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
-			.suki-header-desktop {
-				display: none;
-			}
-
-			.suki-header-mobile {
-				display: block;
-			}
+		.suki-header-mobile {
+			display: none;
 		}
 	}
 
-	&-mobile {
-		@media screen and ( min-width: $breakpoint-tablet ) {
-			.suki-header-desktop {
-				display: block;
-			}
-
-			.suki-header-mobile {
-				display: none;
-			}
+	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
+		.suki-header-desktop {
+			display: none;
 		}
 
-		@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
-			.suki-header-desktop {
-				display: none;
-			}
+		.suki-header-mobile {
+			display: block;
+		}
+	}
+}
 
-			.suki-header-mobile {
-				display: block;
-			}
+.suki-header--mobile-visibility-mobile {
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		.suki-header-desktop {
+			display: block;
+		}
+
+		.suki-header-mobile {
+			display: none;
+		}
+	}
+
+	@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
+		.suki-header-desktop {
+			display: none;
+		}
+
+		.suki-header-mobile {
+			display: block;
 		}
 	}
 }
@@ -154,78 +144,62 @@
 		background-color: var(--background-color);
 		color: var(--text-color);
 	}
+}
 
-	&--position {
-		&-right {
-			.suki-toggle.suki-popup__close {
-				right: auto;
-				left: var(--block-spacing);
-			}
+.suki-header-mobile-popup--position-right {
+	.suki-toggle.suki-popup__close {
+		right: auto;
+		left: var(--block-spacing);
+	}
+}
+
+// Full screen
+.suki-header-mobile-popup--display-full-screen {
+	// Hide overlay background
+	.suki-toggle.suki-popup__background {
+		display: none;
+	}
+
+	.suki-popup__content {
+		left: 0;
+		right: 0;
+	}
+
+	.suki-header-vertical-column {
+		width: var(--width);
+	}
+}
+
+// Drawer
+.suki-header-mobile-popup--display-drawer {
+	.suki-popup__content {
+		left: 0;
+		max-width: calc( 100% - 4rem );
+		width: var(--width); // CUSTOMIZER
+
+		will-change: transform;
+		transition: transform var(--transition-duration);
+		transform: translate( -100%, 0 );
+
+		// Hide close on content panel
+		.suki-toggle.suki-popup__close {
+			display: none;
+		}
+
+		// Transition on popup active
+		.suki-has-active-popup & {
+			transition: transform var(--transition-duration) calc( 0.5 * var(--transition-duration) );
+			transform: translate( 0, 0 ) !important;
 		}
 	}
 
-	&--display {
-		// Full screen
-		&-full-screen {
-			// Hide overlay background
-			.suki-toggle.suki-popup__background {
-				display: none;
-			}
-
-			.suki-popup__content {
-				left: 0;
-				right: 0;
-			}
-
-			.suki-header-vertical-column {
-				width: var(--width);
-			}
-		}
-
-		// Drawer
-		&-drawer {
-			.suki-popup__content {
-				left: 0;
-				max-width: calc( 100% - 4rem );
-				width: var(--width); // CUSTOMIZER
-
-				will-change: transform;
-				transition: transform var(--transition-duration);
-				transform: translate( -100%, 0 );
-
-				// Hide close on content panel
-				.suki-toggle.suki-popup__close {
-					display: none;
-				}
-
-				// Transition on popup active
-				.suki-has-active-popup & {
-					transition: transform var(--transition-duration) calc( 0.5 * var(--transition-duration) );
-					transform: translate( 0, 0 ) !important;
-				}
-			}
-
-			&.suki-header-mobile-popup--position-right {
-				.suki-popup__content {
-					left: unset;
-					right: 0;
-					transform: translate( 100%, 0 );
-				}
-			}
+	&.suki-header-mobile-popup--position-right {
+		.suki-popup__content {
+			left: unset;
+			right: 0;
+			transform: translate( 100%, 0 );
 		}
 	}
-
-	// &.has-text-align {
-	// 	&-left {
-	// 		--flex-align: flex-start;
-	// 	}
-	// 	&-center {
-	// 		--flex-align: center;
-	// 	}
-	// 	&-right {
-	// 		--flex-align: flex-end;
-	// 	}
-	// }
 }
 
 /**
@@ -243,22 +217,22 @@
 	gap: inherit;
 	white-space: nowrap;
 
-	&--left {
-		flex: 1 1 50%;
-	}
-
-	&--center {
-		flex: 0 1 auto;
-	}
-
-	&--right {
-		flex: 1 1 50%;
-	}
-
 	> * {
 		display: flex;
 		align-items: center;
 	}
+}
+
+.suki-header-column--left {
+	flex: 1 1 50%;
+}
+
+.suki-header-column--center {
+	flex: 0 1 auto;
+}
+
+.suki-header-column--right {
+	flex: 1 1 50%;
 }
 
 /**
@@ -278,21 +252,21 @@
 	> * {
 		max-width: 100%;
 	}
+}
 
-	&--top {
-		flex: 1 1 50%;
-		justify-content: flex-start;
-	}
+.suki-header-vertical-row--top {
+	flex: 1 1 50%;
+	justify-content: flex-start;
+}
 
-	&--center {
-		flex: 0 1 auto;
-		justify-content: center;
-	}
+.suki-header-vertical-row--center {
+	flex: 0 1 auto;
+	justify-content: center;
+}
 
-	&--bottom {
-		flex: 1 1 50%;
-		justify-content: flex-end;
-	}
+.suki-header-vertical-row--bottom {
+	flex: 1 1 50%;
+	justify-content: flex-end;
 }
 
 /**
@@ -385,45 +359,44 @@
  */
 
 .suki-logo {
-	@extend %small-title;
+	@include small-title-typography();
+	@include small-title-color();
 
 	img, svg {
 		display: block;
 		width: 100%;
 		height: auto;
 	}
+}
 
-	&-image {
-		width: 100px; // CUSTOMIZER
-	}
+.suki-logo-image {
+	width: 100px; // CUSTOMIZER
 }
 
 /**
  * Header element: Search form
  */
 
-.suki-header-search {
-	&-bar {
+.suki-header-search-bar {
+	width: 300px; // CUSTOMIZER
+}
+
+.suki-header-search-dropdown {
+	.sub-menu {
 		width: 300px; // CUSTOMIZER
 	}
 
-	&-dropdown {
-		.sub-menu {
-			width: 300px; // CUSTOMIZER
-		}
+	.search-field {
+		// Reset
+		border-radius: 0;
+		border-color: transparent;
+		background-color: transparent;
+		color: inherit;
 
-		.search-field {
-			// Reset
-			border-radius: 0;
+		&:focus {
 			border-color: transparent;
 			background-color: transparent;
 			color: inherit;
-
-			&:focus {
-				border-color: transparent;
-				background-color: transparent;
-				color: inherit;
-			}
 		}
 	}
 }

@@ -34,10 +34,12 @@ if ( ! function_exists( 'suki_header' ) ) {
 			?>
 			<!-- wp:group {
 				"tagName":"header",
-				"className":"<?php echo esc_attr( $classes ); ?>",
-				"layout":{
-					"inherit":true
-				}
+				"style":{
+					"spacing":{
+						"blockGap":"0px"
+					}
+				},
+				"className":"<?php echo esc_attr( $classes ); ?>"
 			} --><header id="masthead" class="wp-block-group <?php echo esc_attr( $classes ); ?>" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
 
 				<?php
@@ -90,9 +92,13 @@ if ( ! function_exists( 'suki_header_desktop' ) ) {
 		if ( ! boolval( suki_get_current_page_setting( 'disable_header' ) ) ) {
 			?>
 			<!-- wp:group {
-				"align":"full",
+				"style":{
+					"spacing":{
+						"blockGap":"0px"
+					}
+				},
 				"className":"suki-header-desktop"
-			} --><div id="header" class="wp-block-group alignfull suki-header-desktop">
+			} --><div id="header" class="wp-block-group suki-header-desktop">
 
 				<?php
 				// Header Top Bar (if not merged).
@@ -461,9 +467,13 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 		if ( ! boolval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
 			?>
 			<!-- wp:group {
-				"align":"full",
+				"style":{
+					"spacing":{
+						"blockGap":"0px"
+					}
+				},
 				"className":"suki-header-mobile"
-			} --><div id="mobile-header" class="wp-block-group alignfull suki-header-mobile">
+			} --><div id="mobile-header" class="wp-block-group suki-header-mobile">
 
 				<?php
 				// Mobile main bar.
@@ -519,7 +529,7 @@ if ( ! function_exists( 'suki_header_mobile__main_bar' ) ) {
 			?>
 			<!-- wp:group {
 				"className":"<?php echo esc_attr( $classes ); ?>"
-			} --><div class="wp-block-group alignfull <?php echo esc_attr( $classes ); ?>">
+			} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 				<!-- wp:group {
 					"className":"suki-header-row",

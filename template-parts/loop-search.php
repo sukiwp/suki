@@ -21,10 +21,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 } --><div class="wp-block-query">
 
 	<!-- wp:post-template {
+		"style":{
+			"spacing":{
+				"blockGap":"3em"
+			}
+		},
 		"className":"suki-loop suki-loop--layout-search"
 	} -->
 
-		<!-- wp:group --><div class="wp-block-group">
+		<!-- wp:group {
+			"tagName":"article",
+			"className":"entry entry--layout-search"
+		} --><article class="wp-block-group entry entry--layout-search">
 
 			<!-- wp:post-title {
 				"level":2,
@@ -34,12 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<!-- wp:post-excerpt /-->
 
-		</div><!-- /wp:group -->
-
-		<!-- wp:spacer {
-			"height":"2em",
-			"className":"suki-loop--layout-search__spacer"
-		} --><div style="height:2em" aria-hidden="true" class="wp-block-spacer suki-loop--layout-search__spacer"></div><!-- /wp:spacer -->
+		</article><!-- /wp:group -->
 
 	<!-- /wp:post-template -->
 

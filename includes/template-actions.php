@@ -89,7 +89,9 @@ function suki_template_hooks() {
 
 	if ( is_archive() || is_home() || is_search() ) {
 		// Add content header to main content.
-		add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+		if ( ! suki_current_page_has_hero_section() ) {
+			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+		}
 	}
 
 	/**
@@ -100,7 +102,9 @@ function suki_template_hooks() {
 
 	if ( is_singular() ) {
 		// Add content header.
-		add_action( 'suki/frontend/' . get_post_type() . '_content/header', 'suki_content_header', 10 );
+		if ( ! suki_current_page_has_hero_section() ) {
+			add_action( 'suki/frontend/' . get_post_type() . '_content/header', 'suki_content_header', 10 );
+		}
 
 		// Add content footer.
 		if ( 0 < count( suki_get_current_page_setting( 'content_footer', array() ) ) ) { // Content footer has at least 1 element.

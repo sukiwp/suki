@@ -19,9 +19,20 @@ get_header();
  * Content
  */
 suki_content(
-	'<!-- wp:woocommerce/legacy-template {
-		"template":"single-product"
-	} /-->',
+	'
+	<!-- wp:group {
+		"layout":{
+			"inherit":true
+		}
+	} --><div class="wp-block-group">
+
+		<!-- wp:woocommerce/legacy-template {
+			"template":"single-product",
+			"align":"none"
+		} /-->
+
+	</div><!-- /wp:group -->
+	',
 	'shop'
 );
 

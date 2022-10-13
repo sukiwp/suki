@@ -130,6 +130,9 @@ class Suki {
 			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . $module . '/class-suki-' . $module . '.php';
 		}
 
+		// Block supports.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'block-supports/layout.php';
+
 		// Admin page functionalities.
 		if ( is_admin() ) {
 			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'admin/class-suki-admin.php';
@@ -221,6 +224,9 @@ class Suki {
 
 		// Responsive embeds.
 		add_theme_support( 'responsive-embeds' );
+
+		// Remove generated layout styles, we will use our own generated styles.
+		add_theme_support( 'disable-layout-styles' );
 	}
 
 	/**

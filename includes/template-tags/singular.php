@@ -92,6 +92,19 @@ if ( ! function_exists( 'suki_author_bio' ) ) {
 		<!-- wp:post-author {
 			"avatarSize":96,
 			"showBio":true,
+			"style":{
+				"spacing":{
+					"margin":{
+						"top":"calc(3 * var(--wp--style--block-gap))"
+					},
+					"padding":{
+						"top":"var(--wp--style--block-gap)",
+						"right":"var(--wp--style--block-gap)",
+						"bottom":"var(--wp--style--block-gap)",
+						"left":"var(--wp--style--block-gap)"
+					}
+				}
+			},
 			"className":"suki-author-bio"
 		} /-->
 		<?php
@@ -121,6 +134,9 @@ if ( ! function_exists( 'suki_author_bio' ) ) {
 if ( ! function_exists( 'suki_comments' ) ) {
 	/**
 	 * Print singular comments.
+	 *
+	 * Notes:
+	 * - Comment meta's `blockGap` (0px) is set via `suki-comment__meta` class to avoid late generated inline CSS.
 	 *
 	 * @since 2.0.0
 	 *
@@ -163,16 +179,15 @@ if ( ! function_exists( 'suki_comments' ) ) {
 						} /-->
 
 						<!-- wp:group {
-							"className":"suki-comment__meta",
-							"layout":{
-								"type":"flex",
-								"orientation":"vertical"
-							}
+							"style":{
+								"spacing":{
+									"blockGap":"0px"
+								}
+							},
+							"className":"suki-comment__meta"
 						} --><div class="wp-block-group suki-comment__meta">
 
-							<!-- wp:comment-author-name {
-								"className":"suki-h6"
-							} /-->
+							<!-- wp:comment-author-name /-->
 
 							<!-- wp:group {
 								"className":"suki-meta suki-reverse-link-color",

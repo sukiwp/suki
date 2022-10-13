@@ -2,12 +2,6 @@
  * Footer
  */
 
-.suki-footer {
-	> * + * {
-		margin-block-start: 0; // Reset
-	}
-}
-
 .suki-footer-widgets-bar {
 	--background-color: var(--color-palette-7); // CUSTOMIZER
 
@@ -17,14 +11,14 @@
 	background-color: var(--background-color);
 	color: var(--text-color);
 	border: 0 solid var(--border-color);
+}
 
-	&-column {
-		display: flex;
-		flex-direction: column;
+.suki-footer-widgets-bar__column {
+	display: flex;
+	flex-direction: column;
 
-		> * + * {
-			margin-block-start: calc( 1.5 * var(--block-spacing) ); // CUSTOMIZER
-		}
+	> * + * {
+		margin-block-start: calc( 1.5 * var(--block-spacing) ); // CUSTOMIZER
 	}
 }
 

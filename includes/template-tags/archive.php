@@ -62,19 +62,27 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 	 * @return string
 	 */
 	function suki_loop_navigation( $mode = 'prev-next', $do_blocks = true, $echo = true ) {
-		$html = '';
+		ob_start();
 
-		// Render posts navigation.
-		switch ( $mode ) {
-			case 'page-numbers':
-				$html = '
-				<!-- wp:group {
-					"className":"suki-loop__navigation",
-					"layout":{
-						"inherit":true
+		?>
+		<!-- wp:group {
+			"style":{
+				"spacing":{
+					"margin":{
+						"top":"calc(3 * var(--wp--style--block-gap))"
 					}
-				} --><div class="wp-block-group suki-loop__navigation">
+				}
+			},
+			"className":"suki-loop__navigation",
+			"layout":{
+				"inherit":true
+			}
+		} --><div class="wp-block-group suki-loop__navigation" style="margin-top:calc(3 * var(--wp--style--block-gap))">
 
+			<?php
+			switch ( $mode ) {
+				case 'page-numbers':
+					?>
 					<!-- wp:query-pagination {
 						"paginationArrow":"arrow",
 						"layout":{
@@ -87,21 +95,12 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 						<!-- wp:query-pagination-numbers /-->
 
 					<!-- /wp:query-pagination -->
+					<?php
+					break;
 
-				</div><!-- /wp:group -->
-				';
-				break;
-
-			case 'prev-next':
-			default:
-				$html = '
-				<!-- wp:group {
-					"className":"suki-loop__navigation",
-					"layout":{
-						"inherit":true
-					}
-				} --><div class="wp-block-group suki-loop__navigation">
-
+				case 'prev-next':
+				default:
+					?>
 					<!-- wp:query-pagination {
 						"paginationArrow":"arrow",
 						"layout":{
@@ -112,19 +111,25 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 					} -->
 
 						<!-- wp:query-pagination-previous {
-							"label":"' . esc_html__( 'Newer Posts', 'suki' ) . '"
+							"label":"<?php echo esc_attr__( 'Newer Posts', 'suki' ); ?>"
 						} /-->
 
 						<!-- wp:query-pagination-next {
-							"label":"' . esc_html__( 'Older Posts', 'suki' ) . '"
+							"label":"<?php echo esc_attr__( 'Older Posts', 'suki' ); ?>"
 						} /-->
 
 					<!-- /wp:query-pagination -->
+					<?php
+					break;
+			}
+			?>
+		</div>
+		<?php
+		$html = ob_get_clean();
 
-				</div><!-- /wp:group -->
-				';
-				break;
-		}
+		// Remove tag white space, used for detecting :empty on CSS (:has is not yet supported by major browsers).
+		// We can't put the margin on the Query Pagination block, because it doesn't support margin yet.
+		$html = preg_replace( '/>\s+</', '><', $html );
 
 		/**
 		 * Result

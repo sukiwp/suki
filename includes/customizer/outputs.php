@@ -1694,7 +1694,7 @@ $add['footer_widgets_bar_border'] = array(
 $add['footer_widgets_bar_columns_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-columns',
+		'element'  => '.suki-footer-widgets__columns',
 		'property' => 'gap',
 	),
 );
@@ -1702,7 +1702,7 @@ $add['footer_widgets_bar_columns_gap'] = array(
 $add['footer_widgets_bar_widgets_gap'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-footer-widgets-column > * + *',
+		'element'  => '.suki-footer-widgets__column > * + *',
 		'property' => 'margin-top',
 	),
 );
@@ -2061,22 +2061,21 @@ $add['post_archive_content_header_alignment'] = array(
 
 $add['blog_index_default_items_gap'] = array(
 	array(
-		'type'     => 'class',
-		'element'  => '.suki-loop-default__spacer',
-		'property' => 'style',
-		'pattern'  => 'height:$',
+		'type'     => 'css',
+		'element'  => '.suki-loop--layout-default > * + *',
+		'property' => 'margin-block-start',
 	),
 );
 
 $add['entry_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-default .entry-header',
+		'element' => '.entry--layout-default .entry-header',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-default .entry-header',
+		'element' => '.entry--layout-default .entry-header',
 		'pattern' => 'suki-flex--justify-$',
 	),
 );
@@ -2084,12 +2083,12 @@ $add['entry_header_alignment'] = array(
 $add['entry_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-default .entry-footer',
+		'element' => '.entry--layout-default .entry-footer',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-default .entry-footer',
+		'element' => '.entry--layout-default .entry-footer',
 		'pattern' => 'suki-flex--justify-$',
 	),
 );
@@ -2134,13 +2133,13 @@ foreach ( $responsive as $suffix => $media ) {
 	$add[ 'entry_grid_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.entry-layout-grid',
+			'element'  => '.entry--layout-grid',
 			'property' => 'padding',
 			'media'    => $media,
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.entry-layout-grid',
+			'element'  => '.entry--layout-grid',
 			'property' => '--padding-top',
 			'function' => array(
 				'name' => 'explode_value',
@@ -2150,7 +2149,7 @@ foreach ( $responsive as $suffix => $media ) {
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.entry-layout-grid',
+			'element'  => '.entry--layout-grid',
 			'property' => '--padding-right',
 			'function' => array(
 				'name' => 'explode_value',
@@ -2160,7 +2159,7 @@ foreach ( $responsive as $suffix => $media ) {
 		),
 		array(
 			'type'     => 'css',
-			'element'  => '.entry-layout-grid',
+			'element'  => '.entry--layout-grid',
 			'property' => '--padding-left',
 			'function' => array(
 				'name' => 'explode_value',
@@ -2174,7 +2173,7 @@ foreach ( $responsive as $suffix => $media ) {
 $add['entry_grid_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-layout-grid',
+		'element'  => '.entry--layout-grid',
 		'property' => 'border-width',
 	),
 );
@@ -2182,7 +2181,7 @@ $add['entry_grid_border'] = array(
 $add['entry_grid_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-layout-grid',
+		'element'  => '.entry--layout-grid',
 		'property' => 'border-radius',
 	),
 );
@@ -2190,12 +2189,12 @@ $add['entry_grid_border_radius'] = array(
 $add['entry_grid_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-grid .entry-header',
+		'element' => '.entry--layout-grid .entry-header',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-grid .entry-header',
+		'element' => '.entry--layout-grid .entry-header',
 		'pattern' => 'suki-flex--justify-$',
 	),
 );
@@ -2203,12 +2202,12 @@ $add['entry_grid_header_alignment'] = array(
 $add['entry_grid_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-grid .entry-footer',
+		'element' => '.entry--layout-grid .entry-footer',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry-layout-grid .entry-footer',
+		'element' => '.entry--layout-grid .entry-footer',
 		'pattern' => 'suki-flex--justify-$',
 	),
 );
@@ -2216,7 +2215,7 @@ $add['entry_grid_footer_alignment'] = array(
 $add['entry_grid_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-layout-grid',
+		'element'  => '.entry--layout-grid',
 		'property' => 'background-color',
 	),
 );
@@ -2224,7 +2223,7 @@ $add['entry_grid_bg_color'] = array(
 $add['entry_grid_border_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-layout-grid',
+		'element'  => '.entry--layout-grid',
 		'property' => 'border-color',
 	),
 );
@@ -2232,7 +2231,7 @@ $add['entry_grid_border_color'] = array(
 $add['entry_grid_shadow'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-layout-grid',
+		'element'  => '.entry--layout-grid',
 		'property' => 'box-shadow',
 	),
 );

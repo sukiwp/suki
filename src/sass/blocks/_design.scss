@@ -91,14 +91,14 @@
 	display: flex;
 	flex-wrap: wrap;
 
+	@include padding-for-has-background();
+
 	&:not([class*="are-vertically-aligned-"]) {
 		align-items: flex-start;
 	}
 
-	@include padding-for-has-background();
-
 	&.is-not-stacked-on-mobile {
-		flex-wrap: nowrap;
+		flex-wrap: nowrap !important;
 	}
 
 	// Vertical alignment (CORE FEATURES)
@@ -117,7 +117,7 @@
 	}
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
-		flex-wrap: nowrap;
+		flex-wrap: nowrap !important;
 	}
 }
 

@@ -23,39 +23,78 @@ get_header();
 ob_start();
 
 the_post();
-
-$thumbnail_position = suki_get_current_page_setting( 'content_thumbnail_position' );
 ?>
 <!-- wp:group {
-	"className":"entry entry-layout-default",
-} --><div class="wp-block-group entry entry-layout-default">
+	"tagName":"article",
+	"className":"entry entry--layout-default"
+} --><article class="wp-block-group entry entry--layout-default">
 
 	<?php
-	/**
-	 * Featured image (before header)
-	 */
-	if ( 'before' === $thumbnail_position ) {
-		suki_content_thumbnail();
-	}
-
 	/**
 	 * Content header
 	 */
 
-	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/header' ) ) {
+	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/header' ) || in_array( suki_get_current_page_setting( 'content_thumbnail_position' ), array( 'before', 'after' ), true ) ) {
 		?>
 		<!-- wp:group {
+			"style":{
+				"spacing":{
+					"margin":{
+						"bottom":"calc(1.5 * var(--wp--style--block-gap))"
+					}
+				}
+			},
 			"className":"entry-header",
 			"layout":{
 				"inherit":"true"
 			}
-		} --><div class="wp-block-group entry-header">
+		} --><div class="wp-block-group entry-header" style="margin-bottom:calc(1.5 * var(--wp--style--block-gap))">
 
 			<?php
+			/**
+			 * Featured image (before header)
+			 */
+			if ( 'before' === suki_get_current_page_setting( 'content_thumbnail_position' ) ) {
+				?>
+				<!-- wp:post-featured-image {
+					"align":"<?php echo esc_attr( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? 'wide' : 'none' ); ?>",
+					"isLink":true,
+					"style":{
+						"spacing":{
+							"margin":{
+								"bottom":"calc(1.5 * var(--wp--style--block-gap))"
+							}
+						}
+					},
+					"className":"entry-thumbnail"
+				} /-->
+				<?php
+			}
+
 			/**
 			 * Hook: suki/frontend/{post_type}_content/header
 			 */
 			do_action( 'suki/frontend/' . get_post_type() . '_content/header' );
+
+			/**
+			 * Featured image (after header)
+			 */
+			if ( 'after' === suki_get_current_page_setting( 'content_thumbnail_position' ) ) {
+				?>
+				<!-- wp:post-featured-image {
+					"align":"<?php echo esc_attr( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? 'wide' : 'none' ); ?>",
+					"isLink":true,
+					"style":{
+						"spacing":{
+							"margin":{
+								"top":"calc(1.5 * var(--wp--style--block-gap))"
+							}
+						}
+					},
+					"className":"entry-thumbnail"
+				} /-->
+				<?php
+			}
 			?>
 
 		</div><!-- /wp:group -->
@@ -67,6 +106,14 @@ $thumbnail_position = suki_get_current_page_setting( 'content_thumbnail_position
 	 */
 	?>
 	<!-- wp:post-content {
+		"style":{
+			"spacing":{
+				"margin":{
+					"top":"calc(1.5 * var(--wp--style--block-gap))",
+					"bottom":"calc(1.5 * var(--wp--style--block-gap))"
+				}
+			}
+		},
 		"layout":{
 			"inherit":"true"
 		}
@@ -79,11 +126,18 @@ $thumbnail_position = suki_get_current_page_setting( 'content_thumbnail_position
 	if ( has_action( 'suki/frontend/' . get_post_type() . '_content/footer' ) ) {
 		?>
 		<!-- wp:group {
+			"style":{
+				"spacing":{
+					"margin":{
+						"top":"calc(1.5 * var(--wp--style--block-gap))"
+					}
+				}
+			},
 			"className":"entry-footer",
 			"layout":{
 				"inherit":"true"
 			}
-		} --><div class="wp-block-group entry-footer">
+		} --><div class="wp-block-group entry-footer" style="margin-top:calc(1.5 * var(--wp--style--block-gap))">
 
 			<?php
 			/**
@@ -97,7 +151,7 @@ $thumbnail_position = suki_get_current_page_setting( 'content_thumbnail_position
 	}
 	?>
 
-</div><!-- /wp:group -->
+</article><!-- /wp:group -->
 <?php
 suki_content( ob_get_clean() );
 

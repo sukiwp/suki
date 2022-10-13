@@ -64,36 +64,12 @@
 }
 
 /**
- * Loop
- */
-
-.suki-loop--layout-grid {
-	align-items: start;
-
-	&-same-height {
-		align-items: stretch;
-	}
-}
-
-.suki-loop__navigation {
-	margin-block-start: 0;
-
-	.wp-block-query-pagination-previous {
-		margin-inline-end: auto;
-	}
-
-	.wp-block-query-pagination-next {
-		margin-inline-start: auto;
-	}
-}
-
-/**
  * Error 404
  */
 
 .suki-error_404 .suki-content {
 	display: flex;
-	align-items: center;
+	align-items: center; // Make content centered vertically
 
 	> * {
 		flex-basis: 100%;
