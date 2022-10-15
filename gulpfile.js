@@ -104,19 +104,13 @@ const copyInfoToMainFile = () => {
 		.src( infoFile )
 		.pipe(
 			replace(
-				new RegExp(
-					/^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/,
-					'm'
-				),
+				new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) Name:)[^\r\n]*?$/, 'm' ),
 				'$1 ' + packageInfo.additionalInfo.title
 			)
 		)
 		.pipe(
 			replace(
-				new RegExp(
-					/^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/,
-					'm'
-				),
+				new RegExp( /^((\s*?\*\s*?)?(?:Plugin|Theme) URI:)[^\r\n]*?$/, 'm' ),
 				'$1 ' + packageInfo.homepage
 			)
 		)
@@ -146,10 +140,7 @@ const copyInfoToMainFile = () => {
 		)
 		.pipe(
 			replace(
-				new RegExp(
-					/^((\s*?\*\s*?)?Requires at least:)[^\r\n]*?$/,
-					'm'
-				),
+				new RegExp( /^((\s*?\*\s*?)?Requires at least:)[^\r\n]*?$/, 'm' ),
 				'$1 ' + packageInfo.additionalInfo.requiresWPVersion
 			)
 		)
@@ -179,15 +170,7 @@ const copyInfoToMainFile = () => {
 		)
 		.pipe(
 			replace(
-				new RegExp(
-					'([\'"]' +
-						packageInfo.name
-							.toUpperCase()
-							.split( '-' )
-							.join( '_' ) +
-						'_VERSION[\'"]),s*[\'"].*?[\'"]',
-					'm'
-				),
+				new RegExp( '([\'"]' + packageInfo.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]),s*[\'"].*?[\'"]', 'm' ),
 				"$1, '" + packageInfo.version + "'"
 			)
 		)
