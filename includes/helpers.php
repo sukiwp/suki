@@ -36,7 +36,7 @@ function suki_array_value( $array, $key, $fallback = null ) {
 /**
  * Recursively flatten a multi-dimensional array into a one-dimensional array.
  *
- * @param array $array Array that will be flatened.
+ * @param array $array Array to be flatened.
  * @return array
  */
 function suki_flatten_array( $array ) {
@@ -446,9 +446,10 @@ function suki_get_theme_mod( $key, $default = null ) {
  * Minify CSS string.
  *
  * Modification:
- * - add: rem to units
+ * - add: rem, ch, vw, vh to units regex
+ * - remove: ex, in, cm, mm, pt, pc from units regex
  * - add: remove space after (
- * - remove: remove space before (
+ * - remove: shorten 6-character hex color
  *
  * @link https://github.com/GaryJones/Simple-PHP-CSS-Minification
  *
@@ -469,23 +470,20 @@ function suki_minify_css_string( $css ) {
 	// Remove ; before }.
 	$css = preg_replace( '/;(?=\s*})/', '', $css );
 
-	// Remove space after , : ; { } ( */ >.
-	$css = preg_replace( '/(,|:|;|\{|}|\(|\*\/|>) /', '$1', $css );
+	// Remove space after , : ; { } */ > (.
+	$css = preg_replace( '/(,|:|;|\{|}|\*\/|>|\() /', '$1', $css );
 
-	// Remove space before , ; { } ) >.
-	$css = preg_replace( '/ (,|;|\{|}|\)|>)/', '$1', $css );
+	// Remove space before , ; { } ( ) >.
+	$css = preg_replace( '/ (,|;|\{|}|\(|\)|>)/', '$1', $css );
 
 	// Strips leading 0 on decimal values (converts 0.5px into .5px).
-	$css = preg_replace( '/(:| )0\.([0-9]+)(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
+	$css = preg_replace( '/(:| )0\.([0-9]+)(%|em|rem|ch|vw|vh)/i', '${1}.${2}${3}', $css );
 
 	// Strips units if value is 0 (converts 0px to 0).
-	$css = preg_replace( '/(:| )(\.?)0(%|rem|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
+	$css = preg_replace( '/(:| )(\.?)0(%|em|rem|ch|vw|vh)/i', '${1}0', $css );
 
 	// Converts all zeros value into short-hand.
 	$css = preg_replace( '/0 0 0 0/', '0', $css );
-
-	// Shortern 6-character hex color codes to 3-character where possible.
-	$css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
 
 	return trim( $css );
 }
