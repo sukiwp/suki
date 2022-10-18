@@ -198,6 +198,7 @@ $add['content_padding']   = array( '80px', '20px', '80px', '20px' );
  */
 
 $add['sidebar_width'] = '25%';
+$add['sidebar_gap']   = '3rem';
 
 $add['sidebar_widgets_mode'] = 'merged';
 
@@ -370,8 +371,7 @@ $add['footer_elements_bottom_right']  = array();
  */
 
 $add['footer_widgets_bar_container'] = 'wide';
-// $add['footer_widgets_bar_padding']   = array( '60px', '20px', '60px', '20px' );
-$add['footer_widgets_bar_padding'] = '60px 20px 60px';
+$add['footer_widgets_bar_padding']   = array( '60px', '20px', '60px', '20px' );
 
 $add['footer_widgets_bar_widget_title_tag']        = 'h2';
 $add['footer_widgets_bar_widget_title_alignment']  = 'left';
@@ -447,7 +447,7 @@ $add['post_archive_content_header_alignment'] = 'left';
 $add['post_archive_loop_layout']     = 'default';
 $add['post_archive_navigation_mode'] = 'page-numbers';
 
-$add['post_archive_loop_layout']        = 'default';
+$add['post_archive_loop_layout']         = 'default';
 $add['post_archive_home_content_header'] = 1;
 $add['post_archive_pagination_layout']   = 'page-numbers';
 
@@ -515,7 +515,7 @@ $add['entry_grid_footer']           = array( 'hr', 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' );
 
-$add['entry_grid_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
+$add['entry_grid_shadow'] = '0px 0px 2rem 0px #0000000d';
 
 /**
  * ====================================================

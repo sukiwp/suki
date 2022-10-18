@@ -157,9 +157,11 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		$rules = array();
 
 		$add[ 'h' . $i . '_' . $prop ] = array(
-			'type'     => 'font_family' === $prop ? 'font' : 'css',
-			'element'  => $element,
-			'property' => $property,
+			array(
+				'type'     => 'font_family' === $prop ? 'font' : 'css',
+				'element'  => $element,
+				'property' => $property,
+			),
 		);
 
 		// Responsive.
@@ -538,7 +540,7 @@ $add['page_layout'] = array(
 	array(
 		'type'    => 'class',
 		'element' => 'body',
-		'pattern' => 'suki-page--$',
+		'pattern' => 'suki-page--layout-$',
 	),
 );
 
