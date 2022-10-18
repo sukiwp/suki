@@ -421,7 +421,7 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	private static function validate_color( $color ) {
-		if ( preg_match( '/#([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?\b/', $color ) || preg_match( '/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/', $color ) ) {
+		if ( preg_match( '/#([a-fA-F0-9]){3}(([a-fA-F0-9]){3}(([a-fA-F0-9]){2})?)?\b/', $color ) || preg_match( '/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)/', $color ) ) {
 			return $color;
 		} else {
 			return '';
