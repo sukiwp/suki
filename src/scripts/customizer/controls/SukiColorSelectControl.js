@@ -7,13 +7,15 @@ import SukiControlDescription from '../components/SukiControlDescription';
 
 import SukiColorSelectDropdown from '../components/SukiColorSelectDropdown';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
 		const value = control.setting.get();
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -37,9 +39,9 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend( {
 					id={ '_customize-input' + control.id }
 				/>
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-color-select'] = wp.customize.SukiColorSelectControl;
+wp.customize.controlConstructor[ 'suki-color-select' ] = wp.customize.SukiColorSelectControl;

@@ -10,27 +10,33 @@ import SukiControlResponsiveContainer from '../components/SukiControlResponsiveC
 import { convertDimensionValueIntoNumberAndUnit } from '../utils';
 
 import {
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
+	CardBody,
+	Card,
 } from '@wordpress/components';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
 		const directions = [
-			SukiCustomizerData.l10n.top,
-			SukiCustomizerData.l10n.right,
-			SukiCustomizerData.l10n.bottom,
-			SukiCustomizerData.l10n.left,
+			sukiCustomizerData.l10n.top,
+			sukiCustomizerData.l10n.right,
+			sukiCustomizerData.l10n.bottom,
+			sukiCustomizerData.l10n.left,
 		];
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
 						{ control.params.label }
-						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
+						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) } />
 					</SukiControlLabel>
 				}
 
@@ -39,7 +45,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 						{ control.params.description }
 					</SukiControlDescription>
 				}
-				
+
 				{ Object.keys( control.params.responsiveStructures ).map( ( device ) => {
 					const settingId = control.params.responsiveStructures[ device ];
 
@@ -50,63 +56,68 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 					}
 
 					const valueArray = [
-						value[0] ?? '',
-						value[1] ?? '',
-						value[2] ?? '',
-						value[3] ?? '',
+						value[ 0 ] ?? '',
+						value[ 1 ] ?? '',
+						value[ 2 ] ?? '',
+						value[ 3 ] ?? '',
 					];
-					
+
 					return (
 						<SukiControlResponsiveContainer
 							key={ device }
 							device={ device }
 						>
-							<Grid
-								columns="4"
-								gap="1"
+							<Card
+								size="small"
 							>
-								{ valueArray.map( ( subValue, i ) => {
-									/**
-									 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl, and then we can replace our manual (non-safe) parsing with it instead.
-									 */
+								<CardBody>
+									<Grid
+										columns="4"
+										gap="1"
+									>
+										{ valueArray.map( ( subValue, i ) => {
+											/**
+											 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl, and then we can replace our manual (non-safe) parsing with it instead.
+											 */
 
-									const [ subValueNumber, subValueUnit ] = convertDimensionValueIntoNumberAndUnit( subValue, control.params.units );
+											const subValueUnit = convertDimensionValueIntoNumberAndUnit( subValue, control.params.units )[ 1 ];
 
-									const subValueUnitObj = control.params.units.find( ( item ) => {
-										return subValueUnit === item.value
-									} );
+											const subValueUnitObj = control.params.units.find( ( item ) => {
+												return subValueUnit === item.value;
+											} );
 
-									return (
-										<UnitControl
-											key={ device + '-' + i }
-											label={ directions[i] }
-											labelPosition="bottom"
-											value={ subValue }
-											isResetValueOnUnitChange
-											units={ control.params.units }
-											min={ '' === subValueUnitObj.min ? -Infinity : subValueUnitObj.min }
-											max={ '' === subValueUnitObj.max ? Infinity : subValueUnitObj.max }
-											step={ '' === subValueUnitObj.step ? 1 : subValueUnitObj.step }
-											className="suki-dimension"
-											onChange={ ( newSubValue ) => {
-												newSubValue = isNaN( parseFloat( newSubValue ) ) ? '' : newSubValue;
+											return (
+												<UnitControl
+													key={ device + '-' + i }
+													label={ directions[ i ] }
+													value={ subValue }
+													isResetValueOnUnitChange
+													units={ control.params.units }
+													min={ '' === subValueUnitObj.min ? -Infinity : subValueUnitObj.min }
+													max={ '' === subValueUnitObj.max ? Infinity : subValueUnitObj.max }
+													step={ '' === subValueUnitObj.step ? 1 : subValueUnitObj.step }
+													className="suki-dimension"
+													onChange={ ( newSubValue ) => {
+														newSubValue = isNaN( parseFloat( newSubValue ) ) ? '' : newSubValue;
 
-												valueArray[i] = newSubValue;
+														valueArray[ i ] = newSubValue;
 
-												// control.settings[ settingId ].set( '' );
-												control.settings[ settingId ].set( valueArray );
-											} }
-										/>
-									);
-								} ) }
-							</Grid>
+														// control.settings[ settingId ].set( '' );
+														control.settings[ settingId ].set( valueArray );
+													} }
+												/>
+											);
+										} ) }
+									</Grid>
+								</CardBody>
+							</Card>
 						</SukiControlResponsiveContainer>
 					);
 				} ) }
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-dimensions'] = wp.customize.SukiDimensionsControl;
+wp.customize.controlConstructor[ 'suki-dimensions' ] = wp.customize.SukiDimensionsControl;

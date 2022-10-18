@@ -4,11 +4,13 @@
 
 import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
- 
+
 import {
 	Button,
 	Icon,
 } from '@wordpress/components';
+
+import { render } from '@wordpress/element';
 
 import { ReactSortable } from 'react-sortablejs';
 
@@ -54,7 +56,7 @@ function SukiMultiSelect( { control } ) {
 						<Button
 							isSmall
 							icon="no-alt"
-							label={ SukiCustomizerData.l10n.remove }
+							label={ sukiCustomizerData.l10n.remove }
 							showTooltip
 							className="suki-multiselect__list__item__remove"
 							onClick={ () => {
@@ -63,7 +65,7 @@ function SukiMultiSelect( { control } ) {
 								// Remove the clicked item from the value array.
 								newValues = newValues.filter( ( value ) => {
 									return value !== valueObj.value;
-								} )
+								} );
 
 								control.setting.set( newValues );
 							} }
@@ -78,7 +80,7 @@ function SukiMultiSelect( { control } ) {
 				hidden={ limit <= values.length }
 				onChange={ ( e ) => {
 					if ( limit <= values.length ) {
-						return;								
+						return;
 					}
 
 					const addedValue = e.target.value;
@@ -100,7 +102,7 @@ function SukiMultiSelect( { control } ) {
 							return -1 !== newValues.indexOf( choice );
 						} );
 					}
-					
+
 					control.setting.set( newValues );
 				} }
 			>
@@ -108,10 +110,10 @@ function SukiMultiSelect( { control } ) {
 					value=""
 					disabled
 				>
-					{ SukiCustomizerData.l10n.addNew }
+					{ sukiCustomizerData.l10n.addNew }
 				</option>
 
-				{ control.params.choices.map( ( choice, i ) => {
+				{ control.params.choices.map( ( choice ) => {
 					return (
 						<option
 							key={ choice.value }
@@ -120,7 +122,7 @@ function SukiMultiSelect( { control } ) {
 						>
 							{ choice.label }
 						</option>
-					)
+					);
 				} ) }
 			</select>
 		</ReactSortable>
@@ -128,10 +130,10 @@ function SukiMultiSelect( { control } ) {
 }
 
 wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -145,11 +147,11 @@ wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend( {
 					</SukiControlDescription>
 				}
 
-				<SukiMultiSelect control={ control }/>
+				<SukiMultiSelect control={ control } />
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-multiselect'] = wp.customize.SukiMultiSelectControl;
+wp.customize.controlConstructor[ 'suki-multiselect' ] = wp.customize.SukiMultiSelectControl;

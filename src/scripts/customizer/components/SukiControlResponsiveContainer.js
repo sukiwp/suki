@@ -11,6 +11,6 @@ const SukiControlResponsiveContainer = ( { children, className, device } ) => {
 			</div>
 		</>
 	);
-}
+};
 
 export default SukiControlResponsiveContainer;

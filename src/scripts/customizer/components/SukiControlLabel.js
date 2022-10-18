@@ -11,6 +11,6 @@ const SukiControlLabel = ( { children, className, target } ) => {
 			</label>
 		</>
 	);
-}
+};
 
 export default SukiControlLabel;

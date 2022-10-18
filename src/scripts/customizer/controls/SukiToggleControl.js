@@ -5,13 +5,15 @@
 import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
 
-import { FormToggle } from '@wordpress/components';
+import { ToggleControl } from '@wordpress/components';
+
+import { render } from '@wordpress/element';
 
 wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -25,18 +27,18 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend( {
 					</SukiControlDescription>
 				}
 
-				<FormToggle
+				<ToggleControl
 					checked={ control.setting.get() ? true : false }
 					id={ '_customize-input-' + control.id }
 					className="suki-toggle"
-					onChange={ ( e ) => {
-						control.setting.set( e.target.checked );
+					onChange={ () => {
+						control.setting.set( ! control.setting.get() );
 					} }
 				/>
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-toggle'] = wp.customize.SukiToggleControl;
+wp.customize.controlConstructor[ 'suki-toggle' ] = wp.customize.SukiToggleControl;

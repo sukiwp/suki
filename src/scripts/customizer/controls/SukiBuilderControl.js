@@ -5,9 +5,12 @@
 import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
 
-import { useState } from 'react';
-
 import { ReactSortable } from 'react-sortablejs';
+
+import {
+	useState,
+	render,
+} from '@wordpress/element';
 
 import {
 	Button,
@@ -17,7 +20,7 @@ import {
 const SukiBuilder = ( { control } ) => {
 	// Get all settings values, and also define inactive elements.
 	const getValues = () => {
-		let values = {};
+		const values = {};
 		let activeItemIds = [];
 		let inactiveItemIds = [];
 
@@ -27,20 +30,20 @@ const SukiBuilder = ( { control } ) => {
 
 			values[ settingId ] = settingValue;
 
-			activeItemIds = [...activeItemIds, ...settingValue];
+			activeItemIds = [ ...activeItemIds, ...settingValue ];
 		} );
 
 		// Add inactive items into the return array.
 		control.params.choices.forEach( ( choice ) => {
 			if ( -1 === activeItemIds.indexOf( choice.value ) ) {
-				inactiveItemIds.push( choice.value );
+				inactiveItemIds = [ ...inactiveItemIds, choice.value ];
 			}
 		} );
 
 		values._inactive = inactiveItemIds;
 
 		return values;
-	}
+	};
 
 	// State for all settings values and inactive elements.
 	const [ values, setValues ] = useState( getValues() );
@@ -48,7 +51,7 @@ const SukiBuilder = ( { control } ) => {
 	// Sortable areas and their info.
 	const areas = [ ...control.params.areas, {
 		id: '_inactive',
-		label: SukiCustomizerData.l10n.inactiveElements,
+		label: sukiCustomizerData.l10n.inactiveElements,
 		sortableInstance: null,
 	} ];
 
@@ -68,7 +71,7 @@ const SukiBuilder = ( { control } ) => {
 						data-area={ area.id }
 						className="suki-builder__area"
 					>
-						<label className="suki-builder__area__label">{ area.label }</label>
+						<span className="suki-builder__area__label">{ area.label }</span>
 
 						<ReactSortable
 							// Store the sortable instance to `areas` variable.
@@ -95,7 +98,7 @@ const SukiBuilder = ( { control } ) => {
 								setValues( ( prevValues ) => {
 									return {
 										...prevValues,
-										[ area.id ]: updatedAreaItemsIds
+										[ area.id ]: updatedAreaItemsIds,
 									};
 								} );
 
@@ -116,33 +119,33 @@ const SukiBuilder = ( { control } ) => {
 								} );
 
 								itemObj.unsupported_areas.forEach( ( areaId ) => {
-									const area = areas.find( ( area ) => {
-										return areaId === area.id;
+									const unsupportedArea = areas.find( ( a ) => {
+										return areaId === a.id;
 									} );
 
-									area.sortableInstance.option( 'disabled', true );
-									area.sortableInstance.el.parentElement.classList.add( 'disabled' );
+									unsupportedArea.sortableInstance.option( 'disabled', true );
+									unsupportedArea.sortableInstance.el.parentElement.classList.add( 'disabled' );
 								} );
 							} }
 
 							// When dropping a sortable item, restore all areas.
-							onEnd={ ( e ) => {
-								areas.forEach( ( area ) => {
-									area.sortableInstance.option( 'disabled', false );
-									area.sortableInstance.el.parentElement.classList.remove( 'disabled' );
+							onEnd={ () => {
+								areas.forEach( ( a ) => {
+									a.sortableInstance.option( 'disabled', false );
+									a.sortableInstance.el.parentElement.classList.remove( 'disabled' );
 								} );
 							} }
 							className="suki-builder__area__sortable"
 						>
 							{ areaItems.map( ( item ) => {
-								return(
+								return (
 									<span
 										key={ item.value }
 										data-value={ item.value }
 										className="suki-builder__item"
 									>
 										{ item.icon &&
-											<Icon icon={ item.icon }/>
+											<Icon icon={ item.icon } />
 										}
 
 										{ item.label &&
@@ -181,13 +184,13 @@ const SukiBuilder = ( { control } ) => {
 			} ) }
 		</div>
 	);
-}
+};
 
 wp.customize.SukiBuilderControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -201,11 +204,11 @@ wp.customize.SukiBuilderControl = wp.customize.SukiReactControl.extend( {
 					</SukiControlDescription>
 				}
 
-				<SukiBuilder control={ control }/>
+				<SukiBuilder control={ control } />
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-builder'] = wp.customize.SukiBuilderControl;
+wp.customize.controlConstructor[ 'suki-builder' ] = wp.customize.SukiBuilderControl;

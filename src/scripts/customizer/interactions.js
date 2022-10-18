@@ -3,35 +3,35 @@ wp.customize.bind( 'ready', () => {
 	 * Control dependencies
 	 */
 
-	Object.keys( SukiCustomizerData.contexts ).forEach( ( elementId ) => {
+	Object.keys( sukiCustomizerData.contexts ).forEach( ( elementId ) => {
 		const elementType = 0 === elementId.indexOf( 'suki_section' ) ? 'section' : 'control';
 
 		wp.customize[ elementType ]( elementId, ( elementObj ) => {
-			SukiCustomizerData.contexts[ elementId ].forEach( ( rule, i ) => {
+			sukiCustomizerData.contexts[ elementId ].forEach( ( rule ) => {
 				const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize( rule.setting );
 
 				const setVisibility = function( checkedValue ) {
 					let displayed = false;
 
-					if ( undefined == rule.operator || '=' == rule.operator ) {
+					if ( undefined === rule.operator || '=' === rule.operator ) {
 						rule.operator = '==';
 					}
 
 					switch ( rule.operator ) {
 						case '>':
-							displayed = checkedValue > rule.value; 
+							displayed = checkedValue > rule.value;
 							break;
 
 						case '<':
-							displayed = checkedValue < rule.value; 
+							displayed = checkedValue < rule.value;
 							break;
 
 						case '>=':
-							displayed = checkedValue >= rule.value; 
+							displayed = checkedValue >= rule.value;
 							break;
 
 						case '<=':
-							displayed = checkedValue <= rule.value; 
+							displayed = checkedValue <= rule.value;
 							break;
 
 						case 'in':
@@ -51,11 +51,11 @@ wp.customize.bind( 'ready', () => {
 							break;
 
 						case '!=':
-							displayed = checkedValue != rule.value;
+							displayed = checkedValue !== rule.value;
 							break;
 
 						case 'empty':
-							displayed = 0 == checkedValue.length;
+							displayed = 0 === checkedValue.length;
 							break;
 
 						case '!empty':
@@ -63,7 +63,7 @@ wp.customize.bind( 'ready', () => {
 							break;
 
 						default:
-							displayed = checkedValue == rule.value;
+							displayed = checkedValue === rule.value;
 							break;
 					}
 
@@ -81,7 +81,7 @@ wp.customize.bind( 'ready', () => {
 							elementObj.collapse();
 						}
 					}
-				}
+				};
 
 				if ( undefined !== settingObj ) {
 					if ( '__device' !== rule.setting ) {
@@ -107,17 +107,13 @@ wp.customize.bind( 'ready', () => {
 		e.preventDefault();
 
 		const url = new URL( e.target );
-		
-		if ( targetControl = url.searchParams.get( 'autofocus[control]' ) ) {
-			wp.customize.control( targetControl ).focus();
-		}
 
-		else if ( targetSection = url.searchParams.get( 'autofocus[section]' ) ) {
-			wp.customize.section( targetSection ).focus();
-		}
-
-		else if ( targetPanel = url.searchParams.get( 'autofocus[panel]' ) ) {
-			wp.customize.panel( targetPanel ).focus();
+		if ( url.searchParams.get( 'autofocus[control]' ) ) {
+			wp.customize.control( url.searchParams.get( 'autofocus[control]' ) ).focus();
+		} else if ( url.searchParams.get( 'autofocus[section]' ) ) {
+			wp.customize.section( url.searchParams.get( 'autofocus[section]' ) ).focus();
+		} else if ( url.searchParams.get( 'autofocus[panel]' ) ) {
+			wp.customize.panel( url.searchParams.get( 'autofocus[panel]' ) ).focus();
 		}
 	} );
 } );

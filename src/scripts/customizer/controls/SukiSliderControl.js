@@ -9,21 +9,23 @@ import SukiControlResponsiveContainer from '../components/SukiControlResponsiveC
 
 import { RangeControl } from '@wordpress/components';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiSliderControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
 		const min = parseFloat( control.params.min ) || 0;
 		const max = parseFloat( control.params.max ) || 100;
 		const step = parseFloat( control.params.step ) || 1;
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
 						{ control.params.label }
 
-						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
+						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) } />
 					</SukiControlLabel>
 				}
 
@@ -47,19 +49,19 @@ wp.customize.SukiSliderControl = wp.customize.SukiReactControl.extend( {
 								step={ step }
 								id={ '_customize-input-' + control.id }
 								className="suki-slider"
-								onChange={ ( value ) => {
-									value = value || control.params.min;
+								onChange={ ( newValue ) => {
+									newValue = newValue || control.params.min;
 
-									control.settings[ settingId ].set( value );
+									control.settings[ settingId ].set( newValue );
 								} }
 							/>
 						</SukiControlResponsiveContainer>
 					);
 				} ) }
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-slider'] = wp.customize.SukiSliderControl;
+wp.customize.controlConstructor[ 'suki-slider' ] = wp.customize.SukiSliderControl;

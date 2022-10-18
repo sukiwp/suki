@@ -6,24 +6,25 @@ import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
 
 import {
-	__experimentalHStack as HStack,
-	__experimentalVStack as VStack,
 	Button,
 	ColorIndicator,
 	ColorPicker,
 	Dropdown,
+	Flex,
 	Popover,
 	SlotFillProvider,
 	Tooltip,
 } from '@wordpress/components';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
 		const value = control.setting.get();
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -63,9 +64,11 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 								</Tooltip>
 							);
 						} }
-						renderContent={ ( contentParams ) => {
+						renderContent={ () => {
 							return (
-								<VStack>
+								<Flex
+									direction="column"
+								>
 									<ColorPicker
 										color={ value }
 										onChange={ ( color ) => {
@@ -76,27 +79,27 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 										className="suki-color-dropdown__picker"
 									/>
 
-									<HStack>
+									<Flex>
 										<Button
 											isSmall
 											variant="secondary"
-											onClick={ ( e ) => {
+											onClick={ () => {
 												control.setting.set( control.params.defaultValue );
 											} }
 										>
-											{ SukiCustomizerData.l10n.reset }
+											{ sukiCustomizerData.l10n.reset }
 										</Button>
-									</HStack>
-								</VStack>
+									</Flex>
+								</Flex>
 							);
 						} }
 					/>
-					<Popover.Slot/>
+					<Popover.Slot />
 				</SlotFillProvider>
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-color'] = wp.customize.SukiColorControl;
+wp.customize.controlConstructor[ 'suki-color' ] = wp.customize.SukiColorControl;

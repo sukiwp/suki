@@ -1,11 +1,10 @@
 import {
-	__experimentalHStack as HStack,
-	__experimentalVStack as VStack,
 	Button,
 	ColorIndicator,
 	ColorPalette,
 	ColorPicker,
 	Dropdown,
+	Flex,
 	Popover,
 	SlotFillProvider,
 } from '@wordpress/components';
@@ -13,14 +12,14 @@ import {
 import { sprintf } from '@wordpress/i18n';
 
 const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValue, value } ) => {
-	let palette = [];
+	const palette = [];
 
 	for ( let i = 1; i <= 8; i++ ) {
-		const color = wp.customize( `color_palette_${i}` ).get();
+		const color = wp.customize( `color_palette_${ i }` ).get();
 
 		palette.push( {
-			name: wp.customize( `color_palette_${i}_name` ).get() || sprintf( SukiCustomizerData.l10n.themeColor$d, i ),
-			color: `var(--color-palette-${i})`,
+			name: wp.customize( `color_palette_${ i }_name` ).get() || sprintf( String( sukiCustomizerData.l10n.themeColor$d ), i ),
+			color: `var(--color-palette-${ i })`,
 			actualValue: color,
 		} );
 	}
@@ -32,115 +31,113 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 	const valueInfo = valueIsLink ? palette.find( ( item ) => {
 		return value === item.color;
 	} ) : {
-		name: SukiCustomizerData.l10n.custom,
+		name: sukiCustomizerData.l10n.custom,
 		color: value,
 		actualValue: value,
 	};
 
 	return (
-		<>
-			<div className="suki-color-dropdown">
-				<SlotFillProvider>
-					<Dropdown
-						position="bottom left"
-						focusOnMount="container"
-						renderToggle={ ( toggleParams ) => {
-							return (
-								<Button
-									isSmall
-									variant="tertiary"
-									label={ '' !== value ? valueInfo.name : SukiCustomizerData.l10n.notSet }
-									showTooltip
-									aria-expanded={ toggleParams.isOpen }
-									className="suki-color-dropdown__toggle"
-									onClick={ toggleParams.onToggle }
-								>
-									<ColorIndicator
-										colorValue={ value }
-										className={ 'suki-color-indicator' + ( valueIsLink ? ' suki-color-indicator--linked' : '' ) }
+		<div className="suki-color-dropdown">
+			<SlotFillProvider>
+				<Dropdown
+					position="bottom left"
+					focusOnMount="container"
+					renderToggle={ ( toggleParams ) => {
+						return (
+							<Button
+								isSmall
+								variant="tertiary"
+								label={ '' !== value ? valueInfo.name : sukiCustomizerData.l10n.notSet }
+								showTooltip
+								aria-expanded={ toggleParams.isOpen }
+								className="suki-color-dropdown__toggle"
+								onClick={ toggleParams.onToggle }
+							>
+								<ColorIndicator
+									colorValue={ value }
+									className={ 'suki-color-indicator' + ( valueIsLink ? ' suki-color-indicator--linked' : '' ) }
+								/>
+							</Button>
+						);
+					} }
+					renderContent={ () => {
+						return (
+							<Flex
+								direction="column"
+								gap="3"
+								style={ {
+									width: '275px',
+								} }
+							>
+								<Flex>
+									<ColorPalette
+										colors={ palette }
+										value={ valueIsLink ? valueInfo.color : '' }
+										disableCustomColors={ true }
+										clearable={ false }
+										className="suki-color-dropdown__palette"
+										onChange={ ( color ) => {
+											changeValue( color );
+										} }
 									/>
-								</Button>
-							);
-						} }
-						renderContent={ ( contentParams ) => {
-							return (
-								<VStack
-									spacing="3"
-									style={ {
-										width: '275px'
-									} }
-								>
-									<HStack>
-										<ColorPalette
-											colors={ palette }
-											value={ valueIsLink ? valueInfo.color : '' }
-											disableCustomColors={ true }
-											clearable={ false }
-											className="suki-color-dropdown__palette"
-											onChange={ ( color ) => {
-												changeValue( color );
+									<div className="suki-color-dropdown__custom">
+										<Button
+											isSmall
+											isPressed={ pickerIsOpened }
+											variant="tertiary"
+											icon="color-picker"
+											label={ sukiCustomizerData.l10n.custom }
+											showTooltip
+											aria-expanded={ pickerIsOpened }
+											className="suki-color-dropdown__custom__toggle"
+											onClick={ () => {
+												if ( pickerIsOpened ) {
+													// Pressed
+													changeValue( '' );
+												} else if ( valueInfo.actualValue ) {
+													// Not pressed but has actual value
+													changeValue( valueInfo.actualValue );
+												} else {
+													// Not pressed
+													changeValue( defaultPickerValue || '#ffffff' );
+												}
 											} }
 										/>
-										<div className="suki-color-dropdown__custom">
-											<Button
-												isSmall
-												isPressed={ pickerIsOpened }
-												variant="tertiary"
-												icon="color-picker"
-												label={ SukiCustomizerData.l10n.custom }
-												showTooltip
-												aria-expanded={ pickerIsOpened }
-												className="suki-color-dropdown__custom__toggle"
-												onClick={ ( e ) => {
-													if ( pickerIsOpened ) {
-														// isPresed: true
-														changeValue( '' );
-													} else {
-														// isPressed: false
-														if ( valueInfo.actualValue ) {
-															changeValue( valueInfo.actualValue );
-														} else {
-															changeValue( defaultPickerValue || '#ffffff' );
-														}
-													}
-												} }
-											/>
-										</div>
-									</HStack>
+									</div>
+								</Flex>
 
-									{ pickerIsOpened &&
-										<ColorPicker
-											color={ value }
-											enableAlpha
-											className="suki-color-dropdown__picker"
-											onChange={ ( value ) => {
-												changeValue( value );
+								{ pickerIsOpened &&
+									<ColorPicker
+										color={ value }
+										enableAlpha
+										className="suki-color-dropdown__picker"
+										onChange={ ( newValue ) => {
+											changeValue( newValue );
+										} }
+									/>
+								}
+
+								{ defaultValue &&
+									<Flex>
+										<Button
+											isSmall
+											variant="secondary"
+											onClick={ () => {
+												changeValue( defaultValue );
 											} }
-										/>
-									}
-
-									{ defaultValue &&
-										<HStack>
-											<Button
-												isSmall
-												variant="secondary"
-												onClick={ ( e ) => {
-													changeValue( defaultValue );
-												} }
-											>
-												{ SukiCustomizerData.l10n.reset }
-											</Button>
-										</HStack>
-									}
-								</VStack>
-							);
-						} }
-					/>
-					<Popover.Slot/>
-				</SlotFillProvider>
-			</div>
-		</>
+										>
+											{ sukiCustomizerData.l10n.reset }
+										</Button>
+									</Flex>
+								}
+							</Flex>
+						);
+					} }
+				/>
+				<Popover.Slot />
+			</SlotFillProvider>
+		</div>
 	);
-}
+};
 
 export default SukiColorSelectDropdown;

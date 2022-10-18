@@ -2,29 +2,29 @@
  * Static sections
  */
 
-wp.customize.sectionConstructor['suki-pro-link'] =
-wp.customize.sectionConstructor['suki-pro-teaser'] =
-wp.customize.sectionConstructor['suki-spacer'] = wp.customize.Section.extend( {
+wp.customize.sectionConstructor[ 'suki-pro-link' ] =
+wp.customize.sectionConstructor[ 'suki-pro-teaser' ] =
+wp.customize.sectionConstructor[ 'suki-spacer' ] = wp.customize.Section.extend( {
 	// No events for this type of section.
-	attachEvents: function () {},
+	attachEvents() {},
 
 	// Always make the section active.
-	isContextuallyActive: function () {
+	isContextuallyActive() {
 		return true;
-	}
+	},
 } );
 
 /**
  * Builder section
  */
-wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend( {
-	initAllControls: function() {
+wp.customize.sectionConstructor[ 'suki-builder' ] = wp.customize.Section.extend( {
+	initAllControls() {
 		const section = this;
 
 		section.controls().forEach( ( control ) => {
 			if ( 'resolved' !== control.deferred.embedded.state() ) {
 				control.embed();
-				
+
 				if ( control.actuallyEmbed ) {
 					control.actuallyEmbed();
 				}
@@ -34,14 +34,16 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend( {
 		section.initialized = true;
 	},
 
-	resizePreview: function() {
+	resizePreview() {
 		const section = this;
 
 		if ( ! section.initialized ) {
 			return;
 		}
 
-		if ( 1324 <= window.innerWidth && section.contentContainer[0].classList.contains( 'active' ) && ! section.contentContainer[0].classList.contains( 'hidden' ) ) {
+		if ( 1324 <= window.innerWidth && section.contentContainer[ 0 ].classList.contains( 'active' ) && ! section.contentContainer[ 0 ].classList.contains( 'hidden' ) ) {
+			let originalHeight;
+
 			switch ( wp.customize.previewedDevice.get() ) {
 				case 'tablet':
 					originalHeight = '1024px'; // Custom mobile view height as defined in the theme's CSS.
@@ -56,13 +58,13 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend( {
 					break;
 			}
 
-			wp.customize.previewer.container[0].style.height = 'min( calc(100% - ' + ( section.contentContainer[0].getBoundingClientRect().height + 'px' ) + '), ' + originalHeight + ' )' ;
+			wp.customize.previewer.container[ 0 ].style.height = 'min( calc(100% - ' + ( section.contentContainer[ 0 ].getBoundingClientRect().height + 'px' ) + '), ' + originalHeight + ' )';
 		} else {
-			wp.customize.previewer.container[0].style.height = null;
+			wp.customize.previewer.container[ 0 ].style.height = null;
 		}
 	},
 
-	ready: function() {
+	ready() {
 		const section = this;
 
 		section.initialized = false;
@@ -72,58 +74,57 @@ wp.customize.sectionConstructor['suki-builder'] = wp.customize.Section.extend( {
 
 		const panelId = section.panel.get();
 
-		// If section is inside a panel, bind panel expanded.
 		if ( '' !== panelId ) {
+			// If section is inside a panel, bind panel expanded.
+
 			wp.customize.panel( panelId, ( panel ) => {
 				panel.expanded.bind( ( isExpanded ) => {
 					if ( isExpanded ) {
 						section.initAllControls();
-						section.contentContainer[0].classList.add( 'active' );
+						section.contentContainer[ 0 ].classList.add( 'active' );
 
 						window.addEventListener( 'resize', section.resizePreview );
 						section.resizePreview();
 					} else {
-						section.contentContainer[0].classList.remove( 'active' );
-						
+						section.contentContainer[ 0 ].classList.remove( 'active' );
+
 						window.removeEventListener( 'resize', section.resizePreview );
 						section.resizePreview();
 					}
 				} );
-			} )
-		}
-		// Init section right away.
-		else {
+			} );
+		} else {
+			// Init section right away.
+
 			section.initAllControls();
-			section.contentContainer[0].classList.add( 'active' );
+			section.contentContainer[ 0 ].classList.add( 'active' );
 
 			window.addEventListener( 'resize', section.resizePreview );
 			section.resizePreview();
 		}
 
 		// Handler for hide builder button.
-		section.contentContainer[0].querySelector( '.suki-builder-section__toggle__hide' ).addEventListener( 'click', ( e ) => {
+		section.contentContainer[ 0 ].querySelector( '.suki-builder-section__toggle__hide' ).addEventListener( 'click', ( e ) => {
 			e.preventDefault();
-			
-			section.contentContainer[0].classList.add( 'hidden' );
-			document.activeElement.blur();
+
+			section.contentContainer[ 0 ].classList.add( 'hidden' );
 
 			section.resizePreview();
 		} );
-		
+
 		// Handler for show builder button.
-		section.contentContainer[0].querySelector( '.suki-builder-section__toggle__show' ).addEventListener( 'click', ( e ) => {
+		section.contentContainer[ 0 ].querySelector( '.suki-builder-section__toggle__show' ).addEventListener( 'click', ( e ) => {
 			e.preventDefault();
-			
-			section.contentContainer[0].classList.remove( 'hidden' );
-			document.activeElement.blur();
+
+			section.contentContainer[ 0 ].classList.remove( 'hidden' );
 
 			section.resizePreview();
 		} );
 
 		wp.customize.bind( 'ready', function() {
-			wp.customize.previewedDevice.bind( ( device ) => {
+			wp.customize.previewedDevice.bind( () => {
 				section.resizePreview();
 			} );
 		} );
-	}
+	},
 } );

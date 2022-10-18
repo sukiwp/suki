@@ -10,21 +10,25 @@ import SukiControlResponsiveContainer from '../components/SukiControlResponsiveC
 import { convertDimensionValueIntoNumberAndUnit } from '../utils';
 
 import {
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
 						{ control.params.label }
-						
-						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) }/>
+
+						<SukiControlResponsiveSwitcher devices={ Object.keys( control.params.responsiveStructures ) } />
 					</SukiControlLabel>
 				}
 
@@ -33,7 +37,7 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 						{ control.params.description }
 					</SukiControlDescription>
 				}
-				
+
 				{ Object.keys( control.params.responsiveStructures ).map( ( device ) => {
 					const settingId = control.params.responsiveStructures[ device ];
 
@@ -43,10 +47,10 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 					 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl. For the time being, we are using our own function `convertDimensionValueIntoNumberAndUnit`.
 					 */
 
-					const [ valueNumber, valueUnit ] = convertDimensionValueIntoNumberAndUnit( value, control.params.units );
+					const valueUnit = convertDimensionValueIntoNumberAndUnit( value, control.params.units )[ 1 ];
 
 					const valueUnitObj = control.params.units.find( ( item ) => {
-						return valueUnit === item.value
+						return valueUnit === item.value;
 					} );
 
 					return (
@@ -64,11 +68,11 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 									step={ '' === valueUnitObj.step ? 1 : valueUnitObj.step }
 									id={ '_customize-input-' + control.id }
 									className="suki-dimension"
-									onChange={ ( value ) => {
+									onChange={ ( newValue ) => {
 										// If value only contains unit (e.g. 'px'), set the value to empty string ('').
-										value = isFinite( parseFloat( value ) ) ? value : '';
+										newValue = isFinite( parseFloat( newValue ) ) ? newValue : '';
 
-										control.settings[ settingId ].set( value );
+										control.settings[ settingId ].set( newValue );
 									} }
 								/>
 							</Grid>
@@ -76,9 +80,9 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 					);
 				} ) }
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-dimension'] = wp.customize.SukiDimensionControl;
+wp.customize.controlConstructor[ 'suki-dimension' ] = wp.customize.SukiDimensionControl;

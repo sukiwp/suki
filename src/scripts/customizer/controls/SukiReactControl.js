@@ -2,14 +2,16 @@
  * Base react control.
  */
 
+import { unmountComponentAtNode } from '@wordpress/element';
+
 wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 	/**
 	 * Initialize.
 	 *
-	 * @param {string} id - Control ID.
-	 * @param {Object} params - Control params.
+	 * @param {string} id     Control ID.
+	 * @param {Object} params Control params.
 	 */
-	initialize: function( id, params ) {
+	initialize( id, params ) {
 		const control = this;
 
 		// Bind functions to this control context for passing as React props.
@@ -24,7 +26,7 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 				control.container.remove();
 				wp.customize.control.unbind( 'removed', onRemoved );
 			}
-		}
+		};
 		wp.customize.control.bind( 'removed', onRemoved );
 	},
 
@@ -33,10 +35,10 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 	 *
 	 * This is called when the React component is mounted.
 	 *
-	 * @param {Element} element - Notification container.
+	 * @param {Element} element Notification container.
 	 * @return {void}
 	 */
-	setNotificationContainer: function( element ) {
+	setNotificationContainer( element ) {
 		const control = this;
 
 		control.notifications.container = jQuery( element );
@@ -48,9 +50,9 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 	 *
 	 * React is able to be used here instead of the wp.customize.Element abstraction.
 	 *
-	 * @returns {void}
+	 * @return {void}
 	 */
-	ready: function() {
+	ready() {
 		const control = this;
 
 		/**
@@ -58,9 +60,9 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 		 */
 
 		Object.keys( control.settings ).forEach( ( settingKey ) => {
-			control.settings[ settingKey ].bind( ( val ) => {
+			control.settings[ settingKey ].bind( () => {
 				control.renderContent();
-			} )
+			} );
 		} );
 	},
 
@@ -69,14 +71,14 @@ wp.customize.SukiReactControl = wp.customize.SukiControl.extend( {
 	 *
 	 * This is essentially the inverse of the Control#embed() method.
 	 *
-	 * @link https://core.trac.wordpress.org/ticket/31334
-	 * @returns {void}
+	 * @see https://core.trac.wordpress.org/ticket/31334
+	 * @return {void}
 	 */
-	destroy: function() {
+	destroy() {
 		const control = this;
 
 		// Garbage collection: undo mounting that was done in the embed/renderContent method.
-		ReactDOM.unmountComponentAtNode( control.container[0] );
+		unmountComponentAtNode( control.container[ 0 ] );
 
 		// Call destroy method in parent if it exists (as of #31334).
 		if ( wp.customize.Control.prototype.destroy ) {

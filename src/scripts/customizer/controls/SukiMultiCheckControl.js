@@ -6,17 +6,19 @@ import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
 
 import {
-	__experimentalVStack as VStack,
 	CheckboxControl,
+	Flex,
 } from '@wordpress/components';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
 		const valueArray = control.setting.get();
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -30,10 +32,8 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 					</SukiControlDescription>
 				}
 
-				<VStack
-					spacing="1.5"
-				>
-					{ control.params.choices.map( ( choice, i ) => {
+				<Flex>
+					{ control.params.choices.map( ( choice ) => {
 						return (
 							<CheckboxControl
 								key={ choice.value }
@@ -47,16 +47,15 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 									}
 								} }
 							/>
-						)
+						);
 					} ) }
-					
-				</VStack>
+				</Flex>
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 
-	addNewValueItem: function( value ) {
+	addNewValueItem( value ) {
 		const control = this;
 
 		let valueArray = control.setting.get() || [];
@@ -74,11 +73,11 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 		valueArray = choicesValues.filter( ( choice ) => {
 			return -1 !== valueArray.indexOf( choice );
 		} );
-		
+
 		control.setting.set( valueArray );
 	},
 
-	removeValueItem: function( removedValue ) {
+	removeValueItem( removedValue ) {
 		const control = this;
 
 		let valueArray = control.setting.get() || [];
@@ -86,10 +85,10 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 		// Remove the clicked item from the value array.
 		valueArray = valueArray.filter( ( value ) => {
 			return value !== removedValue;
-		} )
+		} );
 
 		control.setting.set( valueArray );
 	},
 } );
 
-wp.customize.controlConstructor['suki-multicheck'] = wp.customize.SukiMultiCheckControl;
+wp.customize.controlConstructor[ 'suki-multicheck' ] = wp.customize.SukiMultiCheckControl;

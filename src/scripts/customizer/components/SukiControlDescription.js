@@ -11,6 +11,6 @@ const SukiControlDescription = ( { children, className, id } ) => {
 			</span>
 		</>
 	);
-}
+};
 
 export default SukiControlDescription;

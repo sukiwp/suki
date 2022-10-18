@@ -6,16 +6,19 @@ import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
 
 import {
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
-	__experimentalVStack as VStack,
-	Button
+	Button,
+	Flex,
 } from '@wordpress/components';
 
+import { render } from '@wordpress/element';
+
 wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
-	renderContent: function() {
+	renderContent() {
 		const control = this;
 
-		ReactDOM.render(
+		render(
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -44,24 +47,25 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 									control.setting.set( choice.value );
 								} }
 							>
-								<VStack
+								<Flex
+									direction="column"
 									expanded
-									spacing="0.5"
+									gap="0"
 									justify="center"
 								>
 									{ choice.image &&
-										<img src={ choice.image } role="img" aria-hidden="true"/>
+										<img src={ choice.image } role="img" aria-hidden="true" alt="" />
 									}
 									<span>{ choice.label }</span>
-								</VStack>
+								</Flex>
 							</Button>
 						);
 					} ) }
 				</Grid>
 			</>,
-			control.container[0]
+			control.container[ 0 ]
 		);
 	},
 } );
 
-wp.customize.controlConstructor['suki-radioimage'] = wp.customize.SukiDimensionsControl;
+wp.customize.controlConstructor[ 'suki-radioimage' ] = wp.customize.SukiDimensionsControl;

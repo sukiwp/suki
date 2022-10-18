@@ -146,7 +146,7 @@ __webpack_require__.r(__webpack_exports__);
 function runFieldOutputs(key, rules, value, inheritValue) {
   const actualValue = '' !== value ? value : inheritValue;
   rules.forEach(rule => {
-    if (undefined == rule.element) {
+    if (undefined === rule.element) {
       return;
     }
 
@@ -155,8 +155,8 @@ function runFieldOutputs(key, rules, value, inheritValue) {
     switch (rule.type) {
       case 'class':
       default:
-        const regex = new RegExp(rule['pattern'].replace('$', '[\\w\\-]+'), 'i');
-        const formattedValue = rule['pattern'].replace('$', actualValue);
+        const regex = new RegExp(rule.pattern.replace('$', '[\\w\\-]+'), 'i');
+        const formattedValue = rule.pattern.replace('$', actualValue);
         document.querySelectorAll(rule.element).forEach(element => {
           if (element.className.match(regex)) {
             element.className = element.className.replace(regex, formattedValue);
@@ -171,7 +171,7 @@ function runFieldOutputs(key, rules, value, inheritValue) {
 
 function SukiPageSettingsSidebar() {
   const metaValue = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
-    return select('core/editor').getEditedPostAttribute('meta')[SukiPageSettingsData.metaKey];
+    return select('core/editor').getEditedPostAttribute('meta')[sukiPageSettingsData.metaKey];
   }, []);
   const editPost = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)('core/editor').editPost;
 
@@ -194,52 +194,48 @@ function SukiPageSettingsSidebar() {
 
     editPost({
       meta: {
-        [SukiPageSettingsData.metaKey]: newValue
+        [sukiPageSettingsData.metaKey]: newValue
       }
     });
   };
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebar, {
-    name: SukiPageSettingsData.metaKey,
-    title: SukiPageSettingsData.title
-  }, SukiPageSettingsData.structures.map((panel, i) => {
+    name: sukiPageSettingsData.metaKey,
+    title: sukiPageSettingsData.title
+  }, sukiPageSettingsData.structures.map((panel, i) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
       key: panel.key
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
       title: panel.title,
-      initialOpen: 0 == i ? true : false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, {
-      spacing: "2"
-    }, panel.fields.map(field => {
+      initialOpen: 0 === i ? true : false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, null, panel.fields.map(field => {
       const value = getFieldValue(field.key);
 
       if (field.outputs) {
         runFieldOutputs(field.key, field.outputs, value, field.inherit_value);
       }
 
-      if ('select' === field.type) {
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-          key: field.key,
-          label: field.label,
-          value: value,
-          options: field.options,
-          help: field.description,
-          onChange: value => {
-            setFieldValue(field.key, value);
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+        key: field.key,
+        label: field.label,
+        value: value,
+        options: field.options,
+        help: field.description,
+        onChange: newValue => {
+          setFieldValue(field.key, newValue);
 
-            if (field.outputs) {
-              runFieldOutputs(field.key, field.outputs, value, field.inherit_value);
-            }
+          if (field.outputs) {
+            runFieldOutputs(field.key, field.outputs, newValue, field.inherit_value);
           }
-        });
-      }
+        }
+      });
     }))));
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebarMoreMenuItem, {
-    target: SukiPageSettingsData.metaKey
-  }, SukiPageSettingsData.title));
+    target: sukiPageSettingsData.metaKey
+  }, sukiPageSettingsData.title));
 }
 
-(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__.registerPlugin)(SukiPageSettingsData.metaKey.replaceAll('_', '-'), {
+(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__.registerPlugin)(sukiPageSettingsData.metaKey.replaceAll('_', '-'), {
   icon: 'admin-settings',
   render: SukiPageSettingsSidebar
 });

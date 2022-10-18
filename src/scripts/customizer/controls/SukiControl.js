@@ -1,21 +1,21 @@
 /**
  * Base dynamic control.
  *
- * @ref https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
+ * @see https://github.com/xwp/wp-customize-posts/blob/develop/js/customize-dynamic-control.js
  */
 
 wp.customize.SukiControl = wp.customize.Control.extend( {
 
-	initialize: function( id, options ) {
-		var control = this, args;
+	initialize( id, options ) {
+		const control = this;
+		const args = options || {};
 
-		args = options || {};
 		args.params = args.params || {};
 		if ( ! args.params.type ) {
 			args.params.type = 'dynamic';
 		}
 		if ( ! args.params.content ) {
-			args.params.content = $( '<li></li>' );
+			args.params.content = jQuery( '<li></li>' );
 			args.params.content.attr( 'id', 'customize-control-' + id.replace( /]/g, '' ).replace( /\[/g, '-' ) );
 			args.params.content.attr( 'class', 'suki-customize-control customize-control customize-control-' + args.params.type );
 		}
@@ -31,20 +31,18 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 	 * should be changed in Core to be applied once the control is embedded.
 	 *
 	 * @private
-	 * @returns {void}
+	 * @return {void}
 	 */
-	_setUpSettingRootLinks: function() {
-		var control, nodes, radios;
-		control = this;
-		nodes = control.container.find( '[data-customize-setting-link]' );
-		radios = {};
+	_setUpSettingRootLinks() {
+		const control = this;
+		const nodes = control.container.find( '[data-customize-setting-link]' );
 
 		nodes.each( function() {
-			var node = $( this ),
-				name;
+			let radios;
+			let node = jQuery( this );
 
 			if ( node.is( ':radio' ) ) {
-				name = node.prop( 'name' );
+				const name = node.prop( 'name' );
 				if ( radios[ name ] ) {
 					return;
 				}
@@ -54,38 +52,35 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 			}
 
 			wp.customize( node.data( 'customizeSettingLink' ), function( setting ) {
-				var element = new wp.customize.Element( node );
+				const element = new wp.customize.Element( node );
 				control.elements.push( element );
 				element.sync( setting );
 				element.set( setting() );
 			} );
 		} );
-
 	},
 
 	/**
 	 * Add bidirectional data binding links between inputs and the setting properties.
 	 *
 	 * @private
-	 * @returns {void}
+	 * @return {void}
 	 */
-	_setUpSettingPropertyLinks: function() {
-		var control = this, nodes, radios;
+	_setUpSettingPropertyLinks() {
+		const control = this;
+
 		if ( ! control.setting ) {
 			return;
 		}
 
-		nodes = control.container.find( '[data-customize-setting-property-link]' );
-		radios = {};
+		const nodes = control.container.find( '[data-customize-setting-property-link]' );
+		let radios;
 
 		nodes.each( function() {
-			var node = $( this ),
-				name,
-				element,
-				propertyName = node.data( 'customizeSettingPropertyLink' );
+			let node = jQuery( this );
 
 			if ( node.is( ':radio' ) ) {
-				name = node.prop( 'name' );
+				const name = node.prop( 'name' );
 				if ( radios[ name ] ) {
 					return;
 				}
@@ -93,12 +88,14 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 				node = nodes.filter( '[name="' + name + '"]' );
 			}
 
-			element = new wp.customize.Element( node );
+			const propertyName = node.data( 'customizeSettingPropertyLink' );
+
+			const element = new wp.customize.Element( node );
 			control.propertyElements.push( element );
 			element.set( control.setting()[ propertyName ] );
 
 			element.bind( function( newPropertyValue ) {
-				var newSetting = control.setting();
+				let newSetting = control.setting();
 				if ( newPropertyValue === newSetting[ propertyName ] ) {
 					return;
 				}
@@ -117,8 +114,8 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 	/**
 	 * @inheritdoc
 	 */
-	ready: function() {
-		var control = this;
+	ready() {
+		const control = this;
 
 		control._setUpSettingRootLinks();
 		control._setUpSettingPropertyLinks();
@@ -137,14 +134,16 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 	 * so that the control isn't embedded on load,
 	 * unless the containing section is already expanded.
 	 *
-	 * @returns {void}
+	 * @return {void}
 	 */
-	embed: function() {
-		var control = this,
-			sectionId = control.section();
+	embed() {
+		const control = this;
+		const sectionId = control.section();
+
 		if ( ! sectionId ) {
 			return;
 		}
+
 		wp.customize.section( sectionId, function( section ) {
 			if ( section.expanded() || wp.customize.settings.autofocus.control === control.id ) {
 				control.actuallyEmbed();
@@ -164,13 +163,15 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 	 * This function is called in Section.onChangeExpanded() so the control
 	 * will only get embedded when the Section is first expanded.
 	 *
-	 * @returns {void}
+	 * @return {void}
 	 */
-	actuallyEmbed: function() {
-		var control = this;
+	actuallyEmbed() {
+		const control = this;
+
 		if ( 'resolved' === control.deferred.embedded.state() ) {
 			return;
 		}
+
 		control.renderContent();
 		control.deferred.embedded.resolve(); // This triggers control.ready().
 	},
@@ -178,12 +179,14 @@ wp.customize.SukiControl = wp.customize.Control.extend( {
 	/**
 	 * This is not working with autofocus.
 	 *
-	 * @param {object} [args] Args.
-	 * @returns {void}
+	 * @param {Object} [args] Args.
+	 * @return {void}
 	 */
-	focus: function( args ) {
-		var control = this;
+	focus( args ) {
+		const control = this;
+
 		control.actuallyEmbed();
+
 		wp.customize.Control.prototype.focus.call( control, args );
 	},
 } );

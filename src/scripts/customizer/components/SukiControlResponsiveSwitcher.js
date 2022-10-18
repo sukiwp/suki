@@ -20,10 +20,10 @@ const SukiControlResponsiveSwitcher = ( { devices } ) => {
 								variant="tertiary"
 								icon={ 'mobile' === device ? 'smartphone' : device }
 								data-device={ device }
-								label={ SukiCustomizerData.l10n.device }
+								label={ sukiCustomizerData.l10n.device }
 								showTooltip
 								className="suki-responsive-switcher__button"
-								onClick={ ( e ) => {
+								onClick={ () => {
 									wp.customize.previewedDevice.set( device );
 								} }
 							/>
@@ -33,6 +33,6 @@ const SukiControlResponsiveSwitcher = ( { devices } ) => {
 			}
 		</>
 	);
-}
+};
 
 export default SukiControlResponsiveSwitcher;
