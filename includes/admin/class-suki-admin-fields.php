@@ -315,13 +315,12 @@ class Suki_Admin_Fields {
 				'value'        => '',
 				'placeholder'  => '',
 				'class'        => 'regular-text',
-				'library'      => '',
 				'frame_title'  => esc_html__( 'Upload & choose file', 'suki' ),
 				'frame_button' => esc_html__( 'Choose', 'suki' ),
 			)
 		);
 		?>
-		<span id="<?php echo esc_attr( $args['id'] ); ?>" class="suki-admin-upload-control <?php echo esc_attr( $args['class'] ); ?>" data-title="<?php echo esc_attr( $args['frame_title'] ); ?>" data-button="<?php echo esc_attr( $args['frame_button'] ); ?>" data-library="<?php echo esc_attr( implode( ',', (array) $args['library'] ) ); ?>">
+		<span id="<?php echo esc_attr( $args['id'] ); ?>" class="suki-admin-upload-control <?php echo esc_attr( $args['class'] ); ?>" data-title="<?php echo esc_attr( $args['frame_title'] ); ?>" data-button="<?php echo esc_attr( $args['frame_button'] ); ?>">
 			<input type="url" name="<?php echo esc_attr( $args['name'] ); ?>" value="<?php echo esc_attr( $args['value'] ); ?>" class="suki-admin-upload-control-text" placeholder="<?php echo esc_attr( $args['placeholder'] ); ?>" <?php echo ( $args['required'] ? 'required' : '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<a href="#" class="suki-admin-upload-control-button button"><span class="dashicons dashicons-upload"></span></a>
 		</span>

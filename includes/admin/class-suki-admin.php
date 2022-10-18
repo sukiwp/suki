@@ -136,7 +136,7 @@ class Suki_Admin {
 		// Send data to main JS file.
 		wp_localize_script(
 			'suki-admin',
-			'SukiAdminData',
+			'sukiAdminData',
 			array(
 				'ajax_nonce'         => wp_create_nonce( 'suki' ),
 				'sitesImportPageURL' => esc_url( add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ) ),

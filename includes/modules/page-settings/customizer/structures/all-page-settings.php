@@ -62,10 +62,10 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				'section'  => $section,
 				'label'    => esc_html__( 'Content container', 'suki' ),
 				'choices'  => array(
-					''        => esc_html__( '-- Global --', 'suki' ),
-					'narrow'  => esc_html__( 'Narrow', 'suki' ),
-					'default' => esc_html__( 'Wide', 'suki' ),
-					'full'    => esc_html__( 'Full', 'suki' ),
+					''       => esc_html__( '-- Global --', 'suki' ),
+					'narrow' => esc_html__( 'Narrow', 'suki' ),
+					'wide'   => esc_html__( 'Wide', 'suki' ),
+					'full'   => esc_html__( 'Full', 'suki' ),
 				),
 				'priority' => 100,
 			)
@@ -167,8 +167,9 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				'label'    => esc_html__( 'Hero container', 'suki' ),
 				'choices'  => array(
 					''        => esc_html__( '-- Global --', 'suki' ),
+					'content' => esc_html__( '= Content', 'suki' ),
 					'narrow'  => esc_html__( 'Narrow', 'suki' ),
-					'default' => esc_html__( 'Wide', 'suki' ),
+					'wide'    => esc_html__( 'Wide', 'suki' ),
 					'full'    => esc_html__( 'Full', 'suki' ),
 				),
 				'priority' => 120,
