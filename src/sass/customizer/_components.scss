@@ -48,7 +48,7 @@ div.customize-section-description {
  */
 
 :is( .components-input-control, .components-select-control ) {
-	gap: 2px;
+	gap: 2px !important;
 
 	> .components-flex-item {
 		label {
@@ -128,32 +128,6 @@ div.customize-section-description {
 }
 
 /**
- * Control content box
- */
-
-.suki-control-content-box {
-	background-color: #ffffff;
-	padding: 12px;
-	border-radius: 2px;
-	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
-}
-
-/**
- * Dimension
- */
-
-.suki-dimension {
-	input {
-		text-align: right;
-	}
-
-	> .components-flex-item {
-		width: 100%;
-		max-width: none;
-	}
-}
-
-/**
  * React colorful
  */
 
@@ -194,8 +168,8 @@ div.customize-section-description {
  */
 
 .suki-color-dropdown {
-	~ .popover-slot .components-popover__content > div {
-		padding: 12px;
+	.components-dropdown {
+		vertical-align: middle;
 	}
 
 	&__toggle {
@@ -344,7 +318,7 @@ div.customize-section-description {
 	}
 
 	.suki-responsive-switcher__button {
-		min-width: auto; // Reset
+		min-width: auto !important; // Reset
 		width: auto !important; // Reset
 		height: auto; // Reset
 		padding: 0 !important; // Reset
@@ -374,7 +348,7 @@ div.customize-section-description {
 		}
 
 		.dashicons {
-			font-size: 14px;
+			font-size: 16px;
 			width: auto;
 			height: auto;
 			margin: 0;

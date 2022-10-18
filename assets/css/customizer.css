@@ -41,7 +41,7 @@ div.customize-section-description {
  * Control's component
  */
 :is(.components-input-control, .components-select-control) {
-	gap: 2px;
+	gap: 2px !important;
 }
 :is(.components-input-control, .components-select-control) > .components-flex-item label {
 	font-size: 9px;
@@ -107,27 +107,6 @@ div.customize-section-description {
 }
 
 /**
- * Control content box
- */
-.suki-control-content-box {
-	background-color: #ffffff;
-	padding: 12px;
-	border-radius: 2px;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-}
-
-/**
- * Dimension
- */
-.suki-dimension input {
-	text-align: right;
-}
-.suki-dimension > .components-flex-item {
-	width: 100%;
-	max-width: none;
-}
-
-/**
  * React colorful
  */
 .components-color-picker .react-colorful {
@@ -156,8 +135,8 @@ div.customize-section-description {
 /**
  * Color select dropdown
  */
-.suki-color-dropdown ~ .popover-slot .components-popover__content > div {
-	padding: 12px;
+.suki-color-dropdown .components-dropdown {
+	vertical-align: middle;
 }
 .suki-color-dropdown__toggle {
 	position: relative;
@@ -272,7 +251,7 @@ div.customize-section-description {
 	margin-inline-start: 12px;
 }
 .suki-responsive-switcher .suki-responsive-switcher__button {
-	min-width: auto;
+	min-width: auto !important;
 	width: auto !important;
 	height: auto;
 	padding: 0 !important;
@@ -293,7 +272,7 @@ div.customize-section-description {
 	opacity: 0.8;
 }
 .suki-responsive-switcher .suki-responsive-switcher__button .dashicons {
-	font-size: 14px;
+	font-size: 16px;
 	width: auto;
 	height: auto;
 	margin: 0;
@@ -613,13 +592,6 @@ div.customize-section-description {
 }
 
 /**
- * Dimensions control
- */
-.customize-control-suki-dimensions .suki-dimension > .components-flex-item {
-	text-align: center;
-}
-
-/**
  * Heading Control
  */
 .customize-control-suki-heading {
@@ -719,39 +691,6 @@ div.customize-section-description {
 }
 .customize-control-suki-radioimage .suki-radioimage__option span {
 	padding: 4px 0;
-}
-
-/**
- * Shadow Control
- */
-.customize-control-suki-shadow .suki-shadow__position-toggle {
-	min-width: 24px;
-	height: 30px;
-	width: 24px;
-	padding: 2px;
-}
-.customize-control-suki-shadow .suki-shadow .suki-color-dropdown {
-	flex: 0 0 36px;
-}
-.customize-control-suki-shadow .suki-shadow .suki-dimension > .components-flex-item {
-	text-align: center;
-}
-
-/**
- * Slider Control
- */
-.customize-control-suki-slider .suki-slider .components-range-control__root {
-	display: flex;
-}
-.customize-control-suki-slider .suki-slider .components-range-control__wrapper {
-	margin-bottom: 0;
-}
-.customize-control-suki-slider .suki-slider .components-range-control__mark {
-	height: 6px;
-	top: 0;
-}
-.customize-control-suki-slider .suki-slider .components-range-control__mark-label {
-	top: 16px;
 }
 
 /**

@@ -178,18 +178,6 @@
 }
 
 /**
- * Dimensions control
- */
-
-.customize-control-suki-dimensions {
-	.suki-dimension {
-		> .components-flex-item {
-			text-align: center;
-		}
-	}
-}
-
-/**
  * Heading Control
  */
 
@@ -318,58 +306,6 @@
 
 			span {
 				padding: 4px 0;
-			}
-		}
-	}
-}
-
-/**
- * Shadow Control
- */
-
-.customize-control-suki-shadow {
-	.suki-shadow {
-		&__position-toggle {
-			min-width: 24px;
-			height: 30px;
-			width: 24px;
-			padding: 2px;
-		}
-
-		.suki-color-dropdown {
-			flex: 0 0 36px;
-		}
-
-		.suki-dimension {
-			> .components-flex-item {
-				text-align: center;
-			}
-		}
-	}
-}
-
-/**
- * Slider Control
- */
-
-.customize-control-suki-slider {
-	.suki-slider {
-		.components-range-control {
-			&__root {
-				display: flex;
-			}
-
-			&__wrapper {
-				margin-bottom: 0;
-			}
-
-			&__mark {
-				height: 6px;
-				top: 0;
-			}
-
-			&__mark-label {
-				top: 16px;
 			}
 		}
 	}
