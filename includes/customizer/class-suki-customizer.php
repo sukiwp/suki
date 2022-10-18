@@ -252,7 +252,7 @@ class Suki_Customizer {
 
 		wp_add_inline_script(
 			'suki-customizer',
-			'const SukiCustomizerData = ' . wp_json_encode(
+			'const sukiCustomizerData = ' . wp_json_encode(
 				array(
 					'contexts'        => $this->get_control_contexts(),
 					'previewContexts' => $this->get_preview_contexts(),
@@ -294,7 +294,6 @@ class Suki_Customizer {
 						'blur'             => esc_html__( 'Blur', 'suki' ),
 						'spread'           => esc_html__( 'Spread', 'suki' ),
 						'innerShadow'      => esc_html__( 'Inner shadow', 'suki' ),
-						'outerShadow'      => esc_html__( 'Outer shadow', 'suki' ),
 
 						/**
 						 * Color
@@ -396,9 +395,6 @@ class Suki_Customizer {
 	 * Print <style> tags for preview frame.
 	 */
 	public function print_preview_styles() {
-		// Print global preview CSS.
-		echo '<style id="suki-preview-css" type="text/css">.customize-partial-edit-shortcut button:hover,.customize-partial-edit-shortcut button:focus{border-color: currentColor}</style>' . "\n";
-
 		/**
 		 * Print saved theme_mods CSS.
 		 */
@@ -669,21 +665,18 @@ class Suki_Customizer {
 
 		// Parse value for "font" type.
 		if ( 'font' === $rule['type'] ) {
-			/**
-			 * Chunks
-			 *
-			 * 0 => group.
-			 * 1 => font name.
-			 */
-			$chunks = explode( '|', $setting_value );
-
-			if ( 2 === count( $chunks ) ) {
-				// Populate $fonts array if haven't.
-				if ( empty( $fonts ) ) {
-					$fonts = suki_get_all_fonts();
-				}
-				$setting_value = suki_array_value( suki_array_value( $fonts, $chunks[0], array() ), $chunks[1], $chunks[1] );
+			// Fallback compatibility for prior v2.
+			if ( false !== strpos( $setting_value, '|' ) ) {
+				$setting_value = preg_replace( '/.*?\|/', '', $setting_value );
 			}
+
+			// Populate $fonts array if haven't.
+			if ( empty( $fonts ) ) {
+				$fonts = suki_get_all_fonts();
+				$fonts = suki_flatten_array( $fonts );
+			}
+
+			$setting_value = suki_array_value( $fonts, $setting_value, $setting_value );
 		}
 
 		// Replace any $ found in the pattern to value.
