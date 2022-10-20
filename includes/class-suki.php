@@ -94,6 +94,12 @@ class Suki {
 		// Helper functions.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'helpers.php';
 
+		// Server-side theme.json configurations.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'theme.json.php';
+
+		// Block supports.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'block-supports/layout.php';
+
 		// Template functions.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags.php';
 
@@ -129,9 +135,6 @@ class Suki {
 		foreach ( $core_modules as $module ) {
 			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . $module . '/class-suki-' . $module . '.php';
 		}
-
-		// Block supports.
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'block-supports/layout.php';
 
 		// Admin page functionalities.
 		if ( is_admin() ) {
@@ -195,28 +198,6 @@ class Suki {
 		add_theme_support( 'editor-styles' );
 
 		/**
-		 * Color palette
-		 *
-		 * We declare the color palette via `add_theme_support` instead of `theme.json`.
-		 * Because we need to support user defined color names as configured on Customize > Global Configuration > Color Palette.
-		 */
-
-		$palette = array();
-
-		for ( $i = 1; $i <= 8; $i++ ) {
-			$palette[] = array(
-				'slug'  => 'suki-color-' . $i,
-				'color' => suki_get_theme_mod( 'color_palette_' . $i ), // var(--color-palette-$i).
-				'name'  => suki_get_theme_mod( 'color_palette_' . $i . '_name' ),
-			);
-		}
-
-		add_theme_support(
-			'editor-color-palette',
-			$palette
-		);
-
-		/**
 		 * Additional theme supports
 		 *
 		 * Ones that could not be defined in theme.json.
@@ -224,9 +205,6 @@ class Suki {
 
 		// Responsive embeds.
 		add_theme_support( 'responsive-embeds' );
-
-		// Remove generated layout styles, we will use our own generated styles.
-		add_theme_support( 'disable-layout-styles' );
 	}
 
 	/**

@@ -34,19 +34,19 @@ for ( $i = 1; $i <= 8; $i++ ) {
  * ====================================================
  */
 
-$add['container_wide_width'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'body',
-		'property' => '--content-width--wide',
-	),
-);
-
 $add['container_narrow_width'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body',
 		'property' => '--content-width--narrow',
+	),
+);
+
+$add['container_wide_width'] = array(
+	array(
+		'type'     => 'css',
+		'element'  => 'body',
+		'property' => '--content-width--wide',
 	),
 );
 

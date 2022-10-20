@@ -233,4 +233,4 @@ function suki_render_layout_support_styles( $block_content, $block ) {
 
 	return $block_content;
 }
-add_filter( 'render_block', 'suki_render_layout_support_styles', 10, 2 );
+// add_filter( 'render_block', 'suki_render_layout_support_styles', 10, 2 );

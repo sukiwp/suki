@@ -42,7 +42,7 @@ $add['color_palette_8_name'] = esc_html__( 'Background', 'suki' );
  * ====================================================
  */
 
-$add['body_font_family'] = 'web_safe_fonts|Default System Font';
+$add['body_font_family'] = 'Default System Font';
 $add['body_font_size']   = '16px';
 $add['body_line_height'] = '1.6';
 
@@ -159,7 +159,7 @@ $add['meta_text_color'] = 'var(--color--palette-3)';
 $add['container_wide_width']   = '1140px';
 $add['container_narrow_width'] = '700px';
 
-$add['block_spacing'] = '1.5rem';
+$add['block_spacing'] = '1.25rem';
 
 /**
  * ====================================================
