@@ -28,29 +28,24 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	$key,
-	array(
-		'type'     => 'select',
-		'section'  => $section,
-		'label'    => esc_html__( 'Display', 'suki' ),
-		'choices'  => array(
-			'drawer'      => esc_html__( 'Drawer', 'suki' ),
-			'full-screen' => esc_html__( 'Full screen', 'suki' ),
-		),
-		'priority' => 10,
-	)
-);
-
-// Info.
-$wp_customize->add_control(
-	new Suki_Customize_Notice_Control(
+	new Suki_Customize_RadioImage_Control(
 		$wp_customize,
-		'notice_header_mobile_trigger',
+		$key,
 		array(
-			'section'     => $section,
-			'settings'    => array(),
-			'description' => esc_html__( 'Make sure you have included the "Toggle" element to open the mobile popup panel.', 'suki' ),
-			'priority'    => 10,
+			'section'  => $section,
+			'label'    => esc_html__( 'Display', 'suki' ),
+			'choices'  => array(
+				'drawer'      => array(
+					'label' => esc_html__( 'Drawer', 'suki' ),
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup--drawer.svg',
+				),
+				'full-screen' => array(
+					'label' => esc_html__( 'Full screen', 'suki' ),
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup--full-screen.svg',
+				),
+			),
+			'columns'  => 3,
+			'priority' => 10,
 		)
 	)
 );
@@ -75,11 +70,9 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'left'  => array(
 					'label' => is_rtl() ? esc_html__( 'Right', 'suki' ) : esc_html__( 'Left', 'suki' ),
-					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup--left.svg',
 				),
 				'right' => array(
 					'label' => is_rtl() ? esc_html__( 'Left', 'suki' ) : esc_html__( 'Right', 'suki' ),
-					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup--right.svg',
 				),
 			),
 			'columns'  => 3,
@@ -108,15 +101,12 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'left'   => array(
 					'label' => esc_html__( 'Left', 'suki' ),
-					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--left.svg',
 				),
 				'center' => array(
 					'label' => esc_html__( 'Center', 'suki' ),
-					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--center.svg',
 				),
 				'right'  => array(
 					'label' => esc_html__( 'Right', 'suki' ),
-					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/mobile-header-popup-full-screen--right.svg',
 				),
 			),
 			'columns'  => 3,
