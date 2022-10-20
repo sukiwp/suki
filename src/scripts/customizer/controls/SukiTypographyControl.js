@@ -90,7 +90,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 				}
 
 				<Card
-					size="xSmall"
+					size="small"
 				>
 					<CardBody>
 						<Flex
