@@ -3,25 +3,91 @@
 	"version": 2,
 	"settings": {
 		"appearanceTools": true,
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
 		"color": {
+			"background": true,
 			"custom": true,
-			"link": true,
+			"customDuotone": true,
+			"customGradient": true,
+			"defaultDuotone": true,
+			"defaultGradients": true,
+			"defaultPalette": true,
 			"duotone": [],
-			"customDuotone": false,
 			"gradients": [],
-			"customGradient": false
+			"link": true,
+			"palette": [],
+			"text": true
+		},
+		"layout": {
+			"contentSize": "var(--content-width--narrow)",
+			"wideSize": "var(--content-width--wide)"
+		},
+		"spacing": {
+			"blockGap": true,
+			"margin": true,
+			"padding": true,
+			"units": [ "px", "em", "rem", "vh", "vw", "%" ],
+			"customSpacingSize": true,
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{
+					"size": "0.5rem",
+					"slug": "10",
+					"name": "1"
+				},
+				{
+					"size": "1rem",
+					"slug": "20",
+					"name": "2"
+				},
+				{
+					"size": "1.25rem",
+					"slug": "30",
+					"name": "3"
+				},
+				{
+					"size": "1.5rem",
+					"slug": "40",
+					"name": "4"
+				},
+				{
+					"size": "2rem",
+					"slug": "50",
+					"name": "5"
+				},
+				{
+					"size": "3rem",
+					"slug": "60",
+					"name": "6"
+				},
+				{
+					"size": "4rem",
+					"slug": "70",
+					"name": "7"
+				}
+			]
 		},
 		"typography": {
-			"fontFamilies": [],
+			"customFontSize": true,
+			"fontStyle": true,
+			"fontWeight": true,
+			"fluid": true,
+			"letterSpacing": true,
+			"lineHeight": true,
+			"textDecoration": true,
+            "textTransform": true,
+			"dropCap": true,
 			"fontSizes": [
 				{
 					"name": "Small",
 					"slug": "small",
-					"size": "0.9rem"
-				},
-				{
-					"name": "Normal",
-					"slug": "normal",
 					"size": "1rem"
 				},
 				{
@@ -36,44 +102,20 @@
 				},
 				{
 					"name": "Extra Large",
-					"slug": "extra-large",
+					"slug": "x-large",
 					"size": "1.8rem"
 				},
 				{
 					"name": "Huge",
-					"slug": "huge",
+					"slug": "xx-large",
 					"size": "2.4rem"
 				}
 			],
-			"fontStyle": true,
-			"fontWeight": true,
-			"letterSpacing": true,
-			"lineHeight": true,
-			"textDecoration": true,
-            "textTransform": true,
-			"customFontSize": true,
-			"dropCap": true
-		},
-		"layout": {
-			"contentSize": "var(--content-width--narrow)",
-			"wideSize": "var(--content-width--wide)"
-		},
-		"spacing": {
-			"blockGap": true,
-			"padding": true,
-			"margin": true,
-			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
-		},
-		"border": {
-			"color": true,
-			"radius": true,
-			"style": true,
-			"width": true
+			"fontFamilies": []
 		},
 		"custom": {
 			"line-height": {
 				"small": "1.7",
-				"normal": "1.7",
 				"medium": "1.6",
 				"large": "1.5",
 				"extra-large": "1.4",
