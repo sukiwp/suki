@@ -18,7 +18,8 @@ $add = array();
  * ====================================================
  */
 
-$add['product_archive_content_header'] = array( 'title', 'archive-description' );
+$add['product_archive_content_header']           = array( 'title', 'archive-description' );
+$add['product_archive_content_header_alignment'] = 'left';
 
 $add['woocommerce_index_posts_per_page'] = 12;
 $add['woocommerce_index_grid_columns']   = 4;

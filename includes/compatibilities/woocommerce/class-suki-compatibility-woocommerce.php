@@ -974,12 +974,12 @@ class Suki_Compatibility_WooCommerce {
 
 		// If "Container Width" is not set yet, set it to the default value.
 		if ( ! isset( $page_settings['content_container'] ) ) {
-			$page_settings['content_container'] = 'default';
+			$page_settings['content_container'] = 'wide';
 		}
 
 		// If "Container Width" is not set yet, set it to the default value.
 		if ( ! isset( $page_settings['content_layout'] ) ) {
-			$page_settings['content_layout'] = 'wide';
+			$page_settings['content_layout'] = 'no-sidebar';
 		}
 
 		// Update the post meta.
