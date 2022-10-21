@@ -3,13 +3,16 @@
  */
 
 .wc-block-components-sidebar-layout {
-	--gap: calc( 3 * var(--block-spacing) );
+	--gap: calc( 3 * var(--wp--style--block-gap) );
 
 	position: relative;
 	display: flex;
 	gap: var(--gap);
-}
 
+	.editor-styles-wrapper & > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		gap: var(--gap);
+	}
+}
 
 :is( .is-medium, .is-small, .is-mobile ) {
 	&.wc-block-components-sidebar-layout {

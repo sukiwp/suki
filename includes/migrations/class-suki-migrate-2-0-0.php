@@ -45,6 +45,8 @@ class Suki_Migrate_2_0_0 {
 	 */
 	protected function __construct() {
 		$this->migrate_page_settings_meta_key();
+
+		// $this->migrate_container_default_to_wide();
 	}
 
 	/**
@@ -73,6 +75,10 @@ class Suki_Migrate_2_0_0 {
 		);
 
 		return $updated;
+	}
+
+	private function migrate_container_default_to_wide() {
+
 	}
 }
 

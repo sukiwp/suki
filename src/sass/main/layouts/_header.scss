@@ -56,7 +56,7 @@
  */
 
 .suki-header-top-bar {
-	--items-gap: var(--block-spacing); // CUSTOMIZER
+	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
 	--height: 50px; // CUSTOMIZER
 	--background-color: var(--color-palette-7); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
@@ -70,7 +70,7 @@
 }
 
 .suki-header-main-bar {
-	--items-gap: var(--block-spacing); // CUSTOMIZER
+	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
 	--height: 90px; // CUSTOMIZER
 	--background-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
@@ -96,7 +96,7 @@
 }
 
 .suki-header-bottom-bar {
-	--items-gap: var(--block-spacing); // CUSTOMIZER
+	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
 	--height: 50px; // CUSTOMIZER
 	--background-color: var(--color-palette-1); // CUSTOMIZER
 	--text-color: var(--color-palette-6); // CUSTOMIZER
@@ -108,7 +108,7 @@
 	background-color: var(--background-color);
 	color: var(--text-color);
 
-	padding: 0 var(--block-spacing); // CUSTOMIZER
+	padding: 0 var(--wp--style--block-gap); // CUSTOMIZER
 }
 
 /**
@@ -116,7 +116,7 @@
 */
 
 .suki-header-mobile-main-bar {
-	--items-gap: var(--block-spacing); // CUSTOMIZER
+	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
 	--height: 60px; // CUSTOMIZER
 	--background-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
@@ -130,7 +130,7 @@
 }
 
 .suki-header-mobile-popup {
-	--items-gap: var(--block-spacing); // CUSTOMIZER
+	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
 	--width: 300px; // CUSTOMIZER
 	--background-color: var(--color-palette-8); // CUSTOMIZER
 	--link-color: var(--color-palette-1); // CUSTOMIZER
@@ -149,7 +149,7 @@
 .suki-header-mobile-popup--position-right {
 	.suki-toggle.suki-popup__close {
 		right: auto;
-		left: var(--block-spacing);
+		left: var(--wp--style--block-gap);
 	}
 }
 
@@ -208,13 +208,13 @@
 
 .suki-header-row {
 	height: 100%;
-	align-items: stretch;
-	gap: var(--items-gap);
+	align-items: stretch !important; // Override "body .is-layout-flex".
+	gap: var(--items-gap) !important; // Override "body .is-layout-flex".
 }
 
 .suki-header-column {
-	align-items: inherit;
-	gap: inherit;
+	align-items: inherit !important; // Override "body .is-layout-flex".
+	gap: inherit !important; // Override "body .is-layout-flex".
 	white-space: nowrap;
 
 	> * {
@@ -335,20 +335,20 @@
 			display: none; // Will be changed by JS
 
 			.has-text-align-left & {
-				padding-inline-start: var(--block-spacing);
+				padding-inline-start: var(--wp--style--block-gap);
 			}
 
 			.has-text-align-right & {
-				padding-inline-end: var(--block-spacing);
+				padding-inline-end: var(--wp--style--block-gap);
 			}
 
 			.suki-menu-item-link {
-				padding: calc( 0.25 * var(--block-spacing) ) 0;
+				padding: calc( 0.25 * var(--wp--style--block-gap) ) 0;
 			}
 		}
 
 		.suki-menu-item-link, .suki-sub-menu-toggle {
-			padding: calc( 0.25 * var(--block-spacing) ) 0;
+			padding: calc( 0.25 * var(--wp--style--block-gap) ) 0;
 		}
 	}
 }

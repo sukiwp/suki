@@ -9,7 +9,7 @@
 		flex-direction: column;
 		justify-content: center;
 		min-height: inherit;
-		padding: var(--block-spacing);
+		padding: var(--wp--style--block-gap);
 		isolation: isolate;
 
 		> * {
@@ -19,7 +19,7 @@
 		}
 
 		> * + * {
-			margin-block-start: var(--block-spacing);
+			margin-block-start: var(--wp--style--block-gap);
 		}
 	}
 
@@ -116,7 +116,7 @@
 
 .wc-block-featured-product__variation {
 	font: inherit;
-	margin-block-start: calc( 0.5 * var(--block-spacing) );
+	margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
 }
 
 .wc-block-featured-product__price {

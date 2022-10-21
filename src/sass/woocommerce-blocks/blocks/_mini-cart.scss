@@ -92,14 +92,14 @@
 
 	.wc-block-mini-cart__empty-cart-wrapper {
 		overflow-y: auto;
-		padding: var(--block-spacing);
+		padding: var(--wp--style--block-gap);
 
 		> * {
 			margin-block: 0;
 		}
 
 		> * + * {
-			margin-block-start: var(--block-spacing);
+			margin-block-start: var(--wp--style--block-gap);
 		}
 	}
 }
@@ -113,7 +113,7 @@
 	@include small-title-color();
 
 	margin: 0;
-	padding: var(--block-spacing);
+	padding: var(--wp--style--block-gap);
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
@@ -123,7 +123,7 @@
 	// flex-direction: column; // ??
 	flex-grow: 1;
 	overflow-y: auto;
-	padding: var(--block-spacing);
+	padding: var(--wp--style--block-gap);
 
 	.wc-block-mini-cart-items {
 		thead {
@@ -135,7 +135,7 @@
 .wc-block-mini-cart__footer {
 	border-top-width: 1px;
 	border-top-style: solid;
-	padding: var(--block-spacing);
+	padding: var(--wp--style--block-gap);
 
 	.wc-block-mini-cart__footer-subtotal {
 		display: flex;
@@ -158,7 +158,7 @@
 	.wc-block-mini-cart__footer-actions {
 		display: flex;
 		gap: 1em;
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 
 		.wc-block-components-button {
 			flex: 1;
@@ -180,7 +180,7 @@
 	}
 
 	.wc-block-components-payment-method-icons {
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 	}
 }
 

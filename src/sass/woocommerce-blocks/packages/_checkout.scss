@@ -76,7 +76,7 @@
 	font-size: 1.1em;
 
 	&[aria-expanded="true"] {
-		margin-block-end: calc( 0.75 * var(--block-spacing) );
+		margin-block-end: var(--wp--style--block-gap);
 	}
 
 	> .wc-block-components-panel__button-icon {
@@ -102,11 +102,11 @@
  */
 
 .wc-block-components-totals-wrapper {
-	padding-block: calc( 0.75 * var(--block-spacing) );
+	padding-block: var(--wp--style--block-gap);
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 
-	&:is( :first-child, :first-of-type ) {
+	&:first-child {
 		border-top-width: 1px;
 		border-top-style: solid;
 	}
@@ -129,6 +129,10 @@
 				border-bottom-width: 0;
 			}
 		}
+	}
+
+	.editor-styles-wrapper .wc-block-components-sidebar .block-editor-block-list__block:not(:first-child) &:first-child {
+		border-top-width: 0;
 	}
 }
 

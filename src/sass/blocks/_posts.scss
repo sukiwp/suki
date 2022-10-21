@@ -17,7 +17,7 @@
 
 	&:where(.is-flex-container) {
 		display: grid;
-		gap: calc( 1.5 * var(--block-spacing) );
+		gap: calc( 1.5 * var(--wp--style--block-gap) );
 
 		@media screen and ( min-width: $breakpoint-phone ) {
 			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
@@ -57,7 +57,7 @@
 
 .wp-block-post-author {
 	display: flex;
-	gap: var(--block-spacing);
+	gap: var(--wp--style--block-gap);
 	@include padding-for-has-background();
 
 	@media screen and ( max-width: ( $breakpoint-phone - 0.1px ) ) {
@@ -81,7 +81,7 @@
 	}
 
 	&__bio {
-		margin-block-start: calc( 0.5 * var(--block-spacing) );
+		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
 	}
 
 	&__byline {

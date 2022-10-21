@@ -17,7 +17,7 @@
  */
 
 .suki-post-navigation {
-	margin-block-start: calc( 3 * var(--block-spacing) ); // Query Pagination block doesn't support margin yet.
+	margin-block-start: calc( 3 * var(--wp--style--block-gap) ); // Query Pagination block doesn't support margin yet.
 }
 
 /**
@@ -25,9 +25,9 @@
  */
 
 .suki-comments {
-	margin-block-start: calc( 3 * var(--block-spacing) ); // Comments Query Loop block doesn't support margin yet.
+	margin-block-start: calc( 3 * var(--wp--style--block-gap) ); // Comments Query Loop block doesn't support margin yet.
 
 	> * + * {
-		margin-block-start: calc( 1.5 * var(--block-spacing) ); // The children blocks don't support margin yet.
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ); // The children blocks don't support margin yet.
 	}
 }

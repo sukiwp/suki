@@ -395,7 +395,7 @@
 // Padding when element has .has-background
 @mixin padding-for-has-background() {
 	&:where(.has-background) {
-		padding: var(--block-spacing);
+		padding: var(--wp--style--block-gap);
 	}
 }
 
@@ -403,7 +403,7 @@
 @mixin max-width-for-alignleft-alignright() {
 	// Apply max-width to floated items that have no intrinsic width.
 	&:where(.alignleft, .alignright) {
-		max-width: calc( 50% - ( var(--block-spacing) / 2 ) ); // Fix value, only overrideable via custom CSS
+		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) ); // Fix value, only overrideable via custom CSS
 		width: 100%;
 	}
 }
@@ -411,8 +411,8 @@
 // Align full ignores padding
 @mixin stretch-alignfull() {
 	&:is(.alignfull) {
-		margin-inline-start: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
-		margin-inline-end: calc( -1 * ( min( var(--content-width--full), 100vw ) - 100% ) / 2 ) !important;
+		margin-inline-start: calc( -1 * ( min( var(--canvas-width), 100vw ) - 100% ) / 2 ) !important;
+		margin-inline-end: calc( -1 * ( min( var(--canvas-width), 100vw ) - 100% ) / 2 ) !important;
 	}
 }
 

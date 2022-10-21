@@ -152,7 +152,7 @@
  */
 
 .woocommerce .woocommerce-pagination {
-	margin-block-start: calc( 2 * var(--block-spacing) );
+	margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 	text-align: center;
 
 	ul {

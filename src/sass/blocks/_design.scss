@@ -25,7 +25,7 @@
  */
 
 .wp-block-button {
-	--gap: var(--block-spacing, 0.5em);
+	--gap: var(--wp--style--block-gap, 0.5em);
 
 	&__link {
 		@include button();
@@ -86,7 +86,7 @@
  */
 
 .wp-block-columns {
-	--gap: var(--block-spacing);
+	--gap: var(--wp--style--block-gap);
 
 	display: flex;
 	flex-wrap: wrap;
@@ -117,7 +117,7 @@
 	}
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
-		flex-wrap: nowrap !important;
+		flex-wrap: nowrap;
 	}
 }
 

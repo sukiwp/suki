@@ -8,7 +8,7 @@
 
 :where( ul, ol ) {
 	&.has-background {
-		padding-inline-start: calc( 2 * var(--block-spacing) );
+		padding-inline-start: calc( 2 * var(--wp--style--block-gap) );
 	}
 }
 
@@ -45,9 +45,15 @@
  */
 
 .wp-block-code {
+	background-color: var(--subtle-background-color);
+	color: var(--text-color);
+	border-width: 0;
+	padding: 0.5em;
+
 	code {
+		background-color: unset;
+		color: unset;
 		display: block;
-		padding: 0.4em 0.6em;
 	}
 }
 
@@ -199,7 +205,7 @@
 	&.alignright {
 		display: table;
 		width: auto;
-		max-width: calc( ( var(--content-width--narrow) / 2 ) - ( var(--block-spacing) / 2 ) );; // Fix value, only overrideable via custom CSS
+		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) ); // Fix value, only overrideable via custom CSS
 
 		th, td {
 			word-break: break-word;

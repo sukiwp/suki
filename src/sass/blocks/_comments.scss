@@ -25,14 +25,14 @@
 
 	.comment > ol {
 		list-style: none;
-		padding-inline-start: calc( 2 * var(--block-spacing) );
+		padding-inline-start: calc( 2 * var(--wp--style--block-gap) );
 	}
 
 	&,
 	.comment,
 	.comment > ol {
 		display: grid;
-		gap: calc( 2 * var(--block-spacing) );
+		gap: calc( 2 * var(--wp--style--block-gap) );
 	}
 }
 
@@ -66,11 +66,11 @@
  */
 
 .wp-block-comments-pagination {
-	gap: calc( 0.5 * var(--block-spacing) ) !important;
+	gap: calc( 0.5 * var(--wp--style--block-gap) ) !important;
 
 	> * {
 		display: inline-flex;
-		gap: calc( 0.5 * var(--block-spacing) );
+		gap: calc( 0.5 * var(--wp--style--block-gap) );
 	}
 }
 
@@ -87,7 +87,7 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: var(--block-spacing);
+		gap: var(--wp--style--block-gap);
 		@extend %comments-heading;
 
 		small {

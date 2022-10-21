@@ -4,7 +4,7 @@
 
 figure {
 	margin-inline: 0; // Reset
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
 }

@@ -110,26 +110,25 @@ div.customize-section-description {
  * React colorful
  */
 .components-color-picker .react-colorful {
-	width: 275px !important;
+	width: 100% !important;
+	overflow: visible !important;
 }
 .components-color-picker .react-colorful__hue, .components-color-picker .react-colorful__alpha {
 	width: 100% !important;
 }
 .components-color-picker .react-colorful__saturation {
 	height: 155px !important;
+	margin-bottom: 12px !important;
 }
 .components-color-picker .react-colorful + div {
 	padding: 0;
-	margin-top: 4px;
 }
-.components-color-picker .react-colorful + div > .components-spacer {
-	margin: 8px 0 0;
-}
-.components-color-picker .react-colorful + div > .components-spacer:last-child {
-	display: none;
+.components-color-picker .react-colorful + div > * {
+	padding: 0;
 }
 .components-color-picker .react-colorful + div .components-input-control__input {
 	height: 30px !important;
+	min-height: 30px !important;
 }
 
 /**

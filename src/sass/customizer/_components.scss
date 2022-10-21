@@ -133,7 +133,8 @@ div.customize-section-description {
 
 .components-color-picker {
 	.react-colorful {
-		width: 275px !important; // Force the color picker to use parent's width
+		width: 100% !important; // Force the color picker to use parent's width
+		overflow: visible !important;
 
 		&__hue,
 		&__alpha {
@@ -142,22 +143,19 @@ div.customize-section-description {
 
 		&__saturation {
 			height: 155px !important;
+			margin-bottom: 12px !important;
 		}
 
 		& + div {
 			padding: 0;
-			margin-top: 4px;
 
-			> .components-spacer {
-				margin: 8px 0 0; // Same width default `spacing` attribute (2 x 4px)
-
-				&:last-child {
-					display: none;
-				}
+			> * {
+				padding: 0;
 			}
 
 			.components-input-control__input {
-				height: 30px !important; // Override
+				height: 30px !important;
+				min-height: 30px !important;
 			}
 		}
 	}

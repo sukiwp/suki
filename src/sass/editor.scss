@@ -46,19 +46,19 @@ body.mce-content-body {
  * Components
  */
 
-// .wp-block-search__button {
-// 	@extend %button;
-// }
+.wp-block-search__button {
+	@extend %button;
+}
 
-// .wp-block-social-links {
-// 	&.is-style-pill-shape {
-// 		.wp-block-social-link {
-// 			button {
-// 				padding: 0.25em;
-// 			}
-// 		}
-// 	}
-// }
+.wp-block-social-links {
+	&.is-style-pill-shape {
+		.wp-block-social-link {
+			button {
+				padding: 0.25em;
+			}
+		}
+	}
+}
 
 .block-editor-plain-text { // Re-define the original CSS, because it's overridden by theme's CSS (.editor-styles-wrapper textarea)
 	box-shadow: none;
@@ -72,21 +72,13 @@ body.mce-content-body {
 	width: 100%;
 }
 
-.edit-post-visual-editor__post-title-wrapper,
-.block-editor-block-list__layout.is-root-container {
-	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-		max-width: var(--content-width--narrow);
-		margin-inline-start: auto !important;
-		margin-inline-end: auto !important;
-	}
+body.suki-section--wide {
+	--content-width--narrow: var(--content-width--wide);
+}
 
-	> * {
-		margin-block: 0;
-	}
-
-	> * + * {
-		margin-block-start: var(--block-spacing);
-	}
+body.suki-section--full {
+	--content-width--narrow: auto;
+	--content-width--wide: auto;
 }
 
 body.wp-block-widget-area__inner-blocks {
@@ -106,12 +98,12 @@ body.wp-block-widget-area__inner-blocks {
  */
 
 body.suki-section--wide {
-	--content-width--narrow: var(--content-width--wide);
+	--wp--style--global--content-size: var(--wp--style--global--wide-size);
 }
 
 body.suki-section--full {
-	--content-width--narrow: auto;
-	--content-width--wide: auto;
+	--wp--style--global--content-size: auto;
+	--wp--style--global--wide-size: auto;
 }
 
 body .is-root-container {
@@ -121,7 +113,7 @@ body .is-root-container {
 body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
 		position: relative;
-		width: var(--content-width--narrow);
+		width: var(--wp--style--global--content-size);
 		margin-inline-start: auto;
 		margin-inline-end: auto;
 
@@ -142,11 +134,9 @@ body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar)
 	}
 
 	.block-editor-block-list__layout {
-		--content-width--narrow: auto;
-		--content-width--wide: auto;
-		--content-width--full: auto;
+		--wp--style--global--content-size: auto;
+		--wp--style--global--wide-size: auto;
 	}
-
 }
 
 body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.

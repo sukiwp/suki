@@ -12,18 +12,18 @@
 
 .woocommerce .col2-set {
 	.col-2 {
-		margin-block-start: calc( 3 * var(--block-spacing) );
+		margin-block-start: calc( 3 * var(--wp--style--block-gap) );
 	}
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		gap: calc( 2 * var(--block-spacing) );
+		gap: calc( 2 * var(--wp--style--block-gap) );
 
 		.col-1,
 		.col-2 {
-			flex-basis: calc( 50% - var(--block-spacing) );
+			flex-basis: calc( 50% - var(--wp--style--block-gap) );
 		}
 
 		.col-2 {

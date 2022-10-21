@@ -17,49 +17,38 @@
 
 .suki-content-sidebar-columns {
 	--sidebar-width: 25%; // CUSTOMIZER
-	--sidebar-gap: calc( 2 * var(--block-spacing) ); // CUSTOMIZER
+	--sidebar-gap: calc( 3 * var(--wp--style--block-gap) ); // CUSTOMIZER
 
-	gap: var(--sidebar-gap);
+	gap: var(--sidebar-gap) !important;
 
-	@media screen and ( min-width: $breakpoint-tablet ) {
-		flex-wrap: wrap; // Override default wp-block-columns style.
+	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
+		flex-wrap: wrap !important;
 	}
 
 	@media screen and ( min-width: $breakpoint-desktop ) {
-		flex-wrap: nowrap;
-		align-items: flex-start;
-
 		.suki-content--layout-left-sidebar & {
 			flex-direction: row-reverse;
 		}
 	}
 }
 
-.suki-main-column {
-	flex-basis: 100%; // Override default wp-block-columns style.
-
-	@media screen and ( min-width: $breakpoint-desktop ) {
-		flex-grow: 0;
-		flex-shrink: 0;
-		flex-basis: calc( 100% - var(--sidebar-width) - var(--sidebar-gap) );
+.suki-main-column,
+.suki-sidebar-column {
+	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
+		flex-basis: 100%; // Override default wp-block-columns style.
 	}
 }
 
 .suki-sidebar-column {
-	flex-basis: 100%; // Override default wp-block-columns style.
-
-	@media screen and ( min-width: $breakpoint-desktop ) {
-		flex-grow: 0;
-		flex-shrink: 0;
-		flex-basis: var(--sidebar-width);
-	}
+	flex-basis: var(--sidebar-width);
+	flex-grow: 0; // Disable grow if specific column's width is set
 }
 
 .sidebar {
-	--sidebar-widgets-gap: calc( 1.5 * var(--block-spacing) );
+	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
 
 	> * + * {
-		margin-block-start: var(--sidebar-widgets-gap); // CUSTOMIZER
+		margin-block-start: var(--sidebar-widgets-gap) !important; // CUSTOMIZER
 	}
 }
 

@@ -45,12 +45,12 @@ mark {
  */
 
 p {
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading-color);
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 
 	a {
 		color: inherit;
@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // For element after headings, remove the top margin. We will use the heading's margin bottom
 :where(h1, h2, h3, h4, h5, h6) + :where(h1, h2, h3, h4, h5, h6) {
-	margin-block-start: calc( 0.5 * var(--block-spacing) );
+	margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
 }
 
 h1 {
@@ -127,7 +127,7 @@ h6 {
 }
 
 :is( ul, ol ) {
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 	padding-inline-start: 2em;
 
 	overflow-wrap: break-word;
@@ -138,21 +138,21 @@ h6 {
 }
 
 pre {
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 	font-size: 1rem;
 	font-family: monospace;
 }
 
 address {
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 	font-style: normal;
 }
 
 blockquote {
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 
 	> * {
-		margin-block: var(--block-spacing);
+		margin-block: var(--wp--style--block-gap);
 		@include remove-margin-top-for-first-child();
 		@include remove-margin-bottom-for-last-child();
 	}

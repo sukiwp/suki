@@ -13,7 +13,7 @@
 	margin: 0;
 
 	position: relative;
-	margin-block-end: calc( 2 * var(--block-spacing) );
+	margin-block-end: calc( 2 * var(--wp--style--block-gap) );
 }
 
 .wc-block-components-checkout-step--disabled {
@@ -37,7 +37,7 @@
 	position: relative;
 
 	&:not(:first-child) {
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 	}
 
 	> * {
@@ -45,7 +45,7 @@
 	}
 
 	> * + * {
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 	}
 }
 
@@ -82,7 +82,7 @@
 			position: absolute;
 			top: 2rem;
 			left: calc( 1rem - 1px );
-			bottom: calc( -2 * var(--block-spacing) );
+			bottom: calc( -2 * var(--wp--style--block-gap) );
 			border-left: 2px dashed;
 			opacity: 0.125;
 		}
@@ -96,7 +96,7 @@
 .wc-block-components-order-summary__content {
 	display: flex;
 	flex-direction: column;
-	gap: var(--block-spacing);
+	gap: var(--wp--style--block-gap);
 }
 
 .wc-block-components-order-summary-item {
@@ -215,7 +215,7 @@
 
 	text-align: center;
 	line-height: 1;
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 }
 
 .wc-block-components-checkout-policies__item {
@@ -326,7 +326,7 @@
 .wc-block-components-shipping-rates-control__package {
 
 	.wc-block-components-radio-control:not(:first-child) {
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 	}
 }
 
@@ -412,7 +412,7 @@
 		padding: 0;
 		border: 0;
 
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 
 		.wc-block-components-panel__button {
 			font-size: inherit; // Reset font-size: 1.1em

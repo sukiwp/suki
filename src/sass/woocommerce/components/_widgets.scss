@@ -34,7 +34,7 @@
 
 	display: flex;
 	flex-direction: column;
-	gap: var(--block-spacing);
+	gap: var(--wp--style--block-gap);
 
 	li {
 		@include float-container();
@@ -50,7 +50,7 @@
 
 		img {
 			float: right;
-			margin-inline-start: calc( 0.5 * var(--block-spacing) );
+			margin-inline-start: calc( 0.5 * var(--wp--style--block-gap) );
 			width: min( 20%, 5em );
 			height: auto;
 		}
@@ -306,7 +306,7 @@
 		gap: 0.25em;
 
 		ul {
-			padding-inline-start: var(--block-spacing);
+			padding-inline-start: var(--wp--style--block-gap);
 		}
 	}
 }

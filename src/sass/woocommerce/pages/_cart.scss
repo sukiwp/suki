@@ -16,7 +16,7 @@
 		}
 
 		> * + * {
-			margin-block-start: calc( 3 * var(--block-spacing) );
+			margin-block-start: calc( 3 * var(--wp--style--block-gap) );
 		}
 	}
 
@@ -29,7 +29,7 @@
 
 		.cart_item {
 			:is( th, td ) {
-				padding-block: calc( 0.75 * var(--block-spacing) );
+				padding-block: calc( 0.75 * var(--wp--style--block-gap) );
 				vertical-align: middle;
 			}
 		}
@@ -46,7 +46,7 @@
 		}
 
 		.actions {
-			padding-block: var(--block-spacing);
+			padding-block: var(--wp--style--block-gap);
 
 			.coupon {
 				float: left;
@@ -91,7 +91,7 @@
 					"thumbnail . . . .";
 					grid-template-columns: min( 6em, 25% ) auto auto 1fr auto;
 					grid-template-rows: auto auto auto;
-					padding: var(--block-spacing) 0;
+					padding: var(--wp--style--block-gap) 0;
 					border-top-width: 1px;
 					border-top-style: solid;
 
@@ -157,7 +157,7 @@
 
 					.coupon {
 						float: none; // Reset
-						margin-block-end: var(--block-spacing);
+						margin-block-end: var(--wp--style--block-gap);
 					}
 
 					[name="update_cart"] {
@@ -174,25 +174,25 @@
 	 */
 
 	.cart-collaterals {
-		margin-block-start: calc( 2 * var(--block-spacing) );
+		margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 
 		> * {
 			margin-block: 0;
 		}
 
 		> * + * {
-			margin-block-start: calc( 2 * var(--block-spacing) );
+			margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 		}
 	}
 
 	.cart_totals {
 		@media screen and ( min-width: $breakpoint-desktop ) {
-			width: min( calc( 50% - var(--block-spacing) ), 25rem );
+			width: min( calc( 50% - var(--wp--style--block-gap) ), 25rem );
 			margin-inline-start: auto;
 		}
 
 		.wc-proceed-to-checkout {
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 			.checkout-button {
 				width: 100%;
@@ -211,7 +211,7 @@
 				}
 
 				> * + * {
-					margin-block-start: calc( 0.5 * var(--block-spacing) );
+					margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
 				}
 			}
 		}
@@ -222,7 +222,7 @@
 	 */
 
 	.suki-woocommerce-cart-2-columns {
-		--gap: calc( 3 * var(--block-spacing) );
+		--gap: calc( 3 * var(--wp--style--block-gap) );
 
 		display: flex;
 		flex-wrap: wrap;
@@ -254,7 +254,7 @@
 
 				&--right {
 					flex-basis: calc( 40% - var(--gap) );
-					padding: calc( 1.25 * var(--block-spacing) );
+					padding: calc( 1.5 * var(--wp--style--block-gap) );
 					border-width: 1px;
 					border-style: solid;
 				}

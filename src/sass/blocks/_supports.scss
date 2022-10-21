@@ -8,7 +8,7 @@
 	}
 
 	> * + * {
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 	}
 
 	> style:first-child + * {
@@ -18,7 +18,7 @@
 
 .is-layout-constrained {
 	> :where( :not(.alignleft):not(.alignright):not(.alignfull) ) {
-		max-width: var(--content-width--narrow);
+		max-width: var(--wp--style--global--content-size);
 		margin-inline-start: auto !important;
 		margin-inline-end: auto !important;
 	}
@@ -28,7 +28,7 @@
 	}
 
 	> * + * {
-		margin-block-start: var(--block-spacing);
+		margin-block-start: var(--wp--style--block-gap);
 	}
 
 	> style:first-child + * {
@@ -38,7 +38,7 @@
 
 .is-layout-flex {
 	display: flex;
-	gap: var(--block-spacing);
+	gap: var(--wp--style--block-gap);
 
 	&:where(:not(.is-nowrap)) {
 		flex-wrap: wrap;

@@ -17,8 +17,8 @@
 
 	display: flex;
 	flex-direction: column;
-	gap: calc( 1.5 * var(--block-spacing) );
-	margin-block-start: calc( 1.5 * var(--block-spacing) );
+	gap: calc( 1.5 * var(--wp--style--block-gap) );
+	margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 }
 
 .wc-block-components-review-list-item__info {
@@ -136,5 +136,5 @@
 	}
 
 .wc-block-components-review-list-item__text {
-	margin-block-start: var(--block-spacing);
+	margin-block-start: var(--wp--style--block-gap);
 }

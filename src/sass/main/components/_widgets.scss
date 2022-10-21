@@ -19,7 +19,7 @@
 	.widget_recent_comments,
 	.widget_rss
 ) {
-	--gap: 0.25em;
+	--gap: 0.5em;
 
 	:is( ul, ol ) {
 		list-style: none;
@@ -32,7 +32,7 @@
 
 		:is( ul, ol ) {
 			margin-block-start: var(--gap);
-			padding-inline-start: var(--block-spacing);
+			padding-inline-start: var(--wp--style--block-gap);
 
 			display: flex;
 			flex-direction: column;

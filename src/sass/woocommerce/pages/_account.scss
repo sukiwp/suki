@@ -11,7 +11,7 @@
 		.woocommerce {
 			@media screen and ( min-width: $breakpoint-tablet ) {
 				--tabs-width: max( 20%, 10em );
-				--tabs-gap: calc( 2 * var(--block-spacing) );
+				--tabs-gap: calc( 2 * var(--wp--style--block-gap) );
 
 				display: flex;
 				align-items: flex-start;
@@ -48,7 +48,7 @@
 		align-items: center;
 		justify-content: flex-start;
 		gap: 0.75em;
-		padding-block-end: var(--block-spacing);
+		padding-block-end: var(--wp--style--block-gap);
 
 		img {
 			border-radius: 50%;
@@ -103,10 +103,10 @@
 
 	.addresses {
 		.title {
-			margin-block-end: var(--block-spacing);
+			margin-block-end: var(--wp--style--block-gap);
 
 			h3 {
-				margin-block-end: calc( 0.5 * var(--block-spacing) );
+				margin-block-end: calc( 0.5 * var(--wp--style--block-gap) );
 			}
 		}
 	}
@@ -132,8 +132,8 @@
 
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--block-spacing);
-		padding: var(--block-spacing);
+		gap: var(--wp--style--block-gap);
+		padding: var(--wp--style--block-gap);
 		background-color: var(--subtle-background-color);
 
 		> * {
@@ -146,7 +146,7 @@
 	}
 
 	:is( .woocommerce-order-details, .woocommerce-order-downloads, .woocommerce-customer-details ) {
-		margin-block-start: calc( 2 * var(--block-spacing) );
+		margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 
 		h2 {
 			@include small-title-typography();
@@ -220,7 +220,7 @@
 
 		li.note {
 			position: relative;
-			padding: var(--block-spacing);
+			padding: var(--wp--style--block-gap);
 			background-color: var(--subtle-background-color);
 
 			&:before {
@@ -238,7 +238,7 @@
 			&:after {
 				content: "";
 				position: absolute;
-				top: calc( var(--block-spacing) + 0.4em );
+				top: calc( var(--wp--style--block-gap) + 0.4em );
 				left: -2em;
 				border-radius: 100%;
 				width: 0.6em;
@@ -249,7 +249,7 @@
 
 			&:first-child {
 				&:before {
-					top: calc( var(--block-spacing) + 0.4em );
+					top: calc( var(--wp--style--block-gap) + 0.4em );
 				}
 
 				&:after {
@@ -262,7 +262,7 @@
 
 			&:last-child {
 				&:before {
-					bottom: calc( 100% - var(--block-spacing) - 0.4em );
+					bottom: calc( 100% - var(--wp--style--block-gap) - 0.4em );
 				}
 			}
 
@@ -279,7 +279,7 @@
 
 	#customer_login {
 		.woocommerce-form-login__rememberme {
-			margin-block: var(--block-spacing);
+			margin-block: var(--wp--style--block-gap);
 		}
 		.woocommerce-privacy-policy-text {
 			@include meta-typography();

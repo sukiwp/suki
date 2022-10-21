@@ -7,7 +7,7 @@
 	bottom: 0;
 	width: 100%;
 	margin: 0;
-	padding: calc( 0.75 * var(--block-spacing) ) 0;
+	padding: calc( 0.75 * var(--wp--style--block-gap) ) 0;
 	text-align: center;
 	background-color: var(--color-palette-4);
 	color: var(--color-palette-8);
@@ -25,7 +25,7 @@
  */
 
 .woocommerce-notices-wrapper {
-	margin-block: calc( 2 * var(--block-spacing) );
+	margin-block: calc( 2 * var(--wp--style--block-gap) );
 
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
@@ -40,7 +40,7 @@
 	list-style: none;
 	padding: 1em 1em 1em 3em;
 	margin-inline: 0;
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 
 	width: auto;
 	background-color: var(--subtle-background-color);

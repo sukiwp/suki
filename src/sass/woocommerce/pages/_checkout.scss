@@ -9,7 +9,7 @@
 
 	.woocommerce-form-coupon-toggle {
 		.woocommerce-info {
-			padding: var(--block-spacing);
+			padding: var(--wp--style--block-gap);
 
 			&:before {
 				display: none;
@@ -23,9 +23,9 @@
 	}
 
 	.woocommerce-form-coupon {
-		margin-block: var(--block-spacing);
+		margin-block: var(--wp--style--block-gap);
 		background-color: var(--subtle-background-color);
-		padding: var(--block-spacing);
+		padding: var(--wp--style--block-gap);
 
 		> p:first-child {
 			display: none;
@@ -40,12 +40,12 @@
 		}
 
 		~ .checkout {
-			margin-block-start: calc( 2 * var(--block-spacing) );
+			margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 		}
 	}
 
 	.checkout {
-		margin-block: var(--block-spacing);
+		margin-block: var(--wp--style--block-gap);
 
 		.col2-set {
 			display: block; // Reset
@@ -55,13 +55,13 @@
 			}
 
 			.col-2 {
-				margin-block-start: calc( 2 * var(--block-spacing) );
+				margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 			}
 		}
 	}
 
 	#order_review_heading {
-		margin-block-start: calc( 2 * var(--block-spacing) );
+		margin-block-start: calc( 2 * var(--wp--style--block-gap) );
 	}
 
 	.woocommerce-checkout-review-order-table {
@@ -83,12 +83,12 @@
 		#place_order {
 			width: 100%;
 			font-size: calc( 1.2 * var(--button--font-size, var(--base--font-size)) );
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 		}
 	}
 
 	.woocommerce-checkout-payment {
-		margin-block-start: calc( 1.5 * var(--block-spacing) );
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 		.payment_methods {
 			list-style: none;
@@ -255,7 +255,7 @@
 	 */
 
 	.suki-woocommerce-checkout-2-columns {
-		--gap: calc( 3 * var(--block-spacing) );
+		--gap: calc( 3 * var(--wp--style--block-gap) );
 
 		display: flex;
 		flex-wrap: wrap;
@@ -279,7 +279,7 @@
 
 				&--right {
 					flex-basis: calc( 40% - var(--gap) );
-					padding: calc( 1.25 * var(--block-spacing) );
+					padding: calc( 1.5 * var(--wp--style--block-gap) );
 					border-width: 1px;
 					border-style: solid;
 				}

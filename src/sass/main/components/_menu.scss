@@ -10,7 +10,7 @@
 
 	position: relative; // Used for sub menu positioning
 	display: flex;
-	gap: var(--block-spacing);
+	gap: var(--wp--style--block-gap);
 
 	> .menu-item {
 		position: relative;

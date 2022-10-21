@@ -244,14 +244,14 @@ select[multiple] {
 fieldset {
 	border-style: solid;
 	border-width: 1px;
-	padding-inline: var(--block-spacing);
-	padding-block-start: calc( 0.5 * var(--block-spacing) );
-	padding-block-end: var(--block-spacing);
-	margin-block: var(--block-spacing);
+	padding-inline: var(--wp--style--block-gap);
+	padding-block-start: calc( 0.5 * var(--wp--style--block-gap) );
+	padding-block-end: var(--wp--style--block-gap);
+	margin-block: var(--wp--style--block-gap);
 	margin-inline: 0;
 
 	// legend {
-	// 	margin-block-end: calc( -1 * var(--block-spacing) );
+	// 	margin-block-end: calc( -1 * var(--wp--style--block-gap) );
 	// }
 }
 

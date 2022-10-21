@@ -13,7 +13,7 @@
 
 	> * {
 		flex-basis: 100%;
-		margin-block-start: calc( 3 * var(--block-spacing) );
+		margin-block-start: calc( 3 * var(--wp--style--block-gap) );
 
 		> h2:first-child {
 			@include small-title-typography();
@@ -30,7 +30,7 @@
 		}
 
 		~ .summary {
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 			@media screen and ( min-width: $breakpoint-tablet ) {
 				flex-basis: calc( 100% - var(--gallery-width) - var(--gallery-gap) );
@@ -141,7 +141,7 @@
 	// Summary
 	.summary {
 		> * + * {
-			margin-block-start: var(--block-spacing);
+			margin-block-start: var(--wp--style--block-gap);
 		}
 
 		// Price
@@ -184,12 +184,12 @@
 
 		// Add to cart form
 		.suki-woocommerce-product__add-to-cart {
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 		}
 
 		// Product meta
 		.product_meta {
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 			> * {
 				display: block;
@@ -262,7 +262,7 @@
 		}
 
 		.panel {
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 			> h2:first-child {
 				@include small-title-typography();
@@ -317,7 +317,7 @@
 
 		.variations {
 			display: block;
-			margin-block-end: calc( 1.5 * var(--block-spacing) );
+			margin-block-end: calc( 1.5 * var(--wp--style--block-gap) );
 
 			tbody {
 				display: flex;
@@ -353,11 +353,11 @@
 
 		.single_variation_wrap {
 			:is( .woocommerce-variation-price, .woocommerce-variation-add-to-cart ) {
-				margin-block-start: var(--block-spacing);
+				margin-block-start: var(--wp--style--block-gap);
 			}
 
 			.woocommerce-variation-availability {
-				margin-block-start: calc( 0.5 * var(--block-spacing) );
+				margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
 			}
 		}
 	}
@@ -382,16 +382,16 @@
 
 			display: flex;
 			flex-direction: column;
-			gap: calc( 1.5 * var(--block-spacing) );
-			margin-block-start: calc( 1.5 * var(--block-spacing) );
+			gap: calc( 1.5 * var(--wp--style--block-gap) );
+			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 			.children {
 				list-style: none;
 				padding: 0;
 				margin: 0;
 
-				margin-block-start: calc( 1.5 * var(--block-spacing) );
-				margin-inline-start: calc( 1.5 * var(--block-spacing) );
+				margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
+				margin-inline-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 				.star-rating {
 					display: none;
@@ -403,7 +403,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			gap: var(--block-spacing);
+			gap: var(--wp--style--block-gap);
 
 			@media screen and ( min-width: $breakpoint-phone ) {
 				flex-direction: row;
@@ -429,12 +429,12 @@
 		}
 
 		.description {
-			margin-block-start: calc( 0.5 * var(--block-spacing) );
+			margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
 		}
 	}
 
 	#respond {
-		margin-block-start: calc( 1.5 * var(--block-spacing) );
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 		.comment-reply-title {
 			display: block; // <span>
@@ -443,7 +443,7 @@
 		}
 
 		.comment-form {
-			margin-block-start: var(--block-spacing);
+			margin-block-start: var(--wp--style--block-gap);
 
 			.stars {
 				margin: 0; // Reset

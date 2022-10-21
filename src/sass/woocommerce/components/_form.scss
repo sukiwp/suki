@@ -3,7 +3,7 @@
  */
 
 .woocommerce .form-row {
-	margin-block: var(--block-spacing);
+	margin-block: var(--wp--style--block-gap);
 
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
@@ -16,13 +16,13 @@
 		&-first {
 			width: 50%;
 			float: left;
-			padding-inline-end: calc( 0.5 * var(--block-spacing) );
+			padding-inline-end: calc( 0.5 * var(--wp--style--block-gap) );
 		}
 
 		&-last {
 			width: 50%;
 			float: right;
-			padding-inline-start: calc( 0.5 * var(--block-spacing) );
+			padding-inline-start: calc( 0.5 * var(--wp--style--block-gap) );
 		}
 
 		&-wide {
