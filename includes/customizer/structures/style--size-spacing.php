@@ -31,7 +31,7 @@ $wp_customize->add_control(
 			'label'       => esc_html__( 'Narrow container width', 'suki' ),
 			'description' => esc_html__( 'Should be smaller than the Wide container width.', 'suki' ),
 			'units'       => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 400,
 					'step' => 1,
 				),
@@ -67,7 +67,7 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Wide container width', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 600,
 					'step' => 1,
 				),

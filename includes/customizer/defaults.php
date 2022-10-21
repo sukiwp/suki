@@ -198,7 +198,6 @@ $add['content_padding']   = array( '80px', '20px', '80px', '20px' );
  */
 
 $add['sidebar_width'] = '25%';
-$add['sidebar_gap']   = '3rem';
 
 $add['sidebar_widgets_mode'] = 'merged';
 

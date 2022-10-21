@@ -65,14 +65,12 @@ if ( ! function_exists( 'suki_content' ) ) {
 			if ( suki_current_page_has_sidebar() ) {
 				?>
 				<!-- wp:columns {
-					"verticalAlignment":"top",
 					"className":"suki-content-sidebar-columns"
-				} --><div class="wp-block-columns are-vertically-aligned-top suki-content-sidebar-columns">
+				} --><div class="wp-block-columns suki-content-sidebar-columns">
 
 					<!-- wp:column {
-						"verticalAlignment":"top",
 						"className":"suki-main-column"
-					} --><div class="wp-block-column is-vertically-aligned-top suki-main-column">
+					} --><div class="wp-block-column suki-main-column">
 				<?php
 			}
 
@@ -147,9 +145,8 @@ if ( ! function_exists( 'suki_content' ) ) {
 					</div><!-- /wp:column -->
 
 					<!-- wp:column {
-						"verticalAlignment":"top",
 						"className":"suki-sidebar-column"
-					} --><div class="wp-block-column is-vertically-aligned-top suki-sidebar-column">
+					} --><div class="wp-block-column suki-sidebar-column">
 
 						<?php
 						/**

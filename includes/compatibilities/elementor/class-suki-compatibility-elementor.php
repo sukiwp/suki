@@ -226,7 +226,7 @@ class Suki_Compatibility_Elementor {
 						cache: false,
 						data: {
 							action: 'suki_apply_color_palette_to_elementor',
-							_ajax_nonce: SukiAdminData.ajax_nonce,
+							_ajax_nonce: sukiAdminData.ajax_nonce,
 						},
 					})
 					.done(function( response, status, XHR ) {
