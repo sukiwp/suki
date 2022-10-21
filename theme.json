@@ -78,7 +78,7 @@
 			"customFontSize": true,
 			"fontStyle": true,
 			"fontWeight": true,
-			"fluid": true,
+			"fluid": false,
 			"letterSpacing": true,
 			"lineHeight": true,
 			"textDecoration": true,
@@ -88,27 +88,27 @@
 				{
 					"name": "Small",
 					"slug": "small",
-					"size": "1rem"
+					"size": "0.9rem"
 				},
 				{
 					"name": "Medium",
 					"slug": "medium",
-					"size": "1.25rem"
+					"size": "1rem"
 				},
 				{
 					"name": "Large",
 					"slug": "large",
-					"size": "1.5rem"
+					"size": "1.25rem"
 				},
 				{
 					"name": "Extra Large",
 					"slug": "x-large",
-					"size": "1.8rem"
+					"size": "1.5rem"
 				},
 				{
 					"name": "Huge",
 					"slug": "xx-large",
-					"size": "2.4rem"
+					"size": "2rem"
 				}
 			],
 			"fontFamilies": []
