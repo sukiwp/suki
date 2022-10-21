@@ -6,8 +6,7 @@ import {
 } from '@wordpress/edit-post';
 
 import {
-	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-	__experimentalVStack as VStack,
+	Flex,
 	Panel,
 	PanelBody,
 	SelectControl,
@@ -89,7 +88,9 @@ function SukiPageSettingsSidebar() {
 								title={ panel.title }
 								initialOpen={ 0 === i ? true : false }
 							>
-								<VStack>
+								<Flex
+									direction="column"
+								>
 									{ panel.fields.map( ( field ) => {
 										const value = getFieldValue( field.key );
 
@@ -114,7 +115,7 @@ function SukiPageSettingsSidebar() {
 											/>
 										);
 									} ) }
-								</VStack>
+								</Flex>
 							</PanelBody>
 						</Panel>
 					);

@@ -208,7 +208,9 @@ function SukiPageSettingsSidebar() {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
       title: panel.title,
       initialOpen: 0 === i ? true : false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalVStack, null, panel.fields.map(field => {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Flex, {
+      direction: "column"
+    }, panel.fields.map(field => {
       const value = getFieldValue(field.key);
 
       if (field.outputs) {
