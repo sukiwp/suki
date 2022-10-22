@@ -92,7 +92,7 @@ $wp_customize->add_control(
 );
 
 // Navigation mode.
-$key = 'post_archive_pagination_layout';
+$key = 'post_archive_navigation_mode';
 $wp_customize->add_setting(
 	$key,
 	array(

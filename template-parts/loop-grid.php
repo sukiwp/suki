@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Pagination
 	 */
-	suki_loop_navigation( suki_get_theme_mod( 'post_archive_pagination_layout' ), false );
+	suki_loop_navigation( suki_get_theme_mod( 'post_archive_navigation_mode' ), false );
 	?>
 
 	<!-- wp:query-no-results -->
