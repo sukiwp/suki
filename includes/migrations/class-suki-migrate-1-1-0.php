@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Migration class for Suki 1.1.0.
  */
-class Suki_Migrate_1_1_0 {
+class Suki_Migrate_1_1_0 extends Suki_Migrate {
 
 	/**
 	 * Singleton instance
@@ -21,6 +21,13 @@ class Suki_Migrate_1_1_0 {
 	 * @var Suki_Migrate_1_1_0
 	 */
 	private static $instance;
+
+	/**
+	 * Version
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.1.0';
 
 	/**
 	 * ====================================================
@@ -41,18 +48,18 @@ class Suki_Migrate_1_1_0 {
 	}
 
 	/**
-	 * Class constructor
+	 * ====================================================
+	 * Migration functions
+	 * ====================================================
 	 */
-	protected function __construct() {
+
+	/**
+	 * Run migration
+	 */
+	protected function run() {
 		$this->migrate_default_values();
 		$this->convert_page_header_elements();
 	}
-
-	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
-	 */
 
 	/**
 	 * Default values changes.

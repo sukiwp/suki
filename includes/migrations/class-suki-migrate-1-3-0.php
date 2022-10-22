@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Migration class for Suki 1.3.0.
  */
-class Suki_Migrate_1_3_0 {
+class Suki_Migrate_1_3_0 extends Suki_Migrate {
 
 	/**
 	 * Singleton instance
@@ -21,6 +21,13 @@ class Suki_Migrate_1_3_0 {
 	 * @var Suki_Migrate_1_3_0
 	 */
 	private static $instance;
+
+	/**
+	 * Version
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.3.0';
 
 	/**
 	 * ====================================================
@@ -41,9 +48,15 @@ class Suki_Migrate_1_3_0 {
 	}
 
 	/**
-	 * Class constructor
+	 * ====================================================
+	 * Migration functions
+	 * ====================================================
 	 */
-	protected function __construct() {
+
+	/**
+	 * Run migration
+	 */
+	protected function run() {
 		$this->preserve_old_default_typography_styles();
 		$this->migrate_page_template_slug();
 		$this->migrate_featured_media_to_thumbnail();
@@ -60,12 +73,6 @@ class Suki_Migrate_1_3_0 {
 
 		$this->migrate_woocommerce_settings();
 	}
-
-	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
-	 */
 
 	/**
 	 * Migrate default typography.

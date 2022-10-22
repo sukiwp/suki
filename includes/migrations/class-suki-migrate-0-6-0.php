@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Migration class for Suki 0.6.0.
  */
-class Suki_Migrate_0_6_0 {
+class Suki_Migrate_0_6_0 extends Suki_Migrate {
 
 	/**
 	 * Singleton instance
@@ -21,6 +21,13 @@ class Suki_Migrate_0_6_0 {
 	 * @var Suki_Migrate_0_6_0
 	 */
 	private static $instance;
+
+	/**
+	 * Version
+	 *
+	 * @var string
+	 */
+	const VERSION = '0.6.0';
 
 	/**
 	 * ====================================================
@@ -41,17 +48,17 @@ class Suki_Migrate_0_6_0 {
 	}
 
 	/**
-	 * Class constructor
+	 * ====================================================
+	 * Migration functions
+	 * ====================================================
 	 */
-	protected function __construct() {
-		$this->merge_section_layout_and_padding();
-	}
 
 	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
+	 * Run migration
 	 */
+	protected function run() {
+		$this->merge_section_layout_and_padding();
+	}
 
 	/**
 	 * Build a new padding value for template sections.

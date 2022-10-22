@@ -65,6 +65,8 @@ class Suki_Migration {
 	 * Class constructor
 	 */
 	private function __construct() {
+		require_once SUKI_INCLUDES_DIR . '/migrations/class-suki-migrate.php';
+
 		add_action( 'init', array( $this, 'run' ), 999 ); // set priority to "999" to allow plugin's "init" to run before the migration.
 	}
 

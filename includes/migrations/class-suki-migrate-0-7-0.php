@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Migration class for Suki 0.7.0.
  */
-class Suki_Migrate_0_7_0 {
+class Suki_Migrate_0_7_0 extends Suki_Migrate {
 
 	/**
 	 * Singleton instance
@@ -21,6 +21,13 @@ class Suki_Migrate_0_7_0 {
 	 * @var Suki_Migrate_0_7_0
 	 */
 	private static $instance;
+
+	/**
+	 * Version
+	 *
+	 * @var string
+	 */
+	const VERSION = '0.7.0';
 
 	/**
 	 * ====================================================
@@ -41,18 +48,18 @@ class Suki_Migrate_0_7_0 {
 	}
 
 	/**
-	 * Class constructor
+	 * ====================================================
+	 * Migration functions
+	 * ====================================================
 	 */
-	protected function __construct() {
+
+	/**
+	 * Run migration
+	 */
+	protected function run() {
 		$this->convert_page_header_bg_overlay_to_color();
 		$this->rename_menu_highlight();
 	}
-
-	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
-	 */
 
 	/**
 	 * Convert Page Header background overlay opacity to an independent color option.

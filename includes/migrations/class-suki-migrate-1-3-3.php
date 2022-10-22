@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Migration class for Suki 1.3.3.
  */
-class Suki_Migrate_1_3_3 {
+class Suki_Migrate_1_3_3 extends Suki_Migrate {
 
 	/**
 	 * Singleton instance
@@ -21,6 +21,13 @@ class Suki_Migrate_1_3_3 {
 	 * @var Suki_Migrate_1_3_3
 	 */
 	private static $instance;
+
+	/**
+	 * Version
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.3.3';
 
 	/**
 	 * ====================================================
@@ -41,17 +48,17 @@ class Suki_Migrate_1_3_3 {
 	}
 
 	/**
-	 * Class constructor
+	 * ====================================================
+	 * Migration functions
+	 * ====================================================
 	 */
-	protected function __construct() {
-		$this->migrate_page_template_slug();
-	}
 
 	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
+	 * Run migration
 	 */
+	protected function run() {
+		$this->migrate_page_template_slug();
+	}
 
 	/**
 	 * Revert the page template values on all pages, from "page_builder" to "page-builder".

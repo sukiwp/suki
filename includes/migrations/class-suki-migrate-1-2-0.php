@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Migration class for Suki 1.2.0.
  */
-class Suki_Migrate_1_2_0 {
+class Suki_Migrate_1_2_0 extends Suki_Migrate {
 
 	/**
 	 * Singleton instance
@@ -21,6 +21,13 @@ class Suki_Migrate_1_2_0 {
 	 * @var Suki_Migrate_1_2_0
 	 */
 	private static $instance;
+
+	/**
+	 * Version
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.2.0';
 
 	/**
 	 * ====================================================
@@ -41,18 +48,18 @@ class Suki_Migrate_1_2_0 {
 	}
 
 	/**
-	 * Class constructor
+	 * ====================================================
+	 * Migration functions
+	 * ====================================================
 	 */
-	protected function __construct() {
+
+	/**
+	 * Run migration
+	 */
+	protected function run() {
 		$this->migrate_entry_grid_defaults();
 		$this->migrate_woocommerce_options();
 	}
-
-	/**
-	 * ====================================================
-	 * Private functions
-	 * ====================================================
-	 */
 
 	/**
 	 * Migrate entry grid efault values.
