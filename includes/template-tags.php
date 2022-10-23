@@ -212,8 +212,13 @@ if ( ! function_exists( 'suki_default_logo_mobile' ) ) {
 	 * Print / return HTML markup for default mobile logo.
 	 */
 	function suki_default_logo_mobile() {
+		$mobile_logo = suki_get_theme_mod( 'custom_logo_mobile' );
+
+		if ( empty( $mobile_logo ) ) {
+			$mobile_logo = suki_get_theme_mod( 'custom_logo' );
+		}
 		?>
-		<span class="suki-default-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo_mobile' ) ); ?></span>
+		<span class="suki-default-logo"><?php suki_logo( $mobile_logo ); ?></span>
 		<?php
 	}
 }

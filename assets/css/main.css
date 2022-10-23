@@ -1767,14 +1767,10 @@ th {
 .suki-logo a:focus, .suki-logo a:hover {
 	color: var(--small-title--text-color--focus);
 }
-.suki-logo img, .suki-logo svg {
+.suki-logo img {
 	display: block;
-	width: 100%;
-	height: auto;
-}
-
-.suki-logo-image {
 	width: 100px;
+	height: auto;
 }
 
 /**

@@ -362,15 +362,11 @@
 	@include small-title-typography();
 	@include small-title-color();
 
-	img, svg {
+	img {
 		display: block;
-		width: 100%;
+		width: 100px; // CUSTOMIZER
 		height: auto;
 	}
-}
-
-.suki-logo-image {
-	width: 100px; // CUSTOMIZER
 }
 
 /**

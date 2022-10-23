@@ -1582,7 +1582,7 @@ $add['header_mobile_vertical_bar_link_active_text_color'] = array(
 $add['header_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-logo .suki-logo-image',
+		'element'  => '.suki-logo img',
 		'property' => 'width',
 	),
 );
@@ -1590,7 +1590,7 @@ $add['header_logo_width'] = array(
 $add['header_mobile_logo_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-header-mobile-logo .suki-logo-image',
+		'element'  => '.suki-header-mobile-logo.suki-logo img',
 		'property' => 'width',
 	),
 );

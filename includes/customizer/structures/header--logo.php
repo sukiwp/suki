@@ -70,7 +70,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Max width', 'suki' ),
+			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
 				'px'  => array(
 					'min'  => 0,
@@ -102,10 +102,11 @@ $wp_customize->add_control(
 		$wp_customize,
 		'heading_header_mobile_logo',
 		array(
-			'section'  => $section,
-			'settings' => array(),
-			'label'    => esc_html__( 'Mobile Logo', 'suki' ),
-			'priority' => 20,
+			'section'     => $section,
+			'settings'    => array(),
+			'label'       => esc_html__( 'Mobile Logo', 'suki' ),
+			'description' => esc_html__( 'Override the default desktop logo when on mobile view.', 'suki' ),
+			'priority'    => 20,
 		)
 	)
 );

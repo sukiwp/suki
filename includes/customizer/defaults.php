@@ -256,7 +256,7 @@ $add['header_html_1_content'] = esc_html__( 'Insert HTML text here', 'suki' );
  */
 
 $add['header_logo_width']        = '100px';
-$add['header_mobile_logo_width'] = '100px';
+$add['header_mobile_logo_width'] = '';
 
 /**
  * ====================================================
