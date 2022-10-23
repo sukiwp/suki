@@ -774,7 +774,7 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 				$html = ob_get_clean();
 				break;
 
-			case 'mobile-popup-toggle':
+			case 'mobile-vertical-toggle':
 				ob_start();
 				?>
 				<button class="<?php echo esc_attr( 'suki-header-' . $element ); ?> suki-popup-toggle suki-toggle" data-target="mobile-header-popup" aria-expanded="false">
