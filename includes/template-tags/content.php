@@ -58,6 +58,28 @@ if ( ! function_exists( 'suki_content' ) ) {
 
 			<?php
 			/**
+			 * Before main and sidebar
+			 */
+			if ( has_action( 'suki/frontend/before_primary_and_sidebar' ) ) {
+				?>
+				<!-- wp:group {
+					"layout":{
+						"inherit":true
+					}
+				} --><div class="wp-block-group">
+
+					<?php
+					/**
+					 * Hook: suki/frontend/before_primary_and_sidebar
+					 */
+					do_action( 'suki/frontend/before_primary_and_sidebar' );
+					?>
+
+				</div><!-- /wp:group -->
+				<?php
+			}
+
+			/**
 			 * Content with sidebar wrapper -- Open
 			 *
 			 * Note: Styles are configured via CSS class and Customizer options.
@@ -158,6 +180,28 @@ if ( ! function_exists( 'suki_content' ) ) {
 					</div><!-- /wp:column -->
 
 				</div><!-- /wp:columns -->
+				<?php
+			}
+
+			/**
+			 * After main and sidebar
+			 */
+			if ( has_action( 'suki/frontend/after_primary_and_sidebar' ) ) {
+				?>
+				<!-- wp:group {
+					"layout":{
+						"inherit":true
+					}
+				} --><div class="wp-block-group">
+
+					<?php
+					/**
+					 * Hook: suki/frontend/after_primary_and_sidebar
+					 */
+					do_action( 'suki/frontend/after_primary_and_sidebar' );
+					?>
+
+				</div><!-- /wp:group -->
 				<?php
 			}
 			?>
