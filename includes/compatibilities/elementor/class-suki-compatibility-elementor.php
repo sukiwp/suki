@@ -44,27 +44,11 @@ class Suki_Compatibility_Elementor {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Compatibility CSS.
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_compatibility_css' ), 20 );
-
-		// Disable page settings on Elementor Template post type.
-		add_filter( 'suki/dataset/page_settings/ignored_post_types', array( $this, 'disable_page_settings_on_elementor_template' ) );
-
 		// Add theme defined fonts to all typography settings.
-		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts_as_options_on_font_control' ) );
-
-		// Modify Elementor page template.
-		add_filter( 'template_include', array( $this, 'remove_content_wrapper_on_page_templates' ), 999 );
-		add_action( 'elementor/page_templates/header-footer/before_content', array( $this, 'add_page_template_header_footer_wrapper' ) );
-		add_action( 'elementor/page_templates/header-footer/after_content', array( $this, 'add_page_template_header_footer_wrapper_end' ) );
+		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts' ) );
 
 		// Modify single template for many Elementor Library types.
 		add_filter( 'single_template', array( $this, 'set_elementor_library_single_template' ) );
-
-		// Color palette compatibility.
-		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
-		add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_custom_scripts' ) );
-		add_action( 'wp_ajax_suki_apply_color_palette_to_elementor', array( $this, 'ajax_apply_color_palette_to_elementor' ) );
 	}
 
 	/**
@@ -72,15 +56,6 @@ class Suki_Compatibility_Elementor {
 	 * Hook functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Add compatibility CSS.
-	 */
-	public function add_compatibility_css() {
-		$css = "\n/* Elementor Compatibility CSS */\n" . suki_minify_css_string( '.elementor-text-editor > *:last-child { margin-bottom: 0; }' );
-
-		wp_add_inline_style( 'suki', trim( $css ) );
-	}
 
 	/**
 	 * Register all template locations for Elementor Pro's Theme Builder.
@@ -95,75 +70,21 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
-	 * Modify Icon control: add fonts.
+	 * Add theme fonts as choices in all font controls.
 	 *
 	 * @param array $fonts Fonts array.
 	 * @return array
 	 */
-	public function add_theme_fonts_as_options_on_font_control( $fonts ) {
-		$fonts = array();
-
+	public function add_theme_fonts( $fonts ) {
 		if ( class_exists( '\Elementor\Fonts' ) ) {
 			foreach ( suki_get_web_safe_fonts() as $font => $stack ) {
-				$fonts[ $font ] = \Elementor\Fonts::SYSTEM;
+				if ( ! isset( $fonts[ $font ] ) ) {
+					$fonts[ $font ] = \Elementor\Fonts::SYSTEM;
+				}
 			}
-
-			// foreach ( suki_get_google_fonts() as $font => $stack ) {
-			// 	$fonts[ $font ] = \Elementor\Fonts::GOOGLE;
-			// }
 		}
 
 		return $fonts;
-	}
-
-	/**
-	 * Remove content wrapper on header.php and footer.php via filter.
-	 *
-	 * @param string $template Template name.
-	 * @return string
-	 */
-	public function remove_content_wrapper_on_page_templates( $template ) {
-		// Check if Elementor page template is being used.
-		if ( false !== strpos( $template, '/elementor/' ) ) {
-			if ( false !== strpos( $template, '/header-footer.php' ) ) {
-				// Remove content wrapper.
-				add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
-			}
-		}
-
-		return $template;
-	}
-
-	/**
-	 * Add opening wrapper tag to Elementor Header & Footer (Full Width) page template.
-	 */
-	public function add_page_template_header_footer_wrapper() {
-		?>
-		<div id="content" class="site-content suki-section">
-
-			<?php
-			if ( is_singular() ) {
-				?>
-				<article id="<?php echo esc_attr( is_page() ? 'page' : 'post' ); ?>-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
-				<?php
-			}
-			?>
-		<?php
-	}
-
-	/**
-	 * Add closing wrapper tag to Elementor Header & Footer (Full Width) page template.
-	 */
-	public function add_page_template_header_footer_wrapper_end() {
-		if ( is_singular() ) {
-			?>
-			</article>
-			<?php
-		}
-		?>
-
-		</div>
-		<?php
 	}
 
 	/**
@@ -189,83 +110,6 @@ class Suki_Compatibility_Elementor {
 		}
 
 		return $template;
-	}
-
-	/**
-	 * Register customizer sections, settings, and controls.
-	 *
-	 * @param WP_Customize_Manager $wp_customize Customizer Manager object.
-	 */
-	public function register_customizer_settings( $wp_customize ) {
-		$defaults = Suki_Customizer::instance()->get_setting_defaults();
-
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/brizy/customizer/options/brizy.php';
-	}
-
-	/**
-	 * Print custom javascript for applying color palette to Elementor editor.
-	 */
-	public function print_custom_scripts() {
-		?>
-		<script type="text/javascript">
-			(function( $ ) {
-				'use strict';
-
-				$( '#customize-controls' ).on( 'click', '.suki-apply-color-palette-to-elementor', function( e ) {
-					e.preventDefault();
-
-					var $button = $( this );
-
-					$button.prop( 'disabled', 'disabled' );
-					$button.addClass( 'disabled' );
-
-					return $.ajax({
-						method: 'POST',
-						dataType: 'JSON',
-						url: ajaxurl,
-						cache: false,
-						data: {
-							action: 'suki_apply_color_palette_to_elementor',
-							_ajax_nonce: sukiAdminData.ajax_nonce,
-						},
-					})
-					.done(function( response, status, XHR ) {
-						if ( response.success ) {
-							alert( '<?php esc_html_e( 'Color palette applied!', 'suki' ); ?>' );
-						} else {
-							alert( '<?php esc_html_e( 'Error!', 'suki' ); ?>' );
-						}
-
-						$button.prop( 'disabled', null );
-						$button.removeClass( 'disabled' );
-					} );
-				} );
-			})( jQuery );
-		</script>
-		<?php
-	}
-
-	/**
-	 * ====================================================
-	 * AJAX functions
-	 * ====================================================
-	 */
-
-	/**
-	 * AJAX callback to apply color palette to Elementor.
-	 */
-	public function ajax_apply_color_palette_to_elementor() {
-		check_ajax_referer( 'suki', '_ajax_nonce' );
-
-		$palette = array();
-
-		for ( $i = 1; $i <= 8; $i++ ) {
-			$palette[] = suki_get_theme_mod( 'color_palette_' . $i, '' );
-		}
-
-		update_option( 'elementor_scheme_color-picker', $palette );
-
-		wp_send_json_success();
 	}
 }
 

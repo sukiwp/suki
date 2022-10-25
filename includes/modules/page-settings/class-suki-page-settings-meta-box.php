@@ -414,21 +414,14 @@ class Suki_Page_Settings_Meta_Box {
 								<label class="suki-admin-form-label"><?php echo esc_html( $field['label'] ); ?></label>
 								<div>
 									<?php
-									switch ( $field['type'] ) {
-										case 'select':
-											Suki_Admin_Fields::render_field(
-												array(
-													'type'    => 'select',
-													'name'    => self::META_KEY . '[' . $field_key . ']',
-													'choices' => $field['options'],
-													'value'   => suki_array_value( $values, $field_key ),
-												)
-											);
-											break;
-
-										case 'toggle':
-											break;
-									}
+									Suki_Admin_Fields::render_field(
+										array(
+											'type'    => 'select',
+											'name'    => self::META_KEY . '[' . $field_key . ']',
+											'choices' => $field['options'],
+											'value'   => suki_array_value( $values, $field_key ),
+										)
+									);
 
 									if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) {
 										?>
