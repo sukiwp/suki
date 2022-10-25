@@ -250,6 +250,127 @@ class Suki_Customizer {
 		$script_data = suki_get_script_data( 'customizer' );
 		wp_enqueue_script( 'suki-customizer', $script_data['js_file_url'], $script_data['dependencies'], $script_data['version'], true );
 
+		/**
+		 * Additional dynamic for Customizer JS.
+		 */
+
+		// Localized strings.
+		$l10n = array(
+			/**
+			 * General
+			 */
+			'default'          => esc_html__( 'Default', 'suki' ),
+			'reset'            => esc_html__( 'Reset', 'suki' ),
+			'custom'           => esc_html__( 'Custom', 'suki' ),
+
+			/**
+			 * Multi-select
+			 */
+			'addNew'           => esc_html__( 'Add New', 'suki' ),
+			'remove'           => esc_html__( 'Remove', 'suki' ),
+
+			/**
+			 * Dimension
+			 */
+			'top'              => esc_html__( 'Top', 'suki' ),
+			'right'            => esc_html__( 'Right', 'suki' ),
+			'bottom'           => esc_html__( 'Bottom', 'suki' ),
+			'left'             => esc_html__( 'Left', 'suki' ),
+
+			/**
+			 * Responsive
+			 */
+			'dekstop'          => esc_html__( 'Desktop', 'suki' ),
+			'tablet'           => esc_html__( 'Tablet', 'suki' ),
+			'mobile'           => esc_html__( 'Mobile', 'suki' ),
+
+			/**
+			 * Shadow
+			 */
+			'x'                => esc_html__( 'X axis', 'suki' ),
+			'y'                => esc_html__( 'Y axis', 'suki' ),
+			'blur'             => esc_html__( 'Blur', 'suki' ),
+			'spread'           => esc_html__( 'Spread', 'suki' ),
+			'innerShadow'      => esc_html__( 'Inner shadow', 'suki' ),
+
+			/**
+			 * Color
+			 */
+			/* translators: %d: color number. */
+			'themeColor$d'     => esc_html__( 'Theme Color %d', 'suki' ),
+			'notSet'           => esc_html__( 'Not set', 'suki' ),
+
+			/**
+			 * Typography
+			 */
+			'fontFamily'       => esc_html__( 'Family', 'suki' ),
+			'fontWeight'       => esc_html__( 'Weight', 'suki' ),
+			'fontStyle'        => esc_html__( 'Style', 'suki' ),
+			'textTransform'    => esc_html__( 'Transform', 'suki' ),
+			'fontSize'         => esc_html__( 'Size', 'suki' ),
+			'lineHeight'       => esc_html__( 'Line Height', 'suki' ),
+			'letterSpacing'    => esc_html__( 'Spacing', 'suki' ),
+
+			'weight100'        => esc_html__( 'Thin', 'suki' ),
+			'weight200'        => esc_html__( 'Extra Light', 'suki' ),
+			'weight300'        => esc_html__( 'Light', 'suki' ),
+			'weight400'        => esc_html__( 'Regular', 'suki' ),
+			'weight500'        => esc_html__( 'Medium', 'suki' ),
+			'weight600'        => esc_html__( 'Semi Bold', 'suki' ),
+			'weight700'        => esc_html__( 'Bold', 'suki' ),
+			'weight800'        => esc_html__( 'Extra Bold', 'suki' ),
+			'weight900'        => esc_html__( 'Black', 'suki' ),
+
+			'normal'           => esc_html__( 'Normal', 'suki' ),
+			'italic'           => esc_html__( 'Italic', 'suki' ),
+
+			'none'             => esc_html__( 'None', 'suki' ),
+			'uppercase'        => esc_html__( 'Uppercase', 'suki' ),
+			'lowercase'        => esc_html__( 'Lowercase', 'suki' ),
+			'capitalize'       => esc_html__( 'Capitalize', 'suki' ),
+
+			/**
+			 * Background
+			 */
+			'attachment'       => esc_html__( 'Attachment', 'suki' ),
+			'scroll'           => esc_html__( 'Scroll', 'suki' ),
+			'fixed'            => esc_html__( 'Fixed', 'suki' ),
+
+			'repeat'           => esc_html__( 'Repeat', 'suki' ),
+			'noRepeat'         => esc_html__( 'No repeat', 'suki' ),
+			'repeatX'          => esc_html__( 'Repeat horizontally', 'suki' ),
+			'repeatY'          => esc_html__( 'Repeat vertically', 'suki' ),
+			'repeatBoth'       => esc_html__( 'Repeat both', 'suki' ),
+
+			'size'             => esc_html__( 'Size', 'suki' ),
+			'auto'             => esc_html__( 'Auto', 'suki' ),
+			'cover'            => esc_html__( 'Cover', 'suki' ),
+			'contain'          => esc_html__( 'Contain', 'suki' ),
+
+			'position'         => esc_html__( 'Position', 'suki' ),
+			'leftTop'          => esc_html__( 'Left top', 'suki' ),
+			'leftCenter'       => esc_html__( 'Left center', 'suki' ),
+			'leftBottom'       => esc_html__( 'Left bottom', 'suki' ),
+			'centerTop'        => esc_html__( 'Center top', 'suki' ),
+			'centerCenter'     => esc_html__( 'Center center', 'suki' ),
+			'centerBottom'     => esc_html__( 'Center bottom', 'suki' ),
+			'rightTop'         => esc_html__( 'Right top', 'suki' ),
+			'rightCenter'      => esc_html__( 'Right center', 'suki' ),
+			'rightBottom'      => esc_html__( 'Right bottom', 'suki' ),
+
+			'selectImage'      => esc_html__( 'Select image', 'suki' ),
+			'removeImage'      => esc_html__( 'Remove image', 'suki' ),
+			'changeImage'      => esc_html__( 'Change image', 'suki' ),
+
+			/**
+			 * Builder
+			 */
+			'inactiveElements' => esc_html__( 'Inactive elements', 'suki' ),
+		);
+
+		// Add font groups as localized strings.
+		$l10n = array_merge( $l10n, suki_get_all_font_groups() );
+
 		wp_add_inline_script(
 			'suki-customizer',
 			'const sukiCustomizerData = ' . wp_json_encode(
@@ -257,118 +378,7 @@ class Suki_Customizer {
 					'contexts'        => $this->get_control_contexts(),
 					'previewContexts' => $this->get_preview_contexts(),
 					'fonts'           => suki_get_all_fonts(),
-					'l10n'            => array(
-						/**
-						 * General
-						 */
-						'default'          => esc_html__( 'Default', 'suki' ),
-						'reset'            => esc_html__( 'Reset', 'suki' ),
-						'custom'           => esc_html__( 'Custom', 'suki' ),
-
-						/**
-						 * Multi-select
-						 */
-						'addNew'           => esc_html__( 'Add New', 'suki' ),
-						'remove'           => esc_html__( 'Remove', 'suki' ),
-
-						/**
-						 * Dimension
-						 */
-						'top'              => esc_html__( 'Top', 'suki' ),
-						'right'            => esc_html__( 'Right', 'suki' ),
-						'bottom'           => esc_html__( 'Bottom', 'suki' ),
-						'left'             => esc_html__( 'Left', 'suki' ),
-
-						/**
-						 * Responsive
-						 */
-						'dekstop'          => esc_html__( 'Desktop', 'suki' ),
-						'tablet'           => esc_html__( 'Tablet', 'suki' ),
-						'mobile'           => esc_html__( 'Mobile', 'suki' ),
-
-						/**
-						 * Shadow
-						 */
-						'x'                => esc_html__( 'X axis', 'suki' ),
-						'y'                => esc_html__( 'Y axis', 'suki' ),
-						'blur'             => esc_html__( 'Blur', 'suki' ),
-						'spread'           => esc_html__( 'Spread', 'suki' ),
-						'innerShadow'      => esc_html__( 'Inner shadow', 'suki' ),
-
-						/**
-						 * Color
-						 */
-						/* translators: %d: color number. */
-						'themeColor$d'     => esc_html__( 'Theme Color %d', 'suki' ),
-						'notSet'           => esc_html__( 'Not set', 'suki' ),
-
-						/**
-						 * Typography
-						 */
-						'fontFamily'       => esc_html__( 'Family', 'suki' ),
-						'fontWeight'       => esc_html__( 'Weight', 'suki' ),
-						'fontStyle'        => esc_html__( 'Style', 'suki' ),
-						'textTransform'    => esc_html__( 'Transform', 'suki' ),
-						'fontSize'         => esc_html__( 'Size', 'suki' ),
-						'lineHeight'       => esc_html__( 'Line Height', 'suki' ),
-						'letterSpacing'    => esc_html__( 'Spacing', 'suki' ),
-
-						'weight100'        => esc_html__( 'Thin', 'suki' ),
-						'weight200'        => esc_html__( 'Extra Light', 'suki' ),
-						'weight300'        => esc_html__( 'Light', 'suki' ),
-						'weight400'        => esc_html__( 'Regular', 'suki' ),
-						'weight500'        => esc_html__( 'Medium', 'suki' ),
-						'weight600'        => esc_html__( 'Semi Bold', 'suki' ),
-						'weight700'        => esc_html__( 'Bold', 'suki' ),
-						'weight800'        => esc_html__( 'Extra Bold', 'suki' ),
-						'weight900'        => esc_html__( 'Black', 'suki' ),
-
-						'normal'           => esc_html__( 'Normal', 'suki' ),
-						'italic'           => esc_html__( 'Italic', 'suki' ),
-
-						'none'             => esc_html__( 'None', 'suki' ),
-						'uppercase'        => esc_html__( 'Uppercase', 'suki' ),
-						'lowercase'        => esc_html__( 'Lowercase', 'suki' ),
-						'capitalize'       => esc_html__( 'Capitalize', 'suki' ),
-
-						/**
-						 * Background
-						 */
-						'attachment'       => esc_html__( 'Attachment', 'suki' ),
-						'scroll'           => esc_html__( 'Scroll', 'suki' ),
-						'fixed'            => esc_html__( 'Fixed', 'suki' ),
-
-						'repeat'           => esc_html__( 'Repeat', 'suki' ),
-						'noRepeat'         => esc_html__( 'No repeat', 'suki' ),
-						'repeatX'          => esc_html__( 'Repeat horizontally', 'suki' ),
-						'repeatY'          => esc_html__( 'Repeat vertically', 'suki' ),
-						'repeatBoth'       => esc_html__( 'Repeat both', 'suki' ),
-
-						'size'             => esc_html__( 'Size', 'suki' ),
-						'auto'             => esc_html__( 'Auto', 'suki' ),
-						'cover'            => esc_html__( 'Cover', 'suki' ),
-						'contain'          => esc_html__( 'Contain', 'suki' ),
-
-						'position'         => esc_html__( 'Position', 'suki' ),
-						'leftTop'          => esc_html__( 'Left top', 'suki' ),
-						'leftCenter'       => esc_html__( 'Left center', 'suki' ),
-						'leftBottom'       => esc_html__( 'Left bottom', 'suki' ),
-						'centerTop'        => esc_html__( 'Center top', 'suki' ),
-						'centerCenter'     => esc_html__( 'Center center', 'suki' ),
-						'centerBottom'     => esc_html__( 'Center bottom', 'suki' ),
-						'rightTop'         => esc_html__( 'Right top', 'suki' ),
-						'rightCenter'      => esc_html__( 'Right center', 'suki' ),
-						'rightBottom'      => esc_html__( 'Right bottom', 'suki' ),
-
-						'selectImage'      => esc_html__( 'Select image', 'suki' ),
-						'removeImage'      => esc_html__( 'Remove image', 'suki' ),
-						'changeImage'      => esc_html__( 'Change image', 'suki' ),
-
-						/**
-						 * Builder
-						 */
-						'inactiveElements' => esc_html__( 'Inactive elements', 'suki' ),
-					),
+					'l10n'            => $l10n,
 				)
 			),
 			'before'
@@ -672,8 +682,7 @@ class Suki_Customizer {
 
 			// Populate $fonts array if haven't.
 			if ( empty( $fonts ) ) {
-				$fonts = suki_get_all_fonts();
-				$fonts = suki_flatten_array( $fonts );
+				$fonts = suki_flatten_array( suki_get_all_fonts() );
 			}
 
 			$setting_value = suki_array_value( $fonts, $setting_value, $setting_value );

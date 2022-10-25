@@ -839,16 +839,37 @@ function suki_get_public_post_types( $context = 'all' ) {
  *
  * @return array
  */
+function suki_get_all_font_groups() {
+	/**
+	 * Filter: suki/dataset/font_groups
+	 *
+	 * @param array $groups Fonts array.
+	 */
+	$groups = apply_filters(
+		'suki/dataset/font_groups',
+		array(
+			'web_safe_fonts' => esc_html__( 'Web Safe Fonts', 'suki' ),
+		)
+	);
+
+	return $groups;
+}
+
+/**
+ * Return all available fonts.
+ *
+ * @return array
+ */
 function suki_get_all_fonts() {
 	/**
-	 * Filter: suki/dataset/all_fonts
+	 * Filter: suki/dataset/fonts
 	 *
 	 * @param array $fonts Fonts array.
 	 */
 	$fonts = apply_filters(
-		'suki/dataset/all_fonts',
+		'suki/dataset/fonts',
 		array(
-			esc_html__( 'Web Safe Fonts', 'suki' ) => suki_get_web_safe_fonts(),
+			'web_safe_fonts' => suki_get_web_safe_fonts(),
 		)
 	);
 
@@ -958,12 +979,12 @@ function suki_get_social_media_types( $sort = false ) {
  */
 function suki_get_all_icons() {
 	/**
-	 * Filter: suki/dataset/all_icons
+	 * Filter: suki/dataset/icons
 	 *
 	 * @param array $icons Icons array.
 	 */
 	$icons = apply_filters(
-		'suki/dataset/all_icons',
+		'suki/dataset/icons',
 		array(
 			'theme_icons'  => array(
 				'search'        => esc_html_x( 'Search', 'icon label', 'suki' ),

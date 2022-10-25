@@ -40,7 +40,8 @@ class Suki_Google_Fonts extends Suki_Module {
 		 */
 
 		// Add Google Fonts list to theme fonts bank.
-		add_filter( 'suki/dataset/all_fonts', array( $this, 'add_to_all_fonts' ) );
+		add_filter( 'suki/dataset/font_groups', array( $this, 'add_font_group' ) );
+		add_filter( 'suki/dataset/fonts', array( $this, 'add_fonts' ) );
 
 		/**
 		 * Customizer settings & values
@@ -92,17 +93,30 @@ class Suki_Google_Fonts extends Suki_Module {
 	 */
 
 	/**
+	 * Add Google Fonts to theme font groups.
+	 *
+	 * @param array $groups Theme fonts bank.
+	 * @return array
+	 */
+	public function add_font_group( $groups ) {
+		// Add Google Fonts as the last group of the list.
+		$groups['google_fonts'] = esc_html__( 'Google Fonts', 'suki' );
+
+		return $groups;
+	}
+
+	/**
 	 * Add Google Fonts list to theme fonts bank.
 	 *
 	 * @param array $fonts Theme fonts bank.
 	 * @return array
 	 */
-	public function add_to_all_fonts( $fonts ) {
+	public function add_fonts( $fonts ) {
 		// Get the selected Google Fonts list.
 		$google_fonts = suki_get_theme_mod( 'google_fonts' );
 
 		// Add Google Fonts as the last group of the list.
-		$fonts[ esc_html__( 'Google Fonts', 'suki' ) ] = array_combine( $google_fonts, $google_fonts );
+		$fonts['google_fonts'] = array_combine( $google_fonts, $google_fonts );
 
 		return $fonts;
 	}

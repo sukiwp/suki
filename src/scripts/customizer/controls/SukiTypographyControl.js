@@ -105,10 +105,14 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 									} }
 								>
 									{ Object.keys( sukiCustomizerData.fonts ).map( ( groupLabel ) => {
+										if ( 1 > Object.keys( sukiCustomizerData.fonts[ groupLabel ] ).length ) {
+											return null;
+										}
+
 										return (
 											<optgroup
 												key={ groupLabel }
-												label={ groupLabel }
+												label={ sukiCustomizerData.l10n[ groupLabel ] || groupLabel }
 											>
 												{ Object.keys( sukiCustomizerData.fonts[ groupLabel ] ).map( ( familyName ) => {
 													return (
