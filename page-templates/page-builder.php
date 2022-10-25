@@ -20,21 +20,17 @@ get_header();
 
 the_post();
 
-ob_start();
-?>
-<!-- wp:group {
-	"tagName":"main",
-	"className":"site-content"
-} --><main id="content" class="wp-block-group site-content">
+echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	'
+	<!-- wp:group {
+		"tagName":"main",
+		"className":"site-content"
+	} --><main id="content" class="wp-block-group site-content">
 
-	<!-- wp:post-content /-->
+		<!-- wp:post-content /-->
 
-</main><!-- /wp:group -->
-<?php
-$html = ob_get_clean();
-
-$html = do_blocks( $html );
-
-echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	</main><!-- /wp:group -->
+	'
+);
 
 get_footer();
