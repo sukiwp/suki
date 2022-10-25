@@ -160,6 +160,11 @@ class Suki_Page_Settings_Meta_Box {
 			return;
 		}
 
+		// Abort if current edited post type is one of the excluded post types.
+		if ( in_array( $post_type, $this->get_excluded_post_types(), true ) ) {
+			return;
+		}
+
 		// Abort if current loaded editor's post type is not public post types.
 		if ( ! in_array( $post_type, suki_get_public_post_types(), true ) ) {
 			return;
@@ -237,6 +242,11 @@ class Suki_Page_Settings_Meta_Box {
 
 		// Abort if current edited post is one of the excluded IDs.
 		if ( in_array( $post_id, $this->get_excluded_post_ids(), true ) ) {
+			return;
+		}
+
+		// Abort if current edited post type is one of the excluded post types.
+		if ( in_array( $post_type, $this->get_excluded_post_types(), true ) ) {
 			return;
 		}
 
@@ -665,7 +675,7 @@ class Suki_Page_Settings_Meta_Box {
 	}
 
 	/**
-	 * Return manually specified post meta box content to override the default post meta box.
+	 * Return array of post IDs which shouldn't use the page settings meta box.
 	 *
 	 * @return array
 	 */
@@ -687,6 +697,27 @@ class Suki_Page_Settings_Meta_Box {
 		$ids = array_map( 'intval', $ids );
 
 		return $ids;
+	}
+
+	/**
+	 * Return array of post types which shouldn't use the page settings meta box
+	 *
+	 * @return array
+	 */
+	public function get_excluded_post_types() {
+		$post_types = array();
+
+		/**
+		 * Filter: suki/page_settings/excluded_post_types
+		 *
+		 * Disable Page Settings on some post types.
+		 *
+		 * @param array $post_types Post types.
+		 * @return array
+		 */
+		$post_types = apply_filters( 'suki/page_settings/excluded_post_types', $post_types );
+
+		return $post_types;
 	}
 }
 
