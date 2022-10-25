@@ -1990,9 +1990,13 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
         control.settings.font_family.set(fontFamily);
       }
     }, Object.keys(sukiCustomizerData.fonts).map(groupLabel => {
+      if (1 > Object.keys(sukiCustomizerData.fonts[groupLabel]).length) {
+        return null;
+      }
+
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("optgroup", {
         key: groupLabel,
-        label: groupLabel
+        label: sukiCustomizerData.l10n[groupLabel] || groupLabel
       }, Object.keys(sukiCustomizerData.fonts[groupLabel]).map(familyName => {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
           key: familyName,
