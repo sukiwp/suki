@@ -16,34 +16,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Remove content wrapper on this page template.
-add_filter( 'suki/frontend/show_content_wrapper', '__return_false' );
-
 get_header();
 
+the_post();
+
+ob_start();
 ?>
-<div id="content" class="suki-content site-content">
+<!-- wp:group {
+	"tagName":"main",
+	"className":"site-content"
+} --><main id="content" class="wp-block-group site-content">
 
-	<?php
-	/**
-	 * Hero
-	 */
-	if ( boolval( suki_get_current_page_setting( 'hero' ) ) ) {
-		suki_hero();
-	}
-	?>
+	<!-- wp:post-content /-->
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?> role="article">
-		<?php
-		while ( have_posts() ) {
-			the_post();
-
-			// Print the content.
-			the_content();
-		}
-		?>
-	</article>
-</div>
+</main><!-- /wp:group -->
 <?php
+$html = ob_get_clean();
+
+$html = do_blocks( $html );
+
+echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 get_footer();
