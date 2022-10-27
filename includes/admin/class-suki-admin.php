@@ -131,7 +131,7 @@ class Suki_Admin {
 		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
 
 		// Enqueue JS files.
-		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );
+		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );
 
 		// Send data to main JS file.
 		wp_localize_script(
