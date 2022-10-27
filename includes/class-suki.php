@@ -552,7 +552,6 @@ class Suki {
 			'elementor'      => '\Elementor\Plugin',
 			'elementor-pro'  => '\ElementorPro\Plugin',
 			'brizy'          => 'Brizy_Editor',
-			'jetpack'        => 'Jetpack',
 			'woocommerce'    => 'WooCommerce',
 		);
 	}
