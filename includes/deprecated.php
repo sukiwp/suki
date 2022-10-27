@@ -21,6 +21,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * [DEPRECATED]
  *
+ * @deprecated 2.0.0 Use the native `get_template_part` instead, this will remove the `suki/frontend/template_dirs` filter as well.
+ *
+ * Developer can override the template in Child Theme.
+ * Developer can also override the template in a custom plugin using `get_template_part` action and call `locate_template` function,
+ *
+ * @param string  $slug      Template part slug (not "wp_template_part" post type).
+ * @param string  $name      Template variation name.
+ * @param array   $variables Array of variables that will be passed to the template part.
+ * @param boolean $echo      Print or return the HTML tags.
+ */
+function suki_get_template_part( $slug, $name = null, $variables = array(), $echo = true ) {
+	_deprecated_function( __FUNCTION__, '2.0.0' );
+
+	ob_start();
+	get_template_part( $slug, $name, $variables );
+	$html = ob_get_clean();
+
+	if ( boolval( $echo ) ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
+	}
+}
+
+/**
+ * [DEPRECATED]
+ *
  * @deprecated 2.0.0 Header builder now uses `suki/dataset/header_builder/elements` and `suki/dataset/header_builder/areas` filter to populate elements.
  *
  * @return array

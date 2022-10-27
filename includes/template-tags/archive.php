@@ -26,7 +26,7 @@ if ( ! function_exists( 'suki_loop' ) ) {
 	 */
 	function suki_loop( $layout = 'default', $do_blocks = true, $echo = true ) {
 		ob_start();
-		suki_get_template_part( 'loop', $layout );
+		get_template_part( 'loop', $layout );
 		$html = ob_get_clean();
 
 		/**
