@@ -107,9 +107,6 @@ class Suki {
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-actions.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-filters.php';
 
-		// Version checking and migrations.
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'migrations/class-suki-migration.php';
-
 		// Customizer functionalities.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/class-suki-customizer.php';
 
@@ -135,6 +132,10 @@ class Suki {
 		foreach ( $core_modules as $module ) {
 			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . $module . '/class-suki-' . $module . '.php';
 		}
+
+		// Version checking and migrations.
+		// Load after modules loaded.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'migrations/class-suki-migration.php';
 
 		// Admin page functionalities.
 		if ( is_admin() ) {
@@ -304,7 +305,7 @@ class Suki {
 	 * @param WP_Styles $styles WP_Styles object.
 	 */
 	public function modify_blocks_css( $styles ) {
-		$styles->registered['wp-block-library']->src = SUKI_CSS_URL . '/blocks' . SUKI_ASSETS_SUFFIX . '.css';
+		$styles->registered['wp-block-library']->src = trailingslashit( SUKI_CSS_URL ) . 'blocks' . SUKI_ASSETS_SUFFIX . '.css';
 	}
 
 	/**
@@ -321,7 +322,7 @@ class Suki {
 		/**
 		 * Main CSS
 		 */
-		wp_enqueue_style( 'suki', SUKI_CSS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki', trailingslashit( SUKI_CSS_URL ) . 'main' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki', 'rtl', 'replace' );
 		wp_style_add_data( 'suki', 'suffix', SUKI_ASSETS_SUFFIX );
 
@@ -356,7 +357,7 @@ class Suki {
 		do_action( 'suki/frontend/before_enqueue_main_js', $hook );
 
 		// Main JS.
-		wp_enqueue_script( 'suki', SUKI_JS_URL . '/main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
+		wp_enqueue_script( 'suki', trailingslashit( SUKI_JS_URL ) . 'main' . SUKI_ASSETS_SUFFIX . '.js', array(), SUKI_VERSION, true );
 
 		// Localize script.
 		wp_localize_script(

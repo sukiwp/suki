@@ -51,11 +51,11 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'default'   => array(
 					'label' => esc_html__( 'Default', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/woocommerce-checkout-layout--default.svg',
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/woocommerce-checkout-layout--default.svg',
 				),
 				'2-columns' => array(
 					'label' => esc_html__( '2 Columns', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/woocommerce-checkout-layout--2-columns.svg',
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/woocommerce-checkout-layout--2-columns.svg',
 				),
 			),
 			'priority' => 20,

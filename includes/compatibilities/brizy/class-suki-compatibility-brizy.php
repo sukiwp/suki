@@ -115,7 +115,7 @@ class Suki_Compatibility_Brizy {
 	public function register_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/brizy/customizer/options/brizy.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/brizy/customizer/options/brizy.php';
 	}
 }
 

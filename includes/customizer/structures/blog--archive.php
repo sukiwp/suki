@@ -50,11 +50,11 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'default' => array(
 					'label' => esc_html__( 'Default', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--default.svg',
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/blog-layout--default.svg',
 				),
 				'grid'    => array(
 					'label' => esc_html__( 'Grid', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/blog-layout--grid.svg',
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/blog-layout--grid.svg',
 				),
 			),
 			'columns'  => 3,

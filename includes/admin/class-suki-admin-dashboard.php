@@ -102,7 +102,7 @@ class Suki_Admin_Dashboard {
 	public function render_header__logo() {
 		?>
 		<h1 class="suki-admin-dashboard__header-logo">
-			<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ); ?>" alt="<?php echo esc_attr( suki_get_theme_info( 'name' ) ); ?>">
+			<img src="<?php echo esc_url( trailingslashit( SUKI_IMAGES_URL ) . 'suki-logo.svg' ); ?>" alt="<?php echo esc_attr( suki_get_theme_info( 'name' ) ); ?>">
 			<span class="suki-admin-dashboard__version-badge"><?php echo esc_html( suki_get_theme_info( 'version' ) ); ?></span>
 		</h1>
 		<?php
@@ -360,7 +360,7 @@ class Suki_Admin_Dashboard {
 	public function render_content__suki_sites_import() {
 		?>
 		<div class="suki-admin-dashboard__suki-sites-import suki-admin-dashboard__box">
-			<img src="<?php echo esc_url( SUKI_IMAGES_URL . '/dashboard--suki-sites-import.jpg' ); ?>" class="suki-admin-dashboard__suki-sites-import-banner" width="400" height="240" alt="" />
+			<img src="<?php echo esc_url( trailingslashit( SUKI_IMAGES_URL ) . 'dashboard--suki-sites-import.jpg' ); ?>" class="suki-admin-dashboard__suki-sites-import-banner" width="400" height="240" alt="" />
 
 			<div class="suki-admin-dashboard__suki-sites-import-text">
 				<h2 class="suki-admin-dashboard__heading" style="margin: 0;"><?php esc_html_e( 'Demo Sites Import', 'suki' ); ?></h2>

@@ -67,7 +67,7 @@ class Suki_Admin {
 		 * Include more files.
 		 */
 
-		require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-fields.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'admin/class-suki-admin-fields.php';
 	}
 
 	/**
@@ -109,7 +109,7 @@ class Suki_Admin {
 		do_action( 'suki/admin/before_enqueue_admin_css', $hook );
 
 		// Enqueue CSS files.
-		wp_enqueue_style( 'suki-admin', SUKI_CSS_URL . '/admin' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_enqueue_style( 'suki-admin', trailingslashit( SUKI_CSS_URL ) . 'admin' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'suki-admin', 'rtl', 'replace' );
 		wp_style_add_data( 'suki-admin', 'suffix', SUKI_ASSETS_SUFFIX );
 
@@ -131,7 +131,7 @@ class Suki_Admin {
 		do_action( 'suki/admin/before_enqueue_admin_js', $hook );
 
 		// Enqueue JS files.
-		wp_enqueue_script( 'suki-admin', SUKI_JS_URL . '/admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );
+		wp_enqueue_script( 'suki-admin', trailingslashit( SUKI_JS_URL ) . 'admin' . SUKI_ASSETS_SUFFIX . '.js', array( 'jquery' ), SUKI_VERSION, true );
 
 		// Send data to main JS file.
 		wp_localize_script(
@@ -306,7 +306,7 @@ class Suki_Admin {
 	 */
 	public function render_theme_dashboard() {
 		// Include admin dashboard page.
-		require_once SUKI_INCLUDES_DIR . '/admin/class-suki-admin-dashboard.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'admin/class-suki-admin-dashboard.php';
 
 		Suki_Admin_Dashboard::instance()->render();
 	}
@@ -317,7 +317,7 @@ class Suki_Admin {
 	public function render_admin_page__logo() {
 		?>
 		<div class="suki-admin-logo">
-			<?php echo apply_filters( 'suki/admin/dashboard/logo', '<img src="' . esc_url( SUKI_IMAGES_URL . '/suki-logo.svg' ) . '" alt="' . esc_attr( get_admin_page_title() ) . '">' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php echo apply_filters( 'suki/admin/dashboard/logo', '<img src="' . esc_url( trailingslashit( SUKI_IMAGES_URL ) . 'suki-logo.svg' ) . '" alt="' . esc_attr( get_admin_page_title() ) . '">' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<span class="suki-admin-version"><?php echo suki_get_theme_info( 'version' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 		</div>
 		<?php
@@ -528,7 +528,7 @@ class Suki_Admin {
 		<div class="suki-admin-demo-pro postbox">
 			<h2 class="hndle"><?php esc_html_e( 'Suki Pro', 'suki' ); ?></h2>
 			<div class="inside">
-				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-pro-banner.png' ); ?>" width="300" height="150"></p>
+				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( trailingslashit( SUKI_IMAGES_URL ) . 'suki-pro-banner.png' ); ?>" width="300" height="150"></p>
 				<p><?php esc_html_e( 'Get more powerful features and take your website to the next level with Suki Pro.', 'suki' ); ?></p>
 				<p>
 					<?php
@@ -556,7 +556,7 @@ class Suki_Admin {
 		<div class="suki-admin-demo-sites postbox">
 			<h2 class="hndle"><?php esc_html_e( 'One Click Demo Import', 'suki' ); ?></h2>
 			<div class="inside">
-				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( SUKI_IMAGES_URL . '/suki-sites-import-banner.png' ); ?>" width="300" height="150"></p>
+				<p class="suki-admin-demo-sites-image"><img src="<?php echo esc_url( trailingslashit( SUKI_IMAGES_URL ) . 'suki-sites-import-banner.png' ); ?>" width="300" height="150"></p>
 				<p><?php esc_html_e( 'Kickstart your website with our pre-made demo websites: Import. Modify. Launch!', 'suki' ); ?></p>
 				<p>
 					<?php if ( is_plugin_active( 'suki-sites-import/suki-sites-import.php' ) ) : ?>

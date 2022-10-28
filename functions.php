@@ -39,4 +39,4 @@ define( 'SUKI_PRO_WEBSITE_URL', esc_url( 'https://sukiwp.com/pro/' ) );
  * ====================================================
  */
 
-require_once SUKI_INCLUDES_DIR . '/class-suki.php';
+require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'class-suki.php';

@@ -38,11 +38,11 @@ $wp_customize->add_control(
 			'choices'  => array(
 				'full-width' => array(
 					'label' => esc_html__( 'Full width', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/page-layout--full-width.svg',
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/page-layout--full-width.svg',
 				),
 				'boxed'      => array(
 					'label' => esc_html__( 'Boxed', 'suki' ),
-					'image' => SUKI_IMAGES_URL . '/customizer/page-layout--boxed.svg',
+					'image' => trailingslashit( SUKI_IMAGES_URL ) . 'customizer/page-layout--boxed.svg',
 				),
 			),
 			'columns'  => 3,

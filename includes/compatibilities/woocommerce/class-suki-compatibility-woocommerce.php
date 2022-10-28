@@ -160,7 +160,7 @@ class Suki_Compatibility_WooCommerce {
 
 		// Replace woocommerce-general.css with our own CSS.
 		// Our CSS includes all general, layout, and smallscreen CSS.
-		$styles['woocommerce-general']['src']     = SUKI_CSS_URL . '/woocommerce' . SUKI_ASSETS_SUFFIX . '.css';
+		$styles['woocommerce-general']['src']     = trailingslashit( SUKI_CSS_URL ) . 'woocommerce' . SUKI_ASSETS_SUFFIX . '.css';
 		$styles['woocommerce-general']['version'] = SUKI_VERSION;
 
 		return $styles;
@@ -178,8 +178,8 @@ class Suki_Compatibility_WooCommerce {
 			return $css;
 		}
 
-		$outputs  = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/outputs.php';
-		$defaults = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php';
+		$outputs  = include trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/outputs.php';
+		$defaults = include trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/defaults.php';
 
 		$generated_css = Suki_Customizer::instance()->convert_outputs_to_css_string( $outputs, $defaults );
 
@@ -203,7 +203,7 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function modify_blocks_css() {
 		wp_deregister_style( 'wc-blocks-style' );
-		wp_register_style( 'wc-blocks-style', SUKI_CSS_URL . '/woocommerce-blocks' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
+		wp_register_style( 'wc-blocks-style', trailingslashit( SUKI_CSS_URL ) . 'woocommerce-blocks' . SUKI_ASSETS_SUFFIX . '.css', array(), SUKI_VERSION );
 		wp_style_add_data( 'wc-blocks-style', 'rtl', 'replace' );
 		wp_style_add_data( 'wc-blocks-style', 'suffix', SUKI_ASSETS_SUFFIX );
 	}
@@ -223,15 +223,15 @@ class Suki_Compatibility_WooCommerce {
 	public function register_customizer_settings( $wp_customize ) {
 		$defaults = Suki_Customizer::instance()->get_setting_defaults();
 
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/sections.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/header--cart.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php';
-		require_once SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/sections.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/header--cart.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--cart.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php';
 	}
 
 	/**
@@ -241,7 +241,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_customizer_setting_defaults( $defaults = array() ) {
-		$add = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/defaults.php';
+		$add = include trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/defaults.php';
 
 		return array_merge_recursive( $defaults, $add );
 	}
@@ -253,7 +253,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_customizer_setting_outputs( $outputs = array() ) {
-		$add = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/outputs.php';
+		$add = include trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/outputs.php';
 
 		return array_merge_recursive( $outputs, $add );
 	}
@@ -266,7 +266,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_control_contexts( $contexts = array() ) {
-		$add = include SUKI_INCLUDES_DIR . '/compatibilities/woocommerce/customizer/contexts.php';
+		$add = include trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/woocommerce/customizer/contexts.php';
 
 		return array_merge_recursive( $contexts, $add );
 	}

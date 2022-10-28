@@ -103,7 +103,7 @@ class Suki_Compatibility_Elementor {
 				switch ( $terms[0] ) {
 					case 'section':
 					case 'page':
-						$template = SUKI_INCLUDES_DIR . '/compatibilities/elementor/templates/single-elementor-library.php';
+						$template = trailingslashit( SUKI_INCLUDES_DIR ) . 'compatibilities/elementor/templates/single-elementor-library.php';
 						break;
 				}
 			}
