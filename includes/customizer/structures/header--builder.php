@@ -14,59 +14,19 @@ $section = 'suki_section_header_builder';
 
 /**
  * ====================================================
- * Responsive switcher
+ * Responsive tabs
  * ====================================================
  */
 
-ob_start();
-?>
-<div class="suki-header-builder-responsive-switcher nav-tab-wrapper wp-clearfix">
-	<button class="nav-tab preview-desktop nav-tab-active" data-device="desktop">
-		<span class="dashicons dashicons-desktop"></span>
-		<span><?php esc_html_e( 'Desktop', 'suki' ); ?></span>
-	</button>
-	<button class="nav-tab preview-tablet preview-mobile" data-device="tablet">
-		<span class="dashicons dashicons-smartphone"></span>
-		<span><?php esc_html_e( 'Mobile', 'suki' ); ?></span>
-	</button>
-</div>
-<script>
-	const buttons = document.querySelectorAll( '.suki-header-builder-responsive-switcher > button' );
-
-	buttons.forEach( ( button ) => {
-		button.addEventListener( 'click', ( e ) => {
-			e.preventDefault();
-			wp.customize.previewedDevice.set( button.getAttribute( 'data-device' ) );
-		} );
-	} );
-
-	wp.customize.bind( 'ready', function() {
-		wp.customize.previewedDevice.bind( ( device ) => {
-			const targetDevice = 'desktop' === device ? 'desktop' : 'tablet';
-
-			buttons.forEach( ( button ) => {
-				if ( targetDevice === button.getAttribute( 'data-device' ) ) {
-					button.classList.add( 'nav-tab-active' );
-				} else {
-					button.classList.remove( 'nav-tab-active' );
-				}
-			} );
-		} );
-	} );
-</script>
-<?php
-$switcher = ob_get_clean();
-
-// --- Header Builder Switcher
+// Header Builder Responsive Tabs.
 $wp_customize->add_control(
-	new Suki_Customize_FreeText_Control(
+	new Suki_Customize_Responsive_Tabs_Control(
 		$wp_customize,
-		'header_builder_switcher',
+		'header_builder_responsive_tabs',
 		array(
-			'section'     => $section,
-			'settings'    => array(),
-			'description' => $switcher,
-			'priority'    => 10,
+			'section'  => $section,
+			'settings' => array(),
+			'priority' => 10,
 		)
 	)
 );

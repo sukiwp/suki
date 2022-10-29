@@ -265,6 +265,18 @@ $wp_customize->add_section(
 	)
 );
 
+// Header > Responsive Tabs.
+$wp_customize->add_section(
+	new Suki_Customize_Responsive_Tabs_Section(
+		$wp_customize,
+		'suki_section_header_responsive_tabs',
+		array(
+			'panel'    => $panel,
+			'priority' => 10,
+		)
+	)
+);
+
 // Header > --- Areas.
 $wp_customize->add_section(
 	new Suki_Customize_Spacer_Section(

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// phpcs:disable
+// phpcs:disable Squiz.PHP.DisallowMultipleAssignments
 
 $add = array();
 
@@ -20,11 +20,11 @@ $add = array();
  * ====================================================
  */
 
-$add['boxed_page_width'] =
+$add['boxed_page_width']  =
 $add['boxed_page_shadow'] =
-$add['hr_boxed_page'] =
-$add['outside_bg_color'] =
-$add['outside_bg'] = array(
+$add['hr_boxed_page']     =
+$add['outside_bg_color']  =
+$add['outside_bg']        = array(
 	array(
 		'setting' => 'page_layout',
 		'value'   => 'boxed',
@@ -41,6 +41,13 @@ $add['outside_bg'] = array(
 
 // Main bar is placed first because top bar and bottom bar can be merged into main bar.
 foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
+	$add[ 'suki_section_header_' . $bar ] = array(
+		array(
+			'setting' => '__device',
+			'value'   => 'desktop',
+		),
+	);
+
 	if ( 'main_bar' !== $bar ) {
 		$add[ 'header_' . $bar . '_container' ] = array(
 			array(
@@ -59,9 +66,9 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 		);
 	}
 
-	$add[ 'header_' . $bar . '_menu_hover_highlight_color' ] =
-	$add[ 'header_' . $bar . '_menu_hover_highlight_text_color' ] =
-	$add[ 'header_' . $bar . '_menu_active_highlight_color' ] =
+	$add[ 'header_' . $bar . '_menu_hover_highlight_color' ]       =
+	$add[ 'header_' . $bar . '_menu_hover_highlight_text_color' ]  =
+	$add[ 'header_' . $bar . '_menu_active_highlight_color' ]      =
 	$add[ 'header_' . $bar . '_menu_active_highlight_text_color' ] = array(
 		array(
 			'setting'  => 'header_' . $bar . '_menu_highlight',
@@ -77,6 +84,15 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
  * Header > Mobile Popup
  * ====================================================
  */
+
+$add['suki_section_header_mobile_main_bar']     =
+$add['suki_section_header_mobile_vertical_bar'] = array(
+	array(
+		'setting'  => '__device',
+		'operator' => '!=',
+		'value'    => 'desktop',
+	),
+);
 
 $add['header_mobile_vertical_bar_full_screen_position'] = array(
 	array(
@@ -109,7 +125,7 @@ $add['header_elements'] = array(
 
 // Mobile Header Elements.
 $add['header_mobile_visibility'] =
-$add['header_mobile_elements'] = array(
+$add['header_mobile_elements']   = array(
 	array(
 		'setting'  => '__device',
 		'operator' => '!=',
@@ -187,7 +203,7 @@ $add['blank_edit_entry_grid'] = array(
 	),
 );
 
-$add['post_archive_title_text'] =
+$add['post_archive_title_text']     =
 $add['post_archive_tax_title_text'] = array(
 	array(
 		'setting'  => 'post_archive_content_header',
@@ -240,7 +256,7 @@ $add['entry_read_more_text'] = array(
 );
 
 $add['entry_thumbnail_ignore_padding'] =
-$add['entry_thumbnail_size'] = array(
+$add['entry_thumbnail_size']           = array(
 	array(
 		'setting'  => 'entry_thumbnail_position',
 		'operator' => '!=',
@@ -279,7 +295,7 @@ $add['entry_grid_read_more_text'] = array(
 );
 
 $add['entry_grid_thumbnail_ignore_padding'] =
-$add['entry_grid_thumbnail_size'] = array(
+$add['entry_grid_thumbnail_size']           = array(
 	array(
 		'setting'  => 'entry_grid_thumbnail_position',
 		'operator' => '!=',
@@ -338,6 +354,6 @@ $add['error_404_home_button_text'] = array(
 	),
 );
 
-return $add;
+// phpcs:enable Squiz.PHP.DisallowMultipleAssignments
 
-// phpcs:enable
+return $add;

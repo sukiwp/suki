@@ -19,12 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-		<?php
-		/**
-		 * Hook: wp_head
-		 */
-		wp_head();
-		?>
+		<?php wp_head(); ?>
 	</head>
 
 	<body <?php body_class(); ?>>

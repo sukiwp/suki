@@ -119,8 +119,9 @@ class Suki_Customizer {
 		 * Custom sections
 		 */
 
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-sections/class-suki-customize-spacer-section.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-sections/class-suki-customize-builder-section.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-sections/class-suki-customize-responsive-tabs-section.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-sections/class-suki-customize-spacer-section.php';
 
 		if ( suki_show_pro_teaser() ) {
 			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-sections/class-suki-customize-pro-link-section.php';
@@ -147,6 +148,7 @@ class Suki_Customizer {
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-multiselect-control.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-notice-control.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-radioimage-control.php';
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-responsive-tabs-control.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-shadow-control.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-slider-control.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/custom-controls/class-suki-customize-toggle-control.php';
@@ -442,7 +444,7 @@ class Suki_Customizer {
 				}
 			}
 
-			echo '<style id="suki-customize-preview-css-' . $key . '" type="text/css">' . suki_convert_css_array_to_string( $css_array ) . '</style>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<style id="suki-customize-preview-css-' . esc_attr( $key ) . '" type="text/css">' . esc_html( suki_convert_css_array_to_string( $css_array ) ) . '</style>' . "\n";
 		}
 	}
 
