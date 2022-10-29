@@ -1181,7 +1181,7 @@ th {
 	display: inline-flex;
 }
 .menu .suki-dropdown-sign {
-	margin-inline-start: 0.5em;
+	margin-inline-start: 0.25em;
 }
 .menu .sub-menu .menu-item {
 	position: relative;

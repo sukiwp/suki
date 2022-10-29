@@ -508,7 +508,7 @@
 
 			e.preventDefault();
 
-			const $target = document.querySelector( '#' + $this.getAttribute( 'data-target' ) );
+			const $target = document.querySelector( '#' + $this.dataset.target );
 
 			// Abort if no popup target found.
 			if ( ! $target ) {

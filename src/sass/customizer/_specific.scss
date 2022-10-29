@@ -2,8 +2,13 @@
  * Customizer Preview
  */
 
+.wp-full-overlay {
+	background-color: revert;
+}
+
 .wp-full-overlay-main {
 	margin-top: 0 !important;
+	box-shadow: 0 0 2rem rgba(0,0,0,0.1);
 }
 
 .preview-tablet .wp-full-overlay-main {
@@ -168,25 +173,14 @@
  * Header & Footer Builder
  */
 
-.suki-header-builder-responsive-switcher {
-	margin: 0 -12px;
-	padding: 0 12px 0 calc( 12px - 0.5em );
+#customize-control-header_builder_responsive_tabs {
+	.suki-responsive-tabs {
+		margin: 0 -12px;
+		padding: 0 12px 0 calc( 12px - 0.5em );
 
-	@media screen and ( min-width: 1324px ) {
-		margin: -20px -20px 0;
-		padding: 0 20px 0 calc( 20px - 0.5em );
-	}
-
-	button {
-		display: inline-flex;
-		gap: 6px;
-		align-items: center;
-		cursor: pointer;
-
-		.dashicons {
-			font-size: 1.2em;
-			width: 1em;
-			height: 1em;
+		@media screen and ( min-width: 1324px ) {
+			margin: -20px -20px 0;
+			padding: 0 20px 0 calc( 20px - 0.5em );
 		}
 	}
 }

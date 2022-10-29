@@ -94,6 +94,20 @@
 }
 
 /**
+ * Responsive Tabs section
+ */
+
+.control-section-suki-responsive-tabs {
+	.suki-responsive-tabs {
+		display: flex;
+	}
+
+	.suki-responsive-tabs__button {
+		flex: 1;
+	}
+}
+
+/**
  * Spacer section
  */
 

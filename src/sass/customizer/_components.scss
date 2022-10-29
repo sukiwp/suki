@@ -44,6 +44,14 @@ div.customize-section-description {
 }
 
 /**
+ * Context
+ */
+
+.suki-context--hidden {
+	display: none !important;
+}
+
+/**
  * Control's component
  */
 
@@ -299,6 +307,29 @@ div.customize-section-description {
 		.preview-mobile & {
 			display: revert;
 		}
+	}
+}
+
+/**
+ * Responsive tabs
+ */
+
+.suki-responsive-tabs {
+	padding-block-start: 0;
+	padding-inline-end: 0.5em;
+}
+
+.suki-responsive-tabs__button {
+	display: inline-flex;
+	gap: 0.5em;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	.dashicons {
+		font-size: 1.2em;
+		width: 1em;
+		height: 1em;
 	}
 }
 
