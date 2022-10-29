@@ -428,7 +428,7 @@ class Suki_Breadcrumb extends Suki_Module {
 	/**
 	 * Add Customizer default values.
 	 *
-	 * @param array $defaults Default values.
+	 * @param array $defaults Default values array.
 	 * @return array
 	 */
 	public function add_customizer_setting_defaults( $defaults = array() ) {

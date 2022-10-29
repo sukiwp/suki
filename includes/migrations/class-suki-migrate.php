@@ -40,7 +40,7 @@ abstract class Suki_Migrate {
 	/**
 	 * Get singleton instance.
 	 *
-	 * @return Suki_Module
+	 * @return Suki_Migrate
 	 */
 	public static function instance() {
 		$called_class = get_called_class();

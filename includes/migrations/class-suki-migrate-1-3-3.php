@@ -14,38 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Migration class for Suki 1.3.3.
  */
 class Suki_Migrate_1_3_3 extends Suki_Migrate {
-
-	/**
-	 * Singleton instance
-	 *
-	 * @var Suki_Migrate_1_3_3
-	 */
-	private static $instance;
-
 	/**
 	 * Version
 	 *
 	 * @var string
 	 */
 	const VERSION = '1.3.3';
-
-	/**
-	 * ====================================================
-	 * Singleton & constructor functions
-	 * ====================================================
-	 */
-
-	/**
-	 * Get singleton instance.
-	 *
-	 * @return Suki_Migrate_1_3_3
-	 */
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 
 	/**
 	 * ====================================================
