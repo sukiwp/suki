@@ -237,7 +237,7 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Add default values for all Customizer settings.
 	 *
-	 * @param array $defaults Defaults array.
+	 * @param array $defaults Defaults values array.
 	 * @return array
 	 */
 	public function add_customizer_setting_defaults( $defaults = array() ) {

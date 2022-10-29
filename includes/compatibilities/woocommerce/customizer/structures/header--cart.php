@@ -12,27 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $section = 'suki_section_header_cart';
 
-// Anchor for Cart Link element.
+// Heading: Shopping Cart.
 $wp_customize->add_control(
-	new Suki_Customize_FreeText_Control(
-		$wp_customize,
-		'heading_header_cart_link',
-		array(
-			'section'  => $section,
-			'settings' => array(),
-			'priority' => 10,
-		)
-	)
-);
-
-// Anchor for Cart Dropdown element.
-$wp_customize->add_control(
-	new Suki_Customize_FreeText_Control(
+	new Suki_Customize_Heading_Control(
 		$wp_customize,
 		'heading_header_cart_dropdown',
 		array(
 			'section'  => $section,
 			'settings' => array(),
+			'label'    => esc_html__( 'Shopping Cart', 'suki' ),
 			'priority' => 10,
 		)
 	)

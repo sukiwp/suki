@@ -238,12 +238,13 @@ const SukiControlResponsiveSwitcher = _ref => {
   let {
     devices
   } = _ref;
-  const controlDevices = ['desktop', 'tablet', 'mobile'].filter(device => {
+  // Make sure the specified `devices` prop valid and always in `[desktop] [tablet] [mobile]` orders.
+  const deviceOptions = ['desktop', 'tablet', 'mobile'].filter(device => {
     return -1 !== devices.indexOf(device);
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, 1 < controlDevices.length && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ButtonGroup, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, 1 < deviceOptions.length && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ButtonGroup, {
     className: "suki-responsive-switcher"
-  }, controlDevices.map(device => {
+  }, deviceOptions.map(device => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
       key: device,
       isSmall: true,
@@ -671,7 +672,7 @@ const SukiBuilder = _ref => {
       } // When start dragging a sortable item, disable the unsupported areas.
       ,
       onStart: e => {
-        const itemId = e.item.getAttribute('data-value');
+        const itemId = e.item.dataset.value;
         const itemObj = control.params.choices.find(choice => {
           return itemId === choice.value;
         });
@@ -2188,9 +2189,9 @@ wp.customize.bind('ready', () => {
           }
 
           if (displayed) {
-            container.show();
+            container.removeClass('suki-context--hidden');
           } else {
-            container.hide();
+            container.addClass('suki-context--hidden');
 
             if ('section' === elementType && elementObj.expanded()) {
               elementObj.collapse();
@@ -2214,7 +2215,7 @@ wp.customize.bind('ready', () => {
    */
 
   document.getElementById('customize-controls').addEventListener('click', e => {
-    if (!e.target.matches('.suki-customize-autofocus-link')) {
+    if (!e.target.closest('.suki-jump-to-control-link')) {
       return;
     }
 
@@ -2229,6 +2230,30 @@ wp.customize.bind('ready', () => {
       wp.customize.panel(url.searchParams.get('autofocus[panel]')).focus();
     }
   });
+  /**
+   * Responsive tabs
+   */
+
+  document.getElementById('customize-controls').addEventListener('click', e => {
+    if (!e.target.closest('.suki-responsive-tabs__button')) {
+      return;
+    }
+
+    e.preventDefault();
+    const button = e.target.closest('.suki-responsive-tabs__button');
+    wp.customize.previewedDevice.set(button.dataset.device);
+  });
+  wp.customize.previewedDevice.bind(device => {
+    const targetDevice = 'desktop' === device ? 'desktop' : 'tablet';
+    const buttons = document.querySelectorAll('.suki-responsive-tabs__button');
+    buttons.forEach(button => {
+      if (targetDevice === button.dataset.device) {
+        button.classList.add('nav-tab-active', 'active');
+      } else {
+        button.classList.remove('nav-tab-active', 'active');
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -2242,7 +2267,7 @@ wp.customize.bind('ready', () => {
 /**
  * Static sections
  */
-wp.customize.sectionConstructor['suki-pro-link'] = wp.customize.sectionConstructor['suki-pro-teaser'] = wp.customize.sectionConstructor['suki-spacer'] = wp.customize.Section.extend({
+wp.customize.sectionConstructor['suki-pro-link'] = wp.customize.sectionConstructor['suki-pro-teaser'] = wp.customize.sectionConstructor['suki-responsive-tabs'] = wp.customize.sectionConstructor['suki-spacer'] = wp.customize.Section.extend({
   // No events for this type of section.
   attachEvents() {},
 

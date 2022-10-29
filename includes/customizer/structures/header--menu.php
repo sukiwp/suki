@@ -28,7 +28,7 @@ $wp_customize->add_control(
 			'settings'    => array(),
 			/* translators: %s: Menu element number. */
 			'label'       => sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
-			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[control]', 'nav_menu_locations[header-menu-1]', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link button button-secondary">' .
+			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[control]', 'nav_menu_locations[header-menu-1]', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link button button-secondary">' .
 				/* translators: %s: Menu element number. */
 				sprintf( esc_html__( 'Setup Menu', 'suki' ), 1 ) . '</a>',
 			'priority'    => 10,
@@ -46,7 +46,7 @@ $wp_customize->add_control(
 			'settings'    => array(),
 			/* translators: %s: Menu element number. */
 			'label'       => esc_html__( 'Mobile Menu', 'suki' ),
-			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[control]', 'nav_menu_locations[header-mobile-menu]', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link button button-secondary">' . esc_html__( 'Setup Menu', 'suki' ) . '</a>',
+			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[control]', 'nav_menu_locations[header-mobile-menu]', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link button button-secondary">' . esc_html__( 'Setup Menu', 'suki' ) . '</a>',
 			'priority'    => 20,
 		)
 	)

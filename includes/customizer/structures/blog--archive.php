@@ -71,7 +71,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
+			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_default', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link button button-secondary">' . esc_html__( 'Edit Post Layout: Default', 'suki' ) . '</a>',
 			'priority'    => 11,
 		)
 	)
@@ -85,7 +85,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'settings'    => array(),
-			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
+			'description' => '<a href="' . esc_url( add_query_arg( 'autofocus[section]', 'suki_section_entry_grid', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link button button-secondary">' . esc_html__( 'Edit Post Layout: Grid', 'suki' ) . '</a>',
 			'priority'    => 11,
 		)
 	)

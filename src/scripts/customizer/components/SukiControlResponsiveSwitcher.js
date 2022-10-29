@@ -4,15 +4,16 @@ import {
 } from '@wordpress/components';
 
 const SukiControlResponsiveSwitcher = ( { devices } ) => {
-	const controlDevices = [ 'desktop', 'tablet', 'mobile' ].filter( ( device ) => {
+	// Make sure the specified `devices` prop valid and always in `[desktop] [tablet] [mobile]` orders.
+	const deviceOptions = [ 'desktop', 'tablet', 'mobile' ].filter( ( device ) => {
 		return -1 !== devices.indexOf( device );
 	} );
 
 	return (
 		<>
-			{ 1 < controlDevices.length &&
+			{ 1 < deviceOptions.length &&
 				<ButtonGroup className="suki-responsive-switcher">
-					{ controlDevices.map( ( device ) => {
+					{ deviceOptions.map( ( device ) => {
 						return (
 							<Button
 								key={ device }

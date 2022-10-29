@@ -30,7 +30,7 @@ $wp_customize->add_control(
 			'description' => sprintf(
 				/* translators: %s: link to "Global Modules" section. */
 				esc_html__( 'You can edit Social Media URLs via %s.', 'suki' ),
-				'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-customize-autofocus-link">' . esc_html__( 'Global Modules', 'suki' ) . '</a>'
+				'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link">' . esc_html__( 'Global Modules', 'suki' ) . '</a>'
 			),
 			'priority'    => 10,
 		)
