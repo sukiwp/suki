@@ -22,35 +22,37 @@ import {
 
 import { render } from '@wordpress/element';
 
+import { __ } from '@wordpress/i18n';
+
 wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
 
 		const fontWeightOptions = [
 			{ value: '', label: '' },
-			{ value: 100, label: sukiCustomizerData.l10n.weight100 },
-			{ value: 200, label: sukiCustomizerData.l10n.weight200 },
-			{ value: 300, label: sukiCustomizerData.l10n.weight300 },
-			{ value: 400, label: sukiCustomizerData.l10n.weight400 },
-			{ value: 500, label: sukiCustomizerData.l10n.weight500 },
-			{ value: 600, label: sukiCustomizerData.l10n.weight600 },
-			{ value: 700, label: sukiCustomizerData.l10n.weight700 },
-			{ value: 800, label: sukiCustomizerData.l10n.weight800 },
-			{ value: 900, label: sukiCustomizerData.l10n.weight900 },
+			{ value: 100, label: __( 'Thin', 'suki' ) },
+			{ value: 200, label: __( 'Extra Light', 'suki' ) },
+			{ value: 300, label: __( 'Light', 'suki' ) },
+			{ value: 400, label: __( 'Regular', 'suki' ) },
+			{ value: 500, label: __( 'Medium', 'suki' ) },
+			{ value: 600, label: __( 'Semi Bold', 'suki' ) },
+			{ value: 700, label: __( 'Bold', 'suki' ) },
+			{ value: 800, label: __( 'Extra Bold', 'suki' ) },
+			{ value: 900, label: __( 'Black' ) },
 		];
 
 		const fontStyleOptions = [
 			{ value: '', label: '' },
-			{ value: 'normal', label: sukiCustomizerData.l10n.normal },
-			{ value: 'italic', label: sukiCustomizerData.l10n.italic },
+			{ value: 'normal', label: __( 'Normal', 'suki' ) },
+			{ value: 'italic', label: __( 'Italic', 'suki' ) },
 		];
 
 		const textTransformOptions = [
 			{ value: '', label: '' },
-			{ value: 'none', label: sukiCustomizerData.l10n.none },
-			{ value: 'uppercase', label: sukiCustomizerData.l10n.uppercase },
-			{ value: 'lowercase', label: sukiCustomizerData.l10n.lowercase },
-			{ value: 'capitalize', label: sukiCustomizerData.l10n.capitalize },
+			{ value: 'none', label: __( 'None', 'suki' ) },
+			{ value: 'uppercase', label: __( 'Uppercase', 'suki' ) },
+			{ value: 'lowercase', label: __( 'Lowercase', 'suki' ) },
+			{ value: 'capitalize', label: __( 'Capitalize', 'suki' ) },
 		];
 
 		const fontSizeUnits = [
@@ -98,7 +100,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 						>
 							{ control.settings.font_family &&
 								<SelectControl
-									label={ sukiCustomizerData.l10n.fontFamily }
+									label={ __( 'Family', 'suki' ) }
 									value={ control.settings.font_family.get() }
 									onChange={ ( fontFamily ) => {
 										control.settings.font_family.set( fontFamily );
@@ -112,7 +114,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 										return (
 											<optgroup
 												key={ groupLabel }
-												label={ sukiCustomizerData.l10n[ groupLabel ] || groupLabel }
+												label={ sukiCustomizerData.fontGroups[ groupLabel ] || groupLabel }
 											>
 												{ Object.keys( sukiCustomizerData.fonts[ groupLabel ] ).map( ( familyName ) => {
 													return (
@@ -136,7 +138,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 							>
 								{ control.settings.font_weight &&
 									<SelectControl
-										label={ sukiCustomizerData.l10n.fontWeight }
+										label={ __( 'Weight', 'suki' ) }
 										value={ control.settings.font_weight.get() }
 										options={ fontWeightOptions }
 										onChange={ ( fontWeight ) => {
@@ -147,7 +149,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 								{ control.settings.font_style &&
 									<SelectControl
-										label={ sukiCustomizerData.l10n.fontStyle }
+										label={ __( 'Style', 'suki' ) }
 										value={ control.settings.font_style.get() }
 										options={ fontStyleOptions }
 										onChange={ ( fontStyle ) => {
@@ -158,7 +160,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 								{ control.settings.text_transform &&
 									<SelectControl
-										label={ sukiCustomizerData.l10n.textTransform }
+										label={ __( 'Transform', 'suki' ) }
 										value={ control.settings.text_transform.get() }
 										options={ textTransformOptions }
 										onChange={ ( textTransform ) => {
@@ -207,7 +209,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 										>
 											{ control.settings[ fontSizeSettingId ] &&
 												<UnitControl
-													label={ sukiCustomizerData.l10n.fontSize }
+													label={ __( 'Size', 'suki' ) }
 													value={ fontSizeValue }
 													isResetValueOnUnitChange={ true }
 													units={ fontSizeUnits }
@@ -225,7 +227,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 											{ control.settings[ lineHeightSettingId ] &&
 												<UnitControl
-													label={ sukiCustomizerData.l10n.lineHeight }
+													label={ __( 'Line Height', 'suki' ) }
 													value={ control.settings[ lineHeightSettingId ].get() }
 													isResetValueOnUnitChange={ true }
 													units={ lineHeightUnits }
@@ -243,7 +245,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 											{ control.settings[ letterSpacingSettingId ] &&
 												<UnitControl
-													label={ sukiCustomizerData.l10n.letterSpacing }
+													label={ __( 'Spacing', 'suki' ) }
 													value={ control.settings[ letterSpacingSettingId ].get() }
 													isResetValueOnUnitChange={ true }
 													units={ letterSpacingUnits }

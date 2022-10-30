@@ -20,15 +20,17 @@ import {
 
 import { render } from '@wordpress/element';
 
+import { __ } from '@wordpress/i18n';
+
 wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
 
 		const directions = [
-			sukiCustomizerData.l10n.top,
-			sukiCustomizerData.l10n.right,
-			sukiCustomizerData.l10n.bottom,
-			sukiCustomizerData.l10n.left,
+			__( 'Top', 'suki' ),
+			__( 'Right', 'suki' ),
+			__( 'Bottom', 'suki' ),
+			__( 'Left', 'suki' ),
 		];
 
 		render(

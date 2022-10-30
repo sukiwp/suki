@@ -18,6 +18,8 @@ import {
 
 import { render } from '@wordpress/element';
 
+import { __ } from '@wordpress/i18n';
+
 wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
@@ -87,7 +89,7 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 												control.setting.set( control.params.defaultValue );
 											} }
 										>
-											{ sukiCustomizerData.l10n.reset }
+											{ __( 'Reset', 'suki' ) }
 										</Button>
 									</Flex>
 								</Flex>

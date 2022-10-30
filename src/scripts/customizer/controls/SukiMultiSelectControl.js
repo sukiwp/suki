@@ -5,6 +5,8 @@
 import SukiControlLabel from '../components/SukiControlLabel';
 import SukiControlDescription from '../components/SukiControlDescription';
 
+import { ReactSortable } from 'react-sortablejs';
+
 import {
 	Button,
 	Icon,
@@ -12,7 +14,7 @@ import {
 
 import { render } from '@wordpress/element';
 
-import { ReactSortable } from 'react-sortablejs';
+import { __ } from '@wordpress/i18n';
 
 function SukiMultiSelect( { control } ) {
 	const values = control.setting.get();
@@ -56,7 +58,7 @@ function SukiMultiSelect( { control } ) {
 						<Button
 							isSmall
 							icon="no-alt"
-							label={ sukiCustomizerData.l10n.remove }
+							label={ __( 'Remove', 'suki' ) }
 							showTooltip
 							className="suki-multiselect__list__item__remove"
 							onClick={ () => {
@@ -110,7 +112,7 @@ function SukiMultiSelect( { control } ) {
 					value=""
 					disabled
 				>
-					{ sukiCustomizerData.l10n.addNew }
+					{ __( 'Add new', 'suki' ) }
 				</option>
 
 				{ control.params.choices.map( ( choice ) => {

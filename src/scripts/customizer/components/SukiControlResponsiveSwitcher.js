@@ -21,7 +21,7 @@ const SukiControlResponsiveSwitcher = ( { devices } ) => {
 								variant="tertiary"
 								icon={ 'mobile' === device ? 'smartphone' : device }
 								data-device={ device }
-								label={ sukiCustomizerData.l10n.device }
+								label={ device }
 								showTooltip
 								className="suki-responsive-switcher__button"
 								onClick={ () => {

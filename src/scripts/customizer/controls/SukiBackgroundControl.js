@@ -17,38 +17,40 @@ import {
 
 import { render } from '@wordpress/element';
 
+import { __ } from '@wordpress/i18n';
+
 wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
 
 		const attachmentOptions = [
-			{ value: 'scroll', label: sukiCustomizerData.l10n.scroll },
-			{ value: 'italic', label: sukiCustomizerData.l10n.italic },
+			{ value: 'scroll', label: __( 'Scroll', 'suki' ) },
+			{ value: 'fixed', label: __( 'Fixed', 'suki' ) },
 		];
 
 		const repeatOptions = [
-			{ value: 'repeat', label: sukiCustomizerData.l10n.repeatBoth },
-			{ value: 'repeat-x', label: sukiCustomizerData.l10n.repeatX },
-			{ value: 'repeat-y', label: sukiCustomizerData.l10n.repeatY },
-			{ value: 'no-repeat', label: sukiCustomizerData.l10n.noRepeat },
+			{ value: 'repeat', label: __( 'Repeat', 'suki' ) },
+			{ value: 'repeat-x', label: __( 'Repeat horizontally', 'suki' ) },
+			{ value: 'repeat-y', label: __( 'Repeat vertically', 'suki' ) },
+			{ value: 'no-repeat', label: __( 'No repeat', 'suki' ) },
 		];
 
 		const sizeOptions = [
-			{ value: 'auto', label: sukiCustomizerData.l10n.auto },
-			{ value: 'contain', label: sukiCustomizerData.l10n.contain },
-			{ value: 'cover', label: sukiCustomizerData.l10n.cover },
+			{ value: 'auto', label: __( 'Auto', 'suki' ) },
+			{ value: 'contain', label: __( 'Contain', 'suki' ) },
+			{ value: 'cover', label: __( 'Cover', 'suki' ) },
 		];
 
 		const positionOptions = [
-			{ value: 'left top', label: sukiCustomizerData.l10n.leftTop },
-			{ value: 'left center', label: sukiCustomizerData.l10n.leftCenter },
-			{ value: 'left bottom', label: sukiCustomizerData.l10n.leftBottom },
-			{ value: 'center top', label: sukiCustomizerData.l10n.centerTop },
-			{ value: 'center center', label: sukiCustomizerData.l10n.centerCenter },
-			{ value: 'center bottom', label: sukiCustomizerData.l10n.centerBottom },
-			{ value: 'right top', label: sukiCustomizerData.l10n.rightTop },
-			{ value: 'right right', label: sukiCustomizerData.l10n.rightCenter },
-			{ value: 'right bottom', label: sukiCustomizerData.l10n.rightBottom },
+			{ value: 'left top', label: __( 'Left top', 'suki' ) },
+			{ value: 'left center', label: __( 'Left center', 'suki' ) },
+			{ value: 'left bottom', label: __( 'Left bottom', 'suki' ) },
+			{ value: 'center top', label: __( 'Center top', 'suki' ) },
+			{ value: 'center center', label: __( 'Center center', 'suki' ) },
+			{ value: 'center bottom', label: __( 'Center bottom', 'suki' ) },
+			{ value: 'right top', label: __( 'Right top', 'suki' ) },
+			{ value: 'right right', label: __( 'Right center', 'suki' ) },
+			{ value: 'right bottom', label: __( 'Right bottom', 'suki' ) },
 		];
 
 		render(
@@ -88,7 +90,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 											>
 												<Button
 													icon="upload"
-													text={ sukiCustomizerData.l10n.changeImage }
+													text={ __( 'Change image', 'suki' ) }
 													variant="secondary"
 													className="suki-media-upload__actions__open"
 													onClick={ ( e ) => {
@@ -99,7 +101,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 												/>
 												<Button
 													icon="no-alt"
-													text={ sukiCustomizerData.l10n.removeImage }
+													text={ __( 'Remove image', 'suki' ) }
 													variant="secondary"
 													className="suki-media-upload__actions__remove"
 													onClick={ ( e ) => {
@@ -116,7 +118,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 										<Grid columns="1">
 											<Button
 												icon="upload"
-												text={ sukiCustomizerData.l10n.selectImage }
+												text={ __( 'Select image', 'suki' ) }
 												variant="secondary"
 												className="suki-media-upload-actions__open"
 												onClick={ ( e ) => {
@@ -137,7 +139,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 								>
 									{ control.settings.attachment &&
 										<SelectControl
-											label={ sukiCustomizerData.l10n.attachment }
+											label={ __( 'Attachment', 'suki' ) }
 											value={ control.settings.attachment.get() }
 											options={ attachmentOptions }
 											onChange={ ( attachment ) => {
@@ -148,7 +150,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 
 									{ control.settings.repeat &&
 										<SelectControl
-											label={ sukiCustomizerData.l10n.repeat }
+											label={ __( 'Repeat', 'suki' ) }
 											value={ control.settings.repeat.get() }
 											options={ repeatOptions }
 											onChange={ ( repeat ) => {
@@ -159,7 +161,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 
 									{ control.settings.size &&
 										<SelectControl
-											label={ sukiCustomizerData.l10n.size }
+											label={ __( 'Size', 'suki' ) }
 											value={ control.settings.size.get() }
 											options={ sizeOptions }
 											onChange={ ( size ) => {
@@ -170,7 +172,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 
 									{ control.settings.position &&
 										<SelectControl
-											label={ sukiCustomizerData.l10n.position }
+											label={ __( 'Position', 'suki' ) }
 											value={ control.settings.position.get() }
 											options={ positionOptions }
 											onChange={ ( position ) => {

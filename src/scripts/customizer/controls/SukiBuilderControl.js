@@ -8,14 +8,16 @@ import SukiControlDescription from '../components/SukiControlDescription';
 import { ReactSortable } from 'react-sortablejs';
 
 import {
+	Button,
+	Icon,
+} from '@wordpress/components';
+
+import {
 	useState,
 	render,
 } from '@wordpress/element';
 
-import {
-	Button,
-	Icon,
-} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 const SukiBuilder = ( { control } ) => {
 	// Get all settings values, and also define inactive elements.
@@ -51,7 +53,7 @@ const SukiBuilder = ( { control } ) => {
 	// Sortable areas and their info.
 	const areas = [ ...control.params.areas, {
 		id: '_inactive',
-		label: sukiCustomizerData.l10n.inactiveElements,
+		label: __( 'Inactive elements', 'suki' ),
 		sortableInstance: null,
 	} ];
 

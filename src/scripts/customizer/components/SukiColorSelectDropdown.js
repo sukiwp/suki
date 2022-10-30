@@ -9,7 +9,10 @@ import {
 	SlotFillProvider,
 } from '@wordpress/components';
 
-import { sprintf } from '@wordpress/i18n';
+import {
+	__,
+	sprintf,
+} from '@wordpress/i18n';
 
 const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValue, value } ) => {
 	const palette = [];
@@ -18,7 +21,8 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 		const color = wp.customize( `color_palette_${ i }` ).get();
 
 		palette.push( {
-			name: wp.customize( `color_palette_${ i }_name` ).get() || sprintf( String( sukiCustomizerData.l10n.themeColor$d ), i ),
+			/* translators: %d: number. */
+			name: wp.customize( `color_palette_${ i }_name` ).get() || sprintf( __( 'Theme Color %d', 'suki' ), i ),
 			color: `var(--color-palette-${ i })`,
 			actualValue: color,
 		} );
@@ -31,7 +35,7 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 	const valueInfo = valueIsLink ? palette.find( ( item ) => {
 		return value === item.color;
 	} ) : {
-		name: sukiCustomizerData.l10n.custom,
+		name: __( 'Custom', 'suki' ),
 		color: value,
 		actualValue: value,
 	};
@@ -47,7 +51,7 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 							<Button
 								isSmall
 								variant="tertiary"
-								label={ '' !== value ? valueInfo.name : sukiCustomizerData.l10n.notSet }
+								label={ '' !== value ? valueInfo.name : __( 'Not set', 'suki' ) }
 								showTooltip
 								aria-expanded={ toggleParams.isOpen }
 								className="suki-color-dropdown__toggle"
@@ -86,7 +90,7 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 											isPressed={ pickerIsOpened }
 											variant="tertiary"
 											icon="color-picker"
-											label={ sukiCustomizerData.l10n.custom }
+											label={ __( 'Custom', 'suki' ) }
 											showTooltip
 											aria-expanded={ pickerIsOpened }
 											className="suki-color-dropdown__custom__toggle"
@@ -126,7 +130,7 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 												changeValue( defaultValue );
 											} }
 										>
-											{ sukiCustomizerData.l10n.reset }
+											{ __( 'Reset', 'suki' ) }
 										</Button>
 									</Flex>
 								}

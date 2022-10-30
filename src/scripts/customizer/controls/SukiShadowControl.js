@@ -22,6 +22,8 @@ import {
 
 import { render } from '@wordpress/element';
 
+import { __ } from '@wordpress/i18n';
+
 wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
@@ -43,6 +45,13 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 			spread: valueSplit[ 3 ] ?? '',
 			color: valueSplit[ 4 ] ?? '',
 			position: valueSplit[ 5 ] ?? '',
+		};
+
+		const labels = {
+			x: __( 'X', 'suki' ),
+			y: __( 'Y', 'suki' ),
+			blur: __( 'Blur', 'suki' ),
+			spread: __( 'Spread', 'suki' ),
 		};
 
 		render(
@@ -80,7 +89,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 									return (
 										<UnitControl
 											key={ prop }
-											label={ sukiCustomizerData.l10n[ prop ] }
+											label={ labels[ prop ] }
 											value={ valueObj[ prop ] }
 											isResetValueOnUnitChange
 											units={ units }
@@ -104,7 +113,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 
 							<Flex>
 								<ToggleControl
-									label={ sukiCustomizerData.l10n.innerShadow }
+									label={ __( 'Inner shadow', 'suki' ) }
 									checked={ 'inset' === valueObj.position }
 									onChange={ () => {
 										valueObj.position = 'inset' === valueObj.position ? '' : 'inset';
