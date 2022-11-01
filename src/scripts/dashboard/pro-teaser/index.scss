@@ -9,12 +9,8 @@
 }
 
 .suki-admin-dashboard__pro-teaser-modules-grid {
-	--rows: var(--items);
-
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: repeat(var(--rows), auto);
-	grid-auto-flow: column;
 	justify-content: start;
 	row-gap: 10px;
 	column-gap: 20px;
@@ -22,12 +18,10 @@
 	font-size: 14px;
 
 	@media screen and ( min-width: 400px ) {
-		--rows: calc(var(--items) / 2);
 		grid-template-columns: repeat(2, 1fr);
 	}
 
 	@media screen and ( min-width: 600px ) {
-		--rows: calc(var(--items) / 3);
 		grid-template-columns: repeat(3, 1fr);
 	}
 

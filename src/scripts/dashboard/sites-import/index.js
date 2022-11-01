@@ -83,8 +83,12 @@ const SukiDashboardSitesImport = () => {
 };
 
 window.addEventListener( 'DOMContentLoaded', () => {
-	render(
-		<SukiDashboardSitesImport />,
-		document.getElementById( 'suki-admin-dashboard__sites-import' )
-	);
+	const root = document.getElementById( 'suki-admin-dashboard__sites-import' );
+
+	if ( root ) {
+		render(
+			<SukiDashboardSitesImport />,
+			root
+		);
+	}
 } );

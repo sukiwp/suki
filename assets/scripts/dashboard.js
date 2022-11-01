@@ -29,10 +29,7 @@ const SukiDashboardProTeaser = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "suki-admin-dashboard__heading"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Start Customizing', 'suki')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "suki-admin-dashboard__customizer-links",
-    style: {
-      '--items': data.links.length
-    }
+    className: "suki-admin-dashboard__customizer-links"
   }, data.links.map(link => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: link.label,
@@ -46,7 +43,11 @@ const SukiDashboardProTeaser = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null), document.getElementById('suki-admin-dashboard__customizer-shortcuts'));
+  const root = document.getElementById('suki-admin-dashboard__customizer-shortcuts');
+
+  if (root) {
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null), root);
+  }
 });
 
 /***/ }),
@@ -106,10 +107,7 @@ const SukiDashboardProTeaser = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Get more features, advanced demo templates, and premium support.', 'suki')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", {
     className: "suki-admin-dashboard__box-separator"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    className: "suki-admin-dashboard__pro-teaser-modules-grid",
-    style: {
-      '--items': data.modules.length
-    }
+    className: "suki-admin-dashboard__pro-teaser-modules-grid"
   }, data.modules.map(module => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: module.slug
@@ -124,7 +122,11 @@ const SukiDashboardProTeaser = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null), document.getElementById('suki-admin-dashboard__pro-teaser'));
+  const root = document.getElementById('suki-admin-dashboard__pro-teaser');
+
+  if (root) {
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null), root);
+  }
 });
 
 /***/ }),
@@ -212,7 +214,11 @@ const SukiDashboardSitesImport = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardSitesImport, null), document.getElementById('suki-admin-dashboard__sites-import'));
+  const root = document.getElementById('suki-admin-dashboard__sites-import');
+
+  if (root) {
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardSitesImport, null), root);
+  }
 });
 
 /***/ }),

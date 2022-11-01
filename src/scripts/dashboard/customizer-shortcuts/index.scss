@@ -1,10 +1,6 @@
 .suki-admin-dashboard__customizer-links {
-	--rows: var(--items);
-
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: repeat(var(--rows), auto);
-	grid-auto-flow: column;
 	column-gap: 20px;
 	row-gap: 8px;
 	margin-top: 20px;
@@ -12,8 +8,6 @@
 	font-weight: 500;
 
 	@media screen and (min-width: 400px) {
-		--rows: calc(var(--items) / 2);
-
 		grid-template-columns: repeat(2, 1fr);
 	}
 }

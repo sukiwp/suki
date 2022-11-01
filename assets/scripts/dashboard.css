@@ -127,6 +127,9 @@
   display: grid;
   gap: 30px;
 }
+.suki-admin-dashboard__body .suki-admin-dashboard__container > *:empty {
+  display: none;
+}
 .suki-admin-dashboard__body .notice {
   margin: 0;
 }
@@ -148,11 +151,8 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/dashboard/customizer-shortcuts/index.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************/
 .suki-admin-dashboard__customizer-links {
-  --rows: var(--items);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(var(--rows), auto);
-  grid-auto-flow: column;
   column-gap: 20px;
   row-gap: 8px;
   margin-top: 20px;
@@ -161,7 +161,6 @@
 }
 @media screen and (min-width: 400px) {
   .suki-admin-dashboard__customizer-links {
-    --rows: calc(var(--items) / 2);
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -191,11 +190,8 @@
 }
 
 .suki-admin-dashboard__pro-teaser-modules-grid {
-  --rows: var(--items);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(var(--rows), auto);
-  grid-auto-flow: column;
   justify-content: start;
   row-gap: 10px;
   column-gap: 20px;
@@ -204,13 +200,11 @@
 }
 @media screen and (min-width: 400px) {
   .suki-admin-dashboard__pro-teaser-modules-grid {
-    --rows: calc(var(--items) / 2);
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 600px) {
   .suki-admin-dashboard__pro-teaser-modules-grid {
-    --rows: calc(var(--items) / 3);
     grid-template-columns: repeat(3, 1fr);
   }
 }

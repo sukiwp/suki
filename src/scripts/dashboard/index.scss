@@ -137,6 +137,10 @@
 	.suki-admin-dashboard__container {
 		display: grid;
 		gap: 30px;
+
+		> *:empty {
+			display: none;
+		}
 	}
 
 	.notice {

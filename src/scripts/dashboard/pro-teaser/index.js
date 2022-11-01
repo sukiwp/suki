@@ -25,10 +25,7 @@ const SukiDashboardProTeaser = () => {
 			</p>
 			<hr className="suki-admin-dashboard__box-separator" />
 
-			<ul
-				className="suki-admin-dashboard__pro-teaser-modules-grid"
-				style={ { '--items': data.modules.length } }
-			>
+			<ul className="suki-admin-dashboard__pro-teaser-modules-grid">
 				{ data.modules.map( ( module ) => {
 					return (
 						<li key={ module.slug }>{ module.label }</li>
@@ -48,8 +45,12 @@ const SukiDashboardProTeaser = () => {
 };
 
 window.addEventListener( 'DOMContentLoaded', () => {
-	render(
-		<SukiDashboardProTeaser />,
-		document.getElementById( 'suki-admin-dashboard__pro-teaser' )
-	);
+	const root = document.getElementById( 'suki-admin-dashboard__pro-teaser' );
+
+	if ( root ) {
+		render(
+			<SukiDashboardProTeaser />,
+			root
+		);
+	}
 } );

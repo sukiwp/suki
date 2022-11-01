@@ -13,10 +13,7 @@ const SukiDashboardProTeaser = () => {
 		<div className="suki-admin-dashboard__customizer-shortcuts suki-admin-dashboard__box">
 			<h2 className="suki-admin-dashboard__heading">{ __( 'Start Customizing', 'suki' ) }</h2>
 
-			<div
-				className="suki-admin-dashboard__customizer-links"
-				style={ { '--items': data.links.length } }
-			>
+			<div className="suki-admin-dashboard__customizer-links">
 				{ data.links.map( ( link ) => {
 					return (
 						<div
@@ -36,8 +33,12 @@ const SukiDashboardProTeaser = () => {
 };
 
 window.addEventListener( 'DOMContentLoaded', () => {
-	render(
-		<SukiDashboardProTeaser />,
-		document.getElementById( 'suki-admin-dashboard__customizer-shortcuts' )
-	);
+	const root = document.getElementById( 'suki-admin-dashboard__customizer-shortcuts' );
+
+	if ( root ) {
+		render(
+			<SukiDashboardProTeaser />,
+			root
+		);
+	}
 } );
