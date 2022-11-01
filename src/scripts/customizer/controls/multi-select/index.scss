@@ -1,0 +1,47 @@
+.customize-control-suki-multiselect {
+	.suki-multiselect__list {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.suki-multiselect__list__item {
+		display: flex;
+		gap: 8px;
+		padding: 4px 8px;
+		background-color: #fff;
+		border: 1px solid rgba(0,0,0,0.2);
+		border-radius: 2px;
+
+		&.sortable-ghost {
+			background-color: transparent;
+			border-style: dashed;
+			color: transparent;
+		}
+	}
+
+	.suki-multiselect__list__item__move {
+		cursor: move;
+	}
+
+	.suki-multiselect__list__item__label {
+		margin-right: auto;
+	}
+
+	.suki-multiselect__list__item__remove {
+		border: none; // Reset
+		min-width: auto; // Reset
+		padding: 0 !important; // Reset
+		width: auto !important; // Reset
+		height: auto !important; // Reset
+		margin-right: -4px;
+
+		.dashicons {
+			margin: 0;
+		}
+	}
+
+	select {
+		margin: 0;
+	}
+}

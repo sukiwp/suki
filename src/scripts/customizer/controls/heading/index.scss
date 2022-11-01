@@ -1,0 +1,32 @@
+.customize-control-suki-heading {
+	margin: 24px 0 16px;
+
+	.suki-heading {
+		position: relative;
+		margin: 0 -12px;
+		padding: 10px 12px;
+		background-color: rgba(0,0,0,0.1);
+		color: inherit;
+		outline: 0;
+		transition: all 0.25s;
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: uppercase;
+
+		&-tabindex {
+			&:focus + .suki-heading {
+				background-color: var(--wp-admin-theme-color);
+				color: #fff;
+			}
+		}
+	}
+
+	.description {
+		margin-top: 12px;
+	}
+
+	// Remove top margin if this is the first control after customizer panel / section description.
+	.customize-section-description-container + & {
+		margin-top: 0;
+	}
+}

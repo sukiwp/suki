@@ -1,0 +1,153 @@
+// Section
+#customize-theme-controls,
+#customize-outer-theme-controls {
+	.accordion-section-title {
+		border-top: 1px solid #ddd;
+		margin-top: -1px;
+	}
+}
+
+#accordion-section-themes + .control-section,
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2), #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu, #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
+	border-top: none;
+}
+
+div.customize-section-description {
+	margin: 0 -12px;
+	padding: 12px 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
+// Control
+.customize-control {
+	position: relative;
+	margin-bottom: 15px;
+
+	&, *, *:before, *:after {
+		box-sizing: border-box;
+	}
+
+	.components-base-control__field {
+		margin-bottom: 0;
+	}
+
+	.customize-control-notifications-container:empty {
+		display: none;
+	}
+}
+
+// Icon
+.suki-icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1;
+	text-align: center;
+
+	svg {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		vertical-align: top;
+
+		&:not([stroke-width]) {
+			stroke-width: 0;
+		}
+
+		&:not([stroke]) {
+			stroke: currentColor;
+		}
+
+		&:not([fill]) {
+			fill: currentColor;
+		}
+	}
+}
+
+// Control's component
+:is( .components-input-control, .components-select-control ) {
+	gap: 2px !important;
+
+	> .components-flex-item {
+		&:empty {
+			display: none;
+		}
+	}
+}
+
+// Button
+.button {
+	.dashicons {
+		width: auto;
+		height: auto;
+		margin-top: -0.1em;
+		margin-inline-end: 0.25em;
+		font-size: 1.2em;
+		line-height: 1;
+		vertical-align: middle;
+	}
+}
+
+// SelectControl
+.components-select-control__input {
+	line-height: normal !important;
+}
+
+// React colorful
+.components-color-picker {
+	.react-colorful {
+		width: 100% !important; // Force the color picker to use parent's width
+		overflow: visible !important;
+
+		& + div {
+			padding: 0;
+
+			> * {
+				padding: 0;
+			}
+
+			.components-input-control__input {
+				height: 30px !important;
+				min-height: 30px !important;
+			}
+		}
+	}
+
+	.react-colorful__hue,
+	.react-colorful__alpha {
+		width: 100% !important;
+	}
+
+	.react-colorful__saturation {
+		height: 155px !important;
+		margin-bottom: 12px !important;
+	}
+}
+
+// Responsive tabs
+.suki-responsive-tabs {
+	padding-block-start: 0;
+	padding-inline-end: 0.5em;
+}
+
+.suki-responsive-tabs__button {
+	display: inline-flex;
+	gap: 0.5em;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	.dashicons {
+		font-size: 1.2em;
+		width: 1em;
+		height: 1em;
+	}
+}
+
+// Mega Menu settings popup on Suki Pro
+.modal-open {
+	#TB_overlay, #TB_window {
+		z-index: 500001;
+	}
+}

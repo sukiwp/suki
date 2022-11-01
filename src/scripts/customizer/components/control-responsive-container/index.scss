@@ -1,0 +1,23 @@
+.suki-responsive-container {
+	&:not([data-device="global"]) {
+		display: none;
+	}
+
+	&[data-device="desktop"] {
+		.preview-desktop & {
+			display: revert;
+		}
+	}
+
+	&[data-device="tablet"] {
+		.preview-tablet & {
+			display: revert;
+		}
+	}
+
+	&[data-device="mobile"] {
+		.preview-mobile & {
+			display: revert;
+		}
+	}
+}

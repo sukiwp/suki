@@ -1,0 +1,49 @@
+.suki-responsive-switcher {
+	display: inline-flex;
+	gap: 4px;
+	vertical-align: middle;
+
+	.customize-control-title & {
+		margin-inline-start: 12px;
+	}
+
+	.suki-responsive-switcher__button {
+		min-width: auto !important; // Reset
+		width: auto !important; // Reset
+		height: auto; // Reset
+		padding: 0 !important; // Reset
+		border: none; // Reset
+		color: inherit !important; // Reset
+		background: transparent !important; // Reset
+		box-shadow: none;
+		opacity: 0.4;
+		vertical-align: middle;
+
+		&[data-device="desktop"] {
+			.preview-desktop & {
+				opacity: 0.8;
+			}
+		}
+
+		&[data-device="tablet"] {
+			.preview-tablet & {
+				opacity: 0.8;
+			}
+		}
+
+		&[data-device="mobile"] {
+			.preview-mobile & {
+				opacity: 0.8;
+			}
+		}
+
+		.dashicons {
+			font-size: 16px;
+			width: auto;
+			height: auto;
+			margin: 0;
+			line-height: 1;
+			vertical-align: middle;
+		}
+	}
+}

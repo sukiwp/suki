@@ -1,3 +1,1 @@
-import './customizer/sections';
-import './customizer/controls';
-import './customizer/interactions';
+import './customizer/index';
