@@ -8,6 +8,7 @@
 		"jQuery": "readonly",
 		"ajaxurl": "readonly",
 		"sukiAdminData": "readonly",
+		"sukiDashboardData": "readonly",
 		"sukiConfig": "readonly",
 		"sukiCustomizerData": "readonly",
 		"sukiCustomizerPreviewData": "readonly",
