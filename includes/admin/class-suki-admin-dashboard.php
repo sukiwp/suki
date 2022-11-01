@@ -90,92 +90,94 @@ class Suki_Admin_Dashboard {
 		$current_screen = get_current_screen();
 
 		if ( 'appearance_page_suki' === $current_screen->id ) {
-			$script_data = suki_get_script_data( 'dashboard' );
+			$script_data = include trailingslashit( SUKI_SCRIPTS_DIR ) . 'dashboard.asset.php';
 
-			// Enqueue dashboard.css file.
-			if ( isset( $script_data['css_file_url'] ) ) {
-				wp_enqueue_style( 'suki-dashboard', $script_data['css_file_url'], array( 'wp-components' ), $script_data['version'] );
+			/**
+			 * Enqueue dashboard.css
+			 */
+
+			wp_enqueue_style( 'suki-dashboard', trailingslashit( SUKI_SCRIPTS_URL ) . 'dashboard.css', array( 'wp-components' ), $script_data['version'] );
+
+			/**
+			 * Enqueue dashboard.js
+			 */
+
+			wp_enqueue_script( 'suki-dashboard', trailingslashit( SUKI_SCRIPTS_URL ) . 'dashboard.js', $script_data['dependencies'], $script_data['version'], true );
+
+			$data = array();
+
+			// Add data for "Customizer Shortcuts" section.
+			if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__customizer_shortcuts' ) ) ) {
+				$data['customizerShortcuts'] = array(
+					'links' => apply_filters(
+						'suki/admin/dashboard/customizer_shortcuts',
+						array(
+							array(
+								'label' => esc_html__( 'Global Colors', 'suki' ),
+								'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_color_palette' ), admin_url( 'customize.php' ) ),
+								'icon'  => 'art',
+							),
+							array(
+								'label' => esc_html__( 'Global Elements', 'suki' ),
+								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_elements' ), admin_url( 'customize.php' ) ),
+								'icon'  => 'editor-textcolor',
+							),
+							array(
+								'label' => esc_html__( 'Global Layout', 'suki' ),
+								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_layout' ), admin_url( 'customize.php' ) ),
+								'icon'  => 'welcome-widgets-menus',
+							),
+							array(
+								'label' => esc_html__( 'Header Builder', 'suki' ),
+								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_header' ), admin_url( 'customize.php' ) ),
+								'icon'  => 'move',
+							),
+							array(
+								'label' => esc_html__( 'Footer Builder', 'suki' ),
+								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_footer' ), admin_url( 'customize.php' ) ),
+								'icon'  => 'move',
+							),
+							array(
+								'label' => esc_html__( 'Blog Layout', 'suki' ),
+								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_blog' ), admin_url( 'customize.php' ) ),
+								'icon'  => 'welcome-write-blog',
+							),
+						)
+					),
+				);
 			}
 
-			// Enqueue dashboard.js file.
-			if ( isset( $script_data['js_file_url'] ) ) {
-				wp_enqueue_script( 'suki-dashboard', $script_data['js_file_url'], $script_data['dependencies'], $script_data['version'], true );
-
-				$data = array();
-
-				// Add data for "Customizer Shortcuts" section.
-				if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__customizer_shortcuts' ) ) ) {
-					$data['customizerShortcuts'] = array(
-						'links' => apply_filters(
-							'suki/admin/dashboard/customizer_shortcuts',
-							array(
-								array(
-									'label' => esc_html__( 'Global Colors', 'suki' ),
-									'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_color_palette' ), admin_url( 'customize.php' ) ),
-									'icon'  => 'art',
-								),
-								array(
-									'label' => esc_html__( 'Global Elements', 'suki' ),
-									'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_elements' ), admin_url( 'customize.php' ) ),
-									'icon'  => 'editor-textcolor',
-								),
-								array(
-									'label' => esc_html__( 'Global Layout', 'suki' ),
-									'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_layout' ), admin_url( 'customize.php' ) ),
-									'icon'  => 'welcome-widgets-menus',
-								),
-								array(
-									'label' => esc_html__( 'Header Builder', 'suki' ),
-									'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_header' ), admin_url( 'customize.php' ) ),
-									'icon'  => 'move',
-								),
-								array(
-									'label' => esc_html__( 'Footer Builder', 'suki' ),
-									'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_footer' ), admin_url( 'customize.php' ) ),
-									'icon'  => 'move',
-								),
-								array(
-									'label' => esc_html__( 'Blog Layout', 'suki' ),
-									'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_blog' ), admin_url( 'customize.php' ) ),
-									'icon'  => 'welcome-write-blog',
-								),
-							)
+			// Add data for "Pro Teaser" section.
+			if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_teaser' ) ) ) {
+				$data['proTeaser'] = array(
+					'modules'    => suki_convert_associative_array_into_simple_array( suki_get_pro_modules(), 'slug' ),
+					'websiteURL' => add_query_arg(
+						array(
+							'utm_source'   => 'suki-dashboard',
+							'utm_medium'   => 'learn-more',
+							'utm_campaign' => 'theme-pro-modules-list',
 						),
-					);
-				}
+						trailingslashit( SUKI_PRO_WEBSITE_URL )
+					),
+				);
+			}
 
-				// Add data for "Pro Teaser" section.
-				if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_teaser' ) ) ) {
-					$data['proTeaser'] = array(
-						'modules'    => suki_convert_associative_array_into_simple_array( suki_get_pro_modules(), 'slug' ),
-						'websiteURL' => add_query_arg(
-							array(
-								'utm_source'   => 'suki-dashboard',
-								'utm_medium'   => 'learn-more',
-								'utm_campaign' => 'theme-pro-modules-list',
-							),
-							trailingslashit( SUKI_PRO_WEBSITE_URL )
-						),
-					);
-				}
+			// Add data for "Sites Import" section.
+			if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__sites_import' ) ) ) {
+				$data['sitesImport'] = array(
+					'isPluginInstalled' => is_plugin_active( 'suki-sites-import/suki-sites-import.php' ),
+					'pluginPageURL'     => add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ),
+					'bannerImageURL'    => trailingslashit( SUKI_IMAGES_URL ) . 'dashboard-sites-import-banner.jpg',
+				);
+			}
 
-				// Add data for "Sites Import" section.
-				if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__sites_import' ) ) ) {
-					$data['sitesImport'] = array(
-						'isPluginInstalled' => is_plugin_active( 'suki-sites-import/suki-sites-import.php' ),
-						'pluginPageURL'     => add_query_arg( array( 'page' => 'suki-sites-import' ), admin_url( 'themes.php' ) ),
-						'bannerImageURL'    => trailingslashit( SUKI_IMAGES_URL ) . 'dashboard-sites-import-banner.jpg',
-					);
-				}
-
-				// Pass data to dashboard.js.
-				if ( ! empty( $data ) ) {
-					wp_add_inline_script(
-						'suki-dashboard',
-						'const sukiDashboardData = ' . wp_json_encode( $data ),
-						'before'
-					);
-				}
+			// Pass data to dashboard.js.
+			if ( ! empty( $data ) ) {
+				wp_add_inline_script(
+					'suki-dashboard',
+					'const sukiDashboardData = ' . wp_json_encode( $data ),
+					'before'
+				);
 			}
 		}
 	}

@@ -210,37 +210,6 @@ function suki_show_pro_teaser() {
 }
 
 /**
- * Return script data as defined on the generated `/assets/scripts/[name].asset.php` file.
- *
- * @since 2.0.0
- *
- * @param string $script_name Script name.
- * @return array
- */
-function suki_get_script_data( $script_name ) {
-	// Define the asset file path.
-	$script_asset_path = trailingslashit( get_template_directory() ) . 'assets/scripts/' . $script_name . '.asset.php';
-
-	// Get dependencies and version from the asset file.
-	$script_data = include $script_asset_path;
-
-	$directory_url = trailingslashit( get_template_directory_uri() ) . 'assets/scripts';
-	$directory_dir = trailingslashit( get_template_directory() ) . 'assets/scripts';
-
-	// Add the CSS file URL to the returned data (if exists).
-	if ( file_exists( trailingslashit( $directory_dir ) . $script_name . '.css' ) ) {
-		$script_data['css_file_url'] = trailingslashit( $directory_url ) . $script_name . '.css';
-	}
-
-	// Add the JS file URL to the returned data (if exists).
-	if ( file_exists( trailingslashit( $directory_dir ) . $script_name . '.js' ) ) {
-		$script_data['js_file_url'] = trailingslashit( $directory_url ) . $script_name . '.js';
-	}
-
-	return $script_data;
-}
-
-/**
  * Return the current loaded page context.
  *
  * @return string

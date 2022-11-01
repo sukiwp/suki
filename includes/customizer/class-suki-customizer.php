@@ -244,31 +244,33 @@ class Suki_Customizer {
 	 * Enqueue customizer controls scripts & styles.
 	 */
 	public function enqueue_scripts() {
-		$script_data = suki_get_script_data( 'customizer' );
+		$script_data = include trailingslashit( SUKI_SCRIPTS_DIR ) . 'customizer.asset.php';
 
-		// Enqueue dashboard.css file.
-		if ( isset( $script_data['css_file_url'] ) ) {
-			wp_enqueue_style( 'suki-customizer', $script_data['css_file_url'], array( 'wp-components' ), $script_data['version'] );
-		}
+		/**
+		 * Enqueue customizer.css
+		 */
 
-		// Enqueue dashboard.js file.
-		if ( isset( $script_data['js_file_url'] ) ) {
-			wp_enqueue_script( 'suki-customizer', $script_data['js_file_url'], $script_data['dependencies'], $script_data['version'], true );
+		wp_enqueue_style( 'suki-customizer', trailingslashit( SUKI_SCRIPTS_URL ) . 'customizer.css', array( 'wp-components' ), $script_data['version'] );
 
-			// Pass data to customizer.js.
-			wp_add_inline_script(
-				'suki-customizer',
-				'const sukiCustomizerData = ' . wp_json_encode(
-					array(
-						'contexts'        => $this->get_control_contexts(),
-						'previewContexts' => $this->get_preview_contexts(),
-						'fonts'           => suki_get_all_fonts(),
-						'fontGroups'      => suki_get_all_font_groups(),
-					)
-				),
-				'before'
-			);
-		}
+		/**
+		 * Enqueue customizer.js
+		 */
+
+		wp_enqueue_script( 'suki-customizer', trailingslashit( SUKI_SCRIPTS_URL ) . 'customizer.js', $script_data['dependencies'], $script_data['version'], true );
+
+		// Pass data to customizer.js.
+		wp_add_inline_script(
+			'suki-customizer',
+			'const sukiCustomizerData = ' . wp_json_encode(
+				array(
+					'contexts'        => $this->get_control_contexts(),
+					'previewContexts' => $this->get_preview_contexts(),
+					'fonts'           => suki_get_all_fonts(),
+					'fontGroups'      => suki_get_all_font_groups(),
+				)
+			),
+			'before'
+		);
 	}
 
 	/**

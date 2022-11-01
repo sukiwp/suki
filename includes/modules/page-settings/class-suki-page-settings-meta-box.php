@@ -255,15 +255,15 @@ class Suki_Page_Settings_Meta_Box {
 			return;
 		}
 
-		// Enqueue JS.
-		$script_data = suki_get_script_data( 'page-settings' );
-		wp_enqueue_script( 'suki-page-settings', $script_data['js_file_url'], $script_data['dependencies'], $script_data['version'], true );
+		$script_data = include trailingslashit( SUKI_SCRIPTS_DIR ) . 'page-settings.asset.php';
 
 		/**
-		 * Pass data to JS
+		 * Enqueue page-settings.js
 		 */
 
-		// Pass data to JS via inline script.
+		wp_enqueue_script( 'suki-page-settings', trailingslashit( SUKI_SCRIPTS_URL ) . 'page-settings.js', $script_data['dependencies'], $script_data['version'], true );
+
+		// Pass data to page-settings.js.
 		wp_add_inline_script(
 			'suki-page-settings',
 			'const sukiPageSettingsData = ' . wp_json_encode(

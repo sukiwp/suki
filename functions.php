@@ -27,6 +27,9 @@ define( 'SUKI_CSS_DIR', trailingslashit( get_template_directory() ) . 'assets/cs
 define( 'SUKI_JS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/js' );
 define( 'SUKI_JS_DIR', trailingslashit( get_template_directory() ) . 'assets/js' );
 
+define( 'SUKI_SCRIPTS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/scripts' );
+define( 'SUKI_SCRIPTS_DIR', trailingslashit( get_template_directory() ) . 'assets/scripts' );
+
 define( 'SUKI_VERSION', wp_get_theme( get_template() )->get( 'Version' ) );
 
 define( 'SUKI_ASSETS_SUFFIX', SCRIPT_DEBUG ? '' : '.min' );
