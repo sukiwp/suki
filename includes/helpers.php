@@ -453,26 +453,11 @@ function suki_convert_css_array_to_string( $css_array, $minify = true ) {
  */
 function suki_get_module_categories() {
 	return array(
-		'layout'      => array(
-			'label' => esc_html__( 'Layout', 'suki' ),
-			'icon'  => 'layout',
-		),
-		'assets'      => array(
-			'label' => esc_html__( 'Assets and Branding', 'suki' ),
-			'icon'  => 'superhero-alt',
-		),
-		'seo'         => array(
-			'label' => esc_html__( 'SEO and Performance', 'suki' ),
-			'icon'  => 'dashboard',
-		),
-		'blog'        => array(
-			'label' => esc_html__( 'Blog', 'suki' ),
-			'icon'  => 'welcome-write-blog',
-		),
-		'woocommerce' => array(
-			'label' => esc_html__( 'WooCommerce', 'suki' ),
-			'icon'  => 'cart',
-		),
+		'layout'      => esc_html__( 'Layout', 'suki' ),
+		'assets'      => esc_html__( 'Assets and Branding', 'suki' ),
+		'seo'         => esc_html__( 'SEO and Performance', 'suki' ),
+		'blog'        => esc_html__( 'Blog', 'suki' ),
+		'woocommerce' => esc_html__( 'WooCommerce', 'suki' ),
 	);
 }
 

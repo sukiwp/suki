@@ -171,181 +171,181 @@ msgstr ""
 msgid "Footer Menu %s"
 msgstr ""
 
-#: includes/helpers.php:457, includes/customizer/structures/content--hero.php:57, includes/customizer/structures/content--main.php:29, includes/customizer/structures/content--sidebar.php:29, includes/customizer/structures/footer--bottom-bar.php:107, includes/customizer/structures/footer--widgets-bar.php:37, includes/customizer/structures/header--top-main-bottom-bar.php:114, includes/customizer/structures/page--error-404.php:29, includes/customizer/structures/page--search.php:49, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:134
+#: includes/helpers.php:456, includes/customizer/structures/content--hero.php:57, includes/customizer/structures/content--main.php:29, includes/customizer/structures/content--sidebar.php:29, includes/customizer/structures/footer--bottom-bar.php:107, includes/customizer/structures/footer--widgets-bar.php:37, includes/customizer/structures/header--top-main-bottom-bar.php:114, includes/customizer/structures/page--error-404.php:29, includes/customizer/structures/page--search.php:49, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:134
 msgid "Layout"
 msgstr ""
 
-#: includes/helpers.php:461
+#: includes/helpers.php:457
 msgid "Assets and Branding"
 msgstr ""
 
-#: includes/helpers.php:465
+#: includes/helpers.php:458
 msgid "SEO and Performance"
 msgstr ""
 
-#: includes/helpers.php:469, includes/customizer/structures/sections.php:594
+#: includes/helpers.php:459, includes/customizer/structures/sections.php:594
 msgid "Blog"
 msgstr ""
 
-#: includes/helpers.php:473
+#: includes/helpers.php:460
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/helpers.php:489
+#: includes/helpers.php:474
 msgid "Header Elements Plus"
 msgstr ""
 
-#: includes/helpers.php:492
+#: includes/helpers.php:477
 msgid "Build Header"
 msgstr ""
 
-#: includes/helpers.php:497
+#: includes/helpers.php:482
 msgid "Vertical Header"
 msgstr ""
 
-#: includes/helpers.php:500, includes/helpers.php:508, includes/helpers.php:516, includes/helpers.php:524, includes/helpers.php:540, includes/helpers.php:548, includes/helpers.php:556, includes/helpers.php:594, includes/helpers.php:602, includes/helpers.php:610
+#: includes/helpers.php:485, includes/helpers.php:493, includes/helpers.php:501, includes/helpers.php:509, includes/helpers.php:525, includes/helpers.php:533, includes/helpers.php:541, includes/helpers.php:579, includes/helpers.php:587, includes/helpers.php:595
 msgid "Configure"
 msgstr ""
 
-#: includes/helpers.php:505
+#: includes/helpers.php:490
 msgid "Transparent Header"
 msgstr ""
 
-#: includes/helpers.php:513
+#: includes/helpers.php:498
 msgid "Sticky Header"
 msgstr ""
 
-#: includes/helpers.php:521
+#: includes/helpers.php:506
 msgid "Alternate Header Colors"
 msgstr ""
 
-#: includes/helpers.php:529
+#: includes/helpers.php:514
 msgid "Header Mega Menu"
 msgstr ""
 
-#: includes/helpers.php:532
+#: includes/helpers.php:517
 msgid "Manage Mega Menu"
 msgstr ""
 
-#: includes/helpers.php:537
+#: includes/helpers.php:522
 msgid "Sticky Sidebar"
 msgstr ""
 
-#: includes/helpers.php:545
+#: includes/helpers.php:530
 msgid "Footer Columns Width"
 msgstr ""
 
-#: includes/helpers.php:553
+#: includes/helpers.php:538
 msgid "Preloader Screen"
 msgstr ""
 
-#: includes/helpers.php:561
+#: includes/helpers.php:546
 msgid "Custom Blocks (Hooks)"
 msgstr ""
 
-#: includes/helpers.php:564
+#: includes/helpers.php:549
 msgid "Manage Custom Blocks"
 msgstr ""
 
-#: includes/helpers.php:570
+#: includes/helpers.php:555
 msgid "Custom Fonts"
 msgstr ""
 
-#: includes/helpers.php:573, includes/helpers.php:581
+#: includes/helpers.php:558, includes/helpers.php:566
 msgid "Manage Custom Fonts"
 msgstr ""
 
-#: includes/helpers.php:578
+#: includes/helpers.php:563
 msgid "Custom Icons"
 msgstr ""
 
-#: includes/helpers.php:586
+#: includes/helpers.php:571
 msgid "White Label"
 msgstr ""
 
-#: includes/helpers.php:591
+#: includes/helpers.php:576
 msgid "Blog Layout Plus"
 msgstr ""
 
-#: includes/helpers.php:599
+#: includes/helpers.php:584
 msgid "Blog Featured Posts"
 msgstr ""
 
-#: includes/helpers.php:607
+#: includes/helpers.php:592
 msgid "Blog Related Posts"
 msgstr ""
 
-#: includes/helpers.php:616
+#: includes/helpers.php:601
 msgid "Woo Layout Plus"
 msgstr ""
 
-#: includes/helpers.php:620
+#: includes/helpers.php:605
 msgid "Woo AJAX Add To Cart"
 msgstr ""
 
-#: includes/helpers.php:624
+#: includes/helpers.php:609
 msgid "Woo Quick View"
 msgstr ""
 
-#: includes/helpers.php:628
+#: includes/helpers.php:613
 msgid "Woo Off-Canvas Filters"
 msgstr ""
 
-#: includes/helpers.php:632
+#: includes/helpers.php:617
 msgid "Woo Optimized Checkout"
 msgstr ""
 
-#: includes/helpers.php:694
+#: includes/helpers.php:679
 msgid "Web Safe Fonts"
 msgstr ""
 
-#: includes/helpers.php:833
+#: includes/helpers.php:818
 msgctxt "icon label"
 msgid "Search"
 msgstr ""
 
-#: includes/helpers.php:834
+#: includes/helpers.php:819
 msgctxt "icon label"
 msgid "Close"
 msgstr ""
 
-#: includes/helpers.php:835
+#: includes/helpers.php:820
 msgctxt "icon label"
 msgid "Menu"
 msgstr ""
 
-#: includes/helpers.php:836
+#: includes/helpers.php:821
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Down"
 msgstr ""
 
-#: includes/helpers.php:837
+#: includes/helpers.php:822
 msgctxt "icon label"
 msgid "Dropdown Arrow -- Right"
 msgstr ""
 
-#: includes/helpers.php:838
+#: includes/helpers.php:823
 msgctxt "icon label"
 msgid "Shopping Cart"
 msgstr ""
 
-#: includes/helpers.php:854
+#: includes/helpers.php:839
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/helpers.php:855
+#: includes/helpers.php:840
 msgid "Medium"
 msgstr ""
 
-#: includes/helpers.php:856
+#: includes/helpers.php:841
 msgid "Medium Large"
 msgstr ""
 
-#: includes/helpers.php:857
+#: includes/helpers.php:842
 msgid "Large"
 msgstr ""
 
-#: includes/helpers.php:861, includes/customizer/structures/content--hero.php:91, includes/customizer/structures/content.php:45, includes/customizer/structures/footer--bottom-bar.php:116, includes/customizer/structures/footer--widgets-bar.php:46, includes/customizer/structures/header--top-main-bottom-bar.php:123, includes/modules/page-settings/class-suki-page-settings-meta-box.php:511, includes/modules/page-settings/class-suki-page-settings-meta-box.php:566, includes/modules/page-settings/customizer/structures/all-page-settings.php:68, includes/modules/page-settings/customizer/structures/all-page-settings.php:173
+#: includes/helpers.php:846, includes/customizer/structures/content--hero.php:91, includes/customizer/structures/content.php:45, includes/customizer/structures/footer--bottom-bar.php:116, includes/customizer/structures/footer--widgets-bar.php:46, includes/customizer/structures/header--top-main-bottom-bar.php:123, includes/modules/page-settings/class-suki-page-settings-meta-box.php:511, includes/modules/page-settings/class-suki-page-settings-meta-box.php:566, includes/modules/page-settings/customizer/structures/all-page-settings.php:68, includes/modules/page-settings/customizer/structures/all-page-settings.php:173
 msgid "Full"
 msgstr ""
 
