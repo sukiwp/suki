@@ -56,9 +56,9 @@ const config = {
 	},
 	pot: {
 		src: [
-			'**/*.php', // all php files
-			'!src/**/*', // ignore source files
-			'!**/*.asset.php', // ignore assets PHP file.
+			'**/*.php', // all PHP files
+			'src/**/*.js', // all JS files
+			'!**/*.asset.php', // ignore assets PHP file
 			'!node_modules/**/*', // ignore node modules
 			'!vendor/**/*', // ignore composer packages
 			// Init file will be added in the pot task
@@ -170,7 +170,7 @@ const copyInfoToMainFile = () => {
 		)
 		.pipe(
 			replace(
-				new RegExp( '([\'"]' + packageInfo.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]),s*[\'"].*?[\'"]', 'm' ),
+				new RegExp( '([\'"]' + packageInfo.name.toUpperCase().split( '-' ).join( '_' ) + '_VERSION[\'"]), [\'"].*?[\'"]', 'm' ),
 				"$1, '" + packageInfo.version + "'"
 			)
 		)
