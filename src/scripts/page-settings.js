@@ -90,6 +90,8 @@ function SukiPageSettingsSidebar() {
 							>
 								<Flex
 									direction="column"
+									gap="5"
+									style={ { marginBlock: '12px' } }
 								>
 									{ panel.fields.map( ( field ) => {
 										const value = getFieldValue( field.key );
@@ -112,6 +114,7 @@ function SukiPageSettingsSidebar() {
 														runFieldOutputs( field.key, field.outputs, newValue, field.inherit_value );
 													}
 												} }
+												__nextHasNoMarginBottom
 											/>
 										);
 									} ) }
