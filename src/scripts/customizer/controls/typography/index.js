@@ -103,6 +103,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 									onChange={ ( fontFamily ) => {
 										control.settings.font_family.set( fontFamily );
 									} }
+									__nextHasNoMarginBottom
 								>
 									{ Object.keys( sukiCustomizerData.fonts ).map( ( groupLabel ) => {
 										if ( 1 > Object.keys( sukiCustomizerData.fonts[ groupLabel ] ).length ) {
@@ -142,6 +143,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 										onChange={ ( fontWeight ) => {
 											control.settings.font_weight.set( fontWeight );
 										} }
+										__nextHasNoMarginBottom
 									/>
 								}
 
@@ -153,6 +155,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 										onChange={ ( fontStyle ) => {
 											control.settings.font_style.set( fontStyle );
 										} }
+										__nextHasNoMarginBottom
 									/>
 								}
 
@@ -164,6 +167,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 										onChange={ ( textTransform ) => {
 											control.settings.text_transform.set( textTransform );
 										} }
+										__nextHasNoMarginBottom
 									/>
 								}
 							</Grid>

@@ -32,6 +32,7 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend( {
 					onChange={ () => {
 						control.setting.set( ! control.setting.get() );
 					} }
+					__nextHasNoMarginBottom
 				/>
 			</>,
 			control.container[ 0 ]

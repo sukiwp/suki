@@ -143,6 +143,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 											onChange={ ( attachment ) => {
 												control.settings.attachment.set( attachment );
 											} }
+											__nextHasNoMarginBottom
 										/>
 									}
 
@@ -154,6 +155,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 											onChange={ ( repeat ) => {
 												control.settings.repeat.set( repeat );
 											} }
+											__nextHasNoMarginBottom
 										/>
 									}
 
@@ -165,6 +167,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 											onChange={ ( size ) => {
 												control.settings.size.set( size );
 											} }
+											__nextHasNoMarginBottom
 										/>
 									}
 
@@ -176,6 +179,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 											onChange={ ( position ) => {
 												control.settings.position.set( position );
 											} }
+											__nextHasNoMarginBottom
 										/>
 									}
 								</Grid>

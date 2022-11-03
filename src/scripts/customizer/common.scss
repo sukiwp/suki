@@ -28,10 +28,6 @@ div.customize-section-description {
 		box-sizing: border-box;
 	}
 
-	.components-base-control__field {
-		margin-bottom: 0;
-	}
-
 	.customize-control-notifications-container:empty {
 		display: none;
 	}
@@ -65,17 +61,6 @@ div.customize-section-description {
 	}
 }
 
-// Control's component
-:is( .components-input-control, .components-select-control ) {
-	gap: 2px !important;
-
-	> .components-flex-item {
-		&:empty {
-			display: none;
-		}
-	}
-}
-
 // Button
 .button {
 	.dashicons {
@@ -89,9 +74,31 @@ div.customize-section-description {
 	}
 }
 
+// InputControl and SelectControl
+:is( .components-input-control, .components-select-control ) {
+	gap: 2px !important;
+
+	> .components-flex-item {
+		&:empty {
+			display: none;
+		}
+	}
+}
+
 // SelectControl
-.components-select-control__input {
-	line-height: normal !important;
+.components-select-control {
+	.components-select-control__input {
+		line-height: normal !important;
+	}
+}
+
+// ToggleControl
+.components-toggle-control {
+	.components-toggle-control__label {
+		&:empty {
+			display: none;
+		}
+	}
 }
 
 // React colorful

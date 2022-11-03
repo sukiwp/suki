@@ -419,28 +419,32 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
       options: attachmentOptions,
       onChange: attachment => {
         control.settings.attachment.set(attachment);
-      }
+      },
+      __nextHasNoMarginBottom: true
     }), control.settings.repeat && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Repeat', 'suki'),
       value: control.settings.repeat.get(),
       options: repeatOptions,
       onChange: repeat => {
         control.settings.repeat.set(repeat);
-      }
+      },
+      __nextHasNoMarginBottom: true
     }), control.settings.size && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Size', 'suki'),
       value: control.settings.size.get(),
       options: sizeOptions,
       onChange: size => {
         control.settings.size.set(size);
-      }
+      },
+      __nextHasNoMarginBottom: true
     }), control.settings.position && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Position', 'suki'),
       value: control.settings.position.get(),
       options: positionOptions,
       onChange: position => {
         control.settings.position.set(position);
-      }
+      },
+      __nextHasNoMarginBottom: true
     })))))), control.container[0]);
   },
 
@@ -1314,6 +1318,19 @@ wp.customize.controlConstructor['suki-dimensions'] = wp.customize.SukiDimensions
 
 /***/ }),
 
+/***/ "./src/scripts/customizer/controls/heading/index.js":
+/*!**********************************************************!*\
+  !*** ./src/scripts/customizer/controls/heading/index.js ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/scripts/customizer/controls/heading/index.scss");
+
+
+/***/ }),
+
 /***/ "./src/scripts/customizer/controls/index.js":
 /*!**************************************************!*\
   !*** ./src/scripts/customizer/controls/index.js ***!
@@ -1331,18 +1348,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _color_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color-select */ "./src/scripts/customizer/controls/color-select/index.js");
 /* harmony import */ var _dimension__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dimension */ "./src/scripts/customizer/controls/dimension/index.js");
 /* harmony import */ var _dimensions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dimensions */ "./src/scripts/customizer/controls/dimensions/index.js");
-/* harmony import */ var _multi_check__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./multi-check */ "./src/scripts/customizer/controls/multi-check/index.js");
-/* harmony import */ var _multi_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./multi-select */ "./src/scripts/customizer/controls/multi-select/index.js");
-/* harmony import */ var _radio_image__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./radio-image */ "./src/scripts/customizer/controls/radio-image/index.js");
-/* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shadow */ "./src/scripts/customizer/controls/shadow/index.js");
-/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./slider */ "./src/scripts/customizer/controls/slider/index.js");
-/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./toggle */ "./src/scripts/customizer/controls/toggle/index.js");
-/* harmony import */ var _typography__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./typography */ "./src/scripts/customizer/controls/typography/index.js");
-/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./color-palette */ "./src/scripts/customizer/controls/color-palette.js");
-/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_color_palette__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _heading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./heading */ "./src/scripts/customizer/controls/heading/index.js");
+/* harmony import */ var _multi_check__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./multi-check */ "./src/scripts/customizer/controls/multi-check/index.js");
+/* harmony import */ var _multi_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./multi-select */ "./src/scripts/customizer/controls/multi-select/index.js");
+/* harmony import */ var _notice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./notice */ "./src/scripts/customizer/controls/notice/index.js");
+/* harmony import */ var _radio_image__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./radio-image */ "./src/scripts/customizer/controls/radio-image/index.js");
+/* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./shadow */ "./src/scripts/customizer/controls/shadow/index.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./slider */ "./src/scripts/customizer/controls/slider/index.js");
+/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./toggle */ "./src/scripts/customizer/controls/toggle/index.js");
+/* harmony import */ var _typography__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./typography */ "./src/scripts/customizer/controls/typography/index.js");
+/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./color-palette */ "./src/scripts/customizer/controls/color-palette.js");
+/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_color_palette__WEBPACK_IMPORTED_MODULE_17__);
 // Base controls
 
  // Custom controls
+
+
 
 
 
@@ -1583,6 +1604,19 @@ const SukiMultiSelect = _ref => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SukiMultiSelect);
+
+/***/ }),
+
+/***/ "./src/scripts/customizer/controls/notice/index.js":
+/*!*********************************************************!*\
+  !*** ./src/scripts/customizer/controls/notice/index.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/scripts/customizer/controls/notice/index.scss");
+
 
 /***/ }),
 
@@ -1857,7 +1891,8 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
       className: "suki-toggle",
       onChange: () => {
         control.setting.set(!control.setting.get());
-      }
+      },
+      __nextHasNoMarginBottom: true
     })), control.container[0]);
   }
 
@@ -2036,7 +2071,8 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
       value: control.settings.font_family.get(),
       onChange: fontFamily => {
         control.settings.font_family.set(fontFamily);
-      }
+      },
+      __nextHasNoMarginBottom: true
     }, Object.keys(sukiCustomizerData.fonts).map(groupLabel => {
       if (1 > Object.keys(sukiCustomizerData.fonts[groupLabel]).length) {
         return null;
@@ -2060,21 +2096,24 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
       options: fontWeightOptions,
       onChange: fontWeight => {
         control.settings.font_weight.set(fontWeight);
-      }
+      },
+      __nextHasNoMarginBottom: true
     }), control.settings.font_style && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Style', 'suki'),
       value: control.settings.font_style.get(),
       options: fontStyleOptions,
       onChange: fontStyle => {
         control.settings.font_style.set(fontStyle);
-      }
+      },
+      __nextHasNoMarginBottom: true
     }), control.settings.text_transform && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__.__)('Transform', 'suki'),
       value: control.settings.text_transform.get(),
       options: textTransformOptions,
       onChange: textTransform => {
         control.settings.text_transform.set(textTransform);
-      }
+      },
+      __nextHasNoMarginBottom: true
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_responsive_switcher__WEBPACK_IMPORTED_MODULE_4__["default"], {
       devices: Object.keys(responsiveStructures)
     }), Object.keys(responsiveStructures).map(device => {
@@ -2713,10 +2752,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/scripts/customizer/controls/heading/index.scss":
+/*!************************************************************!*\
+  !*** ./src/scripts/customizer/controls/heading/index.scss ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/scripts/customizer/controls/multi-select/index.scss":
 /*!*****************************************************************!*\
   !*** ./src/scripts/customizer/controls/multi-select/index.scss ***!
   \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/scripts/customizer/controls/notice/index.scss":
+/*!***********************************************************!*\
+  !*** ./src/scripts/customizer/controls/notice/index.scss ***!
+  \***********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -118,7 +118,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 
 										control.setting.set( newValue );
 									} }
-									__nextHasNoMarginBottom={ true }
+									__nextHasNoMarginBottom
 								/>
 
 								<SukiColorSelectDropdown
