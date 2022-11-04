@@ -209,7 +209,11 @@ function SukiPageSettingsSidebar() {
       title: panel.title,
       initialOpen: 0 === i ? true : false
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Flex, {
-      direction: "column"
+      direction: "column",
+      gap: "5",
+      style: {
+        marginBlock: '12px'
+      }
     }, panel.fields.map(field => {
       const value = getFieldValue(field.key);
 
@@ -229,7 +233,8 @@ function SukiPageSettingsSidebar() {
           if (field.outputs) {
             runFieldOutputs(field.key, field.outputs, newValue, field.inherit_value);
           }
-        }
+        },
+        __nextHasNoMarginBottom: true
       });
     }))));
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebarMoreMenuItem, {
