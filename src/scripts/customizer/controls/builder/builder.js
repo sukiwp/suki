@@ -11,35 +11,42 @@ import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 const SukiBuilder = ( { control } ) => {
-	// Get all settings values, and also define inactive elements.
-	const getValues = () => {
-		const values = {};
-		let activeItemIds = [];
-		let inactiveItemIds = [];
+	// Create a list of choice IDs.
+	const choiceIds = control.params.choices.map( ( choice ) => {
+		return choice.value;
+	} );
+
+	// Create a mapping of all elements, including the inactive elements.
+	const initMapping = () => {
+		const mapping = {};
+		const activeItemIds = [];
 
 		// Iterate through each setting, select the active items, and add them to the return array.
 		Object.keys( control.settings ).forEach( ( settingId ) => {
-			const settingValue = control.settings[ settingId ].get();
+			// Get active elements in this area.
+			// Make sure the active elements are valid choices.
+			// For example: if WooCommerce is disabled, the `cart-dropdown` value is no longer valid.
+			const settingValue = control.settings[ settingId ].get().filter( ( itemId ) => {
+				return choiceIds.includes( itemId );
+			} );
 
-			values[ settingId ] = settingValue;
+			// Add this area and its value to mapping.
+			mapping[ settingId ] = settingValue;
 
-			activeItemIds = [ ...activeItemIds, ...settingValue ];
+			// Add active elements in this area to the activeItemIds list.
+			activeItemIds.push( ...settingValue );
 		} );
 
-		// Add inactive items into the return array.
-		control.params.choices.forEach( ( choice ) => {
-			if ( -1 === activeItemIds.indexOf( choice.value ) ) {
-				inactiveItemIds = [ ...inactiveItemIds, choice.value ];
-			}
+		// Filter inactive elements and add them to the `inactive` area.
+		mapping._inactive = choiceIds.filter( ( choiceId ) => {
+			return ! activeItemIds.includes( choiceId );
 		} );
 
-		values._inactive = inactiveItemIds;
-
-		return values;
+		return mapping;
 	};
 
 	// State for all settings values and inactive elements.
-	const [ values, setValues ] = useState( getValues() );
+	const [ mapping, setMapping ] = useState( initMapping() );
 
 	// Sortable areas and their info.
 	const areas = [ ...control.params.areas, {
@@ -51,8 +58,7 @@ const SukiBuilder = ( { control } ) => {
 	return (
 		<div className="suki-builder">
 			{ areas.map( ( area ) => {
-				// Array of item objects of current sortable area.
-				const areaItems = values[ area.id ].map( ( itemId ) => {
+				const items = mapping[ area.id ].map( ( itemId ) => {
 					return control.params.choices.find( ( choice ) => {
 						return itemId === choice.value;
 					} );
@@ -78,27 +84,28 @@ const SukiBuilder = ( { control } ) => {
 							group={ control.id }
 
 							// Sortable values.
-							list={ areaItems }
+							list={ items }
 
 							// Handler to update sortable values.
-							setList={ ( updatedAreaItems ) => {
+							setList={ ( updatedItems ) => {
 								// Parse array of IDs from the updated sortable items.
-								const updatedAreaItemsIds = updatedAreaItems.map( ( item ) => {
+								const updatedItemIds = updatedItems.map( ( item ) => {
 									return item.value;
 								} );
 
-								// Update values state.
-								setValues( ( prevValues ) => {
+								// Update state.
+								setMapping( ( prevMapping ) => {
 									return {
-										...prevValues,
-										[ area.id ]: updatedAreaItemsIds,
+										...prevMapping,
+										[ area.id ]: updatedItemIds,
 									};
 								} );
 
 								// Update setting values for areas, except the `_inactive` area.
 								if ( '_inactive' !== area.id ) {
-									if ( updatedAreaItemsIds !== control.settings[ area.id ].get() ) {
-										control.settings[ area.id ].set( updatedAreaItemsIds );
+									// Only update setting value if the array value changed.
+									if ( updatedItemIds.toString() !== control.settings[ area.id ].get().toString() ) {
+										control.settings[ area.id ].set( updatedItemIds );
 									}
 								}
 							} }
@@ -130,7 +137,7 @@ const SukiBuilder = ( { control } ) => {
 							} }
 							className="suki-builder__area__sortable"
 						>
-							{ areaItems.map( ( item ) => {
+							{ items.map( ( item ) => {
 								return (
 									<span
 										key={ item.value }
@@ -150,20 +157,23 @@ const SukiBuilder = ( { control } ) => {
 												icon="no-alt"
 												className="suki-builder__item__remove"
 												onClick={ () => {
-													const updatedAreaItemsIds = values[ area.id ].filter( ( id ) => {
-														return id !== item.value;
+													const updatedItemIds = mapping[ area.id ].filter( ( itemId ) => {
+														return itemId !== item.value;
 													} );
 
-													setValues( ( prevValues ) => {
-														return {
-															...prevValues,
-															[ area.id ]: updatedAreaItemsIds,
-															_inactive: [ ...prevValues._inactive, item.value ],
+													setMapping( ( prevMapping ) => {
+														const newMapping = {
+															...prevMapping,
+															[ area.id ]: updatedItemIds,
+															_inactive: [ ...prevMapping._inactive, item.value ],
 														};
+
+														return newMapping;
 													} );
 
-													if ( updatedAreaItemsIds !== control.settings[ area.id ].get() ) {
-														control.settings[ area.id ].set( updatedAreaItemsIds );
+													// Only update setting value if the array value changed.
+													if ( updatedItemIds.toString() !== control.settings[ area.id ].get().toString() ) {
+														control.settings[ area.id ].set( updatedItemIds );
 													}
 												} }
 											/>
