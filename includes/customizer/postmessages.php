@@ -892,7 +892,7 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 	}
 
 	foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', 'font_size', 'line_height', 'letter_spacing' ) as $prop ) {
-		$element = '.suki-header-' . $slug . ' .menu .menu-item > .suki-menu-item-link';
+		$element = '.suki-header-' . $slug . ' .menu .menu-item:not(.site-title) > .suki-menu-item-link';
 		$property = str_replace( '_', '-', $prop );
 
 		$add['header_' . $bar . '_menu_' . $prop ] = array(
