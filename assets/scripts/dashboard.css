@@ -30,25 +30,6 @@
   margin: 0 auto;
 }
 
-.suki-admin-dashboard__box {
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-}
-.suki-admin-dashboard__box > *:where(:first-child) {
-  margin-top: 0;
-}
-.suki-admin-dashboard__box > *:where(:last-child) {
-  margin-bottom: 0;
-}
-
-.suki-admin-dashboard__box-separator {
-  height: 1px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 20px -20px;
-}
-
 .suki-admin-dashboard__version-badge {
   font-size: 13px;
   font-weight: 500;
@@ -68,11 +49,6 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
-}
-
-.suki-admin-dashboard__action-button.button {
-  font-size: 16px;
-  padding: 2px 15px;
 }
 
 /**
@@ -133,20 +109,6 @@
 .suki-admin-dashboard__body .notice {
   margin: 0;
 }
-
-.suki-admin-dashboard__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  gap: 20px;
-}
-
-.suki-admin-dashboard__sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  gap: 20px;
-}
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/dashboard/customizer-shortcuts/index.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************/
@@ -155,8 +117,6 @@
   grid-template-columns: 1fr;
   column-gap: 20px;
   row-gap: 8px;
-  margin-top: 20px;
-  font-size: 14px;
   font-weight: 500;
 }
 @media screen and (min-width: 400px) {
@@ -179,74 +139,53 @@
 /*!********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/dashboard/pro-teaser/index.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************/
-@charset "UTF-8";
-.suki-admin-dashboard__pro-teaser-banner {
-  margin: -20px -20px 20px -20px !important;
-}
-.suki-admin-dashboard__pro-teaser-banner img {
-  display: block;
-  width: 100%;
-  height: auto;
+.suki-admin-dashboard__pro-teaser-modules-category {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .suki-admin-dashboard__pro-teaser-modules-grid {
   display: grid;
   grid-template-columns: 1fr;
-  justify-content: start;
-  row-gap: 10px;
-  column-gap: 20px;
-  margin: 20px 0;
-  font-size: 14px;
+  column-gap: 12px;
+  row-gap: 8px;
 }
 @media screen and (min-width: 400px) {
   .suki-admin-dashboard__pro-teaser-modules-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 760px) {
   .suki-admin-dashboard__pro-teaser-modules-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.suki-admin-dashboard__pro-teaser-modules-grid li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 0;
-}
-.suki-admin-dashboard__pro-teaser-modules-grid li:before {
-  content: "✔";
-  color: forestgreen;
+.suki-admin-dashboard__pro-teaser-modules-grid .dashicons {
+  opacity: 0.25;
 }
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/dashboard/sites-import/index.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************************/
-.suki-admin-dashboard__sites-import {
-  padding: 0;
-}
 @media screen and (min-width: 600px) {
-  .suki-admin-dashboard__sites-import {
+  .suki-admin-dashboard__sites-import > div {
     display: flex;
     align-items: center;
   }
 }
-
-.suki-admin-dashboard__sites-import-banner {
-  display: block;
-  width: 100%;
-  height: auto;
-  align-self: stretch;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
 @media screen and (min-width: 600px) {
-  .suki-admin-dashboard__sites-import-banner {
-    width: 40%;
+  .suki-admin-dashboard__sites-import .suki-admin-dashboard__sites-import-banner {
+    width: 45%;
   }
 }
-
-.suki-admin-dashboard__sites-import-text {
-  padding: 20px;
+.suki-admin-dashboard__sites-import .suki-admin-dashboard__sites-import-banner img {
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 600px) {
+  .suki-admin-dashboard__sites-import .suki-admin-dashboard__sites-import-text {
+    width: 55%;
+  }
 }
 
 /*# sourceMappingURL=dashboard.css.map*/

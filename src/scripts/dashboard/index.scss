@@ -34,27 +34,6 @@
 	margin: 0 auto;
 }
 
-.suki-admin-dashboard__box {
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
-
-	> *:where(:first-child) {
-		margin-top: 0;
-	}
-
-	> *:where(:last-child) {
-		margin-bottom: 0;
-	}
-}
-
-.suki-admin-dashboard__box-separator {
-	height: 1px;
-	border: none;
-	background-color: rgba(0,0,0,0.1);
-	margin: 20px -20px;
-}
-
 .suki-admin-dashboard__version-badge {
 	font-size: 13px;
 	font-weight: 500;
@@ -74,11 +53,6 @@
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 1.5;
-}
-
-.suki-admin-dashboard__action-button.button {
-	font-size: 16px;
-	padding: 2px 15px;
 }
 
 /**
@@ -146,18 +120,4 @@
 	.notice {
 		margin: 0;
 	}
-}
-
-.suki-admin-dashboard__content {
-	display: flex;
-	flex-direction: column;
-	justify-content: stretch;
-	gap: 20px;
-}
-
-.suki-admin-dashboard__sidebar {
-	display: flex;
-	flex-direction: column;
-	justify-content: stretch;
-	gap: 20px;
 }

@@ -24,10 +24,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const SukiDashboardProTeaser = () => {
   const data = sukiDashboardData.customizerShortcuts;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "suki-admin-dashboard__customizer-shortcuts suki-admin-dashboard__box"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "suki-admin-dashboard__heading"
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Card, {
+    className: "suki-admin-dashboard__customizer-shortcuts"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CardBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "suki-admin-dashboard__heading",
+    style: {
+      marginTop: 0
+    }
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Start Customizing', 'suki')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "suki-admin-dashboard__customizer-links"
   }, data.links.map(link => {
@@ -39,7 +42,7 @@ const SukiDashboardProTeaser = () => {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
       icon: link.icon
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, link.label)));
-  })));
+  }))));
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -92,9 +95,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const SukiDashboardProTeaser = () => {
   const data = sukiDashboardData.proTeaser;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "suki-admin-dashboard__pro-teaser suki-admin-dashboard__box"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Card, {
+    className: "suki-admin-dashboard__pro-teaser"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CardHeader, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "suki-admin-dashboard__heading",
     style: {
       margin: 0
@@ -102,23 +105,41 @@ const SukiDashboardProTeaser = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Suki Pro', 'suki')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "suki-admin-dashboard__subheading",
     style: {
-      marginTop: '5px'
+      margin: '5px 0 0'
     }
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Get more features, advanced demo templates, and premium support.', 'suki')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", {
-    className: "suki-admin-dashboard__box-separator"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    className: "suki-admin-dashboard__pro-teaser-modules-grid"
-  }, data.modules.map(module => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-      key: module.slug
-    }, module.label);
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "suki-admin-dashboard__pro-teaser-action"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Get more features, advanced demo templates, and premium support.', 'suki'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
     text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Upgrade to Suki Pro', 'suki'),
     variant: "primary",
-    href: data.websiteURL
-  })));
+    href: data.websiteURL,
+    target: "_blank",
+    rel: "noopener"
+  })), data.moduleCategories.map(category => {
+    const modulesInThisCategory = data.modulesList.filter(module => {
+      return module.category === category.slug;
+    });
+
+    if (1 > modulesInThisCategory.length) {
+      return null;
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CardBody, {
+      key: category.slug
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      className: "suki-admin-dashboard__pro-teaser-modules-category",
+      style: {
+        marginTop: 0
+      }
+    }, category.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "suki-admin-dashboard__pro-teaser-modules-grid"
+    }, modulesInThisCategory.map(module => {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, {
+        key: module.slug,
+        justify: "flex-start"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
+        icon: "lock"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, module.label));
+    })));
+  }));
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -182,15 +203,16 @@ const SukiDashboardSitesImport = () => {
     setPluginInstalled(true);
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "suki-admin-dashboard__sites-import suki-admin-dashboard__box"
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Card, {
+    className: "suki-admin-dashboard__sites-import"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardMedia, {
+    className: "suki-admin-dashboard__sites-import-banner"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: sukiDashboardData.sitesImport.bannerImageURL,
-    className: "suki-admin-dashboard__sites-import-banner",
     width: "400",
     height: "240",
     alt: ""
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardBody, {
     className: "suki-admin-dashboard__sites-import-text"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "suki-admin-dashboard__heading",

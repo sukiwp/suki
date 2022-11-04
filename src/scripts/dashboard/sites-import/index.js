@@ -2,7 +2,12 @@ import './index.scss';
 
 import apiFetch from '@wordpress/api-fetch';
 
-import { Button } from '@wordpress/components';
+import {
+	Button,
+	CardBody,
+	CardMedia,
+	Card,
+} from '@wordpress/components';
 
 import {
 	render,
@@ -40,16 +45,17 @@ const SukiDashboardSitesImport = () => {
 	};
 
 	return (
-		<div className="suki-admin-dashboard__sites-import suki-admin-dashboard__box">
-			<img
-				src={ sukiDashboardData.sitesImport.bannerImageURL }
-				className="suki-admin-dashboard__sites-import-banner"
-				width="400"
-				height="240"
-				alt=""
-			/>
+		<Card className="suki-admin-dashboard__sites-import">
+			<CardMedia className="suki-admin-dashboard__sites-import-banner">
+				<img
+					src={ sukiDashboardData.sitesImport.bannerImageURL }
+					width="400"
+					height="240"
+					alt=""
+				/>
+			</CardMedia>
 
-			<div className="suki-admin-dashboard__sites-import-text">
+			<CardBody className="suki-admin-dashboard__sites-import-text">
 				<h2
 					className="suki-admin-dashboard__heading"
 					style={ { margin: 0 } }
@@ -77,8 +83,8 @@ const SukiDashboardSitesImport = () => {
 						/>
 					}
 				</p>
-			</div>
-		</div>
+			</CardBody>
+		</Card>
 	);
 };
 

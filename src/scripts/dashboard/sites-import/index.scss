@@ -1,24 +1,26 @@
 .suki-admin-dashboard__sites-import {
-	padding: 0; // reset
+	> div { // Card's inner div
+		@media screen and ( min-width: 600px ) {
+			display: flex;
+			align-items: center;
+		}
+	}
 
-	@media screen and ( min-width: 600px ) {
-		display: flex;
-		align-items: center;
+	.suki-admin-dashboard__sites-import-banner {
+		@media screen and ( min-width: 600px ) {
+			width: 45%;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.suki-admin-dashboard__sites-import-text {
+		@media screen and ( min-width: 600px ) {
+			width: 55%;
+		}
 	}
 }
 
-.suki-admin-dashboard__sites-import-banner {
-	display: block;
-	width: 100%;
-	height: auto;
-	align-self: stretch;
-	object-fit: cover;
-
-	@media screen and ( min-width: 600px ) {
-		width: 40%;
-	}
-}
-
-.suki-admin-dashboard__sites-import-text {
-	padding: 20px;
-}

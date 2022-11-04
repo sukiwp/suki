@@ -150,8 +150,9 @@ class Suki_Admin_Dashboard {
 			// Add data for "Pro Teaser" section.
 			if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__pro_teaser' ) ) ) {
 				$data['proTeaser'] = array(
-					'modules'    => suki_convert_associative_array_into_simple_array( suki_get_pro_modules(), 'slug' ),
-					'websiteURL' => add_query_arg(
+					'moduleCategories' => suki_convert_associative_array_into_simple_array( suki_get_module_categories(), 'slug', 'label' ),
+					'modulesList'      => suki_convert_associative_array_into_simple_array( suki_get_pro_modules(), 'slug' ),
+					'websiteURL'       => add_query_arg(
 						array(
 							'utm_source'   => 'suki-dashboard',
 							'utm_medium'   => 'learn-more',
