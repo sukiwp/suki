@@ -1259,7 +1259,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . '-bar',
-			'property' => '--menu-hover-highlight-background-color',
+			'property' => '--menu-hover-highlight--background-color',
 		),
 	);
 
@@ -1267,7 +1267,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . '-bar',
-			'property' => '--menu-hover-highlight-text-color',
+			'property' => '--menu-hover-highlight--text-color',
 		),
 	);
 
@@ -1275,7 +1275,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . '-bar',
-			'property' => '--menu-active-highlight-background-color',
+			'property' => '--menu-active-highlight--background-color',
 		),
 	);
 
@@ -1283,7 +1283,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'     => 'css',
 			'element'  => '.suki-header-' . $bar . '-bar',
-			'property' => '--menu-active-highlight-text-color',
+			'property' => '--menu-active-highlight--text-color',
 		),
 	);
 

@@ -1692,19 +1692,6 @@ th {
 /**
  * Header element: Menu
  */
-.suki-header-menu :is(.suki-menu-item-link, .suki-toggle) > * {
-	position: relative;
-}
-.suki-header-menu :is(.suki-menu-item-link, .suki-toggle):is(:hover, :focus) {
-	color: var(--link-color--focus);
-}
-.suki-header-menu :is(.current-menu-item, .current-menu-ancestor) :is(.suki-menu-item-link, .suki-toggle):not(:hover, :focus) {
-	color: var(--menu-active-highlight-text-color, var(--menu-hover-highlight-text-color, var(--link-color)));
-}
-.suki-header-menu :is(.current-menu-item, .current-menu-ancestor) :is(.suki-menu-item-link, .suki-toggle):before {
-	background-color: var(--menu-active-highlight-background-color, var(--menu-hover-highlight-background-color, transparent));
-}
-
 .suki-header-row .menu {
 	align-items: inherit;
 	gap: inherit;
@@ -1753,8 +1740,8 @@ th {
 }
 
 .suki-header-menu--highlight-background {
-	--menu-hover-highlight-text-color: var(--button--text-color);
-	--menu-hover-highlight-background-color: var(--button--background-color);
+	--menu-hover-highlight--text-color: var(--button--text-color);
+	--menu-hover-highlight--background-color: var(--button--background-color);
 }
 .suki-header-menu--highlight-background .suki-header-menu {
 	gap: 0 !important;
@@ -1766,13 +1753,17 @@ th {
 	height: 100%;
 }
 .suki-header-menu--highlight-background .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
-	color: var(--menu-hover-highlight-text-color);
-	background-color: var(--menu-hover-highlight-background-color);
+	color: var(--menu-hover-highlight--text-color);
+	background-color: var(--menu-hover-highlight--background-color);
+}
+.suki-header-menu--highlight-background .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+	color: var(--menu-active-highlight--text-color);
+	background-color: var(--menu-active-highlight--background-color);
 }
 
 .suki-header-menu--highlight-underline {
-	--menu-hover-highlight-text-color: var(--link-color--focus);
-	--menu-hover-highlight-background-color: var(--link-color--focus);
+	--menu-hover-highlight--text-color: var(--link-color--focus);
+	--menu-hover-highlight--background-color: var(--link-color--focus);
 }
 .suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link {
 	position: relative;
@@ -1782,25 +1773,28 @@ th {
 	position: absolute;
 	left: 0;
 	top: 100%;
+	width: 100%;
 	height: 0.15em;
-	width: 0;
-	opacity: 0;
-	background-color: var(--menu-hover-highlight-background-color);
 	transition-duration: var(--transition-duration);
-	transition-property: opacity;
+	transition-property: background-color;
 }
 .suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
-	color: var(--menu-hover-highlight-text-color);
+	color: var(--menu-hover-highlight--text-color);
 }
 .suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus):before {
-	width: 100%;
-	opacity: 1;
+	background-color: var(--menu-hover-highlight--background-color);
+}
+.suki-header-menu--highlight-underline .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+	color: var(--menu-active-highlight--text-color);
+}
+.suki-header-menu--highlight-underline .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus):before {
+	background-color: var(--menu-active-highlight--background-color);
 }
 
 :is(.suki-header-menu--highlight-border-top,
 .suki-header-menu--highlight-border-bottom) {
-	--menu-hover-highlight-text-color: var(--link-color--focus);
-	--menu-hover-highlight-background-color: var(--link-color--focus);
+	--menu-hover-highlight--text-color: var(--link-color--focus);
+	--menu-hover-highlight--background-color: var(--link-color--focus);
 }
 :is(.suki-header-menu--highlight-border-top,
 .suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link {
@@ -1812,22 +1806,26 @@ th {
 	content: "";
 	position: absolute;
 	left: 50%;
-	transform: translateX(-50%);
+	width: 100%;
 	height: 0.2em;
-	width: 0;
-	opacity: 0;
-	background-color: var(--menu-hover-highlight-background-color);
 	transition-duration: var(--transition-duration);
-	transition-property: opacity;
+	transition-property: background-color;
 }
 :is(.suki-header-menu--highlight-border-top,
 .suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
-	color: var(--menu-hover-highlight-text-color);
+	color: var(--menu-hover-highlight--text-color);
 }
 :is(.suki-header-menu--highlight-border-top,
 .suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus):before {
-	width: 100%;
-	opacity: 1;
+	background-color: var(--menu-hover-highlight--background-color);
+}
+:is(.suki-header-menu--highlight-border-top,
+.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+	color: var(--menu-active-highlight--text-color);
+}
+:is(.suki-header-menu--highlight-border-top,
+.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus):before {
+	background-color: var(--menu-active-highlight--background-color);
 }
 
 .suki-header-menu--highlight-border-top .suki-header-menu > .menu-item > .suki-menu-item-link:before {
