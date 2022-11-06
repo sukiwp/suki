@@ -1,4 +1,7 @@
-// Section
+/**
+ * Section
+ */
+
 #customize-theme-controls,
 #customize-outer-theme-controls {
 	.accordion-section-title {
@@ -19,7 +22,10 @@ div.customize-section-description {
 	border-bottom: 1px solid #ddd;
 }
 
-// Control
+/**
+ * Control
+ */
+
 .customize-control {
 	position: relative;
 	margin-bottom: 15px;
@@ -33,48 +39,10 @@ div.customize-section-description {
 	}
 }
 
-// Icon
-.suki-icon {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	line-height: 1;
-	text-align: center;
+/**
+ * Gutenberg components
+ */
 
-	svg {
-		display: inline-block;
-		width: 100%;
-		height: 100%;
-		vertical-align: top;
-
-		&:not([stroke-width]) {
-			stroke-width: 0;
-		}
-
-		&:not([stroke]) {
-			stroke: currentColor;
-		}
-
-		&:not([fill]) {
-			fill: currentColor;
-		}
-	}
-}
-
-// Button
-.button {
-	.dashicons {
-		width: auto;
-		height: auto;
-		margin-top: -0.1em;
-		margin-inline-end: 0.25em;
-		font-size: 1.2em;
-		line-height: 1;
-		vertical-align: middle;
-	}
-}
-
-// InputControl and SelectControl
 :is( .components-input-control, .components-select-control ) {
 	gap: 2px !important;
 
@@ -85,14 +53,12 @@ div.customize-section-description {
 	}
 }
 
-// SelectControl
 .components-select-control {
 	.components-select-control__input {
 		line-height: normal !important;
 	}
 }
 
-// ToggleControl
 .components-toggle-control {
 	.components-toggle-control__label {
 		&:empty {
@@ -101,7 +67,6 @@ div.customize-section-description {
 	}
 }
 
-// React colorful
 .components-color-picker {
 	.react-colorful {
 		width: 100% !important; // Force the color picker to use parent's width
@@ -132,7 +97,10 @@ div.customize-section-description {
 	}
 }
 
-// Responsive tabs
+/**
+ * Responsive Tabs
+ */
+
 .suki-responsive-tabs {
 	padding-block-start: 0;
 	padding-inline-end: 0.5em;
@@ -152,7 +120,10 @@ div.customize-section-description {
 	}
 }
 
-// Mega Menu settings popup on Suki Pro
+/**
+ * Mega menu modal (Suki Pro)
+ */
+
 .modal-open {
 	#TB_overlay, #TB_window {
 		z-index: 500001;

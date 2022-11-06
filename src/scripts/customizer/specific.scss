@@ -1,4 +1,7 @@
-// Customizer Preview
+/**
+ * Customizer preview
+ */
+
 .wp-full-overlay {
 	background-color: revert;
 }
@@ -20,7 +23,10 @@
 	margin-left: -212px;
 }
 
-// Social links
+/**
+ * Social links
+ */
+
 #sub-accordion-section-suki_section_social {
 	.customize-control-text {
 		.customize-control-description {
@@ -38,7 +44,10 @@
 	}
 }
 
-// Color palette
+/**
+ * Color palette
+ */
+
 :is(
 	#customize-control-color_palette_1,
 	#customize-control-color_palette_2,
@@ -76,14 +85,20 @@
 	}
 }
 
-// Hero
+/**
+ * Hero
+ */
+
 #customize-control-hero_container {
 	.suki-radioimage__option:first-child {
 		grid-column: 1 / 4;
 	}
 }
 
-// Page Settings
+/**
+ * Page Settings
+ */
+
 .customize-control-select:is(
 	[id$="_content_container"],
 	[id$="_content_layout"],
@@ -126,6 +141,7 @@
 	[id$="_bar_alt_transparent_bg_color"],
 	[id$="_bar_alt_transparent_border_color"]
 ),
+
 .customize-control-select:is(
 	[id$="_sidebar_sticky"],
 	[id$="_header_alt_colors"],
@@ -154,7 +170,10 @@
 	padding-left: 15px;
 }
 
-// Header & Footer Builder
+/**
+ * Header Builder
+ */
+
 #customize-control-header_builder_responsive_tabs {
 	.suki-responsive-tabs {
 		margin: 0 -12px;
@@ -218,39 +237,6 @@
 	}
 }
 
-#customize-control-header_mobile_visibility {
-	@media screen and ( min-width: 1324px ) {
-		select {
-			width: auto;
-			margin-left: 15px;
-		}
-	}
-}
-
-#customize-control-footer_elements {
-	@media screen and ( min-width: 1324px ) {
-		margin-bottom: 0;
-
-		.suki-builder {
-			grid-template-areas:
-				"bottom_left bottom_center bottom_right"
-				"_inactive _inactive _inactive";
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: auto;
-
-			grid-column-gap: 4px;
-			grid-row-gap: 12px;
-		}
-
-		$areas: bottom_left bottom_center bottom_right _inactive;
-		@each $area in $areas {
-			[data-area="#{$area}"] {
-				grid-area: $area;
-			}
-		}
-	}
-}
-
 #customize-control-header_elements,
 #customize-control-header_mobile_elements,
 #customize-control-header_elements {
@@ -293,6 +279,43 @@
 	}
 }
 
+#customize-control-header_mobile_visibility {
+	@media screen and ( min-width: 1324px ) {
+		select {
+			width: auto;
+			margin-left: 15px;
+		}
+	}
+}
+
+/**
+ * Footer Builder
+ */
+
+#customize-control-footer_elements {
+	@media screen and ( min-width: 1324px ) {
+		margin-bottom: 0;
+
+		.suki-builder {
+			grid-template-areas:
+				"bottom_left bottom_center bottom_right"
+				"_inactive _inactive _inactive";
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: auto;
+
+			grid-column-gap: 4px;
+			grid-row-gap: 12px;
+		}
+
+		$areas: bottom_left bottom_center bottom_right _inactive;
+		@each $area in $areas {
+			[data-area="#{$area}"] {
+				grid-area: $area;
+			}
+		}
+	}
+}
+
 #customize-control-footer_widgets_bar {
 	@media screen and ( min-width: 1324px ) {
 		.customize-control-title {
@@ -307,7 +330,10 @@
 	}
 }
 
-// Add ↳ prefix to some sections link to indicate hierarchy
+/**
+ * Add ↳ prefix to some sections link to indicate hierarchy
+ */
+
 [id="accordion-panel-suki_panel_header"],
 [id="accordion-panel-suki_panel_footer"],
 [id="accordion-section-suki_section_main"],

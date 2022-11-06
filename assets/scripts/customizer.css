@@ -2,6 +2,9 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/index.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
+/**
+ * Section
+ */
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
   border-top: 1px solid #ddd;
@@ -20,6 +23,9 @@ div.customize-section-description {
   border-bottom: 1px solid #ddd;
 }
 
+/**
+ * Control
+ */
 .customize-control {
   position: relative;
   margin-bottom: 15px;
@@ -31,39 +37,9 @@ div.customize-section-description {
   display: none;
 }
 
-.suki-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-align: center;
-}
-.suki-icon svg {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  vertical-align: top;
-}
-.suki-icon svg:not([stroke-width]) {
-  stroke-width: 0;
-}
-.suki-icon svg:not([stroke]) {
-  stroke: currentColor;
-}
-.suki-icon svg:not([fill]) {
-  fill: currentColor;
-}
-
-.button .dashicons {
-  width: auto;
-  height: auto;
-  margin-top: -0.1em;
-  margin-inline-end: 0.25em;
-  font-size: 1.2em;
-  line-height: 1;
-  vertical-align: middle;
-}
-
+/**
+ * Gutenberg components
+ */
 :is(.components-input-control, .components-select-control) {
   gap: 2px !important;
 }
@@ -102,6 +78,9 @@ div.customize-section-description {
   margin-bottom: 12px !important;
 }
 
+/**
+ * Responsive Tabs
+ */
 .suki-responsive-tabs {
   padding-block-start: 0;
   padding-inline-end: 0.5em;
@@ -120,10 +99,16 @@ div.customize-section-description {
   height: 1em;
 }
 
+/**
+ * Mega menu modal (Suki Pro)
+ */
 .modal-open #TB_overlay, .modal-open #TB_window {
   z-index: 500001;
 }
 
+/**
+ * Customizer preview
+ */
 .wp-full-overlay {
   background-color: revert;
 }
@@ -145,6 +130,9 @@ div.customize-section-description {
   margin-left: -212px;
 }
 
+/**
+ * Social links
+ */
 #sub-accordion-section-suki_section_social .customize-control-text .customize-control-description {
   font-size: 14px;
   line-height: 1.75;
@@ -157,6 +145,9 @@ div.customize-section-description {
   vertical-align: -1px;
 }
 
+/**
+ * Color palette
+ */
 :is(#customize-control-color_palette_1,
 #customize-control-color_palette_2,
 #customize-control-color_palette_3,
@@ -202,10 +193,16 @@ div.customize-section-description {
   padding-left: 50px;
 }
 
+/**
+ * Hero
+ */
 #customize-control-hero_container .suki-radioimage__option:first-child {
   grid-column: 1/4;
 }
 
+/**
+ * Page Settings
+ */
 .customize-control-select:is([id$=_content_container],
 [id$=_content_layout],
 [id$=_hero],
@@ -296,6 +293,9 @@ div.customize-section-description {
   padding-left: 15px;
 }
 
+/**
+ * Header Builder
+ */
 #customize-control-header_builder_responsive_tabs .suki-responsive-tabs {
   margin: 0 -12px;
   padding: 0 12px 0 calc(12px - 0.5em);
@@ -396,12 +396,53 @@ div.customize-section-description {
 }
 
 @media screen and (min-width: 1324px) {
+  #customize-control-header_elements [data-area$=_left] .suki-builder__area__label,
+#customize-control-header_mobile_elements [data-area$=_left] .suki-builder__area__label,
+#customize-control-header_elements [data-area$=_left] .suki-builder__area__label {
+    text-align: left;
+  }
+  #customize-control-header_elements [data-area$=_left] .suki-builder__area__sortable,
+#customize-control-header_mobile_elements [data-area$=_left] .suki-builder__area__sortable,
+#customize-control-header_elements [data-area$=_left] .suki-builder__area__sortable {
+    justify-content: flex-start;
+  }
+  #customize-control-header_elements [data-area$=_center] .suki-builder__area__label,
+#customize-control-header_mobile_elements [data-area$=_center] .suki-builder__area__label,
+#customize-control-header_elements [data-area$=_center] .suki-builder__area__label {
+    text-align: center;
+  }
+  #customize-control-header_elements [data-area$=_center] .suki-builder__area__sortable,
+#customize-control-header_mobile_elements [data-area$=_center] .suki-builder__area__sortable,
+#customize-control-header_elements [data-area$=_center] .suki-builder__area__sortable {
+    justify-content: center;
+  }
+  #customize-control-header_elements [data-area$=_right] .suki-builder__area__label,
+#customize-control-header_mobile_elements [data-area$=_right] .suki-builder__area__label,
+#customize-control-header_elements [data-area$=_right] .suki-builder__area__label {
+    text-align: right;
+  }
+  #customize-control-header_elements [data-area$=_right] .suki-builder__area__sortable,
+#customize-control-header_mobile_elements [data-area$=_right] .suki-builder__area__sortable,
+#customize-control-header_elements [data-area$=_right] .suki-builder__area__sortable {
+    justify-content: flex-end;
+  }
+}
+#customize-control-header_elements [data-area^=vertical] .suki-builder__area__sortable,
+#customize-control-header_mobile_elements [data-area^=vertical] .suki-builder__area__sortable,
+#customize-control-header_elements [data-area^=vertical] .suki-builder__area__sortable {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1324px) {
   #customize-control-header_mobile_visibility select {
     width: auto;
     margin-left: 15px;
   }
 }
 
+/**
+ * Footer Builder
+ */
 @media screen and (min-width: 1324px) {
   #customize-control-footer_elements {
     margin-bottom: 0;
@@ -448,7 +489,6 @@ div.customize-section-description {
     -ms-grid-column-span: 5;
   }
 }
-
 @media screen and (min-width: 1324px){
   #customize-control-header_elements [data-area=top_left] {
     -ms-grid-row: 1;
@@ -572,44 +612,6 @@ div.customize-section-description {
 }
 
 @media screen and (min-width: 1324px) {
-  #customize-control-header_elements [data-area$=_left] .suki-builder__area__label,
-#customize-control-header_mobile_elements [data-area$=_left] .suki-builder__area__label,
-#customize-control-header_elements [data-area$=_left] .suki-builder__area__label {
-    text-align: left;
-  }
-  #customize-control-header_elements [data-area$=_left] .suki-builder__area__sortable,
-#customize-control-header_mobile_elements [data-area$=_left] .suki-builder__area__sortable,
-#customize-control-header_elements [data-area$=_left] .suki-builder__area__sortable {
-    justify-content: flex-start;
-  }
-  #customize-control-header_elements [data-area$=_center] .suki-builder__area__label,
-#customize-control-header_mobile_elements [data-area$=_center] .suki-builder__area__label,
-#customize-control-header_elements [data-area$=_center] .suki-builder__area__label {
-    text-align: center;
-  }
-  #customize-control-header_elements [data-area$=_center] .suki-builder__area__sortable,
-#customize-control-header_mobile_elements [data-area$=_center] .suki-builder__area__sortable,
-#customize-control-header_elements [data-area$=_center] .suki-builder__area__sortable {
-    justify-content: center;
-  }
-  #customize-control-header_elements [data-area$=_right] .suki-builder__area__label,
-#customize-control-header_mobile_elements [data-area$=_right] .suki-builder__area__label,
-#customize-control-header_elements [data-area$=_right] .suki-builder__area__label {
-    text-align: right;
-  }
-  #customize-control-header_elements [data-area$=_right] .suki-builder__area__sortable,
-#customize-control-header_mobile_elements [data-area$=_right] .suki-builder__area__sortable,
-#customize-control-header_elements [data-area$=_right] .suki-builder__area__sortable {
-    justify-content: flex-end;
-  }
-}
-#customize-control-header_elements [data-area^=vertical] .suki-builder__area__sortable,
-#customize-control-header_mobile_elements [data-area^=vertical] .suki-builder__area__sortable,
-#customize-control-header_elements [data-area^=vertical] .suki-builder__area__sortable {
-  flex-direction: column;
-}
-
-@media screen and (min-width: 1324px) {
   #customize-control-footer_widgets_bar .customize-control-title {
     display: inline-block;
     margin-right: 1em;
@@ -620,6 +622,9 @@ div.customize-section-description {
   }
 }
 
+/**
+ * Add ↳ prefix to some sections link to indicate hierarchy
+ */
 [id=accordion-panel-suki_panel_header] .accordion-section-title:before,
 [id=accordion-panel-suki_panel_footer] .accordion-section-title:before,
 [id=accordion-section-suki_section_main] .accordion-section-title:before,
@@ -631,6 +636,9 @@ div.customize-section-description {
 /*!*******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/sections/index.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Responsive Tabs section
+ */
 .control-section-suki-responsive-tabs .suki-responsive-tabs {
   display: flex;
 }
@@ -638,6 +646,9 @@ div.customize-section-description {
   flex: 1;
 }
 
+/**
+ * Spacer section
+ */
 .control-section-suki-spacer {
   margin-top: 15px;
 }
@@ -662,6 +673,9 @@ div.customize-section-description {
   border-right: 12px solid transparent;
 }
 
+/**
+ * Suki Pro link section
+ */
 .control-section-suki-pro-link {
   margin-top: 15px;
 }
@@ -681,6 +695,9 @@ div.customize-section-description {
   background-color: var(--wp-admin-theme-color-darker-10) !important;
 }
 
+/**
+ * Suki Pro upsell section
+ */
 .suki-pro-teaser {
   margin-top: 15px;
   border-top: 1px solid #ddd !important;
@@ -790,6 +807,9 @@ div.customize-section-description {
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/background/index.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Background control
+ */
 .customize-control-suki-background .suki-media-upload__image {
   margin-bottom: 8px;
 }
@@ -800,6 +820,9 @@ div.customize-section-description {
 /*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/components/control-label/index.scss ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Control label
+ */
 .customize-control-title {
   display: inline-flex;
   align-items: center;
@@ -807,6 +830,9 @@ div.customize-section-description {
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/builder/index.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Builder control
+ */
 .customize-control-suki-builder .suki-builder {
   display: grid;
   gap: 8px;
@@ -896,6 +922,9 @@ div.customize-section-description {
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/color/index.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Color control
+ */
 .customize-control-suki-color .customize-control-title {
   padding-right: 50px;
 }
@@ -907,6 +936,9 @@ div.customize-section-description {
 /*!********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/color-select/index.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Color select control
+ */
 .customize-control-suki-color-select .customize-control-title {
   padding-right: 50px;
 }
@@ -918,6 +950,9 @@ div.customize-section-description {
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/components/color-select-dropdown/index.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Color dropdown
+ */
 .suki-color-dropdown .components-dropdown {
   vertical-align: middle;
 }
@@ -1013,6 +1048,9 @@ div.customize-section-description {
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/components/control-responsive-switcher/index.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Responsive switcher for control settings
+ */
 .suki-responsive-switcher {
   display: inline-flex;
   gap: 4px;
@@ -1053,6 +1091,9 @@ div.customize-section-description {
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/components/control-responsive-container/index.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Responsive container for control settings
+ */
 .suki-responsive-container:not([data-device=global]) {
   display: none;
 }
@@ -1068,6 +1109,9 @@ div.customize-section-description {
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/heading/index.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Heading control
+ */
 .customize-control-suki-heading {
   margin: 24px 0 16px;
 }
@@ -1096,6 +1140,9 @@ div.customize-section-description {
 /*!********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/multi-select/index.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Multi select control
+ */
 .customize-control-suki-multiselect .suki-multiselect__list {
   display: flex;
   flex-direction: column;
@@ -1137,12 +1184,18 @@ div.customize-section-description {
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/notice/index.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Notice control
+ */
 .customize-control-suki-notice .notice {
   margin: 0;
 }
 /*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/radio-image/index.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Radio image control
+ */
 .customize-control-suki-radioimage .suki-radioimage__option {
   display: block;
   padding: 2px;
@@ -1166,6 +1219,9 @@ div.customize-section-description {
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/toggle/index.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Toggle control
+ */
 .customize-control-suki-toggle .suki-toggle {
   position: absolute;
   top: 3px;
@@ -1175,6 +1231,9 @@ div.customize-section-description {
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/typography/index.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Typography control
+ */
 .customize-control-suki-typography .suki-responsive-switcher:after {
   content: "";
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -1185,6 +1244,9 @@ div.customize-section-description {
 /*!********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/interactions/contexts/index.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Contexts
+ */
 .suki-context--hidden {
   display: none !important;
 }
