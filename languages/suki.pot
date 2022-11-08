@@ -680,54 +680,54 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:737, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:841, includes/compatibilities/woocommerce/customizer/structures/header--cart.php:23, includes/compatibilities/woocommerce/customizer/structures/sections.php:17
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:739, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:842, includes/compatibilities/woocommerce/customizer/structures/header--cart.php:23, includes/compatibilities/woocommerce/customizer/structures/sections.php:17
 msgid "Shopping Cart"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:900
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:901
 msgid "Edit Page settings here"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:914
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:915
 msgid "Product Layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:934, includes/compatibilities/woocommerce/customizer/structures/sections.php:126, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:456, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:191
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:935, includes/compatibilities/woocommerce/customizer/structures/sections.php:126, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:456, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:191
 msgctxt "Suki Pro upsell"
 msgid "More Options Available"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:936
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:937
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable breadcrumb."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:937
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:938
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable gallery on this product page."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:938
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:939
 msgctxt "Suki Pro upsell"
 msgid "Change gallery layout on this product page."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:939
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:940
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable product info tabs."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:940
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:941
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable up-sells."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:941
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:942
 msgctxt "Suki Pro upsell"
 msgid "Enable / disable related products."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:950
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:951
 msgctxt "Suki Pro upsell"
 msgid "Learn More"
 msgstr ""

@@ -38,6 +38,41 @@ div.customize-section-description {
 }
 
 /**
+ * Icon
+ */
+.suki-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+}
+.suki-icon svg {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+.suki-icon svg:not([stroke-width]) {
+  stroke-width: 0;
+}
+.suki-icon svg:not([stroke]) {
+  stroke: currentColor;
+}
+.suki-icon svg:not([fill]) {
+  fill: currentColor;
+}
+
+/**
+ * Button
+ */
+.wp-core-ui .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+/**
  * Gutenberg components
  */
 :is(.components-input-control, .components-select-control) {

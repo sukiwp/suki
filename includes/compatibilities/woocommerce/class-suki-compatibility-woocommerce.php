@@ -112,8 +112,8 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'wp', array( $this, 'modify_template_hooks_after_init' ) );
 
 		// Render header elements.
-		add_filter( 'suki/frontend/header_element/cart-link', array( $this, 'get_header_cart_link_html' ) );
-		add_filter( 'suki/frontend/header_element/cart-dropdown', array( $this, 'get_header_cart_dropdown_html' ) );
+		add_filter( 'suki/frontend/header_element/cart-link', array( $this, 'get_header_element__cart_link' ) );
+		add_filter( 'suki/frontend/header_element/cart-dropdown', array( $this, 'get_header_element__cart_dropdown' ) );
 
 		/**
 		 * Page settings.
@@ -722,7 +722,7 @@ class Suki_Compatibility_WooCommerce {
 	 *
 	 * @param string $html HTML markup.
 	 */
-	public function get_header_cart_link_html( $html ) {
+	public function get_header_element__cart_link( $html ) {
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
@@ -732,6 +732,8 @@ class Suki_Compatibility_WooCommerce {
 		if ( empty( $cart ) ) {
 			return;
 		}
+
+		ob_start();
 		?>
 		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="suki-header-cart-link suki-header-cart cart-link suki-menu-item-link">
 			<span class="screen-reader-text"><?php esc_html_e( 'Shopping Cart', 'suki' ); ?></span>
@@ -763,6 +765,7 @@ class Suki_Compatibility_WooCommerce {
 			</span>
 		</a>
 		<?php
+		$html = ob_get_clean();
 
 		return $html;
 	}
@@ -772,7 +775,7 @@ class Suki_Compatibility_WooCommerce {
 	 *
 	 * @param string $html HTML markup.
 	 */
-	public function get_header_cart_dropdown_html( $html ) {
+	public function get_header_element__cart_dropdown( $html ) {
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
@@ -817,12 +820,10 @@ class Suki_Compatibility_WooCommerce {
 				$classes[] = esc_attr( 'suki-hide-on-' . $device );
 			}
 
-			ob_start();
-			?>
-			<span class="cart-amount <?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $cart->get_cart_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-			<?php
-			$amount_html = ob_get_clean();
+			$amount_html = '<span class="cart-amount ' . esc_attr( implode( ' ', $classes ) ) . '">' . $cart->get_cart_total() . '</span>';
 		}
+
+		ob_start();
 		?>
 		<div class="suki-header-cart-dropdown suki-header-cart menu <?php echo $is_dropdown ? esc_attr( 'suki-toggle-menu' ) : ''; ?>">
 			<div class="menu-item">
@@ -874,8 +875,8 @@ class Suki_Compatibility_WooCommerce {
 				?>
 			</div>
 		</div>
-
 		<?php
+		$html = ob_get_clean();
 
 		return $html;
 	}
@@ -1570,6 +1571,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function set_related_products_display_args( $args ) {
+		// phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
 		$args['posts_per_page'] = intval( suki_get_theme_mod( 'woocommerce_single_related_posts_per_page' ) );
 		$args['columns']        = intval( suki_get_theme_mod( 'woocommerce_single_related_grid_columns' ) );
 
