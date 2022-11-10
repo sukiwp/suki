@@ -242,9 +242,9 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	function suki_hero( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$elements = suki_get_current_page_setting( 'content_header', array() );
-
-		if ( 0 < count( $elements ) ) { // Content header has at least 1 element.
+		$elements = boolval( suki_get_current_page_setting( 'hero' ));
+		
+		if ( $elements  ) { //hero section is enabled or not
 			$container = suki_get_current_page_setting( 'hero_container' );
 
 			if ( 'content' === $container ) {
