@@ -48,13 +48,20 @@ if ( ! function_exists( 'suki_content' ) ) {
 				suki_current_page_has_sidebar() ? 'suki-content--layout-' . suki_get_current_page_setting( 'content_layout' ) : '',
 			)
 		);
+
+		$explicitePadding = suki_get_current_page_setting('content_padding');
+		$padding  = "";
+		if(isset($explicitePadding )&& is_array($explicitePadding ) && sizeof($explicitePadding ) >0){
+			$padding = "padding-top:". $explicitePadding[0].";padding-left:". $explicitePadding[1].";padding-bottom:". $explicitePadding[2].";padding-right:". $explicitePadding[3].";";
+		}
+
 		?>
 		<!-- wp:group {
 			"className":"<?php echo esc_attr( $classes ); ?>",
 			"layout":{
 				"inherit":<?php echo esc_attr( suki_current_page_has_sidebar() ? true : false ); ?>
 			}
-		} --><div id="content" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+		} --><div id="content" class="wp-block-group <?php echo esc_attr( $classes ); ?>" style="<?php echo $padding; ?>">
 
 			<?php
 			/**
