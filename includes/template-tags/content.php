@@ -48,6 +48,7 @@ if ( ! function_exists( 'suki_content' ) ) {
 				suki_current_page_has_sidebar() ? 'suki-content--layout-' . suki_get_current_page_setting( 'content_layout' ) : '',
 			)
 		);
+
 		?>
 		<!-- wp:group {
 			"className":"<?php echo esc_attr( $classes ); ?>",
@@ -242,9 +243,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	function suki_hero( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$elements = suki_get_current_page_setting( 'content_header', array() );
-
-		if ( 0 < count( $elements ) ) { // Content header has at least 1 element.
+		if ( boolval( suki_get_current_page_setting( 'hero' ) ) ) { // Hero section is enabled or not.
 			$container = suki_get_current_page_setting( 'hero_container' );
 
 			if ( 'content' === $container ) {
