@@ -49,19 +49,13 @@ if ( ! function_exists( 'suki_content' ) ) {
 			)
 		);
 
-		$explicitePadding = suki_get_current_page_setting('content_padding');
-		$padding  = "";
-		if(isset($explicitePadding )&& is_array($explicitePadding ) && sizeof($explicitePadding ) >0){
-			$padding = "padding-top:". $explicitePadding[0].";padding-left:". $explicitePadding[1].";padding-bottom:". $explicitePadding[2].";padding-right:". $explicitePadding[3].";";
-		}
-
 		?>
 		<!-- wp:group {
 			"className":"<?php echo esc_attr( $classes ); ?>",
 			"layout":{
 				"inherit":<?php echo esc_attr( suki_current_page_has_sidebar() ? true : false ); ?>
 			}
-		} --><div id="content" class="wp-block-group <?php echo esc_attr( $classes ); ?>" style="<?php echo $padding; ?>">
+		} --><div id="content" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 			<?php
 			/**
@@ -249,9 +243,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	function suki_hero( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$elements = boolval( suki_get_current_page_setting( 'hero' ));
-		
-		if ( $elements  ) { //hero section is enabled or not
+		if ( boolval( suki_get_current_page_setting( 'hero' ) ) ) { // Hero section is enabled or not.
 			$container = suki_get_current_page_setting( 'hero_container' );
 
 			if ( 'content' === $container ) {
