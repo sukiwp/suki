@@ -485,33 +485,33 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:723, includes/customizer/structures/sections.php:689
+#: includes/customizer/class-suki-customizer.php:737, includes/customizer/structures/sections.php:689
 msgid "Search Results Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:728, includes/customizer/structures/sections.php:699
+#: includes/customizer/class-suki-customizer.php:742, includes/customizer/structures/sections.php:699
 msgid "Error 404 Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:737, includes/customizer/structures/sections.php:679
+#: includes/customizer/class-suki-customizer.php:751, includes/customizer/structures/sections.php:679
 msgid "Static Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:742, includes/customizer/structures/sections.php:616
+#: includes/customizer/class-suki-customizer.php:756, includes/customizer/structures/sections.php:616
 msgid "Posts Archive Page"
 msgstr ""
 
-#: includes/customizer/class-suki-customizer.php:747, includes/customizer/structures/sections.php:646
+#: includes/customizer/class-suki-customizer.php:761, includes/customizer/structures/sections.php:646
 msgid "Single Post Page"
 msgstr ""
 
 #. translators: %s: post type's plural name.
-#: includes/customizer/class-suki-customizer.php:760
+#: includes/customizer/class-suki-customizer.php:774
 msgid "%s Archive Page"
 msgstr ""
 
 #. translators: %s: post type's singular name.
-#: includes/customizer/class-suki-customizer.php:766
+#: includes/customizer/class-suki-customizer.php:780
 msgid "Single %s Page"
 msgstr ""
 
@@ -580,7 +580,7 @@ msgid "Older Posts"
 msgstr ""
 
 #. translators: %s: search keyword.
-#: includes/template-tags/content.php:428
+#: includes/template-tags/content.php:427
 msgid "Search results for: %s"
 msgstr ""
 

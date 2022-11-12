@@ -302,32 +302,37 @@ class Suki_Customizer {
 
 		// Loop through each setting.
 		foreach ( $outputs as $key => $rules ) {
-			// Get saved value.
-			$setting_value = get_theme_mod( $key );
-
-			// Get default value.
-			$default_value = suki_array_value( $default_values, $key );
-			if ( is_null( $default_value ) ) {
-				$default_value = '';
-			}
-
 			// Temporary CSS array to organize output.
 			$css_array = array();
 
-			// Add CSS only if value is not the same as default value and not empty.
-			if ( $setting_value !== $default_value && '' !== $setting_value ) {
-				foreach ( $rules as $rule ) {
-					// Check rule validity, and then skip if it's not valid.
-					if ( ! $this->check_output_rule_for_css_compatibility( $rule ) ) {
-						continue;
-					}
+			// Get saved value in DB.
+			$setting_value = get_theme_mod( $key );
 
-					// Sanitize rule.
-					$rule = $this->sanitize_output_rule_value( $rule, $setting_value );
+			// Make sure value is a string.
+			$setting_value = $this->convert_output_value_to_string( $setting_value );
 
-					// Add to CSS array.
-					$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
+			// Skip this setting if value is empty string.
+			if ( '' === $setting_value ) {
+				continue;
+			}
+
+			// Skip rule if value === default value.
+			if ( suki_array_value( $defaults, $key, '' ) === $setting_value ) {
+				continue;
+			}
+
+			// Loop through each rule.
+			foreach ( $outputs[ $key ] as $rule ) {
+				// Check rule validity, and then skip if it's not valid.
+				if ( ! $this->check_output_rule_for_css_compatibility( $rule ) ) {
+					continue;
 				}
+
+				// Sanitize rule.
+				$rule = $this->sanitize_output_rule_value( $rule, $setting_value );
+
+				// Add to CSS array.
+				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 			}
 
 			echo '<style id="suki-customize-preview-css-' . esc_attr( $key ) . '" type="text/css">' . esc_html( suki_convert_css_array_to_string( $css_array ) ) . '</style>' . "\n";
@@ -363,6 +368,28 @@ class Suki_Customizer {
 	 * Public functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Convert output value to string.
+	 *
+	 * @param mixed $setting_value Output value.
+	 * @return string
+	 */
+	public function convert_output_value_to_string( $setting_value ) {
+		// If value is an array, join all sub values with a ' ' delimiter.
+		// If subvalue is an empty string, convert to '0'.
+		if ( is_array( $setting_value ) ) {
+			foreach ( $setting_value as $i => $subvalue ) {
+				if ( '' === $subvalue ) {
+					$setting_value[ $i ] = '0';
+				}
+			}
+
+			$setting_value = implode( ' ', $setting_value );
+		}
+
+		return strval( $setting_value );
+	}
 
 	/**
 	 * Build CSS string from Customizer's outputs.
@@ -405,13 +432,11 @@ class Suki_Customizer {
 
 		// Loop through each setting.
 		foreach ( $keys as $key ) {
-			// Get saved value.
+			// Get saved value in DB.
 			$setting_value = get_theme_mod( $key );
 
-			// Skip this setting if value is not valid (only accepts string and number).
-			if ( ! is_numeric( $setting_value ) && ! is_string( $setting_value ) ) {
-				continue;
-			}
+			// Make sure value is a string.
+			$setting_value = $this->convert_output_value_to_string( $setting_value );
 
 			// Skip this setting if value is empty string.
 			if ( '' === $setting_value ) {
@@ -419,7 +444,7 @@ class Suki_Customizer {
 			}
 
 			// Skip rule if value === default value.
-			if ( suki_array_value( $defaults, $key ) === $setting_value ) {
+			if ( suki_array_value( $defaults, $key, '' ) === $setting_value ) {
 				continue;
 			}
 
@@ -492,17 +517,6 @@ class Suki_Customizer {
 		// If "pattern" attribute is not specified, set it to "$".
 		if ( ! isset( $rule['pattern'] ) || empty( $rule['pattern'] ) ) {
 			$rule['pattern'] = '$';
-		}
-
-		// Convert array value into string.
-		if ( is_array( $setting_value ) ) {
-			foreach ( $setting_value as $i => $subvalue ) {
-				if ( '' === $subvalue ) {
-					$setting_value[ $i ] = '0';
-				}
-			}
-
-			$setting_value = implode( ' ', $setting_value );
 		}
 
 		// Check if there is function attached.
