@@ -37,6 +37,8 @@ class Suki_Migrate_2_0_0 extends Suki_Migrate {
 
 		$this->migrate_all_font_families_values();
 
+		$this->migrate_all_line_height_values();
+
 		$this->migrate_container_keys();
 
 		$this->migrate_container_values();
@@ -108,6 +110,23 @@ class Suki_Migrate_2_0_0 extends Suki_Migrate {
 		foreach ( $mods as $key => $value ) {
 			if ( str_ends_with( $key, '_font_family' ) ) {
 				$new_value = preg_replace( '/(web_safe_fonts|google_fonts|custom_fonts)\|/', '', $value );
+
+				set_theme_mod( $key, $new_value );
+			}
+		}
+	}
+
+	/**
+	 * Migrate all line height values.
+	 *
+	 * Add `em` unit to numeric only value (e.g. `1.5` becomes `1.5em`).
+	 */
+	private function migrate_all_line_height_values() {
+		$mods = get_theme_mods();
+
+		foreach ( $mods as $key => $value ) {
+			if ( false !== strpos( $key, '_line_height' ) ) {
+				$new_value = $value . 'em';
 
 				set_theme_mod( $key, $new_value );
 			}
