@@ -297,8 +297,8 @@ class Suki_Customizer {
 		 * Print saved theme_mods CSS.
 		 */
 
-		$outputs        = $this->get_setting_outputs();
-		$default_values = $this->get_setting_defaults();
+		$outputs  = $this->get_setting_outputs();
+		$defaults = $this->get_setting_defaults();
 
 		// Loop through each setting.
 		foreach ( $outputs as $key => $rules ) {
@@ -306,18 +306,17 @@ class Suki_Customizer {
 			$css_array = array();
 
 			// Get saved value in DB.
-			$setting_value = get_theme_mod( $key );
-
-			// Make sure value is a string.
-			$setting_value = $this->convert_output_value_to_string( $setting_value );
+			$setting_value = $this->convert_output_value_to_string( get_theme_mod( $key ) );
 
 			// Skip this setting if value is empty string.
 			if ( '' === $setting_value ) {
 				continue;
 			}
 
+			$default_value = $this->convert_output_value_to_string( suki_array_value( $defaults, $key, '' ) );
+
 			// Skip rule if value === default value.
-			if ( suki_array_value( $defaults, $key, '' ) === $setting_value ) {
+			if ( $default_value === $setting_value ) {
 				continue;
 			}
 
@@ -433,18 +432,17 @@ class Suki_Customizer {
 		// Loop through each setting.
 		foreach ( $keys as $key ) {
 			// Get saved value in DB.
-			$setting_value = get_theme_mod( $key );
-
-			// Make sure value is a string.
-			$setting_value = $this->convert_output_value_to_string( $setting_value );
+			$setting_value = $this->convert_output_value_to_string( get_theme_mod( $key ) );
 
 			// Skip this setting if value is empty string.
 			if ( '' === $setting_value ) {
 				continue;
 			}
 
+			$default_value = $this->convert_output_value_to_string( suki_array_value( $defaults, $key, '' ) );
+
 			// Skip rule if value === default value.
-			if ( suki_array_value( $defaults, $key, '' ) === $setting_value ) {
+			if ( $default_value === $setting_value ) {
 				continue;
 			}
 

@@ -42,7 +42,9 @@ class Suki_Migrate_1_3_3 extends Suki_Migrate {
 			array(
 				'post_type'      => 'any',
 				'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key'       => '_wp_page_template',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'meta_value'     => 'page-templates/page_builder.php',
 			)
 		);
@@ -54,7 +56,9 @@ class Suki_Migrate_1_3_3 extends Suki_Migrate {
 			array(
 				'post_type'      => 'any',
 				'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key'       => '_wp_page_template',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'meta_value'     => 'page-templates/page_builder_with_container.php',
 			)
 		);

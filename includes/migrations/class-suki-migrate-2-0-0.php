@@ -65,12 +65,15 @@ class Suki_Migrate_2_0_0 extends Suki_Migrate {
 	private function migrate_page_settings_meta_key() {
 		global $wpdb;
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$updated = $wpdb->update(
 			$wpdb->prefix . 'postmeta',
 			array(
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key' => 'suki_page_settings',
 			),
 			array(
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key' => '_suki_page_settings',
 			)
 		);
@@ -183,6 +186,7 @@ class Suki_Migrate_2_0_0 extends Suki_Migrate {
 			array(
 				'post_type'      => 'any',
 				'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key'       => 'suki_page_settings',
 				'meta_compare'   => 'EXISTS',
 			)
@@ -251,6 +255,7 @@ class Suki_Migrate_2_0_0 extends Suki_Migrate {
 			array(
 				'post_type'      => 'any',
 				'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key'       => 'suki_page_settings',
 				'meta_compare'   => 'EXISTS',
 			)
@@ -309,6 +314,7 @@ class Suki_Migrate_2_0_0 extends Suki_Migrate {
 			array(
 				'post_type'      => 'any',
 				'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key'       => 'suki_page_settings',
 				'meta_compare'   => 'EXISTS',
 			)
