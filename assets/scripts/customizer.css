@@ -207,8 +207,17 @@ div.customize-section-description {
 #customize-control-color_palette_8) .suki-color-dropdown {
   left: 0;
   right: auto;
-  margin: 3px;
   z-index: 1;
+}
+:is(#customize-control-color_palette_1,
+#customize-control-color_palette_2,
+#customize-control-color_palette_3,
+#customize-control-color_palette_4,
+#customize-control-color_palette_5,
+#customize-control-color_palette_6,
+#customize-control-color_palette_7,
+#customize-control-color_palette_8) .suki-color-dropdown__toggle {
+  margin: 3px;
 }
 
 :is(#customize-control-color_palette_1_name,
@@ -1040,7 +1049,7 @@ div.customize-section-description {
 }
 
 .suki-color-dropdown__palette .components-circular-option-picker__swatches {
-  gap: 6px;
+  gap: 4px;
 }
 .suki-color-dropdown__palette .components-circular-option-picker__option-wrapper {
   width: 24px;
@@ -1060,17 +1069,12 @@ div.customize-section-description {
   fill: #fff;
 }
 
-.suki-color-dropdown__custom {
-  padding-left: 8px;
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 .suki-color-dropdown__custom__toggle {
-  padding: 2px !important;
   width: 24px !important;
   min-width: auto !important;
   border-radius: 50%;
   transition: transform 100ms ease;
+  box-shadow: inset 0 0 0 1px;
 }
 .suki-color-dropdown__custom__toggle .dashicons {
   font-size: 14px;

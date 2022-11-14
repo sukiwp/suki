@@ -58,7 +58,7 @@
 
 .suki-color-dropdown__palette {
 	.components-circular-option-picker__swatches {
-		gap: 6px;
+		gap: 4px;
 	}
 
 	.components-circular-option-picker__option {
@@ -84,17 +84,12 @@
 	}
 }
 
-.suki-color-dropdown__custom {
-	padding-left: 8px; // Same width default `spacing` attribute (2 x 4px)
-	border-left: 1px solid rgba(0,0,0,0.2);
-}
-
 .suki-color-dropdown__custom__toggle {
-	padding: 2px !important;
 	width: 24px !important;
 	min-width: auto !important; // Reset
 	border-radius: 50%;
 	transition: transform 100ms ease;
+	box-shadow: inset 0 0 0 1px;
 
 	.dashicons {
 		font-size: 14px;

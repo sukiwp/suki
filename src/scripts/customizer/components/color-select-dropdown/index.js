@@ -72,10 +72,10 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 								direction="column"
 								gap="3"
 								style={ {
-									width: '275px',
+									width: '248px',
 								} }
 							>
-								<Flex>
+								<Flex gap="1">
 									<ColorPalette
 										colors={ palette }
 										value={ valueIsLink ? valueInfo.color : '' }

@@ -63,8 +63,11 @@
 	.suki-color-dropdown {
 		left: 0;
 		right: auto;
-		margin: 3px;
 		z-index: 1;
+	}
+
+	.suki-color-dropdown__toggle {
+		margin: 3px;
 	}
 }
 

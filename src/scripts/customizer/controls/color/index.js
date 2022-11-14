@@ -68,6 +68,10 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 							return (
 								<Flex
 									direction="column"
+									gap="3"
+									style={ {
+										width: '248px',
+									} }
 								>
 									<ColorPicker
 										color={ value }

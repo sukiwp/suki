@@ -73,9 +73,11 @@ const SukiColorSelectDropdown = _ref => {
         direction: "column",
         gap: "3",
         style: {
-          width: '275px'
+          width: '248px'
         }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, {
+        gap: "1"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
         colors: palette,
         value: valueIsLink ? valueInfo.color : '',
         disableCustomColors: true,
@@ -1135,7 +1137,11 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
       },
       renderContent: () => {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Flex, {
-          direction: "column"
+          direction: "column",
+          gap: "3",
+          style: {
+            width: '248px'
+          }
         }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPicker, {
           color: value,
           onChange: color => {
