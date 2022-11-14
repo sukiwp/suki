@@ -75,6 +75,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			'property' => $property,
 		),
 	);
+
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'body_' . $prop . '__tablet' ] = array(
 			array(
@@ -84,6 +86,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
+
 		$add[ 'body_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
@@ -94,6 +97,29 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		);
 	}
 }
+
+// Change `rem` value.
+$add['body_font_size'][] = array(
+	'type'     => 'css',
+	'element'  => 'html',
+	'property' => 'font-size',
+);
+
+// Change `rem` value in tablet.
+$add['body_font_size__tablet'][] = array(
+	'type'     => 'css',
+	'element'  => 'html',
+	'property' => 'font-size',
+	'media'    => '@media screen and (max-width: 1023px)',
+);
+
+// Change `rem` value in mobile.
+$add['body_font_size__mobile'][] = array(
+	'type'     => 'css',
+	'element'  => 'html',
+	'property' => 'font-size',
+	'media'    => '@media screen and (max-width: 499px)',
+);
 
 $add['body_text_color'] = array(
 	array(
@@ -166,6 +192,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 					'media'    => '@media screen and (max-width: 1023px)',
 				),
 			);
+
 			$add[ 'h' . $i . '_' . $prop . '__mobile' ] = array(
 				array(
 					'type'     => 'css',
@@ -211,6 +238,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			'property' => $property,
 		),
 	);
+
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'blockquote_' . $prop . '__tablet' ] = array(
 			array(
@@ -220,6 +249,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
+
 		$add[ 'blockquote_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
@@ -364,6 +394,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			'property' => $property,
 		),
 	);
+
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'title_' . $prop . '__tablet' ] = array(
 			array(
@@ -373,6 +405,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
+
 		$add[ 'title_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
@@ -417,6 +450,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			'property' => $property,
 		),
 	);
+
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'small_title_' . $prop . '__tablet' ] = array(
 			array(
@@ -426,6 +461,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
+
 		$add[ 'small_title_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
@@ -470,6 +506,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			'property' => $property,
 		),
 	);
+
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'meta_' . $prop . '__tablet' ] = array(
 			array(
@@ -479,6 +517,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'media'    => '@media screen and (max-width: 1023px)',
 			),
 		);
+
 		$add[ 'meta_' . $prop . '__mobile' ] = array(
 			array(
 				'type'     => 'css',
@@ -735,6 +774,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'sidebar_' . $prop . '__tablet' ] = array(
 			array(
@@ -865,6 +905,8 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 			'property' => $property,
 		),
 	);
+
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'hero_title_' . $prop . '__tablet' ] = array(
 			array(
@@ -897,6 +939,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'hero_' . $prop . '__tablet' ] = array(
 			array(
@@ -930,6 +973,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'hero_breadcrumb_' . $prop . '__tablet' ] = array(
 			array(
@@ -1705,6 +1749,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'footer_widgets_bar_' . $prop . '__tablet' ] = array(
 			array(
@@ -1831,6 +1876,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 		),
 	);
 
+	// Responsive.
 	if ( in_array( $prop, array( 'font_size', 'line_height', 'letter_spacing' ), true ) ) {
 		$add[ 'footer_bottom_bar_' . $prop . '__tablet' ] = array(
 			array(

@@ -171,10 +171,10 @@ class Suki_Admin {
 
 		$css_array = array();
 
-		// Add color palette CSS.
-		for ( $i = 1; $i <= 8; $i++ ) {
-			$css_array['global']['.block-editor'][ '--color-palette-' . $i ] = suki_get_theme_mod( 'color_palette_' . $i );
-		}
+		// TODO: add rem responsive value and responsive sidebar visual preview.
+
+		// Add rem value CSS.
+		$css_array['global']['html']['font-size'] = suki_get_theme_mod( 'body_font_size', '16px' );
 
 		// Add sidebar CSS.
 		$css_array['global']['.editor-styles-wrapper']['--sidebar-width']       = suki_get_theme_mod( 'sidebar_width', '25%' );

@@ -2,6 +2,10 @@
  * Global
  */
 
+html {
+	font-size: 16px; // Default rem value.
+}
+
 body { // Use body not :root, because this CSS will be used on block editor as well (converted to .editor-styles-wrapper)
 	// Color palette (default)
 	--color-palette-1: #222222;
