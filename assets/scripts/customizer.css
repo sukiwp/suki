@@ -5,6 +5,10 @@
 /**
  * Section
  */
+#customize-theme-controls .customize-pane-child:is(.accordion-section-content, .customize-pane-child.accordion-sub-container) {
+  height: 100%;
+}
+
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
   border-top: 1px solid #ddd;

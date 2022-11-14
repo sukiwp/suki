@@ -2,6 +2,14 @@
  * Section
  */
 
+#customize-theme-controls {
+	.customize-pane-child {
+		&:is( .accordion-section-content, .customize-pane-child.accordion-sub-container ) {
+			height: 100%; // Section pane will always have 100% height.
+		}
+	}
+}
+
 #customize-theme-controls,
 #customize-outer-theme-controls {
 	.accordion-section-title {
