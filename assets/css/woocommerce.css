@@ -2,7 +2,7 @@
 /**
  * WooCommerce CSS Variables
  */
-:root {
+body {
 	--woocommerce: #a46497;
 	--wc-green: #7ad03a;
 	--wc-red: #a00;
@@ -1184,7 +1184,7 @@
 	color: inherit;
 }
 .woocommerce div.product > * > h2:first-child a:focus, .woocommerce div.product > * > h2:first-child a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce div.product .suki-woocommerce-product__images {
 	position: relative;
@@ -1402,7 +1402,7 @@
 	color: inherit;
 }
 .woocommerce div.product .woocommerce-tabs .panel > h2:first-child a:focus, .woocommerce div.product .woocommerce-tabs .panel > h2:first-child a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce div.product form.cart table {
 	border-width: 0;
@@ -1487,7 +1487,7 @@
 	color: inherit;
 }
 .woocommerce #reviews .woocommerce-Reviews-title a:focus, .woocommerce #reviews .woocommerce-Reviews-title a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce #reviews #comments .commentlist {
 	list-style: none;
@@ -1560,7 +1560,7 @@
 	color: inherit;
 }
 .woocommerce #reviews #respond .comment-reply-title a:focus, .woocommerce #reviews #respond .comment-reply-title a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce #reviews #respond .comment-form {
 	margin-block-start: var(--wp--style--block-gap);
@@ -1656,7 +1656,7 @@
 	color: inherit;
 }
 .woocommerce-cart :is(.cart_totals, .cross-sells) h2 a:focus, .woocommerce-cart :is(.cart_totals, .cross-sells) h2 a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce-cart .woocommerce-cart-form > * {
 	margin-block: 0;
@@ -2129,7 +2129,7 @@
 	color: inherit;
 }
 .woocommerce .woocommerce-thankyou-order-received a:focus, .woocommerce .woocommerce-thankyou-order-received a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 
 /**
@@ -2191,7 +2191,7 @@
 	color: inherit;
 }
 .woocommerce-account .woocommerce-MyAccount-content > h2 a:focus, .woocommerce-account .woocommerce-MyAccount-content > h2 a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce-account .suki-woocommerce-account__user-info {
 	display: flex;
@@ -2277,7 +2277,7 @@
 	color: inherit;
 }
 .woocommerce-account :is(.woocommerce-order-details, .woocommerce-order-downloads, .woocommerce-customer-details) h2 a:focus, .woocommerce-account :is(.woocommerce-order-details, .woocommerce-order-downloads, .woocommerce-customer-details) h2 a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 .woocommerce-account .woocommerce-order-details table tbody :is(th, td) {
 	border-width: 0;

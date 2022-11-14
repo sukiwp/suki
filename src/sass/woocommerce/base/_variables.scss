@@ -21,7 +21,7 @@ $contentbg:     var(--color-palette-8) !default;   // Content BG - Tabs (active 
 $subtext:       var(--color-palette-3) !default;   // small, breadcrumbs etc
 
 // export vars as CSS vars
-:root {
+body {
 	--woocommerce: #{$woocommerce};
 	--wc-green: #{$green};
 	--wc-red: #{$red};

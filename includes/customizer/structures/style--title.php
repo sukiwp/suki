@@ -68,8 +68,8 @@ $wp_customize->add_control(
 
 // Colors.
 $colors = array(
-	'title_text_color'       => esc_html__( 'Title text color', 'suki' ),
-	'title_hover_text_color' => esc_html__( 'Title link text color :hover', 'suki' ),
+	'title_text_color'            => esc_html__( 'Title text color', 'suki' ),
+	'title_link_hover_text_color' => esc_html__( 'Title link text color :hover', 'suki' ),
 );
 foreach ( $colors as $key => $label ) {
 	$wp_customize->add_setting(

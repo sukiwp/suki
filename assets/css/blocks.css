@@ -1912,7 +1912,7 @@ li:not(:last-child) > .wp-block-latest-posts__post-excerpt {
 	color: inherit;
 }
 .wp-block-post-comments-form .comment-reply-title a:focus, .wp-block-comments-title a:focus, .wp-block-post-comments-form .comment-reply-title a:hover, .wp-block-comments-title a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 
 /**

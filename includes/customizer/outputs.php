@@ -95,14 +95,6 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 	}
 }
 
-$add['font_smoothing'] = array(
-	array(
-		'type'    => 'class',
-		'element' => 'body',
-		'pattern' => 'suki-font-smoothing-$',
-	),
-);
-
 $add['body_text_color'] = array(
 	array(
 		'type'     => 'css',
@@ -191,14 +183,6 @@ $add['heading_text_color'] = array(
 		'type'     => 'css',
 		'element'  => 'body',
 		'property' => '--heading-color',
-	),
-);
-
-$add['heading_link_hover_text_color'] = array(
-	array(
-		'type'     => 'css',
-		'element'  => 'body',
-		'property' => '--heading-color--focus',
 	),
 );
 
@@ -408,11 +392,11 @@ $add['title_text_color'] = array(
 	),
 );
 
-$add['title_hover_text_color'] = array(
+$add['title_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body',
-		'property' => '--title--text-color--focus',
+		'property' => '--title--link-color--focus',
 	),
 );
 
@@ -461,11 +445,11 @@ $add['small_title_text_color'] = array(
 	),
 );
 
-$add['small_title_hover_text_color'] = array(
+$add['small_title_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body',
-		'property' => '--small-title--text-color--focus',
+		'property' => '--small-title--link-color--focus',
 	),
 );
 

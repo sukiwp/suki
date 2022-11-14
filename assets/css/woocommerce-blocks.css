@@ -2174,7 +2174,7 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	color: inherit;
 }
 .wc-block-components-title a:focus, .wc-block-components-title a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 
 /**
@@ -3064,7 +3064,7 @@ html[dir=rtl] .wc-block-mini-cart__icon {
 	color: inherit;
 }
 .wc-block-mini-cart__title a:focus, .wc-block-mini-cart__title a:hover {
-	color: var(--small-title--text-color--focus);
+	color: var(--small-title--link-color--focus);
 }
 
 .wc-block-mini-cart__items {

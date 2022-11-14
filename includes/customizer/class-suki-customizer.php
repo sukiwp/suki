@@ -313,6 +313,7 @@ class Suki_Customizer {
 				continue;
 			}
 
+			// Get default value.
 			$default_value = $this->convert_output_value_to_string( suki_array_value( $defaults, $key, '' ) );
 
 			// Skip rule if value === default value.
@@ -439,6 +440,7 @@ class Suki_Customizer {
 				continue;
 			}
 
+			// Get default value.
 			$default_value = $this->convert_output_value_to_string( suki_array_value( $defaults, $key, '' ) );
 
 			// Skip rule if value === default value.

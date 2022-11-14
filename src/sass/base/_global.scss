@@ -2,8 +2,123 @@
  * Global
  */
 
-:root {
-	@include global-variables();
+body { // Use body not :root, because this CSS will be used on block editor as well (converted to .editor-styles-wrapper)
+	// Color palette (default)
+	--color-palette-1: #222222;
+	--color-palette-2: #444444;
+	--color-palette-3: #6c6c6c;
+	--color-palette-4: #0055cc;
+	--color-palette-5: #004099;
+	--color-palette-6: #cccccc;
+	--color-palette-7: #f3f3f3;
+	--color-palette-8: #ffffff;
+
+	// Scope colors
+	--text-color: var(--color-palette-2);
+	--border-color: var(--color-palette-6);
+	--background-color: var(--color-palette-8);
+	--subtle-background-color: var(--color-palette-7);
+	--link-color: var(--color-palette-4);
+	--link-color--focus: var(--color-palette-5, inherit);
+
+	// Base typography (default)
+	--base--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--base--font-size: 16px;
+	--base--line-height: 1.6em;
+
+	// H1 typography (default)
+	--h1--font-size: 2.4rem;
+	--h1--font-weight: 600;
+	--h1--line-height: 1.2em;
+
+	// H2 typography (default)
+	--h2--font-size: 1.8rem;
+	--h2--font-weight: 600;
+	--h2--line-height: 1.3em;
+
+	// H3 typography (default)
+	--h3--font-size: 1.5rem;
+	--h3--font-weight: 600;
+	--h3--line-height: 1.4em;
+
+	// H4 typography (default)
+	--h4--font-size: 1.25rem;
+	--h4--font-weight: 600;
+	--h4--line-height: 1.5em;
+
+	// H5 typography (default)
+	--h5--font-size: 1.1rem;
+	--h5--font-weight: 600;
+	--h5--line-height: 1.6em;
+
+	// H6 typography (default)
+	--h6--font-size: 1rem;
+	--h6--font-weight: 600;
+	--h6--line-height: 1.6em;
+
+	// All headings color
+	--heading-color: var(--color-palette-1, var(--text-color));
+	--heading-color--focus: var(--link-color);
+
+	// Title typography (by default use H1 styles)
+	--title--font-family: var(--h1--font-family);
+	--title--font-size: var(--h1--font-size);
+	--title--font-style: var(--h1--font-style);
+	--title--font-weight: var(--h1--font-weight);
+	--title--line-height: var(--h1--line-height);
+	--title--letter-spacing: var(--h1--letter-spacing);
+	--title--text-transform: var(--h1--text-transform);
+	--title--text-color: var(--heading-color);
+	--title--link-color--focus: var(--heading-color--focus);
+
+	// Small title typography (by default use H3 styles)
+	--small-title--font-family: var(--h3--font-family);
+	--small-title--font-size: var(--h3--font-size);
+	--small-title--font-style: var(--h3--font-style);
+	--small-title--font-weight: var(--h3--font-weight);
+	--small-title--line-height: var(--h3--line-height);
+	--small-title--letter-spacing: var(--h3--letter-spacing);
+	--small-title--text-transform: var(--h3--text-transform);
+	--small-title--text-color: var(--heading-color);
+	--small-title--link-color--focus: var(--heading-color--focus);
+
+	// Meta typography (default)
+	--meta--font-size: 0.9rem;
+	--meta--line-height: 1.6;
+	--meta--text-color: var(--meta-color);
+
+	// Form inputs (default)
+	--input--padding: 0.5em 0.75em 0.5em 0.75em;
+	--input--border-radius: 0.2em;
+	--input--border-width: 1px;
+	--input--border-color: var(--color-palette-6);
+	--input--background-color: var(--color-palette-8);
+	--input--text-color: var(--color-palette-2);
+	--input--border-color--focus: var(--color-palette-2);
+
+	// Button (default)
+	--button--padding: 0.5em 1em 0.5em 1em;
+	--button--border-radius: 0.2em;
+	--button--border-width: 1px;
+	--button--border-color: var(--color-palette-4);
+	--button--background-color: var(--color-palette-4);
+	--button--text-color: var(--color-palette-8);
+	--button--border-color--focus: var(--color-palette-5);
+	--button--background-color--focus: var(--color-palette-5);
+	--button--text-color--focus: var(--color-palette-8);
+
+	// Spacing
+	--block-spacing: 1.25rem;
+
+	// Container
+	--content-width--narrow: 700px;
+	--content-width--wide: 1140px;
+
+	// Transition
+	--transition-duration: 0.25s;
+
+	// Screen top offset
+	--screen-top-offset: 0;
 }
 
 .admin-bar {
