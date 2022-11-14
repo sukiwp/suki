@@ -84,8 +84,8 @@ body { // Use body not :root, because this CSS will be used on block editor as w
 
 	// Meta typography (default)
 	--meta--font-size: 0.9rem;
-	--meta--line-height: 1.6;
-	--meta--text-color: var(--meta-color);
+	--meta--line-height: 1.6em;
+	--meta--text-color: var(--color-palette-3, var(--text-color));
 
 	// Form inputs (default)
 	--input--padding: 0.5em 0.75em 0.5em 0.75em;
