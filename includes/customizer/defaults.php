@@ -135,11 +135,11 @@ $add['button_border_radius'] = '3px';
 $add['button_font_weight'] = 600;
 $add['button_font_size']   = '1rem';
 
-$add['button_bg_color']           = 'var(--color-palette-3)';
-$add['button_border_color']       = 'var(--color-palette-3)';
+$add['button_bg_color']           = 'var(--color-palette-4)';
+$add['button_border_color']       = 'var(--color-palette-4)';
 $add['button_text_color']         = 'var(--color-palette-8)';
-$add['button_hover_bg_color']     = 'var(--color-palette-4)';
-$add['button_hover_border_color'] = 'var(--color-palette-4)';
+$add['button_hover_bg_color']     = 'var(--color-palette-5)';
+$add['button_hover_border_color'] = 'var(--color-palette-5)';
 $add['button_hover_text_color']   = 'var(--color-palette-8)';
 
 /**
