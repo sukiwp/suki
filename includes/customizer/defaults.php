@@ -148,7 +148,7 @@ $add['button_hover_text_color']   = 'var(--color-palette-8)';
  * ====================================================
  */
 
-$add['meta_text_color'] = 'var(--color--palette-3)';
+$add['meta_text_color'] = 'var(--color-palette-3)';
 
 /**
  * ====================================================
