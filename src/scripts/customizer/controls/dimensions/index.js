@@ -66,7 +66,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 							device={ device }
 						>
 							<Card
-								size="small"
+								size="xSmall"
 							>
 								<CardBody>
 									<Grid

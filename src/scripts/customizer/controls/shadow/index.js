@@ -65,7 +65,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 				}
 
 				<Card
-					size="small"
+					size="xSmall"
 				>
 					<CardBody>
 						<Flex
