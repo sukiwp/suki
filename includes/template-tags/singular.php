@@ -147,8 +147,15 @@ if ( ! function_exists( 'suki_comments' ) ) {
 		ob_start();
 		?>
 		<!-- wp:comments-query-loop {
+			"style":{
+				"spacing":{
+					"margin":{
+						"top":"calc(3 * var(--wp--style--block-gap))"
+					}
+				}
+			},
 			"className":"suki-comments"
-		} --><div class="wp-block-comments-query-loop suki-comments">
+		} --><div class="wp-block-comments-query-loop suki-comments" style="margin-top:calc(3 * var(--wp--style--block-gap))">
 
 			<!-- wp:comments-title /-->
 

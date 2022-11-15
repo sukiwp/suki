@@ -2088,6 +2088,13 @@ th {
 	margin-block-start: calc(0.5 * var(--wp--style--block-gap));
 }
 
+.entry-content .post-nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75em;
+}
+
 .entry-meta {
 	display: block !important;
 }

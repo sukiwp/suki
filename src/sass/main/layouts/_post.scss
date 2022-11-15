@@ -17,6 +17,15 @@
 	}
 }
 
+.entry-content {
+	.post-nav-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75em;
+	}
+}
+
 .entry-meta {
 	display: block !important; // Force display to block for wrapping elements to multiple lines
 
