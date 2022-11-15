@@ -170,7 +170,7 @@ $add['block_spacing'] = '1.25rem';
 $add['page_layout'] = 'full-width';
 
 $add['boxed_page_width']  = '1400px';
-$add['boxed_page_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0.05)';
+$add['boxed_page_shadow'] = array( '0px', '0px', '30px', '0px', '#0000000d' );
 
 $add['page_bg_color'] = 'var(--color-palette-8)';
 
@@ -201,7 +201,7 @@ $add['sidebar_width'] = '25%';
 
 $add['sidebar_widgets_mode'] = 'merged';
 
-$add['sidebar_shadow'] = '0px 0px 30px 0px rgba(0,0,0,0)';
+$add['sidebar_shadow'] = array( '0px', '0px', '30px', '0px', '#00000000' );
 
 /**
  * ====================================================
@@ -512,7 +512,7 @@ $add['entry_grid_footer']           = array( 'hr', 'footer-meta' );
 $add['entry_grid_footer_alignment'] = 'left';
 $add['entry_grid_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' );
 
-$add['entry_grid_shadow'] = '0px 0px 2rem 0px #0000000d';
+$add['entry_grid_shadow'] = array( '0px', '0px', '2rem', '0px', '#0000000d' );
 
 /**
  * ====================================================
