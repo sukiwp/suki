@@ -3,13 +3,13 @@ import SukiControlDescription from '../../components/control-description';
 import SukiControlResponsiveSwitcher from '../../components/control-responsive-switcher';
 import SukiControlResponsiveContainer from '../../components/control-responsive-container';
 
-import { convertDimensionValueIntoNumberAndUnit } from '../../utils';
-
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 	CardBody,
 	Card,
 } from '@wordpress/components';
@@ -74,11 +74,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 										gap="1"
 									>
 										{ valueArray.map( ( subValue, i ) => {
-											/**
-											 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl, and then we can replace our manual (non-safe) parsing with it instead.
-											 */
-
-											const subValueUnit = convertDimensionValueIntoNumberAndUnit( subValue, control.params.units )[ 1 ];
+											const subValueUnit = parseQuantityAndUnitFromRawValue( subValue, control.params.units )[ 1 ] || control.params.units[ 0 ].value;
 
 											const subValueUnitObj = control.params.units.find( ( item ) => {
 												return subValueUnit === item.value;
@@ -100,7 +96,6 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend( {
 
 														valueArray[ i ] = newSubValue;
 
-														// control.settings[ settingId ].set( '' );
 														control.settings[ settingId ].set( valueArray );
 													} }
 												/>

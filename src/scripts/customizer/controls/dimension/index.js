@@ -3,13 +3,13 @@ import SukiControlDescription from '../../components/control-description';
 import SukiControlResponsiveSwitcher from '../../components/control-responsive-switcher';
 import SukiControlResponsiveContainer from '../../components/control-responsive-container';
 
-import { convertDimensionValueIntoNumberAndUnit } from '../../utils';
-
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 } from '@wordpress/components';
 
 import { render } from '@wordpress/element';
@@ -39,11 +39,7 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 
 					const value = control.settings[ settingId ].get();
 
-					/**
-					 * @todo Wait for `parseQuantityAndUnitFromRawValue` to be available on UnitControl. For the time being, we are using our own function `convertDimensionValueIntoNumberAndUnit`.
-					 */
-
-					const valueUnit = convertDimensionValueIntoNumberAndUnit( value, control.params.units )[ 1 ];
+					const valueUnit = parseQuantityAndUnitFromRawValue( value, control.params.units )[ 1 ] || control.params.units[ 0 ].value;
 
 					const valueUnitObj = control.params.units.find( ( item ) => {
 						return valueUnit === item.value;

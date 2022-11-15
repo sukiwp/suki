@@ -3,13 +3,13 @@ import SukiControlDescription from '../../components/control-description';
 
 import SukiColorSelectDropdown from '../../components/color-select-dropdown';
 
-import { convertDimensionValueIntoNumberAndUnit } from '../../utils';
-
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 	CardBody,
 	Card,
 	Flex,
@@ -30,17 +30,20 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 			{ value: 'rem', label: 'rem' },
 		];
 
-		// Split value into array.
-		const valueSplit = control.setting.get().split( ' ', 6 );
+		let value = control.setting.get();
+
+		if ( 'string' === typeof value ) {
+			value = value.split( ' ' );
+		}
 
 		// Define value array and the fallback value.
 		const valueObj = {
-			x: valueSplit[ 0 ] ?? '',
-			y: valueSplit[ 1 ] ?? '',
-			blur: valueSplit[ 2 ] ?? '',
-			spread: valueSplit[ 3 ] ?? '',
-			color: valueSplit[ 4 ] ?? '',
-			position: valueSplit[ 5 ] ?? '',
+			x: value[ 0 ] ?? '',
+			y: value[ 1 ] ?? '',
+			blur: value[ 2 ] ?? '',
+			spread: value[ 3 ] ?? '',
+			color: value[ 4 ] ?? '',
+			position: value[ 5 ] ?? '',
 		};
 
 		const labels = {
@@ -76,7 +79,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 								gap="1"
 							>
 								{ [ 'x', 'y', 'blur', 'spread' ].map( ( prop ) => {
-									const propValueUnit = convertDimensionValueIntoNumberAndUnit( valueObj[ prop ], units )[ 1 ];
+									const propValueUnit = parseQuantityAndUnitFromRawValue( valueObj[ prop ], units )[ 1 ] || units[ 0 ].value;
 
 									const propValueUnitObj = units.find( ( item ) => {
 										return propValueUnit === item.value;
@@ -98,7 +101,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 
 												valueObj[ prop ] = newPropValue;
 
-												const newValue = Object.values( valueObj ).join( ' ' ).trim();
+												const newValue = Object.values( valueObj );
 
 												control.setting.set( newValue );
 											} }
@@ -114,7 +117,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 									onChange={ () => {
 										valueObj.position = 'inset' === valueObj.position ? '' : 'inset';
 
-										const newValue = Object.values( valueObj ).join( ' ' ).trim();
+										const newValue = Object.values( valueObj );
 
 										control.setting.set( newValue );
 									} }
@@ -126,7 +129,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 									changeValue={ ( newColorValue ) => {
 										valueObj.color = newColorValue;
 
-										const newValue = Object.values( valueObj ).join( ' ' ).trim();
+										const newValue = Object.values( valueObj );
 
 										control.setting.set( newValue );
 									} }

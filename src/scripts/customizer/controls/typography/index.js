@@ -5,13 +5,13 @@ import SukiControlDescription from '../../components/control-description';
 import SukiControlResponsiveSwitcher from '../../components/control-responsive-switcher';
 import SukiControlResponsiveContainer from '../../components/control-responsive-container';
 
-import { convertDimensionValueIntoNumberAndUnit } from '../../utils';
-
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalGrid as Grid,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 	CardBody,
 	Card,
 	Flex,
@@ -181,21 +181,21 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 								const fontSizeSettingId = 'font_size' + ( 'desktop' !== device ? '__' + device : '' );
 								const fontSizeValue = control.settings[ fontSizeSettingId ]?.get() || '';
-								const fontSizeUnit = convertDimensionValueIntoNumberAndUnit( fontSizeValue, control.params.units )[ 1 ] || fontSizeUnits[ 0 ].value;
+								const fontSizeUnit = parseQuantityAndUnitFromRawValue( fontSizeValue, control.params.units )[ 1 ] || fontSizeUnits[ 0 ].value;
 								const fontSizeUnitObj = fontSizeUnits.find( ( item ) => {
 									return fontSizeUnit === item.value;
 								} );
 
 								const lineHeightSettingId = 'line_height' + ( 'desktop' !== device ? '__' + device : '' );
 								const lineHeightValue = control.settings[ lineHeightSettingId ]?.get() || '';
-								const lineHeightUnit = convertDimensionValueIntoNumberAndUnit( lineHeightValue, control.params.units )[ 1 ] || lineHeightUnits[ 0 ].value;
+								const lineHeightUnit = parseQuantityAndUnitFromRawValue( lineHeightValue, control.params.units )[ 1 ] || lineHeightUnits[ 0 ].value;
 								const lineHeightUnitObj = lineHeightUnits.find( ( item ) => {
 									return lineHeightUnit === item.value;
 								} );
 
 								const letterSpacingSettingId = 'letter_spacing' + ( 'desktop' !== device ? '__' + device : '' );
 								const letterSpacingValue = control.settings[ letterSpacingSettingId ]?.get() || '';
-								const letterSpacingUnit = convertDimensionValueIntoNumberAndUnit( letterSpacingValue, control.params.units )[ 1 ] || letterSpacingUnits[ 0 ].value;
+								const letterSpacingUnit = parseQuantityAndUnitFromRawValue( letterSpacingValue, control.params.units )[ 1 ] || letterSpacingUnits[ 0 ].value;
 								const letterSpacingUnitObj = letterSpacingUnits.find( ( item ) => {
 									return letterSpacingUnit === item.value;
 								} );
