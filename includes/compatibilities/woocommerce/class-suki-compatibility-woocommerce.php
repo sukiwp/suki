@@ -1346,9 +1346,6 @@ class Suki_Compatibility_WooCommerce {
 						const oldValue = parseInt( $input.value ) || 0;
 						const newValue = oldValue - step;
 
-						console.log( min );
-						console.log( newValue );
-
 						if ( min > newValue ) {
 							$input.value = parseInt( min );
 						} else {
