@@ -243,6 +243,11 @@ if ( ! function_exists( 'suki_hero' ) ) {
 	 * @return string
 	 */
 	function suki_hero( $do_blocks = true, $echo = true ) {
+		// Abort if it is a blog posts home and content header is disabled in blog posts home.
+		if ( is_home() && ! boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) {
+			return;
+		}
+
 		ob_start();
 
 		if ( boolval( suki_get_current_page_setting( 'hero' ) ) ) { // Hero section is enabled or not.

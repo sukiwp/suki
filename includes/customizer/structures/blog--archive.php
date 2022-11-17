@@ -211,10 +211,21 @@ $wp_customize->add_control(
 		'section'     => $section,
 		'label'       => esc_html__( 'Blog page title', 'suki' ),
 		'description' => esc_html__( 'Available tags: {{post_type}}.', 'suki' ),
-		'input_attrs' => array(
-			'placeholder' => 'posts' === get_option( 'show_on_front' ) ? get_bloginfo( 'description' ) : get_the_title( get_option( 'page_for_posts' ) ),
-		),
 		'priority'    => 20,
+	)
+);
+
+// Info.
+$wp_customize->add_control(
+	new Suki_Customize_Notice_Control(
+		$wp_customize,
+		'notice_post_archive_title_text',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => esc_html__( 'When not specified, theme will use Site tagline (if home page is the latest posts page) or the Blog page title (if home page is not the latest posts page).', 'suki' ),
+			'priority'    => 20,
+		)
 	)
 );
 

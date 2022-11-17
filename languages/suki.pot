@@ -580,7 +580,7 @@ msgid "Older Posts"
 msgstr ""
 
 #. translators: %s: search keyword.
-#: includes/template-tags/content.php:423
+#: includes/template-tags/content.php:428
 msgid "Search results for: %s"
 msgstr ""
 
@@ -785,11 +785,11 @@ msgstr ""
 msgid "Available tags: {{post_type}}."
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:153, includes/customizer/structures/blog--archive.php:234, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:110
+#: includes/customizer/structures/auto-custom-post-types.php:153, includes/customizer/structures/blog--archive.php:245, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:110
 msgid "Taxonomy archive page title"
 msgstr ""
 
-#: includes/customizer/structures/auto-custom-post-types.php:154, includes/customizer/structures/blog--archive.php:235, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:111
+#: includes/customizer/structures/auto-custom-post-types.php:154, includes/customizer/structures/blog--archive.php:246, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:111
 msgid "Available tags: {{taxonomy}}, {{term}}."
 msgstr ""
 
@@ -853,7 +853,11 @@ msgstr ""
 msgid "Blog page title"
 msgstr ""
 
-#: includes/customizer/structures/blog--archive.php:271
+#: includes/customizer/structures/blog--archive.php:226
+msgid "When not specified, theme will use Site tagline (if home page is the latest posts page) or the Blog page title (if home page is not the latest posts page)."
+msgstr ""
+
+#: includes/customizer/structures/blog--archive.php:282
 msgid "Show content header on Blog page"
 msgstr ""
 
