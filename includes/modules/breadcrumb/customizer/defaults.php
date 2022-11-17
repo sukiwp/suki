@@ -22,6 +22,6 @@ $add['breadcrumb_plugin'] = '';
 
 $add['breadcrumb_trail_home']                     = 1;
 $add['breadcrumb_trail_current_page']             = 1;
-$add['breadcrumb_hide_when_only_home_or_current'] = 0;
+$add['breadcrumb_hide_when_only_home_or_current'] = 1;
 
 return $add;

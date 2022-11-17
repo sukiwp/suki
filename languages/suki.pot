@@ -2307,15 +2307,15 @@ msgstr ""
 msgid "Please make sure you have installed the plugin and configured the breadcrumb in the plugin's settings page. Otherwise, the breadcrumb might not show properly."
 msgstr ""
 
-#: includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:111
+#: includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:110
 msgid "Include home"
 msgstr ""
 
-#: includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:133
+#: includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:131
 msgid "Include current page"
 msgstr ""
 
-#: includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:155
+#: includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:152
 msgid "Hide when no nested item"
 msgstr ""
 

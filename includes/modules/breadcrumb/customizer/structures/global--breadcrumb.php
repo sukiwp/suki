@@ -98,7 +98,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	)
 );
@@ -120,7 +119,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	)
 );
@@ -142,7 +140,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
 	)
 );
@@ -157,28 +154,3 @@ $wp_customize->add_control(
 		)
 	)
 );
-
-/**
- * ====================================================
- * Selective Refresh
- * ====================================================
- */
-
-// Selective Refresh.
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial(
-		'breadcrumb',
-		array(
-			'settings'            => array(
-				'breadcrumb_plugin',
-				'breadcrumb_trail_home',
-				'breadcrumb_trail_current_page',
-				'breadcrumb_hide_when_only_home_or_current',
-			),
-			'selector'            => '.suki-breadcrumb',
-			'container_inclusive' => true,
-			'render_callback'     => 'suki_breadcrumb',
-			'fallback_refresh'    => true,
-		)
-	);
-}
