@@ -90,7 +90,9 @@ function suki_template_hooks() {
 	if ( is_archive() || is_home() || is_search() ) {
 		// Add content header to main content.
 		if ( ! suki_current_page_has_hero_section() ) {
-			add_action( 'suki/frontend/before_main', 'suki_content_header', 10 );
+			if ( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) { // Not blog posts home, or content header is allowed in blog posts home.
+				add_action( 'suki/frontend/before_main', 'suki_archive_header', 10 );
+			}
 		}
 	}
 
@@ -128,4 +130,4 @@ function suki_template_hooks() {
 		}
 	}
 }
-add_action( 'template_redirect', 'suki_template_hooks', 20 );
+add_action( 'template_redirect', 'suki_template_hooks' );

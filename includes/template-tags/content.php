@@ -31,7 +31,9 @@ if ( ! function_exists( 'suki_content' ) ) {
 		 *
 		 * Note: Styles are configured via Customizer options.
 		 */
-		suki_hero( false );
+		if ( suki_current_page_has_hero_section() ) {
+			suki_hero( false );
+		}
 
 		/**
 		 * Content section
@@ -250,7 +252,7 @@ if ( ! function_exists( 'suki_hero' ) ) {
 				$container = suki_get_current_page_setting( 'content_container' ) . ' suki-hero--inherit-content-container';
 			}
 
-			$classes = 'suki-hero entry-header ' . esc_attr( 'suki-section--' . $container );
+			$classes = 'suki-hero suki-content-header ' . esc_attr( 'suki-section--' . $container );
 			?>
 			<!-- wp:group {
 				"className":"<?php echo esc_attr( $classes ); ?>",
@@ -300,13 +302,10 @@ if ( ! function_exists( 'suki_content_header' ) ) {
 	function suki_content_header( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$elements = suki_get_current_page_setting( 'content_header', array() );
-
-		if ( 0 < count( $elements ) ) { // Content header has at least 1 element.
-			foreach ( $elements as $element ) {
-				suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
-			}
+		foreach ( suki_get_current_page_setting( 'content_header', array() ) as $element ) {
+			suki_content_header_element( $element, suki_get_current_page_setting( 'content_header_alignment' ), false );
 		}
+
 		$html = ob_get_clean();
 
 		/**
@@ -341,13 +340,10 @@ if ( ! function_exists( 'suki_content_footer' ) ) {
 	function suki_content_footer( $do_blocks = true, $echo = true ) {
 		ob_start();
 
-		$elements = suki_get_current_page_setting( 'content_footer', array() );
-
-		if ( 0 < count( $elements ) ) { // Content footer has at least 1 element.
-			foreach ( $elements as $element ) {
-				suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), false );
-			}
+		foreach ( suki_get_current_page_setting( 'content_footer', array() ) as $element ) {
+			suki_content_footer_element( $element, suki_get_current_page_setting( 'content_footer_alignment' ), false );
 		}
+
 		$html = ob_get_clean();
 
 		/**

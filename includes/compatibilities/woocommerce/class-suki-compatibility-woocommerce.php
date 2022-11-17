@@ -109,7 +109,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
 
 		// Template hooks (after `init` hook run).
-		add_action( 'wp', array( $this, 'modify_template_hooks_after_init' ) );
+		add_action( 'template_redirect', array( $this, 'modify_template_hooks_after_init' ), 20 ); // Priority is set to 20, because theme's actions are registered at 10.
 
 		// Render header elements.
 		add_filter( 'suki/frontend/header_element/cart-link', array( $this, 'get_header_element__cart_link' ) );
@@ -607,10 +607,13 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_shop() || is_product_taxonomy() ) {
-			// Add Content Header.
-			// AVailable elements: title, breadcrumb.
+			// Remove theme's archive header.
+			remove_action( 'suki/frontend/before_main', 'suki_archive_header', 10 );
+
+			// Add content header.
+			// Available elements: title, breadcrumb.
 			if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'woocommerce_archive_description', 'suki_content_header', 1 );
+				add_action( 'woocommerce_archive_description', array( $this, 'render_archive_header' ), 0 );
 			}
 
 			// Keep / remove products count filter.
@@ -629,10 +632,10 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		if ( is_product() ) {
-			// Add Content Header.
-			// AVailable elements: title, breadcrumb, rating.
+			// Add content header.
+			// Available elements: title, breadcrumb, rating.
 			if ( ! boolval( suki_get_current_page_setting( 'hero' ) ) ) {
-				add_action( 'woocommerce_before_single_product_summary', 'suki_content_header', 1 );
+				add_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_header' ), 1 );
 			}
 
 			// Keep / remove title on summary column.
@@ -1387,6 +1390,27 @@ class Suki_Compatibility_WooCommerce {
 	 */
 
 	/**
+	 * Render products archive header.
+	 */
+	public function render_archive_header() {
+		ob_start();
+		?>
+		<!-- wp:group {
+			"className":"suki-content-header"
+		} --><div class="wp-block-group suki-content-header">
+
+			<?php
+			suki_content_header( false );
+			?>
+
+		</div><!-- /wp:group -->
+		<?php
+		$html = ob_get_clean();
+
+		echo do_blocks( $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
+	/**
 	 * Render opening products filters wrapper tag.
 	 */
 	public function render_loop_filters_wrapper() {
@@ -1465,6 +1489,34 @@ class Suki_Compatibility_WooCommerce {
 	 * Product Page Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Render products product header.
+	 */
+	public function render_product_header() {
+		ob_start();
+		?>
+		<!-- wp:group {
+			"style":{
+				"spacing":{
+					"margin":{
+						"bottom":"calc(2 * var(--wp--style--block-gap))"
+					}
+				}
+			},
+			"className":"suki-content-header"
+		} --><div class="wp-block-group suki-content-header" style="margin-bottom:calc(2 * var(--wp--style--block-gap))">
+
+			<?php
+			suki_content_header( false );
+			?>
+
+		</div><!-- /wp:group -->
+		<?php
+		$html = ob_get_clean();
+
+		echo do_blocks( $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 
 	/**
 	 * Render opening product images wrapper tag.

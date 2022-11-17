@@ -293,7 +293,6 @@ function suki_current_page_has_hero_section() {
 	if (
 		boolval( suki_get_current_page_setting( 'hero' ) ) && // Hero section is active.
 		! boolval( suki_get_current_page_setting( 'disable_content_header' ) ) && // Content header is not disabled.
-		( ! is_home() || boolval( suki_get_theme_mod( 'post_archive_home_content_header' ) ) ) && // Not blog posts home, or content header is allowed in blog posts home.
 		0 < count( suki_get_current_page_setting( 'content_header', array() ) ) // Content header has at least 1 element.
 	) {
 		return true;

@@ -11,6 +11,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Content header on archive page's <main> tag.
+ */
+if ( ! function_exists( 'suki_archive_header' ) ) {
+	/**
+	 * Render content header on archive page's <main> tag.
+	 *
+	 * @param boolean $do_blocks Parse blocks or not.
+	 * @param boolean $echo      Render or return.
+	 * @return string
+	 */
+	function suki_archive_header( $do_blocks = true, $echo = true ) {
+		$elements = suki_get_current_page_setting( 'content_header', array() );
+
+		if ( 1 > count( $elements ) ) {
+			return;
+		}
+
+		?>
+		<!-- wp:group {
+			"style":{
+				"spacing":{
+					"margin":{
+						"bottom":"calc(3 * var(--wp--style--block-gap))"
+					}
+				}
+			},
+			"className":"suki-content-header"
+		} --><div class="wp-block-group suki-content-header" style="margin-bottom:calc(3 * var(--wp--style--block-gap))">
+
+			<?php
+			suki_content_header( false );
+			?>
+
+		</div><!-- /wp:group -->
+		<?php
+	}
+}
+
+/**
  * Loop
  */
 if ( ! function_exists( 'suki_loop' ) ) {

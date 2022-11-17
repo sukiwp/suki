@@ -50,7 +50,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 	);
 	// Archive elements.
 	if ( false !== strpos( $page_type_key, '_archive' ) ) {
-		$elements['archive-description'] = esc_html__( 'Taxonomy Description', 'suki' );
+		$elements['archive-description'] = esc_html__( 'Description', 'suki' );
 	}
 	$subkey = 'content_header';
 	$key    = $option_prefix . '_' . $subkey;

@@ -18,3 +18,20 @@
 .woocommerce .woocommerce-result-count {
 	margin: 0;
 }
+
+.woocommerce .woocommerce-products-header {
+	> * {
+		margin-block-start: 0;
+		margin-block-end: 0;
+	}
+
+	> * + * {
+		margin-block-start: var(--wp--style--block-gap);
+	}
+
+	// Add margin to the last element.
+	// We don't add margin to the wrapper, because it might be empty.
+	> *:last-child {
+		margin-bottom: calc( 3 * var(--wp--style--block-gap) ) !important;
+	}
+}

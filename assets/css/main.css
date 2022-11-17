@@ -2063,6 +2063,13 @@ th {
 }
 
 /**
+ * Content header
+ */
+.suki-content-header :is(.entry-title, .entry-meta, .suki-breadcrumb):not(:first-child) {
+	margin-block-start: calc(0.5 * var(--wp--style--block-gap));
+}
+
+/**
  * Error 404
  */
 .suki-error_404 .suki-content {

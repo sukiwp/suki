@@ -51,9 +51,8 @@ $wp_customize->add_control(
 			'choices'     => apply_filters(
 				'suki/dataset/product_archive_content_header_elements',
 				array(
-					'title'               => esc_html__( 'Title', 'suki' ),
-					'breadcrumb'          => esc_html__( 'Breadcrumb', 'suki' ),
-					'archive-description' => esc_html__( 'Taxonomy Description', 'suki' ),
+					'title'      => esc_html__( 'Title', 'suki' ),
+					'breadcrumb' => esc_html__( 'Breadcrumb', 'suki' ),
 				)
 			),
 			'is_sortable' => true,
