@@ -1265,11 +1265,13 @@ div.customize-section-description {
 /**
  * Toggle control
  */
+.customize-control-suki-toggle .customize-control-title {
+  padding-right: 50px;
+}
 .customize-control-suki-toggle .suki-toggle {
   position: absolute;
   top: 3px;
   right: 0;
-  margin-inline-start: 15px;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/typography/index.scss ***!
