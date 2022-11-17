@@ -8,8 +8,18 @@ import {
 import { __ } from '@wordpress/i18n';
 
 const SukiMultiSelect = ( { control } ) => {
-	const values = control.setting.get() || [];
+	// Create a list of choice IDs.
+	const choiceIds = control.params.choices.map( ( choice ) => {
+		return choice.value;
+	} );
 
+	// Get active items.
+	// Make sure the active items are valid choices.
+	const values = control.setting.get().filter( ( itemId ) => {
+		return choiceIds.includes( itemId );
+	} );
+
+	// Get active item objects.
 	const valuesObj = values.map( ( value ) => {
 		return control.params.choices.find( ( choice ) => {
 			return value === choice.value;
