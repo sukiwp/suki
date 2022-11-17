@@ -88,7 +88,7 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend( {
 											isSmall
 											variant="secondary"
 											onClick={ () => {
-												control.setting.set( control.params.defaultValue );
+												control.setting.set( String( control.params.defaultValue ) );
 											} }
 										>
 											{ __( 'Reset', 'suki' ) }

@@ -83,7 +83,7 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 										clearable={ false }
 										className="suki-color-dropdown__palette"
 										onChange={ ( color ) => {
-											changeValue( color );
+											changeValue( color || '' );
 										} }
 									/>
 									<div className="suki-color-dropdown__custom">
@@ -123,19 +123,17 @@ const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValu
 									/>
 								}
 
-								{ defaultValue &&
-									<Flex>
-										<Button
-											isSmall
-											variant="secondary"
-											onClick={ () => {
-												changeValue( defaultValue );
-											} }
-										>
-											{ __( 'Reset', 'suki' ) }
-										</Button>
-									</Flex>
-								}
+								<Flex>
+									<Button
+										isSmall
+										variant="secondary"
+										onClick={ () => {
+											changeValue( defaultValue || '' );
+										} }
+									>
+										{ __( 'Reset', 'suki' ) }
+									</Button>
+								</Flex>
 							</Flex>
 						);
 					} }

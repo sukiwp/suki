@@ -32,7 +32,7 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend( {
 					changeValue={ ( newColorValue ) => {
 						control.setting.set( newColorValue );
 					} }
-					defaultValue={ control.params.defaultValue || null }
+					defaultValue={ String( control.params.defaultValue ) }
 					defaultPickerValue="#ffffff"
 					id={ '_customize-input' + control.id }
 				/>

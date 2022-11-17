@@ -84,7 +84,7 @@ const SukiColorSelectDropdown = _ref => {
         clearable: false,
         className: "suki-color-dropdown__palette",
         onChange: color => {
-          changeValue(color);
+          changeValue(color || '');
         }
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "suki-color-dropdown__custom"
@@ -116,11 +116,11 @@ const SukiColorSelectDropdown = _ref => {
         onChange: newValue => {
           changeValue(newValue);
         }
-      }), defaultValue && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
         isSmall: true,
         variant: "secondary",
         onClick: () => {
-          changeValue(defaultValue);
+          changeValue(defaultValue || '');
         }
       }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Reset', 'suki'))));
     }
@@ -1073,7 +1073,7 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
       changeValue: newColorValue => {
         control.setting.set(newColorValue);
       },
-      defaultValue: control.params.defaultValue || null,
+      defaultValue: String(control.params.defaultValue),
       defaultPickerValue: "#ffffff",
       id: '_customize-input' + control.id
     })), control.container[0]);
@@ -1154,7 +1154,7 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
           isSmall: true,
           variant: "secondary",
           onClick: () => {
-            control.setting.set(control.params.defaultValue);
+            control.setting.set(String(control.params.defaultValue));
           }
         }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Reset', 'suki'))));
       }

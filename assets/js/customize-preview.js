@@ -30,140 +30,144 @@
 				let $style = $( '#' + styleID );
 				let css = '';
 
-				if ( '' !== newValue ) {
-					// Create <style> tag if doesn't exist.
-					if ( 0 === $style.length ) {
-						$style = $( document.createElement( 'style' ) );
-						$style.attr( 'id', styleID );
-						$style.attr( 'type', 'text/css' );
+				// If value is an empty string, reset CSS and then abort.
+				if ( '' === newValue ) {
+					$style.html( '' );
+					return;
+				}
 
-						// Append <style> tag to <head>.
-						$style.appendTo( $( 'head' ) );
-					}
+				// Create <style> tag if doesn't exist.
+				if ( 0 === $style.length ) {
+					$style = $( document.createElement( 'style' ) );
+					$style.attr( 'id', styleID );
+					$style.attr( 'type', 'text/css' );
 
-					rules.forEach( function( rule ) {
-						let value = newValue;
-						let formattedValue;
+					// Append <style> tag to <head>.
+					$style.appendTo( $( 'head' ) );
+				}
 
-						// Convert array value into string.
-						if ( Array.isArray( value ) ) {
-							let sanitizedValue = [];
+				rules.forEach( function( rule ) {
+					let value = newValue;
+					let formattedValue;
 
-							sanitizedValue = value.map( function( subvalue ) {
-								return '' === subvalue ? 0 : subvalue;
-							} );
+					// Convert array value into string.
+					if ( Array.isArray( value ) ) {
+						let sanitizedValue = [];
 
-							value = sanitizedValue.join( ' ' );
-						}
-
-						if ( rule.function && rule.function.name ) {
-							switch ( rule.function.name ) {
-								case 'explode_value':
-									if ( undefined === rule.function.args[ 0 ] ) {
-										break;
-									}
-
-									const index = rule.function.args[ 0 ];
-
-									if ( isNaN( index ) ) {
-										break;
-									}
-
-									const array = value.split( ' ' );
-
-									value = undefined !== array[ index ] ? array[ index ] : '';
-									break;
-
-								case 'scale_dimensions':
-									if ( undefined === rule.function.args[ 0 ] ) {
-										break;
-									}
-
-									const scale = rule.function.args[ 0 ];
-
-									if ( isNaN( scale ) ) {
-										break;
-									}
-
-									const parts = value.split( ' ' );
-									let newParts;
-
-									parts.forEach( function( part, i ) {
-										const number = parseFloat( part );
-										const unit = part.replace( number, '' );
-
-										newParts[ i ] = ( number * scale ).toString() + unit;
-									} );
-
-									// Build new value.
-									value = newParts.join( ' ' );
-									break;
-							}
-						}
-
-						if ( undefined === rule.element || undefined === rule.property ) {
-							return;
-						}
-
-						rule.media = rule.media || 'global';
-						rule.pattern = rule.pattern || '$';
-
-						// Check if "key" attribute is defined and value is an assosiative array.
-						if ( 'object' === typeof value ) {
-							if ( undefined !== rule.key && undefined !== value[ rule.key ] ) {
-								// Fetch the property value using the key from setting value.
-								formattedValue = rule.pattern.replace( '$', value[ rule.key ] );
-							} else {
-								let concatValue;
-								value.forEach( function( valueItem ) {
-									concatValue.push( rule.pattern.replace( '$', valueItem ) );
-								} );
-								formattedValue = concatValue.join( ' ' );
-							}
-						} else {
-							// Define new value based on the specified pattern.
-							formattedValue = rule.pattern.replace( '$', value );
-						}
-
-						// Define properties.
-						if ( undefined === cssArray[ rule.media ] ) {
-							cssArray[ rule.media ] = {};
-						}
-						if ( undefined === cssArray[ rule.media ][ rule.element ] ) {
-							cssArray[ rule.media ][ rule.element ] = {};
-						}
-
-						// Save the value into a formatted array.
-						cssArray[ rule.media ][ rule.element ][ rule.property ] = formattedValue;
-					} );
-
-					// Loop into the sorted array to build CSS string.
-					Object.keys( cssArray ).forEach( function( media ) {
-						const selectors = cssArray[ media ];
-
-						if ( 'global' !== media ) {
-							css += media + '{';
-						}
-
-						Object.keys( selectors ).forEach( function( selector ) {
-							const properties = selectors[ selector ];
-
-							css += selector + '{';
-
-							Object.keys( properties ).forEach( function( property ) {
-								const value = properties[ property ];
-
-								css += property + ':' + value + ';';
-							} );
-
-							css += '}';
+						sanitizedValue = value.map( function( subvalue ) {
+							return '' === subvalue ? 0 : subvalue;
 						} );
 
-						if ( 'global' !== media ) {
-							css += '}';
+						value = sanitizedValue.join( ' ' );
+					}
+
+					if ( rule.function && rule.function.name ) {
+						switch ( rule.function.name ) {
+							case 'explode_value':
+								if ( undefined === rule.function.args[ 0 ] ) {
+									break;
+								}
+
+								const index = rule.function.args[ 0 ];
+
+								if ( isNaN( index ) ) {
+									break;
+								}
+
+								const array = value.split( ' ' );
+
+								value = undefined !== array[ index ] ? array[ index ] : '';
+								break;
+
+							case 'scale_dimensions':
+								if ( undefined === rule.function.args[ 0 ] ) {
+									break;
+								}
+
+								const scale = rule.function.args[ 0 ];
+
+								if ( isNaN( scale ) ) {
+									break;
+								}
+
+								const parts = value.split( ' ' );
+								let newParts;
+
+								parts.forEach( function( part, i ) {
+									const number = parseFloat( part );
+									const unit = part.replace( number, '' );
+
+									newParts[ i ] = ( number * scale ).toString() + unit;
+								} );
+
+								// Build new value.
+								value = newParts.join( ' ' );
+								break;
 						}
+					}
+
+					if ( undefined === rule.element || undefined === rule.property ) {
+						return;
+					}
+
+					rule.media = rule.media || 'global';
+					rule.pattern = rule.pattern || '$';
+
+					// Check if "key" attribute is defined and value is an assosiative array.
+					if ( 'object' === typeof value ) {
+						if ( undefined !== rule.key && undefined !== value[ rule.key ] ) {
+							// Fetch the property value using the key from setting value.
+							formattedValue = rule.pattern.replace( '$', value[ rule.key ] );
+						} else {
+							let concatValue;
+							value.forEach( function( valueItem ) {
+								concatValue.push( rule.pattern.replace( '$', valueItem ) );
+							} );
+							formattedValue = concatValue.join( ' ' );
+						}
+					} else {
+						// Define new value based on the specified pattern.
+						formattedValue = rule.pattern.replace( '$', value );
+					}
+
+					// Define properties.
+					if ( undefined === cssArray[ rule.media ] ) {
+						cssArray[ rule.media ] = {};
+					}
+					if ( undefined === cssArray[ rule.media ][ rule.element ] ) {
+						cssArray[ rule.media ][ rule.element ] = {};
+					}
+
+					// Save the value into a formatted array.
+					cssArray[ rule.media ][ rule.element ][ rule.property ] = formattedValue;
+				} );
+
+				// Loop into the sorted array to build CSS string.
+				Object.keys( cssArray ).forEach( function( media ) {
+					const selectors = cssArray[ media ];
+
+					if ( 'global' !== media ) {
+						css += media + '{';
+					}
+
+					Object.keys( selectors ).forEach( function( selector ) {
+						const properties = selectors[ selector ];
+
+						css += selector + '{';
+
+						Object.keys( properties ).forEach( function( property ) {
+							const value = properties[ property ];
+
+							css += property + ':' + value + ';';
+						} );
+
+						css += '}';
 					} );
-				}
+
+					if ( 'global' !== media ) {
+						css += '}';
+					}
+				} );
 
 				// Add CSS string to <style> tag.
 				$style.html( css );
