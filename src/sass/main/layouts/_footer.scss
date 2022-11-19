@@ -10,7 +10,6 @@
 	// Color declarations
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border: 0 solid var(--border-color);
 }
 
 .suki-footer-widgets-bar__column {
@@ -31,7 +30,10 @@
 	// Color declarations
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border: 0 solid var(--border-color);
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0;
 }
 
 /**

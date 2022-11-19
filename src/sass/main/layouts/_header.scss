@@ -67,6 +67,10 @@
 	color: var(--text-color);
 
 	padding: 0 20px; // CUSTOMIZER
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
 }
 
 .suki-header-main-bar {
@@ -81,6 +85,10 @@
 	color: var(--text-color);
 
 	padding: 0 20px; // CUSTOMIZER
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
 
 	&:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) {
 		> .suki-header-main-bar-merged-wrapper {
@@ -109,6 +117,10 @@
 	color: var(--text-color);
 
 	padding: 0 var(--wp--style--block-gap); // CUSTOMIZER
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
 }
 
 /**
@@ -127,6 +139,10 @@
 	color: var(--text-color);
 
 	padding: 0 20px; // CUSTOMIZER
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
 }
 
 .suki-header-mobile-popup {

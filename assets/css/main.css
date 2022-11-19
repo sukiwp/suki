@@ -1525,6 +1525,8 @@ th {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	padding: 0 20px;
+	border-style: solid;
+	border-width: 0;
 }
 
 .suki-header-main-bar {
@@ -1537,6 +1539,8 @@ th {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	padding: 0 20px;
+	border-style: solid;
+	border-width: 0;
 }
 .suki-header-main-bar:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) > .suki-header-main-bar-merged-wrapper {
 	height: 100%;
@@ -1559,6 +1563,8 @@ th {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	padding: 0 var(--wp--style--block-gap);
+	border-style: solid;
+	border-width: 0;
 }
 
 /**
@@ -1574,6 +1580,8 @@ th {
 	background-color: var(--background-color);
 	color: var(--text-color);
 	padding: 0 20px;
+	border-style: solid;
+	border-width: 0;
 }
 
 .suki-header-mobile-popup {
@@ -1894,7 +1902,6 @@ th {
 	padding: 60px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border: 0 solid var(--border-color);
 }
 
 .suki-footer-widgets-bar__column {
@@ -1911,7 +1918,8 @@ th {
 	padding: 25px 20px;
 	background-color: var(--background-color);
 	color: var(--text-color);
-	border: 0 solid var(--border-color);
+	border-style: solid;
+	border-width: 0;
 }
 
 /**
@@ -2011,6 +2019,8 @@ th {
 	--background-color: var(--color-palette-7);
 	padding: 60px 20px;
 	background-color: var(--background-color);
+	border-style: solid;
+	border-width: 0;
 }
 
 /**
@@ -2055,8 +2065,15 @@ th {
 	flex-grow: 0;
 }
 
+.site-main {
+	border-style: solid;
+	border-width: 0;
+}
+
 .sidebar {
 	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
+	border-style: solid;
+	border-width: 0;
 }
 .sidebar > * + * {
 	margin-block-start: var(--sidebar-widgets-gap) !important;
@@ -2089,6 +2106,8 @@ th {
 	--padding-bottom: 0;
 	--padding-left: 0;
 	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+	border-style: solid;
+	border-width: 0;
 }
 
 :is(.entry-header, .entry-footer) :is(.entry-title, .entry-meta, .suki-breadcrumb):not(:first-child) {

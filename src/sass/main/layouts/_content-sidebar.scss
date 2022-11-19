@@ -44,8 +44,18 @@
 	flex-grow: 0; // Disable grow if specific column's width is set
 }
 
+.site-main {
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
+}
+
 .sidebar {
 	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
 
 	> * + * {
 		margin-block-start: var(--sidebar-widgets-gap) !important; // CUSTOMIZER

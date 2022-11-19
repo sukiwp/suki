@@ -9,6 +9,10 @@
 	--padding-left: 0; // CUSTOMIZER
 
 	padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+
+	// Trigger border style
+	border-style: solid;
+	border-width: 0; // CUSTOMIZER
 }
 
 :is( .entry-header, .entry-footer ) {
