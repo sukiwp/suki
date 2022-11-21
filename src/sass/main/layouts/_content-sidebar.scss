@@ -51,15 +51,13 @@
 }
 
 .sidebar {
-	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
+	> * + * {
+		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ) !important;
+	}
 
 	// Trigger border style
 	border-style: solid;
 	border-width: 0; // CUSTOMIZER
-
-	> * + * {
-		margin-block-start: var(--sidebar-widgets-gap) !important; // CUSTOMIZER
-	}
 }
 
 /**

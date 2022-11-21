@@ -128,30 +128,6 @@ $wp_customize->add_control(
 	)
 );
 
-// Widgets style.
-$key = 'sidebar_widgets_mode';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
-	)
-);
-$wp_customize->add_control(
-	$key,
-	array(
-		'type'     => 'select',
-		'section'  => $section,
-		'label'    => esc_html__( 'Widgets style', 'suki' ),
-		'choices'  => array(
-			'merged'    => esc_html__( 'Merged in one box', 'suki' ),
-			'separated' => esc_html__( 'Separate boxes', 'suki' ),
-		),
-		'priority' => 30,
-	)
-);
-
 // Gap between widgets.
 $key = 'sidebar_widgets_gap';
 $wp_customize->add_setting(
@@ -369,20 +345,6 @@ $wp_customize->add_control(
 	)
 );
 
-// Info.
-$wp_customize->add_control(
-	new Suki_Customize_Notice_Control(
-		$wp_customize,
-		'notice_sidebar_widget_title',
-		array(
-			'section'     => $section,
-			'settings'    => array(),
-			'description' => esc_html__( 'Looking for widget title configuration? Using the Block-based Widgets editor, you can add and configure a Heading block as a widget title.', 'suki' ),
-			'priority'    => 40,
-		)
-	)
-);
-
 /**
  * ====================================================
  * Colors
@@ -455,3 +417,22 @@ foreach ( $colors as $key => $label ) {
 		)
 	);
 }
+
+// Info.
+$wp_customize->add_control(
+	new Suki_Customize_Notice_Control(
+		$wp_customize,
+		'notice_sidebar',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' =>
+				'<p>' . esc_html__( 'Looking for more configurations? Since the Block-based Widgets editor, you can customize the Sidebar content using blocks.', 'suki' ) . '</p>' .
+				'<ul style="list-style:disc;padding-left:1em">' .
+				'<li>' . esc_html__( 'You can add and style the Heading block to be your widget title.', 'suki' ) . '</li>' .
+				'<li>' . esc_html__( 'You can group some blocks and style it as an independent box.', 'suki' ) . '</li>' .
+				'</ul>',
+			'priority'    => 60,
+		)
+	)
+);

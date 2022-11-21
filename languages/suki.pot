@@ -535,7 +535,7 @@ msgstr ""
 msgid "Primary Alt"
 msgstr ""
 
-#: includes/customizer/defaults.php:35, includes/customizer/structures/blog--entry-grid.php:201, includes/customizer/structures/content--hero.php:211, includes/customizer/structures/content--main.php:99, includes/customizer/structures/content--sidebar.php:255, includes/customizer/structures/footer--bottom-bar.php:188, includes/customizer/structures/footer--widgets-bar.php:118, includes/customizer/structures/header--mobile-main-bar.php:119, includes/customizer/structures/header--top-main-bottom-bar.php:222, includes/customizer/structures/style--buttons.php:67, includes/customizer/structures/style--form-inputs.php:67
+#: includes/customizer/defaults.php:35, includes/customizer/structures/blog--entry-grid.php:201, includes/customizer/structures/content--hero.php:211, includes/customizer/structures/content--main.php:99, includes/customizer/structures/content--sidebar.php:231, includes/customizer/structures/footer--bottom-bar.php:188, includes/customizer/structures/footer--widgets-bar.php:118, includes/customizer/structures/header--mobile-main-bar.php:119, includes/customizer/structures/header--top-main-bottom-bar.php:222, includes/customizer/structures/style--buttons.php:67, includes/customizer/structures/style--form-inputs.php:67
 msgid "Border"
 msgstr ""
 
@@ -547,27 +547,27 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: includes/customizer/defaults.php:250, includes/customizer/defaults.php:400
+#: includes/customizer/defaults.php:246, includes/customizer/defaults.php:396
 msgid "Insert HTML text here"
 msgstr ""
 
-#: includes/customizer/defaults.php:408
+#: includes/customizer/defaults.php:404
 msgid "Copyright &copy; {{year}} {{sitename}} &mdash; powered by {{theme}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:464, includes/customizer/defaults.php:489, includes/customizer/defaults.php:513
+#: includes/customizer/defaults.php:460, includes/customizer/defaults.php:485, includes/customizer/defaults.php:509
 msgid "Posted in {{categories}}"
 msgstr ""
 
-#: includes/customizer/defaults.php:549
+#: includes/customizer/defaults.php:545
 msgid "Oops! That page can not be found"
 msgstr ""
 
-#: includes/customizer/defaults.php:550
+#: includes/customizer/defaults.php:546
 msgid "It looks like nothing was found at this location. Maybe try searching?"
 msgstr ""
 
-#: includes/customizer/defaults.php:553
+#: includes/customizer/defaults.php:549
 msgid "Back to Home"
 msgstr ""
 
@@ -608,7 +608,7 @@ msgstr ""
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
 
-#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:273, includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:282, includes/customizer/structures/blog--entry-grid.php:673, includes/customizer/structures/content--hero.php:388, includes/customizer/structures/content--main.php:133, includes/customizer/structures/content--sidebar.php:400, includes/customizer/structures/footer--bottom-bar.php:319, includes/customizer/structures/footer--scroll-to-top.php:363, includes/customizer/structures/footer--widgets-bar.php:409, includes/customizer/structures/header--mobile-main-bar.php:245, includes/customizer/structures/header--mobile-popup.php:436, includes/customizer/structures/header--top-main-bottom-bar.php:447
+#: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:273, includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:282, includes/customizer/structures/blog--entry-grid.php:673, includes/customizer/structures/content--hero.php:388, includes/customizer/structures/content--main.php:133, includes/customizer/structures/content--sidebar.php:362, includes/customizer/structures/footer--bottom-bar.php:319, includes/customizer/structures/footer--scroll-to-top.php:363, includes/customizer/structures/footer--widgets-bar.php:409, includes/customizer/structures/header--mobile-main-bar.php:245, includes/customizer/structures/header--mobile-popup.php:436, includes/customizer/structures/header--top-main-bottom-bar.php:447
 msgid "Colors"
 msgstr ""
 
@@ -957,11 +957,11 @@ msgstr ""
 msgid "Entry Wrapper"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:161, includes/customizer/structures/content--hero.php:171, includes/customizer/structures/content--main.php:59, includes/customizer/structures/content--sidebar.php:215, includes/customizer/structures/content.php:140, includes/customizer/structures/footer--bottom-bar.php:148, includes/customizer/structures/footer--scroll-to-top.php:299, includes/customizer/structures/footer--widgets-bar.php:78, includes/customizer/structures/header--mobile-main-bar.php:79, includes/customizer/structures/header--mobile-popup.php:207, includes/customizer/structures/header--top-main-bottom-bar.php:182, includes/customizer/structures/style--buttons.php:31, includes/customizer/structures/style--form-inputs.php:31
+#: includes/customizer/structures/blog--entry-grid.php:161, includes/customizer/structures/content--hero.php:171, includes/customizer/structures/content--main.php:59, includes/customizer/structures/content--sidebar.php:191, includes/customizer/structures/content.php:140, includes/customizer/structures/footer--bottom-bar.php:148, includes/customizer/structures/footer--scroll-to-top.php:299, includes/customizer/structures/footer--widgets-bar.php:78, includes/customizer/structures/header--mobile-main-bar.php:79, includes/customizer/structures/header--mobile-popup.php:207, includes/customizer/structures/header--top-main-bottom-bar.php:182, includes/customizer/structures/style--buttons.php:31, includes/customizer/structures/style--form-inputs.php:31
 msgid "Padding"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:237, includes/customizer/structures/content--sidebar.php:291, includes/customizer/structures/footer--scroll-to-top.php:335, includes/customizer/structures/style--buttons.php:103, includes/customizer/structures/style--form-inputs.php:103
+#: includes/customizer/structures/blog--entry-grid.php:237, includes/customizer/structures/content--sidebar.php:267, includes/customizer/structures/footer--scroll-to-top.php:335, includes/customizer/structures/style--buttons.php:103, includes/customizer/structures/style--form-inputs.php:103
 msgid "Border radius"
 msgstr ""
 
@@ -973,15 +973,15 @@ msgstr ""
 msgid "Ignore padding"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:681, includes/customizer/structures/content--hero.php:396, includes/customizer/structures/content--sidebar.php:431, includes/customizer/structures/footer--bottom-bar.php:327, includes/customizer/structures/footer--scroll-to-top.php:371, includes/customizer/structures/footer--widgets-bar.php:417, includes/customizer/structures/header--mobile-main-bar.php:253, includes/customizer/structures/header--mobile-popup.php:444, includes/customizer/structures/header--top-main-bottom-bar.php:455, includes/customizer/structures/style--buttons.php:183, includes/customizer/structures/style--form-inputs.php:183, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:169, includes/compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php:36
+#: includes/customizer/structures/blog--entry-grid.php:681, includes/customizer/structures/content--hero.php:396, includes/customizer/structures/content--sidebar.php:393, includes/customizer/structures/footer--bottom-bar.php:327, includes/customizer/structures/footer--scroll-to-top.php:371, includes/customizer/structures/footer--widgets-bar.php:417, includes/customizer/structures/header--mobile-main-bar.php:253, includes/customizer/structures/header--mobile-popup.php:444, includes/customizer/structures/header--top-main-bottom-bar.php:455, includes/customizer/structures/style--buttons.php:183, includes/customizer/structures/style--form-inputs.php:183, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:169, includes/compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php:36
 msgid "Background color"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:682, includes/customizer/structures/content--hero.php:397, includes/customizer/structures/content--sidebar.php:432, includes/customizer/structures/footer--bottom-bar.php:328, includes/customizer/structures/footer--widgets-bar.php:418, includes/customizer/structures/header--mobile-main-bar.php:254, includes/customizer/structures/header--mobile-popup.php:445, includes/customizer/structures/header--top-main-bottom-bar.php:456, includes/customizer/structures/style--buttons.php:184, includes/customizer/structures/style--form-inputs.php:184, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:170
+#: includes/customizer/structures/blog--entry-grid.php:682, includes/customizer/structures/content--hero.php:397, includes/customizer/structures/content--sidebar.php:394, includes/customizer/structures/footer--bottom-bar.php:328, includes/customizer/structures/footer--widgets-bar.php:418, includes/customizer/structures/header--mobile-main-bar.php:254, includes/customizer/structures/header--mobile-popup.php:445, includes/customizer/structures/header--top-main-bottom-bar.php:456, includes/customizer/structures/style--buttons.php:184, includes/customizer/structures/style--form-inputs.php:184, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:170
 msgid "Border color"
 msgstr ""
 
-#: includes/customizer/structures/blog--entry-grid.php:722, includes/customizer/structures/content--sidebar.php:422
+#: includes/customizer/structures/blog--entry-grid.php:722, includes/customizer/structures/content--sidebar.php:384
 msgid "Shadow"
 msgstr ""
 
@@ -1065,11 +1065,11 @@ msgstr ""
 msgid "Minimal height"
 msgstr ""
 
-#: includes/customizer/structures/content--hero.php:245, includes/customizer/structures/content--sidebar.php:325, includes/customizer/structures/footer--bottom-bar.php:258, includes/customizer/structures/footer--widgets-bar.php:224, includes/customizer/structures/header--mobile-main-bar.php:189, includes/customizer/structures/header--mobile-popup.php:281, includes/customizer/structures/header--top-main-bottom-bar.php:292
+#: includes/customizer/structures/content--hero.php:245, includes/customizer/structures/content--sidebar.php:301, includes/customizer/structures/footer--bottom-bar.php:258, includes/customizer/structures/footer--widgets-bar.php:224, includes/customizer/structures/header--mobile-main-bar.php:189, includes/customizer/structures/header--mobile-popup.php:281, includes/customizer/structures/header--top-main-bottom-bar.php:292
 msgid "Typography"
 msgstr ""
 
-#: includes/customizer/structures/content--hero.php:286, includes/customizer/structures/content--sidebar.php:366, includes/customizer/structures/footer--bottom-bar.php:299, includes/customizer/structures/footer--widgets-bar.php:265, includes/customizer/structures/header--mobile-popup.php:314, includes/customizer/structures/header--top-main-bottom-bar.php:325
+#: includes/customizer/structures/content--hero.php:286, includes/customizer/structures/content--sidebar.php:342, includes/customizer/structures/footer--bottom-bar.php:299, includes/customizer/structures/footer--widgets-bar.php:265, includes/customizer/structures/header--mobile-popup.php:314, includes/customizer/structures/header--top-main-bottom-bar.php:325
 msgid "Text typography"
 msgstr ""
 
@@ -1081,15 +1081,15 @@ msgstr ""
 msgid "Breadcrumb typography"
 msgstr ""
 
-#: includes/customizer/structures/content--hero.php:398, includes/customizer/structures/content--sidebar.php:433, includes/customizer/structures/footer--bottom-bar.php:329, includes/customizer/structures/footer--scroll-to-top.php:372, includes/customizer/structures/footer--widgets-bar.php:419, includes/customizer/structures/header--mobile-popup.php:446, includes/customizer/structures/header--top-main-bottom-bar.php:457, includes/customizer/structures/style--base.php:71, includes/customizer/structures/style--buttons.php:185, includes/customizer/structures/style--form-inputs.php:185, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:171, includes/compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php:37
+#: includes/customizer/structures/content--hero.php:398, includes/customizer/structures/content--sidebar.php:395, includes/customizer/structures/footer--bottom-bar.php:329, includes/customizer/structures/footer--scroll-to-top.php:372, includes/customizer/structures/footer--widgets-bar.php:419, includes/customizer/structures/header--mobile-popup.php:446, includes/customizer/structures/header--top-main-bottom-bar.php:457, includes/customizer/structures/style--base.php:71, includes/customizer/structures/style--buttons.php:185, includes/customizer/structures/style--form-inputs.php:185, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:171, includes/compatibilities/woocommerce/customizer/structures/woocommerce--store-notice.php:37
 msgid "Text color"
 msgstr ""
 
-#: includes/customizer/structures/content--hero.php:399, includes/customizer/structures/content--sidebar.php:434, includes/customizer/structures/footer--bottom-bar.php:330, includes/customizer/structures/footer--widgets-bar.php:420, includes/customizer/structures/header--mobile-main-bar.php:255, includes/customizer/structures/header--mobile-popup.php:447, includes/customizer/structures/header--top-main-bottom-bar.php:458, includes/customizer/structures/style--base.php:72
+#: includes/customizer/structures/content--hero.php:399, includes/customizer/structures/content--sidebar.php:396, includes/customizer/structures/footer--bottom-bar.php:330, includes/customizer/structures/footer--widgets-bar.php:420, includes/customizer/structures/header--mobile-main-bar.php:255, includes/customizer/structures/header--mobile-popup.php:447, includes/customizer/structures/header--top-main-bottom-bar.php:458, includes/customizer/structures/style--base.php:72
 msgid "Link text color"
 msgstr ""
 
-#: includes/customizer/structures/content--hero.php:400, includes/customizer/structures/content--sidebar.php:435, includes/customizer/structures/footer--bottom-bar.php:331, includes/customizer/structures/footer--widgets-bar.php:421, includes/customizer/structures/header--mobile-main-bar.php:256, includes/customizer/structures/header--mobile-popup.php:448, includes/customizer/structures/header--top-main-bottom-bar.php:459, includes/customizer/structures/style--base.php:73
+#: includes/customizer/structures/content--hero.php:400, includes/customizer/structures/content--sidebar.php:397, includes/customizer/structures/footer--bottom-bar.php:331, includes/customizer/structures/footer--widgets-bar.php:421, includes/customizer/structures/header--mobile-main-bar.php:256, includes/customizer/structures/header--mobile-popup.php:448, includes/customizer/structures/header--top-main-bottom-bar.php:459, includes/customizer/structures/style--base.php:73
 msgid "Link text color :hover"
 msgstr ""
 
@@ -1141,24 +1141,20 @@ msgstr ""
 msgid "Widgets"
 msgstr ""
 
-#: includes/customizer/structures/content--sidebar.php:146
-msgid "Widgets style"
-msgstr ""
-
-#: includes/customizer/structures/content--sidebar.php:148
-msgid "Merged in one box"
-msgstr ""
-
-#: includes/customizer/structures/content--sidebar.php:149
-msgid "Separate boxes"
-msgstr ""
-
-#: includes/customizer/structures/content--sidebar.php:171, includes/customizer/structures/footer--widgets-bar.php:190
+#: includes/customizer/structures/content--sidebar.php:147, includes/customizer/structures/footer--widgets-bar.php:190
 msgid "Gap between widgets"
 msgstr ""
 
-#: includes/customizer/structures/content--sidebar.php:380
-msgid "Looking for widget title configuration? Using the Block-based Widgets editor, you can add and configure a Heading block as a widget title."
+#: includes/customizer/structures/content--sidebar.php:430
+msgid "Looking for more configurations? Since the Block-based Widgets editor, you can customize the Sidebar content using blocks."
+msgstr ""
+
+#: includes/customizer/structures/content--sidebar.php:432
+msgid "You can add and style the Heading block to be your widget title."
+msgstr ""
+
+#: includes/customizer/structures/content--sidebar.php:433
+msgid "You can group some blocks and style it as an independent box."
 msgstr ""
 
 #: includes/customizer/structures/content.php:63, includes/modules/page-settings/class-suki-page-settings-meta-box.php:506, includes/modules/page-settings/customizer/structures/all-page-settings.php:82

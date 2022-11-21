@@ -199,10 +199,6 @@ $add['content_padding']   = array( '80px', '20px', '80px', '20px' );
 
 $add['sidebar_width'] = '25%';
 
-$add['sidebar_widgets_mode'] = 'merged';
-
-$add['sidebar_shadow'] = array( '0px', '0px', '30px', '0px', '#00000000' );
-
 /**
  * ====================================================
  * Global Layout > Hero Section

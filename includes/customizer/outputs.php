@@ -713,14 +713,6 @@ $add['sidebar_gap'] = array(
 	),
 );
 
-$add['sidebar_widgets_mode'] = array(
-	array(
-		'type'    => 'class',
-		'element' => '.sidebar',
-		'pattern' => 'suki-sidebar-widgets-mode-$',
-	),
-);
-
 $add['sidebar_widgets_gap'] = array(
 	array(
 		'type'     => 'css',
@@ -739,7 +731,7 @@ foreach ( $responsive as $suffix => $media ) {
 	$add[ 'sidebar_padding' . $suffix ] = array(
 		array(
 			'type'     => 'css',
-			'element'  => '.suki-sidebar-widgets-mode-merged, .suki-sidebar-widgets-mode-separated > *',
+			'element'  => '.sidebar',
 			'property' => 'padding',
 			'media'    => $media,
 		),
@@ -749,7 +741,7 @@ foreach ( $responsive as $suffix => $media ) {
 $add['sidebar_border'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-sidebar-widgets-mode-merged, .suki-sidebar-widgets-mode-separated > *',
+		'element'  => '.sidebar',
 		'property' => 'border-width',
 	),
 );
@@ -757,7 +749,7 @@ $add['sidebar_border'] = array(
 $add['sidebar_border_radius'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-sidebar-widgets-mode-merged, .suki-sidebar-widgets-mode-separated > *',
+		'element'  => '.sidebar',
 		'property' => 'border-radius',
 	),
 );
@@ -799,7 +791,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 $add['sidebar_shadow'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar.suki-sidebar-widgets-mode-merged .sidebar-inner, .sidebar.suki-sidebar-widgets-mode-separated .widget',
+		'element'  => '.sidebar',
 		'property' => 'box-shadow',
 	),
 );
@@ -808,7 +800,7 @@ $add['sidebar_bg_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar',
-		'property' => '--background-color',
+		'property' => 'background-color',
 	),
 );
 
@@ -816,7 +808,7 @@ $add['sidebar_border_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar',
-		'property' => '--border-color',
+		'property' => 'border-color',
 	),
 );
 
@@ -824,7 +816,7 @@ $add['sidebar_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar',
-		'property' => '--text-color',
+		'property' => 'color',
 	),
 );
 
@@ -832,15 +824,15 @@ $add['sidebar_link_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => '.sidebar a',
-		'property' => '--link-color',
+		'property' => 'color',
 	),
 );
 
 $add['sidebar_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.sidebar',
-		'property' => '--link-color--focus',
+		'element'  => '.sidebar a:is( :hover, :focus )',
+		'property' => 'color',
 	),
 );
 

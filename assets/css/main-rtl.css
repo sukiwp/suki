@@ -1337,7 +1337,7 @@ th {
 .widget_pages,
 .widget_recent_entries,
 .widget_recent_comments,
-.widget_rss) :is(ul, ol) {
+.widget_rss) :where(ul, ol) {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -1352,7 +1352,7 @@ th {
 .widget_pages,
 .widget_recent_entries,
 .widget_recent_comments,
-.widget_rss) :is(ul, ol) :is(ul, ol) {
+.widget_rss) :where(ul, ol) :where(ul, ol) {
 	margin-block-start: var(--gap);
 	padding-inline-start: var(--wp--style--block-gap);
 	display: flex;
@@ -2065,12 +2065,11 @@ th {
 }
 
 .sidebar {
-	--sidebar-widgets-gap: calc( 1.5 * var(--wp--style--block-gap) );
 	border-style: solid;
 	border-width: 0;
 }
 .sidebar > * + * {
-	margin-block-start: var(--sidebar-widgets-gap) !important;
+	margin-block-start: calc(1.5 * var(--wp--style--block-gap)) !important;
 }
 
 /**

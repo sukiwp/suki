@@ -1917,9 +1917,15 @@ th {
 .wp-block-page-list,
 .wp-block-latest-posts,
 .wp-block-latest-comments,
-.wp-block-rss):is(ul,
-ol) {
+.wp-block-rss) {
 	--gap: 0.5em;
+}
+:is(.wp-block-archives,
+.wp-block-categories,
+.wp-block-page-list,
+.wp-block-latest-posts,
+.wp-block-latest-comments,
+.wp-block-rss):where(ul, ol) {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -1932,8 +1938,7 @@ ol) {
 .wp-block-page-list,
 .wp-block-latest-posts,
 .wp-block-latest-comments,
-.wp-block-rss):is(ul,
-ol) :is(ul, ol) {
+.wp-block-rss):where(ul, ol) :where(ul, ol) {
 	list-style: none;
 	margin: 0;
 	padding: 0;
