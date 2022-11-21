@@ -179,23 +179,6 @@ select[multiple] {
 				line-height: normal;
 				isolation: isolate;
 
-				&--highlighted {
-					background-color: unset; // Reset
-					color: unset; // Reset
-
-					&:before {
-						content: "";
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-						z-index: -1;
-						background-color: currentColor;
-						opacity: 0.075;
-					}
-				}
-
 				&[data-selected="true"] {
 					background-color: unset; // Reset
 					color: unset; // Reset
@@ -211,6 +194,23 @@ select[multiple] {
 						background-color: currentColor;
 						opacity: 0.15;
 					}
+				}
+			}
+
+			.select2-results__option--highlighted {
+				background-color: unset; // Reset
+				color: unset; // Reset
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: -1;
+					background-color: currentColor;
+					opacity: 0.075;
 				}
 			}
 		}

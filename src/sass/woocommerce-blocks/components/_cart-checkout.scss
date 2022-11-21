@@ -166,14 +166,14 @@
 		width: auto;
 		height: 1.5em;
 	}
+}
 
-	&--align-left {
-		justify-content: flex-start;
-	}
+.wc-block-components-payment-method-icons--align-left {
+	justify-content: flex-start;
+}
 
-	&--align-right {
-		justify-content: flex-end;
-	}
+.wc-block-components-payment-method-icons--align-right {
+	justify-content: flex-end;
 }
 
 :is( .is-mobile, .is-small ) {

@@ -45,57 +45,9 @@
 		pointer-events: none;
 	}
 
-	&__screen-overlay {
-		position: fixed;
-		z-index: 9999;
-		top: var(--screen-top-offset);
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: rgba(0,0,0,0.7);
-		transition: opacity var(--transition-duration);
-		z-index: 9999;
-		opacity: 1;
-
-		&--with-slide-out {
-			transition: opacity var(--transition-duration);
-		}
-
-		// We can't use transition for the slide-in animation because the element
-		// doesn't exist in the DOM when not open. Instead, use an animation that
-		// is triggered when the element is appended to the DOM.
-		&--with-slide-in {
-			animation-duration: var(--transition-duration);
-			animation-name: fadein;
-		}
-
-		&--is-hidden {
-			pointer-events: none;
-			opacity: 0;
-		}
-	}
-
-	&__screen-overlay--with-slide-out & {
-		transition: transform var(--transition-duration);
-	}
-
-	&__screen-overlay--with-slide-in & {
-		animation-duration: var(--transition-duration);
-		animation-name: slidein;
-	}
-
-	&__screen-overlay--is-hidden & {
-		transform: translateX(0);
-	}
-
 	@media screen and (prefers-reduced-motion: reduce) {
 		animation-name: none !important;
 		transition: none !important;
-
-		&__screen-overlay {
-			animation-name: none !important;
-			transition: none !important;
-		}
 	}
 
 	.components-modal__content {
@@ -125,4 +77,52 @@
 			}
 		}
 	}
+}
+
+.wc-block-components-drawer__screen-overlay {
+	position: fixed;
+	z-index: 9999;
+	top: var(--screen-top-offset);
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.7);
+	transition: opacity var(--transition-duration);
+	z-index: 9999;
+	opacity: 1;
+
+	@media screen and (prefers-reduced-motion: reduce) {
+		animation-name: none !important;
+		transition: none !important;
+	}
+}
+
+.wc-block-components-drawer__screen-overlay--with-slide-out {
+	transition: opacity var(--transition-duration);
+}
+
+// We can't use transition for the slide-in animation because the element
+// doesn't exist in the DOM when not open. Instead, use an animation that
+// is triggered when the element is appended to the DOM.
+.wc-block-components-drawer__screen-overlay--with-slide-in {
+	animation-duration: var(--transition-duration);
+	animation-name: fadein;
+}
+
+.wc-block-components-drawer__screen-overlay--is-hidden {
+	pointer-events: none;
+	opacity: 0;
+}
+
+.wc-block-components-drawer__screen-overlay--with-slide-out & {
+	transition: transform var(--transition-duration);
+}
+
+.wc-block-components-drawer__screen-overlay--with-slide-in & {
+	animation-duration: var(--transition-duration);
+	animation-name: slidein;
+}
+
+.wc-block-components-drawer__screen-overlay--is-hidden & {
+	transform: translateX(0);
 }

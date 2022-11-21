@@ -21,30 +21,30 @@
 		opacity: 0.1;
 		z-index: -1;
 	}
+}
 
-	&__text {
-		line-height: normal;
-		white-space: nowrap;
+.wc-block-components-chip__text {
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.wc-block-components-chip__remove {
+	// Reset
+	@include button-nude();
+
+	margin: -0.25em -0.5em -0.25em 0;
+	cursor: pointer;
+	opacity: 0.5;
+
+	transition: all var(--transition-duration);
+
+	&:is( :hover, :focus ) {
+		opacity: 1;
 	}
 
-	&__remove {
-		// Reset
-		@include button-nude();
-
-		margin: -0.25em -0.5em -0.25em 0;
-		cursor: pointer;
-		opacity: 0.5;
-
-		transition: all var(--transition-duration);
-
-		&:is( :hover, :focus ) {
-			opacity: 1;
-		}
-
-		svg {
-			display: block;
-			width: 1.5em;
-			height: 1.5em;
-		}
+	svg {
+		display: block;
+		width: 1.5em;
+		height: 1.5em;
 	}
 }

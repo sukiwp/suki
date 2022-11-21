@@ -5,11 +5,11 @@
 .gallery {
 	display: grid;
 	gap: calc( 0.5 * var(--wp--style--block-gap) );
+}
 
-	@for $i from 2 through 9 {
-		&-columns-#{$i} {
-			grid-template-columns: repeat( $i, 1fr );
-		}
+@for $i from 2 through 9 {
+	.gallery-columns-#{$i} {
+		grid-template-columns: repeat( $i, 1fr );
 	}
 }
 

@@ -181,25 +181,23 @@
 		}
 	}
 
-	.woocommerce-customer-details {
-		&--phone,
-		&--email {
-			&:before {
-				font-family: "WooCommerce";
-				margin-inline-end: 0.5em;
-			}
+	.woocommerce-customer-details--phone,
+	.woocommerce-customer-details--email {
+		&:before {
+			font-family: "WooCommerce";
+			margin-inline-end: 0.5em;
 		}
+	}
 
-		&--phone {
-			&:before {
-				content: "\e037";
-			}
+	.woocommerce-customer-details--phone {
+		&:before {
+			content: "\e037";
 		}
+	}
 
-		&--email {
-			&:before {
-				content: "\e02d";
-			}
+	.woocommerce-customer-details--email {
+		&:before {
+			content: "\e02d";
 		}
 	}
 

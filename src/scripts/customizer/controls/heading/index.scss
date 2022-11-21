@@ -16,12 +16,12 @@
 		font-size: 13px;
 		font-weight: 600;
 		text-transform: uppercase;
+	}
 
-		&-tabindex {
-			&:focus + .suki-heading {
-				background-color: var(--wp-admin-theme-color);
-				color: #fff;
-			}
+	.suki-heading-tabindex {
+		&:focus + .suki-heading {
+			background-color: var(--wp-admin-theme-color);
+			color: #fff;
 		}
 	}
 

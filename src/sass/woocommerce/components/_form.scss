@@ -12,24 +12,6 @@
 		margin-block-start: 0;
 	}
 
-	@media screen and ( min-width: $breakpoint-phone ) {
-		&-first {
-			width: 50%;
-			float: left;
-			padding-inline-end: calc( 0.5 * var(--wp--style--block-gap) );
-		}
-
-		&-last {
-			width: 50%;
-			float: right;
-			padding-inline-start: calc( 0.5 * var(--wp--style--block-gap) );
-		}
-
-		&-wide {
-			clear: both;
-		}
-	}
-
 	label {
 		display: table; // Make it a block level, not inline, and uses auto width.
 
@@ -84,6 +66,24 @@
 	// 		border-color: var(--wc-green);
 	// 	}
 	// }
+}
+
+@media screen and ( min-width: $breakpoint-phone ) {
+	.woocommerce .form-row-first {
+		width: 50%;
+		float: left;
+		padding-inline-end: calc( 0.5 * var(--wp--style--block-gap) );
+	}
+
+	.woocommerce .form-row-last {
+		width: 50%;
+		float: right;
+		padding-inline-start: calc( 0.5 * var(--wp--style--block-gap) );
+	}
+
+	.woocommerce .form-row-wide {
+		clear: both;
+	}
 }
 
 /**

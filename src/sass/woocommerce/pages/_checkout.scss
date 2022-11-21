@@ -271,23 +271,21 @@
 			margin-block-end: var(--gap);
 		}
 
-		&__column {
-			@media screen and ( min-width: $breakpoint-tablet ) {
-				&--left {
-					flex-basis: 60%;
-				}
-
-				&--right {
-					flex-basis: calc( 40% - var(--gap) );
-					padding: calc( 1.5 * var(--wp--style--block-gap) );
-					border-width: 1px;
-					border-style: solid;
-				}
-			}
-		}
-
 		#order_review_heading {
 			margin-block-start: 0;
+		}
+	}
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		.suki-woocommerce-checkout-2-columns__column--left {
+			flex-basis: 60%;
+		}
+
+		.suki-woocommerce-checkout-2-columns__column--right {
+			flex-basis: calc( 40% - var(--gap) );
+			padding: calc( 1.5 * var(--wp--style--block-gap) );
+			border-width: 1px;
+			border-style: solid;
 		}
 	}
 }

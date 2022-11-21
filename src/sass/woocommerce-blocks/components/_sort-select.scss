@@ -2,12 +2,10 @@
  * Component: Sort select
  */
 
-.wc-block-components-sort-select {
-	&__label {
-		margin-right: 0.5em;
-	}
+.wc-block-components-sort-select__label {
+	margin-right: 0.5em;
+}
 
-	&__select {
-		width: max-content;
-	}
+.wc-block-components-sort-select__select {
+	width: max-content;
 }

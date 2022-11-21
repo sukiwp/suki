@@ -1053,10 +1053,6 @@ div.customize-section-description {
 .suki-color-dropdown__palette .components-circular-option-picker__swatches {
   gap: 4px;
 }
-.suki-color-dropdown__palette .components-circular-option-picker__option-wrapper {
-  width: 24px;
-  height: 24px;
-}
 .suki-color-dropdown__palette .components-circular-option-picker__option:focus:after {
   width: 28px;
   height: 28px;
@@ -1069,6 +1065,10 @@ div.customize-section-description {
   margin: 5px;
   background-color: rgba(0, 0, 0, 0.5);
   fill: #fff;
+}
+.suki-color-dropdown__palette .components-circular-option-picker__option-wrapper {
+  width: 24px;
+  height: 24px;
 }
 
 .suki-color-dropdown__custom__toggle {

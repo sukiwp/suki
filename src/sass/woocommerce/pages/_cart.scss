@@ -238,34 +238,34 @@
 			margin-block-end: var(--gap);
 		}
 
-		&__column {
-			> * {
-				margin-block: 0;
-			}
-
-			> * + * {
-				margin-block-start: var(--gap);
-			}
-
-			@media screen and ( min-width: $breakpoint-tablet ) {
-				&--left {
-					flex-basis: 60%;
-				}
-
-				&--right {
-					flex-basis: calc( 40% - var(--gap) );
-					padding: calc( 1.5 * var(--wp--style--block-gap) );
-					border-width: 1px;
-					border-style: solid;
-				}
-			}
-		}
-
 		.cart_totals {
 			@media screen and ( min-width: $breakpoint-tablet ) {
 				width: auto;
 				margin-inline: 0;
 			}
+		}
+	}
+
+	.suki-woocommerce-cart-2-columns__column {
+		> * {
+			margin-block: 0;
+		}
+
+		> * + * {
+			margin-block-start: var(--gap);
+		}
+	}
+
+	@media screen and ( min-width: $breakpoint-tablet ) {
+		.suki-woocommerce-cart-2-columns__column--left {
+			flex-basis: 60%;
+		}
+
+		.suki-woocommerce-cart-2-columns__column--right {
+			flex-basis: calc( 40% - var(--gap) );
+			padding: calc( 1.5 * var(--wp--style--block-gap) );
+			border-width: 1px;
+			border-style: solid;
 		}
 	}
 }

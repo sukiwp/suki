@@ -204,85 +204,6 @@
 		}
 	}
 
-	// Background overlay
-	&__background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		z-index: 0;
-		opacity: 0.5; // Default
-
-		&.has-background-dim {
-			// No overlay background color set.
-			&:not([class*="-background-color"]) {
-				background-color: #000; // Default overlay color
-			}
-
-			// Remove background-color when gradient overlay is set.
-			&.has-background-gradient {
-				background-color: transparent;
-			}
-		}
-
-		// Overlay opacity
-		@for $i from 1 through 10 {
-			&.has-background-dim-#{ $i * 10 } {
-				opacity: $i * 0.1;
-			}
-		}
-	}
-
-	// Image background
-	&__image-background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: -1;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		height: 100%;
-		max-width: none;
-		max-height: none;
-		object-fit: cover;
-		background-size: cover;
-		background-position: center center;
-		user-select: none; // Disable selection when background is <img> (no repeat mode)
-
-		&.is-repeated {
-			background-repeat: repeat;
-			background-size: auto;
-		}
-	}
-
-	// Video background
-	&__video-background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: -1;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		height: 100%;
-		max-width: none;
-		max-height: none;
-		object-fit: cover;
-	}
-
-	// Inner container
-	&__inner-container {
-		width: 100%;
-		z-index: 1;
-		color: white;
-	}
-
 	&.is-light {
 		.wp-block-cover__inner-container {
 			color: black;
@@ -295,43 +216,41 @@
 		}
 	}
 
-	&.is-position {
-		&-top-left {
-			align-items: flex-start;
-			justify-content: flex-start;
-		}
-		&-top-center {
-			align-items: flex-start;
-			justify-content: center;
-		}
-		&-top-right {
-			align-items: flex-start;
-			justify-content: flex-end;
-		}
-		&-center-left {
-			align-items: center;
-			justify-content: flex-start;
-		}
-		&-center-center {
-			align-items: center;
-			justify-content: center;
-		}
-		&-center-right {
-			align-items: center;
-			justify-content: flex-end;
-		}
-		&-bottom-left {
-			align-items: flex-end;
-			justify-content: flex-start;
-		}
-		&-bottom-center {
-			align-items: flex-end;
-			justify-content: center;
-		}
-		&-bottom-right {
-			align-items: flex-end;
-			justify-content: flex-end;
-		}
+	&.is-position-top-left {
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+	&.is-position-top-center {
+		align-items: flex-start;
+		justify-content: center;
+	}
+	&.is-position-top-right {
+		align-items: flex-start;
+		justify-content: flex-end;
+	}
+	&.is-position-center-left {
+		align-items: center;
+		justify-content: flex-start;
+	}
+	&.is-position-center-center {
+		align-items: center;
+		justify-content: center;
+	}
+	&.is-position-center-right {
+		align-items: center;
+		justify-content: flex-end;
+	}
+	&.is-position-bottom-left {
+		align-items: flex-end;
+		justify-content: flex-start;
+	}
+	&.is-position-bottom-center {
+		align-items: flex-end;
+		justify-content: center;
+	}
+	&.is-position-bottom-right {
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 
 	&.has-custom-content-position {
@@ -339,6 +258,85 @@
 			width: auto;
 		}
 	}
+}
+
+// Background overlay
+.wp-block-cover__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+	opacity: 0.5; // Default
+
+	&.has-background-dim {
+		// No overlay background color set.
+		&:not([class*="-background-color"]) {
+			background-color: #000; // Default overlay color
+		}
+
+		// Remove background-color when gradient overlay is set.
+		&.has-background-gradient {
+			background-color: transparent;
+		}
+	}
+
+	// Overlay opacity
+	@for $i from 1 through 10 {
+		&.has-background-dim-#{ $i * 10 } {
+			opacity: $i * 0.1;
+		}
+	}
+}
+
+// Image background
+.wp-block-cover__image-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	object-fit: cover;
+	background-size: cover;
+	background-position: center center;
+	user-select: none; // Disable selection when background is <img> (no repeat mode)
+
+	&.is-repeated {
+		background-repeat: repeat;
+		background-size: auto;
+	}
+}
+
+// Video background
+.wp-block-cover__video-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	object-fit: cover;
+}
+
+// Inner container
+.wp-block-cover__inner-container {
+	width: 100%;
+	z-index: 1;
+	color: white;
 }
 
 /**
@@ -357,12 +355,12 @@
 	&.alignright {
 		text-align: right;
 	}
+}
 
-	&__button {
-		@include button();
+.wp-block-file__button {
+	@include button();
 
-		margin-inline-start: 1em;
-	}
+	margin-inline-start: 1em;
 }
 
 /**
@@ -396,39 +394,39 @@
 		align-items: end;
 	}
 
-	&__media {
-		grid-area: media;
-		margin: 0;
-
-		img {
-			object-fit: cover;
-		}
-
-		.is-image-fill > & {
-			align-self: stretch;
-
-			a {
-				display: block;
-				height: 100%;
-			}
-
-			img {
-				height: 100%;
-			}
-		}
-	}
-
-	&__content {
-		grid-area: content;
-		padding: clamp( var(--wp--style--block-gap), 10%, calc( 2 * var(--wp--style--block-gap) ) );
-	}
-
 	&.is-stacked-on-mobile {
 		@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
 			grid-template-columns: 100% !important; // Use important to override inline style from the block settings
 			grid-template-areas: "media" "content"; // Stack media and content
 		}
 	}
+}
+
+.wp-block-media-text__media {
+	grid-area: media;
+	margin: 0;
+
+	img {
+		object-fit: cover;
+	}
+
+	.is-image-fill > & {
+		align-self: stretch;
+
+		a {
+			display: block;
+			height: 100%;
+		}
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+.wp-block-media-text__content {
+	grid-area: content;
+	padding: clamp( var(--wp--style--block-gap), 10%, calc( 2 * var(--wp--style--block-gap) ) );
 }
 
 /**
@@ -453,10 +451,10 @@
 		min-width: 320px;
 		min-height: 240px;
 	}
+}
 
-	&__wrapper {
-		position: relative;
-	}
+.wp-block-embed__wrapper {
+	position: relative;
 }
 
 .wp-embed-responsive {
