@@ -659,7 +659,7 @@
 			document.addEventListener( 'click', handleScrollToTop, false );
 			document.addEventListener( 'touchend', handleScrollToTop, false );
 
-			if ( $scrollToTop.classList.contains( 'suki-scroll-to-top-display-sticky' ) ) {
+			if ( $scrollToTop.classList.contains( 'suki-scroll-to-top--display-sticky' ) ) {
 				const checkStickyOffset = function() {
 					if ( window.pageYOffset > 0.5 * window.innerHeight ) {
 						$scrollToTop.classList.add( 'suki-sticky' );

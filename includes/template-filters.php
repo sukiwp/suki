@@ -458,8 +458,8 @@ add_filter( 'suki/frontend/footer_bottom_bar_classes', 'suki_footer_bottom_class
  * @return array
  */
 function suki_scroll_to_top_classes( $classes ) {
-	$classes['position'] = esc_attr( 'suki-scroll-to-top-position-' . suki_get_theme_mod( 'scroll_to_top_position' ) );
-	$classes['display']  = esc_attr( 'suki-scroll-to-top-display-' . suki_get_theme_mod( 'scroll_to_top_display' ) );
+	$classes['position'] = esc_attr( 'suki-scroll-to-top--position-' . suki_get_theme_mod( 'scroll_to_top_position' ) );
+	$classes['display']  = esc_attr( 'suki-scroll-to-top--display-' . suki_get_theme_mod( 'scroll_to_top_display' ) );
 
 	$hide_devices = array_diff( array( 'desktop', 'tablet', 'mobile' ), suki_get_theme_mod( 'scroll_to_top_visibility' ) );
 

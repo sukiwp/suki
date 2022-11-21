@@ -1956,7 +1956,7 @@ $add['scroll_to_top_display'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-scroll-to-top',
-		'pattern' => 'suki-scroll-to-top-display-$',
+		'pattern' => 'suki-scroll-to-top--display-$',
 	),
 );
 
@@ -1964,7 +1964,7 @@ $add['scroll_to_top_position'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-scroll-to-top',
-		'pattern' => 'suki-scroll-to-top-position-$',
+		'pattern' => 'suki-scroll-to-top--position-$',
 	),
 );
 
