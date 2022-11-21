@@ -1841,25 +1841,25 @@ msgstr ""
 msgid "Title link text color :hover"
 msgstr ""
 
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:156, includes/modules/breadcrumb/class-suki-breadcrumb.php:163
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:158, includes/modules/breadcrumb/class-suki-breadcrumb.php:165
 msgid "Home"
 msgstr ""
 
 #. translators: %s: search keyword.
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:172
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:174
 msgid "Search: %s"
 msgstr ""
 
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:179
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:181
 msgid "Page Not Found"
 msgstr ""
 
 #. translators: %s: page number.
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:327
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:329
 msgid " (Page %d)"
 msgstr ""
 
-#: includes/modules/breadcrumb/class-suki-breadcrumb.php:396, includes/modules/breadcrumb/class-suki-breadcrumb.php:410, includes/compatibilities/woocommerce/customizer/structures/sections.php:96, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:29, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:55, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:55, includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:26
+#: includes/modules/breadcrumb/class-suki-breadcrumb.php:398, includes/modules/breadcrumb/class-suki-breadcrumb.php:412, includes/compatibilities/woocommerce/customizer/structures/sections.php:96, includes/compatibilities/woocommerce/customizer/structures/woocommerce--other-elements.php:29, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:55, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:55, includes/modules/breadcrumb/customizer/structures/global--breadcrumb.php:26
 msgid "Breadcrumb"
 msgstr ""
 

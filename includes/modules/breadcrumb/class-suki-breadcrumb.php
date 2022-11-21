@@ -129,8 +129,10 @@ class Suki_Breadcrumb extends Suki_Module {
 			}
 		}
 
-		// Wrap with "suki-breadcrumb" div.
-		$html = '<div class="suki-breadcrumb">' . $html . '</div>';
+		if ( ! empty( $html ) ) {
+			// Wrap with "suki-breadcrumb" div.
+			$html = '<div class="suki-breadcrumb">' . $html . '</div>';
+		}
 
 		return $html;
 	}
