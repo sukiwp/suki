@@ -36,29 +36,36 @@
 				.suki-builder-section__toggle {
 					display: block;
 
-					&__hide {
-						position: absolute;
-						top: 1px;
-						right: 0;
-						border-top-left-radius: 0;
-						border-top-right-radius: 0;
-						border-bottom-right-radius: 0;
-						border-color: rgba(0,0,0,0.1);
-						border-top-color: transparent;
-						border-right-color: transparent;
+					.button {
+						.dashicons {
+							vertical-align: -0.25em;
+							margin-inline-end: 0.25em;
+						}
 					}
+				}
 
-					&__show {
-						position: absolute;
-						bottom: 100%;
-						right: 0;
-						border-top-right-radius: 0;
-						border-bottom-left-radius: 0;
-						border-bottom-right-radius: 0;
+				.suki-builder-section__toggle__hide {
+					position: absolute;
+					top: 1px;
+					right: 0;
+					border-top-left-radius: 0;
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+					border-color: rgba(0,0,0,0.1);
+					border-top-color: transparent;
+					border-right-color: transparent;
+				}
 
-						opacity: 0;
-						transition: opacity 0.2s 0.2s;
-					}
+				.suki-builder-section__toggle__show {
+					position: absolute;
+					bottom: 100%;
+					right: 0;
+					border-top-right-radius: 0;
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+
+					opacity: 0;
+					transition: opacity 0.2s 0.2s;
 				}
 
 				&.active {

@@ -2327,11 +2327,15 @@ msgstr ""
 msgid "Select the Google Fonts that you want to use. These fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum."
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:95
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:75
+msgid "After adding or removing Google Fonts, please publish your changes and then reload the Customizer to load the Google Fonts."
+msgstr ""
+
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:109
 msgid "Load Google Fonts locally"
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:96
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:110
 msgid "Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally."
 msgstr ""
 

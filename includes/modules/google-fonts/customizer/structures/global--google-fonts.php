@@ -64,6 +64,20 @@ $wp_customize->add_control(
 	)
 );
 
+// Info.
+$wp_customize->add_control(
+	new Suki_Customize_Notice_Control(
+		$wp_customize,
+		'notice_google_fonts',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => esc_html__( 'After adding or removing Google Fonts, please publish your changes and then reload the Customizer to load the Google Fonts.', 'suki' ),
+			'priority'    => 10,
+		)
+	)
+);
+
 // ------
 $wp_customize->add_control(
 	new Suki_Customize_HR_Control(

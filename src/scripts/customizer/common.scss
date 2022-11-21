@@ -83,9 +83,7 @@ div.customize-section-description {
  */
 
 .wp-core-ui .button {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.25em;
+	font-style: normal; // Reset italic button on control's description.
 }
 
 /**

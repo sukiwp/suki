@@ -71,9 +71,7 @@ div.customize-section-description {
  * Button
  */
 .wp-core-ui .button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25em;
+  font-style: normal;
 }
 
 /**
@@ -808,6 +806,10 @@ div.customize-section-description {
   }
   #customize-theme-controls .control-section-suki-builder:is(ul) .suki-builder-section__toggle {
     display: block;
+  }
+  #customize-theme-controls .control-section-suki-builder:is(ul) .suki-builder-section__toggle .button .dashicons {
+    vertical-align: -0.25em;
+    margin-inline-end: 0.25em;
   }
   #customize-theme-controls .control-section-suki-builder:is(ul) .suki-builder-section__toggle__hide {
     position: absolute;
