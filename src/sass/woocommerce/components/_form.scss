@@ -168,11 +168,11 @@
 		text-align: center;
 		padding-inline-start: 1.25em;
 		padding-inline-end: 1.25em;
-		-moz-appearance: textfield;
+		appearance: textfield;
 
 		&::-webkit-inner-spin-button,
 		&::-webkit-outer-spin-button {
-			-webkit-appearance: none;
+			appearance: none;
 			margin: 0;
 		}
 	}

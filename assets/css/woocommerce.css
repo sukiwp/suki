@@ -397,21 +397,6 @@ body {
 .woocommerce .form-row:is(.form-row-first) + .form-row-last {
 	margin-block-start: 0;
 }
-@media screen and (min-width: 425px) {
-	.woocommerce .form-row-first {
-		width: 50%;
-		float: left;
-		padding-inline-end: calc(0.5 * var(--wp--style--block-gap));
-	}
-	.woocommerce .form-row-last {
-		width: 50%;
-		float: right;
-		padding-inline-start: calc(0.5 * var(--wp--style--block-gap));
-	}
-	.woocommerce .form-row-wide {
-		clear: both;
-	}
-}
 .woocommerce .form-row label {
 	display: table;
 }
@@ -455,6 +440,21 @@ body {
 	outline-offset: 1px;
 }
 
+@media screen and (min-width: 425px) {
+	.woocommerce .form-row-first {
+		width: 50%;
+		float: left;
+		padding-inline-end: calc(0.5 * var(--wp--style--block-gap));
+	}
+	.woocommerce .form-row-last {
+		width: 50%;
+		float: right;
+		padding-inline-start: calc(0.5 * var(--wp--style--block-gap));
+	}
+	.woocommerce .form-row-wide {
+		clear: both;
+	}
+}
 /**
  * Address field
  */
@@ -520,10 +520,12 @@ body {
 	text-align: center;
 	padding-inline-start: 1.25em;
 	padding-inline-end: 1.25em;
-	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
 }
 .woocommerce .quantity .qty::-webkit-inner-spin-button, .woocommerce .quantity .qty::-webkit-outer-spin-button {
 	-webkit-appearance: none;
+	appearance: none;
 	margin: 0;
 }
 .woocommerce .quantity.hidden > * {
@@ -2302,7 +2304,8 @@ body {
 	content: "\e00a";
 	font-family: "WooCommerce";
 }
-.woocommerce-account .woocommerce-customer-details--phone:before, .woocommerce-account .woocommerce-customer-details--email:before {
+.woocommerce-account .woocommerce-customer-details--phone:before,
+.woocommerce-account .woocommerce-customer-details--email:before {
 	font-family: "WooCommerce";
 	margin-inline-end: 0.5em;
 }
