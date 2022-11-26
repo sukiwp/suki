@@ -152,10 +152,11 @@ if ( ! function_exists( 'suki_header_desktop__top_bar' ) ) {
 	function suki_header_desktop__top_bar( $do_blocks = true, $echo = true ) {
 		ob_start();
 
+		// Get elements and make sure they are valid elements.
 		$elements = array(
-			'left'   => suki_get_theme_mod( 'header_elements_top_left', array() ),
-			'center' => suki_get_theme_mod( 'header_elements_top_center', array() ),
-			'right'  => suki_get_theme_mod( 'header_elements_top_right', array() ),
+			'left'   => array_intersect( suki_get_theme_mod( 'header_elements_top_left', array() ), array_keys( suki_get_header_builder_elements() ) ),
+			'center' => array_intersect( suki_get_theme_mod( 'header_elements_top_center', array() ), array_keys( suki_get_header_builder_elements() ) ),
+			'right'  => array_intersect( suki_get_theme_mod( 'header_elements_top_right', array() ), array_keys( suki_get_header_builder_elements() ) ),
 		);
 
 		$classes = suki_element_class( 'header_top_bar', array( 'suki-header-top-bar', 'suki-header-section--horizontal' ), false );
@@ -243,10 +244,11 @@ if ( ! function_exists( 'suki_header_desktop__main_bar' ) ) {
 	function suki_header_desktop__main_bar( $do_blocks = true, $echo = true ) {
 		ob_start();
 
+		// Get elements and make sure they are valid elements.
 		$elements = array(
-			'left'   => suki_get_theme_mod( 'header_elements_main_left', array() ),
-			'center' => suki_get_theme_mod( 'header_elements_main_center', array() ),
-			'right'  => suki_get_theme_mod( 'header_elements_main_right', array() ),
+			'left'   => array_intersect( suki_get_theme_mod( 'header_elements_main_left', array() ), array_keys( suki_get_header_builder_elements() ) ),
+			'center' => array_intersect( suki_get_theme_mod( 'header_elements_main_center', array() ), array_keys( suki_get_header_builder_elements() ) ),
+			'right'  => array_intersect( suki_get_theme_mod( 'header_elements_main_right', array() ), array_keys( suki_get_header_builder_elements() ) ),
 		);
 
 		$classes = suki_element_class( 'header_main_bar', array( 'suki-header-main-bar', 'suki-header-section--horizontal' ), false );
@@ -370,10 +372,11 @@ if ( ! function_exists( 'suki_header_desktop__bottom_bar' ) ) {
 	function suki_header_desktop__bottom_bar( $do_blocks = true, $echo = true ) {
 		ob_start();
 
+		// Get elements and make sure they are valid elements.
 		$elements = array(
-			'left'   => suki_get_theme_mod( 'header_elements_bottom_left', array() ),
-			'center' => suki_get_theme_mod( 'header_elements_bottom_center', array() ),
-			'right'  => suki_get_theme_mod( 'header_elements_bottom_right', array() ),
+			'left'   => array_intersect( suki_get_theme_mod( 'header_elements_bottom_left', array() ), array_keys( suki_get_header_builder_elements() ) ),
+			'center' => array_intersect( suki_get_theme_mod( 'header_elements_bottom_center', array() ), array_keys( suki_get_header_builder_elements() ) ),
+			'right'  => array_intersect( suki_get_theme_mod( 'header_elements_bottom_right', array() ), array_keys( suki_get_header_builder_elements() ) ),
 		);
 
 		$classes = suki_element_class( 'header_bottom_bar', array( 'suki-header-bottom-bar', 'suki-header-section--horizontal' ), false );
@@ -517,10 +520,11 @@ if ( ! function_exists( 'suki_header_mobile__main_bar' ) ) {
 	function suki_header_mobile__main_bar( $do_blocks = true, $echo = true ) {
 		ob_start();
 
+		// Get elements and make sure they are valid elements.
 		$elements = array(
-			'left'   => suki_get_theme_mod( 'header_mobile_elements_main_left', array() ),
-			'center' => suki_get_theme_mod( 'header_mobile_elements_main_center', array() ),
-			'right'  => suki_get_theme_mod( 'header_mobile_elements_main_right', array() ),
+			'left'   => array_intersect( suki_get_theme_mod( 'header_mobile_elements_main_left', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
+			'center' => array_intersect( suki_get_theme_mod( 'header_mobile_elements_main_center', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
+			'right'  => array_intersect( suki_get_theme_mod( 'header_mobile_elements_main_right', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
 		);
 
 		$classes = suki_element_class( 'header_mobile_main_bar', array( 'suki-header-mobile-main-bar' ), false );
@@ -605,8 +609,9 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 	function suki_header_mobile__popup( $do_blocks = true, $echo = true ) {
 		ob_start();
 
+		// Get elements and make sure they are valid elements.
 		$elements = array(
-			'top' => suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() ),
+			'top' => array_intersect( suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
 		);
 
 		$classes = suki_element_class( 'header_mobile_vertical', array( 'suki-header-mobile-popup', 'suki-popup' ), false );

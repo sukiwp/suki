@@ -37,68 +37,8 @@ $wp_customize->add_control(
  * ====================================================
  */
 
-/**
- * Filter: suki/dataset/header_builder/areas
- *
- * @param array Array of areas for Header Builder.
- */
-$desktop_areas = apply_filters(
-	'suki/dataset/header_builder/areas',
-	array(
-		'top_left'      => esc_html__( 'Top - Left', 'suki' ),
-		'top_center'    => esc_html__( 'Top - Center', 'suki' ),
-		'top_right'     => esc_html__( 'Top - Right', 'suki' ),
-		'main_left'     => esc_html__( 'Main - Left', 'suki' ),
-		'main_center'   => esc_html__( 'Main - Center', 'suki' ),
-		'main_right'    => esc_html__( 'Main - Right', 'suki' ),
-		'bottom_left'   => esc_html__( 'Bottom - Left', 'suki' ),
-		'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
-		'bottom_right'  => esc_html__( 'Bottom - Right', 'suki' ),
-	)
-);
-
-/**
- * Filter: suki/dataset/header_builder/elements
- *
- * @param array Array of elements for Header Builder.
- */
-$desktop_choices = apply_filters(
-	'suki/dataset/header_builder/elements',
-	array(
-		'logo'            => array(
-			'icon'              => 'admin-home',
-			'label'             => esc_html__( 'Logo', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-		'menu-1'          => array(
-			'icon'              => 'admin-links',
-			/* translators: %s: instance number. */
-			'label'             => sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
-			'unsupported_areas' => array(),
-		),
-		'html-1'          => array(
-			'icon'              => 'editor-code',
-			/* translators: %s: instance number. */
-			'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
-			'unsupported_areas' => array(),
-		),
-		'search-bar'      => array(
-			'icon'              => 'search',
-			'label'             => esc_html__( 'Search Bar', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-		'search-dropdown' => array(
-			'icon'              => 'search',
-			'label'             => esc_html__( 'Search Dropdown', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-		'social'          => array(
-			'icon'              => 'twitter',
-			'label'             => esc_html__( 'Social', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-	)
-);
+$desktop_areas   = suki_get_header_builder_areas();
+$desktop_choices = suki_get_header_builder_elements();
 
 // Desktop header.
 $key      = 'header_elements';
@@ -159,67 +99,8 @@ $wp_customize->add_control(
 	)
 );
 
-/**
- * Filter: suki/dataset/header_mobile_builder/areas
- *
- * @param array Array of areas for Header Builder.
- */
-$mobile_areas = apply_filters(
-	'suki/dataset/header_mobile_builder/areas',
-	array(
-		'main_left'    => esc_html__( 'Mobile - Left', 'suki' ),
-		'main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
-		'main_right'   => esc_html__( 'Mobile - Right', 'suki' ),
-		'vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
-	)
-);
-
-/**
- * Filter: suki/dataset/header_mobile_builder/elements
- *
- * @param array Array of elements for Header Builder.
- */
-$mobile_choices = apply_filters(
-	'suki/dataset/header_mobile_builder/elements',
-	array(
-		'mobile-logo'            => array(
-			'icon'              => 'admin-home',
-			'label'             => esc_html__( 'Mobile Logo', 'suki' ),
-			'unsupported_areas' => array( 'vertical_top' ),
-		),
-		'mobile-menu'            => array(
-			'icon'              => 'admin-links',
-			'label'             => esc_html__( 'Mobile Menu', 'suki' ),
-			'unsupported_areas' => array( 'main_left', 'main_center', 'main_right' ),
-		),
-		'html-1'                 => array(
-			'icon'              => 'editor-code',
-			/* translators: %s: instance number. */
-			'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
-			'unsupported_areas' => array(),
-		),
-		'search-bar'             => array(
-			'icon'              => 'search',
-			'label'             => esc_html__( 'Search Bar', 'suki' ),
-			'unsupported_areas' => array( 'main_left', 'main_center', 'main_right' ),
-		),
-		'search-dropdown'        => array(
-			'icon'              => 'search',
-			'label'             => esc_html__( 'Search Dropdown', 'suki' ),
-			'unsupported_areas' => array( 'vertical_top' ),
-		),
-		'social'                 => array(
-			'icon'              => 'twitter',
-			'label'             => esc_html__( 'Social', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-		'mobile-vertical-toggle' => array(
-			'icon'              => 'menu',
-			'label'             => esc_html__( 'Toggle', 'suki' ),
-			'unsupported_areas' => array( 'vertical_top' ),
-		),
-	)
-);
+$mobile_areas   = suki_get_header_mobile_builder_areas();
+$mobile_choices = suki_get_header_mobile_builder_elements();
 
 // Mobile header.
 $key      = 'header_mobile_elements';

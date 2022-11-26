@@ -855,3 +855,253 @@ function suki_get_all_image_sizes() {
 
 	return $sizes;
 }
+
+/**
+ * Return array of desktop header builder areas.
+ *
+ * @return array
+ */
+function suki_get_header_builder_areas() {
+	/**
+	 * Filter: suki/dataset/header_builder/areas
+	 *
+	 * @param array Array of areas for Header Builder.
+	 */
+	$areas = apply_filters(
+		'suki/dataset/header_builder/areas',
+		array(
+			'top_left'      => esc_html__( 'Top - Left', 'suki' ),
+			'top_center'    => esc_html__( 'Top - Center', 'suki' ),
+			'top_right'     => esc_html__( 'Top - Right', 'suki' ),
+			'main_left'     => esc_html__( 'Main - Left', 'suki' ),
+			'main_center'   => esc_html__( 'Main - Center', 'suki' ),
+			'main_right'    => esc_html__( 'Main - Right', 'suki' ),
+			'bottom_left'   => esc_html__( 'Bottom - Left', 'suki' ),
+			'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
+			'bottom_right'  => esc_html__( 'Bottom - Right', 'suki' ),
+		)
+	);
+
+	if ( ! is_array( $areas ) ) {
+		$areas = array();
+	}
+
+	return $areas;
+}
+
+/**
+ * Return array of desktop header builder elements.
+ *
+ * @return array
+ */
+function suki_get_header_builder_elements() {
+	/**
+	 * Filter: suki/dataset/header_builder/elements
+	 *
+	 * @param array Array of elements for Header Builder.
+	 */
+	$elements = apply_filters(
+		'suki/dataset/header_builder/elements',
+		array(
+			'logo'            => array(
+				'icon'              => 'admin-home',
+				'label'             => esc_html__( 'Logo', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+			'menu-1'          => array(
+				'icon'              => 'admin-links',
+				/* translators: %s: instance number. */
+				'label'             => sprintf( esc_html__( 'Menu %s', 'suki' ), 1 ),
+				'unsupported_areas' => array(),
+			),
+			'html-1'          => array(
+				'icon'              => 'editor-code',
+				/* translators: %s: instance number. */
+				'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+				'unsupported_areas' => array(),
+			),
+			'search-bar'      => array(
+				'icon'              => 'search',
+				'label'             => esc_html__( 'Search Bar', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+			'search-dropdown' => array(
+				'icon'              => 'search',
+				'label'             => esc_html__( 'Search Dropdown', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+			'social'          => array(
+				'icon'              => 'twitter',
+				'label'             => esc_html__( 'Social', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+		)
+	);
+
+	if ( ! is_array( $elements ) ) {
+		$elements = array();
+	}
+
+	return $elements;
+}
+
+/**
+ * Return array of mobile header builder areas.
+ *
+ * @return array
+ */
+function suki_get_header_mobile_builder_areas() {
+	/**
+	 * Filter: suki/dataset/header_mobile_builder/areas
+	 *
+	 * @param array Array of areas for Header Builder.
+	 */
+	$areas = apply_filters(
+		'suki/dataset/header_mobile_builder/areas',
+		array(
+			'main_left'    => esc_html__( 'Mobile - Left', 'suki' ),
+			'main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
+			'main_right'   => esc_html__( 'Mobile - Right', 'suki' ),
+			'vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
+		)
+	);
+
+	if ( ! is_array( $areas ) ) {
+		$areas = array();
+	}
+
+	return $areas;
+}
+
+/**
+ * Return array of mobile header builder elements.
+ *
+ * @return array
+ */
+function suki_get_header_mobile_builder_elements() {
+	/**
+	 * Filter: suki/dataset/header_mobile_builder/elements
+	 *
+	 * @param array Array of elements for Header Builder.
+	 */
+	$elements = apply_filters(
+		'suki/dataset/header_mobile_builder/elements',
+		array(
+			'mobile-logo'            => array(
+				'icon'              => 'admin-home',
+				'label'             => esc_html__( 'Mobile Logo', 'suki' ),
+				'unsupported_areas' => array( 'vertical_top' ),
+			),
+			'mobile-menu'            => array(
+				'icon'              => 'admin-links',
+				'label'             => esc_html__( 'Mobile Menu', 'suki' ),
+				'unsupported_areas' => array( 'main_left', 'main_center', 'main_right' ),
+			),
+			'html-1'                 => array(
+				'icon'              => 'editor-code',
+				/* translators: %s: instance number. */
+				'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+				'unsupported_areas' => array(),
+			),
+			'search-bar'             => array(
+				'icon'              => 'search',
+				'label'             => esc_html__( 'Search Bar', 'suki' ),
+				'unsupported_areas' => array( 'main_left', 'main_center', 'main_right' ),
+			),
+			'search-dropdown'        => array(
+				'icon'              => 'search',
+				'label'             => esc_html__( 'Search Dropdown', 'suki' ),
+				'unsupported_areas' => array( 'vertical_top' ),
+			),
+			'social'                 => array(
+				'icon'              => 'twitter',
+				'label'             => esc_html__( 'Social', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+			'mobile-vertical-toggle' => array(
+				'icon'              => 'menu',
+				'label'             => esc_html__( 'Toggle', 'suki' ),
+				'unsupported_areas' => array( 'vertical_top' ),
+			),
+		)
+	);
+
+	if ( ! is_array( $elements ) ) {
+		$elements = array();
+	}
+
+	return $elements;
+}
+
+/**
+ * Return array of footer builder areas.
+ *
+ * @return array
+ */
+function suki_get_footer_builder_areas() {
+	/**
+	 * Filter: suki/dataset/footer_builder/areas
+	 *
+	 * @param array Array of areas for Footer Builder.
+	 */
+	$areas = apply_filters(
+		'suki/dataset/footer_builder/areas',
+		array(
+			'bottom_left'   => esc_html__( 'Left', 'suki' ),
+			'bottom_center' => esc_html__( 'Center', 'suki' ),
+			'bottom_right'  => esc_html__( 'Right', 'suki' ),
+		)
+	);
+
+	if ( ! is_array( $areas ) ) {
+		$areas = array();
+	}
+
+	return $areas;
+}
+
+/**
+ * Return array of footer builder elements.
+ *
+ * @return array
+ */
+function suki_get_footer_builder_elements() {
+	/**
+	 * Filter: suki/dataset/footer_builder/elements
+	 *
+	 * @param array Array of elements for Footer Builder.
+	 */
+	$elements = apply_filters(
+		'suki/dataset/footer_builder/elements',
+		array(
+			'copyright' => array(
+				'icon'              => 'editor-code',
+				'label'             => esc_html__( 'Copyright', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+			'menu-1'    => array(
+				'icon'              => 'admin-links',
+				/* translators: %s: instance number. */
+				'label'             => sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
+				'unsupported_areas' => array(),
+			),
+			'html-1'    => array(
+				'icon'              => 'editor-code',
+				/* translators: %s: instance number. */
+				'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
+				'unsupported_areas' => array(),
+			),
+			'social'    => array(
+				'icon'              => 'twitter',
+				'label'             => esc_html__( 'Social', 'suki' ),
+				'unsupported_areas' => array(),
+			),
+		)
+	);
+
+	if ( ! is_array( $elements ) ) {
+		$elements = array();
+	}
+
+	return $elements;
+}

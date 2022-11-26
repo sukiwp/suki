@@ -59,52 +59,9 @@ $wp_customize->add_control(
 	)
 );
 
-/**
- * Filter: suki/dataset/footer_builder/areas
- *
- * @param array Array of areas for Footer Builder.
- */
-$areas = apply_filters(
-	'suki/dataset/footer_builder/areas',
-	array(
-		'bottom_left'   => esc_html__( 'Left', 'suki' ),
-		'bottom_center' => esc_html__( 'Center', 'suki' ),
-		'bottom_right'  => esc_html__( 'Right', 'suki' ),
-	)
-);
 
-/**
- * Filter: suki/dataset/footer_builder/elements
- *
- * @param array Array of elements for Footer Builder.
- */
-$choices = apply_filters(
-	'suki/dataset/footer_builder/elements',
-	array(
-		'copyright' => array(
-			'icon'              => 'editor-code',
-			'label'             => esc_html__( 'Copyright', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-		'menu-1'    => array(
-			'icon'              => 'admin-links',
-			/* translators: %s: instance number. */
-			'label'             => sprintf( esc_html__( 'Footer Menu %s', 'suki' ), 1 ),
-			'unsupported_areas' => array(),
-		),
-		'html-1'    => array(
-			'icon'              => 'editor-code',
-			/* translators: %s: instance number. */
-			'label'             => sprintf( esc_html__( 'HTML %s', 'suki' ), 1 ),
-			'unsupported_areas' => array(),
-		),
-		'social'    => array(
-			'icon'              => 'twitter',
-			'label'             => esc_html__( 'Social', 'suki' ),
-			'unsupported_areas' => array(),
-		),
-	)
-);
+$areas   = suki_get_footer_builder_areas();
+$choices = suki_get_footer_builder_elements();
 
 // Bottom bar elements.
 $key      = 'footer_elements';

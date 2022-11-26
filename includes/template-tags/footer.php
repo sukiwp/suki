@@ -171,11 +171,14 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) {
 	function suki_footer_bottom( $do_blocks = true, $echo = true ) {
 		ob_start();
 
+		// Get elements and make sure they are valid elements.
 		$elements = array(
-			'left'   => suki_get_theme_mod( 'footer_elements_bottom_left', array() ),
-			'center' => suki_get_theme_mod( 'footer_elements_bottom_center', array() ),
-			'right'  => suki_get_theme_mod( 'footer_elements_bottom_right', array() ),
+			'left'   => array_intersect( suki_get_theme_mod( 'footer_elements_bottom_left', array() ), array_keys( suki_get_footer_builder_elements() ) ),
+			'center' => array_intersect( suki_get_theme_mod( 'footer_elements_bottom_center', array() ), array_keys( suki_get_footer_builder_elements() ) ),
+			'right'  => array_intersect( suki_get_theme_mod( 'footer_elements_bottom_right', array() ), array_keys( suki_get_footer_builder_elements() ) ),
 		);
+
+		$classes = 'suki-footer-bottom-bar suki-section--' . suki_get_current_page_setting( 'footer_bottom_bar_container' );
 
 		if (
 			! boolval( suki_get_current_page_setting( 'disable_footer_bottom' ) ) && // Footer bottom is not disabled.
@@ -183,11 +186,11 @@ if ( ! function_exists( 'suki_footer_bottom' ) ) {
 		) {
 			?>
 			<!-- wp:group {
-				"className":"suki-footer-bottom-bar <?php echo esc_attr( 'suki-section--' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>",
+				"className":"<?php echo esc_attr( $classes ); ?>",
 				"layout":{
 					"inherit":true
 				}
-			} --><div class="wp-block-group suki-footer-bottom-bar <?php echo esc_attr( 'suki-section--' . suki_get_current_page_setting( 'footer_bottom_bar_container' ) ); ?>">
+			} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 				<!-- wp:group {
 					"className":"suki-footer-bottom-row suki-footer-row",
