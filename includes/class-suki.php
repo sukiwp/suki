@@ -306,6 +306,7 @@ class Suki {
 	 */
 	public function modify_blocks_css( $styles ) {
 		$styles->registered['wp-block-library']->src = trailingslashit( SUKI_CSS_URL ) . 'blocks' . SUKI_ASSETS_SUFFIX . '.css';
+		$styles->registered['wp-block-library']->ver = SUKI_VERSION;
 	}
 
 	/**
