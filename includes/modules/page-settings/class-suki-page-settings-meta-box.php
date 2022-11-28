@@ -84,12 +84,13 @@ class Suki_Page_Settings_Meta_Box {
 
 		// Add "Featured image" field.
 		$structures['content']['fields']['disable_thumbnail'] = array(
-			'type'    => 'select',
-			'label'   => esc_html__( 'Featured image', 'suki' ),
-			'options' => array(
+			'type'     => 'select',
+			'label'    => esc_html__( 'Featured image', 'suki' ),
+			'options'  => array(
 				''  => esc_html__( '✓ Visible', 'suki' ),
 				'1' => esc_html__( '✗ Hidden', 'suki' ),
 			),
+			'priority' => 60,
 		);
 
 		return $structures;
@@ -278,7 +279,7 @@ class Suki_Page_Settings_Meta_Box {
 				array(
 					'metaKey'    => self::META_KEY,
 					'title'      => esc_html__( 'Page Settings (Theme)', 'suki' ),
-					'structures' => $this->get_structures_as_simple_array( $post_type . '_single' ),
+					'structures' => $this->get_sorted_structures( $post_type . '_single' ),
 				)
 			),
 			'before'
@@ -506,8 +507,8 @@ class Suki_Page_Settings_Meta_Box {
 		 */
 		$structures = array(
 			'content' => array(
-				'title'  => esc_html__( 'Content', 'suki' ),
-				'fields' => array(
+				'title'    => esc_html__( 'Content', 'suki' ),
+				'fields'   => array(
 					'content_container'      => array(
 						'type'          => 'select',
 						'label'         => esc_html__( 'Container', 'suki' ),
@@ -526,6 +527,7 @@ class Suki_Page_Settings_Meta_Box {
 							),
 						),
 						'inherit_value' => '' !== suki_get_theme_mod( $type . '_content_container', '' ) ? suki_get_theme_mod( $type . '_content_container' ) : suki_get_theme_mod( 'content_container' ),
+						'priority'      => 10,
 					),
 					'content_layout'         => array(
 						'type'          => 'select',
@@ -544,14 +546,16 @@ class Suki_Page_Settings_Meta_Box {
 							),
 						),
 						'inherit_value' => '' !== suki_get_theme_mod( $type . '_content_layout', '' ) ? suki_get_theme_mod( $type . '_content_layout' ) : suki_get_theme_mod( 'content_layout' ),
+						'priority'      => 20,
 					),
 					'disable_content_header' => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Content header', 'suki' ),
-						'options' => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Content header', 'suki' ),
+						'options'  => array(
 							''  => esc_html__( '✓ Visible', 'suki' ),
 							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
+						'priority' => 30,
 					),
 					'hero'                   => array(
 						'type'        => 'select',
@@ -562,61 +566,70 @@ class Suki_Page_Settings_Meta_Box {
 							'0' => esc_html__( 'Default', 'suki' ),
 							'1' => esc_html__( 'Hero section', 'suki' ),
 						),
+						'priority'    => 40,
 					),
 					'hero_container'         => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Hero section container', 'suki' ),
-						'options' => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Hero section container', 'suki' ),
+						'options'  => array(
 							''        => esc_html__( '-- Inherit --', 'suki' ),
 							'content' => esc_html__( '= Content', 'suki' ),
 							'narrow'  => esc_html__( 'Narrow', 'suki' ),
 							'wide'    => esc_html__( 'Wide', 'suki' ),
 							'full'    => esc_html__( 'Full', 'suki' ),
 						),
+						'priority' => 50,
 					),
 				),
+				'priority' => 10,
 			),
 			'header'  => array(
-				'title'  => esc_html__( 'Header', 'suki' ),
-				'fields' => array(
+				'title'    => esc_html__( 'Header', 'suki' ),
+				'fields'   => array(
 					'disable_header'        => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Desktop header', 'suki' ),
-						'options' => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Desktop header', 'suki' ),
+						'options'  => array(
 							''  => esc_html__( '✓ Visible', 'suki' ),
 							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
+						'priority' => 10,
 					),
 					'disable_header_mobile' => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Mobile header', 'suki' ),
-						'options' => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Mobile header', 'suki' ),
+						'options'  => array(
 							''  => esc_html__( '✓ Visible', 'suki' ),
 							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
+						'priority' => 20,
 					),
 				),
+				'priority' => 20,
 			),
 			'footer'  => array(
-				'title'  => esc_html__( 'Footer', 'suki' ),
-				'fields' => array(
+				'title'    => esc_html__( 'Footer', 'suki' ),
+				'fields'   => array(
 					'disable_footer_widgets' => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Footer widgets', 'suki' ),
-						'options' => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Footer widgets', 'suki' ),
+						'options'  => array(
 							''  => esc_html__( '✓ Visible', 'suki' ),
 							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
+						'priority' => 10,
 					),
 					'disable_footer_bottom'  => array(
-						'type'    => 'select',
-						'label'   => esc_html__( 'Footer bottom', 'suki' ),
-						'options' => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Footer bottom', 'suki' ),
+						'options'  => array(
 							''  => esc_html__( '✓ Visible', 'suki' ),
 							'1' => esc_html__( '✗ Hidden', 'suki' ),
 						),
+						'priority' => 20,
 					),
 				),
+				'priority' => 30,
 			),
 		);
 
@@ -637,40 +650,69 @@ class Suki_Page_Settings_Meta_Box {
 	 * @param string $type Page type with this format: [post_type]_[single/archive].
 	 * @return array
 	 */
-	public function get_structures_as_simple_array( $type ) {
+	public function get_sorted_structures( $type ) {
 		// Get the original structures.
 		$structures = $this->get_structures( $type );
 
-		// Iterate through the structures and refactor the associative array to simple array.
+		// Sanitize the structures.
 		foreach ( $structures as $panel_key => &$panel ) {
-			// Add key as an array item.
-			$panel['key'] = $panel_key;
+			// Make sure this category has valid title.
+			if ( ! isset( $panel['title'] ) ) {
+				$panel['title'] = '';
+			}
 
+			// Make sure this category has priority.
+			if ( ! isset( $panel['priority'] ) || ! is_integer( $panel['priority'] ) ) {
+				$panel['priority'] = 10;
+			}
+
+			// Make sure this category has a fields array.
+			if ( ! isset( $panel['fields'] ) || ! is_array( $panel['fields'] ) ) {
+				$panel['fields'] = array();
+			}
+
+			// Iterate through each field in this category.
 			foreach ( $panel['fields'] as $field_key => &$field ) {
-				// Add key as an array item.
-				$field['key'] = $field_key;
+				// Make sure this category has label.
+				if ( ! isset( $field['label'] ) ) {
+					$field['label'] = '';
+				}
 
-				// Refactor options array for 'select' type..
-				if ( 'select' === $field['type'] ) {
-					$options = array();
+				// Make sure this category has type.
+				if ( ! isset( $field['type'] ) ) {
+					$field['type'] = 'select';
+				}
 
-					foreach ( $field['options'] as $value => $label ) {
-						$options[] = array(
-							'value' => $value,
-							'label' => $label,
-						);
-					}
+				// Make sure this category has options.
+				if ( ! isset( $field['options'] ) ) {
+					$field['options'] = array();
+				}
 
-					$field['options'] = $options;
+				// Make sure this category has priority.
+				if ( ! isset( $field['priority'] ) || ! is_integer( $field['priority'] ) ) {
+					$field['priority'] = 10;
 				}
 			}
 
-			// Convert fields (associative array) to simple array.
-			$panel['fields'] = array_values( $panel['fields'] );
+			// Sort fields based on priority (smallest number is first).
+			$field_priority = array_column( $panel['fields'], 'priority' );
+			array_multisort( $field_priority, SORT_ASC, $panel['fields'] );
 		}
 
-		// Convert panels (associative array) to simple array.
-		$structures = array_values( $structures );
+		// Sort panels based on priority (smallest number is first).
+		$panel_priority = array_column( $structures, 'priority' );
+		array_multisort( $panel_priority, SORT_ASC, $structures );
+
+		// Convert associative array to simple array.
+		$structures = suki_convert_associative_array_into_simple_array( $structures, 'key' );
+
+		foreach ( $structures as &$panel ) {
+			$panel['fields'] = suki_convert_associative_array_into_simple_array( $panel['fields'], 'key' );
+
+			foreach ( $panel['fields'] as &$field ) {
+				$field['options'] = suki_convert_associative_array_into_simple_array( $field['options'], 'value', 'label' );
+			}
+		}
 
 		return $structures;
 	}
