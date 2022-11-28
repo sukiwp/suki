@@ -1,6 +1,6 @@
-/**
- * Define border style when a block has border-width
- */
+// -------------------------------------------------------------
+// Define border style when a block has border-width
+// -------------------------------------------------------------
 
 :where( .has-border-color, [style*="border-width"] ) {
 	border-style: solid;

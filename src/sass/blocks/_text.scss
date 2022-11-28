@@ -1,6 +1,6 @@
-/**
- * Block: Paragraph, headings, list
- */
+// -------------------------------------------------------------
+// Block: Paragraph, headings, list
+// -------------------------------------------------------------
 
 :where( p, h1, h2, h3, h4, h5, h6, ul, ol ) {
 	@include padding-for-has-background();
@@ -12,9 +12,9 @@
 	}
 }
 
-/**
- * Block: Quote
- */
+// -------------------------------------------------------------
+// Block: Quote
+// -------------------------------------------------------------
 
 .wp-block-quote {
 	padding-inline-start: 1em;
@@ -40,9 +40,9 @@
 	}
 }
 
-/**
- * Block: Code
- */
+// -------------------------------------------------------------
+// Block: Code
+// -------------------------------------------------------------
 
 .wp-block-code {
 	background-color: var(--subtle-background-color);
@@ -57,9 +57,9 @@
 	}
 }
 
-/**
- * Block: Preformatted
- */
+// -------------------------------------------------------------
+// Block: Preformatted
+// -------------------------------------------------------------
 
 .wp-block-preformatted {
 	white-space: pre-wrap;
@@ -67,9 +67,9 @@
 	@include padding-for-has-background();
 }
 
-/**
- * Block: Pullquote
- */
+// -------------------------------------------------------------
+// Block: Pullquote
+// -------------------------------------------------------------
 
 .wp-block-pullquote {
 	blockquote {
@@ -129,9 +129,9 @@
 	@include max-width-for-alignleft-alignright();
 }
 
-/**
- * Block: Table
- */
+// -------------------------------------------------------------
+// Block: Table
+// -------------------------------------------------------------
 
 .wp-block-table {
 	overflow-x: auto;
@@ -234,9 +234,9 @@
 	}
 }
 
-/**
- * Block: Verse
- */
+// -------------------------------------------------------------
+// Block: Verse
+// -------------------------------------------------------------
 
 .wp-block-verse {
 	font-family: inherit; // Use inherited font family

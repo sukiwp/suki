@@ -1,7 +1,3 @@
-/**
- * Responsive container for control settings
- */
-
 .suki-responsive-container {
 	&:not([data-device="global"]) {
 		display: none;

@@ -1,3 +1,5 @@
+import './index.scss';
+
 // Base controls
 import './base';
 import './base-react';

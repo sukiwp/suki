@@ -1,6 +1,6 @@
-/**
- * Block: Navigation
- */
+// -------------------------------------------------------------
+// Block: Navigation
+// -------------------------------------------------------------
 
 @mixin __block-navigation-overlay {
 	@include hide();
@@ -101,9 +101,9 @@
 
 	@include padding-for-has-background();
 
-	/**
-	 * Variables
-	 */
+	// -------------------------------------------------------------
+	// Variables
+// -------------------------------------------------------------
 
 	// Direction
 	&.is-vertical {
@@ -144,9 +144,9 @@
 		--flex-wrap: nowrap;
 	}
 
-	/**
-	 * Common components
-	 */
+	// -------------------------------------------------------------
+	// Common components
+// -------------------------------------------------------------
 
 	// Submenu toggle on "open on click" mode
 	// The entire menu item would be a toggle button, we need to reset the styles

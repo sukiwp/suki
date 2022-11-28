@@ -1,11 +1,11 @@
-/**
- * Checkout shortcode
- */
+// -------------------------------------------------------------
+// Checkout shortcode
+// -------------------------------------------------------------
 
 .woocommerce-checkout {
-	/**
-	 * Checkout page
-	 */
+	// -------------------------------------------------------------
+	// Checkout page
+	// -------------------------------------------------------------
 
 	.woocommerce-form-coupon-toggle {
 		.woocommerce-info {
@@ -158,9 +158,9 @@
 						@include remove-margin-bottom-for-last-child();
 					}
 
-					/**
-					 * Unknown elements
-					 */
+					// -------------------------------------------------------------
+					// Unknown elements
+					// -------------------------------------------------------------
 
 					.woocommerce-SavedPaymentMethods {
 						list-style: none;
@@ -250,9 +250,9 @@
 		}
 	}
 
-	/**
-	 * 2 columns checkout
-	 */
+	// -------------------------------------------------------------
+	// 2 columns checkout
+	// -------------------------------------------------------------
 
 	.suki-woocommerce-checkout-2-columns {
 		--gap: calc( 3 * var(--wp--style--block-gap) );
@@ -290,9 +290,9 @@
 	}
 }
 
-/**
- * Order details page
- */
+// -------------------------------------------------------------
+// Order details page
+// -------------------------------------------------------------
 
 .woocommerce {
 	.woocommerce-thankyou-order-received {

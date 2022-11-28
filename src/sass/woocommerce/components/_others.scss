@@ -1,6 +1,6 @@
-/**
- * (x) Remove button / link
- */
+// -------------------------------------------------------------
+// (x) Remove button / link
+// -------------------------------------------------------------
 
 .woocommerce a.remove {
 	display: inline-block;
@@ -36,9 +36,9 @@
 	}
 }
 
-/**
- * ??? Unknown Element (copied from the original WooCommerce CSS)
- */
+// -------------------------------------------------------------
+// ??? Unknown Element (copied from the original WooCommerce CSS)
+// -------------------------------------------------------------
 
 .woocommerce small.note {
 	display: block;
@@ -46,9 +46,9 @@
 	margin-block-start: 0.5em;
 }
 
-/**
- * Breadcrumb
- */
+// -------------------------------------------------------------
+// Breadcrumb
+// -------------------------------------------------------------
 
 .woocommerce .woocommerce-breadcrumb {
 	font-size: 0.92em;
@@ -67,9 +67,9 @@
 	}
 }
 
-/**
- * Sale badge
- */
+// -------------------------------------------------------------
+// Sale badge
+// -------------------------------------------------------------
 
 .woocommerce span.onsale {
 	position: absolute;
@@ -92,9 +92,9 @@
 	color: var(--color-palette-8);
 }
 
-/**
- * Rating stars
- */
+// -------------------------------------------------------------
+// Rating stars
+// -------------------------------------------------------------
 
 %woocommerce-rating-stars,
 .woocommerce .star-rating {
@@ -130,9 +130,9 @@
 	}
 }
 
-/**
- * Price
- */
+// -------------------------------------------------------------
+// Price
+// -------------------------------------------------------------
 
 %woocommerce-price,
 .woocommerce .price {
@@ -147,9 +147,9 @@
 	}
 }
 
-/**
- * Pagination
- */
+// -------------------------------------------------------------
+// Pagination
+// -------------------------------------------------------------
 
 .woocommerce .woocommerce-pagination {
 	margin-block-start: calc( 2 * var(--wp--style--block-gap) );

@@ -1,14 +1,14 @@
-/**
- * Block: Query
- */
+// -------------------------------------------------------------
+// Block: Query
+// -------------------------------------------------------------
 
 .wp-block-query {
 	@include padding-for-has-background();
 }
 
-/**
- * Block: Post Template
- */
+// -------------------------------------------------------------
+// Block: Post Template
+// -------------------------------------------------------------
 
 .wp-block-post-template {
 	list-style: none;
@@ -51,9 +51,9 @@
 	}
 }
 
-/**
- * Block: Post author
- */
+// -------------------------------------------------------------
+// Block: Post author
+// -------------------------------------------------------------
 
 .wp-block-post-author {
 	display: flex;
@@ -62,30 +62,6 @@
 
 	@media screen and ( max-width: ( $breakpoint-phone - 0.1px ) ) {
 		flex-direction: column;
-	}
-
-	&__avatar {
-		flex-shrink: 0;
-
-		.avatar {
-			border-radius: 9999px;
-		}
-	}
-
-	&__content {
-		flex-grow: 1;
-
-		> * {
-			margin: 0;
-		}
-	}
-
-	&__bio {
-		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
-	}
-
-	&__byline {
-		@extend %meta;
 	}
 
 	&.has-text-align-center {
@@ -116,9 +92,33 @@
 	}
 }
 
-/**
- * Block: Post element
- */
+.wp-block-post-author__avatar {
+	flex-shrink: 0;
+
+	.avatar {
+		border-radius: 9999px;
+	}
+}
+
+.wp-block-post-author__content {
+	flex-grow: 1;
+
+	> * {
+		margin: 0;
+	}
+}
+
+.wp-block-post-author__bio {
+	margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
+}
+
+.wp-block-post-author__byline {
+	@extend %meta;
+}
+
+// -------------------------------------------------------------
+// Block: Post element
+// -------------------------------------------------------------
 
 .wp-block-post-date {
 	&.has-background {
@@ -136,9 +136,9 @@
 	@include padding-for-has-background();
 }
 
-/**
- * Block: Query pagination
- */
+// -------------------------------------------------------------
+// Block: Query pagination
+// -------------------------------------------------------------
 
 .wp-block-query-pagination {
 	@include padding-for-has-background();
@@ -167,9 +167,9 @@
 	content: "\00a0";
 }
 
-/**
- * Previous and next navigation
- */
+// -------------------------------------------------------------
+// Previous and next navigation
+// -------------------------------------------------------------
 
 .wp-block-post-navigation-link {
 	a[rel="prev"]:before {

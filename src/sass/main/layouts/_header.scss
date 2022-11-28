@@ -1,6 +1,6 @@
-/**
- * Header
- */
+// -------------------------------------------------------------
+// Header
+// -------------------------------------------------------------
 
 .suki-header {
 	position: relative;
@@ -51,9 +51,9 @@
 	}
 }
 
-/**
- * Desktop header
- */
+// -------------------------------------------------------------
+// Desktop header
+// -------------------------------------------------------------
 
 .suki-header-top-bar {
 	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
@@ -123,9 +123,9 @@
 	border-width: 0; // CUSTOMIZER
 }
 
-/**
- * Mobile header
- */
+// -------------------------------------------------------------
+// Mobile header
+// -------------------------------------------------------------
 
 .suki-header-mobile-main-bar {
 	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
@@ -218,9 +218,9 @@
 	}
 }
 
-/**
- * Header row and column
- */
+// -------------------------------------------------------------
+// Header row and column
+// -------------------------------------------------------------
 
 .suki-header-row {
 	height: 100%;
@@ -251,9 +251,9 @@
 	flex: 1 1 50%;
 }
 
-/**
- * Header vertical row and column
- */
+// -------------------------------------------------------------
+// Header vertical row and column
+// -------------------------------------------------------------
 
 .suki-header-vertical-column {
 	gap: var(--items-gap);
@@ -285,9 +285,9 @@
 	justify-content: flex-end;
 }
 
-/**
- * Header element: Menu
- */
+// -------------------------------------------------------------
+// Header element: Menu
+// -------------------------------------------------------------
 
 // Horizontal menu
 .suki-header-row {
@@ -508,9 +508,9 @@
 	}
 }
 
-/**
- * Header element: Logo
- */
+// -------------------------------------------------------------
+// Header element: Logo
+// -------------------------------------------------------------
 
 .suki-logo {
 	@include small-title-typography();
@@ -523,9 +523,9 @@
 	}
 }
 
-/**
- * Header element: Search form
- */
+// -------------------------------------------------------------
+// Header element: Search form
+// -------------------------------------------------------------
 
 .suki-header-search-bar {
 	width: 300px; // CUSTOMIZER

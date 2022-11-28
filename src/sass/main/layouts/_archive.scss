@@ -1,6 +1,6 @@
-/**
- * Loop
- */
+// -------------------------------------------------------------
+// Loop
+// -------------------------------------------------------------
 
 .suki-loop--layout-grid {
 	align-items: start; // By default Query Loop block will use `stretch`, but we reset it to `start` because we have a Customizer option to make it same-height.
@@ -28,9 +28,9 @@
 	}
 }
 
-/**
- * Author archive title
- */
+// -------------------------------------------------------------
+// Author archive title
+// -------------------------------------------------------------
 
 .suki-author-archive-avatar { // Non-block element.
 	display: inline-block;

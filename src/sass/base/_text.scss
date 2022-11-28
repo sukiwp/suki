@@ -1,6 +1,6 @@
-/**
- * Inline text elements
- */
+// -------------------------------------------------------------
+// Inline text elements
+// -------------------------------------------------------------
 
 a {
 	color: var(--link-color);
@@ -40,9 +40,9 @@ mark {
 	background-color: var(--subtle-background-color);
 }
 
-/**
- * Block text elements
- */
+// -------------------------------------------------------------
+// Block text elements
+// -------------------------------------------------------------
 
 p {
 	margin-block: var(--wp--style--block-gap);

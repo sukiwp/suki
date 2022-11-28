@@ -3,17 +3,17 @@
 	@include small-title-color();
 }
 
-/**
- * Block: Comments title {
- */
+// -------------------------------------------------------------
+// Block: Comments title
+// -------------------------------------------------------------
 
 .wp-block-comments-title {
 	@extend %comments-heading;
 }
 
-/**
- * Block: Comment template
- */
+// -------------------------------------------------------------
+// Block: Comment template
+// -------------------------------------------------------------
 
 .wp-block-comment-template {
 	list-style: none;
@@ -36,9 +36,9 @@
 	}
 }
 
-/**
- * Block: Comment edit link
- */
+// -------------------------------------------------------------
+// Block: Comment edit link
+// -------------------------------------------------------------
 
 .wp-block-comment-edit-link {
 	a {
@@ -49,9 +49,9 @@
 }
 
 
-/**
- * Block: Comment reply link
- */
+// -------------------------------------------------------------
+// Block: Comment reply link
+// -------------------------------------------------------------
 
 .wp-block-comment-reply-link {
 	a {
@@ -61,9 +61,9 @@
 	}
 }
 
-/**
- * Block: Coments pagination
- */
+// -------------------------------------------------------------
+// Block: Coments pagination
+// -------------------------------------------------------------
 
 .wp-block-comments-pagination {
 	gap: calc( 0.5 * var(--wp--style--block-gap) ) !important;
@@ -74,9 +74,9 @@
 	}
 }
 
-/**
- * Block: Comment form
- */
+// -------------------------------------------------------------
+// Block: Comment form
+// -------------------------------------------------------------
 
 .wp-block-post-comments-form {
 	.wp-block-comment-template & {

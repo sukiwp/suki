@@ -85,9 +85,9 @@
 		}
 	}
 
-	/**
-	 * Alignment
-	 */
+	// -------------------------------------------------------------
+	// Alignment
+	// -------------------------------------------------------------
 
 	&.has-left-content {
 		text-align: left;
@@ -98,17 +98,17 @@
 	}
 }
 
-/**
- * Block: Featured Category
- */
+// -------------------------------------------------------------
+// Block: Featured Category
+// -------------------------------------------------------------
 
 .wc-block-featured-category {
 	@include wc-block-featured-item();
 }
 
-/**
- * Block: Featured Product
- */
+// -------------------------------------------------------------
+// Block: Featured Product
+// -------------------------------------------------------------
 
 .wc-block-featured-product {
 	@include wc-block-featured-item();

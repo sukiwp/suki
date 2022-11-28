@@ -1,7 +1,7 @@
-/**
- * Gutenberg font sizes classes
- * Automatically apply line height too
- */
+// -------------------------------------------------------------
+// Gutenberg font sizes classes
+// Automatically apply line height too
+// -------------------------------------------------------------
 
 $sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
 @each $size in $sizes {

@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/**
- * Forms
- */
 .suki-admin-form-rows {
 	display: flex;
 	flex-direction: column;
@@ -13,9 +10,6 @@
 	padding-bottom: 4px;
 }
 
-/**
- * Accordion
- */
 details.suki-admin-accordion {
 	margin-block: 12px;
 	background-color: #fff;
@@ -44,9 +38,6 @@ details.suki-admin-accordion[open] summary:before {
 	content: "▼";
 }
 
-/**
- * Tooltip
- */
 .suki-admin-tooltip {
 	position: relative;
 }
@@ -74,9 +65,6 @@ details.suki-admin-accordion[open] summary:before {
 	transition: opacity var(--transition-duration, 0.25s), visibility 0s;
 }
 
-/**
- * Theme Dashboard
- */
 #menu-appearance .wp-submenu a[href^="edit.php?post_type=suki_block"]:before,
 #menu-appearance .wp-submenu a[href^="themes.php?page=suki-"]:before {
 	content: "↳";

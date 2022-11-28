@@ -1,6 +1,6 @@
-/**
- * Products search bar
- */
+// -------------------------------------------------------------
+// Products search bar
+// -------------------------------------------------------------
 
 .woocommerce .woocommerce-product-search {
 	display: block;
@@ -23,9 +23,9 @@
 	}
 }
 
-/**
- * Product list inside widget
- */
+// -------------------------------------------------------------
+// Product list inside widget
+// -------------------------------------------------------------
 
 .woocommerce :is( ul.cart_list, ul.product_list_widget ) {
 	list-style: none;
@@ -73,9 +73,9 @@
 	}
 }
 
-/**
- * Cart widget
- */
+// -------------------------------------------------------------
+// Cart widget
+// -------------------------------------------------------------
 
 .woocommerce.widget_shopping_cart {
 	.cart_list li {
@@ -122,9 +122,9 @@
 	}
 }
 
-/**
- * Filters widget and rating widget
- */
+// -------------------------------------------------------------
+// Filters widget and rating widget
+// -------------------------------------------------------------
 
 .woocommerce:is( .widget_layered_nav, .widget_rating_filter ) {
 	ul {
@@ -223,9 +223,9 @@
 	}
 }
 
-/**
- * Price filter widget
- */
+// -------------------------------------------------------------
+// Price filter widget
+// -------------------------------------------------------------
 
 .woocommerce.widget_price_filter {
 	.price_slider_amount {
@@ -291,9 +291,9 @@
 	}
 }
 
-/**
- * Product categories widget
- */
+// -------------------------------------------------------------
+// Product categories widget
+// -------------------------------------------------------------
 
 .woocommerce.widget_product_categories {
 	ul {

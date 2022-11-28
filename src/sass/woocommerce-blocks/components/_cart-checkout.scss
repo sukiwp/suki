@@ -1,6 +1,6 @@
-/**
- * Component: Form step
- */
+// -------------------------------------------------------------
+// Component: Form step
+// -------------------------------------------------------------
 
 .wc-block-components-form {
 	counter-reset: checkout-step;
@@ -89,9 +89,9 @@
 	}
 }
 
-/**
- * Component: Order summary
- */
+// -------------------------------------------------------------
+// Component: Order summary
+// -------------------------------------------------------------
 
 .wc-block-components-order-summary__content {
 	display: flex;
@@ -150,9 +150,9 @@
 	display: block;
 }
 
-/**
- * Component: Payment method icons
- */
+// -------------------------------------------------------------
+// Component: Payment method icons
+// -------------------------------------------------------------
 
 .wc-block-components-payment-method-icons {
 	display: flex;
@@ -184,9 +184,9 @@
 	}
 }
 
-/**
- * Component: Payment method label
- */
+// -------------------------------------------------------------
+// Component: Payment method label
+// -------------------------------------------------------------
 
 .wc-block-components-payment-method-label--with-icon {
 	display: inline-flex;
@@ -202,9 +202,9 @@
 	}
 }
 
-/**
- * Component: Policies
- */
+// -------------------------------------------------------------
+// Component: Policies
+// -------------------------------------------------------------
 
 .wc-block-components-checkout-policies {
 	list-style: none;
@@ -234,9 +234,9 @@
 	}
 }
 
-/**
- * Component: Product badge
- */
+// -------------------------------------------------------------
+// Component: Product badge
+// -------------------------------------------------------------
 
 .wc-block-components-product-badge {
 	display: inline-block;
@@ -249,9 +249,9 @@
     white-space: nowrap;
 }
 
-/**
- * Component: Product details
- */
+// -------------------------------------------------------------
+// Component: Product details
+// -------------------------------------------------------------
 
 .wc-block-components-product-details {
 	list-style: none;
@@ -259,9 +259,9 @@
 	margin: 0;
 }
 
-/**
- * Component: Product metadata
- */
+// -------------------------------------------------------------
+// Component: Product metadata
+// -------------------------------------------------------------
 
 .wc-block-components-product-metadata {
 	@include meta-typography();
@@ -280,9 +280,9 @@
 	}
 }
 
-/**
- * Component: Return to cart button
- */
+// -------------------------------------------------------------
+// Component: Return to cart button
+// -------------------------------------------------------------
 
 .wc-block-components-checkout-return-to-cart-button {
 	display: inline-flex;
@@ -294,9 +294,9 @@
 	}
 }
 
-/**
- * Component: Shipping Calculator
- */
+// -------------------------------------------------------------
+// Component: Shipping Calculator
+// -------------------------------------------------------------
 
 .wc-block-components-shipping-calculator {
 	margin-block-start: 1em;
@@ -319,9 +319,9 @@
 	margin-block-start: 1em;
 }
 
-/**
- * Component: Shipping rates control package
- */
+// -------------------------------------------------------------
+// Component: Shipping rates control package
+// -------------------------------------------------------------
 
 .wc-block-components-shipping-rates-control__package {
 
@@ -352,9 +352,9 @@
 	}
 }
 
-/**
- * Component: Totals
- */
+// -------------------------------------------------------------
+// Component: Totals
+// -------------------------------------------------------------
 
 // Totals > Coupon
 

@@ -31,9 +31,9 @@
 @import "blocks/supports";
 
 
-/**
- * Tiny MCE
- */
+// -------------------------------------------------------------
+// Tiny MCE
+// -------------------------------------------------------------
 
 body.mce-content-body {
 	--wp--style--block-gap: var(--block-spacing);
@@ -42,9 +42,9 @@ body.mce-content-body {
 	min-height: auto;
 }
 
-/**
- * Components
- */
+// -------------------------------------------------------------
+// Components
+// -------------------------------------------------------------
 
 .wp-block-search__button {
 	@extend %button;
@@ -93,9 +93,9 @@ body.wp-block-widget-area__inner-blocks {
 	}
 }
 
-/**
- * Block Editor
- */
+// -------------------------------------------------------------
+// Block Editor
+// -------------------------------------------------------------
 
 body.suki-section--wide {
 	--wp--style--global--content-size: var(--wp--style--global--wide-size);

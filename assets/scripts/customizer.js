@@ -1340,27 +1340,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base */ "./src/scripts/customizer/controls/base/index.js");
-/* harmony import */ var _base__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_base__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _base_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./base-react */ "./src/scripts/customizer/controls/base-react/index.js");
-/* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./background */ "./src/scripts/customizer/controls/background/index.js");
-/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./builder */ "./src/scripts/customizer/controls/builder/index.js");
-/* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./color */ "./src/scripts/customizer/controls/color/index.js");
-/* harmony import */ var _color_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color-select */ "./src/scripts/customizer/controls/color-select/index.js");
-/* harmony import */ var _dimension__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dimension */ "./src/scripts/customizer/controls/dimension/index.js");
-/* harmony import */ var _dimensions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dimensions */ "./src/scripts/customizer/controls/dimensions/index.js");
-/* harmony import */ var _heading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./heading */ "./src/scripts/customizer/controls/heading/index.js");
-/* harmony import */ var _multi_check__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./multi-check */ "./src/scripts/customizer/controls/multi-check/index.js");
-/* harmony import */ var _multi_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./multi-select */ "./src/scripts/customizer/controls/multi-select/index.js");
-/* harmony import */ var _notice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./notice */ "./src/scripts/customizer/controls/notice/index.js");
-/* harmony import */ var _radio_image__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./radio-image */ "./src/scripts/customizer/controls/radio-image/index.js");
-/* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./shadow */ "./src/scripts/customizer/controls/shadow/index.js");
-/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./slider */ "./src/scripts/customizer/controls/slider/index.js");
-/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./toggle */ "./src/scripts/customizer/controls/toggle/index.js");
-/* harmony import */ var _typography__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./typography */ "./src/scripts/customizer/controls/typography/index.js");
-/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./color-palette */ "./src/scripts/customizer/controls/color-palette.js");
-/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_color_palette__WEBPACK_IMPORTED_MODULE_17__);
-// Base controls
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/scripts/customizer/controls/index.scss");
+/* harmony import */ var _base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./base */ "./src/scripts/customizer/controls/base/index.js");
+/* harmony import */ var _base__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_base__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _base_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./base-react */ "./src/scripts/customizer/controls/base-react/index.js");
+/* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./background */ "./src/scripts/customizer/controls/background/index.js");
+/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./builder */ "./src/scripts/customizer/controls/builder/index.js");
+/* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color */ "./src/scripts/customizer/controls/color/index.js");
+/* harmony import */ var _color_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color-select */ "./src/scripts/customizer/controls/color-select/index.js");
+/* harmony import */ var _dimension__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dimension */ "./src/scripts/customizer/controls/dimension/index.js");
+/* harmony import */ var _dimensions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dimensions */ "./src/scripts/customizer/controls/dimensions/index.js");
+/* harmony import */ var _heading__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./heading */ "./src/scripts/customizer/controls/heading/index.js");
+/* harmony import */ var _multi_check__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./multi-check */ "./src/scripts/customizer/controls/multi-check/index.js");
+/* harmony import */ var _multi_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./multi-select */ "./src/scripts/customizer/controls/multi-select/index.js");
+/* harmony import */ var _notice__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notice */ "./src/scripts/customizer/controls/notice/index.js");
+/* harmony import */ var _radio_image__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./radio-image */ "./src/scripts/customizer/controls/radio-image/index.js");
+/* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shadow */ "./src/scripts/customizer/controls/shadow/index.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./slider */ "./src/scripts/customizer/controls/slider/index.js");
+/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./toggle */ "./src/scripts/customizer/controls/toggle/index.js");
+/* harmony import */ var _typography__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./typography */ "./src/scripts/customizer/controls/typography/index.js");
+/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./color-palette */ "./src/scripts/customizer/controls/color-palette.js");
+/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_color_palette__WEBPACK_IMPORTED_MODULE_18__);
+ // Base controls
+
 
  // Custom controls
 
@@ -2724,6 +2726,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************!*\
   !*** ./src/scripts/customizer/controls/heading/index.scss ***!
   \************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/scripts/customizer/controls/index.scss":
+/*!****************************************************!*\
+  !*** ./src/scripts/customizer/controls/index.scss ***!
+  \****************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

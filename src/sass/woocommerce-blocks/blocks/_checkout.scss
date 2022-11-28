@@ -1,6 +1,6 @@
-/**
- * Block: Checkout
- */
+// -------------------------------------------------------------
+// Block: Checkout
+// -------------------------------------------------------------
 
 // checkout-order-error
 
@@ -68,9 +68,9 @@
 	}
 }
 
-/**
- * Block: Checkout Actions
- */
+// -------------------------------------------------------------
+// Block: Checkout Actions
+// -------------------------------------------------------------
 
 .wc-block-checkout__actions {
 	display: flex;
@@ -98,9 +98,9 @@
 	}
 }
 
-/**
- * Block: Checkout Fields
- */
+// -------------------------------------------------------------
+// Block: Checkout Fields
+// -------------------------------------------------------------
 
  :is( .wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields ) {
 	.wc-block-components-checkout-step__content {
@@ -164,9 +164,9 @@
 	}
 }
 
-/**
- * Block: Checkout Terms
- */
+// -------------------------------------------------------------
+// Block: Checkout Terms
+// -------------------------------------------------------------
 
 .wc-block-checkout__terms {
 	@include meta-typography();
@@ -183,9 +183,9 @@
 	}
 }
 
-/**
- * Block: Checkout Totals
- */
+// -------------------------------------------------------------
+// Block: Checkout Totals
+// -------------------------------------------------------------
 
 :is( .is-mobile, .is-small, .is-medium ) {
 	.wc-block-checkout__sidebar {

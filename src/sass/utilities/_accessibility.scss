@@ -1,6 +1,6 @@
-/**
- * Keyboard users
- */
+// -------------------------------------------------------------
+// Keyboard users
+// -------------------------------------------------------------
 
 // .using-keyboard is added via Javascript whenever a user is pressing keyboard.
 .using-keyboard *:focus {
@@ -12,9 +12,9 @@
 	outline: 0;
 }
 
-/**
- * Screen reader text
- */
+// -------------------------------------------------------------
+// Screen reader text
+// -------------------------------------------------------------
 
 // ref: https://make.wordpress.org/accessibility/2015/02/09/hiding-text-for-screen-readers-with-wordpress-core/
 .screen-reader-text {

@@ -1,6 +1,6 @@
-/**
- * Post author bio
- */
+// -------------------------------------------------------------
+// Post author bio
+// -------------------------------------------------------------
 
 .suki-author-bio {
 	border: 1px solid var(--border-color); // Post Author block doesn't support border yet.
@@ -12,17 +12,17 @@
 	}
 }
 
-/**
- * Post navigation
- */
+// -------------------------------------------------------------
+// Post navigation
+// -------------------------------------------------------------
 
 .suki-post-navigation {
 	margin-block-start: calc( 3 * var(--wp--style--block-gap) ); // Query Pagination block doesn't support margin yet.
 }
 
-/**
- * Comments
- */
+// -------------------------------------------------------------
+// Comments
+// -------------------------------------------------------------
 
 .suki-comments {
 	margin-block-start: calc( 3 * var(--wp--style--block-gap) ); // Comments Query Loop block doesn't support margin yet.

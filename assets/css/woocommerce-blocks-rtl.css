@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/**
- * Component: Checkout > Checkbox control
- */
 .wc-block-components-checkbox label {
 	position: relative;
 	display: flex;
@@ -44,9 +41,6 @@
 	display: none;
 }
 
-/**
- * Component: Checkout > Panel
- */
 .wc-block-components-panel > h2 {
 	font: inherit;
 }
@@ -95,9 +89,6 @@
 	display: none;
 }
 
-/**
- * Component: Checkout > Totals Wrapper
- */
 .wc-block-components-totals-wrapper {
 	padding-block: var(--wp--style--block-gap);
 	border-bottom-width: 1px;
@@ -125,9 +116,6 @@
 	border-top-width: 0;
 }
 
-/**
- * Component: Checkout > Totals > Item
- */
 .wc-block-components-totals-item {
 	display: flex;
 	flex-wrap: wrap;
@@ -159,9 +147,6 @@
 	flex-basis: 100%;
 }
 
-/**
- * Component: Button
- */
 .wc-block-components-button.wc-block-components-button {
 	position: relative;
 	display: inline-flex;
@@ -235,9 +220,6 @@
 	text-decoration: underline;
 }
 
-/**
- * Component: Form step
- */
 .wc-block-components-form {
 	counter-reset: checkout-step;
 }
@@ -314,9 +296,6 @@
 	opacity: 0.125;
 }
 
-/**
- * Component: Order summary
- */
 .wc-block-components-order-summary__content {
 	display: flex;
 	flex-direction: column;
@@ -371,9 +350,6 @@
 	display: block;
 }
 
-/**
- * Component: Payment method icons
- */
 .wc-block-components-payment-method-icons {
 	display: flex;
 	flex-wrap: wrap;
@@ -399,9 +375,6 @@
 	height: 1em;
 }
 
-/**
- * Component: Payment method label
- */
 .wc-block-components-payment-method-label--with-icon {
 	display: inline-flex;
 	align-items: center;
@@ -412,9 +385,6 @@
 	display: none;
 }
 
-/**
- * Component: Policies
- */
 .wc-block-components-checkout-policies {
 	list-style: none;
 	padding: 0;
@@ -445,9 +415,6 @@
 	padding: 0 0.25em;
 }
 
-/**
- * Component: Product badge
- */
 .wc-block-components-product-badge {
 	display: inline-block;
 	padding: 0 0.5em;
@@ -459,18 +426,12 @@
 	white-space: nowrap;
 }
 
-/**
- * Component: Product details
- */
 .wc-block-components-product-details {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-/**
- * Component: Product metadata
- */
 .wc-block-components-product-metadata {
 	font-family: var(--meta--font-family);
 	font-size: var(--meta--font-size);
@@ -489,9 +450,6 @@
 	margin-block: 0;
 }
 
-/**
- * Component: Return to cart button
- */
 .wc-block-components-checkout-return-to-cart-button {
 	display: inline-flex;
 	align-items: center;
@@ -501,9 +459,6 @@
 	fill: currentColor;
 }
 
-/**
- * Component: Shipping Calculator
- */
 .wc-block-components-shipping-calculator {
 	margin-block-start: 1em;
 }
@@ -522,9 +477,6 @@
 	margin-block-start: 1em;
 }
 
-/**
- * Component: Shipping rates control package
- */
 .wc-block-components-shipping-rates-control__package .wc-block-components-radio-control:not(:first-child) {
 	margin-block-start: var(--wp--style--block-gap);
 }
@@ -554,9 +506,6 @@
 	white-space: pre;
 }
 
-/**
- * Component: Totals
- */
 .wc-block-components-totals-coupon__form {
 	display: flex;
 	width: 100%;
@@ -633,9 +582,6 @@
 	text-decoration: underline;
 }
 
-/**
- * Component: Checkbox list
- */
 .wc-block-components-checkbox-list {
 	list-style: none;
 	margin: 0;
@@ -651,9 +597,6 @@
 	cursor: pointer;
 }
 
-/**
- * Component: Chip
- */
 .wc-block-components-chip {
 	position: relative;
 	display: inline-flex;
@@ -713,9 +656,6 @@
 	height: 1.5em;
 }
 
-/**
- * Component: Combobox
- */
 .wc-block-components-combobox.wc-block-components-combobox {
 	position: relative;
 }
@@ -841,9 +781,6 @@
 	color: inherit !important;
 }
 
-/**
- * Component: Drawer
- */
 @keyframes fadein {
 	from {
 		opacity: 0;
@@ -1002,9 +939,6 @@
 	transform: translateX(0);
 }
 
-/**
- * Component: Filter element label
- */
 .wc-filter-element-label-list-count {
 	opacity: 0.5;
 }
@@ -1015,9 +949,6 @@
 	content: ")";
 }
 
-/**
- * Component: Filter reset button
- */
 .wc-block-components-filter-reset-button {
 	display: inline-flex;
 	align-items: center;
@@ -1045,16 +976,10 @@
 	text-decoration: underline;
 }
 
-/**
- * Component: Filter submit button
- */
 .wc-block-components-filter-submit-button {
 	margin-block-start: 0.5em;
 }
 
-/**
- * Component: Form token field
- */
 .wc-blocks-components-form-token-field-wrapper .components-visually-hidden,
 .wc-blocks-components-form-token-field-wrapper .components-form-token-field__label {
 	border: 0;
@@ -1272,24 +1197,15 @@
 	margin-block-start: 0.25em;
 }
 
-/**
- * Component: Formatted monetary amount
- */
 .wc-block-components-formatted-money-amount {
 	white-space: nowrap;
 }
 
-/**
- * Component: Load more button
- */
 .wc-block-components-load-more {
 	text-align: center;
 	width: 100%;
 }
 
-/**
- * Component: Loading mask
- */
 .wc-block-components-loading-mask {
 	position: relative;
 	min-height: 2em;
@@ -1306,9 +1222,6 @@
 	opacity: 0.25;
 }
 
-/**
- * Component: Pagination
- */
 .wc-block-components-pagination {
 	display: flex;
 	flex-wrap: wrap;
@@ -1357,9 +1270,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	transform: scale(-1, 1);
 }
 
-/**
- * Component: Price slider
- */
 .wc-block-components-price-slider__controls {
 	display: flex;
 	align-items: center;
@@ -1542,9 +1452,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	display: none;
 }
 
-/**
- * Component: Product list
- */
 .wc-block-grid__no-products {
 	text-align: center;
 }
@@ -1717,9 +1624,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-block-start: auto;
 }
 
-/**
- * Component: Product price
- */
 .wc-block-components-product-price del {
 	opacity: 0.5;
 	font-size: 0.9em;
@@ -1746,18 +1650,12 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-right: 0.5em;
 }
 
-/**
- * Component: Product rating
- */
 .wc-block-components-product-rating__stars {
 	display: inline-block;
 	line-height: 1;
 	height: 1em;
 }
 
-/**
- * Component: Quantity selector
- */
 .wc-block-components-quantity-selector {
 	display: inline-flex;
 	max-width: 100%;
@@ -1844,9 +1742,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	order: 3;
 }
 
-/**
- * Component: Radio control
- */
 .wc-block-components-radio-control {
 	display: flex;
 	flex-direction: column;
@@ -1903,16 +1798,10 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	gap: 0.5em;
 }
 
-/**
- * Component: Review sort select
- */
 .wc-block-components-review-sort-select {
 	text-align: left;
 }
 
-/**
- * Component: Review list
- */
 .wc-block-components-review-list {
 	list-style: none;
 	padding: 0;
@@ -2030,9 +1919,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-block-start: var(--wp--style--block-gap);
 }
 
-/**
- * Component: Sidebar layout
- */
 .wc-block-components-sidebar-layout {
 	--gap: calc( 3 * var(--wp--style--block-gap) );
 	position: relative;
@@ -2063,9 +1949,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	flex-basis: calc(40% - var(--gap));
 }
 
-/**
- * Component: Sort select
- */
 .wc-block-components-sort-select__label {
 	margin-left: 0.5em;
 }
@@ -2074,9 +1957,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	width: max-content;
 }
 
-/**
- * Component: Spinner
- */
 @keyframes spinner__animation {
 	0% {
 		animation-timing-function: cubic-bezier(0.5856, 0.0703, 0.4143, 0.9297);
@@ -2113,9 +1993,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	animation: spinner__animation 1s infinite linear;
 }
 
-/**
- * Component: Text input
- */
 .wc-block-components-text-input.wc-block-components-text-input {
 	position: relative;
 	white-space: nowrap;
@@ -2179,16 +2056,10 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	color: inherit !important;
 }
 
-/**
- * Component: Textarea
- */
 .wc-block-components-textarea {
 	width: 100%;
 }
 
-/**
- * Component: Title
- */
 .wc-block-components-title {
 	font-family: var(--small-title--font-family);
 	font-size: var(--small-title--font-size);
@@ -2206,9 +2077,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	color: var(--small-title--link-color--focus);
 }
 
-/**
- * Component: Validation input error
- */
 .wc-block-components-validation-error {
 	font-family: var(--meta--font-family);
 	font-size: var(--meta--font-size);
@@ -2220,9 +2088,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	color: var(--wc-red);
 }
 
-/**
- * Block: Active Filters
- */
 .wc-block-active-filters__clear-all {
 	display: inline-flex;
 	align-items: center;
@@ -2331,16 +2196,10 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	display: none;
 }
 
-/**
- * Block: All Products
- */
 .wc-block-all-products .wc-block-components-sort-select__label {
 	margin: 0;
 }
 
-/**
- * Block: Filter by Attribute
- */
 .wc-block-attribute-filter.style-dropdown {
 	display: flex;
 	gap: 0.25em;
@@ -2376,9 +2235,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-inline-start: 0;
 }
 
-/**
- * Block: Cart
- */
 .wc-block-cart__main > * {
 	margin-block: 0;
 }
@@ -2519,12 +2375,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	top: var(--screen-top-offset);
 }
 
-/**
- * Block: Cross-sell Products
- */
-/**
- * Block: Proceed to Checkout
- */
 .wc-block-cart__submit {
 	position: relative;
 	margin-block-start: calc(2 * var(--wp--style--block-gap));
@@ -2560,9 +2410,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 		box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
 	}
 }
-/**
- * Block: Checkout
- */
 .wc-block-checkout-error {
 	padding: var(--wp--style--block-gap);
 	text-align: center;
@@ -2616,9 +2463,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-block-start: 1em;
 }
 
-/**
- * Block: Checkout Actions
- */
 .wc-block-checkout__actions {
 	display: flex;
 	justify-content: space-between;
@@ -2638,9 +2482,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	width: 100%;
 }
 
-/**
- * Block: Checkout Fields
- */
 :is(.wc-block-checkout__shipping-fields, .wc-block-checkout__billing-fields) .wc-block-components-checkout-step__content {
 	display: flex;
 	flex-direction: column;
@@ -2682,9 +2523,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	margin-block: 0;
 }
 
-/**
- * Block: Checkout Terms
- */
 .wc-block-checkout__terms {
 	font-family: var(--meta--font-family);
 	font-size: var(--meta--font-size);
@@ -2703,9 +2541,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	opacity: 0.5;
 }
 
-/**
- * Block: Checkout Totals
- */
 :is(.is-mobile, .is-small, .is-medium) .wc-block-checkout__sidebar {
 	order: 0;
 }
@@ -2716,15 +2551,9 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	top: var(--screen-top-offset);
 }
 
-/**
- * Block: Featured Category
- */
 .wc-block-featured-category {
 	text-align: center;
 	overflow: hidden;
-	/**
-	 * Alignment
-	 */
 }
 .wc-block-featured-category__wrapper {
 	position: relative;
@@ -2824,15 +2653,9 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	text-align: left;
 }
 
-/**
- * Block: Featured Product
- */
 .wc-block-featured-product {
 	text-align: center;
 	overflow: hidden;
-	/**
-	 * Alignment
-	 */
 }
 .wc-block-featured-product__wrapper {
 	position: relative;
@@ -2951,9 +2774,6 @@ html[dir=rtl] .wc-block-components-pagination-page--arrow span {
 	text-decoration: none;
 }
 
-/**
- * Block: Mini Cart
- */
 .wc-block-mini-cart__button {
 	display: inline-flex;
 	align-items: center;
@@ -3197,12 +3017,6 @@ html[dir=rtl] .wc-block-mini-cart__icon {
 	outline: none;
 }
 
-/**
- * Block: Filter by Price
- */
-/**
- * Block: Product Categories
- */
 .wc-block-product-categories.is-dropdown {
 	display: flex;
 	gap: 0.25em;
@@ -3289,9 +3103,6 @@ html[dir=rtl] .wc-block-product-categories.is-dropdown .wc-block-product-categor
 	width: 3em;
 }
 
-/**
- * Block: Product Searh
- */
 .wc-block-product-search__fields {
 	display: flex;
 	gap: 0.25em;
@@ -3300,7 +3111,3 @@ html[dir=rtl] .wc-block-product-categories.is-dropdown .wc-block-product-categor
 html[dir=rtl] .wc-block-product-search__button svg {
 	transform: rotate(-180deg);
 }
-
-/**
- * Block: Filter by Stock
- */

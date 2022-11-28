@@ -1,6 +1,6 @@
-/**
- * Customizer preview
- */
+// -------------------------------------------------------------
+// Customizer preview
+// -------------------------------------------------------------
 
 .wp-full-overlay {
 	background-color: revert;
@@ -23,9 +23,9 @@
 	margin-left: -212px;
 }
 
-/**
- * Social links
- */
+// -------------------------------------------------------------
+// Social links
+// -------------------------------------------------------------
 
 #sub-accordion-section-suki_section_social {
 	.customize-control-text {
@@ -44,9 +44,9 @@
 	}
 }
 
-/**
- * Color palette
- */
+// -------------------------------------------------------------
+// Color palette
+// -------------------------------------------------------------
 
 :is(
 	#customize-control-color_palette_1,
@@ -88,9 +88,9 @@
 	}
 }
 
-/**
- * Hero
- */
+// -------------------------------------------------------------
+// Hero
+// -------------------------------------------------------------
 
 #customize-control-hero_container {
 	.suki-radioimage__option:first-child {
@@ -98,9 +98,9 @@
 	}
 }
 
-/**
- * Page Settings
- */
+// -------------------------------------------------------------
+// Page Settings
+// -------------------------------------------------------------
 
 .customize-control-select:is(
 	[id$="_content_container"],
@@ -173,18 +173,23 @@
 	padding-left: 15px;
 }
 
-/**
- * Header Builder
- */
+// -------------------------------------------------------------
+// Header Builder
+// -------------------------------------------------------------
 
 #customize-control-header_builder_responsive_tabs {
-	.suki-responsive-tabs {
-		margin: 0 -12px;
-		padding: 0 12px 0 calc( 12px - 0.5em );
+	@media screen and ( min-width: 1324px ) {
+		width: calc( 100% + 20px + 20px );
+		margin-inline: -20px;
+		margin-block-start: -20px;
 
-		@media screen and ( min-width: 1324px ) {
-			margin: -20px -20px 0;
+		.suki-responsive-tabs {
+			width: auto; // Reset default flex width
 			padding: 0 20px 0 calc( 20px - 0.5em );
+		}
+
+		.suki-responsive-tabs__button {
+			flex: 0;
 		}
 	}
 }
@@ -291,9 +296,9 @@
 	}
 }
 
-/**
- * Footer Builder
- */
+// -------------------------------------------------------------
+// Footer Builder
+// -------------------------------------------------------------
 
 #customize-control-footer_elements {
 	@media screen and ( min-width: 1324px ) {
@@ -333,9 +338,9 @@
 	}
 }
 
-/**
- * Add ↳ prefix to some sections link to indicate hierarchy
- */
+// -------------------------------------------------------------
+// Add ↳ prefix to some sections link to indicate hierarchy
+// -------------------------------------------------------------
 
 [id="accordion-panel-suki_panel_header"],
 [id="accordion-panel-suki_panel_footer"],

@@ -1,6 +1,6 @@
-/**
- * Section
- */
+// -------------------------------------------------------------
+// Section
+// -------------------------------------------------------------
 
 #customize-theme-controls {
 	.customize-pane-child {
@@ -30,9 +30,9 @@ div.customize-section-description {
 	border-bottom: 1px solid #ddd;
 }
 
-/**
- * Control
- */
+// -------------------------------------------------------------
+// Control
+// -------------------------------------------------------------
 
 .customize-control {
 	position: relative;
@@ -47,9 +47,9 @@ div.customize-section-description {
 	}
 }
 
-/**
- * Icon
- */
+// -------------------------------------------------------------
+// Icon
+// -------------------------------------------------------------
 
 .suki-icon {
 	display: inline-block;
@@ -78,17 +78,17 @@ div.customize-section-description {
 	}
 }
 
-/**
- * Button
- */
+// -------------------------------------------------------------
+// Button
+// -------------------------------------------------------------
 
 .wp-core-ui .button {
 	font-style: normal; // Reset italic button on control's description.
 }
 
-/**
- * Gutenberg components
- */
+// -------------------------------------------------------------
+// Gutenberg components
+// -------------------------------------------------------------
 
 :is( .components-input-control, .components-select-control ) {
 	gap: 2px !important;
@@ -144,16 +144,18 @@ div.customize-section-description {
 	}
 }
 
-/**
- * Responsive Tabs
- */
+// -------------------------------------------------------------
+// Responsive Tabs
+// -------------------------------------------------------------
 
 .suki-responsive-tabs {
 	padding-block-start: 0;
 	padding-inline-end: 0.5em;
+	display: flex;
 }
 
 .suki-responsive-tabs__button {
+	flex: 1;
 	display: inline-flex;
 	gap: 0.5em;
 	justify-content: center;
@@ -167,9 +169,9 @@ div.customize-section-description {
 	}
 }
 
-/**
- * Mega menu modal (Suki Pro)
- */
+// -------------------------------------------------------------
+// Mega menu modal (Suki Pro)
+// -------------------------------------------------------------
 
 .modal-open {
 	#TB_overlay, #TB_window {
