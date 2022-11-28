@@ -237,7 +237,15 @@ class Suki_Page_Settings_Meta_Box {
 	 * Enqueue scripts (JS) for page settings.
 	 */
 	public function enqueue_editor_js() {
-		$post_id   = get_query_var( 'post' );
+		// Abort if current loaded page is not post editor page.
+		if ( 'post' !== get_current_screen()->base ) {
+			return;
+		}
+
+		// Get post object.
+		global $post;
+
+		$post_id   = $post->ID;
 		$post_type = get_post_type( $post_id );
 
 		// Abort if current edited post is one of the excluded IDs.

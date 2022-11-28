@@ -119,10 +119,7 @@ class Suki_Compatibility_WooCommerce {
 		 * Page settings.
 		 */
 
-		add_filter( 'suki/page_settings/overriding_post_meta_box', array( $this, 'exclude_page_settings_on_shop_page' ), 10, 2 );
-
-		add_filter( 'suki/admin/metabox/page_settings/tabs', array( $this, 'add_page_settings_tab__product' ) );
-		add_action( 'suki/admin/metabox/page_settings/fields', array( $this, 'render_page_settings_fields__product' ), 10, 2 );
+		add_filter( 'suki/page_settings/excluded_post_ids', array( $this, 'exclude_page_settings_on_shop_page' ), 10, 2 );
 
 		add_filter( 'update_option_woocommerce_cart_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
 		add_filter( 'update_option_woocommerce_checkout_page_id', array( $this, 'set_default_page_settings_on_woocommerce_pages' ), 10, 3 );
@@ -887,74 +884,13 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Exclude page settings meta box on shop page.
 	 *
-	 * @param string  $html Meta box HTML.
-	 * @param WP_Post $post Post object.
-	 * @return string
-	 */
-	public function exclude_page_settings_on_shop_page( $html, $post ) {
-		if ( wc_get_page_id( 'shop' ) === $post->ID ) {
-			$html = '<p><a href="' . esc_attr(
-				add_query_arg(
-					array(
-						'autofocus[section]' => 'woocommerce_product_catalog',
-						'url'                => esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ),
-					),
-					admin_url( 'customize.php' )
-				)
-			) . '">' . esc_html__( 'Edit Page settings here', 'suki' ) . '</a></p>';
-		}
-
-		return $html;
-	}
-
-	/**
-	 * Add "Product Layout" tab on Page Settings meta box.
-	 *
-	 * @param array $tabs Tabs.
+	 * @param array $ids Post IDs.
 	 * @return array
 	 */
-	public function add_page_settings_tab__product( $tabs ) {
-		if ( 'product' === get_current_screen()->post_type ) {
-			$tabs['woocommerce-single'] = esc_html__( 'Product Layout', 'suki' );
-		}
+	public function exclude_page_settings_on_shop_page( $ids ) {
+		$ids[] = wc_get_page_id( 'shop' );
 
-		return $tabs;
-	}
-
-	/**
-	 * Render "Product Layout" options on Page Settings meta box.
-	 *
-	 * @param WP_Post|WP_Term $obj Post or term object.
-	 * @param string          $tab Tab name.
-	 */
-	public function render_page_settings_fields__product( $obj, $tab ) {
-		if ( 'woocommerce-single' !== $tab ) {
-			return;
-		}
-
-		if ( suki_show_pro_teaser() ) {
-			?>
-			<div class="notice notice-info notice-alt inline suki-metabox-field-pro-teaser">
-				<h3><?php echo esc_html_x( 'More Options Available', 'Suki Pro upsell', 'suki' ); ?></h3>
-				<p>
-					<?php echo esc_html_x( 'Enable / disable breadcrumb.', 'Suki Pro upsell', 'suki' ); ?><br>
-					<?php echo esc_html_x( 'Enable / disable gallery on this product page.', 'Suki Pro upsell', 'suki' ); ?><br>
-					<?php echo esc_html_x( 'Change gallery layout on this product page.', 'Suki Pro upsell', 'suki' ); ?><br>
-					<?php echo esc_html_x( 'Enable / disable product info tabs.', 'Suki Pro upsell', 'suki' ); ?><br>
-					<?php echo esc_html_x( 'Enable / disable up-sells.', 'Suki Pro upsell', 'suki' ); ?><br>
-					<?php echo esc_html_x( 'Enable / disable related products.', 'Suki Pro upsell', 'suki' ); ?>
-				</p>
-				<?php
-				$url_args = array(
-					'utm_source'   => 'suki-page-settings-metabox',
-					'utm_medium'   => 'learn-more',
-					'utm_campaign' => 'theme-upsell',
-				);
-				?>
-				<p><a href="<?php echo esc_url( add_query_arg( $url_args, SUKI_PRO_WEBSITE_URL ) ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php echo esc_html_x( 'Learn More', 'Suki Pro upsell', 'suki' ); ?></a></p>
-			</div>
-			<?php
-		}
+		return $ids;
 	}
 
 	/**
