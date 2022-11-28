@@ -252,6 +252,18 @@ $wp_customize->add_panel(
 	)
 );
 
+// Header > Responsive Tabs.
+$wp_customize->add_section(
+	new Suki_Customize_Responsive_Tabs_Section(
+		$wp_customize,
+		'suki_section_header_responsive_tabs',
+		array(
+			'panel'    => $panel,
+			'priority' => 10,
+		)
+	)
+);
+
 // Header > Header Builder.
 $wp_customize->add_section(
 	new Suki_Customize_Builder_Section(
@@ -259,18 +271,6 @@ $wp_customize->add_section(
 		'suki_section_header_builder',
 		array(
 			'title'    => esc_html__( 'Header Builder', 'suki' ),
-			'panel'    => $panel,
-			'priority' => 10,
-		)
-	)
-);
-
-// Header > Responsive Tabs.
-$wp_customize->add_section(
-	new Suki_Customize_Responsive_Tabs_Section(
-		$wp_customize,
-		'suki_section_header_responsive_tabs',
-		array(
 			'panel'    => $panel,
 			'priority' => 10,
 		)
