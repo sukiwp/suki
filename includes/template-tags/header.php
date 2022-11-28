@@ -90,6 +90,7 @@ if ( ! function_exists( 'suki_header_desktop' ) ) {
 		ob_start();
 
 		if ( ! boolval( suki_get_current_page_setting( 'disable_header' ) ) ) {
+			$classes = suki_element_class( 'header', array( 'suki-header-desktop' ), false );
 			?>
 			<!-- wp:group {
 				"style":{
@@ -97,8 +98,8 @@ if ( ! function_exists( 'suki_header_desktop' ) ) {
 						"blockGap":"0px"
 					}
 				},
-				"className":"suki-header-desktop"
-			} --><div id="header" class="wp-block-group suki-header-desktop">
+				"className":"<?php echo esc_attr( $classes ); ?>"
+			} --><div id="header" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 				<?php
 				// Header Top Bar (if not merged).
@@ -468,6 +469,7 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 		ob_start();
 
 		if ( ! boolval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
+			$classes = suki_element_class( 'header_mobile', array( 'suki-header-mobile' ), false );
 			?>
 			<!-- wp:group {
 				"style":{
@@ -475,8 +477,8 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 						"blockGap":"0px"
 					}
 				},
-				"className":"suki-header-mobile"
-			} --><div id="mobile-header" class="wp-block-group suki-header-mobile">
+				"className":"<?php echo esc_attr( $classes ); ?>"
+			} --><div id="mobile-header" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
 				<?php
 				// Mobile main bar.
