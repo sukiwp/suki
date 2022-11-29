@@ -28,7 +28,7 @@
 		const calculateSubMenuEdge = function() {
 			const isRTL = document.body.classList.contains( 'rtl' );
 			const anchorSide = isRTL ? 'left' : 'right';
-			const $submenus = Array.prototype.slice.call( document.querySelectorAll( '.suki-header-row .menu > * > .sub-menu' ) );
+			const $submenus = [ ...document.querySelectorAll( '.suki-header-row .menu > * > .sub-menu' ) ];
 
 			$submenus.forEach( function( $submenu ) {
 				const $section = $submenu.closest( '.suki-header' );
@@ -81,7 +81,7 @@
 				}
 
 				// Iterate to 2nd & higher level submenu.
-				const $subsubmenus = Array.prototype.slice.call( $submenu.querySelectorAll( '.sub-menu' ) );
+				const $subsubmenus = [ ...$submenu.querySelectorAll( '.sub-menu' ) ];
 				$subsubmenus.forEach( function( $subsubmenu ) {
 					const subsubmenuEdge = $subsubmenu.getBoundingClientRect().left + ( isRTL ? 0 : $subsubmenu.getBoundingClientRect().width );
 					const isSubsubmenuOverflow = isRTL ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
@@ -133,7 +133,7 @@
 			}
 		};
 
-		const $menuLinks = Array.prototype.slice.call( document.querySelectorAll( '.suki-hover-menu .menu-item > a' ) );
+		const $menuLinks = [ ...document.querySelectorAll( '.suki-hover-menu .menu-item > a' ) ];
 		$menuLinks.forEach( function( $menuLink ) {
 			$menuLink.addEventListener( 'focus', handleMenuFocusUsingKeyboard, true );
 			$menuLink.addEventListener( 'blur', handleMenuFocusUsingKeyboard, true );
@@ -257,7 +257,7 @@
 			} else {
 				// Menu item doesn't have "focus" class yet, so collapses other focused menu items found in the header and focuses this menu item.
 
-				const $focusedMenuItems = Array.prototype.slice.call( $header.querySelectorAll( '.menu-item.focus' ) );
+				const $focusedMenuItems = [ ...$header.querySelectorAll( '.menu-item.focus' ) ];
 				$focusedMenuItems.forEach( function( $focusedMenuItem ) {
 					$focusedMenuItem.classList.remove( 'focus' );
 				} );
@@ -298,7 +298,7 @@
 				const $header = document.getElementById( 'masthead' );
 
 				if ( $header ) {
-					const $focusedMenuItems = Array.prototype.slice.call( $header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' ) );
+					const $focusedMenuItems = [ ...$header.querySelectorAll( '.suki-toggle-menu .menu-item.focus' ) ];
 					$focusedMenuItems.forEach( function( $focusedMenuItem ) {
 						$focusedMenuItem.classList.remove( 'focus' );
 						$clickedToggle.setAttribute( 'aria-expanded', false );
@@ -417,7 +417,7 @@
 				slideUp( $subMenu );
 				$menuItem.classList.remove( 'focus' );
 
-				const $insideMenuItems = Array.prototype.slice.call( $menuItem.querySelectorAll( '.menu-item.focus' ) );
+				const $insideMenuItems = [ ...$menuItem.querySelectorAll( '.menu-item.focus' ) ];
 				$insideMenuItems.forEach( function( $insideMenuItem ) {
 					slideUp( $insideMenuItem.querySelector( '.sub-menu' ) );
 					$insideMenuItem.classList.remove( 'focus' );
@@ -425,7 +425,7 @@
 			} else {
 				// Menu item doesn't have "focus" class yet, so collapses all focused siblings and focuses this menu item.
 
-				const $siblingMenuItems = Array.prototype.slice.call( $menuItem.parentElement.querySelectorAll( '.menu-item.focus' ) );
+				const $siblingMenuItems = [ ...$menuItem.parentElement.querySelectorAll( '.menu-item.focus' ) ];
 				$siblingMenuItems.forEach( function( $siblingMenuItem ) {
 					slideUp( $siblingMenuItem.querySelector( '.sub-menu' ) );
 					$siblingMenuItem.classList.remove( 'focus' );
@@ -477,7 +477,7 @@
 		 * @param {string} device
 		 */
 		const deactivatePopup = function( device ) {
-			const $activePopups = Array.prototype.slice.call( document.querySelectorAll( '.suki-popup--active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) ) );
+			const $activePopups = [ ...document.querySelectorAll( '.suki-popup--active' + ( undefined !== device ? '.suki-hide-on-' + device : '' ) ) ];
 
 			$activePopups.forEach( function( $activePopup ) {
 				// Deactivate popup.
