@@ -190,7 +190,7 @@ if ( ! function_exists( 'suki_default_logo' ) ) {
 	 */
 	function suki_default_logo() {
 		?>
-		<div class="suki-logo suki-logo--default"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></div>
+		<span class="suki-logo suki-logo--default"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></span>
 		<?php
 	}
 }
