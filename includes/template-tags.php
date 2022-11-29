@@ -117,7 +117,7 @@ if ( ! function_exists( 'suki_inline_svg' ) ) {
 		}
 
 		// Get SVG markup.
-		$html = file_get_contents( $svg_file );
+		$html = file_get_contents( $svg_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 
 		// Remove XML encoding tag.
 		// This should not be printed on inline SVG.
@@ -160,26 +160,14 @@ if ( ! function_exists( 'suki_logo' ) ) {
 		if ( ! empty( $logo_image_id ) ) {
 			$mime = get_post_mime_type( $logo_image_id );
 
-			/**
-			 * Filter: suki/frontend/logo/use_inline_svg
-			 *
-			 * @param boolean $use_inline_svg Use inline or not.
-			 */
-			$use_inline_svg = apply_filters( 'suki/frontend/logo/use_inline_svg', false );
-
-			// Build logo image tag.
-			if ( 'image/svg+xml' === $mime && $use_inline_svg ) {
-				$logo_image = suki_inline_svg( get_attached_file( $logo_image_id ), false );
-			} else {
-				$logo_image = wp_get_attachment_image(
-					$logo_image_id,
-					'full',
-					0,
-					array(
-						'alt' => get_bloginfo( 'name', 'display' ),
-					)
-				);
-			}
+			$logo_image = wp_get_attachment_image(
+				$logo_image_id,
+				'full',
+				0,
+				array(
+					'alt' => get_bloginfo( 'name', 'display' ),
+				)
+			);
 
 			// Replace logo HTML if logo image is found.
 			if ( ! empty( $logo_image ) ) {
@@ -202,7 +190,7 @@ if ( ! function_exists( 'suki_default_logo' ) ) {
 	 */
 	function suki_default_logo() {
 		?>
-		<div class="suki-default-logo"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></div>
+		<div class="suki-logo suki-logo--default"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></div>
 		<?php
 	}
 }
@@ -218,7 +206,7 @@ if ( ! function_exists( 'suki_default_logo_mobile' ) ) {
 			$mobile_logo = suki_get_theme_mod( 'custom_logo' );
 		}
 		?>
-		<span class="suki-default-logo"><?php suki_logo( $mobile_logo ); ?></span>
+		<span class="suki-logo suki-logo--default"><?php suki_logo( $mobile_logo ); ?></span>
 		<?php
 	}
 }
