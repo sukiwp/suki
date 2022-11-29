@@ -308,24 +308,26 @@ class Suki_Customizer_Sanitization {
 	 * @return string
 	 */
 	public static function shadow( $value, $setting ) {
-		// Elaborate each property.
-		$props = explode( ' ', $value );
-
-		// Check if properties count is less than 5, return empty string.
-		if ( 5 > count( $props ) ) {
-			return '';
+		// Check if value is not array, return empty array.
+		if ( ! is_array( $value ) ) {
+			return array( '', '', '', '', '', '' );
 		}
 
-		foreach ( $props as $i => $prop ) {
+		// Check if properties count is less than 5, return empty string.
+		if ( 5 > count( $value ) ) {
+			return array( '', '', '', '' );
+		}
+
+		foreach ( $value as $i => $prop ) {
 			switch ( $i ) {
 				case 4:
 					// Validate.
-					$props[ $i ] = self::validate_color( $props[ $i ] );
+					$value[ $i ] = self::validate_color( $value[ $i ] );
 					break;
 
 				case 5:
-					if ( 'inset' !== $props[ $i ] ) {
-						$props[ $i ] = '';
+					if ( 'inset' !== $value[ $i ] ) {
+						unset( $value[ $i ] );
 					}
 					break;
 
@@ -334,12 +336,12 @@ class Suki_Customizer_Sanitization {
 				case 2:
 				case 3:
 					// Validate dimension.
-					$props[ $i ] = self::validate_dimension( $props[ $i ], array( 'px' => array() ) );
+					$value[ $i ] = self::validate_dimension( $value[ $i ], array( 'px' => array() ) );
 					break;
 			}
 		}
 
-		return trim( implode( ' ', $props ) );
+		return $value;
 	}
 
 	/**
