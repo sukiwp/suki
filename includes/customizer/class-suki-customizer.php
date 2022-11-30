@@ -376,9 +376,14 @@ class Suki_Customizer {
 	 * @return string
 	 */
 	public function convert_output_value_to_string( $setting_value ) {
-		// If value is an array, join all sub values with a ' ' delimiter.
-		// If subvalue is an empty string, convert to '0'.
+		// If value is an array.
 		if ( is_array( $setting_value ) ) {
+			// If all values are empty then return empty string.
+			if ( '' === trim( implode( '', $setting_value ) ) ) {
+				return '';
+			}
+
+			// If one of the values are not empty, iterate through the values and convert every empty string to '0'.
 			foreach ( $setting_value as $i => $subvalue ) {
 				if ( '' === $subvalue ) {
 					$setting_value[ $i ] = '0';
