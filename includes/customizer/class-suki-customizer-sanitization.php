@@ -315,7 +315,7 @@ class Suki_Customizer_Sanitization {
 
 		// Check if properties count is less than 5, return empty string.
 		if ( 5 > count( $value ) ) {
-			return array( '', '', '', '' );
+			return array( '', '', '', '', '' );
 		}
 
 		foreach ( $value as $i => $prop ) {
@@ -336,7 +336,14 @@ class Suki_Customizer_Sanitization {
 				case 2:
 				case 3:
 					// Validate dimension.
-					$value[ $i ] = self::validate_dimension( $value[ $i ], array( 'px' => array() ) );
+					$value[ $i ] = self::validate_dimension(
+						$value[ $i ],
+						array(
+							'px'  => array(),
+							'em'  => array(),
+							'rem' => array(),
+						)
+					);
 					break;
 			}
 		}
