@@ -67,7 +67,7 @@ function suki_template_hooks() {
 	add_action( 'suki/frontend/logo', 'suki_default_logo', 10 );
 
 	// Add default mobile logo.
-	add_action( 'suki/frontend/mobile_logo', 'suki_default_logo_mobile', 10 );
+	add_action( 'suki/frontend/mobile_logo', 'suki_default_mobile_logo', 10 );
 
 	/**
 	 * ====================================================

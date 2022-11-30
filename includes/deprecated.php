@@ -367,17 +367,6 @@ function suki_mobile_vertical_header() {
 /**
  * [DEPRECATED]
  *
- * @deprecated 2.0.0 Replace `suki_default_mobile_logo` with `suki_default_logo_mobile`.
- */
-function suki_default_mobile_logo() {
-	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_default_logo_mobile' );
-
-	suki_default_logo_mobile();
-}
-
-/**
- * [DEPRECATED]
- *
  * @deprecated 2.0.0 Replace `suki_post_single_content_footer_element` with `suki_content_footer_element`.
  */
 function suki_post_single_content_footer_element() {

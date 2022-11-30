@@ -195,11 +195,11 @@ if ( ! function_exists( 'suki_default_logo' ) ) {
 	}
 }
 
-if ( ! function_exists( 'suki_default_logo_mobile' ) ) {
+if ( ! function_exists( 'suki_default_mobile_logo' ) ) {
 	/**
 	 * Print / return HTML markup for default mobile logo.
 	 */
-	function suki_default_logo_mobile() {
+	function suki_default_mobile_logo() {
 		$mobile_logo = suki_get_theme_mod( 'custom_logo_mobile' );
 
 		if ( empty( $mobile_logo ) ) {
