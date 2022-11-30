@@ -105,7 +105,7 @@ $wp_customize->add_control(
 			'section'     => $section,
 			'settings'    => array(),
 			'label'       => esc_html__( 'Mobile Logo', 'suki' ),
-			'description' => esc_html__( 'Override the default desktop logo when on mobile view.', 'suki' ),
+			'description' => esc_html__( 'When not specified, the desktop logo will be used.', 'suki' ),
 			'priority'    => 20,
 		)
 	)

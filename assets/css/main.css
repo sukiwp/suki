@@ -1438,6 +1438,8 @@ th {
 	padding: 0 20px;
 	border-style: solid;
 	border-width: 0;
+	transition-duration: var(--transition-duration);
+	transition-property: color, background-color, border-color;
 }
 
 .suki-header-main-bar {
@@ -1452,6 +1454,8 @@ th {
 	padding: 0 20px;
 	border-style: solid;
 	border-width: 0;
+	transition-duration: var(--transition-duration);
+	transition-property: color, background-color, border-color;
 }
 .suki-header-main-bar:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) > .suki-header-main-bar-merged-wrapper {
 	height: 100%;
@@ -1476,6 +1480,8 @@ th {
 	padding: 0 var(--wp--style--block-gap);
 	border-style: solid;
 	border-width: 0;
+	transition-duration: var(--transition-duration);
+	transition-property: color, background-color, border-color;
 }
 
 .suki-header-mobile-main-bar {
@@ -1490,6 +1496,8 @@ th {
 	padding: 0 20px;
 	border-style: solid;
 	border-width: 0;
+	transition-duration: var(--transition-duration);
+	transition-property: color, background-color, border-color;
 }
 
 .suki-header-mobile-popup {
