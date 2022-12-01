@@ -102,17 +102,15 @@
 // Page Settings
 // -------------------------------------------------------------
 
-.customize-control-select:is(
+// Page Settings: 1st level options
+:is( // Select Control
 	[id$="_content_container"],
 	[id$="_content_layout"],
 	[id$="_hero"],
 	[id$="_disable_header"],
 	[id$="_disable_header_mobile"],
 	[id$="_disable_footer_widgets"],
-	[id$="_disable_footer_bottom"],
-	[id$="_preloader_screen"],
-	[id*="_bar_transparent_"],
-	[id*="_bar_alt_"]
+	[id$="_disable_footer_bottom"]
 ) {
 	.customize-control-title {
 		min-height: 30px;
@@ -128,7 +126,38 @@
 	}
 }
 
-.customize-control-suki-color:is(
+// Page Settings: 2nd level options
+:is( // Select Control
+	[id$="_hero_container"],
+	[id$="_hero_bg"]
+) {
+	padding-left: 15px;
+
+	.customize-control-title {
+		min-height: 30px;
+		padding-right: 135px;
+		margin-bottom: 0; // Reset
+	}
+
+	select {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 120px;
+	}
+}
+
+// Page Settings: 2nd level options
+[id$="_hero_bg_image"] { // Image or Upload Control
+	padding-left: 15px;
+}
+
+// -------------------------------------------------------------
+// Suki Pro options
+// -------------------------------------------------------------
+
+// Suki Pro: Transparent header, Header Alt Colors
+.customize-control-suki-color-select:is(
 	[id$="_bar_transparent_bg_color"],
 	[id$="_bar_transparent_border_color"],
 	[id$="_bar_alt_bg_color"],
@@ -143,8 +172,11 @@
 	[id$="_bar_alt_menu_active_highlight_text_color"],
 	[id$="_bar_alt_transparent_bg_color"],
 	[id$="_bar_alt_transparent_border_color"]
-),
+) {
+	padding-left: 15px;
+}
 
+// Page settings: 2nd level options
 .customize-control-select:is(
 	[id$="_sidebar_sticky"],
 	[id$="_header_alt_colors"],
@@ -152,14 +184,15 @@
 	[id$="_header_sticky"],
 	[id$="_header_mobile_alt_colors"],
 	[id$="_header_mobile_transparent"],
-	[id$="_header_mobile_sticky"],
-	[id$="_hero_container"],
-	[id$="_hero_bg"]
+	[id$="_header_mobile_sticky"]
 ) {
 	padding-left: 15px;
 
-	min-height: 30px;
-	padding-right: 135px;
+	.customize-control-title {
+		min-height: 30px;
+		padding-right: 135px;
+		margin-bottom: 0; // Reset
+	}
 
 	select {
 		position: absolute;
@@ -167,10 +200,6 @@
 		right: 0;
 		width: 120px;
 	}
-}
-
-[id$="_hero_bg_image"] {
-	padding-left: 15px;
 }
 
 // -------------------------------------------------------------

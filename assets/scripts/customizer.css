@@ -215,85 +215,41 @@ div.customize-section-description {
   grid-column: 1/4;
 }
 
-.customize-control-select:is([id$=_content_container],
+:is([id$=_content_container],
 [id$=_content_layout],
 [id$=_hero],
 [id$=_disable_header],
 [id$=_disable_header_mobile],
 [id$=_disable_footer_widgets],
-[id$=_disable_footer_bottom],
-[id$=_preloader_screen],
-[id*=_bar_transparent_],
-[id*=_bar_alt_]) .customize-control-title {
+[id$=_disable_footer_bottom]) .customize-control-title {
   min-height: 30px;
   padding-right: 135px;
   margin-bottom: 0;
 }
-.customize-control-select:is([id$=_content_container],
+:is([id$=_content_container],
 [id$=_content_layout],
 [id$=_hero],
 [id$=_disable_header],
 [id$=_disable_header_mobile],
 [id$=_disable_footer_widgets],
-[id$=_disable_footer_bottom],
-[id$=_preloader_screen],
-[id*=_bar_transparent_],
-[id*=_bar_alt_]) select {
+[id$=_disable_footer_bottom]) select {
   position: absolute;
   top: 0;
   right: 0;
   width: 120px;
 }
 
-.customize-control-suki-color:is([id$=_bar_transparent_bg_color],
-[id$=_bar_transparent_border_color],
-[id$=_bar_alt_bg_color],
-[id$=_bar_alt_border_color],
-[id$=_bar_alt_text_color],
-[id$=_bar_alt_link_text_color],
-[id$=_bar_alt_link_hover_text_color],
-[id$=_bar_alt_link_active_text_color],
-[id$=_bar_alt_menu_hover_highlight_color],
-[id$=_bar_alt_menu_hover_highlight_text_color],
-[id$=_bar_alt_menu_active_highlight_color],
-[id$=_bar_alt_menu_active_highlight_text_color],
-[id$=_bar_alt_transparent_bg_color],
-[id$=_bar_alt_transparent_border_color]),
-.customize-control-select:is([id$=_sidebar_sticky],
-[id$=_header_alt_colors],
-[id$=_header_transparent],
-[id$=_header_sticky],
-[id$=_header_mobile_alt_colors],
-[id$=_header_mobile_transparent],
-[id$=_header_mobile_sticky],
-[id$=_hero_container],
+:is([id$=_hero_container],
 [id$=_hero_bg]) {
   padding-left: 15px;
+}
+:is([id$=_hero_container],
+[id$=_hero_bg]) .customize-control-title {
   min-height: 30px;
   padding-right: 135px;
+  margin-bottom: 0;
 }
-.customize-control-suki-color:is([id$=_bar_transparent_bg_color],
-[id$=_bar_transparent_border_color],
-[id$=_bar_alt_bg_color],
-[id$=_bar_alt_border_color],
-[id$=_bar_alt_text_color],
-[id$=_bar_alt_link_text_color],
-[id$=_bar_alt_link_hover_text_color],
-[id$=_bar_alt_link_active_text_color],
-[id$=_bar_alt_menu_hover_highlight_color],
-[id$=_bar_alt_menu_hover_highlight_text_color],
-[id$=_bar_alt_menu_active_highlight_color],
-[id$=_bar_alt_menu_active_highlight_text_color],
-[id$=_bar_alt_transparent_bg_color],
-[id$=_bar_alt_transparent_border_color]) select,
-.customize-control-select:is([id$=_sidebar_sticky],
-[id$=_header_alt_colors],
-[id$=_header_transparent],
-[id$=_header_sticky],
-[id$=_header_mobile_alt_colors],
-[id$=_header_mobile_transparent],
-[id$=_header_mobile_sticky],
-[id$=_hero_container],
+:is([id$=_hero_container],
 [id$=_hero_bg]) select {
   position: absolute;
   top: 0;
@@ -303,6 +259,56 @@ div.customize-section-description {
 
 [id$=_hero_bg_image] {
   padding-left: 15px;
+}
+
+.customize-control-suki-color-select:is([id$=_bar_transparent_bg_color],
+[id$=_bar_transparent_border_color],
+[id$=_bar_alt_bg_color],
+[id$=_bar_alt_border_color],
+[id$=_bar_alt_text_color],
+[id$=_bar_alt_link_text_color],
+[id$=_bar_alt_link_hover_text_color],
+[id$=_bar_alt_link_active_text_color],
+[id$=_bar_alt_menu_hover_highlight_color],
+[id$=_bar_alt_menu_hover_highlight_text_color],
+[id$=_bar_alt_menu_active_highlight_color],
+[id$=_bar_alt_menu_active_highlight_text_color],
+[id$=_bar_alt_transparent_bg_color],
+[id$=_bar_alt_transparent_border_color]) {
+  padding-left: 15px;
+}
+
+.customize-control-select:is([id$=_sidebar_sticky],
+[id$=_header_alt_colors],
+[id$=_header_transparent],
+[id$=_header_sticky],
+[id$=_header_mobile_alt_colors],
+[id$=_header_mobile_transparent],
+[id$=_header_mobile_sticky]) {
+  padding-left: 15px;
+}
+.customize-control-select:is([id$=_sidebar_sticky],
+[id$=_header_alt_colors],
+[id$=_header_transparent],
+[id$=_header_sticky],
+[id$=_header_mobile_alt_colors],
+[id$=_header_mobile_transparent],
+[id$=_header_mobile_sticky]) .customize-control-title {
+  min-height: 30px;
+  padding-right: 135px;
+  margin-bottom: 0;
+}
+.customize-control-select:is([id$=_sidebar_sticky],
+[id$=_header_alt_colors],
+[id$=_header_transparent],
+[id$=_header_sticky],
+[id$=_header_mobile_alt_colors],
+[id$=_header_mobile_transparent],
+[id$=_header_mobile_sticky]) select {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
 }
 
 @media screen and (min-width: 1324px) {
