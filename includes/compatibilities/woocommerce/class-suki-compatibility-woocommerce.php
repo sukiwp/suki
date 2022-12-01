@@ -313,13 +313,13 @@ class Suki_Compatibility_WooCommerce {
 	public function add_header_mobile_builder_elements( $elements ) {
 		$elements['cart-link'] = array(
 			'icon'              => 'cart',
-			'label'             => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Link', 'suki' ),
+			'label'             => esc_html__( 'Cart Link', 'suki' ),
 			'unsupported_areas' => array( 'vertical_top' ),
 		);
 
 		$elements['cart-dropdown'] = array(
 			'icon'              => 'cart',
-			'label'             => '<span class="dashicons dashicons-cart"></span>' . esc_html__( 'Cart Dropdown', 'suki' ),
+			'label'             => esc_html__( 'Cart Dropdown', 'suki' ),
 			'unsupported_areas' => array( 'vertical_top' ),
 		);
 
