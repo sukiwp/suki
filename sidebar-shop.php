@@ -11,9 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$classes = suki_element_class( 'sidebar', array( 'sidebar', 'sidebar-shop' ) );
-
 ob_start();
+
+$classes = suki_element_class( 'sidebar', array( 'sidebar' ), false );
 ?>
 <!-- wp:group {
 	"tagName":"aside",

@@ -401,21 +401,6 @@ function suki_header_bottom_bar_classes( $classes ) {
 add_filter( 'suki/frontend/header_bottom_bar_classes', 'suki_header_bottom_bar_classes' );
 
 /**
- * Add custom classes to the array of sidebar classes.
- *
- * @param array $classes Array of classes.
- * @return array
- */
-function suki_sidebar_classes( $classes ) {
-	$classes['widgets_mode']            = esc_attr( 'suki-sidebar-widgets-mode-' . suki_get_theme_mod( 'sidebar_widgets_mode' ) );
-	$classes['widget_title_alignment']  = esc_attr( 'suki-widget-title-alignment-' . suki_get_theme_mod( 'sidebar_widget_title_alignment' ) );
-	$classes['widget_title_decoration'] = esc_attr( 'suki-widget-title-decoration-' . suki_get_theme_mod( 'sidebar_widget_title_decoration' ) );
-
-	return $classes;
-}
-add_filter( 'suki/frontend/sidebar_classes', 'suki_sidebar_classes' );
-
-/**
  * Add custom classes to the array of footer widgets classes.
  *
  * @param array $classes Array of classes.
