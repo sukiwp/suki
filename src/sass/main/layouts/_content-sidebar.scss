@@ -16,6 +16,8 @@
 }
 
 .suki-content-sidebar-columns {
+	align-items: stretch !important; // Columns block doesn't support `stretch` vertical alignment.
+
 	--sidebar-width: 25%; // CUSTOMIZER
 	--sidebar-gap: calc( 3 * var(--wp--style--block-gap) ); // CUSTOMIZER
 
@@ -40,6 +42,8 @@
 }
 
 .suki-sidebar-column {
+	position: relative; // For sticky sidebar.
+
 	flex-basis: var(--sidebar-width);
 	flex-grow: 0; // Disable grow if specific column's width is set
 }

@@ -1933,6 +1933,7 @@ th {
 }
 
 .suki-content-sidebar-columns {
+	align-items: stretch !important;
 	--sidebar-width: 25%;
 	--sidebar-gap: calc( 3 * var(--wp--style--block-gap) );
 	gap: var(--sidebar-gap) !important;
@@ -1956,6 +1957,7 @@ th {
 }
 
 .suki-sidebar-column {
+	position: relative;
 	flex-basis: var(--sidebar-width);
 	flex-grow: 0;
 }

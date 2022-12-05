@@ -17,6 +17,10 @@ if ( ! function_exists( 'suki_content' ) ) {
 	/**
 	 * Render content section with the specified main content.
 	 *
+	 * Notes:
+	 * - Theme uses `.suki-content-sidebar-columns` class to add / override styles.
+	 * - Theme uses `.suki-sidebar-column` class to add / override styles.
+	 *
 	 * @param string  $main_content    Main content.
 	 * @param string  $sidebar_context Sidebar context.
 	 * @param boolean $do_blocks       Parse blocks or not.

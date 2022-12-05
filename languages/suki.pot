@@ -580,7 +580,7 @@ msgid "Older Posts"
 msgstr ""
 
 #. translators: %s: search keyword.
-#: includes/template-tags/content.php:428
+#: includes/template-tags/content.php:432
 msgid "Search results for: %s"
 msgstr ""
 
