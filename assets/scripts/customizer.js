@@ -1900,11 +1900,11 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
     }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
-      checked: control.setting.get() ? true : false,
+      checked: 1 === control.setting.get() ? true : false,
       id: '_customize-input-' + control.id,
       className: "suki-toggle",
-      onChange: () => {
-        control.setting.set(!control.setting.get());
+      onChange: checked => {
+        control.setting.set(checked ? 1 : 0);
       },
       __nextHasNoMarginBottom: true
     })), control.container[0]);
