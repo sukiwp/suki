@@ -11,12 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$classes = suki_element_class( 'sidebar', array( 'sidebar', 'sidebar-shop' ) );
+
 ob_start();
 ?>
 <!-- wp:group {
 	"tagName":"aside",
-	"className":"sidebar"
-} --><aside class="wp-block-group sidebar sidebar-shop" aria-label="<?php esc_attr_e( 'Shop Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
+	"className":"<?php echo esc_attr( $classes ); ?>"
+} --><aside class="wp-block-group <?php echo esc_attr( $classes ); ?>" aria-label="<?php esc_attr_e( 'Shop Sidebar', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPSideBar">
 
 	<?php
 	/**
