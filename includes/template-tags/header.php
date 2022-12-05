@@ -19,7 +19,6 @@ if ( ! function_exists( 'suki_header' ) ) {
 	 *
 	 * Notes:
 	 * - Action Hooks API is used to to register footer sections and allow further modifications in Child Theme or 3rd party plugin.
-	 * - `suki-header` CSS class handles these styles: blockGap (0px).
 	 * - `aria-label`, `itemscope`, `itemtype` attributes are added manually.
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
@@ -146,6 +145,9 @@ if ( ! function_exists( 'suki_header_desktop__top_bar' ) ) {
 	/**
 	 * Render desktop header top bar.
 	 *
+	 * Notes:
+	 * - Theme CSS uses `.suki-header-row` class to add / override styles.
+	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
@@ -238,6 +240,10 @@ if ( ! function_exists( 'suki_header_desktop__main_bar' ) ) {
 	/**
 	 * Render desktop header main bar.
 	 *
+	 * Notes:
+	 * - Theme CSS uses `.suki-header-row` class to add / override styles.
+	 * - Theme CSS uses `.suki-header-main-bar__merged-wrapper` class to add / override styles.
+	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
@@ -267,14 +273,14 @@ if ( ! function_exists( 'suki_header_desktop__main_bar' ) ) {
 				if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) || boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 					?>
 					<!-- wp:group {
-						"className":"suki-header-main-bar-merged-wrapper",
+						"className":"suki-header-main-bar__merged-wrapper",
 						"layout":{
 							"type":"flex",
 							"orientation":"vertical",
 							"flexWrap":"nowrap",
 							"justifyContent":"space-between"
 						}
-					} --><div class="wp-block-group suki-header-main-bar-merged-wrapper">
+					} --><div class="wp-block-group suki-header-main-bar__merged-wrapper">
 					<?php
 				}
 
@@ -365,6 +371,9 @@ if ( ! function_exists( 'suki_header_desktop__main_bar' ) ) {
 if ( ! function_exists( 'suki_header_desktop__bottom_bar' ) ) {
 	/**
 	 * Render desktop header bottom bar.
+	 *
+	 * Notes:
+	 * - Theme CSS uses `.suki-header-row` class to add / override styles.
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.

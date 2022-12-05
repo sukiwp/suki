@@ -1451,11 +1451,12 @@ th {
 	transition-duration: var(--transition-duration);
 	transition-property: color, background-color, border-color;
 }
-.suki-header-main-bar:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) > .suki-header-main-bar-merged-wrapper {
+.suki-header-main-bar:is(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) > .suki-header-main-bar__merged-wrapper {
 	height: 100%;
 	gap: 0;
+	align-items: stretch;
 }
-.suki-header-main-bar:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) > .suki-header-main-bar-merged-wrapper > .suki-header-row {
+.suki-header-main-bar:is(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) > .suki-header-main-bar__merged-wrapper > .suki-header-row {
 	flex-grow: 1;
 	height: auto;
 }
@@ -1644,43 +1645,47 @@ th {
 	padding: calc(0.25 * var(--wp--style--block-gap)) 0;
 }
 
-:is(.suki-header-menu--highlight-background,
-.suki-header-menu--highlight-underline,
-.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
+.suki-header-section--menu-highlight-none .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+	color: var(--menu-active-highlight--text-color);
+}
+
+:is(.suki-header-section--menu-highlight-background,
+.suki-header-section--menu-highlight-underline,
+.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
 	text-decoration: none;
 }
 
-.suki-header-menu--highlight-background {
+.suki-header-section--menu-highlight-background {
 	--menu-hover-highlight--text-color: var(--button--text-color);
 	--menu-hover-highlight--background-color: var(--button--background-color);
 }
-.suki-header-menu--highlight-background .suki-header-menu {
+.suki-header-section--menu-highlight-background .suki-header-menu {
 	gap: 0 !important;
 }
-.suki-header-menu--highlight-background .suki-header-menu > .menu-item > .suki-menu-item-link {
+.suki-header-section--menu-highlight-background .suki-header-menu > .menu-item > .suki-menu-item-link {
 	padding-inline: calc(0.5 * var(--items-gap));
 	transition-duration: var(--transition-duration);
 	transition-property: color, background-color;
 	height: 100%;
 }
-.suki-header-menu--highlight-background .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
+.suki-header-section--menu-highlight-background .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
 	color: var(--menu-hover-highlight--text-color);
 	background-color: var(--menu-hover-highlight--background-color);
 }
-.suki-header-menu--highlight-background .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+.suki-header-section--menu-highlight-background .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
 	color: var(--menu-active-highlight--text-color);
 	background-color: var(--menu-active-highlight--background-color);
 }
 
-.suki-header-menu--highlight-underline {
+.suki-header-section--menu-highlight-underline {
 	--menu-hover-highlight--text-color: var(--link-color--focus);
 	--menu-hover-highlight--background-color: var(--link-color--focus);
 }
-.suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link {
+.suki-header-section--menu-highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link {
 	position: relative;
 }
-.suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:before {
+.suki-header-section--menu-highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:before {
 	content: "";
 	position: absolute;
 	right: 0;
@@ -1690,31 +1695,31 @@ th {
 	transition-duration: var(--transition-duration);
 	transition-property: background-color;
 }
-.suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
+.suki-header-section--menu-highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
 	color: var(--menu-hover-highlight--text-color);
 }
-.suki-header-menu--highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus):before {
+.suki-header-section--menu-highlight-underline .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus):before {
 	background-color: var(--menu-hover-highlight--background-color);
 }
-.suki-header-menu--highlight-underline .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+.suki-header-section--menu-highlight-underline .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
 	color: var(--menu-active-highlight--text-color);
 }
-.suki-header-menu--highlight-underline .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus):before {
+.suki-header-section--menu-highlight-underline .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus):before {
 	background-color: var(--menu-active-highlight--background-color);
 }
 
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) {
 	--menu-hover-highlight--text-color: var(--link-color--focus);
 	--menu-hover-highlight--background-color: var(--link-color--focus);
 }
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link {
 	position: relative;
 	height: 100%;
 }
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:before {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:before {
 	content: "";
 	position: absolute;
 	right: 50%;
@@ -1723,28 +1728,28 @@ th {
 	transition-duration: var(--transition-duration);
 	transition-property: background-color;
 }
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus) {
 	color: var(--menu-hover-highlight--text-color);
 }
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus):before {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item > .suki-menu-item-link:is(:hover, :focus):before {
 	background-color: var(--menu-hover-highlight--background-color);
 }
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus) {
 	color: var(--menu-active-highlight--text-color);
 }
-:is(.suki-header-menu--highlight-border-top,
-.suki-header-menu--highlight-border-bottom) .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus):before {
+:is(.suki-header-section--menu-highlight-border-top,
+.suki-header-section--menu-highlight-border-bottom) .suki-header-menu > .menu-item:is(.current-menu-item, .current-menu-ancestor) > .suki-menu-item-link:not(:hover, :focus):before {
 	background-color: var(--menu-active-highlight--background-color);
 }
 
-.suki-header-menu--highlight-border-top .suki-header-menu > .menu-item > .suki-menu-item-link:before {
+.suki-header-section--menu-highlight-border-top .suki-header-menu > .menu-item > .suki-menu-item-link:before {
 	top: 0;
 }
 
-.suki-header-menu--highlight-border-bottom .suki-header-menu > .menu-item > .suki-menu-item-link:before {
+.suki-header-section--menu-highlight-border-bottom .suki-header-menu > .menu-item > .suki-menu-item-link:before {
 	bottom: 0;
 }
 

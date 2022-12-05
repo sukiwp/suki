@@ -96,10 +96,11 @@
 	transition-duration: var(--transition-duration);
 	transition-property: color, background-color, border-color;
 
-	&:where(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) {
-		> .suki-header-main-bar-merged-wrapper {
+	&:is(.suki-header-main-bar--with-top-bar, .suki-header-main-bar--with-bottom-bar) {
+		> .suki-header-main-bar__merged-wrapper {
 			height: 100%;
 			gap: 0;
+			align-items: stretch; // Override block's value
 
 			> .suki-header-row {
 				flex-grow: 1;
@@ -353,11 +354,27 @@
 	}
 }
 
+// Highlight none
+.suki-header-section--menu-highlight-none {
+	.suki-header-menu {
+		> .menu-item {
+			&:is( .current-menu-item, .current-menu-ancestor ) {
+				> .suki-menu-item-link {
+					&:not(:hover, :focus) {
+						color: var(--menu-active-highlight--text-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+// All highlights
 :is(
-	.suki-header-menu--highlight-background,
-	.suki-header-menu--highlight-underline,
-	.suki-header-menu--highlight-border-top,
-	.suki-header-menu--highlight-border-bottom
+	.suki-header-section--menu-highlight-background,
+	.suki-header-section--menu-highlight-underline,
+	.suki-header-section--menu-highlight-border-top,
+	.suki-header-section--menu-highlight-border-bottom
 ) {
 	.suki-header-menu {
 		> .menu-item {
@@ -370,7 +387,8 @@
 	}
 }
 
-.suki-header-menu--highlight-background {
+// Highlight background
+.suki-header-section--menu-highlight-background {
 	--menu-hover-highlight--text-color: var(--button--text-color);
 	--menu-hover-highlight--background-color: var(--button--background-color);
 
@@ -396,14 +414,14 @@
 						color: var(--menu-active-highlight--text-color);
 						background-color: var(--menu-active-highlight--background-color);
 					}
-
 				}
 			}
 		}
 	}
 }
 
-.suki-header-menu--highlight-underline {
+// Highlight underline
+.suki-header-section--menu-highlight-underline {
 	--menu-hover-highlight--text-color: var(--link-color--focus);
 	--menu-hover-highlight--background-color: var(--link-color--focus);
 
@@ -448,9 +466,10 @@
 	}
 }
 
+// Highlight border
 :is(
-	.suki-header-menu--highlight-border-top,
-	.suki-header-menu--highlight-border-bottom
+	.suki-header-section--menu-highlight-border-top,
+	.suki-header-section--menu-highlight-border-bottom
 ) {
 	--menu-hover-highlight--text-color: var(--link-color--focus);
 	--menu-hover-highlight--background-color: var(--link-color--focus);
@@ -496,7 +515,7 @@
 	}
 }
 
-.suki-header-menu--highlight-border-top {
+.suki-header-section--menu-highlight-border-top {
 	.suki-header-menu {
 		> .menu-item {
 			> .suki-menu-item-link {
@@ -508,7 +527,7 @@
 	}
 }
 
-.suki-header-menu--highlight-border-bottom {
+.suki-header-section--menu-highlight-border-bottom {
 	.suki-header-menu {
 		> .menu-item {
 			> .suki-menu-item-link {

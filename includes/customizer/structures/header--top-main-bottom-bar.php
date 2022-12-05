@@ -452,12 +452,11 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// Colors.
 	$colors = array(
-		'header_' . $bar . '_bg_color'               => esc_html__( 'Background color', 'suki' ),
-		'header_' . $bar . '_border_color'           => esc_html__( 'Border color', 'suki' ),
-		'header_' . $bar . '_text_color'             => esc_html__( 'Text color', 'suki' ),
-		'header_' . $bar . '_link_text_color'        => esc_html__( 'Link text color', 'suki' ),
-		'header_' . $bar . '_link_hover_text_color'  => esc_html__( 'Link text color :hover', 'suki' ),
-		'header_' . $bar . '_link_active_text_color' => esc_html__( 'Link text color :active', 'suki' ),
+		'header_' . $bar . '_bg_color'              => esc_html__( 'Background color', 'suki' ),
+		'header_' . $bar . '_border_color'          => esc_html__( 'Border color', 'suki' ),
+		'header_' . $bar . '_text_color'            => esc_html__( 'Text color', 'suki' ),
+		'header_' . $bar . '_link_text_color'       => esc_html__( 'Link text color', 'suki' ),
+		'header_' . $bar . '_link_hover_text_color' => esc_html__( 'Link text color :hover', 'suki' ),
 	);
 	foreach ( $colors as $key => $label ) {
 		$wp_customize->add_setting(
@@ -496,12 +495,11 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// Colors.
 	$colors = array(
-		'header_' . $bar . '_submenu_bg_color'               => esc_html__( 'Submenu background color', 'suki' ),
-		'header_' . $bar . '_submenu_border_color'           => esc_html__( 'Submenu border color', 'suki' ),
-		'header_' . $bar . '_submenu_text_color'             => esc_html__( 'Submenu text color', 'suki' ),
-		'header_' . $bar . '_submenu_link_text_color'        => esc_html__( 'Submenu link text color', 'suki' ),
-		'header_' . $bar . '_submenu_link_hover_text_color'  => esc_html__( 'Submenu link text color :hover', 'suki' ),
-		'header_' . $bar . '_submenu_link_active_text_color' => esc_html__( 'Submenu link text color :active', 'suki' ),
+		'header_' . $bar . '_submenu_bg_color'        => esc_html__( 'Submenu background color', 'suki' ),
+		'header_' . $bar . '_submenu_border_color'    => esc_html__( 'Submenu border color', 'suki' ),
+		'header_' . $bar . '_submenu_text_color'      => esc_html__( 'Submenu text color', 'suki' ),
+		'header_' . $bar . '_submenu_link_text_color' => esc_html__( 'Submenu link text color', 'suki' ),
+		'header_' . $bar . '_submenu_link_hover_text_color' => esc_html__( 'Submenu link text color :hover', 'suki' ),
 	);
 	foreach ( $colors as $key => $label ) {
 		$wp_customize->add_setting(
@@ -567,10 +565,10 @@ foreach ( array( 'top_bar', 'main_bar', 'bottom_bar' ) as $bar ) {
 
 	// Colors.
 	$colors = array(
-		'header_' . $bar . '_menu_hover_highlight_color'       => esc_html__( 'Highlight color :hover', 'suki' ),
-		'header_' . $bar . '_menu_hover_highlight_text_color'  => esc_html__( 'Highlight text color :hover', 'suki' ),
-		'header_' . $bar . '_menu_active_highlight_color'      => esc_html__( 'Highlight color :active', 'suki' ),
-		'header_' . $bar . '_menu_active_highlight_text_color' => esc_html__( 'Highlight text color :active', 'suki' ),
+		'header_' . $bar . '_menu_hover_highlight_color'  => esc_html__( 'Highlight color :hover', 'suki' ),
+		'header_' . $bar . '_menu_hover_highlight_text_color' => esc_html__( 'Highlight text color :hover', 'suki' ),
+		'header_' . $bar . '_menu_active_highlight_color' => esc_html__( 'Active menu highlight color', 'suki' ),
+		'header_' . $bar . '_menu_active_highlight_text_color' => esc_html__( 'Active menu highlight text color', 'suki' ),
 	);
 	foreach ( $colors as $key => $label ) {
 		$wp_customize->add_setting(

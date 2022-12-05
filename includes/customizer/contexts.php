@@ -65,17 +65,6 @@ foreach ( array( 'main_bar', 'top_bar', 'bottom_bar' ) as $bar ) {
 			),
 		);
 	}
-
-	$add[ 'header_' . $bar . '_menu_hover_highlight_color' ]       =
-	$add[ 'header_' . $bar . '_menu_hover_highlight_text_color' ]  =
-	$add[ 'header_' . $bar . '_menu_active_highlight_color' ]      =
-	$add[ 'header_' . $bar . '_menu_active_highlight_text_color' ] = array(
-		array(
-			'setting'  => 'header_' . $bar . '_menu_highlight',
-			'operator' => '!=',
-			'value'    => 'none',
-		),
-	);
 }
 
 /**

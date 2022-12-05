@@ -1211,14 +1211,6 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		),
 	);
 
-	$add[ 'header_' . $bar . '_bar_link_active_text_color' ] = array(
-		array(
-			'type'     => 'css',
-			'element'  => '.suki-header-' . $bar . '-bar',
-			'property' => '--link-color--active',
-		),
-	);
-
 	$add[ 'header_' . $bar . '_bar_submenu_bg_color' ] = array(
 		array(
 			'type'     => 'css',
@@ -1271,7 +1263,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		array(
 			'type'    => 'class',
 			'element' => '.suki-header-' . $bar . '-bar',
-			'pattern' => 'suki-header-menu--highlight-$',
+			'pattern' => 'suki-header-section--menu-highlight-$',
 		),
 	);
 
@@ -1311,7 +1303,7 @@ foreach ( array( 'top', 'main', 'bottom' ) as $bar ) {
 		$add[ 'header_' . $bar . '_bar_merged_gap' ] = array(
 			array(
 				'type'     => 'css',
-				'element'  => '.suki-header-main-bar-with-' . $bar . '-bar > .suki-header-main-bar-merged-wrapper > .suki-header-row',
+				'element'  => '.suki-header-main-bar--with-' . $bar . '-bar > .suki-header-main-bar__merged-wrapper > .suki-header-row',
 				'property' => 'margin-' . $bar,
 			),
 		);
