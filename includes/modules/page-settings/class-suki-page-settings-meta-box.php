@@ -409,36 +409,69 @@ class Suki_Page_Settings_Meta_Box {
 			return;
 		}
 
-		$structures = $this->get_structures( $type );
+		$structures = $this->get_sorted_structures( $type );
 		$values     = $this->get_values( $obj );
-		$first_key  = key( $structures );
 		?>
 		<div class="suki-admin-meta-box__wrapper">
-			<?php foreach ( $structures as $panel_key => $panel ) { ?>
-				<details id="<?php echo esc_attr( 'suki-page-settings__' . $panel_key ); ?>" class="suki-admin-accordion">
+			<?php foreach ( $structures as $panel ) { ?>
+				<details id="<?php echo esc_attr( 'suki-page-settings__' . $panel['key'] ); ?>" class="suki-admin-accordion">
 					<summary><?php echo esc_html( $panel['title'] ); ?></summary>
 					<div class="suki-admin-form-rows">
-						<?php foreach ( $panel['fields'] as $field_key => $field ) { ?>
+						<?php foreach ( $panel['fields'] as $field ) { ?>
 							<div class="suki-admin-form-row">
-								<label class="suki-admin-form-label"><?php echo esc_html( $field['label'] ); ?></label>
-								<div>
-									<?php
-									Suki_Admin_Fields::render_field(
-										array(
-											'type'    => 'select',
-											'name'    => self::META_KEY . '[' . $field_key . ']',
-											'choices' => $field['options'],
-											'value'   => suki_array_value( $values, $field_key ),
-										)
-									);
-
-									if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) {
+								<?php
+								switch ( $field['type'] ) {
+									case 'select':
 										?>
-										<p class="description"><?php echo wp_kses_post( $field['description'] ); ?></p>
+										<label class="suki-admin-form-label"><?php echo esc_html( $field['label'] ); ?></label>
+										<div>
+											<select name="<?php echo esc_attr( self::META_KEY . '[' . $field['key'] . ']' ); ?>" class="suki-admin-select-control">
+												<?php
+												foreach ( $field['options'] as $option ) {
+													?>
+													<option value="<?php echo esc_attr( $option['value'] ); ?>"><?php echo esc_html( $option['label'] ); ?></option>
+													<?php
+												}
+												?>
+											</select>
+										</div>
 										<?php
-									}
-									?>
-								</div>
+										if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) {
+											?>
+											<p class="description"><?php echo wp_kses_post( $field['description'] ); ?></p>
+											<?php
+										}
+										break;
+
+									case 'teaser':
+										$learn_more_url = add_query_arg(
+											array(
+												'utm_source'   => 'suki-page-settings-metabox',
+												'utm_medium'   => 'learn-more',
+												'utm_campaign' => 'theme-upsell',
+											),
+											SUKI_PRO_WEBSITE_URL
+										);
+
+										if ( is_array( $field['content'] ) && 0 < count( $field['content'] ) ) {
+											?>
+											<ul style="margin: 1em 0; list-style: disc; padding-left: 1em;">
+												<?php
+												foreach ( $field['content'] as $line ) {
+													?>
+													<li><?php echo $line; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
+													<?php
+												}
+												?>
+											</ul>
+											<?php
+										}
+										?>
+										<p><a href="<?php echo esc_url( $learn_more_url ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php esc_html_e( 'Learn More', 'suki' ); ?></a></p>
+										<?php
+										break;
+								}
+								?>
 							</div>
 						<?php } ?>
 					</div>
@@ -563,8 +596,8 @@ class Suki_Page_Settings_Meta_Box {
 						'description' => esc_html__( 'Display content header in a separate section between header and content sections.', 'suki' ),
 						'options'     => array(
 							''  => esc_html__( '-- Inherit --', 'suki' ),
-							'0' => esc_html__( 'Default', 'suki' ),
-							'1' => esc_html__( 'Hero section', 'suki' ),
+							'0' => esc_html__( '✓ Enabled', 'suki' ),
+							'1' => esc_html__( '✗ Disabled', 'suki' ),
 						),
 						'priority'    => 40,
 					),
@@ -632,6 +665,42 @@ class Suki_Page_Settings_Meta_Box {
 				'priority' => 30,
 			),
 		);
+
+		/**
+		 * Suki Pro teaser
+		 */
+
+		if ( suki_show_pro_teaser() ) {
+			$structures['teaser'] = array(
+				'title'    => esc_html__( 'More Options in Suki Pro', 'suki' ),
+				'fields'   => array(
+					array(
+						'type'     => 'teaser',
+						'content'  => array(
+							esc_html__( 'Transparent header', 'suki' ),
+							esc_html__( 'Sticky header', 'suki' ),
+							esc_html__( 'Alternate header colors', 'suki' ),
+							esc_html__( 'Sticky sidebar', 'suki' ),
+							esc_html__( 'Preloader screen', 'suki' ),
+							esc_html__( 'Insert custom content into any template hooks (header, footer, before content, etc.).', 'suki' ),
+						),
+						'url'      => esc_url(
+							add_query_arg(
+								array(
+									'utm_source'   => 'suki-page-settings-metabox',
+									'utm_medium'   => 'learn-more',
+									'utm_campaign' => 'theme-upsell',
+								),
+								SUKI_PRO_WEBSITE_URL
+							)
+						),
+						'action'   => esc_html__( 'Learn More', 'suki' ),
+						'priority' => 999,
+					),
+				),
+				'priority' => 999,
+			);
+		}
 
 		/**
 		 * Filter: suki/page_settings/structures

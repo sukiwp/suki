@@ -6,6 +6,7 @@ import {
 } from '@wordpress/edit-post';
 
 import {
+	Button,
 	Flex,
 	Panel,
 	PanelBody,
@@ -81,12 +82,12 @@ function SukiPageSettingsSidebar() {
 	return (
 		<>
 			<PluginSidebar name={ sukiPageSettingsData.metaKey } title={ sukiPageSettingsData.title }>
-				{ sukiPageSettingsData.structures.map( ( panel, i ) => {
+				{ sukiPageSettingsData.structures.map( ( panel ) => {
 					return (
 						<Panel key={ panel.key }>
 							<PanelBody
 								title={ panel.title }
-								initialOpen={ 0 === i ? true : false }
+								initialOpen={ false }
 							>
 								<Flex
 									direction="column"
@@ -101,21 +102,56 @@ function SukiPageSettingsSidebar() {
 										}
 
 										return (
-											<SelectControl
-												key={ field.key }
-												label={ field.label }
-												value={ value }
-												options={ field.options }
-												help={ field.description }
-												onChange={ ( newValue ) => {
-													setFieldValue( field.key, newValue );
+											<>
+												{ ( () => {
+													switch ( field.type ) {
+														case 'select':
+															return (
+																<SelectControl
+																	key={ field.key }
+																	label={ field.label }
+																	value={ value }
+																	options={ field.options }
+																	help={ field.description }
+																	onChange={ ( newValue ) => {
+																		setFieldValue( field.key, newValue );
 
-													if ( field.outputs ) {
-														runFieldOutputs( field.key, field.outputs, newValue, field.inherit_value );
+																		if ( field.outputs ) {
+																			runFieldOutputs( field.key, field.outputs, newValue, field.inherit_value );
+																		}
+																	} }
+																	__nextHasNoMarginBottom
+																/>
+															);
+														case 'teaser':
+															return (
+																<div>
+																	{ 0 < field.content.length &&
+																		<ul
+																			style={ {
+																				margin: '1em 0',
+																				listStyle: 'disc',
+																				paddingLeft: '1em',
+																			} }
+																		>
+																			{ field.content.map( ( lineText, lineKey ) => {
+																				return <li key={ lineKey }>{ lineText }</li>;
+																			} ) }
+																		</ul>
+																	}
+
+																	<Button
+																		href={ field.url }
+																		variant="secondary"
+																		text={ field.action }
+																		rel="noopener"
+																		target="_blank"
+																	/>
+																</div>
+															);
 													}
-												} }
-												__nextHasNoMarginBottom
-											/>
+												} )() }
+											</>
 										);
 									} ) }
 								</Flex>

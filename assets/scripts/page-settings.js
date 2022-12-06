@@ -202,12 +202,12 @@ function SukiPageSettingsSidebar() {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebar, {
     name: sukiPageSettingsData.metaKey,
     title: sukiPageSettingsData.title
-  }, sukiPageSettingsData.structures.map((panel, i) => {
+  }, sukiPageSettingsData.structures.map(panel => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
       key: panel.key
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
       title: panel.title,
-      initialOpen: 0 === i ? true : false
+      initialOpen: false
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Flex, {
       direction: "column",
       gap: "5",
@@ -221,21 +221,45 @@ function SukiPageSettingsSidebar() {
         runFieldOutputs(field.key, field.outputs, value, field.inherit_value);
       }
 
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-        key: field.key,
-        label: field.label,
-        value: value,
-        options: field.options,
-        help: field.description,
-        onChange: newValue => {
-          setFieldValue(field.key, newValue);
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (() => {
+        switch (field.type) {
+          case 'select':
+            return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+              key: field.key,
+              label: field.label,
+              value: value,
+              options: field.options,
+              help: field.description,
+              onChange: newValue => {
+                setFieldValue(field.key, newValue);
 
-          if (field.outputs) {
-            runFieldOutputs(field.key, field.outputs, newValue, field.inherit_value);
-          }
-        },
-        __nextHasNoMarginBottom: true
-      });
+                if (field.outputs) {
+                  runFieldOutputs(field.key, field.outputs, newValue, field.inherit_value);
+                }
+              },
+              __nextHasNoMarginBottom: true
+            });
+
+          case 'teaser':
+            return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, 0 < field.content.length && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+              style: {
+                margin: '1em 0',
+                listStyle: 'disc',
+                paddingLeft: '1em'
+              }
+            }, field.content.map((lineText, lineKey) => {
+              return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+                key: lineKey
+              }, lineText);
+            })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+              href: field.url,
+              variant: "secondary",
+              text: field.action,
+              rel: "noopener",
+              target: "_blank"
+            }));
+        }
+      })());
     }))));
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebarMoreMenuItem, {
     target: sukiPageSettingsData.metaKey
