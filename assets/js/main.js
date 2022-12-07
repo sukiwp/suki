@@ -1,15 +1,11 @@
-( function() {
-	'use strict';
-
+const suki = {
 	/**
 	 * Keyboard mode
 	 *
 	 * Add class to body indicating whether users are using keyboard or not.
 	 * This is useful to allow different styles for keyboard interaction.
 	 */
-	const initKeyboardFocus = function() {
-		'use strict';
-
+	initKeyboardFocus() {
 		document.body.addEventListener( 'keydown', function() {
 			document.body.classList.add( 'using-keyboard' );
 		}, false );
@@ -17,14 +13,14 @@
 		document.body.addEventListener( 'mousedown', function() {
 			document.body.classList.remove( 'using-keyboard' );
 		}, false );
-	};
+	},
 
 	/**
 	 * Menu's dropdown (sub-menu) reposition
 	 *
 	 * Check the dropdown size and reposition the `left` offset if it exceeds the current section's container.
 	 */
-	const initMenuDropdownPosition = function() {
+	initMenuDropdownPosition() {
 		const calculateSubMenuEdge = function() {
 			const isRTL = document.body.classList.contains( 'rtl' );
 			const anchorSide = isRTL ? 'left' : 'right';
@@ -102,14 +98,14 @@
 
 		window.addEventListener( 'resize', calculateSubMenuEdge, false );
 		calculateSubMenuEdge();
-	};
+	},
 
 	/**
 	 * Accessibility support for menu
 	 *
 	 * Allow navigating menu using keyboard.
 	 */
-	const initMenuAccessibility = function() {
+	initMenuAccessibility() {
 		/**
 		 * Accesibility using tab button
 		 * ref: https://github.com/wpaccessibility/a11ythemepatterns/blob/master/dropdown-menus/vanilla-js/js/dropdown.js
@@ -194,7 +190,7 @@
 		};
 
 		document.addEventListener( 'keydown', handleMenuNavigationUsingKeyboard, false );
-	};
+	},
 
 	/**
 	 * Double tap mode for menu on mobile devices
@@ -202,7 +198,7 @@
 	 * First click works like hover mouse event.
 	 * Second click works like the normal click mouse event (follow the link).
 	 */
-	const initDoubleTapMobileMenu = function() {
+	initDoubleTapMobileMenu() {
 		const handleMenuOnMobile = function( e ) {
 			// Check target element.
 			const $this = e.target.closest( '.suki-hover-menu .menu-item > a' );
@@ -224,12 +220,12 @@
 		};
 
 		document.addEventListener( 'touchend', handleMenuOnMobile, false );
-	};
+	},
 
 	/**
 	 * Toggle-triggered dropdown menu
 	 */
-	const initToggleMenu = function() {
+	initToggleMenu() {
 		let $clickedToggle = null;
 
 		/**
@@ -309,12 +305,12 @@
 
 		document.addEventListener( 'click', handleSubMenuClose, false );
 		document.addEventListener( 'touchend', handleSubMenuClose, false );
-	};
+	},
 
 	/**
 	 * Accordion menu
 	 */
-	const initAccordionMenu = function() {
+	initAccordionMenu() {
 		/**
 		 * Function to hide an element using slideUp animation.
 		 *
@@ -463,12 +459,12 @@
 
 		document.addEventListener( 'click', handleAccordionMenuEmptyHashLink, false );
 		document.addEventListener( 'touched', handleAccordionMenuEmptyHashLink, false );
-	};
+	},
 
 	/**
 	 * Popup
 	 */
-	const initPopup = function() {
+	initPopup() {
 		let $clickedToggle = null;
 
 		/**
@@ -623,12 +619,12 @@
 
 		document.addEventListener( 'click', handleHashLinkInsidePopup, false );
 		document.addEventListener( 'touchend', handleHashLinkInsidePopup, false );
-	};
+	},
 
 	/**
 	 * Function to init scroll to top.
 	 */
-	const initScrollToTop = function() {
+	initScrollToTop() {
 		const $scrollToTop = document.querySelector( '.suki-scroll-to-top' );
 
 		if ( $scrollToTop ) {
@@ -672,16 +668,18 @@
 				checkStickyOffset();
 			}
 		}
-	};
+	},
 
-	document.addEventListener( 'DOMContentLoaded', function() {
-		initKeyboardFocus();
-		initMenuDropdownPosition();
-		initMenuAccessibility();
-		initToggleMenu();
-		initDoubleTapMobileMenu();
-		initAccordionMenu();
-		initPopup();
-		initScrollToTop();
-	}, false );
-}() );
+	initAll() {
+		suki.initKeyboardFocus();
+		suki.initMenuDropdownPosition();
+		suki.initMenuAccessibility();
+		suki.initToggleMenu();
+		suki.initDoubleTapMobileMenu();
+		suki.initAccordionMenu();
+		suki.initPopup();
+		suki.initScrollToTop();
+	},
+};
+
+document.addEventListener( 'DOMContentLoaded', suki.initAll, false );

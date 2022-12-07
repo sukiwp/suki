@@ -7,11 +7,12 @@
 		"_": "readonly",
 		"jQuery": "readonly",
 		"ajaxurl": "readonly",
+		"suki": "readonly",
 		"sukiAdminData": "readonly",
-		"sukiDashboardData": "readonly",
 		"sukiConfig": "readonly",
 		"sukiCustomizerData": "readonly",
 		"sukiCustomizerPreviewData": "readonly",
+		"sukiDashboardData": "readonly",
 		"sukiPageSettingsData": "readonly"
 	}
 }

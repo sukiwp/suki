@@ -58,7 +58,6 @@ class Suki_Customizer {
 		if ( is_customize_preview() ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
 			add_action( 'wp_head', array( $this, 'print_preview_styles' ), 20 );
-			add_action( 'wp_footer', array( $this, 'print_preview_scripts' ), 20 );
 		}
 	}
 
@@ -246,16 +245,10 @@ class Suki_Customizer {
 	public function enqueue_scripts() {
 		$script_data = include trailingslashit( SUKI_SCRIPTS_DIR ) . 'customizer.asset.php';
 
-		/**
-		 * Enqueue customizer.css
-		 */
-
+		// Enqueue customizer.css.
 		wp_enqueue_style( 'suki-customizer', trailingslashit( SUKI_SCRIPTS_URL ) . 'customizer.css', array( 'wp-components' ), $script_data['version'] );
 
-		/**
-		 * Enqueue customizer.js
-		 */
-
+		// Enqueue customizer.js.
 		wp_enqueue_script( 'suki-customizer', trailingslashit( SUKI_SCRIPTS_URL ) . 'customizer.js', $script_data['dependencies'], $script_data['version'], true );
 
 		// Pass data to customizer.js.
@@ -277,15 +270,21 @@ class Suki_Customizer {
 	 * Enqueue customizer preview scripts & styles.
 	 */
 	public function enqueue_preview_scripts() {
-		wp_enqueue_script( 'suki-customize-preview', trailingslashit( SUKI_JS_URL ) . 'customize-preview.js', array( 'customize-preview' ), SUKI_VERSION, true );
+		$script_data = include trailingslashit( SUKI_SCRIPTS_DIR ) . 'customizer-preview.asset.php';
 
-		wp_localize_script(
-			'suki-customize-preview',
-			'sukiCustomizerPreviewData',
-			array(
-				'postMessages' => $this->get_setting_outputs(),
-				'fonts'        => suki_get_all_fonts(),
-			)
+		// Enqueue customizer-preview.js.
+		wp_enqueue_script( 'suki-customizer-preview', trailingslashit( SUKI_SCRIPTS_URL ) . 'customizer-preview.js', array( 'suki', 'customize-preview' ), $script_data['version'], true );
+
+		// Pass data to customizer-preview.js.
+		wp_add_inline_script(
+			'suki-customizer-preview',
+			'const sukiCustomizerPreviewData = ' . wp_json_encode(
+				array(
+					'postMessages' => $this->get_setting_outputs(),
+					'fonts'        => suki_flatten_array( suki_get_all_fonts() ),
+				)
+			),
+			'before'
 		);
 	}
 
@@ -337,30 +336,6 @@ class Suki_Customizer {
 
 			echo '<style id="suki-customize-preview-css-' . esc_attr( $key ) . '" type="text/css">' . esc_html( suki_convert_css_array_to_string( $css_array ) ) . '</style>' . "\n";
 		}
-	}
-
-	/**
-	 * Print <script> tags for preview frame.
-	 */
-	public function print_preview_scripts() {
-		?>
-		<script type="text/javascript">
-			(function() {
-				'use strict';
-
-				document.addEventListener( 'DOMContentLoaded', function() {
-					if ( 'undefined' !== typeof wp && wp.customize && wp.customize.selectiveRefresh && wp.customize.widgetsPreview && wp.customize.widgetsPreview.WidgetPartial ) {
-						wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
-							// Nav Menu
-							if ( placement.partial.id.indexOf( 'nav_menu_instance' ) ) {
-								window.suki.initAll();
-							}
-						} );
-					}
-				} );
-			})();
-		</script>
-		<?php
 	}
 
 	/**
