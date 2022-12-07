@@ -1235,15 +1235,15 @@ msgstr ""
 msgid "Active links"
 msgstr ""
 
-#: includes/customizer/structures/footer--social.php:94, includes/customizer/structures/header--social.php:94
+#: includes/customizer/structures/footer--social.php:99, includes/customizer/structures/header--social.php:99
 msgid "Open links in"
 msgstr ""
 
-#: includes/customizer/structures/footer--social.php:96, includes/customizer/structures/header--social.php:96
+#: includes/customizer/structures/footer--social.php:101, includes/customizer/structures/header--social.php:101
 msgid "Same tab"
 msgstr ""
 
-#: includes/customizer/structures/footer--social.php:97, includes/customizer/structures/header--social.php:97
+#: includes/customizer/structures/footer--social.php:102, includes/customizer/structures/header--social.php:102
 msgid "New tab"
 msgstr ""
 
@@ -1288,7 +1288,7 @@ msgstr ""
 msgid "Theme Color %d"
 msgstr ""
 
-#: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:91, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:141, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:414, includes/customizer/structures/sections.php:556, includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:185, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:103
+#: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:96, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:141, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:414, includes/customizer/structures/sections.php:556, includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:185, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:103
 msgctxt "Suki Pro upsell"
 msgid "More Options Available in Suki Pro"
 msgstr ""
@@ -1324,7 +1324,7 @@ msgid "Mobile header"
 msgstr ""
 
 #. translators: %s: HTML element number.
-#: includes/customizer/structures/header--html.php:80
+#: includes/customizer/structures/header--html.php:85
 msgctxt "Suki Pro upsell"
 msgid "HTML %s"
 msgstr ""
@@ -1952,11 +1952,11 @@ msgstr ""
 msgid "Cart amount visibility"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/header--cart.php:137
+#: includes/compatibilities/woocommerce/customizer/structures/header--cart.php:142
 msgid "Cart count BG color"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/header--cart.php:138
+#: includes/compatibilities/woocommerce/customizer/structures/header--cart.php:143
 msgid "Cart count text color"
 msgstr ""
 

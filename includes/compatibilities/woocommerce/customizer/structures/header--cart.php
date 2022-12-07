@@ -91,7 +91,12 @@ $wp_customize->add_control(
 	)
 );
 
-// Selective Refresh.
+/**
+ * ====================================================
+ * Selective Refresh
+ * ====================================================
+ */
+
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial(
 		'header_cart_link',

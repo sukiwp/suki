@@ -1,11 +1,11 @@
+import './index.scss';
+
 import SukiControlLabel from '../../components/control-label';
 import SukiControlDescription from '../../components/control-description';
 import SukiControlResponsiveSwitcher from '../../components/control-responsive-switcher';
 import SukiControlResponsiveContainer from '../../components/control-responsive-container';
 
 import {
-	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-	__experimentalGrid as Grid,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
@@ -47,27 +47,22 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 
 					return (
 						<SukiControlResponsiveContainer key={ device } device={ device }>
-							<Grid
-								columns="4"
-								gap="1"
-							>
-								<UnitControl
-									value={ value }
-									isResetValueOnUnitChange
-									units={ control.params.units }
-									min={ '' === valueUnitObj.min ? -Infinity : valueUnitObj.min }
-									max={ '' === valueUnitObj.max ? Infinity : valueUnitObj.max }
-									step={ '' === valueUnitObj.step ? 1 : valueUnitObj.step }
-									id={ '_customize-input-' + control.id }
-									className="suki-dimension"
-									onChange={ ( newValue ) => {
-										// If value only contains unit (e.g. 'px'), set the value to empty string ('').
-										newValue = isFinite( parseFloat( newValue ) ) ? newValue : '';
+							<UnitControl
+								value={ value }
+								isResetValueOnUnitChange
+								units={ control.params.units }
+								min={ '' === valueUnitObj.min ? -Infinity : valueUnitObj.min }
+								max={ '' === valueUnitObj.max ? Infinity : valueUnitObj.max }
+								step={ '' === valueUnitObj.step ? 1 : valueUnitObj.step }
+								id={ '_customize-input-' + control.id }
+								className="suki-dimension"
+								onChange={ ( newValue ) => {
+									// If value only contains unit (e.g. 'px'), set the value to empty string ('').
+									newValue = isFinite( parseFloat( newValue ) ) ? newValue : '';
 
-										control.settings[ settingId ].set( newValue );
-									} }
-								/>
-							</Grid>
+									control.settings[ settingId ].set( newValue );
+								} }
+							/>
 						</SukiControlResponsiveContainer>
 					);
 				} ) }
