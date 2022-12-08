@@ -223,99 +223,6 @@
 	}
 }
 
-#customize-control-header_elements {
-	@media screen and ( min-width: 1324px ) {
-		margin-bottom: 0;
-
-		.suki-builder {
-			grid-template-areas:
-			"top_left top_center top_right"
-			"main_left main_center main_right"
-			"bottom_left bottom_center bottom_right"
-			"_inactive _inactive _inactive";
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: auto;
-
-			grid-column-gap: 4px;
-			grid-row-gap: 12px;
-		}
-
-		$areas: top_left top_center top_right main_left main_center main_right bottom_left bottom_center bottom_right _inactive;
-		@each $area in $areas {
-			[data-area="#{$area}"] {
-				grid-area: $area;
-			}
-		}
-	}
-}
-
-#customize-control-header_mobile_elements {
-	@media screen and ( min-width: 1324px ) {
-		margin-bottom: 0;
-
-		.suki-builder {
-			grid-template-areas:
-				"vertical_top . main_left main_center main_right"
-				"vertical_top . . . ."
-				"_inactive _inactive _inactive _inactive _inactive";
-			grid-template-columns: max(15%, 120px) 12px repeat(3, 1fr);
-			grid-template-rows: 1fr 1fr auto;
-
-			grid-column-gap: 4px;
-			grid-row-gap: 12px;
-		}
-
-		$areas: vertical_top main_left main_center main_right _inactive;
-		@each $area in $areas {
-			[data-area="#{$area}"] {
-				grid-area: $area;
-			}
-		}
-	}
-}
-
-#customize-control-header_elements,
-#customize-control-header_mobile_elements,
-#customize-control-header_elements {
-	@media screen and ( min-width: 1324px ) {
-		[data-area$="_left"] {
-			.suki-builder__area__label {
-				text-align: left;
-			}
-
-			.suki-builder__area__sortable {
-				justify-content: flex-start;
-			}
-		}
-
-		[data-area$="_center"] {
-			.suki-builder__area__label {
-				text-align: center;
-			}
-
-			.suki-builder__area__sortable {
-				justify-content: center;
-			}
-		}
-
-		[data-area$="_right"] {
-			.suki-builder__area__label {
-				text-align: right;
-			}
-
-			.suki-builder__area__sortable {
-				justify-content: flex-end;
-			}
-		}
-	}
-
-	[data-area^="vertical"] {
-		.suki-builder__area__sortable {
-			flex-direction: column;
-		}
-	}
-}
-
 #customize-control-header_mobile_visibility {
 	@media screen and ( min-width: 1324px ) {
 		select {
@@ -328,30 +235,6 @@
 // -------------------------------------------------------------
 // Footer Builder
 // -------------------------------------------------------------
-
-#customize-control-footer_elements {
-	@media screen and ( min-width: 1324px ) {
-		margin-bottom: 0;
-
-		.suki-builder {
-			grid-template-areas:
-				"bottom_left bottom_center bottom_right"
-				"_inactive _inactive _inactive";
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: auto;
-
-			grid-column-gap: 4px;
-			grid-row-gap: 12px;
-		}
-
-		$areas: bottom_left bottom_center bottom_right _inactive;
-		@each $area in $areas {
-			[data-area="#{$area}"] {
-				grid-area: $area;
-			}
-		}
-	}
-}
 
 #customize-control-footer_widgets_bar {
 	@media screen and ( min-width: 1324px ) {

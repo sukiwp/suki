@@ -858,108 +858,126 @@ const SukiBuilder = _ref => {
   }; // State for all settings values and inactive elements.
 
 
-  const [mapping, setMapping] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(initMapping()); // Sortable areas and their info.
-
-  const areas = [...control.params.areas, {
-    id: '_inactive',
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Inactive elements', 'suki'),
-    sortableInstance: null
-  }];
+  const [mapping, setMapping] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(initMapping());
+  const structures = {
+    vertical: control.params.areas.filter(area => {
+      return 'vertical' === area.location;
+    }),
+    horizontal: control.params.areas.filter(area => {
+      return 'horizontal' === area.location;
+    }),
+    inactive: [{
+      id: '_inactive',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Inactive elements', 'suki'),
+      sortableInstance: null,
+      location: 'inactive'
+    }]
+  };
+  const areas = [...structures.vertical, ...structures.horizontal, ...structures.inactive];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "suki-builder"
-  }, areas.map(area => {
-    const items = mapping[area.id].map(itemId => {
-      return control.params.choices.find(choice => {
-        return itemId === choice.value;
-      });
-    });
+  }, Object.keys(structures).map(location => {
+    if (1 > structures[location].length) {
+      return null;
+    }
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      key: area.id,
-      "data-area": area.id,
-      className: "suki-builder__area"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "suki-builder__area__label"
-    }, area.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__.ReactSortable // Store the sortable instance to `areas` variable.
-    , {
-      ref: node => {
-        if (node) {
-          area.sortableInstance = node.sortable;
-        }
-      } // Connect with other sortable areas.
-      ,
-      group: control.id // Sortable values.
-      ,
-      list: items // Handler to update sortable values.
-      ,
-      setList: updatedItems => {
-        // Parse array of IDs from the updated sortable items.
-        const updatedItemIds = updatedItems.map(item => {
-          return item.value;
-        }); // Update state.
-
-        setMapping(prevMapping => {
-          return { ...prevMapping,
-            [area.id]: updatedItemIds
-          };
-        }); // Update setting values for areas, except the `_inactive` area.
-
-        if ('_inactive' !== area.id) {
-          // Only update setting value if the array value changed.
-          if (updatedItemIds.toString() !== control.settings[area.id].get().toString()) {
-            control.settings[area.id].set(updatedItemIds);
-          }
-        }
-      } // When start dragging a sortable item, disable the unsupported areas.
-      ,
-      onStart: e => {
-        const itemId = e.item.dataset.value;
-        const itemObj = control.params.choices.find(choice => {
+      key: location,
+      className: 'suki-builder__location-' + location
+    }, structures[location].map(area => {
+      const items = mapping[area.id].map(itemId => {
+        return control.params.choices.find(choice => {
           return itemId === choice.value;
         });
-        itemObj.unsupported_areas.forEach(areaId => {
-          const unsupportedArea = areas.find(a => {
-            return areaId === a.id;
-          });
-          unsupportedArea.sortableInstance.option('disabled', true);
-          unsupportedArea.sortableInstance.el.parentElement.classList.add('disabled');
-        });
-      } // When dropping a sortable item, restore all areas.
-      ,
-      onEnd: () => {
-        areas.forEach(a => {
-          a.sortableInstance.option('disabled', false);
-          a.sortableInstance.el.parentElement.classList.remove('disabled');
-        });
-      },
-      className: "suki-builder__area__sortable"
-    }, items.map(item => {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        key: item.value,
-        "data-value": item.value,
-        className: "suki-builder__item"
-      }, item.icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
-        icon: item.icon
-      }), item.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, item.label), '_inactive' !== area.id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-        icon: "no-alt",
-        className: "suki-builder__item__remove",
-        onClick: () => {
-          const updatedItemIds = mapping[area.id].filter(itemId => {
-            return itemId !== item.value;
-          });
-          setMapping(prevMapping => {
-            const newMapping = { ...prevMapping,
-              [area.id]: updatedItemIds,
-              _inactive: [...prevMapping._inactive, item.value]
-            };
-            return newMapping;
-          }); // Only update setting value if the array value changed.
-
-          if (updatedItemIds.toString() !== control.settings[area.id].get().toString()) {
-            control.settings[area.id].set(updatedItemIds);
+      });
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: area.id,
+        "data-area": area.id,
+        className: "suki-builder__area"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: "suki-builder__area__label"
+      }, area.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_sortablejs__WEBPACK_IMPORTED_MODULE_1__.ReactSortable // Store the sortable instance to `areas` variable.
+      , {
+        ref: node => {
+          if (node) {
+            area.sortableInstance = node.sortable;
           }
-        }
-      }));
-    })));
+        } // Connect with other sortable areas.
+        ,
+        group: control.id // Sortable values.
+        ,
+        list: items // Handler to update sortable values.
+        ,
+        setList: updatedItems => {
+          // Parse array of IDs from the updated sortable items.
+          const updatedItemIds = updatedItems.map(item => {
+            return item.value;
+          }); // Update state.
+
+          setMapping(prevMapping => {
+            return { ...prevMapping,
+              [area.id]: updatedItemIds
+            };
+          }); // Update setting values for areas, except the `_inactive` area.
+
+          if ('_inactive' !== area.id) {
+            // Only update setting value if the array value changed.
+            if (updatedItemIds.toString() !== control.settings[area.id].get().toString()) {
+              control.settings[area.id].set(updatedItemIds);
+            }
+          }
+        } // When start dragging a sortable item, disable the unsupported areas.
+        ,
+        onStart: e => {
+          const itemId = e.item.dataset.value;
+          const itemObj = control.params.choices.find(choice => {
+            return itemId === choice.value;
+          });
+          itemObj.unsupported_areas.forEach(areaId => {
+            const unsupportedArea = areas.find(a => {
+              return areaId === a.id;
+            });
+            unsupportedArea.sortableInstance.option('disabled', true);
+            unsupportedArea.sortableInstance.el.parentElement.classList.add('disabled');
+          });
+        } // When dropping a sortable item, restore all areas.
+        ,
+        onEnd: () => {
+          areas.forEach(a => {
+            a.sortableInstance.option('disabled', false);
+            a.sortableInstance.el.parentElement.classList.remove('disabled');
+          });
+        },
+        className: "suki-builder__area__sortable"
+      }, items.map(item => {
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          key: item.value,
+          "data-value": item.value,
+          className: "suki-builder__item"
+        }, item.icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
+          icon: item.icon
+        }), item.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, item.label), '_inactive' !== area.id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          icon: "no-alt",
+          className: "suki-builder__item__remove",
+          onClick: () => {
+            const updatedItemIds = mapping[area.id].filter(itemId => {
+              return itemId !== item.value;
+            });
+            setMapping(prevMapping => {
+              const newMapping = { ...prevMapping,
+                [area.id]: updatedItemIds,
+                _inactive: [...prevMapping._inactive, item.value]
+              };
+              return newMapping;
+            }); // Only update setting value if the array value changed.
+
+            if (updatedItemIds.toString() !== control.settings[area.id].get().toString()) {
+              control.settings[area.id].set(updatedItemIds);
+            }
+          }
+        }));
+      })));
+    }));
   }));
 };
 

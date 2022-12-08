@@ -60,50 +60,50 @@ msgstr ""
 msgid "Footer Bottom Menu"
 msgstr ""
 
-#: includes/deprecated.php:72, includes/helpers.php:873
+#: includes/deprecated.php:72, includes/helpers.php:874
 msgid "Top - Left"
 msgstr ""
 
-#: includes/deprecated.php:73, includes/helpers.php:874
+#: includes/deprecated.php:73, includes/helpers.php:878
 msgid "Top - Center"
 msgstr ""
 
-#: includes/deprecated.php:74, includes/helpers.php:875
+#: includes/deprecated.php:74, includes/helpers.php:882
 msgid "Top - Right"
 msgstr ""
 
-#: includes/deprecated.php:75, includes/helpers.php:876
+#: includes/deprecated.php:75, includes/helpers.php:886
 msgid "Main - Left"
 msgstr ""
 
-#: includes/deprecated.php:76, includes/helpers.php:877
+#: includes/deprecated.php:76, includes/helpers.php:890
 msgid "Main - Center"
 msgstr ""
 
-#: includes/deprecated.php:77, includes/helpers.php:878
+#: includes/deprecated.php:77, includes/helpers.php:894
 msgid "Main - Right"
 msgstr ""
 
-#: includes/deprecated.php:78, includes/helpers.php:879
+#: includes/deprecated.php:78, includes/helpers.php:898
 msgid "Bottom - Left"
 msgstr ""
 
-#: includes/deprecated.php:79, includes/helpers.php:880
+#: includes/deprecated.php:79, includes/helpers.php:902
 msgid "Bottom - Center"
 msgstr ""
 
-#: includes/deprecated.php:80, includes/helpers.php:881
+#: includes/deprecated.php:80, includes/helpers.php:906
 msgid "Bottom - Right"
 msgstr ""
 
-#: includes/deprecated.php:83, includes/helpers.php:908, includes/customizer/structures/header--logo.php:29, includes/customizer/structures/sections.php:361
+#: includes/deprecated.php:83, includes/helpers.php:935, includes/customizer/structures/header--logo.php:29, includes/customizer/structures/sections.php:361
 msgid "Logo"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: instance number.
 #. translators: %s: Menu element number.
-#: includes/deprecated.php:85, includes/helpers.php:914, includes/customizer/structures/header--menu.php:30
+#: includes/deprecated.php:85, includes/helpers.php:941, includes/customizer/structures/header--menu.php:30
 msgid "Menu %s"
 msgstr ""
 
@@ -115,44 +115,44 @@ msgstr ""
 #. translators: %s: instance number.
 #. translators: %s: HTML element number.
 #. translators: %s: HTML element number.
-#: includes/deprecated.php:87, includes/deprecated.php:136, includes/deprecated.php:192, includes/helpers.php:920, includes/helpers.php:1003, includes/helpers.php:1091, includes/customizer/structures/footer--html.php:30, includes/customizer/structures/header--html.php:30
+#: includes/deprecated.php:87, includes/deprecated.php:136, includes/deprecated.php:192, includes/helpers.php:947, includes/helpers.php:1042, includes/helpers.php:1139, includes/customizer/structures/footer--html.php:30, includes/customizer/structures/header--html.php:30
 msgid "HTML %s"
 msgstr ""
 
-#: includes/deprecated.php:88, includes/deprecated.php:137, includes/helpers.php:925, includes/helpers.php:1008, includes/customizer/structures/header--search.php:29
+#: includes/deprecated.php:88, includes/deprecated.php:137, includes/helpers.php:952, includes/helpers.php:1047, includes/customizer/structures/header--search.php:29
 msgid "Search Bar"
 msgstr ""
 
-#: includes/deprecated.php:89, includes/helpers.php:930, includes/helpers.php:1013, includes/customizer/structures/header--search.php:85
+#: includes/deprecated.php:89, includes/helpers.php:957, includes/helpers.php:1052, includes/customizer/structures/header--search.php:85
 msgid "Search Dropdown"
 msgstr ""
 
-#: includes/deprecated.php:90, includes/deprecated.php:139, includes/deprecated.php:193, includes/helpers.php:935, includes/helpers.php:1018, includes/helpers.php:1096, includes/customizer/structures/sections.php:401, includes/customizer/structures/sections.php:533
+#: includes/deprecated.php:90, includes/deprecated.php:139, includes/deprecated.php:193, includes/helpers.php:962, includes/helpers.php:1057, includes/helpers.php:1144, includes/customizer/structures/sections.php:401, includes/customizer/structures/sections.php:533
 msgid "Social"
 msgstr ""
 
-#: includes/deprecated.php:127, includes/helpers.php:962
+#: includes/deprecated.php:127, includes/helpers.php:990
 msgid "Mobile - Left"
 msgstr ""
 
-#: includes/deprecated.php:128, includes/helpers.php:963
+#: includes/deprecated.php:128, includes/helpers.php:994
 msgid "Mobile - Center"
 msgstr ""
 
-#: includes/deprecated.php:129, includes/helpers.php:964
+#: includes/deprecated.php:129, includes/helpers.php:998
 msgid "Mobile - Right"
 msgstr ""
 
-#: includes/deprecated.php:130, includes/helpers.php:965
+#: includes/deprecated.php:130, includes/helpers.php:1002
 msgid "Mobile - Popup"
 msgstr ""
 
-#: includes/deprecated.php:133, includes/helpers.php:992, includes/customizer/structures/header--logo.php:107
+#: includes/deprecated.php:133, includes/helpers.php:1031, includes/customizer/structures/header--logo.php:107
 msgid "Mobile Logo"
 msgstr ""
 
 #. translators: %s: Menu element number.
-#: includes/deprecated.php:134, includes/helpers.php:997, includes/template-tags/header.php:798, includes/customizer/structures/header--menu.php:48
+#: includes/deprecated.php:134, includes/helpers.php:1036, includes/template-tags/header.php:798, includes/customizer/structures/header--menu.php:48
 msgid "Mobile Menu"
 msgstr ""
 
@@ -160,30 +160,30 @@ msgstr ""
 msgid "Search Icon"
 msgstr ""
 
-#: includes/deprecated.php:140, includes/helpers.php:1023
+#: includes/deprecated.php:140, includes/helpers.php:1062
 msgid "Toggle"
 msgstr ""
 
-#: includes/deprecated.php:183, includes/deprecated.php:185, includes/helpers.php:1052, includes/customizer/structures/auto-custom-post-types.php:104, includes/customizer/structures/blog--archive.php:191, includes/customizer/structures/blog--entry-default.php:125, includes/customizer/structures/blog--entry-default.php:428, includes/customizer/structures/blog--entry-grid.php:352, includes/customizer/structures/blog--entry-grid.php:632, includes/customizer/structures/blog--single.php:89, includes/customizer/structures/blog--single.php:256, includes/customizer/structures/content.php:94, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/footer--widgets-bar.php:362, includes/customizer/structures/header--mobile-popup.php:72, includes/customizer/structures/header--mobile-popup.php:75, includes/customizer/structures/header--mobile-popup.php:109, includes/customizer/structures/header--mobile-popup.php:143, includes/customizer/structures/page--search.php:132, includes/customizer/structures/page--single.php:89, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:89, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:90, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:128, includes/modules/page-settings/customizer/structures/all-page-settings.php:108
+#: includes/deprecated.php:183, includes/deprecated.php:185, includes/helpers.php:1098, includes/customizer/structures/auto-custom-post-types.php:104, includes/customizer/structures/blog--archive.php:191, includes/customizer/structures/blog--entry-default.php:125, includes/customizer/structures/blog--entry-default.php:428, includes/customizer/structures/blog--entry-grid.php:352, includes/customizer/structures/blog--entry-grid.php:632, includes/customizer/structures/blog--single.php:89, includes/customizer/structures/blog--single.php:256, includes/customizer/structures/content.php:94, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/footer--widgets-bar.php:362, includes/customizer/structures/header--mobile-popup.php:72, includes/customizer/structures/header--mobile-popup.php:75, includes/customizer/structures/header--mobile-popup.php:109, includes/customizer/structures/header--mobile-popup.php:143, includes/customizer/structures/page--search.php:132, includes/customizer/structures/page--single.php:89, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:89, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:90, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:128, includes/modules/page-settings/customizer/structures/all-page-settings.php:108
 msgid "Right"
 msgstr ""
 
-#: includes/deprecated.php:183, includes/deprecated.php:185, includes/helpers.php:1050, includes/customizer/structures/auto-custom-post-types.php:98, includes/customizer/structures/blog--archive.php:185, includes/customizer/structures/blog--entry-default.php:119, includes/customizer/structures/blog--entry-default.php:422, includes/customizer/structures/blog--entry-grid.php:346, includes/customizer/structures/blog--entry-grid.php:626, includes/customizer/structures/blog--single.php:83, includes/customizer/structures/blog--single.php:250, includes/customizer/structures/content.php:91, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/footer--widgets-bar.php:356, includes/customizer/structures/header--mobile-popup.php:72, includes/customizer/structures/header--mobile-popup.php:75, includes/customizer/structures/header--mobile-popup.php:103, includes/customizer/structures/header--mobile-popup.php:137, includes/customizer/structures/page--search.php:126, includes/customizer/structures/page--single.php:83, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:83, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:84, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:122, includes/modules/page-settings/customizer/structures/all-page-settings.php:107
+#: includes/deprecated.php:183, includes/deprecated.php:185, includes/helpers.php:1090, includes/customizer/structures/auto-custom-post-types.php:98, includes/customizer/structures/blog--archive.php:185, includes/customizer/structures/blog--entry-default.php:119, includes/customizer/structures/blog--entry-default.php:422, includes/customizer/structures/blog--entry-grid.php:346, includes/customizer/structures/blog--entry-grid.php:626, includes/customizer/structures/blog--single.php:83, includes/customizer/structures/blog--single.php:250, includes/customizer/structures/content.php:91, includes/customizer/structures/footer--scroll-to-top.php:123, includes/customizer/structures/footer--scroll-to-top.php:124, includes/customizer/structures/footer--widgets-bar.php:356, includes/customizer/structures/header--mobile-popup.php:72, includes/customizer/structures/header--mobile-popup.php:75, includes/customizer/structures/header--mobile-popup.php:103, includes/customizer/structures/header--mobile-popup.php:137, includes/customizer/structures/page--search.php:126, includes/customizer/structures/page--single.php:83, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:83, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:84, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:122, includes/modules/page-settings/customizer/structures/all-page-settings.php:107
 msgid "Left"
 msgstr ""
 
-#: includes/deprecated.php:184, includes/helpers.php:1051, includes/customizer/structures/auto-custom-post-types.php:101, includes/customizer/structures/blog--archive.php:188, includes/customizer/structures/blog--entry-default.php:122, includes/customizer/structures/blog--entry-default.php:425, includes/customizer/structures/blog--entry-grid.php:349, includes/customizer/structures/blog--entry-grid.php:629, includes/customizer/structures/blog--single.php:86, includes/customizer/structures/blog--single.php:253, includes/customizer/structures/footer--widgets-bar.php:359, includes/customizer/structures/header--mobile-popup.php:106, includes/customizer/structures/header--mobile-popup.php:140, includes/customizer/structures/page--search.php:129, includes/customizer/structures/page--single.php:86, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:86, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:87, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:125
+#: includes/deprecated.php:184, includes/helpers.php:1094, includes/customizer/structures/auto-custom-post-types.php:101, includes/customizer/structures/blog--archive.php:188, includes/customizer/structures/blog--entry-default.php:122, includes/customizer/structures/blog--entry-default.php:425, includes/customizer/structures/blog--entry-grid.php:349, includes/customizer/structures/blog--entry-grid.php:629, includes/customizer/structures/blog--single.php:86, includes/customizer/structures/blog--single.php:253, includes/customizer/structures/footer--widgets-bar.php:359, includes/customizer/structures/header--mobile-popup.php:106, includes/customizer/structures/header--mobile-popup.php:140, includes/customizer/structures/page--search.php:129, includes/customizer/structures/page--single.php:86, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-catalog.php:86, includes/compatibilities/woocommerce/customizer/structures/woocommerce--product-single.php:87, includes/compatibilities/woocommerce/customizer/structures/woocommerce--products-grid.php:125
 msgid "Center"
 msgstr ""
 
-#: includes/deprecated.php:188, includes/helpers.php:1079, includes/customizer/structures/footer--copyright.php:29, includes/customizer/structures/sections.php:513
+#: includes/deprecated.php:188, includes/helpers.php:1127, includes/customizer/structures/footer--copyright.php:29, includes/customizer/structures/sections.php:513
 msgid "Copyright"
 msgstr ""
 
 #. translators: %s: instance number.
 #. translators: %s: instance number.
 #. translators: %s: menu number.
-#: includes/deprecated.php:190, includes/helpers.php:1085, includes/template-tags/footer.php:318
+#: includes/deprecated.php:190, includes/helpers.php:1133, includes/template-tags/footer.php:318
 msgid "Footer Menu %s"
 msgstr ""
 

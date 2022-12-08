@@ -870,15 +870,42 @@ function suki_get_header_builder_areas() {
 	$areas = apply_filters(
 		'suki/dataset/header_builder/areas',
 		array(
-			'top_left'      => esc_html__( 'Top - Left', 'suki' ),
-			'top_center'    => esc_html__( 'Top - Center', 'suki' ),
-			'top_right'     => esc_html__( 'Top - Right', 'suki' ),
-			'main_left'     => esc_html__( 'Main - Left', 'suki' ),
-			'main_center'   => esc_html__( 'Main - Center', 'suki' ),
-			'main_right'    => esc_html__( 'Main - Right', 'suki' ),
-			'bottom_left'   => esc_html__( 'Bottom - Left', 'suki' ),
-			'bottom_center' => esc_html__( 'Bottom - Center', 'suki' ),
-			'bottom_right'  => esc_html__( 'Bottom - Right', 'suki' ),
+			'top_left'      => array(
+				'label'    => esc_html__( 'Top - Left', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'top_center'    => array(
+				'label'    => esc_html__( 'Top - Center', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'top_right'     => array(
+				'label'    => esc_html__( 'Top - Right', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'main_left'     => array(
+				'label'    => esc_html__( 'Main - Left', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'main_center'   => array(
+				'label'    => esc_html__( 'Main - Center', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'main_right'    => array(
+				'label'    => esc_html__( 'Main - Right', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'bottom_left'   => array(
+				'label'    => esc_html__( 'Bottom - Left', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'bottom_center' => array(
+				'label'    => esc_html__( 'Bottom - Center', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'bottom_right'  => array(
+				'label'    => esc_html__( 'Bottom - Right', 'suki' ),
+				'location' => 'horizontal',
+			),
 		)
 	);
 
@@ -959,10 +986,22 @@ function suki_get_header_mobile_builder_areas() {
 	$areas = apply_filters(
 		'suki/dataset/header_mobile_builder/areas',
 		array(
-			'main_left'    => esc_html__( 'Mobile - Left', 'suki' ),
-			'main_center'  => esc_html__( 'Mobile - Center', 'suki' ),
-			'main_right'   => esc_html__( 'Mobile - Right', 'suki' ),
-			'vertical_top' => esc_html__( 'Mobile - Popup', 'suki' ),
+			'main_left'    => array(
+				'label'    => esc_html__( 'Mobile - Left', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'main_center'  => array(
+				'label'    => esc_html__( 'Mobile - Center', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'main_right'   => array(
+				'label'    => esc_html__( 'Mobile - Right', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'vertical_top' => array(
+				'label'    => esc_html__( 'Mobile - Popup', 'suki' ),
+				'location' => 'vertical',
+			),
 		)
 	);
 
@@ -1047,9 +1086,18 @@ function suki_get_footer_builder_areas() {
 	$areas = apply_filters(
 		'suki/dataset/footer_builder/areas',
 		array(
-			'bottom_left'   => esc_html__( 'Left', 'suki' ),
-			'bottom_center' => esc_html__( 'Center', 'suki' ),
-			'bottom_right'  => esc_html__( 'Right', 'suki' ),
+			'bottom_left'   => array(
+				'label'    => esc_html__( 'Left', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'bottom_center' => array(
+				'label'    => esc_html__( 'Center', 'suki' ),
+				'location' => 'horizontal',
+			),
+			'bottom_right'  => array(
+				'label'    => esc_html__( 'Right', 'suki' ),
+				'location' => 'horizontal',
+			),
 		)
 	);
 

@@ -46,7 +46,7 @@ if ( class_exists( 'Suki_Customize_React_Control' ) && ! class_exists( 'Suki_Cus
 			$this->json['choices'] = suki_convert_associative_array_into_simple_array( $this->choices );
 
 			// `areas` property.
-			$this->json['areas'] = suki_convert_associative_array_into_simple_array( $this->areas, 'id', 'label' );
+			$this->json['areas'] = suki_convert_associative_array_into_simple_array( $this->areas, 'id' );
 		}
 	}
 
