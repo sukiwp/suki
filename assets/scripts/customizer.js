@@ -2102,7 +2102,9 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
         control.settings.font_family.set(fontFamily);
       },
       __nextHasNoMarginBottom: true
-    }, Object.keys(sukiCustomizerData.fonts).map(groupLabel => {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: ""
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('', 'suki')), Object.keys(sukiCustomizerData.fonts).map(groupLabel => {
       if (1 > Object.keys(sukiCustomizerData.fonts[groupLabel]).length) {
         return null;
       }

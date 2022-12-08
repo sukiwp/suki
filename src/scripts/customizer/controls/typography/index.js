@@ -105,6 +105,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 									} }
 									__nextHasNoMarginBottom
 								>
+									<option value="">{ __( '', 'suki' ) }</option>
 									{ Object.keys( sukiCustomizerData.fonts ).map( ( groupLabel ) => {
 										if ( 1 > Object.keys( sukiCustomizerData.fonts[ groupLabel ] ).length ) {
 											return null;
