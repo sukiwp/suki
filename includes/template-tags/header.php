@@ -888,9 +888,10 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 		/**
 		 * Filter: suki/frontend/header_element/{$element}
 		 *
-		 * @param string $html HTML markup.
+		 * @param string $html    HTML markup.
+		 * @param string $element Element slug.
 		 */
-		$html = apply_filters( 'suki/frontend/header_element/' . $element, $html );
+		$html = apply_filters( 'suki/frontend/header_element/' . $element, $html, $element );
 
 		/**
 		 * Result

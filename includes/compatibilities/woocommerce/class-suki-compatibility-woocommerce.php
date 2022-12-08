@@ -719,10 +719,8 @@ class Suki_Compatibility_WooCommerce {
 
 	/**
 	 * Return header cart link HTML markup.
-	 *
-	 * @param string $html HTML markup.
 	 */
-	public function get_header_element__cart_link( $html ) {
+	public function get_header_element__cart_link() {
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
@@ -772,10 +770,8 @@ class Suki_Compatibility_WooCommerce {
 
 	/**
 	 * Return header cart dropdown HTML markup.
-	 *
-	 * @param string $html HTML markup.
 	 */
-	public function get_header_element__cart_dropdown( $html ) {
+	public function get_header_element__cart_dropdown() {
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
