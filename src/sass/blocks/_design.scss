@@ -35,7 +35,7 @@
 	width: 100%;
 }
 
-.wp-block-button__link {
+.wp-block-button__link.wp-element-button { // Add .wp-element-button for higher specifity than WP generated global CSS.
 	@include button();
 
 	// Gutenberg button doesn't have border color options, so we always set them to transparent.

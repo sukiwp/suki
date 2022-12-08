@@ -635,7 +635,7 @@
 	width: 100%;
 }
 
-.wp-block-button__link {
+.wp-block-button__link.wp-element-button {
 	position: relative;
 	display: inline-flex;
 	align-items: center;
@@ -666,23 +666,23 @@
 	transition: all var(--transition-duration);
 	border-color: transparent;
 }
-.wp-block-button__link svg {
+.wp-block-button__link.wp-element-button svg {
 	fill: currentColor;
 }
-.wp-block-button__link:hover, .wp-block-button__link:focus {
+.wp-block-button__link.wp-element-button:hover, .wp-block-button__link.wp-element-button:focus {
 	border-color: var(--button--border-color--focus, var(--button--border-color));
 	background-color: var(--button--background-color--focus, var(--button--background-color));
 	color: var(--button--text-color--focus);
 	text-decoration: none;
 	outline: none;
 }
-.wp-block-button__link:hover, .wp-block-button__link:focus {
+.wp-block-button__link.wp-element-button:hover, .wp-block-button__link.wp-element-button:focus {
 	border-color: transparent;
 }
-.wp-block-button__link.aligncenter {
+.wp-block-button__link.wp-element-button.aligncenter {
 	text-align: center;
 }
-.wp-block-button__link.alignright {
+.wp-block-button__link.wp-element-button.alignright {
 	/*rtl:ignore*/
 	text-align: right;
 }
