@@ -25,26 +25,29 @@ if ( undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrev
 			document.head.appendChild( $style );
 		}
 
+		let value = newValue;
+
+		// Convert array value into string.
+		if ( Array.isArray( value ) ) {
+			if ( '' === value.join( '' ).trim() ) {
+				// If all values are empty then set value to empty string.
+				value = '';
+			} else {
+				// If one of the values are not empty, iterate through the values and convert every empty string to '0'.
+				value = value.map( function( subValue ) {
+					return '' === subValue ? 0 : subValue;
+				} ).join( ' ' );
+			}
+		}
+
 		// If value is an empty string, reset CSS and then abort.
-		if ( '' === newValue ) {
+		if ( '' === value ) {
 			$style.textContent = '';
 			return;
 		}
 
 		rules.forEach( function( rule ) {
-			let value = newValue;
 			let formattedValue;
-
-			// Convert array value into string.
-			if ( Array.isArray( value ) ) {
-				let sanitizedValue = [];
-
-				sanitizedValue = value.map( function( subvalue ) {
-					return '' === subvalue ? 0 : subvalue;
-				} );
-
-				value = sanitizedValue.join( ' ' );
-			}
 
 			if ( rule.function && rule.function.name ) {
 				switch ( rule.function.name ) {
