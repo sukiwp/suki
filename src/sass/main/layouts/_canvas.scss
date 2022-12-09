@@ -2,13 +2,13 @@
 // Page Canvas
 // -------------------------------------------------------------
 
-.suki-canvas {
-	--canvas-width: 100vw;
-	--content-width--full: var(--canvas-width);
+.suki-page {
+	--page-width: 100vw;
+	--content-width--full: var(--page-width);
 
 	display: flex;
 	flex-direction: column;
-	width: min( 100%, var(--canvas-width) );
+	width: min( 100%, var(--page-width) );
 	min-height: inherit; // full screen height page
 	background-color: var(--color-palette-8); // CUSTOMIZER
 
@@ -24,8 +24,8 @@
 	background-repeat: no-repeat; // CUSTOMIZER: outside_bg_repeat
 	background-attachment: fixed; // CUSTOMIZER: outside_bg_attachment
 
-	.suki-canvas {
-		--canvas-width: 1400px; // CUSTOMIZER
+	.suki-page {
+		--page-width: 1400px; // CUSTOMIZER
 
 		margin-inline-start: auto;
 		margin-inline-end: auto;

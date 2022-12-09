@@ -562,7 +562,7 @@ if ( ! function_exists( 'suki_header_mobile__main_bar' ) ) {
 							continue;
 						}
 
-						$classes = 'suki-header-column suki-header-column--' . $column . ( 0 < count( $elements[ $column ] ) ? ' suki-header-column--empty' : '' );
+						$classes = 'suki-header-column suki-header-column--' . $column . ( 0 === count( $elements[ $column ] ) ? ' suki-header-column--empty' : '' );
 						?>
 						<!-- wp:group {
 							"className":"<?php echo esc_attr( $classes ); ?>",

@@ -570,15 +570,15 @@ $add['page_layout'] = array(
 $add['boxed_page_width'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page--layout-boxed .suki-canvas',
-		'property' => '--canvas-width',
+		'element'  => '.suki-page--layout-boxed .suki-page',
+		'property' => '--page-width',
 	),
 );
 
 $add['boxed_page_shadow'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-page--layout-boxed .suki-canvas',
+		'element'  => '.suki-page--layout-boxed .suki-page',
 		'property' => 'box-shadow',
 	),
 );
@@ -586,7 +586,7 @@ $add['boxed_page_shadow'] = array(
 $add['page_bg_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.suki-canvas',
+		'element'  => '.suki-page',
 		'property' => 'background-color',
 	),
 );

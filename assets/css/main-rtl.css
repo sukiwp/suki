@@ -1180,7 +1180,7 @@ th {
 }
 
 .suki-menu-icon {
-	font-size: var(--menu-icon-size, 1.15em);
+	font-size: 1.2em;
 }
 
 .search-form {
@@ -1354,16 +1354,16 @@ th {
 	display: block;
 }
 
-.suki-canvas {
-	--canvas-width: 100vw;
-	--content-width--full: var(--canvas-width);
+.suki-page {
+	--page-width: 100vw;
+	--content-width--full: var(--page-width);
 	display: flex;
 	flex-direction: column;
-	width: min(100%, var(--canvas-width));
+	width: min(100%, var(--page-width));
 	min-height: inherit;
 	background-color: var(--color-palette-8);
 }
-.suki-canvas > * + * {
+.suki-page > * + * {
 	margin-block-start: 0;
 }
 
@@ -1374,8 +1374,8 @@ th {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-.suki-page--layout-boxed .suki-canvas {
-	--canvas-width: 1400px;
+.suki-page--layout-boxed .suki-page {
+	--page-width: 1400px;
 	margin-inline-start: auto;
 	margin-inline-end: auto;
 	box-shadow: 0px 0px 2rem 0px rgba(0, 0, 0, 0.05);

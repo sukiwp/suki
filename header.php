@@ -41,20 +41,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'suki/frontend/before_canvas' );
 		?>
 
-		<div id="page" class="suki-canvas site wp-site-blocks">
+		<div id="canvas" class="suki-canvas wp-site-blocks site">
+			<div id="page" class="suki-page">
 
-			<?php
-			/**
-			 * Hook: suki/frontend/before_header
-			 */
-			do_action( 'suki/frontend/before_header' );
+				<?php
+				/**
+				 * Hook: suki/frontend/before_header
+				 */
+				do_action( 'suki/frontend/before_header' );
 
-			/**
-			 * Header
-			 */
-			suki_header();
+				/**
+				 * Header
+				 */
+				suki_header();
 
-			/**
-			 * Hook: suki/frontend/after_header
-			 */
-			do_action( 'suki/frontend/after_header' );
+				/**
+				 * Hook: suki/frontend/after_header
+				 */
+				do_action( 'suki/frontend/after_header' );

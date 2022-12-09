@@ -23,13 +23,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</head>
 
 	<body <?php body_class(); ?>>
-		<div id="page" class="suki-canvas site wp-site-blocks">
-			<?php
-			while ( have_posts() ) :
-				the_post();
-				the_content();
-			endwhile;
-			?>
+		<div id="canvas" class="suki-canvas site wp-site-blocks">
+			<div id="page" class="suki-page">
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					the_content();
+				endwhile;
+				?>
+			</div>
 		</div>
 		<?php wp_footer(); ?>
 	</body>

@@ -292,8 +292,8 @@
 // Align full ignores padding
 @mixin stretch-alignfull() {
 	&:is(.alignfull) {
-		margin-inline-start: calc( -1 * ( min( var(--canvas-width), 100vw ) - 100% ) / 2 ) !important;
-		margin-inline-end: calc( -1 * ( min( var(--canvas-width), 100vw ) - 100% ) / 2 ) !important;
+		margin-inline-start: calc( -1 * ( min( var(--page-width), 100vw ) - 100% ) / 2 ) !important;
+		margin-inline-end: calc( -1 * ( min( var(--page-width), 100vw ) - 100% ) / 2 ) !important;
 	}
 }
 
