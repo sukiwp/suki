@@ -538,6 +538,7 @@ div.customize-section-description {
 .customize-control-suki-builder .suki-builder {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 20px;
 }
 .customize-control-suki-builder .suki-builder__location-vertical {
@@ -564,7 +565,7 @@ div.customize-section-description {
 }
 @media screen and (min-width: 1324px) {
   .customize-control-suki-builder .suki-builder__location-horizontal {
-    flex-basis: auto;
+    flex-basis: 0;
     flex-grow: 1;
   }
 }

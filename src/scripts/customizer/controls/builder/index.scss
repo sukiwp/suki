@@ -2,6 +2,7 @@
 	.suki-builder {
 		display: flex;
 		flex-wrap: wrap;
+		align-items: flex-start;
 		gap: 20px;
 	}
 
@@ -29,7 +30,7 @@
 		gap: 4px;
 
 		@media screen and ( min-width: 1324px ) {
-			flex-basis: auto;
+			flex-basis: 0;
 			flex-grow: 1;
 		}
 	}
