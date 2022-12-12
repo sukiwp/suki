@@ -44,8 +44,11 @@ class Suki_Compatibility_Elementor {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Add theme defined fonts to all typography settings.
-		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_theme_fonts' ) );
+		// Add a new font group for theme defined fonts.
+		add_action( 'elementor/fonts/groups', array( $this, 'add_fonts_groups' ) );
+
+		// Add theme defined fonts.
+		add_action( 'elementor/fonts/additional_fonts', array( $this, 'add_fonts_choices' ) );
 
 		// Modify single template for many Elementor Library types.
 		add_filter( 'single_template', array( $this, 'set_elementor_library_single_template' ) );
@@ -70,17 +73,29 @@ class Suki_Compatibility_Elementor {
 	}
 
 	/**
+	 * Add Theme Fonts group to Elementor fonts groups.
+	 *
+	 * @param array $groups Groups array.
+	 */
+	public function add_fonts_groups( $groups ) {
+		return array_merge(
+			array(
+				'theme_fonts' => esc_html__( 'Theme Fonts', 'suki' ),
+			),
+			$groups
+		);
+	}
+
+	/**
 	 * Add theme fonts as choices in all font controls.
 	 *
 	 * @param array $fonts Fonts array.
 	 * @return array
 	 */
-	public function add_theme_fonts( $fonts ) {
-		if ( class_exists( '\Elementor\Fonts' ) ) {
-			foreach ( suki_get_web_safe_fonts() as $font => $stack ) {
-				if ( ! isset( $fonts[ $font ] ) ) {
-					$fonts[ $font ] = \Elementor\Fonts::SYSTEM;
-				}
+	public function add_fonts_choices( $fonts ) {
+		foreach ( suki_get_all_fonts() as $group_key => $fonts_in_group ) {
+			foreach ( $fonts_in_group as $font ) {
+				$fonts[ $font ] = 'theme_fonts';
 			}
 		}
 

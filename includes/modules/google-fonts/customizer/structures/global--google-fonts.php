@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Modules > Google Fonts
+ * Customizer settings: Global Configurations > Google Fonts
  *
  * @package Suki
  **/
@@ -19,7 +19,7 @@ $section = 'suki_section_google_fonts';
  * ====================================================
  */
 
-// Global Modules > Google Fonts.
+// Global Configurations > Google Fonts.
 $wp_customize->add_section(
 	$section,
 	array(
@@ -31,9 +31,37 @@ $wp_customize->add_section(
 
 /**
  * ====================================================
- * Global Modules > Google Fonts
+ * Global Configurations > Google Fonts
  * ====================================================
  */
+
+// Info.
+$wp_customize->add_control(
+	new Suki_Customize_Notice_Control(
+		$wp_customize,
+		'notice_google_fonts',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => esc_html__( 'After adding or removing Google Fonts, please publish your changes and then reload the Customizer to load the Google Fonts.', 'suki' ),
+			'priority'    => 10,
+		)
+	)
+);
+
+// Info.
+$wp_customize->add_control(
+	new Suki_Customize_Notice_Control(
+		$wp_customize,
+		'notice_google_fonts_2',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => esc_html__( 'The selected Google Fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum.', 'suki' ),
+			'priority'    => 10,
+		)
+	)
+);
 
 $google_fonts_list = Suki_Google_Fonts::instance()->get_fonts_list();
 $google_fonts_keys = array_keys( $google_fonts_list );
@@ -55,25 +83,10 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Active Google Fonts', 'suki' ),
-			'description' => esc_html__( 'Select the Google Fonts that you want to use. These fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum.', 'suki' ),
-			'choices'     => $google_fonts_choices,
-			'priority'    => 10,
-		)
-	)
-);
-
-// Info.
-$wp_customize->add_control(
-	new Suki_Customize_Notice_Control(
-		$wp_customize,
-		'notice_google_fonts',
-		array(
-			'section'     => $section,
-			'settings'    => array(),
-			'description' => esc_html__( 'After adding or removing Google Fonts, please publish your changes and then reload the Customizer to load the Google Fonts.', 'suki' ),
-			'priority'    => 10,
+			'section'  => $section,
+			'label'    => esc_html__( 'Google Fonts', 'suki' ),
+			'choices'  => $google_fonts_choices,
+			'priority' => 10,
 		)
 	)
 );

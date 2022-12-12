@@ -604,6 +604,10 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
+#: includes/compatibilities/elementor/class-suki-compatibility-elementor.php:83
+msgid "Theme Fonts"
+msgstr ""
+
 #: includes/compatibilities/suki-pro/class-suki-compatibility-suki-pro.php:105
 msgid "WooCommerce Advanced (Legacy)"
 msgstr ""
@@ -1221,14 +1225,14 @@ msgstr ""
 msgid "Social Links"
 msgstr ""
 
-#. translators: %s: link to "Global Modules" section.
-#. translators: %s: link to "Global Modules" section.
+#. translators: %s: link to "Global Configurations" section.
+#. translators: %s: link to "Global Configurations" section.
 #: includes/customizer/structures/footer--social.php:32, includes/customizer/structures/header--social.php:32
 msgid "You can edit Social Media URLs via %s."
 msgstr ""
 
-#: includes/customizer/structures/footer--social.php:33, includes/customizer/structures/header--social.php:33
-msgid "Global Modules"
+#: includes/customizer/structures/footer--social.php:33, includes/customizer/structures/header--social.php:33, includes/customizer/structures/sections.php:54
+msgid "Global Configurations"
 msgstr ""
 
 #: includes/customizer/structures/footer--social.php:56, includes/customizer/structures/header--social.php:56
@@ -1491,10 +1495,6 @@ msgstr ""
 
 #: includes/customizer/structures/sections.php:43
 msgid "Global"
-msgstr ""
-
-#: includes/customizer/structures/sections.php:54
-msgid "Global Configurations"
 msgstr ""
 
 #: includes/customizer/structures/sections.php:63
@@ -1811,7 +1811,7 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: includes/modules/google-fonts/class-suki-google-fonts.php:103, includes/modules/google-fonts/customizer/structures/global--google-fonts.php:26
+#: includes/modules/google-fonts/class-suki-google-fonts.php:103, includes/modules/google-fonts/customizer/structures/global--google-fonts.php:26, includes/modules/google-fonts/customizer/structures/global--google-fonts.php:87
 msgid "Google Fonts"
 msgstr ""
 
@@ -2308,23 +2308,19 @@ msgstr ""
 msgid "Hide when no nested item"
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:59
-msgid "Active Google Fonts"
-msgstr ""
-
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:60
-msgid "Select the Google Fonts that you want to use. These fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum."
-msgstr ""
-
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:75
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:46
 msgid "After adding or removing Google Fonts, please publish your changes and then reload the Customizer to load the Google Fonts."
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:109
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:60
+msgid "The selected Google Fonts will be loaded on all pages. For performance sake, please choose 3 fonts at maximum."
+msgstr ""
+
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:122
 msgid "Load Google Fonts locally"
 msgstr ""
 
-#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:110
+#: includes/modules/google-fonts/customizer/structures/global--google-fonts.php:123
 msgid "Theme will automatically download all Google Fonts you have chosen into your server and serve the fonts locally."
 msgstr ""
 

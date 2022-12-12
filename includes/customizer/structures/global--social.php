@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Modules > Social Media URLs
+ * Customizer settings: Global Configurations > Social Media URLs
  *
  * @package Suki
  **/

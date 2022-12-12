@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Modules > Breadcrumb
+ * Customizer settings: Global Configurations > Breadcrumb
  *
  * @package Suki
  **/
@@ -19,7 +19,7 @@ $section = 'suki_section_breadcrumb';
  * ====================================================
  */
 
-// Section: Global Modules > Breadcrumb.
+// Section: Global Configurations > Breadcrumb.
 $wp_customize->add_section(
 	$section,
 	array(

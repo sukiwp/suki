@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer settings: Global Modules > Color Palette
+ * Customizer settings: Global Configurations > Color Palette
  *
  * @package Suki Pro
  **/

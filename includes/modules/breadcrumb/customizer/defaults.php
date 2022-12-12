@@ -14,7 +14,7 @@ $add = array();
 
 /**
  * ====================================================
- * Global Modules > Breadcrumb
+ * Global Configurations > Breadcrumb
  * ====================================================
  */
 

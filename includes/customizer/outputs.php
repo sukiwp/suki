@@ -14,7 +14,7 @@ $add = array();
 
 /**
  * ====================================================
- * Global Modules > Color Palette
+ * Global Configurations > Color Palette
  * ====================================================
  */
 

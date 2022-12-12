@@ -167,7 +167,7 @@ class Suki_Customizer {
 		// Sections and Panels.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/structures/sections.php';
 
-		// Global Modules.
+		// Global Configurations.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/structures/global--social.php';
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'customizer/structures/global--color-palette.php';
 

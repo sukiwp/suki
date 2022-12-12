@@ -28,9 +28,9 @@ $wp_customize->add_control(
 			'settings'    => array(),
 			'label'       => esc_html__( 'Social Links', 'suki' ),
 			'description' => sprintf(
-				/* translators: %s: link to "Global Modules" section. */
+				/* translators: %s: link to "Global Configurations" section. */
 				esc_html__( 'You can edit Social Media URLs via %s.', 'suki' ),
-				'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link">' . esc_html__( 'Global Modules', 'suki' ) . '</a>'
+				'<a href="' . esc_attr( add_query_arg( 'autofocus[panel]', 'suki_panel_global_settings', remove_query_arg( 'autofocus' ) ) ) . '" class="suki-jump-to-control-link">' . esc_html__( 'Global Configurations', 'suki' ) . '</a>'
 			),
 			'priority'    => 10,
 		)

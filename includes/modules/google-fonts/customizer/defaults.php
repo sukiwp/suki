@@ -14,7 +14,7 @@ $add = array();
 
 /**
  * ====================================================
- * Global Modules > Google Fonts
+ * Global Configurations > Google Fonts
  * ====================================================
  */
 
