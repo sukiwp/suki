@@ -144,9 +144,9 @@ if ( undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrev
 				css += selector + '{';
 
 				Object.keys( properties ).forEach( function( property ) {
-					const value = properties[ property ];
+					const propValue = properties[ property ];
 
-					css += property + ':' + value + ';';
+					css += property + ':' + propValue + ';';
 				} );
 
 				css += '}';

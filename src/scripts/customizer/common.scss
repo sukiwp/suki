@@ -177,4 +177,8 @@ div.customize-section-description {
 	#TB_overlay, #TB_window {
 		z-index: 500001;
 	}
+
+	#TB_iframeContent {
+		display: block;
+	}
 }
