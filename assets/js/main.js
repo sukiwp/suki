@@ -24,48 +24,23 @@ const suki = {
 		const calculateSubMenuEdge = function() {
 			const isRTL = document.body.classList.contains( 'rtl' );
 			const anchorSide = isRTL ? 'left' : 'right';
-			const $submenus = [ ...document.querySelectorAll( '.suki-header-row .menu > * > .sub-menu' ) ];
+			const $submenus = [ ...document.querySelectorAll( '.suki-header-section--horizontal .menu > * > .sub-menu' ) ];
 
 			$submenus.forEach( function( $submenu ) {
-				const $section = $submenu.closest( '.suki-header' );
+				// const $section = $submenu.closest( '.suki-header-section--horizontal' );
 				const $menuItem = $submenu.parentElement;
 				const $wrapper = $menuItem.closest( '.suki-header-row' );
 
-				let $container = $wrapper;
+				// Reset.
+				$submenu.classList.remove( 'suki-sub-menu--edge' );
 
-				if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
-					// Full width mega menu, use section as the container.
-
-					$container = $section;
-				} else if ( $section.classList.contains( 'suki-section-contained' ) ) {
-					// Contained section, use section inner as the container.
-
-					$container = $section.querySelector( '.suki-section-inner' );
-				}
-
-				// Reset inline styling.
-				$submenu.classList.remove( 'suki-sub-menu-edge' );
-				$submenu.style[ anchorSide ] = '';
-
-				// Set "max-width" based on container's width.
-				$submenu.style.maxWidth = $container.offsetWidth + 'px';
-
-				const containerEdge = $container.getBoundingClientRect()[ anchorSide ];
+				const containerEdge = $wrapper.getBoundingClientRect()[ anchorSide ];
 				const submenuEdge = $submenu.getBoundingClientRect()[ anchorSide ];
 				const isSubmenuOverflow = isRTL ? submenuEdge < containerEdge : submenuEdge > containerEdge;
 
-				// Apply class and left position.
+				// Apply class.
 				if ( isSubmenuOverflow ) {
-					$submenu.classList.add( 'suki-sub-menu-edge' );
-					$submenu.style[ anchorSide ] = ( isRTL ? $container.getBoundingClientRect()[ anchorSide ] - $wrapper.getBoundingClientRect()[ anchorSide ] : $wrapper.getBoundingClientRect()[ anchorSide ] - $container.getBoundingClientRect()[ anchorSide ] ) + 'px';
-				}
-
-				if ( $menuItem.classList.contains( 'suki-mega-menu' ) && $menuItem.classList.contains( 'suki-mega-menu-full-width' ) ) {
-					const maxContentWidth = $section.classList.contains( 'suki-section-contained' ) ? $menuItem.closest( '.suki-section-inner' ).offsetWidth : $menuItem.closest( '.suki-wrapper' ).offsetWidth;
-					const sidePadding = ( $submenu.clientWidth - maxContentWidth ) / 2;
-
-					$submenu.style.paddingLeft = ( sidePadding - parseFloat( window.getComputedStyle( $submenu.firstElementChild, null ).getPropertyValue( 'padding-left' ) ) ) + 'px';
-					$submenu.style.paddingRight = ( sidePadding - parseFloat( window.getComputedStyle( $submenu.lastElementChild, null ).getPropertyValue( 'padding-left' ) ) ) + 'px';
+					$submenu.classList.add( 'suki-sub-menu--edge' );
 				}
 
 				// Apply vertical max-height.
@@ -83,11 +58,11 @@ const suki = {
 					const isSubsubmenuOverflow = isRTL ? subsubmenuEdge < containerEdge : subsubmenuEdge > containerEdge;
 
 					// Reset inline styling.
-					$subsubmenu.classList.remove( 'suki-sub-menu-right' );
+					$subsubmenu.classList.remove( 'suki-sub-menu--right' );
 
 					// Apply class and left position.
 					if ( isSubsubmenuOverflow ) {
-						$subsubmenu.classList.add( 'suki-sub-menu-right' );
+						$subsubmenu.classList.add( 'suki-sub-menu--right' );
 					}
 
 					// Apply vertical max-height.
@@ -442,7 +417,7 @@ const suki = {
 		 */
 		const handleAccordionMenuEmptyHashLink = function( e ) {
 			// Check target element.
-			const $this = e.target.closest( '.suki-header-section-vertical .suki-toggle-menu .menu-item-has-children > .suki-menu-item-link[href="#"]' );
+			const $this = e.target.closest( '.suki-header-section--vertical .suki-toggle-menu .menu-item-has-children > .suki-menu-item-link[href="#"]' );
 			if ( ! $this ) {
 				return;
 			}

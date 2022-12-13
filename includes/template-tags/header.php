@@ -636,12 +636,12 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 				</div>
 
 				<!-- wp:group {
-					"className":"suki-popup__content",
+					"className":"suki-header-section--vertical suki-popup__content",
 					"layout":{
 						"type":"flex",
 						"orientation":"vertical",
 					}
-				} --><div class="wp-block-group suki-popup__content">
+				} --><div class="wp-block-group suki-header-section--vertical suki-popup__content">
 
 					<!-- wp:group {
 						"className":"suki-header-vertical-column",

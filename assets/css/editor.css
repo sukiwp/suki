@@ -604,6 +604,10 @@ img {
 	vertical-align: middle;
 }
 
+iframe {
+	display: block;
+}
+
 table {
 	width: 100%;
 	border-collapse: collapse;

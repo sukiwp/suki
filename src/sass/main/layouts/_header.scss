@@ -236,6 +236,7 @@
 // -------------------------------------------------------------
 
 .suki-header-row {
+	position: relative; // Used for mega menu container width
 	height: 100%;
 	align-items: stretch !important; // Override "body .is-layout-flex".
 	gap: var(--items-gap) !important; // Override "body .is-layout-flex".
@@ -303,7 +304,7 @@
 // -------------------------------------------------------------
 
 // Horizontal menu
-.suki-header-row {
+.suki-header-section--horizontal {
 	.menu {
 		align-items: inherit;
 		gap: inherit;
@@ -316,10 +317,19 @@
 	.suki-menu-item-link {
 		align-items: inherit;
 	}
+
+	.sub-menu {
+		max-width: var(--content-width--narrow); // Set max width to normal block width.
+
+		&.suki-sub-menu--edge {
+			left: auto; // Reset
+			right: 0; // Right value will be filled by JS
+		}
+	}
 }
 
 // Vertical menu
-.suki-header-section-vertical {
+.suki-header-section--vertical {
 	.suki-toggle-menu {
 		display: revert; // Reset
 
