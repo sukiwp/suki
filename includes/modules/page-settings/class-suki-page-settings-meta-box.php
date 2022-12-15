@@ -272,6 +272,12 @@ class Suki_Page_Settings_Meta_Box {
 		$script_data = include trailingslashit( SUKI_SCRIPTS_DIR ) . 'page-settings.asset.php';
 
 		/**
+		 * Enqueue page-settings.css
+		 */
+
+		wp_enqueue_style( 'suki-page-settings', trailingslashit( SUKI_SCRIPTS_URL ) . 'page-settings.css', array(), $script_data['version'] );
+
+		/**
 		 * Enqueue page-settings.js
 		 */
 
@@ -550,7 +556,6 @@ class Suki_Page_Settings_Meta_Box {
 					'content_container'      => array(
 						'type'          => 'select',
 						'label'         => esc_html__( 'Container', 'suki' ),
-						'description'   => esc_html__( 'Narrow container doesn\'t support sidebar.', 'suki' ),
 						'options'       => array(
 							''       => esc_html__( '-- Inherit --', 'suki' ),
 							'narrow' => esc_html__( 'Narrow', 'suki' ),
@@ -596,15 +601,14 @@ class Suki_Page_Settings_Meta_Box {
 						'priority' => 30,
 					),
 					'hero'                   => array(
-						'type'        => 'select',
-						'label'       => esc_html__( 'Hero section', 'suki' ),
-						'description' => esc_html__( 'Display content header in a separate section between header and content sections.', 'suki' ),
-						'options'     => array(
+						'type'     => 'select',
+						'label'    => esc_html__( 'Hero section', 'suki' ),
+						'options'  => array(
 							''  => esc_html__( '-- Inherit --', 'suki' ),
 							'0' => esc_html__( '✓ Enabled', 'suki' ),
 							'1' => esc_html__( '✗ Disabled', 'suki' ),
 						),
-						'priority'    => 40,
+						'priority' => 40,
 					),
 					'hero_container'         => array(
 						'type'     => 'select',

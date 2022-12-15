@@ -1,0 +1,10 @@
+.suki-page-settings__row {
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	&:first-of-type {
+		margin-top: 8px;
+	}
+}

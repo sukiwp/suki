@@ -61,7 +61,7 @@ $wp_customize->add_section(
 	'suki_section_color_palette',
 	array(
 		'title'       => esc_html__( 'Color Palette', 'suki' ),
-		'description' => '<p>' . esc_html__( 'Save up to 8 colors that you frequently use while customizing your website.', 'suki' ) . '</p><p>' . esc_html__( 'These colors don\'t represent global colors (text, heading, border, etc.). To configure Global Colors, please navigate to Global Elements section.', 'suki' ) . '</p>',
+		'description' => '<p>' . esc_html__( 'Define 8 main colors for your design.', 'suki' ) . '</p>',
 		'panel'       => $panel,
 		'priority'    => 10,
 	)
