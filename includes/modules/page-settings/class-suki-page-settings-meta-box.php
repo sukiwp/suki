@@ -14,6 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Page Settings Meta Box class.
  */
 class Suki_Page_Settings_Meta_Box {
+	/**
+	 * Post meta key
+	 *
+	 * @var string
+	 */
 	const META_KEY = 'suki_page_settings';
 
 	/**

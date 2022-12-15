@@ -1,10 +1,3 @@
-import { registerPlugin } from '@wordpress/plugins';
-
-import {
-	PluginSidebar,
-	PluginSidebarMoreMenuItem,
-} from '@wordpress/edit-post';
-
 import {
 	Button,
 	Flex,
@@ -18,7 +11,16 @@ import {
 	useDispatch,
 } from '@wordpress/data';
 
-function runFieldOutputs( key, rules, value, inheritValue ) {
+import {
+	PluginSidebar,
+	PluginSidebarMoreMenuItem,
+} from '@wordpress/edit-post';
+
+import { Fragment } from '@wordpress/element';
+
+import { registerPlugin } from '@wordpress/plugins';
+
+const runFieldOutputs = ( key, rules, value, inheritValue ) => {
 	const actualValue = '' !== value ? value : inheritValue;
 
 	rules.forEach( ( rule ) => {
@@ -45,9 +47,9 @@ function runFieldOutputs( key, rules, value, inheritValue ) {
 				break;
 		}
 	} );
-}
+};
 
-function SukiPageSettingsSidebar() {
+const SukiPageSettingsSidebar = () => {
 	const metaValue = useSelect( ( select ) => {
 		return select( 'core/editor' ).getEditedPostAttribute( 'meta' )[ sukiPageSettingsData.metaKey ];
 	}, [] );
@@ -102,56 +104,53 @@ function SukiPageSettingsSidebar() {
 										}
 
 										return (
-											<>
-												{ ( () => {
-													switch ( field.type ) {
-														case 'select':
-															return (
-																<SelectControl
-																	key={ field.key }
-																	label={ field.label }
-																	value={ value }
-																	options={ field.options }
-																	help={ field.description }
-																	onChange={ ( newValue ) => {
-																		setFieldValue( field.key, newValue );
+											<Fragment key={ field.key }>
 
-																		if ( field.outputs ) {
-																			runFieldOutputs( field.key, field.outputs, newValue, field.inherit_value );
-																		}
-																	} }
-																	__nextHasNoMarginBottom
-																/>
-															);
-														case 'teaser':
-															return (
-																<div>
-																	{ 0 < field.content.length &&
-																		<ul
-																			style={ {
-																				margin: '1em 0',
-																				listStyle: 'disc',
-																				paddingLeft: '1em',
-																			} }
-																		>
-																			{ field.content.map( ( lineText, lineKey ) => {
-																				return <li key={ lineKey }>{ lineText }</li>;
-																			} ) }
-																		</ul>
-																	}
+												{ 'select' === field.type &&
+													<SelectControl
+														key={ field.key }
+														label={ field.label }
+														value={ value }
+														options={ field.options }
+														help={ field.description }
+														onChange={ ( newValue ) => {
+															setFieldValue( field.key, newValue );
 
-																	<Button
-																		href={ field.url }
-																		variant="secondary"
-																		text={ field.action }
-																		rel="noopener"
-																		target="_blank"
-																	/>
-																</div>
-															);
-													}
-												} )() }
-											</>
+															if ( field.outputs ) {
+																runFieldOutputs( field.key, field.outputs, newValue, field.inherit_value );
+															}
+														} }
+														__nextHasNoMarginBottom
+													/>
+												}
+
+												{ 'teaser' === field.type &&
+													<div>
+														{ 0 < field.content.length &&
+															<ul
+																style={ {
+																	margin: '1em 0',
+																	listStyle: 'disc',
+																	paddingLeft: '1em',
+																} }
+															>
+																{ field.content.map( ( lineText, lineKey ) => {
+																	return <li key={ lineKey }>{ lineText }</li>;
+																} ) }
+															</ul>
+														}
+
+														<Button
+															href={ field.url }
+															variant="secondary"
+															text={ field.action }
+															rel="noopener"
+															target="_blank"
+														/>
+													</div>
+												}
+
+											</Fragment>
 										);
 									} ) }
 								</Flex>
@@ -165,7 +164,7 @@ function SukiPageSettingsSidebar() {
 			</PluginSidebarMoreMenuItem>
 		</>
 	);
-}
+};
 
 registerPlugin(
 	sukiPageSettingsData.metaKey.replaceAll( '_', '-' ),
