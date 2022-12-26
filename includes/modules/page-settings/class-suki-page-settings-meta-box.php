@@ -19,7 +19,7 @@ class Suki_Page_Settings_Meta_Box {
 	 *
 	 * @var string
 	 */
-	const META_KEY = 'suki_page_settings';
+	const META_KEY = Suki_Page_Settings::META_KEY;
 
 	/**
 	 * Singleton instance
@@ -50,9 +50,6 @@ class Suki_Page_Settings_Meta_Box {
 	 * Class constructor
 	 */
 	protected function __construct() {
-		// Register meta.
-		add_action( 'init', array( $this, 'register_meta' ) );
-
 		// Post meta box.
 		// `admin_init` hook is used to make sure that all custom post types are already registered (mostly registered in `init` hook).
 		add_action( 'admin_init', array( $this, 'init_post_meta_box' ) );
@@ -113,35 +110,6 @@ class Suki_Page_Settings_Meta_Box {
 		}
 
 		return $ids;
-	}
-
-	/**
-	 * Register meta data for posts and terms.
-	 */
-	public function register_meta() {
-		foreach ( suki_get_public_post_types() as $post_type ) {
-			register_post_meta(
-				$post_type,
-				self::META_KEY,
-				array(
-					'type'          => 'object', // Associative array requires JSON format.
-					'single'        => true,
-					'default'       => array(),
-					'auth_callback' => function () {
-						return current_user_can( 'edit_posts' );
-					},
-					'show_in_rest'  => array(
-						'schema' => array(
-							'type'                 => 'object',
-							'properties'           => $this->get_fields_rest_schema( $post_type ),
-							'additionalProperties' => array(
-								'type' => 'string',
-							),
-						),
-					),
-				)
-			);
-		}
 	}
 
 	/**
@@ -288,9 +256,17 @@ class Suki_Page_Settings_Meta_Box {
 			'suki-page-settings',
 			'const sukiPageSettingsData = ' . wp_json_encode(
 				array(
-					'metaKey'    => self::META_KEY,
-					'title'      => esc_html__( 'Page Settings (Theme)', 'suki' ),
-					'structures' => $this->get_sorted_structures( $post_type . '_single' ),
+					'metaKey'       => self::META_KEY,
+					'structures'    => $this->get_sorted_structures( $post_type . '_single' ),
+					'showProTeaser' => suki_show_pro_teaser(),
+					'proTeaserUrl'  => add_query_arg(
+						array(
+							'utm_source'   => 'suki-page-settings-meta-box',
+							'utm_medium'   => 'learn-more',
+							'utm_campaign' => 'theme-upsell',
+						),
+						SUKI_PRO_WEBSITE_URL
+					),
 				)
 			),
 			'before'
@@ -424,7 +400,9 @@ class Suki_Page_Settings_Meta_Box {
 		$values     = $this->get_values( $obj );
 		?>
 		<div class="suki-admin-meta-box__wrapper">
-			<?php foreach ( $structures as $panel ) { ?>
+			<?php
+			foreach ( $structures as $panel ) {
+				?>
 				<details id="<?php echo esc_attr( 'suki-page-settings__' . $panel['key'] ); ?>" class="suki-admin-accordion">
 					<summary><?php echo esc_html( $panel['title'] ); ?></summary>
 					<div class="suki-admin-form-rows">
@@ -453,41 +431,55 @@ class Suki_Page_Settings_Meta_Box {
 											<?php
 										}
 										break;
-
-									case 'teaser':
-										$learn_more_url = add_query_arg(
-											array(
-												'utm_source'   => 'suki-page-settings-metabox',
-												'utm_medium'   => 'learn-more',
-												'utm_campaign' => 'theme-upsell',
-											),
-											SUKI_PRO_WEBSITE_URL
-										);
-
-										if ( is_array( $field['content'] ) && 0 < count( $field['content'] ) ) {
-											?>
-											<ul style="margin: 1em 0; list-style: disc; padding-left: 1em;">
-												<?php
-												foreach ( $field['content'] as $line ) {
-													?>
-													<li><?php echo $line; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
-													<?php
-												}
-												?>
-											</ul>
-											<?php
-										}
-										?>
-										<p><a href="<?php echo esc_url( $learn_more_url ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php esc_html_e( 'Learn More', 'suki' ); ?></a></p>
-										<?php
-										break;
 								}
 								?>
 							</div>
 						<?php } ?>
 					</div>
 				</details>
-			<?php } ?>
+				<?php
+			}
+
+			/**
+			 * Suki Pro teaser
+			 */
+			if ( suki_show_pro_teaser() ) {
+				$learn_more_url = add_query_arg(
+					array(
+						'utm_source'   => 'suki-page-settings-metabox',
+						'utm_medium'   => 'learn-more',
+						'utm_campaign' => 'theme-upsell',
+					),
+					SUKI_PRO_WEBSITE_URL
+				);
+
+				?>
+				<details id="suki-page-settings__pro-teaser" class="suki-admin-accordion">
+					<summary><?php esc_html_e( 'More options in Suki Pro', 'suki' ); ?></summary>
+					<div class="suki-admin-form-rows">
+						<div class="suki-admin-form-row">
+							<ul	ul style="margin: 1em 0; list-style: disc; padding-left: 1em;">
+								<li><?php esc_html_e( 'Transparent header', 'suki' ); ?></li>
+								<li><?php esc_html_e( 'Sticky header', 'suki' ); ?></li>
+								<li><?php esc_html_e( 'Alternate header colors', 'suki' ); ?></li>
+								<li><?php esc_html_e( 'Sticky sidebar', 'suki' ); ?></li>
+								<li><?php esc_html_e( 'Preloader screen', 'suki' ); ?></li>
+								<li><?php esc_html_e( 'Insert custom content into any template hooks (header, footer, before content, etc.).', 'suki' ); ?></li>
+							</ul>
+							<p>
+								<a href="<?php echo esc_url( $learn_more_url ); ?>" class="button button-secondary" target="_blank" rel="noopener"><?php esc_html_e( 'Learn More', 'suki' ); ?></a>
+							</p>
+						</div>
+					</div>
+				</details>
+				<?php
+			}
+
+			/**
+			 * Hook: suki/page_settings/additional_contents/bottom
+			 */
+			do_action( 'suki/page_settings/additional_contents/bottom', $obj );
+			?>
 		</div>
 		<?php
 	}
@@ -497,26 +489,6 @@ class Suki_Page_Settings_Meta_Box {
 	 * Other functions
 	 * ====================================================
 	 */
-
-	/**
-	 * Return all fields schema array for REST API meta.
-	 *
-	 * @param string $post_type Post type.
-	 * @return array
-	 */
-	public function get_fields_rest_schema( $post_type ) {
-		$schema = array();
-
-		foreach ( $this->get_structures( $post_type . '_single' ) as $panel_key => $panel ) {
-			foreach ( $panel['fields'] as $field_key => $field ) {
-				$schema[ $field_key ] = array(
-					'type' => 'string',
-				);
-			}
-		}
-
-		return $schema;
-	}
 
 	/**
 	 * Return page settings values of the specified object (post or term object).
@@ -674,42 +646,6 @@ class Suki_Page_Settings_Meta_Box {
 				'priority' => 30,
 			),
 		);
-
-		/**
-		 * Suki Pro teaser
-		 */
-
-		if ( suki_show_pro_teaser() ) {
-			$structures['teaser'] = array(
-				'title'    => esc_html__( 'More Options in Suki Pro', 'suki' ),
-				'fields'   => array(
-					array(
-						'type'     => 'teaser',
-						'content'  => array(
-							esc_html__( 'Transparent header', 'suki' ),
-							esc_html__( 'Sticky header', 'suki' ),
-							esc_html__( 'Alternate header colors', 'suki' ),
-							esc_html__( 'Sticky sidebar', 'suki' ),
-							esc_html__( 'Preloader screen', 'suki' ),
-							esc_html__( 'Insert custom content into any template hooks (header, footer, before content, etc.).', 'suki' ),
-						),
-						'url'      => esc_url(
-							add_query_arg(
-								array(
-									'utm_source'   => 'suki-page-settings-metabox',
-									'utm_medium'   => 'learn-more',
-									'utm_campaign' => 'theme-upsell',
-								),
-								SUKI_PRO_WEBSITE_URL
-							)
-						),
-						'action'   => esc_html__( 'Learn More', 'suki' ),
-						'priority' => 999,
-					),
-				),
-				'priority' => 999,
-			);
-		}
 
 		/**
 		 * Filter: suki/page_settings/structures

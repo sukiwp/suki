@@ -113,7 +113,7 @@ const SukiMultiSelect = ( { control } ) => {
 					value=""
 					disabled
 				>
-					{ __( 'Add new', 'suki' ) }
+					{ __( '➕ Add new', 'suki' ) }
 				</option>
 
 				{ control.params.choices.map( ( choice ) => {

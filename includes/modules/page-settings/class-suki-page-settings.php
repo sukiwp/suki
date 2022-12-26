@@ -24,6 +24,13 @@ class Suki_Page_Settings extends Suki_Module {
 	const MODULE_SLUG = 'page-settings';
 
 	/**
+	 * Post meta key
+	 *
+	 * @var string
+	 */
+	const META_KEY = 'suki_page_settings';
+
+	/**
 	 * ====================================================
 	 * Singleton & constructor functions
 	 * ====================================================
@@ -34,6 +41,13 @@ class Suki_Page_Settings extends Suki_Module {
 	 */
 	protected function __construct() {
 		parent::__construct();
+
+		/**
+		 * Data
+		 */
+
+		// Register meta.
+		add_action( 'init', array( $this, 'register_meta' ) );
 
 		/**
 		 * Customizer settings & values
@@ -56,7 +70,9 @@ class Suki_Page_Settings extends Suki_Module {
 		 * Meta box
 		 */
 
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-page-settings-meta-box.php';
+		if ( is_admin() ) {
+			require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'modules/' . self::MODULE_SLUG . '/class-suki-page-settings-meta-box.php';
+		}
 	}
 
 	/**
@@ -64,6 +80,34 @@ class Suki_Page_Settings extends Suki_Module {
 	 * Hook functions
 	 * ====================================================
 	 */
+
+	/**
+	 * Register meta data for posts and terms.
+	 */
+	public function register_meta() {
+		foreach ( suki_get_public_post_types() as $post_type ) {
+			register_post_meta(
+				$post_type,
+				self::META_KEY,
+				array(
+					'type'          => 'object', // Associative array requires JSON format.
+					'single'        => true,
+					'default'       => array(),
+					'auth_callback' => function () {
+						return current_user_can( 'edit_posts' );
+					},
+					'show_in_rest'  => array(
+						'schema' => array(
+							'type'                 => 'object',
+							'additionalProperties' => array(
+								'type' => 'string',
+							),
+						),
+					),
+				)
+			);
+		}
+	}
 
 	/**
 	 * Override page settings value with individual page setting values which is configured via meta box.
@@ -81,7 +125,7 @@ class Suki_Page_Settings extends Suki_Module {
 
 			if ( ! empty( $post ) ) {
 				// Get the individual page settings for current singular object.
-				$individual_settings = wp_parse_args( get_post_meta( $post->ID, 'suki_page_settings', true ), array() );
+				$individual_settings = wp_parse_args( get_post_meta( $post->ID, self::META_KEY, true ), array() );
 
 				// Override with individual value (if set).
 				if ( isset( $individual_settings[ $key ] ) ) {
@@ -97,7 +141,7 @@ class Suki_Page_Settings extends Suki_Module {
 
 				if ( ! empty( $term ) ) {
 					// Get the individual page settings for current taxonomy term.
-					$individual_settings = wp_parse_args( get_term_meta( $term->term_id, 'suki_page_settings', true ), array() );
+					$individual_settings = wp_parse_args( get_term_meta( $term->term_id, self::META_KEY, true ), array() );
 
 					// Override with individual value (if set).
 					if ( isset( $individual_settings[ $key ] ) ) {

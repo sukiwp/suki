@@ -1,11 +1,13 @@
 import './index.scss';
 
 import {
+	withFilters,
 	Button,
 	Panel,
 	PanelBody,
 	PanelRow,
 	SelectControl,
+	Slot,
 } from '@wordpress/components';
 
 import {
@@ -18,7 +20,7 @@ import {
 	PluginSidebarMoreMenuItem,
 } from '@wordpress/edit-post';
 
-import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import { registerPlugin } from '@wordpress/plugins';
 
@@ -50,6 +52,8 @@ const runFieldOutputs = ( key, rules, value, inheritValue ) => {
 		}
 	} );
 };
+
+const SukiPageSettingsSidebarSlotFillFilterableComponent = withFilters( 'suki.pageSettingsAdditionalContentsBottom' )( () => <></> );
 
 const SukiPageSettingsSidebar = () => {
 	const metaValue = useSelect( ( select ) => {
@@ -85,7 +89,11 @@ const SukiPageSettingsSidebar = () => {
 
 	return (
 		<>
-			<PluginSidebar name={ sukiPageSettingsData.metaKey } title={ sukiPageSettingsData.title }>
+			<PluginSidebar
+				name={ sukiPageSettingsData.metaKey }
+				title={ __( 'Page Settings (Theme)', 'suki' ) }
+			>
+
 				{ sukiPageSettingsData.structures.map( ( panel ) => {
 					return (
 						<Panel key={ panel.key }>
@@ -124,32 +132,6 @@ const SukiPageSettingsSidebar = () => {
 												/>
 											}
 
-											{ 'teaser' === field.type &&
-												<div>
-													{ 0 < field.content.length &&
-														<ul
-															style={ {
-																margin: '1em 0',
-																listStyle: 'disc',
-																paddingLeft: '1em',
-															} }
-														>
-															{ field.content.map( ( lineText, lineKey ) => {
-																return <li key={ lineKey }>{ lineText }</li>;
-															} ) }
-														</ul>
-													}
-
-													<Button
-														href={ field.url }
-														variant="secondary"
-														text={ field.action }
-														rel="noopener"
-														target="_blank"
-													/>
-												</div>
-											}
-
 										</PanelRow>
 									);
 								} ) }
@@ -157,7 +139,47 @@ const SukiPageSettingsSidebar = () => {
 						</Panel>
 					);
 				} ) }
+
+				{ sukiPageSettingsData.showProTeaser &&
+					<Panel>
+						<PanelBody
+							title={ __( 'More options in Suki Pro', 'suki' ) }
+							initialOpen={ false }
+						>
+							<ul
+								style={ {
+									margin: '1em 0',
+									listStyle: 'disc',
+									paddingLeft: '1em',
+								} }
+							>
+								<li>{ __( 'Transparent header', 'suki' ) }</li>
+								<li>{ __( 'Sticky header', 'suki' ) }</li>
+								<li>{ __( 'Alternate header colors', 'suki' ) }</li>
+								<li>{ __( 'Sticky sidebar', 'suki' ) }</li>
+								<li>{ __( 'Preloader screen', 'suki' ) }</li>
+								<li>{ __( 'Insert custom content into any template hooks (header, footer, before content, etc.).', 'suki' ) }</li>
+							</ul>
+
+							<p>
+								<Button
+									variant="secondary"
+									text={ __( 'Learn More', 'suki' ) }
+									href={ sukiPageSettingsData.proTeaserUrl }
+									target="_blank"
+									rel="noopener"
+								/>
+							</p>
+						</PanelBody>
+					</Panel>
+				}
+
+				<Slot name="SukiPageSettingsAdditionalContentsBottom" />
+
+				<SukiPageSettingsSidebarSlotFillFilterableComponent />
+
 			</PluginSidebar>
+
 			<PluginSidebarMoreMenuItem target={ sukiPageSettingsData.metaKey }>
 				{ sukiPageSettingsData.title }
 			</PluginSidebarMoreMenuItem>

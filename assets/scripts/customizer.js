@@ -1623,7 +1623,7 @@ const SukiMultiSelect = _ref => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     value: "",
     disabled: true
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Add new', 'suki')), control.params.choices.map(choice => {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('➕ Add new', 'suki')), control.params.choices.map(choice => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
       key: choice.value,
       value: choice.value,

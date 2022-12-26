@@ -8,3 +8,14 @@
 		margin-top: 8px;
 	}
 }
+
+.interface-complementary-area {
+	.components-notice {
+		margin: 0; // Reset
+		padding-right: 12px; // Reset
+
+		.components-notice__content {
+			margin-right: 0; // Reset
+		}
+	}
+}

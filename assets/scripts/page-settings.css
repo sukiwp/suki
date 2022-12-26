@@ -11,4 +11,12 @@
   margin-top: 8px;
 }
 
+.interface-complementary-area .components-notice {
+  margin: 0;
+  padding-right: 12px;
+}
+.interface-complementary-area .components-notice .components-notice__content {
+  margin-right: 0;
+}
+
 /*# sourceMappingURL=page-settings.css.map*/
