@@ -37,6 +37,40 @@ details.suki-admin-accordion summary:before {
 details.suki-admin-accordion[open] summary:before {
 	content: "▼";
 }
+details.suki-admin-accordion .form-table {
+	margin: 0;
+}
+details.suki-admin-accordion .form-table td {
+	padding-block: 10px;
+}
+details.suki-admin-accordion .form-table th {
+	padding-block: 15px;
+}
+
+.interface-complementary-area details.suki-admin-accordion .form-table {
+	display: block;
+	font-size: revert;
+}
+.interface-complementary-area details.suki-admin-accordion .form-table * {
+	font-size: revert;
+}
+.interface-complementary-area details.suki-admin-accordion .form-table tbody {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.interface-complementary-area details.suki-admin-accordion .form-table tr, .interface-complementary-area details.suki-admin-accordion .form-table th, .interface-complementary-area details.suki-admin-accordion .form-table td {
+	display: block;
+}
+.interface-complementary-area details.suki-admin-accordion .form-table th {
+	font-weight: normal;
+	margin: 0 0 0.25em;
+	padding: 0;
+}
+.interface-complementary-area details.suki-admin-accordion .form-table td {
+	margin: 0;
+	padding: 0;
+}
 
 .suki-admin-tooltip {
 	position: relative;

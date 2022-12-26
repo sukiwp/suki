@@ -53,6 +53,50 @@ details.suki-admin-accordion {
 			}
 		}
 	}
+
+	.form-table {
+		margin: 0;
+
+		td {
+			padding-block: 10px;
+		}
+
+		th {
+			padding-block: 15px;
+		}
+	}
+}
+
+.interface-complementary-area details.suki-admin-accordion {
+	.form-table {
+		display: block;
+		font-size: revert;
+
+		* {
+			font-size: revert;
+		}
+
+		tbody {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		tr, th, td {
+			display: block;
+		}
+
+		th {
+			font-weight: normal;
+			margin: 0 0 0.25em;
+			padding: 0;
+		}
+
+		td {
+			margin: 0;
+			padding: 0;
+		}
+	}
 }
 
 // -------------------------------------------------------------

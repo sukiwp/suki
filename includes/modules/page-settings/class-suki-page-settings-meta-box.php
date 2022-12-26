@@ -405,16 +405,18 @@ class Suki_Page_Settings_Meta_Box {
 				?>
 				<details id="<?php echo esc_attr( 'suki-page-settings__' . $panel['key'] ); ?>" class="suki-admin-accordion">
 					<summary><?php echo esc_html( $panel['title'] ); ?></summary>
-					<div class="suki-admin-form-rows">
-						<?php foreach ( $panel['fields'] as $field ) { ?>
-							<div class="suki-admin-form-row">
+					<div>
+						<table class="form-table">
+							<tbody>
 								<?php
-								switch ( $field['type'] ) {
-									case 'select':
-										?>
-										<label class="suki-admin-form-label"><?php echo esc_html( $field['label'] ); ?></label>
-										<div>
-											<select name="<?php echo esc_attr( self::META_KEY . '[' . $field['key'] . ']' ); ?>" class="suki-admin-select-control">
+								foreach ( $panel['fields'] as $field ) {
+									?>
+									<tr>
+										<th scope="row">
+											<label for="suki-page-settings__field--<?php echo esc_attr( $field['key'] ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
+										</th>
+										<td>
+											<select name="<?php echo esc_attr( self::META_KEY . '[' . $field['key'] . ']' ); ?>" id="suki-page-settings__field--<?php echo esc_attr( $field['key'] ); ?>">
 												<?php
 												foreach ( $field['options'] as $option ) {
 													?>
@@ -423,18 +425,20 @@ class Suki_Page_Settings_Meta_Box {
 												}
 												?>
 											</select>
-										</div>
-										<?php
-										if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) {
-											?>
-											<p class="description"><?php echo wp_kses_post( $field['description'] ); ?></p>
 											<?php
-										}
-										break;
+											if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) {
+												?>
+												<p class="description"><?php echo wp_kses_post( $field['description'] ); ?></p>
+												<?php
+											}
+											?>
+										</td>
+									</tr>
+									<?php
 								}
 								?>
-							</div>
-						<?php } ?>
+							</tbody>
+						</table>
 					</div>
 				</details>
 				<?php
