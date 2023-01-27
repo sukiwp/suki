@@ -94,6 +94,9 @@ class Suki {
 		// Helper functions.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'helpers.php';
 
+		// Dataset functions.
+		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'datasets.php';
+
 		// Server-side theme.json configurations.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'theme.json.php';
 

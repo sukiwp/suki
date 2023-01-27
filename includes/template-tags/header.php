@@ -910,3 +910,70 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'suki_logo' ) ) {
+	/**
+	 * Print HTML markup for specified site logo.
+	 *
+	 * @param integer $logo_image_id Logo image ID.
+	 * @param boolean $echo          Render or return the HTML tags.
+	 * @return string
+	 */
+	function suki_logo( $logo_image_id = null, $echo = true ) {
+		// Default to site name.
+		$html = get_bloginfo( 'name', 'display' );
+
+		// Try to get logo image.
+		if ( ! empty( $logo_image_id ) ) {
+			$mime = get_post_mime_type( $logo_image_id );
+
+			$logo_image = wp_get_attachment_image(
+				$logo_image_id,
+				'full',
+				0,
+				array(
+					'alt' => get_bloginfo( 'name', 'display' ),
+				)
+			);
+
+			// Replace logo HTML if logo image is found.
+			if ( ! empty( $logo_image ) ) {
+				$html = $logo_image;
+			}
+		}
+
+		// Render or return.
+		if ( boolval( $echo ) ) {
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			return $html;
+		}
+	}
+}
+
+if ( ! function_exists( 'suki_default_logo' ) ) {
+	/**
+	 * Print / return HTML markup for default logo.
+	 */
+	function suki_default_logo() {
+		?>
+		<span class="suki-logo suki-logo--default"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></span>
+		<?php
+	}
+}
+
+if ( ! function_exists( 'suki_default_mobile_logo' ) ) {
+	/**
+	 * Print / return HTML markup for default mobile logo.
+	 */
+	function suki_default_mobile_logo() {
+		$mobile_logo = suki_get_theme_mod( 'custom_logo_mobile' );
+
+		if ( empty( $mobile_logo ) ) {
+			$mobile_logo = suki_get_theme_mod( 'custom_logo' );
+		}
+		?>
+		<span class="suki-logo suki-logo--default"><?php suki_logo( $mobile_logo ); ?></span>
+		<?php
+	}
+}

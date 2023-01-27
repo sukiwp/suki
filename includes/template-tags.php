@@ -102,115 +102,6 @@ if ( ! function_exists( 'suki_post_class' ) ) {
 	}
 }
 
-if ( ! function_exists( 'suki_inline_svg' ) ) {
-	/**
-	 * Print / return inline SVG HTML tags.
-	 *
-	 * @param string  $svg_file SVG file path.
-	 * @param boolean $echo     Render or return.
-	 * @return string
-	 */
-	function suki_inline_svg( $svg_file, $echo = true ) {
-		// Return empty if no SVG file path is provided.
-		if ( empty( $svg_file ) ) {
-			return;
-		}
-
-		// Get SVG markup.
-		$html = file_get_contents( $svg_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-
-		// Remove XML encoding tag.
-		// This should not be printed on inline SVG.
-		$html = preg_replace( '/<\?xml(?:.*?)\?>/', '', $html );
-
-		// Add width attribute if not found in the SVG markup.
-		// Width value is extracted from viewBox attribute.
-		if ( ! preg_match( '/<svg.*?width.*?>/', $html ) ) {
-			if ( preg_match( '/<svg.*?viewBox="0 0 ([0-9.]+) ([0-9.]+)".*?>/', $html, $matches ) ) {
-				$html = preg_replace( '/<svg (.*?)>/', '<svg $1 width="' . $matches[1] . '" height="' . $matches[2] . '">', $html );
-			}
-		}
-
-		// Remove <title> from SVG markup.
-		// Site name would be added as a screen reader text to represent the logo.
-		$html = preg_replace( '/<title>.*?<\/title>/', '', $html );
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-if ( ! function_exists( 'suki_logo' ) ) {
-	/**
-	 * Print HTML markup for specified site logo.
-	 *
-	 * @param integer $logo_image_id Logo image ID.
-	 * @param boolean $echo          Render or return the HTML tags.
-	 * @return string
-	 */
-	function suki_logo( $logo_image_id = null, $echo = true ) {
-		// Default to site name.
-		$html = get_bloginfo( 'name', 'display' );
-
-		// Try to get logo image.
-		if ( ! empty( $logo_image_id ) ) {
-			$mime = get_post_mime_type( $logo_image_id );
-
-			$logo_image = wp_get_attachment_image(
-				$logo_image_id,
-				'full',
-				0,
-				array(
-					'alt' => get_bloginfo( 'name', 'display' ),
-				)
-			);
-
-			// Replace logo HTML if logo image is found.
-			if ( ! empty( $logo_image ) ) {
-				$html = $logo_image;
-			}
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-if ( ! function_exists( 'suki_default_logo' ) ) {
-	/**
-	 * Print / return HTML markup for default logo.
-	 */
-	function suki_default_logo() {
-		?>
-		<span class="suki-logo suki-logo--default"><?php suki_logo( suki_get_theme_mod( 'custom_logo' ) ); ?></span>
-		<?php
-	}
-}
-
-if ( ! function_exists( 'suki_default_mobile_logo' ) ) {
-	/**
-	 * Print / return HTML markup for default mobile logo.
-	 */
-	function suki_default_mobile_logo() {
-		$mobile_logo = suki_get_theme_mod( 'custom_logo_mobile' );
-
-		if ( empty( $mobile_logo ) ) {
-			$mobile_logo = suki_get_theme_mod( 'custom_logo' );
-		}
-		?>
-		<span class="suki-logo suki-logo--default"><?php suki_logo( $mobile_logo ); ?></span>
-		<?php
-	}
-}
-
 if ( ! function_exists( 'suki_icon' ) ) {
 	/**
 	 * Print / return HTML markup for specified icon type in SVG format.
@@ -231,45 +122,14 @@ if ( ! function_exists( 'suki_icon' ) ) {
 
 		$classes = implode( ' ', array( 'suki-icon', $args['class'] ) );
 
-		// Get SVG path.
-		$path = get_template_directory() . '/assets/icons/' . $key . '.svg';
+		$markups = suki_get_svg_icon_markups();
 
-		/**
-		 * Filter: suki/frontend/svg_icon_path
-		 *
-		 * @param string $path SVG icon path.
-		 * @param string $key  Icon key.
-		 */
-		$path = apply_filters( 'suki/frontend/svg_icon_path', $path, $key );
-
-		/**
-		 * Filter: suki/frontend/svg_icon_path/{$key}
-		 *
-		 * @param string $path SVG icon path.
-		 */
-		$path = apply_filters( 'suki/frontend/svg_icon_path/' . $key, $path );
-
-		// Get SVG markup.
-		if ( file_exists( $path ) ) {
-			$svg = suki_inline_svg( $path, false );
+		if ( isset( $markups[ $key ] ) ) {
+			$svg = $markups[ $key ];
+			$svg = suki_clean_svg_markup( $svg );
 		} else {
-			$svg = suki_inline_svg( get_template_directory() . '/assets/icons/_fallback.svg', false ); // Fallback SVG markup.
+			$svg = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M46.14,43.31a2,2,0,0,1-2.83,2.83L32,34.83,20.69,46.14a2,2,0,1,1-2.83-2.83L29.17,32,17.86,20.69a2,2,0,1,1,2.83-2.83L32,29.17,43.31,17.86a2,2,0,1,1,2.83,2.83L34.83,32ZM0,4V7H4V6A2,2,0,0,1,6,4H7V0H4A4,4,0,0,0,0,4ZM4,27H0V17H4ZM4,47H0V37H4ZM6,60H7v4H4a4,4,0,0,1-4-4V57H4v1A2,2,0,0,0,6,60ZM17,0H27V4H17ZM37,0H47V4H37ZM64,4V7H60V6a2,2,0,0,0-2-2H57V0h3A4,4,0,0,1,64,4ZM60,17h4V27H60Zm0,20h4V47H60ZM17,60H27v4H17Zm43-3h4v3a4,4,0,0,1-4,4H57V60h1a2,2,0,0,0,2-2ZM37,60H47v4H37Z"/></svg>';
 		}
-
-		/**
-		 * Filter: suki/frontend/svg_icon
-		 *
-		 * @param string $path SVG icon HTML markup.
-		 * @param string $key  Icon key.
-		 */
-		$svg = apply_filters( 'suki/frontend/svg_icon', $svg, $key );
-
-		/**
-		 * Filter: suki/frontend/svg_icon/{$key}
-		 *
-		 * @param string $path SVG icon HTML markup.
-		 */
-		$svg = apply_filters( 'suki/frontend/svg_icon/' . $key, $svg );
 
 		// Wrap the icon with "suki-icon" span tag.
 		$html = '<span class="' . esc_attr( $classes ) . '" title="' . esc_attr( $args['title'] ) . '" aria-hidden="true">' . $svg . '</span>';

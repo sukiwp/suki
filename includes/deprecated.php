@@ -48,6 +48,77 @@ function suki_get_template_part( $slug, $name = null, $variables = array(), $ech
 /**
  * [DEPRECATED]
  *
+ * @deprecated 2.0.0 Use the new `suki_get_ui_icon_types` for theme icons and `suki_get_social_media_types` for social icons instead.
+ *
+ * Return array of icons choices.
+ *
+ * @return array
+ */
+function suki_get_all_icons() {
+	_deprecated_function( __FUNCTION__, '2.0.0' );
+
+	/**
+	 * Filter: suki/dataset/icons
+	 *
+	 * @param array $icons Icons array.
+	 */
+	$icons = array(
+		'theme_icons'  => suki_get_ui_icon_types(),
+		'social_icons' => suki_get_social_media_types( true ),
+	);
+
+	return $icons;
+}
+
+/**
+ * [DEPRECATED]
+ *
+ * @deprecated 2.0.0 Use the new `suki_icon_svg` instead.
+ *
+ * Print / return inline SVG HTML tags.
+ *
+ * @param string  $svg_file SVG file path.
+ * @param boolean $echo     Render or return.
+ * @return string
+ */
+function suki_inline_svg( $svg_file, $echo = true ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'suki_icon_svg' );
+
+	// Return empty if no SVG file path is provided.
+	if ( empty( $svg_file ) ) {
+		return;
+	}
+
+	// Get SVG markup.
+	$html = file_get_contents( $svg_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+	// Remove XML encoding tag.
+	// This should not be printed on inline SVG.
+	$html = preg_replace( '/<\?xml(?:.*?)\?>/', '', $html );
+
+	// Add width attribute if not found in the SVG markup.
+	// Width value is extracted from viewBox attribute.
+	if ( ! preg_match( '/<svg.*?width.*?>/', $html ) ) {
+		if ( preg_match( '/<svg.*?viewBox="0 0 ([0-9.]+) ([0-9.]+)".*?>/', $html, $matches ) ) {
+			$html = preg_replace( '/<svg (.*?)>/', '<svg $1 width="' . $matches[1] . '" height="' . $matches[2] . '">', $html );
+		}
+	}
+
+	// Remove <title> from SVG markup.
+	// Site name would be added as a screen reader text to represent the logo.
+	$html = preg_replace( '/<title>.*?<\/title>/', '', $html );
+
+	// Render or return.
+	if ( boolval( $echo ) ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
+	}
+}
+
+/**
+ * [DEPRECATED]
+ *
  * @deprecated 2.0.0 Header builder now uses `suki/dataset/header_builder/elements` and `suki/dataset/header_builder/areas` filter to populate elements.
  *
  * @return array

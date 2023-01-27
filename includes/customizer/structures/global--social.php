@@ -18,7 +18,7 @@ $section = 'suki_section_social';
  * ====================================================
  */
 
-$links = suki_get_social_media_types( true );
+$links = suki_get_default_social_media_types();
 ksort( $links );
 
 foreach ( $links as $slug => $label ) {
