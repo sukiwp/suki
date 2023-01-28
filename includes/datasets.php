@@ -133,7 +133,7 @@ function suki_get_pro_modules() {
 				'label'    => esc_html__( 'Custom Icons', 'suki' ),
 				'category' => 'assets',
 				'settings' => array(
-					'label' => esc_html__( 'Manage Custom Fonts', 'suki' ),
+					'label' => esc_html__( 'Manage Custom Icons', 'suki' ),
 					'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_custom_icons' ), admin_url( 'customize.php' ) ),
 				),
 			),
