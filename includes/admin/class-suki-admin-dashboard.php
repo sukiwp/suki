@@ -208,9 +208,10 @@ class Suki_Admin_Dashboard {
 
 			<div class="suki-admin-dashboard__body">
 				<div class="suki-admin-dashboard__container">
-					<hr class="wp-header-end" style="display: none;">
-					<!-- WordPress notices -->
-					<?php settings_errors(); ?>
+					<div class="suki-admin-dashboard__notices">
+						<?php settings_errors(); ?>
+						<hr class="wp-header-end" style="display: none;">
+					</div>
 
 					<?php
 					/**

@@ -450,23 +450,23 @@ msgstr ""
 msgid "Blog Layout"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:245
+#: includes/admin/class-suki-admin-dashboard.php:246
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:246
+#: includes/admin/class-suki-admin-dashboard.php:247
 msgid "Support"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:247
+#: includes/admin/class-suki-admin-dashboard.php:248
 msgid "Community"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:248
+#: includes/admin/class-suki-admin-dashboard.php:249
 msgid "Translation"
 msgstr ""
 
-#: includes/admin/class-suki-admin-dashboard.php:249
+#: includes/admin/class-suki-admin-dashboard.php:250
 msgid "Changelog"
 msgstr ""
 
