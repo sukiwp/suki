@@ -19,11 +19,7 @@ get_header();
  * Content
  */
 suki_content(
-	suki_loop(
-		suki_get_current_page_setting( 'loop_layout', 'default' ),
-		false,
-		false
-	)
+	suki_loop( suki_get_current_page_setting( 'loop_layout', 'default' ), false, false )
 );
 
 /**

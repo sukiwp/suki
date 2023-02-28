@@ -83,6 +83,16 @@ function suki_template_hooks() {
 
 	/**
 	 * ====================================================
+	 * Loop hooks
+	 * ====================================================
+	 */
+
+	add_action( 'suki/frontend/loop_default', 'suki_loop__default' );
+	add_action( 'suki/frontend/loop_grid', 'suki_loop__grid' );
+	add_action( 'suki/frontend/loop_search', 'suki_loop__search' );
+
+	/**
+	 * ====================================================
 	 * All archive page hooks
 	 * ====================================================
 	 */

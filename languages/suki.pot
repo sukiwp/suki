@@ -422,10 +422,6 @@ msgstr ""
 msgid "[Theme] Page Builder"
 msgstr ""
 
-#: template-parts/loop-grid.php:141, template-parts/loop-search.php:58, template-parts/loop.php:201
-msgid "Nothing found."
-msgstr ""
-
 #: includes/admin/class-suki-admin-dashboard.php:116
 msgid "Global Colors"
 msgstr ""
@@ -600,11 +596,15 @@ msgstr ""
 msgid "Back to Home"
 msgstr ""
 
-#: includes/template-tags/archive.php:153
+#: includes/template-tags/archive.php:297, includes/template-tags/archive.php:466, includes/template-tags/archive.php:552
+msgid "Nothing found."
+msgstr ""
+
+#: includes/template-tags/archive.php:642
 msgid "Newer Posts"
 msgstr ""
 
-#: includes/template-tags/archive.php:157
+#: includes/template-tags/archive.php:646
 msgid "Older Posts"
 msgstr ""
 
