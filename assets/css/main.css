@@ -2033,14 +2033,14 @@ th {
 	color: unset;
 }
 
-.suki-ignore-padding {
+.suki-entry-thumbnail--ignore-padding {
 	margin-inline-start: calc(-1 * var(--padding-left));
 	margin-inline-end: calc(-1 * var(--padding-right));
 }
-.suki-ignore-padding:first-child {
+.suki-entry-thumbnail--ignore-padding:first-child {
 	margin-block-start: calc(-1 * var(--padding-top));
 }
-.suki-ignore-padding:last-child {
+.suki-entry-thumbnail--ignore-padding:last-child {
 	margin-block-end: calc(-1 * var(--padding-bottom));
 }
 

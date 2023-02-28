@@ -53,7 +53,7 @@
 	color: unset; // Reset
 }
 
-.suki-ignore-padding {
+.suki-entry-thumbnail--ignore-padding {
 	margin-inline-start: calc( -1 * var(--padding-left) );
 	margin-inline-end: calc( -1 * var(--padding-right) );
 
