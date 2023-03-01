@@ -21,7 +21,7 @@
 	--sidebar-width: 25%; // CUSTOMIZER
 	--sidebar-gap: calc( 3 * var(--wp--style--block-gap) ); // CUSTOMIZER
 
-	gap: var(--sidebar-gap) !important;
+	gap: var(--sidebar-gap) !important; // Override WP layout CSS.
 
 	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
 		flex-wrap: wrap !important;

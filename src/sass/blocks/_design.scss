@@ -65,7 +65,7 @@
 	--gap: var(--wp--style--block-gap);
 
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap !important;
 
 	@include padding-for-has-background();
 
@@ -89,7 +89,7 @@
 	}
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
-		flex-wrap: nowrap;
+		flex-wrap: nowrap !important;
 	}
 }
 
