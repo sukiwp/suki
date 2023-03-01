@@ -334,7 +334,7 @@ class Suki_Customizer {
 				$css_array[ $rule['media'] ][ $rule['element'] ][ $rule['property'] ] = $rule['value'];
 			}
 
-			echo '<style id="suki-customize-preview-css-' . esc_attr( $key ) . '" type="text/css">' . esc_html( suki_convert_css_array_to_string( $css_array ) ) . '</style>' . "\n";
+			echo '<style id="suki-customize-preview-css-' . esc_attr( $key ) . '" type="text/css">' . suki_convert_css_array_to_string( $css_array ) . '</style>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
@@ -523,35 +523,6 @@ class Suki_Customizer {
 
 					$setting_value = isset( $array[ $index ] ) ? $array[ $index ] : '';
 					break;
-
-				/**
-				 * Scale all dimensions found in the raw value according to the specified scale amount.
-				 *
-				 * - args[0] = Scale amount.
-				 */
-				case 'scale_dimensions':
-					if ( ! isset( $rule['function']['args'][0] ) ) {
-						break;
-					}
-
-					$scale = $rule['function']['args'][0];
-
-					if ( ! is_numeric( $scale ) ) {
-						break;
-					}
-
-					$parts     = explode( ' ', $setting_value );
-					$new_parts = array();
-
-					foreach ( $parts as $i => $part ) {
-						$number = floatval( $part );
-						$unit   = str_replace( $number, '', $part );
-
-						$new_parts[ $i ] = ( $number * $scale ) . $unit;
-					}
-
-					$setting_value = implode( ' ', $new_parts );
-					break;
 			}
 		}
 
@@ -572,9 +543,6 @@ class Suki_Customizer {
 
 		// Replace any $ found in the pattern to value.
 		$rule['value'] = str_replace( '$', $setting_value, $rule['pattern'] );
-
-		// Replace any $ found in the media screen to value.
-		$rule['media'] = str_replace( '$', $setting_value, $rule['media'] );
 
 		return $rule;
 	}
