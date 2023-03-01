@@ -114,11 +114,6 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 		} --><div class="wp-block-query">
 
 			<!-- wp:post-template {
-				"style":{
-					"spacing":{
-						"blockGap":"6em"
-					}
-				},
 				"className":"suki-loop suki-loop--layout-default"
 			} -->
 

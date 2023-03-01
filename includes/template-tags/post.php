@@ -206,14 +206,14 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 
 		$html = '
 		<!-- wp:group {
-			"className":"entry-meta suki-meta suki-reverse-link-color",
+			"className":"entry-meta suki-meta suki-reverse-link-color has-text-align-' . $alignment . '",
 			"layout":{
 				"type":"flex",
 				"flexWrap":"wrap",
 				"verticalAlignment":"top",
 				"justifyContent":"' . $alignment . '"
 			}
-		} --><div class="wp-block-group entry-meta suki-meta suki-reverse-link-color">
+		} --><div class="wp-block-group entry-meta suki-meta suki-reverse-link-color has-text-align-' . $alignment . '">
 			' . $text . '
 		</div><!-- /wp:group -->
 		';

@@ -2065,7 +2065,7 @@ $add['post_archive_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-post_archive .suki-content-header > *',
-		'pattern' => 'suki-flex--justify-$',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2080,32 +2080,33 @@ $add['blog_index_default_items_gap'] = array(
 		'type'     => 'css',
 		'element'  => '.suki-loop--layout-default > * + *',
 		'property' => 'margin-block-start',
+		'pattern'  => '$ !important', // Required to override WP layout CSS.
 	),
 );
 
 $add['entry_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-default .entry-header',
+		'element' => '.entry--layout-default .entry-header > *',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-default .entry-header',
-		'pattern' => 'suki-flex--justify-$',
+		'element' => '.entry--layout-default .entry-header > *',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
 $add['entry_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-default .entry-footer',
+		'element' => '.entry--layout-default .entry-footer > *',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-default .entry-footer',
-		'pattern' => 'suki-flex--justify-$',
+		'element' => '.entry--layout-default .entry-footer > *',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2205,26 +2206,26 @@ $add['entry_grid_border_radius'] = array(
 $add['entry_grid_header_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-grid .entry-header',
+		'element' => '.entry--layout-grid .entry-header > *',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-grid .entry-header',
-		'pattern' => 'suki-flex--justify-$',
+		'element' => '.entry--layout-grid .entry-header > *',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
 $add['entry_grid_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-grid .entry-footer',
+		'element' => '.entry--layout-grid .entry-footer > *',
 		'pattern' => 'has-text-align-$',
 	),
 	array(
 		'type'    => 'class',
-		'element' => '.entry--layout-grid .entry-footer',
-		'pattern' => 'suki-flex--justify-$',
+		'element' => '.entry--layout-grid .entry-footer > *',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2267,7 +2268,7 @@ $add['post_single_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-post_single .suki-content-header > *',
-		'pattern' => 'suki-flex--justify-$',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2280,7 +2281,7 @@ $add['post_single_content_footer_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-post_single .suki-content-footer > *',
-		'pattern' => 'suki-flex--justify-$',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2299,7 +2300,7 @@ $add['page_single_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-page_single .suki-content-header > *',
-		'pattern' => 'suki-flex--justify-$',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2318,7 +2319,7 @@ $add['search_results_content_header_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.suki-search_results .suki-content-header > *',
-		'pattern' => 'suki-flex--justify-$',
+		'pattern' => 'is-content-justification-$',
 	),
 );
 
@@ -2338,7 +2339,7 @@ foreach ( suki_get_public_post_types( 'custom' ) as $pt ) {
 		array(
 			'type'    => 'class',
 			'element' => '.suki-' . $pt . '_archive .suki-content-header > *',
-			'pattern' => 'suki-flex--justify-$',
+			'pattern' => 'is-content-justification-$',
 		),
 	);
 }
@@ -2359,7 +2360,7 @@ foreach ( suki_get_public_post_types( 'custom' ) as $pt ) {
 		array(
 			'type'    => 'class',
 			'element' => '.suki-' . $pt . '_single .suki-content-header > *',
-			'pattern' => 'suki-flex--justify-$',
+			'pattern' => 'is-content-justification-$',
 		),
 	);
 }
