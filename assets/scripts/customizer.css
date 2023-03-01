@@ -951,6 +951,18 @@ div.customize-section-description {
   padding: 4px 0;
 }
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/shadow/index.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+.customize-control-suki-shadow .suki-color-dropdown {
+  flex: 1 0 auto;
+  align-self: flex-end;
+}
+.customize-control-suki-shadow .suki-color-dropdown__toggle {
+  height: 34px;
+  width: 34px;
+  margin: -2px;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/scripts/customizer/controls/toggle/index.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************/
 .customize-control-suki-toggle .customize-control-title {

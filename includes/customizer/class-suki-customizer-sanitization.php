@@ -127,7 +127,7 @@ class Suki_Customizer_Sanitization {
 	/**
 	 * Sanitize Dimensions value
 	 *
-	 * @param array                $value   Setting value.
+	 * @param string               $value   Setting value.
 	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 * @return array
 	 */
@@ -313,7 +313,7 @@ class Suki_Customizer_Sanitization {
 			return array( '', '', '', '', '', '' );
 		}
 
-		// Check if properties count is less than 5, return empty string.
+		// Check if properties count is less than 5, return empty array.
 		if ( 5 > count( $value ) ) {
 			return array( '', '', '', '', '' );
 		}
@@ -323,12 +323,6 @@ class Suki_Customizer_Sanitization {
 				case 4:
 					// Validate.
 					$value[ $i ] = self::validate_color( $value[ $i ] );
-					break;
-
-				case 5:
-					if ( 'inset' !== $value[ $i ] ) {
-						unset( $value[ $i ] );
-					}
 					break;
 
 				case 0:

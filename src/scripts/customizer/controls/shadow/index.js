@@ -1,3 +1,5 @@
+import './index.scss';
+
 import SukiControlLabel from '../../components/control-label';
 import SukiControlDescription from '../../components/control-description';
 
@@ -5,15 +7,12 @@ import SukiColorSelectDropdown from '../../components/color-select-dropdown';
 
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-	__experimentalGrid as Grid,
-	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl,
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 	CardBody,
 	Card,
 	Flex,
-	ToggleControl,
 } from '@wordpress/components';
 
 import { render } from '@wordpress/element';
@@ -43,7 +42,6 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 			blur: value[ 2 ] ?? '',
 			spread: value[ 3 ] ?? '',
 			color: value[ 4 ] ?? '',
-			position: value[ 5 ] ?? '',
 		};
 
 		const labels = {
@@ -72,71 +70,51 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend( {
 				>
 					<CardBody>
 						<Flex
-							direction="column"
+							gap="1"
 						>
-							<Grid
-								columns="4"
-								gap="1"
-							>
-								{ [ 'x', 'y', 'blur', 'spread' ].map( ( prop ) => {
-									const propValueUnit = parseQuantityAndUnitFromRawValue( valueObj[ prop ], units )[ 1 ] || units[ 0 ].value;
+							{ [ 'x', 'y', 'blur', 'spread' ].map( ( prop ) => {
+								const propValueUnit = parseQuantityAndUnitFromRawValue( valueObj[ prop ], units )[ 1 ] || units[ 0 ].value;
 
-									const propValueUnitObj = units.find( ( item ) => {
-										return propValueUnit === item.value;
-									} );
+								const propValueUnitObj = units.find( ( item ) => {
+									return propValueUnit === item.value;
+								} );
 
-									return (
-										<UnitControl
-											key={ prop }
-											label={ labels[ prop ] }
-											value={ valueObj[ prop ] }
-											isResetValueOnUnitChange
-											units={ units }
-											min={ '' === propValueUnitObj.min ? -Infinity : propValueUnitObj.min }
-											max={ '' === propValueUnitObj.max ? Infinity : propValueUnitObj.max }
-											step={ '' === propValueUnitObj.step ? 1 : propValueUnitObj.step }
-											className="suki-dimension"
-											onChange={ ( newPropValue ) => {
-												newPropValue = isNaN( parseFloat( newPropValue ) ) ? '0' : newPropValue;
+								return (
+									<UnitControl
+										key={ prop }
+										label={ labels[ prop ] }
+										value={ valueObj[ prop ] }
+										isResetValueOnUnitChange
+										units={ units }
+										min={ '' === propValueUnitObj.min ? -Infinity : propValueUnitObj.min }
+										max={ '' === propValueUnitObj.max ? Infinity : propValueUnitObj.max }
+										step={ '' === propValueUnitObj.step ? 1 : propValueUnitObj.step }
+										className="suki-dimension"
+										onChange={ ( newPropValue ) => {
+											newPropValue = isNaN( parseFloat( newPropValue ) ) ? '0' : newPropValue;
 
-												valueObj[ prop ] = newPropValue;
+											valueObj[ prop ] = newPropValue;
 
-												const newValue = Object.values( valueObj );
+											const newValue = Object.values( valueObj );
 
-												control.setting.set( newValue );
-											} }
-										/>
-									);
-								} ) }
-							</Grid>
+											control.setting.set( newValue );
+										} }
+									/>
+								);
+							} ) }
 
-							<Flex>
-								<ToggleControl
-									label={ __( 'Inner shadow', 'suki' ) }
-									checked={ 'inset' === valueObj.position }
-									onChange={ () => {
-										valueObj.position = 'inset' === valueObj.position ? '' : 'inset';
+							<SukiColorSelectDropdown
+								value={ valueObj.color }
+								changeValue={ ( newColorValue ) => {
+									valueObj.color = newColorValue;
 
-										const newValue = Object.values( valueObj );
+									const newValue = Object.values( valueObj );
 
-										control.setting.set( newValue );
-									} }
-									__nextHasNoMarginBottom
-								/>
-
-								<SukiColorSelectDropdown
-									value={ valueObj.color }
-									changeValue={ ( newColorValue ) => {
-										valueObj.color = newColorValue;
-
-										const newValue = Object.values( valueObj );
-
-										control.setting.set( newValue );
-									} }
-									defaultValue="#00000000"
-									defaultPickerValue="#000000"
-								/>
-							</Flex>
+									control.setting.set( newValue );
+								} }
+								defaultValue="#00000000"
+								defaultPickerValue="#000000"
+							/>
 						</Flex>
 					</CardBody>
 				</Card>
