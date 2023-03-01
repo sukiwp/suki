@@ -8,12 +8,86 @@ var __webpack_exports__ = {};
  */
 if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPreviewData.postMessages) {
   /**
+   * Parse CSS value.
+   *
+   * @param {string|boolean|Array} value
+   * @return {string} String CSS value.
+   */
+  const parseCSSValue = function (value) {
+    switch (typeof value) {
+      case 'boolean':
+        value = value ? 1 : 0;
+        break;
+
+      case 'object':
+        // Array is considered as `object` by `typeof` function.
+        if (Array.isArray(value)) {
+          // Make sure it only works for array type.
+          if ('' === value.join('').trim()) {
+            // If all values are empty then set value to empty string.
+            value = '';
+          } else {
+            // If one of the values are not empty, iterate through the values and convert every empty string to '0'.
+            value = value.map(function (subValue) {
+              return '' === subValue ? 0 : subValue;
+            }).join(' ');
+          }
+        } else {
+          // Other object type will return empty string.
+          value = '';
+        }
+
+        break;
+    }
+
+    return value;
+  };
+  /**
+   * Parse rule function value.
+   *
+   * @param {string} value
+   * @param {Object} functionObj
+   * @return {string} String CSS value.
+   */
+
+
+  const parseRuleFunctionValue = function (value) {
+    let functionObj = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
+    if (undefined === functionObj) {
+      return value;
+    }
+
+    if (functionObj.name) {
+      switch (functionObj.name) {
+        case 'explode_value':
+          if (undefined === functionObj.args[0]) {
+            break;
+          }
+
+          const index = functionObj.args[0];
+
+          if (isNaN(index)) {
+            break;
+          }
+
+          const array = value.split(' ');
+          value = undefined !== array[index] ? array[index] : '';
+          break;
+      }
+    }
+
+    return value;
+  };
+  /**
    * PostMessage: Output CSS.
    *
    * @param {string} key
    * @param {Array}  rules
    * @param {string} newValue
    */
+
+
   const postMessageCSS = function (key, rules, newValue) {
     const styleID = 'suki-customize-preview-css-' + key;
     const cssArray = {};
@@ -28,20 +102,7 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
       document.head.appendChild($style);
     }
 
-    let value = newValue; // Convert array value into string.
-
-    if (Array.isArray(value)) {
-      if ('' === value.join('').trim()) {
-        // If all values are empty then set value to empty string.
-        value = '';
-      } else {
-        // If one of the values are not empty, iterate through the values and convert every empty string to '0'.
-        value = value.map(function (subValue) {
-          return '' === subValue ? 0 : subValue;
-        }).join(' ');
-      }
-    } // If value is an empty string, reset CSS and then abort.
-
+    const value = parseCSSValue(newValue); // If value is an empty string, reset CSS and then abort.
 
     if ('' === value) {
       $style.textContent = '';
@@ -49,72 +110,15 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
     }
 
     rules.forEach(function (rule) {
-      let formattedValue;
-
-      if (rule.function && rule.function.name) {
-        switch (rule.function.name) {
-          case 'explode_value':
-            if (undefined === rule.function.args[0]) {
-              break;
-            }
-
-            const index = rule.function.args[0];
-
-            if (isNaN(index)) {
-              break;
-            }
-
-            const array = value.split(' ');
-            value = undefined !== array[index] ? array[index] : '';
-            break;
-
-          case 'scale_dimensions':
-            if (undefined === rule.function.args[0]) {
-              break;
-            }
-
-            const scale = rule.function.args[0];
-
-            if (isNaN(scale)) {
-              break;
-            }
-
-            const parts = value.split(' ');
-            let newParts;
-            parts.forEach(function (part, i) {
-              const number = parseFloat(part);
-              const unit = part.replace(number, '');
-              newParts[i] = (number * scale).toString() + unit;
-            }); // Build new value.
-
-            value = newParts.join(' ');
-            break;
-        }
-      }
-
       if (undefined === rule.element || undefined === rule.property) {
         return;
-      }
+      } // Use fallback value for `media` and `pattern` rule attributes.
+
 
       rule.media = rule.media || 'global';
-      rule.pattern = rule.pattern || '$'; // Check if "key" attribute is defined and value is an assosiative array.
-
-      if ('object' === typeof value) {
-        if (undefined !== rule.key && undefined !== value[rule.key]) {
-          // Fetch the property value using the key from setting value.
-          formattedValue = rule.pattern.replace('$', value[rule.key]);
-        } else {
-          let concatValue;
-          value.forEach(function (valueItem) {
-            concatValue.push(rule.pattern.replace('$', valueItem));
-          });
-          formattedValue = concatValue.join(' ');
-        }
-      } else {
-        // Define new value based on the specified pattern.
-        formattedValue = rule.pattern.replace('$', value);
-      } // Define properties.
-
+      rule.pattern = rule.pattern || '$';
+      let currentRuleValue = parseRuleFunctionValue(value, rule.function);
+      currentRuleValue = rule.pattern.replace('$', currentRuleValue); // Define properties.
 
       if (undefined === cssArray[rule.media]) {
         cssArray[rule.media] = {};
@@ -125,7 +129,7 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
       } // Save the value into a formatted array.
 
 
-      cssArray[rule.media][rule.element][rule.property] = formattedValue;
+      cssArray[rule.media][rule.element][rule.property] = currentRuleValue;
     }); // Loop into the sorted array to build CSS string.
 
     Object.keys(cssArray).forEach(function (media) {
@@ -162,27 +166,55 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
 
 
   const postMessageClass = function (key, rules, newValue) {
+    const value = parseCSSValue(newValue);
     rules.forEach(function (rule) {
-      let value = newValue;
-
-      if ('boolean' === typeof value) {
-        value = value ? 1 : 0;
-      }
-
       if (undefined === rule.element) {
         return;
       }
 
       rule.pattern = rule.pattern || '$';
+      let currentRuleValue = parseRuleFunctionValue(value, rule.function);
       const elements = [...document.querySelectorAll(rule.element)];
       const regex = new RegExp(rule.pattern.replace('$', '[\\w\\-]+'), 'i');
-      const formattedValue = rule.pattern.replace('$', value); // Change class on all targeted elements.
+      currentRuleValue = rule.pattern.replace('$', value); // Change class on all targeted elements.
 
       elements.forEach(function (element) {
         if (element.className.match(regex)) {
-          element.className = element.className.replace(regex, formattedValue);
-        } else {
-          element.className += ' ' + formattedValue;
+          element.className = element.className.replace(regex, currentRuleValue);
+        }
+      });
+    });
+  };
+  /**
+   * PostMessage: Change inline CSS in "style" attribute.
+   *
+   * @param {string} key
+   * @param {Array}  rules
+   * @param {string} newValue
+   */
+
+
+  const postMessageStyle = function (key, rules, newValue) {
+    const value = parseCSSValue(newValue);
+    rules.forEach(function (rule) {
+      if (undefined === rule.element) {
+        return;
+      }
+
+      rule.pattern = rule.pattern || '$';
+      let currentRuleValue = parseRuleFunctionValue(value, rule.function);
+      const elements = [...document.querySelectorAll(rule.element)];
+      const isImportant = rule.pattern.endsWidth(' !important');
+      currentRuleValue = rule.pattern.replace('$', value);
+
+      if (isImportant) {
+        currentRuleValue = currentRuleValue.replace(' !important', '');
+      } // Change class on all targeted elements.
+
+
+      elements.forEach(function (element) {
+        if (undefined !== rule.property) {
+          element.style.setProperty(rule.property, currentRuleValue, isImportant ? 'important' : '');
         }
       });
     });
@@ -261,6 +293,10 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
 
             case 'class':
               postMessageClass(key, settingPostMessagesByType[type], value);
+              break;
+
+            case 'style':
+              postMessageStyle(key, settingPostMessagesByType[type], value);
               break;
 
             case 'html':
