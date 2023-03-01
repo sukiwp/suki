@@ -24,6 +24,7 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
+		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
 	)
 );
@@ -720,7 +721,6 @@ $wp_customize->add_control(
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Shadow', 'suki' ),
-			'props'    => array( 'h_offset', 'v_offset', 'blur', 'spread', 'color' ),
 			'priority' => 80,
 		)
 	)

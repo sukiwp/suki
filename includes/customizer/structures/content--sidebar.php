@@ -382,7 +382,6 @@ $wp_customize->add_control(
 		array(
 			'section'  => $section,
 			'label'    => esc_html__( 'Shadow', 'suki' ),
-			'exclude'  => array( 'position' ),
 			'priority' => 50,
 		)
 	)
