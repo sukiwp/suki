@@ -2044,6 +2044,10 @@ th {
 	margin-block-end: calc(-1 * var(--padding-bottom));
 }
 
+.suki-loop--layout-default > * + * {
+	margin-block-start: 6rem !important;
+}
+
 .suki-loop--layout-grid {
 	align-items: start;
 }

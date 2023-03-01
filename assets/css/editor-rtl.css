@@ -1681,7 +1681,7 @@ th {
 .wp-block-columns {
 	--gap: var(--wp--style--block-gap);
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap !important;
 }
 .wp-block-columns:where(.has-background) {
 	padding: var(--wp--style--block-gap);
@@ -1703,7 +1703,7 @@ th {
 }
 @media screen and (min-width: 768px) {
 	.wp-block-columns {
-		flex-wrap: nowrap;
+		flex-wrap: nowrap !important;
 	}
 }
 
