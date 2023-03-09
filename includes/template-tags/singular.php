@@ -42,12 +42,14 @@ if ( ! function_exists( 'suki_singular_navigation' ) ) {
 			<!-- wp:post-navigation-link {
 				"type":"previous",
 				"label":" ",
-				"showTitle":true
+				"showTitle":true,
+				"className":"has-text-align-left"
 			} /-->
 
 			<!-- wp:post-navigation-link {
 				"label":" ",
-				"showTitle":true
+				"showTitle":true,
+				"className":"has-text-align-right"
 			} /-->
 
 		</div><!-- /wp:group -->

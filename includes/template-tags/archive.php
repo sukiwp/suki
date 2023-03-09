@@ -634,11 +634,13 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 					} -->
 
 						<!-- wp:query-pagination-previous {
-							"label":"<?php echo esc_attr__( 'Newer Posts', 'suki' ); ?>"
+							"label":"<?php echo esc_attr__( 'Newer Posts', 'suki' ); ?>",
+							"className":"has-text-align-left"
 						} /-->
 
 						<!-- wp:query-pagination-next {
 							"label":"<?php echo esc_attr__( 'Older Posts', 'suki' ); ?>"
+							"className":"has-text-align-right"
 						} /-->
 
 					<!-- /wp:query-pagination -->

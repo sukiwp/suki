@@ -60,7 +60,6 @@ the_post();
 				?>
 				<!-- wp:post-featured-image {
 					"align":"<?php echo esc_attr( boolval( suki_get_current_page_setting( 'content_thumbnail_wide' ) ) ? 'wide' : 'none' ); ?>",
-					"isLink":true,
 					"style":{
 						"spacing":{
 							"margin":{
