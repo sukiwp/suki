@@ -210,6 +210,32 @@ function suki_show_pro_teaser() {
 }
 
 /**
+ * Return global breakpoints.
+ *
+ * @param string  $device    Device type.
+ * @param integer $increment Increment to the actual breakpoint value.
+ * @return integer
+ */
+function suki_get_breakpoint( $device, $increment = 0 ) {
+	switch ( $device ) {
+		case 'mobile':
+		case 'phone':
+			$breakpoint = 500;
+			break;
+
+		case 'tablet':
+			$breakpoint = 768;
+			break;
+
+		default:
+			$breakpoint = 1024;
+			break;
+	}
+
+	return $breakpoint + intval( $increment );
+}
+
+/**
  * Return the current loaded page context.
  *
  * @return string

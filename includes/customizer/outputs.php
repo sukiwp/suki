@@ -83,7 +83,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -92,7 +92,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -110,7 +110,7 @@ $add['body_font_size__tablet'][] = array(
 	'type'     => 'css',
 	'element'  => 'html',
 	'property' => 'font-size',
-	'media'    => '@media screen and (max-width: 1023px)',
+	'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 );
 
 // Change `rem` value in mobile.
@@ -118,7 +118,7 @@ $add['body_font_size__mobile'][] = array(
 	'type'     => 'css',
 	'element'  => 'html',
 	'property' => 'font-size',
-	'media'    => '@media screen and (max-width: 499px)',
+	'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 
 $add['body_text_color'] = array(
@@ -189,7 +189,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 					'type'     => 'css',
 					'element'  => $element,
 					'property' => $property,
-					'media'    => '@media screen and (max-width: 1023px)',
+					'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 				),
 			);
 
@@ -198,7 +198,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 					'type'     => 'css',
 					'element'  => $element,
 					'property' => $property,
-					'media'    => '@media screen and (max-width: 499px)',
+					'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 				),
 			);
 		}
@@ -246,7 +246,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -255,7 +255,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -402,7 +402,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -411,7 +411,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -458,7 +458,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -467,7 +467,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -514,7 +514,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -523,7 +523,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -606,7 +606,7 @@ foreach ( array( 'image', 'position', 'size', 'repeat', 'attachment' ) as $prop 
 			'element'  => '.suki-page--layout-boxed',
 			'property' => 'background-' . $prop,
 			'pattern'  => 'image' === $prop ? 'url($)' : '$',
-			'media'    => '@media screen and (min-width: 1024px)',
+			'media'    => '@media screen and (min-width: ' . suki_get_breakpoint( 'desktop' ) . ')',
 		),
 	);
 }
@@ -619,8 +619,8 @@ foreach ( array( 'image', 'position', 'size', 'repeat', 'attachment' ) as $prop 
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 foreach ( $responsive as $suffix => $media ) {
 	$add[ 'content_padding' . $suffix ] = array(
@@ -654,8 +654,8 @@ $add['content_container'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 foreach ( $responsive as $suffix => $media ) {
 	$add[ 'content_main_padding' . $suffix ] = array(
@@ -723,8 +723,8 @@ $add['sidebar_widgets_gap'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 
 foreach ( $responsive as $suffix => $media ) {
@@ -773,7 +773,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -782,7 +782,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -852,8 +852,8 @@ $add['hero_container'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 
 foreach ( $responsive as $suffix => $media ) {
@@ -905,7 +905,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 		$add[ 'hero_title_' . $prop . '__mobile' ] = array(
@@ -913,7 +913,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -938,7 +938,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -947,7 +947,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -972,7 +972,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -981,7 +981,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -1326,8 +1326,8 @@ foreach ( array( 'main' ) as $bar ) {
 	);
 
 	$responsive = array(
-		'__tablet' => '@media screen and (max-width: 1023px)',
-		'__mobile' => '@media screen and (max-width: 499px)',
+		'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+		'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 	);
 
 	foreach ( $responsive as $suffix => $media ) {
@@ -1682,8 +1682,8 @@ $add['footer_widgets_bar_container'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 
 foreach ( $responsive as $suffix => $media ) {
@@ -1740,7 +1740,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -1749,7 +1749,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -1819,8 +1819,8 @@ $add['footer_bottom_bar_container'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 foreach ( $responsive as $suffix => $media ) {
 	$add[ 'footer_bottom_bar_padding' . $suffix ] = array(
@@ -1867,7 +1867,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 1023px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
 			),
 		);
 
@@ -1876,7 +1876,7 @@ foreach ( array( 'font_family', 'font_weight', 'font_style', 'text_transform', '
 				'type'     => 'css',
 				'element'  => $element,
 				'property' => $property,
-				'media'    => '@media screen and (max-width: 499px)',
+				'media'    => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 			),
 		);
 	}
@@ -1962,8 +1962,8 @@ $add['scroll_to_top_position'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 foreach ( $responsive as $suffix => $media ) {
 	$add[ 'scroll_to_top_h_offset' . $suffix ] = array(
@@ -2142,8 +2142,8 @@ $add['blog_index_grid_columns_gap'] = array(
 
 $responsive = array(
 	''         => '',
-	'__tablet' => '@media screen and (max-width: 1023px)',
-	'__mobile' => '@media screen and (max-width: 499px)',
+	'__tablet' => '@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')',
+	'__mobile' => '@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')',
 );
 
 foreach ( $responsive as $suffix => $media ) {

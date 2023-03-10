@@ -395,9 +395,9 @@ class Suki_Customizer {
 		// Temporary CSS array to organize output.
 		// Media groups are defined now, for proper responsive orders.
 		$css_array = array(
-			'global'                                => array(),
-			'@media screen and (max-width: 1023px)' => array(),
-			'@media screen and (max-width: 499px)'  => array(),
+			'global' => array(),
+			'@media screen and (max-width: ' . suki_get_breakpoint( 'desktop', -1 ) . ')' => array(),
+			'@media screen and (max-width: ' . suki_get_breakpoint( 'mobile', -1 ) . ')' => array(),
 		);
 
 		// Get saved theme mods as an array.

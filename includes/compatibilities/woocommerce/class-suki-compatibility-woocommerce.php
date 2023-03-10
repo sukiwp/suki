@@ -935,7 +935,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return string
 	 */
 	public function set_smallscreen_breakpoint( $px ) {
-		return '767px';
+		return suki_get_breakpoint( 'tablet', -1 );
 	}
 
 	/**

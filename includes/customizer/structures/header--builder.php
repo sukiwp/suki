@@ -92,8 +92,10 @@ $wp_customize->add_control(
 		'section'  => $section,
 		'label'    => esc_html__( 'Mobile header breakpoint', 'suki' ),
 		'choices'  => array(
-			'tablet' => esc_html__( 'Below 1024px', 'suki' ),
-			'mobile' => esc_html__( 'Below 768px', 'suki' ),
+			/* translators: %s: breakpoint value in px. */
+			'tablet' => sprintf( esc_html__( 'Below %s', 'suki' ), suki_get_breakpoint( 'desktop' ) ),
+			/* translators: %s: breakpoint value in px. */
+			'mobile' => sprintf( esc_html__( 'Below %s', 'suki' ), suki_get_breakpoint( 'tablet' ) ),
 		),
 		'priority' => 20,
 	)
