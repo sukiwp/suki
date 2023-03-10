@@ -396,6 +396,7 @@ function suki_get_ui_icon_types() {
 			'close'         => esc_html_x( 'Close', 'icon label', 'suki' ),
 			'menu'          => esc_html_x( 'Menu', 'icon label', 'suki' ),
 			'chevron-down'  => esc_html_x( 'Dropdown Arrow -- Down', 'icon label', 'suki' ),
+			'chevron-left'  => esc_html_x( 'Dropdown Arrow -- Left', 'icon label', 'suki' ), // Used for slider / carousel.
 			'chevron-right' => esc_html_x( 'Dropdown Arrow -- Right', 'icon label', 'suki' ),
 			'cart'          => esc_html_x( 'Shopping Cart', 'icon label', 'suki' ),
 
@@ -767,6 +768,7 @@ function suki_get_default_svg_icon_markups() {
 		'close'         => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M36.2,32,56,12.2a1.93,1.93,0,0,0,0-2.8L54.6,8a1.93,1.93,0,0,0-2.8,0L32,27.8,12.2,8A1.93,1.93,0,0,0,9.4,8L8,9.4a1.93,1.93,0,0,0,0,2.8L27.8,32,8,51.8a1.93,1.93,0,0,0,0,2.8L9.4,56a1.93,1.93,0,0,0,2.8,0L32,36.2,51.8,56a1.93,1.93,0,0,0,2.8,0L56,54.6a1.93,1.93,0,0,0,0-2.8Z"/></svg>',
 		'menu'          => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M60,35H4a2,2,0,0,1-2-2V31a2,2,0,0,1,2-2H60a2,2,0,0,1,2,2v2A2,2,0,0,1,60,35Zm0-22H4a2,2,0,0,1-2-2V9A2,2,0,0,1,4,7H60a2,2,0,0,1,2,2v2A2,2,0,0,1,60,13Zm0,44H4a2,2,0,0,1-2-2V53a2,2,0,0,1,2-2H60a2,2,0,0,1,2,2v2A2,2,0,0,1,60,57Z"/></svg>',
 		'chevron-down'  => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M32,43.71a3,3,0,0,1-2.12-.88L12.17,25.12a2,2,0,0,1,0-2.83l1.42-1.41a2,2,0,0,1,2.82,0L32,36.47,47.59,20.88a2,2,0,0,1,2.82,0l1.42,1.41a2,2,0,0,1,0,2.83L34.12,42.83A3,3,0,0,1,32,43.71Z"/></svg>',
+		'chevron-left'  => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M21.18,29.88,38.89,12.17h0a2,2,0,0,1,2.83,0l1.41,1.42a2,2,0,0,1,0,2.82L27.54,32,43.13,47.59a2,2,0,0,1,0,2.82l-1.41,1.42h0a2,2,0,0,1-2.83,0L21.18,34.12a3,3,0,0,1,0-4.24Z"/></svg>',
 		'chevron-right' => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M43.71,32a3,3,0,0,1-.88,2.12L25.12,51.83a2,2,0,0,1-2.83,0l-1.41-1.42a2,2,0,0,1,0-2.82L36.47,32,20.88,16.41a2,2,0,0,1,0-2.82l1.41-1.42a2,2,0,0,1,2.83,0L42.83,29.88A3,3,0,0,1,43.71,32Z"/></svg>',
 		'cart'          => '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><circle cx="20" cy="58" r="6"/><circle cx="46" cy="58" r="6"/><path d="M63.41,11.2A3,3,0,0,0,61,10H14.84L14,2.6A3,3,0,0,0,11,0H2A2,2,0,0,0,0,2V4A2,2,0,0,0,2,6H8.3L13,47.4A3,3,0,0,0,16,50H53a2,2,0,0,0,2-2V46a2,2,0,0,0-2-2H18.7l-.79-7h37.3A2.8,2.8,0,0,0,58,34.8l5.9-21A3.05,3.05,0,0,0,63.41,11.2Z"/></svg>',
 
