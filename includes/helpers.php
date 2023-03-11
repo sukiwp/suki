@@ -214,9 +214,10 @@ function suki_show_pro_teaser() {
  *
  * @param string  $device    Device type.
  * @param integer $increment Increment to the actual breakpoint value.
+ * @param boolean $px        Whether to include 'px' suffix in the return value.
  * @return integer
  */
-function suki_get_breakpoint( $device, $increment = 0 ) {
+function suki_get_breakpoint( $device, $increment = 0, $px = true ) {
 	switch ( $device ) {
 		case 'mobile':
 		case 'phone':
@@ -232,7 +233,13 @@ function suki_get_breakpoint( $device, $increment = 0 ) {
 			break;
 	}
 
-	return $breakpoint + intval( $increment );
+	$return = $breakpoint + intval( $increment );
+
+	if ( boolval( $px ) ) {
+		$return = $return . 'px';
+	}
+
+	return $return;
 }
 
 /**
