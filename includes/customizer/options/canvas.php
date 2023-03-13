@@ -74,6 +74,16 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'max'  => 1600,
 			'step' => 1,
 		),
+		'vw' => array(
+			'min'  => 1,
+			'max'  => 100,
+			'step' => 0.01,
+		),
+		'rem' => array(
+			'min'  => 0.01,
+			'max'  => 100,
+			'step' => 0.01,
+		),
 	),
 	'priority'    => 20,
 ) ) );
@@ -94,6 +104,16 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'min'  => 600,
 			'max'  => 1000,
 			'step' => 1,
+		),
+		'vw' => array(
+			'min'  => 1,
+			'max'  => 100,
+			'step' => 0.01,
+		),
+		'rem' => array(
+			'min'  => 0.01,
+			'max'  => 100,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 20,
@@ -128,6 +148,16 @@ $wp_customize->add_control( new Suki_Customize_Control_Slider( $wp_customize, $k
 			'min'  => 500,
 			'max'  => 2000,
 			'step' => 1,
+		),
+		'vw' => array(
+			'min'  => 1,
+			'max'  => 100,
+			'step' => 0.01,
+		),
+		'rem' => array(
+			'min'  => 0.01,
+			'max'  => 100,
+			'step' => 0.01,
 		),
 	),
 	'priority'    => 30,
