@@ -858,6 +858,13 @@ th {
 	text-transform: var(--meta--text-transform);
 	color: var(--meta--text-color);
 }
+.suki-meta a {
+	color: var(--meta--link-color, var(--meta--text-color));
+}
+.suki-meta a:focus,
+.suki-meta a:hover {
+	color: var(--meta--link-color--focus, var(--meta--link-color));
+}
 
 .suki-reverse-link-color:is(a),
 .suki-reverse-link-color a {

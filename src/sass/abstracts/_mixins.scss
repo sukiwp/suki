@@ -271,6 +271,14 @@
 // Meta color
 @mixin meta-color() {
 	color: var(--meta--text-color);
+
+	a {
+		color: var(--meta--link-color, var(--meta--text-color));
+
+		&:focus, &:hover {
+			color: var(--meta--link-color--focus, var(--meta--link-color));
+		}
+	}
 }
 
 // Padding when element has .has-background

@@ -540,7 +540,7 @@ $add['meta_text_color'] = array(
 $add['meta_link_text_color'] = array(
 	array(
 		'type'     => 'css',
-		'element'  => '.entry-meta a, .comment-metadata a, .widget .post-date a, .widget_rss .rss-date a',
+		'element'  => '--meta--link-color',
 		'property' => 'color',
 	),
 );
@@ -549,7 +549,7 @@ $add['meta_link_hover_text_color'] = array(
 	array(
 		'type'     => 'css',
 		'element'  => 'body',
-		'property' => '--meta--text-color--focus',
+		'property' => '--meta--link-color--focus',
 	),
 );
 
