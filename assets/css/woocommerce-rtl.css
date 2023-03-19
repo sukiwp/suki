@@ -1274,6 +1274,10 @@ body {
 .woocommerce div.product .summary .suki-woocommerce-product__add-to-cart {
 	margin-block-start: calc(1.5 * var(--wp--style--block-gap));
 }
+.woocommerce div.product .summary .suki-woocommerce-product__add-to-cart .added_to_cart {
+	display: table;
+	margin-block-start: 0.5em;
+}
 .woocommerce div.product .summary .product_meta {
 	margin-block-start: calc(1.5 * var(--wp--style--block-gap));
 }
