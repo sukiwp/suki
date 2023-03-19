@@ -1156,7 +1156,12 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_loop_item_alignment_class( $classes ) {
-		$classes['text_alignment'] = esc_attr( 'has-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
+		global $woocommerce_loop;
+
+		// Only target Products grid.
+		if ( '' !== $woocommerce_loop['name'] ) {
+			$classes['text_alignment'] = esc_attr( 'has-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
+		}
 
 		return $classes;
 	}
