@@ -32,6 +32,20 @@ $wp_customize->add_control(
 	)
 );
 
+// Shortcode notice.
+$wp_customize->add_control(
+	new Suki_Customize_FreeText_Control(
+		$wp_customize,
+		'notice_checkout_shortcode',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => '<div class="notice notice-warning notice-alt inline"><p>' . esc_html__( 'These options are for Checkout page built using the [woocommerce_checkout] shortcode. If you built the Checkout page using WooCommerce Checkout blocks, you can ignore these options.', 'suki' ) . '</p></div>',
+			'priority'    => 20,
+		)
+	)
+);
+
 // Checkout layout.
 $key = 'woocommerce_checkout_layout';
 $wp_customize->add_setting(

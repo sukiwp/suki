@@ -811,7 +811,7 @@ msgstr ""
 msgid "Posts Layout"
 msgstr ""
 
-#: includes/customizer/structures/blog--archive.php:52, includes/customizer/structures/sections.php:626, includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:53, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:53
+#: includes/customizer/structures/blog--archive.php:52, includes/customizer/structures/sections.php:626, includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:67, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:67
 msgid "Default"
 msgstr ""
 
@@ -1326,7 +1326,7 @@ msgstr ""
 msgid "Theme Color %d"
 msgstr ""
 
-#: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:96, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:141, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:414, includes/customizer/structures/sections.php:556, includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:185, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:103
+#: includes/customizer/structures/global--social.php:58, includes/customizer/structures/header--html.php:96, includes/customizer/structures/header--menu.php:77, includes/customizer/structures/header--search.php:141, includes/customizer/structures/sections.php:20, includes/customizer/structures/sections.php:414, includes/customizer/structures/sections.php:556, includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:199, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:117
 msgctxt "Suki Pro upsell"
 msgid "More Options Available in Suki Pro"
 msgstr ""
@@ -2050,60 +2050,68 @@ msgstr ""
 msgid "Content Layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:50
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:43
+msgid "Options for Cart page built using the [woocommerce_cart] shortcode. If you built the Cart page using WooCommerce Cart blocks, you can ignore these options."
+msgstr ""
+
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:64
 msgid "Cart layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:57, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:57
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:71, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:71
 msgid "2 Columns"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:74, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:74
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:88, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:88
 msgid "When using 2 Columns layout, it's recommended to set the container width to \"Normal\" or \"Full width\" and also hide the sidebar via the \"Page Settings\" meta box available on the page editor."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:108
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:122
 msgid "Show cross-sells"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:109
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:123
 msgid "Display cross-sells as configured on Edit Product page > Product Data > Linked Products > Cross-sells."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:129
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:143
 msgid "Cross-sells position"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:131
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:145
 msgid "Before cart total"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:132
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:146
 msgid "After cart total"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:153
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:167
 msgid "Cross-sells grid columns"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:170, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:88, includes/modules/page-settings/customizer/structures/all-page-settings.php:40
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:184, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:102, includes/modules/page-settings/customizer/structures/all-page-settings.php:40
 msgid "Page Settings"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:171, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:89
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:185, includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:103
 msgid "Go to Page Editor"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:197
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--cart.php:211
 msgctxt "Suki Pro upsell"
 msgid "Sticky checkout button on mobile"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:50
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:43
+msgid "These options are for Checkout page built using the [woocommerce_checkout] shortcode. If you built the Checkout page using WooCommerce Checkout blocks, you can ignore these options."
+msgstr ""
+
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:64
 msgid "Checkout layout"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:115
+#: includes/compatibilities/woocommerce/customizer/structures/woocommerce--checkout.php:129
 msgctxt "Suki Pro upsell"
 msgid "Distraction Free Mode"
 msgstr ""

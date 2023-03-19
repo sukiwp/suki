@@ -32,6 +32,20 @@ $wp_customize->add_control(
 	)
 );
 
+// Shortcode notice.
+$wp_customize->add_control(
+	new Suki_Customize_FreeText_Control(
+		$wp_customize,
+		'notice_cart_shortcode',
+		array(
+			'section'     => $section,
+			'settings'    => array(),
+			'description' => '<div class="notice notice-warning notice-alt inline"><p>' . esc_html__( 'Options for Cart page built using the [woocommerce_cart] shortcode. If you built the Cart page using WooCommerce Cart blocks, you can ignore these options.', 'suki' ) . '</p></div>',
+			'priority'    => 10,
+		)
+	)
+);
+
 // Cart layout.
 $key = 'woocommerce_cart_layout';
 $wp_customize->add_setting(
