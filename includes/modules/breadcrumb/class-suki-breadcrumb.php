@@ -61,7 +61,7 @@ class Suki_Breadcrumb extends Suki_Module {
 		 */
 
 		// Add breadcrumb HTML to content header rendering filter.
-		add_filter( 'suki/frontend/content_header_element/breadcrumb', array( $this, 'get_html' ) );
+		add_filter( 'suki/frontend/content_header_element/breadcrumb', array( $this, 'get_content_header_element' ), 10, 2 );
 
 		// Add breadcrumb HTML to header element rendering filter.
 		add_filter( 'suki/frontend/header_element/breadcrumb', array( $this, 'get_html' ) );
@@ -133,6 +133,21 @@ class Suki_Breadcrumb extends Suki_Module {
 			// Wrap with "suki-breadcrumb" div.
 			$html = '<div class="suki-breadcrumb">' . $html . '</div>';
 		}
+
+		return $html;
+	}
+
+	/**
+	 * Return breadcrumb HTML for content header element.
+	 *
+	 * @param string $html      HTML markup.
+	 * @param string $alignment Alignment (left, center, or right).
+	 * @return string
+	 */
+	public function get_content_header_element( $html, $alignment ) {
+		$html = $this->get_html();
+
+		$html = str_replace( '<div class="suki-breadcrumb">', '<div class="suki-breadcrumb has-text-align-' . $alignment . '">', $html );
 
 		return $html;
 	}
