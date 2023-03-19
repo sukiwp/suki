@@ -503,8 +503,8 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
 		add_filter( 'loop_shop_columns', array( $this, 'set_loop_columns' ) );
 
-		// Add text alignment class on products loop.
-		add_filter( 'suki/frontend/woocommerce/loop_item_classes', array( $this, 'add_loop_item_alignment_class' ) );
+		// Add text alignment class on products loop item.
+		add_filter( 'woocommerce_post_class', array( $this, 'add_loop_item_alignment_class' ) );
 
 		/**
 		 * Shop page
@@ -1156,7 +1156,7 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_loop_item_alignment_class( $classes ) {
-		$classes['text_alignment'] = esc_attr( 'suki-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
+		$classes['text_alignment'] = esc_attr( 'has-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
 
 		return $classes;
 	}
@@ -1352,24 +1352,6 @@ class Suki_Compatibility_WooCommerce {
 	 * Render closing products filters wrapper tag.
 	 */
 	public function render_loop_filters_wrapper_end() {
-		?>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Add opening product wrapper tag to products loop item.
-	 */
-	public function render_loop_item_wrapper() {
-		?>
-		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_classes', array( 'suki-woocommerce-loop-item' ) ) ) ); ?>">
-		<?php
-	}
-
-	/**
-	 * Add closing product wrapper tag to products loop item.
-	 */
-	public function render_loop_item_wrapper_end() {
 		?>
 		</div>
 		<?php

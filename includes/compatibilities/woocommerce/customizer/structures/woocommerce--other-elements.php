@@ -46,10 +46,9 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'     => $section,
-			'label'       => esc_html__( 'Integrate with theme\'s breadcrumb module', 'suki' ),
-			'description' => esc_html__( 'When enabled, the theme\'s breadcrumb module will replace the WooCommerce\'s original breadcrumb.', 'suki' ),
-			'priority'    => 10,
+			'section'  => $section,
+			'label'    => esc_html__( 'Replace with breadcrumb module from theme', 'suki' ),
+			'priority' => 10,
 		)
 	)
 );

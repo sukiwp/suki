@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $section = 'woocommerce_products_grid';
 
-// Rows gutter.
-$key = 'woocommerce_products_grid_rows_gutter';
+// Rows gap.
+$key = 'woocommerce_products_grid_rows_gap';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -28,16 +28,18 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Rows gutter', 'suki' ),
+			'label'    => esc_html__( 'Rows gap', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 40,
 					'step' => 1,
 				),
-				'em' => array(
+				'em'  => array(
 					'min'  => 0,
-					'max'  => 3,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
 					'step' => 0.01,
 				),
 			),
@@ -46,8 +48,8 @@ $wp_customize->add_control(
 	)
 );
 
-// Columns gutter.
-$key = 'woocommerce_products_grid_columns_gutter';
+// Columns gap.
+$key = 'woocommerce_products_grid_columns_gap';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -62,16 +64,18 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Columns gutter', 'suki' ),
+			'label'    => esc_html__( 'Columns gap', 'suki' ),
 			'units'    => array(
-				'px' => array(
+				'px'  => array(
 					'min'  => 0,
-					'max'  => 40,
 					'step' => 1,
 				),
-				'em' => array(
+				'em'  => array(
 					'min'  => 0,
-					'max'  => 3,
+					'step' => 0.01,
+				),
+				'rem' => array(
+					'min'  => 0,
 					'step' => 0.01,
 				),
 			),
@@ -168,7 +172,7 @@ $wp_customize->add_control(
 		$key,
 		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Show "add to cart" button', 'suki' ),
+			'label'    => esc_html__( 'Show add to cart button', 'suki' ),
 			'priority' => 50,
 		)
 	)

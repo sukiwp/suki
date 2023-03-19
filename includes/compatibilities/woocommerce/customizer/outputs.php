@@ -60,7 +60,7 @@ $add['woocommerce_products_grid_text_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.woocommerce ul.products li.product',
-		'pattern' => '.is-content-justification-$',
+		'pattern' => 'has-text-align-$',
 	),
 );
 

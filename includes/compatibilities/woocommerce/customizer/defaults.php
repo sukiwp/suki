@@ -81,8 +81,6 @@ $add['woocommerce_checkout_layout'] = '2-columns';
  * ====================================================
  */
 
-$add['woocommerce_products_grid_rows_gutter']    = '15px';
-$add['woocommerce_products_grid_columns_gutter'] = '15px';
 $add['woocommerce_products_grid_text_alignment'] = 'left';
 
 /**
