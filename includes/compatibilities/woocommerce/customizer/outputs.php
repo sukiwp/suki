@@ -59,8 +59,8 @@ $add['woocommerce_products_grid_columns_gap'] = array(
 $add['woocommerce_products_grid_text_alignment'] = array(
 	array(
 		'type'    => 'class',
-		'element' => '.woocommerce ul.products li.product',
-		'pattern' => 'has-text-align-$',
+		'element' => '.woocommerce ul.products',
+		'pattern' => 'suki-products--item-alignment-$',
 	),
 );
 

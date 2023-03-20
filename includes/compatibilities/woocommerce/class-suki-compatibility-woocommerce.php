@@ -503,8 +503,8 @@ class Suki_Compatibility_WooCommerce {
 		add_filter( 'loop_shop_per_page', array( $this, 'set_loop_posts_per_page' ) );
 		add_filter( 'loop_shop_columns', array( $this, 'set_loop_columns' ) );
 
-		// Add text alignment class on products loop item.
-		add_filter( 'woocommerce_post_class', array( $this, 'add_loop_item_alignment_class' ) );
+		// Add item alignment class on products loop.
+		add_filter( 'suki/frontend/woocommerce/loop_classes', array( $this, 'add_loop_item_alignment_class' ) );
 
 		/**
 		 * Shop page
@@ -522,6 +522,15 @@ class Suki_Compatibility_WooCommerce {
 		 * Product page
 		 */
 
+		// Add classes to single product wrapper.
+		// Use `woocommerce_before_single_product` action to add the filter, to make sure that it's added only on `content-single-product` template.
+		add_action(
+			'woocommerce_before_single_product',
+			function() {
+				add_filter( 'woocommerce_post_class', array( $this, 'add_product_wrapper_class' ) );
+			}
+		);
+
 		// Modify "added to cart" message.
 		add_filter( 'wc_add_to_cart_message_html', array( $this, 'change_add_to_cart_message_markup' ), 10, 3 );
 
@@ -536,10 +545,6 @@ class Suki_Compatibility_WooCommerce {
 
 		// Set product images thumbnails columns.
 		add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'set_product_thumbnails_columns' ) );
-
-		// Add wrapper to single product add to cart form.
-		add_filter( 'woocommerce_before_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper' ) );
-		add_filter( 'woocommerce_after_add_to_cart_form', array( $this, 'render_add_to_cart_form_wrapper_end' ) );
 
 		// Set review avatar size.
 		add_filter( 'woocommerce_review_gravatar_size', array( $this, 'set_review_avatar_size' ) );
@@ -1150,18 +1155,27 @@ class Suki_Compatibility_WooCommerce {
 	}
 
 	/**
-	 * Add text alignment class on loop start tag.
+	 * Add item alignment class on products loop.
 	 *
 	 * @param array $classes Classes array.
 	 * @return array
 	 */
 	public function add_loop_item_alignment_class( $classes ) {
-		global $woocommerce_loop;
+		$classes['text_alignment'] = esc_attr( 'suki-products--item-alignment-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
 
-		// Only target Products grid.
-		if ( '' !== $woocommerce_loop['name'] ) {
-			$classes['text_alignment'] = esc_attr( 'has-text-align-' . suki_get_theme_mod( 'woocommerce_products_grid_text_alignment' ) );
-		}
+		return $classes;
+	}
+
+	/**
+	 * Add classes on single product wrapper.
+	 *
+	 * @param array $classes Classes array.
+	 * @return array
+	 */
+	public function add_product_wrapper_class( $classes ) {
+		$additional_classes = apply_filters( 'suki/frontend/woocommerce/single_product_classes', array() );
+
+		$classes = array_merge( $classes, $additional_classes );
 
 		return $classes;
 	}
@@ -1478,24 +1492,6 @@ class Suki_Compatibility_WooCommerce {
 	 */
 	public function set_product_thumbnails_columns( $columns ) {
 		return 8;
-	}
-
-	/**
-	 * Add opening add to cart form's wrapper tag.
-	 */
-	public function render_add_to_cart_form_wrapper() {
-		?>
-		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/add_to_cart_form_classes', array( 'suki-woocommerce-product__add-to-cart' ) ) ) ); ?>">
-		<?php
-	}
-
-	/**
-	 * Add closing add to cart form's wrapper tag.
-	 */
-	public function render_add_to_cart_form_wrapper_end() {
-		?>
-		</div>
-		<?php
 	}
 
 	/**

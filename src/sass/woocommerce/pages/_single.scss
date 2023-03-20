@@ -186,7 +186,7 @@
 		}
 
 		// Add to cart form
-		.suki-woocommerce-product__add-to-cart {
+		form.cart {
 			margin-block-start: calc( 1.5 * var(--wp--style--block-gap) );
 
 			// Move "View cart" link to the bottom.

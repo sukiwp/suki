@@ -62,6 +62,24 @@
 		}
 	}
 
+	&.suki-products--item-alignment-left {
+		.product {
+			align-items: flex-start;
+		}
+	}
+
+	&.suki-products--item-alignment-center {
+		.product {
+			align-items: center;
+		}
+	}
+
+	&.suki-products--item-alignment-right {
+		.product {
+			align-items: flex-end;
+		}
+	}
+
 	.product {
 		position: relative;
 		display: flex;
@@ -104,18 +122,6 @@
 			margin: 0; // Reset
 			font: inherit;
 			color: inherit;
-		}
-
-		&.has-text-align-left {
-			align-items: flex-start;
-		}
-
-		&.has-text-align-center {
-			align-items: center;
-		}
-
-		&.has-text-align-right {
-			align-items: flex-end;
 		}
 	}
 }

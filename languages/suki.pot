@@ -718,7 +718,7 @@ msgstr ""
 msgid "Sidebar that replaces the default sidebar when on WooCommerce pages."
 msgstr ""
 
-#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:737, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:838, includes/compatibilities/woocommerce/customizer/structures/header--cart.php:23, includes/compatibilities/woocommerce/customizer/structures/sections.php:17
+#: includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:742, includes/compatibilities/woocommerce/class-suki-compatibility-woocommerce.php:843, includes/compatibilities/woocommerce/customizer/structures/header--cart.php:23, includes/compatibilities/woocommerce/customizer/structures/sections.php:17
 msgid "Shopping Cart"
 msgstr ""
 
