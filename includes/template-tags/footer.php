@@ -420,9 +420,16 @@ if ( ! function_exists( 'suki_scroll_to_top' ) ) {
 			return;
 		}
 
+		/**
+		 * Filter: suki/frontend/scroll_to_top_classes
+		 *
+		 * @param array $classes CSS classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/scroll_to_top_classes', array( 'suki-scroll-to-top' ) );
+
 		ob_start();
 		?>
-		<a href="#page" class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/scroll_to_top_classes', array( 'suki-scroll-to-top' ) ) ) ); ?>">
+		<a href="#page" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php suki_icon( 'chevron-up' ); ?>
 			<span class="screen-reader-text"><?php esc_html_e( 'Back to Top', 'suki' ); ?></span>
 		</a>

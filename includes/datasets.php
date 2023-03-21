@@ -37,6 +37,11 @@ function suki_get_module_categories() {
  * @return array
  */
 function suki_get_pro_modules() {
+	/**
+	 * Filter: suki/pro/modules
+	 *
+	 * @param array $modules Modules array.
+	 */
 	$modules = apply_filters(
 		'suki/pro/modules',
 		array(

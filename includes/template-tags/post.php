@@ -270,9 +270,16 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 				break;
 
 			case 'avatar':
+				/**
+				 * Filter: suki/frontend/entry_author_bio_avatar_size
+				 *
+				 * @param integer $size Avatar size (in px).
+				 */
+				$size = apply_filters( 'suki/frontend/entry_author_bio_avatar_size', 80 );
+
 				$html = '
 				<!-- wp:avatar {
-					"size":' . apply_filters( 'suki/frontend/entry_author_bio_avatar_size', 80 ) . ',
+					"size":' . $size . ',
 					"className":"entry-meta__avatar"
 				} /-->
 				';

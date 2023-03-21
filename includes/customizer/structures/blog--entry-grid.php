@@ -296,6 +296,19 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/entry_grid_header_elements
+ *
+ * @param array $elements Elements array.
+ */
+$elements = apply_filters(
+	'suki/dataset/entry_grid_header_elements',
+	array(
+		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
+		'title'       => esc_html__( 'Title', 'suki' ),
+	)
+);
+
 // Elements.
 $key = 'entry_grid_header';
 $wp_customize->add_setting(
@@ -312,13 +325,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Elements', 'suki' ),
-			'choices'     => apply_filters(
-				'suki/dataset/entry_grid_header_elements',
-				array(
-					'header-meta' => esc_html__( 'Header Meta', 'suki' ),
-					'title'       => esc_html__( 'Title', 'suki' ),
-				)
-			),
+			'choices'     => $elements,
 			'is_sortable' => true,
 			'priority'    => 30,
 		)
@@ -576,6 +583,19 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/entry_grid_footer_elements
+ *
+ * @param array $elements Elements array.
+ */
+$elements = apply_filters(
+	'suki/dataset/entry_grid_footer_elements',
+	array(
+		'hr'          => '⎯⎯⎯⎯⎯',
+		'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
+	)
+);
+
 // Elements.
 $key = 'entry_grid_footer';
 $wp_customize->add_setting(
@@ -592,13 +612,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Elements', 'suki' ),
-			'choices'     => apply_filters(
-				'suki/dataset/entry_grid_footer_elements',
-				array(
-					'hr'          => '⎯⎯⎯⎯⎯',
-					'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
-				)
-			),
+			'choices'     => $elements,
 			'is_sortable' => true,
 			'priority'    => 60,
 		)

@@ -75,6 +75,19 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/search_results_content_header_elements
+ *
+ * @param array $elements Elements array.
+ */
+$elements = apply_filters(
+	'suki/dataset/search_results_content_header_elements',
+	array(
+		'title'       => esc_html__( 'Title', 'suki' ),
+		'search-form' => esc_html__( 'Search Form', 'suki' ),
+	)
+);
+
 // Elements.
 $key = 'search_results_content_header';
 $wp_customize->add_setting(
@@ -91,13 +104,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Elements', 'suki' ),
-			'choices'     => apply_filters(
-				'suki/dataset/search_results_content_header_elements',
-				array(
-					'title'       => esc_html__( 'Title', 'suki' ),
-					'search-form' => esc_html__( 'Search Form', 'suki' ),
-				)
-			),
+			'choices'     => $elements,
 			'is_sortable' => true,
 			'priority'    => 20,
 		)

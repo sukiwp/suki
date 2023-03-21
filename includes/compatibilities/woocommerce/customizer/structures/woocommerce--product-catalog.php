@@ -32,6 +32,19 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/product_archive_content_header_elements
+ *
+ * @param array $content_header_elements Elements array.
+ */
+$content_header_elements = apply_filters(
+	'suki/dataset/product_archive_content_header_elements',
+	array(
+		'title'      => esc_html__( 'Title', 'suki' ),
+		'breadcrumb' => esc_html__( 'Breadcrumb', 'suki' ),
+	)
+);
+
 // Elements.
 $key = 'product_archive_content_header';
 $wp_customize->add_setting(
@@ -48,13 +61,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Elements', 'suki' ),
-			'choices'     => apply_filters(
-				'suki/dataset/product_archive_content_header_elements',
-				array(
-					'title'      => esc_html__( 'Title', 'suki' ),
-					'breadcrumb' => esc_html__( 'Breadcrumb', 'suki' ),
-				)
-			),
+			'choices'     => $content_header_elements,
 			'is_sortable' => true,
 			'priority'    => 20,
 		)

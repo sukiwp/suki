@@ -196,7 +196,14 @@ class Suki_Admin {
 	 * @param array $editor_settings Editor's settings array.
 	 */
 	public function add_classic_editor_dynamic_css( $editor_settings ) {
-		$dynamic_css = trim( apply_filters( 'suki/frontend/dynamic_css', '' ) );
+		/**
+		 * Filter: suki/frontend/dynamic_css
+		 *
+		 * @param string $dynamic_css CSS string.
+		 */
+		$dynamic_css = apply_filters( 'suki/frontend/dynamic_css', '' );
+
+		$dynamic_css = trim( $dynamic_css );
 
 		// Remove comment and whitespace.
 		$dynamic_css = preg_replace( '/\/\*.*?\*\//', '', $dynamic_css );

@@ -191,8 +191,15 @@ class Suki_Compatibility_WooCommerce {
 	 * Enqueue dynamic CSS.
 	 */
 	public function enqueue_dynamic_css() {
+		/**
+		 * Filter: suki/frontend/woocommerce/dynamic_css
+		 *
+		 * @param string $dynamic_css CSS string.
+		 */
+		$dynamic_css = apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' );
+
 		// Inline CSS.
-		wp_add_inline_style( 'woocommerce-general', trim( apply_filters( 'suki/frontend/woocommerce/dynamic_css', '' ) ) );
+		wp_add_inline_style( 'woocommerce-general', trim( $dynamic_css ) );
 	}
 
 	/**
@@ -1173,6 +1180,11 @@ class Suki_Compatibility_WooCommerce {
 	 * @return array
 	 */
 	public function add_product_wrapper_class( $classes ) {
+		/**
+		 * Filter: suki/frontend/woocommerce/single_product_classes
+		 *
+		 * @param array $additional_classes CSS classes array.
+		 */
 		$additional_classes = apply_filters( 'suki/frontend/woocommerce/single_product_classes', array() );
 
 		$classes = array_merge( $classes, $additional_classes );
@@ -1380,8 +1392,14 @@ class Suki_Compatibility_WooCommerce {
 	 * Add opening product image wrapper tag.
 	 */
 	public function render_loop_product_thumbnail_wrapper() {
+		/**
+		 * Filter: suki/frontend/woocommerce/loop_item_thumbnail_classes
+		 *
+		 * @param array $classes CSS classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array( 'suki-woocommerce-loop-item__thumbnail' ) );
 		?>
-		<div class="<?php echo esc_attr( implode( ' ', apply_filters( 'suki/frontend/woocommerce/loop_item_thumbnail_classes', array( 'suki-woocommerce-loop-item__thumbnail' ) ) ) ); ?>">
+		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 		<?php
 	}
 

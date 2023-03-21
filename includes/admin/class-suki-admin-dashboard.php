@@ -106,44 +106,51 @@ class Suki_Admin_Dashboard {
 
 			$data = array();
 
+			/**
+			 * Filter: suki/admin/dashboard/customizer_shortcuts
+			 *
+			 * @param array $links Theme's dashboard links array.
+			 */
+			$links = apply_filters(
+				'suki/admin/dashboard/customizer_shortcuts',
+				array(
+					array(
+						'label' => esc_html__( 'Global Colors', 'suki' ),
+						'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_color_palette' ), admin_url( 'customize.php' ) ),
+						'icon'  => 'art',
+					),
+					array(
+						'label' => esc_html__( 'Global Elements', 'suki' ),
+						'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_elements' ), admin_url( 'customize.php' ) ),
+						'icon'  => 'editor-textcolor',
+					),
+					array(
+						'label' => esc_html__( 'Global Layout', 'suki' ),
+						'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_layout' ), admin_url( 'customize.php' ) ),
+						'icon'  => 'welcome-widgets-menus',
+					),
+					array(
+						'label' => esc_html__( 'Header Builder', 'suki' ),
+						'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_header' ), admin_url( 'customize.php' ) ),
+						'icon'  => 'move',
+					),
+					array(
+						'label' => esc_html__( 'Footer Builder', 'suki' ),
+						'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_footer' ), admin_url( 'customize.php' ) ),
+						'icon'  => 'move',
+					),
+					array(
+						'label' => esc_html__( 'Blog Layout', 'suki' ),
+						'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_blog' ), admin_url( 'customize.php' ) ),
+						'icon'  => 'welcome-write-blog',
+					),
+				)
+			);
+
 			// Add data for "Customizer Shortcuts" section.
 			if ( has_action( 'suki/admin/dashboard/content', array( $this, 'render_content__customizer_shortcuts' ) ) ) {
 				$data['customizerShortcuts'] = array(
-					'links' => apply_filters(
-						'suki/admin/dashboard/customizer_shortcuts',
-						array(
-							array(
-								'label' => esc_html__( 'Global Colors', 'suki' ),
-								'url'   => add_query_arg( array( 'autofocus[section]' => 'suki_section_color_palette' ), admin_url( 'customize.php' ) ),
-								'icon'  => 'art',
-							),
-							array(
-								'label' => esc_html__( 'Global Elements', 'suki' ),
-								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_elements' ), admin_url( 'customize.php' ) ),
-								'icon'  => 'editor-textcolor',
-							),
-							array(
-								'label' => esc_html__( 'Global Layout', 'suki' ),
-								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_global_layout' ), admin_url( 'customize.php' ) ),
-								'icon'  => 'welcome-widgets-menus',
-							),
-							array(
-								'label' => esc_html__( 'Header Builder', 'suki' ),
-								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_header' ), admin_url( 'customize.php' ) ),
-								'icon'  => 'move',
-							),
-							array(
-								'label' => esc_html__( 'Footer Builder', 'suki' ),
-								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_footer' ), admin_url( 'customize.php' ) ),
-								'icon'  => 'move',
-							),
-							array(
-								'label' => esc_html__( 'Blog Layout', 'suki' ),
-								'url'   => add_query_arg( array( 'autofocus[panel]' => 'suki_panel_blog' ), admin_url( 'customize.php' ) ),
-								'icon'  => 'welcome-write-blog',
-							),
-						)
-					),
+					'links' => $links,
 				);
 			}
 

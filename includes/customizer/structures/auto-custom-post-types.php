@@ -44,14 +44,24 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 		)
 	);
 
-	// Elements.
 	$elements = array(
 		'title' => esc_html__( 'Title', 'suki' ),
 	);
-	// Archive elements.
 	if ( false !== strpos( $page_type_key, '_archive' ) ) {
 		$elements['archive-description'] = esc_html__( 'Description', 'suki' );
 	}
+
+	/**
+	 * Filter: suki/dataset/{$page_type_key}_content_header_elements
+	 *
+	 * @param array $elements Elements array.
+	 */
+	$elements = apply_filters(
+		'suki/dataset/' . $page_type_key . '_content_header_elements',
+		$elements
+	);
+
+	// Elements.
 	$subkey = 'content_header';
 	$key    = $option_prefix . '_' . $subkey;
 	$wp_customize->add_setting(
@@ -68,7 +78,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'custom' ) as $page_type_
 			array(
 				'section'     => $section,
 				'label'       => esc_html__( 'Elements', 'suki' ),
-				'choices'     => apply_filters( 'suki/dataset/' . $page_type_key . '_content_header_elements', $elements ),
+				'choices'     => $elements,
 				'is_sortable' => true,
 				'priority'    => 20,
 			)

@@ -32,6 +32,19 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/post_single_content_header_elements
+ *
+ * @param array $elements Elements array.
+ */
+$elements = apply_filters(
+	'suki/dataset/post_single_content_header_elements',
+	array(
+		'title'       => esc_html__( 'Title', 'suki' ),
+		'header-meta' => esc_html__( 'Header Meta', 'suki' ),
+	)
+);
+
 // Elements.
 $key = 'post_single_content_header';
 $wp_customize->add_setting(
@@ -48,13 +61,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Elements', 'suki' ),
-			'choices'     => apply_filters(
-				'suki/dataset/post_single_content_header_elements',
-				array(
-					'title'       => esc_html__( 'Title', 'suki' ),
-					'header-meta' => esc_html__( 'Header Meta', 'suki' ),
-				)
-			),
+			'choices'     => $elements,
 			'is_sortable' => true,
 			'priority'    => 10,
 		)
@@ -198,6 +205,20 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Filter: suki/dataset/post_single_content_footer_elements
+ *
+ * @param array $elements Elements array.
+ */
+$elements = apply_filters(
+	'suki/dataset/post_single_content_footer_elements',
+	array(
+		'hr'          => '⎯⎯⎯⎯⎯',
+		'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
+		'tags'        => esc_html__( 'Tags', 'suki' ),
+	)
+);
+
 // Elements.
 $key = 'post_single_content_footer';
 $wp_customize->add_setting(
@@ -214,14 +235,7 @@ $wp_customize->add_control(
 		array(
 			'section'     => $section,
 			'label'       => esc_html__( 'Elements', 'suki' ),
-			'choices'     => apply_filters(
-				'suki/dataset/post_single_content_header_elements',
-				array(
-					'hr'          => '⎯⎯⎯⎯⎯',
-					'footer-meta' => esc_html__( 'Footer Meta', 'suki' ),
-					'tags'        => esc_html__( 'Tags', 'suki' ),
-				)
-			),
+			'choices'     => $elements,
 			'is_sortable' => true,
 			'priority'    => 30,
 		)

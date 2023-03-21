@@ -236,8 +236,15 @@ class Suki {
 		// Add screenshot to theme data.
 		$info['screenshot'] = esc_url( get_template_directory_uri() . '/screenshot.png' );
 
+		/**
+		 * Filter: suki/theme_info
+		 *
+		 * @param array $info Info array.
+		 */
+		$info = apply_filters( 'suki/theme_info', $info );
+
 		// Save to class $info property.
-		$this->info = apply_filters( 'suki/theme_info', $info );
+		$this->info = $info;
 	}
 
 	/**
@@ -393,6 +400,11 @@ class Suki {
 	 * @return string
 	 */
 	public function add_defer_attribute_to_scripts( $tag, $handle ) {
+		/**
+		 * Filter: suki/frontend/defer_scripts
+		 *
+		 * @param array $scripts_to_defer Script handles to defer.
+		 */
 		$scripts_to_defer = apply_filters( 'suki/frontend/defer_scripts', array() );
 
 		foreach ( $scripts_to_defer as $script ) {
