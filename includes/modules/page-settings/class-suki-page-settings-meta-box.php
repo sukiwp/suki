@@ -194,11 +194,6 @@ class Suki_Page_Settings_Meta_Box {
 					continue;
 				}
 
-				// If value is 0 or 1, cast to integer.
-				if ( '0' === $value || '1' === $value ) {
-					$value = intval( $value );
-				}
-
 				$sanitized[ $key ] = $value;
 			}
 		}
@@ -420,7 +415,7 @@ class Suki_Page_Settings_Meta_Box {
 												<?php
 												foreach ( $field['options'] as $option ) {
 													?>
-													<option value="<?php echo esc_attr( $option['value'] ); ?>"><?php echo esc_html( $option['label'] ); ?></option>
+													<option value="<?php echo esc_attr( $option['value'] ); ?>" <?php selected( suki_array_value( $values, $field['key'] ), $option['value'] ); ?>><?php echo esc_html( $option['label'] ); ?></option>
 													<?php
 												}
 												?>

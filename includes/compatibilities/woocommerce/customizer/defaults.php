@@ -27,8 +27,6 @@ $add['woocommerce_index_grid_columns']   = 4;
 $add['woocommerce_index_results_count'] = 1;
 $add['woocommerce_index_sort_filter']   = 1;
 
-$add['woocommerce_products_grid_item_add_to_cart'] = 0;
-
 /**
  * ====================================================
  * WooCommerce > Single Product Page
@@ -81,7 +79,8 @@ $add['woocommerce_checkout_layout'] = '2-columns';
  * ====================================================
  */
 
-$add['woocommerce_products_grid_text_alignment'] = 'left';
+$add['woocommerce_products_grid_item_add_to_cart'] = 0;
+$add['woocommerce_products_grid_text_alignment']   = 'left';
 
 /**
  * ====================================================
