@@ -60,7 +60,7 @@ $add['woocommerce_products_grid_text_alignment'] = array(
 	array(
 		'type'    => 'class',
 		'element' => '.woocommerce ul.products',
-		'pattern' => 'suki-products--item-alignment-$',
+		'pattern' => 'suki-woocommerce-loop--item-alignment-$',
 	),
 );
 

@@ -62,19 +62,19 @@
 		}
 	}
 
-	&.suki-products--item-alignment-left {
+	&.suki-woocommerce-loop--item-alignment-left {
 		.product {
 			align-items: flex-start;
 		}
 	}
 
-	&.suki-products--item-alignment-center {
+	&.suki-woocommerce-loop--item-alignment-center {
 		.product {
 			align-items: center;
 		}
 	}
 
-	&.suki-products--item-alignment-right {
+	&.suki-woocommerce-loop--item-alignment-right {
 		.product {
 			align-items: flex-end;
 		}

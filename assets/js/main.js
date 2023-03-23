@@ -452,7 +452,7 @@ const suki = {
 
 			$activePopups.forEach( function( $activePopup ) {
 				// Deactivate popup.
-				$clickedToggle.classList.remove( 'suki-popup-toggle-active' );
+				$clickedToggle.classList.remove( 'suki-popup-toggle--active' );
 				$clickedToggle.setAttribute( 'aria-expanded', false );
 				$activePopup.classList.remove( 'suki-popup--active' );
 				document.body.classList.remove( 'suki-has-active-popup' );
@@ -490,7 +490,7 @@ const suki = {
 				deactivatePopup();
 			} else {
 				// Activate popup.
-				$this.classList.add( 'suki-popup-toggle-active' );
+				$this.classList.add( 'suki-popup-toggle--active' );
 				$this.setAttribute( 'aria-expanded', true );
 				$target.classList.add( 'suki-popup--active' );
 				document.body.classList.add( 'suki-has-active-popup' );

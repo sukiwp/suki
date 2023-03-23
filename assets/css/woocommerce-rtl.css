@@ -710,13 +710,13 @@ body {
 		--columns: 6;
 	}
 }
-.woocommerce ul.products.suki-products--item-alignment-left .product {
+.woocommerce ul.products.suki-woocommerce-loop--item-alignment-left .product {
 	align-items: flex-start;
 }
-.woocommerce ul.products.suki-products--item-alignment-center .product {
+.woocommerce ul.products.suki-woocommerce-loop--item-alignment-center .product {
 	align-items: center;
 }
-.woocommerce ul.products.suki-products--item-alignment-right .product {
+.woocommerce ul.products.suki-woocommerce-loop--item-alignment-right .product {
 	align-items: flex-end;
 }
 .woocommerce ul.products .product {
