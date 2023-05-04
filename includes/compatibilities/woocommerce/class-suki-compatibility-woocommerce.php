@@ -109,7 +109,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'init', array( $this, 'modify_template_hooks' ) );
 
 		// Template hooks (after `init` hook run).
-		add_action( 'template_redirect', array( $this, 'modify_template_hooks_after_init' ), 20 ); // Priority is set to 20, because theme's actions are registered at 10.
+		add_action( 'template_redirect', array( $this, 'modify_template_hooks_after_init' ) );
 
 		// Render header elements.
 		add_filter( 'suki/frontend/header_element/cart-link', array( $this, 'get_header_element__cart_link' ) );
@@ -661,9 +661,9 @@ class Suki_Compatibility_WooCommerce {
 
 			// Keep / remove gallery.
 			if ( ! boolval( suki_get_current_page_setting( 'woocommerce_single_gallery' ) ) ) {
-				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper' ), 19 );
+				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_images_wrapper' ), 19 );
 				remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_gallery_wrapper_end' ), 29 );
+				remove_action( 'woocommerce_before_single_product_summary', array( $this, 'render_product_images_wrapper_end' ), 29 );
 			}
 
 			// Keep / remove tabs.
@@ -1496,7 +1496,7 @@ class Suki_Compatibility_WooCommerce {
 		$gallery_ids = $product->get_gallery_image_ids();
 
 		if ( 0 < count( $gallery_ids ) ) {
-			$classes['gallery_multiple_images'] = esc_attr( 'suki-woocommerce-single-gallery-multiple-images' );
+			$classes['gallery_multiple_images'] = esc_attr( 'suki-woocommerce-product-gallery--multiple-images' );
 		}
 
 		return $classes;

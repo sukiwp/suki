@@ -51,11 +51,11 @@ $wp_customize->add_control(
 			'label'    => esc_html__( 'Width', 'suki' ),
 			'units'    => array(
 				'px'  => array(
-					'min'  => 150,
+					'min'  => 0,
 					'step' => 1,
 				),
 				'em'  => array(
-					'min'  => 10,
+					'min'  => 0,
 					'step' => 0.01,
 				),
 				'rem' => array(
@@ -63,7 +63,7 @@ $wp_customize->add_control(
 					'step' => 0.01,
 				),
 				'%'   => array(
-					'min'  => 10,
+					'min'  => 0,
 					'step' => 0.01,
 				),
 			),

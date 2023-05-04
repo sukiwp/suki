@@ -140,4 +140,4 @@ function suki_template_hooks() {
 		}
 	}
 }
-add_action( 'template_redirect', 'suki_template_hooks' );
+add_action( 'template_redirect', 'suki_template_hooks', 1 );

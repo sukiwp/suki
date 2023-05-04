@@ -1069,6 +1069,7 @@ th {
 
 .suki-toggle.suki-popup__close {
 	position: absolute;
+	z-index: 1;
 	top: 0;
 	left: 0;
 	margin: 1.25rem;
