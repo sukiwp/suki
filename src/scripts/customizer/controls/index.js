@@ -21,4 +21,4 @@ import './slider';
 import './toggle';
 import './typography';
 
-import './color-palette';
+// import './color-palette';

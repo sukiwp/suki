@@ -1,59 +1,35 @@
 // -------------------------------------------------------------
-// Block: Button
+// Block: Buttons
 // -------------------------------------------------------------
 
-.wp-block-button {
-	--gap: var(--wp--style--block-gap, 0.5em);
+.wp-element-button {
+	// @include button();
 
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em; // Prepare gap for button with icon
+	appearance: none;
+	max-width: 100%;
+	vertical-align: middle;
+	cursor: pointer;
+	text-align: center;
+	transition: all var(--transition-duration);
+	isolation: isolate;
+
+	svg {
+		fill: currentColor;
+	}
+}
+
+.wp-block-button {
 	&.is-style-outline {
 		.wp-block-button__link {
-			background-color: transparent;
-			border-color: currentColor;
-			color: var(--button--background-color, revert);
-
-			&:not(:hover, :focus) { // When button .has-background-color, the background color is only used for hover state.
-				background-color: transparent !important; // Use !important to override WP generated CSS
-			}
-
-			&:hover, &:focus {
-				color: var(--button--background-color--focus, var(--button--background-color));
-			}
+			padding: 0.5em 1em; // Reset WP default CSS for `is-style-outline`.
+			color: currentColor;
+			border-width: 1px; // Reset WP default CSS for `is-style-outline`.
 		}
-	}
-}
-
-.wp-block-button__width-25 {
-	width: calc( 25% - ( var(--gap) * ( 3 / 4 ) ) );
-}
-.wp-block-button__width-50 {
-	width: calc( 50% - ( var(--gap) * ( 1 / 2 ) ) );
-}
-.wp-block-button__width-75 {
-	width: calc( 75% - ( var(--gap) * ( 3 / 4 ) ) );
-}
-.wp-block-button__width-100 {
-	width: 100%;
-}
-
-.wp-block-button__link.wp-element-button { // Add .wp-element-button for higher specifity than WP generated global CSS.
-	@include button();
-
-	// Gutenberg button doesn't have border color options, so we always set them to transparent.
-	border-color: transparent;
-
-	// Gutenberg button doesn't have border color options, so we always set them to transparent.
-	&:hover,
-	&:focus {
-		border-color: transparent;
-	}
-
-	&.aligncenter {
-		text-align: center;
-	}
-
-	&.alignright {
-		/*rtl:ignore*/
-		text-align: right;
 	}
 }
 
@@ -62,84 +38,7 @@
 // -------------------------------------------------------------
 
 .wp-block-columns {
-	--gap: var(--wp--style--block-gap);
-
-	display: flex;
-	flex-wrap: wrap !important;
-
-	@include padding-for-has-background();
-
-	&:not([class*="are-vertically-aligned-"]) {
-		align-items: flex-start;
-	}
-
-	&.is-not-stacked-on-mobile {
-		flex-wrap: nowrap !important;
-	}
-
-	// Vertical alignment (CORE FEATURES)
-	&.are-vertically-aligned-top {
-		align-items: flex-start;
-	}
-	&.are-vertically-aligned-center {
-		align-items: center;
-	}
-	&.are-vertically-aligned-bottom {
-		align-items: flex-end;
-	}
-
-	@media screen and ( min-width: $breakpoint-tablet ) {
-		flex-wrap: nowrap !important;
-	}
-}
-
-// -------------------------------------------------------------
-// Block: Column
-// -------------------------------------------------------------
-
-.wp-block-column {
-	flex-grow: 1; // Column with unspecified width will fill the blank space
-	flex-basis: 0;
-
-	// Prevent the columns from growing wider than their distributed sizes.
-	min-width: 0;
-
-	// Prevent long unbroken words from overflowing.
-	word-break: break-word; // For back-compat.
-	overflow-wrap: break-word; // New standard.
-
-	@include padding-for-has-background();
-
-	&[style*="flex-basis"] {
-		flex-grow: 0; // Disable grow if specific column's width is set
-	}
-
-	// Vertical alignment (CORE FEATURES)
-	&.is-vertically-aligned-top {
-		align-self: flex-start;
-	}
-	&.is-vertically-aligned-center {
-		align-self: center;
-	}
-	&.is-vertically-aligned-bottom {
-		align-self: flex-end;
-	}
-}
-
-:where(.wp-block-columns):not(.is-not-stacked-on-mobile) > :where(.wp-block-column) {
-	@media screen and ( max-width: ( $breakpoint-tablet - 0.1px ) ) {
-		// Responsiveness: Show at most one columns on mobile. This must be
-		// important since the Column assigns its own width as an inline style.
-		flex-basis: 100% !important;
-	}
-}
-
-// -------------------------------------------------------------
-// Block: Group
-// -------------------------------------------------------------
-
-.wp-block-group {
-	@include padding-for-has-background();
+	margin-bottom: unset;
 }
 
 // -------------------------------------------------------------
@@ -147,49 +46,20 @@
 // -------------------------------------------------------------
 
 .wp-block-separator {
-	width: 6rem;
+	border-top: none;
 
-	@include remove-margin-top-for-first-child();
-	@include remove-margin-bottom-for-last-child();
-
-	&:where( .has-text-color, .has-background ) {
-		--border-color: currentColor;
-	}
-
-	// Default style
 	&:not([class*="is-style-"]), &.is-style-default {
-		border-bottom-width: 0.2rem;
+		border-bottom-width: min( 5px, 0.2em );
+		max-width: min( 8em, 12.5% ) !important;
 	}
 
-	// Wide line style
-	&.is-style-wide {
-		width: auto;
-	}
-
-	// Dots style
 	&.is-style-dots {
-		border: none;
-		width: 4.5rem;
-		height: 0.35rem;
+		line-height: 0.15;
 
 		&:before {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
-			background-image: radial-gradient(var(--border-color) 15%, transparent 15%);
-			background-repeat: repeat;
-			background-size: 1.5rem 1.5rem;
-			background-position: center;
+			padding-left: 1em;
+			letter-spacing: 1em;
+			vertical-align: middle;
 		}
 	}
-}
-
-// -------------------------------------------------------------
-// Block: Spacer
-// -------------------------------------------------------------
-
-.wp-block-spacer {
-	clear: both;
-	margin-block: 0 !important;
 }

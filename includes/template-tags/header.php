@@ -20,40 +20,47 @@ if ( ! function_exists( 'suki_header' ) ) {
 	 * Notes:
 	 * - Action Hooks API is used to to register footer sections and allow further modifications in Child Theme or 3rd party plugin.
 	 * - `aria-label`, `itemscope`, `itemtype` attributes are added manually.
+	 * - Theme uses `.suki-header` class to add / override styles.
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
 	function suki_header( $do_blocks = true, $echo = true ) {
+		// Abort if header has no attached action.
+		if ( ! has_action( 'suki/frontend/header' ) ) {
+			return;
+		}
+
 		ob_start();
 
-		if ( has_action( 'suki/frontend/header' ) ) { // Header has at least 1 attached action.
-			$classes = 'suki-header site-header suki-header--mobile-visibility-' . suki_get_theme_mod( 'header_mobile_visibility' );
-			?>
-			<!-- wp:group {
-				"tagName":"header",
-				"style":{
-					"spacing":{
-						"blockGap":"0px"
-					}
-				},
-				"className":"<?php echo esc_attr( $classes ); ?>"
-			} --><header id="masthead" class="wp-block-group <?php echo esc_attr( $classes ); ?>" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
+		$classes = 'suki-header site-header';
+		?>
+		<!-- wp:group {
+			"tagName":"header",
+			"layout":{
+				"type":"default"
+			},
+			"style":{
+				"spacing":{
+					"blockGap":"0px"
+				}
+			},
+			"className":"suki-header site-header"
+		} --><header id="masthead" class="wp-block-group suki-header site-header" aria-label="<?php esc_attr_e( 'Site Header', 'suki' ); ?>" itemscope itemtype="https://schema.org/WPHeader">
 
-				<?php
-				/**
-				 * Hook: suki/frontend/header
-				 *
-				 * @hooked suki_header_desktop - 10
-				 * @hooked suki_header_mobile - 10
-				 */
-				do_action( 'suki/frontend/header' );
-				?>
-
-			</header><!-- /wp:group -->
 			<?php
-		}
+			/**
+			 * Hook: suki/frontend/header
+			 *
+			 * @hooked suki_header_desktop - 10
+			 * @hooked suki_header_mobile - 10
+			 */
+			do_action( 'suki/frontend/header' );
+			?>
+
+		</header><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -86,38 +93,59 @@ if ( ! function_exists( 'suki_header_desktop' ) ) {
 	 * @return string
 	 */
 	function suki_header_desktop( $do_blocks = true, $echo = true ) {
+		// Abort if "disabled desktop header" option is enabled.
+		if ( boolval( suki_get_current_page_setting( 'disable_header' ) ) ) {
+			return;
+		}
+
 		ob_start();
 
-		if ( ! boolval( suki_get_current_page_setting( 'disable_header' ) ) ) {
-			$classes = suki_element_class( 'header', array( 'suki-header-desktop' ), false );
-			?>
-			<!-- wp:group {
-				"style":{
-					"spacing":{
-						"blockGap":"0px"
-					}
-				},
-				"className":"<?php echo esc_attr( $classes ); ?>"
-			} --><div id="header" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+		/**
+		 * Filter: suki/frontend/header_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters(
+			'suki/frontend/header_classes',
+			array(
+				'suki-header-desktop',
+				'suki-show-on-' . suki_get_theme_mod( 'header_mobile_visibility' ),
+			)
+		);
 
-				<?php
-				// Header Top Bar (if not merged).
-				if ( ! boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-					suki_header_desktop__top_bar( false );
+		$classes = implode( ' ', $classes );
+		?>
+		<!-- wp:group {
+			"layout":{
+				"type":"flex",
+				"orientation":"vertical",
+				"justifyContent":"stretch"
+			},
+			"style":{
+				"spacing":{
+					"blockGap":"0px"
 				}
+			},
+			"className":"<?php echo esc_attr( $classes ); ?>"
+		} --><div id="header" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
-				// Header Main Bar.
-				suki_header_desktop__main_bar( false );
-
-				// Header Bottom Bar (if not merged).
-				if ( ! boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-					suki_header_desktop__bottom_bar( false );
-				}
-				?>
-
-			</div><!-- /wp:group -->
 			<?php
-		}
+			// Header Top Bar (if not merged).
+			if ( ! boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+				suki_header_desktop__top_bar( false );
+			}
+
+			// Header Main Bar.
+			suki_header_desktop__main_bar( false );
+
+			// Header Bottom Bar (if not merged).
+			if ( ! boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+				suki_header_desktop__bottom_bar( false );
+			}
+			?>
+
+		</div><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -146,15 +174,14 @@ if ( ! function_exists( 'suki_header_desktop__top_bar' ) ) {
 	 * Render desktop header top bar.
 	 *
 	 * Notes:
-	 * - Theme CSS uses `.suki-header-row` class to add / override styles.
+	 * - Theme uses `.suki-header-top-bar` class to add / override styles.
+	 * - Theme uses `.suki-header-row` class to add / override styles.
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
 	function suki_header_desktop__top_bar( $do_blocks = true, $echo = true ) {
-		ob_start();
-
 		// Get elements and make sure they are valid elements.
 		$elements = array(
 			'left'   => array_intersect( suki_get_theme_mod( 'header_elements_top_left', array() ), array_keys( suki_get_header_builder_elements() ) ),
@@ -162,60 +189,144 @@ if ( ! function_exists( 'suki_header_desktop__top_bar' ) ) {
 			'right'  => array_intersect( suki_get_theme_mod( 'header_elements_top_right', array() ), array_keys( suki_get_header_builder_elements() ) ),
 		);
 
-		$classes = suki_element_class( 'header_top_bar', array( 'suki-header-top-bar', 'suki-header-section--horizontal' ), false );
+		$has_center_column = 0 < count( $elements['center'] );
 
-		if ( 0 < array_sum( array_map( 'count', $elements ) ) ) { // Desktop header top bar contains at least 1 element.
-			?>
-			<!-- wp:group {
-				"className":"<?php echo esc_attr( $classes ); ?>",
-				"layout":{
-					"inherit":true
-				}
-			} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+		// Abort if desktop header top bar has no element.
+		if ( 1 > array_sum( array_map( 'count', $elements ) ) ) {
+			return;
+		}
 
-				<!-- wp:group {
-					"className":"suki-header-row",
-					"layout":{
-						"type":"flex",
-						"flexWrap":"nowrap",
-						"justifyContent":"space-between"
+		ob_start();
+
+		$container = suki_get_theme_mod( 'header_top_bar_container' );
+
+		$content_size = '';
+		if ( 'full' === $container ) {
+			$content_size = '100%';
+		} elseif ( 'wide' === $container ) {
+			$content_size = 'var(--wp--style--global--wide-size)';
+		}
+
+		$padding = suki_get_theme_mod( 'header_top_bar_padding' );
+		$border  = suki_get_theme_mod( 'header_top_bar_border' );
+
+		$bg_color     = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_top_bar_bg_color' ), 'background' );
+		$text_color   = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_top_bar_text_color' ), 'text' );
+		$border_color = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_top_bar_border_color' ), 'border' );
+		$link_color   = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_top_bar_link_color' ), 'link' );
+
+		/**
+		 * Filter: suki/frontend/header_top_bar_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/header_top_bar_classes', array( 'suki-header-top-bar', 'suki-header-section--horizontal' ) );
+
+		$classes = array_merge(
+			$classes,
+			$bg_color['classes'],
+			$text_color['classes'],
+			$border_color['classes'],
+			$link_color['classes'],
+		);
+
+		$styles = array(
+			'min-height'          => '100%',
+			'padding-top'         => $padding[0],
+			'padding-right'       => $padding[1],
+			'padding-bottom'      => $padding[2],
+			'padding-left'        => $padding[3],
+			'border-top-width'    => $border[0],
+			'border-right-width'  => $border[1],
+			'border-bottom-width' => $border[2],
+			'border-left-width'   => $border[3],
+			'background-color'    => $bg_color['custom_value'],
+			'color'               => $text_color['custom_value'],
+			'border-color'        => $border_color['custom_value'],
+		);
+		?>
+		<!-- wp:group {
+			"layout":{
+				"type":"constrained",
+				"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+			},
+			"elements":{
+				"link":{
+					"color":{
+						"text":"<?php echo esc_attr( false !== $link_color['preset_value'] ? 'var:preset|color|' . $link_color['preset_value'] : $link_color['custom_value'] ); ?>"
 					}
-				} --><div class="wp-block-group suki-header-row">
+				}
+			},
+			"style":{
+				"dimensions":{
+					"minHeight":"100%"
+				},
+				"layout":{
+					"selfStretch":"fixed",
+					"flexSize":"<?php echo esc_attr( suki_get_theme_mod( 'header_top_bar_height' ) ); ?>"
+				}
+			},
+			"className":"<?php suki_element_class( $classes, false ); ?>"
+		} --><div class="wp-block-group <?php suki_element_class( $classes, false ); ?>" <?php suki_element_style( $styles ); ?>>
 
-					<?php
-					foreach ( array_keys( $elements ) as $column ) {
-						// Skip center column if it's empty.
-						if ( 'center' === $column && 0 === count( $elements[ $column ] ) ) {
-							continue;
-						}
+			<!-- wp:group {
+				"layout":{
+					"type":"flex",
+					"flexWrap":"nowrap",
+					"justifyContent":"space-between"
+				},
+				"style":{
+					"dimensions":{
+						"minHeight":"100%"
+					}
+				}
+			} --><div class="wp-block-group" style="min-height:100%">
 
-						$classes = 'suki-header-column suki-header-column--' . $column . ( 0 === count( $elements[ $column ] ) ? ' suki-header-column--empty' : '' );
-						?>
-						<!-- wp:group {
-							"className":"<?php echo esc_attr( $classes ); ?>",
-							"layout":{
-								"type":"flex",
-								"flexWrap":"nowrap",
-								"justifyContent":"<?php echo esc_attr( $column ); ?>"
-							}
-						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
-
-							<?php
-							foreach ( $elements[ $column ] as $element ) {
-								suki_header_element( $element, false );
-							}
-							?>
-
-						</div><!-- /wp:group -->
-						<?php
+				<?php
+				/**
+				 * Render left, center, and right columns.
+				 *
+				 * - If center column has no element, do not render.
+				 * - If center column has element, the left and right columns will have fixed width to keep the center column centered horizontally.
+				 */
+				foreach ( array_keys( $elements ) as $column ) {
+					// Skip center column if it's empty.
+					if ( 'center' === $column && ! $has_center_column ) {
+						continue;
 					}
 					?>
+					<!-- wp:group {
+						"layout":{
+							"type":"flex",
+							"flexWrap":"nowrap",
+							"justifyContent":"<?php echo esc_attr( $column ); ?>"
+						},
+						"style":{
+							"dimensions":{
+								"minHeight":"100%"
+							},
+							"layout":{
+								"selfStretch":"<?php echo esc_attr( 'center' !== $column && $has_center_column ? 'fixed' : 'fit' ); ?>",
+								"flexSize":"<?php echo esc_attr( 'center' !== $column && $has_center_column ? '50%' : 'null' ); ?>"
+							}
+						}
+					} --><div class="wp-block-group" style="min-height:100%">
 
-				</div><!-- /wp:group -->
+						<?php
+						foreach ( $elements[ $column ] as $element ) {
+							suki_header_element( $element, false );
+						}
+						?>
+
+					</div><!-- /wp:group -->
+					<?php
+				}
+				?>
 
 			</div><!-- /wp:group -->
-			<?php
-		}
+
+		</div><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -241,16 +352,14 @@ if ( ! function_exists( 'suki_header_desktop__main_bar' ) ) {
 	 * Render desktop header main bar.
 	 *
 	 * Notes:
-	 * - Theme CSS uses `.suki-header-row` class to add / override styles.
-	 * - Theme CSS uses `.suki-header-main-bar__merged-wrapper` class to add / override styles.
+	 * - Theme uses `.suki-header-main-bar` class to add / override styles.
+	 * - Theme uses `.suki-header-row` class to add / override styles.
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
 	function suki_header_desktop__main_bar( $do_blocks = true, $echo = true ) {
-		ob_start();
-
 		// Get elements and make sure they are valid elements.
 		$elements = array(
 			'left'   => array_intersect( suki_get_theme_mod( 'header_elements_main_left', array() ), array_keys( suki_get_header_builder_elements() ) ),
@@ -258,96 +367,233 @@ if ( ! function_exists( 'suki_header_desktop__main_bar' ) ) {
 			'right'  => array_intersect( suki_get_theme_mod( 'header_elements_main_right', array() ), array_keys( suki_get_header_builder_elements() ) ),
 		);
 
-		$classes = suki_element_class( 'header_main_bar', array( 'suki-header-main-bar', 'suki-header-section--horizontal' ), false );
+		$has_center_column = 0 < count( $elements['center'] );
 
-		if ( 0 < array_sum( array_map( 'count', $elements ) ) ) { // Desktop header main bar contains at least 1 element.
-			?>
-			<!-- wp:group {
-				"className":"<?php echo esc_attr( $classes ); ?>",
+		// Abort if desktop header main bar has no element.
+		if ( 1 > array_sum( array_map( 'count', $elements ) ) ) {
+			return;
+		}
+
+		ob_start();
+
+		$container = suki_get_theme_mod( 'header_main_bar_container' );
+
+		$content_size = '';
+		if ( 'full' === $container ) {
+			$content_size = '100%';
+		} elseif ( 'wide' === $container ) {
+			$content_size = 'var(--wp--style--global--wide-size)';
+		}
+
+		$padding = suki_get_theme_mod( 'header_main_bar_padding' );
+		$border  = suki_get_theme_mod( 'header_main_bar_border' );
+
+		$bg_color     = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_main_bar_bg_color' ), 'background' );
+		$text_color   = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_main_bar_text_color' ), 'text' );
+		$border_color = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_main_bar_border_color' ), 'border' );
+		$link_color   = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_main_bar_link_color' ), 'link' );
+
+		/**
+		 * Filter: suki/frontend/header_main_bar_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/header_main_bar_classes', array( 'suki-header-main-bar', 'suki-header-section--horizontal' ) );
+
+		$classes = array_merge(
+			$classes,
+			$bg_color['classes'],
+			$text_color['classes'],
+			$border_color['classes'],
+			$link_color['classes'],
+		);
+
+		$styles = array(
+			'min-height'          => '100%',
+			'padding-top'         => $padding[0],
+			'padding-right'       => $padding[1],
+			'padding-bottom'      => $padding[2],
+			'padding-left'        => $padding[3],
+			'border-top-width'    => $border[0],
+			'border-right-width'  => $border[1],
+			'border-bottom-width' => $border[2],
+			'border-left-width'   => $border[3],
+			'background-color'    => $bg_color['custom_value'],
+			'color'               => $text_color['custom_value'],
+			'border-color'        => $border_color['custom_value'],
+		);
+		?>
+		<!-- wp:group {
+			"layout":{
+				"type":"constrained",
+				"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+			},
+			"style": {
+				"dimensions":{
+					"minHeight":"100%"
+				},
 				"layout":{
-					"inherit":true
-				}
-			} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
-
-				<?php
-				if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) || boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-					?>
-					<!-- wp:group {
-						"className":"suki-header-main-bar__merged-wrapper",
-						"layout":{
-							"type":"flex",
-							"orientation":"vertical",
-							"flexWrap":"nowrap",
-							"justifyContent":"space-between"
+					"selfStretch":"fixed",
+					"flexSize":"<?php echo esc_attr( suki_get_theme_mod( 'header_main_bar_height' ) ); ?>"
+				},
+				"border":{
+					"top":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[0] ); ?>"
+					},
+					"right":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[1] ); ?>"
+					},
+					"bottom":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[2] ); ?>"
+					},
+					"left":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[3] ); ?>"
+					}
+				},
+				"color":{
+					"background":"<?php echo esc_attr( $bg_color['custom_value'] ); ?>",
+					"text":"<?php echo esc_attr( $text_color['custom_value'] ); ?>"
+				},
+				"elements":{
+					"link":{
+						"color":{
+							"text":"<?php echo esc_attr( false !== $link_color['preset_value'] ? 'var:preset|color|' . $link_color['preset_value'] : $link_color['custom_value'] ); ?>"
 						}
-					} --><div class="wp-block-group suki-header-main-bar__merged-wrapper">
-					<?php
+					}
+				},
+				"spacing":{
+					"padding":{
+						"top":"<?php echo esc_attr( $padding[0] ); ?>",
+						"right":"<?php echo esc_attr( $padding[1] ); ?>",
+						"bottom":"<?php echo esc_attr( $padding[2] ); ?>",
+						"left":"<?php echo esc_attr( $padding[3] ); ?>"
+					}
 				}
+			},
+			"textColor":"<?php echo esc_attr( $text_color['preset_value'] ); ?>",
+			"backgroundColor":"<?php echo esc_attr( $bg_color['preset_value'] ); ?>",
+			"className":"<?php suki_element_class( $classes, false ); ?>"
+		} --><div class="wp-block-group <?php suki_element_class( $classes, false ); ?>" <?php suki_element_style( $styles ); ?>>
 
-				// Header Top Bar (if merged).
-				if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
-					suki_header_desktop__top_bar( false );
-				}
+			<?php
+			if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) || boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
 				?>
-
 				<!-- wp:group {
-					"className":"suki-header-row",
 					"layout":{
 						"type":"flex",
-						"flexWrap":"nowrap",
+						"orientation":"vertical",
+						"justifyContent":"stretch",
 						"justifyContent":"space-between"
-					}
-				} --><div class="wp-block-group suki-header-row">
-
-					<?php
-					foreach ( array_keys( $elements ) as $column ) {
-						// Skip center column if it's empty.
-						if ( 'center' === $column && 0 === count( $elements[ $column ] ) ) {
-							continue;
+					},
+					"style":{
+						"dimensions":{
+							"minHeight":"100%"
+						},
+						"spacing":{
+							"blockGap":"0px"
 						}
+					}
+				} --><div class="wp-block-group" style="min-height:100%">
+					<?php
+			}
 
-						$classes = 'suki-header-column suki-header-column--' . $column . ( 0 === count( $elements[ $column ] ) ? ' suki-header-column--empty' : '' );
-						?>
-						<!-- wp:group {
-							"className":"<?php echo esc_attr( $classes ); ?>",
-							"layout":{
-								"type":"flex",
-								"flexWrap":"nowrap",
-								"justifyContent":"<?php echo esc_attr( $column ); ?>"
-							}
-						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+			// Header Top Bar (if merged).
+			if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
+				suki_header_desktop__top_bar( false );
 
-							<?php
-							foreach ( $elements[ $column ] as $element ) {
-								suki_header_element( $element, false );
-							}
-							?>
+				$top_bar_gap = suki_get_theme_mod( 'header_top_bar_merged_gap' );
 
-						</div><!-- /wp:group -->
-						<?php
+				if ( 0 < $top_bar_gap ) {
+					?>
+					<!-- wp:spacer {
+						"height":"<?php echo esc_attr( $top_bar_gap ); ?>"
+					} --><div style="height:<?php echo esc_attr( $top_bar_gap ); ?>" aria-hidden="true" class="wp-block-spacer"></div><!-- /wp:spacer -->
+					<?php
+				}
+			}
+			?>
+
+			<!-- wp:group {
+				"layout":{
+					"type":"flex",
+					"flexWrap":"nowrap",
+					"justifyContent":"space-between"
+				},
+				"style":{
+					"dimensions":{
+						"minHeight":"100%"
+					}
+				}
+			} --><div class="wp-block-group" style="min-height:100%">
+
+				<?php
+				foreach ( array_keys( $elements ) as $column ) {
+					// Skip center column if it's empty.
+					if ( 'center' === $column && ! $has_center_column ) {
+						continue;
 					}
 					?>
+					<!-- wp:group {
+						"layout":{
+							"type":"flex",
+							"flexWrap":"nowrap",
+							"justifyContent":"<?php echo esc_attr( $column ); ?>"
+						},
+						"style":{
+							"dimensions":{
+								"minHeight":"100%"
+							},
+							"layout":{
+								"selfStretch":"<?php echo esc_attr( 'center' !== $column && $has_center_column ? 'fixed' : 'fit' ); ?>",
+								"flexSize":"<?php echo esc_attr( 'center' !== $column && $has_center_column ? '50%' : 'null' ); ?>"
+							}
+						}
+					} --><div class="wp-block-group" style="min-height:100%">
 
-				</div><!-- /wp:group -->
+						<?php
+						foreach ( $elements[ $column ] as $element ) {
+							suki_header_element( $element, false );
+						}
+						?>
 
-				<?php
-				// Header Bottom Bar (if merged).
-				if ( boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-					suki_header_desktop__bottom_bar( false );
-				}
-				?>
-
-				<?php
-				if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) || boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
-					?>
 					</div><!-- /wp:group -->
 					<?php
 				}
 				?>
 
 			</div><!-- /wp:group -->
+
 			<?php
-		}
+			// Header Bottom Bar (if merged).
+			if ( boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+				$bottom_bar_gap = suki_get_theme_mod( 'header_bottom_bar_merged_gap' );
+
+				if ( 0 < $bottom_bar_gap ) {
+					?>
+					<!-- wp:spacer {
+						"height":"<?php echo esc_attr( $bottom_bar_gap ); ?>"
+					} --><div style="height:<?php echo esc_attr( $bottom_bar_gap ); ?>" aria-hidden="true" class="wp-block-spacer"></div><!-- /wp:spacer -->
+					<?php
+				}
+
+				suki_header_desktop__bottom_bar( false );
+			}
+			?>
+
+			<?php
+			if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) || boolval( suki_get_theme_mod( 'header_bottom_bar_merged' ) ) ) {
+				?>
+				</div><!-- /wp:group -->
+				<?php
+			}
+			?>
+
+		</div><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -373,15 +619,14 @@ if ( ! function_exists( 'suki_header_desktop__bottom_bar' ) ) {
 	 * Render desktop header bottom bar.
 	 *
 	 * Notes:
-	 * - Theme CSS uses `.suki-header-row` class to add / override styles.
+	 * - Theme uses `.suki-header-bottom-bar` class to add / override styles.
+	 * - Theme uses `.suki-header-row` class to add / override styles.
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
 	 * @param boolean $echo      Render or return.
 	 * @return string
 	 */
 	function suki_header_desktop__bottom_bar( $do_blocks = true, $echo = true ) {
-		ob_start();
-
 		// Get elements and make sure they are valid elements.
 		$elements = array(
 			'left'   => array_intersect( suki_get_theme_mod( 'header_elements_bottom_left', array() ), array_keys( suki_get_header_builder_elements() ) ),
@@ -389,60 +634,161 @@ if ( ! function_exists( 'suki_header_desktop__bottom_bar' ) ) {
 			'right'  => array_intersect( suki_get_theme_mod( 'header_elements_bottom_right', array() ), array_keys( suki_get_header_builder_elements() ) ),
 		);
 
-		$classes = suki_element_class( 'header_bottom_bar', array( 'suki-header-bottom-bar', 'suki-header-section--horizontal' ), false );
+		$has_center_column = 0 < count( $elements['center'] );
 
-		if ( 0 < array_sum( array_map( 'count', $elements ) ) ) { // Desktop header bottom bar contains at least 1 element.
-			?>
-			<!-- wp:group {
-				"className":"<?php echo esc_attr( $classes ); ?>",
+		// Abort if desktop header bottom bar has no element.
+		if ( 1 > array_sum( array_map( 'count', $elements ) ) ) {
+			return;
+		}
+
+		ob_start();
+
+		$container = suki_get_theme_mod( 'header_bottom_bar_container' );
+
+		$content_size = '';
+		if ( 'full' === $container ) {
+			$content_size = '100%';
+		} elseif ( 'wide' === $container ) {
+			$content_size = 'var(--wp--style--global--wide-size)';
+		}
+
+		$padding = suki_get_theme_mod( 'header_bottom_bar_padding' );
+		$border  = suki_get_theme_mod( 'header_bottom_bar_border' );
+
+		$bg_color     = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_bottom_bar_bg_color' ), 'background' );
+		$text_color   = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_bottom_bar_text_color' ), 'text' );
+		$border_color = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_bottom_bar_border_color' ), 'border' );
+		$link_color   = suki_parse_color_value_for_block_attributes( suki_get_theme_mod( 'header_bottom_bar_link_color' ), 'link' );
+
+		/**
+		 * Filter: suki/frontend/header_bottom_bar_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/header_bottom_bar_classes', array( 'suki-header-bottom-bar', 'suki-header-section--horizontal' ) );
+
+		$classes = array_merge(
+			$classes,
+			$bg_color['classes'],
+			$text_color['classes'],
+			$border_color['classes'],
+			$link_color['classes'],
+		);
+
+		$styles = array(
+			'min-height'          => '100%',
+			'padding-top'         => $padding[0],
+			'padding-right'       => $padding[1],
+			'padding-bottom'      => $padding[2],
+			'padding-left'        => $padding[3],
+			'border-top-width'    => $border[0],
+			'border-right-width'  => $border[1],
+			'border-bottom-width' => $border[2],
+			'border-left-width'   => $border[3],
+			'background-color'    => $bg_color['custom_value'],
+			'color'               => $text_color['custom_value'],
+			'border-color'        => $border_color['custom_value'],
+		);
+		?>
+		<!-- wp:group {
+			"layout":{
+				"type":"constrained",
+				"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+			},
+			"style": {
+				"dimensions":{
+					"minHeight":"100%"
+				},
 				"layout":{
-					"inherit":true
-				}
-			} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
-
-				<!-- wp:group {
-					"className":"suki-header-row",
-					"layout":{
-						"type":"flex",
-						"flexWrap":"nowrap",
-						"justifyContent":"space-between"
+					"selfStretch":"fixed",
+					"flexSize":"<?php echo esc_attr( suki_get_theme_mod( 'header_bottom_bar_height' ) ); ?>"
+				},
+				"border":{
+					"top":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[0] ); ?>"
+					},
+					"right":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[1] ); ?>"
+					},
+					"bottom":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[2] ); ?>"
+					},
+					"left":{
+						"color":"<?php echo esc_attr( false !== $border_color['preset_value'] ? 'var:preset|color|' . $border_color['preset_value'] : $border_color['custom_value'] ); ?>",
+						"width":"<?php echo esc_attr( $border[3] ); ?>"
 					}
-				} --><div class="wp-block-group suki-header-row">
-
-					<?php
-					foreach ( array_keys( $elements ) as $column ) {
-						// Skip center column if it's empty.
-						if ( 'center' === $column && 0 === count( $elements[ $column ] ) ) {
-							continue;
+				},
+				"color":{
+					"background":"<?php echo esc_attr( $bg_color['custom_value'] ); ?>",
+					"text":"<?php echo esc_attr( $text_color['custom_value'] ); ?>"
+				},
+				"elements":{
+					"link":{
+						"color":{
+							"text":"<?php echo esc_attr( false !== $link_color['preset_value'] ? 'var:preset|color|' . $link_color['preset_value'] : $link_color['custom_value'] ); ?>"
 						}
+					}
+				},
+				"spacing":{
+					"padding":{
+						"top":"<?php echo esc_attr( $padding[0] ); ?>",
+						"right":"<?php echo esc_attr( $padding[1] ); ?>",
+						"bottom":"<?php echo esc_attr( $padding[2] ); ?>",
+						"left":"<?php echo esc_attr( $padding[3] ); ?>"
+					}
+				}
+			},
+			"textColor":"<?php echo esc_attr( $text_color['preset_value'] ); ?>",
+			"backgroundColor":"<?php echo esc_attr( $bg_color['preset_value'] ); ?>",
+			"className":"<?php echo esc_attr( $classes ); ?>"
+		} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>" <?php suki_element_style( $styles ); ?>>
 
-						$classes = 'suki-header-column suki-header-column--' . $column . ( 0 === count( $elements[ $column ] ) ? ' suki-header-column--empty' : '' );
-						?>
-						<!-- wp:group {
-							"className":"<?php echo esc_attr( $classes ); ?>",
-							"layout":{
-								"type":"flex",
-								"flexWrap":"nowrap",
-								"justifyContent":"<?php echo esc_attr( $column ); ?>"
-							}
-						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+			<!-- wp:group {
+				"layout":{
+					"type":"flex",
+					"flexWrap":"nowrap",
+					"justifyContent":"space-between"
+				},
+				"style":{
+					"dimensions":{
+						"minHeight":"100%"
+					}
+				}
+			} --><div class="wp-block-group" style="min-height:100%">
 
-							<?php
-							foreach ( $elements[ $column ] as $element ) {
-								suki_header_element( $element, false );
-							}
-							?>
-
-						</div><!-- /wp:group -->
-						<?php
+				<?php
+				foreach ( array_keys( $elements ) as $column ) {
+					// Skip center column if it's empty.
+					if ( 'center' === $column && ! $has_center_column ) {
+						continue;
 					}
 					?>
+					<!-- wp:group {
+						"layout":{
+							"type":"flex",
+							"flexWrap":"nowrap",
+							"justifyContent":"<?php echo esc_attr( $column ); ?>"
+						}
+					} --><div class="wp-block-group">
 
-				</div><!-- /wp:group -->
+						<?php
+						foreach ( $elements[ $column ] as $element ) {
+							suki_header_element( $element, false );
+						}
+						?>
+
+					</div><!-- /wp:group -->
+					<?php
+				}
+				?>
 
 			</div><!-- /wp:group -->
-			<?php
-		}
+
+		</div><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -475,31 +821,52 @@ if ( ! function_exists( 'suki_header_mobile' ) ) {
 	 * @return string
 	 */
 	function suki_header_mobile( $do_blocks = true, $echo = true ) {
+		// Abort if "disabled mobile header" option is enabled.
+		if ( boolval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
+			return;
+		}
+
 		ob_start();
 
-		if ( ! boolval( suki_get_current_page_setting( 'disable_header_mobile' ) ) ) {
-			$classes = suki_element_class( 'header_mobile', array( 'suki-header-mobile' ), false );
-			?>
-			<!-- wp:group {
-				"style":{
-					"spacing":{
-						"blockGap":"0px"
-					}
-				},
-				"className":"<?php echo esc_attr( $classes ); ?>"
-			} --><div id="mobile-header" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+		/**
+		 * Filter: suki/frontend/header_mobile_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters(
+			'suki/frontend/header_mobile_classes',
+			array(
+				'suki-header-mobile',
+				'suki-hide-on-' . suki_get_theme_mod( 'header_mobile_visibility' ),
+			)
+		);
 
-				<?php
-				// Mobile main bar.
-				suki_header_mobile__main_bar( false );
+		$classes = implode( ' ', $classes );
+		?>
+		<!-- wp:group {
+			"layout":{
+				"type":"flex",
+				"orientation":"vertical",
+				"justifyContent":"stretch"
+			},
+			"style":{
+				"spacing":{
+					"blockGap":"0px"
+				}
+			},
+			"className":"<?php echo esc_attr( $classes ); ?>"
+		} --><div id="mobile-header" class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
-				// Mobile popup.
-				suki_header_mobile__popup( false );
-				?>
-
-			</div><!-- /wp:group -->
 			<?php
-		}
+			// Mobile main bar.
+			suki_header_mobile__main_bar( false );
+
+			// Mobile popup.
+			suki_header_mobile__popup( false );
+			?>
+
+		</div><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -529,8 +896,6 @@ if ( ! function_exists( 'suki_header_mobile__main_bar' ) ) {
 	 * @return string
 	 */
 	function suki_header_mobile__main_bar( $do_blocks = true, $echo = true ) {
-		ob_start();
-
 		// Get elements and make sure they are valid elements.
 		$elements = array(
 			'left'   => array_intersect( suki_get_theme_mod( 'header_mobile_elements_main_left', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
@@ -538,57 +903,66 @@ if ( ! function_exists( 'suki_header_mobile__main_bar' ) ) {
 			'right'  => array_intersect( suki_get_theme_mod( 'header_mobile_elements_main_right', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
 		);
 
-		$classes = suki_element_class( 'header_mobile_main_bar', array( 'suki-header-mobile-main-bar' ), false );
+		$has_center_column = 0 < count( $elements['center'] );
 
-		if ( 0 < array_sum( array_map( 'count', $elements ) ) ) { // Mobile header main bar contains at least 1 element.
-			?>
+		// Abort if mobile header main bar has no element.
+		if ( 1 > array_sum( array_map( 'count', $elements ) ) ) {
+			return;
+		}
+
+		ob_start();
+
+		/**
+		 * Filter: suki/frontend/header_mobile_main_bar_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/header_mobile_main_bar_classes', array( 'suki-header-mobile-main-bar' ) );
+
+		$classes = implode( ' ', $classes );
+		?>
+		<!-- wp:group {
+			"className":"<?php echo esc_attr( $classes ); ?>"
+		} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+
 			<!-- wp:group {
-				"className":"<?php echo esc_attr( $classes ); ?>"
-			} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
+				"layout":{
+					"type":"flex",
+					"flexWrap":"nowrap",
+					"justifyContent":"space-between"
+				}
+			} --><div class="wp-block-group">
 
-				<!-- wp:group {
-					"className":"suki-header-row",
-					"layout":{
-						"type":"flex",
-						"flexWrap":"nowrap",
-						"justifyContent":"space-between"
-					}
-				} --><div class="wp-block-group suki-header-row">
-
-					<?php
-					foreach ( array_keys( $elements ) as $column ) {
-						// Skip center column if it's empty.
-						if ( 'center' === $column && 0 === count( $elements[ $column ] ) ) {
-							continue;
-						}
-
-						$classes = 'suki-header-column suki-header-column--' . $column . ( 0 === count( $elements[ $column ] ) ? ' suki-header-column--empty' : '' );
-						?>
-						<!-- wp:group {
-							"className":"<?php echo esc_attr( $classes ); ?>",
-							"layout":{
-								"type":"flex",
-								"flexWrap":"nowrap",
-								"justifyContent":"<?php echo esc_attr( $column ); ?>"
-							}
-						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
-
-							<?php
-							foreach ( $elements[ $column ] as $element ) {
-								suki_header_element( $element, false );
-							}
-							?>
-
-						</div><!-- /wp:group -->
-						<?php
+				<?php
+				foreach ( array_keys( $elements ) as $column ) {
+					// Skip center column if it's empty.
+					if ( 'center' === $column && ! $has_center_column ) {
+						continue;
 					}
 					?>
+					<!-- wp:group {
+						"layout":{
+							"type":"flex",
+							"flexWrap":"nowrap",
+							"justifyContent":"<?php echo esc_attr( $column ); ?>"
+						}
+					} --><div class="wp-block-group">
 
-				</div><!-- /wp:group -->
+						<?php
+						foreach ( $elements[ $column ] as $element ) {
+							suki_header_element( $element, false );
+						}
+						?>
+
+					</div><!-- /wp:group -->
+					<?php
+				}
+				?>
 
 			</div><!-- /wp:group -->
-			<?php
-		}
+
+		</div><!-- /wp:group -->
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -618,73 +992,82 @@ if ( ! function_exists( 'suki_header_mobile__popup' ) ) {
 	 * @return string
 	 */
 	function suki_header_mobile__popup( $do_blocks = true, $echo = true ) {
-		ob_start();
-
 		// Get elements and make sure they are valid elements.
 		$elements = array(
 			'top' => array_intersect( suki_get_theme_mod( 'header_mobile_elements_vertical_top', array() ), array_keys( suki_get_header_mobile_builder_elements() ) ),
 		);
 
-		$classes = suki_element_class( 'header_mobile_vertical', array( 'suki-header-mobile-popup', 'suki-popup' ), false );
+		// Abort if mobile header popup has no element.
+		if ( 1 > array_sum( array_map( 'count', $elements ) ) ) {
+			return;
+		}
 
-		if ( 0 < count( $elements ) ) { // Mobile header popup contains at least 1 element.
-			?>
-			<div id="mobile-header-popup" class="<?php echo esc_attr( $classes ); ?>">
+		ob_start();
 
-				<div class="suki-popup__background suki-popup__close">
-					<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
-				</div>
+		/**
+		 * Filter: suki/frontend/header_mobile_vertical_classes
+		 *
+		 * @param array $classes Classes array.
+		 */
+		$classes = apply_filters( 'suki/frontend/header_mobile_vertical_classes', array( 'suki-header-mobile-popup', 'suki-popup' ) );
+
+		$classes = implode( ' ', $classes );
+		?>
+		<div id="mobile-header-popup" class="<?php echo esc_attr( $classes ); ?>">
+
+			<div class="suki-popup__background suki-popup__close">
+				<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+			</div>
+
+			<!-- wp:group {
+				"className":"suki-header-section--vertical suki-popup__content",
+				"layout":{
+					"type":"flex",
+					"orientation":"vertical",
+				}
+			} --><div class="wp-block-group suki-header-section--vertical suki-popup__content">
 
 				<!-- wp:group {
-					"className":"suki-header-section--vertical suki-popup__content",
+					"className":"suki-header-vertical-column",
 					"layout":{
 						"type":"flex",
 						"orientation":"vertical",
+						"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_position' ) ); ?>"
 					}
-				} --><div class="wp-block-group suki-header-section--vertical suki-popup__content">
+				} --><div class="suki-header-vertical-column">
 
-					<!-- wp:group {
-						"className":"suki-header-vertical-column",
-						"layout":{
-							"type":"flex",
-							"orientation":"vertical",
-							"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_position' ) ); ?>"
-						}
-					} --><div class="suki-header-vertical-column">
-
-						<?php
-						foreach ( array_keys( $elements ) as $row ) {
-							$classes = 'suki-header-vertical-row suki-header-vertical-row--' . $row;
-							?>
-							<!-- wp:group {
-								"className":"<?php echo esc_attr( $classes ); ?>",
-								"layout":{
-									"type":"flex",
-									"orientation":"vertical",
-									"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) ); ?>"
-								}
-							} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
-
-								<?php
-								foreach ( $elements[ $row ] as $element ) {
-									suki_header_element( $element, false );
-								}
-								?>
-
-							</div><!-- /wp:group -->
-							<?php
-						}
+					<?php
+					foreach ( array_keys( $elements ) as $row ) {
+						$classes = 'suki-header-vertical-row suki-header-vertical-row--' . $row;
 						?>
+						<!-- wp:group {
+							"className":"<?php echo esc_attr( $classes ); ?>",
+							"layout":{
+								"type":"flex",
+								"orientation":"vertical",
+								"justifyContent":"<?php echo esc_attr( suki_get_theme_mod( 'header_mobile_vertical_bar_alignment' ) ); ?>"
+							}
+						} --><div class="wp-block-group <?php echo esc_attr( $classes ); ?>">
 
-					</div><!-- /wp:group -->
+							<?php
+							foreach ( $elements[ $row ] as $element ) {
+								suki_header_element( $element, false );
+							}
+							?>
 
-					<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+						</div><!-- /wp:group -->
+						<?php
+					}
+					?>
 
 				</div><!-- /wp:group -->
 
-			</div>
-			<?php
-		}
+				<button class="suki-popup__close suki-toggle"><?php suki_icon( 'close' ); ?></button>
+
+			</div><!-- /wp:group -->
+
+		</div>
+		<?php
 		$html = ob_get_clean();
 
 		/**
@@ -879,9 +1262,16 @@ if ( ! function_exists( 'suki_header_element' ) ) {
 			case 'html':
 				ob_start();
 				?>
-				<div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
+				<!-- wp:group {
+					"layout":{
+						"type":"default"
+					},
+					"className":"<?php echo esc_attr( 'suki-header-' . $element ); ?>"
+				} --><div class="<?php echo esc_attr( 'suki-header-' . $element ); ?>">
+
 					<?php echo do_shortcode( suki_get_theme_mod( 'header_' . str_replace( '-', '_', $element ) . '_content' ) ); ?>
-				</div>
+
+				</div><!-- /wp:group -->
 				<?php
 				$html = ob_get_clean();
 				break;

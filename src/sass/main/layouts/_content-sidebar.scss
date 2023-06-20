@@ -2,31 +2,7 @@
 // Content & sidebar
 // -------------------------------------------------------------
 
-.suki-content {
-	padding: 80px 20px; // CUSTOMIZER
-	flex-grow: 1; // Make content section fill the blank vertical space to fill 100% screen height page.
-}
-
-:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) {
-	.site-main {
-		--content-width--narrow: auto;
-		--content-width--wide: auto;
-		--content-width--full: auto;
-	}
-}
-
 .suki-content-sidebar-columns {
-	align-items: stretch !important; // Columns block doesn't support `stretch` vertical alignment.
-
-	--sidebar-width: 25%; // CUSTOMIZER
-	--sidebar-gap: calc( 3 * var(--wp--style--block-gap) ); // CUSTOMIZER
-
-	gap: var(--sidebar-gap) !important; // Override WP layout CSS.
-
-	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
-		flex-wrap: wrap !important;
-	}
-
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		.suki-content--layout-left-sidebar & {
 			flex-direction: row-reverse;
@@ -34,55 +10,22 @@
 	}
 }
 
-.suki-main-column,
-.suki-sidebar-column {
-	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
-		flex-basis: 100%; // Override default wp-block-columns style.
-	}
-}
-
 .suki-sidebar-column {
 	position: relative; // For sticky sidebar.
-
-	flex-basis: var(--sidebar-width);
-	flex-grow: 0; // Disable grow if specific column's width is set
 }
 
-.site-main {
-	// Trigger border style
-	border-style: solid;
-	border-width: 0; // CUSTOMIZER
-}
+// .site-main {
+// 	// Trigger border style
+// 	border-style: solid;
+// 	border-width: 0; // CUSTOMIZER
+// }
 
-.sidebar {
-	> * + * {
-		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ) !important;
-	}
+// .sidebar {
+// 	> * + * {
+// 		margin-block-start: 2rem;
+// 	}
 
-	// Trigger border style
-	border-style: solid;
-	border-width: 0; // CUSTOMIZER
-}
-
-// -------------------------------------------------------------
-// Content header
-// -------------------------------------------------------------
-
-.suki-content-header {
-	:is( .entry-title, .entry-meta, .suki-breadcrumb ):not( :first-child ) {
-		margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
-	}
-}
-
-// -------------------------------------------------------------
-// Error 404
-// -------------------------------------------------------------
-
-.suki-error_404 .suki-content {
-	display: flex;
-	align-items: center; // Make content centered vertically
-
-	> * {
-		flex-basis: 100%;
-	}
-}
+// 	// Trigger border style
+// 	border-style: solid;
+// 	border-width: 0; // CUSTOMIZER
+// }

@@ -83,12 +83,12 @@ add_filter( 'get_the_archive_title', 'suki_archive_title', 10, 3 );
  * @return string
  */
 function suki_archive_title_prefix( $prefix ) {
-	// Use gravatar as author archive title prefix.
+	// Remove author archive title prefix.
 	if ( is_author() ) {
-		$prefix = '<span class="suki-author-archive-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 96, '', get_the_author_meta( 'display_name' ) ) . '</span>';
+		$prefix = '';
 	}
 
-	// Modify title prefix for post type archive page.
+	// Remove ost type archive title prefix.
 	if ( is_post_type_archive() ) {
 		$prefix = '';
 	}
@@ -357,7 +357,6 @@ add_filter( 'suki/frontend/header_mobile_vertical_classes', 'suki_header_mobile_
  * @return array
  */
 function suki_header_top_bar_classes( $classes ) {
-	$classes['container']      = esc_attr( 'suki-section--' . suki_get_theme_mod( 'header_top_bar_container' ) );
 	$classes['menu_highlight'] = esc_attr( 'suki-header-section--menu-highlight-' . suki_get_theme_mod( 'header_top_bar_menu_highlight' ) );
 
 	return $classes;
@@ -371,7 +370,6 @@ add_filter( 'suki/frontend/header_top_bar_classes', 'suki_header_top_bar_classes
  * @return array
  */
 function suki_header_main_bar_classes( $classes ) {
-	$classes['container']      = esc_attr( 'suki-section--' . suki_get_theme_mod( 'header_main_bar_container' ) );
 	$classes['menu_highlight'] = esc_attr( 'suki-header-section--menu-highlight-' . suki_get_theme_mod( 'header_main_bar_menu_highlight' ) );
 
 	if ( boolval( suki_get_theme_mod( 'header_top_bar_merged' ) ) ) {
@@ -393,7 +391,6 @@ add_filter( 'suki/frontend/header_main_bar_classes', 'suki_header_main_bar_class
  * @return array
  */
 function suki_header_bottom_bar_classes( $classes ) {
-	$classes['container']      = esc_attr( 'suki-section--' . suki_get_theme_mod( 'header_bottom_bar_container' ) );
 	$classes['menu_highlight'] = esc_attr( 'suki-header-section--menu-highlight-' . suki_get_theme_mod( 'header_bottom_bar_menu_highlight' ) );
 
 	return $classes;

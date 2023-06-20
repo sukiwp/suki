@@ -56,7 +56,7 @@ class Suki_Compatibility_WooCommerce {
 		 */
 
 		// Replace WooCommerce classic CSS with our own CSS.
-		add_filter( 'woocommerce_enqueue_styles', array( $this, 'modify_css' ) );
+		// add_filter( 'woocommerce_enqueue_styles', array( $this, 'modify_css' ) );
 
 		// Add dynamic CSS.
 		add_filter( 'suki/frontend/woocommerce/dynamic_css', array( $this, 'add_dynamic_css' ) );
@@ -65,7 +65,7 @@ class Suki_Compatibility_WooCommerce {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_dynamic_css' ) );
 
 		// Replace WooCommerce blocks CSS with our own CSS.
-		add_action( 'init', array( $this, 'modify_blocks_css' ) );
+		// add_action( 'init', array( $this, 'modify_blocks_css' ) );
 
 		// Add CSS for editor page.
 		add_action( 'admin_init', array( $this, 'enqueue_editor_css' ) );
@@ -1195,6 +1195,9 @@ class Suki_Compatibility_WooCommerce {
 	/**
 	 * Modify content header elements markup.
 	 *
+	 * Note:
+	 * - Theme uses `suki-title` class to add / override styles.
+	 *
 	 * @param string $html      HTML markup string.
 	 * @param string $element   Element slug.
 	 * @param string $alignment Element alignment (left, center, or right).
@@ -1215,8 +1218,8 @@ class Suki_Compatibility_WooCommerce {
 					<!-- wp:heading {
 						"level":' . esc_attr( $level ) . ',
 						"textAlign":"' . esc_attr( $alignment ) . '",
-						"className":"entry-title suki-title"
-					} --><h' . esc_attr( $level ) . ' class="has-text-align-' . esc_attr( $alignment ) . ' entry-title suki-title">' . woocommerce_page_title( false ) . '</h' . esc_attr( $level ) . '><!-- /wp:heading -->
+						"className":"suki-title"
+					} --><h' . esc_attr( $level ) . ' class="has-text-align-' . esc_attr( $alignment ) . ' suki-title">' . woocommerce_page_title( false ) . '</h' . esc_attr( $level ) . '><!-- /wp:heading -->
 					';
 				}
 				break;
@@ -1448,12 +1451,12 @@ class Suki_Compatibility_WooCommerce {
 			"style":{
 				"spacing":{
 					"margin":{
-						"bottom":"calc(2 * var(--wp--style--block-gap))"
+						"bottom":"3rem"
 					}
 				}
 			},
 			"className":"suki-content-header"
-		} --><div class="wp-block-group suki-content-header" style="margin-bottom:calc(2 * var(--wp--style--block-gap))">
+		} --><div class="wp-block-group suki-content-header" style="margin-bottom:3rem">
 
 			<?php
 			suki_content_header( false );

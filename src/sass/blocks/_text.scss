@@ -1,132 +1,28 @@
 // -------------------------------------------------------------
-// Block: Paragraph, headings, list
-// -------------------------------------------------------------
-
-:where( p, h1, h2, h3, h4, h5, h6, ul, ol ) {
-	@include padding-for-has-background();
-}
-
-:where( ul, ol ) {
-	&.has-background {
-		padding-inline-start: calc( 2 * var(--wp--style--block-gap) );
-	}
-}
-
-// -------------------------------------------------------------
 // Block: Quote
 // -------------------------------------------------------------
 
 .wp-block-quote {
-	padding-inline-start: 1em;
-	font-size: var(--h4--font-size);
-	line-height: var(--h4--line-height);
-	border-left: 0.25rem solid currentColor;
+	padding-inline: var(--wp--style--block-gap) 0;
+	border-left-width: min( 5px, 0.2em );
+	border-left-style: solid;
+	border-color: currentColor;
 
 	&.has-text-align-center {
-		padding-inline-start: unset;
+		padding-inline: var(--wp--style--block-gap);
 		border-left: none;
 	}
 
 	&.has-text-align-right {
-		padding-inline-start: unset;
-		padding-inline-end: 1em;
+		padding-inline: 0 var(--wp--style--block-gap);
 		border-left: none;
-		border-right: 0.25rem solid currentColor;
+		border-right-width: min( 5px, 0.2em );
+		border-right-style: solid;
 	}
 
-	// Plain style
 	&.is-style-plain {
-		border: none;
+		border-color: transparent;
 	}
-}
-
-// -------------------------------------------------------------
-// Block: Code
-// -------------------------------------------------------------
-
-.wp-block-code {
-	background-color: var(--subtle-background-color);
-	color: var(--text-color);
-	border-width: 0;
-	padding: 0.5em;
-
-	code {
-		background-color: unset;
-		color: unset;
-		display: block;
-	}
-}
-
-// -------------------------------------------------------------
-// Block: Preformatted
-// -------------------------------------------------------------
-
-.wp-block-preformatted {
-	white-space: pre-wrap;
-
-	@include padding-for-has-background();
-}
-
-// -------------------------------------------------------------
-// Block: Pullquote
-// -------------------------------------------------------------
-
-.wp-block-pullquote {
-	blockquote {
-		position: relative;
-		padding-inline-start: 2.25em;
-		isolation: isolate;
-		font-size: var(--h3--font-size);
-		line-height: var(--h3--line-height);
-
-		p {
-			font: inherit; // Needed to override default WP editor style.
-		}
-
-		&:before {
-			content: "”";
-			position: absolute;
-			top: -0.1em;
-			left: 0;
-			z-index: -1; // Put behind blockquote content
-			font-family: sans-serif;
-			font-size: 5em;
-			line-height: 1;
-			opacity: 0.25;
-		}
-	}
-
-	&.has-border-color {
-		border: 1px solid var(--border-color);
-	}
-
-	&.has-text-align-center {
-		blockquote {
-			padding-inline-start: unset;
-			padding-block-start: 2em;
-
-			&:before {
-				left: 50%;
-				transform: translateX(-50%);
-			}
-		}
-	}
-
-	&.has-text-align-right {
-		blockquote {
-			padding-inline-start: unset;
-			padding-block-end: 2.25em;
-
-			&:before {
-				left: auto;
-				right: 0;
-			}
-		}
-	}
-
-	@include padding-for-has-background();
-
-	@include max-width-for-alignleft-alignright();
 }
 
 // -------------------------------------------------------------
@@ -134,112 +30,17 @@
 // -------------------------------------------------------------
 
 .wp-block-table {
-	overflow-x: auto;
-
-	@include remove-margin-top-for-first-child();
-	@include remove-margin-bottom-for-last-child();
-
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		margin: 0; // Reset
-
-		&,
-		> *,
-		tr,
-		th,
-		td {
-			border-width: 1px; // default
-		}
+	:is( thead, tfoot, tbody, td, th ) {
+		border-color: inherit;
 	}
 
-	thead {
-		th, td {
-			border-bottom-width: 0.2rem;
-		}
-	}
-
-	tfoot {
-		th, td {
-			border-top-width: 0.2rem;
-		}
-	}
-
-	.has-border-color {
-		> *,
-		tr,
-		th,
-		td {
-			border-color: inherit;
-		}
-	}
-
-	table[style*=border-style] {
-		> *,
-		tr,
-		th,
-		td {
-			border-style: inherit;
-		}
-	}
-
-	table[style*=border-width] {
-		> *,
-		tr,
-		th,
-		td {
-			border-width: inherit;
-		}
-	}
-
-	.has-fixed-layout {
-		table-layout: fixed;
-
-		th, td {
-			word-break: break-word;
-		}
-	}
-
-	&.alignleft,
-	&.aligncenter,
-	&.alignright {
-		display: table;
-		width: auto;
-		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) ); // Fix value, only overrideable via custom CSS
-
-		th, td {
-			word-break: break-word;
-		}
-	}
-
-	// Stripes style
 	&.is-style-stripes {
-		tbody {
-			tr {
-				&:nth-child(odd) {
-					background-color: var(--subtle-background-color);
-				}
-			}
-		}
+		border-bottom: 0; // Reset
 
-		.has-background {
-			tbody {
-				tr {
-					&:nth-child(odd) {
-						background-color: rgba(255,255,255,0.2);
-					}
-				}
+		tbody {
+			tr:nth-child( odd ) {
+				background-color: var(--wp--preset--color--base-2);
 			}
 		}
 	}
-}
-
-// -------------------------------------------------------------
-// Block: Verse
-// -------------------------------------------------------------
-
-.wp-block-verse {
-	font-family: inherit; // Use inherited font family
-	white-space: pre-wrap;
-	overflow: auto;
 }

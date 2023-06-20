@@ -88,28 +88,27 @@
 	display: inline-flex;
 	max-width: 100%;
 	vertical-align: middle;
-
-	padding: var(--input--padding, 0.5em 0.75em);
-	border-style: solid;
-	border-radius: var(--input--border-radius, 0);
-	border-width: var(--input--border-width, 1px);
-	border-color: var(--input--border-color, var(--color-palette-6));
-	background-color: var(--input--background-color, var(--color-palette-8));
-	color: var(--input--text-color, var(--color-palette-2));
-
-	font-family: var(--input--font-family, var(--base--font-family));
-	font-size: var(--input--font-size, var(--base--font-size));
-	font-style: var(--input--font-style, var(--base--font-style));
-	line-height: initial;
-	letter-spacing: var(--input--letter-spacing, 0);
-	text-transform: var(--input--text-transform, none);
-
 	transition: all var(--transition-duration);
 
+	padding: var(--wp--custom--input--padding);
+	border-width: var(--wp--custom--input--border-width);
+	border-style: solid;
+	border-color: var(--wp--custom--input--border-color);
+	border-radius: var(--wp--custom--input--border-radius);
+	background-color: var(--wp--custom--input--background-color);
+	color: var(--wp--custom--input--text-color);
+
+	font-family: var(--wp--custom--input--font-family);
+	font-size: var(--wp--custom--input--font-size);
+	font-style: var(--wp--custom--input--font-style);
+	line-height: initial;
+	letter-spacing: var(--wp--custom--input--letter-spacing);
+	text-transform: var(--wp--custom--input--text-transform);
+
 	&:focus {
-		border-color: var(--input--border-color--focus, var(--input--border-color));
-		background-color: var(--input--background-color--focus, var(--input--background-color));
-		color: var(--input--text-color--focus, var(--input--text-color));
+		border-color: var(--wp--custom--input--border-color-focus);
+		background-color: var(--wp--custom--input--background-color-focus);
+		color: var(--wp--custom--input--text-color-focus);
 
 		outline: none; // Reset .using-keyboard style
 	}
@@ -126,28 +125,25 @@
 	max-width: 100%;
 	vertical-align: middle;
 	cursor: pointer;
-	word-break: normal;
+	text-align: center;
+	transition: all var(--transition-duration);
 	isolation: isolate;
 
-	padding: var(--button--padding, 0.5em 1em 0.5em 1em);
+	padding: var(--wp--custom--button--padding);
+	border-width: var(--wp--custom--button--border-width);
 	border-style: solid;
-	border-radius: var(--button--border-radius, 0.2em);
-	border-width: var(--button--border-width, 1px);
-	border-color: var(--button--border-color, var(--color-palette-4));
-	background-color: var(--button--background-color, var(--color-palette-4));
-	color: var(--button--text-color, var(--color-palette-8));
+	border-color: var(--wp--custom--button--border-color);
+	border-radius: var(--wp--custom--button--border-radius);
+	background-color: var(--wp--custom--button--background-color);
+	color: var(--wp--custom--button--text-color);
 
-	font-family: var(--button--font-family, var(--base--font-family));
-	font-size: var(--button--font-size, var(--base--font-size));
-	font-style: var(--button--font-style, normal);
-	font-weight: var(--button--font-weight, normal);
+	font-family: var(--wp--custom--button--font-family);
+	font-size: var(--wp--custom--button--font-size);
+	font-style: var(--wp--custom--button--font-style);
+	font-weight: var(--wp--custom--button--font-weight);
 	line-height: initial;
-	letter-spacing: var(--button--letter-spacing, 0);
-	text-transform: var(--button--text-transform, none);
-
-	text-align: center;
-
-	transition: all var(--transition-duration);
+	letter-spacing: var(--wp--custom--button--letter-spacing);
+	text-transform: var(--wp--custom--button--text-transform);
 
 	svg {
 		fill: currentColor;
@@ -155,9 +151,9 @@
 
 	&:hover,
 	&:focus {
-		border-color: var(--button--border-color--focus, var(--button--border-color));
-		background-color: var(--button--background-color--focus, var(--button--background-color));
-		color: var(--button--text-color--focus);
+		border-color: var(--wp--custom--button--border-color-focus);
+		background-color: var(--wp--custom--button--background-color-focus);
+		color: var(--wp--custom--button--text-color-focus);
 
 		text-decoration: none;
 		outline: none; // Reset .using-keyboard style
@@ -170,6 +166,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: 0.5em; // Prepare gap for button with icon
+	appearance: none;
 	padding: 0;
 	border: 0;
 	font-size: inherit;
@@ -200,108 +197,75 @@
 	}
 }
 
-// Reverse link color
-@mixin reverse-link-color() {
-	color: inherit;
-
-	&:is( :hover, :focus ) {
-		color: var(--link-color);
-	}
-}
-
 // Title typography
 @mixin title-typography() {
-	font-family: var(--title--font-family);
-	font-size: var(--title--font-size);
-	font-style: var(--title--font-style);
-	font-weight: var(--title--font-weight);
-	line-height: var(--title--line-height);
-	letter-spacing: var(--title--letter-spacing);
-	text-transform: var(--title--text-transform);
+	font-family: var(--wp--custom--title--font-family);
+	font-size: var(--wp--custom--title--font-size);
+	font-style: var(--wp--custom--title--font-style);
+	font-weight: var(--wp--custom--title--font-weight);
+	line-height: var(--wp--custom--title--line-height);
+	letter-spacing: var(--wp--custom--title--letter-spacing);
+	text-transform: var(--wp--custom--title--text-transform);
 }
 
 // Title color
 @mixin title-color() {
-	color: var(--title--text-color);
+	color: var(--wp--custom--title--text-color);
 
 	a {
 		color: inherit;
 
 		&:focus, &:hover {
-			color: var(--title--link-color--focus);
+			color: var(--wp--custom--title--link-color-focus, inherit);
 		}
 	}
 }
 
 // Small title typography
 @mixin small-title-typography() {
-	font-family: var(--small-title--font-family);
-	font-size: var(--small-title--font-size);
-	font-style: var(--small-title--font-style);
-	font-weight: var(--small-title--font-weight);
-	line-height: var(--small-title--line-height);
-	letter-spacing: var(--small-title--letter-spacing);
-	text-transform: var(--small-title--text-transform);
+	font-family: var(--wp--custom--small-title--font-family);
+	font-size: var(--wp--custom--small-title--font-size);
+	font-style: var(--wp--custom--small-title--font-style);
+	font-weight: var(--wp--custom--small-title--font-weight);
+	line-height: var(--wp--custom--small-title--line-height);
+	letter-spacing: var(--wp--custom--small-title--letter-spacing);
+	text-transform: var(--wp--custom--small-title--text-transform);
 }
 
 // Small title color
 @mixin small-title-color() {
-	color: var(--small-title--text-color);
+	color: var(--wp--custom--small-title--text-color);
 
 	a {
 		color: inherit;
 
 		&:focus, &:hover {
-			color: var(--small-title--link-color--focus);
+			color: var(--wp--custom--small-title--link-color-focus, inherit);
 		}
 	}
 }
 
 // Meta typography
 @mixin meta-typography() {
-	font-family: var(--meta--font-family);
-	font-size: var(--meta--font-size);
-	font-style: var(--meta--font-style);
-	font-weight: var(--meta--font-weight);
-	line-height: var(--meta--line-height);
-	letter-spacing: var(--meta--letter-spacing);
-	text-transform: var(--meta--text-transform);
+	font-family: var(--wp--custom--meta--font-family);
+	font-size: var(--wp--custom--meta--font-size);
+	font-style: var(--wp--custom--meta--font-style);
+	font-weight: var(--wp--custom--meta--font-weight);
+	line-height: var(--wp--custom--meta--line-height);
+	letter-spacing: var(--wp--custom--meta--letter-spacing);
+	text-transform: var(--wp--custom--meta--text-transform);
 }
 
 // Meta color
 @mixin meta-color() {
-	color: var(--meta--text-color);
+	color: var(--wp--custom--meta--text-color);
 
 	a {
-		color: var(--meta--link-color, var(--meta--text-color));
+		color: inherit;
 
 		&:focus, &:hover {
-			color: var(--meta--link-color--focus, var(--meta--link-color));
+			color: var(--wp--custom--meta--link-color-focus, inherit);
 		}
-	}
-}
-
-// Padding when element has .has-background
-@mixin padding-for-has-background() {
-	&:where(.has-background) {
-		padding: var(--wp--style--block-gap);
-	}
-}
-
-// Align left & right max width
-@mixin max-width-for-alignleft-alignright() {
-	// Apply max-width to floated items that have no intrinsic width.
-	&:where(.alignleft, .alignright) {
-		max-width: calc( 50% - ( var(--wp--style--block-gap) / 2 ) ); // Fix value, only overrideable via custom CSS
-		width: 100%;
-	}
-}
-
-// Align full ignores padding
-@mixin stretch-alignfull() {
-	&:is(.alignfull) {
-		margin-inline-start: calc( -1 * ( min( var(--page-width), 100vw ) - 100% ) / 2 ) !important;
-		margin-inline-end: calc( -1 * ( min( var(--page-width), 100vw ) - 100% ) / 2 ) !important;
 	}
 }
 
@@ -315,12 +279,7 @@
 		&:before {
 			content: "";
 			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			padding: 0;
-			margin: 0;
+			inset: 0;
 			background-color: currentColor;
 			z-index: -1;
 			opacity: $opacity;

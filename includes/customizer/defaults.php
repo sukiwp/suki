@@ -18,23 +18,16 @@ $add = array();
  * ====================================================
  */
 
-$add['color_palette_1'] = '#222222';
-$add['color_palette_2'] = '#444444';
-$add['color_palette_3'] = '#666666';
-$add['color_palette_4'] = '#0055cc';
-$add['color_palette_5'] = '#004099';
-$add['color_palette_6'] = '#cccccc';
-$add['color_palette_7'] = '#f3f3f3';
-$add['color_palette_8'] = '#ffffff';
-
-$add['color_palette_1_name'] = esc_html__( 'Strong Text', 'suki' );
-$add['color_palette_2_name'] = esc_html__( 'Normal Text', 'suki' );
-$add['color_palette_3_name'] = esc_html__( 'Weak Text', 'suki' );
-$add['color_palette_4_name'] = esc_html__( 'Primary', 'suki' );
-$add['color_palette_5_name'] = esc_html__( 'Primary Alt', 'suki' );
-$add['color_palette_6_name'] = esc_html__( 'Border', 'suki' );
-$add['color_palette_7_name'] = esc_html__( 'Background Alt', 'suki' );
-$add['color_palette_8_name'] = esc_html__( 'Background', 'suki' );
+$add['color_base']        = '#ffffff';
+$add['color_base_2']      = '#f3f3f3';
+$add['color_base_3']      = '#cccccc';
+$add['color_contrast']    = '#000000';
+$add['color_contrast_2']  = '#333333';
+$add['color_contrast_3']  = '#666666';
+$add['color_primary']     = '#0055cc';
+$add['color_primary_2']   = '#004099';
+$add['color_secondary']   = '#0055cc';
+$add['color_secondary_2'] = '#004099';
 
 /**
  * ====================================================
@@ -42,11 +35,11 @@ $add['color_palette_8_name'] = esc_html__( 'Background', 'suki' );
  * ====================================================
  */
 
-$add['body_font_family'] = 'Default System Font';
+$add['body_font_family'] = 'System Font';
 $add['body_font_size']   = '16px';
-$add['body_line_height'] = '1.6em';
+$add['body_line_height'] = 1.6;
 
-$add['body_text_color'] = 'var(--color-palette-2)';
+$add['body_text_color'] = 'var(--wp--preset--color--contrast-2)';
 
 /**
  * ====================================================
@@ -54,8 +47,8 @@ $add['body_text_color'] = 'var(--color-palette-2)';
  * ====================================================
  */
 
-$add['subtle_color'] = 'var(--color-palette-7)';
-$add['border_color'] = 'var(--color-palette-6)';
+$add['subtle_color'] = 'var(--wp--preset--color--base-2)';
+$add['border_color'] = 'var(--wp--preset--color--base-3)';
 
 /**
  * ====================================================
@@ -63,8 +56,8 @@ $add['border_color'] = 'var(--color-palette-6)';
  * ====================================================
  */
 
-$add['link_text_color']       = 'var(--color-palette-4)';
-$add['link_hover_text_color'] = 'var(--color-palette-5)';
+$add['link_text_color']       = 'var(--wp--preset--color--primary)';
+$add['link_hover_text_color'] = 'var(--wp--preset--color--primary-2)';
 
 /**
  * ====================================================
@@ -74,29 +67,29 @@ $add['link_hover_text_color'] = 'var(--color-palette-5)';
 
 $add['h1_font_size']   = '2.4rem';
 $add['h1_font_weight'] = 600;
-$add['h1_line_height'] = '1.2em';
+$add['h1_line_height'] = 1.2;
 
 $add['h2_font_size']   = '1.8rem';
 $add['h2_font_weight'] = 600;
-$add['h2_line_height'] = '1.3em';
+$add['h2_line_height'] = 1.3;
 
 $add['h3_font_size']   = '1.5rem';
 $add['h3_font_weight'] = 600;
-$add['h3_line_height'] = '1.4em';
+$add['h3_line_height'] = 1.4;
 
 $add['h4_font_size']   = '1.25rem';
 $add['h4_font_weight'] = 600;
-$add['h4_line_height'] = '1.5em';
+$add['h4_line_height'] = 1.5;
 
 $add['h5_font_size']   = '1.1rem';
 $add['h5_font_weight'] = 600;
-$add['h5_line_height'] = '1.6em';
+$add['h5_line_height'] = 1.6;
 
 $add['h6_font_size']   = '1rem';
 $add['h6_font_weight'] = 600;
-$add['h6_line_height'] = '1.6em';
+$add['h6_line_height'] = 1.6;
 
-$add['heading_text_color'] = 'var(--color-palette-1)';
+$add['heading_text_color'] = 'var(--wp--preset--color--contrast)';
 
 /**
  * ====================================================
@@ -107,7 +100,7 @@ $add['heading_text_color'] = 'var(--color-palette-1)';
 $add['blockquote_font_size']   = '1.25rem';
 $add['blockquote_font_style']  = 'italic';
 $add['blockquote_font_weight'] = 400;
-$add['blockquote_line_height'] = '1.5em';
+$add['blockquote_line_height'] = 1.5;
 
 /**
  * ====================================================
@@ -115,12 +108,12 @@ $add['blockquote_line_height'] = '1.5em';
  * ====================================================
  */
 
-$add['input_padding']       = array( '0.5em', '0.75em', '0.5em', '0.75em' );
+$add['input_padding']       = array( '0.75em', '1em', '0.75em', '1em' );
 $add['input_border']        = array( '1px', '1px', '1px', '1px' );
-$add['input_border_radius'] = '3px';
+$add['input_border_radius'] = '0.25em';
 
-$add['input_bg_color']           = 'var(--color-palette-8)';
-$add['input_focus_border_color'] = 'var(--color-palette-2)';
+$add['input_bg_color']           = 'var(--wp--preset--color--base)';
+$add['input_focus_border_color'] = 'var(--wp--preset--color--contrast-2)';
 
 /**
  * ====================================================
@@ -128,19 +121,19 @@ $add['input_focus_border_color'] = 'var(--color-palette-2)';
  * ====================================================
  */
 
-$add['button_padding']       = array( '0.5em', '1em', '0.5em', '1em' );
+$add['button_padding']       = array( '0.75em', '1em', '0.75em', '1em' );
 $add['button_border']        = array( '1px', '1px', '1px', '1px' );
-$add['button_border_radius'] = '3px';
+$add['button_border_radius'] = '0.25em';
 
 $add['button_font_weight'] = 600;
 $add['button_font_size']   = '1rem';
 
-$add['button_bg_color']           = 'var(--color-palette-4)';
-$add['button_border_color']       = 'var(--color-palette-4)';
-$add['button_text_color']         = 'var(--color-palette-8)';
-$add['button_hover_bg_color']     = 'var(--color-palette-5)';
-$add['button_hover_border_color'] = 'var(--color-palette-5)';
-$add['button_hover_text_color']   = 'var(--color-palette-8)';
+$add['button_bg_color']           = 'var(--wp--preset--color--primary)';
+$add['button_border_color']       = 'var(--wp--preset--color--primary)';
+$add['button_text_color']         = 'var(--wp--preset--color--base)';
+$add['button_hover_bg_color']     = 'var(--wp--preset--color--primary-2)';
+$add['button_hover_border_color'] = 'var(--wp--preset--color--primary-2)';
+$add['button_hover_text_color']   = 'var(--wp--preset--color--base)';
 
 /**
  * ====================================================
@@ -148,7 +141,7 @@ $add['button_hover_text_color']   = 'var(--color-palette-8)';
  * ====================================================
  */
 
-$add['meta_text_color'] = 'var(--color-palette-3)';
+$add['meta_text_color'] = 'var(--wp--preset--contrast-3)';
 
 /**
  * ====================================================
@@ -167,19 +160,18 @@ $add['block_spacing'] = '1.25rem';
  * ====================================================
  */
 
-$add['page_layout'] = 'full-width';
+$add['page_layout'] = 'boxed';
 
 $add['boxed_page_width']  = '1400px';
-$add['boxed_page_shadow'] = array( '0px', '0px', '30px', '0px', '#0000000d' );
+$add['boxed_page_shadow'] = array( '0px', '0px', '30px', '0px', '#00000000' );
 
-$add['page_bg_color'] = 'var(--color-palette-8)';
+$add['page_bg_color'] = 'var(--wp--preset--color--base)';
 
-$add['outside_bg_color']      = 'var(--color-palette-6)';
-$add['outside_bg_image']      = '';
-$add['outside_bg_position']   = 'center center';
-$add['outside_bg_size']       = 'cover';
-$add['outside_bg_repeat']     = 'no-repeat';
-$add['outside_bg_attachment'] = 'fixed';
+$add['outside_bg_color']    = 'var(--wp--preset--color--base-3)';
+$add['outside_bg_repeat']   = 0;
+$add['outside_bg_parallax'] = 1;
+
+$add['outside_bg_color_overlay_dim'] = 50;
 
 /**
  * ====================================================
@@ -198,6 +190,7 @@ $add['content_padding']   = array( '80px', '20px', '80px', '20px' );
  */
 
 $add['sidebar_width'] = '25%';
+$add['sidebar_gap']   = '3.5rem';
 
 /**
  * ====================================================
@@ -207,12 +200,15 @@ $add['sidebar_width'] = '25%';
 
 $add['hero'] = 1;
 
-$add['hero_container'] = 'content';
+$add['hero_container'] = 'inherit';
 $add['hero_padding']   = array( '60px', '20px', '60px', '20px' );
+$add['hero_border']    = array( '', '', '', '' );
 
-$add['hero_bg_color'] = 'var(--color-palette-7)';
+$add['hero_bg_color']    = 'var(--wp--preset--color--base-2)';
+$add['hero_bg_repeat']   = 0;
+$add['hero_bg_parallax'] = 1;
 
-$add['hero_bg_attachment'] = 'scroll';
+$add['hero_bg_color_overlay_dim'] = 50;
 
 /**
  * ====================================================
@@ -262,7 +258,7 @@ $add['header_mobile_logo_width'] = '';
 
 $add['header_cart_amount_visibility'] = array( 'desktop', 'tablet', 'mobile' );
 
-$add['header_cart_count_text_color'] = 'var(--color-palette-8)';
+$add['header_cart_count_text_color'] = 'var(--wp--preset--color--base)';
 
 /**
  * ====================================================
@@ -284,6 +280,7 @@ $add['header_top_bar_merged'] = 0;
 $add['header_top_bar_container'] = 'wide';
 $add['header_top_bar_height']    = '50px';
 $add['header_top_bar_padding']   = array( '0px', '20px', '0px', '20px' );
+$add['header_top_bar_border']    = array( '', '', '', '' );
 
 $add['header_top_bar_menu_highlight'] = 'none';
 
@@ -298,6 +295,7 @@ $add['header_top_bar_icon_size'] = '1.2em';
 $add['header_main_bar_container'] = 'wide';
 $add['header_main_bar_height']    = '90px';
 $add['header_main_bar_padding']   = array( '0px', '20px', '0px', '20px' );
+$add['header_main_bar_border']    = array( '', '', '', '' );
 
 $add['header_main_bar_menu_highlight'] = 'none';
 
@@ -314,6 +312,7 @@ $add['header_bottom_bar_merged'] = 0;
 $add['header_bottom_bar_container'] = 'wide';
 $add['header_bottom_bar_height']    = '50px';
 $add['header_bottom_bar_padding']   = array( '0px', '20px', '0px', '20px' );
+$add['header_bottom_bar_border']    = array( '', '', '', '' );
 
 $add['header_bottom_bar_menu_highlight'] = 'none';
 
@@ -367,12 +366,13 @@ $add['footer_elements_bottom_right']  = array();
 
 $add['footer_widgets_bar_container'] = 'wide';
 $add['footer_widgets_bar_padding']   = array( '60px', '20px', '60px', '20px' );
+$add['footer_widgets_bar_border']    = array( '', '', '', '' );
 
 $add['footer_widgets_bar_widget_title_tag']        = 'h2';
 $add['footer_widgets_bar_widget_title_alignment']  = 'left';
 $add['footer_widgets_bar_widget_title_decoration'] = 'border-bottom';
 
-$add['footer_widgets_bar_bg_color'] = 'var(--color-palette-7)';
+$add['footer_widgets_bar_bg_color'] = 'var(--wp--preset--color--base-2)';
 
 /**
  * ====================================================
@@ -384,8 +384,9 @@ $add['footer_bottom_bar_merged'] = 0;
 
 $add['footer_bottom_bar_container'] = 'wide';
 $add['footer_bottom_bar_padding']   = array( '25px', '20px', '25px', '20px' );
+$add['footer_bottom_bar_border']    = array( '', '', '', '' );
 
-$add['footer_bottom_bar_bg_color'] = 'var(--color-palette-7)';
+$add['footer_bottom_bar_bg_color'] = 'var(--wp--preset--color--base-2)';
 
 /**
  * ====================================================
@@ -459,6 +460,8 @@ $add['post_single_content_footer']           = array( 'tags', 'hr', 'footer-meta
 $add['post_single_content_footer_alignment'] = 'left';
 $add['post_single_content_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' );
 
+$add['post_single_hero_bg'] = 'thumbnail';
+
 $add['blog_single_author_bio'] = 1;
 $add['blog_single_navigation'] = 1;
 
@@ -467,6 +470,8 @@ $add['blog_single_navigation'] = 1;
  * Blog > Post Layout: Default
  * ====================================================
  */
+
+$add['blog_index_default_items_gap'] = '6rem';
 
 $add['entry_header']           = array( 'title', 'header-meta' );
 $add['entry_header_alignment'] = 'left';
@@ -490,9 +495,13 @@ $add['entry_footer_meta']      = esc_html__( 'Posted in {{categories}}', 'suki' 
  * ====================================================
  */
 
-$add['blog_index_grid_columns'] = 2;
+$add['blog_index_grid_columns']     = 2;
+$add['blog_index_grid_columns_gap'] = '2rem';
 
-$add['entry_grid_same_height'] = 0;
+$add['entry_grid_padding']       = array( '', '', '', '' );
+$add['entry_grid_border']        = array( '', '', '', '' );
+$add['entry_grid_border_radius'] = '';
+$add['entry_grid_same_height']   = 0;
 
 $add['entry_grid_header']           = array( 'title', 'header-meta' );
 $add['entry_grid_header_alignment'] = 'left';

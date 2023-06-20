@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const SukiDashboardProTeaser = () => {
+const SukiDashboardCustomizerShortcuts = () => {
   const data = sukiDashboardData.customizerShortcuts;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Card, {
     className: "suki-admin-dashboard__customizer-shortcuts"
@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('suki-admin-dashboard__customizer-shortcuts');
 
   if (root) {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null), root);
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(root).render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardCustomizerShortcuts, null));
   }
 });
 
@@ -146,7 +146,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('suki-admin-dashboard__pro-teaser');
 
   if (root) {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null), root);
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(root).render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardProTeaser, null));
   }
 });
 
@@ -239,7 +239,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('suki-admin-dashboard__sites-import');
 
   if (root) {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardSitesImport, null), root);
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(root).render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SukiDashboardSitesImport, null));
   }
 });
 

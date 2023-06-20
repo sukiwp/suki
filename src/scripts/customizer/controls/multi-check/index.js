@@ -6,7 +6,7 @@ import {
 	Flex,
 } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
@@ -14,7 +14,7 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 
 		const valueArray = control.setting.get();
 
-		render(
+		const content =
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -46,9 +46,13 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend( {
 						);
 					} ) }
 				</Flex>
-			</>,
-			control.container[ 0 ]
-		);
+			</>;
+
+		if ( ! control.root ) {
+			control.root = createRoot( control.container[ 0 ] );
+		}
+
+		control.root.render( content );
 	},
 
 	addNewValueItem( value ) {

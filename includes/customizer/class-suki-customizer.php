@@ -435,6 +435,11 @@ class Suki_Customizer {
 					continue;
 				}
 
+				// Skip if rule `frontend` attribute is set to false.
+				if ( isset( $rule['frontend'] ) && ! boolval( $rule['frontend'] ) ) {
+					continue;
+				}
+
 				// Sanitize rule.
 				$rule = $this->sanitize_output_rule_value( $rule, $setting_value );
 
@@ -807,7 +812,7 @@ class Suki_Customizer {
 
 		// Check using the counter, if there is no saved settings about font family, add the default system font as active.
 		if ( 0 === $count ) {
-			$fonts['web_safe_fonts'][] = 'Default System Font';
+			$fonts['web_safe_fonts'][] = 'System Font';
 		}
 
 		// Return values.

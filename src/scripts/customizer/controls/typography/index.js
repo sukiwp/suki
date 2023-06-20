@@ -18,7 +18,7 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
@@ -61,10 +61,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 		];
 
 		const lineHeightUnits = [
-			{ value: 'px', label: 'px', default: '', min: '0', step: '1' },
-			{ value: 'em', label: 'em', default: '', min: '0', step: '0.01' },
-			{ value: 'rem', label: 'rem', default: '', min: '0', step: '0.01' },
-			{ value: '%', label: '%', default: '', min: '0', step: '0.01' },
+			{ value: '', label: '', default: '', min: '0', step: '0.01' },
 		];
 
 		const letterSpacingUnits = [
@@ -75,7 +72,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 
 		const responsiveStructures = control.params.responsiveStructures;
 
-		render(
+		const content =
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -270,9 +267,13 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend( {
 						</Flex>
 					</CardBody>
 				</Card>
-			</>,
-			control.container[ 0 ]
-		);
+			</>;
+
+		if ( ! control.root ) {
+			control.root = createRoot( control.container[ 0 ] );
+		}
+
+		control.root.render( content );
 	},
 } );
 

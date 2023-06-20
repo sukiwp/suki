@@ -294,22 +294,22 @@ function suki_get_web_safe_fonts() {
 		'suki/dataset/web_safe_fonts',
 		array(
 			// System.
-			'Default System Font' => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+			'System Font'     => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 
 			// Sans Serif.
-			'Arial'               => 'Arial, "Helvetica Neue", Helvetica, sans-serif',
-			'Helvetica'           => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-			'Tahoma'              => 'Tahoma, Geneva, sans-serif',
-			'Trebuchet MS'        => '"Trebuchet MS", Helvetica, sans-serif',
-			'Verdana'             => 'Verdana, Geneva, sans-serif',
+			'Arial'           => 'Arial, "Helvetica Neue", Helvetica, sans-serif',
+			'Helvetica'       => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+			'Tahoma'          => 'Tahoma, Geneva, sans-serif',
+			'Trebuchet MS'    => '"Trebuchet MS", Helvetica, sans-serif',
+			'Verdana'         => 'Verdana, Geneva, sans-serif',
 
 			// Serif.
-			'Georgia'             => 'Georgia, serif',
-			'Times New Roman'     => '"Times New Roman", Times, serif',
+			'Georgia'         => 'Georgia, serif',
+			'Times New Roman' => '"Times New Roman", Times, serif',
 
 			// Monospace.
-			'Courier New'         => '"Courier New", Courier, monospace',
-			'Lucida Console'      => '"Lucida Console", Monaco, monospace',
+			'Courier New'     => '"Courier New", Courier, monospace',
+			'Lucida Console'  => '"Lucida Console", Monaco, monospace',
 		)
 	);
 
@@ -343,41 +343,44 @@ function suki_get_social_media_types( $sort = false ) {
 /**
  * Return array of default social media types.
  *
+ * Notes:
+ * - Item marked with "*" is available on `core/social-link` block.
+ *
  * @return array
  */
 function suki_get_default_social_media_types() {
 	return array(
 		// Social network.
-		'facebook'  => 'Facebook',
-		'instagram' => 'Instagram',
-		'linkedin'  => 'LinkedIn',
-		'twitter'   => 'Twitter',
-		'pinterest' => 'Pinterest',
-		'vk'        => 'VK',
+		'facebook'  => 'Facebook', // *
+		'instagram' => 'Instagram', // *
+		'linkedin'  => 'LinkedIn', // *
+		'twitter'   => 'Twitter', // *
+		'pinterest' => 'Pinterest', // *
+		'vk'        => 'VK', // *
 
 		// Portfolio.
-		'behance'   => 'Behance',
-		'dribbble'  => 'Dribbble',
+		'behance'   => 'Behance', // *
+		'dribbble'  => 'Dribbble', // *
 
 		// Publishing.
-		'medium'    => 'Medium',
-		'wordpress' => 'WordPress',
+		'medium'    => 'Medium', // *
+		'wordpress' => 'WordPress', // *
 
 		// Messenger.
 		'messenger' => 'Messenger',
-		'skype'     => 'Skype',
+		'skype'     => 'Skype', // *
 		'slack'     => 'Slack',
-		'telegram'  => 'Telegram',
-		'whatsapp'  => 'WhatsApp',
+		'telegram'  => 'Telegram', // *
+		'whatsapp'  => 'WhatsApp', // *
 
 		// Programming.
-		'github'    => 'GitHub',
+		'github'    => 'GitHub', // *
 		'gitlab'    => 'GitLab',
 		'bitbucket' => 'Bitbucket',
 
 		// Audio & Video.
-		'vimeo'     => 'Vimeo',
-		'youtube'   => 'Youtube',
+		'vimeo'     => 'Vimeo', // *
+		'youtube'   => 'Youtube', // *
 
 		// Others.
 		'rss'       => 'RSS',

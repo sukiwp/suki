@@ -181,7 +181,7 @@
 
 .wc-block-cart__submit-button {
 	width: 100%;
-	font-size: calc( 1.2 * var(--button--font-size, var(--base--font-size)) );
+	font-size: calc( 1.2 * var(--button--font-size, var(--base-font-size)) );
 }
 
 @media screen and ( min-width: $breakpoint-desktop ) {

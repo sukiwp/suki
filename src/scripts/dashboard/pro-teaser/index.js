@@ -9,7 +9,7 @@ import {
 	Icon,
 } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
@@ -86,9 +86,6 @@ window.addEventListener( 'DOMContentLoaded', () => {
 	const root = document.getElementById( 'suki-admin-dashboard__pro-teaser' );
 
 	if ( root ) {
-		render(
-			<SukiDashboardProTeaser />,
-			root
-		);
+		createRoot( root ).render( <SukiDashboardProTeaser /> );
 	}
 } );

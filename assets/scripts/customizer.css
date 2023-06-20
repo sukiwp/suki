@@ -62,10 +62,17 @@ div.customize-section-description {
   font-style: normal;
 }
 
-:is(.components-input-control, .components-select-control) {
+.components-select-control.components-flex {
   gap: 2px !important;
 }
-:is(.components-input-control, .components-select-control) > .components-flex-item:empty {
+.components-select-control > .components-flex-item:empty {
+  display: none;
+}
+
+.components-input-control .components-flex {
+  gap: 2px !important;
+}
+.components-input-control > .components-flex-item:empty {
   display: none;
 }
 
@@ -218,7 +225,7 @@ div.customize-section-description {
   grid-column: 1/4;
 }
 
-:is([id$=_content_container],
+.customize-control:is([id$=_content_container],
 [id$=_content_layout],
 [id$=_hero],
 [id$=_disable_header],
@@ -229,31 +236,13 @@ div.customize-section-description {
   padding-right: 135px;
   margin-bottom: 0;
 }
-:is([id$=_content_container],
+.customize-control:is([id$=_content_container],
 [id$=_content_layout],
 [id$=_hero],
 [id$=_disable_header],
 [id$=_disable_header_mobile],
 [id$=_disable_footer_widgets],
 [id$=_disable_footer_bottom]) select {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-}
-
-:is([id$=_hero_container],
-[id$=_hero_bg]) {
-  padding-left: 15px;
-}
-:is([id$=_hero_container],
-[id$=_hero_bg]) .customize-control-title {
-  min-height: 30px;
-  padding-right: 135px;
-  margin-bottom: 0;
-}
-:is([id$=_hero_container],
-[id$=_hero_bg]) select {
   position: absolute;
   top: 0;
   right: 0;

@@ -221,11 +221,11 @@ function suki_get_breakpoint( $device, $increment = 0, $px = true ) {
 	switch ( $device ) {
 		case 'mobile':
 		case 'phone':
-			$breakpoint = 500;
+			$breakpoint = 600;
 			break;
 
 		case 'tablet':
-			$breakpoint = 768;
+			$breakpoint = 782;
 			break;
 
 		default:
@@ -495,4 +495,50 @@ function suki_clean_svg_markup( $html ) {
 	$html = preg_replace( '/<title>.*?<\/title>/', '', $html );
 
 	return $html;
+}
+
+/**
+ * Convert raw color value from Customizer into detailed color value.
+ *
+ * @param string $color_value Raw color value.
+ * @param string $context     Color context (background / border / text / link).
+ */
+function suki_parse_color_value_for_block_attributes( $color_value, $context = null ) {
+	$array = array(
+		'custom_value' => false,
+		'preset_value' => false,
+		'classes'      => array(),
+	);
+
+	if ( str_starts_with( $color_value, 'rgb' ) || str_starts_with( $color_value, '#' ) ) {
+		$array['custom_value'] = $color_value;
+	} elseif ( str_starts_with( $color_value, 'var' ) ) {
+		$preset_name = preg_replace( '/var\(--wp--preset--color--(.*?)\)/', '$1', $color_value );
+
+		$array['preset_value'] = $preset_name;
+
+		switch ( $context ) {
+			case 'text':
+				$array['classes'][] = 'has-' . $preset_name . '-color';
+				break;
+
+			default:
+				$array['classes'][] = 'has-' . $preset_name . '-' . $context . '-color';
+				break;
+		}
+	}
+
+	if ( false !== $array['preset_value'] || false !== $array['custom_value'] ) {
+		switch ( $context ) {
+			case 'background':
+				$array['classes'][] = 'has-' . $context;
+				break;
+
+			default:
+				$array['classes'][] = 'has-' . $context . '-color';
+				break;
+		}
+	}
+
+	return $array;
 }

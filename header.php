@@ -32,30 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * Hook: wp_body_open
 		 */
 		wp_body_open();
-
-		/**
-		 * Hook: suki/frontend/before_canvas
-		 *
-		 * @hooked suki_skip_to_content_link - 1
-		 */
-		do_action( 'suki/frontend/before_canvas' );
 		?>
 
-		<div id="canvas" class="suki-canvas wp-site-blocks site">
-			<div id="page" class="suki-page">
+		<div class="wp-site-blocks">
 
-				<?php
-				/**
-				 * Hook: suki/frontend/before_header
-				 */
-				do_action( 'suki/frontend/before_header' );
-
-				/**
-				 * Header
-				 */
-				suki_header();
-
-				/**
-				 * Hook: suki/frontend/after_header
-				 */
-				do_action( 'suki/frontend/after_header' );

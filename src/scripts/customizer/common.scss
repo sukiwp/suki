@@ -90,8 +90,22 @@ div.customize-section-description {
 // Gutenberg components
 // -------------------------------------------------------------
 
-:is( .components-input-control, .components-select-control ) {
-	gap: 2px !important;
+.components-select-control {
+	&.components-flex {
+		gap: 2px !important;
+	}
+
+	> .components-flex-item {
+		&:empty {
+			display: none;
+		}
+	}
+}
+
+.components-input-control {
+	.components-flex {
+		gap: 2px !important;
+	}
 
 	> .components-flex-item {
 		&:empty {

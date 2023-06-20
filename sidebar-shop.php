@@ -13,7 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ob_start();
 
-$classes = suki_element_class( 'sidebar', array( 'sidebar' ), false );
+/**
+ * Filter: suki/frontend/sidebar_classes
+ *
+ * @param array $classes Classes array.
+ */
+$classes = apply_filters( 'suki/frontend/sidebar_classes', array( 'sidebar' ) );
+
+$classes = implode( ' ', $classes );
 ?>
 <!-- wp:group {
 	"tagName":"aside",

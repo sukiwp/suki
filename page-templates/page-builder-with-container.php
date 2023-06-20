@@ -26,7 +26,7 @@ echo do_blocks( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		"tagName":"main",
 		"className":"site-content ' . esc_attr( 'suki-section--' . suki_get_current_page_setting( 'content_container' ) ) . '",
 		"layout":{
-			"inherit":true
+			"type":"default"
 		}
 	} --><main id="content" class="wp-block-group site-content ' . esc_attr( 'suki-section--' . suki_get_current_page_setting( 'content_container' ) ) . '">
 

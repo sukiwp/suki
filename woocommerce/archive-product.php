@@ -22,7 +22,7 @@ suki_content(
 	'
 	<!-- wp:group {
 		"layout":{
-			"inherit":true
+			"type":"default"
 		}
 	} --><div class="wp-block-group">
 

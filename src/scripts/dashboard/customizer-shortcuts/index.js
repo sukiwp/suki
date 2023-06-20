@@ -6,11 +6,11 @@ import {
 	Icon,
 } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
-const SukiDashboardProTeaser = () => {
+const SukiDashboardCustomizerShortcuts = () => {
 	const data = sukiDashboardData.customizerShortcuts;
 
 	return (
@@ -46,9 +46,6 @@ window.addEventListener( 'DOMContentLoaded', () => {
 	const root = document.getElementById( 'suki-admin-dashboard__customizer-shortcuts' );
 
 	if ( root ) {
-		render(
-			<SukiDashboardProTeaser />,
-			root
-		);
+		createRoot( root ).render( <SukiDashboardCustomizerShortcuts /> );
 	}
 } );

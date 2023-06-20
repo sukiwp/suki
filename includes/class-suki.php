@@ -76,7 +76,7 @@ class Suki {
 		add_action( 'init', array( $this, 'handle_frontend_scripts' ) );
 
 		// Replace blocks CSS with our own CSS.
-		add_action( 'wp_default_styles', array( $this, 'modify_blocks_css' ) );
+		// add_action( 'wp_default_styles', array( $this, 'modify_blocks_css' ) );
 
 		// If enabled from Child Theme, this will make Child Theme inherit Parent Theme configuration.
 		if ( get_stylesheet() !== get_template() && defined( 'SUKI_CHILD_USE_PARENT_MODS' ) && SUKI_CHILD_USE_PARENT_MODS ) {
@@ -99,9 +99,6 @@ class Suki {
 
 		// Server-side theme.json configurations.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'theme.json.php';
-
-		// Block supports.
-		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'block-supports/layout.php';
 
 		// Template functions.
 		require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags.php';
@@ -306,7 +303,7 @@ class Suki {
 
 		// Add dynamic CSS to frontend.
 		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_dynamic_css' ) );
-		add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_page_settings_css' ), 25 );
+		// add_filter( 'suki/frontend/dynamic_css', array( $this, 'add_page_settings_css' ), 25 );
 	}
 
 	/**

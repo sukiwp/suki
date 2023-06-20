@@ -13,22 +13,32 @@ import {
 
 import {
 	__,
-	sprintf,
 } from '@wordpress/i18n';
 
 const SukiColorSelectDropdown = ( { changeValue, defaultPickerValue, defaultValue, value } ) => {
 	const palette = [];
 
-	for ( let i = 1; i <= 8; i++ ) {
-		const color = wp.customize( `color_palette_${ i }` ).get();
+	const slugs = [
+		'base',
+		'base-2',
+		'base-3',
+		'contrast',
+		'contrast-2',
+		'contrast-3',
+		'primary',
+		'primary-2',
+	];
+
+	slugs.forEach( function( slug ) {
+		const color = wp.customize( `color_${ slug.replace( '-', '_' ) }` ).get();
 
 		palette.push( {
 			/* translators: %d: number. */
-			name: wp.customize( `color_palette_${ i }_name` ).get() || sprintf( __( 'Theme Color %d', 'suki' ), i ),
-			color: `var(--color-palette-${ i })`,
+			name: `${ slug }`,
+			color: `var(--wp--preset--color--${ slug })`,
 			actualValue: color,
 		} );
-	}
+	} );
 
 	const valueIsLink = value && 0 === value.indexOf( 'var(' ) ? true : false;
 

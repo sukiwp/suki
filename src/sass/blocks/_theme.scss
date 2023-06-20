@@ -1,0 +1,153 @@
+// -------------------------------------------------------------
+// Block: Post author
+// -------------------------------------------------------------
+
+.wp-block-post-author__bio {
+	margin-block: 0.5em 0;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: var(--wp--custom--line-height--small);
+}
+
+.wp-block-post-author__byline {
+	font-size: var(--wp--preset--font-size--small);
+	line-height: var(--wp--custom--line-height--small);
+	opacity: 0.5;
+}
+
+// -------------------------------------------------------------
+// Block: Query loop
+// -------------------------------------------------------------
+
+.wp-block-post-template {
+	&.is-flex-container {
+		display: grid;
+
+		@media screen and ( min-width: $breakpoint-phone ) {
+			&:where(.columns-2, .columns-3, .columns-4, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 2, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-tablet ) {
+			&:where(.columns-3, .columns-5, .columns-6) {
+				grid-template-columns: repeat( 3, 1fr );
+			}
+		}
+
+		@media screen and ( min-width: $breakpoint-desktop ) {
+			&.columns-4 {
+				grid-template-columns: repeat( 4, 1fr );
+			}
+
+			&.columns-5 {
+				grid-template-columns: repeat( 5, 1fr );
+			}
+
+			&.columns-6 {
+				grid-template-columns: repeat( 6, 1fr );
+			}
+		}
+
+		.wp-block-post.wp-block-post.wp-block-post { // Override `wp-block-library` CSS.
+			width: unset; // Reset `wp-block-library` CSS.
+		}
+	}
+}
+
+.wp-block-query-pagination-numbers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1ch;
+}
+
+// -------------------------------------------------------------
+// Block: Comments
+// -------------------------------------------------------------
+
+.wp-block-comment-template {
+	ol {
+		margin-left: 4em;
+		padding-left: 0;
+	}
+
+	.wp-block-post-comments-form {
+		margin-left: 4em;
+	}
+}
+
+.wp-block-comment-content {
+	> * {
+		margin-block: 0;
+	}
+
+	> * + * {
+		margin-block-start: inherit;
+	}
+}
+
+.wp-block-comment-edit-link {
+	a {
+		&:before {
+			content: "✎ ";
+		}
+	}
+}
+
+.wp-block-comment-reply-link {
+	a {
+		&:before {
+			content: "↳ ";
+		}
+	}
+}
+
+.wp-block-post-comments-form {
+	.comment-form {
+		margin-block-start: var(--wp--style--block-gap);
+	}
+
+	.comment-reply-title {
+		small {
+			margin-left: 1em;
+
+			a {
+				&:before {
+					content: "✕ ";
+				}
+			}
+		}
+	}
+
+	.comment-form-cookies-consent {
+		#wp-comment-cookies-consent {
+			margin-top: 0; // Reset.
+		}
+	}
+
+	:is( .comment-form-author, .comment-form-email, .comment-form-url ) {
+		label {
+			margin-bottom: 0; // Reset.
+		}
+	}
+
+	input:not([type=submit]):not([type=checkbox]), textarea {
+		@include input();
+	}
+
+	textarea {
+		line-height: inherit; // Revert value from `input()` mixin.
+		min-height: 6em;
+		min-width: 100%;
+		height: 6em;
+	}
+
+	.form-submit {
+		margin-bottom: 0;
+	}
+}
+
+.wp-block-comments-pagination-numbers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1ch;
+}

@@ -1,55 +1,7 @@
 // -------------------------------------------------------------
-// Loop
+// Loop: Grid
 // -------------------------------------------------------------
 
-.suki-loop--layout-default {
-	> * + * {
-		margin-block-start: 6rem !important; // CUSTOMIZER
-	}
-}
-
-.suki-loop--layout-grid {
-	align-items: start; // By default Query Loop block will use `stretch`, but we reset it to `start` because we have a Customizer option to make it same-height.
-}
-
-.suki-loop--layout-grid-same-height {
-	align-items: stretch;
-}
-
-.suki-loop__navigation {
-	.wp-block-query-pagination-previous {
-		margin-inline-end: auto; // Make sure previous link is always in the left hand side.
-	}
-
-	.wp-block-query-pagination-next {
-		margin-inline-start: auto; // Make sure previous link is always in the right hand side.
-	}
-
-	&:empty {
-		display: none;
-	}
-
-	&:not(:has(*)) { // :has is not yet supported by Firefox when this CSS is defined.
-		display: none;
-	}
-}
-
-// -------------------------------------------------------------
-// Author archive title
-// -------------------------------------------------------------
-
-.suki-author-archive-avatar { // Non-block element.
-	display: inline-block;
-	margin-inline-end: 0.25em;
-	width: 2em;
-	vertical-align: middle;
-
-	img {
-		display: block;
-		border-radius: 9999px;
-	}
-
-	+ span {
-		vertical-align: middle;
-	}
+.wp-block-post-template.suki-loop--layout-grid { // Add `.wp-block-post-template` to the specifity to override `wp-block-library` CSS.
+	gap: 2rem; // CUSTOMIZER
 }

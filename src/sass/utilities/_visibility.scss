@@ -2,30 +2,38 @@
 // Visibility classes
 // -------------------------------------------------------------
 
-.suki-hide-on-tablet {
+body .suki-hide-on-tablet { // Add `body` as selector to override WP generated CSS.
 	@media screen and ( min-width: $breakpoint-tablet ) {
 		display: none; // Hide on tablet
 	}
 }
 
-.suki-hide-on-desktop {
+body .suki-hide-on-desktop { // Add `body` as selector to override WP generated CSS.
 	@media screen and ( min-width: $breakpoint-desktop ) {
 		display: none; // Hide on desktop
 	}
 }
 
-.suki-show-on-tablet {
+body .suki-show-on-tablet { // Add `body` as selector to override WP generated CSS.
 	display: none; // Hide on mobile
 
 	@media screen and ( min-width: $breakpoint-tablet ) {
-		display: revert; // Show on tablet
+		&.is-layout-flex {
+			display: flex;
+		}
+
+		display: block; // Show on tablet
 	}
 }
 
-.suki-show-on-desktop {
+body .suki-show-on-desktop { // Add `body` as selector to override WP generated CSS.
 	display: none; // Hide on mobile
 
 	@media screen and ( min-width: $breakpoint-desktop ) {
-		display: revert; // Show on desktop
+		&.is-layout-flex {
+			display: flex;
+		}
+
+		display: block; // Show on desktop
 	}
 }

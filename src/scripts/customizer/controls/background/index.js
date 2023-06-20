@@ -13,7 +13,7 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
@@ -51,7 +51,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 			{ value: 'right bottom', label: __( 'Right bottom', 'suki' ) },
 		];
 
-		render(
+		const content =
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -187,9 +187,13 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend( {
 						</Flex>
 					</CardBody>
 				</Card>
-			</>,
-			control.container[ 0 ]
-		);
+			</>;
+
+		if ( ! control.root ) {
+			control.root = createRoot( control.container[ 0 ] );
+		}
+
+		control.root.render( content );
 	},
 
 	openMediaLibrary() {

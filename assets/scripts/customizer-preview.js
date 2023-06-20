@@ -65,14 +65,14 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
             break;
           }
 
-          const index = functionObj.args[0];
+          const index = parseInt(functionObj.args[0]);
 
           if (isNaN(index)) {
             break;
           }
 
-          const array = value.split(' ');
-          value = undefined !== array[index] ? array[index] : '';
+          const parts = value.split(' ');
+          value = undefined !== parts[index] ? parts[index] : '';
           break;
       }
     }
@@ -203,13 +203,13 @@ if (undefined !== sukiCustomizerPreviewData && undefined !== sukiCustomizerPrevi
 
       rule.pattern = rule.pattern || '$';
       let currentRuleValue = parseRuleFunctionValue(value, rule.function);
+      currentRuleValue = rule.pattern.replace('$', currentRuleValue);
       const elements = [...document.querySelectorAll(rule.element)];
-      const isImportant = rule.pattern.endsWidth(' !important');
-      currentRuleValue = rule.pattern.replace('$', value);
+      const isImportant = rule.pattern.endsWith(' !important');
 
       if (isImportant) {
         currentRuleValue = currentRuleValue.replace(' !important', '');
-      } // Change class on all targeted elements.
+      } // Change style on all targeted elements.
 
 
       elements.forEach(function (element) {

@@ -30,15 +30,18 @@ if ( ! function_exists( 'suki_archive_header' ) ) {
 
 		?>
 		<!-- wp:group {
+			"layout":{
+				"type":"default"
+			},
 			"style":{
 				"spacing":{
 					"margin":{
-						"bottom":"calc(3 * var(--wp--style--block-gap))"
-					}
+						"bottom":"4rem"
+					},
+					"blockGap":"0.75rem"
 				}
-			},
-			"className":"suki-content-header"
-		} --><div class="wp-block-group suki-content-header" style="margin-bottom:calc(3 * var(--wp--style--block-gap))">
+			}
+		} --><div class="wp-block-group" style="margin-bottom:4rem">
 
 			<?php
 			suki_content_header( false );
@@ -98,6 +101,12 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 	/**
 	 * Render posts loop in `default` layout.
 	 *
+	 * Note:
+	 * - Theme uses `suki-loop--layout-default` class to add / override styles.
+	 * - Theme uses `suki-small-title` class to add / override styles.
+	 *
+	 * @todo `core/query` doesn't support `blockGap` yet, check again later.
+	 *
 	 * @since 2.0.0
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
@@ -106,10 +115,27 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 	 */
 	function suki_loop__default( $do_blocks = true, $echo = true ) {
 		ob_start();
+
+		$container = suki_get_current_page_setting( 'content_container' );
+		if ( suki_current_page_has_sidebar() && 'narrow' === $container ) {
+			$container = 'wide';
+		}
+
+		$content_size = '';
+		if ( 'full' === $container ) {
+			$content_size = '100%';
+		} elseif ( 'wide' === $container ) {
+			$content_size = 'var(--wp--style--global--wide-size)';
+		}
+
+		$items_gap = suki_get_theme_mod( 'blog_index_default_items_gap' );
 		?>
 		<!-- wp:query {
 			"query":{
-				"inherit":true
+				"type":"default"
+			},
+			"layout":{
+				"type":"default"
 			}
 		} --><div class="wp-block-query">
 
@@ -119,8 +145,14 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 
 				<!-- wp:group {
 					"tagName":"article",
-					"className":"entry entry--layout-default"
-				} --><article class="wp-block-group entry entry--layout-default">
+					"style":{
+						"spacing":{
+							"margin":{
+								"bottom":"<?php echo esc_attr( $items_gap ); ?>"
+							}
+						}
+					}
+				} --><article class="wp-block-group" style="margin-bottom:<?php echo esc_attr( $items_gap ); ?>">
 
 					<?php
 					/**
@@ -129,18 +161,29 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 					if ( 0 < count( suki_get_theme_mod( 'entry_header', array() ) ) || in_array( suki_get_theme_mod( 'entry_thumbnail_position' ), array( 'before', 'after' ), true ) ) {
 						?>
 						<!-- wp:group {
+							"layout":{
+								<?php
+								if ( suki_current_page_has_sidebar() ) {
+									?>
+									"type":"default"
+									<?php
+								} else {
+									?>
+									"type":"constrained",
+									"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+									<?php
+								}
+								?>
+							},
 							"style":{
 								"spacing":{
 									"margin":{
-										"bottom":"calc(1.5 * var(--wp--style--block-gap))"
-									}
+										"bottom":"2rem"
+									},
+									"blockGap":"0.75rem"
 								}
-							},
-							"className":"entry-header",
-							"layout":{
-								"inherit":true
 							}
-						} --><div class="wp-block-group entry-header" style="margin-bottom:calc(1.5 * var(--wp--style--block-gap))">
+						} --><div class="wp-block-group" style="margin-bottom:2rem">
 
 							<?php
 							/**
@@ -154,11 +197,10 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 									"style":{
 										"spacing":{
 											"margin":{
-												"bottom":"calc(1.5 * var(--wp--style--block-gap))"
+												"bottom":"2rem"
 											}
 										}
-									},
-									"className":"entry-thumbnail"
+									}
 								} /-->
 								<?php
 							}
@@ -181,11 +223,10 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 									"style":{
 										"spacing":{
 											"margin":{
-												"top":"calc(1.5 * var(--wp--style--block-gap))"
+												"top":"2rem"
 											}
 										}
-									},
-									"className":"entry-thumbnail"
+									}
 								} /-->
 								<?php
 							}
@@ -205,20 +246,30 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 						if ( 0 < intval( suki_get_theme_mod( 'entry_excerpt_length' ) ) ) {
 							?>
 							<!-- wp:group {
+								"layout":{
+									<?php
+									if ( suki_current_page_has_sidebar() ) {
+										?>
+										"type":"default"
+										<?php
+									} else {
+										?>
+										"type":"constrained",
+										"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+										<?php
+									}
+									?>
+								},
 								"style":{
 									"spacing":{
 										"margin":{
-											"top":"calc(1.5 * var(--wp--style--block-gap))",
-											"bottom":"calc(1.5 * var(--wp--style--block-gap))"
+											"top":"2rem",
+											"bottom":"2rem"
 										}
 									}
-								},
-								"className":"entry-excerpt",
-								"layout":{
-									"inherit":true
 								}
 							} -->
-							<div class="wp-block-group entry-excerpt">
+							<div class="wp-block-group">
 								<!-- wp:post-excerpt {
 									"moreText":"<?php echo esc_attr( suki_get_theme_mod( 'entry_read_more_text' ) ); ?>"
 								} /-->
@@ -231,16 +282,27 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 						 */
 						?>
 						<!-- wp:post-content {
+							"layout":{
+								<?php
+								if ( suki_current_page_has_sidebar() ) {
+									?>
+									"type":"default"
+									<?php
+								} else {
+									?>
+									"type":"constrained",
+									"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+									<?php
+								}
+								?>
+							},
 							"style":{
 								"spacing":{
 									"margin":{
-										"top":"calc(1.5 * var(--wp--style--block-gap))",
-										"bottom":"calc(1.5 * var(--wp--style--block-gap))"
+										"top":"2rem",
+										"bottom":"2rem"
 									}
 								}
-							},
-							"layout":{
-								"inherit":true
 							}
 						} /-->
 						<?php
@@ -252,18 +314,29 @@ if ( ! function_exists( 'suki_loop__default' ) ) {
 					if ( 0 < count( suki_get_theme_mod( 'entry_footer', array() ) ) ) {
 						?>
 						<!-- wp:group {
+							"layout":{
+								<?php
+								if ( suki_current_page_has_sidebar() ) {
+									?>
+									"type":"default"
+									<?php
+								} else {
+									?>
+									"type":"constrained",
+									"contentSize":"<?php echo esc_attr( $content_size ); ?>"
+									<?php
+								}
+								?>
+							},
 							"style":{
 								"spacing":{
 									"margin":{
-										"top":"calc(1.5 * var(--wp--style--block-gap))"
-									}
+										"top":"2rem"
+									},
+									"blockGap":"0.75rem"
 								}
-							},
-							"className":"entry-footer suki-content-footer",
-							"layout":{
-								"inherit":true
 							}
-						} --><div class="wp-block-group entry-footer" style="margin-top:calc(1.5 * var(--wp--style--block-gap))">
+						} --><div class="wp-block-group" style="margin-top:2rem">
 
 							<?php
 							foreach ( suki_get_theme_mod( 'entry_footer' ) as $element ) {
@@ -322,6 +395,12 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 	/**
 	 * Render posts loop in `grid` layout.
 	 *
+	 * Note:
+	 * - Theme uses `suki-loop--layout-grid` class to add / override styles.
+	 * - Theme uses `suki-small-title` class to add / override styles.
+	 *
+	 * @todo `core/query` doesn't support `blockGap` yet, check again later.
+	 *
 	 * @since 2.0.0
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
@@ -330,17 +409,22 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 	 */
 	function suki_loop__grid( $do_blocks = true, $echo = true ) {
 		ob_start();
+
+		$padding       = suki_get_theme_mod( 'entry_grid_same_padding' );
+		$border        = suki_get_theme_mod( 'entry_grid_same_border' );
+		$border_radius = suki_get_theme_mod( 'entry_grid_same_border_radius' );
+		$same_height   = suki_get_theme_mod( 'entry_grid_same_height' );
 		?>
 		<!-- wp:query {
 			"query":{
-				"inherit":true
+				"type":"default"
 			},
 			"displayLayout":{
 				"type":"flex",
 				"columns":<?php echo esc_attr( suki_get_theme_mod( 'blog_index_grid_columns' ) ); ?>
 			},
 			"layout":{
-				"inherit":true
+				"type":"default"
 			}
 		} --><div class="wp-block-query">
 
@@ -349,9 +433,8 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 			} -->
 
 				<!-- wp:group {
-					"tagName":"article",
-					"className":"entry entry--layout-grid"
-				} --><article class="wp-block-group entry entry--layout-grid">
+					"tagName":"article"
+				} --><article class="wp-block-group">
 
 					<?php
 					/**
@@ -360,8 +443,15 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 					if ( 0 < count( suki_get_theme_mod( 'entry_grid_header', array() ) ) || in_array( suki_get_theme_mod( 'entry_grid_thumbnail_position' ), array( 'before', 'after' ), true ) ) {
 						?>
 						<!-- wp:group {
-							"className":"entry-header"
-						} --><div class="wp-block-group entry-header">
+							"style":{
+								"spacing":{
+									"margin":{
+										"bottom":"1.25rem"
+									},
+									"blockGap":"0.75rem"
+								}
+							}
+						} --><div class="wp-block-group" style="margin-bottom:1.25rem">
 
 							<?php
 							/**
@@ -374,11 +464,11 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 									"style":{
 										"spacing":{
 											"margin":{
-												"bottom":"var(--wp--style--block-gap)"
+												"bottom":"1.25rem"
 											}
 										}
 									},
-									"className":"entry-thumbnail <?php echo esc_attr( boolval( suki_get_theme_mod( 'entry_grid_thumbnail_ignore_padding' ) ) ? 'suki-entry-thumbnail--ignore-padding' : '' ); ?>"
+									"className":"<?php echo esc_attr( boolval( suki_get_theme_mod( 'entry_grid_thumbnail_ignore_padding' ) ) ? 'suki-entry-thumbnail--ignore-padding' : '' ); ?>"
 								} /-->
 								<?php
 							}
@@ -400,11 +490,11 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 									"style":{
 										"spacing":{
 											"margin":{
-												"top":"var(--wp--style--block-gap)"
+												"top":"1.25rem"
 											}
 										}
 									},
-									"className":"entry-thumbnail <?php echo esc_attr( boolval( suki_get_theme_mod( 'entry_grid_thumbnail_ignore_padding' ) ) ? 'suki-entry-thumbnail--ignore-padding' : '' ); ?>"
+									"className":"<?php echo esc_attr( boolval( suki_get_theme_mod( 'entry_grid_thumbnail_ignore_padding' ) ) ? 'suki-entry-thumbnail--ignore-padding' : '' ); ?>"
 								} /-->
 								<?php
 							}
@@ -431,8 +521,15 @@ if ( ! function_exists( 'suki_loop__grid' ) ) {
 					if ( 0 < count( suki_get_theme_mod( 'entry_grid_footer', array() ) ) ) {
 						?>
 						<!-- wp:group {
-							"className":"entry-footer"
-						} --><div class="wp-block-group entry-footer">
+							"style":{
+								"spacing":{
+									"margin":{
+										"top":"1.25rem"
+									},
+									"blockGap":"0.75rem"
+								}
+							}
+						} --><div class="wp-block-group" style="margin-top:1.25rem">
 
 							<?php
 							foreach ( suki_get_theme_mod( 'entry_grid_footer' ) as $element ) {
@@ -491,6 +588,11 @@ if ( ! function_exists( 'suki_loop__search' ) ) {
 	/**
 	 * Render posts loop in `search` layout.
 	 *
+	 * Note:
+	 * - Theme uses `suki-small-title` class to add / override styles.
+	 *
+	 * @todo `core/query` doesn't support `blockGap` yet, check again later.
+	 *
 	 * @since 2.0.0
 	 *
 	 * @param boolean $do_blocks Parse blocks or not.
@@ -502,51 +604,52 @@ if ( ! function_exists( 'suki_loop__search' ) ) {
 		?>
 		<!-- wp:query {
 			"query":{
-				"inherit":true
+				"type":"default"
 			},
 			"layout":{
-				"inherit":true
+				"type":"default"
 			}
 		} --><div class="wp-block-query">
 
 			<!-- wp:post-template {
-				"style":{
-					"spacing":{
-						"blockGap":"3em"
-					}
-				},
 				"className":"suki-loop suki-loop--layout-search"
 			} -->
 
 				<!-- wp:group {
 					"tagName":"article",
-					"className":"entry entry--layout-search"
-				} --><article class="wp-block-group entry entry--layout-search">
+					"style":{
+						"spacing":{
+							"margin":{
+								"bottom":"3rem"
+							}
+						}
+					}
+				} --><article class="wp-block-group" style="margin-bottom:3rem">
 
 					<!-- wp:post-title {
 						"level":2,
 						"isLink":true,
-						"className":"entry-title suki-small-title"
+						"className":"suki-small-title"
 					} /-->
 
 					<!-- wp:post-excerpt /-->
 
-					</article><!-- /wp:group -->
+				</article><!-- /wp:group -->
 
-		<!-- /wp:post-template -->
+			<!-- /wp:post-template -->
 
-		<?php
-		/**
-		 * Pagination
-		 */
-		suki_loop_navigation( suki_get_theme_mod( 'post_archive_navigation_mode' ), false );
-		?>
+			<?php
+			/**
+			 * Pagination
+			 */
+			suki_loop_navigation( suki_get_theme_mod( 'post_archive_navigation_mode' ), false );
+			?>
 
-		<!-- wp:query-no-results -->
-			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p>
-			<!-- /wp:paragraph -->
-		<!-- /wp:query-no-results -->
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p><?php esc_html_e( 'Nothing found.', 'suki' ); ?></p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 
 		</div><!-- /wp:query -->
 		<?php
@@ -586,21 +689,19 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 	 */
 	function suki_loop_navigation( $mode = 'prev-next', $do_blocks = true, $echo = true ) {
 		ob_start();
-
 		?>
 		<!-- wp:group {
+			"layout":{
+				"type":"default"
+			},
 			"style":{
 				"spacing":{
 					"margin":{
-						"top":"calc(3 * var(--wp--style--block-gap))"
+						"top":"4rem"
 					}
 				}
-			},
-			"className":"suki-loop__navigation",
-			"layout":{
-				"inherit":true
 			}
-		} --><div class="wp-block-group suki-loop__navigation" style="margin-top:calc(3 * var(--wp--style--block-gap))">
+		} --><div class="wp-block-group" style="margin-top:4rem">
 
 			<?php
 			switch ( $mode ) {
@@ -610,8 +711,7 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 						"paginationArrow":"arrow",
 						"layout":{
 							"type":"flex",
-							"justifyContent":"center",
-							"orientation":"horizontal"
+							"justifyContent":"center"
 						}
 					} -->
 
@@ -628,19 +728,16 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 						"paginationArrow":"arrow",
 						"layout":{
 							"type":"flex",
-							"justifyContent":"space-between",
-							"orientation":"horizontal"
+							"justifyContent":"space-between"
 						}
 					} -->
 
 						<!-- wp:query-pagination-previous {
-							"label":"<?php echo esc_attr__( 'Newer Posts', 'suki' ); ?>",
-							"className":"has-text-align-left"
+							"label":"<?php echo esc_attr__( 'Newer Posts', 'suki' ); ?>"
 						} /-->
 
 						<!-- wp:query-pagination-next {
 							"label":"<?php echo esc_attr__( 'Older Posts', 'suki' ); ?>"
-							"className":"has-text-align-right"
 						} /-->
 
 					<!-- /wp:query-pagination -->
@@ -651,10 +748,6 @@ if ( ! function_exists( 'suki_loop_navigation' ) ) {
 		</div>
 		<?php
 		$html = ob_get_clean();
-
-		// Remove tag white space, used for detecting :empty on CSS (:has is not yet supported by major browsers).
-		// We can't put the margin on the Query Pagination block, because it doesn't support margin yet.
-		$html = preg_replace( '/>\s+</', '><', $html );
 
 		/**
 		 * Result

@@ -167,7 +167,7 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				'label'    => esc_html__( 'Hero container', 'suki' ),
 				'choices'  => array(
 					''        => esc_html__( '-- Global --', 'suki' ),
-					'content' => esc_html__( '= Content', 'suki' ),
+					'inherit' => esc_html__( '= Content', 'suki' ),
 					'narrow'  => esc_html__( 'Narrow', 'suki' ),
 					'wide'    => esc_html__( 'Wide', 'suki' ),
 					'full'    => esc_html__( 'Full', 'suki' ),
@@ -184,11 +184,6 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 			'custom' => esc_html__( 'Custom', 'suki' ),
 		);
 		if ( false !== strpos( $page_type_key, '_single' ) ) {
-			if ( 'page_single' !== $page_type_key ) {
-				/* translators: %s: plural post type name */
-				$choices['archive'] = sprintf( esc_html__( 'Same as archive', 'suki' ), $post_type_obj->labels->name );
-			}
-
 			if ( post_type_supports( $post_type_obj->name, 'thumbnail' ) ) {
 				/* translators: %s: singular post type name */
 				$choices['thumbnail'] = sprintf( esc_html__( 'Featured image', 'suki' ), $post_type_obj->labels->singular_name );
@@ -219,11 +214,11 @@ foreach ( Suki_Customizer::instance()->get_page_types( 'all' ) as $page_type_key
 				$key,
 				array(
 					'default'           => suki_array_value( $defaults, $key ),
-					'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'image' ),
+					'sanitize_callback' => 'absint',
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Image_Control(
+				new WP_Customize_Media_Control(
 					$wp_customize,
 					$key,
 					array(

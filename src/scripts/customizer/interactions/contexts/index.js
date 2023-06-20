@@ -5,91 +5,106 @@ wp.customize.bind( 'ready', () => {
 		const elementType = 0 === elementId.indexOf( 'suki_section' ) ? 'section' : 'control';
 
 		wp.customize[ elementType ]( elementId, ( elementObj ) => {
-			sukiCustomizerData.contexts[ elementId ].forEach( ( rule ) => {
-				const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize( rule.setting );
+			const setVisibility = function() {
+				// Get the control / section container.
+				let elementContainer = elementObj.container;
+				if ( 'section' === elementType ) {
+					elementContainer = elementObj.headContainer;
+				}
 
-				const setVisibility = function( checkedValue ) {
-					let displayed = false;
+				// Check all rules.
+				let allRulesMatched = true;
+				sukiCustomizerData.contexts[ elementId ].forEach( ( rule ) => {
+					const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize( rule.setting );
 
-					if ( undefined === rule.operator || '=' === rule.operator ) {
-						rule.operator = '==';
+					// Skip if rule setting object is not found.
+					if ( undefined === settingObj ) {
+						return;
 					}
 
+					// Get rule setting value.
+					const checkedValue = settingObj.get();
+
+					// Check rule based on its operator.
+					let ruleMatched;
 					switch ( rule.operator ) {
 						case '>':
-							displayed = checkedValue > rule.value;
+							ruleMatched = checkedValue > rule.value;
 							break;
 
 						case '<':
-							displayed = checkedValue < rule.value;
+							ruleMatched = checkedValue < rule.value;
 							break;
 
 						case '>=':
-							displayed = checkedValue >= rule.value;
+							ruleMatched = checkedValue >= rule.value;
 							break;
 
 						case '<=':
-							displayed = checkedValue <= rule.value;
+							ruleMatched = checkedValue <= rule.value;
 							break;
 
 						case 'in':
-							displayed = 0 <= rule.value.indexOf( checkedValue );
+							ruleMatched = 0 <= rule.value.indexOf( checkedValue );
 							break;
 
 						case 'not_in':
-							displayed = 0 > rule.value.indexOf( checkedValue );
+							ruleMatched = 0 > rule.value.indexOf( checkedValue );
 							break;
 
 						case 'contain':
-							displayed = 0 <= checkedValue.indexOf( rule.value );
+							ruleMatched = 0 <= checkedValue.indexOf( rule.value );
 							break;
 
 						case 'not_contain':
-							displayed = 0 > checkedValue.indexOf( rule.value );
+							ruleMatched = 0 > checkedValue.indexOf( rule.value );
 							break;
 
 						case '!=':
-							displayed = checkedValue !== rule.value;
+							ruleMatched = checkedValue !== rule.value;
 							break;
 
 						case 'empty':
-							displayed = 0 === checkedValue.length;
+							ruleMatched = 0 === checkedValue.length;
 							break;
 
 						case '!empty':
-							displayed = 0 < checkedValue.length;
+							ruleMatched = 0 < checkedValue.length;
 							break;
 
 						default:
-							displayed = checkedValue === rule.value;
+							ruleMatched = checkedValue === rule.value;
 							break;
 					}
 
-					let container = elementObj.container;
-					if ( 'section' === elementType ) {
-						container = elementObj.headContainer;
-					}
+					// Merge each rule result to the final result.
+					allRulesMatched = allRulesMatched && ruleMatched;
+				} );
 
-					if ( displayed ) {
-						container.removeClass( 'suki-context--hidden' );
-					} else {
-						container.addClass( 'suki-context--hidden' );
+				// Set visibility.
+				if ( allRulesMatched ) {
+					elementContainer.removeClass( 'suki-context--hidden' );
+				} else {
+					elementContainer.addClass( 'suki-context--hidden' );
 
-						if ( 'section' === elementType && elementObj.expanded() ) {
-							elementObj.collapse();
-						}
+					if ( 'section' === elementType && elementObj.expanded() ) {
+						elementObj.collapse();
 					}
-				};
+				}
+			};
+
+			// Bind each setting in the rules.
+			sukiCustomizerData.contexts[ elementId ].forEach( ( rule ) => {
+				const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize( rule.setting );
 
 				if ( undefined !== settingObj ) {
-					if ( '__device' !== rule.setting ) {
-						setVisibility( settingObj.get() );
-					}
-
 					// Bind the setting for future use.
 					settingObj.bind( setVisibility );
 				}
 			} );
+
+			// Initial run.
+			setVisibility();
 		} );
 	} );
 } );

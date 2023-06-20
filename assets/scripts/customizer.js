@@ -29,17 +29,16 @@ const SukiColorSelectDropdown = _ref => {
     value
   } = _ref;
   const palette = [];
-
-  for (let i = 1; i <= 8; i++) {
-    const color = wp.customize(`color_palette_${i}`).get();
+  const slugs = ['base', 'base-2', 'base-3', 'contrast', 'contrast-2', 'contrast-3', 'primary', 'primary-2'];
+  slugs.forEach(function (slug) {
+    const color = wp.customize(`color_${slug.replace('-', '_')}`).get();
     palette.push({
       /* translators: %d: number. */
-      name: wp.customize(`color_palette_${i}_name`).get() || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.sprintf)((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Theme Color %d', 'suki'), i),
-      color: `var(--color-palette-${i})`,
+      name: `${slug}`,
+      color: `var(--wp--preset--color--${slug})`,
       actualValue: color
     });
-  }
-
+  });
   const valueIsLink = value && 0 === value.indexOf('var(') ? true : false;
   const pickerIsOpened = value && !valueIsLink;
   const valueInfo = valueIsLink ? palette.find(item => {
@@ -363,7 +362,7 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
       value: 'right bottom',
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Right bottom', 'suki')
     }];
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -447,7 +446,13 @@ wp.customize.SukiBackgroundControl = wp.customize.SukiReactControl.extend({
         control.settings.position.set(position);
       },
       __nextHasNoMarginBottom: true
-    })))))), control.container[0]);
+    }))))));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   },
 
   openMediaLibrary() {
@@ -1008,53 +1013,23 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.SukiBuilderControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
     }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_builder__WEBPACK_IMPORTED_MODULE_4__["default"], {
       control: control
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
 wp.customize.controlConstructor['suki-builder'] = wp.customize.SukiBuilderControl;
-
-/***/ }),
-
-/***/ "./src/scripts/customizer/controls/color-palette.js":
-/*!**********************************************************!*\
-  !*** ./src/scripts/customizer/controls/color-palette.js ***!
-  \**********************************************************/
-/***/ (function() {
-
-wp.customize.bind('ready', () => {
-  /**
-   * Color Palette controls
-   *
-   * @param {number} i
-   * @param {string} color
-   */
-  function setColorPaletteValue(i, color) {
-    const styleId = `suki-color-palette-${i}-output-css`;
-    let styleTag = document.getElementById(styleId);
-
-    if (!styleTag) {
-      styleTag = document.createElement('style');
-      styleTag.id = styleId;
-      document.head.appendChild(styleTag);
-    }
-
-    styleTag.textContent = `.wp-customizer{--color-palette-${i}:${color}}`;
-  }
-
-  for (let i = 1; i <= 8; i++) {
-    wp.customize(`color_palette_${i}`).bind(color => {
-      setColorPaletteValue(i, color);
-    });
-    setColorPaletteValue(i, wp.customize(`color_palette_${i}`).get());
-  }
-});
 
 /***/ }),
 
@@ -1082,7 +1057,7 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
     const value = control.setting.get();
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -1094,7 +1069,13 @@ wp.customize.SukiColorSelectControl = wp.customize.SukiReactControl.extend({
       defaultValue: String(control.params.defaultValue),
       defaultPickerValue: "#ffffff",
       id: '_customize-input' + control.id
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1130,7 +1111,7 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
     const value = control.setting.get();
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -1176,7 +1157,13 @@ wp.customize.SukiColorControl = wp.customize.SukiReactControl.extend({
           }
         }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Reset', 'suki'))));
       }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Popover.Slot, null))), control.container[0]);
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Popover.Slot, null)));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1212,7 +1199,7 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_responsive_switcher__WEBPACK_IMPORTED_MODULE_4__["default"], {
       devices: Object.keys(control.params.responsiveStructures)
@@ -1243,7 +1230,13 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend({
           control.settings[settingId].set(newValue);
         }
       }));
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1281,7 +1274,7 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
     const directions = [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Top', 'suki'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Right', 'suki'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Bottom', 'suki'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Left', 'suki')];
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_1__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_responsive_switcher__WEBPACK_IMPORTED_MODULE_3__["default"], {
       devices: Object.keys(control.params.responsiveStructures)
@@ -1328,7 +1321,13 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
           }
         });
       })))));
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1376,8 +1375,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./slider */ "./src/scripts/customizer/controls/slider/index.js");
 /* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./toggle */ "./src/scripts/customizer/controls/toggle/index.js");
 /* harmony import */ var _typography__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./typography */ "./src/scripts/customizer/controls/typography/index.js");
-/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./color-palette */ "./src/scripts/customizer/controls/color-palette.js");
-/* harmony import */ var _color_palette__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_color_palette__WEBPACK_IMPORTED_MODULE_18__);
  // Base controls
 
 
@@ -1397,8 +1394,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
+ // import './color-palette';
 
 /***/ }),
 
@@ -1425,7 +1421,7 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
     const valueArray = control.setting.get();
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_1__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: '_customize-description-' + control.id
@@ -1442,7 +1438,13 @@ wp.customize.SukiMultiCheckControl = wp.customize.SukiReactControl.extend({
           }
         }
       });
-    }))), control.container[0]);
+    })));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   },
 
   addNewValueItem(value) {
@@ -1501,13 +1503,19 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.SukiMultiSelectControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
     }, control.params.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_multi_select__WEBPACK_IMPORTED_MODULE_4__["default"], {
       control: control
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1673,7 +1681,7 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -1700,7 +1708,13 @@ wp.customize.SukiDimensionsControl = wp.customize.SukiReactControl.extend({
         "aria-hidden": "true",
         alt: ""
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, choice.label)));
-    }))), control.container[0]);
+    })));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1769,7 +1783,7 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
       blur: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Blur', 'suki'),
       spread: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Spread', 'suki')
     };
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -1808,7 +1822,13 @@ wp.customize.SukiShadowControl = wp.customize.SukiReactControl.extend({
       },
       defaultValue: "#00000000",
       defaultPickerValue: "#000000"
-    }))))), control.container[0]);
+    })))));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1845,7 +1865,7 @@ wp.customize.SukiSliderControl = wp.customize.SukiReactControl.extend({
     const min = parseFloat(control.params.min) || 0;
     const max = parseFloat(control.params.max) || 100;
     const step = parseFloat(control.params.step) || 1;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_1__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_responsive_switcher__WEBPACK_IMPORTED_MODULE_3__["default"], {
       devices: Object.keys(control.params.responsiveStructures)
@@ -1869,7 +1889,13 @@ wp.customize.SukiSliderControl = wp.customize.SukiReactControl.extend({
           control.settings[settingId].set(newValue);
         }
       }));
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -1901,7 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
   renderContent() {
     const control = this;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -1913,7 +1939,13 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend({
         control.setting.set(checked ? 1 : 0);
       },
       __nextHasNoMarginBottom: true
-    })), control.container[0]);
+    }));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -2035,26 +2067,8 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
       step: '0.01'
     }];
     const lineHeightUnits = [{
-      value: 'px',
-      label: 'px',
-      default: '',
-      min: '0',
-      step: '1'
-    }, {
-      value: 'em',
-      label: 'em',
-      default: '',
-      min: '0',
-      step: '0.01'
-    }, {
-      value: 'rem',
-      label: 'rem',
-      default: '',
-      min: '0',
-      step: '0.01'
-    }, {
-      value: '%',
-      label: '%',
+      value: '',
+      label: '',
       default: '',
       min: '0',
       step: '0.01'
@@ -2076,7 +2090,7 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
       step: '0.01'
     }];
     const responsiveStructures = control.params.responsiveStructures;
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const content = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, control.params.label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       target: '_customize-input-' + control.id
     }, control.params.label), control.params.description && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_control_description__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: '_customize-description-' + control.id
@@ -2207,7 +2221,13 @@ wp.customize.SukiTypographyControl = wp.customize.SukiReactControl.extend({
           control.settings[letterSpacingSettingId].set(letterSpacing);
         }
       })));
-    }))))), control.container[0]);
+    })))));
+
+    if (!control.root) {
+      control.root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(control.container[0]);
+    }
+
+    control.root.render(content);
   }
 
 });
@@ -2248,92 +2268,104 @@ wp.customize.bind('ready', () => {
   Object.keys(sukiCustomizerData.contexts).forEach(elementId => {
     const elementType = 0 === elementId.indexOf('suki_section') ? 'section' : 'control';
     wp.customize[elementType](elementId, elementObj => {
-      sukiCustomizerData.contexts[elementId].forEach(rule => {
-        const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize(rule.setting);
+      const setVisibility = function () {
+        // Get the control / section container.
+        let elementContainer = elementObj.container;
 
-        const setVisibility = function (checkedValue) {
-          let displayed = false;
+        if ('section' === elementType) {
+          elementContainer = elementObj.headContainer;
+        } // Check all rules.
 
-          if (undefined === rule.operator || '=' === rule.operator) {
-            rule.operator = '==';
-          }
+
+        let allRulesMatched = true;
+        sukiCustomizerData.contexts[elementId].forEach(rule => {
+          const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize(rule.setting); // Skip if rule setting object is not found.
+
+          if (undefined === settingObj) {
+            return;
+          } // Get rule setting value.
+
+
+          const checkedValue = settingObj.get(); // Check rule based on its operator.
+
+          let ruleMatched;
 
           switch (rule.operator) {
             case '>':
-              displayed = checkedValue > rule.value;
+              ruleMatched = checkedValue > rule.value;
               break;
 
             case '<':
-              displayed = checkedValue < rule.value;
+              ruleMatched = checkedValue < rule.value;
               break;
 
             case '>=':
-              displayed = checkedValue >= rule.value;
+              ruleMatched = checkedValue >= rule.value;
               break;
 
             case '<=':
-              displayed = checkedValue <= rule.value;
+              ruleMatched = checkedValue <= rule.value;
               break;
 
             case 'in':
-              displayed = 0 <= rule.value.indexOf(checkedValue);
+              ruleMatched = 0 <= rule.value.indexOf(checkedValue);
               break;
 
             case 'not_in':
-              displayed = 0 > rule.value.indexOf(checkedValue);
+              ruleMatched = 0 > rule.value.indexOf(checkedValue);
               break;
 
             case 'contain':
-              displayed = 0 <= checkedValue.indexOf(rule.value);
+              ruleMatched = 0 <= checkedValue.indexOf(rule.value);
               break;
 
             case 'not_contain':
-              displayed = 0 > checkedValue.indexOf(rule.value);
+              ruleMatched = 0 > checkedValue.indexOf(rule.value);
               break;
 
             case '!=':
-              displayed = checkedValue !== rule.value;
+              ruleMatched = checkedValue !== rule.value;
               break;
 
             case 'empty':
-              displayed = 0 === checkedValue.length;
+              ruleMatched = 0 === checkedValue.length;
               break;
 
             case '!empty':
-              displayed = 0 < checkedValue.length;
+              ruleMatched = 0 < checkedValue.length;
               break;
 
             default:
-              displayed = checkedValue === rule.value;
+              ruleMatched = checkedValue === rule.value;
               break;
+          } // Merge each rule result to the final result.
+
+
+          allRulesMatched = allRulesMatched && ruleMatched;
+        }); // Set visibility.
+
+        if (allRulesMatched) {
+          elementContainer.removeClass('suki-context--hidden');
+        } else {
+          elementContainer.addClass('suki-context--hidden');
+
+          if ('section' === elementType && elementObj.expanded()) {
+            elementObj.collapse();
           }
+        }
+      }; // Bind each setting in the rules.
 
-          let container = elementObj.container;
 
-          if ('section' === elementType) {
-            container = elementObj.headContainer;
-          }
-
-          if (displayed) {
-            container.removeClass('suki-context--hidden');
-          } else {
-            container.addClass('suki-context--hidden');
-
-            if ('section' === elementType && elementObj.expanded()) {
-              elementObj.collapse();
-            }
-          }
-        };
+      sukiCustomizerData.contexts[elementId].forEach(rule => {
+        const settingObj = '__device' === rule.setting ? wp.customize.previewedDevice : wp.customize(rule.setting);
 
         if (undefined !== settingObj) {
-          if ('__device' !== rule.setting) {
-            setVisibility(settingObj.get());
-          } // Bind the setting for future use.
-
-
+          // Bind the setting for future use.
           settingObj.bind(setVisibility);
         }
-      });
+      }); // Initial run.
+
+      setVisibility();
     });
   });
 });

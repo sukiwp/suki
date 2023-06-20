@@ -12,13 +12,13 @@ import {
 	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
 
-		render(
+		const content =
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -66,9 +66,13 @@ wp.customize.SukiDimensionControl = wp.customize.SukiReactControl.extend( {
 						</SukiControlResponsiveContainer>
 					);
 				} ) }
-			</>,
-			control.container[ 0 ]
-		);
+			</>;
+
+		if ( ! control.root ) {
+			control.root = createRoot( control.container[ 0 ] );
+		}
+
+		control.root.render( content );
 	},
 } );
 

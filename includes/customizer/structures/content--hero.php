@@ -66,7 +66,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	)
 );
@@ -78,7 +77,7 @@ $wp_customize->add_control(
 			'section'  => $section,
 			'label'    => esc_html__( 'Container width', 'suki' ),
 			'choices'  => array(
-				'content' => array(
+				'inherit' => array(
 					'label' => esc_html__( 'Same with Content section', 'suki' ),
 				),
 				'narrow'  => array(
@@ -393,7 +392,6 @@ $wp_customize->add_control(
 
 // Colors.
 $colors = array(
-	'hero_bg_color'                         => esc_html__( 'Background color', 'suki' ),
 	'hero_border_color'                     => esc_html__( 'Border color', 'suki' ),
 	'hero_text_color'                       => esc_html__( 'Text color', 'suki' ),
 	'hero_link_text_color'                  => esc_html__( 'Link text color', 'suki' ),
@@ -431,50 +429,99 @@ foreach ( $colors as $key => $label ) {
  * ====================================================
  */
 
-// Heading: Background Image.
+// Heading: Background.
 $wp_customize->add_control(
 	new Suki_Customize_Heading_Control(
 		$wp_customize,
-		'heading_hero_background',
+		'heading_hero_bg',
 		array(
 			'section'  => $section,
 			'settings' => array(),
-			'label'    => esc_html__( 'Background Image', 'suki' ),
+			'label'    => esc_html__( 'Background', 'suki' ),
 			'priority' => 60,
 		)
 	)
 );
 
-// Default background image.
-$key      = 'hero_bg';
-$settings = array(
-	'image'      => $key . '_image',
-	'attachment' => $key . '_attachment',
+// Background image.
+$key = 'hero_bg_image';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => 'absint',
+	)
 );
-foreach ( $settings as $setting ) {
-	$wp_customize->add_setting(
-		$setting,
-		array(
-			'default'           => suki_array_value( $defaults, $setting ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'background' ),
-		)
-	);
-}
 $wp_customize->add_control(
-	new Suki_Customize_Background_Control(
+	new WP_Customize_Media_Control(
 		$wp_customize,
 		$key,
 		array(
-			'settings' => $settings,
+			'section'   => $section,
+			'label'     => esc_html__( 'Background image', 'suki' ),
+			'mime_type' => 'image',
+			'priority'  => 60,
+		)
+	)
+);
+
+// Fixed background.
+$key = 'hero_bg_parallax';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Toggle_Control(
+		$wp_customize,
+		$key,
+		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Default background image', 'suki' ),
+			'label'    => esc_html__( 'Fixed background', 'suki' ),
 			'priority' => 60,
 		)
 	)
 );
 
-// Colors.
-$key = 'hero_bg_overlay_color';
+// Repeat background.
+$key = 'hero_bg_repeat';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Toggle_Control(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Repeat background', 'suki' ),
+			'priority' => 60,
+		)
+	)
+);
+
+// ------
+$wp_customize->add_control(
+	new Suki_Customize_HR_Control(
+		$wp_customize,
+		'hr_hero_bg_color',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'priority' => 60,
+		)
+	)
+);
+
+// Background color.
+$key = 'hero_bg_color';
 $wp_customize->add_setting(
 	$key,
 	array(
@@ -488,8 +535,33 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
+			'section'     => $section,
+			'label'       => esc_html__( 'Background / Overlay color', 'suki' ),
+			'description' => esc_html__( 'When background image is specified, this color will be used as overlay color.', 'suki' ),
+			'priority'    => 60,
+		)
+	)
+);
+
+// Overlay Opacity.
+$key = 'hero_bg_color_overlay_dim';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Slider_Control(
+		$wp_customize,
+		$key,
+		array(
 			'section'  => $section,
-			'label'    => esc_html__( 'Background overlay color', 'suki' ),
+			'label'    => esc_html__( 'Overlay Opacity', 'suki' ),
+			'min'      => 0,
+			'max'      => 100,
+			'step'     => 10,
 			'priority' => 60,
 		)
 	)

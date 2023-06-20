@@ -2,33 +2,11 @@
 // Page Canvas
 // -------------------------------------------------------------
 
-.suki-page {
-	--page-width: 100vw;
-	--content-width--full: var(--page-width);
-
-	display: flex;
-	flex-direction: column;
-	width: min( 100%, var(--page-width) );
-	min-height: inherit; // full screen height page
-	background-color: var(--color-palette-8); // CUSTOMIZER
-
-	> * + * {
-		margin-block-start: 0; // reset `.wp-site-blocks`
-	}
-}
-
-.suki-page--layout-boxed {
-	background-color: var(--color-palette-6); // CUSTOMIZER: outside_bg_color
-	background-position: center center; // CUSTOMIZER: outside_bg_position
-	background-size: cover; // CUSTOMIZER: outside_bg_size
-	background-repeat: no-repeat; // CUSTOMIZER: outside_bg_repeat
-	background-attachment: fixed; // CUSTOMIZER: outside_bg_attachment
-
-	.suki-page {
-		--page-width: 1400px; // CUSTOMIZER
-
-		margin-inline-start: auto;
-		margin-inline-end: auto;
-		box-shadow: 0px 0px 2rem 0px rgba(0,0,0,0.05); // CUSTOMIZER: boxed_page_shadow
+// Revert `wp-block-library` CSS.
+.suki-boxed-page:is( .wp-block-cover ) {
+	:is( h1, h2, h3, h4, h5, h6 ) {
+		&:not( .has-text-color ) {
+			color: var(--wp--custom--heading--text-color);
+		}
 	}
 }

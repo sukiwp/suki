@@ -10,7 +10,7 @@ import {
 } from '@wordpress/components';
 
 import {
-	render,
+	createRoot,
 	useState,
 } from '@wordpress/element';
 
@@ -92,9 +92,6 @@ window.addEventListener( 'DOMContentLoaded', () => {
 	const root = document.getElementById( 'suki-admin-dashboard__sites-import' );
 
 	if ( root ) {
-		render(
-			<SukiDashboardSitesImport />,
-			root
-		);
+		createRoot( root ).render( <SukiDashboardSitesImport /> );
 	}
 } );

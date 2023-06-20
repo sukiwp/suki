@@ -17,6 +17,10 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 	/**
 	 * Render entry header & footer element.
 	 *
+	 * Note:
+	 * - Theme uses `suki-title` class to add / override styles.
+	 * - Theme uses `suki-small-title` class to add / override styles.
+	 *
 	 * @param string  $element   Element slug.
 	 * @param string  $layout    Layout slug.
 	 * @param string  $alignment Element alignment (left, center, or right).
@@ -39,7 +43,7 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 					"level":2,
 					"isLink":true,
 					"textAlign":"' . $alignment . '",
-					"className":"entry-title ' . ( 'default' === $layout ? 'suki-title' : 'suki-small-title' ) . '"
+					"className":"' . ( 'default' === $layout ? 'suki-title' : 'suki-small-title' ) . '"
 				} /-->
 				';
 				break;
@@ -55,8 +59,9 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 			case 'hr':
 				$html = '
 				<!-- wp:separator {
+					"backgroundColor":"base-3",
 					"className":"is-style-wide"
-				} --><hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/><!-- /wp:separator -->
+				} --><hr class="wp-block-separator has-text-color has-base-3-color has-alpha-channel-opacity has-base-3-background-color has-background is-style-wide"/><!-- /wp:separator -->
 				';
 				break;
 
@@ -99,61 +104,14 @@ if ( ! function_exists( 'suki_entry_header_footer_element' ) ) {
 }
 
 /**
- * Entry thumbnail
- */
-if ( ! function_exists( 'suki_entry_thumbnail' ) ) {
-	/**
-	 * Render entry thumbnail.
-	 *
-	 * @param string  $size      Thumbnail size (`thumbnail`, `medium`, `large`, `full`).
-	 * @param boolean $is_wide   Use wide alignment or not.
-	 * @param boolean $do_blocks Parse blocks or not.
-	 * @param boolean $echo      Render or return.
-	 * @return string
-	 */
-	function suki_entry_thumbnail( $size = 'thumbnail', $is_wide = false, $do_blocks = true, $echo = true ) {
-		$html = '
-		<!-- wp:group {
-			"className":"entry-thumbnail",
-			"layout":{
-				"inherit":true
-			}
-		} --><div class="wp-block-group entry-thumbnail">
-
-			<!-- wp:post-featured-image {
-				' . esc_attr( boolval( $is_wide ) ? '"align":"wide",' : '' ) . '
-				' . esc_attr( 'full' !== $size ? '"width":"' . get_option( $size . '_size_w' ) . 'px",' : '' ) . '
-				' . esc_attr( 'full' !== $size ? '"height":"' . get_option( $size . '_size_h' ) . 'px",' : '' ) . '
-				"isLink":true
-			} /-->
-
-		</div><!-- /wp:group -->
-		';
-
-		/**
-		 * Result
-		 */
-
-		// Parse blocks.
-		if ( boolval( $do_blocks ) ) {
-			$html = do_blocks( $html );
-		}
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $html;
-		}
-	}
-}
-
-/**
  * Entry meta
  */
 if ( ! function_exists( 'suki_entry_meta' ) ) {
 	/**
 	 * Render entry meta.
+	 *
+	 * Note:
+	 * - Theme uses `suki-meta` class to add / override styles.
 	 *
 	 * @since 2.0.0 Add $echo parameter with default to true.
 	 *
@@ -176,28 +134,31 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 		 * Parse formatted tags
 		 */
 
-		// Wrap the first and last elements.
-		$text = '<span>' . $text . '</span>';
+		// Inject delimiters.
+		$text = str_replace( '{{', '<delimiter>{{', $text );
+		$text = str_replace( '}}', '}}<delimiter>', $text );
 
-		// Open and close wrap for syntax.
-		$text = str_replace( '{{', '</span>{{', $text );
-		$text = str_replace( '}}', '}}<span>', $text );
-
-		// Remove blank parts.
-		$text = str_replace( '<span></span>', '', $text );
+		$nodes = explode( '<delimiter>', $text );
 
 		/**
-		 * Convert syntax tag to blocks
+		 * Convert nodes to blocks
 		 */
 
-		// Get all smart tags.
-		preg_match_all( '/{{(.*?)}}/', $text, $matches, PREG_SET_ORDER );
+		// Prepare blocks HTML string.
+		$blocks = '';
 
 		// Iterate each smart tag and convert it to real HTML.
-		foreach ( $matches as $match ) {
-			$meta = suki_entry_meta_element( $match[1], false, false );
+		foreach ( $nodes as $i => $node ) {
+			if ( str_starts_with( $node, '{{' ) && str_ends_with( $node, '}}' ) ) {
+				// If current node is smart tags, convert to the appropriate block.
+				$node = str_replace( '{{', '', $node );
+				$node = str_replace( '}}', '', $node );
 
-			$text = str_replace( $match[0], $meta, $text );
+				$blocks .= suki_entry_meta_element( $node, false, false );
+			} else {
+				// Otherwise, convert to HTML block.
+				$blocks .= '<!-- wp:html -->' . $node . '<!-- /wp:html -->';
+			}
 		}
 
 		/**
@@ -206,15 +167,20 @@ if ( ! function_exists( 'suki_entry_meta' ) ) {
 
 		$html = '
 		<!-- wp:group {
-			"className":"entry-meta suki-meta suki-reverse-link-color has-text-align-' . $alignment . '",
 			"layout":{
 				"type":"flex",
 				"flexWrap":"wrap",
-				"verticalAlignment":"top",
-				"justifyContent":"' . $alignment . '"
-			}
-		} --><div class="wp-block-group entry-meta suki-meta suki-reverse-link-color has-text-align-' . $alignment . '">
-			' . $text . '
+				"justifyContent":"' . $alignment . '",
+				"verticalAlignment":"top"
+			},
+			"style":{
+				"spacing":{
+					"blockGap":"0.25em"
+				}
+			},
+			"className":"suki-meta"
+		} --><div class="wp-block-group suki-meta">
+			' . $blocks . '
 		</div><!-- /wp:group -->
 		';
 
@@ -255,32 +221,23 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 			case 'date':
 				$html = '
 				<!-- wp:post-date {
-					"isLink":true,
-					"className":"entry-meta__date"
+					"isLink":true
 				} /-->
 				';
 				break;
 
 			case 'author':
 				$html = '
-				<!-- wp:post-author {
-					"showAvatar":false
+				<!-- wp:post-author-name {
+					"isLink":true
 				} /-->
 				';
 				break;
 
 			case 'avatar':
-				/**
-				 * Filter: suki/frontend/entry_author_bio_avatar_size
-				 *
-				 * @param integer $size Avatar size (in px).
-				 */
-				$size = apply_filters( 'suki/frontend/entry_author_bio_avatar_size', 80 );
-
 				$html = '
 				<!-- wp:avatar {
-					"size":' . $size . ',
-					"className":"entry-meta__avatar"
+					"size":30
 				} /-->
 				';
 				break;
@@ -288,8 +245,7 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 			case 'categories':
 				$html = '
 				<!-- wp:post-terms {
-					"term":"category",
-					"className":"entry-meta__categories"
+					"term":"category"
 				} /-->
 				';
 				break;
@@ -297,8 +253,7 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 			case 'tags':
 				$html = '
 				<!-- wp:post-terms {
-					"term":"post_tag",
-					"className":"entry-meta__tags"
+					"term":"post_tag"
 				} /-->
 				';
 				break;
@@ -312,7 +267,7 @@ if ( ! function_exists( 'suki_entry_meta_element' ) ) {
 				break;
 
 			default:
-				$html = '<span>' . $element . '</span>';
+				$html = '<!-- wp:html -->' . $element . '<!-- /wp:html -->';
 				break;
 		}
 

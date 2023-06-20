@@ -16,89 +16,99 @@ if ( ! defined( 'ABSPATH' ) ) {
  * ====================================================
  */
 
-if ( ! function_exists( 'suki_skip_to_content_link' ) ) {
-	/**
-	 * Render skip to content link.
-	 */
-	function suki_skip_to_content_link() {
-		?>
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'suki' ); ?></a>
-		<?php
+/**
+ * Render skip to content link.
+ */
+function suki_skip_to_content_link() {
+	?>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'suki' ); ?></a>
+	<?php
+}
+
+/**
+ * Fallback HTML if there is no nav menu assigned to a navigation location.
+ */
+function suki_unassigned_menu() {
+	// Abort if current user has no access to edit menus.
+	if ( ! is_user_logged_in() || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+	?>
+	<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>">
+		<em><?php esc_html_e( 'Add a menu', 'suki' ); ?></em>
+	</a>
+	<?php
+}
+
+/**
+ * Print element classes from specified default classes array and classes added via the provided filter.
+ *
+ * @param string|array $classes   Classes array.
+ * @param boolean      $attribute Include class="..." attribute.
+ * @param boolean      $echo      Render or return.
+ * @return string
+ */
+function suki_element_class( $classes = array(), $attribute = true, $echo = true ) {
+	// Return if classes array is empty.
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	// Convert array to string.
+	$html = implode( ' ', $classes );
+
+	// Wrap with `class="..."`.
+	if ( boolval( $attribute ) ) {
+		$html = 'class="' . esc_attr( $html ) . '"';
+	}
+
+	// Render or return.
+	if ( boolval( $echo ) ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
 	}
 }
 
-if ( ! function_exists( 'suki_unassigned_menu' ) ) {
-	/**
-	 * Fallback HTML if there is no nav menu assigned to a navigation location.
-	 */
-	function suki_unassigned_menu() {
-		// Abort if current user has no access to edit menus.
-		if ( ! is_user_logged_in() || ! current_user_can( 'edit_theme_options' ) ) {
-			return;
+/**
+ * Print element style attribute from specified default inline CSS array.
+ *
+ * @param string|array $styles    Styles key-value pair array.
+ * @param boolean      $attribute Include style="..." attribute.
+ * @param boolean      $echo      Render or return.
+ * @return string
+ */
+function suki_element_style( $styles = array(), $attribute = true, $echo = true ) {
+	// Build CSS rules array.
+	$css_rules = array();
+	foreach ( $styles as $prop => $value ) {
+		// Skip null, false, or empty string value.
+		if ( is_null( $value ) || false === $value || '' === $value ) {
+			continue;
 		}
-		?>
-		<a href="<?php echo esc_attr( add_query_arg( 'action', 'locations', admin_url( 'nav-menus.php' ) ) ); ?>">
-			<em><?php esc_html_e( 'Add a menu', 'suki' ); ?></em>
-		</a>
-		<?php
+
+		// Add CSS rule.
+		$css_rules[] = $prop . ':' . $value;
 	}
-}
 
-if ( ! function_exists( 'suki_element_class' ) ) {
-	/**
-	 * Print element classes from specified default classes array and classes added via the provided filter.
-	 *
-	 * @param string       $element Element key.
-	 * @param string|array $classes Classes array.
-	 * @param boolean      $echo    Render or return.
-	 * @return string
-	 */
-	function suki_element_class( $element, $classes = array(), $echo = true ) {
-		// Build filter tag.
-		$filter = 'suki/frontend/' . str_replace( '-', '_', $element ) . '_classes';
-
-		// Convert string parameter $classes to array.
-		if ( is_string( $classes ) ) {
-			$classes = explode( ' ', $classes );
-		}
-
-		/**
-		 * Filter: suki/frontend/{$element}_classes
-		 *
-		 * @param array $classes Classes array.
-		 */
-		$classes = apply_filters( $filter, $classes );
-
-		// Convert array to string.
-		$classes_string = implode( ' ', $classes );
-
-		// Render or return.
-		if ( boolval( $echo ) ) {
-			echo esc_attr( $classes_string );
-		} else {
-			return esc_attr( $classes_string );
-		}
+	// Return if CSS rules array is empty.
+	if ( empty( $css_rules ) ) {
+		return;
 	}
-}
 
-if ( ! function_exists( 'suki_post_class' ) ) {
-	/**
-	 * Print post classes from specified default classes array, WordPress post classes, and classes added via the provided filter.
-	 *
-	 * @uses suki_element_class()
-	 *
-	 * @param string|array $classes Classes array.
-	 * @param boolean      $echo    Render or return.
-	 * @return string
-	 */
-	function suki_post_class( $classes = array(), $echo = true ) {
-		// Convert string parameter $classes to array.
-		if ( is_string( $classes ) ) {
-			$classes = explode( ' ', $classes );
-		}
+	// Convert array to string.
+	$html = implode( ';', $css_rules );
 
-		// Render or return classes via `suki_element_class` function.
-		return suki_element_class( 'post_' . get_the_ID(), array_merge( get_post_class(), $classes ), $echo );
+	// Wrap with `class="..."`.
+	if ( boolval( $attribute ) ) {
+		$html = 'style="' . esc_attr( $html ) . '"';
+	}
+
+	// Render or return.
+	if ( boolval( $echo ) ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+		return $html;
 	}
 }
 
@@ -194,6 +204,7 @@ if ( ! function_exists( 'suki_social_links' ) ) {
 	}
 }
 
+require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/canvas.php';
 require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/header.php';
 require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/footer.php';
 require_once trailingslashit( SUKI_INCLUDES_DIR ) . 'template-tags/content.php';

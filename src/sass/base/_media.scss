@@ -2,30 +2,11 @@
 // Media tags.
 // -------------------------------------------------------------
 
-figure {
-	margin-inline: 0; // Reset
-	margin-block: var(--wp--style--block-gap);
-	@include remove-margin-top-for-first-child();
-	@include remove-margin-bottom-for-last-child();
-}
-
-figcaption {
-	margin: 0.5em 0 0;
-	text-align: center;
-	font-size: var(--meta--font-size);
-	line-height: var(--meta--line-height);
-	opacity: 0.75;
-	caption-side: bottom;
-}
-
 img,
 video {
+	display: inline-block;
 	max-width: 100%;
 	height: auto;
-}
-
-img {
-	display: inline-block;
 	vertical-align: middle;
 }
 

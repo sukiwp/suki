@@ -5,13 +5,13 @@ import SukiControlDescription from '../../components/control-description';
 
 import { ToggleControl } from '@wordpress/components';
 
-import { render } from '@wordpress/element';
+import { createRoot } from '@wordpress/element';
 
 wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend( {
 	renderContent() {
 		const control = this;
 
-		render(
+		const content =
 			<>
 				{ control.params.label &&
 					<SukiControlLabel target={ '_customize-input-' + control.id }>
@@ -34,9 +34,13 @@ wp.customize.SukiToggleControl = wp.customize.SukiReactControl.extend( {
 					} }
 					__nextHasNoMarginBottom
 				/>
-			</>,
-			control.container[ 0 ]
-		);
+			</>;
+
+		if ( ! control.root ) {
+			control.root = createRoot( control.container[ 0 ] );
+		}
+
+		control.root.render( content );
 	},
 } );
 

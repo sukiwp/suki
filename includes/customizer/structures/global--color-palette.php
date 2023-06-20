@@ -18,9 +18,22 @@ $section = 'suki_section_color_palette';
  * ====================================================
  */
 
-for ( $i = 1; $i <= 8; $i++ ) {
+$colors = array(
+	'base'        => esc_html__( 'Base', 'suki' ),
+	'base_2'      => esc_html__( 'Base 2', 'suki' ),
+	'base_3'      => esc_html__( 'Base 3', 'suki' ),
+	'contrast'    => esc_html__( 'Contrast', 'suki' ),
+	'contrast_2'  => esc_html__( 'Contrast 2', 'suki' ),
+	'contrast_3'  => esc_html__( 'Contrast 3', 'suki' ),
+	'primary'     => esc_html__( 'Primary', 'suki' ),
+	'primary_2'   => esc_html__( 'Primary 2', 'suki' ),
+	'secondary'   => esc_html__( 'Secondary', 'suki' ),
+	'secondary_2' => esc_html__( 'Secondary 2', 'suki' ),
+);
+
+foreach ( $colors as $slug => $label ) {
 	// Color.
-	$key = 'color_palette_' . $i;
+	$key = 'color_' . $slug;
 	$wp_customize->add_setting(
 		$key,
 		array(
@@ -35,30 +48,10 @@ for ( $i = 1; $i <= 8; $i++ ) {
 			$key,
 			array(
 				'section'     => $section,
+				'label'       => $label,
 				'has_palette' => false,
-				'priority'    => $i * 10,
+				'priority'    => 10,
 			)
-		)
-	);
-
-	// Color name.
-	$key = 'color_palette_' . $i . '_name';
-	$wp_customize->add_setting(
-		$key,
-		array(
-			'default'           => suki_array_value( $defaults, $key ),
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'text' ),
-		)
-	);
-	$wp_customize->add_control(
-		$key,
-		array(
-			'section'     => $section,
-			'input_attrs' => array(
-				/* translators: %d: color number. */
-				'placeholder' => sprintf( esc_html__( 'Theme Color %d', 'suki' ), $i ),
-			),
-			'priority'    => $i * 10,
 		)
 	);
 }

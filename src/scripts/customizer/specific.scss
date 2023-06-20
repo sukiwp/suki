@@ -103,7 +103,7 @@
 // -------------------------------------------------------------
 
 // Page Settings: 1st level options
-:is( // Select Control
+.customize-control:is( // Select Control
 	[id$="_content_container"],
 	[id$="_content_layout"],
 	[id$="_hero"],
@@ -112,27 +112,6 @@
 	[id$="_disable_footer_widgets"],
 	[id$="_disable_footer_bottom"]
 ) {
-	.customize-control-title {
-		min-height: 30px;
-		padding-right: 135px;
-		margin-bottom: 0; // Reset
-	}
-
-	select {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 120px;
-	}
-}
-
-// Page Settings: 2nd level options
-:is( // Select Control
-	[id$="_hero_container"],
-	[id$="_hero_bg"]
-) {
-	padding-left: 15px;
-
 	.customize-control-title {
 		min-height: 30px;
 		padding-right: 135px;

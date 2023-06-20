@@ -5,160 +5,148 @@
 // Base
 @import "base/global";
 @import "base/text";
-@import "base/form";
 @import "base/media";
-@import "base/table";
+@import "base/form";
 
 // Utilities
-@import "utilities/colors";
-@import "utilities/typography";
-@import "utilities/alignments";
+// @import "utilities/colors";
+// @import "utilities/typography";
 @import "utilities/visibility";
 @import "utilities/accessibility";
 
 // Blocks
-@import "blocks/common";
 @import "blocks/text";
 @import "blocks/media";
 @import "blocks/design";
 @import "blocks/widgets";
+@import "blocks/theme";
 
-@import "blocks/navigation";
-@import "blocks/posts";
-@import "blocks/comments";
+// // -------------------------------------------------------------
+// // Tiny MCE
+// // -------------------------------------------------------------
 
-// Block supports (added last)
-@import "blocks/supports";
+// body.mce-content-body {
+// 	padding: 0.5em 0.75em !important;
+// 	min-height: auto;
+// }
 
+// // -------------------------------------------------------------
+// // Components
+// // -------------------------------------------------------------
 
-// -------------------------------------------------------------
-// Tiny MCE
-// -------------------------------------------------------------
+// .wp-block-search__button {
+// 	@extend %button;
+// }
 
-body.mce-content-body {
-	--wp--style--block-gap: var(--block-spacing);
+// .wp-block-social-links {
+// 	&.is-style-pill-shape {
+// 		.wp-block-social-link {
+// 			button {
+// 				padding: 0.25em;
+// 			}
+// 		}
+// 	}
+// }
 
-	padding: 0.5em 0.75em !important;
-	min-height: auto;
-}
+// .block-editor-plain-text { // Re-define the original CSS, because it's overridden by theme's CSS (.editor-styles-wrapper textarea)
+// 	box-shadow: none;
+// 	font-family: inherit;
+// 	font-size: inherit;
+// 	color: inherit;
+// 	line-height: inherit;
+// 	border: none;
+// 	padding: 0;
+// 	margin: 0;
+// 	width: 100%;
+// }
 
-// -------------------------------------------------------------
-// Components
-// -------------------------------------------------------------
+// body.suki-section--wide {
+// 	--content-width--narrow: var(--content-width--wide);
+// }
 
-.wp-block-search__button {
-	@extend %button;
-}
+// body.suki-section--full {
+// 	--content-width--narrow: auto;
+// 	--content-width--wide: auto;
+// }
 
-.wp-block-social-links {
-	&.is-style-pill-shape {
-		.wp-block-social-link {
-			button {
-				padding: 0.25em;
-			}
-		}
-	}
-}
+// body.wp-block-widget-area__inner-blocks {
+// 	> .block-editor-block-list__layout {
+// 		> * {
+// 			margin-block: 0;
+// 		}
 
-.block-editor-plain-text { // Re-define the original CSS, because it's overridden by theme's CSS (.editor-styles-wrapper textarea)
-	box-shadow: none;
-	font-family: inherit;
-	font-size: inherit;
-	color: inherit;
-	line-height: inherit;
-	border: none;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-}
+// 		> * + * {
+// 			margin-block-start: var(--sidebar-widgets-gap);
+// 		}
+// 	}
+// }
 
-body.suki-section--wide {
-	--content-width--narrow: var(--content-width--wide);
-}
+// // -------------------------------------------------------------
+// // Block Editor
+// // -------------------------------------------------------------
 
-body.suki-section--full {
-	--content-width--narrow: auto;
-	--content-width--wide: auto;
-}
+// body.suki-section--wide {
+// 	--wp--style--global--content-size: var(--wp--style--global--wide-size);
+// }
 
-body.wp-block-widget-area__inner-blocks {
-	> .block-editor-block-list__layout {
-		> * {
-			margin-block: 0;
-		}
+// body.suki-section--full {
+// 	--wp--style--global--content-size: auto;
+// 	--wp--style--global--wide-size: auto;
+// }
 
-		> * + * {
-			margin-block-start: var(--sidebar-widgets-gap);
-		}
-	}
-}
+// body .is-root-container {
+// 	margin-block-start: 3rem;
+// }
 
-// -------------------------------------------------------------
-// Block Editor
-// -------------------------------------------------------------
+// body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
+// 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
+// 		position: relative;
+// 		width: var(--wp--style--global--content-size);
+// 		margin-inline-start: auto;
+// 		margin-inline-end: auto;
 
-body.suki-section--wide {
-	--wp--style--global--content-size: var(--wp--style--global--wide-size);
-}
+// 		&:after {
+// 			content: "";
+// 			box-sizing: border-box;
+// 			position: absolute;
+// 			top: 4rem;
+// 			bottom: 40vh;
+// 			width: var(--sidebar-width);
+// 			padding: 1.5rem;
+// 			border: 3px dashed currentColor;
+// 			display: flex;
+// 			justify-content: center;
+// 			align-items: flex-start;
+// 			color: var(--border-color);
+// 		}
+// 	}
 
-body.suki-section--full {
-	--wp--style--global--content-size: auto;
-	--wp--style--global--wide-size: auto;
-}
+// 	.block-editor-block-list__layout {
+// 		--wp--style--global--content-size: auto;
+// 		--wp--style--global--wide-size: auto;
+// 	}
+// }
 
-body .is-root-container {
-	margin-block-start: 3rem;
-}
+// body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
+// 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
+// 		> * {
+// 			padding-inline-start: calc( var(--sidebar-gap) + var(--sidebar-width) );
+// 		}
 
-body:is(.suki-content--layout-left-sidebar, .suki-content--layout-right-sidebar):not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
-	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
-		position: relative;
-		width: var(--wp--style--global--content-size);
-		margin-inline-start: auto;
-		margin-inline-end: auto;
+// 		&:after {
+// 			left: 0;
+// 		}
+// 	}
+// }
 
-		&:after {
-			content: "";
-			box-sizing: border-box;
-			position: absolute;
-			top: 4rem;
-			bottom: 40vh;
-			width: var(--sidebar-width);
-			padding: 1.5rem;
-			border: 3px dashed currentColor;
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			color: var(--border-color);
-		}
-	}
+// body.suki-content--layout-right-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
+// 	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
+// 		> * {
+// 			padding-inline-end: calc( var(--sidebar-gap) + var(--sidebar-width) );
+// 		}
 
-	.block-editor-block-list__layout {
-		--wp--style--global--content-size: auto;
-		--wp--style--global--wide-size: auto;
-	}
-}
-
-body.suki-content--layout-left-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
-	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
-		> * {
-			padding-inline-start: calc( var(--sidebar-gap) + var(--sidebar-width) );
-		}
-
-		&:after {
-			left: 0;
-		}
-	}
-}
-
-body.suki-content--layout-right-sidebar:not(.suki-section--narrow) { // Sidebar is not supported in narrow container.
-	@media screen and ( min-width: ( 1024px + 281px ) ) { // Desktop breakpoint + Gutenberg controls right sidebar
-		> * {
-			padding-inline-end: calc( var(--sidebar-gap) + var(--sidebar-width) );
-		}
-
-		&:after {
-			right: 0;
-		}
-	}
-}
+// 		&:after {
+// 			right: 0;
+// 		}
+// 	}
+// }

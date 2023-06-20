@@ -5,22 +5,26 @@
 // Base
 @import "base/global";
 @import "base/text";
-@import "base/form";
 @import "base/media";
-@import "base/table";
+@import "base/form";
 
 // Utilities
-@import "utilities/colors";
 @import "utilities/typography";
-@import "utilities/alignments";
+@import "utilities/alignment";
 @import "utilities/visibility";
 @import "utilities/accessibility";
+
+// Blocks
+@import "blocks/text";
+@import "blocks/media";
+@import "blocks/design";
+@import "blocks/widgets";
+@import "blocks/theme";
 
 // Components
 @import "main/components/icon";
 @import "main/components/toggle";
 @import "main/components/popup";
-@import "main/components/container";
 @import "main/components/menu";
 @import "main/components/search";
 @import "main/components/breadcrumb";
@@ -34,6 +38,5 @@
 @import "main/layouts/footer";
 @import "main/layouts/hero";
 @import "main/layouts/content-sidebar";
-@import "main/layouts/post";
+// @import "main/layouts/post";
 @import "main/layouts/archive";
-@import "main/layouts/singular";

@@ -2,42 +2,23 @@
 // Inline text elements
 // -------------------------------------------------------------
 
+// Add transition to all link tag.
 a {
-	color: var(--link-color);
-	text-decoration: none;
 	transition: color var(--transition-duration), opacity var(--transition-duration);
-
-	&:hover,
-	&:focus {
-		color: var(--link-color--focus);
-		text-decoration: underline;
-	}
 }
 
-kbd {
-	background-color: var(--text-color);
-	color: var(--background-color);
-	border-radius: 0.25em;
-	font-family: monospace;
-	font-size: inherit;
-	padding: 0.15em 0.3em;
-}
-
-code {
-	background-color: var(--subtle-background-color);
-	color: var(--text-color);
-	padding: 0.1em 0.2em;
-	overflow-wrap: break-word;
-}
-
-cite {
+// The "figcaption" selector is not included in the theme.json `styles.elements.caption`.
+figcaption {
+	text-align: center;
 	font-size: var(--wp--preset--font-size--small);
-	line-height: var(--wp--custom--line-height--small);
-	opacity: 0.75;
+	opacity: 0.5;
+	margin-top: 0.5em;
 }
 
+// Default color for `mark` tag.
 mark {
-	background-color: var(--subtle-background-color);
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
 }
 
 // -------------------------------------------------------------
@@ -46,11 +27,14 @@ mark {
 
 p {
 	margin-block: var(--wp--style--block-gap);
+	// We also added margin styles via `styles.blocks.core/paragraph` in the `theme.json`.
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color: var(--heading-color);
+// `theme.json` doesn't have global style for link inside global headings.
+// But, we added link inside `core/heading` block styles via `styles.blocks.core/heading` in the `theme.json`.
+:is( h1, h2, h3, h4, h5, h6 ) {
 	margin-block: var(--wp--style--block-gap);
+	// We also added margin styles via `styles.elements.heading` in the `theme.json`.
 
 	a {
 		color: inherit;
@@ -61,108 +45,55 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-// For element after headings, remove the top margin. We will use the heading's margin bottom
-:where(h1, h2, h3, h4, h5, h6) + :where(h1, h2, h3, h4, h5, h6) {
-	margin-block-start: calc( 0.5 * var(--wp--style--block-gap) );
-}
-
-h1 {
-	font-family: var(--h1--font-family);
-	font-size: var(--h1--font-size);
-	font-style: var(--h1--font-style);
-	font-weight: var(--h1--font-weight);
-	line-height: var(--h1--line-height);
-	letter-spacing: var(--h1--letter-spacing);
-	text-transform: var(--h1--text-transform);
-}
-
-h2 {
-	font-family: var(--h2--font-family);
-	font-size: var(--h2--font-size);
-	font-style: var(--h2--font-style);
-	font-weight: var(--h2--font-weight);
-	line-height: var(--h2--line-height);
-	letter-spacing: var(--h2--letter-spacing);
-	text-transform: var(--h2--text-transform);
-}
-
-h3 {
-	font-family: var(--h3--font-family);
-	font-size: var(--h3--font-size);
-	font-style: var(--h3--font-style);
-	font-weight: var(--h3--font-weight);
-	line-height: var(--h3--line-height);
-	letter-spacing: var(--h3--letter-spacing);
-	text-transform: var(--h3--text-transform);
-}
-
-h4 {
-	font-family: var(--h4--font-family);
-	font-size: var(--h4--font-size);
-	font-style: var(--h4--font-style);
-	font-weight: var(--h4--font-weight);
-	line-height: var(--h4--line-height);
-	letter-spacing: var(--h4--letter-spacing);
-	text-transform: var(--h4--text-transform);
-}
-
-h5 {
-	font-family: var(--h5--font-family);
-	font-size: var(--h5--font-size);
-	font-style: var(--h5--font-style);
-	font-weight: var(--h5--font-weight);
-	line-height: var(--h5--line-height);
-	letter-spacing: var(--h5--letter-spacing);
-	text-transform: var(--h5--text-transform);
-}
-
-h6 {
-	font-family: var(--h6--font-family);
-	font-size: var(--h6--font-size);
-	font-style: var(--h6--font-style);
-	font-weight: var(--h6--font-weight);
-	line-height: var(--h6--line-height);
-	letter-spacing: var(--h6--letter-spacing);
-	text-transform: var(--h6--text-transform);
-}
-
-:is( ul, ol ) {
+:where( ol, ul ) {
 	margin-block: var(--wp--style--block-gap);
-	padding-inline-start: 2em;
+	padding-left: 2em;
+	// We also added margin styles via `styles.blocks.core/list` in the `theme.json`.
 
-	overflow-wrap: break-word;
-
-	ul, ol {
-		margin: 0;
+	:where( ol, ul ) {
+		margin-block: 0;
 	}
 }
 
+// `theme.json` doesn't have global style for `pre`.
 pre {
 	margin-block: var(--wp--style--block-gap);
-	font-size: 1rem;
-	font-family: monospace;
 }
 
-address {
-	margin-block: var(--wp--style--block-gap);
-	font-style: normal;
-}
-
+// `theme.json` doesn't have global style for `blockquote`.
 blockquote {
+	margin-inline: 0; // Reset
 	margin-block: var(--wp--style--block-gap);
-
-	> * {
-		margin-block: var(--wp--style--block-gap);
-		@include remove-margin-top-for-first-child();
-		@include remove-margin-bottom-for-last-child();
-	}
 
 	cite {
 		display: block;
 	}
 }
 
-:where( p, h1, h2, h3, h4, h5, h6, pre, address, blockquote ) {
+:where( p, h1, h2, h3, h4, h5, h6, ol, ul, pre, blockquote ) {
 	@include remove-margin-top-for-first-child();
 	@include remove-margin-bottom-for-last-child();
+}
+
+// -------------------------------------------------------------
+// Table
+// -------------------------------------------------------------
+
+table {
+	// width: 100%;
+	border-collapse: collapse;
+	border-width: 1px;
+	border-style: solid;
+}
+
+th, td {
+	padding: 0.5em 1em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: inherit;
+	text-align: initial; // Reset
+}
+
+th {
+	font-weight: 600;
 }

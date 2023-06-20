@@ -1,0 +1,10 @@
+// -------------------------------------------------------------
+// Alignfull
+// Mimic the behhavior of `has-global-padding` class
+// when `useRootPaddingAwareAlignments` mode is enabled
+// -------------------------------------------------------------
+
+:where( :not( .is-layout-constrained ) .is-layout-constrained ) > .alignfull {
+	margin-left: calc( -1 * var(--alignfull--left) );
+	margin-right: calc( -1 * var(--alignfull--right) );
+}

@@ -20,14 +20,29 @@ $add = array();
  * ====================================================
  */
 
-$add['boxed_page_width']  =
-$add['boxed_page_shadow'] =
-$add['hr_boxed_page']     =
-$add['outside_bg_color']  =
-$add['outside_bg']        = array(
+$add['boxed_page_width']    =
+$add['boxed_page_shadow']   =
+$add['heading_outside_bg']  =
+$add['outside_bg_image']    =
+$add['hr_outside_bg_color'] =
+$add['outside_bg_color']    = array(
 	array(
 		'setting' => 'page_layout',
 		'value'   => 'boxed',
+	),
+);
+
+$add['outside_bg_parallax']          =
+$add['outside_bg_repeat']            =
+$add['outside_bg_color_overlay_dim'] = array(
+	array(
+		'setting' => 'page_layout',
+		'value'   => 'boxed',
+	),
+	array(
+		'setting'  => 'outside_bg_image',
+		'operator' => '!=',
+		'value'    => '',
 	),
 );
 
@@ -147,6 +162,22 @@ $add['content_layout'] = array(
 		'setting'  => 'content_container',
 		'operator' => '!=',
 		'value'    => 'narrow',
+	),
+);
+
+/**
+ * ====================================================
+ * Global Layout > Hero Section
+ * ====================================================
+ */
+
+$add['hero_bg_parallax']          =
+$add['hero_bg_repeat']            =
+$add['hero_bg_color_overlay_dim'] = array(
+	array(
+		'setting'  => 'hero_bg_image',
+		'operator' => '!=',
+		'value'    => '',
 	),
 );
 

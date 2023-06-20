@@ -46,7 +46,7 @@ function suki_template_hooks() {
 	 */
 
 	// Add "skip to content" link before canvas.
-	add_action( 'suki/frontend/before_canvas', 'suki_skip_to_content_link', 1 );
+	add_action( 'wp_body_open', 'suki_skip_to_content_link' );
 
 	// Add scroll to top button.
 	add_action( 'suki/frontend/after_canvas', 'suki_scroll_to_top', 10 );

@@ -2,99 +2,103 @@
 // Footer
 // -------------------------------------------------------------
 
-.suki-footer-widgets-bar {
-	--background-color: var(--color-palette-7); // CUSTOMIZER
-
-	padding: 60px 20px; // CUSTOMIZER
-
-	// Color declarations
-	background-color: var(--background-color);
-	color: var(--text-color);
-}
-
-.suki-footer-widgets-bar__column {
-	display: flex;
-	flex-direction: column;
-
-	> * + * {
-		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
-	}
-}
-
 .suki-footer-bottom-bar {
-	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
-	--background-color: var(--color-palette-7); // CUSTOMIZER
-
-	padding: 25px 20px; // CUSTOMIZER
-
-	// Color declarations
-	background-color: var(--background-color);
-	color: var(--text-color);
-
-	// Trigger border style
-	border-style: solid;
-	border-width: 0;
+	white-space: nowrap;
 }
 
-// -------------------------------------------------------------
-// Footer row and column
-// -------------------------------------------------------------
+// .suki-footer-widgets-bar {
+// 	--background-color: var(--color-palette-7); // CUSTOMIZER
 
-.suki-footer-row {
-	gap: var(--items-gap);
+// 	padding: 60px 20px; // CUSTOMIZER
 
-	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-}
+// 	// Color declarations
+// 	background-color: var(--background-color);
+// 	color: var(--text-color);
+// }
 
-.suki-footer-column {
-	gap: inherit;
+// .suki-footer-widgets-bar__column {
+// 	display: flex;
+// 	flex-direction: column;
 
-	@media screen and ( min-width: $breakpoint-tablet ) {
-		white-space: nowrap;
-	}
+// 	> * + * {
+// 		margin-block-start: calc( 1.5 * var(--wp--style--block-gap) ); // CUSTOMIZER
+// 	}
+// }
 
-	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
-		flex: 0 0 100%;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-}
+// .suki-footer-bottom-bar {
+// 	--items-gap: var(--wp--style--block-gap); // CUSTOMIZER
+// 	--background-color: var(--color-palette-7); // CUSTOMIZER
 
-@media screen and ( min-width: $breakpoint-tablet ) {
-	.suki-footer-column--left {
-		flex: 1 1 50%;
-	}
+// 	padding: 25px 20px; // CUSTOMIZER
 
-	.suki-footer-column--center {
-		flex: 0 1 auto;
-	}
+// 	// Color declarations
+// 	background-color: var(--background-color);
+// 	color: var(--text-color);
 
-	.suki-footer-column--right {
-		flex: 1 1 50%;
-	}
-}
+// 	// Trigger border style
+// 	border-style: solid;
+// 	border-width: 0;
+// }
 
-@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
-	.suki-footer-column--empty {
-		display: none;
-	}
-}
+// // -------------------------------------------------------------
+// // Footer row and column
+// // -------------------------------------------------------------
 
-// -------------------------------------------------------------
-// Footer element: Menu
-// -------------------------------------------------------------
+// .suki-footer-row {
+// 	gap: var(--items-gap);
 
-// Horizontal menu
-.suki-footer-row {
-	.menu {
-		gap: inherit;
-	}
-}
+// 	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
+// 		flex-direction: column;
+// 		justify-content: center;
+// 		align-items: center;
+// 	}
+// }
+
+// .suki-footer-column {
+// 	gap: inherit;
+
+// 	@media screen and ( min-width: $breakpoint-tablet ) {
+// 		white-space: nowrap;
+// 	}
+
+// 	@media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
+// 		flex: 0 0 100%;
+// 		flex-direction: column;
+// 		justify-content: center;
+// 		align-items: center;
+// 	}
+// }
+
+// @media screen and ( min-width: $breakpoint-tablet ) {
+// 	.suki-footer-column--left {
+// 		flex: 1 1 50%;
+// 	}
+
+// 	.suki-footer-column--center {
+// 		flex: 0 1 auto;
+// 	}
+
+// 	.suki-footer-column--right {
+// 		flex: 1 1 50%;
+// 	}
+// }
+
+// @media screen and ( max-width: ( $breakpoint-desktop - 0.1px ) ) {
+// 	.suki-footer-column--empty {
+// 		display: none;
+// 	}
+// }
+
+// // -------------------------------------------------------------
+// // Footer element: Menu
+// // -------------------------------------------------------------
+
+// // Horizontal menu
+// .suki-footer-row {
+// 	.menu {
+// 		gap: inherit;
+// 	}
+// }
 
 // -------------------------------------------------------------
 // Scroll to top
@@ -104,19 +108,19 @@
 	position: absolute;
 	z-index: 99;
 	bottom: 0;
-	margin-inline: var(--wp--style--block-gap); // CUSTOMIZER
-	margin-block: var(--wp--style--block-gap); // CUSTOMIZER
-	padding: calc( 0.75 * var(--wp--style--block-gap) ); // CUSTOMIZER
-	border-radius: 40px; // CUSTOMIZER
-	font-size: 1.15em; // CUSTOMIZER
+	margin-inline: 1.5rem; // CUSTOMIZER
+	margin-block: 1.5rem; // CUSTOMIZER
+	padding: 1rem; // CUSTOMIZER
+	border-radius: 9999px; // CUSTOMIZER
+	font-size: 1.25rem; // CUSTOMIZER
 	line-height: 1;
 
-	background-color: var(--button--background-color); // CUSTOMIZER
-	color: var(--button--text-color); // CUSTOMIZER
+	background-color: var(--wp--preset--color--primary); // CUSTOMIZER
+	color: var(--wp--preset--color--base); // CUSTOMIZER
 
 	&:hover, &:focus {
-		background-color: var(--button--background-color--focus); // CUSTOMIZER
-		color: var(--button--text-color--focus); // CUSTOMIZER
+		background-color: var(--wp--preset--color--primary-2); // CUSTOMIZER
+		color: var(--wp--preset--color--base); // CUSTOMIZER
 	}
 
 	.suki-icon {

@@ -38,7 +38,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 	)
 );
@@ -78,7 +77,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'dimension' ),
 	)
 );

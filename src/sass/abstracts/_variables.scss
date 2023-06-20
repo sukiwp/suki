@@ -1,7 +1,7 @@
 // Breakpoints
 $breakpoint-desktop: 1024px;
-$breakpoint-tablet: 768px;
-$breakpoint-phone: 425px;
+$breakpoint-tablet: 782px; // Same breakpoint as `wp-block-library` CSS.
+$breakpoint-phone: 600px; // Same breakpoint as `wp-block-library` CSS.
 
 // Admin bar
 $adminbar-breakpoint: 783px;

@@ -24,7 +24,6 @@ $wp_customize->add_setting(
 	$key,
 	array(
 		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
 		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'select' ),
 	)
 );
@@ -46,41 +45,6 @@ $wp_customize->add_control(
 				),
 			),
 			'columns'  => 3,
-			'priority' => 10,
-		)
-	)
-);
-
-// Canvas background color.
-$key = 'page_bg_color';
-$wp_customize->add_setting(
-	$key,
-	array(
-		'default'           => suki_array_value( $defaults, $key ),
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
-	)
-);
-$wp_customize->add_control(
-	new Suki_Customize_Color_Select_Control(
-		$wp_customize,
-		$key,
-		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Canvas background color', 'suki' ),
-			'priority' => 10,
-		)
-	)
-);
-
-// ------
-$wp_customize->add_control(
-	new Suki_Customize_HR_Control(
-		$wp_customize,
-		'hr_boxed_page',
-		array(
-			'section'  => $section,
-			'settings' => array(),
 			'priority' => 10,
 		)
 	)
@@ -122,6 +86,28 @@ $wp_customize->add_control(
 	)
 );
 
+// Canvas background color.
+$key = 'page_bg_color';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'color' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Color_Select_Control(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Canvas background color', 'suki' ),
+			'priority' => 10,
+		)
+	)
+);
+
 // Canvas box shadow.
 $key = 'boxed_page_shadow';
 $wp_customize->add_setting(
@@ -144,7 +130,104 @@ $wp_customize->add_control(
 	)
 );
 
-// Outside background color.
+/**
+ * ====================================================
+ * Outside Background
+ * ====================================================
+ */
+
+// Heading: Outside Background.
+$wp_customize->add_control(
+	new Suki_Customize_Heading_Control(
+		$wp_customize,
+		'heading_outside_bg',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'label'    => esc_html__( 'Outside Background', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
+
+// Background image.
+$key = 'outside_bg_image';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => 'absint',
+	)
+);
+$wp_customize->add_control(
+	new WP_Customize_Media_Control(
+		$wp_customize,
+		$key,
+		array(
+			'section'   => $section,
+			'label'     => esc_html__( 'Background image', 'suki' ),
+			'mime_type' => 'image',
+			'priority'  => 20,
+		)
+	)
+);
+
+// Fixed background.
+$key = 'outside_bg_parallax';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Toggle_Control(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Fixed background', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
+
+// Repeat background.
+$key = 'outside_bg_repeat';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'toggle' ),
+	)
+);
+$wp_customize->add_control(
+	new Suki_Customize_Toggle_Control(
+		$wp_customize,
+		$key,
+		array(
+			'section'  => $section,
+			'label'    => esc_html__( 'Repeat background', 'suki' ),
+			'priority' => 20,
+		)
+	)
+);
+
+// ------
+$wp_customize->add_control(
+	new Suki_Customize_HR_Control(
+		$wp_customize,
+		'hr_outside_bg_color',
+		array(
+			'section'  => $section,
+			'settings' => array(),
+			'priority' => 20,
+		)
+	)
+);
+
+// Background color.
 $key = 'outside_bg_color';
 $wp_customize->add_setting(
 	$key,
@@ -159,41 +242,34 @@ $wp_customize->add_control(
 		$wp_customize,
 		$key,
 		array(
-			'section'  => $section,
-			'label'    => esc_html__( 'Outside background color', 'suki' ),
-			'priority' => 10,
+			'section'     => $section,
+			'label'       => esc_html__( 'Background / Overlay color', 'suki' ),
+			'description' => esc_html__( 'When background image is specified, this color will be used as overlay color.', 'suki' ),
+			'priority'    => 20,
 		)
 	)
 );
 
-// Outside background image.
-$key      = 'outside_bg';
-$settings = array(
-	'image'      => $key . '_image',
-	'attachment' => $key . '_attachment',
-	'repeat'     => $key . '_repeat',
-	'size'       => $key . '_size',
-	'position'   => $key . '_position',
+// Overlay Opacity.
+$key = 'outside_bg_color_overlay_dim';
+$wp_customize->add_setting(
+	$key,
+	array(
+		'default'           => suki_array_value( $defaults, $key ),
+		'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'number' ),
+	)
 );
-foreach ( $settings as $setting ) {
-	$wp_customize->add_setting(
-		$setting,
-		array(
-			'default'           => suki_array_value( $defaults, $setting ),
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Suki_Customizer_Sanitization', 'background' ),
-		)
-	);
-}
 $wp_customize->add_control(
-	new Suki_Customize_Background_Control(
+	new Suki_Customize_Slider_Control(
 		$wp_customize,
 		$key,
 		array(
-			'settings' => $settings,
 			'section'  => $section,
-			'label'    => esc_html__( 'Outside background image', 'suki' ),
-			'priority' => 10,
+			'label'    => esc_html__( 'Overlay Opacity', 'suki' ),
+			'min'      => 0,
+			'max'      => 100,
+			'step'     => 10,
+			'priority' => 20,
 		)
 	)
 );

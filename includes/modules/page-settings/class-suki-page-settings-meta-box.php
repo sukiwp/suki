@@ -586,7 +586,7 @@ class Suki_Page_Settings_Meta_Box {
 						'label'    => esc_html__( 'Hero section container', 'suki' ),
 						'options'  => array(
 							''        => esc_html__( '-- Inherit --', 'suki' ),
-							'content' => esc_html__( '= Content', 'suki' ),
+							'inherit' => esc_html__( '= Content', 'suki' ),
 							'narrow'  => esc_html__( 'Narrow', 'suki' ),
 							'wide'    => esc_html__( 'Wide', 'suki' ),
 							'full'    => esc_html__( 'Full', 'suki' ),

@@ -3,38 +3,31 @@
 // Automatically apply line height too
 // -------------------------------------------------------------
 
-$sizes: ( "small", "normal", "medium", "large", "extra-large", "huge" );
+$sizes: ( "small", "normal", "medium", "large", "x-large", "huge" );
 @each $size in $sizes {
 	.has-#{$size}-font-size {
 		line-height: var(--wp--custom--line-height--#{$size} );
 	}
 }
 
+// -------------------------------------------------------------
+// Classic theme typography classes
+// -------------------------------------------------------------
+
 // Title
-%title,
 .suki-title {
 	@include title-typography();
 	@include title-color();
 }
 
 // Small title
-%small-title,
 .suki-small-title {
 	@include small-title-typography();
 	@include small-title-color();
 }
 
 // Meta
-%meta,
 .suki-meta {
 	@include meta-typography();
 	@include meta-color();
-}
-
-// Reverse link color
-.suki-reverse-link-color {
-	&:is(a),
-	a {
-		@include reverse-link-color();
-	}
 }
