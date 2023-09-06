@@ -235,7 +235,7 @@ li > .block-editor .editor-styles-wrapper ul, li >
 }
 
 .block-editor .editor-styles-wrapper figcaption, .block-editor .editor-styles-wrapper figure[class*="wp-block-"] figcaption {
-	width: 100%;
+	width: auto;
 	margin: 0.5em 0 0;
 	color: inherit;
 	font-size: 0.85em;
@@ -281,22 +281,12 @@ li > .block-editor .editor-styles-wrapper ul, li >
 	vertical-align: middle;
 }
 
-.block-editor .editor-styles-wrapper ::-moz-selection {
-	background-color: #0066cc;
-	color: #ffffff;
-}
-
 .block-editor .editor-styles-wrapper ::selection {
 	background-color: #0066cc;
 	color: #ffffff;
 }
 
 .block-editor .editor-styles-wrapper *::-webkit-input-placeholder {
-	opacity: 0.75;
-	color: inherit;
-}
-
-.block-editor .editor-styles-wrapper *::-moz-placeholder {
 	opacity: 0.75;
 	color: inherit;
 }

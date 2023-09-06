@@ -140,12 +140,10 @@ li:not(.customize-info) div.customize-section-description {
 
 .suki-unit {
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	padding: 0 !important;
 	background-image: none !important;
 	text-align: center;
-	-moz-text-align-last: center;
 	text-align-last: center;
 	border-top-right-radius: 0 !important;
 	border-bottom-right-radius: 0 !important;
@@ -617,7 +615,6 @@ li:not(.customize-info) div.customize-section-description {
 .customize-control-suki-shadow .suki-shadow-position select {
 	padding: 0 !important;
 	text-align: center;
-	-moz-text-align-last: center;
 	text-align-last: center;
 	background-image: none !important;
 }

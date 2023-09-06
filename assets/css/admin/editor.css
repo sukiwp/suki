@@ -207,7 +207,7 @@ figure {
 }
 
 figcaption, figure[class*="wp-block-"] figcaption {
-	width: 100%;
+	width: auto;
 	margin: 0.5em 0 0;
 	color: inherit;
 	font-size: 0.85em;
@@ -253,22 +253,12 @@ svg {
 	vertical-align: middle;
 }
 
-::-moz-selection {
-	background-color: #0066cc;
-	color: #ffffff;
-}
-
 ::selection {
 	background-color: #0066cc;
 	color: #ffffff;
 }
 
 *::-webkit-input-placeholder {
-	opacity: 0.75;
-	color: inherit;
-}
-
-*::-moz-placeholder {
 	opacity: 0.75;
 	color: inherit;
 }

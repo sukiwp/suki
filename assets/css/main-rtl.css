@@ -207,7 +207,7 @@ figure {
 }
 
 figcaption, figure[class*="wp-block-"] figcaption {
-	width: 100%;
+	width: auto;
 	margin: 0.5em 0 0;
 	color: inherit;
 	font-size: 0.85em;
@@ -253,22 +253,12 @@ svg {
 	vertical-align: middle;
 }
 
-::-moz-selection {
-	background-color: #0066cc;
-	color: #ffffff;
-}
-
 ::selection {
 	background-color: #0066cc;
 	color: #ffffff;
 }
 
 *::-webkit-input-placeholder {
-	opacity: 0.75;
-	color: inherit;
-}
-
-*::-moz-placeholder {
 	opacity: 0.75;
 	color: inherit;
 }
@@ -315,7 +305,6 @@ a.wp-block-button__link {
 	display: inline-block;
 	cursor: pointer;
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	padding: 10px 20px;
 	border-width: 1px;
@@ -372,7 +361,6 @@ input[type="week"],
 	display: inline-block;
 	max-width: 100%;
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
 	padding: 10px 12px;
@@ -415,7 +403,6 @@ textarea {
 	display: inline-block;
 	max-width: 100%;
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
 	padding: 10px 12px;
@@ -444,7 +431,6 @@ select {
 	display: inline-block;
 	max-width: 100%;
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
 	padding: 10px 12px;
@@ -496,7 +482,6 @@ span.select2-container .select2-selection {
 	display: inline-block;
 	max-width: 100%;
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none;
 	transition: all 0.25s;
 	padding: 10px 12px;
