@@ -16,6 +16,8 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 	return;
 }
 
+wp_enqueue_script( 'wc-cart-fragments' );
+
 $cart = WC()->cart;
 
 if ( empty( $cart ) ) {

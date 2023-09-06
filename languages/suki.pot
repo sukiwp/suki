@@ -811,7 +811,7 @@ msgctxt "Suki Pro upsell"
 msgid "Alternate Hover Image"
 msgstr ""
 
-#: includes/compatibilities/woocommerce/customizer/options/_sections.php:13, template-parts/header-element-cart-dropdown.php:63, template-parts/header-element-cart-link.php:45
+#: includes/compatibilities/woocommerce/customizer/options/_sections.php:13, template-parts/header-element-cart-dropdown.php:65, template-parts/header-element-cart-link.php:47
 msgid "Shopping Cart"
 msgstr ""
 
